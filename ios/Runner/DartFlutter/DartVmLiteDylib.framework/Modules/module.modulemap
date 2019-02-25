@@ -1,0 +1,6 @@
+framework module DartVmLiteDylib {
+  umbrella header "DartVmLiteDylib.h"
+
+  export *
+  module * { export * }
+}
