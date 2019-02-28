@@ -59,11 +59,12 @@ main() {
 ///             'value':10.0,
 ///           }
 ///         });
-///         expect(eq, EdgeInsets.all(10.0));
+///         // 此处可以直接判断padding是否相等，是因为EdgeInsets有重写==，只要里面的left，right等属性相等，就说明EdgeInsets相等了
+///         expect(eq.properties, Equalable.testEdgeInsets(padding : EdgeInsets.all(10.0)).properties);
 ///       });
 ///       /// ...
 ///     }
-/// 
+///  另外，测试其他类时，如果里面嵌套多层，则无法通过此种方式来验证。json2dart_test.dart只需要校验第一层转换逻辑正确即可
 /// 
 /// 
 
