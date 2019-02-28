@@ -42,7 +42,7 @@ main() {
 ///         MXJsonBuildOwner bo, 
 ///         Map<String, dynamic> jsonMap
 ///       ) => Equalable.testEdgeInsets(
-///         padding: mx2jd(bo,jsonMap['padding']),
+///         padding: mxj2d(bo,jsonMap['padding']),
 ///       );
 ///       /// 3. 在[SimpleProxy.initContructors] 中添加 mapping
 ///       Map<String, ConstructorFun> nameContructorMap = {
@@ -59,6 +59,7 @@ main() {
 ///             'value':10.0,
 ///           }
 ///         });
+///         expect(eq, EdgeInsets.all(10.0));
 ///       });
 ///       /// ...
 ///     }
