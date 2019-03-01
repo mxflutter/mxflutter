@@ -118,6 +118,22 @@ class MXJsonBuildOwner {
     ownerApp.callDart(dartMethodCall);
   }
 
+  callJSOnInitState() {
+    var ownerWidgetID = this._jsWidgetState.widget.widgetID;
+    String buildSeq = this._jsWidgetState.widget.buildWidgetDataSeq;
+    
+    MethodCall jsMethodCall = MethodCall("flutterCallOnInitState", {
+      "widgetID": ownerWidgetID,
+      "buildSeq": buildSeq,
+    });
+
+    if (this._jsWidgetState.widget.languageType == "Dart") {
+      ownerApp.callDart(jsMethodCall);
+    } else {
+      ownerApp.callJS(jsMethodCall);
+    }
+  }
+
   callJSOnBuildEnd() {
     var ownerWidgetID = this._jsWidgetState.widget.widgetID;
     String buildSeq = this._jsWidgetState.widget.buildWidgetDataSeq;

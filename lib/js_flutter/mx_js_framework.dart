@@ -390,6 +390,9 @@ class MXJSWidgetState extends State<MXJSWidget>  with SingleTickerProviderStateM
     super.initState();
 
     _jsonBuildOwner = MXJsonBuildOwner(this, widget._parentBuildOwner);
+
+     // 调用JS层initState方法
+    _jsonBuildOwner.callJSOnInitState();
   }
 
   @override

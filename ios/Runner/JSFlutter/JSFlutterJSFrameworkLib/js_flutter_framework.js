@@ -313,6 +313,10 @@ class MXJSFlutterApp {
         this.navigatorPushWithPageName(pageName, args);
     }
 
+    flutterCallOnInitState(args) {
+        this.rootWidget.onInitState(args);
+    }
+
     flutterCallOnBuildEnd(args) {
         this.rootWidget.onBuildEnd(args)
     }
@@ -413,6 +417,8 @@ class MXJSWidget {
         this.buildWidgetDataSeqFeed = 0;
     }
 
+    //子类重载
+    initState() {}
 
     setState(fun) {
 
@@ -611,6 +617,33 @@ class MXJSWidget {
         }
 
         this.currentWidgetTree.invokeCallback(callID, args);
+    }
+
+    onInitState(args) {
+        let widgetID = args["widgetID"];
+        let buildWidgetDataSeq = args["buildSeq"];
+        let jsWidget = this.findWidgetWithName(widgetID);
+
+        if (jsWidget != null) {
+            jsWidget.onFlutterInitState(buildWidgetDataSeq);
+        }
+        else {
+            MXJSLog.error("onInitState error: jsWidget == null widgetID " + widgetID);
+            return;
+        }
+
+        this.initState();
+    }
+
+    onFlutterInitState(buildWidgetDataSeq) {
+        MXJSLog.log("onFlutterInitState:buildWidgetDataSeq" + buildWidgetDataSeq);
+
+        if (buildWidgetDataSeq == this.buildingWidgetTree.buildWidgetDataSeq) {
+            this.preWidgetTree = this.currentWidgetTree;
+            this.currentWidgetTree = this.buildingWidgetTree;
+        } else {
+            MXJSLog.error("onFlutterInitState:buildWidgetDataSeq" + buildWidgetDataSeq);
+        }
     }
 
     onBuildEnd(args) {
