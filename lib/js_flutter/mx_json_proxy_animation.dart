@@ -16,6 +16,10 @@ class MXProxyRegisterHelperAnimationSeries {
     m.addAll(MXProxyAnimationController.registerProxy());
     m.addAll(MXProxyAnimatedBuilder.registerProxy());
     m.addAll(MXProxyDuration.registerProxy());
+    m.addAll(MXProxyCurveTween.registerProxy());
+    m.addAll(MXProxyInterval.registerProxy());
+    m.addAll(MXProxyFadeTransition.registerProxy());
+    m.addAll(MXProxySlideTransition.registerProxy());
 
     return m;
   }
@@ -219,4 +223,132 @@ class MXAnimationStatus {
     return retValut;
   }
 
+}
+
+class MXProxyCurveTween extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "CurveTween";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyCurveTween()..init(className: regClassName)};
+	}
+
+	@override
+	CurveTween constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = CurveTween(
+			curve: mxj2d(bo, jsonMap["curve"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxyInterval extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "Interval";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyInterval()..init(className: regClassName)};
+	}
+
+	@override
+	Interval constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = Interval(
+      mxj2d(bo, jsonMap["begin"]).toDouble(), 
+      mxj2d(bo, jsonMap["end"]).toDouble(),
+			curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]), defaultValue:Curves.linear),
+		);
+		return widget;
+	}
+}
+
+class MXCurves {
+  static Curve parse(String value,
+  {Curve defaultValue = Curves.linear}) {
+    // 暂时默认取直线类型吧
+    Curve retValut = Curves.linear;
+    switch (value) {
+      case 'Curves.linear':
+        retValut = Curves.linear;
+        break;
+      case 'Curves.decelerate':
+        retValut = Curves.decelerate;
+        break;
+      case 'Curves.ease':
+        retValut = Curves.ease;
+        break;
+      case 'Curves.easeIn':
+        retValut = Curves.easeIn;
+        break;
+      case 'Curves.easeOut':
+        retValut = Curves.easeOut;
+        break;
+      case 'Curves.fastOutSlowIn':
+        retValut = Curves.fastOutSlowIn;
+        break;
+      case 'Curves.bounceIn':
+        retValut = Curves.bounceIn;
+        break;
+      case 'Curves.bounceOut':
+        retValut = Curves.bounceOut;
+        break;
+      case 'Curves.bounceInOut':
+        retValut = Curves.bounceInOut;
+        break;
+      case 'Curves.elasticIn':
+        retValut = Curves.elasticIn;
+        break;
+      case 'Curves.elasticOut':
+        retValut = Curves.elasticOut;
+        break;
+      case 'Curves.elasticInOut':
+        retValut = Curves.elasticInOut;
+        break;
+      default:
+        retValut = defaultValue;
+        break;
+    }
+
+    return retValut;
+  }
+}
+
+class MXProxyFadeTransition extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "FadeTransition";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyFadeTransition()..init(className: regClassName)};
+	}
+
+	@override
+	FadeTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = FadeTransition(
+			key: mxj2d(bo, jsonMap["key"]),
+			opacity: mxj2d(bo, jsonMap["opacity"]),
+			alwaysIncludeSemantics: mxj2d(bo, jsonMap["alwaysIncludeSemantics"], defaultValue:false),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxySlideTransition extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "SlideTransition";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxySlideTransition()..init(className: regClassName)};
+	}
+
+	@override
+	SlideTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = SlideTransition(
+			key: mxj2d(bo, jsonMap["key"]),
+			position: mxj2d(bo, jsonMap["position"]),
+			transformHitTests: mxj2d(bo, jsonMap["transformHitTests"], defaultValue:true),
+			textDirection: mxj2d(bo, jsonMap["textDirection"]),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
+	}
 }

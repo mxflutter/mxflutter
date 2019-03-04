@@ -61,17 +61,16 @@ let {
 
 
 let {JSBottomAPPBarDemo} = jsFlutterRequire("./material/bottom_app_bar_demo.js");
-let {JSBottomNavigationDemo} = jsFlutterRequire("./material/bottom_navigation_demo.js");
 
-class JSMaterialPage extends MXJSWidget {
+class JSCupertinoPage extends MXJSWidget {
     constructor() {
-        super("JSMaterialPage");
+        super("JSCupertinoPage");
     }
     
     build(context){
         let w = new Scaffold({
             appBar: new AppBar({
-                title: new Text("Material Demo")
+                title: new Text("Cupertino Demo")
             }),
             // floatingActionButton: new FloatingActionButton({
             //     child: new Icon(new IconData(0xe3c9)),
@@ -101,16 +100,6 @@ class JSMaterialPage extends MXJSWidget {
                             this.navigatorPush(new JSBottomAPPBarDemo);
                         }
                     }),
-
-                    new ListTile({
-                        leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
-                        trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                        title: new Text('Bottom navigation'),
-                        subtitle: new Text('Bottom navigation with cross-fading views'),
-                        onTap:function () {
-                            this.navigatorPush(new JSBottomNavigationDemo);
-                        }
-                    }),
                 ],
             })
         });
@@ -119,4 +108,4 @@ class JSMaterialPage extends MXJSWidget {
     }
 }
 
-module.exports = { JSMaterialPage };
+module.exports = { JSCupertinoPage };

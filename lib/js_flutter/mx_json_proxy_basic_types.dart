@@ -64,6 +64,8 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyMaterialColor.registerProxy());
     m.addAll(MXProxyInputDecorationTheme.registerProxy());
     m.addAll(MXProxyCircularNotchedRectangle.registerProxy());
+    m.addAll(MXProxyIconTheme.registerProxy());
+    m.addAll(MXProxyIconThemeData.registerProxy());
     
     return m;
   }
@@ -2741,6 +2743,44 @@ class MXProxyCircularNotchedRectangle extends MXJsonObjProxy {
 	@override
 	CircularNotchedRectangle constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
 		var widget = CircularNotchedRectangle();
+		return widget;
+	}
+}
+
+class MXProxyIconTheme extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "IconTheme";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyIconTheme()..init(className: regClassName)};
+	}
+
+	@override
+	IconTheme constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = IconTheme(
+			key: mxj2d(bo, jsonMap["key"]),
+			data: mxj2d(bo, jsonMap["data"]),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxyIconThemeData extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "IconThemeData";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyIconThemeData()..init(className: regClassName)};
+	}
+
+	@override
+	IconThemeData constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = IconThemeData(
+			color: mxj2d(bo, jsonMap["color"]),
+			opacity: mxj2d(bo, jsonMap["opacity"]),
+			size: mxj2d(bo, jsonMap["size"]),
+		);
 		return widget;
 	}
 }

@@ -121,7 +121,7 @@ class MXJsonBuildOwner {
   callJSOnInitState() {
     var ownerWidgetID = this._jsWidgetState.widget.widgetID;
     String buildSeq = this._jsWidgetState.widget.buildWidgetDataSeq;
-    
+
     MethodCall jsMethodCall = MethodCall("flutterCallOnInitState", {
       "widgetID": ownerWidgetID,
       "buildSeq": buildSeq,
@@ -282,6 +282,9 @@ class MXJsonBuildOwner {
         (mirrorObj as AnimationController).reverse();
       }else if (funcName == 'repeat'){
         (mirrorObj as AnimationController).repeat();
+      }else if (funcName == 'drive'){
+        Animatable animatable = args['animatable'];
+        (mirrorObj as AnimationController).drive(animatable);
       }
     }
   }

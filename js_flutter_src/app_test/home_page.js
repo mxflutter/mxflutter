@@ -47,7 +47,9 @@ let {
 let { JSStudiesPage } = jsFlutterRequire("./studies.js");
 let {JSPestoPage} = jsFlutterRequire("./pesto.js");
 let {JSContactPage} = jsFlutterRequire("./contact.js");
+let {JSAnimationPage} = jsFlutterRequire("./animation.js");
 let {JSMaterialPage} = jsFlutterRequire("./material.js");
+let {JSCupertinoPage} = jsFlutterRequire("./cupertino.js");
 
 //业务代码
 
@@ -100,38 +102,38 @@ class JSWidgetHomePage extends MXJSWidget {
                     title: new Text('Animation'),
                     subtitle: new Text('Section organizer'),
                     onTap: function () {
-                        this.navigatorPush(new JSPestoPage);
+                        this.navigatorPush(new JSAnimationPage);
                     }
                 }),
                 this.sectionTitle(context, "JSWidget Demo"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Buttons'),
-                    subtitle: new Text('Buttons UI Demo'),
+                    title: new Text('Cupertino'),
+                    subtitle: new Text('Cupertino UI Demo'),
                     onTap: function () {
-                        this.navigatorPush(new JSPestoPage);
+                        this.navigatorPush(new JSCupertinoPage);
                     }
                 }),
 
-                new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
-                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Tabs'),
-                    subtitle: new Text('ListView UI Demo'),
-                    onTap: this.createCallbackID(function () {
+                // new ListTile({
+                //     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                //     title: new Text('Tabs'),
+                //     subtitle: new Text('ListView UI Demo'),
+                //     onTap: this.createCallbackID(function () {
 
-                    })
-                }),
-                new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
-                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('ListView'),
-                    subtitle: new Text('ListView UI Demo'),
-                    onTap: function () {
-                        this.navigatorPush(new JSPestoPage);
-                    }
-                }), 
+                //     })
+                // }),
+                // new ListTile({
+                //     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                //     title: new Text('ListView'),
+                //     subtitle: new Text('ListView UI Demo'),
+                //     onTap: function () {
+                //         this.navigatorPush(new JSPestoPage);
+                //     }
+                // }), 
 
                 new ListTile({
                     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),

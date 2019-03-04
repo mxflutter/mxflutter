@@ -12,6 +12,7 @@ let {
     DartClass,
     FlutterWidget,
     FlutterCallArgs,
+    assert,
 } = jsFlutterRequire("./js_flutter_basic_types.js");
 
 let {
@@ -101,6 +102,11 @@ class AnimationController extends FlutterWidget {
         this.vsync = vsync;
     }
 
+    ///TODO:
+    dispose(){
+        
+    }
+
     forward(from){
         var argument = new FlutterCallArgs({
             mirrorID: this.mirrorID,
@@ -128,6 +134,17 @@ class AnimationController extends FlutterWidget {
         invokeFlutterFunction(argument);
     }
 
+    drive(animatable){
+        var argument = new FlutterCallArgs({
+            mirrorID: this.mirrorID,
+            className: 'AnimationController',
+            funcName: 'drive',
+            args: {
+                animatable: animatable,
+            },
+        });
+        invokeFlutterFunction(argument);
+    }
 }
 
 class AnimatedBuilder extends FlutterWidget {
@@ -173,6 +190,80 @@ AnimationStatus = {
     completed: "AnimationStatus.completed",
 };
 
+class CurveTween extends FlutterWidget {
+    constructor ({
+        curve,
+    } = {}) {
+        super();
+
+        this.curve = curve;
+    }
+}
+
+class Interval extends FlutterWidget {
+    constructor (
+        begin,
+        end,
+{			curve,
+    } = {}) {
+        super();
+
+        this.begin = begin;
+        this.end = end;
+        this.curve = curve;
+    }
+}
+
+Curves = {
+    linear: "Curves.linear",
+    decelerate: "Curves.decelerate",
+    ease: "Curves.ease",
+    easeIn: "Curves.easeIn",
+    easeOut: "Curves.easeOut",
+    easeInOut: "Curves.easeInOut",
+    fastOutSlowIn: "Curves.fastOutSlowIn",
+    bounceIn: "Curves.bounceIn",
+    bounceOut: "Curves.bounceOut",
+    bounceInOut: "Curves.bounceInOut",
+    elasticIn: "Curves.elasticIn",
+    elasticOut: "Curves.elasticOut",
+    elasticInOut: "Curves.elasticInOut",
+};
+
+class FadeTransition extends FlutterWidget {
+    constructor ({
+        key,
+        opacity,
+        alwaysIncludeSemantics,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.opacity = opacity;
+        this.alwaysIncludeSemantics = alwaysIncludeSemantics;
+        this.child = child;
+    }
+}
+
+class SlideTransition extends FlutterWidget {
+    constructor ({
+        key,
+        position,
+        transformHitTests,
+        textDirection,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.position = position;
+        this.transformHitTests = transformHitTests;
+        this.textDirection = textDirection;
+        this.child = child;
+    }
+}
+
 module.exports = {
     Animation,
     Tween,
@@ -180,4 +271,9 @@ module.exports = {
     AnimatedBuilder,
     Duration,
     AnimationStatus,
+    CurveTween,
+    Interval,
+    Curves,
+    FadeTransition,
+    SlideTransition,
 };

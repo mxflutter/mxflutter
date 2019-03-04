@@ -1794,6 +1794,24 @@ const EdgeInsetsDirectional(
   )
   """
   ,
+  
+  """
+  const IconTheme({
+    Key key,
+    @required this.data,
+    @required Widget child,
+  })
+  """
+  ,
+
+  """
+  const IconThemeData({
+    this.color, 
+    double opacity, 
+    this.size
+    })
+  """
+  ,
 ];
 
 void main(List<String> arguments) {

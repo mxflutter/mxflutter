@@ -554,6 +554,29 @@ class BottomAppBar extends FlutterWidget {
     }
 }
 
+class BottomNavigationBar extends DartClass {
+    constructor ({
+        key,
+        items,
+        onTap,
+        currentIndex,
+        type,
+        fixedColor,
+        iconSize,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.items = items;
+        this.onTap = onTap;
+        this.currentIndex = currentIndex;
+        this.type = type;
+        this.fixedColor = fixedColor;
+        this.iconSize = iconSize;
+    }
+}
+
+
 class Radio extends FlutterWidget {
     constructor ({
         key,
@@ -770,6 +793,7 @@ module.exports = {
     PopupMenuItem,
     FlexibleSpaceBar,
     BottomAppBar,
+    BottomNavigationBar,
     Radio,
     Semantics,
     RawMaterialButton,

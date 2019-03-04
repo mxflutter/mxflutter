@@ -1557,6 +1557,20 @@ class Border extends FlutterWidget {
         this.bottom = bottom;
         this.left = left;
     }
+    
+    static all(color, width, style) {
+        let side = new BorderSide({
+            color: color,
+            width: width,
+            style: style
+        });
+        return new Border({
+            top: side,
+            right: side,
+            bottom: side,
+            left: side,
+        });
+    }
 }
 
 class AnnotatedRegion extends DartClass {
@@ -1797,12 +1811,124 @@ class Colors {
         return new Color(0xFFF44336);
     }
 
+    static deepPurple(){
+        return new MaterialColor(0xFF3F51B5, {
+            50: new Color(0xFFEDE7F6),
+            100: new Color(0xFFD1C4E9),
+            200: new Color(0xFFB39DDB),
+            300: new Color(0xFF9575CD),
+            400: new Color(0xFF7E57C2),
+            500: new Color(0xFF673AB7),
+            600: new Color(0xFF5E35B1),
+            700: new Color(0xFF512DA8),
+            800: new Color(0xFF4527A0),
+            900: new Color(0xFF311B92),
+        });
+    }
+
+    static deepOrange(){
+        return new MaterialColor(0xFFFF5722, {
+            50: Color(0xFFFBE9E7),
+            100: new Color(0xFFFFCCBC),
+            200: new Color(0xFFFFAB91),
+            300: new Color(0xFFFF8A65),
+            400: new Color(0xFFFF7043),
+            500: new Color(0xFFFF5722),
+            600: new Color(0xFFF4511E),
+            700: new Color(0xFFE64A19),
+            800: new Color(0xFFD84315),
+            900: new Color(0xFFBF360C),
+        });
+    }
+
+    static teal(){
+        return new MaterialColor(0xFF009688, {
+            50: new Color(0xFFE0F2F1),
+            100: new Color(0xFFB2DFDB),
+            200: new Color(0xFF80CBC4),
+            300: new Color(0xFF4DB6AC),
+            400: new Color(0xFF26A69A),
+            500: new Color(0xFF009688),
+            600: new Color(0xFF00897B),
+            700: new Color(0xFF00796B),
+            800: new Color(0xFF00695C),
+            900: new Color(0xFF004D40),
+        });
+    }
+
+    static indigo(){
+        return new MaterialColor(0xFF3F51B5, {
+            50: new Color(0xFFE8EAF6),
+            100: new Color(0xFFC5CAE9),
+            200: new Color(0xFF9FA8DA),
+            300: new Color(0xFF7986CB),
+            400: new Color(0xFF5C6BC0),
+            500: new Color(0xFF3F51B5),
+            600: new Color(0xFF3949AB),
+            700: new Color(0xFF303F9F),
+            800: new Color(0xFF283593),
+            900: new Color(0xFF1A237E),
+        });
+    }
+
+    static pink(){
+        return new MaterialColor(0xFFE91E63, {
+            50: new Color(0xFFFCE4EC),
+            100: new Color(0xFFF8BBD0),
+            200: new Color(0xFFF48FB1),
+            300: new Color(0xFFF06292),
+            400: new Color(0xFFEC407A),
+            500: new Color(0xFFE91E63),
+            600: new Color(0xFFD81B60),
+            700: new Color(0xFFC2185B),
+            800: new Color(0xFFAD1457),
+            900: new Color(0xFF880E4F),
+        });
+    }
 }
 
 class CircularNotchedRectangle extends DartClass {
     constructor ({
     } = {}) {
         super();
+    }
+}
+
+class IconTheme extends DartClass {
+    constructor ({
+        key,
+        data,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.data = data;
+        this.child = child;
+    }
+}
+
+class IconThemeData extends DartClass {
+    constructor ({
+        color,
+        opacity,
+        size,
+    } = {}) {
+        super();
+
+        this.color = color;
+        this.opacity = opacity;
+        this.size = size;
+    }
+}
+
+function assert(condition, message) {
+    if (!condition) {
+        message = message || "Assertion failed";
+        if (typeof Error !== "undefined") {
+            throw new Error(message);
+        }
+        throw message; // Fallback
     }
 }
 
@@ -1884,4 +2010,7 @@ module.exports = {
     CircularNotchedRectangle,
     FlutterCallArgs,
     FlutterWidgetMirrorMgr,
+    IconTheme,
+    IconThemeData,
+    assert,
 };

@@ -41,6 +41,93 @@ var list = <String>[
   """
   ,
   
+  """
+  CurveTween({
+     @required this.curve 
+     })
+  """
+  ,
+ 
+  """
+  const Interval(
+    this.begin, 
+    this.end, 
+    { this.curve = Curves.linear 
+    })
+   """
+  ,
+
+  """
+  const FadeTransition({
+    Key key,
+    @required this.opacity,
+    this.alwaysIncludeSemantics = false,
+    Widget child,
+  })
+  """
+  ,
+
+  """
+  const SlideTransition({
+    Key key,
+    @required Animation<Offset> position,
+    this.transformHitTests = true,
+    this.textDirection,
+    this.child,
+  })
+  """
+  ,
+
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
+  """
+ 
+  """
+  ,
+  
 ];
 
 void main(List<String> arguments) {
