@@ -320,7 +320,7 @@ class MXProxyColor extends MXJsonObjProxy {
       mxj2d(bo, jsonMap["r"]),
       mxj2d(bo, jsonMap["g"]),
       mxj2d(bo, jsonMap["b"]),
-      mxj2d(bo, jsonMap["opacity"]),
+      mxj2d(bo, jsonMap["opacity"])?.toDouble(),
     );
 
     return obj;
@@ -494,8 +494,8 @@ class MXProxyAlignment extends MXJsonObjProxy {
   @override
   Alignment constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = Alignment(
-      mxj2d(bo, jsonMap["x"]).toDouble(),
-      mxj2d(bo, jsonMap["y"]).toDouble(),
+      mxj2d(bo, jsonMap["x"])?.toDouble(),
+      mxj2d(bo, jsonMap["y"])?.toDouble(),
     );
     return widget;
   }
@@ -1043,7 +1043,9 @@ class MXProxyOffset extends MXJsonObjProxy {
 
   @override
   Offset constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var obj = Offset(mxj2d(bo, jsonMap["dx"]), mxj2d(bo, jsonMap["dy"]));
+    var obj = Offset(
+      mxj2d(bo, jsonMap["dx"])?.toDouble(), 
+      mxj2d(bo, jsonMap["dy"])?.toDouble());
     return obj;
   }
 }
@@ -1292,7 +1294,7 @@ class MXProxyBorderSide extends MXJsonObjProxy {
   BorderSide constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = BorderSide(
       color: mxj2d(bo, jsonMap["color"], defaultValue: const Color(0xFF000000)),
-      width: mxj2d(bo, jsonMap["width"], defaultValue: 1.0).toDouble(),
+      width: mxj2d(bo, jsonMap["width"], defaultValue: 1.0)?.toDouble(),
       style: MXBorderStyle.parse(mxj2d(bo, jsonMap["style"]),
           defaultValue: BorderStyle.solid),
     );
@@ -1993,12 +1995,10 @@ class MXProxyRect extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
     final String regClassName1 = "Rect";
-    final String regClassName2 = "Offset";
 
     ///**@@@  3 替换类构造函数
     return {
-      regClassName1: () => MXProxyRect()..init(className: regClassName1),
-      regClassName2: () => MXProxyRect()..init(className: regClassName2)
+      regClassName1: () => MXProxyRect()..init(className: regClassName1)
     };
   }
 
@@ -2008,7 +2008,6 @@ class MXProxyRect extends MXJsonObjProxy {
     super.init(className: className);
 
     final String regClassName1 = "Rect";
-    final String regClassName2 = "Offset";
 
     registerConstructor(
         className: regClassName1,
@@ -2029,9 +2028,6 @@ class MXProxyRect extends MXJsonObjProxy {
         className: regClassName1,
         constructorName: "fromPoints",
         constructor: constructorFromPoints);
-
-    registerConstructor(
-        className: regClassName2, constructor: constructorOffset);
   }
 
   ///
@@ -2065,11 +2061,6 @@ class MXProxyRect extends MXJsonObjProxy {
   Rect constructorFromPoints(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Rect.fromPoints(mxj2d(bo, jsonMap["a"]), mxj2d(bo, jsonMap["b"]));
-    return obj;
-  }
-
-  Offset constructorOffset(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var obj = Offset(mxj2d(bo, jsonMap["dx"]), mxj2d(bo, jsonMap["dy"]));
     return obj;
   }
 }
@@ -2458,6 +2449,18 @@ class MXProxyBorder extends MXJsonObjProxy {
 		return {regClassName: () => MXProxyBorder()..init(className: regClassName)};
 	}
 
+@override
+  void init({String className}) {
+    super.init(className: className);
+
+    final String regClassName1 = "Border";
+
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "all",
+        constructor: constructorAll);
+  }
+
 	@override
 	Border constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
 		var widget = Border(
@@ -2466,6 +2469,15 @@ class MXProxyBorder extends MXJsonObjProxy {
 			bottom: mxj2d(bo, jsonMap["bottom"], defaultValue:BorderSide.none),
 			left: mxj2d(bo, jsonMap["left"], defaultValue:BorderSide.none),
 		);
+		return widget;
+	}
+
+  Border constructorAll(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = Border.all(
+      color: mxj2d(bo, jsonMap["color"], defaultValue: const Color(0xFF000000)),
+      width: mxj2d(bo, jsonMap["width"], defaultValue: 1.0)?.toDouble(),
+      style: MXBorderStyle.parse(mxj2d(bo, jsonMap["style"]), defaultValue: BorderStyle.solid),
+    );
 		return widget;
 	}
 }
@@ -2778,8 +2790,8 @@ class MXProxyIconThemeData extends MXJsonObjProxy {
 	IconThemeData constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
 		var widget = IconThemeData(
 			color: mxj2d(bo, jsonMap["color"]),
-			opacity: mxj2d(bo, jsonMap["opacity"]),
-			size: mxj2d(bo, jsonMap["size"]),
+			opacity: mxj2d(bo, jsonMap["opacity"])?.toDouble(),
+			size: mxj2d(bo, jsonMap["size"])?.toDouble(),
 		);
 		return widget;
 	}

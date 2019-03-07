@@ -106,11 +106,11 @@ class MXProxyAnimationController extends MXJsonObjProxy {
 	@override
 	AnimationController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
 		var widget = AnimationController(
-			value: mxj2d(bo, jsonMap["value"]),
+			value: mxj2d(bo, jsonMap["value"])?.toDouble(),
 			duration: mxj2d(bo, jsonMap["duration"]),
 			debugLabel: mxj2d(bo, jsonMap["debugLabel"]),
-			lowerBound: mxj2d(bo, jsonMap["lowerBound"], defaultValue:0.0),
-			upperBound: mxj2d(bo, jsonMap["upperBound"], defaultValue:1.0),
+			lowerBound: mxj2d(bo, jsonMap["lowerBound"], defaultValue:0.0)?.toDouble(),
+			upperBound: mxj2d(bo, jsonMap["upperBound"], defaultValue:1.0)?.toDouble(),
 			animationBehavior: mxj2d(bo, jsonMap["animationBehavior"], defaultValue:AnimationBehavior.normal),
 			vsync: bo.jsWidgetState,//mxj2d(bo, jsonMap["vsync"]),
 		);
@@ -134,7 +134,7 @@ class MXProxyAnimatedBuilder extends MXJsonObjProxy {
 			animation: animation,
 			builder: (BuildContext context, Widget child){
         String targetString = 'animation.value';
-        Map widgetMap = replaceSpecificValue(jsonMap["widget"], targetString, animation.value.toDouble());
+        Map widgetMap = replaceSpecificValue(jsonMap["widget"], targetString, animation.value?.toDouble());
         return mxj2d(bo, widgetMap);
       },
 			child: mxj2d(bo, jsonMap["child"]),
@@ -253,8 +253,8 @@ class MXProxyInterval extends MXJsonObjProxy {
 	@override
 	Interval constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
 		var widget = Interval(
-      mxj2d(bo, jsonMap["begin"]).toDouble(), 
-      mxj2d(bo, jsonMap["end"]).toDouble(),
+      mxj2d(bo, jsonMap["begin"])?.toDouble(), 
+      mxj2d(bo, jsonMap["end"])?.toDouble(),
 			curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]), defaultValue:Curves.linear),
 		);
 		return widget;

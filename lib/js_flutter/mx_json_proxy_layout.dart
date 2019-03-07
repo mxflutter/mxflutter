@@ -1455,7 +1455,7 @@ class MXProxySliverAppBar extends MXJsonObjProxy {
       centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
       titleSpacing: mxj2d(bo, jsonMap["titleSpacing"],
           defaultValue: NavigationToolbar.kMiddleSpacing),
-      expandedHeight: mxj2d(bo, jsonMap["expandedHeight"]).toDouble(),
+      expandedHeight: mxj2d(bo, jsonMap["expandedHeight"])?.toDouble(),
       floating: mxj2d(bo, jsonMap["floating"], defaultValue: false),
       pinned: mxj2d(bo, jsonMap["pinned"], defaultValue: false),
       snap: mxj2d(bo, jsonMap["snap"], defaultValue: false),
@@ -1524,13 +1524,13 @@ class MXProxySliverGridDelegateWithMaxCrossAxisExtent extends MXJsonObjProxy {
   SliverGridDelegateWithMaxCrossAxisExtent constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = SliverGridDelegateWithMaxCrossAxisExtent(
-      maxCrossAxisExtent: mxj2d(bo, jsonMap["maxCrossAxisExtent"]).toDouble(),
+      maxCrossAxisExtent: mxj2d(bo, jsonMap["maxCrossAxisExtent"])?.toDouble(),
       mainAxisSpacing:
-          mxj2d(bo, jsonMap["mainAxisSpacing"], defaultValue: 0.0).toDouble(),
+          mxj2d(bo, jsonMap["mainAxisSpacing"], defaultValue: 0.0)?.toDouble(),
       crossAxisSpacing:
-          mxj2d(bo, jsonMap["crossAxisSpacing"], defaultValue: 0.0).toDouble(),
+          mxj2d(bo, jsonMap["crossAxisSpacing"], defaultValue: 0.0)?.toDouble(),
       childAspectRatio:
-          mxj2d(bo, jsonMap["childAspectRatio"], defaultValue: 1.0).toDouble(),
+          mxj2d(bo, jsonMap["childAspectRatio"], defaultValue: 1.0)?.toDouble(),
     );
     return widget;
   }
