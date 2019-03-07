@@ -1558,7 +1558,7 @@ class Border extends FlutterWidget {
         this.left = left;
     }
     
-    static all(color, width, style) {
+    static all({color, width, style}) {
         let side = new BorderSide({
             color: color,
             width: width,
