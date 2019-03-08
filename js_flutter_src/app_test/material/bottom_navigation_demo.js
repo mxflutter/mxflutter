@@ -74,7 +74,7 @@ class NavigationIconView {
         });
         this.controller = new AnimationController({
             duration: new Duration({milliseconds: 200}),
-            vsync: vsync,
+            // vsync: vsync,
         });
         this._animation = this.controller.drive(new CurveTween({
             curve: new Interval(0.5, 1.0, {
