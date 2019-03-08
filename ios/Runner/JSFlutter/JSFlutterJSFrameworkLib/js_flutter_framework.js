@@ -19,6 +19,7 @@ let {
     EdgeInsets,
     Brightness,
     FlutterWidgetMirrorMgr,
+    IconThemeData,
 } = jsFlutterRequire("./js_flutter_basic_types.js");
 
 let {
@@ -198,6 +199,7 @@ class MXJSFlutterBuildContext {
         this.inheritedInfo = {};
         this.mediaQueryData = null;
         this.themeData = null;
+        this.iconThemeData = null;
     }
 
     buildRootWidget() {
@@ -217,7 +219,7 @@ class MXJSFlutterBuildContext {
 
         this.mediaQueryData = MediaQueryData.fromJson(args["mediaQueryData"]);
         this.themeData = ThemeData.fromJson(args["themeData"]);
-
+        this.iconThemeData = IconThemeData.fromJson(args["iconThemeData"]);
     }
 
 

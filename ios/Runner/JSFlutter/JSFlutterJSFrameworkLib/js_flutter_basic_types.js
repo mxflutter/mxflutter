@@ -1811,6 +1811,21 @@ class Colors {
         return new Color(0xFFF44336);
     }
 
+    static indigo(){
+        new MaterialColor(0xFF3F51B5, {
+            50: new Color(0xFFE8EAF6),
+            100: new Color(0xFFC5CAE9),
+            200: new Color(0xFF9FA8DA),
+            300: new Color(0xFF7986CB),
+            400: new Color(0xFF5C6BC0),
+            500: new Color(0xFF3F51B5),
+            600: new Color(0xFF3949AB),
+            700: new Color(0xFF303F9F),
+            800: new Color(0xFF283593),
+            900: new Color(0xFF1A237E),
+        });
+    }
+
     static deepPurple(){
         return new MaterialColor(0xFF3F51B5, {
             50: new Color(0xFFEDE7F6),
@@ -1828,7 +1843,7 @@ class Colors {
 
     static deepOrange(){
         return new MaterialColor(0xFFFF5722, {
-            50: Color(0xFFFBE9E7),
+            50: new Color(0xFFFBE9E7),
             100: new Color(0xFFFFCCBC),
             200: new Color(0xFFFFAB91),
             300: new Color(0xFFFF8A65),
@@ -1906,6 +1921,10 @@ class IconTheme extends DartClass {
         this.data = data;
         this.child = child;
     }
+
+    static of(context) {
+        return context.iconThemeData;
+    }
 }
 
 class IconThemeData extends DartClass {
@@ -1919,6 +1938,34 @@ class IconThemeData extends DartClass {
         this.color = color;
         this.opacity = opacity;
         this.size = size;
+    }
+
+    //TODO
+    static fromJson(mapObj) {
+
+        if (mapObj == null || mapObj == undefined) {
+            return null;
+        }
+
+        let obj = new IconThemeData();
+
+        for (var p in mapObj) {
+            if (mapObj.hasOwnProperty(p)) {
+                let v = mapObj[p];;
+                switch (p) {
+                    case "color":
+                        obj[p] = new Color(v);
+                        break;
+                        
+                    default:
+                        obj[p] = v;
+                        break;
+                }
+            }
+        }
+
+        return obj;
+
     }
 }
 

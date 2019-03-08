@@ -100,6 +100,16 @@ class MXUtil {
     return map;
   }
 
+  static Map cIconThemeDataToJson(IconThemeData data) {
+    var map = {
+      "color": data.color?.value,
+      "size": data.size,
+      "opacity": data.opacity,
+    };
+
+    return map;
+  }
+
   static String cBrightnessToJson(Brightness data) {
     String v;
 

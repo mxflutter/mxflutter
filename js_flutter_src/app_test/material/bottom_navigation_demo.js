@@ -49,6 +49,10 @@ let {
   Tween,
   IconTheme,
   IconThemeData,
+  Animation,
+  Offset,
+  BoxDecoration,
+  Border,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 class NavigationIconView {
@@ -88,7 +92,7 @@ class NavigationIconView {
             iconColor = themeData.brightness == Brightness.light ? themeData.primaryColor : themeData.accentColor;
         }
         
-        return FadeTransition({
+        return new FadeTransition({
             opacity: this._animation,
             child: new SlideTransition({
                 position: this._animation.drive(new Tween({
@@ -113,22 +117,12 @@ class NavigationIconView {
 class CustomIcon extends MXJSWidget {
     build(context) {
         /// TODO:
-        // let iconTheme = IconTheme.of(context);
-        // return Container({
-        //     margin: new EdgeInsets.all(4.0),
-        //     width: iconTheme.size - 8.0,
-        //     height: iconTheme.size - 8.0,
-        //     color: iconTheme.color,
-        // }); 
-        return Container({
-            margin: new EdgeInsets.all(4.0),
-            width: 24.0 - 8.0,
-            height: 24.0 - 8.0,
-            color: new Color.fromRGBO(
-                255.0,
-                255.0,
-                255.0,
-                1.0),
+        let iconThemeData = IconTheme.of(context);
+        return new Container({
+            margin: EdgeInsets.all(4.0),
+            width: iconThemeData.size - 8.0,
+            height: iconThemeData.size - 8.0,
+            color: iconThemeData.color,
         }); 
     }
 }
@@ -136,29 +130,14 @@ class CustomIcon extends MXJSWidget {
 class CustomInactiveIcon extends MXJSWidget {
     build(context) {
         /// TODO:
-        // let iconTheme = IconTheme.of(context);
-        // return Container({
-        //     margin: new EdgeInsets.all(4.0),
-        //     width: iconTheme.size - 8.0,
-        //     height: iconTheme.size - 8.0,
-        //     decoration: new BoxDecoration({
-        //         border: Border.all({
-        //             color: iconTheme.color,
-        //             width: 2.0
-        //         })
-        //     }),
-        // }); 
-        return Container({
-            margin: new EdgeInsets.all(4.0),
-            width: 120.0 - 8.0,
-            height: 120.0 - 8.0,
+        let iconThemeData = IconTheme.of(context);
+        return new Container({
+            margin: EdgeInsets.all(4.0),
+            width: iconThemeData.size - 8.0,
+            height: iconThemeData.size - 8.0,
             decoration: new BoxDecoration({
                 border: Border.all({
-                    color: new Color.fromRGBO(
-                        255.0,
-                        87.0,
-                        34.0,
-                        1.0),
+                    color: iconThemeData.color,
                     width: 2.0
                 })
             }),
@@ -179,34 +158,34 @@ class JSBottomNavigationDemo extends MXJSWidget {
         //     new NavigationIconView({
         //         icon: new Icon(new IconData(0xe190, {fontFamily: 'MaterialIcons'})),
         //         title: 'Alarm',
-        //         color: Colors.deepPurple,
+        //         color: Colors.deepPurple(),
         //         vsync: this,
         //     }),
         //     new NavigationIconView({
         //         activeIcon: new CustomIcon(),
         //         icon: new CustomInactiveIcon(),
         //         title: 'Box',
-        //         color: Colors.deepOrange,
+        //         color: Colors.deepOrange(),
         //         vsync: this,
         //     }),
         //     new NavigationIconView({
         //         activeIcon: new Icon(new IconData(0xe2bd, {fontFamily: 'MaterialIcons'})),
         //         icon: new Icon(new IconData(0xe2c2, {fontFamily: 'MaterialIcons'})),
         //         title: 'Cloud',
-        //         color: Colors.teal,
+        //         color: Colors.teal(),
         //         vsync: this,
         //     }),
         //     new NavigationIconView({
         //         activeIcon: new Icon(new IconData(0xe87d, {fontFamily: 'MaterialIcons'})),
         //         icon: new Icon(new IconData(0xe87e, {fontFamily: 'MaterialIcons'})),
         //         title: 'Favorites',
-        //         color: Colors.indigo,
+        //         color: Colors.indigo(),
         //         vsync: this,
         //     }),
         //     new NavigationIconView({
         //         icon: new Icon(new IconData(0xe614, {fontFamily: 'MaterialIcons'})),
         //         title: 'Event',
-        //         color: Colors.pink,
+        //         color: Colors.pink(),
         //         vsync: this,
         //     }),
         // ];
@@ -244,35 +223,35 @@ class JSBottomNavigationDemo extends MXJSWidget {
             new NavigationIconView({
                 icon: new Icon(new IconData(0xe190, {fontFamily: 'MaterialIcons'})),
                 title: 'Alarm',
-                color: Colors.deepPurple,
-                vsync: this,
+                color: Colors.deepPurple(),
+                // vsync: this,
             }),
             new NavigationIconView({
                 activeIcon: new CustomIcon(),
                 icon: new CustomInactiveIcon(),
                 title: 'Box',
-                color: Colors.deepOrange,
-                vsync: this,
+                color: Colors.deepOrange(),
+                // vsync: this,
             }),
             new NavigationIconView({
                 activeIcon: new Icon(new IconData(0xe2bd, {fontFamily: 'MaterialIcons'})),
                 icon: new Icon(new IconData(0xe2c2, {fontFamily: 'MaterialIcons'})),
                 title: 'Cloud',
-                color: Colors.teal,
-                vsync: this,
+                color: Colors.teal(),
+                // vsync: this,
             }),
             new NavigationIconView({
                 activeIcon: new Icon(new IconData(0xe87d, {fontFamily: 'MaterialIcons'})),
                 icon: new Icon(new IconData(0xe87e, {fontFamily: 'MaterialIcons'})),
                 title: 'Favorites',
-                color: Colors.indigo,
-                vsync: this,
+                color: Colors.indigo(),
+                // vsync: this,
             }),
             new NavigationIconView({
                 icon: new Icon(new IconData(0xe614, {fontFamily: 'MaterialIcons'})),
                 title: 'Event',
-                color: Colors.pink,
-                vsync: this,
+                color: Colors.pink(),
+                // vsync: this,
             }),
         ];
         
@@ -285,7 +264,7 @@ class JSBottomNavigationDemo extends MXJSWidget {
             currentIndex: this._currentIndex,
             type: this._type,
             onTap: function(args) {
-                this.setState(function(args) {
+                this.setState(function() {
                     var index = args;
                     this._navigationViews[this._currentIndex].controller.reverse();
                     this._currentIndex = index;

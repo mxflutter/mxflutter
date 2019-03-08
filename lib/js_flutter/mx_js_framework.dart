@@ -103,9 +103,9 @@ class MXJSFlutter {
 
   //flutter层 主动push页面
   MXJSWidget navigatorPushWithPageName(String widgetName,
-      {ThemeData themeData, MediaQueryData mediaQueryData}) {
+      {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) {
     MXJSWidget jsWidget = currentApp?.navigatorPushWithPageName(widgetName,
-        themeData: themeData, mediaQueryData: mediaQueryData);
+        themeData: themeData, mediaQueryData: mediaQueryData, iconThemeData: iconThemeData);
 
     return jsWidget;
   }
@@ -156,7 +156,7 @@ void runJSApp(MXJSWidget jsWidget) {
 //push js页面
 //先创建一个空的MXJSWidget，调用JS，等待JS层widgetData来刷新页面
   MXJSWidget navigatorPushWithPageName(String widgetName,
-      {ThemeData themeData, MediaQueryData mediaQueryData}) {
+      {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) {
     MXJSWidget jsWidget = MXJSWidget(
       name: widgetName,
       parentBuildOwner: _rootBuildOwner,
@@ -164,7 +164,7 @@ void runJSApp(MXJSWidget jsWidget) {
     );
 
     callJSNavigatorPushWithPageName(widgetName,
-        themeData: themeData, mediaQueryData: mediaQueryData);
+        themeData: themeData, mediaQueryData: mediaQueryData, iconThemeData: iconThemeData);
 
     return jsWidget;
   }
@@ -195,12 +195,13 @@ void runJSApp(MXJSWidget jsWidget) {
 
   //flutter层 主动push页面
   callJSNavigatorPushWithPageName(String widgetName,
-      {ThemeData themeData, MediaQueryData mediaQueryData}) async {
+      {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) async {
     MethodCall jsMethodCall =
         MethodCall("flutterCallNavigatorPushWithPageName", {
       "pageName": name,
       "themeData": MXUtil.cThemeDataToJson(themeData),
       "mediaQueryData": MXUtil.cMediaQueryDataToJson(mediaQueryData),
+      "iconThemeData": MXUtil.cIconThemeDataToJson(iconThemeData),
     });
 
     callJS(jsMethodCall);

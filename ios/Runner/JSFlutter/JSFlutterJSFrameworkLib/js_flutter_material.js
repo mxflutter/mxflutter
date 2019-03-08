@@ -554,7 +554,7 @@ class BottomAppBar extends FlutterWidget {
     }
 }
 
-class BottomNavigationBar extends DartClass {
+class BottomNavigationBar extends FlutterWidget {
     constructor ({
         key,
         items,

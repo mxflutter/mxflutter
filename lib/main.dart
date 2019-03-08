@@ -98,6 +98,7 @@ class _DemoList extends StatelessWidget {
 
     var mediaQueryData = MediaQuery.of(context);
     var themeData = Theme.of(context);
+    var iconThemeData = IconTheme.of(context);
 
 
     return ListView(
@@ -112,7 +113,7 @@ class _DemoList extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => MXJSFlutter.getInstance()
-                      .navigatorPushWithPageName("JSWidgetHomePage",themeData:themeData,mediaQueryData:mediaQueryData)),
+                      .navigatorPushWithPageName("JSWidgetHomePage",themeData:themeData,mediaQueryData:mediaQueryData,iconThemeData:iconThemeData)),
             );
           },
         ),

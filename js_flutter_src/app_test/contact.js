@@ -64,6 +64,7 @@ let {
     MXJSStatelessWidget,
     TextStyle,
     SafeArea,
+    Colors,
   } = jsFlutterRequire("js_flutter_ui.js");
 
 let _kGalleryAssetsPackage = 'js_flutter_src/app_test/flutter_gallery_assets/';
@@ -199,18 +200,7 @@ class JSContactPage extends MXJSWidget {
         let widget = new Theme({
             data: new ThemeData({
                 brightness: Brightness.light,
-                primarySwatch: new MaterialColor(0xFF3F51B5, {
-                    50: new Color(0xFFE8EAF6),
-                    100: new Color(0xFFC5CAE9),
-                    200: new Color(0xFF9FA8DA),
-                    300: new Color(0xFF7986CB),
-                    400: new Color(0xFF5C6BC0),
-                    500: new Color(0xFF3F51B5),
-                    600: new Color(0xFF3949AB),
-                    700: new Color(0xFF303F9F),
-                    800: new Color(0xFF283593),
-                    900: new Color(0xFF1A237E),
-                }),
+                primarySwatch: Colors.indigo,
                 platform: Theme.of(context).platform,
             }),
             child: new Scaffold({
