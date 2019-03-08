@@ -66,6 +66,8 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyCircularNotchedRectangle.registerProxy());
     m.addAll(MXProxyIconTheme.registerProxy());
     m.addAll(MXProxyIconThemeData.registerProxy());
+    m.addAll(MXProxyDropdownMenuItem.registerProxy());
+    m.addAll(MXProxyBoxShadow.registerProxy());
     
     return m;
   }
@@ -805,10 +807,10 @@ class MXProxyBoxDecoration extends MXJsonObjProxy {
       image: mxj2d(bo, jsonMap["image"]),
       border: mxj2d(bo, jsonMap["border"]),
       borderRadius: mxj2d(bo, jsonMap["borderRadius"]),
-      boxShadow: mxj2d(bo, jsonMap["boxShadow"]),
+      boxShadow: toListT<BoxShadow>(mxj2d(bo, jsonMap["boxShadow"])),
       gradient: mxj2d(bo, jsonMap["gradient"]),
       backgroundBlendMode: mxj2d(bo, jsonMap["backgroundBlendMode"]),
-      shape: mxj2d(bo, jsonMap["shape"], defaultValue: BoxShape.rectangle),
+      shape: MXBoxShape.parse(mxj2d(bo, jsonMap["shape"]), defaultValue: BoxShape.rectangle),
     );
     return widget;
   }
@@ -1251,7 +1253,7 @@ class MXProxyTableBorder extends MXJsonObjProxy {
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = TableBorder.all(
       color: mxj2d(bo, jsonMap["color"], defaultValue: const Color(0xFF000000)),
-      width: mxj2d(bo, jsonMap["width"], defaultValue: 1.0),
+      width: mxj2d(bo, jsonMap["width"], defaultValue: 1.0)?.toDouble(),
       style: MXBorderStyle.parse(mxj2d(bo, jsonMap["width"]),
           defaultValue: BorderStyle.solid),
     );
@@ -1345,7 +1347,7 @@ class MXProxyFlexColumnWidth extends MXJsonObjProxy {
   FlexColumnWidth constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = FlexColumnWidth(
-      mxj2d(bo, jsonMap["value"], defaultValue: 1.0),
+      mxj2d(bo, jsonMap["value"], defaultValue: 1.0)?.toDouble(),
     );
     return obj;
   }
@@ -2795,4 +2797,62 @@ class MXProxyIconThemeData extends MXJsonObjProxy {
 		);
 		return widget;
 	}
+}
+
+class MXProxyDropdownMenuItem extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "DropdownMenuItem";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyDropdownMenuItem()..init(className: regClassName)};
+	}
+
+	@override
+	DropdownMenuItem constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = DropdownMenuItem(
+			key: mxj2d(bo, jsonMap["key"]),
+			value: mxj2d(bo, jsonMap["value"]),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxyBoxShadow extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "BoxShadow";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyBoxShadow()..init(className: regClassName)};
+	}
+
+	@override
+	BoxShadow constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = BoxShadow(
+			color: mxj2d(bo, jsonMap["color"], defaultValue:const Color(0xFF000000)),
+			offset: mxj2d(bo, jsonMap["offset"], defaultValue:Offset.zero),
+			blurRadius: mxj2d(bo, jsonMap["blurRadius"], defaultValue:0.0),
+			spreadRadius: mxj2d(bo, jsonMap["spreadRadius"], defaultValue:0.0),
+		);
+		return widget;
+	}
+}
+
+class MXBoxShape {
+  static BoxShape parse(String value,
+      {BoxShape defaultValue = BoxShape.circle}) {
+    BoxShape retValut = defaultValue;
+    switch (value) {
+      case 'BoxShape.circle':
+        retValut = BoxShape.circle;
+        break;
+      case 'BoxShape.rectangle':
+        retValut = BoxShape.rectangle;
+        break;
+      default:
+        retValut = defaultValue;
+    }
+
+    return retValut;
+  }
 }

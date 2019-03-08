@@ -209,7 +209,7 @@ class MXProxyAppBar extends MXJsonObjProxy {
       actions: toListT<Widget>(mxj2d(bo, jsonMap["actions"])),
       flexibleSpace: mxj2d(bo, jsonMap["flexibleSpace"]),
       bottom: mxj2d(bo, jsonMap["bottom"]),
-      elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 4.0),
+      elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 4.0)?.toDouble(),
       backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
       brightness: mxj2d(bo, jsonMap["brightness"]),
       iconTheme: mxj2d(bo, jsonMap["iconTheme"]),
@@ -217,8 +217,8 @@ class MXProxyAppBar extends MXJsonObjProxy {
       primary: mxj2d(bo, jsonMap["primary"], defaultValue: true),
       centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
       titleSpacing: mxj2d(bo, jsonMap["titleSpacing"], defaultValue: NavigationToolbar.kMiddleSpacing),
-      toolbarOpacity: mxj2d(bo, jsonMap["toolbarOpacity"], defaultValue: 1.0),
-      bottomOpacity: mxj2d(bo, jsonMap["bottomOpacity"], defaultValue: 1.0),
+      toolbarOpacity: mxj2d(bo, jsonMap["toolbarOpacity"], defaultValue: 1.0)?.toDouble(),
+      bottomOpacity: mxj2d(bo, jsonMap["bottomOpacity"], defaultValue: 1.0)?.toDouble(),
     );
 
     return widget;
@@ -711,7 +711,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
   Widget constructorDropdownButton(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) =>
       DropdownButton(
         key: mxj2d(bo, jsonMap["key"]),
-        items: mxj2d(bo, jsonMap["items"]),
+        items: toListT<DropdownMenuItem>(mxj2d(bo, jsonMap["items"])),
         value: mxj2d(bo, jsonMap["value"]),
         hint: mxj2d(bo, jsonMap["hint"]),
         disabledHint: mxj2d(bo, jsonMap["disabledHint"]),
@@ -731,7 +731,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         },
         initialValue: mxj2d(bo, jsonMap["initialValue"]),
         onSelected: createPopMenuItemSelectedHandle(bo, mxj2d(bo, jsonMap["onSelected"])),
-        ///TODO 此处泛型是否可以改写成下面这种形式呢？
+        ///TODO: 此处泛型是否可以改写成下面这种形式呢？
 //        onSelected: (dynamic b) {
 //          PopupMenuItemSelected<dynamic> cb = (dynamic b) {
 //            bo.eventCallback(jsonMap["onSelected"], p:b);
@@ -755,9 +755,9 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
   Widget constructorButtonBar(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) =>
       ButtonBar(
         key: mxj2d(bo, jsonMap["key"]),
-        alignment: mxj2d(bo, jsonMap["alignment"], defaultValue: MainAxisAlignment.end),
-        mainAxisSize: mxj2d(bo, jsonMap["mainAxisSize"], defaultValue: MainAxisSize.max),
-        children: mxj2d(bo, jsonMap["children"], defaultValue: const <Widget>[]),
+        alignment: MXMainAxisAlignment.parse(mxj2d(bo, jsonMap["alignment"], defaultValue: MainAxisAlignment.end)),
+        mainAxisSize: MXMainAxisSize.parse(mxj2d(bo, jsonMap["mainAxisSize"], defaultValue: MainAxisSize.max)),
+        children: toListT<Widget>(mxj2d(bo, jsonMap["children"], defaultValue: const <Widget>[])),
       );
 
   ///生成VoidCallback 闭包

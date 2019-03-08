@@ -1812,6 +1812,25 @@ const EdgeInsetsDirectional(
     })
   """
   ,
+
+  """
+  const DropdownMenuItem({
+    Key key,
+    this.value,
+    @required this.child,
+  })
+  """
+  ,
+
+  """
+  const BoxShadow({
+    Color color = const Color(0xFF000000),
+    Offset offset = Offset.zero,
+    double blurRadius = 0.0,
+    this.spreadRadius = 0.0
+  })
+  """
+  ,
 ];
 
 void main(List<String> arguments) {

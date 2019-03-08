@@ -451,7 +451,7 @@ void main(List<String> arguments) {
 }
 
 String translate(String src) {
-  // print(translateDart(src));
-  // print(translateJS(src));
-  print(translateDartFlutter(src));
+  print(translateDart(src));
+  print(translateJS(src));
+  // print(translateDartFlutter(src));
 }

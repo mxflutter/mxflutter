@@ -82,21 +82,21 @@ class MXProxyImageProvider extends MXJsonObjProxy {
   FileImage constructorFileImage(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = FileImage(mxj2d(bo, jsonMap["file"]),
-        scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0));
+        scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble());
     return obj;
   }
 
   MemoryImage constructorMemoryImage(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = MemoryImage(mxj2d(bo, jsonMap["bytes"]),
-        scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0));
+        scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble());
     return obj;
   }
 
   NetworkImage constructorNetworkImage(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = NetworkImage(mxj2d(bo, jsonMap["url"]),
-        scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0),
+        scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble(),
         headers: mxj2d(bo, jsonMap["headers"]));
     return obj;
   }
@@ -192,7 +192,7 @@ class MXProxyImage extends MXJsonObjProxy {
     var widget = Image.network(
       mxj2d(bo, jsonMap["src"]),
       key: mxj2d(bo, jsonMap["key"]),
-      scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0),
+      scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble(),
       semanticLabel: mxj2d(bo, jsonMap["semanticLabel"]),
       excludeFromSemantics:
           mxj2d(bo, jsonMap["excludeFromSemantics"], defaultValue: false),
@@ -220,7 +220,7 @@ class MXProxyImage extends MXJsonObjProxy {
     var widget = Image.file(
       mxj2d(bo, jsonMap["file"]),
       key: mxj2d(bo, jsonMap["key"]),
-      scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0),
+      scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble(),
       semanticLabel: mxj2d(bo, jsonMap["semanticLabel"]),
       excludeFromSemantics:
           mxj2d(bo, jsonMap["excludeFromSemantics"], defaultValue: false),
@@ -276,7 +276,7 @@ class MXProxyImage extends MXJsonObjProxy {
     var widget = Image.memory(
       mxj2d(bo, jsonMap["bytes"]),
       key: mxj2d(bo, jsonMap["key"]),
-      scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0),
+      scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble(),
       semanticLabel: mxj2d(bo, jsonMap["semanticLabel"]),
       excludeFromSemantics:
           mxj2d(bo, jsonMap["excludeFromSemantics"], defaultValue: false),

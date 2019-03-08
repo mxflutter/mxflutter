@@ -1969,6 +1969,21 @@ class IconThemeData extends DartClass {
     }
 }
 
+class DropdownMenuItem extends DartClass {
+    constructor ({
+        key,
+        value,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.value = value;
+        this.child = child;
+    }
+}
+
+
 function assert(condition, message) {
     if (!condition) {
         message = message || "Assertion failed";
@@ -1978,6 +1993,27 @@ function assert(condition, message) {
         throw message; // Fallback
     }
 }
+
+class BoxShadow extends DartClass {
+    constructor ({
+        color,
+        offset,
+        blurRadius,
+        spreadRadius,
+    } = {}) {
+        super();
+
+        this.color = color;
+        this.offset = offset;
+        this.blurRadius = blurRadius;
+        this.spreadRadius = spreadRadius;
+    }
+}
+
+BoxShape = {
+    circle: "BoxShape.circle",
+    rectangle: "BoxShape.rectangle",
+};
 
 module.exports = {
     DartClass,
@@ -2059,5 +2095,8 @@ module.exports = {
     FlutterWidgetMirrorMgr,
     IconTheme,
     IconThemeData,
+    DropdownMenuItem,
+    BoxShadow,
+    BoxShape,
     assert,
 };

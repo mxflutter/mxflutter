@@ -209,6 +209,47 @@ class AppBar extends FlutterWidget {
     }
 }
 
+
+class FlatButton extends FlutterWidget {
+    constructor ({
+        key,
+        onPressed,
+        onHighlightChanged,
+        textTheme,
+        textColor,
+        disabledTextColor,
+        color,
+        disabledColor,
+        highlightColor,
+        splashColor,
+        colorBrightness,
+        padding,
+        shape,
+        clipBehavior,
+        materialTapTargetSize,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.onPressed = onPressed;
+        this.onHighlightChanged = onHighlightChanged;
+        this.textTheme = textTheme;
+        this.textColor = textColor;
+        this.disabledTextColor = disabledTextColor;
+        this.color = color;
+        this.disabledColor = disabledColor;
+        this.highlightColor = highlightColor;
+        this.splashColor = splashColor;
+        this.colorBrightness = colorBrightness;
+        this.padding = padding;
+        this.shape = shape;
+        this.clipBehavior = clipBehavior;
+        this.materialTapTargetSize = materialTapTargetSize;
+        this.child = child;
+    }
+}
+
 class RaisedButton extends FlutterWidget {
     constructor({
         key,
@@ -780,6 +821,7 @@ module.exports = {
     Material,
     Scaffold,
     AppBar,
+    FlatButton,
     RaisedButton,
     FloatingActionButton,
     IconButton,

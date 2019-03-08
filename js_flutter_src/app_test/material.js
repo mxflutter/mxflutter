@@ -62,6 +62,7 @@ let {
 
 let {JSBottomAPPBarDemo} = jsFlutterRequire("./material/bottom_app_bar_demo.js");
 let {JSBottomNavigationDemo} = jsFlutterRequire("./material/bottom_navigation_demo.js");
+let {JSEasyUIDemo} = jsFlutterRequire("./material/easy_ui_demo.js");
 
 class JSMaterialPage extends MXJSWidget {
     constructor() {
@@ -105,10 +106,20 @@ class JSMaterialPage extends MXJSWidget {
                     new ListTile({
                         leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
                         trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                        title: new Text('Bottom navigation'),
+                        title: new Text('Bottom navigation——动画需完善'),
                         subtitle: new Text('Bottom navigation with cross-fading views'),
                         onTap:function () {
                             this.navigatorPush(new JSBottomNavigationDemo);
+                        }
+                    }),
+
+                    new ListTile({
+                        leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
+                        trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                        title: new Text('Easy ui'),
+                        subtitle: new Text('Easy ui usage'),
+                        onTap:function () {
+                            this.navigatorPush(new JSEasyUIDemo);
                         }
                     }),
                 ],
