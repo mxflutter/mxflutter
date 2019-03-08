@@ -1382,12 +1382,14 @@ class Uint8List extends DartClass {
     static view(
         buffer,
         offsetInBytes,
+        length
     ) {
         let v = new Uint8List();
         v.constructorName = "view";
 
         v.buffer = buffer;
         v.offsetInBytes = offsetInBytes;
+        v.length = length;
 
         return v;
     }
@@ -2015,6 +2017,23 @@ BoxShape = {
     rectangle: "BoxShape.rectangle",
 };
 
+
+class Quaternion extends DartClass {
+    constructor (
+        x,
+        y,
+        z,
+        w,
+    ) {
+        super();
+
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.w = w;
+    }
+}
+
 module.exports = {
     DartClass,
     FlutterWidget,
@@ -2098,5 +2117,6 @@ module.exports = {
     DropdownMenuItem,
     BoxShadow,
     BoxShape,
+    Quaternion,
     assert,
 };

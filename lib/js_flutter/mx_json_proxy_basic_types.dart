@@ -68,6 +68,7 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyIconThemeData.registerProxy());
     m.addAll(MXProxyDropdownMenuItem.registerProxy());
     m.addAll(MXProxyBoxShadow.registerProxy());
+    m.addAll(MXProxyQuaternion.registerProxy());
     
     return m;
   }
@@ -610,8 +611,8 @@ class MXProxyPaint extends MXJsonObjProxy {
       ..shader = mxj2d(bo, jsonMap["shader"])
       ..strokeCap = MXStrokeCap.parse(mxj2d(bo, jsonMap["strokeCap"]))
       ..strokeJoin = MXStrokeJoin.parse(mxj2d(bo, jsonMap["strokeJoin"]))
-      ..strokeMiterLimit = mxj2d(bo, jsonMap["strokeMiterLimit"])
-      ..strokeWidth = mxj2d(bo, jsonMap["strokeWidth"])
+      ..strokeMiterLimit = mxj2d(bo, jsonMap["strokeMiterLimit"])?.toDouble()
+      ..strokeWidth = mxj2d(bo, jsonMap["strokeWidth"])?.toDouble()
       ..style = MXPaintingStyle.parse(mxj2d(bo, jsonMap["style"]));
 
     return obj;
@@ -659,7 +660,7 @@ class MXProxyFilter extends MXJsonObjProxy {
   ColorFilter constructorMode(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     ColorFilter obj = ColorFilter.mode(
-        mxj2d(bo, jsonMap["color"]), mxj2d(bo, jsonMap["blendMode"]));
+        mxj2d(bo, jsonMap["color"]), MXBlendMode.parse(mxj2d(bo, jsonMap["blendMode"])));
 
     return obj;
   }
@@ -669,7 +670,7 @@ class MXProxyFilter extends MXJsonObjProxy {
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     MaskFilter obj = MaskFilter.blur(
         MXBlurStyle.parse(mxj2d(bo, jsonMap["_style"])),
-        mxj2d(bo, jsonMap["_sigma"]));
+        mxj2d(bo, jsonMap["_sigma"])?.toDouble());
 
     return obj;
   }
@@ -751,13 +752,13 @@ class MXProxyShader extends MXJsonObjProxy {
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     RadialGradient obj = RadialGradient(
         center: mxj2d(bo, jsonMap["center"], defaultValue: Alignment.center),
-        radius: mxj2d(bo, jsonMap["radius"], defaultValue: 0.5),
+        radius: mxj2d(bo, jsonMap["radius"], defaultValue: 0.5)?.toDouble(),
         colors: toListT<Color>(mxj2d(bo, jsonMap["colors"])),
         stops: toListT<double>(mxj2d(bo, jsonMap["stops"])),
         tileMode: MXTileMode.parse(
             mxj2d(bo, jsonMap["tileMode"], defaultValue: TileMode.clamp)),
         focal: mxj2d(bo, jsonMap["focal"]),
-        focalRadius: mxj2d(bo, jsonMap["focalRadius"]));
+        focalRadius: mxj2d(bo, jsonMap["focalRadius"])?.toDouble());
 
     return obj;
   }
@@ -766,8 +767,8 @@ class MXProxyShader extends MXJsonObjProxy {
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     SweepGradient obj = SweepGradient(
       center: mxj2d(bo, jsonMap["center"], defaultValue: Alignment.center),
-      startAngle: mxj2d(bo, jsonMap["startAngle"], defaultValue: 0.0),
-      endAngle: mxj2d(bo, jsonMap["endAngle"], defaultValue: math.pi * 2),
+      startAngle: mxj2d(bo, jsonMap["startAngle"], defaultValue: 0.0)?.toDouble(),
+      endAngle: mxj2d(bo, jsonMap["endAngle"], defaultValue: math.pi * 2)?.toDouble(),
       colors: toListT<Color>(mxj2d(bo, jsonMap["colors"])),
       stops: toListT<double>(mxj2d(bo, jsonMap["stops"])),
       tileMode: MXTileMode.parse(
@@ -1018,7 +1019,9 @@ class MXProxySize extends MXJsonObjProxy {
 
   @override
   Size constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var obj = Size(mxj2d(bo, jsonMap["width"]), mxj2d(bo, jsonMap["height"]));
+    var obj = Size(
+      mxj2d(bo, jsonMap["width"])?.toDouble(),
+      mxj2d(bo, jsonMap["height"])?.toDouble());
     return obj;
   }
 }
@@ -1069,7 +1072,7 @@ class MXProxyTableRow extends MXJsonObjProxy {
     var widget = TableRow(
       key: mxj2d(bo, jsonMap["key"]),
       decoration: mxj2d(bo, jsonMap["decoration"]),
-      children: mxj2d(bo, jsonMap["children"]),
+      children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
     );
     return widget;
   }
@@ -1240,10 +1243,8 @@ class MXProxyTableBorder extends MXJsonObjProxy {
       right: mxj2d(bo, jsonMap["right"], defaultValue: BorderSide.none),
       bottom: mxj2d(bo, jsonMap["bottom"], defaultValue: BorderSide.none),
       left: mxj2d(bo, jsonMap["left"], defaultValue: BorderSide.none),
-      horizontalInside:
-          mxj2d(bo, jsonMap["horizontalInside"], defaultValue: BorderSide.none),
-      verticalInside:
-          mxj2d(bo, jsonMap["verticalInside"], defaultValue: BorderSide.none),
+      horizontalInside: mxj2d(bo, jsonMap["horizontalInside"], defaultValue: BorderSide.none),
+      verticalInside: mxj2d(bo, jsonMap["verticalInside"], defaultValue: BorderSide.none),
     );
 
     return obj;
@@ -1500,29 +1501,29 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
   @override
   Matrix4 constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4(
-      mxj2d(bo, jsonMap["arg0"]),
-      mxj2d(bo, jsonMap["arg1"]),
-      mxj2d(bo, jsonMap["arg2"]),
-      mxj2d(bo, jsonMap["arg3"]),
-      mxj2d(bo, jsonMap["arg4"]),
-      mxj2d(bo, jsonMap["arg5"]),
-      mxj2d(bo, jsonMap["arg6"]),
-      mxj2d(bo, jsonMap["arg7"]),
-      mxj2d(bo, jsonMap["arg8"]),
-      mxj2d(bo, jsonMap["arg9"]),
-      mxj2d(bo, jsonMap["arg10"]),
-      mxj2d(bo, jsonMap["arg11"]),
-      mxj2d(bo, jsonMap["arg12"]),
-      mxj2d(bo, jsonMap["arg13"]),
-      mxj2d(bo, jsonMap["arg14"]),
-      mxj2d(bo, jsonMap["arg15"]),
+      mxj2d(bo, jsonMap["arg0"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg1"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg2"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg3"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg4"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg5"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg6"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg7"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg8"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg9"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg10"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg11"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg12"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg13"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg14"])?.toDouble(),
+      mxj2d(bo, jsonMap["arg15"])?.toDouble(),
     );
     return obj;
   }
 
   Matrix4 constructorFromList(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    List<double> values = mxj2d(bo, jsonMap["values"]);
+    List<double> values = toListT<double>(mxj2d(bo, jsonMap["values"]));
     var obj = Matrix4.fromList(values);
     return obj;
   }
@@ -1559,7 +1560,7 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
   Matrix4 constructorRotationX(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4.rotationX(
-      mxj2d(bo, jsonMap["radians"]),
+      mxj2d(bo, jsonMap["radians"])?.toDouble(),
     );
 
     return obj;
@@ -1568,7 +1569,7 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
   Matrix4 constructorRotationY(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4.rotationY(
-      mxj2d(bo, jsonMap["radians"]),
+      mxj2d(bo, jsonMap["radians"])?.toDouble(),
     );
 
     return obj;
@@ -1577,7 +1578,7 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
   Matrix4 constructorRotationZ(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4.rotationZ(
-      mxj2d(bo, jsonMap["radians"]),
+      mxj2d(bo, jsonMap["radians"])?.toDouble(),
     );
 
     return obj;
@@ -1595,9 +1596,9 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
   Matrix4 constructorTranslationValues(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4.translationValues(
-      mxj2d(bo, jsonMap["x"]),
-      mxj2d(bo, jsonMap["y"]),
-      mxj2d(bo, jsonMap["z"]),
+      mxj2d(bo, jsonMap["x"])?.toDouble(),
+      mxj2d(bo, jsonMap["y"])?.toDouble(),
+      mxj2d(bo, jsonMap["z"])?.toDouble(),
     );
 
     return obj;
@@ -1615,9 +1616,9 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
   Matrix4 constructorDiagonal3Values(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4.diagonal3Values(
-      mxj2d(bo, jsonMap["x"]),
-      mxj2d(bo, jsonMap["y"]),
-      mxj2d(bo, jsonMap["z"]),
+      mxj2d(bo, jsonMap["x"])?.toDouble(),
+      mxj2d(bo, jsonMap["y"])?.toDouble(),
+      mxj2d(bo, jsonMap["z"])?.toDouble(),
     );
 
     return obj;
@@ -1625,7 +1626,7 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
 
   Matrix4 constructorSkewX(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4.skewX(
-      mxj2d(bo, jsonMap["alpha"]),
+      mxj2d(bo, jsonMap["alpha"])?.toDouble(),
     );
 
     return obj;
@@ -1633,7 +1634,7 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
 
   Matrix4 constructorSkewY(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4.skewY(
-      mxj2d(bo, jsonMap["beta"]),
+      mxj2d(bo, jsonMap["beta"])?.toDouble(),
     );
 
     return obj;
@@ -1641,8 +1642,8 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
 
   Matrix4 constructorSkew(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Matrix4.skew(
-      mxj2d(bo, jsonMap["alpha"]),
-      mxj2d(bo, jsonMap["beta"]),
+      mxj2d(bo, jsonMap["alpha"])?.toDouble(),
+      mxj2d(bo, jsonMap["beta"])?.toDouble(),
     );
 
     return obj;
@@ -1709,16 +1710,16 @@ class MXProxyVector4 extends MXJsonObjProxy {
   @override
   Vector4 constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Vector4(
-      mxj2d(bo, jsonMap["x"]),
-      mxj2d(bo, jsonMap["y"]),
-      mxj2d(bo, jsonMap["z"]),
-      mxj2d(bo, jsonMap["w"]),
+      mxj2d(bo, jsonMap["x"])?.toDouble(),
+      mxj2d(bo, jsonMap["y"])?.toDouble(),
+      mxj2d(bo, jsonMap["z"])?.toDouble(),
+      mxj2d(bo, jsonMap["w"])?.toDouble(),
     );
     return obj;
   }
 
   Vector4 constructorArray(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var obj = Vector4.array(mxj2d(bo, jsonMap["array"]),
+    var obj = Vector4.array(toListT<double>(mxj2d(bo, jsonMap["array"])),
         mxj2d(bo, jsonMap["offset"], defaultValue: 0));
     return obj;
   }
@@ -1733,7 +1734,7 @@ class MXProxyVector4 extends MXJsonObjProxy {
   }
 
   Vector4 constructorAll(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var obj = Vector4.all(mxj2d(bo, jsonMap["value"]));
+    var obj = Vector4.all(mxj2d(bo, jsonMap["value"])?.toDouble());
     return obj;
   }
 
@@ -1789,9 +1790,9 @@ class MXProxyVector3 extends MXJsonObjProxy {
   @override
   Vector3 constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Vector3(
-      mxj2d(bo, jsonMap["x"]),
-      mxj2d(bo, jsonMap["y"]),
-      mxj2d(bo, jsonMap["z"]),
+      mxj2d(bo, jsonMap["x"])?.toDouble(),
+      mxj2d(bo, jsonMap["y"])?.toDouble(),
+      mxj2d(bo, jsonMap["z"])?.toDouble(),
     );
     return obj;
   }
@@ -1807,7 +1808,7 @@ class MXProxyVector3 extends MXJsonObjProxy {
   }
 
   Vector3 constructorAll(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var obj = Vector3.all(mxj2d(bo, jsonMap["value"]));
+    var obj = Vector3.all(mxj2d(bo, jsonMap["value"])?.toDouble());
     return obj;
   }
 
@@ -1836,7 +1837,7 @@ class MXProxyScrollController extends MXJsonObjProxy {
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = ScrollController(
       initialScrollOffset:
-          mxj2d(bo, jsonMap["initialScrollOffset"], defaultValue: 0.0),
+          mxj2d(bo, jsonMap["initialScrollOffset"]?.toDouble(), defaultValue: 0.0),
       keepScrollOffset:
           mxj2d(bo, jsonMap["keepScrollOffset"], defaultValue: true),
       debugLabel: mxj2d(bo, jsonMap["debugLabel"]),
@@ -2038,25 +2039,25 @@ class MXProxyRect extends MXJsonObjProxy {
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Rect.fromCircle(
         center: mxj2d(bo, jsonMap["center"]),
-        radius: mxj2d(bo, jsonMap["radius"]));
+        radius: mxj2d(bo, jsonMap["radius"])?.toDouble());
     return obj;
   }
 
   Rect constructorFromLTRB(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Rect.fromLTRB(
-        mxj2d(bo, jsonMap["left"]),
-        mxj2d(bo, jsonMap["top"]),
-        mxj2d(bo, jsonMap["right"]),
-        mxj2d(bo, jsonMap["bottom"]));
+        mxj2d(bo, jsonMap["left"])?.toDouble(),
+        mxj2d(bo, jsonMap["top"])?.toDouble(),
+        mxj2d(bo, jsonMap["right"])?.toDouble(),
+        mxj2d(bo, jsonMap["bottom"])?.toDouble());
     return obj;
   }
 
   Rect constructorFromLTWH(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Rect.fromLTWH(
-        mxj2d(bo, jsonMap["left"]),
-        mxj2d(bo, jsonMap["top"]),
-        mxj2d(bo, jsonMap["width"]),
-        mxj2d(bo, jsonMap["height"]));
+        mxj2d(bo, jsonMap["left"])?.toDouble(),
+        mxj2d(bo, jsonMap["top"])?.toDouble(),
+        mxj2d(bo, jsonMap["width"])?.toDouble(),
+        mxj2d(bo, jsonMap["height"])?.toDouble());
     return obj;
   }
 
@@ -2204,12 +2205,15 @@ class MXProxyUint8List extends MXJsonObjProxy {
   ///
   Uint8List constructorFromList(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    Uint8List obj = Uint8List.fromList(mxj2d(bo, jsonMap["elements"]));
+    Uint8List obj = Uint8List.fromList(toListT<int>(mxj2d(bo, jsonMap["elements"])));
     return obj;
   }
 
   Uint8List constructorView(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    Uint8List obj = Uint8List.view(mxj2d(bo, jsonMap["buffer"]));
+    Uint8List obj = Uint8List.view(
+      mxj2d(bo, jsonMap["buffer"]),
+      mxj2d(bo, jsonMap["offsetInBytes"], defaultValue:0),
+			mxj2d(bo, jsonMap["length"]));
     return obj;
   }
 }
@@ -2250,14 +2254,14 @@ class MXProxyRadius extends MXJsonObjProxy {
 
   Radius constructorCircular(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var widget = Radius.circular(mxj2d(bo, jsonMap["radius"]));
+    var widget = Radius.circular(mxj2d(bo, jsonMap["radius"])?.toDouble());
     return widget;
   }
 
   Radius constructorElliptical(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget =
-        Radius.elliptical(mxj2d(bo, jsonMap["x"]), mxj2d(bo, jsonMap["y"]));
+        Radius.elliptical(mxj2d(bo, jsonMap["x"])?.toDouble(), mxj2d(bo, jsonMap["y"])?.toDouble());
     return widget;
   }
 }
@@ -2318,7 +2322,7 @@ class MXProxyBorderRadius extends MXJsonObjProxy {
 
   BorderRadius constructorCircular(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var widget = BorderRadius.circular(mxj2d(bo, jsonMap["radius"]));
+    var widget = BorderRadius.circular(mxj2d(bo, jsonMap["radius"])?.toDouble());
     return widget;
   }
 
@@ -2831,8 +2835,8 @@ class MXProxyBoxShadow extends MXJsonObjProxy {
 		var widget = BoxShadow(
 			color: mxj2d(bo, jsonMap["color"], defaultValue:const Color(0xFF000000)),
 			offset: mxj2d(bo, jsonMap["offset"], defaultValue:Offset.zero),
-			blurRadius: mxj2d(bo, jsonMap["blurRadius"], defaultValue:0.0),
-			spreadRadius: mxj2d(bo, jsonMap["spreadRadius"], defaultValue:0.0),
+			blurRadius: mxj2d(bo, jsonMap["blurRadius"], defaultValue:0.0)?.toDouble(),
+			spreadRadius: mxj2d(bo, jsonMap["spreadRadius"], defaultValue:0.0)?.toDouble(),
 		);
 		return widget;
 	}
@@ -2855,4 +2859,24 @@ class MXBoxShape {
 
     return retValut;
   }
+}
+
+class MXProxyQuaternion extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "Quaternion";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyQuaternion()..init(className: regClassName)};
+	}
+
+	@override
+	Quaternion constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = Quaternion(
+			mxj2d(bo, jsonMap["x"])?.toDouble(),
+			mxj2d(bo, jsonMap["y"])?.toDouble(),
+			mxj2d(bo, jsonMap["z"])?.toDouble(),
+			mxj2d(bo, jsonMap["w"])?.toDouble(),
+		);
+		return widget;
+	}
 }

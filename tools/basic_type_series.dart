@@ -1831,6 +1831,22 @@ const EdgeInsetsDirectional(
   })
   """
   ,
+  """
+  Quaternion(
+    double x, 
+    double y, 
+    double z, 
+    double w
+    )
+  """
+  ,
+    """
+  factory Uint8List.view(
+    ByteBuffer buffer,[
+      int offsetInBytes = 0,
+       int length
+       ]) {
+   """,
 ];
 
 void main(List<String> arguments) {

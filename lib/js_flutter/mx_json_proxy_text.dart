@@ -16,10 +16,7 @@ class MXProxyRegisterHelperTextSeries {
     m.addAll(MXProxyDefaultTextStyle.registerProxy());
     m.addAll(MXProxyTextStyle.registerProxy());
     m.addAll(MXProxyTextSpan.registerProxy());
-    // m.addAll(MXProxyTextDecoration.registerProxy());
     m.addAll(MXProxyTextTheme.registerProxy());
-//    m.addAll(MXProxyCenter.registerProxy());
-//    m.addAll(MXProxyButtonSeries.registerProxy());
     m.addAll(MXProxyShadow.registerProxy());
 
     return m;
@@ -327,43 +324,6 @@ class MXTextDecoration extends MXJsonObjProxy {
     return retValut;
   }
 }
-
-// ///TextDecoration
-// ///**@@@ 拷贝生成其他类 1 替换类名
-// class MXProxyTextDecoration extends MXJsonObjProxy {
-//   static Map<String, CreateJsonObjProxyFun> registerProxy() {
-//     ///**@@@  2 替换类名字符串
-//     final String regClassName1 = "TextDecoration";
-
-//     ///**@@@  3 替换类构造函数
-//     return {
-//       regClassName1: () =>
-//           MXProxyTextDecoration()..init(className: regClassName1)
-//     };
-//   }
-
-//   ///*********************************************************************
-//   @override
-//   void init({String className}) {
-//     super.init(className: className);
-
-//     final String regClassName1 = "TextDecoration";
-//     registerConstructor(
-//         className: regClassName1,
-//         constructorName: "combine",
-//         constructor: constructorCombine);
-//   }
-
-// //  TextSpan({TextStyle style, String text, List<TextSpan> children, GestureRecognizer recognizer });
-// //  Creates a TextSpan with the given values. [...]
-// //  const
-//   TextDecoration constructorCombine(
-//       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-//     var widget = TextDecoration.combine(toListT<TextDecoration>(mxj2d(bo, jsonMap["decorations"])));
-
-//     return widget;
-//   }
-// }
 
 ///TextOverflow
 ///**@@@ 拷贝生成其他类 1 替换类名
