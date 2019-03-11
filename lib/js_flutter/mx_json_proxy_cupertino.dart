@@ -66,7 +66,7 @@ class MXProxyCupertinoActivityIndicator extends MXJsonObjProxy {
     var widget = CupertinoActivityIndicator(
       key: mxj2d(bo,jsonMap["key"]),
       animating: mxj2d(bo,jsonMap["animating"]),
-      radius: mxj2d(bo,jsonMap["radius"]),
+      radius: mxj2d(bo,jsonMap["radius"])?.toDouble(),
     );
     return widget;
   }
@@ -101,7 +101,7 @@ class MXProxyCupertinoAlertDialog extends MXJsonObjProxy {
       key: mxj2d(bo,jsonMap["key"]),
       title: mxj2d(bo,jsonMap["title"]),
       content: mxj2d(bo,jsonMap["content"]),
-      actions: mxj2d(bo,jsonMap["actions"]),
+      actions: toListT<Widget>(mxj2d(bo,jsonMap["actions"], defaultValue: <Widget>[])),
       scrollController: mxj2d(bo,jsonMap["scrollController"]),
       actionScrollController: mxj2d(bo,jsonMap["actionScrollController"]),
     );
@@ -148,8 +148,8 @@ class MXProxyCupertinoButton extends MXJsonObjProxy {
       padding: mxj2d(bo,jsonMap["padding"]),
       color: mxj2d(bo,jsonMap["color"]),
       disabledColor: mxj2d(bo,jsonMap["disabledColor"]),
-      minSize: mxj2d(bo,jsonMap["minSize"],defaultValue: 44.0),
-      pressedOpacity: mxj2d(bo,jsonMap["pressedOpacity"],defaultValue: 0.1),
+      minSize: mxj2d(bo,jsonMap["minSize"],defaultValue: 44.0)?.toDouble(),
+      pressedOpacity: mxj2d(bo,jsonMap["pressedOpacity"],defaultValue: 0.1)?.toDouble(),
       borderRadius: mxj2d(bo,jsonMap["borderRadius"]),
       onPressed: createVoidCallbackHandle(bo,jsonMap["onPressed"]),
     );
@@ -262,8 +262,8 @@ class MXProxyCupertinoSlider extends MXJsonObjProxy {
       onChanged: createValueChangedDoubleHandle(bo,jsonMap["onChanged"]),
       onChangeStart: createValueChangedDoubleHandle(bo,jsonMap["onChangeStart"]),
       onChangeEnd: createValueChangedDoubleHandle(bo,jsonMap["onChangeEnd"]),
-      min: mxj2d(bo,jsonMap["min"],defaultValue: 0.0),
-      max: mxj2d(bo,jsonMap["max"],defaultValue: 1.0),
+      min: mxj2d(bo,jsonMap["min"],defaultValue: 0.0)?.toDouble(),
+      max: mxj2d(bo,jsonMap["max"],defaultValue: 1.0)?.toDouble(),
       divisions: mxj2d(bo,jsonMap["divisions"]),
       activeColor: mxj2d(bo,jsonMap["activeColor"]),
     );
@@ -328,6 +328,7 @@ class MXProxyCupertinoPageTransition extends MXJsonObjProxy {
   CupertinoPageTransition constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
     var widget = CupertinoPageTransition(
       key: mxj2d(bo,jsonMap["key"]),
+      //TODO:animation
       primaryRouteAnimation: null,
       secondaryRouteAnimation: null,
       child: mxj2d(bo,jsonMap["child"]),
@@ -360,6 +361,7 @@ class MXProxyCupertinoFullscreenDialogTransition extends MXJsonObjProxy {
   CupertinoFullscreenDialogTransition constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
     var widget = CupertinoFullscreenDialogTransition(
       key: mxj2d(bo,jsonMap["key"]),
+      //TODO:animation
       animation: null,
       child: mxj2d(bo,jsonMap["child"]),
     );
@@ -450,14 +452,14 @@ class MXProxyCupertinoTabBar extends MXJsonObjProxy {
 
     var widget = CupertinoTabBar(
       key: mxj2d(bo,jsonMap["key"]),
-      items: mxj2d(bo,jsonMap["items"]),
+      items: toListT<BottomNavigationBarItem>(mxj2d(bo,jsonMap["items"])),
       onTap: createValueChangedIntHandle(bo,jsonMap["onTap"]),
       currentIndex: mxj2d(bo,jsonMap["currentIndex"],defaultValue: 0),
       backgroundColor: mxj2d(bo,jsonMap["backgroundColor"]),
       activeColor: mxj2d(bo,jsonMap["activeColor"]),
       inactiveColor: mxj2d(bo,jsonMap["inactiveColor"]),
       border: mxj2d(bo,jsonMap["border"],defaultValue: defaultNavBarBorder),
-      iconSize: mxj2d(bo,jsonMap["iconSize"],defaultValue: 30.0),
+      iconSize: mxj2d(bo,jsonMap["iconSize"],defaultValue: 30.0)?.toDouble(),
     );
     return widget;
   }
@@ -482,7 +484,7 @@ class MXProxyCupertinoPageScaffold extends MXJsonObjProxy {
   CupertinoPageScaffold constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
     var widget = CupertinoPageScaffold(
       key: mxj2d(bo,jsonMap["key"]),
-      navigationBar: null,
+      navigationBar: mxj2d(bo, jsonMap["navigationBar"]),
       backgroundColor: mxj2d(bo,jsonMap["backgroundColor"]),
       resizeToAvoidBottomInset: mxj2d(bo,jsonMap["resizeToAvoidBottomInset"],defaultValue: true),
       child: mxj2d(bo,jsonMap["child"]),
@@ -542,6 +544,7 @@ class MXProxyCupertinoTabView extends MXJsonObjProxy {
         return mxj2d(bo,jsonMap["item"]);
       },
       defaultTitle: mxj2d(bo,jsonMap["defaultTitle"]),
+      //TODO: routes
       routes: null,
       onGenerateRoute: null,
       onUnknownRoute: null,

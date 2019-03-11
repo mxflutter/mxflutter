@@ -44,7 +44,7 @@ class MXJsonObjToDartObject {
 
   dynamic jsonObjToDartObject(MXJsonBuildOwner buildOwner, dynamic jsonObj) {
     String className;
-     try {
+    //  try {
       ///map
       if (jsonObj is Map) {
         className = getJsonObjClassName(jsonObj);
@@ -61,13 +61,13 @@ class MXJsonObjToDartObject {
       } else {
         return jsonObj;
       }
-    } catch (e) {
-      MXJSLog.error(
-          "MXJsonObjToDartObject:jsonObjToDartObject error:$e ;decode:class $className, jsonObj:$jsonObj ");
+    // } catch (e) {
+    //   MXJSLog.error(
+    //       "MXJsonObjToDartObject:jsonObjToDartObject error:$e ;decode:class $className, jsonObj:$jsonObj ");
 
-          //打印日志重新抛出
-          throw e;
-    }
+    //       //打印日志重新抛出
+    //       throw e;
+    // }
   }
 
   ///如果Map里找到了Class字段，则转换成对应Dart对象
