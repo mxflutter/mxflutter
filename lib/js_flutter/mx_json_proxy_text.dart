@@ -74,7 +74,7 @@ class MXProxyText extends MXJsonObjProxy {
       locale: mxj2d(bo, jsonMap["locale"]),
       softWrap: mxj2d(bo, jsonMap["softWrap"]),
       overflow: MXTextOverflow.parse(jsonMap["overflow"]),
-      textScaleFactor: mxj2d(bo, jsonMap["textScaleFactor"]),
+      textScaleFactor: mxj2d(bo, jsonMap["textScaleFactor"])?.toDouble(),
       maxLines: mxj2d(bo, jsonMap["maxLines"]),
       semanticsLabel: mxj2d(bo, jsonMap["semanticsLabel"]),
     );
@@ -112,7 +112,7 @@ class MXProxyText extends MXJsonObjProxy {
       locale: mxj2d(bo, jsonMap["locale"]),
       softWrap: mxj2d(bo, jsonMap["softWrap"]),
       overflow: MXTextOverflow.parse(jsonMap["overflow"]),
-      textScaleFactor: mxj2d(bo, jsonMap["textScaleFactor"]),
+      textScaleFactor: mxj2d(bo, jsonMap["textScaleFactor"])?.toDouble(),
       maxLines: mxj2d(bo, jsonMap["maxLines"]),
       semanticsLabel: mxj2d(bo, jsonMap["semanticsLabel"]),
     );
@@ -165,7 +165,7 @@ class MXProxyRichText extends MXJsonObjProxy {
       textDirection: MXTextDirection.parse(jsonMap["textDirection"]),
       softWrap: mxj2d(bo, jsonMap["softWrap"]),
       overflow: MXTextOverflow.parse(jsonMap["overflow"]),
-      textScaleFactor: mxj2d(bo, jsonMap["textScaleFactor"]),
+      textScaleFactor: mxj2d(bo, jsonMap["textScaleFactor"])?.toDouble(),
       maxLines: mxj2d(bo, jsonMap["maxLines"]),
       locale: mxj2d(bo, jsonMap["locale"]),
     );
@@ -293,7 +293,7 @@ class MXProxyTextSpan extends MXJsonObjProxy {
     var widget = TextSpan(
       style: mxj2d(bo, jsonMap["style"]),
       text: mxj2d(bo, jsonMap["text"]),
-      children: mxj2d(bo, jsonMap["children"]),
+      children: toListT<TextSpan>(mxj2d(bo, jsonMap["children"])),
       recognizer: mxj2d(bo, jsonMap["recognizer"]),
     );
 
@@ -554,7 +554,7 @@ class MXProxyShadow extends MXJsonObjProxy {
 		var widget = Shadow(
 			color: mxj2d(bo, jsonMap["color"], defaultValue: const Color(0xFF000000)),
 			offset: mxj2d(bo, jsonMap["offset"], defaultValue:Offset.zero),
-			blurRadius: mxj2d(bo, jsonMap["blurRadius"], defaultValue:0.0),
+			blurRadius: mxj2d(bo, jsonMap["blurRadius"], defaultValue:0.0)?.toDouble(),
 		);
 		return widget;
 	}
