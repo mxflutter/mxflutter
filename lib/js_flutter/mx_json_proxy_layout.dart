@@ -3,6 +3,7 @@ import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
 import 'mx_json_proxy_text.dart';
+import 'package:flutter/gestures.dart';
 
 /******************TODO List****************************/
 /*
@@ -170,8 +171,8 @@ class MXProxyCenter extends MXJsonObjProxy {
   Center constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = Center(
       key: mxj2d(bo, jsonMap["key"]),
-      widthFactor: mxj2d(bo, jsonMap["widthFactor"]),
-      heightFactor: mxj2d(bo, jsonMap["heightFactor"]),
+      widthFactor: mxj2d(bo, jsonMap["widthFactor"])?.toDouble(),
+      heightFactor: mxj2d(bo, jsonMap["heightFactor"])?.toDouble(),
       child: mxj2d(bo, jsonMap["child"]),
     );
 
@@ -235,8 +236,8 @@ class MXProxyAlign extends MXJsonObjProxy {
       key: mxj2d(bo, jsonMap["key"]),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      widthFactor: mxj2d(bo, jsonMap["widthFactor"]),
-      heightFactor: mxj2d(bo, jsonMap["heightFactor"]),
+      widthFactor: mxj2d(bo, jsonMap["widthFactor"])?.toDouble(),
+      heightFactor: mxj2d(bo, jsonMap["heightFactor"])?.toDouble(),
       child: mxj2d(bo, jsonMap["child"]),
     );
 
@@ -367,7 +368,7 @@ class MXProxyBaseline extends MXJsonObjProxy {
   Baseline constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = Baseline(
       key: mxj2d(bo, jsonMap["key"]),
-      baseline: mxj2d(bo, jsonMap["constraints"]),
+      baseline: mxj2d(bo, jsonMap["baseline"])?.toDouble(),
       baselineType: MXTextBaseline.parse(mxj2d(bo, jsonMap["baselineType"])),
       child: mxj2d(bo, jsonMap["child"]),
     );
@@ -701,6 +702,7 @@ class MXProxyCustomSingleChildLayout extends MXJsonObjProxy {
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = CustomSingleChildLayout(
       key: mxj2d(bo, jsonMap["key"]),
+      //TODO:delegate
       delegate: null,
       child: mxj2d(bo, jsonMap["child"]),
     );
@@ -875,7 +877,7 @@ class MXProxyIndexedStack extends MXJsonObjProxy {
       sizing: MXStackFit.parse(mxj2d(bo, jsonMap["sizing"]),
           defaultValue: StackFit.loose),
       index: mxj2d(bo, jsonMap["index"], defaultValue: 0),
-      children: mxj2d(bo, jsonMap["children"]),
+      children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
     );
 
     return widget;
@@ -916,8 +918,9 @@ class MXProxyFlow extends MXJsonObjProxy {
   Flow constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = Flow(
       key: mxj2d(bo, jsonMap["key"]),
+      //TODO:delegate
       delegate: null,
-      children: mxj2d(bo, jsonMap["children"]),
+      children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
     );
 
     return widget;
@@ -926,8 +929,9 @@ class MXProxyFlow extends MXJsonObjProxy {
   Flow constructorUnwrapped(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var obj = Flow.unwrapped(
       key: mxj2d(bo, jsonMap["key"]),
+      //TODO:delegate
       delegate: null,
-      children: mxj2d(bo, jsonMap["children"]),
+      children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
     );
 
     return obj;
@@ -964,11 +968,11 @@ class MXProxyTable extends MXJsonObjProxy {
     var widget = Table(
       key: mxj2d(bo, jsonMap["key"]),
       children: toListT<TableRow>(mxj2d(bo, jsonMap["children"])),
-      columnWidths: mxj2d(bo, jsonMap["columnWidths"]),
+      columnWidths: toMapIntT<TableColumnWidth>(mxj2d(bo, jsonMap["columnWidths"])),
       defaultColumnWidth: mxj2d(bo, jsonMap["defaultColumnWidth"],
               defaultValue: const FlexColumnWidth(1.0))
           .toDouble(),
-      textDirection: mxj2d(bo, jsonMap["textDirection"]),
+      textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
       border: mxj2d(bo, jsonMap["border"]),
       defaultVerticalAlignment: MXTableCellVerticalAlignment.parse(
           mxj2d(bo, jsonMap["defaultVerticalAlignment"]),
@@ -1015,14 +1019,14 @@ class MXProxyWrap extends MXJsonObjProxy {
           defaultValue: Axis.horizontal),
       alignment: MXWrapAlignment.parse(mxj2d(bo, jsonMap["alignment"]),
           defaultValue: WrapAlignment.start),
-      spacing: mxj2d(bo, jsonMap["spacing"], defaultValue: 0.0),
+      spacing: mxj2d(bo, jsonMap["spacing"], defaultValue: 0.0)?.toDouble(),
       runAlignment: MXWrapAlignment.parse(mxj2d(bo, jsonMap["runAlignment"]),
           defaultValue: WrapAlignment.start),
-      runSpacing: mxj2d(bo, jsonMap["runSpacing"], defaultValue: 0.0),
+      runSpacing: mxj2d(bo, jsonMap["runSpacing"], defaultValue: 0.0)?.toDouble(),
       crossAxisAlignment: MXWrapCrossAlignment.parse(
           mxj2d(bo, jsonMap["crossAxisAlignment"]),
           defaultValue: WrapCrossAlignment.start),
-      textDirection: mxj2d(bo, jsonMap["textDirection"]),
+      textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
       verticalDirection: MXVerticalDirection.parse(
           mxj2d(bo, jsonMap["verticalDirection"]),
           defaultValue: VerticalDirection.down),
@@ -1063,7 +1067,7 @@ class MXProxyListBody extends MXJsonObjProxy {
       mainAxis: MXAxis.parse(mxj2d(bo, jsonMap["mainAxis"]),
           defaultValue: Axis.vertical),
       reverse: mxj2d(bo, jsonMap["reverse"], defaultValue: false),
-      children: mxj2d(bo, jsonMap["children"]),
+      children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
     );
 
     return widget;
@@ -1098,8 +1102,9 @@ class MXProxyCustomMultiChildLayout extends MXJsonObjProxy {
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = CustomMultiChildLayout(
       key: mxj2d(bo, jsonMap["key"]),
+      //TODO:delegate
       delegate: null,
-      children: mxj2d(bo, jsonMap["children"]),
+      children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
     );
 
     return widget;
@@ -1175,14 +1180,14 @@ class MXProxyListView extends MXJsonObjProxy {
       physics: mxj2d(bo, jsonMap["physics"]),
       shrinkWrap: mxj2d(bo, jsonMap["shrinkWrap"], defaultValue: false),
       padding: mxj2d(bo, jsonMap["padding"]),
-      itemExtent: mxj2d(bo, jsonMap["itemExtent"]),
+      itemExtent: mxj2d(bo, jsonMap["itemExtent"])?.toDouble(),
       addAutomaticKeepAlives:
           mxj2d(bo, jsonMap["addAutomaticKeepAlives"], defaultValue: true),
       addRepaintBoundaries:
           mxj2d(bo, jsonMap["addRepaintBoundaries"], defaultValue: true),
       addSemanticIndexes:
           mxj2d(bo, jsonMap["addSemanticIndexes"], defaultValue: true),
-      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"]),
+      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
       children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
       semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
     );
@@ -1220,14 +1225,14 @@ class MXProxyListView extends MXJsonObjProxy {
       physics: mxj2d(bo, jsonMap["physics"]),
       shrinkWrap: mxj2d(bo, jsonMap["shrinkWrap"], defaultValue: false),
       padding: mxj2d(bo, jsonMap["padding"]),
-      itemExtent: mxj2d(bo, jsonMap["itemExtent"]),
+      itemExtent: mxj2d(bo, jsonMap["itemExtent"])?.toDouble(),
       addAutomaticKeepAlives:
           mxj2d(bo, jsonMap["addAutomaticKeepAlives"], defaultValue: true),
       addRepaintBoundaries:
           mxj2d(bo, jsonMap["addRepaintBoundaries"], defaultValue: true),
       addSemanticIndexes:
           mxj2d(bo, jsonMap["addSemanticIndexes"], defaultValue: true),
-      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"]),
+      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
       semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
       itemCount: mxj2d(bo, jsonMap["itemCount"]),
       itemBuilder: (BuildContext context, int index) {
@@ -1274,7 +1279,7 @@ class MXProxyListView extends MXJsonObjProxy {
           mxj2d(bo, jsonMap["addRepaintBoundaries"], defaultValue: true),
       addSemanticIndexes:
           mxj2d(bo, jsonMap["addSemanticIndexes"], defaultValue: true),
-      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"]),
+      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
       itemCount: mxj2d(bo, jsonMap["itemCount"]),
       itemBuilder: (BuildContext context, int index) {
         List<Widget> dataSource = mxj2d(bo, jsonMap["items"]);
@@ -1315,9 +1320,9 @@ class MXProxyListView extends MXJsonObjProxy {
       physics: mxj2d(bo, jsonMap["physics"]),
       shrinkWrap: mxj2d(bo, jsonMap["shrinkWrap"], defaultValue: false),
       padding: mxj2d(bo, jsonMap["padding"]),
-      itemExtent: mxj2d(bo, jsonMap["itemExtent"]),
+      itemExtent: mxj2d(bo, jsonMap["itemExtent"])?.toDouble(),
       semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
-      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"]),
+      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
       childrenDelegate: mxj2d(bo, jsonMap["childrenDelegate"]),
     );
 
@@ -1351,7 +1356,9 @@ class MXProxyLayoutBuilder extends MXJsonObjProxy {
   LayoutBuilder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
     var widget = LayoutBuilder(
       key: mxj2d(bo, jsonMap["key"]),
-      builder: (BuildContext context, BoxConstraints constraints) {},
+      builder: (BuildContext context, BoxConstraints constraints) {
+        //TODO:
+      },
     );
 
     return widget;
@@ -1403,24 +1410,24 @@ class MXProxyCustomScrollView extends MXJsonObjProxy {
   }
 
   @override
-  CustomScrollView constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var widget = CustomScrollView(
-      key: mxj2d(bo, jsonMap["key"]),
-      scrollDirection:
-          mxj2d(bo, jsonMap["scrollDirection"], defaultValue: Axis.vertical),
-      reverse: mxj2d(bo, jsonMap["reverse"], defaultValue: false),
-      controller: mxj2d(bo, jsonMap["controller"]),
-      primary: mxj2d(bo, jsonMap["primary"]),
-      physics: mxj2d(bo, jsonMap["physics"]),
-      shrinkWrap: mxj2d(bo, jsonMap["shrinkWrap"], defaultValue: false),
-      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"]),
-      slivers: toListT<Widget>(
-          mxj2d(bo, jsonMap["slivers"], defaultValue: const <Widget>[])),
-      semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
-    );
-    return widget;
-  }
+  CustomScrollView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = CustomScrollView(
+			key: mxj2d(bo, jsonMap["key"]),
+			scrollDirection: mxj2d(bo, jsonMap["scrollDirection"], defaultValue:Axis.vertical),
+			reverse: mxj2d(bo, jsonMap["reverse"], defaultValue:false),
+			controller: mxj2d(bo, jsonMap["controller"]),
+			primary: mxj2d(bo, jsonMap["primary"]),
+			physics: mxj2d(bo, jsonMap["physics"]),
+			shrinkWrap: mxj2d(bo, jsonMap["shrinkWrap"], defaultValue:false),
+			center: mxj2d(bo, jsonMap["center"]),
+			anchor: mxj2d(bo, jsonMap["anchor"], defaultValue:0.0)?.toDouble(),
+			cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
+			slivers: mxj2d(bo, jsonMap["slivers"], defaultValue:const <Widget>[]),
+			semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
+			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+		);
+		return widget;
+	}
 }
 
 class MXProxySliverAppBar extends MXJsonObjProxy {
@@ -1445,16 +1452,16 @@ class MXProxySliverAppBar extends MXJsonObjProxy {
       actions: toListT<Widget>(mxj2d(bo, jsonMap["actions"])),
       flexibleSpace: mxj2d(bo, jsonMap["flexibleSpace"]),
       bottom: mxj2d(bo, jsonMap["bottom"]),
-      elevation: mxj2d(bo, jsonMap["elevation"]),
+      elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
       forceElevated: mxj2d(bo, jsonMap["forceElevated"], defaultValue: false),
       backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
-      brightness: mxj2d(bo, jsonMap["brightness"]),
+      brightness: MXBrightness.parse(mxj2d(bo, jsonMap["brightness"])),
       iconTheme: mxj2d(bo, jsonMap["iconTheme"]),
       textTheme: mxj2d(bo, jsonMap["textTheme"]),
       primary: mxj2d(bo, jsonMap["primary"], defaultValue: true),
       centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
       titleSpacing: mxj2d(bo, jsonMap["titleSpacing"],
-          defaultValue: NavigationToolbar.kMiddleSpacing),
+          defaultValue: NavigationToolbar.kMiddleSpacing)?.toDouble(),
       expandedHeight: mxj2d(bo, jsonMap["expandedHeight"])?.toDouble(),
       floating: mxj2d(bo, jsonMap["floating"], defaultValue: false),
       pinned: mxj2d(bo, jsonMap["pinned"], defaultValue: false),
@@ -1718,7 +1725,7 @@ class MXProxyDecoratedBox extends MXJsonObjProxy {
 		var widget = DecoratedBox(
 			key: mxj2d(bo, jsonMap["key"]),
 			decoration: mxj2d(bo, jsonMap["decoration"]),
-			position: mxj2d(bo, jsonMap["position"], defaultValue:DecorationPosition.background),
+			position: MXDecorationPosition.parse(mxj2d(bo, jsonMap["position"], defaultValue:DecorationPosition.background)),
 			child: mxj2d(bo, jsonMap["child"]),
 		);
 		return widget;
@@ -1740,5 +1747,31 @@ class MXProxySliverList extends MXJsonObjProxy {
 			delegate: mxj2d(bo, jsonMap["delegate"]),
 		);
 		return widget;
+	}
+}
+
+class MXDragStartBehavior  {
+	static Map str2VMap =  {
+			"DragStartBehavior.down": DragStartBehavior.down,
+			"DragStartBehavior.start": DragStartBehavior.start};
+
+	static DragStartBehavior parse(String valueStr,{DragStartBehavior defaultValue }) {
+		if(valueStr == null) return defaultValue;
+		valueStr = valueStr.trim();
+		var v = str2VMap[valueStr];
+		return v??defaultValue;
+	}
+}
+
+class MXDecorationPosition  {
+	static Map str2VMap =  {
+			"DecorationPosition.background": DecorationPosition.background,
+			"DecorationPosition.foreground": DecorationPosition.foreground}; 
+
+	static DecorationPosition parse(String valueStr,{DecorationPosition defaultValue }) {
+		if(valueStr == null) return defaultValue;
+		valueStr = valueStr.trim();
+		var v = str2VMap[valueStr];
+		return v??defaultValue;
 	}
 }

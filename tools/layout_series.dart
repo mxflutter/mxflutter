@@ -285,10 +285,13 @@ const SizedOverflowBox({
     bool primary,
     ScrollPhysics physics,
     bool shrinkWrap = false,
+    Key center,
+    double anchor = 0.0,
     double cacheExtent,
     this.slivers = const <Widget>[],
     int semanticChildCount,
-  }) 
+    DragStartBehavior dragStartBehavior = DragStartBehavior.down,
+  })
 """
 ,
 """
@@ -427,8 +430,46 @@ const SliverList({
     this.transform,
     this.child,
   })
+""",
 """
-,
+  const CustomScrollView({
+    Key key,
+    Axis scrollDirection = Axis.vertical,
+    bool reverse = false,
+    ScrollController controller,
+    bool primary,
+    ScrollPhysics physics,
+    bool shrinkWrap = false,
+    Key center,
+    double anchor = 0.0,
+    double cacheExtent,
+    this.slivers = const <Widget>[],
+    int semanticChildCount,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.down,
+  })
+  """,
+
+  """
+  enum DragStartBehavior {
+  /// Set the initial offset, at the position where the first down even was
+  /// detected.
+  down,
+
+  /// Set the initial position at the position where the drag start event was
+  /// detected.
+  start,
+  }
+  """,
+
+  """
+  enum DecorationPosition {
+  /// Paint the box decoration behind the children.
+  background,
+
+  /// Paint the box decoration in front of the children.
+  foreground,
+  }
+  """,
 ];
 
 void main(List<String> arguments) {
@@ -440,7 +481,7 @@ void main(List<String> arguments) {
 }
 
 String translate(String src) {
-  print(translateDartFlutter(src));
-  // print(translateDart(src));
-  // print(translateJS(src));
+  // print(translateDartFlutter(src));
+  print(translateDart(src));
+  print(translateJS(src));
 }

@@ -589,7 +589,7 @@ class LayoutBuilder extends FlutterWidget {
 }
 
 class CustomScrollView extends FlutterWidget {
-    constructor({
+    constructor ({
         key,
         scrollDirection,
         reverse,
@@ -597,9 +597,12 @@ class CustomScrollView extends FlutterWidget {
         primary,
         physics,
         shrinkWrap,
+        center,
+        anchor,
         cacheExtent,
         slivers,
         semanticChildCount,
+        dragStartBehavior,
     } = {}) {
         super();
 
@@ -610,9 +613,12 @@ class CustomScrollView extends FlutterWidget {
         this.primary = primary;
         this.physics = physics;
         this.shrinkWrap = shrinkWrap;
+        this.center = center;
+        this.anchor = anchor;
         this.cacheExtent = cacheExtent;
         this.slivers = slivers;
         this.semanticChildCount = semanticChildCount;
+        this.dragStartBehavior = dragStartBehavior;
     }
 }
 
@@ -865,6 +871,16 @@ HitTestBehavior = {
     translucent: "HitTestBehavior.translucent",
 };
 
+DragStartBehavior = {
+    down: "DragStartBehavior.down",
+    start: "DragStartBehavior.start",
+};
+
+DecorationPosition = {
+    background: "DecorationPosition.background",
+    foreground: "DecorationPosition.foreground",
+};
+
 
 module.exports = {
     Center,
@@ -908,4 +924,6 @@ module.exports = {
     DecoratedBox,
     SliverList,
     HitTestBehavior,
+    DragStartBehavior,
+    DecorationPosition,
 };
