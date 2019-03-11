@@ -312,6 +312,18 @@ class MXJsonObjProxy {
     return result;
   }
 
+  Map<String, T> toMapStringT<T>(Map map) {
+    Map<String, T> result = map?.map((k, v) {
+      if (v.runtimeType == T) {
+        return MapEntry<String, T>(k, v);
+      }
+      else {
+        MXJSLog.error("toMapStringT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+      }
+    });
+    return result;
+  }
+
   double toDouble(obj) {
     if (obj == null) {
       return 0.0;
