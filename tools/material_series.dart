@@ -439,15 +439,30 @@ const PopupMenuItem({
     @required this.child,
   }
   """,
+
+  """
+  enum MaterialTapTargetSize {
+  /// Expands the minimum tap target size to 48px by 48px.
+  ///
+  /// This is the default value of [ThemeData.materialHitTestSize] and the
+  /// recommended size to conform to Android accessibility scanner
+  /// recommendations.
+  padded,
+
+  /// Shrinks the tap target size to the minimum provided by the Material
+  /// specification.
+  shrinkWrap,
+}
+  """,
 ];
 
 void main(List<String> arguments) {
 
   //打印输出所有
-  list.map(translate).toList().join('\n\n\n');
+  // list.map(translate).toList().join('\n\n\n');
 
   //打印输出最后一个
-  // translate(list.last);
+  translate(list.last);
 }
 
 String translate(String src) {

@@ -815,6 +815,11 @@ class SafeArea extends FlutterWidget {
     }
 }
 
+MaterialTapTargetSize = {
+    padded: "MaterialTapTargetSize.padded",
+    shrinkWrap: "MaterialTapTargetSize.shrinkWrap",
+};
+
 
 module.exports = {
     MaterialApp,
@@ -841,4 +846,5 @@ module.exports = {
     RawMaterialButton,
     CircleBorder,
     SafeArea,
+    MaterialTapTargetSize
 };

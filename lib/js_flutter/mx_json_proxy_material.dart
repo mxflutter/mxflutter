@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
+import 'mx_json_proxy_text.dart';
 import 'dart:convert';
 
 
@@ -62,23 +63,23 @@ class MXProxyMaterialApp extends MXJsonObjProxy {
 	MaterialApp constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
 		var widget = MaterialApp(
 			key: mxj2d(bo, jsonMap["key"]),
-			navigatorKey: mxj2d(bo, jsonMap["navigatorKey"]),
+			navigatorKey: mxj2d(bo, jsonMap["navigatorKey"]), //TODO:navigationKey
 			home: mxj2d(bo, jsonMap["home"]),
-			routes: mxj2d(bo, jsonMap["routes"], defaultValue:const <String, WidgetBuilder>{}),
+			routes: toMapStringT<WidgetBuilder>(mxj2d(bo, jsonMap["routes"], defaultValue:const <String, WidgetBuilder>{})), //TODO:routes
 			initialRoute: mxj2d(bo, jsonMap["initialRoute"]),
-			onGenerateRoute: mxj2d(bo, jsonMap["onGenerateRoute"]),
-			onUnknownRoute: mxj2d(bo, jsonMap["onUnknownRoute"]),
-			navigatorObservers: mxj2d(bo, jsonMap["navigatorObservers"], defaultValue:const <NavigatorObserver>[]),
-			builder: mxj2d(bo, jsonMap["builder"]),
+			onGenerateRoute: mxj2d(bo, jsonMap["onGenerateRoute"]), //TODO:onGenerateRoute
+			onUnknownRoute: mxj2d(bo, jsonMap["onUnknownRoute"]), //TODO:onUnknownRoute
+			navigatorObservers: toListT<NavigatorObserver>(mxj2d(bo, jsonMap["navigatorObservers"], defaultValue:const <NavigatorObserver>[])),
+			builder: mxj2d(bo, jsonMap["builder"]), //TODO:builder
 			title: mxj2d(bo, jsonMap["title"], defaultValue:''),
-			onGenerateTitle: mxj2d(bo, jsonMap["onGenerateTitle"]),
+			onGenerateTitle: mxj2d(bo, jsonMap["onGenerateTitle"]), //TODO:onGenerateTitle
 			color: mxj2d(bo, jsonMap["color"]),
 			theme: mxj2d(bo, jsonMap["theme"]),
 			locale: mxj2d(bo, jsonMap["locale"]),
-			localizationsDelegates: mxj2d(bo, jsonMap["localizationsDelegates"]),
-			localeListResolutionCallback: mxj2d(bo, jsonMap["localeListResolutionCallback"]),
-			localeResolutionCallback: mxj2d(bo, jsonMap["localeResolutionCallback"]),
-			supportedLocales: mxj2d(bo, jsonMap["supportedLocales"], defaultValue: const <Locale>[Locale('en', 'US')]),
+			localizationsDelegates: mxj2d(bo, jsonMap["localizationsDelegates"]), //TODO:localizationsDelegates
+			localeListResolutionCallback: mxj2d(bo, jsonMap["localeListResolutionCallback"]),  //TODO:localeResolutionCallback
+			localeResolutionCallback: mxj2d(bo, jsonMap["localeResolutionCallback"]), //TODO:localeResolutionCallback
+			supportedLocales: mxj2d(bo, jsonMap["supportedLocales"], defaultValue: const <Locale>[Locale('en', 'US')]),  //TODO:supportedLocales
 			debugShowMaterialGrid: mxj2d(bo, jsonMap["debugShowMaterialGrid"], defaultValue:false),
 			showPerformanceOverlay: mxj2d(bo, jsonMap["showPerformanceOverlay"], defaultValue:false),
 			checkerboardRasterCacheImages: mxj2d(bo, jsonMap["checkerboardRasterCacheImages"], defaultValue:false),
@@ -138,7 +139,7 @@ class MXProxyScaffold extends MXJsonObjProxy {
       floatingActionButton: mxj2d(bo,jsonMap["floatingActionButton"]),
       floatingActionButtonLocation: mxj2d(bo,jsonMap["floatingActionButtonLocation"]),
       floatingActionButtonAnimator: mxj2d(bo,jsonMap["floatingActionButtonAnimator"]),
-      persistentFooterButtons: mxj2d(bo,jsonMap["persistentFooterButtons"]),
+      persistentFooterButtons: toListT<Widget>(mxj2d(bo,jsonMap["persistentFooterButtons"])),
 
       drawer: mxj2d(bo,jsonMap["drawer"]),
       endDrawer: mxj2d(bo,jsonMap["endDrawer"]),
@@ -211,12 +212,12 @@ class MXProxyAppBar extends MXJsonObjProxy {
       bottom: mxj2d(bo, jsonMap["bottom"]),
       elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 4.0)?.toDouble(),
       backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
-      brightness: mxj2d(bo, jsonMap["brightness"]),
+      brightness: MXBrightness.parse(mxj2d(bo, jsonMap["brightness"])),
       iconTheme: mxj2d(bo, jsonMap["iconTheme"]),
       textTheme: mxj2d(bo, jsonMap["textTheme"]),
       primary: mxj2d(bo, jsonMap["primary"], defaultValue: true),
       centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
-      titleSpacing: mxj2d(bo, jsonMap["titleSpacing"], defaultValue: NavigationToolbar.kMiddleSpacing),
+      titleSpacing: mxj2d(bo, jsonMap["titleSpacing"], defaultValue: NavigationToolbar.kMiddleSpacing)?.toDouble(),
       toolbarOpacity: mxj2d(bo, jsonMap["toolbarOpacity"], defaultValue: 1.0)?.toDouble(),
       bottomOpacity: mxj2d(bo, jsonMap["bottomOpacity"], defaultValue: 1.0)?.toDouble(),
     );
@@ -241,10 +242,10 @@ class MXProxyBottomAppBar extends MXJsonObjProxy {
     var widget = BottomAppBar (
       key: mxj2d(bo, jsonMap["key"]),
       color: mxj2d(bo, jsonMap["color"]),
-      elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 8.0),
+      elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 8.0)?.toDouble(),
       shape: mxj2d(bo, jsonMap["shape"]),
       clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none) ,
-      notchMargin: mxj2d(bo, jsonMap["notchMargin"], defaultValue: 4.0),
+      notchMargin: mxj2d(bo, jsonMap["notchMargin"], defaultValue: 4.0)?.toDouble(),
       child: mxj2d(bo, jsonMap["child"]),
     );
     return widget;
@@ -312,12 +313,12 @@ class MXProxyBottomNavigationBar extends MXJsonObjProxy {
   BottomNavigationBar constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
     var widget = BottomNavigationBar(
       key: mxj2d(bo, jsonMap["key"]),
-      items: List<BottomNavigationBarItem>.from(mxj2d(bo, jsonMap["items"])),
+      items: toListT<BottomNavigationBarItem>(mxj2d(bo, jsonMap["items"])),
       onTap: createOnTapHandle(bo, mxj2d(bo, jsonMap["onTap"])),
       currentIndex: mxj2d(bo, jsonMap["currentIndex"], defaultValue: 0),
       type: MXBottomNavigationBarType.parse(mxj2d(bo, jsonMap["type"])),
       fixedColor: mxj2d(bo, jsonMap["fixedColor"]),
-      iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0),
+      iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0)?.toDouble(),
     );
 
     return widget;
@@ -342,11 +343,11 @@ class MXProxyTabBar extends MXJsonObjProxy {
   TabBar constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
     var widget = TabBar (
       key: mxj2d(bo, jsonMap["key"]),
-      tabs: List<Widget>.from(mxj2d(bo, jsonMap["tabs"])),
+      tabs: toListT<Widget>(mxj2d(bo, jsonMap["tabs"])),
       controller: mxj2d(bo, jsonMap["controller"]),
       isScrollable: mxj2d(bo, jsonMap["isScrollable"], defaultValue: false),
       indicatorColor: mxj2d(bo, jsonMap["indicatorColor"]),
-      indicatorWeight: mxj2d(bo, jsonMap["indicatorWeight"], defaultValue: 2.0),
+      indicatorWeight: mxj2d(bo, jsonMap["indicatorWeight"], defaultValue: 2.0)?.toDouble(),
       indicatorPadding: mxj2d(bo, jsonMap["indicatorPadding"], defaultValue: EdgeInsets.zero),
       indicator: mxj2d(bo, jsonMap["indicator"]),
       indicatorSize: MXTabBarIndicatorSize.parse(mxj2d(bo, jsonMap["indicatorSize"])),
@@ -472,16 +473,16 @@ class MXProxyRawMaterialButton extends MXJsonObjProxy {
       fillColor: mxj2d(bo,jsonMap["fillColor"]),
       highlightColor: mxj2d(bo,jsonMap["highlightColor"]),
       splashColor: mxj2d(bo,jsonMap["splashColor"]),
-      elevation: mxj2d(bo,jsonMap["elevation"], defaultValue: 2.0),
-      highlightElevation: mxj2d(bo,jsonMap["highlightElevation"],defaultValue: 8.0),
-      disabledElevation: mxj2d(bo,jsonMap["disabledElevation"],defaultValue: 0.0),
+      elevation: mxj2d(bo,jsonMap["elevation"], defaultValue: 2.0)?.toDouble(),
+      highlightElevation: mxj2d(bo,jsonMap["highlightElevation"],defaultValue: 8.0)?.toDouble(),
+      disabledElevation: mxj2d(bo,jsonMap["disabledElevation"],defaultValue: 0.0)?.toDouble(),
       padding: mxj2d(bo,jsonMap["padding"],defaultValue: EdgeInsets.zero),
 
       constraints: mxj2d(bo,jsonMap["constraints"],defaultValue: const BoxConstraints(minWidth: 88.0, minHeight: 36.0)),
       shape: mxj2d(bo,jsonMap["shape"],defaultValue: const RoundedRectangleBorder()),
       animationDuration: mxj2d(bo,jsonMap["animationDuration"],defaultValue: kThemeChangeDuration),
       clipBehavior: MXClip.parse(mxj2d(bo,jsonMap["clipBehavior"]), defaultValue: Clip.none),
-      materialTapTargetSize: mxj2d(bo,jsonMap["materialTapTargetSize"]),
+      materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
       child: mxj2d(bo,jsonMap["child"]),
     );
 
@@ -561,19 +562,19 @@ class MXProxyMaterialButton extends MXJsonObjProxy {
 
       highlightColor: mxj2d(bo,jsonMap["highlightColor"]),
       splashColor: mxj2d(bo,jsonMap["splashColor"]),
-      colorBrightness: mxj2d(bo,jsonMap["colorBrightness"]),
-      elevation: mxj2d(bo,jsonMap["elevation"]),
-      highlightElevation: mxj2d(bo,jsonMap["highlightElevation"]),
+      colorBrightness: MXBrightness.parse(mxj2d(bo,jsonMap["colorBrightness"])),
+      elevation: mxj2d(bo,jsonMap["elevation"])?.toDouble(),
+      highlightElevation: mxj2d(bo,jsonMap["highlightElevation"])?.toDouble(),
 
-      disabledElevation: mxj2d(bo,jsonMap["disabledElevation"]),
+      disabledElevation: mxj2d(bo,jsonMap["disabledElevation"])?.toDouble(),
       padding: mxj2d(bo,jsonMap["padding"]),
       shape: mxj2d(bo,jsonMap["shape"]),
       clipBehavior: MXClip.parse(mxj2d(bo,jsonMap["clipBehavior"]), defaultValue: Clip.none),
-      materialTapTargetSize: mxj2d(bo,jsonMap["materialTapTargetSize"]),
+      materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
 
       animationDuration: mxj2d(bo,jsonMap["animationDuration"]),
-      minWidth: mxj2d(bo,jsonMap["minWidth"]),
-      height: mxj2d(bo,jsonMap["height"]),
+      minWidth: mxj2d(bo,jsonMap["minWidth"])?.toDouble(),
+      height: mxj2d(bo,jsonMap["height"])?.toDouble(),
       child: mxj2d(bo,jsonMap["child"]),
 
     );
@@ -643,11 +644,11 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
         highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
         splashColor: mxj2d(bo, jsonMap["splashColor"]),
-        colorBrightness: mxj2d(bo, jsonMap["colorBrightness"]),
+        colorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
         padding: mxj2d(bo, jsonMap["padding"]),
         shape: mxj2d(bo, jsonMap["shape"]),
         clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none),
-        materialTapTargetSize: mxj2d(bo, jsonMap["materialTapTargetSize"]),
+        materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
         child: mxj2d(bo, jsonMap["child"])
       );
 
@@ -663,14 +664,14 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
         highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
         splashColor: mxj2d(bo, jsonMap["splashColor"]),
-        colorBrightness: mxj2d(bo, jsonMap["colorBrightness"]),
-        elevation: mxj2d(bo, jsonMap["elevation"]),
-        highlightElevation: mxj2d(bo, jsonMap["highlightElevation"]),
-        disabledElevation: mxj2d(bo, jsonMap["disabledElevation"]),
+        colorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
+        elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
+        highlightElevation: mxj2d(bo, jsonMap["highlightElevation"])?.toDouble(),
+        disabledElevation: mxj2d(bo, jsonMap["disabledElevation"])?.toDouble(),
         padding: mxj2d(bo, jsonMap["padding"]),
         shape: mxj2d(bo, jsonMap["shape"]),
         clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none),
-        materialTapTargetSize: mxj2d(bo, jsonMap["materialTapTargetSize"]),
+        materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
         animationDuration: mxj2d(bo, jsonMap["animationDuration"]),
         child: mxj2d(bo, jsonMap["child"]),
       );
@@ -682,21 +683,21 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         tooltip: mxj2d(bo, jsonMap["tooltip"]),
         foregroundColor: mxj2d(bo, jsonMap["foregroundColor"]),
         backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
-        heroTag: mxj2d(bo, jsonMap["heroTag"]),   // TODO defaultValue
-        elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 6.0),
-        highlightElevation: mxj2d(bo, jsonMap["highlightElevation"], defaultValue: 12.0),
+        heroTag: mxj2d(bo, jsonMap["heroTag"]),   // TODO: defaultValue
+        elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 6.0)?.toDouble(),
+        highlightElevation: mxj2d(bo, jsonMap["highlightElevation"], defaultValue: 12.0?.toDouble()),
         onPressed: createEventHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
         mini: mxj2d(bo, jsonMap["mini"], defaultValue: false),
         shape: mxj2d(bo, jsonMap["shape"], defaultValue: const CircleBorder()),
-        clipBehavior: mxj2d(bo, jsonMap["clipBehavior"], defaultValue: Clip.none),
-        materialTapTargetSize: mxj2d(bo, jsonMap["materialTapTargetSize"]),
+        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"], defaultValue: Clip.none)),
+        materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
         isExtended: mxj2d(bo, jsonMap["isExtended"], defaultValue: false),
       );
 
   Widget constructorIconButton(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) =>
       IconButton(
         key: mxj2d(bo, jsonMap["key"]),
-        iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0),
+        iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0)?.toDouble(),
         padding: mxj2d(bo, jsonMap["padding"], defaultValue: const EdgeInsets.all(8.0)),
         alignment: mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
         icon: mxj2d(bo, jsonMap["icon"]),
@@ -718,7 +719,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         onChanged: createValueChangedGenericHandle(bo, mxj2d(bo, jsonMap["onChanged"])),
         elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 8),
         style: mxj2d(bo, jsonMap["style"]),
-        iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0),
+        iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0)?.toDouble(),
         isDense: mxj2d(bo, jsonMap["isDense"], defaultValue: false),
         isExpanded: mxj2d(bo, jsonMap["isExpanded"], defaultValue: false),
       );
@@ -745,7 +746,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
           return cb;
         },
         tooltip: mxj2d(bo, jsonMap["tooltip"]),
-        elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 8.0),
+        elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 8.0)?.toDouble(),
         padding: mxj2d(bo, jsonMap["padding"], defaultValue: const EdgeInsets.all(8.0)),
         child: mxj2d(bo, jsonMap["child"]),
         icon: mxj2d(bo, jsonMap["icon"]),
@@ -796,10 +797,10 @@ class MXProxyIcon extends MXJsonObjProxy {
     var widget = Icon(
       mxj2d(bo, jsonMap["icon"]),
       key: mxj2d(bo, jsonMap["key"]),
-      size: mxj2d(bo, jsonMap["size"]),
+      size: mxj2d(bo, jsonMap["size"])?.toDouble(),
       color: mxj2d(bo, jsonMap["color"]),
       semanticLabel: mxj2d(bo, jsonMap["semanticLabel"]),
-      textDirection: mxj2d(bo, jsonMap["textDirection"]),
+      textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
     );
 
     return widget;
@@ -819,10 +820,10 @@ class MXProxyHero extends MXJsonObjProxy {
 		var widget = Hero(
 			key: mxj2d(bo, jsonMap["key"]),
 			tag: mxj2d(bo, jsonMap["tag"]),
-			createRectTween: mxj2d(bo, jsonMap["createRectTween"]),
-			flightShuttleBuilder: mxj2d(bo, jsonMap["flightShuttleBuilder"]),
-			placeholderBuilder: mxj2d(bo, jsonMap["placeholderBuilder"]),
-			transitionOnUserGestures: mxj2d(bo, jsonMap["transitionOnUserGestures"], defaultValue:false),
+			createRectTween: mxj2d(bo, jsonMap["createRectTween"]), //TODO:createRectTween
+			flightShuttleBuilder: mxj2d(bo, jsonMap["flightShuttleBuilder"]), //TODO:flightShuttleBuilder
+			placeholderBuilder: mxj2d(bo, jsonMap["placeholderBuilder"]), //TODO:placeholderBuilder
+			transitionOnUserGestures: mxj2d(bo, jsonMap["transitionOnUserGestures"], defaultValue:false), 
 			child: mxj2d(bo, jsonMap["child"]),
 		);
 		return widget;
@@ -842,10 +843,10 @@ class MXProxyCard extends MXJsonObjProxy {
 		var widget = Card(
 			key: mxj2d(bo, jsonMap["key"]),
 			color: mxj2d(bo, jsonMap["color"]),
-			elevation: mxj2d(bo, jsonMap["elevation"]),
+			elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
 			shape: mxj2d(bo, jsonMap["shape"]),
 			margin: mxj2d(bo, jsonMap["margin"], defaultValue:const EdgeInsets.all(4.0)),
-			clipBehavior: mxj2d(bo, jsonMap["clipBehavior"], defaultValue:Clip.none),
+			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"], defaultValue:Clip.none)),
 			child: mxj2d(bo, jsonMap["child"]),
 			semanticContainer: mxj2d(bo, jsonMap["semanticContainer"], defaultValue:true),
 		);
@@ -885,7 +886,7 @@ class MXProxyPopupMenuItem extends MXJsonObjProxy {
 			key: mxj2d(bo, jsonMap["key"]),
 			value: mxj2d(bo, jsonMap["value"]),
 			enabled: mxj2d(bo, jsonMap["enabled"], defaultValue:true),
-			height: mxj2d(bo, jsonMap["height"], defaultValue:48.0),
+			height: mxj2d(bo, jsonMap["height"], defaultValue:48.0)?.toDouble(),
 			child: mxj2d(bo, jsonMap["child"]),
 		);
 		return widget;
@@ -907,7 +908,7 @@ class MXProxyFlexibleSpaceBar extends MXJsonObjProxy {
 			title: mxj2d(bo, jsonMap["title"]),
 			background: mxj2d(bo, jsonMap["background"]),
 			centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
-			collapseMode: mxj2d(bo, jsonMap["collapseMode"], defaultValue:CollapseMode.parallax),
+			collapseMode: MXCollapseMode.parse(mxj2d(bo, jsonMap["collapseMode"], defaultValue:CollapseMode.parallax)),
 		);
 		return widget;
 	}
@@ -1007,7 +1008,7 @@ class MXProxyRadio extends MXJsonObjProxy {
 			groupValue:  groupValue,
 			onChanged: createValueChangedDynamicHandle(bo, mxj2d(bo,jsonMap["onChanged"])),
 			activeColor: mxj2d(bo, jsonMap["activeColor"]),
-			materialTapTargetSize: mxj2d(bo, jsonMap["materialTapTargetSize"]),
+			materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
 		);
 		return widget;
 	}
@@ -1051,26 +1052,26 @@ class MXProxySemantics extends MXJsonObjProxy {
 			hint: mxj2d(bo, jsonMap["hint"]),
 			onTapHint: mxj2d(bo, jsonMap["onTapHint"]),
 			onLongPressHint: mxj2d(bo, jsonMap["onLongPressHint"]),
-			textDirection: mxj2d(bo, jsonMap["textDirection"]),
+			textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
 			sortKey: mxj2d(bo, jsonMap["sortKey"]),
-			onTap: mxj2d(bo, jsonMap["onTap"]),
-			onLongPress: mxj2d(bo, jsonMap["onLongPress"]),
-			onScrollLeft: mxj2d(bo, jsonMap["onScrollLeft"]),
-			onScrollRight: mxj2d(bo, jsonMap["onScrollRight"]),
-			onScrollUp: mxj2d(bo, jsonMap["onScrollUp"]),
-			onScrollDown: mxj2d(bo, jsonMap["onScrollDown"]),
-			onIncrease: mxj2d(bo, jsonMap["onIncrease"]),
-			onDecrease: mxj2d(bo, jsonMap["onDecrease"]),
-			onCopy: mxj2d(bo, jsonMap["onCopy"]),
-			onCut: mxj2d(bo, jsonMap["onCut"]),
-			onPaste: mxj2d(bo, jsonMap["onPaste"]),
-			onDismiss: mxj2d(bo, jsonMap["onDismiss"]),
-			onMoveCursorForwardByCharacter: mxj2d(bo, jsonMap["onMoveCursorForwardByCharacter"]),
-			onMoveCursorBackwardByCharacter: mxj2d(bo, jsonMap["onMoveCursorBackwardByCharacter"]),
-			onSetSelection: mxj2d(bo, jsonMap["onSetSelection"]),
-			onDidGainAccessibilityFocus: mxj2d(bo, jsonMap["onDidGainAccessibilityFocus"]),
-			onDidLoseAccessibilityFocus: mxj2d(bo, jsonMap["onDidLoseAccessibilityFocus"]),
-			customSemanticsActions: mxj2d(bo, jsonMap["customSemanticsActions"]),
+			onTap: mxj2d(bo, jsonMap["onTap"]),   //TODO:
+			onLongPress: mxj2d(bo, jsonMap["onLongPress"]), //TODO:
+			onScrollLeft: mxj2d(bo, jsonMap["onScrollLeft"]),//TODO:
+			onScrollRight: mxj2d(bo, jsonMap["onScrollRight"]),//TODO:
+			onScrollUp: mxj2d(bo, jsonMap["onScrollUp"]),//TODO:
+			onScrollDown: mxj2d(bo, jsonMap["onScrollDown"]),//TODO:
+			onIncrease: mxj2d(bo, jsonMap["onIncrease"]),//TODO:
+			onDecrease: mxj2d(bo, jsonMap["onDecrease"]),//TODO:
+			onCopy: mxj2d(bo, jsonMap["onCopy"]),//TODO:
+			onCut: mxj2d(bo, jsonMap["onCut"]),//TODO:
+			onPaste: mxj2d(bo, jsonMap["onPaste"]),//TODO:
+			onDismiss: mxj2d(bo, jsonMap["onDismiss"]),//TODO:
+			onMoveCursorForwardByCharacter: mxj2d(bo, jsonMap["onMoveCursorForwardByCharacter"]),//TODO:
+			onMoveCursorBackwardByCharacter: mxj2d(bo, jsonMap["onMoveCursorBackwardByCharacter"]),//TODO:
+			onSetSelection: mxj2d(bo, jsonMap["onSetSelection"]),//TODO:
+			onDidGainAccessibilityFocus: mxj2d(bo, jsonMap["onDidGainAccessibilityFocus"]),//TODO:
+			onDidLoseAccessibilityFocus: mxj2d(bo, jsonMap["onDidLoseAccessibilityFocus"]),//TODO:
+			customSemanticsActions: mxj2d(bo, jsonMap["customSemanticsActions"]),//TODO:
 		);
 		return widget;
 	}
@@ -1113,5 +1114,18 @@ class MXProxySafeArea extends MXJsonObjProxy {
 			child: mxj2d(bo, jsonMap["child"]),
 		);
 		return widget;
+	}
+}
+
+class MXMaterialTapTargetSize  {
+	static Map str2VMap =  {
+			"MaterialTapTargetSize.padded": MaterialTapTargetSize.padded,
+			"MaterialTapTargetSize.shrinkWrap": MaterialTapTargetSize.shrinkWrap}; 
+
+	static MaterialTapTargetSize parse(String valueStr,{MaterialTapTargetSize defaultValue }) {
+		if(valueStr == null) return defaultValue;
+		valueStr = valueStr.trim();
+		var v = str2VMap[valueStr];
+		return v??defaultValue;
 	}
 }
