@@ -1422,7 +1422,7 @@ class MXProxyCustomScrollView extends MXJsonObjProxy {
 			center: mxj2d(bo, jsonMap["center"]),
 			anchor: mxj2d(bo, jsonMap["anchor"], defaultValue:0.0)?.toDouble(),
 			cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
-			slivers: mxj2d(bo, jsonMap["slivers"], defaultValue:const <Widget>[]),
+			slivers: toListT<Widget>(mxj2d(bo, jsonMap["slivers"], defaultValue:const <Widget>[])),
 			semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
 			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
 		);
@@ -1725,7 +1725,7 @@ class MXProxyDecoratedBox extends MXJsonObjProxy {
 		var widget = DecoratedBox(
 			key: mxj2d(bo, jsonMap["key"]),
 			decoration: mxj2d(bo, jsonMap["decoration"]),
-			position: MXDecorationPosition.parse(mxj2d(bo, jsonMap["position"], defaultValue:DecorationPosition.background)),
+			position: MXDecorationPosition.parse(mxj2d(bo, jsonMap["position"]), defaultValue:DecorationPosition.background),
 			child: mxj2d(bo, jsonMap["child"]),
 		);
 		return widget;

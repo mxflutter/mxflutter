@@ -288,6 +288,13 @@ class Image extends FlutterWidget {
 
 }
 
+ImageRepeat = {
+    repeat: "ImageRepeat.repeat",
+    repeatX: "ImageRepeat.repeatX",
+    repeatY: "ImageRepeat.repeatY",
+    noRepeat: "ImageRepeat.noRepeat",
+};
+
 module.exports = {
     AssetImage,
     ExactAssetImage,
@@ -295,4 +302,5 @@ module.exports = {
     MemoryImage,
     NetworkImage,
     Image,
+    ImageRepeat,
 };

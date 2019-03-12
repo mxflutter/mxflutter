@@ -147,19 +147,36 @@ Image.network(
     this.gaplessPlayback = false,
     this.filterQuality = FilterQuality.low,
   }) 
+  """,
+
   """
+  enum ImageRepeat {
+  /// Repeat the image in both the x and y directions until the box is filled.
+  repeat,
+
+  /// Repeat the image in the x direction until the box is filled horizontally.
+  repeatX,
+
+  /// Repeat the image in the y direction until the box is filled vertically.
+  repeatY,
+
+  /// Leave uncovered portions of the box transparent.
+  noRepeat,
+  }
+""",
+
 ];
 
 void main(List<String> arguments) {
 
   //打印输出所有
-  list.map(translate).toList().join('\n\n\n');
+  // list.map(translate).toList().join('\n\n\n');
 
   //打印输出最后一个
-  //translate(list.last);
+  translate(list.last);
 }
 
 String translate(String src) {
-  //print(translateDart(src));
+  print(translateDart(src));
   print(translateJS(src));
 }

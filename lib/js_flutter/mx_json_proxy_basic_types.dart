@@ -755,8 +755,7 @@ class MXProxyShader extends MXJsonObjProxy {
         radius: mxj2d(bo, jsonMap["radius"], defaultValue: 0.5)?.toDouble(),
         colors: toListT<Color>(mxj2d(bo, jsonMap["colors"])),
         stops: toListT<double>(mxj2d(bo, jsonMap["stops"])),
-        tileMode: MXTileMode.parse(
-            mxj2d(bo, jsonMap["tileMode"], defaultValue: TileMode.clamp)),
+        tileMode: MXTileMode.parse(mxj2d(bo, jsonMap["tileMode"]), defaultValue: TileMode.clamp),
         focal: mxj2d(bo, jsonMap["focal"]),
         focalRadius: mxj2d(bo, jsonMap["focalRadius"])?.toDouble());
 
@@ -771,8 +770,7 @@ class MXProxyShader extends MXJsonObjProxy {
       endAngle: mxj2d(bo, jsonMap["endAngle"], defaultValue: math.pi * 2)?.toDouble(),
       colors: toListT<Color>(mxj2d(bo, jsonMap["colors"])),
       stops: toListT<double>(mxj2d(bo, jsonMap["stops"])),
-      tileMode: MXTileMode.parse(
-          mxj2d(bo, jsonMap["tileMode"], defaultValue: TileMode.clamp)),
+      tileMode: MXTileMode.parse(mxj2d(bo, jsonMap["tileMode"]), defaultValue: TileMode.clamp),
     );
 
     return obj;
@@ -1255,8 +1253,7 @@ class MXProxyTableBorder extends MXJsonObjProxy {
     var obj = TableBorder.all(
       color: mxj2d(bo, jsonMap["color"], defaultValue: const Color(0xFF000000)),
       width: mxj2d(bo, jsonMap["width"], defaultValue: 1.0)?.toDouble(),
-      style: MXBorderStyle.parse(mxj2d(bo, jsonMap["width"]),
-          defaultValue: BorderStyle.solid),
+      style: MXBorderStyle.parse(mxj2d(bo, jsonMap["width"]), defaultValue: BorderStyle.solid),
     );
 
     return obj;
@@ -1298,8 +1295,7 @@ class MXProxyBorderSide extends MXJsonObjProxy {
     var obj = BorderSide(
       color: mxj2d(bo, jsonMap["color"], defaultValue: const Color(0xFF000000)),
       width: mxj2d(bo, jsonMap["width"], defaultValue: 1.0)?.toDouble(),
-      style: MXBorderStyle.parse(mxj2d(bo, jsonMap["style"]),
-          defaultValue: BorderStyle.solid),
+      style: MXBorderStyle.parse(mxj2d(bo, jsonMap["style"]), defaultValue: BorderStyle.solid),
     );
     return obj;
   }

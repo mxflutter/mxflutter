@@ -176,14 +176,14 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"], defaultValue: ImageRepeat.noRepeat)),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
       filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"], defaultValue: FilterQuality.low)),
+          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
     );
     return widget;
   }
@@ -203,14 +203,14 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"], defaultValue: ImageRepeat.noRepeat)),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
       filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"], defaultValue: FilterQuality.low)),
+          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
       headers: toMapStringT(mxj2d(bo, jsonMap["headers"])),
     );
     return widget;
@@ -231,14 +231,14 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"], defaultValue: ImageRepeat.noRepeat)),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
       filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"], defaultValue: FilterQuality.low)),
+          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
     );
     return widget;
   }
@@ -251,7 +251,7 @@ class MXProxyImage extends MXJsonObjProxy {
       semanticLabel: mxj2d(bo, jsonMap["semanticLabel"]),
       excludeFromSemantics:
           mxj2d(bo, jsonMap["excludeFromSemantics"], defaultValue: false),
-      scale: mxj2d(bo, jsonMap["scale"]),
+      scale: mxj2d(bo, jsonMap["scale"])?.toDouble(),
       width: mxj2d(bo, jsonMap["width"])?.toDouble(),
       height: mxj2d(bo, jsonMap["height"])?.toDouble(),
       color: mxj2d(bo, jsonMap["color"]),
@@ -259,7 +259,7 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"], defaultValue: ImageRepeat.noRepeat)),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
@@ -267,7 +267,7 @@ class MXProxyImage extends MXJsonObjProxy {
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
       package: mxj2d(bo, jsonMap["package"]),
       filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"], defaultValue: FilterQuality.low)),
+          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
     );
     return widget;
   }
@@ -287,14 +287,14 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"], defaultValue: ImageRepeat.noRepeat)),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
       filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"], defaultValue: FilterQuality.low)),
+          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
     );
     return widget;
   }

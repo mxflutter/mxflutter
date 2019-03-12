@@ -689,7 +689,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         onPressed: createEventHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
         mini: mxj2d(bo, jsonMap["mini"], defaultValue: false),
         shape: mxj2d(bo, jsonMap["shape"], defaultValue: const CircleBorder()),
-        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"], defaultValue: Clip.none)),
+        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none),
         materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
         isExtended: mxj2d(bo, jsonMap["isExtended"], defaultValue: false),
       );
@@ -756,8 +756,8 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
   Widget constructorButtonBar(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) =>
       ButtonBar(
         key: mxj2d(bo, jsonMap["key"]),
-        alignment: MXMainAxisAlignment.parse(mxj2d(bo, jsonMap["alignment"], defaultValue: MainAxisAlignment.end)),
-        mainAxisSize: MXMainAxisSize.parse(mxj2d(bo, jsonMap["mainAxisSize"], defaultValue: MainAxisSize.max)),
+        alignment: MXMainAxisAlignment.parse(mxj2d(bo, jsonMap["alignment"]), defaultValue: MainAxisAlignment.end),
+        mainAxisSize: MXMainAxisSize.parse(mxj2d(bo, jsonMap["mainAxisSize"]), defaultValue: MainAxisSize.max),
         children: toListT<Widget>(mxj2d(bo, jsonMap["children"], defaultValue: const <Widget>[])),
       );
 
@@ -846,7 +846,7 @@ class MXProxyCard extends MXJsonObjProxy {
 			elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
 			shape: mxj2d(bo, jsonMap["shape"]),
 			margin: mxj2d(bo, jsonMap["margin"], defaultValue:const EdgeInsets.all(4.0)),
-			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"], defaultValue:Clip.none)),
+			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue:Clip.none),
 			child: mxj2d(bo, jsonMap["child"]),
 			semanticContainer: mxj2d(bo, jsonMap["semanticContainer"], defaultValue:true),
 		);
@@ -908,7 +908,7 @@ class MXProxyFlexibleSpaceBar extends MXJsonObjProxy {
 			title: mxj2d(bo, jsonMap["title"]),
 			background: mxj2d(bo, jsonMap["background"]),
 			centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
-			collapseMode: MXCollapseMode.parse(mxj2d(bo, jsonMap["collapseMode"], defaultValue:CollapseMode.parallax)),
+			collapseMode: MXCollapseMode.parse(mxj2d(bo, jsonMap["collapseMode"]), defaultValue:CollapseMode.parallax),
 		);
 		return widget;
 	}
