@@ -416,6 +416,357 @@ class Shadow extends FlutterWidget {
     }
 }
 
+class TextFormField extends FlutterWidget {
+    constructor ({
+        key,
+        controller,
+        initialValue,
+        focusNode,
+        decoration,
+        keyboardType,
+        textCapitalization,
+        textInputAction,
+        style,
+        textDirection,
+        textAlign,
+        autofocus,
+        obscureText,
+        autocorrect,
+        autovalidate,
+        maxLengthEnforced,
+        maxLines,
+        maxLength,
+        onEditingComplete,
+        onFieldSubmitted,
+        onSaved,
+        validator,
+        inputFormatters,
+        enabled,
+        cursorWidth,
+        cursorRadius,
+        cursorColor,
+        keyboardAppearance,
+        scrollPadding,
+        enableInteractiveSelection,
+        buildCounter,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.controller = controller;
+        this.initialValue = initialValue;
+        this.focusNode = focusNode;
+        this.decoration = decoration;
+        this.keyboardType = keyboardType;
+        this.textCapitalization = textCapitalization;
+        this.textInputAction = textInputAction;
+        this.style = style;
+        this.textDirection = textDirection;
+        this.textAlign = textAlign;
+        this.autofocus = autofocus;
+        this.obscureText = obscureText;
+        this.autocorrect = autocorrect;
+        this.autovalidate = autovalidate;
+        this.maxLengthEnforced = maxLengthEnforced;
+        this.maxLines = maxLines;
+        this.maxLength = maxLength;
+        this.onEditingComplete = onEditingComplete;
+        this.onFieldSubmitted = onFieldSubmitted;
+        this.onSaved = onSaved;
+        this.validator = validator;
+        this.inputFormatters = inputFormatters;
+        this.enabled = enabled;
+        this.cursorWidth = cursorWidth;
+        this.cursorRadius = cursorRadius;
+        this.cursorColor = cursorColor;
+        this.keyboardAppearance = keyboardAppearance;
+        this.scrollPadding = scrollPadding;
+        this.enableInteractiveSelection = enableInteractiveSelection;
+        this.buildCounter = buildCounter;
+    }
+}
+
+
+class InputDecoration extends FlutterWidget {
+    constructor ({
+        icon,
+        labelText,
+        labelStyle,
+        helperText,
+        helperStyle,
+        hintText,
+        hintStyle,
+        hintMaxLines,
+        errorText,
+        errorStyle,
+        errorMaxLines,
+        hasFloatingPlaceholder,
+        isDense,
+        contentPadding,
+        prefixIcon,
+        prefix,
+        prefixText,
+        prefixStyle,
+        suffixIcon,
+        suffix,
+        suffixText,
+        suffixStyle,
+        counter,
+        counterText,
+        counterStyle,
+        filled,
+        fillColor,
+        errorBorder,
+        focusedBorder,
+        focusedErrorBorder,
+        disabledBorder,
+        enabledBorder,
+        border,
+        enabled,
+        semanticCounterText,
+        alignLabelWithHint,
+    } = {}) {
+        super();
+
+        this.icon = icon;
+        this.labelText = labelText;
+        this.labelStyle = labelStyle;
+        this.helperText = helperText;
+        this.helperStyle = helperStyle;
+        this.hintText = hintText;
+        this.hintStyle = hintStyle;
+        this.hintMaxLines = hintMaxLines;
+        this.errorText = errorText;
+        this.errorStyle = errorStyle;
+        this.errorMaxLines = errorMaxLines;
+        this.hasFloatingPlaceholder = hasFloatingPlaceholder;
+        this.isDense = isDense;
+        this.contentPadding = contentPadding;
+        this.prefixIcon = prefixIcon;
+        this.prefix = prefix;
+        this.prefixText = prefixText;
+        this.prefixStyle = prefixStyle;
+        this.suffixIcon = suffixIcon;
+        this.suffix = suffix;
+        this.suffixText = suffixText;
+        this.suffixStyle = suffixStyle;
+        this.counter = counter;
+        this.counterText = counterText;
+        this.counterStyle = counterStyle;
+        this.filled = filled;
+        this.fillColor = fillColor;
+        this.errorBorder = errorBorder;
+        this.focusedBorder = focusedBorder;
+        this.focusedErrorBorder = focusedErrorBorder;
+        this.disabledBorder = disabledBorder;
+        this.enabledBorder = enabledBorder;
+        this.border = border;
+        this.enabled = enabled;
+        this.semanticCounterText = semanticCounterText;
+        this.alignLabelWithHint = alignLabelWithHint;
+    }
+}
+
+class TextEditingController extends FlutterWidget {
+    constructor ({
+        text,
+    } = {}) {
+        super();
+
+        this.text = text;
+    }
+}
+
+class TextInputType extends DartClass {
+    constructor(
+
+    ) {
+        super();
+
+
+    }
+
+    static numberWithOptions(
+        signed,
+        decimal,
+    ) {
+        let v = new TextInputType();
+        v.constructorName = "numberWithOptions";
+
+        v.signed = signed;
+        v.decimal = decimal;
+
+        return v;
+    }
+
+    static text() {
+        let v = new TextInputType();
+        v.constructorName = "text";
+
+        return v;
+    }
+
+    static multiline() {
+        let v = new TextInputType();
+        v.constructorName = "multiline";
+        
+        return v;
+    }
+
+    static number() {
+        let v = new TextInputType();
+        v.constructorName = "number";
+        
+        return v;
+    }
+
+    static phone() {
+        let v = new TextInputType();
+        v.constructorName = "phone";
+        
+        return v;
+    }
+
+    static datetime() {
+        let v = new TextInputType();
+        v.constructorName = "datetime";
+        
+        return v;
+    }
+
+    static emailAddress() {
+        let v = new TextInputType();
+        v.constructorName = "emailAddress";
+            
+        return v;
+    }
+
+    static url() {
+        let v = new TextInputType();
+        v.constructorName = "url";
+
+        return v;
+    }
+}
+
+TextCapitalization = {
+    words: "TextCapitalization.words",
+    sentences: "TextCapitalization.sentences",
+    characters: "TextCapitalization.characters",
+    none: "TextCapitalization.none",
+};
+
+
+TextInputAction = {
+    none: "TextInputAction.none",
+    unspecified: "TextInputAction.unspecified",
+    done: "TextInputAction.done",
+    go: "TextInputAction.go",
+    search: "TextInputAction.search",
+    send: "TextInputAction.send",
+    next: "TextInputAction.next",
+    previous: "TextInputAction.previous",
+    continueAction: "TextInputAction.continueAction",
+    join: "TextInputAction.join",
+    route: "TextInputAction.route",
+    emergencyCall: "TextInputAction.emergencyCall",
+    newline: "TextInputAction.newline",
+};
+
+class UnderlineInputBorder extends FlutterWidget {
+    constructor ({
+        borderSide,
+        borderRadius,
+    } = {}) {
+        super();
+
+        this.borderSide = borderSide;
+        this.borderRadius = borderRadius;
+    }
+}
+
+class OutlineInputBorder extends FlutterWidget {
+    constructor ({
+        borderSide,
+        borderRadius,
+        gapPadding,
+    } = {}) {
+        super();
+
+        this.borderSide = borderSide;
+        this.borderRadius = borderRadius;
+        this.gapPadding = gapPadding;
+    }
+}
+
+class TextField extends FlutterWidget {
+    constructor ({
+        key,
+        controller,
+        focusNode,
+        decoration,
+        keyboardType,
+        textInputAction,
+        textCapitalization,
+        style,
+        textAlign,
+        textDirection,
+        autofocus,
+        obscureText,
+        autocorrect,
+        maxLines,
+        maxLength,
+        maxLengthEnforced,
+        onChanged,
+        onEditingComplete,
+        onSubmitted,
+        inputFormatters,
+        enabled,
+        cursorWidth,
+        cursorRadius,
+        cursorColor,
+        keyboardAppearance,
+        scrollPadding,
+        dragStartBehavior,
+        enableInteractiveSelection,
+        onTap,
+        buildCounter,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.controller = controller;
+        this.focusNode = focusNode;
+        this.decoration = decoration;
+        this.keyboardType = keyboardType;
+        this.textInputAction = textInputAction;
+        this.textCapitalization = textCapitalization;
+        this.style = style;
+        this.textAlign = textAlign;
+        this.textDirection = textDirection;
+        this.autofocus = autofocus;
+        this.obscureText = obscureText;
+        this.autocorrect = autocorrect;
+        this.maxLines = maxLines;
+        this.maxLength = maxLength;
+        this.maxLengthEnforced = maxLengthEnforced;
+        this.onChanged = onChanged;
+        this.onEditingComplete = onEditingComplete;
+        this.onSubmitted = onSubmitted;
+        this.inputFormatters = inputFormatters;
+        this.enabled = enabled;
+        this.cursorWidth = cursorWidth;
+        this.cursorRadius = cursorRadius;
+        this.cursorColor = cursorColor;
+        this.keyboardAppearance = keyboardAppearance;
+        this.scrollPadding = scrollPadding;
+        this.dragStartBehavior = dragStartBehavior;
+        this.enableInteractiveSelection = enableInteractiveSelection;
+        this.onTap = onTap;
+        this.buildCounter = buildCounter;
+    }
+}
+
 module.exports = {
     Text,
     RichText,
@@ -432,4 +783,13 @@ module.exports = {
     FontWeight,
     FontStyle,
     Shadow,
+    TextFormField,
+    TextEditingController,
+    TextInputType,
+    TextCapitalization,
+    TextInputAction,
+    InputDecoration,
+    UnderlineInputBorder,
+    OutlineInputBorder,
+    TextField
 };

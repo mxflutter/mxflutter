@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
+import 'mx_json_proxy_layout.dart';
+import 'package:flutter/gestures.dart';
 import 'dart:ui' as ui show Shadow;
 
 ///把Widget按分类注册，方便写代码，
@@ -18,6 +20,13 @@ class MXProxyRegisterHelperTextSeries {
     m.addAll(MXProxyTextSpan.registerProxy());
     m.addAll(MXProxyTextTheme.registerProxy());
     m.addAll(MXProxyShadow.registerProxy());
+    m.addAll(MXProxyTextFormField.registerProxy());
+    m.addAll(MXProxyTextEditingController.registerProxy());
+    m.addAll(MXTextInputType.registerProxy());
+    m.addAll(MXProxyInputDecoration.registerProxy());
+    m.addAll(MXProxyUnderlineInputBorder.registerProxy());
+    m.addAll(MXProxyOutlineInputBorder.registerProxy());
+    m.addAll(MXProxyTextField.registerProxy());
 
     return m;
   }
@@ -123,55 +132,29 @@ class MXProxyText extends MXJsonObjProxy {
 }
 
 ///RichText
-///**@@@ 拷贝生成其他类 1 替换类名
 class MXProxyRichText extends MXJsonObjProxy {
-  static Map<String, CreateJsonObjProxyFun> registerProxy() {
-    ///**@@@  2 替换类名字符串
-    final String regClassName1 = "RichText";
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "RichText";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyRichText()..init(className: regClassName)};
+	}
 
-    ///**@@@  3 替换类构造函数
-    return {
-      regClassName1: () => MXProxyRichText()..init(className: regClassName1)
-    };
-  }
-
-  ///*********************************************************************
-  @override
-  void init({String className}) {
-    super.init(className: className);
-
-    final String regClassName1 = "RichText";
-  }
-
-//  RichText(
-//      {Key key,
-//      @required TextSpan text,
-//      TextAlign textAlign: TextAlign.start,
-//      TextDirection textDirection,
-//      bool softWrap: true,
-//      TextOverflow overflow: TextOverflow.clip,
-//      double textScaleFactor: 1.0,
-//      int maxLines,
-//      Locale locale});
-//  Creates a paragraph of rich text. [...]
-//  const
-
-  @override
-  RichText constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    var widget = RichText(
-      key: mxj2d(bo, jsonMap["key"]),
-      text: mxj2d(bo, jsonMap["text"]),
-      textAlign: MXTextAlign.parse(jsonMap["textAlign"]),
-      textDirection: MXTextDirection.parse(jsonMap["textDirection"]),
-      softWrap: mxj2d(bo, jsonMap["softWrap"]),
-      overflow: MXTextOverflow.parse(jsonMap["overflow"]),
-      textScaleFactor: mxj2d(bo, jsonMap["textScaleFactor"])?.toDouble(),
-      maxLines: mxj2d(bo, jsonMap["maxLines"]),
-      locale: mxj2d(bo, jsonMap["locale"]),
-    );
-
-    return widget;
-  }
+	@override
+	RichText constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = RichText(
+			key: mxj2d(bo, jsonMap["key"]),
+			text: mxj2d(bo, jsonMap["text"]),
+			textAlign: MXTextAlign.parse(mxj2d(bo, jsonMap["textAlign"]), defaultValue:TextAlign.start),
+			textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
+			softWrap: mxj2d(bo, jsonMap["softWrap"], defaultValue:true),
+			overflow: MXTextOverflow.parse(mxj2d(bo, jsonMap["overflow"]), defaultValue:TextOverflow.clip),
+			textScaleFactor: mxj2d(bo, jsonMap["textScaleFactor"], defaultValue:1.0)?.toDouble(),
+			maxLines: mxj2d(bo, jsonMap["maxLines"]),
+			locale: mxj2d(bo, jsonMap["locale"]),
+		);
+		return widget;
+	}
 }
 
 ///DefaultTextStyle
@@ -555,6 +538,368 @@ class MXProxyShadow extends MXJsonObjProxy {
 			color: mxj2d(bo, jsonMap["color"], defaultValue: const Color(0xFF000000)),
 			offset: mxj2d(bo, jsonMap["offset"], defaultValue:Offset.zero),
 			blurRadius: mxj2d(bo, jsonMap["blurRadius"], defaultValue:0.0)?.toDouble(),
+		);
+		return widget;
+	}
+}
+
+class MXProxyTextFormField extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "TextFormField";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyTextFormField()..init(className: regClassName)};
+	}
+
+	@override
+	TextFormField constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = TextFormField(
+			key: mxj2d(bo, jsonMap["key"]),
+			controller: mxj2d(bo, jsonMap["controller"]),
+			initialValue: mxj2d(bo, jsonMap["initialValue"]),
+			focusNode: mxj2d(bo, jsonMap["focusNode"]),    //TODO:focusNode
+			decoration: mxj2d(bo, jsonMap["decoration"], defaultValue:const InputDecoration()),
+			keyboardType: mxj2d(bo, jsonMap["keyboardType"]),
+			textCapitalization: MXTextCapitalization.parse(mxj2d(bo, jsonMap["textCapitalization"]), defaultValue:TextCapitalization.none),
+			textInputAction: MXTextInputAction.parse(mxj2d(bo, jsonMap["textInputAction"])),
+			style: mxj2d(bo, jsonMap["style"]),
+			textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
+			textAlign: MXTextAlign.parse(mxj2d(bo, jsonMap["textAlign"]), defaultValue:TextAlign.start),
+			autofocus: mxj2d(bo, jsonMap["autofocus"], defaultValue:false),
+			obscureText: mxj2d(bo, jsonMap["obscureText"], defaultValue:false),
+			autocorrect: mxj2d(bo, jsonMap["autocorrect"], defaultValue:true),
+			autovalidate: mxj2d(bo, jsonMap["autovalidate"], defaultValue:false),
+			maxLengthEnforced: mxj2d(bo, jsonMap["maxLengthEnforced"], defaultValue:true),
+			maxLines: mxj2d(bo, jsonMap["maxLines"], defaultValue:1),
+			maxLength: mxj2d(bo, jsonMap["maxLength"]),
+			onEditingComplete: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onEditingComplete"])),
+			onFieldSubmitted: createValueGenericHandle<String>(bo, mxj2d(bo, jsonMap["onFieldSubmitted"])),
+			onSaved: createValueGenericHandle<String>(bo, mxj2d(bo, jsonMap["onSaved"])),
+			validator: createFormValidatorGenericHandle<String>(bo, mxj2d(bo, jsonMap["validator"])),
+			inputFormatters: mxj2d(bo, jsonMap["inputFormatters"]),     //TODO:inputFormatters
+			enabled: mxj2d(bo, jsonMap["enabled"], defaultValue:true),
+			cursorWidth: mxj2d(bo, jsonMap["cursorWidth"], defaultValue:2.0)?.toDouble(),
+			cursorRadius: mxj2d(bo, jsonMap["cursorRadius"]),
+			cursorColor: mxj2d(bo, jsonMap["cursorColor"]),
+			keyboardAppearance: MXBrightness.parse(mxj2d(bo, jsonMap["keyboardAppearance"])),
+			scrollPadding: mxj2d(bo, jsonMap["scrollPadding"], defaultValue:const EdgeInsets.all(20.0)),
+			enableInteractiveSelection: mxj2d(bo, jsonMap["enableInteractiveSelection"], defaultValue:true),
+			buildCounter: createBuildCounterHandle(bo, mxj2d(bo, jsonMap["buildCounter"])),
+		);
+		return widget;
+	}
+
+   //生成ValueChanged<T> 闭包
+  FormFieldValidator<T> createFormValidatorGenericHandle<T>(
+      MXJsonBuildOwner bo, dynamic eventCallbackID) {
+    if (eventCallbackID == null) {
+      return null;
+    }
+
+    FormFieldValidator<T> cb = (T b) {
+      bo.eventCallback(eventCallbackID, p: b);
+    };
+
+    return cb;
+  }
+
+  InputCounterWidgetBuilder createBuildCounterHandle(
+      MXJsonBuildOwner bo, dynamic eventCallbackID) {
+    if (eventCallbackID == null) {
+      return null;
+    }
+
+    InputCounterWidgetBuilder cb = (BuildContext context, {
+    @required int currentLength,
+    @required int maxLength,
+    @required bool isFocused,
+  }) {
+      bo.eventCallback(eventCallbackID);
+    };
+
+    return cb;
+  }
+}
+
+class MXProxyInputDecoration extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "InputDecoration";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyInputDecoration()..init(className: regClassName)};
+	}
+
+	@override
+	InputDecoration constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = InputDecoration(
+			icon: mxj2d(bo, jsonMap["icon"]),
+			labelText: mxj2d(bo, jsonMap["labelText"]),
+			labelStyle: mxj2d(bo, jsonMap["labelStyle"]),
+			helperText: mxj2d(bo, jsonMap["helperText"]),
+			helperStyle: mxj2d(bo, jsonMap["helperStyle"]),
+			hintText: mxj2d(bo, jsonMap["hintText"]),
+			hintStyle: mxj2d(bo, jsonMap["hintStyle"]),
+			hintMaxLines: mxj2d(bo, jsonMap["hintMaxLines"]),
+			errorText: mxj2d(bo, jsonMap["errorText"]),
+			errorStyle: mxj2d(bo, jsonMap["errorStyle"]),
+			errorMaxLines: mxj2d(bo, jsonMap["errorMaxLines"]),
+			hasFloatingPlaceholder: mxj2d(bo, jsonMap["hasFloatingPlaceholder"], defaultValue:true),
+			isDense: mxj2d(bo, jsonMap["isDense"]),
+			contentPadding: mxj2d(bo, jsonMap["contentPadding"]),
+			prefixIcon: mxj2d(bo, jsonMap["prefixIcon"]),
+			prefix: mxj2d(bo, jsonMap["prefix"]),
+			prefixText: mxj2d(bo, jsonMap["prefixText"]),
+			prefixStyle: mxj2d(bo, jsonMap["prefixStyle"]),
+			suffixIcon: mxj2d(bo, jsonMap["suffixIcon"]),
+			suffix: mxj2d(bo, jsonMap["suffix"]),
+			suffixText: mxj2d(bo, jsonMap["suffixText"]),
+			suffixStyle: mxj2d(bo, jsonMap["suffixStyle"]),
+			counter: mxj2d(bo, jsonMap["counter"]),
+			counterText: mxj2d(bo, jsonMap["counterText"]),
+			counterStyle: mxj2d(bo, jsonMap["counterStyle"]),
+			filled: mxj2d(bo, jsonMap["filled"]),
+			fillColor: mxj2d(bo, jsonMap["fillColor"]),
+			errorBorder: mxj2d(bo, jsonMap["errorBorder"]),
+			focusedBorder: mxj2d(bo, jsonMap["focusedBorder"]),
+			focusedErrorBorder: mxj2d(bo, jsonMap["focusedErrorBorder"]),
+			disabledBorder: mxj2d(bo, jsonMap["disabledBorder"]),
+			enabledBorder: mxj2d(bo, jsonMap["enabledBorder"]),
+			border: mxj2d(bo, jsonMap["border"]),
+			enabled: mxj2d(bo, jsonMap["enabled"], defaultValue:true),
+			semanticCounterText: mxj2d(bo, jsonMap["semanticCounterText"]),
+			alignLabelWithHint: mxj2d(bo, jsonMap["alignLabelWithHint"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxyTextEditingController extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "TextEditingController";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyTextEditingController()..init(className: regClassName)};
+	}
+
+	@override
+	TextEditingController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = TextEditingController(
+			text: mxj2d(bo, jsonMap["text"]),
+		);
+		return widget;
+	}
+}
+
+class MXTextInputType extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "TextInputType";
+		///**@@@  3 替换类构造函数
+		return {
+      regClassName: () => MXTextInputType()..init(className: regClassName)
+    };
+	}
+
+  @override
+  void init({String className}) {
+    super.init(className: className);
+
+    final String regClassName1 = "TextInputType";
+
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "numberWithOptions",
+        constructor: constructorNumberWithOptions);
+
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "text",
+        constructor: constructorText);
+
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "multiline",
+        constructor: constructorMultiline);
+
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "number",
+        constructor: constructorNumber);
+        
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "phone",
+        constructor: constructorPhone);
+
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "datetime",
+        constructor: constructorDatetime);
+
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "emailAddress",
+        constructor: constructorEmailAddress);
+
+    registerConstructor(
+        className: regClassName1,
+        constructorName: "url",
+        constructor: constructorUrl);
+  }
+
+  TextInputType constructorNumberWithOptions(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    TextInputType object = TextInputType.numberWithOptions(
+      signed: mxj2d(bo, jsonMap["signed"]),
+      decimal:mxj2d(bo, jsonMap["decimal"]),
+    );
+    return object;
+  }
+
+  TextInputType constructorText(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    return TextInputType.text;
+  }
+
+  TextInputType constructorMultiline(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    return TextInputType.multiline;
+  }
+
+  TextInputType constructorNumber(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    return TextInputType.number;
+  }
+
+  TextInputType constructorPhone(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    return TextInputType.phone;
+  }
+
+  TextInputType constructorDatetime(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    return TextInputType.datetime;
+  }
+
+  TextInputType constructorEmailAddress(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    return TextInputType.emailAddress;
+  }
+
+  TextInputType constructorUrl(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    return TextInputType.url;
+  }
+}
+
+class MXTextCapitalization  {
+	static Map str2VMap =  {
+			"TextCapitalization.words": TextCapitalization.words,
+			"TextCapitalization.sentences": TextCapitalization.sentences,
+			"TextCapitalization.characters": TextCapitalization.characters,
+			"TextCapitalization.none": TextCapitalization.none,}; 
+
+	static TextCapitalization parse(String valueStr,{TextCapitalization defaultValue }) {
+		if(valueStr == null) return defaultValue;
+		valueStr = valueStr.trim();
+		var v = str2VMap[valueStr];
+		return v??defaultValue;
+	}
+}
+
+class MXTextInputAction  {
+	static Map str2VMap =  {
+			"TextInputAction.none": TextInputAction.none,
+			"TextInputAction.unspecified": TextInputAction.unspecified,
+			"TextInputAction.done": TextInputAction.done,
+			"TextInputAction.go": TextInputAction.go,
+			"TextInputAction.search": TextInputAction.search,
+			"TextInputAction.send": TextInputAction.send,
+			"TextInputAction.next": TextInputAction.next,
+			"TextInputAction.previous": TextInputAction.previous,
+			"TextInputAction.continueAction": TextInputAction.continueAction,
+			"TextInputAction.join": TextInputAction.join,
+			"TextInputAction.route": TextInputAction.route,
+			"TextInputAction.emergencyCall": TextInputAction.emergencyCall,
+			"TextInputAction.newline": TextInputAction.newline,}; 
+
+	static TextInputAction parse(String valueStr,{TextInputAction defaultValue }) {
+		if(valueStr == null) return defaultValue;
+		valueStr = valueStr.trim();
+		var v = str2VMap[valueStr];
+		return v??defaultValue;
+	}
+}
+
+class MXProxyUnderlineInputBorder extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "UnderlineInputBorder";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyUnderlineInputBorder()..init(className: regClassName)};
+	}
+
+	@override
+	UnderlineInputBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = UnderlineInputBorder(
+			borderSide: mxj2d(bo, jsonMap["borderSide"], defaultValue:const BorderSide()),
+			borderRadius: mxj2d(bo, jsonMap["borderRadius"], defaultValue:const BorderRadius.only(topLeft: Radius.circular(4.0),topRight: Radius.circular(4.0))));
+		return widget;
+	}
+}
+
+class MXProxyOutlineInputBorder extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "OutlineInputBorder";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyOutlineInputBorder()..init(className: regClassName)};
+	}
+
+	@override
+	OutlineInputBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = OutlineInputBorder(
+			borderSide: mxj2d(bo, jsonMap["borderSide"], defaultValue:const BorderSide()),
+			borderRadius: mxj2d(bo, jsonMap["borderRadius"], defaultValue:const BorderRadius.all(Radius.circular(4.0))),
+			gapPadding: mxj2d(bo, jsonMap["gapPadding"], defaultValue:4.0),
+		);
+		return widget;
+	}
+}
+
+class MXProxyTextField extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "TextField";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyTextField()..init(className: regClassName)};
+	}
+
+	@override
+	TextField constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = TextField(
+			key: mxj2d(bo, jsonMap["key"]),
+			controller: mxj2d(bo, jsonMap["controller"]),
+			focusNode: mxj2d(bo, jsonMap["focusNode"]),    //TODO: focusNode
+			decoration: mxj2d(bo, jsonMap["decoration"], defaultValue:const InputDecoration()),
+			keyboardType: mxj2d(bo, jsonMap["keyboardType"]),
+			textInputAction: MXTextInputAction.parse(mxj2d(bo, jsonMap["textInputAction"])),
+			textCapitalization: MXTextCapitalization.parse(mxj2d(bo, jsonMap["textCapitalization"]), defaultValue:TextCapitalization.none),
+			style: mxj2d(bo, jsonMap["style"]),
+			textAlign: MXTextAlign.parse(mxj2d(bo, jsonMap["textAlign"]), defaultValue:TextAlign.start),
+			textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
+			autofocus: mxj2d(bo, jsonMap["autofocus"], defaultValue:false),
+			obscureText: mxj2d(bo, jsonMap["obscureText"], defaultValue:false),
+			autocorrect: mxj2d(bo, jsonMap["autocorrect"], defaultValue:true),
+			maxLines: mxj2d(bo, jsonMap["maxLines"], defaultValue:1),
+			maxLength: mxj2d(bo, jsonMap["maxLength"]),
+			maxLengthEnforced: mxj2d(bo, jsonMap["maxLengthEnforced"], defaultValue:true),
+			onChanged: createValueGenericHandle<String>(bo, mxj2d(bo, jsonMap["onChanged"])),
+			onEditingComplete: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onEditingComplete"])),
+			onSubmitted: createValueGenericHandle<String>(bo, mxj2d(bo, jsonMap["onSubmitted"])),
+			inputFormatters: mxj2d(bo, jsonMap["inputFormatters"]),   //TODO:inputFormatters
+			enabled: mxj2d(bo, jsonMap["enabled"]),
+			cursorWidth: mxj2d(bo, jsonMap["cursorWidth"], defaultValue:2.0)?.toDouble(),
+			cursorRadius: mxj2d(bo, jsonMap["cursorRadius"]),
+			cursorColor: mxj2d(bo, jsonMap["cursorColor"]),
+			keyboardAppearance: MXBrightness.parse(mxj2d(bo, jsonMap["keyboardAppearance"])),
+			scrollPadding: mxj2d(bo, jsonMap["scrollPadding"], defaultValue:const EdgeInsets.all(20.0)),
+			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+			enableInteractiveSelection: mxj2d(bo, jsonMap["enableInteractiveSelection"]),
+			onTap: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onTap"])),
+			buildCounter: mxj2d(bo, jsonMap["buildCounter"]),
 		);
 		return widget;
 	}
