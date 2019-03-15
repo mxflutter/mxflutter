@@ -248,8 +248,22 @@ class MXJSFlutterApp {
     }
 
     navigatorPushWithPageName(pageName, args) {
+        //查找被自己push的widgets
+        let rootWidget = this.rootWidget;
+
         let w = this.createJSWidgetWithName(pageName);
+
         this.navigatorPush(w, args);
+
+        // 更新已经push的widgets
+        if (rootWidget) {
+            for (let k in rootWidget.navPushedWidgets) {
+                let jsWidget = rootWidget.navPushedWidgets[k];
+                this.rootWidget.updatePushingWidgetsData(jsWidget);
+                let widgetData = jsWidget.widgetData;
+                MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", { widgetData })
+            }
+        }
     }
 
     //子类重写,根据widget名创建widget
@@ -539,6 +553,9 @@ class MXJSWidget {
     onEventCallback(args) {
 
         let callID = args["callID"];  //   widgetID/callID 格式 ： "1313/3434" 
+        if (callID == null) {
+            return;
+        }
         let arr = callID.split('/');
 
         let widgetID = arr[0];
@@ -714,6 +731,28 @@ class MXJSWidget {
     //navigator route 
     navigatorPush(jsWidget) {
         //设置push jsWidget的widget
+        // jsWidget.navPushingWidget = this;
+        // jsWidget.buildContext = this.buildContext;
+
+        // jsWidget.navPushingWidgetID = this.widgetID;
+
+        // this.navPushedWidgets[jsWidget.widgetID] = jsWidget;
+
+        // let widgetData = MXJSWidget.buildWidgetData(jsWidget);
+        this.updatePushingWidgetsData(jsWidget);
+        let widgetData = jsWidget.widgetData;
+
+        //call flutter setState
+        MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("navigatorPush", { widgetData });
+    }
+
+    removePushingWidget(jsWidget){
+        if (this.navPushedWidgets) {
+            delete this.navPushedWidgets[jsWidget.widgetID];
+        }
+    }
+
+    updatePushingWidgetsData(jsWidget) {
         jsWidget.navPushingWidget = this;
         jsWidget.buildContext = this.buildContext;
 
@@ -721,15 +760,7 @@ class MXJSWidget {
 
         this.navPushedWidgets[jsWidget.widgetID] = jsWidget;
 
-        let widgetData = MXJSWidget.buildWidgetData(jsWidget);
-        //call flutter setState
-        MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("navigatorPush", { widgetData })
-    }
-
-    removePushingWidget(jsWidget){
-        if (this.navPushedWidgets) {
-            delete this.navPushedWidgets[jsWidget.widgetID];
-        }
+        jsWidget.widgetData = MXJSWidget.buildWidgetData(jsWidget);
     }
 
 }
