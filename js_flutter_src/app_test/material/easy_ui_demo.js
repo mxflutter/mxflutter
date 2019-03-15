@@ -79,6 +79,7 @@ let {
   SizedBox,
   TextField,
   TextEditingController,
+  ListView,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 
@@ -87,6 +88,7 @@ class JSEasyUIDemo extends MXJSWidget {
     constructor(){
         super();
         this.dropdownValue = 'three';
+        this.iconColorIndex = 10;
     }
 
     // Buttons
@@ -231,10 +233,10 @@ class JSEasyUIDemo extends MXJSWidget {
                                     text: new TextSpan({
                                         style: new TextStyle({
                                             color: new Color(0xFFFF8C00),
-                                            fontSize: 20.0,
-                                            decoration: TextDecoration.overline,
-                                            decorationColor: Color.fromRGBO(0, 0, 200, 1),
-                                            decorationStyle: TextDecorationStyle.dotted,
+                                            fontSize: 18.0,
+                                            decoration: TextDecoration.underline,
+                                            decorationColor: Colors.orange(),
+                                            decorationStyle: TextDecorationStyle.dashed,
                                         }),
                                         text: '超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text',
                                     }),
@@ -251,6 +253,118 @@ class JSEasyUIDemo extends MXJSWidget {
         return widget;
     }
 
+    // Icons
+    _buildIcons() {
+        let iconColors = [
+            Colors.red(),
+            Colors.pink(),
+            Colors.purple(),
+            Colors.deepPurple(),
+            Colors.indigo(),
+            Colors.blue(),
+            Colors.lightBlue(),
+            Colors.cyan(),
+            Colors.teal(),
+            Colors.green(),
+            Colors.lightGreen(),
+            Colors.lime(),
+            Colors.yellow(),
+            Colors.amber(),
+            Colors.orange(),
+            Colors.deepOrange(),
+            Colors.brown(),
+            Colors.grey(),
+            Colors.blueGrey(),
+        ];
+        
+        let widget = new Container({
+            padding: EdgeInsets.only({top: 10.0}),
+            child: new Column({
+                children:[
+                    new Row({
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                            new IconButton({
+                                color: iconColors[this.iconColorIndex],
+                                icon: new Icon(new IconData(0xe87c, {fontFamily: 'MaterialIcons'})),
+                                onPressed: function() {
+                                    this.iconColorIndex = (this.iconColorIndex + 1) % iconColors.length;
+                                    this.setState(function() {
+                                        
+                                    })
+                                },
+                                iconSize: 24.0,
+                            }),
+                            new IconButton({
+                                color: iconColors[this.iconColorIndex],
+                                icon: new Icon(new IconData(0xe87c, {fontFamily: 'MaterialIcons'})),
+                                onPressed: function() {
+                                    this.iconColorIndex = (this.iconColorIndex + 1) % iconColors.length;
+                                    this.setState(function() {
+
+                                    })
+                                },
+                                iconSize: 36.0,
+                            }),
+                            new IconButton({
+                                color: iconColors[this.iconColorIndex],
+                                icon: new Icon(new IconData(0xe87c, {fontFamily: 'MaterialIcons'})),
+                                onPressed: function() {
+                                    this.iconColorIndex = (this.iconColorIndex + 1) % iconColors.length;
+                                    this.setState(function() {
+                                        
+                                    })
+                                },
+                                iconSize: 48.0,
+                            }),
+                        ],
+                    }),
+                    new Row({
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                            new IconButton({
+                                color: iconColors[this.iconColorIndex],
+                                icon: new Icon(new IconData(0xe001, {fontFamily: 'MaterialIcons'})),
+                                onPressed: function() {
+                                    this.iconColorIndex = (this.iconColorIndex + 1) % iconColors.length;
+                                    this.setState(function() {
+                                        
+                                    })
+                                },
+                                iconSize: 24.0,
+                            }),
+                            new IconButton({
+                                color: iconColors[this.iconColorIndex],
+                                icon: new Icon(new IconData(0xe001, {fontFamily: 'MaterialIcons'})),
+                                onPressed: function() {
+                                    this.iconColorIndex = (this.iconColorIndex + 1) % iconColors.length;
+                                    this.setState(function() {
+                                        
+                                    })
+                                },
+                                iconSize: 36.0,
+                            }),
+                            new IconButton({
+                                color: iconColors[this.iconColorIndex],
+                                icon: new Icon(new IconData(0xe001, {fontFamily: 'MaterialIcons'})),
+                                onPressed: function() {
+                                    this.iconColorIndex = (this.iconColorIndex + 1) % iconColors.length;
+                                    this.setState(function() {
+                                        
+                                    })
+                                },
+                                iconSize: 48.0,
+                            }),
+                        ],
+                    })
+                ],
+            }),
+        });
+
+        return widget;
+    }
+
+    // TextFields
     _buildTextFields() {
         let widget = new Container({
             padding: EdgeInsets.only({top: 10.0}),
@@ -293,7 +407,7 @@ class JSEasyUIDemo extends MXJSWidget {
         return widget;
     }
 
-
+    // TextFormFields
     _buildTextFormFields() {
         let widget = new Container({
             padding: EdgeInsets.only({top: 10.0}),
@@ -347,46 +461,70 @@ class JSEasyUIDemo extends MXJSWidget {
             appBar: new AppBar({
                 title: new Text('Easy UI'),
             }),
-            body: new Container({
-                padding: EdgeInsets.all(10.0),
-                child: new Column({
-                    children: [
-                        new Text('Button', {
-                            style: new TextStyle({
-                                fontSize: 20.0,
-                            })
-                        }),
-                        this._buildButtons(),
-    
-                        new Text('Text', {
-                            style: new TextStyle({
-                                fontSize: 20.0,
-                            })
-                        }),
-                        this._buildTexts(),
+            body: new ListView({
+                children: [
+                    new Container({
+                        padding: EdgeInsets.all(10.0),
+                        child: new Column({
+                            children: [
+                                new Text('Button', {
+                                    style: new TextStyle({
+                                        fontSize: 20.0,
+                                        color: Colors.indigo(),
+                                        fontWeight: FontWeight.bold,
+                                    })
+                                }),
+                                this._buildButtons(),
+            
+                                new Text('Text', {
+                                    style: new TextStyle({
+                                        fontSize: 20.0,
+                                        color: Colors.indigo(),
+                                        fontWeight: FontWeight.bold,
+                                    })
+                                }),
+                                this._buildTexts(),
 
-                        new Container({
-                            padding: EdgeInsets.only({top:15.0}),
-                            child: new Text('TextField', {
-                                style: new TextStyle({
-                                    fontSize: 20.0,
-                                })
-                            }),
+                                new Container({
+                                    padding: EdgeInsets.only({top:15.0}),
+                                    child: new Text('Icons', {
+                                        style: new TextStyle({
+                                            fontSize: 20.0,
+                                            color: Colors.indigo(),
+                                            fontWeight: FontWeight.bold,
+                                        })
+                                    }),
+                                }),
+                                this._buildIcons(),
+        
+                                new Container({
+                                    padding: EdgeInsets.only({top:15.0}),
+                                    child: new Text('TextField', {
+                                        style: new TextStyle({
+                                            fontSize: 20.0,
+                                            color: Colors.indigo(),
+                                            fontWeight: FontWeight.bold,
+                                        })
+                                    }),
+                                }),
+                                this._buildTextFields(),
+        
+                                new Container({
+                                    padding: EdgeInsets.only({top:15.0}),
+                                    child: new Text('TextFormField', {
+                                        style: new TextStyle({
+                                            fontSize: 20.0,
+                                            color: Colors.indigo(),
+                                            fontWeight: FontWeight.bold,
+                                        })
+                                    }),
+                                }),
+                                this._buildTextFormFields(),
+                            ]
                         }),
-                        this._buildTextFields(),
-
-                        new Container({
-                            padding: EdgeInsets.only({top:15.0}),
-                            child: new Text('TextFormField', {
-                                style: new TextStyle({
-                                    fontSize: 20.0,
-                                })
-                            }),
-                        }),
-                        this._buildTextFormFields(),
-                    ]
-                }),
-            }),
+                    }),
+                ]
+            })
         });
         return widget;
     }

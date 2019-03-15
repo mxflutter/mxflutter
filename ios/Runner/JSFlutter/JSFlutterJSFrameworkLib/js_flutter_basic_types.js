@@ -1813,94 +1813,76 @@ class Colors {
         return new Color(0xFFF44336);
     }
 
-    static indigo(){
-        new MaterialColor(0xFF3F51B5, {
-            50: new Color(0xFFE8EAF6),
-            100: new Color(0xFFC5CAE9),
-            200: new Color(0xFF9FA8DA),
-            300: new Color(0xFF7986CB),
-            400: new Color(0xFF5C6BC0),
-            500: new Color(0xFF3F51B5),
-            600: new Color(0xFF3949AB),
-            700: new Color(0xFF303F9F),
-            800: new Color(0xFF283593),
-            900: new Color(0xFF1A237E),
-        });
-    }
-
-    static deepPurple(){
-        return new MaterialColor(0xFF3F51B5, {
-            50: new Color(0xFFEDE7F6),
-            100: new Color(0xFFD1C4E9),
-            200: new Color(0xFFB39DDB),
-            300: new Color(0xFF9575CD),
-            400: new Color(0xFF7E57C2),
-            500: new Color(0xFF673AB7),
-            600: new Color(0xFF5E35B1),
-            700: new Color(0xFF512DA8),
-            800: new Color(0xFF4527A0),
-            900: new Color(0xFF311B92),
-        });
-    }
-
-    static deepOrange(){
-        return new MaterialColor(0xFFFF5722, {
-            50: new Color(0xFFFBE9E7),
-            100: new Color(0xFFFFCCBC),
-            200: new Color(0xFFFFAB91),
-            300: new Color(0xFFFF8A65),
-            400: new Color(0xFFFF7043),
-            500: new Color(0xFFFF5722),
-            600: new Color(0xFFF4511E),
-            700: new Color(0xFFE64A19),
-            800: new Color(0xFFD84315),
-            900: new Color(0xFFBF360C),
-        });
-    }
-
-    static teal(){
-        return new MaterialColor(0xFF009688, {
-            50: new Color(0xFFE0F2F1),
-            100: new Color(0xFFB2DFDB),
-            200: new Color(0xFF80CBC4),
-            300: new Color(0xFF4DB6AC),
-            400: new Color(0xFF26A69A),
-            500: new Color(0xFF009688),
-            600: new Color(0xFF00897B),
-            700: new Color(0xFF00796B),
-            800: new Color(0xFF00695C),
-            900: new Color(0xFF004D40),
-        });
-    }
-
-    static indigo(){
-        return new MaterialColor(0xFF3F51B5, {
-            50: new Color(0xFFE8EAF6),
-            100: new Color(0xFFC5CAE9),
-            200: new Color(0xFF9FA8DA),
-            300: new Color(0xFF7986CB),
-            400: new Color(0xFF5C6BC0),
-            500: new Color(0xFF3F51B5),
-            600: new Color(0xFF3949AB),
-            700: new Color(0xFF303F9F),
-            800: new Color(0xFF283593),
-            900: new Color(0xFF1A237E),
-        });
+    static purple(){
+        return new Color(0xFF9C27B0);
     }
 
     static pink(){
-        return new MaterialColor(0xFFE91E63, {
-            50: new Color(0xFFFCE4EC),
-            100: new Color(0xFFF8BBD0),
-            200: new Color(0xFFF48FB1),
-            300: new Color(0xFFF06292),
-            400: new Color(0xFFEC407A),
-            500: new Color(0xFFE91E63),
-            600: new Color(0xFFD81B60),
-            700: new Color(0xFFC2185B),
-            800: new Color(0xFFAD1457),
-            900: new Color(0xFF880E4F),
-        });
+        return new Color(0xFFE91E63);
+    }
+
+    static indigo(){
+        return new Color(0xFF3F51B5);
+    }
+
+    static deepPurple(){
+        return new Color(0xFF673AB7);
+    }
+
+    static blue(){
+        return new Color(0xFF2196F3);
+    }
+
+    static lightBlue(){
+        return new Color(0xFF03A9F4);
+    }
+
+    static cyan(){
+        return new Color(0xFF00BCD4);
+    }
+
+    static green(){
+        return new Color(0xFF4CAF50);
+    }
+
+    static lightGreen(){
+        return new Color(0xFF8BC34A);
+    }
+
+    static lime(){
+        return new Color(0xFFCDDC39);
+    }
+
+    static yellow(){
+        return new Color(0xFFFFEB3B);
+    }
+
+    static deepOrange(){
+        return new Color(0xFFFF5722);
+    }
+
+    static teal(){
+        return new Color(0xFF009688);
+    }
+
+    static indigo(){
+        return new Color(0xFF3F51B5);
+    }
+
+    static amber(){
+        return new Color(0xFFFFC107);
+    }
+
+    static brown(){
+        return new Color(0xFF795548);
+    }
+
+    static grey(){
+        return new Color(0xFF9E9E9E);
+    }
+
+    static blueGrey(){
+        return new Color(0xFF607D8B);
     }
 }
 
