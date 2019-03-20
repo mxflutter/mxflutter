@@ -454,6 +454,22 @@ const PopupMenuItem({
   shrinkWrap,
 }
   """,
+
+   """
+   const Builder({
+    Key key,
+    @required this.builder
+  })
+  """,
+
+  """
+  const DefaultTabController({
+    Key key,
+    @required this.length,
+    this.initialIndex = 0,
+    @required this.child,
+  })
+  """,
 ];
 
 void main(List<String> arguments) {

@@ -882,6 +882,93 @@ DecorationPosition = {
 };
 
 
+class SliverOverlapInjector extends FlutterWidget {
+    constructor ({
+        key,
+        handle,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.handle = handle;
+        this.child = child;
+    }
+}
+
+class SliverFixedExtentList extends FlutterWidget {
+    constructor ({
+        key,
+        delegate,
+        itemExtent,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.delegate = delegate;
+        this.itemExtent = itemExtent;
+    }
+}
+
+class NestedScrollView extends FlutterWidget {
+    constructor ({
+        key,
+        controller,
+        scrollDirection,
+        reverse,
+        physics,
+        headerSliverBuilder,
+        body,
+        dragStartBehavior,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.controller = controller;
+        this.scrollDirection = scrollDirection;
+        this.reverse = reverse;
+        this.physics = physics;
+        this.headerSliverBuilder = headerSliverBuilder;
+        this.body = body;
+        this.dragStartBehavior = dragStartBehavior;
+        this.headerSlivers = [];
+    }
+
+    preBuild(jsWidget, buildContext) {
+
+        //先把调用函数
+        if(this.headerSliverBuilder){
+            this.headerSlivers = this.headerSliverBuilder(buildContext, innerBoxIsScrolled);
+            delete this.headerSliverBuilder;
+        }
+
+        //function 转 id
+        super.preBuild(jsWidget, buildContext);
+    }
+
+    static sliverOverlapAbsorberHandleFor(context) {
+        let v = new NestedScrollView();
+        v.staticFunction = "sliverOverlapAbsorberHandleFor";
+        v.context = context;
+
+        return v;
+    }
+}
+
+class SliverOverlapAbsorber extends FlutterWidget {
+    constructor ({
+        key,
+        handle,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.handle = handle;
+        this.child = child;
+    }
+}
+
 module.exports = {
     Center,
     Container,
@@ -926,4 +1013,8 @@ module.exports = {
     HitTestBehavior,
     DragStartBehavior,
     DecorationPosition,
+    SliverOverlapInjector,
+    SliverFixedExtentList,
+    NestedScrollView,
+    SliverOverlapAbsorber,
 };

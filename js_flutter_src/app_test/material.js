@@ -63,6 +63,7 @@ let {
 let {JSBottomAPPBarDemo} = jsFlutterRequire("./material/bottom_app_bar_demo.js");
 let {JSBottomNavigationDemo} = jsFlutterRequire("./material/bottom_navigation_demo.js");
 let {JSEasyUIDemo} = jsFlutterRequire("./material/easy_ui_demo.js");
+// let {JSTabsDemo} = jsFlutterRequire("./material/tabs_demo.js");
 
 class JSMaterialPage extends MXJSWidget {
     constructor() {
@@ -83,15 +84,6 @@ class JSMaterialPage extends MXJSWidget {
             body: new ListView({
                 children: [
                     new Padding({ padding: EdgeInsets.all(1.0) }),
-                    new ListTile({
-                        leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
-                        trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                        title: new Text('Backdrop'),
-                        subtitle: new Text('Select a front layer from back layer'),
-                        onTap:function () {
-                            this.navigatorPush(new JSPestoPage);
-                        }
-                    }),
 
                     new ListTile({
                         leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
@@ -106,7 +98,7 @@ class JSMaterialPage extends MXJSWidget {
                     new ListTile({
                         leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
                         trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                        title: new Text('Bottom navigation——动画需完善'),
+                        title: new Text('Bottom navigation——动画需完善才能出现'),
                         subtitle: new Text('Bottom navigation with cross-fading views'),
                         onTap:function () {
                             this.navigatorPush(new JSBottomNavigationDemo);
@@ -116,12 +108,22 @@ class JSMaterialPage extends MXJSWidget {
                     new ListTile({
                         leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
                         trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                        title: new Text('Easy ui'),
-                        subtitle: new Text('Easy ui usage'),
+                        title: new Text('Easy UI'),
+                        subtitle: new Text('Easy UI usage'),
                         onTap:function () {
                             this.navigatorPush(new JSEasyUIDemo);
                         }
                     }),
+
+                    // new ListTile({
+                    //     leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
+                    //     trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    //     title: new Text('Tabs'),
+                    //     subtitle: new Text('Tabs with independently scrollable views'),
+                    //     onTap:function () {
+                    //         this.navigatorPush(new JSTabsDemo);
+                    //     }
+                    // }),
                 ],
             })
         });

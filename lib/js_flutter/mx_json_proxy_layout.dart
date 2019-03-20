@@ -80,7 +80,11 @@ class MXProxyRegisterHelperLayoutSeries {
     m.addAll(MXProxyExpanded.registerProxy());
     m.addAll(MXProxyDecoratedBox.registerProxy());
     m.addAll(MXProxySliverList.registerProxy());
-    
+    m.addAll(MXProxySliverOverlapInjector.registerProxy());
+    m.addAll(MXProxySliverFixedExtentList.registerProxy());
+    m.addAll(MXProxyNestedScrollView.registerProxy());
+    m.addAll(MXProxySliverOverlapAbsorber.registerProxy());
+
     return m;
   }
 }
@@ -1773,5 +1777,104 @@ class MXDecorationPosition  {
 		valueStr = valueStr.trim();
 		var v = str2VMap[valueStr];
 		return v??defaultValue;
+	}
+}
+
+class MXProxySliverOverlapInjector extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "SliverOverlapInjector";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxySliverOverlapInjector()..init(className: regClassName)};
+	}
+
+	@override
+	SliverOverlapInjector constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = SliverOverlapInjector(
+			key: mxj2d(bo, jsonMap["key"]),
+			handle: mxj2d(bo, jsonMap["handle"]),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxySliverFixedExtentList extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "SliverFixedExtentList";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxySliverFixedExtentList()..init(className: regClassName)};
+	}
+
+	@override
+	SliverFixedExtentList constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = SliverFixedExtentList(
+			key: mxj2d(bo, jsonMap["key"]),
+			delegate: mxj2d(bo, jsonMap["delegate"]),
+			itemExtent: mxj2d(bo, jsonMap["itemExtent"])?.toDouble(),
+		);
+		return widget;
+	}
+}
+
+class MXProxyNestedScrollView extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "NestedScrollView";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyNestedScrollView()..init(className: regClassName)};
+	}
+
+  @override
+  void init({String className}) {
+    super.init(className: className);
+
+    final String regClassName = "NestedScrollView";
+
+    registerStaticFunction(
+        className: regClassName,
+        staticFunctionName: "sliverOverlapAbsorberHandleFor",
+        staticFunction: functionSliverOverlapAbsorberHandleFor);
+  }
+
+	@override
+	NestedScrollView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = NestedScrollView(
+			key: mxj2d(bo, jsonMap["key"]),
+			controller: mxj2d(bo, jsonMap["controller"]),
+			scrollDirection: mxj2d(bo, jsonMap["scrollDirection"], defaultValue:Axis.vertical),
+			reverse: mxj2d(bo, jsonMap["reverse"], defaultValue:false),
+			physics: mxj2d(bo, jsonMap["physics"]),
+			headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return toListT<Widget>(mxj2d(bo, jsonMap["headerSlivers"]));
+      },
+			body: mxj2d(bo, jsonMap["body"]),
+			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+		);
+		return widget;
+	}
+
+  SliverOverlapAbsorberHandle functionSliverOverlapAbsorberHandleFor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+    return NestedScrollView.sliverOverlapAbsorberHandleFor(mxj2d(bo, jsonMap["context"]));
+  }
+}
+
+class MXProxySliverOverlapAbsorber extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "SliverOverlapAbsorber";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxySliverOverlapAbsorber()..init(className: regClassName)};
+	}
+
+	@override
+	SliverOverlapAbsorber constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = SliverOverlapAbsorber(
+			key: mxj2d(bo, jsonMap["key"]),
+			handle: mxj2d(bo, jsonMap["handle"]),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
 	}
 }

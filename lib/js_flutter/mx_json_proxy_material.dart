@@ -42,6 +42,9 @@ class MXProxyRegisterHelperMaterialSeries {
     m.addAll(MXProxyCircleBorder.registerProxy());
     m.addAll(MXProxySafeArea.registerProxy());
 
+    m.addAll(MXProxyBuilder.registerProxy());
+    m.addAll(MXProxyDefaultTabController.registerProxy());
+
     return m;
   }
 }
@@ -1127,5 +1130,43 @@ class MXMaterialTapTargetSize  {
 		valueStr = valueStr.trim();
 		var v = str2VMap[valueStr];
 		return v??defaultValue;
+	}
+}
+
+class MXProxyBuilder extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "Builder";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyBuilder()..init(className: regClassName)};
+	}
+
+	@override
+	Builder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = Builder(
+			key: mxj2d(bo, jsonMap["key"]),
+			builder: mxj2d(bo, jsonMap["builder"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxyDefaultTabController extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "DefaultTabController";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyDefaultTabController()..init(className: regClassName)};
+	}
+
+	@override
+	DefaultTabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = DefaultTabController(
+			key: mxj2d(bo, jsonMap["key"]),
+			length: mxj2d(bo, jsonMap["length"]),
+			initialIndex: mxj2d(bo, jsonMap["initialIndex"], defaultValue:0),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
 	}
 }

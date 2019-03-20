@@ -1864,6 +1864,20 @@ const Slider({
     this.semanticFormatterCallback,
   }
    """,
+
+   """
+   const CircleAvatar({
+    Key key,
+    this.child,
+    this.backgroundColor,
+    this.backgroundImage,
+    this.foregroundColor,
+    this.radius,
+    this.minRadius,
+    this.maxRadius,
+  })
+   """,
+
 ];
 
 void main(List<String> arguments) {

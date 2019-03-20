@@ -50,7 +50,6 @@ let {JSContactPage} = jsFlutterRequire("./contact.js");
 let {JSAnimationPage} = jsFlutterRequire("./animation.js");
 let {JSMaterialPage} = jsFlutterRequire("./material.js");
 let {JSCupertinoPage} = jsFlutterRequire("./cupertino.js");
-let {JSEasyUIDemo} = jsFlutterRequire("./material/easy_ui_demo.js");
 
 //业务代码
 
@@ -108,33 +107,13 @@ class JSWidgetHomePage extends MXJSWidget {
                 }),
                 this.sectionTitle(context, "JSWidget Demo"),
 
-                // new ListTile({
-                //     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
-                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                //     title: new Text('Tabs'),
-                //     subtitle: new Text('ListView UI Demo'),
-                //     onTap: this.createCallbackID(function () {
-
-                //     })
-                // }),
-                // new ListTile({
-                //     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
-                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                //     title: new Text('ListView'),
-                //     subtitle: new Text('ListView UI Demo'),
-                //     onTap: function () {
-                //         this.navigatorPush(new JSPestoPage);
-                //     }
-                // }), 
-
                 new ListTile({
                     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Material'),
                     subtitle: new Text('Material UI Demo'),
                     onTap: function () {
-                        // this.navigatorPush(new JSMaterialPage);
-                        this.navigatorPush(new JSEasyUIDemo);
+                        this.navigatorPush(new JSMaterialPage);
                     }
                 }), 
 

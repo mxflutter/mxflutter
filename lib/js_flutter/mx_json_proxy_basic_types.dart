@@ -70,6 +70,7 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyBoxShadow.registerProxy());
     m.addAll(MXProxyQuaternion.registerProxy());
     m.addAll(MXProxySlider.registerProxy());
+    m.addAll(MXProxyCircleAvatar.registerProxy());
     
     return m;
   }
@@ -2901,6 +2902,30 @@ class MXProxySlider extends MXJsonObjProxy {
 			activeColor: mxj2d(bo, jsonMap["activeColor"]),
 			inactiveColor: mxj2d(bo, jsonMap["inactiveColor"]),
 			semanticFormatterCallback: createStringValueGenericHandle<double>(bo, mxj2d(bo, jsonMap["semanticFormatterCallback"])),
+		);
+		return widget;
+	}
+}
+
+class MXProxyCircleAvatar extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "CircleAvatar";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyCircleAvatar()..init(className: regClassName)};
+	}
+
+	@override
+	CircleAvatar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = CircleAvatar(
+			key: mxj2d(bo, jsonMap["key"]),
+			child: mxj2d(bo, jsonMap["child"]),
+			backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
+			backgroundImage: mxj2d(bo, jsonMap["backgroundImage"]),
+			foregroundColor: mxj2d(bo, jsonMap["foregroundColor"]),
+			radius: mxj2d(bo, jsonMap["radius"])?.toDouble(),
+			minRadius: mxj2d(bo, jsonMap["minRadius"])?.toDouble(),
+			maxRadius: mxj2d(bo, jsonMap["maxRadius"])?.toDouble(),
 		);
 		return widget;
 	}

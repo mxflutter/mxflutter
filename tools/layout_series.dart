@@ -470,6 +470,43 @@ const SliverList({
   foreground,
   }
   """,
+
+  """
+  const SliverOverlapInjector({
+    Key key,
+    @required this.handle,
+    Widget child,
+  })
+  """,
+
+  """
+  const SliverFixedExtentList({
+    Key key,
+    @required SliverChildDelegate delegate,
+    @required this.itemExtent,
+  })
+  """,
+
+  """
+  const NestedScrollView({
+    Key key,
+    this.controller,
+    this.scrollDirection = Axis.vertical,
+    this.reverse = false,
+    this.physics,
+    @required this.headerSliverBuilder,
+    @required this.body,
+    this.dragStartBehavior = DragStartBehavior.down,
+  })
+  """,
+
+  """
+  const SliverOverlapAbsorber({
+    Key key,
+    @required this.handle,
+    Widget child,
+  }
+  """,
 ];
 
 void main(List<String> arguments) {

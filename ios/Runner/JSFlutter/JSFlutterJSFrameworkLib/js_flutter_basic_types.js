@@ -2049,6 +2049,30 @@ class Slider extends FlutterWidget {
 }
 
 
+class CircleAvatar extends DartClass {
+    constructor ({
+        key,
+        child,
+        backgroundColor,
+        backgroundImage,
+        foregroundColor,
+        radius,
+        minRadius,
+        maxRadius,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.backgroundColor = backgroundColor;
+        this.backgroundImage = backgroundImage;
+        this.foregroundColor = foregroundColor;
+        this.radius = radius;
+        this.minRadius = minRadius;
+        this.maxRadius = maxRadius;
+    }
+}
+
 module.exports = {
     DartClass,
     FlutterWidget,
@@ -2134,5 +2158,6 @@ module.exports = {
     BoxShape,
     Quaternion,
     Slider,
+    CircleAvatar,
     assert,
 };

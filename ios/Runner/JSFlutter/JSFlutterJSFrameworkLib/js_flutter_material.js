@@ -821,6 +821,36 @@ MaterialTapTargetSize = {
 };
 
 
+class Builder extends DartClass {
+    constructor ({
+        key,
+        builder,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.builder = builder;
+    }
+}
+
+class DefaultTabController extends FlutterWidget {
+    constructor ({
+        key,
+        length,
+        initialIndex,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.length = length;
+        this.initialIndex = initialIndex;
+        this.child = child;
+    }
+}
+
+
+
 module.exports = {
     MaterialApp,
     Material,
@@ -846,5 +876,7 @@ module.exports = {
     RawMaterialButton,
     CircleBorder,
     SafeArea,
-    MaterialTapTargetSize
+    MaterialTapTargetSize,
+    Builder,
+    DefaultTabController,
 };
