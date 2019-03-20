@@ -69,6 +69,7 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyDropdownMenuItem.registerProxy());
     m.addAll(MXProxyBoxShadow.registerProxy());
     m.addAll(MXProxyQuaternion.registerProxy());
+    m.addAll(MXProxySlider.registerProxy());
     
     return m;
   }
@@ -2872,6 +2873,34 @@ class MXProxyQuaternion extends MXJsonObjProxy {
 			mxj2d(bo, jsonMap["y"])?.toDouble(),
 			mxj2d(bo, jsonMap["z"])?.toDouble(),
 			mxj2d(bo, jsonMap["w"])?.toDouble(),
+		);
+		return widget;
+	}
+}
+
+class MXProxySlider extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "Slider";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxySlider()..init(className: regClassName)};
+	}
+
+	@override
+	Slider constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = Slider(
+			key: mxj2d(bo, jsonMap["key"]),
+			value: mxj2d(bo, jsonMap["value"])?.toDouble(),
+			onChanged: createValueGenericHandle<double>(bo, mxj2d(bo, jsonMap["onChanged"])),
+			onChangeStart: createValueGenericHandle<double>(bo, mxj2d(bo, jsonMap["onChangeStart"])),
+			onChangeEnd: createValueGenericHandle<double>(bo, mxj2d(bo, jsonMap["onChangeEnd"])),
+			min: mxj2d(bo, jsonMap["min"], defaultValue:0.0)?.toDouble(),
+			max: mxj2d(bo, jsonMap["max"], defaultValue:1.0)?.toDouble(),
+			divisions: mxj2d(bo, jsonMap["divisions"]),
+			label: mxj2d(bo, jsonMap["label"]),
+			activeColor: mxj2d(bo, jsonMap["activeColor"]),
+			inactiveColor: mxj2d(bo, jsonMap["inactiveColor"]),
+			semanticFormatterCallback: createStringValueGenericHandle<double>(bo, mxj2d(bo, jsonMap["semanticFormatterCallback"])),
 		);
 		return widget;
 	}

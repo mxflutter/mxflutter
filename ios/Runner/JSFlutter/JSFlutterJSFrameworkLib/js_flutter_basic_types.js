@@ -2016,6 +2016,39 @@ class Quaternion extends DartClass {
     }
 }
 
+class Slider extends FlutterWidget {
+    constructor ({
+        key,
+        value,
+        onChanged,
+        onChangeStart,
+        onChangeEnd,
+        min,
+        max,
+        divisions,
+        label,
+        activeColor,
+        inactiveColor,
+        semanticFormatterCallback,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.value = value;
+        this.onChanged = onChanged;
+        this.onChangeStart = onChangeStart;
+        this.onChangeEnd = onChangeEnd;
+        this.min = min;
+        this.max = max;
+        this.divisions = divisions;
+        this.label = label;
+        this.activeColor = activeColor;
+        this.inactiveColor = inactiveColor;
+        this.semanticFormatterCallback = semanticFormatterCallback;
+    }
+}
+
+
 module.exports = {
     DartClass,
     FlutterWidget,
@@ -2100,5 +2133,6 @@ module.exports = {
     BoxShadow,
     BoxShape,
     Quaternion,
+    Slider,
     assert,
 };

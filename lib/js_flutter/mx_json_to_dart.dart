@@ -13,6 +13,8 @@ import 'dart:core';
 
 typedef dynamic CreateJsonObjProxyFun();
 
+typedef StringFunctionGenericCallback<T> = String Function(T value);
+
 /// TODO
 /// 1、jsonListObjToDartListRecursive
 /// 该方法要返回指定类型的List，如List<Widget>、List<String>等
@@ -410,6 +412,20 @@ class MXJsonObjProxy {
     ValueChanged<int> cb = (int i) {
       bo.eventCallback(eventCallbackID, p: i);
     };
+    return cb;
+  }
+
+   //生成ValueChanged<T> 闭包
+  StringFunctionGenericCallback<T> createStringValueGenericHandle<T>(
+      MXJsonBuildOwner bo, dynamic eventCallbackID) {
+    if (eventCallbackID == null) {
+      return null;
+    }
+
+    StringFunctionGenericCallback<T> cb = (T b) {
+      bo.eventCallback(eventCallbackID, p: b);
+    };
+
     return cb;
   }
 

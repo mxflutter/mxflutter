@@ -1847,6 +1847,23 @@ const EdgeInsetsDirectional(
        int length
        ]) {
    """,
+
+   """
+const Slider({
+    Key key,
+    @required this.value,
+    @required this.onChanged,
+    this.onChangeStart,
+    this.onChangeEnd,
+    this.min = 0.0,
+    this.max = 1.0,
+    this.divisions,
+    this.label,
+    this.activeColor,
+    this.inactiveColor,
+    this.semanticFormatterCallback,
+  }
+   """,
 ];
 
 void main(List<String> arguments) {

@@ -27,32 +27,12 @@ let {
   Scaffold,
   Container,
   Color,
-  Center,
   AppBar,
-  Stack,
   Text,
   Icon,
   IconData,
   EdgeInsets,
-  BottomNavigationBar,
-  BottomNavigationBarItem,
-  BottomNavigationBarType,
   Colors,
-  Semantics,
-  AnimationController,
-  Duration,
-  CurveTween,
-  Interval,
-  Curves,
-  FadeTransition,
-  SlideTransition,
-  Tween,
-  IconTheme,
-  IconThemeData,
-  Animation,
-  Offset,
-  BoxDecoration,
-  Border,
   FlatButton,
   RaisedButton,
   FloatingActionButton,
@@ -80,6 +60,7 @@ let {
   TextField,
   TextEditingController,
   ListView,
+  Slider,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 
@@ -89,6 +70,8 @@ class JSEasyUIDemo extends MXJSWidget {
         super();
         this.dropdownValue = 'three';
         this.iconColorIndex = 10;
+        this.sliderValue = 25.0;
+        this.sliderDiscreteValue = 20.0;
     }
 
     // Buttons
@@ -456,6 +439,52 @@ class JSEasyUIDemo extends MXJSWidget {
         return widget;
     }
 
+    // TextFormFields
+    _buildSlider() {
+        let widget = new Container({
+            padding: EdgeInsets.only({top: 10.0}),
+            child: new Column({
+                children:[
+                    new Container({
+                        padding: EdgeInsets.only({right: 15.0}),
+                        child: new Slider({
+                            value: this.sliderValue,
+                            min: 0.0,
+                            max: 100.0,
+                            onChanged:function (args) {
+                                let value = args;
+                                this.setState(function(){
+                                    this.sliderValue = value;
+                                });
+                            }
+                        }),
+                    }),
+                    new SizedBox({
+                        height: 24.0,
+                    }),
+                    new Container({
+                        padding: EdgeInsets.only({right: 15.0}),
+                        child: new Slider({
+                            value: this.sliderDiscreteValue,
+                            min: 0.0,
+                            max: 100.0,
+                            divisions: 5,
+                            label: this.sliderDiscreteValue.toString(),
+                            onChanged:function (args) {
+                                let value = args;
+                                this.setState(function(){
+                                    this.sliderDiscreteValue = value;
+                                });
+                            }
+                        }),
+                    }),
+                ],
+            }),
+        });
+
+        return widget;
+    }
+
     build(context){
         let widget = new Scaffold({
             appBar: new AppBar({
@@ -520,6 +549,18 @@ class JSEasyUIDemo extends MXJSWidget {
                                     }),
                                 }),
                                 this._buildTextFormFields(),
+
+                                new Container({
+                                    padding: EdgeInsets.only({top:15.0}),
+                                    child: new Text('Slider', {
+                                        style: new TextStyle({
+                                            fontSize: 20.0,
+                                            color: Colors.indigo(),
+                                            fontWeight: FontWeight.bold,
+                                        })
+                                    }),
+                                }),
+                                this._buildSlider(),
                             ]
                         }),
                     }),
