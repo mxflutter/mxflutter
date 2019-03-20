@@ -46,7 +46,7 @@ class MXJsonObjToDartObject {
 
   dynamic jsonObjToDartObject(MXJsonBuildOwner buildOwner, dynamic jsonObj) {
     String className;
-    //  try {
+     try {
       ///map
       if (jsonObj is Map) {
         className = getJsonObjClassName(jsonObj);
@@ -63,13 +63,13 @@ class MXJsonObjToDartObject {
       } else {
         return jsonObj;
       }
-    // } catch (e) {
-    //   MXJSLog.error(
-    //       "MXJsonObjToDartObject:jsonObjToDartObject error:$e ;decode:class $className, jsonObj:$jsonObj ");
+    } catch (e) {
+      MXJSLog.error(
+          "MXJsonObjToDartObject:jsonObjToDartObject error:$e ;decode:class $className, jsonObj:$jsonObj ");
 
-    //       //打印日志重新抛出
-    //       throw e;
-    // }
+          //打印日志重新抛出
+          throw e;
+    }
   }
 
   ///如果Map里找到了Class字段，则转换成对应Dart对象
@@ -173,6 +173,9 @@ class MXJsonObjToDartObject {
 typedef dynamic ConstructorFun(
     MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap);
 
+typedef dynamic StaticFunction(
+    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap);
+
 class MXJsonObjProxy {
   ///静态接口,子类重写*********************************************
 
@@ -192,6 +195,9 @@ class MXJsonObjProxy {
   String className;
 
   Map<String, Map<String, ConstructorFun>> _className2constructor;
+
+  // 静态方法映射
+  Map<String, Map<String, StaticFunction>> _className2StaicFunction;
 
   ///如需要支持生成多个相似的类，支持一个雷支持多个构造函数，重载此函数
   void init({String className}) {
@@ -224,6 +230,32 @@ class MXJsonObjProxy {
     _className2constructor[className] = m;
   }
 
+  ///注册静态方法
+  void registerStaticFunction(
+      {String className,
+      String staticFunctionName = "",
+      StaticFunction staticFunction }) {
+    if (className == null || className.isEmpty || staticFunction == null) {
+      return;
+    }
+
+    staticFunctionName ??= "";
+
+    if (_className2StaicFunction == null) {
+      _className2StaicFunction = Map<String, Map<String, StaticFunction>>();
+    }
+
+    Map<String, StaticFunction> m = _className2StaicFunction[className];
+
+    if (m == null) {
+      m = Map<String, ConstructorFun>();
+    }
+
+    m[staticFunctionName] = staticFunction;
+
+    _className2StaicFunction[className] = m;
+  }
+
   ///用于多构造函数分发，一般不用重载，只重载constructor即可
   Object jsonObjToDartObject(
       MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap) {
@@ -231,14 +263,24 @@ class MXJsonObjProxy {
       return null;
     }
 
-    ConstructorFun fun = findConstructor(jsonMap);
+    StaticFunction staticFun = findStaticFunction(jsonMap);
+    ConstructorFun constructorFun = findConstructor(jsonMap);
 
     var obj;
-    if (fun == null) {
-      obj = constructor(buildOwner, jsonMap);
-    } else {
-      obj = fun(buildOwner, jsonMap);
+    // 先检查是否是静态方法。不是静态方法，则用构造方法生成
+    if (staticFun == null)
+    {
+      if (constructorFun == null) {
+        obj = constructor(buildOwner, jsonMap);
+      } else {
+        obj = constructorFun(buildOwner, jsonMap);
+      }
     }
+    else 
+    {
+      obj = staticFun(buildOwner, jsonMap);
+    }
+    
 
     return obj;
   }
@@ -252,6 +294,18 @@ class MXJsonObjProxy {
     String className = getClassName(jsonMap);
     String constructorName = getConstructorName(jsonMap) ?? "";
     ConstructorFun fun = _className2constructor[className][constructorName];
+    return fun;
+  }
+
+  ///优化默认查找，只有一个构造函数时，返回null，不用查表，直接使用constructor
+  StaticFunction findStaticFunction(Map<String, dynamic> jsonMap) {
+    if (_className2StaicFunction == null) {
+      return null;
+    }
+
+    String className = getClassName(jsonMap);
+    String staticFunctionName = getStaticFunctionName(jsonMap) ?? "";
+    StaticFunction fun = _className2StaicFunction[className][staticFunctionName];
     return fun;
   }
 
@@ -282,6 +336,10 @@ class MXJsonObjProxy {
 
   String getClassName(Map<String, dynamic> jsonMap) {
     return jsonMap["className"];
+  }
+
+  String getStaticFunctionName(Map<String, dynamic> jsonMap) {
+    return jsonMap["staticFunctionName"];
   }
 
 
