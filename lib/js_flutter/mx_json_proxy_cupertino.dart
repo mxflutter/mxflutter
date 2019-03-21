@@ -259,9 +259,9 @@ class MXProxyCupertinoSlider extends MXJsonObjProxy {
     var widget = CupertinoSlider(
       key: mxj2d(bo,jsonMap["key"]),
       value: mxj2d(bo,jsonMap["value"]),
-      onChanged: createValueChangedDoubleHandle(bo,jsonMap["onChanged"]),
-      onChangeStart: createValueChangedDoubleHandle(bo,jsonMap["onChangeStart"]),
-      onChangeEnd: createValueChangedDoubleHandle(bo,jsonMap["onChangeEnd"]),
+      onChanged: createValueGenericHandle<double>(bo,jsonMap["onChanged"]),
+      onChangeStart: createValueGenericHandle<double>(bo,jsonMap["onChangeStart"]),
+      onChangeEnd: createValueGenericHandle<double>(bo,jsonMap["onChangeEnd"]),
       min: mxj2d(bo,jsonMap["min"],defaultValue: 0.0)?.toDouble(),
       max: mxj2d(bo,jsonMap["max"],defaultValue: 1.0)?.toDouble(),
       divisions: mxj2d(bo,jsonMap["divisions"]),
@@ -296,7 +296,7 @@ class MXProxyCupertinoSwitch extends MXJsonObjProxy {
     var widget = CupertinoSwitch(
       key: mxj2d(bo,jsonMap["key"]),
       value: mxj2d(bo,jsonMap["value"]),
-      onChanged: createValueChangedBoolHandle(bo,jsonMap["onChanged"]),
+      onChanged: createValueGenericHandle<bool>(bo,jsonMap["onChanged"]),
       activeColor: mxj2d(bo,jsonMap["activeColor"]),
     );
     return widget;
@@ -453,7 +453,7 @@ class MXProxyCupertinoTabBar extends MXJsonObjProxy {
     var widget = CupertinoTabBar(
       key: mxj2d(bo,jsonMap["key"]),
       items: toListT<BottomNavigationBarItem>(mxj2d(bo,jsonMap["items"])),
-      onTap: createValueChangedIntHandle(bo,jsonMap["onTap"]),
+      onTap: createValueGenericHandle<int>(bo,jsonMap["onTap"]),
       currentIndex: mxj2d(bo,jsonMap["currentIndex"],defaultValue: 0),
       backgroundColor: mxj2d(bo,jsonMap["backgroundColor"]),
       activeColor: mxj2d(bo,jsonMap["activeColor"]),
@@ -513,9 +513,9 @@ class MXProxyCupertinoTabScaffold extends MXJsonObjProxy {
     var widget = CupertinoTabScaffold(
       key: mxj2d(bo,jsonMap["key"]),
       tabBar: mxj2d(bo,jsonMap["tabBar"]),
-      tabBuilder:(BuildContext context, int index){
-        List<Widget> dataSource = mxj2d(bo,jsonMap["items"]);
-        return dataSource[index];
+      tabBuilder:(BuildContext context, int index) {
+        List<Widget> children = mxj2d(bo,jsonMap["children"]);
+        return children[index];
       },
     );
     return widget;

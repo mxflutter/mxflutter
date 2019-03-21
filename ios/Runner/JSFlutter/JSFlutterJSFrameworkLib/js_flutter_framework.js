@@ -516,6 +516,11 @@ class MXJSWidget {
                 flutterWidget.preBuild(this, this.buildContext);
             }
 
+            // 如果是context，直接返回
+            if (flutterWidget instanceof MXJSFlutterBuildContext) {
+                return;
+            }
+
             for (let p in flutterWidget) {
 
                 //MXJSStatelessWidge 摊平

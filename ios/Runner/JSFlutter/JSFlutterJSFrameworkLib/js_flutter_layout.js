@@ -715,46 +715,6 @@ class SliverGridDelegateWithMaxCrossAxisExtent extends FlutterWidget {
     }
 }
 
-class SliverChildBuilderDelegate extends FlutterWidget {
-    constructor(
-        builder, //类型:function ( context,  index) 对应flutter层 function (BuildContext context, int index) 
-        {
-            childCount,
-            addAutomaticKeepAlives,
-            addRepaintBoundaries,
-            addSemanticIndexes,
-            semanticIndexCallback,
-            semanticIndexOffset,
-        } = {}) {
-        super();
-
-        this.builder = builder;  //
-        this.childCount = childCount;
-
-        //计算items 供flutter使用
-        this.children = [];
-        this.addAutomaticKeepAlives = addAutomaticKeepAlives;
-        this.addRepaintBoundaries = addRepaintBoundaries;
-        this.addSemanticIndexes = addSemanticIndexes;
-        this.semanticIndexCallback = semanticIndexCallback;
-        this.semanticIndexOffset = semanticIndexOffset;
-    }
-
-    //在生成json前调用
-    //用于list delegate 等的items build 
-    //用于widget有类似onTab等响应函数变量，在此转换成callbackid,
-    //但注意，delegate中确实需要funtion,不需要转ID的，不要调用super.preBuild
-    preBuild(jsWidget, buildContext) {
-
-        if(this.builder){
-            for (let i = 0; i < this.childCount; ++i) {
-                let w = this.builder.call(jsWidget, buildContext, i);
-                this.children.push(w);
-            }
-        }
-    }
-}
-
 class GestureDetector extends FlutterWidget {
     constructor({
         key,
@@ -931,25 +891,25 @@ class NestedScrollView extends FlutterWidget {
         this.headerSliverBuilder = headerSliverBuilder;
         this.body = body;
         this.dragStartBehavior = dragStartBehavior;
-        this.headerSlivers = [];
+
+        // 本地创建的，供flutter使用
+        this.children = [];
     }
 
     preBuild(jsWidget, buildContext) {
 
-        //先把调用函数
+        ///TODO: innerBoxIsScrolled 暂时不支持，默认为false
         if(this.headerSliverBuilder){
-            this.headerSlivers = this.headerSliverBuilder(buildContext, innerBoxIsScrolled);
+            this.children = this.headerSliverBuilder(buildContext);
             delete this.headerSliverBuilder;
         }
 
-        //function 转 id
         super.preBuild(jsWidget, buildContext);
     }
 
     static sliverOverlapAbsorberHandleFor(context) {
         let v = new NestedScrollView();
-        v.staticFunction = "sliverOverlapAbsorberHandleFor";
-        v.context = context;
+        v.staticFunctionName = "sliverOverlapAbsorberHandleFor";
 
         return v;
     }
@@ -1005,7 +965,6 @@ module.exports = {
     SliverPadding,
     SliverGrid,
     SliverGridDelegateWithMaxCrossAxisExtent,
-    SliverChildBuilderDelegate,
     GestureDetector,
     Expanded,
     DecoratedBox,

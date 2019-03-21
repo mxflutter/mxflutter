@@ -248,7 +248,7 @@ class MXJsonObjProxy {
     Map<String, StaticFunction> m = _className2StaicFunction[className];
 
     if (m == null) {
-      m = Map<String, ConstructorFun>();
+      m = Map<String, StaticFunction>();
     }
 
     m[staticFunctionName] = staticFunction;
@@ -263,24 +263,22 @@ class MXJsonObjProxy {
       return null;
     }
 
-    StaticFunction staticFun = findStaticFunction(jsonMap);
     ConstructorFun constructorFun = findConstructor(jsonMap);
+    StaticFunction staticFun = findStaticFunction(jsonMap);
 
     var obj;
-    // 先检查是否是静态方法。不是静态方法，则用构造方法生成
-    if (staticFun == null)
-    {
-      if (constructorFun == null) {
-        obj = constructor(buildOwner, jsonMap);
-      } else {
-        obj = constructorFun(buildOwner, jsonMap);
-      }
+    ///是否使用自定义的构造方法
+    if (constructorFun != null) {
+      obj = constructorFun(buildOwner, jsonMap);
     }
-    else 
-    {
+    ///是否使用静态方法 
+    else if (staticFun != null) {
       obj = staticFun(buildOwner, jsonMap);
     }
-    
+    ///默认构造方法 
+    else {
+      obj = constructor(buildOwner, jsonMap);
+    }
 
     return obj;
   }
@@ -431,49 +429,8 @@ class MXJsonObjProxy {
 
     return cb;
   }
-
-  ///生成ValueChanged<bool> 闭包
-  ValueChanged<bool> createValueChangedBoolHandle(
-      MXJsonBuildOwner bo, dynamic eventCallbackID) {
-    if (eventCallbackID == null) {
-      return null;
-    }
-
-    ValueChanged<bool> cb = (bool b) {
-      bo.eventCallback(eventCallbackID, p: b);
-    };
-
-    return cb;
-  }
-
-  ///生成ValueChanged<double> 闭包
-  ValueChanged<double> createValueChangedDoubleHandle(
-      MXJsonBuildOwner bo, dynamic eventCallbackID) {
-    if (eventCallbackID == null) {
-      return null;
-    }
-
-    ValueChanged<double> cb = (double d) {
-      bo.eventCallback(eventCallbackID, p: d);
-    };
-
-    return cb;
-  }
-
-  ///生成ValueChanged<int> 闭包
-  ValueChanged<int> createValueChangedIntHandle(
-      MXJsonBuildOwner bo, dynamic eventCallbackID) {
-    if (eventCallbackID == null) {
-      return null;
-    }
-
-    ValueChanged<int> cb = (int i) {
-      bo.eventCallback(eventCallbackID, p: i);
-    };
-    return cb;
-  }
-
-   //生成ValueChanged<T> 闭包
+  
+   //生成StringFunctionGenericCallback<T> 闭包
   StringFunctionGenericCallback<T> createStringValueGenericHandle<T>(
       MXJsonBuildOwner bo, dynamic eventCallbackID) {
     if (eventCallbackID == null) {

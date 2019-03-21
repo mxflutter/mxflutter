@@ -3,6 +3,8 @@ import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
 import 'mx_json_proxy_text.dart';
+import 'mx_json_proxy_layout.dart';
+import 'package:flutter/gestures.dart';
 import 'dart:convert';
 
 
@@ -44,6 +46,11 @@ class MXProxyRegisterHelperMaterialSeries {
 
     m.addAll(MXProxyBuilder.registerProxy());
     m.addAll(MXProxyDefaultTabController.registerProxy());
+
+    m.addAll(MXProxyTabBar.registerProxy());
+    m.addAll(MXProxyTabBarView.registerProxy());
+    m.addAll(MXProxyTabController.registerProxy());
+    m.addAll(MXProxyTab.registerProxy());
 
     return m;
   }
@@ -328,7 +335,7 @@ class MXProxyBottomNavigationBar extends MXJsonObjProxy {
   }
 
   ///生成ValueChanged<int> 闭包
-  ValueChanged<int> createOnTapHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) => createValueChangedIntHandle(bo, eventCallbackID);
+  ValueChanged<int> createOnTapHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) => createValueGenericHandle<int>(bo, eventCallbackID);
 }
 
 class MXProxyTabBar extends MXJsonObjProxy {
@@ -359,6 +366,8 @@ class MXProxyTabBar extends MXJsonObjProxy {
       labelPadding: mxj2d(bo, jsonMap["labelPadding"]),
       unselectedLabelColor: mxj2d(bo, jsonMap["unselectedLabelColor"]),
       unselectedLabelStyle: mxj2d(bo, jsonMap["unselectedLabelStyle"]),
+      dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+			onTap: createValueGenericHandle<int>(bo, mxj2d(bo, jsonMap["onTap"])),
     );
     return widget;
   }
@@ -593,7 +602,7 @@ class MXProxyMaterialButton extends MXJsonObjProxy {
 
   ///生成ValueChanged<bool> 闭包
   ValueChanged<bool> createStateChangedHandle(MXJsonBuildOwner bo,dynamic eventCallbackID){
-   return createValueChangedBoolHandle(bo, eventCallbackID);
+   return createValueGenericHandle<bool>(bo, eventCallbackID);
   }
 }
 
@@ -731,7 +740,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
       PopupMenuButton(
         key: mxj2d(bo, jsonMap["key"]),
         itemBuilder: (BuildContext context) {
-          return toListT<PopupMenuEntry>(mxj2d(bo, jsonMap["items"]));
+          return toListT<PopupMenuEntry>(mxj2d(bo, jsonMap["children"]));
         },
         initialValue: mxj2d(bo, jsonMap["initialValue"]),
         onSelected: createPopMenuItemSelectedHandle(bo, mxj2d(bo, jsonMap["onSelected"])),
@@ -768,7 +777,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
   VoidCallback createEventHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) => createVoidCallbackHandle(bo, eventCallbackID);
 
   ///生成ValueChanged<bool> 闭包
-  ValueChanged<bool> createStateChangedHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) => createValueChangedBoolHandle(bo, eventCallbackID);
+  ValueChanged<bool> createStateChangedHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) => createValueGenericHandle<bool>(bo, eventCallbackID);
 
   ///生成ValueChanged<T> 闭包
   ValueChanged<T> createValueChangedGenericHandle<T>(MXJsonBuildOwner bo, dynamic eventCallbackID) => createValueGenericHandle(bo, eventCallbackID);
@@ -1145,7 +1154,7 @@ class MXProxyBuilder extends MXJsonObjProxy {
 	Builder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
 		var widget = Builder(
 			key: mxj2d(bo, jsonMap["key"]),
-			builder: mxj2d(bo, jsonMap["builder"]),
+			builder: createWidgetBuilder(bo, mxj2d(bo, jsonMap["builder"])),
 		);
 		return widget;
 	}
@@ -1170,3 +1179,64 @@ class MXProxyDefaultTabController extends MXJsonObjProxy {
 		return widget;
 	}
 }
+
+class MXProxyTabController extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "TabController";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyTabController()..init(className: regClassName)};
+	}
+
+	@override
+	TabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = TabController(
+			initialIndex: mxj2d(bo, jsonMap["initialIndex"], defaultValue:0),
+			length: mxj2d(bo, jsonMap["length"]),
+			vsync: mxj2d(bo, jsonMap["vsync"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxyTab extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "Tab";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyTab()..init(className: regClassName)};
+	}
+
+	@override
+	Tab constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = Tab(
+			key: mxj2d(bo, jsonMap["key"]),
+			text: mxj2d(bo, jsonMap["text"]),
+			icon: mxj2d(bo, jsonMap["icon"]),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxyTabBarView extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "TabBarView";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyTabBarView()..init(className: regClassName)};
+	}
+
+	@override
+	TabBarView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+		var widget = TabBarView(
+			key: mxj2d(bo, jsonMap["key"]),
+			children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
+			controller: mxj2d(bo, jsonMap["controller"]),
+			physics: mxj2d(bo, jsonMap["physics"]),
+			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+		);
+		return widget;
+	}
+}
+

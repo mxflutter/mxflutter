@@ -17,7 +17,7 @@ function jsFlutterRequire(file) {
 }
 //VSCode Run support end ================================================================================
 
-//pesto.js 正式开始，😝
+//easy_ui_demo.js 正式开始，😝
 
 let {
   MXJSLog,

@@ -20,50 +20,24 @@ function jsFlutterRequire(file) {
 //pesto.js 正式开始，😝
 
 let {
-  MXJSLog,
-  runApp,
-  MXJSFlutterApp,
   MXJSWidget,
-  Key,
-  MaterialApp,
   Scaffold,
-  Container,
-  RaisedButton,
   Color,
-  Center,
   AppBar,
   Text,
   ListView,
   ListTile,
   Icon,
   IconData,
-  MediaQuery,
-  FloatingActionButton,
-  CustomScrollView,
-  SliverAppBar,
-  SliverPadding,
-  SliverGrid,
-  SliverGridDelegateWithMaxCrossAxisExtent,
-  SliverChildBuilderDelegate,
   EdgeInsets,
-  GestureDetector,
-  Card,
-  Expanded,
-  Column,
-  Hero,
-  AspectRatio,
-  Image,
-  BoxFit,
-  Row,
   Padding,
-  TextOverflow,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 
 let {JSBottomAPPBarDemo} = jsFlutterRequire("./material/bottom_app_bar_demo.js");
 let {JSBottomNavigationDemo} = jsFlutterRequire("./material/bottom_navigation_demo.js");
 let {JSEasyUIDemo} = jsFlutterRequire("./material/easy_ui_demo.js");
-// let {JSTabsDemo} = jsFlutterRequire("./material/tabs_demo.js");
+let {JSTabsDemo} = jsFlutterRequire("./material/tabs_demo.js");
 
 class JSMaterialPage extends MXJSWidget {
     constructor() {
@@ -115,15 +89,15 @@ class JSMaterialPage extends MXJSWidget {
                         }
                     }),
 
-                    // new ListTile({
-                    //     leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
-                    //     trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                    //     title: new Text('Tabs'),
-                    //     subtitle: new Text('Tabs with independently scrollable views'),
-                    //     onTap:function () {
-                    //         this.navigatorPush(new JSTabsDemo);
-                    //     }
-                    // }),
+                    new ListTile({
+                        leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
+                        trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                        title: new Text('Tabs'),
+                        subtitle: new Text('Tabs with independently scrollable views'),
+                        onTap:function () {
+                            this.navigatorPush(new JSTabsDemo);
+                        }
+                    }),
                 ],
             })
         });

@@ -1240,8 +1240,8 @@ class MXProxyListView extends MXJsonObjProxy {
       semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
       itemCount: mxj2d(bo, jsonMap["itemCount"]),
       itemBuilder: (BuildContext context, int index) {
-        List<Widget> dataSource = mxj2d(bo, jsonMap["items"]);
-        return dataSource[index];
+        List<Widget> children = mxj2d(bo, jsonMap["children"]);
+        return children[index];
       },
     );
 
@@ -1286,12 +1286,12 @@ class MXProxyListView extends MXJsonObjProxy {
       cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
       itemCount: mxj2d(bo, jsonMap["itemCount"]),
       itemBuilder: (BuildContext context, int index) {
-        List<Widget> dataSource = mxj2d(bo, jsonMap["items"]);
-        return dataSource[index];
+        List<Widget> children = mxj2d(bo, jsonMap["children"]);
+        return children[index];
       },
       separatorBuilder: (BuildContext context, int index) {
-        List<Widget> dataSource = mxj2d(bo, jsonMap["separators"]);
-        return dataSource[index];
+        List<Widget> children = mxj2d(bo, jsonMap["children"]);
+        return children[index];
       },
     );
 
@@ -1598,11 +1598,11 @@ class MXProxySliverChildBuilderDelegate extends MXJsonObjProxy {
   @override
   SliverChildBuilderDelegate constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
-    List<Widget> dataSource = toListT<Widget>(mxj2d(bo, jsonMap["children"]));
 
     var widget = SliverChildBuilderDelegate(
       (BuildContext context, int index) {
-        return dataSource[index];
+        List<Widget> children = toListT<Widget>(mxj2d(bo, jsonMap["children"]));
+        return children[index];
       },
       childCount: mxj2d(bo, jsonMap["childCount"]),
       addAutomaticKeepAlives:
@@ -1847,7 +1847,7 @@ class MXProxyNestedScrollView extends MXJsonObjProxy {
 			reverse: mxj2d(bo, jsonMap["reverse"], defaultValue:false),
 			physics: mxj2d(bo, jsonMap["physics"]),
 			headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-        return toListT<Widget>(mxj2d(bo, jsonMap["headerSlivers"]));
+        return toListT<Widget>(mxj2d(bo, jsonMap["children"]));
       },
 			body: mxj2d(bo, jsonMap["body"]),
 			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),

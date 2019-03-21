@@ -423,7 +423,7 @@ class PopupMenuButton extends FlutterWidget {
         this.offset = offset;
         
         // 本地创建的，供flutter使用
-        this.items = [];
+        this.children = [];
     }
 
     //在生成json前调用
@@ -434,7 +434,7 @@ class PopupMenuButton extends FlutterWidget {
 
         //先把调用函数
         if(this.itemBuilder){
-            this.items = this.itemBuilder(buildContext);
+            this.children = this.itemBuilder(buildContext);
             delete this.itemBuilder;
         }
 
@@ -821,7 +821,7 @@ MaterialTapTargetSize = {
 };
 
 
-class Builder extends DartClass {
+class Builder extends FlutterWidget {
     constructor ({
         key,
         builder,
@@ -830,6 +830,19 @@ class Builder extends DartClass {
 
         this.key = key;
         this.builder = builder;
+
+        // 本地创建的，供flutter使用
+        this.child = null;
+    }
+
+    preBuild(jsWidget, buildContext) {
+
+        if(this.builder){
+            this.child = this.builder(buildContext);
+            delete this.builder;
+        }
+
+        super.preBuild(jsWidget, buildContext);
     }
 }
 
@@ -850,6 +863,99 @@ class DefaultTabController extends FlutterWidget {
 }
 
 
+class TabBar extends FlutterWidget {
+    constructor ({
+        key,
+        tabs,
+        controller,
+        isScrollable,
+        indicatorColor,
+        indicatorWeight,
+        indicatorPadding,
+        indicator,
+        indicatorSize,
+        labelColor,
+        labelStyle,
+        labelPadding,
+        unselectedLabelColor,
+        unselectedLabelStyle,
+        dragStartBehavior,
+        onTap,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.tabs = tabs;
+        this.controller = controller;
+        this.isScrollable = isScrollable;
+        this.indicatorColor = indicatorColor;
+        this.indicatorWeight = indicatorWeight;
+        this.indicatorPadding = indicatorPadding;
+        this.indicator = indicator;
+        this.indicatorSize = indicatorSize;
+        this.labelColor = labelColor;
+        this.labelStyle = labelStyle;
+        this.labelPadding = labelPadding;
+        this.unselectedLabelColor = unselectedLabelColor;
+        this.unselectedLabelStyle = unselectedLabelStyle;
+        this.dragStartBehavior = dragStartBehavior;
+        this.onTap = onTap;
+    }
+}
+
+class TabController extends FlutterWidget {
+    constructor ({
+        initialIndex,
+        length,
+        vsync,
+    } = {}) {
+        super();
+
+        this.initialIndex = initialIndex;
+        this.length = length;
+        this.vsync = vsync;
+    }
+}
+
+class Tab extends FlutterWidget {
+    constructor ({
+        key,
+        text,
+        icon,
+        child,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.text = text;
+        this.icon = icon;
+        this.child = child;
+    }
+}
+
+
+class TabBarView extends FlutterWidget {
+    constructor ({
+        key,
+        children,
+        controller,
+        physics,
+        dragStartBehavior,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.children = children;
+        this.controller = controller;
+        this.physics = physics;
+        this.dragStartBehavior = dragStartBehavior;
+    }
+}
+
+MaterialTapTargetSize = {
+    padded: "MaterialTapTargetSize.padded",
+    shrinkWrap: "MaterialTapTargetSize.shrinkWrap",
+};
 
 module.exports = {
     MaterialApp,
@@ -879,4 +985,8 @@ module.exports = {
     MaterialTapTargetSize,
     Builder,
     DefaultTabController,
+    TabBar,
+    TabController,
+    Tab,
+    TabBarView,
 };

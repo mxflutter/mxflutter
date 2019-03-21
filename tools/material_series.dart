@@ -470,6 +470,33 @@ const PopupMenuItem({
     @required this.child,
   })
   """,
+
+  """
+  TabController({ 
+    int initialIndex = 0,
+    @required this.length, 
+    @required TickerProvider vsync 
+    })
+  """,
+
+  """
+const Tab({
+    Key key,
+    this.text,
+    this.icon,
+    this.child,
+  })
+  """,
+
+  """
+const TabBarView({
+    Key key,
+    @required this.children,
+    this.controller,
+    this.physics,
+    this.dragStartBehavior = DragStartBehavior.down,
+  })
+  """,
 ];
 
 void main(List<String> arguments) {

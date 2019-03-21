@@ -271,6 +271,18 @@ class CupertinoTabScaffold extends FlutterWidget {
         this.tabBuilder = tabBuilder;
         this.backgroundColor = backgroundColor;
         this.resizeToAvoidBottomInset = resizeToAvoidBottomInset;
+
+        // 本地创建的，供flutter使用
+        this.children = [];
+    }
+
+    preBuild(jsWidget, buildContext) {
+        if(this.tabBuilder){
+            this.children = this.tabBuilder(buildContext);
+            delete this.tabBuilder;
+        }
+
+        super.preBuild(jsWidget, buildContext);
     }
 }
 

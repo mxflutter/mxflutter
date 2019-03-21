@@ -5,6 +5,7 @@ import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'package:flutter/services.dart';
 import 'dart:typed_data';
+import "mx_json_proxy_material.dart";
 import 'dart:math' as math;
 
 /******************TODO List****************************/
@@ -2639,11 +2640,11 @@ class MXProxyThemeData extends MXJsonObjProxy {
 			brightness: MXBrightness.parse(mxj2d(bo, jsonMap["brightness"])),
 			primarySwatch: mxj2d(bo, jsonMap["primarySwatch"]),
 			primaryColor: mxj2d(bo, jsonMap["primaryColor"]),
-			primaryColorBrightness: mxj2d(bo, jsonMap["primaryColorBrightness"]),
+			primaryColorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["primaryColorBrightness"])),
 			primaryColorLight: mxj2d(bo, jsonMap["primaryColorLight"]),
 			primaryColorDark: mxj2d(bo, jsonMap["primaryColorDark"]),
 			accentColor: mxj2d(bo, jsonMap["accentColor"]),
-			accentColorBrightness: mxj2d(bo, jsonMap["accentColorBrightness"]),
+			accentColorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["accentColorBrightness"])),
 			canvasColor: mxj2d(bo, jsonMap["canvasColor"]),
 			scaffoldBackgroundColor: mxj2d(bo, jsonMap["scaffoldBackgroundColor"]),
 			bottomAppBarColor: mxj2d(bo, jsonMap["bottomAppBarColor"]),
@@ -2679,7 +2680,7 @@ class MXProxyThemeData extends MXJsonObjProxy {
 			tabBarTheme: mxj2d(bo, jsonMap["tabBarTheme"]),
 			chipTheme: mxj2d(bo, jsonMap["chipTheme"]),
 			platform: MXTargetPlatform.parse(mxj2d(bo, jsonMap["platform"])),
-			materialTapTargetSize: mxj2d(bo, jsonMap["materialTapTargetSize"]),
+			materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo, jsonMap["materialTapTargetSize"])),
 			pageTransitionsTheme: mxj2d(bo, jsonMap["pageTransitionsTheme"]),
 			colorScheme: mxj2d(bo, jsonMap["colorScheme"]),
 			dialogTheme: mxj2d(bo, jsonMap["dialogTheme"]),

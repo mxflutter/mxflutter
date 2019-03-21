@@ -1188,15 +1188,17 @@ class NeverScrollableScrollPhysics extends DartClass {
     }
 }
 
-class SliverChildBuilderDelegate extends DartClass {
+class SliverChildBuilderDelegate extends FlutterWidget {
     constructor(
         builder,
-        childCount,
-        addAutomaticKeepAlives,
-        addRepaintBoundaries,
-        addSemanticIndexes,
-        semanticIndexCallback,
-        semanticIndexOffset,
+        {
+            childCount,
+            addAutomaticKeepAlives,
+            addRepaintBoundaries,
+            addSemanticIndexes,
+            semanticIndexCallback,
+            semanticIndexOffset,
+        }
     ) {
         super();
 
@@ -1207,6 +1209,22 @@ class SliverChildBuilderDelegate extends DartClass {
         this.addSemanticIndexes = addSemanticIndexes;
         this.semanticIndexCallback = semanticIndexCallback;
         this.semanticIndexOffset = semanticIndexOffset;
+
+        // 本地创建的，供flutter使用
+        this.children = [];
+    }
+
+    preBuild(jsWidget, buildContext) {
+
+        if(this.builder){
+            for (let i = 0; i < this.childCount; ++i) {
+                let w = this.builder(buildContext, i);
+                this.children.push(w);
+            }
+            delete this.builder;
+        }
+
+        super.preBuild(jsWidget, buildContext);
     }
 }
 
