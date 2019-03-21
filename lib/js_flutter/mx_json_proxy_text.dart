@@ -73,7 +73,7 @@ class MXProxyText extends MXJsonObjProxy {
 //        textSpan = null,
 //        super(key: key);
   @override
-  Text constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Text constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     var widget = Text(
       mxj2d(bo, jsonMap["data"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -111,7 +111,7 @@ class MXProxyText extends MXJsonObjProxy {
 //        super(key: key);
 
   @override
-  Text constructorRich(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Text constructorRich(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = Text.rich(
       mxj2d(bo, jsonMap["textSpan"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -141,7 +141,7 @@ class MXProxyRichText extends MXJsonObjProxy {
 	}
 
 	@override
-	RichText constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	RichText constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = RichText(
 			key: mxj2d(bo, jsonMap["key"]),
 			text: mxj2d(bo, jsonMap["text"]),
@@ -186,7 +186,7 @@ class MXProxyDefaultTextStyle extends MXJsonObjProxy {
 
   @override
   DefaultTextStyle constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = DefaultTextStyle(
       key: mxj2d(bo, jsonMap["key"]),
       style: mxj2d(bo, jsonMap["style"]),
@@ -202,7 +202,7 @@ class MXProxyDefaultTextStyle extends MXJsonObjProxy {
 
   @override
   DefaultTextStyle constructorFallback(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = DefaultTextStyle.fallback();
 
     return widget;
@@ -221,7 +221,7 @@ class MXProxyTextStyle extends MXJsonObjProxy {
   }
 
   @override
-  TextStyle constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextStyle constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     var widget = TextStyle(
       inherit: mxj2d(bo, jsonMap["inherit"], defaultValue: true),
       color: mxj2d(bo, jsonMap["color"]),
@@ -272,7 +272,7 @@ class MXProxyTextSpan extends MXJsonObjProxy {
 //  Creates a TextSpan with the given values. [...]
 //  const
   @override
-  TextSpan constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextSpan constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     var widget = TextSpan(
       style: mxj2d(bo, jsonMap["style"]),
       text: mxj2d(bo, jsonMap["text"]),
@@ -341,7 +341,7 @@ class MXProxyTextTheme extends MXJsonObjProxy {
 	}
 
 	@override
-	TextTheme constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	TextTheme constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = TextTheme(
 			display4: mxj2d(bo, jsonMap["display4"]),
 			display3: mxj2d(bo, jsonMap["display3"]),
@@ -533,7 +533,7 @@ class MXProxyShadow extends MXJsonObjProxy {
 	}
 
 	@override
-	Shadow constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Shadow constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Shadow(
 			color: mxj2d(bo, jsonMap["color"], defaultValue: const Color(0xFF000000)),
 			offset: mxj2d(bo, jsonMap["offset"], defaultValue:Offset.zero),
@@ -552,7 +552,7 @@ class MXProxyTextFormField extends MXJsonObjProxy {
 	}
 
 	@override
-	TextFormField constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	TextFormField constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = TextFormField(
 			key: mxj2d(bo, jsonMap["key"]),
 			controller: mxj2d(bo, jsonMap["controller"]),
@@ -630,7 +630,7 @@ class MXProxyInputDecoration extends MXJsonObjProxy {
 	}
 
 	@override
-	InputDecoration constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	InputDecoration constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = InputDecoration(
 			icon: mxj2d(bo, jsonMap["icon"]),
 			labelText: mxj2d(bo, jsonMap["labelText"]),
@@ -682,7 +682,7 @@ class MXProxyTextEditingController extends MXJsonObjProxy {
 	}
 
 	@override
-	TextEditingController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	TextEditingController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = TextEditingController(
 			text: mxj2d(bo, jsonMap["text"]),
 		);
@@ -747,7 +747,7 @@ class MXTextInputType extends MXJsonObjProxy {
         constructor: constructorUrl);
   }
 
-  TextInputType constructorNumberWithOptions(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextInputType constructorNumberWithOptions(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     TextInputType object = TextInputType.numberWithOptions(
       signed: mxj2d(bo, jsonMap["signed"]),
       decimal:mxj2d(bo, jsonMap["decimal"]),
@@ -755,31 +755,31 @@ class MXTextInputType extends MXJsonObjProxy {
     return object;
   }
 
-  TextInputType constructorText(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextInputType constructorText(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return TextInputType.text;
   }
 
-  TextInputType constructorMultiline(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextInputType constructorMultiline(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return TextInputType.multiline;
   }
 
-  TextInputType constructorNumber(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextInputType constructorNumber(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return TextInputType.number;
   }
 
-  TextInputType constructorPhone(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextInputType constructorPhone(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return TextInputType.phone;
   }
 
-  TextInputType constructorDatetime(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextInputType constructorDatetime(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return TextInputType.datetime;
   }
 
-  TextInputType constructorEmailAddress(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextInputType constructorEmailAddress(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return TextInputType.emailAddress;
   }
 
-  TextInputType constructorUrl(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  TextInputType constructorUrl(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return TextInputType.url;
   }
 }
@@ -832,7 +832,7 @@ class MXProxyUnderlineInputBorder extends MXJsonObjProxy {
 	}
 
 	@override
-	UnderlineInputBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	UnderlineInputBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = UnderlineInputBorder(
 			borderSide: mxj2d(bo, jsonMap["borderSide"], defaultValue:const BorderSide()),
 			borderRadius: mxj2d(bo, jsonMap["borderRadius"], defaultValue:const BorderRadius.only(topLeft: Radius.circular(4.0),topRight: Radius.circular(4.0))));
@@ -849,7 +849,7 @@ class MXProxyOutlineInputBorder extends MXJsonObjProxy {
 	}
 
 	@override
-	OutlineInputBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	OutlineInputBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = OutlineInputBorder(
 			borderSide: mxj2d(bo, jsonMap["borderSide"], defaultValue:const BorderSide()),
 			borderRadius: mxj2d(bo, jsonMap["borderRadius"], defaultValue:const BorderRadius.all(Radius.circular(4.0))),
@@ -868,7 +868,7 @@ class MXProxyTextField extends MXJsonObjProxy {
 	}
 
 	@override
-	TextField constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	TextField constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = TextField(
 			key: mxj2d(bo, jsonMap["key"]),
 			controller: mxj2d(bo, jsonMap["controller"]),

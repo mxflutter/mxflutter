@@ -46,7 +46,7 @@ class MXProxyAnimation extends MXJsonObjProxy {
   }
 
   @override
-  Animation constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Animation constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     Tween tween = mxj2d(bo, jsonMap["tween"]);
     AnimationController controller = mxj2d(bo, jsonMap["controller"]);
     if (tween is Tween && controller is AnimationController){
@@ -85,7 +85,7 @@ class MXProxyTween extends MXJsonObjProxy {
 	}
 
 	@override
-	Tween constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Tween constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Tween(
 			begin: mxj2d(bo, jsonMap["begin"]),
 			end: mxj2d(bo, jsonMap["end"]),
@@ -104,7 +104,7 @@ class MXProxyAnimationController extends MXJsonObjProxy {
 	}
 
 	@override
-	AnimationController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	AnimationController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = AnimationController(
 			value: mxj2d(bo, jsonMap["value"])?.toDouble(),
 			duration: mxj2d(bo, jsonMap["duration"]),
@@ -127,7 +127,7 @@ class MXProxyAnimatedBuilder extends MXJsonObjProxy {
 	}
 
 	@override
-	AnimatedBuilder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	AnimatedBuilder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     Animation animation = mxj2d(bo, jsonMap["animation"]);
 		var widget = AnimatedBuilder(
 			key: mxj2d(bo, jsonMap["key"]),
@@ -167,7 +167,7 @@ class MXProxyDuration extends MXJsonObjProxy {
 	}
 
 	@override
-	Duration constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Duration constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Duration(
 			days: mxj2d(bo, jsonMap["days"], defaultValue:0),
 			hours: mxj2d(bo, jsonMap["hours"], defaultValue:0),
@@ -234,7 +234,7 @@ class MXProxyCurveTween extends MXJsonObjProxy {
 	}
 
 	@override
-	CurveTween constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	CurveTween constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = CurveTween(
 			curve: mxj2d(bo, jsonMap["curve"]),
 		);
@@ -251,7 +251,7 @@ class MXProxyInterval extends MXJsonObjProxy {
 	}
 
 	@override
-	Interval constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Interval constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Interval(
       mxj2d(bo, jsonMap["begin"])?.toDouble(), 
       mxj2d(bo, jsonMap["end"])?.toDouble(),
@@ -321,7 +321,7 @@ class MXProxyFadeTransition extends MXJsonObjProxy {
 	}
 
 	@override
-	FadeTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	FadeTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = FadeTransition(
 			key: mxj2d(bo, jsonMap["key"]),
 			opacity: mxj2d(bo, jsonMap["opacity"]),
@@ -341,7 +341,7 @@ class MXProxySlideTransition extends MXJsonObjProxy {
 	}
 
 	@override
-	SlideTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	SlideTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = SlideTransition(
 			key: mxj2d(bo, jsonMap["key"]),
 			position: mxj2d(bo, jsonMap["position"]),

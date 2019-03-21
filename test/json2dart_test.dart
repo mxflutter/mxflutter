@@ -125,14 +125,14 @@ class SimpleProxy extends MXJsonObjProxy {
   }
 
   Equalable constructorWithPrimity(
-          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) =>
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       Equalable(
           strP: mxj2d(bo, jsonMap['strP']),
           boolP: mxj2d(bo, jsonMap['boolP']),
           colorP: mxj2d(bo, jsonMap['colorP']));
 
   @override
-  Equalable constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) =>
+  Equalable constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) =>
       Equalable();
 }
 

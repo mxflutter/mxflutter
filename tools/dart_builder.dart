@@ -86,7 +86,7 @@ class Parse2Dart {
         '\t\treturn {regClassName: () => MXProxy$name()..init(className: regClassName)};\n'
         '\t}\n\n'
         '\t@override\n'
-        '\t$name constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {\n'
+        '\t$name constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {\n'
         '\t\tvar widget = $name(';
 
     // 去掉最后一行

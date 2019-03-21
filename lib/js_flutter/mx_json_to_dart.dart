@@ -39,12 +39,12 @@ class MXJsonObjToDartObject {
   }
 
   static dynamic jsonToDartObj(
-      MXJsonBuildOwner buildOwner, dynamic jsonMap) {
+      MXJsonBuildOwner buildOwner, dynamic jsonMap, {BuildContext context}) {
     return MXJsonObjToDartObject.getInstance()
-        .jsonObjToDartObject(buildOwner, jsonMap);
+        .jsonObjToDartObject(buildOwner, jsonMap, context:context);
   }
 
-  dynamic jsonObjToDartObject(MXJsonBuildOwner buildOwner, dynamic jsonObj) {
+  dynamic jsonObjToDartObject(MXJsonBuildOwner buildOwner, dynamic jsonObj, {BuildContext context}) {
     String className;
      try {
       ///map
@@ -53,13 +53,13 @@ class MXJsonObjToDartObject {
 
         ///如果Map里找到了Class字段，则转换成对应Dart对象
         if (className != null) {
-          return jsonMapObjToDartObject(buildOwner, jsonObj);
+          return jsonMapObjToDartObject(buildOwner, jsonObj, context:context);
         } else {
           ///如果Map里没找到Class字段，则转换成对应Dart里的Map对象，并对齐子元素，递归转换
-          return jsonMapObjToDartMapRecursive(buildOwner, jsonObj);
+          return jsonMapObjToDartMapRecursive(buildOwner, jsonObj, context:context);
         }
       } else if (jsonObj is List) {
-        return jsonListObjToDartListRecursive(buildOwner, jsonObj);
+        return jsonListObjToDartListRecursive(buildOwner, jsonObj, context:context);
       } else {
         return jsonObj;
       }
@@ -74,7 +74,7 @@ class MXJsonObjToDartObject {
 
   ///如果Map里找到了Class字段，则转换成对应Dart对象
   dynamic jsonMapObjToDartObject(
-      MXJsonBuildOwner buildOwner, Map jsonMap) {
+      MXJsonBuildOwner buildOwner, Map jsonMap, {BuildContext context}) {
     String className = jsonMap["className"];
 
     if (className == null || className.isEmpty) {
@@ -101,7 +101,7 @@ class MXJsonObjToDartObject {
       _className2Proxy[className] = proxy;
     }
 
-    dynamic dartObject = proxy.jsonObjToDartObject(buildOwner, jsonMap);
+    dynamic dartObject = proxy.jsonObjToDartObject(buildOwner, jsonMap, context:context);
     buildOwner.setMirrorObject(dartObject, jsonMap);
 
     return dartObject;
@@ -109,11 +109,11 @@ class MXJsonObjToDartObject {
 
   ///如果Map里没找到Class字段，则转换成对应Dart里的Map对象，并对齐子元素，递归转换
   dynamic jsonMapObjToDartMapRecursive(
-      MXJsonBuildOwner buildOwner, Map jsonMap) {
+      MXJsonBuildOwner buildOwner, Map jsonMap, {BuildContext context}) {
     Map map = {};
 
     jsonMap.forEach((k, v) {
-      map[k] = jsonToDartObj(buildOwner, v);
+      map[k] = jsonToDartObj(buildOwner, v, context:context);
     });
 
     return map;
@@ -121,11 +121,11 @@ class MXJsonObjToDartObject {
 
   ///List对象，对子元素，递归转换
   dynamic jsonListObjToDartListRecursive(
-      MXJsonBuildOwner buildOwner, List jsonList) {
+      MXJsonBuildOwner buildOwner, List jsonList, {BuildContext context}) {
     List list = [];
 
     jsonList.forEach((v) {
-      var vObj = jsonToDartObj(buildOwner, v);
+      var vObj = jsonToDartObj(buildOwner, v, context:context);
 
       list.add(vObj);
     });
@@ -171,10 +171,10 @@ class MXJsonObjToDartObject {
 }
 
 typedef dynamic ConstructorFun(
-    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap);
+    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap, {BuildContext context});
 
 typedef dynamic StaticFunction(
-    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap);
+    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap, {BuildContext context});
 
 class MXJsonObjProxy {
   ///静态接口,子类重写*********************************************
@@ -258,7 +258,7 @@ class MXJsonObjProxy {
 
   ///用于多构造函数分发，一般不用重载，只重载constructor即可
   Object jsonObjToDartObject(
-      MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap, {BuildContext context}) {
     if (!check(jsonMap)) {
       return null;
     }
@@ -269,15 +269,15 @@ class MXJsonObjProxy {
     var obj;
     ///是否使用自定义的构造方法
     if (constructorFun != null) {
-      obj = constructorFun(buildOwner, jsonMap);
+      obj = constructorFun(buildOwner, jsonMap, context:context);
     }
     ///是否使用静态方法 
     else if (staticFun != null) {
-      obj = staticFun(buildOwner, jsonMap);
+      obj = staticFun(buildOwner, jsonMap, context:context);
     }
     ///默认构造方法 
     else {
-      obj = constructor(buildOwner, jsonMap);
+      obj = constructor(buildOwner, jsonMap, context:context);
     }
 
     return obj;
@@ -309,7 +309,7 @@ class MXJsonObjProxy {
 
   ///子类重写constructor函数把map转换到dart类
   dynamic constructor(
-      MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap, {BuildContext context}) {
     return null;
   }
 
@@ -343,9 +343,9 @@ class MXJsonObjProxy {
 
 
   dynamic mxj2d(MXJsonBuildOwner buildOwner, dynamic jsonObj,
-      {dynamic defaultValue}) {
+      {dynamic defaultValue, BuildContext context}) {
     var v = MXJsonObjToDartObject.getInstance()
-        .jsonObjToDartObject(buildOwner, jsonObj);
+        .jsonObjToDartObject(buildOwner, jsonObj, context:context);
 
     v ??= defaultValue;
     return v;

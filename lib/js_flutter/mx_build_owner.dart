@@ -68,7 +68,7 @@ class MXJsonBuildOwner {
   }
 
   Widget build(Map widgetData, BuildContext context) {
-    var w = MXJsonObjToDartObject.jsonToDartObj(this, widgetData);
+    var w = MXJsonObjToDartObject.jsonToDartObj(this, widgetData, context:context);
 
     if (w == null) {
       w = Center(
@@ -367,7 +367,7 @@ class MXProxyMXJSWidget extends MXJsonObjProxy {
   }
 
   @override
-  MXJSWidget constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  MXJSWidget constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     var widget = MXJSWidget(
         name: mxj2d(bo, jsonMap["name"]),
         widgetID: mxj2d(bo, jsonMap["widgetID"]),

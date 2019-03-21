@@ -70,7 +70,7 @@ class MXProxyMaterialApp extends MXJsonObjProxy {
 	}
 
 	@override
-	MaterialApp constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	MaterialApp constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = MaterialApp(
 			key: mxj2d(bo, jsonMap["key"]),
 			navigatorKey: mxj2d(bo, jsonMap["navigatorKey"]), //TODO:navigationKey
@@ -140,7 +140,7 @@ class MXProxyScaffold extends MXJsonObjProxy {
 //  })
 
   @override
-  Scaffold constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  Scaffold constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
 
     var widget = Scaffold(
       key: mxj2d(bo,jsonMap["key"]),
@@ -211,7 +211,7 @@ class MXProxyAppBar extends MXJsonObjProxy {
   }
 
   @override
-  AppBar constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  AppBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = AppBar(
       key: mxj2d(bo, jsonMap["key"]),
       leading: mxj2d(bo, jsonMap["leading"]),
@@ -248,7 +248,7 @@ class MXProxyBottomAppBar extends MXJsonObjProxy {
   }
 
   @override
-  BottomAppBar constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  BottomAppBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = BottomAppBar (
       key: mxj2d(bo, jsonMap["key"]),
       color: mxj2d(bo, jsonMap["color"]),
@@ -320,7 +320,7 @@ class MXProxyBottomNavigationBar extends MXJsonObjProxy {
   }
 
   @override
-  BottomNavigationBar constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  BottomNavigationBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = BottomNavigationBar(
       key: mxj2d(bo, jsonMap["key"]),
       items: toListT<BottomNavigationBarItem>(mxj2d(bo, jsonMap["items"])),
@@ -350,7 +350,7 @@ class MXProxyTabBar extends MXJsonObjProxy {
   }
 
   @override
-  TabBar constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  TabBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = TabBar (
       key: mxj2d(bo, jsonMap["key"]),
       tabs: toListT<Widget>(mxj2d(bo, jsonMap["tabs"])),
@@ -406,20 +406,20 @@ class MXProxyCloseButtonSeries extends MXJsonObjProxy {
   }
 
 
-  Widget constructorCloseButton(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  Widget constructorCloseButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
 
     var obj = CloseButton(key: mxj2d(bo,jsonMap["key"]));
     return obj;
 
   }
 
-  Widget constructorBackButton(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  Widget constructorBackButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
 
     var obj = BackButton(key: mxj2d(bo,jsonMap["key"]));
     return obj;
   }
 
-  Widget constructorBackButtonIcon(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  Widget constructorBackButtonIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var obj = BackButtonIcon(key: mxj2d(bo,jsonMap["key"]));
     return obj;
   }
@@ -474,7 +474,7 @@ class MXProxyRawMaterialButton extends MXJsonObjProxy {
 //  })
 
   @override
-  RawMaterialButton constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  RawMaterialButton constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
 
     var widget = RawMaterialButton(
       key: mxj2d(bo,jsonMap["key"]),
@@ -559,7 +559,7 @@ class MXProxyMaterialButton extends MXJsonObjProxy {
 
   ///**@@@@ 拷贝生成其他类  4 替换类名
   @override
-  MaterialButton constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  MaterialButton constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
 
     var widget = MaterialButton(
       key: mxj2d(bo,jsonMap["key"]),
@@ -644,7 +644,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
 
   }
 
-  Widget constructorFlatButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) =>
+  Widget constructorFlatButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       FlatButton(
         key: mxj2d(bo, jsonMap["key"]),
         onPressed: createEventHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
@@ -664,7 +664,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         child: mxj2d(bo, jsonMap["child"])
       );
 
-  Widget constructorRaisedButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) =>
+  Widget constructorRaisedButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       RaisedButton(
         key: mxj2d(bo, jsonMap["key"]),
         onPressed: createEventHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
@@ -688,7 +688,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         child: mxj2d(bo, jsonMap["child"]),
       );
 
-  Widget constructorFloatingActionButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) =>
+  Widget constructorFloatingActionButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       FloatingActionButton(
         key: mxj2d(bo, jsonMap["key"]),
         child: mxj2d(bo, jsonMap["child"]),
@@ -706,7 +706,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         isExtended: mxj2d(bo, jsonMap["isExtended"], defaultValue: false),
       );
 
-  Widget constructorIconButton(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) =>
+  Widget constructorIconButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       IconButton(
         key: mxj2d(bo, jsonMap["key"]),
         iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0)?.toDouble(),
@@ -721,7 +721,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         tooltip: mxj2d(bo, jsonMap["tooltip"]),
       );
 
-  Widget constructorDropdownButton(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) =>
+  Widget constructorDropdownButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       DropdownButton(
         key: mxj2d(bo, jsonMap["key"]),
         items: toListT<DropdownMenuItem>(mxj2d(bo, jsonMap["items"])),
@@ -736,7 +736,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         isExpanded: mxj2d(bo, jsonMap["isExpanded"], defaultValue: false),
       );
 
-  Widget constructorPopupMenuButton(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) =>
+  Widget constructorPopupMenuButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       PopupMenuButton(
         key: mxj2d(bo, jsonMap["key"]),
         itemBuilder: (BuildContext context) {
@@ -765,7 +765,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         offset: mxj2d(bo, jsonMap["offset"], defaultValue: Offset.zero),
       );
 
-  Widget constructorButtonBar(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) =>
+  Widget constructorButtonBar(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       ButtonBar(
         key: mxj2d(bo, jsonMap["key"]),
         alignment: MXMainAxisAlignment.parse(mxj2d(bo, jsonMap["alignment"]), defaultValue: MainAxisAlignment.end),
@@ -805,7 +805,7 @@ class MXProxyIcon extends MXJsonObjProxy {
   }
 
   @override
-  Icon constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Icon constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     var widget = Icon(
       mxj2d(bo, jsonMap["icon"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -828,7 +828,7 @@ class MXProxyHero extends MXJsonObjProxy {
 	}
 
 	@override
-	Hero constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Hero constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Hero(
 			key: mxj2d(bo, jsonMap["key"]),
 			tag: mxj2d(bo, jsonMap["tag"]),
@@ -851,7 +851,7 @@ class MXProxyCard extends MXJsonObjProxy {
 	}
 
 	@override
-	Card constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Card constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Card(
 			key: mxj2d(bo, jsonMap["key"]),
 			color: mxj2d(bo, jsonMap["color"]),
@@ -875,7 +875,7 @@ class MXProxyMergeSemantics extends MXJsonObjProxy {
 	}
 
 	@override
-	MergeSemantics constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	MergeSemantics constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = MergeSemantics(
 			key: mxj2d(bo, jsonMap["key"]),
       child: mxj2d(bo, jsonMap["child"]),
@@ -893,7 +893,7 @@ class MXProxyPopupMenuItem extends MXJsonObjProxy {
 	}
 
 	@override
-	PopupMenuItem constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	PopupMenuItem constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = PopupMenuItem(
 			key: mxj2d(bo, jsonMap["key"]),
 			value: mxj2d(bo, jsonMap["value"]),
@@ -914,7 +914,7 @@ class MXProxyFlexibleSpaceBar extends MXJsonObjProxy {
 	}
 
 	@override
-	FlexibleSpaceBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	FlexibleSpaceBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = FlexibleSpaceBar(
 			key: mxj2d(bo, jsonMap["key"]),
 			title: mxj2d(bo, jsonMap["title"]),
@@ -963,23 +963,23 @@ class MXProxyFloatingActionButtonLocationSeries extends MXJsonObjProxy {
   }
 
 
-  FloatingActionButtonLocation constructorEndDocked(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  FloatingActionButtonLocation constructorEndDocked(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return FloatingActionButtonLocation.endDocked;
   }
 
-  FloatingActionButtonLocation constructorCenterDocked(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  FloatingActionButtonLocation constructorCenterDocked(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return FloatingActionButtonLocation.centerDocked;
   }
 
-  FloatingActionButtonLocation constructorEndFloat(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  FloatingActionButtonLocation constructorEndFloat(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return FloatingActionButtonLocation.endFloat;
   }
 
-  FloatingActionButtonLocation constructorCenterFloat(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  FloatingActionButtonLocation constructorCenterFloat(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     return FloatingActionButtonLocation.centerFloat;
   }
 
-  FloatingActionButtonLocation constructorNormal(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  FloatingActionButtonLocation constructorNormal(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     MXFloatingActionButtonLocation mxLocation = MXFloatingActionButtonLocation(
       offset: mxj2d(bo, jsonMap["offset"], defaultValue: Offset.zero),
     );
@@ -1008,7 +1008,7 @@ class MXProxyRadio extends MXJsonObjProxy {
 	}
 
 	@override
-	Radio constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Radio constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 
     //都转成字符串，便于Radio 比较和回传
     var value = json.encode(jsonMap["value"]);
@@ -1035,7 +1035,7 @@ class MXProxySemantics extends MXJsonObjProxy {
 	}
 
 	@override
-	Semantics constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Semantics constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Semantics(
 			key: mxj2d(bo, jsonMap["key"]),
 			child: mxj2d(bo, jsonMap["child"]),
@@ -1098,7 +1098,7 @@ class MXProxyCircleBorder extends MXJsonObjProxy {
 	}
 
 	@override
-	CircleBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	CircleBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = CircleBorder(
 			side: mxj2d(bo, jsonMap["side"], defaultValue:BorderSide.none),
 		);
@@ -1115,7 +1115,7 @@ class MXProxySafeArea extends MXJsonObjProxy {
 	}
 
 	@override
-	SafeArea constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	SafeArea constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = SafeArea(
 			key: mxj2d(bo, jsonMap["key"]),
 			left: mxj2d(bo, jsonMap["left"], defaultValue:true),
@@ -1151,10 +1151,12 @@ class MXProxyBuilder extends MXJsonObjProxy {
 	}
 
 	@override
-	Builder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Builder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Builder(
 			key: mxj2d(bo, jsonMap["key"]),
-			builder: createWidgetBuilder(bo, mxj2d(bo, jsonMap["builder"])),
+			builder: (BuildContext context) {
+        return mxj2d(bo, jsonMap["child"], context:context);
+      },
 		);
 		return widget;
 	}
@@ -1169,7 +1171,7 @@ class MXProxyDefaultTabController extends MXJsonObjProxy {
 	}
 
 	@override
-	DefaultTabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	DefaultTabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = DefaultTabController(
 			key: mxj2d(bo, jsonMap["key"]),
 			length: mxj2d(bo, jsonMap["length"]),
@@ -1189,7 +1191,7 @@ class MXProxyTabController extends MXJsonObjProxy {
 	}
 
 	@override
-	TabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	TabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = TabController(
 			initialIndex: mxj2d(bo, jsonMap["initialIndex"], defaultValue:0),
 			length: mxj2d(bo, jsonMap["length"]),
@@ -1208,7 +1210,7 @@ class MXProxyTab extends MXJsonObjProxy {
 	}
 
 	@override
-	Tab constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	Tab constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Tab(
 			key: mxj2d(bo, jsonMap["key"]),
 			text: mxj2d(bo, jsonMap["text"]),
@@ -1228,7 +1230,7 @@ class MXProxyTabBarView extends MXJsonObjProxy {
 	}
 
 	@override
-	TabBarView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+	TabBarView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = TabBarView(
 			key: mxj2d(bo, jsonMap["key"]),
 			children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),

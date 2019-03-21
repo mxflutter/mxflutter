@@ -64,7 +64,7 @@ class MXProxyImageProvider extends MXJsonObjProxy {
   }
 
   AssetImage constructorAssetImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var obj = AssetImage(mxj2d(bo, jsonMap["assetName"]),
         bundle: mxj2d(bo, jsonMap["bundle"]),
         package: mxj2d(bo, jsonMap["package"]));
@@ -72,7 +72,7 @@ class MXProxyImageProvider extends MXJsonObjProxy {
   }
 
   ExactAssetImage constructorExactAssetImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var obj = ExactAssetImage(mxj2d(bo, jsonMap["assetName"]),
         bundle: mxj2d(bo, jsonMap["bundle"]),
         package: mxj2d(bo, jsonMap["package"]));
@@ -80,21 +80,21 @@ class MXProxyImageProvider extends MXJsonObjProxy {
   }
 
   FileImage constructorFileImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var obj = FileImage(mxj2d(bo, jsonMap["file"]),
         scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble());
     return obj;
   }
 
   MemoryImage constructorMemoryImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var obj = MemoryImage(mxj2d(bo, jsonMap["bytes"]),
         scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble());
     return obj;
   }
 
   NetworkImage constructorNetworkImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var obj = NetworkImage(mxj2d(bo, jsonMap["url"]),
         scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble(),
         headers: toMapStringT(mxj2d(bo, jsonMap["headers"])));
@@ -162,7 +162,7 @@ class MXProxyImage extends MXJsonObjProxy {
   }
 
   @override
-  Image constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Image constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     var widget = Image(
       key: mxj2d(bo, jsonMap["key"]),
       image: mxj2d(bo, jsonMap["image"]),
@@ -188,7 +188,7 @@ class MXProxyImage extends MXJsonObjProxy {
     return widget;
   }
 
-  Image constructorNetwork(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Image constructorNetwork(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = Image.network(
       mxj2d(bo, jsonMap["src"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -216,7 +216,7 @@ class MXProxyImage extends MXJsonObjProxy {
     return widget;
   }
 
-  Image constructorFile(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Image constructorFile(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = Image.file(
       mxj2d(bo, jsonMap["file"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -243,7 +243,7 @@ class MXProxyImage extends MXJsonObjProxy {
     return widget;
   }
 
-  Image constructorAsset(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Image constructorAsset(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = Image.asset(
       mxj2d(bo, jsonMap["name"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -272,7 +272,7 @@ class MXProxyImage extends MXJsonObjProxy {
     return widget;
   }
 
-  Image constructorMemory(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap) {
+  Image constructorMemory(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = Image.memory(
       mxj2d(bo, jsonMap["bytes"]),
       key: mxj2d(bo, jsonMap["key"]),

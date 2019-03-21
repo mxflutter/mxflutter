@@ -62,7 +62,7 @@ class MXProxyCupertinoActivityIndicator extends MXJsonObjProxy {
 ///    this.radius = _kDefaultIndicatorRadius,
 /// })
   @override
-  CupertinoActivityIndicator constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoActivityIndicator constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoActivityIndicator(
       key: mxj2d(bo,jsonMap["key"]),
       animating: mxj2d(bo,jsonMap["animating"]),
@@ -96,7 +96,7 @@ class MXProxyCupertinoAlertDialog extends MXJsonObjProxy {
 ///    this.actionScrollController,
 ///  })
   @override
-  CupertinoAlertDialog constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoAlertDialog constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoAlertDialog(
       key: mxj2d(bo,jsonMap["key"]),
       title: mxj2d(bo,jsonMap["title"]),
@@ -142,7 +142,7 @@ class MXProxyCupertinoButton extends MXJsonObjProxy {
 ///    @required this.onPressed,
 ///  })
   @override
-  CupertinoButton constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoButton constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoButton(
       child: mxj2d(bo,jsonMap["child"]),
       padding: mxj2d(bo,jsonMap["padding"]),
@@ -156,7 +156,7 @@ class MXProxyCupertinoButton extends MXJsonObjProxy {
     return widget;
   }
 
-  // CupertinoButton constructorFilled(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  // CupertinoButton constructorFilled(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
   //   var widget = CupertinoButton.filled(
   //     child: mxj2d(bo,jsonMap["child"]),
   //     padding: mxj2d(bo,jsonMap["padding"]),
@@ -191,7 +191,7 @@ class MXProxyCupertinoDialog extends MXJsonObjProxy {
 ///    this.child,
 ///  })
   @override
-  CupertinoDialog constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoDialog constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoDialog(
       key: mxj2d(bo,jsonMap["key"]),
       child: mxj2d(bo,jsonMap["child"]),
@@ -216,7 +216,7 @@ class MXProxyCupertinoDialogAction extends MXJsonObjProxy {
   ///*********************************************************************
 
   @override
-  CupertinoDialogAction constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoDialogAction constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoDialogAction(
       onPressed: createVoidCallbackHandle(bo,jsonMap["onPressed"]),
       isDefaultAction: mxj2d(bo,jsonMap["isDefaultAction"],defaultValue: false),
@@ -255,7 +255,7 @@ class MXProxyCupertinoSlider extends MXJsonObjProxy {
 ///    this.activeColor,
 ///  })
   @override
-  CupertinoSlider constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoSlider constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoSlider(
       key: mxj2d(bo,jsonMap["key"]),
       value: mxj2d(bo,jsonMap["value"]),
@@ -292,7 +292,7 @@ class MXProxyCupertinoSwitch extends MXJsonObjProxy {
 ///    this.activeColor,
 ///  })
   @override
-  CupertinoSwitch constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoSwitch constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoSwitch(
       key: mxj2d(bo,jsonMap["key"]),
       value: mxj2d(bo,jsonMap["value"]),
@@ -325,7 +325,7 @@ class MXProxyCupertinoPageTransition extends MXJsonObjProxy {
 ///    @required bool linearTransition,
 ///  })
   @override
-  CupertinoPageTransition constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoPageTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoPageTransition(
       key: mxj2d(bo,jsonMap["key"]),
       //TODO:animation
@@ -358,7 +358,7 @@ class MXProxyCupertinoFullscreenDialogTransition extends MXJsonObjProxy {
 ///    @required this.child,
 ///  })
   @override
-  CupertinoFullscreenDialogTransition constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoFullscreenDialogTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoFullscreenDialogTransition(
       key: mxj2d(bo,jsonMap["key"]),
       //TODO:animation
@@ -399,7 +399,7 @@ class MXProxyCupertinoNavigationBar extends MXJsonObjProxy {
 ///    this.heroTag = _defaultHeroTag,
 ///  })
   @override
-  CupertinoNavigationBar constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoNavigationBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     const Border defaultNavBarBorder = Border(
       bottom: BorderSide(
         color: Color(0x4C000000),
@@ -442,7 +442,7 @@ class MXProxyCupertinoTabBar extends MXJsonObjProxy {
   ///*********************************************************************
 
   @override
-  CupertinoTabBar constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoTabBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     const Border defaultNavBarBorder = Border(
       bottom: BorderSide(
         color: Color(0x4C000000),
@@ -481,7 +481,7 @@ class MXProxyCupertinoPageScaffold extends MXJsonObjProxy {
   ///*********************************************************************
 
   @override
-  CupertinoPageScaffold constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoPageScaffold constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoPageScaffold(
       key: mxj2d(bo,jsonMap["key"]),
       navigationBar: mxj2d(bo, jsonMap["navigationBar"]),
@@ -509,7 +509,7 @@ class MXProxyCupertinoTabScaffold extends MXJsonObjProxy {
   ///*********************************************************************
 
   @override
-  CupertinoTabScaffold constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoTabScaffold constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoTabScaffold(
       key: mxj2d(bo,jsonMap["key"]),
       tabBar: mxj2d(bo,jsonMap["tabBar"]),
@@ -537,7 +537,7 @@ class MXProxyCupertinoTabView extends MXJsonObjProxy {
   ///*********************************************************************
 
   @override
-  CupertinoTabView constructor(MXJsonBuildOwner bo,Map<String, dynamic> jsonMap) {
+  CupertinoTabView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
     var widget = CupertinoTabView(
       key: mxj2d(bo,jsonMap["key"]),
       builder:(BuildContext context){
