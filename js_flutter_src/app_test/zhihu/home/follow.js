@@ -95,7 +95,7 @@ class Follow extends MXJSWidget {
             markWidget = new Text(article.mark, {
                 style: new TextStyle({
                     height: 1.3,
-                    color: Colors.white30(),
+                    color: new Color(0xFF444444),
                 }),
             });
         } else {
@@ -107,7 +107,7 @@ class Follow extends MXJSWidget {
                             child: new Text(article.mark, {
                                 style: new TextStyle({
                                     height: 1.3,
-                                    color: Colors.white30(),
+                                    color: new Color(0xFF444444),
                                 }),
                             }),
                         }),
@@ -131,7 +131,7 @@ class Follow extends MXJSWidget {
             });
         }
         return new Container({
-            color: new Color(0xFF222222),
+            color: new Color(0xFFFFFFFF),
             margin: EdgeInsets.only({
                 top: 5.0,
                 bottom: 5.0
@@ -153,7 +153,7 @@ class Follow extends MXJSWidget {
                                     }),
                                     new Text(" " + article.user + " " + article.action + " . " + article.time, {
                                         style: new TextStyle({
-                                            color: Colors.white30(),
+                                            color: new Color(0xFF444444),
                                         }),
                                     }),
                                 ],
@@ -166,7 +166,7 @@ class Follow extends MXJSWidget {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.0, 
                                     height: 1.3,
-                                    color: Colors.black(),
+                                    color: new Color(0xFF444444),
                                 }),
                             }),
                             margin: EdgeInsets.only({top: 6.0, bottom: 2.0}),
@@ -183,26 +183,26 @@ class Follow extends MXJSWidget {
                                     new Expanded({
                                         child: new Text(article.agreeNum.toString() + " 赞同 · " + article.commentNum.toString() + "评论", {
                                             style: new TextStyle({
-                                                color: Colors.white30(),
+                                                color: new Color(0xFF444444),
                                             }),
                                         }),
                                     }),
                                     new PopupMenuButton({
                                         icon: new Icon(new IconData(0xe260, {fontFamily: 'MaterialIcons'}), {
-                                            color: Colors.white30(),
+                                            color: new Color(0xFF444444),
                                         }),
                                         itemBuilder: function(context){
                                             let list = [
                                                 new PopupMenuItem({
-                                                    value: 1,
+                                                    value: '选项一的值',
                                                     child: new Text('屏蔽这个问题'),
                                                 }),
                                                 new PopupMenuItem({
-                                                    value: 2,
+                                                    value: '选项二的值',
                                                     child: new Text('取消关注 learner'),
                                                 }),
                                                 new PopupMenuItem({
-                                                    value: 3,
+                                                    value: '选项三的值',
                                                     child: new Text("举报"),
                                                 }),
                                             ];
@@ -225,7 +225,7 @@ class Follow extends MXJSWidget {
                 top: 5.0, 
                 bottom: 5.0,
             }),
-            color: new Color(0xFF222222),
+            color: new Color(0xFFFFFFFF),
             child: new FlatButton({
                 onPressed: function(){
 
@@ -243,7 +243,7 @@ class Follow extends MXJSWidget {
                                     }),
                                     new Text("  对啊网", {
                                         style: new TextStyle({
-                                            color: Colors.white30(),
+                                            color: new Color(0xFF444444),
                                         }),
                                     }),
                                 ],
@@ -256,7 +256,7 @@ class Follow extends MXJSWidget {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.0, 
                                     height: 1.3,
-                                    color: Colors.black(),
+                                    color: new Color(0xFF444444),
                                 }),
                             }),
                             margin: EdgeInsets.only({top: 6.0, bottom: 2.0}),
@@ -282,7 +282,7 @@ class Follow extends MXJSWidget {
                             child: new Text("还在羡慕别人的好工作？免费领取价值1980元的注册会计师课程，为自己充电！", {
                                 style: new TextStyle({
                                     height: 1.3,
-                                    color: Colors.white30(),
+                                    color: new Color(0xFF444444),
                                 }),
                             }),
                             padding: EdgeInsets.only({bottom: 8.0}),
@@ -294,12 +294,12 @@ class Follow extends MXJSWidget {
                                         child: new Text("广告", {
                                             style: new TextStyle({
                                                 fontSize: 10.0,
-                                                color: Colors.white30(),
+                                                color: new Color(0xFF444444),
                                             }),
                                         }),
                                         decoration: new BoxDecoration({
                                             border: Border.all({
-                                                color: Colors.white30(),
+                                                color: new Color(0xFF444444),
                                             }),
                                             borderRadius: BorderRadius.all(Radius.circular(2.0)),
                                         }),
@@ -308,12 +308,12 @@ class Follow extends MXJSWidget {
                                     new Expanded({
                                         child: new Text("  查看详情", {
                                             style: new TextStyle({
-                                                color: Colors.white30(),
+                                                color: new Color(0xFF444444),
                                             }),
                                         })
                                     }),
                                     new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {
-                                        color: Colors.white30(),
+                                        color: new Color(0xFF444444),
                                     }),
                                 ],
                             }),
@@ -338,6 +338,7 @@ class Follow extends MXJSWidget {
                         this.wordsCard(articleList[3]),
                     ],
                 }),
+                color: new Color(0xFFEEEEEE),
             }),
         });
         return widget;
