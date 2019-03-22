@@ -69,9 +69,9 @@ class MemoryImage extends FlutterWidget {
 }
 
 class NetworkImage extends FlutterWidget {
-    constructor({
+    constructor (
         url,
-        scale,
+{			scale,
         headers,
     } = {}) {
         super();

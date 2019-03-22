@@ -303,7 +303,10 @@ class MXJsonObjProxy {
 
     String className = getClassName(jsonMap);
     String staticFunctionName = getStaticFunctionName(jsonMap) ?? "";
-    StaticFunction fun = _className2StaicFunction[className][staticFunctionName];
+    StaticFunction fun;
+    if (_className2StaicFunction[className] != null) {
+      fun = _className2StaicFunction[className][staticFunctionName];
+    }
     return fun;
   }
 

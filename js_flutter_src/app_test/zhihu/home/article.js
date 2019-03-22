@@ -33,9 +33,10 @@ class Article {
         title,
         mark,
         agreeNum,
-        commentNum,
-        {imgUrl},
-    ) {
+        commentNum, 
+        {
+        imgUrl
+        } = {}) {
         this.headUrl = headUrl;
         this.user = user;
         this.action = action;

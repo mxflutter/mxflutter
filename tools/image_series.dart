@@ -35,13 +35,7 @@ var list = <String>[
      this.headers
       })
   """,
-  """
-  const NetworkImage(
-    this.url,{
-       this.scale = 1.0 , 
-     this.headers 
-     })
-  """,
+  
   """
   const Image({
     Key key,

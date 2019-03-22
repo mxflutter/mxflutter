@@ -24,14 +24,14 @@ let {
   MXJSFlutterApp,
 } = jsFlutterRequire("js_flutter_ui.js");
 
-class Question extends MXJSWidget {
+class Question {
     constructor(
         order,
         title,
         hotNum,
         imgUrl,
         {mark,
-        rise},
+        rise}= {}
     ) {
         this.order = order;
         this.title = title;

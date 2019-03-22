@@ -119,7 +119,7 @@ class Follow extends MXJSWidget {
                             child: new Container({
                                 foregroundDecoration: new BoxDecoration({
                                     image: new DecorationImage({
-                                        image: new NetworkImage(article.imageUrl),
+                                        image: new NetworkImage(article.imgUrl),
                                         centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
                                     }),
                                     borderRadius: BorderRadius.all(Radius.circular(6.0)),
@@ -138,7 +138,7 @@ class Follow extends MXJSWidget {
             }),
             child: new FlatButton({
                 onPressed:function(){
-                    // this.navigatorPush(new ReplyPage);
+                    this.navigatorPush(new ReplyPage);
                 },
                 child: new Column({
                     children: [
@@ -192,21 +192,21 @@ class Follow extends MXJSWidget {
                                             color: Colors.white30(),
                                         }),
                                         itemBuilder: function(context){
-                                            let widget = [
+                                            let list = [
                                                 new PopupMenuItem({
-                                                    value: '选项一的值',
+                                                    value: 1,
                                                     child: new Text('屏蔽这个问题'),
                                                 }),
                                                 new PopupMenuItem({
-                                                    value: '选项二的值',
+                                                    value: 2,
                                                     child: new Text('取消关注 learner'),
                                                 }),
                                                 new PopupMenuItem({
-                                                    value: '选项三的值',
+                                                    value: 3,
                                                     child: new Text("举报"),
                                                 }),
                                             ];
-                                            return widget;
+                                            return list;
                                         },
                                     }),
                                 ],
@@ -328,14 +328,14 @@ class Follow extends MXJSWidget {
     build(context){
         let widget = new SingleChildScrollView({
             child: new Container({
-                margin: EdgeInsets.all({top: 5.0}),
+                margin: EdgeInsets.only({top: 5.0}),
                 child: new Column({
                     children: [
-                        wordsCard(articleList[0]),
-                        wordsCard(articleList[1]),
-                        wordsCard(articleList[2]),
-                        billboard(),
-                        wordsCard(articleList[3])
+                        this.wordsCard(articleList[0]),
+                        this.wordsCard(articleList[1]),
+                        this.wordsCard(articleList[2]),
+                        this.billboard(),
+                        this.wordsCard(articleList[3]),
                     ],
                 }),
             }),
