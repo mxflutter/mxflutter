@@ -72,13 +72,10 @@ let _kGalleryAssetsPackage = 'js_flutter_src/app_test/flutter_gallery_assets/';
 let _kAppBarHeight = 128.0;
 let _kFabHalfSize = 28.0; // TODO(mpcomplete): needs to adapt to screen size
 let _kRecipePageMaxWidth = 500.0;
-let recipeList = [];
 
 class JSPestoPage extends MXJSWidget {
   constructor() {
     super("JSPestoPage");
-    this.recipes = recipeList;
-
   }
 
 
@@ -102,7 +99,7 @@ class JSPestoPage extends MXJSWidget {
         }),
       }),
       body: new CustomScrollView({
-        semanticChildCount: this.recipes.length,
+        semanticChildCount: _recipeList.length,
         slivers: [
           //this.buildAppBar(context, statusBarHeight),
           this.buildBody(context, statusBarHeight),
@@ -172,7 +169,7 @@ class JSPestoPage extends MXJSWidget {
         }),
         delegate: new SliverChildBuilderDelegate(
           function (context, index) {
-            let recipe = this.recipes[index];
+            let recipe = _recipeList[index];
             let w = new RecipeCard({
               recipe: recipe,
               onTap: function () { showRecipePage(context, recipe); },
@@ -181,7 +178,7 @@ class JSPestoPage extends MXJSWidget {
             return w;
           },
           {
-            childCount: this.recipes.length,
+            childCount: _recipeList.length,
           }),
       }),
     });
@@ -321,7 +318,7 @@ class RecipeStep {
 
 //const List<Recipe> kPestoRecipes = <Recipe>[
 
-recipeList = [
+let _recipeList = [
   new Recipe({
     name: 'Roasted Chicken',
     author: 'Peter Carlsson',
