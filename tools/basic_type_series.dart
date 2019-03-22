@@ -1878,6 +1878,15 @@ const Slider({
   })
    """,
 
+   """
+   const BorderDirectional({
+    this.top = BorderSide.none,
+    this.start = BorderSide.none,
+    this.end = BorderSide.none,
+    this.bottom = BorderSide.none,
+  })
+   """,
+
 ];
 
 void main(List<String> arguments) {

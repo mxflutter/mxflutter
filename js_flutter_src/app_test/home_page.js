@@ -51,8 +51,7 @@ let {JSAnimationPage} = jsFlutterRequire("./animation.js");
 let {JSMaterialPage} = jsFlutterRequire("./material.js");
 let {JSCupertinoPage} = jsFlutterRequire("./cupertino.js");
 let {JSZhiHuPage} = jsFlutterRequire("./zhihu/zhihu.js");
-// let {AskPage} = jsFlutterRequire("./zhihu/home/ask_page.js");
-let {Follow} = jsFlutterRequire("./zhihu/home/follow.js");
+let {HomePage} = jsFlutterRequire("./zhihu/home/home_page.js");
 
 //业务代码
 
@@ -77,7 +76,7 @@ class JSWidgetHomePage extends MXJSWidget {
                     title: new Text('ZhiHu'),
                     subtitle: new Text('ZhiHu high copy'),
                     onTap:function () {
-                        this.navigatorPush(new Follow);
+                        this.navigatorPush(new HomePage);
                     }
                 }),
 

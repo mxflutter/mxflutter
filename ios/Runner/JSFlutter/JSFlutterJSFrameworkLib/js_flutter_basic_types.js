@@ -2091,6 +2091,22 @@ class CircleAvatar extends DartClass {
     }
 }
 
+class BorderDirectional extends DartClass {
+    constructor({
+        top,
+        start,
+        end,
+        bottom,
+    } = {}) {
+        super();
+
+        this.top = top;
+        this.start = start;
+        this.end = end;
+        this.bottom = bottom;
+    }
+}
+
 module.exports = {
     DartClass,
     FlutterWidget,
@@ -2177,5 +2193,6 @@ module.exports = {
     Quaternion,
     Slider,
     CircleAvatar,
+    BorderDirectional,
     assert,
 };

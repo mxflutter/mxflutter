@@ -72,6 +72,7 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyQuaternion.registerProxy());
     m.addAll(MXProxySlider.registerProxy());
     m.addAll(MXProxyCircleAvatar.registerProxy());
+    m.addAll(MXProxyBorderDirectional.registerProxy());
     
     return m;
   }
@@ -2930,4 +2931,28 @@ class MXProxyCircleAvatar extends MXJsonObjProxy {
 		);
 		return widget;
 	}
+}
+
+class MXProxyBorderDirectional extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName1 = "BorderDirectional";
+
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName1: () => MXProxyBorderDirectional()..init(className: regClassName1)
+    };
+  }
+
+  @override
+  BorderDirectional constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var obj = BorderDirectional(
+      top: mxj2d(bo, jsonMap["top"], defaultValue: BorderSide.none),
+      start: mxj2d(bo, jsonMap["start"], defaultValue: BorderSide.none),
+      end: mxj2d(bo, jsonMap["end"], defaultValue: BorderSide.none),
+      bottom: mxj2d(bo, jsonMap["bottom"], defaultValue: BorderSide.none),
+    );
+
+    return obj;
+  }
 }

@@ -20,48 +20,162 @@ function jsFlutterRequire(file) {
 //HomePage.js 正式开始，😝
 
 let {
-  runApp,
-  MXJSFlutterApp,
-  MXJSWidget,
-  Scaffold,
-  Text,
-  Theme,
-  EdgeInsets,
-  Column,
-  SizedBox,
-  Card,
-  CrossAxisAlignment,
-  MainAxisAlignment,
-  Align,
-  Center,
-  Image,
-  Alignment,
-  CircleAvatar,
-  DefaultTabController,
-  NestedScrollView,
-  SliverOverlapAbsorber,
-  SliverAppBar,
-  TabBar,
-  Tab,
-  TabBarView,
-  SafeArea,
-  Builder,
-  CustomScrollView,
-  SliverChildBuilderDelegate,
-  SliverOverlapInjector,
-  SliverPadding,
-  SliverFixedExtentList,
-  Padding,
+    runApp,
+    MXJSFlutterApp,
+    MXJSWidget,
+    MaterialApp,
+    ThemeData,
+    Scaffold,
+    AppBar,
+    Container,
+    Row,
+    FlatButton,
+    Text,
+    Expanded,
+    TextStyle,
+    Colors,
+    AspectRatio,
+    BoxDecoration,
+    BorderSide,
+    DecorationImage,
+    NetworkImage,
+    Rect,
+    Border,
+    BorderRadius,
+    Radius,
+    Color,
+    TextField,
+    Theme,
+    Icon,
+    IconData,
+    BorderDirectional,
+    EdgeInsets,
+    Column,
+    FontWeight,
+    PopupMenuButton,
+    PopupMenuItem,
+    SingleChildScrollView,
+    InputDecoration,
+    SizedBox,
+    Card,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Align,
+    Center,
+    Image,
+    Alignment,
+    CircleAvatar,
+    DefaultTabController,
+    NestedScrollView,
+    SliverOverlapAbsorber,
+    SliverAppBar,
+    TabBar,
+    Tab,
+    TabBarView,
+    SafeArea,
+    Builder,
+    CustomScrollView,
+    SliverChildBuilderDelegate,
+    SliverOverlapInjector,
+    SliverPadding,
+    SliverFixedExtentList,
+    Padding,
   
 } = jsFlutterRequire("js_flutter_ui.js");
+
+let {Follow} = jsFlutterRequire("./zhihu/home/follow.js");
+// let {Recommend} = jsFlutterRequire("./zhihu/home/recommend.js");
+// let {Hot} = jsFlutterRequire("./zhihu/home/hot.js");
 
 class HomePage extends MXJSWidget {
     constructor(){
         super("HomePage constructor");
     }
 
+    barSearch(){
+        return new Container({
+            child: new Row({
+                children: [
+                    new Expanded({
+                        child: FlatButton.icon({
+                            onPressed:function(){
+                                this.navigatorPush(new SearchPage);
+                            },
+                            icon: new Icon(new IconData(0xe8b6, {fontFamily: 'MaterialIcons'}),{
+                                color: new Color(0xFF444444),
+                                size: 16.0,
+                            }),
+                            label: new Text("坚果R1摄像头损坏",{
+                                style: new TextStyle({
+                                    color: new Color(0xFF444444),
+                                }),
+                            }),
+                        }),
+                    }),
+                    new Container({
+                        decoration: new BoxDecoration({
+                            border: new BorderDirectional({
+                                start: new BorderSide({
+                                    color: new Color(0xFF444444),
+                                    width: 1.0,
+                                },)
+                            }),
+                        }),
+                        height: 14.0,
+                        width: 1.0,
+                    }),
+                    new Container({
+                        child: FlatButton.icon({
+                            onPressed: function(){
+                                this.navigatorPush(new AskPage);
+                            },
+                            icon: new Icon(new IconData(0xe22b, {fontFamily: 'MaterialIcons'}),{
+                                color: new Color(0xFF444444),
+                                size: 16.0,
+                            }),
+                            label: new Text("提问", {
+                                style: new TextStyle({
+                                    color: new Color(0xFF444444),
+                                }),
+                            }),
+                        }),
+                    }),
+                ],
+            }),
+            decoration: new BoxDecoration({
+                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                color: new Color(0xFFEEEEEE),
+            }),
+        })
+    }
+
     build(context){
-        let widget = new Text("知乎");
+        let widget = new DefaultTabController({
+            length: 3,
+            child: new Scaffold({
+                appBar: new AppBar({
+                    title: this.barSearch(),
+                    bottom: new TabBar({
+                      labelColor: Colors.blue(),
+                      indicatorColor: Colors.blue(),
+                      unselectedLabelColor: Colors.black(),
+                      tabs: [
+                        new Tab({text: "关注"}),
+                        new Tab({text: "推荐"}),
+                        new Tab({text: "热榜"}),
+                      ],
+                    }),
+                    backgroundColor: Colors.white(),
+                }),
+                body: new TabBarView({
+                    children: [
+                        new Follow(),
+                        new Text('123'),
+                        new Text('456'),
+                    ]
+                }),
+            }),
+        });
         return widget;
     }
 }
