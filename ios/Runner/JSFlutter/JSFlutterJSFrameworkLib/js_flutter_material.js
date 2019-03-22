@@ -248,6 +248,31 @@ class FlatButton extends FlutterWidget {
         this.materialTapTargetSize = materialTapTargetSize;
         this.child = child;
     }
+
+    static icon({
+        key,
+        onPressed,
+        onHighlightChanged,
+        textTheme,
+        textColor,
+        disabledTextColor,
+        color,
+        disabledColor,
+        highlightColor,
+        splashColor,
+        colorBrightness,
+        padding,
+        shape,
+        clipBehavior,
+        materialTapTargetSize,
+        icon,
+        label,
+    }) {
+        let v = new FlatButton();
+        v.staticFunctionName = "icon";
+
+        return v;
+    }
 }
 
 class RaisedButton extends FlutterWidget {

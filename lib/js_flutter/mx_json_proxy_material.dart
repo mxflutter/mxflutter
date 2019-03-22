@@ -642,6 +642,10 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
     registerConstructor(className: regClassName6, constructor: constructorPopupMenuButton);
     registerConstructor(className: regClassName7, constructor: constructorButtonBar);
 
+    registerStaticFunction(
+        className: regClassName1,
+        staticFunctionName: "icon",
+        staticFunction: functionIcon);
   }
 
   Widget constructorFlatButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
@@ -663,6 +667,27 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
         child: mxj2d(bo, jsonMap["child"])
       );
+      
+  Widget functionIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+    FlatButton.icon(
+      key: mxj2d(bo, jsonMap["key"]),
+			onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+			onHighlightChanged: createStateChangedHandle(bo, mxj2d(bo, jsonMap["onHighlightChanged"])),
+			textTheme: mxj2d(bo, jsonMap["textTheme"]),
+			textColor: mxj2d(bo, jsonMap["textColor"]),
+			disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
+			color: mxj2d(bo, jsonMap["color"]),
+			disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
+			highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
+			splashColor: mxj2d(bo, jsonMap["splashColor"]),
+			colorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
+			padding: mxj2d(bo, jsonMap["padding"]),
+			shape: mxj2d(bo, jsonMap["shape"]),
+			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"])),
+			materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo, jsonMap["materialTapTargetSize"])),
+			icon: mxj2d(bo, jsonMap["icon"]),
+			label: mxj2d(bo, jsonMap["label"]),
+    );
 
   Widget constructorRaisedButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       RaisedButton(

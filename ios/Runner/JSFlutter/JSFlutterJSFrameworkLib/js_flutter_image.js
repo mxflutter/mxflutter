@@ -295,6 +295,30 @@ ImageRepeat = {
     noRepeat: "ImageRepeat.noRepeat",
 };
 
+class DecorationImage extends FlutterWidget {
+    constructor ({
+        image,
+        colorFilter,
+        fit,
+        alignment,
+        centerSlice,
+        repeat,
+        matchTextDirection,
+    } = {}) {
+        super();
+
+        this.image = image;
+        this.colorFilter = colorFilter;
+        this.fit = fit;
+        this.alignment = alignment;
+        this.centerSlice = centerSlice;
+        this.repeat = repeat;
+        this.matchTextDirection = matchTextDirection;
+    }
+}
+
+
+
 module.exports = {
     AssetImage,
     ExactAssetImage,
@@ -303,4 +327,5 @@ module.exports = {
     NetworkImage,
     Image,
     ImageRepeat,
+    DecorationImage,
 };

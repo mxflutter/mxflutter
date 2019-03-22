@@ -507,6 +507,20 @@ const SliverList({
     Widget child,
   }
   """,
+
+  """
+  const SingleChildScrollView({
+    Key key,
+    this.scrollDirection = Axis.vertical,
+    this.reverse = false,
+    this.padding,
+    bool primary,
+    this.physics,
+    this.controller,
+    this.child,
+    this.dragStartBehavior = DragStartBehavior.down,
+  }) 
+  """,
 ];
 
 void main(List<String> arguments) {

@@ -84,6 +84,7 @@ class MXProxyRegisterHelperLayoutSeries {
     m.addAll(MXProxySliverFixedExtentList.registerProxy());
     m.addAll(MXProxyNestedScrollView.registerProxy());
     m.addAll(MXProxySliverOverlapAbsorber.registerProxy());
+    m.addAll(MXProxySingleChildScrollView.registerProxy());
 
     return m;
   }
@@ -1874,6 +1875,31 @@ class MXProxySliverOverlapAbsorber extends MXJsonObjProxy {
 			key: mxj2d(bo, jsonMap["key"]),
 			handle: mxj2d(bo, jsonMap["handle"], context: context),
 			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxySingleChildScrollView extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "SingleChildScrollView";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxySingleChildScrollView()..init(className: regClassName)};
+	}
+
+	@override
+	SingleChildScrollView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+		var widget = SingleChildScrollView(
+			key: mxj2d(bo, jsonMap["key"]),
+			scrollDirection: MXAxis.parse(mxj2d(bo, jsonMap["scrollDirection"]), defaultValue:Axis.vertical),
+			reverse: mxj2d(bo, jsonMap["reverse"], defaultValue:false),
+			padding: mxj2d(bo, jsonMap["padding"]),
+			primary: mxj2d(bo, jsonMap["primary"]),
+			physics: mxj2d(bo, jsonMap["physics"]),
+			controller: mxj2d(bo, jsonMap["controller"]),
+			child: mxj2d(bo, jsonMap["child"]),
+			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
 		);
 		return widget;
 	}

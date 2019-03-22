@@ -50,6 +50,9 @@ let {JSContactPage} = jsFlutterRequire("./contact.js");
 let {JSAnimationPage} = jsFlutterRequire("./animation.js");
 let {JSMaterialPage} = jsFlutterRequire("./material.js");
 let {JSCupertinoPage} = jsFlutterRequire("./cupertino.js");
+let {JSZhiHuPage} = jsFlutterRequire("./zhihu/zhihu.js");
+// let {AskPage} = jsFlutterRequire("./zhihu/home/ask_page.js");
+let {Follow} = jsFlutterRequire("./zhihu/home/follow.js");
 
 //业务代码
 
@@ -68,6 +71,16 @@ class JSWidgetHomePage extends MXJSWidget {
             children: [
                 new Padding({ padding: EdgeInsets.all(1.0) }),
                 this.sectionTitle(context, "App Demo"),
+                new ListTile({
+                    leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
+                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    title: new Text('ZhiHu'),
+                    subtitle: new Text('ZhiHu high copy'),
+                    onTap:function () {
+                        this.navigatorPush(new Follow);
+                    }
+                }),
+
                 new ListTile({
                     leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
                     trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),

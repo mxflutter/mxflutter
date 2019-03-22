@@ -9,6 +9,7 @@ class MXProxyRegisterHelperImageSeries {
 
     m.addAll(MXProxyImageProvider.registerProxy());
     m.addAll(MXProxyImage.registerProxy());
+    m.addAll(MXProxyDecorationImage.registerProxy());
 
     return m;
   }
@@ -298,4 +299,27 @@ class MXProxyImage extends MXJsonObjProxy {
     );
     return widget;
   }
+}
+
+class MXProxyDecorationImage extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "DecorationImage";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyDecorationImage()..init(className: regClassName)};
+	}
+
+	@override
+	DecorationImage constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+		var widget = DecorationImage(
+			image: mxj2d(bo, jsonMap["image"]),
+			colorFilter: mxj2d(bo, jsonMap["colorFilter"]),
+			fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
+			alignment: mxj2d(bo, jsonMap["alignment"], defaultValue:Alignment.center),
+			centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
+			repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue:ImageRepeat.noRepeat),
+			matchTextDirection: mxj2d(bo, jsonMap["matchTextDirection"], defaultValue:false),
+		);
+		return widget;
+	}
 }

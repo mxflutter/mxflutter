@@ -165,6 +165,18 @@ Image.network(
   }
 """,
 
+"""
+const DecorationImage({
+    @required this.image,
+    this.colorFilter,
+    this.fit,
+    this.alignment = Alignment.center,
+    this.centerSlice,
+    this.repeat = ImageRepeat.noRepeat,
+    this.matchTextDirection = false,
+  })
+  """,
+
 ];
 
 void main(List<String> arguments) {

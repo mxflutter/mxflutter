@@ -929,6 +929,34 @@ class SliverOverlapAbsorber extends FlutterWidget {
     }
 }
 
+
+class SingleChildScrollView extends FlutterWidget {
+    constructor ({
+        key,
+        scrollDirection,
+        reverse,
+        padding,
+        primary,
+        physics,
+        controller,
+        child,
+        dragStartBehavior,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.scrollDirection = scrollDirection;
+        this.reverse = reverse;
+        this.padding = padding;
+        this.primary = primary;
+        this.physics = physics;
+        this.controller = controller;
+        this.child = child;
+        this.dragStartBehavior = dragStartBehavior;
+    }
+}
+
+
 module.exports = {
     Center,
     Container,
@@ -976,4 +1004,5 @@ module.exports = {
     SliverFixedExtentList,
     NestedScrollView,
     SliverOverlapAbsorber,
+    SingleChildScrollView,
 };
