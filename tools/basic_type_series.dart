@@ -1900,6 +1900,27 @@ const Slider({
 }
    """,
 
+   """
+   const Chip({
+    Key key,
+    this.avatar,
+    @required this.label,
+    this.labelStyle,
+    this.labelPadding,
+    this.deleteIcon,
+    this.onDeleted,
+    this.deleteIconColor,
+    this.deleteButtonTooltipMessage,
+    this.shape,
+    this.clipBehavior = Clip.none,
+    this.backgroundColor,
+    this.padding,
+    this.materialTapTargetSize,
+    this.elevation,
+    this.shadowColor,
+  }) 
+  """,
+
 ];
 
 void main(List<String> arguments) {

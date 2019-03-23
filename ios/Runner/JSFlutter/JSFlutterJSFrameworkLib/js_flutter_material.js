@@ -321,6 +321,34 @@ class RaisedButton extends FlutterWidget {
         this.animationDuration = animationDuration;
         this.child = child;
     }
+
+    static icon({
+        key,
+        onPressed,
+        onHighlightChanged,
+        textTheme,
+        textColor,
+        disabledTextColor,
+        color,
+        disabledColor,
+        highlightColor,
+        splashColor,
+        colorBrightness,
+        elevation,
+        highlightElevation,
+        disabledElevation,
+        shape,
+        clipBehavior,
+        materialTapTargetSize,
+        animationDuration,
+        icon,
+        label,
+    }) {
+        let v = new RaisedButton();
+        v.staticFunctionName = "icon";
+
+        return v;
+    }
 }
 
 class FloatingActionButton extends FlutterWidget {

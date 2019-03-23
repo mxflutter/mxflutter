@@ -40,6 +40,8 @@ let {
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+let {HomePage} = jsFlutterRequire("./zhihu/home/home_page.js");
+let {Myself} = jsFlutterRequire("./zhihu/myself/myself.js");
 
 class _NavigationIconView {
     constructor({
@@ -91,7 +93,11 @@ class Index extends MXJSWidget {
         ];
 
         this._pageList = [
-
+            new HomePage(),
+            new Myself(),
+            new Myself(),
+            new Myself(),
+            new Myself(),
         ];
 
         this._currentPage = this._pageList[this._currentIndex];

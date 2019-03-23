@@ -17,7 +17,7 @@ function jsFlutterRequire(file) {
 }
 //VSCode Run support end ================================================================================
 
-//zhihu.js 正式开始，😝
+//myself.js 正式开始，😝
 
 let {
   runApp,
@@ -55,7 +55,7 @@ let {
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
-class JSZhiHuPage extends MXJSWidget {
+class Myself extends MXJSWidget {
     constructor(){
         super();
     }
@@ -66,12 +66,12 @@ class JSZhiHuPage extends MXJSWidget {
     }
 }
 
-module.exports = { JSZhiHuPage };
+module.exports = { Myself };
 
 
 //测试代码，修改Widget name
 //在VSCode 直接运行测试JS代码正确性,在app无任何效果
-IDERunFileTestWidget(JSZhiHuPage);
+IDERunFileTestWidget(Myself);
 
 //拷贝一份到目标文件
 function IDERunFileTestWidget(TestPage) {

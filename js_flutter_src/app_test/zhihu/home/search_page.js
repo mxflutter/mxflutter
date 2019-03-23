@@ -17,61 +17,296 @@ function jsFlutterRequire(file) {
 }
 //VSCode Run support end ================================================================================
 
-//zhihu.js 正式开始，😝
+//search_page.js 正式开始，😝
 
 let {
-  runApp,
-  MXJSFlutterApp,
-  MXJSWidget,
-  Scaffold,
-  Text,
-  Theme,
-  EdgeInsets,
-  Column,
-  SizedBox,
-  Card,
-  CrossAxisAlignment,
-  MainAxisAlignment,
-  Align,
-  Center,
-  Image,
-  Alignment,
-  CircleAvatar,
-  DefaultTabController,
-  NestedScrollView,
-  SliverOverlapAbsorber,
-  SliverAppBar,
-  TabBar,
-  Tab,
-  TabBarView,
-  SafeArea,
-  Builder,
-  CustomScrollView,
-  SliverChildBuilderDelegate,
-  SliverOverlapInjector,
-  SliverPadding,
-  SliverFixedExtentList,
-  Padding,
-  
+    runApp,
+    MXJSFlutterApp,
+    MXJSWidget,
+    MaterialApp,
+    ThemeData,
+    Scaffold,
+    AppBar,
+    Container,
+    Row,
+    FlatButton,
+    Text,
+    Expanded,
+    TextStyle,
+    Colors,
+    AspectRatio,
+    BoxDecoration,
+    BorderSide,
+    DecorationImage,
+    NetworkImage,
+    Rect,
+    Border,
+    BorderRadius,
+    Radius,
+    Color,
+    TextField,
+    Theme,
+    Icon,
+    IconData,
+    BorderDirectional,
+    EdgeInsets,
+    Column,
+    FontWeight,
+    PopupMenuButton,
+    PopupMenuItem,
+    SingleChildScrollView,
+    InputDecoration,
+    SizedBox,
+    Card,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Align,
+    Center,
+    Image,
+    Alignment,
+    CircleAvatar,
+    DefaultTabController,
+    NestedScrollView,
+    SliverOverlapAbsorber,
+    SliverAppBar,
+    TabBar,
+    Tab,
+    TabBarView,
+    SafeArea,
+    Builder,
+    CustomScrollView,
+    SliverChildBuilderDelegate,
+    SliverOverlapInjector,
+    SliverPadding,
+    SliverFixedExtentList,
+    Padding,
+    ButtonTextTheme,
+    ListTile,
+    IconButton,
+    RaisedButton,
+    BottomAppBar,
+    Chip,
 } = jsFlutterRequire("js_flutter_ui.js");
 
-class HomePage extends MXJSWidget {
+let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+
+class SearchPage extends MXJSWidget {
     constructor(){
-        super("HomePage constructor");
+        super("SearchPage constructor");
+    }
+
+    searchInput() {
+        return new Container({
+            child: new Row({
+                children: [
+                    new Container({
+                            child: FlatButton.icon({
+                                onPressed: function(){
+                                    
+                                },
+                                icon: new Icon(new IconData(0xe5c4, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}),
+                                label: new Text(""),
+                            }),
+                            width: 60.0,
+                    }),
+                    new Expanded({
+                        child: new TextField({
+                            autofocus: true,
+                            decoration: InputDecoration.collapsed({
+                                hintText: "搜索比乎内容",
+                                hintStyle: new TextStyle({color: GlobalConfig.fontColor})
+                            }),
+                        }),
+                    }),
+                ],
+            }),
+            decoration: new BoxDecoration({
+                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                color: GlobalConfig.searchBackgroundColor
+            }),
+        });
     }
 
     build(context){
-        let widget = new Text("知乎");
+        let widget = new MaterialApp({
+            theme: GlobalConfig.themeData,
+            home: new Scaffold({
+                appBar: new AppBar({
+                    title: this.searchInput(),
+                }),
+                body: new SingleChildScrollView({
+                    child: new Column({
+                        children: [
+                            new Container({
+                                child: new Text("比乎热搜", {
+                                    style: new TextStyle({
+                                        fontWeight: FontWeight.bold, 
+                                        fontSize: 16.0
+                                    }),
+                                }),
+                                margin: EdgeInsets.only({
+                                    top: 16.0,
+                                    left: 16.0, 
+                                    bottom: 16.0
+                                }),
+                                alignment: Alignment.topLeft,
+                            }),
+                            new Row({
+                                children: [
+                                    new Container({
+                                        child: new Chip({
+                                            label: new FlatButton({
+                                                onPressed: function(){}, 
+                                                child: new Text("汽车关税下调", {
+                                                    style: new TextStyle({color: GlobalConfig.fontColor}),
+                                                })
+                                            }),
+                                            backgroundColor: Colors.black12(),
+                                        }),
+                                        margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
+                                        alignment: Alignment.topLeft,
+                                    }),
+                                    new Container({
+                                        child: new Chip({
+                                            label: new FlatButton({
+                                                onPressed: function(){}, 
+                                                child: new Text("李彦宏传闻辟谣", {
+                                                    style: new TextStyle({color: GlobalConfig.fontColor})
+                                                })
+                                            }),
+                                            backgroundColor: Colors.black12(),
+                                        }),
+                                        margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
+                                        alignment: Alignment.topLeft,
+                                    }),
+                                ],
+                            }),
+                            new Row({
+                                children: [
+                                    new Container({
+                                        child: new Chip({
+                                            label: new FlatButton({
+                                                onPressed: function(){}, 
+                                                child: new Text("小米8", {
+                                                    style: new TextStyle({color: GlobalConfig.fontColor})
+                                                })
+                                            }),
+                                            backgroundColor: Colors.black12(),
+                                        }),
+                                        margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
+                                        alignment: Alignment.topLeft,
+                                    }),
+                                    new Container({
+                                        child: new Chip({
+                                            label: new FlatButton({
+                                                onPressed: function(){}, 
+                                                child: new Text("超时空同居", {
+                                                    style: new TextStyle({color: GlobalConfig.fontColor})
+                                                })
+                                            }),
+                                            backgroundColor: Colors.black12(),
+                                        }),
+                                        margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
+                                        alignment: Alignment.topLeft,
+                                    }),
+                                ],
+                            }),
+                            new Container({
+                                child: new Text("搜索历史", {
+                                    style: new TextStyle({
+                                        fontWeight: FontWeight.bold, 
+                                        fontSize: 16.0
+                                    }),
+                                }),
+                                margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
+                                alignment: Alignment.topLeft,
+                            }),
+                            new Container({
+                                child: new Row({
+                                    children: [
+                                        new Container({
+                                        child: new Icon(new IconData(0xe192, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
+                                        margin: EdgeInsets.only({right: 12.0}),
+                                        }),
+                                        new Expanded({
+                                        child: new Container({
+                                                child: new Text("业余兴趣", {
+                                                    style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0}),
+                                                }),
+                                            }),
+                                        }),
+                                        new Container({
+                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
+                                        }),
+                                    ],
+                                }),
+                                margin: EdgeInsets.only({left: 16.0, right: 16.0, bottom: 10.0}),
+                                padding: EdgeInsets.only({bottom: 10.0}),
+                                decoration: new BoxDecoration({
+                                    border: new BorderDirectional({bottom: new BorderSide({color: Colors.black12()})})
+                                }),
+                            }),
+                            new Container({
+                                child: new Row({
+                                  children: [
+                                        new Container({
+                                            child: new Icon(new IconData(0xe192, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
+                                            margin: EdgeInsets.only({right: 12.0}),
+                                        }),
+                                        new Expanded({
+                                            child: new Container({
+                                                child: new Text("三体", {style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0}),}),
+                                            }),
+                                        }),
+                                        new Container({
+                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
+                                        })
+                                    ],
+                                }),
+                                margin: EdgeInsets.only({left: 16.0, right: 16.0, bottom: 10.0}),
+                                padding: EdgeInsets.only({bottom: 10.0}),
+                                decoration: new BoxDecoration({
+                                    border: new BorderDirectional({bottom: new BorderSide({color: Colors.black12()})})
+                                }),
+                            }),
+                            new Container({
+                                child: new Row({
+                                    children: [
+                                        new Container({
+                                            child: new Icon(new IconData(0xe192, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
+                                            margin: EdgeInsets.only({right: 12.0}),
+                                        }),
+                                        new Expanded({
+                                            child: new Container({
+                                                child: new Text("人类未来", {style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0}),}),
+                                            }),
+                                        }),
+                                        new Container({
+                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
+                                        })
+                                     ],
+                                }),
+                                margin: EdgeInsets.only({left: 16.0, right: 16.0, bottom: 10.0}),
+                                padding: EdgeInsets.only({bottom: 10.0}),
+                                decoration: new BoxDecoration({
+                                    border: new BorderDirectional({bottom: new BorderSide({color: Colors.black12()})})
+                                }),
+                            }),
+                        ],
+                    }),
+                }),
+            }),
+        });
         return widget;
     }
 }
 
-module.exports = { HomePage };
+module.exports = { SearchPage };
 
 
 //测试代码，修改Widget name
 //在VSCode 直接运行测试JS代码正确性,在app无任何效果
-IDERunFileTestWidget(HomePage);
+IDERunFileTestWidget(SearchPage);
 
 //拷贝一份到目标文件
 function IDERunFileTestWidget(TestPage) {

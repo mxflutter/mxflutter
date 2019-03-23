@@ -645,7 +645,12 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
     registerStaticFunction(
         className: regClassName1,
         staticFunctionName: "icon",
-        staticFunction: functionIcon);
+        staticFunction: functionFlatButtonIcon);
+
+    registerStaticFunction(
+        className: regClassName2,
+        staticFunctionName: "icon",
+        staticFunction: functionRaisedButtonIcon);
   }
 
   Widget constructorFlatButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
@@ -668,7 +673,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         child: mxj2d(bo, jsonMap["child"])
       );
       
-  Widget functionIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+  Widget functionFlatButtonIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
     FlatButton.icon(
       key: mxj2d(bo, jsonMap["key"]),
 			onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
@@ -712,6 +717,30 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         animationDuration: mxj2d(bo, jsonMap["animationDuration"]),
         child: mxj2d(bo, jsonMap["child"]),
       );
+    
+  Widget functionRaisedButtonIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+    RaisedButton.icon(
+      key: mxj2d(bo, jsonMap["key"]),
+			onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+			onHighlightChanged: createStateChangedHandle(bo, mxj2d(bo, jsonMap["onHighlightChanged"])),
+			textTheme: MXButtonTextTheme.parse(mxj2d(bo, jsonMap["textTheme"])),
+			textColor: mxj2d(bo, jsonMap["textColor"]),
+			disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
+			color: mxj2d(bo, jsonMap["color"]),
+			disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
+			highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
+			splashColor: mxj2d(bo, jsonMap["splashColor"]),
+			colorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
+      elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
+			highlightElevation: mxj2d(bo, jsonMap["highlightElevation"])?.toDouble(),
+      disabledElevation: mxj2d(bo, jsonMap["disabledElevation"])?.toDouble(),
+			shape: mxj2d(bo, jsonMap["shape"]),
+			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"])),
+			materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo, jsonMap["materialTapTargetSize"])),
+      animationDuration: mxj2d(bo, jsonMap["animationDuration"]),
+			icon: mxj2d(bo, jsonMap["icon"]),
+			label: mxj2d(bo, jsonMap["label"]),
+    );
 
   Widget constructorFloatingActionButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
       FloatingActionButton(

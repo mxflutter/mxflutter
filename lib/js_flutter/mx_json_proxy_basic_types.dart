@@ -73,6 +73,7 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxySlider.registerProxy());
     m.addAll(MXProxyCircleAvatar.registerProxy());
     m.addAll(MXProxyBorderDirectional.registerProxy());
+    m.addAll(MXProxyChip.registerProxy());
     
     return m;
   }
@@ -2977,4 +2978,35 @@ class MXButtonTextTheme {
 
     return retValut;
   }
+}
+
+class MXProxyChip extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "Chip";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyChip()..init(className: regClassName)};
+	}
+
+	@override
+	Chip constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+		var widget = Chip(
+			key: mxj2d(bo, jsonMap["key"]),
+			avatar: mxj2d(bo, jsonMap["avatar"]),
+			label: mxj2d(bo, jsonMap["label"]),
+			labelStyle: mxj2d(bo, jsonMap["labelStyle"]),
+			labelPadding: mxj2d(bo, jsonMap["labelPadding"]),
+			deleteIcon: mxj2d(bo, jsonMap["deleteIcon"]),
+			onDeleted: mxj2d(bo, jsonMap["onDeleted"]),
+			deleteIconColor: mxj2d(bo, jsonMap["deleteIconColor"]),
+			deleteButtonTooltipMessage: mxj2d(bo, jsonMap["deleteButtonTooltipMessage"]),
+			shape: mxj2d(bo, jsonMap["shape"]),
+			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue:Clip.none),
+			backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
+			padding: mxj2d(bo, jsonMap["padding"]),
+			materialTapTargetSize: mxj2d(bo, jsonMap["materialTapTargetSize"]),
+			elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
+		);
+		return widget;
+	}
 }

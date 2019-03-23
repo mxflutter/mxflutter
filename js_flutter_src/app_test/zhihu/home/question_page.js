@@ -142,7 +142,7 @@ class QuestionPage extends MXJSWidget {
                                 decoration: new BoxDecoration({
                                     border: new BorderDirectional({
                                         bottom: new BorderSide({
-                                            color:  Colors.black12,
+                                            color:  Colors.black(),
                                         }),
                                     }),
                                     color: GlobalConfig.cardBackgroundColor
@@ -161,7 +161,7 @@ class QuestionPage extends MXJSWidget {
                                                     textTheme: ButtonTextTheme.accent,
                                                 }),
                                                 decoration: new BoxDecoration({
-                                                    border: new BorderDirectional({end: new BorderSide({color: Colors.black12})})
+                                                    border: new BorderDirectional({end: new BorderSide({color: Colors.black()})})
                                                 }),
                                             }),
                                         }),
@@ -175,7 +175,7 @@ class QuestionPage extends MXJSWidget {
                                                     textTheme: ButtonTextTheme.accent,
                                                 }),
                                                 decoration: new BoxDecoration({
-                                                    border: new BorderDirectional({end: new BorderSide({color: Colors.black12})})
+                                                    border: new BorderDirectional({end: new BorderSide({color: Colors.black()})})
                                                 }),
                                             }),
                                         }),
@@ -206,7 +206,7 @@ class QuestionPage extends MXJSWidget {
                                                                     child: new Row({
                                                                         children: [
                                                                             new Text('按质量排序'),
-                                                                            new Icon(new IconData(0xe5ca, {fontFamily: 'MaterialIcons'}), {color: Colors.blue}),
+                                                                            new Icon(new IconData(0xe5ca, {fontFamily: 'MaterialIcons'}), {color: Colors.blue()}),
                                                                         ],
                                                                     }),
                                                                 })

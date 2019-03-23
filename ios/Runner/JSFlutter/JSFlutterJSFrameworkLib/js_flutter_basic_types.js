@@ -2113,6 +2113,44 @@ ButtonTextTheme = {
     primary: "ButtonTextTheme.primary",
 };
 
+class Chip extends DartClass {
+    constructor ({
+        key,
+        avatar,
+        label,
+        labelStyle,
+        labelPadding,
+        deleteIcon,
+        onDeleted,
+        deleteIconColor,
+        deleteButtonTooltipMessage,
+        shape,
+        clipBehavior,
+        backgroundColor,
+        padding,
+        materialTapTargetSize,
+        elevation,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.avatar = avatar;
+        this.label = label;
+        this.labelStyle = labelStyle;
+        this.labelPadding = labelPadding;
+        this.deleteIcon = deleteIcon;
+        this.onDeleted = onDeleted;
+        this.deleteIconColor = deleteIconColor;
+        this.deleteButtonTooltipMessage = deleteButtonTooltipMessage;
+        this.shape = shape;
+        this.clipBehavior = clipBehavior;
+        this.backgroundColor = backgroundColor;
+        this.padding = padding;
+        this.materialTapTargetSize = materialTapTargetSize;
+        this.elevation = elevation;
+    }
+}
+
 module.exports = {
     DartClass,
     FlutterWidget,
@@ -2201,5 +2239,6 @@ module.exports = {
     CircleAvatar,
     BorderDirectional,
     ButtonTextTheme,
+    Chip,
     assert,
 };
