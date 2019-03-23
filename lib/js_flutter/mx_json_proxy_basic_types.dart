@@ -2956,3 +2956,25 @@ class MXProxyBorderDirectional extends MXJsonObjProxy {
     return obj;
   }
 }
+
+class MXButtonTextTheme {
+  static ButtonTextTheme parse(String value,
+      {ButtonTextTheme defaultValue = ButtonTextTheme.normal}) {
+    ButtonTextTheme retValut = defaultValue;
+    switch (value) {
+      case 'ButtonTextTheme.normal':
+        retValut = ButtonTextTheme.normal;
+        break;
+      case 'ButtonTextTheme.accent':
+        retValut = ButtonTextTheme.accent;
+        break;
+      case 'ButtonTextTheme.primary':
+        retValut = ButtonTextTheme.primary;
+        break;
+      default:
+        retValut = defaultValue;
+    }
+
+    return retValut;
+  }
+}

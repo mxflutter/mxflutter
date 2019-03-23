@@ -565,6 +565,21 @@ class InputDecoration extends FlutterWidget {
         this.semanticCounterText = semanticCounterText;
         this.alignLabelWithHint = alignLabelWithHint;
     }
+
+    static collapsed({
+        hintText,
+        hasFloatingPlaceholder,
+        hintStyle,
+        filled,
+        fillColor,
+        border,
+        enabled,
+    }) {
+        let v = new InputDecoration();
+        v.staticFunctionName = "collapsed";
+
+        return v;
+    }
 }
 
 class TextEditingController extends FlutterWidget {

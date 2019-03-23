@@ -84,7 +84,7 @@ let {
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 let {Follow} = jsFlutterRequire("./zhihu/home/follow.js");
-// let {Recommend} = jsFlutterRequire("./zhihu/home/recommend.js");
+let {Recommend} = jsFlutterRequire("./zhihu/home/recommend.js");
 let {Hot} = jsFlutterRequire("./zhihu/home/hot.js");
 
 class HomePage extends MXJSWidget {
@@ -170,7 +170,7 @@ class HomePage extends MXJSWidget {
                 body: new TabBarView({
                     children: [
                         new Follow(),
-                        new Text('123'),
+                        new Recommend(),
                         new Hot(),
                     ]
                 }),

@@ -2107,6 +2107,12 @@ class BorderDirectional extends DartClass {
     }
 }
 
+ButtonTextTheme = {
+    normal: "ButtonTextTheme.normal",
+    accent: "ButtonTextTheme.accent",
+    primary: "ButtonTextTheme.primary",
+};
+
 module.exports = {
     DartClass,
     FlutterWidget,
@@ -2194,5 +2200,6 @@ module.exports = {
     Slider,
     CircleAvatar,
     BorderDirectional,
+    ButtonTextTheme,
     assert,
 };

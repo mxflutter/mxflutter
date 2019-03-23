@@ -17,47 +17,127 @@ function jsFlutterRequire(file) {
 }
 //VSCode Run support end ================================================================================
 
-//zhihu.js 正式开始，😝
+//replay_page.js 正式开始，😝
 
 let {
-  runApp,
-  MXJSFlutterApp,
-  MXJSWidget,
-  Scaffold,
-  Text,
-  Theme,
-  EdgeInsets,
-  Column,
-  SizedBox,
-  Card,
-  CrossAxisAlignment,
-  MainAxisAlignment,
-  Align,
-  Center,
-  Image,
-  Alignment,
-  CircleAvatar,
-  DefaultTabController,
-  NestedScrollView,
-  SliverOverlapAbsorber,
-  SliverAppBar,
-  TabBar,
-  Tab,
-  TabBarView,
-  SafeArea,
-  Builder,
-  CustomScrollView,
-  SliverChildBuilderDelegate,
-  SliverOverlapInjector,
-  SliverPadding,
-  SliverFixedExtentList,
-  Padding,
+    runApp,
+    MXJSFlutterApp,
+    MXJSWidget,
+    MaterialApp,
+    ThemeData,
+    Scaffold,
+    AppBar,
+    Container,
+    Row,
+    FlatButton,
+    Text,
+    Expanded,
+    TextStyle,
+    Colors,
+    AspectRatio,
+    BoxDecoration,
+    BorderSide,
+    DecorationImage,
+    NetworkImage,
+    Rect,
+    Border,
+    BorderRadius,
+    Radius,
+    Color,
+    TextField,
+    Theme,
+    Icon,
+    IconData,
+    IconButton,
+    BorderDirectional,
+    EdgeInsets,
+    Column,
+    FontWeight,
+    PopupMenuButton,
+    PopupMenuItem,
+    SingleChildScrollView,
+    InputDecoration,
+    SizedBox,
+    Card,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Align,
+    Center,
+    Image,
+    Alignment,
+    CircleAvatar,
+    DefaultTabController,
+    NestedScrollView,
+    SliverOverlapAbsorber,
+    SliverAppBar,
+    TabBar,
+    Tab,
+    TabBarView,
+    SafeArea,
+    Builder,
+    CustomScrollView,
+    SliverChildBuilderDelegate,
+    SliverOverlapInjector,
+    SliverPadding,
+    SliverFixedExtentList,
+    Padding,
+    ButtonTextTheme,
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
-class HomePage extends MXJSWidget {
+let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+
+class Common {
+    static searchInput(context) {
+        return new Container({
+            child: new Row({
+                children: [
+                    new Container({
+                        child: FlatButton.icon({
+                            onPressed: function(){
+                        
+                            },
+                            icon: new Icon(new IconData(0xe5c4, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}),
+                            label: new Text(""),
+                        }),
+                        width: 60.0,
+                    }),
+                    new Expanded({
+                        child: new TextField({
+                            decoration: InputDecoration.collapsed({
+                                hintText: "搜索比乎内容",
+                                hintStyle: new TextStyle({color: GlobalConfig.fontColor})
+                            }),
+                        }),
+                    }),
+                    new Container({
+                        child: new IconButton({icon: new Icon(new IconData(0xe80d, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}), 
+                            onPressed: function(){}, 
+                            padding: EdgeInsets.all(0.0),
+                            iconSize: 18.0
+                        }),
+                    }),
+                    new Container({
+                        child: new IconButton({icon: new Icon(new IconData(0xe896, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}), 
+                            onPressed: function(){}, 
+                            padding: EdgeInsets.all(0.0), 
+                            iconSize: 18.0
+                        }),
+                    }),
+                ],
+            }),
+            decoration: new BoxDecoration({
+                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                color: GlobalConfig.searchBackgroundColor,
+            }),
+            height: 36.0,
+        });
+    }
+}
+
+class ReplyPage extends MXJSWidget {
     constructor(){
-        super("HomePage constructor");
+        super("ReplyPage constructor");
     }
 
     build(context){
@@ -66,12 +146,12 @@ class HomePage extends MXJSWidget {
     }
 }
 
-module.exports = { HomePage };
+module.exports = { ReplyPage, Common };
 
 
 //测试代码，修改Widget name
 //在VSCode 直接运行测试JS代码正确性,在app无任何效果
-IDERunFileTestWidget(HomePage);
+IDERunFileTestWidget(ReplyPage);
 
 //拷贝一份到目标文件
 function IDERunFileTestWidget(TestPage) {

@@ -17,61 +17,183 @@ function jsFlutterRequire(file) {
 }
 //VSCode Run support end ================================================================================
 
-//zhihu.js 正式开始，😝
+//recommend.js 正式开始，😝
 
 let {
-  runApp,
-  MXJSFlutterApp,
-  MXJSWidget,
-  Scaffold,
-  Text,
-  Theme,
-  EdgeInsets,
-  Column,
-  SizedBox,
-  Card,
-  CrossAxisAlignment,
-  MainAxisAlignment,
-  Align,
-  Center,
-  Image,
-  Alignment,
-  CircleAvatar,
-  DefaultTabController,
-  NestedScrollView,
-  SliverOverlapAbsorber,
-  SliverAppBar,
-  TabBar,
-  Tab,
-  TabBarView,
-  SafeArea,
-  Builder,
-  CustomScrollView,
-  SliverChildBuilderDelegate,
-  SliverOverlapInjector,
-  SliverPadding,
-  SliverFixedExtentList,
-  Padding,
+    runApp,
+    MXJSFlutterApp,
+    MXJSWidget,
+    MaterialApp,
+    ThemeData,
+    Scaffold,
+    AppBar,
+    Container,
+    Row,
+    FlatButton,
+    Text,
+    Expanded,
+    TextStyle,
+    Colors,
+    AspectRatio,
+    BoxDecoration,
+    BorderSide,
+    DecorationImage,
+    NetworkImage,
+    Rect,
+    Border,
+    BorderRadius,
+    Radius,
+    Color,
+    TextField,
+    Theme,
+    Icon,
+    IconData,
+    BorderDirectional,
+    EdgeInsets,
+    Column,
+    FontWeight,
+    PopupMenuButton,
+    PopupMenuItem,
+    SingleChildScrollView,
+    InputDecoration,
+    SizedBox,
+    Card,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Align,
+    Center,
+    Image,
+    Alignment,
+    CircleAvatar,
+    DefaultTabController,
+    NestedScrollView,
+    SliverOverlapAbsorber,
+    SliverAppBar,
+    TabBar,
+    Tab,
+    TabBarView,
+    SafeArea,
+    Builder,
+    CustomScrollView,
+    SliverChildBuilderDelegate,
+    SliverOverlapInjector,
+    SliverPadding,
+    SliverFixedExtentList,
+    Padding,
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
-class HomePage extends MXJSWidget {
+let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+let {articleList} = jsFlutterRequire("./zhihu/home/article.js");
+
+class Recommend extends MXJSWidget {
     constructor(){
-        super("HomePage constructor");
+        super("Recommend constructor");
+    }
+
+    commonCard(article){
+        let markWidget;
+        if (article.imgUrl == null) {
+            markWidget = new Text(
+                article.user + " :  " + article.mark,{
+                style: new TextStyle({
+                    height: 1.3, 
+                    color: GlobalConfig.fontColor
+                }),
+            });
+        } else {
+            markWidget = new Row({
+                children: [
+                    new Expanded({
+                        flex: 2,
+                        child: new Container({
+                            child: new Text(
+                                article.user + " :  " + article.mark,{
+                                style: new TextStyle({height: 1.3, color: GlobalConfig.fontColor})
+                            }),
+                        }),
+                    }),
+                    new Expanded({
+                        flex: 1,
+                        child: new AspectRatio({
+                            aspectRatio: 3.0 / 2.0,
+                            child:new Container({
+                                foregroundDecoration:new BoxDecoration({
+                                    image: new DecorationImage({
+                                        image: new NetworkImage(article.imgUrl),
+                                        centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
+                                    }),
+                                    borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                                }),
+                            })
+                        })
+                    }),
+                ],
+            });
+        }
+        return new Container({
+            color: GlobalConfig.cardBackgroundColor,
+            margin: EdgeInsets.only({top: 5.0, bottom: 5.0}),
+            child: new FlatButton({
+                onPressed:function(){
+                    this.navigatorPush(new ReplyPage);
+                },
+                child: new Column({
+                    children: [
+                        new Container({
+                            child: new Text(
+                                article.title,{
+                                style: new TextStyle({fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: Colors.black()})
+                            }),
+                            margin: EdgeInsets.only({top: 6.0, bottom: 2.0}),
+                            alignment: Alignment.topLeft
+                        }),
+                        new Container({
+                            child: markWidget,
+                            margin: EdgeInsets.only({top: 6.0, bottom: 14.0}),
+                            alignment: Alignment.topLeft
+                        }),
+                        new Container({
+                            child: new Row({
+                                children: [
+                                    new Expanded({
+                                            child: new Text(article.agreeNum.toString() + " 赞同 · " + article.commentNum.toString() + "评论",{
+                                            style: new TextStyle({color: GlobalConfig.fontColor})
+                                            })
+                                    }),
+                                    new Icon(new IconData(0xe260, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor})
+                                ],
+                            }),
+                            padding: EdgeInsets.only({bottom: 10.0}),
+                        }),
+                    ],
+                }),
+            }),
+        });
     }
 
     build(context){
-        let widget = new Text("知乎");
+        let widget = new SingleChildScrollView({
+            child: new Container({
+                margin: EdgeInsets.only({top: 5.0}),
+                child: new Column({
+                    children: [
+                        this.commonCard(articleList[0]),
+                        this.commonCard(articleList[1]),
+                    ],
+                }),
+            }),
+        });
         return widget;
     }
 }
 
-module.exports = { HomePage };
+module.exports = { Recommend };
 
 
 //测试代码，修改Widget name
 //在VSCode 直接运行测试JS代码正确性,在app无任何效果
-IDERunFileTestWidget(HomePage);
+IDERunFileTestWidget(Recommend);
 
 //拷贝一份到目标文件
 function IDERunFileTestWidget(TestPage) {

@@ -629,6 +629,16 @@ class MXProxyInputDecoration extends MXJsonObjProxy {
 		return {regClassName: () => MXProxyInputDecoration()..init(className: regClassName)};
 	}
 
+  @override
+  void init({String className}){
+    super.init(className: className);
+
+    registerStaticFunction(
+        className: className,
+        staticFunctionName: "collapsed",
+        staticFunction: functionCollapsed);
+  }
+
 	@override
 	InputDecoration constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = InputDecoration(
@@ -671,6 +681,18 @@ class MXProxyInputDecoration extends MXJsonObjProxy {
 		);
 		return widget;
 	}
+
+  InputDecoration functionCollapsed(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    return InputDecoration.collapsed(
+      hintText: mxj2d(bo, jsonMap["hintText"]),
+      hasFloatingPlaceholder: mxj2d(bo, jsonMap["hasFloatingPlaceholder"], defaultValue:true),
+			hintStyle: mxj2d(bo, jsonMap["hintStyle"]),
+      filled: mxj2d(bo, jsonMap["filled"], defaultValue:false),
+			fillColor: mxj2d(bo, jsonMap["fillColor"]),
+      border: mxj2d(bo, jsonMap["border"]),
+			enabled: mxj2d(bo, jsonMap["enabled"], defaultValue:true),
+    );
+  }
 }
 
 class MXProxyTextEditingController extends MXJsonObjProxy {

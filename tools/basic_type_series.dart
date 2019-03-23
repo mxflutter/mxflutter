@@ -1887,6 +1887,19 @@ const Slider({
   })
    """,
 
+   """
+   enum ButtonTextTheme {
+  /// Button text is black or white depending on [ThemeData.brightness].
+  normal,
+
+  /// Button text is [ThemeData.accentColor].
+  accent,
+
+  /// Button text is based on [ThemeData.primaryColor].
+  primary,
+}
+   """,
+
 ];
 
 void main(List<String> arguments) {
