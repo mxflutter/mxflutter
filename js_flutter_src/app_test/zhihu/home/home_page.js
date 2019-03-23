@@ -80,12 +80,12 @@ let {
     SliverPadding,
     SliverFixedExtentList,
     Padding,
-  
 } = jsFlutterRequire("js_flutter_ui.js");
 
+let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 let {Follow} = jsFlutterRequire("./zhihu/home/follow.js");
 // let {Recommend} = jsFlutterRequire("./zhihu/home/recommend.js");
-// let {Hot} = jsFlutterRequire("./zhihu/home/hot.js");
+let {Hot} = jsFlutterRequire("./zhihu/home/hot.js");
 
 class HomePage extends MXJSWidget {
     constructor(){
@@ -102,12 +102,12 @@ class HomePage extends MXJSWidget {
                                 this.navigatorPush(new SearchPage);
                             },
                             icon: new Icon(new IconData(0xe8b6, {fontFamily: 'MaterialIcons'}),{
-                                color: new Color(0xFF444444),
+                                color: GlobalConfig.fontColor,
                                 size: 16.0,
                             }),
                             label: new Text("坚果R1摄像头损坏",{
                                 style: new TextStyle({
-                                    color: new Color(0xFF444444),
+                                    color: GlobalConfig.fontColor,
                                 }),
                             }),
                         }),
@@ -116,7 +116,7 @@ class HomePage extends MXJSWidget {
                         decoration: new BoxDecoration({
                             border: new BorderDirectional({
                                 start: new BorderSide({
-                                    color: new Color(0xFF444444),
+                                    color: GlobalConfig.fontColor,
                                     width: 1.0,
                                 },)
                             }),
@@ -130,12 +130,12 @@ class HomePage extends MXJSWidget {
                                 this.navigatorPush(new AskPage);
                             },
                             icon: new Icon(new IconData(0xe22b, {fontFamily: 'MaterialIcons'}),{
-                                color: new Color(0xFF444444),
+                                color: GlobalConfig.fontColor,
                                 size: 16.0,
                             }),
                             label: new Text("提问", {
                                 style: new TextStyle({
-                                    color: new Color(0xFF444444),
+                                    color: GlobalConfig.fontColor,
                                 }),
                             }),
                         }),
@@ -144,7 +144,7 @@ class HomePage extends MXJSWidget {
             }),
             decoration: new BoxDecoration({
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                color: new Color(0xFFEEEEEE),
+                color: GlobalConfig.searchBarBackgroundColor,
             }),
         })
     }
@@ -171,7 +171,7 @@ class HomePage extends MXJSWidget {
                     children: [
                         new Follow(),
                         new Text('123'),
-                        new Text('456'),
+                        new Hot(),
                     ]
                 }),
             }),

@@ -39,6 +39,8 @@ let {
   Brightness,
 } = jsFlutterRequire("js_flutter_ui.js");
 
+let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+
 class _NavigationIconView {
     constructor({
         icon, title, vsync
@@ -113,9 +115,7 @@ class Index extends MXJSWidget {
                         })
                     },
                 }),
-                theme: new ThemeData({
-                    brightness: Brightness.light,
-                }),
+                theme: GlobalConfig.themeData,
             })
         });
         return widget;

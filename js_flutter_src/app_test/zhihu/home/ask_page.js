@@ -69,6 +69,8 @@ let {
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
+let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+
 class AskPage extends MXJSWidget {
     constructor(){
         super("AskPage constructor");
@@ -76,7 +78,7 @@ class AskPage extends MXJSWidget {
 
     build(context){
         let widget = new MaterialApp({
-            theme: new ThemeData({brightness: Brightness.light}),
+            theme: GlobalConfig.themeData,
             home: new Scaffold({
                 appBar: new AppBar({
                     title: new Container({

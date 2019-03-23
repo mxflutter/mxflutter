@@ -17,61 +17,215 @@ function jsFlutterRequire(file) {
 }
 //VSCode Run support end ================================================================================
 
-//zhihu.js 正式开始，😝
+//hot.js 正式开始，😝
 
 let {
-  runApp,
-  MXJSFlutterApp,
-  MXJSWidget,
-  Scaffold,
-  Text,
-  Theme,
-  EdgeInsets,
-  Column,
-  SizedBox,
-  Card,
-  CrossAxisAlignment,
-  MainAxisAlignment,
-  Align,
-  Center,
-  Image,
-  Alignment,
-  CircleAvatar,
-  DefaultTabController,
-  NestedScrollView,
-  SliverOverlapAbsorber,
-  SliverAppBar,
-  TabBar,
-  Tab,
-  TabBarView,
-  SafeArea,
-  Builder,
-  CustomScrollView,
-  SliverChildBuilderDelegate,
-  SliverOverlapInjector,
-  SliverPadding,
-  SliverFixedExtentList,
-  Padding,
-  
+    runApp,
+    MXJSFlutterApp,
+    MXJSWidget,
+    MaterialApp,
+    ThemeData,
+    Scaffold,
+    AppBar,
+    Container,
+    Row,
+    FlatButton,
+    Text,
+    Expanded,
+    TextStyle,
+    Colors,
+    AspectRatio,
+    BoxDecoration,
+    BorderSide,
+    DecorationImage,
+    NetworkImage,
+    Rect,
+    Border,
+    BorderRadius,
+    Radius,
+    Color,
+    TextField,
+    Theme,
+    Icon,
+    IconData,
+    BorderDirectional,
+    EdgeInsets,
+    Column,
+    FontWeight,
+    PopupMenuButton,
+    PopupMenuItem,
+    SingleChildScrollView,
+    InputDecoration,
+    SizedBox,
+    Card,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Align,
+    Center,
+    Image,
+    Alignment,
+    CircleAvatar,
+    DefaultTabController,
+    NestedScrollView,
+    SliverOverlapAbsorber,
+    SliverAppBar,
+    TabBar,
+    Tab,
+    TabBarView,
+    SafeArea,
+    Builder,
+    CustomScrollView,
+    SliverChildBuilderDelegate,
+    SliverOverlapInjector,
+    SliverPadding,
+    SliverFixedExtentList,
+    Padding,
 } = jsFlutterRequire("js_flutter_ui.js");
 
-class HomePage extends MXJSWidget {
+let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+let {questionList} = jsFlutterRequire("./zhihu/home/question.js");
+
+class Hot extends MXJSWidget {
     constructor(){
-        super("HomePage constructor");
+        super("Hot constructor");
+    }
+
+    hotCard(question){
+        return new Container({
+            decoration: new BoxDecoration({
+                color: GlobalConfig.cardBackgroundColor,
+                border: new BorderDirectional({
+                    bottom: new BorderSide({
+                        color: Colors.black(),
+                        width: 1.0,
+                    }),
+                }),
+            }),
+            child: new FlatButton({
+                onPressed:function(){
+                    this.navigatorPush(new QuestionPage);
+                },
+                child: new Container({
+                    padding: EdgeInsets.only({top: 8.0, bottom: 8.0}),
+                    child: new Row({
+                        children: [
+                            new Expanded({
+                                flex: 1,
+                                child: new Column({
+                                    children: [
+                                        new Container({
+                                            child: new Text(
+                                                question.order,{
+                                                style: new TextStyle({
+                                                    color: question.order <= "03" ? Colors.red() : Colors.yellow(),
+                                                    fontSize: 18.0
+                                                }),
+                                            }),
+                                            alignment: Alignment.topLeft,
+                                        }),
+                                        question.rise != null ? 
+                                        new Row({
+                                            children: [
+                                                new Icon(new IconData(0xe5d8, {fontFamily: 'MaterialIcons'}),{
+                                                    color: Colors.red(), 
+                                                    size: 10.0
+                                                }),
+                                                new Text(question.rise, {
+                                                    style: new TextStyle({
+                                                        color: Colors.red(), 
+                                                        fontSize: 10.0
+                                                    }),
+                                                })
+                                            ],
+                                        })
+                                        : new Container(), 
+                                    ],
+                                }),
+                            }),
+                            new Expanded({
+                                flex: 6,
+                                child: new Column({
+                                    children: [
+                                        new Container({
+                                            child: new Text(question.title,{
+                                                style: new TextStyle({
+                                                    fontWeight: FontWeight.bold, 
+                                                    fontSize: 16.0, 
+                                                    height: 1.1, 
+                                                    color: Colors.black()
+                                                }),
+                                            }),
+                                            padding: EdgeInsets.only({bottom: 10.0,right: 4.0}),
+                                            alignment: Alignment.topLeft,
+                                        }),
+                                        question.mark != null ?
+                                        new Container({
+                                            child: new Text(question.mark, {
+                                                style: new TextStyle({color: GlobalConfig.fontColor}),
+                                            }),
+                                            alignment: Alignment.topLeft,
+                                            padding: EdgeInsets.only({bottom: 8.0,right: 4.0}),
+                                        }) : 
+                                        new Container(),
+                                        new Container({
+                                            child: new Text(question.hotNum, {
+                                                style: new TextStyle({color: GlobalConfig.fontColor}),
+                                            }),
+                                            alignment: Alignment.topLeft,
+                                        }),
+                                    ],
+                                }),
+                            }),
+                            new Expanded({
+                                flex: 3,
+                                child: new AspectRatio({
+                                    aspectRatio: 3.0 / 2.0,
+                                    child: new Container({
+                                        foregroundDecoration:new BoxDecoration({
+                                            image: new DecorationImage({
+                                                image: new NetworkImage(question.imgUrl),
+                                                centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
+                                            }),
+                                            borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                                        }),
+                                    }),
+                                }),
+                            }),
+                        ],
+                    })
+                })
+            })
+        })
     }
 
     build(context){
-        let widget = new Text("知乎");
+        let widget = new SingleChildScrollView({
+            child: new Container({
+                margin: EdgeInsets.only({top: 5.0}),
+                child: new Column({
+                    children: [
+                        new Container({
+                            margin: EdgeInsets.only({top: 5.0}),
+                        }),
+                        this.hotCard(questionList[0]),
+                        this.hotCard(questionList[1]),
+                        this.hotCard(questionList[2]),
+                        this.hotCard(questionList[3]),
+                        this.hotCard(questionList[4]),
+                    ],
+                }),
+            })
+        });
         return widget;
     }
 }
 
-module.exports = { HomePage };
+module.exports = { Hot };
 
 
 //测试代码，修改Widget name
 //在VSCode 直接运行测试JS代码正确性,在app无任何效果
-IDERunFileTestWidget(HomePage);
+IDERunFileTestWidget(Hot);
 
 //拷贝一份到目标文件
 function IDERunFileTestWidget(TestPage) {
