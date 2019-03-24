@@ -8,7 +8,7 @@
 function calcJSFrameworkFilePath(filePath) {
 
     //如果在IDE里不能运行，核对下这个相对路径
-    let jsFlutterLibDir = "./../../ios/Runner/JSFlutter/JSFlutterJSFrameworkLib/";
+    let jsFlutterLibDir = "./../../../../ios/Runner/JSFlutter/JSFlutterJSFrameworkLib/";
     let libFileSet = new Set([
         "js_flutter_framework.js",
         "js_flutter_ui.js",

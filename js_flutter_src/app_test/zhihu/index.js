@@ -41,7 +41,9 @@ let {
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 let {HomePage} = jsFlutterRequire("./zhihu/home/home_page.js");
-let {Myself} = jsFlutterRequire("./zhihu/myself/myself.js");
+let {MyPage} = jsFlutterRequire("./zhihu/my/my_page.js");
+let {IdeaPage} = jsFlutterRequire("./zhihu/idea/idea_page.js");
+let {MessagePage} = jsFlutterRequire("./zhihu/message/message_page.js");
 
 class _NavigationIconView {
     constructor({
@@ -79,10 +81,6 @@ class Index extends MXJSWidget {
               title: new Text("想法"),
             }),
             new _NavigationIconView({
-              icon: new Icon(new IconData(0xe854, {fontFamily: 'MaterialIcons'})),
-              title: new Text("市场"),
-            }),
-            new _NavigationIconView({
               icon: new Icon(new IconData(0xe003, {fontFamily: 'MaterialIcons'})),
               title: new Text("通知"),
             }),
@@ -94,10 +92,9 @@ class Index extends MXJSWidget {
 
         this._pageList = [
             new HomePage(),
-            new Myself(),
-            new Myself(),
-            new Myself(),
-            new Myself(),
+            new IdeaPage(),
+            new MessagePage(),
+            new MyPage(),
         ];
 
         this._currentPage = this._pageList[this._currentIndex];

@@ -17,61 +17,108 @@ function jsFlutterRequire(file) {
 }
 //VSCode Run support end ================================================================================
 
-//myself.js 正式开始，😝
+//message_page.js 正式开始，😝
 
 let {
-  runApp,
-  MXJSFlutterApp,
-  MXJSWidget,
-  Scaffold,
-  Text,
-  Theme,
-  EdgeInsets,
-  Column,
-  SizedBox,
-  Card,
-  CrossAxisAlignment,
-  MainAxisAlignment,
-  Align,
-  Center,
-  Image,
-  Alignment,
-  CircleAvatar,
-  DefaultTabController,
-  NestedScrollView,
-  SliverOverlapAbsorber,
-  SliverAppBar,
-  TabBar,
-  Tab,
-  TabBarView,
-  SafeArea,
-  Builder,
-  CustomScrollView,
-  SliverChildBuilderDelegate,
-  SliverOverlapInjector,
-  SliverPadding,
-  SliverFixedExtentList,
-  Padding,
+    runApp,
+    MXJSFlutterApp,
+    MXJSWidget,
+    MaterialApp,
+    ThemeData,
+    Scaffold,
+    AppBar,
+    Container,
+    Row,
+    FlatButton,
+    Text,
+    Expanded,
+    TextStyle,
+    Colors,
+    AspectRatio,
+    BoxDecoration,
+    BorderSide,
+    DecorationImage,
+    NetworkImage,
+    Rect,
+    Border,
+    BorderRadius,
+    Radius,
+    Color,
+    TextField,
+    Theme,
+    Icon,
+    IconData,
+    BorderDirectional,
+    EdgeInsets,
+    Column,
+    FontWeight,
+    PopupMenuButton,
+    PopupMenuItem,
+    SingleChildScrollView,
+    InputDecoration,
+    SizedBox,
+    Card,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Align,
+    Center,
+    Image,
+    Alignment,
+    CircleAvatar,
+    DefaultTabController,
+    NestedScrollView,
+    SliverOverlapAbsorber,
+    SliverAppBar,
+    TabBar,
+    Tab,
+    TabBarView,
+    SafeArea,
+    Builder,
+    CustomScrollView,
+    SliverChildBuilderDelegate,
+    SliverOverlapInjector,
+    SliverPadding,
+    SliverFixedExtentList,
+    Padding,
+    ButtonTextTheme,
+    ListTile,
+    IconButton,
+    RaisedButton,
+    BottomAppBar,
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
-class Myself extends MXJSWidget {
+let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+
+class MessagePage extends MXJSWidget {
     constructor(){
         super();
     }
 
     build(context){
-        let widget = new Text("知乎");
+        let widget = new MaterialApp({
+            home: new Scaffold({
+                appBar: new AppBar({
+                    title: new Center({
+                        child: new Text('消息'),
+                    })
+                }),
+                body: new Center({
+                    child: new Text("努力开发中~")
+                }),
+            }),
+            theme: GlobalConfig.themeData
+        });
         return widget;
     }
 }
 
-module.exports = { Myself };
+module.exports = { MessagePage };
 
 
 //测试代码，修改Widget name
 //在VSCode 直接运行测试JS代码正确性,在app无任何效果
-IDERunFileTestWidget(Myself);
+IDERunFileTestWidget(MessagePage);
 
 //拷贝一份到目标文件
 function IDERunFileTestWidget(TestPage) {
