@@ -86,6 +86,8 @@ let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 let {Follow} = jsFlutterRequire("./zhihu/home/follow.js");
 let {Recommend} = jsFlutterRequire("./zhihu/home/recommend.js");
 let {Hot} = jsFlutterRequire("./zhihu/home/hot.js");
+let {SearchPage} = jsFlutterRequire("./zhihu/home/search_page.js");
+let {AskPage} = jsFlutterRequire("./zhihu/home/ask_page.js");
 
 class HomePage extends MXJSWidget {
     constructor(){
