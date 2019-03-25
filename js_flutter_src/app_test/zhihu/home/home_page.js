@@ -146,7 +146,7 @@ class HomePage extends MXJSWidget {
             }),
             decoration: new BoxDecoration({
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                color: GlobalConfig.searchBarBackgroundColor,
+                color: GlobalConfig.searchBackgroundColor,
             }),
         })
     }

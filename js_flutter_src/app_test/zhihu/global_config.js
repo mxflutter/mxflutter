@@ -17,7 +17,7 @@ function jsFlutterRequire(file) {
 }
 //VSCode Run support end ================================================================================
 
-//GlobalConfig.js 正式开始，😝
+//global_config.js 正式开始，😝
 
 let {
   runApp,

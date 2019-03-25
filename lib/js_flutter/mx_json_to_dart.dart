@@ -267,13 +267,13 @@ class MXJsonObjProxy {
     StaticFunction staticFun = findStaticFunction(jsonMap);
 
     var obj;
-    ///是否使用自定义的构造方法
-    if (constructorFun != null) {
-      obj = constructorFun(buildOwner, jsonMap, context:context);
-    }
     ///是否使用静态方法 
-    else if (staticFun != null) {
+    if (staticFun != null) {
       obj = staticFun(buildOwner, jsonMap, context:context);
+    }
+    ///是否使用自定义的构造方法
+    else if (constructorFun != null) {
+      obj = constructorFun(buildOwner, jsonMap, context:context);
     }
     ///默认构造方法 
     else {
