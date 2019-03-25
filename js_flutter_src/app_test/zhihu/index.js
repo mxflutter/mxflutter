@@ -73,7 +73,7 @@ class Index extends MXJSWidget {
     build(context){
         this._navigationViews = [
             new _NavigationIconView({
-              icon: new Icon(new IconData(0xe85d, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+              icon: new Icon(new IconData(0xe85d, {fontFamily: 'MaterialIcons'})),
               title: new Text("首页"),
             }),
             new _NavigationIconView({

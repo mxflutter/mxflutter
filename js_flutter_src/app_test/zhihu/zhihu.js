@@ -30,7 +30,7 @@ let {Index} = jsFlutterRequire("./zhihu/index.js");
 
 class JSZhiHuPage extends MXJSWidget {
     constructor(){
-        super();
+        super("JSZhiHuPage");
     }
 
     build(context){
