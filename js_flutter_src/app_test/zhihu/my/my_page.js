@@ -95,7 +95,7 @@ let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 let {SearchPage} = jsFlutterRequire("./zhihu/home/search_page.js");
 class MyPage extends MXJSWidget {
     constructor(){
-        super();
+        super("MyPage");
     }
 
     barSearch(){
