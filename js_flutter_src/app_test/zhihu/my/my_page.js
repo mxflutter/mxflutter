@@ -130,6 +130,7 @@ class MyPage extends MXJSWidget {
                                     size: 18.0,
                                 }),
                             }),
+                            width: 40.0,
                         }),
                     ],
                 }),

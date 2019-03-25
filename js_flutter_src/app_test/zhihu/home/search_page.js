@@ -86,13 +86,14 @@ let {
     RaisedButton,
     BottomAppBar,
     Chip,
+    InputBorder,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 
 class SearchPage extends MXJSWidget {
     constructor(){
-        super("SearchPage constructor");
+        super("SearchPage");
     }
 
     searchInput() {
@@ -114,6 +115,7 @@ class SearchPage extends MXJSWidget {
                             autofocus: true,
                             decoration: InputDecoration.collapsed({
                                 hintText: "搜索比乎内容",
+                                border: InputBorder.none,
                                 hintStyle: new TextStyle({color: GlobalConfig.fontColor})
                             }),
                         }),

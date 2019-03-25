@@ -83,11 +83,11 @@ let {
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 let {articleList} = jsFlutterRequire("./zhihu/home/article.js");
-// let {ReplyPage} = jsFlutterRequire("./zhihu/home/reply_page.js");
+let {ReplyPage} = jsFlutterRequire("./zhihu/home/reply_page.js");
 
 class Follow extends MXJSWidget {
     constructor(){
-        super("Follow constructor");
+        super("Follow");
     }
 
     wordsCard(article){

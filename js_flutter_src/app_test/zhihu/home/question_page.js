@@ -89,7 +89,7 @@ let {ReplyPage, Common} = jsFlutterRequire("./zhihu/home/reply_page.js");
 
 class QuestionPage extends MXJSWidget {
     constructor(){
-        super("QuestionPage constructor");
+        super("QuestionPage");
     }
 
     build(context){

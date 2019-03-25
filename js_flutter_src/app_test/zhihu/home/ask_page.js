@@ -73,7 +73,7 @@ let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 
 class AskPage extends MXJSWidget {
     constructor(){
-        super("AskPage constructor");
+        super("AskPage");
     }
 
     build(context){

@@ -365,26 +365,26 @@ class RaisedButton extends FlutterWidget {
         let v = new RaisedButton();
         v.staticFunctionName = "icon";
 
-        this.key = key;
-        this.onPressed = onPressed;
-        this.onHighlightChanged = onHighlightChanged;
-        this.textTheme = textTheme;
-        this.textColor = textColor;
-        this.disabledTextColor = disabledTextColor;
-        this.color = color;
-        this.disabledColor = disabledColor; 
-        this.highlightColor = highlightColor;
-        this.splashColor = splashColor;
-        this.colorBrightness = colorBrightness;
-        this.elevation = elevation;
-        this.highlightElevation = highlightElevation;
-        this.disabledElevation = disabledElevation;
-        this.shape = shape;
-        this.clipBehavior = clipBehavior; 
-        this.materialTapTargetSize = materialTapTargetSize;
-        this.animationDuration = animationDuration;
-        this.icon = icon;
-        this.label = label;
+        v.key = key;
+        v.onPressed = onPressed;
+        v.onHighlightChanged = onHighlightChanged;
+        v.textTheme = textTheme;
+        v.textColor = textColor;
+        v.disabledTextColor = disabledTextColor;
+        v.color = color;
+        v.disabledColor = disabledColor; 
+        v.highlightColor = highlightColor;
+        v.splashColor = splashColor;
+        v.colorBrightness = colorBrightness;
+        v.elevation = elevation;
+        v.highlightElevation = highlightElevation;
+        v.disabledElevation = disabledElevation;
+        v.shape = shape;
+        v.clipBehavior = clipBehavior; 
+        v.materialTapTargetSize = materialTapTargetSize;
+        v.animationDuration = animationDuration;
+        v.icon = icon;
+        v.label = label;
 
         return v;
     }

@@ -63,7 +63,7 @@ class _NavigationIconView {
 
 class Index extends MXJSWidget {
     constructor(){
-        super('Index Constructor');
+        super('Index');
         this._currentIndex = 0;
         this._navigationViews = [];
         this._pageList = [];

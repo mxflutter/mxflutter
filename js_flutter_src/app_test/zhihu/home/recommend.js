@@ -88,7 +88,7 @@ let {articleList} = jsFlutterRequire("./zhihu/home/article.js");
 
 class Recommend extends MXJSWidget {
     constructor(){
-        super("Recommend constructor");
+        super("Recommend");
     }
 
     commonCard(article){

@@ -1921,6 +1921,12 @@ const Slider({
   }) 
   """,
 
+  """
+  const InputBorder({
+    this.borderSide = BorderSide.none,
+  })
+  """,
+
 ];
 
 void main(List<String> arguments) {

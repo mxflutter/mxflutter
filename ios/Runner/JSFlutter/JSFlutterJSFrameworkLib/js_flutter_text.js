@@ -577,6 +577,14 @@ class InputDecoration extends FlutterWidget {
     }) {
         let v = new InputDecoration();
         v.staticFunctionName = "collapsed";
+        
+        v.hintText = hintText;
+        v.hasFloatingPlaceholder = hasFloatingPlaceholder;
+        v.hintStyle = hintStyle;
+        v.filled = filled;
+        v.fillColor = fillColor;
+        v.border = border;
+        v.enabled = enabled;
 
         return v;
     }

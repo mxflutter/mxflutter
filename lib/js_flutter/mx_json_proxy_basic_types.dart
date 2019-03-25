@@ -74,6 +74,7 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyCircleAvatar.registerProxy());
     m.addAll(MXProxyBorderDirectional.registerProxy());
     m.addAll(MXProxyChip.registerProxy());
+    m.addAll(MXProxyInputBorder.registerProxy());
     
     return m;
   }
@@ -3009,4 +3010,34 @@ class MXProxyChip extends MXJsonObjProxy {
 		);
 		return widget;
 	}
+}
+
+class MXProxyInputBorder extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "InputBorder";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyInputBorder()..init(className: regClassName)};
+	}
+
+  @override
+  void init({String className}) {
+    super.init(className: className);
+
+    final String regClassName = "InputBorder";
+
+    registerStaticFunction(
+        className: regClassName,
+        staticFunctionName: "none",
+        staticFunction: functionNone);
+  }
+
+	@override
+	InputBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+		return null;
+	}
+
+  InputBorder functionNone(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}){
+    return InputBorder.none;
+  }
 }

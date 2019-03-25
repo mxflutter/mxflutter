@@ -108,6 +108,7 @@ class Common {
                         child: new TextField({
                             decoration: InputDecoration.collapsed({
                                 hintText: "搜索比乎内容",
+                                border: InputBorder.none,
                                 hintStyle: new TextStyle({color: GlobalConfig.fontColor})
                             }),
                         }),
@@ -139,7 +140,7 @@ class Common {
 
 class ReplyPage extends MXJSWidget {
     constructor(){
-        super("ReplyPage constructor");
+        super("ReplyPage");
     }
 
     build(context){

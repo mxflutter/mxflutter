@@ -2151,6 +2151,23 @@ class Chip extends DartClass {
     }
 }
 
+class InputBorder extends DartClass {
+    constructor ({
+        // borderSide,
+    } = {}) {
+        super();
+
+        // this.borderSide = borderSide;
+    }
+
+    static get none(){
+        let v = new InputBorder();
+        v.staticFunctionName = "none";
+        
+        return v;
+    }
+}
+
 module.exports = {
     DartClass,
     FlutterWidget,
@@ -2240,5 +2257,6 @@ module.exports = {
     BorderDirectional,
     ButtonTextTheme,
     Chip,
+    InputBorder,
     assert,
 };

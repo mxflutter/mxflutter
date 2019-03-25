@@ -87,7 +87,7 @@ let {questionList} = jsFlutterRequire("./zhihu/home/question.js");
 
 class Hot extends MXJSWidget {
     constructor(){
-        super("Hot constructor");
+        super("Hot");
     }
 
     hotCard(question){
