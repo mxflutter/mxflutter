@@ -411,6 +411,12 @@ class MXJSWidgetState extends State<MXJSWidget>  with SingleTickerProviderStateM
     }
     var w = _jsonBuildOwner.build(widget.widgetData, context);
 
+    // 检查_jsonBuildOwner.childrenBuildOwner是否包含当前widget。有遇到initState不调用的问题
+    if (!this.checkIfWidgetInChildrenBuildOwner(widget)) {
+      MXJsonBuildOwner jsonBuildOwner = MXJsonBuildOwner(this, widget._parentBuildOwner);
+      widget._parentBuildOwner?.addChildBuildOwner(widget.widgetID, jsonBuildOwner);
+    }
+
     //告诉JS层，使用当前JSWidget 序列号的数据构建，callbackID,widgetID  与之对应
     _jsonBuildOwner.callJSOnBuildEnd();
 
@@ -442,6 +448,15 @@ class MXJSWidgetState extends State<MXJSWidget>  with SingleTickerProviderStateM
       context,
       MaterialPageRoute(builder: (context) => jsWidget),
     );
+  }
+
+  bool checkIfWidgetInChildrenBuildOwner(MXJSWidget jsWidget) {
+    for (var key in jsWidget._parentBuildOwner.childrenBuildOwner.keys) {
+      if (key == jsWidget.widgetID) {
+        return true;
+      }
+    }
+    return false;
   }
 }
 
