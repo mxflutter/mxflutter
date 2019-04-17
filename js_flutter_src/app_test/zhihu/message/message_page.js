@@ -92,7 +92,7 @@ let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 
 class MessagePage extends MXJSWidget {
     constructor(){
-        super("MessagePage");
+        super("MessagePage", {key: "MessagePage"});
     }
 
     build(context){

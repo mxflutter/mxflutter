@@ -91,7 +91,7 @@ let {AskPage} = jsFlutterRequire("./zhihu/home/ask_page.js");
 
 class HomePage extends MXJSWidget {
     constructor(){
-        super("HomePage");
+        super("HomePage", {key: "HomePage"});
     }
 
     barSearch(){

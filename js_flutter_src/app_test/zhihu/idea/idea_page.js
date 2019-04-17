@@ -92,7 +92,7 @@ let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 
 class IdeaPage extends MXJSWidget {
     constructor(){
-        super("IdeaPage");
+        super("IdeaPage", {key: "IdeaPage"});
     }
 
     build(context){

@@ -307,13 +307,14 @@ class MXJSWidget extends StatefulWidget {
   List<MXJSWidget> navPushedWidgets;
 
   MXJSWidget(
-      {String name,
+      {Key key,
+      String name,
       String widgetID,
       Map widgetData,
       String buildWidgetDataSeq,
       String navPushingWidgetID,
       MXJsonBuildOwner parentBuildOwner,
-      String languageType}) {
+      String languageType}) : super(key: key) {
     this.name = name;
     this.widgetID = widgetID;
     this.buildWidgetDataSeq = buildWidgetDataSeq;
@@ -410,12 +411,6 @@ class MXJSWidgetState extends State<MXJSWidget>  with SingleTickerProviderStateM
       return _buildErrorWidget();
     }
     var w = _jsonBuildOwner.build(widget.widgetData, context);
-
-    // 检查_jsonBuildOwner.childrenBuildOwner是否包含当前widget。有遇到initState不调用的问题
-    if (!this.checkIfWidgetInChildrenBuildOwner(widget)) {
-      MXJsonBuildOwner jsonBuildOwner = MXJsonBuildOwner(this, widget._parentBuildOwner);
-      widget._parentBuildOwner?.addChildBuildOwner(widget.widgetID, jsonBuildOwner);
-    }
 
     //告诉JS层，使用当前JSWidget 序列号的数据构建，callbackID,widgetID  与之对应
     _jsonBuildOwner.callJSOnBuildEnd();

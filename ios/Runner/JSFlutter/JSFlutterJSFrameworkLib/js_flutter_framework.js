@@ -398,7 +398,8 @@ class MXJSWidgetTree {
 
 //JSWidget 基类，负责JSWidget build 过程
 class MXJSWidget {
-    constructor(name) {
+    constructor(name, {key} = {}) {
+        this.key = key;
         this.name = name;
         //继承自MXJSWidget 自定义控件，使用Flutter dart层的MXJSWidget 来承载。
         this.className = "MXJSWidget";
@@ -492,6 +493,7 @@ class MXJSWidget {
 
         //json实际包含的字段
         let jsonMap = {
+            key: this.key,
             name: this.name,
             className: this.className,
             widgetID: this.widgetID,
