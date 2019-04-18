@@ -1429,7 +1429,7 @@ class MXProxyCustomScrollView extends MXJsonObjProxy {
 			cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
 			slivers: toListT<Widget>(mxj2d(bo, jsonMap["slivers"], defaultValue:const <Widget>[], context:context)),
 			semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
-			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
 		);
 		return widget;
 	}
@@ -1755,18 +1755,18 @@ class MXProxySliverList extends MXJsonObjProxy {
 	}
 }
 
-class MXDragStartBehavior  {
-	static Map str2VMap =  {
-			"DragStartBehavior.down": DragStartBehavior.down,
-			"DragStartBehavior.start": DragStartBehavior.start};
+// class MXDragStartBehavior  {
+// 	static Map str2VMap =  {
+// 			"DragStartBehavior.down": DragStartBehavior.down,
+// 			"DragStartBehavior.start": DragStartBehavior.start};
 
-	static DragStartBehavior parse(String valueStr,{DragStartBehavior defaultValue }) {
-		if(valueStr == null) return defaultValue;
-		valueStr = valueStr.trim();
-		var v = str2VMap[valueStr];
-		return v??defaultValue;
-	}
-}
+// 	static DragStartBehavior parse(String valueStr,{DragStartBehavior defaultValue }) {
+// 		if(valueStr == null) return defaultValue;
+// 		valueStr = valueStr.trim();
+// 		var v = str2VMap[valueStr];
+// 		return v??defaultValue;
+// 	}
+// }
 
 class MXDecorationPosition  {
 	static Map str2VMap =  {
@@ -1851,7 +1851,7 @@ class MXProxyNestedScrollView extends MXJsonObjProxy {
         return toListT<Widget>(mxj2d(bo, jsonMap["children"], context:context));
       },
 			body: mxj2d(bo, jsonMap["body"]),
-			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
 		);
 		return widget;
 	}
@@ -1899,7 +1899,7 @@ class MXProxySingleChildScrollView extends MXJsonObjProxy {
 			physics: mxj2d(bo, jsonMap["physics"]),
 			controller: mxj2d(bo, jsonMap["controller"]),
 			child: mxj2d(bo, jsonMap["child"]),
-			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
 		);
 		return widget;
 	}

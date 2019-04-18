@@ -366,7 +366,7 @@ class MXProxyTabBar extends MXJsonObjProxy {
       labelPadding: mxj2d(bo, jsonMap["labelPadding"]),
       unselectedLabelColor: mxj2d(bo, jsonMap["unselectedLabelColor"]),
       unselectedLabelStyle: mxj2d(bo, jsonMap["unselectedLabelStyle"]),
-      dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+      // dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
 			onTap: createValueGenericHandle<int>(bo, mxj2d(bo, jsonMap["onTap"])),
     );
     return widget;
@@ -1290,7 +1290,7 @@ class MXProxyTabBarView extends MXJsonObjProxy {
 			children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
 			controller: mxj2d(bo, jsonMap["controller"]),
 			physics: mxj2d(bo, jsonMap["physics"]),
-			dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
 		);
 		return widget;
 	}
