@@ -86,7 +86,7 @@ class AskPage extends MXJSWidget {
                             children: [
                                 FlatButton.icon({
                                     onPressed:function(){
-
+                                        this.navigatorPop();
                                     },
                                     icon: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'})),
                                     label: new Text(""),

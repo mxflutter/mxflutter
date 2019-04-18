@@ -85,6 +85,7 @@ let {
     IconButton,
     RaisedButton,
     BottomAppBar,
+    InputBorder,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
@@ -97,7 +98,7 @@ class Common {
                     new Container({
                         child: FlatButton.icon({
                             onPressed: function(){
-                        
+                                this.navigatorPop();
                             },
                             icon: new Icon(new IconData(0xe5c4, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}),
                             label: new Text(""),
