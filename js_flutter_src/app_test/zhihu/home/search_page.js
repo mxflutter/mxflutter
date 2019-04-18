@@ -103,7 +103,7 @@ class SearchPage extends MXJSWidget {
                     new Container({
                             child: FlatButton.icon({
                                 onPressed: function(){
-                                    
+                                    this.navigatorPop();
                                 },
                                 icon: new Icon(new IconData(0xe5c4, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}),
                                 label: new Text(""),

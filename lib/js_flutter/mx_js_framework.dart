@@ -259,6 +259,7 @@ void runJSApp(MXJSWidget jsWidget) {
     /// JS ->  flutter  开放给调用 JS
     _jsFlutterAppChannelFunRegMap["rebuild"] = _jsRebuild;
     _jsFlutterAppChannelFunRegMap["navigatorPush"] = _navigatorPush;
+    _jsFlutterAppChannelFunRegMap["navigatorPop"] = _navigatorPop;
     _jsFlutterAppChannelFunRegMap["invoke"] = _jsInvoke;
 		
     if (ENABLE_DART_FLUTTER_DEBUG) {
@@ -274,6 +275,11 @@ void runJSApp(MXJSWidget jsWidget) {
   //js层 调用navigatorPush 主动push页面
   Future<dynamic> _navigatorPush(args) async {
     _rootBuildOwner.jsCallNavigatorPush(args);
+  }
+
+  //js层 调用navigatorPop 主动pop页面
+  Future<dynamic> _navigatorPop(args) async {
+    _rootBuildOwner.jsCallNavigatorPop(args);
   }
 
   //js层 调用navigatorPush 主动push页面
@@ -445,13 +451,9 @@ class MXJSWidgetState extends State<MXJSWidget>  with SingleTickerProviderStateM
     );
   }
 
-  bool checkIfWidgetInChildrenBuildOwner(MXJSWidget jsWidget) {
-    for (var key in jsWidget._parentBuildOwner.childrenBuildOwner.keys) {
-      if (key == jsWidget.widgetID) {
-        return true;
-      }
-    }
-    return false;
+  jsNavigatorPop() {
+    MXJSLog.log("MXJSWidgetState:jsNavigatorPop:");
+    Navigator.pop(context);
   }
 }
 

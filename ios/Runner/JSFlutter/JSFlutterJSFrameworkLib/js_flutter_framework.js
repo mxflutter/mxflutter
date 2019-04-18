@@ -255,13 +255,17 @@ class MXJSFlutterApp {
 
         this.navigatorPush(w, args);
 
-        // 更新已经push的widgets
+        // 更新已经push的widgets。解决子wiget触发父widget被navigatorPush（比如textField和textFormField获取键盘焦点），导致子widget事件绑定失效的问题
         if (rootWidget) {
             for (let k in rootWidget.navPushedWidgets) {
                 let jsWidget = rootWidget.navPushedWidgets[k];
+
+                // 更新widgetID，以防找不到widget
+                jsWidget.widgetID = MXJSWidgetMgr.getInstance().generateWidgetID();  
+
                 this.rootWidget.updatePushingWidgetsData(jsWidget);
                 let widgetData = jsWidget.widgetData;
-                MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", { widgetData })
+                MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", { widgetData });
             }
         }
     }
@@ -334,7 +338,7 @@ class MXJSFlutterApp {
     }
 
     flutterCallOnBuildEnd(args) {
-        this.rootWidget.onBuildEnd(args)
+        this.rootWidget.onBuildEnd(args);
     }
 
     flutterCallOnDispose(args) {
@@ -751,6 +755,11 @@ class MXJSWidget {
 
         //call flutter setState
         MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("navigatorPush", { widgetData });
+    }
+
+    navigatorPop() {
+        let widgetID = this.widgetID;
+        MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("navigatorPop", { widgetID });
     }
 
     removePushingWidget(jsWidget){

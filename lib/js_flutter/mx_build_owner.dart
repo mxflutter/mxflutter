@@ -242,6 +242,19 @@ class MXJsonBuildOwner {
     bo._jsWidgetState.jsNavigatorPush(jsWidget);
   }
 
+  jsCallNavigatorPop(args) {
+    String widgetID = args["widgetID"];
+    var bo = findBuildOwner(widgetID);
+
+    if (bo == null) {
+      MXJSLog.error(
+          "jsCallNavigatorPop(bo == null: widgetID:$widgetID");
+      return;
+    }
+
+    bo._jsWidgetState.jsNavigatorPop();
+  }
+
   MXJsonBuildOwner findBuildOwner(widgetID) {
     MXJsonBuildOwner bo = childrenBuildOwner[widgetID];
 
