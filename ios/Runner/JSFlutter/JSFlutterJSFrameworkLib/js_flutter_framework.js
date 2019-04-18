@@ -758,7 +758,9 @@ class MXJSWidget {
     }
 
     navigatorPop() {
-        let widgetID = this.widgetID;
+        // 找到最上层的top widget
+        let topRootWidget = this.findTopRootWidget();
+        let widgetID = topRootWidget.widgetID;
         MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("navigatorPop", { widgetID });
     }
 
@@ -779,6 +781,14 @@ class MXJSWidget {
         jsWidget.widgetData = MXJSWidget.buildWidgetData(jsWidget);
     }
 
+    findTopRootWidget() {
+        let rootWidget = this.rootWidget;
+        if (rootWidget == null) {
+            return this;
+        }
+        
+        return rootWidget.findTopRootWidget(rootWidget);
+    }
 }
 
 //在JS层，要封装控件，如不需要改变UI内容，使用无状态的MXJSStatelessWidget
