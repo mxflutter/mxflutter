@@ -729,11 +729,14 @@ class MXJSWidget {
         //调用子widget disposeWidget
         if (this.currentWidgetTree && this.currentWidgetTree.childrenWidget) {
             for (let k in this.currentWidgetTree.childrenWidget) {
-                this.currentWidgetTree.childrenWidget[k].disposeWidget();
+                let widget = this.currentWidgetTree.childrenWidget[k];
+                if (widget) {
+                    widget.dispose();
+                }
+                // this.currentWidgetTree.childrenWidget[k].disposeWidget();
             }
         }
 
-        //调用子类dispose
         this.dispose();
     }
 
@@ -741,15 +744,6 @@ class MXJSWidget {
     //js->flutter
     //navigator route 
     navigatorPush(jsWidget) {
-        //设置push jsWidget的widget
-        // jsWidget.navPushingWidget = this;
-        // jsWidget.buildContext = this.buildContext;
-
-        // jsWidget.navPushingWidgetID = this.widgetID;
-
-        // this.navPushedWidgets[jsWidget.widgetID] = jsWidget;
-
-        // let widgetData = MXJSWidget.buildWidgetData(jsWidget);
         this.updatePushingWidgetsData(jsWidget);
         let widgetData = jsWidget.widgetData;
 
@@ -771,6 +765,7 @@ class MXJSWidget {
     }
 
     updatePushingWidgetsData(jsWidget) {
+        //设置push jsWidget的widget
         jsWidget.navPushingWidget = this;
         jsWidget.buildContext = this.buildContext;
 
