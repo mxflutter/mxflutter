@@ -89,6 +89,7 @@ let {
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
+let {QuestionPage} = jsFlutterRequire("./zhihu/home/question_page.js");
 
 class Common {
     static searchInput(context) {

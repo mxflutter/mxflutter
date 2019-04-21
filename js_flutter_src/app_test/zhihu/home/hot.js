@@ -84,6 +84,7 @@ let {
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 let {questionList} = jsFlutterRequire("./zhihu/home/question.js");
+let {QuestionPage} = jsFlutterRequire("./zhihu/home/question_page.js");
 
 class Hot extends MXJSWidget {
     constructor(){
