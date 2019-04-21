@@ -443,8 +443,11 @@ class MXJSWidget {
 
     setState(fun) {
 
-        fun = fun.bind(this);
-        fun();
+        if (fun) {
+            fun = fun.bind(this);
+            fun();
+        }
+        
         //call-> Flutter 
         this.buildContext.callFlutterRebuild(this);
     }
