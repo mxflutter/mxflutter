@@ -145,6 +145,11 @@ class MXJsonBuildOwner {
     }
     // 更新parentBuildOwner中当前的widgetID
     for (var k in parentBuildOwner.childrenBuildOwner.keys) {
+      // 针对第一个默认的空白页面额外处理下
+      if (k == "JSWidgetHomePage") {
+        continue;
+      }
+
       var childBuildOwner = parentBuildOwner.childrenBuildOwner[k];
       var widgetState = childBuildOwner.jsWidgetState;
       if (widgetState != null) {
