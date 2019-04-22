@@ -157,6 +157,9 @@ class MXJsonBuildOwner {
       "mirrorObjIDList": mirrorObjKeyList,
     });
 
+    // 移除parentBuildOwner中当前的widget
+    parentBuildOwner.removeChildBuildOwner(ownerWidgetID);
+
     if (this._jsWidgetState.widget.languageType == "Dart") {
       ownerApp.callDart(jsMethodCall);
     } else {
