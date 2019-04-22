@@ -339,7 +339,6 @@ class Follow extends MXJSWidget {
                         this.wordsCard(articleList[3]),
                     ],
                 }),
-                color: new Color(0xFFEEEEEE),
             }),
         });
         return widget;

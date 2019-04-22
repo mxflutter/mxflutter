@@ -184,7 +184,6 @@ class Recommend extends MXJSWidget {
                     ],
                 }),
             }),
-            color: new Color(0xFFEEEEEE),
         });
         return widget;
     }

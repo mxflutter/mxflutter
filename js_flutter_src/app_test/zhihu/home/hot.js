@@ -205,9 +205,6 @@ class Hot extends MXJSWidget {
                 margin: EdgeInsets.only({top: 5.0}),
                 child: new Column({
                     children: [
-                        new Container({
-                            margin: EdgeInsets.only({top: 5.0}),
-                        }),
                         this.hotCard(questionList[0]),
                         this.hotCard(questionList[1]),
                         this.hotCard(questionList[2]),
@@ -215,7 +212,6 @@ class Hot extends MXJSWidget {
                         this.hotCard(questionList[4]),
                     ],
                 }),
-                color: new Color(0xFFEEEEEE),
             })
         });
         return widget;
