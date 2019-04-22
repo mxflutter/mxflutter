@@ -18,7 +18,7 @@ class MXJsonBuildOwner {
   MXJSFlutterApp ownerApp;
   MXJsonBuildOwner parentBuildOwner;
   Map<String, MXJsonBuildOwner> childrenBuildOwner = {};
-  Map<String, MXJSWidget> childrenWidget = {};
+  // Map<String, MXJSWidget> childrenWidget = {};
 
   List mirrorObjKeyList = [];
   //
@@ -138,9 +138,29 @@ class MXJsonBuildOwner {
     var ownerWidgetID = this._jsWidgetState.widget.widgetID;
     String buildSeq = this._jsWidgetState.widget.buildWidgetDataSeq;
 
+    MXJSWidgetState parentWidgetState = this.parentBuildOwner.jsWidgetState;
+    var parentWidgetID = "";
+    if (parentWidgetState != null) {
+      parentWidgetID = parentWidgetState.widget.widgetID;
+    }
+    // 更新parentBuildOwner中当前的widgetID
+    for (var k in parentBuildOwner.childrenBuildOwner.keys) {
+      var childBuildOwner = parentBuildOwner.childrenBuildOwner[k];
+      var widgetState = childBuildOwner.jsWidgetState;
+      if (widgetState != null) {
+        var widget = widgetState.widget;
+        if (widget == this._jsWidgetState.widget) {
+          parentBuildOwner.childrenBuildOwner.remove(k);
+          parentBuildOwner.childrenBuildOwner[widget.widgetID] = childBuildOwner;
+          break;
+        }
+      }
+    }
+
     MethodCall jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
       "widgetID": ownerWidgetID,
       "buildSeq": buildSeq,
+      "rootWidgetID" : parentWidgetID,
     });
 
     if (this._jsWidgetState.widget.languageType == "Dart") {

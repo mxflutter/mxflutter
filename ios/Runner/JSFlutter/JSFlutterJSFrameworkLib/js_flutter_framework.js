@@ -680,7 +680,14 @@ class MXJSWidget {
             jsWidget.onFlutterBuildEnd(buildWidgetDataSeq);
         }
         else {
-            MXJSLog.error("onBuildEnd error: jsWidget == null widgetID " + widgetID);
+            // MXJSLog.error("onBuildEnd error: jsWidget == null widgetID " + widgetID);
+
+            // 如果已从parentWidget移除了，再重新rebuild一下rootWidget
+            let rootWidgetID = args["rootWidgetID"];
+            let rootJsWidget = this.findWidgetWithName(rootWidgetID);
+            if (rootJsWidget != null) {
+                rootJsWidget.buildContext.callFlutterRebuild(rootJsWidget);
+            }
         }
     }
 
