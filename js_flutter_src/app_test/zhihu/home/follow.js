@@ -167,7 +167,7 @@ class Follow extends MXJSWidget {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.0, 
                                     height: 1.3,
-                                    color: GlobalConfig.fontColor,
+                                    color: Colors.black(),
                                 }),
                             }),
                             margin: EdgeInsets.only({top: 6.0, bottom: 2.0}),

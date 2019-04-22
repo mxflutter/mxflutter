@@ -97,7 +97,7 @@ class Hot extends MXJSWidget {
                 color: GlobalConfig.cardBackgroundColor,
                 border: new BorderDirectional({
                     bottom: new BorderSide({
-                        color: Colors.black(),
+                        color: Colors.black12(),
                         width: 1.0,
                     }),
                 }),
@@ -215,6 +215,7 @@ class Hot extends MXJSWidget {
                         this.hotCard(questionList[4]),
                     ],
                 }),
+                color: new Color(0xFFEEEEEE),
             })
         });
         return widget;
