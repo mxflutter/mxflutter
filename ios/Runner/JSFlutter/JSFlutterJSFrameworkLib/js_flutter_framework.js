@@ -595,33 +595,25 @@ class MXJSWidget {
         }
 
         let widgetTree = this.currentWidgetTree;
-
-        if (widgetTree == null || widgetTree.childrenWidget == null) {
-            return null;
-        }
-
-        let w = widgetTree.childrenWidget[widgetID];
-
-        if (w) {
-            return w;
-        }
-
-        for (let k in widgetTree.childrenWidget) {
-
-            let jsWidget = widgetTree.childrenWidget[k];
-            w = jsWidget.findWidgetWithName(widgetID);
-
+        if (widgetTree != null) {
+            let w = widgetTree.childrenWidget[widgetID];
             if (w) {
                 return w;
+            }
+    
+            for (let k in widgetTree.childrenWidget) {
+                let jsWidget = widgetTree.childrenWidget[k];
+                w = jsWidget.findWidgetWithName(widgetID);
+                if (w) {
+                    return w;
+                }
             }
         }
 
         //查找被自己push的widgets
         for (let k in this.navPushedWidgets) {
-
             let jsWidget = this.navPushedWidgets[k];
-            w = jsWidget.findWidgetWithName(widgetID);
-
+            let w = jsWidget.findWidgetWithName(widgetID);
             if (w) {
                 return w;
             }
