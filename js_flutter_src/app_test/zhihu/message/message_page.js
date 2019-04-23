@@ -107,7 +107,7 @@ class MessagePage extends MXJSWidget {
                     child: new Text("努力开发中~")
                 }),
             }),
-            theme: GlobalConfig.themeData
+            // theme: GlobalConfig.themeData
         });
         return widget;
     }

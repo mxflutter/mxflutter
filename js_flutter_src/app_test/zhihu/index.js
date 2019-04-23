@@ -118,7 +118,7 @@ class Index extends MXJSWidget {
                         })
                     },
                 }),
-                theme: GlobalConfig.themeData,
+                // theme: GlobalConfig.themeData,
             })
         });
         return widget;

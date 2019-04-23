@@ -147,7 +147,7 @@ class ReplyPage extends MXJSWidget {
 
     build(context){
         let widget = new MaterialApp({
-            theme: GlobalConfig.themeData,
+            // theme: GlobalConfig.themeData,
             home: new Scaffold({
                 appBar: new AppBar({
                     title: Common.searchInput(context),
