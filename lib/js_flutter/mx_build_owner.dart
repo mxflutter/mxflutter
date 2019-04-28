@@ -241,7 +241,7 @@ class MXJsonBuildOwner {
 
     //更新为widgetid
     parentBuildOwner?.addChildBuildOwner(jsWidget.widgetID, this);
-    parentBuildOwner?.removeChildBuildOwner(jsWidget.name);
+    removeChildBuildOwner(jsWidget.name);
   }
 
   //js->flutter
