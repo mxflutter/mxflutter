@@ -138,6 +138,9 @@ class MXJSFlutterApp {
   //JSWidget根节点
   MXJSWidget rootWidget;
 
+  // 首次进入生成的widget
+  MXJSWidget firstBuildWidget;
+
   MXJSFlutterApp(this.name) {
     _rootBuildOwner = MXJsonBuildOwner.rootBuildOwner(this);
     _setupChannel();
@@ -157,6 +160,10 @@ void runJSApp(MXJSWidget jsWidget) {
 //先创建一个空的MXJSWidget，调用JS，等待JS层widgetData来刷新页面
   MXJSWidget navigatorPushWithPageName(String widgetName,
       {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) {
+    if (firstBuildWidget != null) {
+      return firstBuildWidget; 
+    }
+
     MXJSWidget jsWidget = MXJSWidget(
       name: widgetName,
       parentBuildOwner: _rootBuildOwner,
@@ -165,6 +172,8 @@ void runJSApp(MXJSWidget jsWidget) {
 
     callJSNavigatorPushWithPageName(widgetName,
         themeData: themeData, mediaQueryData: mediaQueryData, iconThemeData: iconThemeData);
+
+    firstBuildWidget = jsWidget;
 
     return jsWidget;
   }

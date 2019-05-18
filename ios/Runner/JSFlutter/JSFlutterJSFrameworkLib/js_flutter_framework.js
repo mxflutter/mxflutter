@@ -248,26 +248,9 @@ class MXJSFlutterApp {
     }
 
     navigatorPushWithPageName(pageName, args) {
-        //查找被自己push的widgets
-        let rootWidget = this.rootWidget;
-
         let w = this.createJSWidgetWithName(pageName);
 
         this.navigatorPush(w, args);
-
-        // 更新已经push的widgets。解决子wiget触发父widget被navigatorPush（比如textField和textFormField获取键盘焦点），导致子widget事件绑定失效的问题
-        if (rootWidget) {
-            for (let k in rootWidget.navPushedWidgets) {
-                let jsWidget = rootWidget.navPushedWidgets[k];
-
-                // 更新widgetID，以防找不到widget
-                jsWidget.widgetID = MXJSWidgetMgr.getInstance().generateWidgetID();  
-
-                this.rootWidget.updatePushingWidgetsData(jsWidget);
-                let widgetData = jsWidget.widgetData;
-                MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", { widgetData });
-            }
-        }
     }
 
     //子类重写,根据widget名创建widget
