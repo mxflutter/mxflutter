@@ -160,6 +160,8 @@ void runJSApp(MXJSWidget jsWidget) {
 //先创建一个空的MXJSWidget，调用JS，等待JS层widgetData来刷新页面
   MXJSWidget navigatorPushWithPageName(String widgetName,
       {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) {
+
+    // 此处判断firstBuildWidget是否并返回。是为了解决解决子wiget触发父widget被navigatorPush（比如textField和textFormField获取键盘焦点），导致子widget事件绑定失效的问题
     if (firstBuildWidget != null) {
       return firstBuildWidget; 
     }
