@@ -35,8 +35,6 @@ let {
   BottomNavigationBar,
   BottomNavigationBarType,
   Colors,
-  ThemeData,
-  Brightness,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");

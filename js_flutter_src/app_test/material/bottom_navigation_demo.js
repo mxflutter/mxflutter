@@ -20,13 +20,11 @@ function jsFlutterRequire(file) {
 //pesto.js 正式开始，😝
 
 let {
-  MXJSLog,
   runApp,
   MXJSFlutterApp,
   MXJSWidget,
   Scaffold,
   Container,
-  Color,
   Center,
   AppBar,
   Stack,
@@ -49,7 +47,6 @@ let {
   Tween,
   IconTheme,
   IconThemeData,
-  Animation,
   Offset,
   BoxDecoration,
   Border,

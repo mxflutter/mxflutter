@@ -20,21 +20,13 @@ function jsFlutterRequire(file) {
 //pesto.js 正式开始，😝
 
 let {
-  MXJSLog,
   runApp,
   MXJSFlutterApp,
   MXJSWidget,
-  Key,
-  MaterialApp,
   Scaffold,
-  Container,
-  RaisedButton,
-  Color,
   Center,
   AppBar,
   Text,
-  ListView,
-  ListTile,
   Icon,
   IconData,
   MediaQuery,
@@ -56,12 +48,8 @@ let {
   BoxFit,
   Row,
   Padding,
-  TextOverflow,
-  MXJSStatelessWidget
-
-
-
-
+  MXJSStatelessWidget,
+  
 } = jsFlutterRequire("js_flutter_ui.js");
 
 

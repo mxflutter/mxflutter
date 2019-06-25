@@ -49,12 +49,6 @@ class JSMaterialPage extends MXJSWidget {
             appBar: new AppBar({
                 title: new Text("Material Demo")
             }),
-            // floatingActionButton: new FloatingActionButton({
-            //     child: new Icon(new IconData(0xe3c9)),
-            //     onPressed: this.createCallbackID(function () {
-
-            //     }),
-            // }),
             body: new ListView({
                 children: [
                     new Padding({ padding: EdgeInsets.all(1.0) }),

@@ -20,17 +20,11 @@ function jsFlutterRequire(file) {
 //studies.js 正式开始，😝
 
 let {
-    MXJSLog,
     runApp,
     MXJSFlutterApp,
     MXJSWidget,
-    Key,
-    MaterialApp,
     Scaffold,
-    Container,
-    RaisedButton,
     Color,
-    Center,
     AppBar,
     Text,
     ListView,
