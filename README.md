@@ -141,7 +141,7 @@ class JSPestoPage extends MXJSWidget {
  ，这是对应UI，是不是非常像 Dart。
 
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8d6ae9edd804c?w=800&h=1588&f=jpeg&s=189648)
+![](https://user-gold-cdn.xitu.io/2019/6/25/16b8da4a18677397?w=400&h=794&f=jpeg&s=78361)
 
 
 # 现状
