@@ -13,11 +13,9 @@ let g_isNativeEnvironment = typeof JSAPI_require != "undefined" ? true : false;
 let {
     DartClass,
     FlutterWidget,
-    FlutterCallArgs,
     Size,
     Color,
     EdgeInsets,
-    Brightness,
     FlutterWidgetMirrorMgr,
     IconThemeData,
 } = jsFlutterRequire("./js_flutter_basic_types.js");

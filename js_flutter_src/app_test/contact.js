@@ -59,10 +59,8 @@ let {
     SliverList,
     SystemUiOverlayStyle,
     Padding,
-    MaterialColor,
     DefaultTextStyle,
     MXJSStatelessWidget,
-    TextStyle,
     SafeArea,
     Colors,
   } = jsFlutterRequire("js_flutter_ui.js");

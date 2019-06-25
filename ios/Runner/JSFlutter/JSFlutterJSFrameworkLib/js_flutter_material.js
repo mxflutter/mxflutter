@@ -13,35 +13,6 @@ let {
     FlutterWidget,
 } = jsFlutterRequire("./js_flutter_basic_types.js");
 
-// const MaterialApp({
-//   Key key,
-//   this.navigatorKey,
-//   this.home,
-//   this.routes = const <String, WidgetBuilder>{},
-//   this.initialRoute,
-//   this.onGenerateRoute,
-//   this.onUnknownRoute,
-//   this.navigatorObservers = const <NavigatorObserver>[],
-//   this.builder,
-//   this.title = '',
-//   this.onGenerateTitle,
-//   this.color,
-//   this.theme,
-//   this.locale,
-//   this.localizationsDelegates,
-//   this.localeListResolutionCallback,
-//   this.localeResolutionCallback,
-//   this.supportedLocales = const <Locale>[Locale('en', 'US')],
-//   this.debugShowMaterialGrid = false,
-//   this.showPerformanceOverlay = false,
-//   this.checkerboardRasterCacheImages = false,
-//   this.checkerboardOffscreenLayers = false,
-//   this.showSemanticsDebugger = false,
-//   this.debugShowCheckedModeBanner = true,
-// })
-
-
-
 class MaterialApp extends FlutterWidget {
 
     constructor(

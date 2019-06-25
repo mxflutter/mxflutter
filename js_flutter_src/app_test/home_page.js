@@ -20,17 +20,12 @@ function jsFlutterRequire(file) {
 //home_page.js 正式开始，😝
 
 let {
-    MXJSLog,
     runApp,
     MXJSFlutterApp,
     MXJSWidget,
-    Key,
-    MaterialApp,
     Scaffold,
     Container,
-    RaisedButton,
     Color,
-    Center,
     AppBar,
     Text,
     ListView,

@@ -9,15 +9,12 @@ let jsFlutterRequire = typeof mxRequire != "undefined" ? mxRequire : require;
 //js_flutter_text.js 正式开始，😝
 
 let {
-    DartClass,
     FlutterWidget,
     FlutterCallArgs,
-    assert,
 } = jsFlutterRequire("./js_flutter_basic_types.js");
 
 let {
     invokeFlutterFunction,
-    MXCreateCallbackID,
 } = jsFlutterRequire("./js_flutter_framework.js");
 
 
