@@ -1,25 +1,28 @@
 ## 基于JS的高性能Flutter动态化框架
-可能是目前放出来的相对完整的Flutter动态化方案
+可能是目前放出来的相对最完整的Flutter动态化方案
 
-缘起：18年10月份，我们团队的iOS产品尝试引入 Flutter，做为iOS开发，一接触到Flutter就马上感受到，Flutter 虽然强大，但不能动态化是阻碍我们使用她的唯一障碍了。舍弃Native的开发方式，一个很大的诉求是获取动态更新的能力。看Google团队对动态化的措辞，应该指望不上了，撸起袖子自己动手丰衣足食，所以启动了Flutter动态化的项目
+缘起：18年10月份，我们团队的iOS产品尝试引入 Flutter，做为iOS开发，一接触到Flutter就马上感受到，Flutter 虽然强大，但不能动态化是阻碍我们使用她的唯一障碍了。舍弃Native的开发方式，一个很大的诉求是获取动态更新的能力。看Google团队对动态化的措辞，应该指望不上了，撸起袖子自己动手丰衣足食。
 
 # 简介
-项目代号：MXFlutter （Matrix Flutter）
+项目代号：MXFlutter （Matrix Flutter）[github TGIF-iMatrix](https://github.com/TGIF-iMatrix/MXFlutter)
 
-核心思路是把 Flutter 的渲染逻辑中的三棵树中的第一棵，放到 JavaScript 中生成。用 JavaScript 完整实现了 Flutter 控件层封装，可以使用 JavaScript，用极其类似 Dart 的开发方式，开发Flutter应用，利用JavaScript版的轻量级Flutter Runtime，生成UI描述，传递给Dart层的UI引擎，UI引擎把UI描述生产真正的 Flutter 控件。所以，他在iOS上是完全动态化的 
+核心思路是把 Flutter 的渲染逻辑中的三棵树中的第一棵，放到 JavaScript 中生成。用 JavaScript 完整实现了 Flutter 控件层封装，可以使用 JavaScript，用极其类似 Dart 的开发方式，开发Flutter应用，利用JavaScript版的轻量级Flutter Runtime，生成UI描述，传递给Dart层的UI引擎，UI引擎把UI描述生产真正的 Flutter 控件。所以，他在iOS上是完全动态化的 ，完整代码开源在：
+[github TGIF-iMatrix](https://github.com/TGIF-iMatrix/MXFlutter)
+如果能帮助到大家，请给MXFlutter点个Star，给我们动力继续更新下去^_*
 
-继续前先瞥一眼整体的架构
+
+继续前先瞥一眼整体的架构，一句话介绍MXFlutter，就是用JavaScript，以Flutter的写法开发Flutter。汗...还是有点绕，大家看下面贴出来的代码吧。
 
 ![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2d34ded87?w=2078&h=1080&f=jpeg&s=310799)
 
 ## 效果
-先看看使用效果，以下截图全部使用 MXFlutter，用JS开发，大家可以把源码下载下来，里面有完整的JS代码实例：
+先看看使用效果，以下截图是在MXFlutter框架下用JS开发，大家可以把上面的源码下载下来，里面有完整的JS代码示例：
 
 这个是APP示例截图
 
 ![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2d533b9e0?w=420&h=835&f=jpeg&s=70936)
 
-这个对应JS代码，没错，你没有眼花，这个是真的 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI
+下面是UI截图对应的JS代码，没错，你没有眼花，这个是真的 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI
 
 ```
 class JSPestoPage extends MXJSWidget {
@@ -136,20 +139,21 @@ class JSPestoPage extends MXJSWidget {
 ```
 
 
-源码中还有更丰满的实例，高仿知乎页面JSFlutter版
+源码中还有更丰满的示例，高仿知乎页面JSFlutter版
 [https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js)
- ，这是对应UI，是不是非常像 Dart。
+ ，这是对应UI，已经接近在线上版直接使用了。
+
 
 
 ![](https://user-gold-cdn.xitu.io/2019/6/25/16b8da4a18677397?w=400&h=794&f=jpeg&s=78361)
 
 
 # 现状
-MXFlutter虽然各个模块已相对完整，但投入生产还需要解决其中的BUG，由于19年初，小组启动新项目，非常繁忙，几乎没有时间继续开发，暂停了一端时间，目前人力仍然很紧张，如果大家有兴趣，期待小伙伴们一起加入，共同丰富 MXFlutter 动态化能力。
+MXFlutter虽然各个模块已相对完整，但投入生产还需要解决其中的BUG，由于19年初，小组启动新项目，非常繁忙，几乎没有时间继续开发，从3月份一直暂停，目前人力仍然很紧张，如果大家有兴趣，期待小伙伴们一起加入，共同丰富 MXFlutter 动态化能力。
 
-## 0x0 探索过程中的几个炮灰方案
+## 0x00 分享下动态化探索过程中的几个炮灰方案
 
-### Flutter 动态化方案一： 静态解析Dart语言，生产UI描述
+### Flutter 动态化方案一： 静态解析Dart语言，生成UI描述
 
 Dart 本身是描述语言，IDE 的 Outline 工具可以解析 Dart 代码生成树形结构，我们可以利用其源码，生成 JSON UI 描述，相关代码：[https://github.com/flutter/flutter-intellij/blob/b6461e8d8ed3857a9e4350bc61133c8f48249f43/src/io/flutter/preview/PreviewView.java](https://github.com/flutter/flutter-intellij/blob/b6461e8d8ed3857a9e4350bc61133c8f48249f43/src/io/flutter/preview/PreviewView.java)
 dart-sdk: analysis_server
@@ -174,7 +178,7 @@ dart-sdk: analysis_server
 
 ### Flutter 动态化方案二： 动态运行 Dart 语言，生产UI描述
 
-和方法二静态解析 Dart 对应，第三个方案是写一个极其轻量的运行时库，让编写 UI 的 Dart 代码运行了起来，生成树形结构，再序列化为 JSON（debug），FlatBuffers （release）UI 描述。可以称之为动态解析方案
+和方案一静态解析Dart对比，第二个方案是写一个极其轻量的运行时库，让编写UI的Dart 代码运行了起来，生成树形结构，再序列化为 JSON（debug），FlatBuffers （release）UI 描述。可以称之为动态解析方案
 
 ![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec3060a0f92?w=2794&h=988&f=jpeg&s=384791)
 
@@ -186,7 +190,7 @@ dart-sdk: analysis_server
 
 ![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2d34ded87?w=2078&h=1080&f=jpeg&s=310799)
 
-架构也有了，方案也有了，要Run起来还有几个麻烦事要忙活，DartVM 要抽出来喔，Dart 层DSL 转真正的 Widget 的 UIEngin 也要写哦，就是图中黄色和红色的三部分
+架构也有了，方案也有了，要Run起来还有几个麻烦事要忙活，DartVM 要抽出来，Dart JIT层的轻量级运行时库，Dart AOT层把DSL转成真正Widget的UIEngin也要写哦，就是图中黄色和红色的三部分
 
 ### 抽离DartVM
 
@@ -222,15 +226,15 @@ Dart源代码在进行编译时会通过DART_PRECOMPILED_RUNTIME宏进行条件�
 封装JavasSriptCore与Native、 Flutter互调接口
 
 
-## 0x02 一下讲解下MXFlutter的渲染原理
+## 0x02 讲解下MXFlutter的渲染原理
 
 ### 渲染树
 两个重要的数据结构
 * MXScriptWidget 
 * MXWidgetTree
 
-MXScriptWidget管理一个Script页面或控件，负责创建管理ScriptWidgetTree，以自增ID与Flutter对应Widget相互调用
-每次Build都会创建一个新的MXWidgetTree，用自增Seq与Flutter
+MXScriptWidget管理一个Script页面或控件，负责创建管理 ScriptWidgetTree，以自增ID与Flutter对应Widget相互调用
+，每次Build都会创建一个新的MXWidgetTree
 
 ![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec334ac9e1a?w=1904&h=1080&f=jpeg&s=214715)
 
@@ -291,7 +295,7 @@ ListView.builder(
 
 ### 渲染优化2-局部刷新-嵌套节点
 
-* MXScriptWidget 是一个具备BuildWidget树，缓存Callback映射表，动画支持的基本单位。可以作为普通FlutterWidget来使用。
+* MXScriptWidget 是一个具备Build WidgetTree，缓存Callback映射表，动画支持的基本单位。可以作为普通FlutterWidget来使用。
 * 在Flutter层，如果Widget树中节点有MXScriptWidget，则在对应节点上创建MXFlutterWidget自定义控件
 * 两个子树可以相互对应获得局部刷新，callback回调，动画支持，Rebuild时所生产的UI DSL 大大减少，加快刷新速率
 
@@ -317,17 +321,17 @@ VM层，Flutter层，Native层镜像对象的生命周期如何控制？
 
 ### 线程问题
 
-参照业界RN等框架的设计VM层跑在一个单独的后台线程
+参照业界RN等框架的设计，VM层跑在一个单独的后台线程
 1. 从Flutter层通过Native通道调用到VM，发生两次线程切换
 2. Flutter UI层和MXScript层是异步调用，限制动态控件的架构设计
 
 一个可行方案
-修改FlutterEngine ，定制开发Dart->Native->VM  通道，调用到VM不切换线程
+修改FlutterEngine ，定制开发Dart->Native->VM 这个通道，调用到VM不切换线程
 VM不新建线程，直接由Flutter UI Thread 消息循环驱动，这样也同时支持了和Flutter UI 层的高效同步调用，但要注意从Native调用到VM，需要通过定制FlutterEngine的接口。
 
 ## 0x04 让开发者写出优雅的代码
 
-我们做了大量细致的工作，让开发者写出优雅的代码,咳咳，这里有点吹了，总之，我们想让使用MXFlutter的开发同学写出来的代码看来正规一些，好看一些。
+让开发者写出优雅的代码,咳咳，这里有点吹了，总之，我们想让使用MXFlutter的开发同学写出来的代码看来正规一些，好看一些。
 
 * 完美支持Dart Flutter语法
 * 定义所有Flutter 中同名Widget类，构建Widget的参数类，支持相同的Build方式，SetState触发刷新，事件响应函数
@@ -341,7 +345,7 @@ VM不新建线程，直接由Flutter UI Thread 消息循环驱动，这样也同
 
 ## 0x05 MXFlutter 基础建设
 
-因为 JSCore 不支持模块化开发，不能引用其他文件代码，我们参照 RN，使用 Node.js 的模块化代码，在Native 层支持 require 语法。开发时，IDE最好选用 VSCode，因为可以按照JS插件，直接运行调试JS
+因为 JavaScript 不支持模块化开发，不能引用其他文件代码，我们参照 RN，使用 Node.js 的模块化代码，在Native 层支持 require 语法。开发时，IDE最好选用 VSCode，因为可以按装JS插件，直接运行调试JS
 
 另外，我们通过重定向模拟器 JS 路径文件到开发机，用户修改完 JS 文件，便可直接看到相应修改，实现模拟器的页面热更新。
 
@@ -351,7 +355,10 @@ VM不新建线程，直接由Flutter UI Thread 消息循环驱动，这样也同
 
 要了解全部，一定要拉下源码，运行起来看看，有问题可以留言一讨论，MXFlutter会持续更新。
 
-项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，IP老师帮忙提供了单元测试。 TGIF-iMatrix  是一个技术氛围浓厚，有美女帅哥超有爱的团队，也正在招聘iOS开发，欢迎投递简历。imatrixteam@qq.com
+项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，IP老师帮忙提供了单元测试。 
+
+TGIF-iMatrix  是一个技术氛围浓厚，有美女有帅哥有趣有爱的团队，还有精通量子计算，5G等前沿技术的数据分析老王，欢迎iOS，Android开发小伙伴，数据开发，数据分析岗位同学投递简历哦：imatrixteam@qq.com
+
 
 
 另外做个小广告，大家轻拍， 看点视频-腾讯短视频，年轻人都爱看
@@ -359,10 +366,6 @@ VM不新建线程，直接由Flutter UI Thread 消息循环驱动，这样也同
 https://apps.apple.com/cn/app/id1458686461
 
 ![](https://user-gold-cdn.xitu.io/2019/6/25/16b8d05b881bfd14?w=1390&h=506&f=png&s=173235)
-
-
-
-
 
 
 
