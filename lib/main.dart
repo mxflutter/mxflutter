@@ -138,40 +138,6 @@ class _DemoList extends StatelessWidget {
           },
         ),
         ListTile(
-          leading: Icon(Icons.book),
-          trailing: Icon(Icons.arrow_right),
-          title: Text('DartFlutter UI Demo'),
-          subtitle: Text('打开DartFlutter UI示例页面'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => MXJSFlutter.getInstance()
-                      .navigatorPushWithPageNameForDart("DartWidgetHomePage",themeData:themeData,mediaQueryData:mediaQueryData)),
-            );
-          },
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.refresh,
-            semanticLabel: 'ReloadDartApp',
-            color: Colors.orange,
-          ),
-          title: Text('Reload DartApp'),
-          subtitle: Text('点击热重载DartApp，重新进入上面的DartFlutter UI Demo，即可看到界面更新(进入DartDemo之前需要先点一次热重载按钮)'),
-          isThreeLine: true,
-          onTap: () {
-            //先把JSApp启动起来，不显示任何界面
-            MXJSFlutter.getInstance()
-                .runDartApp(dartAppName: "app_test", pageName: null);
-
-            Scaffold.of(context).showSnackBar(
-              const SnackBar(
-                  content: Text('DartApp 重新加载完成，重新进入上面的DartFlutter UI Demo，即可看到界面更新！')),
-            );
-          },
-        ),
-        ListTile(
           title: Text('在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击JSFlutter UI Demo，可以在Safari调试JS'),
         ),
       ],

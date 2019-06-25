@@ -2,7 +2,6 @@
 #include "GeneratedPluginRegistrant.h"
 
 #include "JSFlutter/MXJSFlutterViewController.h"
-#import "DartVmManager.h"
 
 @interface AppDelegate () 
 

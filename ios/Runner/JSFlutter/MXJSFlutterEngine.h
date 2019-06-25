@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initRootPath:(NSString *)appRootPath;
 - (void)runApp:(NSString*)appName pageName:(NSString*)pageName;
-- (void)runDartApp:(NSString*)appName pageName:(NSString*)pageName;
 
 @end
 

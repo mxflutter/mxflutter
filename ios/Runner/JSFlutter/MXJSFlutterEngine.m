@@ -65,16 +65,6 @@
     [self.currentApp runAppWithPageName:pageName];
 }
 
-- (void)runDartApp:(NSString*)appName pageName:(NSString*)pageName
-{
-    [self setup];
-    
-    NSString *appRootPath = [self.rootPath stringByAppendingPathComponent:appName];
-    self.currentApp  = [[MXJSFlutterApp alloc] initWithAppName:appName engine:self appRootPath:appRootPath];
-    
-    [self.currentApp runDartAppWithPageName:pageName];
-}
-
 - (BOOL)showPage:(NSString*)pageName
 {
    

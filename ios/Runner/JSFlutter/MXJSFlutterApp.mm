@@ -9,17 +9,13 @@
 #import "MXJSFlutterApp.h"
 #import "MXJSFlutterViewController.h"
 #import "MXJSFlutter.h"
-#import "DartVmLiteDylib/DartVM.hpp"
-#import "DartVmManager.h"
 
 static FlutterMethodChannel* jsFlutterAppChannelStatic;
 static MXJSFlutterEngine* jsFlutterEngineStatic;
-static FlutterMethodChannel* dartFlutterAppDebugChannelStatic;
 
 @interface MXJSFlutterApp ()
 
 @property (nonatomic,strong)  FlutterMethodChannel* jsFlutterAppChannel;
-@property (nonatomic,strong)  FlutterMethodChannel* dartFlutterAppDebugChannel;
 
 @end
 
@@ -100,43 +96,8 @@ static FlutterMethodChannel* dartFlutterAppDebugChannelStatic;
             [strongSelf.jsExecutor invokeJSValue:strongSelf.jsAppObj mothod:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
                 
             }];
-        } else if ([call.method isEqualToString:@"callDart"]) {
-            if (DART_FLUTTER_APP_DEBUG) {
-                //调试状态下使用Flutter VM的调试通道
-                //Debug模式下，Flutter->DartFlutter
-                [strongSelf.dartFlutterAppDebugChannel invokeMethod:call.method arguments:call.arguments];
-            } else {
-                //使用外挂Dart VM调用通道
-                //将字典转换成String
-                NSError *error = nil;
-                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:call.arguments options:0 error:&error];
-                //调试用
-                NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-                DartVM *dartVM = [[DartVmManager sharedInstance] getDartVM];
-                dartVM->enterMainIsolate();
-                Dart_Handle args[1];
-                args[0] = Dart_NewStringFromUTF8((const uint8_t *)jsonData.bytes, jsonData.length);
-                dartVM->dartFunctionInvokeWithClass("dartFlutterNativeCall", 1, args, "MXDartFlutterApp", NULL);
-                dartVM->exitMainIsolate();
-            }
         }
     }];
-    
-    if (DART_FLUTTER_APP_DEBUG) {
-        self.dartFlutterAppDebugChannel = [FlutterMethodChannel
-                                           methodChannelWithName:@"dart_flutter.dart_flutter_app_debug_channel"
-                                           binaryMessenger:_jsFlutterEngine.flutterViewController];
-        dartFlutterAppDebugChannelStatic = self.dartFlutterAppDebugChannel;
-        [self.dartFlutterAppDebugChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
-            MXJSFlutterApp *strongSelf = weakSelf;
-            
-            if (!strongSelf) {
-                return;
-            }
-            //Debug模式下，DartFlutter->Flutter
-            callFlutterMethodForDart(call.method, call.arguments);
-        }];
-    }
 }
 
 - (void)runApp
@@ -177,29 +138,6 @@ static FlutterMethodChannel* dartFlutterAppDebugChannelStatic;
     }];
 }
 
-//加载Dart文件 调用main函数
-- (void)runDartAppWithPageName:(NSString*)pageName
-{
-    if (!DART_FLUTTER_APP_DEBUG) {
-        if ([[DartVmManager sharedInstance] getDartVM] != NULL) {
-            DartVM *dartVM = [[DartVmManager sharedInstance] getDartVM];
-            dartVM->exitMainIsolate();
-            dartVM->shutdownMainIsolate();
-        }
-
-        [[DartVmManager sharedInstance] initializeVM:@"mainApp.dart"];
-        
-        //绑定下DartNative方法，供Dart调用
-        DartVM *dartVM = [[DartVmManager sharedInstance] getDartVM];
-        
-        dartVM->startMainIsolate();
-        
-        const char *lib_url = dartVM->libraryUrlInRootPath("dart_flutter_framework.dart");
-        dartVM->addNativeFunctionBindingInLibrary(lib_url, "CallHostFlutterMethod", callFlutterWidgetChannelWithMethodNameDart);
-    }
-}
-
-
 -(void)exitApp
 {
     self.jsAppObj = nil;
@@ -234,31 +172,6 @@ static FlutterMethodChannel* dartFlutterAppDebugChannelStatic;
 - (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments
 {
     [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
-}
-
-//Dart方法绑定
-void callFlutterWidgetChannelWithMethodNameDart(Dart_NativeArguments arguments)
-{
-    Dart_EnterScope();
-    Dart_SetReturnValue(arguments, Dart_Null());
-    Dart_Handle methodName = Dart_GetNativeArgument(arguments, 0);
-    const char *methodNameCString = "";
-    Dart_StringToCString(methodName, &methodNameCString);
-    
-    Dart_Handle data = Dart_GetNativeArgument(arguments, 1);
-    const char *dataCString = "";
-    Dart_StringToCString(data, &dataCString);
-    
-    callFlutterMethodForDart([NSString stringWithUTF8String:methodNameCString],[NSString stringWithUTF8String:dataCString]);
-    Dart_ExitScope();
-}
-
-void callFlutterMethodForDart(NSString *methodName,NSString *args) {
-    if ([methodName isEqualToString:@"reloadApp"]) {
-        [jsFlutterEngineStatic.flutterViewController callFlutterReloadAppWithJSWidgetData:args];
-    } else {
-        [jsFlutterAppChannelStatic invokeMethod:methodName arguments:@{@"widgetData":args}];
-    }
 }
 
 @end

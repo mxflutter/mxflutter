@@ -4,8 +4,6 @@ import 'dart:convert';
 
 import 'mx_build_owner.dart';
 import 'mx_js_flutter_common.dart';
-import '../dart_flutter/dart_flutter_framework.dart';
-import '../dart_flutter/mainApp.dart';
 
 typedef Future<dynamic> MXChannelFun(dynamic arguments);
 
@@ -66,19 +64,6 @@ class MXJSFlutter {
 
     //暂时只支持一个
     currentApp = MXJSFlutterApp(jsAppName);
-  }
-
-  runDartApp({String dartAppName, pageName}) {
-    if (ENABLE_DART_FLUTTER_DEBUG) {
-      debugMain();
-    } else {
-      pageName ??= "";
-      var args = {"dartAppName": dartAppName, "pageName": pageName};
-      _jsFlutterMainChannel.invokeMethod("callNativeRunDartApp", args);
-    }
-
-    //暂时只支持一个
-    currentApp = MXJSFlutterApp(dartAppName);
   }
 
   //js->flutter 显示js页面
@@ -272,10 +257,6 @@ void runJSApp(MXJSWidget jsWidget) {
     _jsFlutterAppChannelFunRegMap["navigatorPush"] = _navigatorPush;
     _jsFlutterAppChannelFunRegMap["navigatorPop"] = _navigatorPop;
     _jsFlutterAppChannelFunRegMap["invoke"] = _jsInvoke;
-		
-    if (ENABLE_DART_FLUTTER_DEBUG) {
-      setupDebugAppChannel();
-    }
   }
 
   /// JS ->  flutter  开放给调用 JS

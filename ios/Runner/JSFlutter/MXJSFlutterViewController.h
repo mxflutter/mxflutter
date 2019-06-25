@@ -30,11 +30,6 @@
 //启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
 -(void)callNativeRunJSApp:(id)arguments;
 
-//MARK: - flutter -> Native
-//由Flutter 代码启动JSApp。 可以用在先显示Dart页面，然后路由调转到JS页面
-//启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
--(void)callNativeRunDartApp:(id)arguments;
-
 //MARK: - native -> flutter
 //--------------------------------------------
 //调用Flutter切换到JSWidget，显示JS渲染的内容

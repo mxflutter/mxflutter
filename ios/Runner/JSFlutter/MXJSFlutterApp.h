@@ -46,7 +46,6 @@ JSExportAs(callFlutterWidgetChannel,
 
 - (void)runApp;
 - (void)runAppWithPageName:(NSString*)PageName;
-- (void)runDartAppWithPageName:(NSString*)pageName;
 
 -(void)exitApp;
 

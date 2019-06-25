@@ -31,11 +31,6 @@
 #define JSFLUTTER_FRAMEWORK_DIR  @"JSFlutterJSFrameworkLib"
 #define JSFLUTTER_SRC_DIR  @"js_flutter_src"
 
-#define DARTFLUTTER_SRC_BASE_DIR ([[NSBundle mainBundle] bundlePath])
-#define DARTFLUTTER_SRC_DIR  @"dart_flutter"
-
-#define DART_FLUTTER_APP_DEBUG (1)
-
 #define MXJSFlutterLog(fmt, ...) NSLog((@"MXJSFlutter:[Native]-" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 

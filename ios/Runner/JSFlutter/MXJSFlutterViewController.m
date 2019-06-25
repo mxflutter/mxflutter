@@ -92,8 +92,6 @@
         
         if ([call.method isEqualToString:@"callNativeRunJSApp"]) {
             [strongSelf callNativeRunJSApp:call.arguments];
-        } else if ([call.method isEqualToString:@"callNativeRunDartApp"]) {
-            [strongSelf callNativeRunDartApp:call.arguments];
         }
     }];
 }
@@ -125,18 +123,6 @@
     
     [self.jsFlutterEngine runApp:jsAppName pageName:pageName];
 }
-
-//MARK: - flutter -> Native
-//由Flutter 代码启动DartApp
--(void)callNativeRunDartApp:(id)arguments
-{
-    NSDictionary *argsMap = arguments;
-    NSString *jsAppName = argsMap[@"dartAppName"];
-    NSString *pageName = argsMap[@"pageName"];
-    
-    [self.jsFlutterEngine runDartApp:jsAppName pageName:pageName];
-}
-
 
 //MARK: - native -> flutter
 //--------------------------------------------
