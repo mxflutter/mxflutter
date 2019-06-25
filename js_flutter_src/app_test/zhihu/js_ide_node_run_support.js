@@ -3,7 +3,6 @@
 //用g_isNativeEnvironment检查是否在App环境，
 //如果不在App环境，Native接口重定向到JS同名函数打印调用
 //jsFlutterRequire 转调Node运行环境中的require
-//真是为了JS菜鸟就是我 操碎了心
 //如果不能运行，核对下js_ide_node_run_support.js文件中jsFlutterLibDir 相对路径
 function calcJSFrameworkFilePath(filePath) {
 
