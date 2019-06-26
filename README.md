@@ -20,7 +20,7 @@
 
 这个是APP示例截图
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2d533b9e0?w=420&h=835&f=jpeg&s=70936)
+![](https://github.com/langbluesky/Image/blob/master/pesto_demo.jpeg?raw=true)
 
 下面是UI截图对应的JS代码，没错，你没有眼花，这个是真的 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI
 
@@ -145,7 +145,7 @@ class JSPestoPage extends MXJSWidget {
 
 
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8da4a18677397?w=400&h=794&f=jpeg&s=78361)
+![](https://github.com/langbluesky/Image/blob/master/zhihu.jpeg?raw=true)
 
 
 # 现状
@@ -158,7 +158,7 @@ MXFlutter虽然各个模块已相对完整，但投入生产还需要解决其�
 Dart 本身是描述语言，IDE 的 Outline 工具可以解析 Dart 代码生成树形结构，我们可以利用其源码，生成 JSON UI 描述，相关代码：[https://github.com/flutter/flutter-intellij/blob/b6461e8d8ed3857a9e4350bc61133c8f48249f43/src/io/flutter/preview/PreviewView.java](https://github.com/flutter/flutter-intellij/blob/b6461e8d8ed3857a9e4350bc61133c8f48249f43/src/io/flutter/preview/PreviewView.java)
 dart-sdk: analysis_server
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2db7491a3?w=2172&h=1046&f=jpeg&s=239649)
+![](https://github.com/langbluesky/Image/blob/master/0x00_1.jpeg?raw=true)
 
 静态解析 Dart 缺点，不能写逻辑，对编写UI代码有很多限制，不能写判断语句，不能写函数，要支持这些成本很高。所以只好放弃。
 
@@ -170,21 +170,21 @@ dart-sdk: analysis_server
 2. Element 是分离 WidgetTree 和真正的渲染对象的中间层， WidgetTree 用来描述对应的Element 属性
 3. RenderObject 来执行 Diff， Hit Test 布局、绘制
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2fe6a0164?w=1524&h=1080&f=jpeg&s=167348)
+![](https://github.com/langbluesky/Image/blob/master/0x00_2.jpeg?raw=true)
 
 第一棵树有完整的UI描述信息，那么我只要JIT下通过 DartVM 创建第一棵树，其他耗时的操作都丢到AOT里去。
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec3000a37d7?w=2890&h=944&f=jpeg&s=226839)
+![](https://github.com/langbluesky/Image/blob/master/0x00_3.jpeg?raw=true)
 
 ### Flutter 动态化方案二： 动态运行 Dart 语言，生产UI描述
 
 和方案一静态解析Dart对比，第二个方案是写一个极其轻量的运行时库，让编写UI的Dart 代码运行了起来，生成树形结构，再序列化为 JSON（debug），FlatBuffers （release）UI 描述。可以称之为动态解析方案
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec3060a0f92?w=2794&h=988&f=jpeg&s=384791)
+![](https://github.com/langbluesky/Image/blob/master/0x00_4.jpeg?raw=true)
 
 具体渲染逻辑
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec304d27a3f?w=2262&h=1080&f=jpeg&s=266280)
+![](https://github.com/langbluesky/Image/blob/master/0x00_5.jpeg?raw=true)
 
 总体架构
 
@@ -236,13 +236,13 @@ Dart源代码在进行编译时会通过DART_PRECOMPILED_RUNTIME宏进行条件�
 MXScriptWidget管理一个Script页面或控件，负责创建管理 ScriptWidgetTree，以自增ID与Flutter对应Widget相互调用
 ，每次Build都会创建一个新的MXWidgetTree
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec334ac9e1a?w=1904&h=1080&f=jpeg&s=214715)
+![](https://github.com/langbluesky/Image/blob/master/0x02_1.jpeg?raw=true)
 
 ### MXFlutter 事件
 
 在 JS 侧 buildWidget 时，我们会对 function 事件，生成自增的唯一 callbackID，并与 widgetID 组合拼接成 widgetID/callbackID，作为事件的唯一标识。用户点击界面某个 button 时，事件由 Flutter 侧传到 JS 侧，通过解析 widgetID/callbackID，找到对应 widget 的 callback，完成事件处理。
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec33b003aae?w=2099&h=1080&f=jpeg&s=277873)
+![](https://github.com/langbluesky/Image/blob/master/0x02_2.jpeg?raw=true)
 
 
 ### MXFlutter 高效的动态列表
@@ -274,12 +274,12 @@ ListView.builder(
 )
 ```
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2d533b9e0?w=420&h=835&f=jpeg&s=70936)
+![](https://github.com/langbluesky/Image/blob/master/pesto_demo.jpeg?raw=true)
 
 ### MXFlutter 动画的方案
 动画参数在VM层配置一次，动画开始后在Flutter层闭环循环rebuild,形成动画效果，这个是比较通用的做法了。
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec340511d89?w=2110&h=1080&f=jpeg&s=261800)
+![](https://github.com/langbluesky/Image/blob/master/0x02_3.jpeg?raw=true)
 
 ## 0x03 渲染优化
 
@@ -299,14 +299,14 @@ ListView.builder(
 * 在Flutter层，如果Widget树中节点有MXScriptWidget，则在对应节点上创建MXFlutterWidget自定义控件
 * 两个子树可以相互对应获得局部刷新，callback回调，动画支持，Rebuild时所生产的UI DSL 大大减少，加快刷新速率
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec34356d9b8?w=1606&h=1080&f=jpeg&s=193244)
+![](https://github.com/langbluesky/Image/blob/master/0x03_1.jpeg?raw=true)
 
 
 ### 渲染优化3-可以分离动态和静态控件
 
 MXStatelessWidget 可以通过使用无状态的ScriptWidget来向框架标示，其下面的子树，在每次build中不会变化，其build结果会被缓存，下次在Flutter层直接复用
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec340afef1c?w=1913&h=1080&f=jpeg&s=240105)
+![](https://github.com/langbluesky/Image/blob/master/0x03_2.jpeg?raw=true)
 
 ### 内存-跨层镜像对象的生命周期
 
@@ -317,7 +317,7 @@ VM层，Flutter层，Native层镜像对象的生命周期如何控制？
 2. 在VM层增加WeakMap支持，不增加对象引用计数，Flutter层释放之后，释放VM层对象
 3. 在Native层使用 JSManagerValue，VM层对象释放后，Native的引用被自动置空
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec3469607b3?w=1596&h=826&f=jpeg&s=142557)
+![](https://github.com/langbluesky/Image/blob/master/0x03_3.jpeg?raw=true)
 
 ### 线程问题
 
