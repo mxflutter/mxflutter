@@ -13,7 +13,7 @@
 
 继续前先瞥一眼整体的架构，一句话介绍MXFlutter，就是用JavaScript，以Flutter的写法开发Flutter。汗...还是有点绕，大家看下面贴出来的代码吧。
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2d34ded87?w=2078&h=1080&f=jpeg&s=310799)
+![](https://github.com/langbluesky/Image/blob/master/16b8cec2d34ded87.jpeg?raw=true)
 
 ## 效果
 先看看使用效果，以下截图是在MXFlutter框架下用JS开发，大家可以把上面的源码下载下来，里面有完整的JS代码示例：
@@ -188,7 +188,7 @@ dart-sdk: analysis_server
 
 总体架构
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8cec2d34ded87?w=2078&h=1080&f=jpeg&s=310799)
+![](https://github.com/langbluesky/Image/blob/master/16b8cec2d34ded87.jpeg?raw=true)
 
 架构也有了，方案也有了，要Run起来还有几个麻烦事要忙活，DartVM 要抽出来，Dart JIT层的轻量级运行时库，Dart AOT层把DSL转成真正Widget的UIEngin也要写哦，就是图中黄色和红色的三部分
 
