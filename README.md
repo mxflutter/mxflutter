@@ -1,7 +1,7 @@
 ## 基于JS的高性能Flutter动态化框架
 可能是目前放出来的相对最完整的Flutter动态化方案
 
-缘起：18年10月份，我们团队的iOS产品尝试引入 Flutter，做为iOS开发，一接触到Flutter就马上感受到，Flutter 虽然强大，但不能动态化是阻碍我们使用她的唯一障碍了。舍弃Native的开发方式，一个很大的诉求是获取动态更新的能力。看Google团队对动态化的措辞，应该指望不上了，撸起袖子自己动手丰衣足食。
+ 缘起：18年10月份，团队尝试使用 Flutter，做为iOS开发，一接触到Flutter就马上感受到，Flutter 虽然强大，但不能像RN一样动态化是阻碍我们使用她的唯一障碍了。看Google团队对动态化的计划，短期内应该不会上线，所以撸起袖子自己动手，启动了这个技术探索项目。
 
 # 简介
 项目代号：MXFlutter （Matrix Flutter）[github TGIF-iMatrix](https://github.com/TGIF-iMatrix/MXFlutter)
