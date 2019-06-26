@@ -361,11 +361,7 @@ TGIF-iMatrix  是一个技术氛围浓厚，有美女有帅哥有趣有爱的团
 
 
 
-另外做个小广告，大家轻拍， 看点视频-腾讯短视频，年轻人都爱看
-[看点视频](https://kandian.qq.com/mqq/kdapp/html/videoShare.html?_wv=1&x5PreFetch=1&rowkey=2085cdfbb05789bp)
-https://apps.apple.com/cn/app/id1458686461
 
-![](https://user-gold-cdn.xitu.io/2019/6/25/16b8d05b881bfd14?w=1390&h=506&f=png&s=173235)
 
 
 
