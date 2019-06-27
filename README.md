@@ -355,7 +355,7 @@ VM不新建线程，直接由Flutter UI Thread 消息循环驱动，这样也同
 
 要了解全部，一定要拉下源码，运行起来看看，有问题可以留言一讨论，MXFlutter会持续更新。
 
-项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，IP老师帮忙提供了单元测试。 
+项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，IP老师帮忙提供了单元测试，健身大神yofer老师负责了代码维护，工具建设。 
 
 TGIF-iMatrix  是一个技术氛围浓厚，有美女有帅哥有趣有爱的团队，还有精通量子计算，5G等前沿技术的数据分析victor老王，欢迎iOS，Android开发小伙伴，数据开发，数据分析岗位同学投递简历哦：imatrixteam@qq.com
 
