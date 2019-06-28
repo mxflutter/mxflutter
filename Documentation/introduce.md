@@ -30,7 +30,7 @@ This is a sample screenshot of the APP.
 
 Here is the JS code for the UI screenshot. Yes, you have no dazzling. This is a real JavaScript code that can render the Flutter UI on the MXFlutter runtime library.
 
-```
+```JavaScript
 class JSPestoPage extends MXJSWidget {
   constructor() {
     super("JSPestoPage");
@@ -143,4 +143,11 @@ class JSPestoPage extends MXJSWidget {
 
 
 ```
+
+
+There is a richer example in the source code, using JSFlutter to imitate the page of ZhiHu app.
+
+[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js)
+
+
 
