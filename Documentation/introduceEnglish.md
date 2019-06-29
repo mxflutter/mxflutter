@@ -149,5 +149,12 @@ There is a richer example in the source code, using JSFlutter to imitate the pag
 
 [https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js)
 
+This is the corresponding UI, which is very close to the online version.
+
+![](https://github.com/langbluesky/Image/blob/master/zhihu.jpeg?raw=true)
+
+# Now
+
+
 
 
