@@ -4,6 +4,7 @@
 
 MXFlutter is a high-performance Flutter dynamic framework based on JS. It develops Flutter applications by writing JavaScript code in a way similar to Dart's development.[More details are here](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/Documentation/introduceEnglish.md)
 
+Email：imatrixteam@qq.com
 ## Feature
 
 - Support Dart Flutter syntax
