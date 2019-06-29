@@ -116,7 +116,7 @@ class HomePage extends MXJSWidget {
 
 Here, thanks to the author of the Flutter Edition [HackSoul](https://github.com/HackSoul), The author draws sample code from [zhihu-flutter](https://github.com/HackSoul/zhihu-flutter).
 
-## Use example
+## Usage
 
 * Step 1: Flutter here, create and launch MXJSFlutterApp
 
