@@ -1,7 +1,5 @@
 # MXFlutter
 
-[English Document](https://www.baidu.com)
-
 MXFlutter是一套基于JS的高性能Flutter动态化框架，它用极类似Dart的开发方式，通过编写JavaScript代码，来开发Flutter应用。更多细节在[这里](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
 
 ## 特性
