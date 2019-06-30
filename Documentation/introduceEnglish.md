@@ -218,7 +218,7 @@ Commonly used libraries can be pre-packaged locally, reducing file size
 
 #### A problem that cannot be solved temporarily
 
-The installation package is too large, DartVM increases the installation package 30M, if you add the original AOT40M, the entire Flutter installation package will increase to 70M, DartVM is not realistic. How to do it.
+The installation package is too large, DartVM increases the installation package size 30M, if you add the original AOT 40M, the entire Flutter installation package size will increase to 70M, DartVM is not realistic. How to do it.
 
 ## 0x01 Final Solution JavasSriptCore Replaces DartVM
 
