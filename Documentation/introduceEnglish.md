@@ -18,7 +18,7 @@ If this code can help everyone, please click Star of MXFlutter, give us the powe
 
 Before you continue, take a look at the overall architecture. In one sentence, you will introduce MXFlutter, which is to use JavaScript to develop Flutter in the way of Flutter... still a little confused, let's look at the code posted below.
 
-![](https://github.com/langbluesky/Image/blob/master/16b8cec2d34ded87.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/11_1_e.png?raw=true)
 
 ## Effect
 
@@ -176,25 +176,25 @@ Responsive UI framework
 2. Element is the middle layer separating WidgetTree and the real rendering object, WidgetTree is used to describe the corresponding Element property
 3. RenderObject to perform Diff, Hit Test layout, drawing
 
-![](https://github.com/langbluesky/Image/blob/master/0x00_2.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/7_e.png?raw=true)
 
 The first tree has a complete UI description, so I only need to create the first tree through DartVM under JIT, and other time-consuming operations are thrown into the AOT.
 
-![](https://github.com/langbluesky/Image/blob/master/0x00_3.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/8_e.png?raw=true)
 
 ### Flutter Dynamics Solution 2: Dynamically run the Dart language, production UI description
 
 Compared with the static analysis of Dart, the second solution is to write an extremely lightweight runtime library, let the Dart code that writes the UI run, generate a tree structure, and then serialize to JSON (debug), FlatBuffers (release ) UI description. Dynamic resolution scheme.
 
-![](https://github.com/langbluesky/Image/blob/master/0x00_4.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/9_e.png?raw=true)
 
 Specific rendering logic
 
-![](https://github.com/langbluesky/Image/blob/master/0x00_5.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/10_e.png?raw=true)
 
 Overall architecture
 
-![](https://github.com/langbluesky/Image/blob/master/16b8cec2d34ded87.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/11_1_e.png?raw=true)
 
 The architecture is also there, and the solution is there. There are still a few troubles to solve when running, DartVM has to extract, the lightweight runtime library of the Dart JIT layer. Also need to implement UIEngin, Dart AOT layer to turn DSL into a real Widget, which is the yellow and red parts of the picture.
 
@@ -247,13 +247,13 @@ Two important data structures
 
 MXScriptWidget manages a Script page or control, is responsible for creating a management ScriptWidgetTree, using the self-incrementing ID method, and calling the Widget corresponding to the Flutter, each time you build will create a new MXWidgetTree
 
-![](https://github.com/langbluesky/Image/blob/master/0x02_1.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/14_e.png?raw=true)
 
 ### MXFlutter event
 
 When the buildWidget is on the JS, we generate a unique callbackID for the function event, and combine it with the widgetID to form the widgetID/callbackID as the unique identifier of the event. When the user clicks a button on the interface, the event is transmitted from the Flutter to the JS. By parsing the widgetID/callbackID, the callback of the corresponding widget is found, and the event processing is completed.
 
-![](https://github.com/langbluesky/Image/blob/master/0x02_2.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/15_e.png?raw=true)
 
 ### MXFlutter efficient dynamic list
 
@@ -290,7 +290,7 @@ ListView.builder(
 
 The animation parameters are configured once in the VM layer. After the animation starts, the loopback loop rebuilds in the Flutter layer to form an animation effect. This is a more general practice.
 
-![](https://github.com/langbluesky/Image/blob/master/0x02_3.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/17_e.png?raw=true)
 
 
 ## 0x03 rendering optimization
@@ -313,13 +313,13 @@ Sacrifice the design pattern of the responsive UI framework, adopting the Native
 * In the Flutter layer, if the node in the Widget tree has an MXScriptWidget, create an MXFlutterWidget custom control on the corresponding node.
 * Two subtrees can correspond to each other to obtain partial refresh, call back callback, animation support, UI DSL produced during Rebuild is greatly reduced, and the refresh rate is accelerated.
 
-![](https://github.com/langbluesky/Image/blob/master/0x03_1.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/18_e.png?raw=true)
 
 ### Rendering optimization 3 - can separate dynamic and static controls
 
 MXStatelessWidget can be marked to the framework by using a stateless ScriptWidget. The subtree below it will not change in every build. The build result will be cached and reused next time in the Flutter layer.
 
-![](https://github.com/langbluesky/Image/blob/master/0x03_2.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/19_e.png?raw=true)
 
 ### Memory - the life cycle of a cross-layer mirror object
 
@@ -331,7 +331,7 @@ See Apple iOS JavaScriptCore and Objective-C solutions
 2. Add WeakMap support in the VM layer, without increasing the object reference count, release the VM layer object after the Flutter layer is released.
 3. Use JSManagerValue in the Native layer. After the VM layer object is released, the Native reference is automatically nil.
 
-![](https://github.com/langbluesky/Image/blob/master/0x03_3.jpeg?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/20_e.png?raw=true)
 
 ### Thread problem
 
