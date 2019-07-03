@@ -159,8 +159,8 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => MXJSFlutter.getI
 MXFlutter遵循[MIT](http://opensource.org/licenses/MIT)开源许可证协议。
 
 ## 参与贡献
-
-如果你有好的意见或建议，欢迎给我们提 Issues 或 Pull Requests。
+MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施，如果大家有兴趣，欢迎加入一起开发。
+如果你有好的意见或建议，也欢迎给我们提 Issues 或 Pull Requests。
 
 ## QQ群
 
