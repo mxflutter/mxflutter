@@ -1,4 +1,4 @@
-# MXFlutter
+# MXFlutter Preview version
 
 [中文文档点这里](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/README.md)
 
