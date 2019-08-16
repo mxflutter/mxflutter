@@ -1,13 +1,46 @@
 # MXFlutter技术预览版
 
-[English Document is here](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/Documentation/readmeEnglish.md)
+[中文版文档](README.md)|[English Document](Documentation/README-EN.md)
 
-MXFlutter是一套基于JS的高性能Flutter动态化框架，它用极类似Dart的开发方式，通过编写JavaScript代码，来开发Flutter应用。更多细节在[这里](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
+----
 
-基于 Flutter 1.5.4 或以下版本 https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_v1.5.4-hotfix.2-stable.zip
+*  [一、项目介绍](#title1)
+*  [二、兼容版本](#title2)
+*  [三、项目特性](#title3)
+*  [四、核心思想](#title4)
+*  [五、项目架构](#title5)
+    * [1.VM层](#title5_1)
+    * [2.Flutter层](#title5_2)
+    * [3.Native层](#title5_3)
+*  [六、MXFlutter基本使用](#title6)
+    * [1.Flutter侧，创建并启动MXJSFlutterApp](#title6_1)
+    * [2.JS侧，编写MXJSWidget页面](#title6_2)
+    * [3.Flutter侧，进入MXJSWidget页面](#title6_3)
+*  [七、项目效果UI展示](#title7)
+*  [八、许可协议](#title8)
+*  [九、参与贡献](#title9)
+*  [十、团队介绍](#title10)
+*  [十一、联系我们](#title11)
 
-会尽快支持Flutter 1.7.8 
-## 特性
+----
+
+##  <a name="title1">一、项目介绍</a>
+
+MXFlutter是一套基于JS的高性能Flutter动态化框架，它用极类似Dart的开发方式，通过编写JavaScript代码，来开发Flutter应用。更多细节在 [基于JS的高性能Flutter动态化框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍)。
+
+----
+
+## <a name="title2">二、兼容版本</a>
+
+MXFlutter基于 Flutter 1.5.4研发，你可以在项目中使用Flutter1.5.4 或以下版本，如果遇到高笨笨，可能会有兼容性问题。 MXFlutter会尽快支持Flutter 1.7.8，如果你有更好的想法，欢迎提issue或者pull request。
+
+附Flutter1.5.4下载地址：
+
+[https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_v1.5.4-hotfix.2-stable.zip](https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_v1.5.4-hotfix.2-stable.zip)
+
+----
+
+## <a name="title3">三、项目特性</a>
 
 * 支持Dart Flutter语法
 * 支持定义Flutter中同名Widget类
@@ -16,119 +49,53 @@ MXFlutter是一套基于JS的高性能Flutter动态化框架，它用极类似Da
 * 支持VS Code直接调试
 * 支持模拟器页面热更新
 
-## 示例代码
+----
 
-```JavaScript
-class HomePage extends MXJSWidget {
-    constructor(){
-        super("HomePage", {key: "HomePage"});
-    }
+## <a name="title4">四、核心思想</a>
 
-    barSearch(){
-        return new Container({
-            child: new Row({
-                children: [
-                    new Expanded({
-                        child: FlatButton.icon({
-                            onPressed:function(){
-                                this.navigatorPush(new SearchPage);
-                            },
-                            icon: new Icon(new IconData(0xe8b6, {fontFamily: 'MaterialIcons'}),{
-                                color: GlobalConfig.fontColor,
-                                size: 16.0,
-                            }),
-                            label: new Text("坚果R1摄像头损坏",{
-                                style: new TextStyle({
-                                    color: GlobalConfig.fontColor,
-                                }),
-                            }),
-                        }),
-                    }),
-                    new Container({
-                        decoration: new BoxDecoration({
-                            border: new BorderDirectional({
-                                start: new BorderSide({
-                                    color: GlobalConfig.fontColor,
-                                    width: 1.0,
-                                },)
-                            }),
-                        }),
-                        height: 14.0,
-                        width: 1.0,
-                    }),
-                    new Container({
-                        child: FlatButton.icon({
-                            onPressed: function(){
-                                this.navigatorPush(new AskPage);
-                            },
-                            icon: new Icon(new IconData(0xe22b, {fontFamily: 'MaterialIcons'}),{
-                                color: GlobalConfig.fontColor,
-                                size: 16.0,
-                            }),
-                            label: new Text("提问", {
-                                style: new TextStyle({
-                                    color: GlobalConfig.fontColor,
-                                }),
-                            }),
-                        }),
-                    }),
-                ],
-            }),
-            decoration: new BoxDecoration({
-                borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                color: GlobalConfig.searchBackgroundColor,
-            }),
-        })
-    }
+把 Flutter 的渲染逻辑中的三棵树（即：WidgetTree、Element、RenderObject ）中的第一棵（即：WidgetTree），放到 JavaScript 中生成。用 JavaScript 完整实现了 Flutter 控件层封装，可以使用 JavaScript，用极其类似 Dart 的开发方式，开发Flutter应用，利用JavaScript版的轻量级Flutter Runtime，生成UI描述，传递给Dart层的UI引擎，UI引擎把UI描述生产真正的 Flutter 控件。所以，它在iOS上是完全动态化的。
 
-    build(context){
-        let widget = new DefaultTabController({
-            length: 3,
-            child: new Scaffold({
-                appBar: new AppBar({
-                    title: this.barSearch(),
-                    bottom: new TabBar({
-                      labelColor: Colors.blue(),
-                      indicatorColor: Colors.blue(),
-                      unselectedLabelColor: Colors.black(),
-                      tabs: [
-                        new Tab({text: "关注"}),
-                        new Tab({text: "推荐"}),
-                        new Tab({text: "热榜"}),
-                      ],
-                    }),
-                    backgroundColor: Colors.white(),
-                }),
-                body: new TabBarView({
-                    children: [
-                        new Follow(),
-                        new Recommend(),
-                        new Hot(),
-                    ]
-                }),
-            }),
-        });
-        return widget;
-    }
-}
-``` 
+关于MXFlutter动态化框架渲染、优化等更多详细细节介绍，请看文档：[基于JS的高性能Flutter动态化框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍)。
 
-## 效果
+----
 
-![](https://github.com/langbluesky/Image/blob/master/demo_0.gif?raw=true)
+## <a name="title5">五、项目结构</a>
 
-在此，鸣谢Flutter版作者[HackSoul](https://github.com/HackSoul)，笔者从这里[zhihu-flutter](https://github.com/HackSoul/zhihu-flutter)借鉴的示例代码。
+MXFlutter，就是用JavaScript，以Flutter的写法开发Flutter。具体的项目结构分为三层，请看下图：
 
-## 使用
+![](https://github.com/TGIF-lucaliu/Image/blob/master/16b8cec2d34ded87.jpeg?raw=true)
 
-* 第一步: Flutter侧，创建并启动MXJSFlutterApp
+#### <a name="title5_1">1.VM层：</a>
+
+* MXFlutter Runtime
+* 定义和Flutter Widget同名镜像类
+* 响应式UI框架
+
+#### <a name="title5_2">2.Flutter层：</a>
+
+* Script脚本管理模块
+* DSL2Widget UIEngine，事件支持
+* Dart业务API支持
+* 内存管理，对象生命周期管理
+
+#### <a name="title5_3">3.Native层：</a>
+
+* VM虚拟机
+* 线程管理
+* Native业务API支持
+
+----
+
+## <a name="title6">六、MXFlutter基本使用</a>
+
+#### <a name="title6_1">1. Flutter侧，创建并启动MXJSFlutterApp</a>
 
 ```Dart
 MXJSFlutter.getInstance().setup();
 MXJSFlutter.getInstance().runJSApp(jsAppName: "app_test", pageName: null);
 ```
 
-* 第二步: JS侧，编写MXJSWidget页面
+#### <a name="title6_2">2. JS侧，编写MXJSWidget页面</a>
 
 ```JavaScript
 class AppTest extends MXJSFlutterApp {
@@ -149,24 +116,190 @@ function main(pageName) {
     let app = new AppTest;
     runApp(app);
 }
-``` 
+```
 
-* 第三步：Flutter侧，进入MXJSWidget页面
+#### <a name="title6_3">3.Flutter侧，进入MXJSWidget页面</a>
 
 ```Dart
 Navigator.push(context, MaterialPageRoute(builder: (context) => MXJSFlutter.getInstance().navigatorPushWithPageName("JSWidgetHomePage")));
-``` 
+```
 
-## 许可协议
+----
+
+## <a name="title7">七、项目效果UI展示</a>
+
+先看看使用效果，以下截图是在MXFlutter框架下用JS开发，大家可以把上面的源码下载下来，里面有完整的JS代码示例：
+
+> 单页面演示
+
+下图是APP示例截图：
+
+![](https://github.com/langbluesky/Image/blob/master/pesto_demo.jpeg?raw=true)
+
+下面是UI截图对应的JS代码，没错，你没有眼花，这个是真的 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI，简直是太厉害了（是不是很像Flutter里面的组件代码）！
+
+```javascript
+class JSPestoPage extends MXJSWidget {
+  constructor() {
+    super("JSPestoPage");
+    this.recipes = recipeList;
+
+  }
+
+  build(context) {
+    let statusBarHeight = 24;
+    let mq = MediaQuery.of(context);
+    if (mq) {
+      statusBarHeight = mq.padding.top
+    }
+
+    let w = new Scaffold({
+      appBar: new AppBar({
+        title: new Text("Pesto Demo")
+      }),
+      floatingActionButton: new FloatingActionButton({
+        child: new Icon(new IconData(0xe3c9)),
+        onPressed: this.createCallbackID(function () {
+
+        }),
+      }),
+      body: new CustomScrollView({
+        semanticChildCount: this.recipes.length,
+        slivers: [
+          //this.buildAppBar(context, statusBarHeight),
+          this.buildBody(context, statusBarHeight),
+        ],
+      }),
+      //body:this.buildItems()[0]
+    });
+
+    return w;
+  }
+
+  buildAppBar(context, statusBarHeight) {
+    return SliverAppBar({
+      pinned: true,
+      expandedHeight: _kAppBarHeight,
+      actions: [
+        IconButton({
+          icon: new Icon(new IconData(1)),
+          tooltip: 'Search',
+          onPressed: this.createCallbackID(function () {
+
+          }),
+        }),
+      ],
+      flexibleSpace: LayoutBuilder({
+        builder: function (context, constraints) {
+          size = constraints.biggest;
+          appBarHeight = size.height - statusBarHeight;
+          t = (appBarHeight - kToolbarHeight) / (_kAppBarHeight - kToolbarHeight);
+          extraPadding = new Tween({ begin: 10.0, end: 24.0 }).transform(t);
+          logoHeight = appBarHeight - 1.5 * extraPadding;
+          return Padding({
+            padding: EdgeInsets.only({
+              top: statusBarHeight + 0.5 * extraPadding,
+              bottom: extraPadding,
+            }),
+            child: Center({
+              child: new Icon(new IconData(1))
+            }),
+          });
+        },
+      }),
+    });
+  }
+
+  buildBody(context, statusBarHeight) {
+
+    let mediaPadding = EdgeInsets.all(0);
+    let mq = MediaQuery.of(context);
+    if (mq) {
+      mediaPadding = MediaQuery.of(context).padding;
+    }
+    let padding = EdgeInsets.only({
+      top: 8.0,
+      left: 8.0 + mediaPadding.left,
+      right: 8.0 + mediaPadding.right,
+      bottom: 8.0
+    });
+
+    return new SliverPadding({
+      padding: padding,
+      sliver: new SliverGrid({
+        gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent({
+          maxCrossAxisExtent: _kRecipePageMaxWidth,
+          crossAxisSpacing: 8.0,
+          mainAxisSpacing: 8.0,
+        }),
+        delegate: new SliverChildBuilderDelegate(
+          function (context, index) {
+            let recipe = this.recipes[index];
+            let w = new RecipeCard({
+              recipe: recipe,
+              onTap: function () { showRecipePage(context, recipe); },
+            });
+
+            return w;
+          },
+          {
+            childCount: this.recipes.length,
+          }),
+      }),
+    });
+  }
+```
+
+> 项目演示
+
+源码中还有更丰满的示例，高仿知乎页面JSFlutter版，可以点此进入查看代码：
+[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js)
+
+下图是对应的UI，已经接近在线上版直接使用了：
+
+![](https://github.com/langbluesky/Image/blob/master/demo_0.gif?raw=true)
+
+本项目里面高仿知乎页面示例借鉴了 [zhihu-flutter](https://github.com/HackSoul/zhihu-flutter) 的示例代码，在此，鸣谢作者 [HackSoul](https://github.com/HackSoul)。
+
+----
+
+## <a name="title8">八、许可协议</a>
 
 MXFlutter遵循[MIT](http://opensource.org/licenses/MIT)开源许可证协议。
 
-## 参与贡献
+----
+
+## <a name="title9">九、参与贡献</a>
+
 MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施，如果大家有兴趣，欢迎加入一起开发。
-如果你有好的意见或建议，也欢迎给我们提 Issues 或 Pull Requests。
+如果你有好的意见或建议，也欢迎给我们提 `Issues` 或 `Pull Requests`。
 
-## QQ群
+----
 
-对MXFlutter感兴趣的小伙伴，可以加QQ群交流，QQ群: 747535761。
+## <a name="title10">十、团队介绍</a>
+
+> 成员
+
+项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，IP老师帮忙提供了单元测试，健身大神yofer老师负责了代码维护，工具建设。 
+
+> 项目由来
+
+18年10月份，团队尝试使用 Flutter，做为iOS开发，一接触到Flutter就马上感受到，Flutter 虽然强大，但不能像RN一样动态化是阻碍我们使用她的唯一障碍了。看Google团队对动态化的计划，短期内应该不会上线，所以撸起袖子自己动手，启动了这个技术探索项目。
+
+> 现状
+
+MXFlutter虽然各个模块已相对完整，但投入生产还需要解决其中的BUG，由于19年初，小组启动新项目，非常繁忙，几乎没有时间继续开发，从3月份一直暂停，目前人力仍然很紧张，如果大家有兴趣，期待小伙伴们一起加入，共同丰富 MXFlutter 动态化能力。
+
+由于时间紧张，MXFlutter还有很多遗留的问题，作为一个技术探索，非常辛苦但非常有趣，期待各位大牛指导，期待小伙伴们提出问题一起讨论解决。
+
+要了解全部，一定要拉下源码，运行起来看看，有问题可以留言一讨论，MXFlutter会持续更新。
+
+----
+
+## <a name="title11">十一、联系我们</a>
+
+`TGIF-iMatrix` 是一个技术氛围浓厚，有美女有帅哥有趣有爱的团队，还有精通量子计算，5G等前沿技术的数据分析victor老王，欢迎iOS，Android开发小伙伴，数据开发，数据分析岗位同学投递简历哦：imatrixteam@qq.com
+
+对MXFlutter有兴趣的小伙伴，可以加群交流 QQ群:747535761
 
 ![qrcode](https://github.com/langbluesky/Image/blob/master/qrcode.png?raw=true)
