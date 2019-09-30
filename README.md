@@ -32,7 +32,7 @@ MXFlutter是一套基于JS的高性能Flutter动态化框架，它用极类似Da
 
 ## <a name="title2">二、兼容版本</a>
 
-MXFlutter基于 Flutter 1.5.4研发，你可以在项目中使用Flutter1.5.4 或以下版本，如果遇到高笨笨，可能会有兼容性问题。 MXFlutter会尽快支持Flutter 1.7.8，如果你有更好的想法，欢迎提issue或者pull request。
+MXFlutter基于 Flutter 1.5.4研发，你可以在项目中使用Flutter1.5.4 或以下版本，如果遇到高版本，可能会有兼容性问题。 MXFlutter会尽快支持Flutter 1.7.8，如果你有更好的想法，欢迎提issue或者pull request。
 
 附Flutter1.5.4下载地址：
 
