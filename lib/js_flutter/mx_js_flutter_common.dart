@@ -14,6 +14,20 @@ class MXJSLog {
 
 class MXUtil {
   //MediaQueryData
+  
+  static Map compressMap(Map map) {
+    if (map == null) {
+      return map;
+    }
+    Map retMap = {};
+    for (var k in map.keys) {
+     var v = map[k];
+     if (v != null) {
+        retMap[k] = v;
+     }
+    }
+    return retMap;
+  }
 
   static Map cMediaQueryDataToJson(MediaQueryData data) {
     var map = {
@@ -29,12 +43,12 @@ class MXUtil {
       "boldText": data.boldText,
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static Map cSizeToJson(Size sz) {
     var map = {"width": sz.width, "height": sz.height};
-    return map;
+    return compressMap(map);
   }
 
   //const EdgeInsets.fromLTRB(this.left, this.top, this.right, this.bottom);
@@ -46,7 +60,7 @@ class MXUtil {
       "right": insets.right,
       "bottom": insets.bottom
     };
-    return map;
+    return compressMap(map);
   }
 
   static Map cThemeDataToJson(ThemeData data) {
@@ -97,7 +111,7 @@ class MXUtil {
       // "typography": data.typography,
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static Map cIconThemeDataToJson(IconThemeData data) {
@@ -107,7 +121,7 @@ class MXUtil {
       "opacity": data.opacity,
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static String cBrightnessToJson(Brightness data) {
@@ -151,7 +165,7 @@ class MXUtil {
       "overline": cTextStyleToJson(data.overline),
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static Map cTextStyleToJson(TextStyle data) {
@@ -180,7 +194,7 @@ class MXUtil {
       "fontFamily": data.fontFamily,
     };
 
-    return map;
+    return compressMap(map);
   }
 
    static Map cInputDecorationThemeToJson(InputDecorationTheme data) {
@@ -211,7 +225,7 @@ class MXUtil {
       "border": data.border,
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static String cTargetPlatformToJson(TargetPlatform data) {
