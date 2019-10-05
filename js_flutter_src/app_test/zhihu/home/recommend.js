@@ -52,7 +52,7 @@ let {ReplyPage} = jsFlutterRequire("./zhihu/home/reply_page.js");
 
 class Recommend extends MXJSWidget {
     constructor(){
-        super("Recommend");
+        super("Recommend", {key: "Recommend"});
     }
 
     commonCard(article){

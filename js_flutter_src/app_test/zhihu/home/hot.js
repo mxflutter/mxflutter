@@ -53,7 +53,7 @@ let {QuestionPage} = jsFlutterRequire("./zhihu/home/question_page.js");
 
 class Hot extends MXJSWidget {
     constructor(){
-        super("Hot");
+        super("Hot", {key: "Hot"});
     }
 
     hotCard(question){

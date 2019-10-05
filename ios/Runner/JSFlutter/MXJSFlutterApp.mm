@@ -78,7 +78,7 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
 {
     self.jsFlutterAppChannel = [FlutterMethodChannel
                          methodChannelWithName:@"js_flutter.js_flutter_app_channel"
-                         binaryMessenger:_jsFlutterEngine.flutterViewController];
+                         binaryMessenger:_jsFlutterEngine.flutterViewController.binaryMessenger];
     jsFlutterAppChannelStatic = self.jsFlutterAppChannel;
     
       __weak MXJSFlutterApp *weakSelf = self;

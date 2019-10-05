@@ -57,7 +57,7 @@ let {ReplyPage} = jsFlutterRequire("./zhihu/home/reply_page.js");
 
 class Follow extends MXJSWidget {
     constructor(){
-        super("Follow");
+        super("Follow", {key: "Follow"});
     }
 
     wordsCard(article){
