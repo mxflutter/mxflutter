@@ -82,7 +82,7 @@ static FlutterMethodChannel* dartFlutterAppDebugChannelStatic;
 {
     self.jsFlutterAppChannel = [FlutterMethodChannel
                          methodChannelWithName:@"js_flutter.js_flutter_app_channel"
-                         binaryMessenger:_jsFlutterEngine.flutterViewController];
+                         binaryMessenger:_jsFlutterEngine.flutterViewController.binaryMessenger];
     jsFlutterAppChannelStatic = self.jsFlutterAppChannel;
     
       __weak MXJSFlutterApp *weakSelf = self;
@@ -125,7 +125,7 @@ static FlutterMethodChannel* dartFlutterAppDebugChannelStatic;
     if (DART_FLUTTER_APP_DEBUG) {
         self.dartFlutterAppDebugChannel = [FlutterMethodChannel
                                            methodChannelWithName:@"dart_flutter.dart_flutter_app_debug_channel"
-                                           binaryMessenger:_jsFlutterEngine.flutterViewController];
+                                           binaryMessenger:_jsFlutterEngine.flutterViewController.binaryMessenger];
         dartFlutterAppDebugChannelStatic = self.dartFlutterAppDebugChannel;
         [self.dartFlutterAppDebugChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
             MXJSFlutterApp *strongSelf = weakSelf;
