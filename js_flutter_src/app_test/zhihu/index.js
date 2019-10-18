@@ -33,7 +33,7 @@ let {
   Duration,
   BottomNavigationBar,
   BottomNavigationBarType,
-  Colors,
+  Colors
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
@@ -48,11 +48,11 @@ class _NavigationIconView {
     }) {
         this.item = new BottomNavigationBarItem({
             icon: icon,
-            title: title,
+            title: title
         });
         this.controller = new AnimationController({
             duration: new Duration({
-                milliseconds: 200,
+                milliseconds: 200
             })
         });
     }
@@ -71,19 +71,19 @@ class Index extends MXJSWidget {
         this._navigationViews = [
             new _NavigationIconView({
               icon: new Icon(new IconData(0xe85d, {fontFamily: 'MaterialIcons'})),
-              title: new Text("首页"),
+              title: new Text("首页")
             }),
             new _NavigationIconView({
               icon: new Icon(new IconData(0xeb3d, {fontFamily: 'MaterialIcons'})),
-              title: new Text("想法"),
+              title: new Text("想法")
             }),
             new _NavigationIconView({
               icon: new Icon(new IconData(0xe003, {fontFamily: 'MaterialIcons'})),
-              title: new Text("通知"),
+              title: new Text("通知")
             }),
             new _NavigationIconView({
               icon: new Icon(new IconData(0xe8a6, {fontFamily: 'MaterialIcons'})),
-              title: new Text("我的"),
+              title: new Text("我的")
             }),
         ];
 
@@ -91,7 +91,7 @@ class Index extends MXJSWidget {
             new HomePage(),
             new IdeaPage(),
             new MessagePage(),
-            new MyPage(),
+            new MyPage()
         ];
 
         this._currentPage = this._pageList[this._currentIndex];
@@ -99,7 +99,7 @@ class Index extends MXJSWidget {
         let widget = new MaterialApp({
             home: new Scaffold({
                 body: new Center({
-                    child: this._currentPage,
+                    child: this._currentPage
                 }),
                 bottomNavigationBar: new BottomNavigationBar({
                     items: this._navigationViews.map(navigationIconView => navigationIconView.item),
@@ -113,8 +113,8 @@ class Index extends MXJSWidget {
                             this._navigationViews[this._currentIndex].controller.forward();
                             this._currentPage = this._pageList[this._currentIndex];
                         })
-                    },
-                }),
+                    }
+                })
                 // theme: GlobalConfig.themeData,
             })
         });

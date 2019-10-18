@@ -47,7 +47,7 @@ let {
     InputDecoration,
     Alignment,
     Chip,
-    InputBorder,
+    InputBorder
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
@@ -67,9 +67,9 @@ class SearchPage extends MXJSWidget {
                                     this.navigatorPop();
                                 },
                                 icon: new Icon(new IconData(0xe5c4, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}),
-                                label: new Text(""),
+                                label: new Text("")
                             }),
-                            width: 60.0,
+                            width: 60.0
                     }),
                     new Expanded({
                         child: new TextField({
@@ -78,15 +78,15 @@ class SearchPage extends MXJSWidget {
                                 hintText: "搜索比乎内容",
                                 border: InputBorder.none,
                                 hintStyle: new TextStyle({color: GlobalConfig.fontColor})
-                            }),
-                        }),
-                    }),
-                ],
+                            })
+                        })
+                    })
+                ]
             }),
             decoration: new BoxDecoration({
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
                 color: GlobalConfig.searchBackgroundColor
-            }),
+            })
         });
     }
 
@@ -95,7 +95,7 @@ class SearchPage extends MXJSWidget {
             // theme: GlobalConfig.themeData,
             home: new Scaffold({
                 appBar: new AppBar({
-                    title: this.searchInput(),
+                    title: this.searchInput()
                 }),
                 body: new SingleChildScrollView({
                     child: new Column({
@@ -105,14 +105,14 @@ class SearchPage extends MXJSWidget {
                                     style: new TextStyle({
                                         fontWeight: FontWeight.bold, 
                                         fontSize: 16.0
-                                    }),
+                                    })
                                 }),
                                 margin: EdgeInsets.only({
                                     top: 16.0,
                                     left: 16.0, 
                                     bottom: 16.0
                                 }),
-                                alignment: Alignment.topLeft,
+                                alignment: Alignment.topLeft
                             }),
                             new Row({
                                 children: [
@@ -121,13 +121,13 @@ class SearchPage extends MXJSWidget {
                                             label: new FlatButton({
                                                 onPressed: function(){}, 
                                                 child: new Text("汽车关税下调", {
-                                                    style: new TextStyle({color: GlobalConfig.fontColor}),
+                                                    style: new TextStyle({color: GlobalConfig.fontColor})
                                                 })
                                             }),
                                             backgroundColor: Colors.black12(),
                                         }),
                                         margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
-                                        alignment: Alignment.topLeft,
+                                        alignment: Alignment.topLeft
                                     }),
                                     new Container({
                                         child: new Chip({
@@ -137,12 +137,12 @@ class SearchPage extends MXJSWidget {
                                                     style: new TextStyle({color: GlobalConfig.fontColor})
                                                 })
                                             }),
-                                            backgroundColor: Colors.black12(),
+                                            backgroundColor: Colors.black12()
                                         }),
                                         margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
-                                        alignment: Alignment.topLeft,
-                                    }),
-                                ],
+                                        alignment: Alignment.topLeft
+                                    })
+                                ]
                             }),
                             new Row({
                                 children: [
@@ -154,10 +154,10 @@ class SearchPage extends MXJSWidget {
                                                     style: new TextStyle({color: GlobalConfig.fontColor})
                                                 })
                                             }),
-                                            backgroundColor: Colors.black12(),
+                                            backgroundColor: Colors.black12()
                                         }),
                                         margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
-                                        alignment: Alignment.topLeft,
+                                        alignment: Alignment.topLeft
                                     }),
                                     new Container({
                                         child: new Chip({
@@ -167,85 +167,85 @@ class SearchPage extends MXJSWidget {
                                                     style: new TextStyle({color: GlobalConfig.fontColor})
                                                 })
                                             }),
-                                            backgroundColor: Colors.black12(),
+                                            backgroundColor: Colors.black12()
                                         }),
                                         margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
-                                        alignment: Alignment.topLeft,
-                                    }),
-                                ],
+                                        alignment: Alignment.topLeft
+                                    })
+                                ]
                             }),
                             new Container({
                                 child: new Text("搜索历史", {
                                     style: new TextStyle({
                                         fontWeight: FontWeight.bold, 
                                         fontSize: 16.0
-                                    }),
+                                    })
                                 }),
                                 margin: EdgeInsets.only({left: 16.0, bottom: 16.0}),
-                                alignment: Alignment.topLeft,
+                                alignment: Alignment.topLeft
                             }),
                             new Container({
                                 child: new Row({
                                     children: [
                                         new Container({
                                         child: new Icon(new IconData(0xe192, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
-                                        margin: EdgeInsets.only({right: 12.0}),
+                                        margin: EdgeInsets.only({right: 12.0})
                                         }),
                                         new Expanded({
                                         child: new Container({
                                                 child: new Text("业余兴趣", {
-                                                    style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0}),
-                                                }),
-                                            }),
+                                                    style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0})
+                                                })
+                                            })
                                         }),
                                         new Container({
-                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
-                                        }),
-                                    ],
+                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0})
+                                        })
+                                    ]
                                 }),
                                 margin: EdgeInsets.only({left: 16.0, right: 16.0, bottom: 10.0}),
                                 padding: EdgeInsets.only({bottom: 10.0}),
                                 decoration: new BoxDecoration({
                                     border: new BorderDirectional({bottom: new BorderSide({color: Colors.black12()})})
-                                }),
+                                })
                             }),
                             new Container({
                                 child: new Row({
                                   children: [
                                         new Container({
                                             child: new Icon(new IconData(0xe192, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
-                                            margin: EdgeInsets.only({right: 12.0}),
+                                            margin: EdgeInsets.only({right: 12.0})
                                         }),
                                         new Expanded({
                                             child: new Container({
-                                                child: new Text("三体", {style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0}),}),
-                                            }),
+                                                child: new Text("三体", {style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0})})
+                                            })
                                         }),
                                         new Container({
-                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
+                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0})
                                         })
-                                    ],
+                                    ]
                                 }),
                                 margin: EdgeInsets.only({left: 16.0, right: 16.0, bottom: 10.0}),
                                 padding: EdgeInsets.only({bottom: 10.0}),
                                 decoration: new BoxDecoration({
                                     border: new BorderDirectional({bottom: new BorderSide({color: Colors.black12()})})
-                                }),
+                                })
                             }),
                             new Container({
                                 child: new Row({
                                     children: [
                                         new Container({
                                             child: new Icon(new IconData(0xe192, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
-                                            margin: EdgeInsets.only({right: 12.0}),
+                                            margin: EdgeInsets.only({right: 12.0})
                                         }),
                                         new Expanded({
                                             child: new Container({
-                                                child: new Text("人类未来", {style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0}),}),
-                                            }),
+                                                child: new Text("人类未来", {style: new TextStyle({color: GlobalConfig.fontColor, fontSize: 14.0})})
+                                            })
                                         }),
                                         new Container({
-                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0}),
+                                            child: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor, size: 16.0})
                                         })
                                      ],
                                 }),
@@ -253,12 +253,12 @@ class SearchPage extends MXJSWidget {
                                 padding: EdgeInsets.only({bottom: 10.0}),
                                 decoration: new BoxDecoration({
                                     border: new BorderDirectional({bottom: new BorderSide({color: Colors.black12()})})
-                                }),
-                            }),
-                        ],
-                    }),
-                }),
-            }),
+                                })
+                            })
+                        ]
+                    })
+                })
+            })
         });
         return widget;
     }

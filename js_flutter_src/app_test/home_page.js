@@ -36,7 +36,7 @@ let {
     TextAlign,
     Row,
     Padding,
-    Theme,
+    Theme
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let { JSStudiesPage } = jsFlutterRequire("./studies.js");
@@ -142,7 +142,7 @@ class JSWidgetHomePage extends MXJSWidget {
                     onTap: function () {
                         this.navigatorPush(new JSPestoPage);
                     }
-                }),
+                })
             ]
         });
 
@@ -165,8 +165,8 @@ class JSWidgetHomePage extends MXJSWidget {
                 children: [
                     new Icon(new IconData(0xe80e), { size: 16.1, color: new Color(0xFFFFFFFF) }),
                     new Padding({ padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0) }),
-                    new Text(title, { textAlign: TextAlign.start })],
-            }),
+                    new Text(title, { textAlign: TextAlign.start })]
+            })
         });
 
         return t;

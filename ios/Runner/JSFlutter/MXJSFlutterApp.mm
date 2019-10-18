@@ -60,7 +60,7 @@ static FlutterMethodChannel* dartFlutterAppDebugChannelStatic;
     
     
     //JSFlutter JS运行库搜索路径
-    NSString *jsFlutterFrameworkDir = [JSFLUTTER_FRAMEWORK_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_FRAMEWORK_DIR];
+    NSString *jsFlutterFrameworkDir = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_FRAMEWORK_DIR];
     [self.jsEngine addSearchDir:jsFlutterFrameworkDir];
     
     //app业务代码搜索路径

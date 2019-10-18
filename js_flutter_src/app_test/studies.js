@@ -29,7 +29,7 @@ let {
     ListView,
     ListTile,
     Icon,
-    IconData,
+    IconData
 
 } = jsFlutterRequire("js_flutter_ui.js");
 

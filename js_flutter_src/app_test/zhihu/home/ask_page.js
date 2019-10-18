@@ -38,7 +38,7 @@ let {
   EdgeInsets,
   Column,
   SingleChildScrollView,
-  InputDecoration,
+  InputDecoration
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -62,11 +62,11 @@ class AskPage extends MXJSWidget {
                                         this.navigatorPop();
                                     },
                                     icon: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'})),
-                                    label: new Text(""),
+                                    label: new Text("")
                                 }),
                                 new Expanded({
                                     child: new Container({
-                                        child: new Text("提问"),
+                                        child: new Text("提问")
                                     }),
                                 }),
                                 new FlatButton({
@@ -74,12 +74,12 @@ class AskPage extends MXJSWidget {
 
                                     },
                                     child: new Text("下一步", {style: new TextStyle({
-                                        color: Colors.black(),
-                                    })}),
-                                }),
-                            ],
-                        }),
-                    }),
+                                        color: Colors.black()
+                                    })})
+                                })
+                            ]
+                        })
+                    })
                 }),
                 body: new SingleChildScrollView({
                     child: new Column({
@@ -90,15 +90,15 @@ class AskPage extends MXJSWidget {
                                         hintText: "请输入标题",
                                         hintStyle: new TextStyle({
                                             color: Colors.black(),
-                                        }),
-                                    }),
+                                        })
+                                    })
                                 }),
-                                margin: EdgeInsets.all(16.0),
-                            }),
-                        ],
-                    }),
-                }),
-            }),
+                                margin: EdgeInsets.all(16.0)
+                            })
+                        ]
+                    })
+                })
+            })
         })
         return widget;
     }
