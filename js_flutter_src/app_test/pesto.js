@@ -47,7 +47,7 @@ let {
   BoxFit,
   Row,
   Padding,
-  MXJSStatelessWidget,
+  MXJSStatelessWidget
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -83,15 +83,15 @@ class JSPestoPage extends MXJSWidget {
         child: new Icon(new IconData(0xe3c9)),
         onPressed: this.createCallbackID(function () {
 
-        }),
+        })
       }),
       body: new CustomScrollView({
         semanticChildCount: _recipeList.length,
         slivers: [
           //this.buildAppBar(context, statusBarHeight),
-          this.buildBody(context, statusBarHeight),
-        ],
-      }),
+          this.buildBody(context, statusBarHeight)
+        ]
+      })
       //body:this.buildItems()[0]
     });
 
@@ -108,8 +108,8 @@ class JSPestoPage extends MXJSWidget {
           tooltip: 'Search',
           onPressed: this.createCallbackID(function () {
 
-          }),
-        }),
+          })
+        })
       ],
       flexibleSpace: LayoutBuilder({
         builder: function (context, constraints) {
@@ -125,10 +125,10 @@ class JSPestoPage extends MXJSWidget {
             }),
             child: Center({
               child: new Icon(new IconData(1))
-            }),
+            })
           });
-        },
-      }),
+        }
+      })
     });
   }
 
@@ -159,15 +159,15 @@ class JSPestoPage extends MXJSWidget {
             let recipe = _recipeList[index];
             let w = new RecipeCard({
               recipe: recipe,
-              onTap: function () { showRecipePage(context, recipe); },
+              onTap: function () { showRecipePage(context, recipe); }
             });
 
             return w;
           },
           {
-            childCount: _recipeList.length,
-          }),
-      }),
+            childCount: _recipeList.length
+          })
+      })
     });
   }
 
@@ -215,9 +215,9 @@ class RecipeCard extends MXJSStatelessWidget {
                     {
                       //package: this.recipe.imagePackage,
                       fit: BoxFit.cover,
-                      semanticLabel: this.recipe.name,
-                    }),
-                }),
+                      semanticLabel: this.recipe.name
+                    })
+                })
             }),
             new Expanded({
               child: new Row({
@@ -229,8 +229,8 @@ class RecipeCard extends MXJSStatelessWidget {
                       {
                         //                    package: this.recipe.ingredientsImagePackage,
                         width: 48.0,
-                        height: 48.0,
-                      }),
+                        height: 48.0
+                      })
                   }),
                   new Expanded({
                     child: new Column({
@@ -239,15 +239,15 @@ class RecipeCard extends MXJSStatelessWidget {
                       children: [
                         new Text(this.recipe.name),
                         new Text(this.recipe.author),
-                      ],
-                    }),
-                  }),
-                ],
-              }),
-            }),
-          ],
-        }),
-      }),
+                      ]
+                    })
+                  })
+                ]
+              })
+            })
+          ]
+        })
+      })
     });
   }
 }
@@ -265,7 +265,7 @@ class Recipe {
     ingredientsImagePath,
     ingredientsImagePackage,
     ingredients,
-    steps,
+    steps
   } = {}) {
 
     this.name = name;
@@ -283,7 +283,7 @@ class Recipe {
 class RecipeIngredient {
   constructor({
     amount,
-    description,
+    description
   } = {}) {
 
     this.amount = amount;
@@ -295,7 +295,7 @@ class RecipeIngredient {
 class RecipeStep {
   constructor({
     duration,
-    description,
+    description
   } = {}) {
 
     this.duration = duration;
@@ -319,11 +319,11 @@ let _recipeList = [
       new RecipeIngredient({ amount: '1/2 cup', description: 'Butter' }),
       new RecipeIngredient({ amount: '1 tbsp', description: 'Onion powder' }),
       new RecipeIngredient({ amount: '1 tbsp', description: 'Freshly ground pepper' }),
-      new RecipeIngredient({ amount: '1 tsp', description: 'Salt' }),
+      new RecipeIngredient({ amount: '1 tsp', description: 'Salt' })
     ],
     steps: [
       new RecipeStep({ duration: '1 min', description: 'Put in oven' }),
-      new RecipeStep({ duration: '1hr 45 min', description: 'Cook' }),
+      new RecipeStep({ duration: '1hr 45 min', description: 'Cook' })
     ],
   }),
   new Recipe({
@@ -335,11 +335,11 @@ let _recipeList = [
     imagePath: 'food/chopped_beet_leaves.png',
     imagePackage: _kGalleryAssetsPackage,
     ingredients: [
-      new RecipeIngredient({ amount: '3 cups', description: 'Beet greens' }),
+      new RecipeIngredient({ amount: '3 cups', description: 'Beet greens' })
     ],
     steps: [
-      new RecipeStep({ duration: '5 min', description: 'Chop' }),
-    ],
+      new RecipeStep({ duration: '5 min', description: 'Chop' })
+    ]
   }),
   new Recipe({
     name: 'Pesto Pasta',
@@ -359,11 +359,11 @@ let _recipeList = [
       new RecipeIngredient({ amount: '3 cloves', description: 'Garlic' }),
       new RecipeIngredient({ amount: '1/4 tsp', description: 'Salt' }),
       new RecipeIngredient({ amount: '1/8 tsp', description: 'Pepper' }),
-      new RecipeIngredient({ amount: '3 lbs', description: 'Bacon' }),
+      new RecipeIngredient({ amount: '3 lbs', description: 'Bacon' })
     ],
     steps: [
-      new RecipeStep({ duration: '15 min', description: 'Blend' }),
-    ],
+      new RecipeStep({ duration: '15 min', description: 'Blend' })
+    ]
   }),
   new Recipe({
     name: 'Cherry Pie',
@@ -378,12 +378,12 @@ let _recipeList = [
       new RecipeIngredient({ amount: '4 cups', description: 'Fresh or frozen cherries' }),
       new RecipeIngredient({ amount: '1 cup', description: 'Granulated sugar' }),
       new RecipeIngredient({ amount: '4 tbsp', description: 'Cornstarch' }),
-      new RecipeIngredient({ amount: '1½ tbsp', description: 'Butter' }),
+      new RecipeIngredient({ amount: '1½ tbsp', description: 'Butter' })
     ],
     steps: [
       new RecipeStep({ duration: '15 min', description: 'Mix' }),
-      new RecipeStep({ duration: '1hr 30 min', description: 'Bake' }),
-    ],
+      new RecipeStep({ duration: '1hr 30 min', description: 'Bake' })
+    ]
   }),
   new Recipe({
     name: 'Spinach Salad',
@@ -395,11 +395,11 @@ let _recipeList = [
     imagePackage: _kGalleryAssetsPackage,
     ingredients: [
       new RecipeIngredient({ amount: '4 cups', description: 'Spinach' }),
-      new RecipeIngredient({ amount: '1 cup', description: 'Sliced onion' }),
+      new RecipeIngredient({ amount: '1 cup', description: 'Sliced onion' })
     ],
     steps: [
-      new RecipeStep({ duration: '5 min', description: 'Mix' }),
-    ],
+      new RecipeStep({ duration: '5 min', description: 'Mix' })
+    ]
   }),
   new Recipe({
     name: 'Butternut Squash Soup',
@@ -417,13 +417,13 @@ let _recipeList = [
       new RecipeIngredient({ amount: '1', description: 'Carrot' }),
       new RecipeIngredient({ amount: '1', description: 'Celery' }),
       new RecipeIngredient({ amount: '1 tsp', description: 'Salt' }),
-      new RecipeIngredient({ amount: '1 tsp', description: 'Pepper' }),
+      new RecipeIngredient({ amount: '1 tsp', description: 'Pepper' })
     ],
     steps: [
       new RecipeStep({ duration: '10 min', description: 'Prep vegetables' }),
       new RecipeStep({ duration: '5 min', description: 'Stir' }),
       new RecipeStep({ duration: '1 hr 10 min', description: 'Cook' })
-    ],
+    ]
   }),
   new Recipe({
     name: 'Spanakopita',
@@ -439,15 +439,15 @@ let _recipeList = [
       new RecipeIngredient({ amount: '½ cup', description: 'Cottage cheese' }),
       new RecipeIngredient({ amount: '2', description: 'Eggs' }),
       new RecipeIngredient({ amount: '1', description: 'Onion' }),
-      new RecipeIngredient({ amount: '½ lb', description: 'Phyllo dough' }),
+      new RecipeIngredient({ amount: '½ lb', description: 'Phyllo dough' })
     ],
     steps: [
       new RecipeStep({ duration: '5 min', description: 'Sauté vegetables' }),
       new RecipeStep({ duration: '3 min', description: 'Stir vegetables and other filling ingredients' }),
       new RecipeStep({ duration: '10 min', description: 'Fill phyllo squares half-full with filling and fold.' }),
       new RecipeStep({ duration: '40 min', description: 'Bake' })
-    ],
-  }),
+    ]
+  })
 ];
 
 module.exports = { JSPestoPage };

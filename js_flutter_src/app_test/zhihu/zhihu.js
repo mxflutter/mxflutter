@@ -22,7 +22,7 @@ let {
   runApp,
   MXJSFlutterApp,
   MXJSWidget,
-  MaterialApp,
+  MaterialApp
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {Index} = jsFlutterRequire("./zhihu/index.js");
@@ -35,7 +35,7 @@ class JSZhiHuPage extends MXJSWidget {
     build(context){
         let widget = new MaterialApp({
             title: "知乎-高仿版",
-            home: new Index(),
+            home: new Index()
         });
         return widget;
     }

@@ -30,7 +30,7 @@ let {
   Icon,
   IconData,
   EdgeInsets,
-  Padding,
+  Padding
 } = jsFlutterRequire("js_flutter_ui.js");
 
 
@@ -91,8 +91,8 @@ class JSMaterialPage extends MXJSWidget {
                         onTap:function () {
                             this.navigatorPush(new JSTabsDemo);
                         }
-                    }),
-                ],
+                    })
+                ]
             })
         });
     

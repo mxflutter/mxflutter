@@ -20,7 +20,6 @@
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */; };
-		A62F318021D624F0007B59F8 /* JSFlutterJSFrameworkLib in Resources */ = {isa = PBXBuildFile; fileRef = A62F317F21D624F0007B59F8 /* JSFlutterJSFrameworkLib */; };
 		A62F318E21E48B9E007B59F8 /* MXJSFlutter.m in Sources */ = {isa = PBXBuildFile; fileRef = A62F318D21E48B9E007B59F8 /* MXJSFlutter.m */; };
 		A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569321CE8FEE00530D0C /* MXJSEngine.m */; };
 		A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569621CE903E00530D0C /* MXJSExecutor.m */; };
@@ -63,7 +62,6 @@
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterApp.h; sourceTree = "<group>"; };
 		A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXJSFlutterApp.mm; sourceTree = "<group>"; };
-		A62F317F21D624F0007B59F8 /* JSFlutterJSFrameworkLib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSFlutterJSFrameworkLib; sourceTree = "<group>"; };
 		A62F318C21E48B9E007B59F8 /* MXJSFlutter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutter.h; sourceTree = "<group>"; };
 		A62F318D21E48B9E007B59F8 /* MXJSFlutter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSFlutter.m; sourceTree = "<group>"; };
 		A6A4569221CE8FEE00530D0C /* MXJSEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSEngine.h; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 		A6A4568E21CE8EAD00530D0C /* JSFlutter */ = {
 			isa = PBXGroup;
 			children = (
-				A62F317F21D624F0007B59F8 /* JSFlutterJSFrameworkLib */,
 				A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */,
 				A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */,
 				A6C8C13421D1D10500F71E5B /* MXJSFlutterEngine.h */,
@@ -241,7 +238,6 @@
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				9740EEB41CF90195004384FC /* Debug.xcconfig in Resources */,
-				A62F318021D624F0007B59F8 /* JSFlutterJSFrameworkLib in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
 			);

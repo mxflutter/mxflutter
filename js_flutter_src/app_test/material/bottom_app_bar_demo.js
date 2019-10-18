@@ -52,7 +52,7 @@ let {
   CircleBorder,
   BorderSide,
   MainAxisAlignment,
-  SizedBox,
+  SizedBox
 
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -60,7 +60,7 @@ class JSChoiceValue{
     constructor({
         value,
         title,
-        label,
+        label
     } = {}) {
         this.value = value;
         this.title = title;
@@ -71,7 +71,7 @@ class JSChoiceValue{
 class JSNamedColor{
     constructor({
         color,
-        name,
+        name
     } = {}) {
         this.color = color;
         this.name = name;
@@ -82,38 +82,38 @@ class JSNamedColor{
 kShowNotchTrue = new JSChoiceValue({
     title: 'On',
     label: 'show bottom appbar notch',
-    value: true,
+    value: true
 });
 
 kShowNotchFalse = new JSChoiceValue({
     title: 'Off',
     label: 'do not show bottom appbar notch',
-    value: false,
+    value: false
 });
 
 // FAB Position
 kFabEndDocked = new JSChoiceValue({
     title: 'Attached - End',
     label: 'floating action button is docked at the end of the bottom app bar',
-    value: FloatingActionButtonLocation.endDocked,
+    value: FloatingActionButtonLocation.endDocked
 });
 
 kFabCenterDocked = new JSChoiceValue({
     title: 'Attached - Center',
     label: 'floating action button is docked at the center of the bottom app bar',
-    value: FloatingActionButtonLocation.centerDocked,
+    value: FloatingActionButtonLocation.centerDocked
 });
 
 kFabEndFloat = new JSChoiceValue({
     title: 'Free - End',
     label: 'floating action button floats above the end of the bottom app bar',
-    value: FloatingActionButtonLocation.endFloat,
+    value: FloatingActionButtonLocation.endFloat
 });
 
 kFabCenterFloat = new JSChoiceValue({
     title: 'Free - Center',
     label: 'floating action button is floats above the center of the bottom app bar',
-    value: FloatingActionButtonLocation.centerFloat,
+    value: FloatingActionButtonLocation.centerFloat
 });        
     
 
@@ -123,13 +123,13 @@ kFabColors = [
     new JSNamedColor({color: new Color(0xFF91FAFF), name: 'Light Blue'}),
     new JSNamedColor({color: new Color(0xFF00D1FF), name: 'Cyan'}),
     new JSNamedColor({color: new Color(0xFF00BCFF), name: 'Cerulean'}),
-    new JSNamedColor({color: new Color(0xFF009BEE), name: 'Blue'}),
+    new JSNamedColor({color: new Color(0xFF009BEE), name: 'Blue'})
 ];
 
 
 class _JSHeading extends MXJSStatelessWidget {
     constructor ({
-        text,
+        text
     } = {}) {
         super();
         this.text = text;
@@ -147,9 +147,9 @@ class _JSHeading extends MXJSStatelessWidget {
                     fontSize: 18.0,
                     decorationColor: new Color(0xFF123456),
                     decorationStyle: TextDecorationStyle.wavy,
-                    color: new Color(0xFF123456),
-                })},
-            ),
+                    color: new Color(0xFF123456)
+                })}
+            )
         });
     }
 }
@@ -158,7 +158,7 @@ class _JSRadioItem extends MXJSWidget{
     constructor ({
         value,
         groupValue,
-        onChanged,
+        onChanged
     } = {}) {
         super();
         this.value = value;
@@ -182,7 +182,7 @@ class _JSRadioItem extends MXJSWidget{
                             groupValue: this.groupValue,
                             onChanged: this.createCallbackID(function () {
                                 this.onChanged(this.value);
-                            }),
+                            })
                         }),
                         new Expanded({
                             child: new Semantics({
@@ -194,13 +194,13 @@ class _JSRadioItem extends MXJSWidget{
                                     onTap: this.createCallbackID(function () {
                                         this.onChanged(this.value);
                                     }),
-                                    child: new Text(this.value.title),
-                                }),
-                            }),
-                        }),
-                    ],
-                }),
-            }),
+                                    child: new Text(this.value.title)
+                                })
+                            })
+                        })
+                    ]
+                })
+            })
         });
     }
 }
@@ -209,7 +209,7 @@ class _JSColorsItem extends MXJSWidget{
     constructor ({
         colors,
         selectedColor,
-        onChanged,
+        onChanged
     } = {}) {
         super();
         this.colors = colors;
@@ -228,25 +228,25 @@ class _JSColorsItem extends MXJSWidget{
                     minWidth: 32,
                     maxWidth: 32,
                     minHeight: 32,
-                    maxHeight: 32,
+                    maxHeight: 32
                 }),
                 fillColor: namedColor.color,
                 shape: new CircleBorder({
                     side: new BorderSide({
                         color: namedColor.color == this.selectedColor ? Colors.black() : new Color(0xFFD5D7DA),
-                        width: 2.0,
-                    }),
+                        width: 2.0
+                    })
                 }),
                 child: new Semantics({
                     value: namedColor.name,
-                    selected: namedColor.color == this.selectedColor,
-                }),
+                    selected: namedColor.color == this.selectedColor
+                })
             });
             rowContents.push(widget);
         }.bind(this))
         return new Row({
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: rowContents,
+            children: rowContents
         });
     }
 }
@@ -267,7 +267,7 @@ class JSBottomAPPBarDemo extends MXJSWidget {
         'The BottomAppBar adapts its shape appropriately.';
 
         _scaffoldKey.currentState.showSnackBar(
-            new SnackBar({content: Text(text)}),
+            new SnackBar({content: Text(text)})
         );
     }
 
@@ -299,10 +299,10 @@ class JSBottomAPPBarDemo extends MXJSWidget {
                 tooltip: 'Show bottom sheet',
                 onPressed: this.createCallbackID(function () {
                     Scaffold.of(context).showSnackBar(
-                        new SnackBar({content: new Text('This is a dummy sheet action.')}),
+                        new SnackBar({content: new Text('This is a dummy sheet action.')})
                     );
-                }),
-            }),
+                })
+            })
         ];
 
         if (floatingButtonLocation == FloatingActionButtonLocation.centerDocked || floatingButtonLocation == FloatingActionButtonLocation.centerFloat)
@@ -318,9 +318,9 @@ class JSBottomAPPBarDemo extends MXJSWidget {
                 tooltip: 'show search action',
                 onPressed: this.createCallbackID(function () {
                     Scaffold.of(context).showSnackBar(
-                    new SnackBar({content: new Text('This is a dummy search action.')}),
+                    new SnackBar({content: new Text('This is a dummy search action.')})
                     );
-                }),
+                })
             })
         );
 
@@ -330,16 +330,16 @@ class JSBottomAPPBarDemo extends MXJSWidget {
                 tooltip: 'Show menu actions',
                 onPressed: this.createCallbackID(function () {
                     Scaffold.of(context).showSnackBar(
-                        new SnackBar({content: new Text('This is a dummy menu action.')}),
+                        new SnackBar({content: new Text('This is a dummy menu action.')})
                     );
-                }),
+                })
             })
         );
 
         let widget = new Scaffold({
             // key: _scaffoldKey,
             appBar: new AppBar({
-                title: new Text('Bottom app bar'),
+                title: new Text('Bottom app bar')
             }),
             body: new ListView({
                 children : [
@@ -356,22 +356,22 @@ class JSBottomAPPBarDemo extends MXJSWidget {
                     new _JSHeading({text: "App bar color"}),
                     new _JSColorsItem({colors: kFabColors, selectedColor: this._babColor, onChanged:this.onBabColorChange.bind(this)})
 
-                ], 
+                ]
             }),
             bottomNavigationBar: new BottomAppBar({
                 // color: Colors.red,
                 child: new Row({children: rowContents}),
                 color: this._babColor,
-                shape: this._showNotch.value == true ? new CircularNotchedRectangle() : null,
+                shape: this._showNotch.value == true ? new CircularNotchedRectangle() : null
             }),
             floatingActionButton: new FloatingActionButton({
                 child: new Icon(new IconData(0xe145,{fontFamily:'MaterialIcons',semanticLabel: 'Action'})),
                 onPressed: this.createCallbackID(function () {
         
                 }),
-                backgroundColor: Colors.orange(),
+                backgroundColor: Colors.orange()
             }),
-            floatingActionButtonLocation: floatingButtonLocation,
+            floatingActionButtonLocation: floatingButtonLocation
         });
         return widget;
     }

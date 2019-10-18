@@ -38,7 +38,7 @@ let {
   AnimationController,
   AnimatedBuilder,
   Duration,
-  AnimationStatus,
+  AnimationStatus
 
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -90,12 +90,12 @@ class JSAnimationPage extends MXJSWidget {
         child: new Icon(new IconData(0xe145,{fontFamily:'MaterialIcons',semanticLabel: 'Action'})),
         onPressed: this.createCallbackID(function () {
             this.beginAnimation();
-        }),
+        })
       }),
       body: new ScaleAnimation({
         child: Image.network('http://ugc.qpic.cn/gbar_pic/1ZU94WW9oGojjwGATy7UB9VNkIrn9Ud4t79Tbd7VnMvV4hG8zbfrJFsq0VTOCOicg/'),
-        animation: this.animation,
-      }),
+        animation: this.animation
+      })
     });
 
     return w;
@@ -107,7 +107,7 @@ class ScaleAnimation extends MXJSWidget{
 
   constructor ({
     child,
-    animation,
+    animation
   } = {}) {
     super();
 
@@ -123,10 +123,10 @@ class ScaleAnimation extends MXJSWidget{
         widget: new Container({
           height: this.animation.value() * imageRatio + 2 - 5,
           width: this.animation.value(),
-          child: this.child,
-        }),
+          child: this.child
+        })
         // child: this.child,
-      }),
+      })
     })
     return widget;
   }

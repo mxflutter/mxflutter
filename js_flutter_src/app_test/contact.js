@@ -62,7 +62,7 @@ let {
     DefaultTextStyle,
     MXJSStatelessWidget,
     SafeArea,
-    Colors,
+    Colors
   } = jsFlutterRequire("js_flutter_ui.js");
 
 let _kGalleryAssetsPackage = 'js_flutter_src/app_test/flutter_gallery_assets/';
@@ -79,14 +79,14 @@ class ContactCategory extends MXJSWidget {
         let themeData = Theme.of(context);
         let widget = new Container({
             padding: EdgeInsets.symmetric({
-                vertical: 16.0,
+                vertical: 16.0
             }),
             decoration: new BoxDecoration({
                 border: new Border({
                     bottom: new BorderSide({
-                        color: themeData.dividerColor,
-                    }),
-                }),
+                        color: themeData.dividerColor
+                    })
+                })
             }),
             child: new DefaultTextStyle({
                 style: themeData.textTheme.subhead,
@@ -98,22 +98,22 @@ class ContactCategory extends MXJSWidget {
                         children: [
                             new Container({
                                 padding: EdgeInsets.symmetric({
-                                    vertical: 24.0,
+                                    vertical: 24.0
                                 }),
                                 width: 72.0,
                                 child: new Icon(this.icon, {
-                                    color: themeData.primaryColor,
+                                    color: themeData.primaryColor
                                 })
                             }),
                             new Expanded({
                                 child: new Column({
-                                    children: this.children,
-                                }),
-                            }),
-                        ],
-                    }),
-                }),
-            }),
+                                    children: this.children
+                                })
+                            })
+                        ]
+                    })
+                })
+            })
         });
 
         return widget;
@@ -199,13 +199,13 @@ class JSContactPage extends MXJSWidget {
             data: new ThemeData({
                 brightness: Brightness.light,
                 primarySwatch: Colors.indigo,
-                platform: Theme.of(context).platform,
+                platform: Theme.of(context).platform
             }),
             child: new Scaffold({
                 body: new CustomScrollView({
-                  slivers: this.buildBody(context),
-                }),
-            }),
+                  slivers: this.buildBody(context)
+                })
+            })
         });
         return widget;
     }
@@ -227,7 +227,7 @@ class JSContactPage extends MXJSWidget {
                         tooltip: 'Edit',
                         onPressed: function () {
                             MXJSLog.log('edit button pressed');
-                        },
+                        }
                     }),
                     new PopupMenuButton({
                         onSelected: function(args) {
@@ -253,8 +253,8 @@ class JSContactPage extends MXJSWidget {
                                 }),
                             ];
                             return list;
-                        },
-                    }),
+                        }
+                    })
                 ],
                 flexibleSpace: new FlexibleSpaceBar({
                     title: new Text('Ali Connors'),
@@ -264,7 +264,7 @@ class JSContactPage extends MXJSWidget {
                             Image.asset(_kGalleryAssetsPackage + 'people/ali_landscape.png', {
                                 package: 'flutter_gallery_assets',
                                 fit: BoxFit.cover,
-                                height: appBarHeight,
+                                height: appBarHeight
                             }),
                             new DecoratedBox({
                                 decoration: new BoxDecoration({
@@ -274,13 +274,13 @@ class JSContactPage extends MXJSWidget {
                                         colors: [
                                             new Color(0x60000000), 
                                             new Color(0x00000000),
-                                        ],
-                                    }),
-                                }),
-                            }),
-                        ],
-                    }),
-                }),
+                                        ]
+                                    })
+                                })
+                            })
+                        ]
+                    })
+                })
             }),
             new SliverList({
                 delegate: new SliverChildListDelegate([
@@ -291,7 +291,7 @@ class JSContactPage extends MXJSWidget {
                             statusBarColor: null,
                             systemNavigationBarIconBrightness: Brightness.light,
                             statusBarIconBrightness: Brightness.light,
-                            statusBarBrightness:Brightness.dark,
+                            statusBarBrightness:Brightness.dark
                         }),
                         child: new ContactCategory({
                             icon: new IconData(0xe0b0, {fontFamily:'MaterialIcons'}),
@@ -304,8 +304,8 @@ class JSContactPage extends MXJSWidget {
                                     },
                                     lines: [
                                         '(650) 555-1234',
-                                        'Mobile',
-                                    ],
+                                        'Mobile'
+                                    ]
                                 }),
                                 new ContactItem({
                                     icon: new IconData(0xe0c9, {fontFamily:'MaterialIcons'}),
@@ -315,8 +315,8 @@ class JSContactPage extends MXJSWidget {
                                     },
                                     lines: [
                                         '(323) 555-6789',
-                                        'Work',
-                                    ],
+                                        'Work'
+                                    ]
                                 }),
                                 new ContactItem({
                                     icon: new IconData(0xe0c9, {fontFamily:'MaterialIcons'}),
@@ -326,11 +326,11 @@ class JSContactPage extends MXJSWidget {
                                     },
                                     lines: [
                                         '(650) 555-6789',
-                                        'Home',
-                                    ],
-                                }),
-                            ],
-                        }),
+                                        'Home'
+                                    ]
+                                })
+                            ]
+                        })
                     }),
                     new ContactCategory({
                         icon: new IconData(0xe0d0, {fontFamily:'MaterialIcons'}),
@@ -343,8 +343,8 @@ class JSContactPage extends MXJSWidget {
                                 },
                                 lines: [
                                     'ali_connors@example.com',
-                                    'Personal',
-                                ],
+                                    'Personal'
+                                ]
                             }),
                             new ContactItem({
                                 icon: new IconData(0xe0be, {fontFamily:'MaterialIcons'}),
@@ -354,10 +354,10 @@ class JSContactPage extends MXJSWidget {
                                 },
                                 lines: [
                                     'aliconnors@example.com',
-                                    'Work',
-                                ],
-                            }),
-                        ],
+                                    'Work'
+                                ]
+                            })
+                        ]
                     }),
                     new ContactCategory({
                         icon: new IconData(0xe0c8, {fontFamily:'MaterialIcons'}),
@@ -371,8 +371,8 @@ class JSContactPage extends MXJSWidget {
                                 lines: [
                                     '2000 Main Street',
                                     'San Francisco, CA',
-                                    'Home',
-                                ],
+                                    'Home'
+                                ]
                             }),
                             new ContactItem({
                                 icon: new IconData(0xe55b, {fontFamily:'MaterialIcons'}),
@@ -383,8 +383,8 @@ class JSContactPage extends MXJSWidget {
                                 lines: [
                                     '1600 Amphitheater Parkway',
                                     'Mountain View, CA',
-                                    'Work',
-                                ],
+                                    'Work'
+                                ]
                             }),
                             new ContactItem({
                                 icon: new IconData(0xe55b, {fontFamily:'MaterialIcons'}),
@@ -395,10 +395,10 @@ class JSContactPage extends MXJSWidget {
                                 lines: [
                                     '126 Severyns Ave',
                                     'Mountain View, CA',
-                                    'Jet Travel',
-                                ],
-                            }),
-                        ],
+                                    'Jet Travel'
+                                ]
+                            })
+                        ]
                     }),
                     new ContactCategory({
                         icon: new IconData(0xe8df, {fontFamily:'MaterialIcons'}),
@@ -406,31 +406,31 @@ class JSContactPage extends MXJSWidget {
                             new ContactItem({
                                 lines: [
                                     'Birthday',
-                                    'January 9th, 1989',
-                                ],
+                                    'January 9th, 1989'
+                                ]
                             }),
                             new ContactItem({
                                 lines: [
                                     'Wedding anniversary',
-                                    'June 21st, 2014',
-                                ],
+                                    'June 21st, 2014'
+                                ]
                             }),
                             new ContactItem({
                                 lines: [
                                     'First day in office',
-                                    'January 20th, 2015',
-                                ],
+                                    'January 20th, 2015'
+                                ]
                             }),
                             new ContactItem({
                                 lines: [
                                     'Last day in office',
-                                    'August 9th, 2018',
-                                ],
-                            }),
-                        ],
-                    }),
-                ]),
-            }),
+                                    'August 9th, 2018'
+                                ]
+                            })
+                        ]
+                    })
+                ])
+            })
         ];
         return widget;
     }
