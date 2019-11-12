@@ -46,7 +46,7 @@ public class MXJSFlutterApp {
 
     private void setupJSEngine() {
 
-        jsEngine = MXJSEngine.getInstance(mContext);
+        jsEngine =new MXJSEngine(mContext);
         jsExecutor = jsEngine.jsExecutor;
         //todo 调试时，指向本地路径，可以热重载
         String jsBasePath = "";
@@ -102,8 +102,9 @@ public class MXJSFlutterApp {
     }
 
 
-    public void unsetup() {
-
+    public void close() {
+        this.jsExecutor.execute(() -> jsAppObj.close());
+        this.jsExecutor.close();
     }
 
     public void runApp() {
@@ -135,10 +136,7 @@ public class MXJSFlutterApp {
         });
     }
 
-    public void exitApp() {
-//        this.jsAppObj.release();
-//        this.jsExecutor.invalidate();
-    }
+
 
 
     //js 注入对象
