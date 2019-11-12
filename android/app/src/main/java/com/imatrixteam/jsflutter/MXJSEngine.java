@@ -21,8 +21,6 @@ import java.util.Set;
 public class MXJSEngine {
     static private String TAG = "MXJSEngine";
 
-    private static MXJSEngine instance;
-
     public MXJSExecutor jsExecutor;
 
     private ArrayList<String> searchDirArray;
@@ -33,30 +31,16 @@ public class MXJSEngine {
 
     private Map<String, String[]> dirMap = new HashMap<>();
 
-    private MXJSEngine(Context context) {
+    public MXJSEngine(Context context) {
         mContext = context;
-        init();
-    }
-
-    static MXJSEngine getInstance(Context context) {
-        if (instance == null) {
-            synchronized (MXJSEngine.class) {
-                instance = new MXJSEngine(context);
-            }
-        }
-        return instance;
-    }
-
-    private MXJSEngine init() {
         this.searchDirArray = new ArrayList<>();
         this.runnedScriptFile = new HashSet<>();
         setup();
-        return this;
     }
 
-    private void setup() {
-        this.jsExecutor = MXJSExecutor.getInstance(mContext);
 
+    private void setup() {
+        this.jsExecutor =new MXJSExecutor(mContext);
         setupBasicJSRuntime();
     }
 

@@ -29,11 +29,10 @@ public class MXJSFlutterEngine {
 
     }
 
-    public void unsetup() {
-        if (currentApp != null)
-        {
-            currentApp.exitApp();
-            currentApp = null;
+    public void destroy() {
+        if (currentApp != null) {
+            currentApp.close();
+            INSTANCE = null;
         }
     }
 
@@ -49,6 +48,6 @@ public class MXJSFlutterEngine {
     }
 
     public void callFlutterReloadAppWithJSWidgetData(String widgetData) {
-        ((MXFlutterActivity)mContext).callFlutterReloadAppWithJSWidgetData(widgetData);
+        ((MXFlutterActivity) mContext).callFlutterReloadAppWithJSWidgetData(widgetData);
     }
 }
