@@ -25,27 +25,13 @@ public class MXJSExecutor {
 
     public Context context;
 
-    private static MXJSExecutor instance;
 
-    private MXJSExecutor(Context context) {
+    public MXJSExecutor(Context context) {
         this.context = context;
-        init(context);
-    }
-
-    public static MXJSExecutor getInstance(Context context) {
-        if (instance == null) {
-            synchronized (MXJSExecutor.class) {
-                instance = new MXJSExecutor(context);
-            }
-        }
-        return instance;
-    }
-
-    public MXJSExecutor init(Context context) {
-        executor = Executors.newSingleThreadExecutor();
+        this.executor = Executors.newSingleThreadExecutor();
         setup();
-        return this;
     }
+
 
     public void execute(Runnable action) {
         try {
@@ -138,16 +124,18 @@ public class MXJSExecutor {
         }
     }
 
-    private boolean isValid() {
-        return runtime != null;
-    }
 
-    public void invalidate() {
+
+    public void close() {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                if (isValid()) {
-                    runtime.release();
+                if (runtime!=null){
+                    try {
+                        runtime.close();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             }
         });
