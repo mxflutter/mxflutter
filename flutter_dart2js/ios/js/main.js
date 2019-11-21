@@ -54,6 +54,7 @@ require(['dart_sdk','packages/flutter_dart2js/main'], function(dart_sdk, package
             mxlog("11111");
         }
         mxlog("22222");
+        start_paint('start_paint');
         main.main();
         mxlog("33333");
     });

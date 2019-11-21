@@ -8,7 +8,12 @@ class MyApp extends StatelessWidget {
   Future runiOSMethod() async {
     const platform = const MethodChannel('flutter.js.channel');
     platform.setMethodCallHandler((MethodCall call) async {
-      print(call.arguments);
+      if (call.method == 'native_call') {
+        print(call.arguments);
+      }
+      else if (call.method == 'start_paint') {
+        print(call.arguments);
+      }
     });
 
     var result;

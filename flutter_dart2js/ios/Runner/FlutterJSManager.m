@@ -9,6 +9,7 @@
 #import "FlutterJSManager.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <Flutter/Flutter.h>
+#import "FlutterMethodChannelManager.h"
 
 @interface FlutterJSManager ()
 
@@ -57,6 +58,17 @@
     
     self.jsContext = [[JSContext alloc] init];
     
+    [self insertJSMethod];
+    
+    // 先加载require.js
+    [self loadRequireJS];
+    
+//     加载其他js文件
+//    [self loadLogicJS];
+}
+
+- (void)insertJSMethod
+{
     self.jsContext[@"mxlog"] = ^(NSString *string) {
         return NSLog(@"%@",string);
     };
@@ -68,11 +80,15 @@
         return jsCode;
     };
     
-    // 先加载require.js
-    [self loadRequireJS];
-    
-//     加载其他js文件
-//    [self loadLogicJS];
+    self.jsContext[@"start_paint"] = ^(id result) {
+        UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        FlutterViewController *flutterVC = (FlutterViewController *)navigationController.topViewController;
+        
+        // 绘制开始
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[FlutterMethodChannelManager sharedInstance].methodChannel invokeMethod:@"start_paint" arguments:result];
+        });
+    };
 }
 
 - (void)loadRequireJS
