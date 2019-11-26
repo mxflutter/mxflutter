@@ -44,7 +44,7 @@ let {
     Column,
     FontWeight,
     SingleChildScrollView,
-    Alignment,
+    Alignment
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
@@ -53,7 +53,7 @@ let {QuestionPage} = jsFlutterRequire("./zhihu/home/question_page.js");
 
 class Hot extends MXJSWidget {
     constructor(){
-        super("Hot");
+        super("Hot", {key: "Hot"});
     }
 
     hotCard(question){
@@ -63,9 +63,9 @@ class Hot extends MXJSWidget {
                 border: new BorderDirectional({
                     bottom: new BorderSide({
                         color: Colors.black12(),
-                        width: 1.0,
-                    }),
-                }),
+                        width: 1.0
+                    })
+                })
             }),
             child: new FlatButton({
                 onPressed:function(){
@@ -85,9 +85,9 @@ class Hot extends MXJSWidget {
                                                 style: new TextStyle({
                                                     color: question.order <= "03" ? Colors.red() : Colors.yellow(),
                                                     fontSize: 18.0
-                                                }),
+                                                })
                                             }),
-                                            alignment: Alignment.topLeft,
+                                            alignment: Alignment.topLeft
                                         }),
                                         question.rise != null ? 
                                         new Row({
@@ -100,13 +100,13 @@ class Hot extends MXJSWidget {
                                                     style: new TextStyle({
                                                         color: Colors.red(), 
                                                         fontSize: 10.0
-                                                    }),
+                                                    })
                                                 })
-                                            ],
+                                            ]
                                         })
-                                        : new Container(), 
-                                    ],
-                                }),
+                                        : new Container() 
+                                    ]
+                                })
                             }),
                             new Expanded({
                                 flex: 6,
@@ -119,28 +119,28 @@ class Hot extends MXJSWidget {
                                                     fontSize: 16.0, 
                                                     height: 1.1, 
                                                     color: Colors.black()
-                                                }),
+                                                })
                                             }),
                                             padding: EdgeInsets.only({bottom: 10.0,right: 4.0}),
-                                            alignment: Alignment.topLeft,
+                                            alignment: Alignment.topLeft
                                         }),
                                         question.mark != null ?
                                         new Container({
                                             child: new Text(question.mark, {
-                                                style: new TextStyle({color: GlobalConfig.fontColor}),
+                                                style: new TextStyle({color: GlobalConfig.fontColor})
                                             }),
                                             alignment: Alignment.topLeft,
-                                            padding: EdgeInsets.only({bottom: 8.0,right: 4.0}),
+                                            padding: EdgeInsets.only({bottom: 8.0,right: 4.0})
                                         }) : 
                                         new Container(),
                                         new Container({
                                             child: new Text(question.hotNum, {
-                                                style: new TextStyle({color: GlobalConfig.fontColor}),
+                                                style: new TextStyle({color: GlobalConfig.fontColor})
                                             }),
-                                            alignment: Alignment.topLeft,
-                                        }),
-                                    ],
-                                }),
+                                            alignment: Alignment.topLeft
+                                        })
+                                    ]
+                                })
                             }),
                             new Expanded({
                                 flex: 3,
@@ -150,14 +150,14 @@ class Hot extends MXJSWidget {
                                         foregroundDecoration:new BoxDecoration({
                                             image: new DecorationImage({
                                                 image: new NetworkImage(question.imgUrl),
-                                                centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
+                                                centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)
                                             }),
-                                            borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                                        }),
-                                    }),
-                                }),
-                            }),
-                        ],
+                                            borderRadius: BorderRadius.all(Radius.circular(6.0))
+                                        })
+                                    })
+                                })
+                            })
+                        ]
                     })
                 })
             })
@@ -174,9 +174,9 @@ class Hot extends MXJSWidget {
                         this.hotCard(questionList[1]),
                         this.hotCard(questionList[2]),
                         this.hotCard(questionList[3]),
-                        this.hotCard(questionList[4]),
-                    ],
-                }),
+                        this.hotCard(questionList[4])
+                    ]
+                })
             })
         });
         return widget;

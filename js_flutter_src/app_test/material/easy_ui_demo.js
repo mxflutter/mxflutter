@@ -59,7 +59,7 @@ let {
   TextField,
   TextEditingController,
   ListView,
-  Slider,
+  Slider
 } = jsFlutterRequire("js_flutter_ui.js");
 
 
@@ -83,7 +83,7 @@ class JSEasyUIDemo extends MXJSWidget {
                         new FlatButton({
                             child: new Text(
                                 "Flat Button",{
-                                    style: new TextStyle({color: new Color(0xFF000000)}),
+                                    style: new TextStyle({color: new Color(0xFF000000)})
                                 }),
                             onPressed: function() {
                                 MXJSLog.log('Flat Button Pressed');
@@ -97,7 +97,7 @@ class JSEasyUIDemo extends MXJSWidget {
                             child: new Text("Raised Button"),
                             onPressed: function() {
                                 MXJSLog.log('Raised Button Pressed');
-                            },
+                            }
                             // color: new Color(0x60000000),
                         }),
                         new FloatingActionButton({
@@ -105,13 +105,13 @@ class JSEasyUIDemo extends MXJSWidget {
                             tooltip: 'Floating Action Button',
                             onPressed: function() {
                                 MXJSLog.log('Floating Action Button Pressed');
-                            },
+                            }
                         }),
                         new IconButton({
                             icon: new Icon(new IconData(0xe815, {fontFamily: 'MaterialIcons'})),
                             onPressed: function() {
                                 MXJSLog.log('Icon Button Pressed');
-                            },
+                            }
                         }),
                     ],
                 }),
@@ -131,7 +131,7 @@ class JSEasyUIDemo extends MXJSWidget {
                                 this.setState(function (){
                                     this.dropdownValue = newValue;
                                 })
-                            },
+                            }
                         }),
                         new PopupMenuButton({
                             onSelected: function(args) {
@@ -141,20 +141,20 @@ class JSEasyUIDemo extends MXJSWidget {
                                 let list = [
                                     new PopupMenuItem({
                                         value: 1,
-                                        child: new Text('App bar scrolls away'),
+                                        child: new Text('App bar scrolls away')
                                     }),
                                     new PopupMenuItem({
                                         value: 2,
-                                        child: new Text('App bar stays away'),
+                                        child: new Text('App bar stays away')
                                     }),
                                     new PopupMenuItem({
                                         value: 3,
-                                        child: new Text('App bar floats'),
+                                        child: new Text('App bar floats')
                                     }),
                                     new PopupMenuItem({
                                         value: 4,
-                                        child: new Text('App bar snaps'),
-                                    }),
+                                        child: new Text('App bar snaps')
+                                    })
                                 ];
                                 return list;
                             },
@@ -173,12 +173,12 @@ class JSEasyUIDemo extends MXJSWidget {
                                     onPressed: function() {
                                         MXJSLog.log('Button Bar 2 pressed');
                                     }
-                                }),
+                                })
                             ]
-                        }),
-                    ],
+                        })
+                    ]
                 })
-            ],
+            ]
         });
 
         return widget;
@@ -204,10 +204,10 @@ class JSEasyUIDemo extends MXJSWidget {
                                       fontSize: 20.0,
                                       decoration: TextDecoration.underline,
                                       decorationColor: Color.fromRGBO(0, 0, 0, 1),
-                                      decorationStyle: TextDecorationStyle.double,
+                                      decorationStyle: TextDecorationStyle.double
                                     }),
-                                    overflow: TextOverflow.ellipsis,
-                                }),
+                                    overflow: TextOverflow.ellipsis
+                                })
                             }),
                             
                             new Expanded({
@@ -220,16 +220,16 @@ class JSEasyUIDemo extends MXJSWidget {
                                             decorationColor: Colors.orange(),
                                             decorationStyle: TextDecorationStyle.dashed,
                                         }),
-                                        text: '超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text',
+                                        text: '超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text，超长文案rich text'
                                     }),
                                     overflow: TextOverflow.ellipsis,
-                                    maxLines: 1,
-                                }),
+                                    maxLines: 1
+                                })
                             })
-                        ],
+                        ]
                     })
-                ],
-            }),
+                ]
+            })
         });
 
         return widget;
@@ -256,7 +256,7 @@ class JSEasyUIDemo extends MXJSWidget {
             Colors.deepOrange(),
             Colors.brown(),
             Colors.grey(),
-            Colors.blueGrey(),
+            Colors.blueGrey()
         ];
         
         let widget = new Container({
@@ -275,7 +275,7 @@ class JSEasyUIDemo extends MXJSWidget {
                                         
                                     })
                                 },
-                                iconSize: 24.0,
+                                iconSize: 24.0
                             }),
                             new IconButton({
                                 color: iconColors[this.iconColorIndex],
@@ -286,7 +286,7 @@ class JSEasyUIDemo extends MXJSWidget {
 
                                     })
                                 },
-                                iconSize: 36.0,
+                                iconSize: 36.0
                             }),
                             new IconButton({
                                 color: iconColors[this.iconColorIndex],
@@ -297,9 +297,9 @@ class JSEasyUIDemo extends MXJSWidget {
                                         
                                     })
                                 },
-                                iconSize: 48.0,
-                            }),
-                        ],
+                                iconSize: 48.0
+                            })
+                        ]
                     }),
                     new Row({
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -313,7 +313,7 @@ class JSEasyUIDemo extends MXJSWidget {
                                         
                                     })
                                 },
-                                iconSize: 24.0,
+                                iconSize: 24.0
                             }),
                             new IconButton({
                                 color: iconColors[this.iconColorIndex],
@@ -324,7 +324,7 @@ class JSEasyUIDemo extends MXJSWidget {
                                         
                                     })
                                 },
-                                iconSize: 36.0,
+                                iconSize: 36.0
                             }),
                             new IconButton({
                                 color: iconColors[this.iconColorIndex],
@@ -335,12 +335,12 @@ class JSEasyUIDemo extends MXJSWidget {
                                         
                                     })
                                 },
-                                iconSize: 48.0,
-                            }),
-                        ],
+                                iconSize: 48.0
+                            })
+                        ]
                     })
-                ],
-            }),
+                ]
+            })
         });
 
         return widget;
@@ -360,19 +360,19 @@ class JSEasyUIDemo extends MXJSWidget {
                                 MXJSLog.log('number onSubmitted');
                             },
                             decoration: new InputDecoration({
-                                labelText: 'placeholder',
+                                labelText: 'placeholder'
                             }),
                             onChanged: function(args) {
                                 MXJSLog.log('number onChanged');
                             }
-                        }),
+                        })
                     }),
                     new SizedBox({
-                        height: 24.0,
+                        height: 24.0
                     }),
                     new TextField({
                         controller: new TextEditingController({
-                            text: 'initial text',
+                            text: 'initial text'
                         }),
                         keyboardType: TextInputType.emailAddress(),
                         onSubmitted: function (args) {
@@ -381,9 +381,9 @@ class JSEasyUIDemo extends MXJSWidget {
                         onChanged: function(args) {
                             MXJSLog.log('email onChanged');
                         }
-                    }),
-                ],
-            }),
+                    })
+                ]
+            })
         });
 
         return widget;
@@ -403,16 +403,16 @@ class JSEasyUIDemo extends MXJSWidget {
                                 filled: true,
                                 icon: new Icon(new IconData(0xe0be, {fontFamily: 'MaterialIcons'})),
                                 hintText: 'Your email address',
-                                labelText: 'E-mail',
+                                labelText: 'E-mail'
                             }),
                             keyboardType: TextInputType.emailAddress(),
                             onFieldSubmitted: function (args) {
                                 MXJSLog.log('email onFieldSubmitted');
-                            },
-                        }),
+                            }
+                        })
                     }),
                     new SizedBox({
-                        height: 24.0,
+                        height: 24.0
                     }),
                     new Container({
                         padding: EdgeInsets.only({right: 15.0}),
@@ -423,16 +423,16 @@ class JSEasyUIDemo extends MXJSWidget {
                                 icon: new Icon(new IconData(0xe0cd, {fontFamily: 'MaterialIcons'})),
                                 hintText: 'Where can we reach you?',
                                 labelText: 'Phone Number *',
-                                prefixText: '+1',
+                                prefixText: '+1'
                             }),
                             keyboardType: TextInputType.phone(),
                             onFieldSubmitted: function (args) {
                                 MXJSLog.log('phone onFieldSubmitted');
-                            },
-                        }),
-                    }),
-                ],
-            }),
+                            }
+                        })
+                    })
+                ]
+            })
         });
 
         return widget;
@@ -475,10 +475,10 @@ class JSEasyUIDemo extends MXJSWidget {
                                     this.sliderDiscreteValue = value;
                                 });
                             }
-                        }),
-                    }),
-                ],
-            }),
+                        })
+                    })
+                ]
+            })
         });
 
         return widget;
@@ -499,7 +499,7 @@ class JSEasyUIDemo extends MXJSWidget {
                                     style: new TextStyle({
                                         fontSize: 20.0,
                                         color: Colors.indigo(),
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.bold
                                     })
                                 }),
                                 this._buildButtons(),
@@ -508,7 +508,7 @@ class JSEasyUIDemo extends MXJSWidget {
                                     style: new TextStyle({
                                         fontSize: 20.0,
                                         color: Colors.indigo(),
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.bold
                                     })
                                 }),
                                 this._buildTexts(),
@@ -519,9 +519,9 @@ class JSEasyUIDemo extends MXJSWidget {
                                         style: new TextStyle({
                                             fontSize: 20.0,
                                             color: Colors.indigo(),
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.bold
                                         })
-                                    }),
+                                    })
                                 }),
                                 this._buildIcons(),
         
@@ -531,9 +531,9 @@ class JSEasyUIDemo extends MXJSWidget {
                                         style: new TextStyle({
                                             fontSize: 20.0,
                                             color: Colors.indigo(),
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.bold
                                         })
-                                    }),
+                                    })
                                 }),
                                 this._buildTextFields(),
         
@@ -543,9 +543,9 @@ class JSEasyUIDemo extends MXJSWidget {
                                         style: new TextStyle({
                                             fontSize: 20.0,
                                             color: Colors.indigo(),
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.bold
                                         })
-                                    }),
+                                    })
                                 }),
                                 this._buildTextFormFields(),
 
@@ -555,14 +555,14 @@ class JSEasyUIDemo extends MXJSWidget {
                                         style: new TextStyle({
                                             fontSize: 20.0,
                                             color: Colors.indigo(),
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.bold
                                         })
-                                    }),
+                                    })
                                 }),
-                                this._buildSlider(),
+                                this._buildSlider()
                             ]
-                        }),
-                    }),
+                        })
+                    })
                 ]
             })
         });

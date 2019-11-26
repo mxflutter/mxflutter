@@ -54,7 +54,7 @@ let {
     IconButton,
     RaisedButton,
     BottomAppBar,
-    InputBorder,
+    InputBorder
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
@@ -71,9 +71,9 @@ class Common {
                                 this.navigatorPop();
                             },
                             icon: new Icon(new IconData(0xe5c4, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}),
-                            label: new Text(""),
+                            label: new Text("")
                         }),
-                        width: 60.0,
+                        width: 60.0
                     }),
                     new Expanded({
                         child: new TextField({
@@ -81,30 +81,30 @@ class Common {
                                 hintText: "搜索比乎内容",
                                 border: InputBorder.none,
                                 hintStyle: new TextStyle({color: GlobalConfig.fontColor})
-                            }),
-                        }),
+                            })
+                        })
                     }),
                     new Container({
                         child: new IconButton({icon: new Icon(new IconData(0xe80d, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}), 
                             onPressed: function(){}, 
                             padding: EdgeInsets.all(0.0),
                             iconSize: 18.0
-                        }),
+                        })
                     }),
                     new Container({
                         child: new IconButton({icon: new Icon(new IconData(0xe896, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}), 
                             onPressed: function(){}, 
                             padding: EdgeInsets.all(0.0), 
                             iconSize: 18.0
-                        }),
-                    }),
-                ],
+                        })
+                    })
+                ]
             }),
             decoration: new BoxDecoration({
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                color: GlobalConfig.searchBackgroundColor,
+                color: GlobalConfig.searchBackgroundColor
             }),
-            height: 36.0,
+            height: 36.0
         });
     }
 }
@@ -119,7 +119,7 @@ class ReplyPage extends MXJSWidget {
             // theme: GlobalConfig.themeData,
             home: new Scaffold({
                 appBar: new AppBar({
-                    title: Common.searchInput(context),
+                    title: Common.searchInput(context)
                 }),
                 body: new SingleChildScrollView({
                     child: new Column({
@@ -135,17 +135,17 @@ class ReplyPage extends MXJSWidget {
                                                 fontWeight: FontWeight.bold, 
                                                 fontSize: 18.0, 
                                                 height: 1.3, 
-                                                color: Colors.black(),
+                                                color: Colors.black()
                                             })
                                         }),
                                         padding: EdgeInsets.all(16.0),
-                                        alignment: Alignment.topLeft,
+                                        alignment: Alignment.topLeft
                                     }),
-                                    color: GlobalConfig.cardBackgroundColor,
+                                    color: GlobalConfig.cardBackgroundColor
                                 }),
                                 decoration: new BoxDecoration({
                                     border: new BorderDirectional({bottom: new BorderSide({color: Colors.white10()})})
-                                }),
+                                })
                             }),
                             new Container({
                                 child: new Row({
@@ -157,12 +157,12 @@ class ReplyPage extends MXJSWidget {
                                                     onPressed: function(){},
                                                     icon: new Icon(new IconData(0xe3ae, {fontFamily: 'MaterialIcons'})),
                                                     label: new Text("写回答"),
-                                                    textTheme: ButtonTextTheme.accent,
+                                                    textTheme: ButtonTextTheme.accent
                                                 }),
                                                 decoration: new BoxDecoration({
-                                                    border: new BorderDirectional({end: new BorderSide({color: Colors.white10()})}),
-                                                }),
-                                            }),
+                                                    border: new BorderDirectional({end: new BorderSide({color: Colors.white10()})})
+                                                })
+                                            })
                                         }),
                                         new Expanded({
                                             flex: 1,
@@ -171,16 +171,16 @@ class ReplyPage extends MXJSWidget {
                                                     onPressed: function(){
                                                         this.navigatorPush(new QuestionPage);
                                                     },
-                                                    child: new Text("查看全部10000个回答 > "),
-                                                }),
-                                            }),
+                                                    child: new Text("查看全部10000个回答 > ")
+                                                })
+                                            })
                                         })
                                     ],
                                 }),
                                 decoration: new BoxDecoration({
-                                  color: GlobalConfig.cardBackgroundColor,
+                                  color: GlobalConfig.cardBackgroundColor
                                 }),
-                                margin: EdgeInsets.only({bottom: 10.0}),
+                                margin: EdgeInsets.only({bottom: 10.0})
                             }),
                             new Container({
                                 child: new ListTile({
@@ -194,13 +194,13 @@ class ReplyPage extends MXJSWidget {
                                         onPressed: function(){}, 
                                         icon: new Icon(new IconData(0xe145, {fontFamily: 'MaterialIcons'}), {color: Colors.black()}), 
                                         label: new Text("关注", {style: new TextStyle({color: Colors.black()})}), 
-                                        color: Colors.blue(),
-                                    }),
+                                        color: Colors.blue()
+                                    })
                                 }),
                                 decoration: new BoxDecoration({
                                     color: GlobalConfig.cardBackgroundColor,
                                     border: new BorderDirectional({bottom: new BorderSide({color: Colors.black()})})
-                                }),
+                                })
                             }),
                             new Container({
                                 child: new Text(
@@ -210,12 +210,12 @@ class ReplyPage extends MXJSWidget {
                                         fontSize: 16.0,
                                         color: GlobalConfig.fontColor
                                     }), 
-                                    textAlign: TextAlign.start,
+                                    textAlign: TextAlign.start
                                 }),
-                                margin: EdgeInsets.all(16.0),
-                            }),
-                        ],
-                    }),
+                                margin: EdgeInsets.all(16.0)
+                            })
+                        ]
+                    })
                 }),
                 bottomNavigationBar: new BottomAppBar({
                     child: new Container({
@@ -230,7 +230,7 @@ class ReplyPage extends MXJSWidget {
                                         icon: new Icon(new IconData(0xe5c7, {fontFamily: 'MaterialIcons'}))
                                     }),
                                     margin: EdgeInsets.only({left: 16.0}),
-                                    height: 30.0,
+                                    height: 30.0
                                 }),
                                 new Container({
                                     child: new IconButton({
@@ -242,8 +242,8 @@ class ReplyPage extends MXJSWidget {
                                     height: 30.0,
                                     decoration: new BoxDecoration({
                                       borderRadius: BorderRadius.all(Radius.circular(2.0)),
-                                      color: GlobalConfig.searchBackgroundColor,
-                                    }),
+                                      color: GlobalConfig.searchBackgroundColor
+                                    })
                                 }),
                                 new Expanded({
                                     child: new Row({
@@ -256,18 +256,18 @@ class ReplyPage extends MXJSWidget {
                                                         children: [
                                                         new Icon(new IconData(0xe87d, {fontFamily: 'MaterialIcons'}), {
                                                             size: 18.0,
-                                                            color: GlobalConfig.fontColor,
+                                                            color: GlobalConfig.fontColor
                                                         }),
                                                         new Text("感谢", {
                                                             style: new TextStyle({
                                                                 fontSize: 10.0, 
                                                                 color: GlobalConfig.fontColor
-                                                            }),
+                                                            })
                                                         })
-                                                        ],
+                                                        ]
                                                     }),
                                                     margin: EdgeInsets.only(),
-                                                    height: 30.0,
+                                                    height: 30.0
                                                 })
                                             }),
                                             new IconButton({
@@ -277,18 +277,18 @@ class ReplyPage extends MXJSWidget {
                                                         children: [
                                                             new Icon(new IconData(0xe838, {fontFamily: 'MaterialIcons'}), {
                                                                 size: 18.0, 
-                                                                color: GlobalConfig.fontColor,
+                                                                color: GlobalConfig.fontColor
                                                             }),
                                                             new Text("收藏", {
                                                                 style: new TextStyle({
                                                                     fontSize: 10.0,
                                                                     color: GlobalConfig.fontColor
-                                                                }),
-                                                            }),
-                                                        ],
+                                                                })
+                                                            })
+                                                        ]
                                                     }),
                                                     margin: EdgeInsets.only(),
-                                                    height: 30.0,
+                                                    height: 30.0
                                                 })
                                             }),
                                             new IconButton({
@@ -298,29 +298,29 @@ class ReplyPage extends MXJSWidget {
                                                         children: [
                                                             new Icon(new IconData(0xe253, {fontFamily: 'MaterialIcons'}), {
                                                                 size: 18.0, 
-                                                                color: GlobalConfig.fontColor,
+                                                                color: GlobalConfig.fontColor
                                                             }),
                                                             new Text("345", {
                                                                 style: new TextStyle({
                                                                     fontSize: 10.0,
                                                                     color: GlobalConfig.fontColor
-                                                                }),
-                                                            }),
-                                                        ],
+                                                                })
+                                                            })
+                                                        ]
                                                     }),
                                                     margin: EdgeInsets.only(),
-                                                    height: 30.0,
+                                                    height: 30.0
                                                 })
-                                            }),
-                                        ],
+                                            })
+                                        ]
                                     })
                                 })
                             ]
                         }),
-                        color: GlobalConfig.cardBackgroundColor,
-                    }),
-                }),
-            }),
+                        color: GlobalConfig.cardBackgroundColor
+                    })
+                })
+            })
         })
         return widget;
     }

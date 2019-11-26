@@ -56,7 +56,7 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
     
     
     //JSFlutter JS运行库搜索路径
-    NSString *jsFlutterFrameworkDir = [JSFLUTTER_FRAMEWORK_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_FRAMEWORK_DIR];
+    NSString *jsFlutterFrameworkDir = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_FRAMEWORK_DIR];
     [self.jsEngine addSearchDir:jsFlutterFrameworkDir];
     
     //app业务代码搜索路径
@@ -78,7 +78,7 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
 {
     self.jsFlutterAppChannel = [FlutterMethodChannel
                          methodChannelWithName:@"js_flutter.js_flutter_app_channel"
-                         binaryMessenger:_jsFlutterEngine.flutterViewController];
+                         binaryMessenger:_jsFlutterEngine.flutterViewController.binaryMessenger];
     jsFlutterAppChannelStatic = self.jsFlutterAppChannel;
     
       __weak MXJSFlutterApp *weakSelf = self;

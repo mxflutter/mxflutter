@@ -1241,8 +1241,7 @@ class MXProxyListView extends MXJsonObjProxy {
       semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
       itemCount: mxj2d(bo, jsonMap["itemCount"]),
       itemBuilder: (BuildContext context, int index) {
-        List<Widget> children = mxj2d(bo, jsonMap["children"]);
-        return children[index];
+        return mxj2d(bo, jsonMap["children"][index]);
       },
     );
 
@@ -1287,12 +1286,10 @@ class MXProxyListView extends MXJsonObjProxy {
       cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
       itemCount: mxj2d(bo, jsonMap["itemCount"]),
       itemBuilder: (BuildContext context, int index) {
-        List<Widget> children = mxj2d(bo, jsonMap["children"]);
-        return children[index];
+        return mxj2d(bo, jsonMap["children"][index]);
       },
       separatorBuilder: (BuildContext context, int index) {
-        List<Widget> children = mxj2d(bo, jsonMap["children"]);
-        return children[index];
+        return mxj2d(bo, jsonMap["children"][index]);
       },
     );
 

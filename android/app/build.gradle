@@ -6,6 +6,13 @@ if (localPropertiesFile.exists()) {
     }
 }
 
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
@@ -29,6 +36,20 @@ android {
 
     lintOptions {
         disable 'InvalidPackage'
+    }
+
+    //不引入flutter使用的图片等资源
+    aaptOptions {
+        ignoreAssetsPattern "flutter_gallery_assets"
+    }
+
+    sourceSets{
+        main{
+            assets{
+                srcDirs 'src/main/assets'
+                srcDirs '../../js_flutter_src'
+            }
+        }
     }
 
     defaultConfig {
@@ -58,4 +79,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile(name:'j2v8-5.0.103', ext:'aar')
 }

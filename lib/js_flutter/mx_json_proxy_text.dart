@@ -919,7 +919,7 @@ class MXProxyTextField extends MXJsonObjProxy {
 			keyboardAppearance: MXBrightness.parse(mxj2d(bo, jsonMap["keyboardAppearance"])),
 			scrollPadding: mxj2d(bo, jsonMap["scrollPadding"], defaultValue:const EdgeInsets.all(20.0)),
 			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
-			enableInteractiveSelection: mxj2d(bo, jsonMap["enableInteractiveSelection"]),
+			enableInteractiveSelection: mxj2d(bo, jsonMap["enableInteractiveSelection"], defaultValue: true),
 			onTap: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onTap"])),
 			buildCounter: mxj2d(bo, jsonMap["buildCounter"]),
 		);

@@ -17,18 +17,16 @@
 //仅支持模拟器环境使用
 #if TARGET_IPHONE_SIMULATOR
 
-#define JSFLUTTER_FRAMEWORK_BASE_DIR ([NSString stringWithFormat:@"%@Runner/JSFlutter", PROJECT_DIR])
 #define JSFLUTTER_SRC_BASE_DIR ([PROJECT_DIR stringByDeletingLastPathComponent])
 
 #else
 
-#define JSFLUTTER_FRAMEWORK_BASE_DIR ([[NSBundle mainBundle] bundlePath])
 #define JSFLUTTER_SRC_BASE_DIR ([[NSBundle mainBundle] bundlePath])
 
 #endif
 
 
-#define JSFLUTTER_FRAMEWORK_DIR  @"JSFlutterJSFrameworkLib"
+#define JSFLUTTER_FRAMEWORK_DIR  @"js_flutter_src/js_framework_lib"
 #define JSFLUTTER_SRC_DIR  @"js_flutter_src"
 
 #define MXJSFlutterLog(fmt, ...) NSLog((@"MXJSFlutter:[Native]-" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);

@@ -41,7 +41,7 @@ let {
     DefaultTabController,
     TabBar,
     Tab,
-    TabBarView,
+    TabBarView
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
@@ -67,26 +67,26 @@ class HomePage extends MXJSWidget {
                             },
                             icon: new Icon(new IconData(0xe8b6, {fontFamily: 'MaterialIcons'}),{
                                 color: GlobalConfig.fontColor,
-                                size: 16.0,
+                                size: 16.0
                             }),
                             label: new Text("坚果R1摄像头损坏",{
                                 style: new TextStyle({
-                                    color: GlobalConfig.fontColor,
-                                }),
-                            }),
-                        }),
+                                    color: GlobalConfig.fontColor
+                                })
+                            })
+                        })
                     }),
                     new Container({
                         decoration: new BoxDecoration({
                             border: new BorderDirectional({
                                 start: new BorderSide({
                                     color: GlobalConfig.fontColor,
-                                    width: 1.0,
-                                },)
-                            }),
+                                    width: 1.0
+                                })
+                            })
                         }),
                         height: 14.0,
-                        width: 1.0,
+                        width: 1.0
                     }),
                     new Container({
                         child: FlatButton.icon({
@@ -95,21 +95,21 @@ class HomePage extends MXJSWidget {
                             },
                             icon: new Icon(new IconData(0xe22b, {fontFamily: 'MaterialIcons'}),{
                                 color: GlobalConfig.fontColor,
-                                size: 16.0,
+                                size: 16.0
                             }),
                             label: new Text("提问", {
                                 style: new TextStyle({
-                                    color: GlobalConfig.fontColor,
-                                }),
-                            }),
-                        }),
-                    }),
-                ],
+                                    color: GlobalConfig.fontColor
+                                })
+                            })
+                        })
+                    })
+                ]
             }),
             decoration: new BoxDecoration({
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                color: GlobalConfig.searchBackgroundColor,
-            }),
+                color: GlobalConfig.searchBackgroundColor
+            })
         })
     }
 
@@ -126,19 +126,19 @@ class HomePage extends MXJSWidget {
                       tabs: [
                         new Tab({text: "关注"}),
                         new Tab({text: "推荐"}),
-                        new Tab({text: "热榜"}),
-                      ],
+                        new Tab({text: "热榜"})
+                      ]
                     }),
-                    backgroundColor: Colors.white(),
+                    backgroundColor: Colors.white()
                 }),
                 body: new TabBarView({
                     children: [
                         new Follow(),
                         new Recommend(),
-                        new Hot(),
+                        new Hot()
                     ]
-                }),
-            }),
+                })
+            })
         });
         return widget;
     }

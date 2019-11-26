@@ -48,7 +48,7 @@ let {
   IconThemeData,
   Offset,
   BoxDecoration,
-  Border,
+  Border
 } = jsFlutterRequire("js_flutter_ui.js");
 
 class NavigationIconView {
@@ -57,7 +57,7 @@ class NavigationIconView {
         activeIcon,
         title,
         color,
-        vsync,
+        vsync
     } = {}) {
         this._icon = icon;
         this._title = title;
@@ -66,15 +66,15 @@ class NavigationIconView {
             icon: icon,
             activeIcon: activeIcon,
             title: new Text(title),
-            backgroundColor: color,
+            backgroundColor: color
         });
         this.controller = new AnimationController({
-            duration: new Duration({milliseconds: 200}),
+            duration: new Duration({milliseconds: 200})
             // vsync: vsync,
         });
         this._animation = this.controller.drive(new CurveTween({
             curve: new Interval(0.5, 1.0, {
-                curve: Curves.fastOutSlowIn,
+                curve: Curves.fastOutSlowIn
             })
         }));
     }
@@ -93,7 +93,7 @@ class NavigationIconView {
             child: new SlideTransition({
                 position: this._animation.drive(new Tween({
                     begin: new Offset(0.0, 0.2),
-                    end: new Offset(0.0, 0.0),  
+                    end: new Offset(0.0, 0.0)
                 })),
                 child: new IconTheme({
                     data: new IconThemeData({
@@ -118,7 +118,7 @@ class CustomIcon extends MXJSWidget {
             margin: EdgeInsets.all(4.0),
             width: iconThemeData.size - 8.0,
             height: iconThemeData.size - 8.0,
-            color: iconThemeData.color,
+            color: iconThemeData.color
         }); 
     }
 }
@@ -136,7 +136,7 @@ class CustomInactiveIcon extends MXJSWidget {
                     color: iconThemeData.color,
                     width: 2.0
                 })
-            }),
+            })
         }); 
     }
 }
@@ -219,36 +219,36 @@ class JSBottomNavigationDemo extends MXJSWidget {
             new NavigationIconView({
                 icon: new Icon(new IconData(0xe190, {fontFamily: 'MaterialIcons'})),
                 title: 'Alarm',
-                color: Colors.deepPurple(),
+                color: Colors.deepPurple()
                 // vsync: this,
             }),
             new NavigationIconView({
                 activeIcon: new CustomIcon(),
                 icon: new CustomInactiveIcon(),
                 title: 'Box',
-                color: Colors.deepOrange(),
+                color: Colors.deepOrange()
                 // vsync: this,
             }),
             new NavigationIconView({
                 activeIcon: new Icon(new IconData(0xe2bd, {fontFamily: 'MaterialIcons'})),
                 icon: new Icon(new IconData(0xe2c2, {fontFamily: 'MaterialIcons'})),
                 title: 'Cloud',
-                color: Colors.teal(),
+                color: Colors.teal()
                 // vsync: this,
             }),
             new NavigationIconView({
                 activeIcon: new Icon(new IconData(0xe87d, {fontFamily: 'MaterialIcons'})),
                 icon: new Icon(new IconData(0xe87e, {fontFamily: 'MaterialIcons'})),
                 title: 'Favorites',
-                color: Colors.indigo(),
+                color: Colors.indigo()
                 // vsync: this,
             }),
             new NavigationIconView({
                 icon: new Icon(new IconData(0xe614, {fontFamily: 'MaterialIcons'})),
                 title: 'Event',
-                color: Colors.pink(),
+                color: Colors.pink()
                 // vsync: this,
-            }),
+            })
         ];
         
         this._navigationViews[this._currentIndex].controller.value = 1.0;
@@ -276,7 +276,7 @@ class JSBottomNavigationDemo extends MXJSWidget {
             body: new Center({
                 child : this._buildTransitionsStack(context),
             }),
-            bottomNavigationBar: botNavBar,
+            bottomNavigationBar: botNavBar
         });
         return widget;
     }

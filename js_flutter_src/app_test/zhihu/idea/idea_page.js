@@ -26,7 +26,7 @@ let {
     Scaffold,
     AppBar,
     Text,
-    Center,
+    Center
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -42,13 +42,13 @@ class IdeaPage extends MXJSWidget {
             home: new Scaffold({
                 appBar: new AppBar({
                     title: new Center({
-                        child: new Text('想法'),
+                        child: new Text('想法')
                     })
                 }),
                 body: new Center({
                     child: new Text("努力开发中~")
-                }),
-            }),
+                })
+            })
             // theme: GlobalConfig.themeData
         });
         return widget;

@@ -23,7 +23,7 @@ let {
   MXJSFlutterApp,
   ThemeData,
   Color,
-  Colors,
+  Colors
 } = jsFlutterRequire("js_flutter_ui.js");
 
 class GlobalConfig {

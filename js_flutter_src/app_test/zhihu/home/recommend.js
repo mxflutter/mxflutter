@@ -42,7 +42,7 @@ let {
     Column,
     FontWeight,
     SingleChildScrollView,
-    Alignment,
+    Alignment
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -52,7 +52,7 @@ let {ReplyPage} = jsFlutterRequire("./zhihu/home/reply_page.js");
 
 class Recommend extends MXJSWidget {
     constructor(){
-        super("Recommend");
+        super("Recommend", {key: "Recommend"});
     }
 
     commonCard(article){
@@ -63,7 +63,7 @@ class Recommend extends MXJSWidget {
                 style: new TextStyle({
                     height: 1.3, 
                     color: GlobalConfig.fontColor
-                }),
+                })
             });
         } else {
             markWidget = new Row({
@@ -74,8 +74,8 @@ class Recommend extends MXJSWidget {
                             child: new Text(
                                 article.user + " :  " + article.mark,{
                                 style: new TextStyle({height: 1.3, color: GlobalConfig.fontColor})
-                            }),
-                        }),
+                            })
+                        })
                     }),
                     new Expanded({
                         flex: 1,
@@ -85,14 +85,14 @@ class Recommend extends MXJSWidget {
                                 foregroundDecoration:new BoxDecoration({
                                     image: new DecorationImage({
                                         image: new NetworkImage(article.imgUrl),
-                                        centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
+                                        centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)
                                     }),
-                                    borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                                }),
+                                    borderRadius: BorderRadius.all(Radius.circular(6.0))
+                                })
                             })
                         })
-                    }),
-                ],
+                    })
+                ]
             });
         }
         return new Container({
@@ -126,13 +126,13 @@ class Recommend extends MXJSWidget {
                                             })
                                     }),
                                     new Icon(new IconData(0xe260, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor})
-                                ],
+                                ]
                             }),
-                            padding: EdgeInsets.only({bottom: 10.0}),
-                        }),
-                    ],
-                }),
-            }),
+                            padding: EdgeInsets.only({bottom: 10.0})
+                        })
+                    ]
+                })
+            })
         });
     }
 
@@ -143,10 +143,10 @@ class Recommend extends MXJSWidget {
                 child: new Column({
                     children: [
                         this.commonCard(articleList[0]),
-                        this.commonCard(articleList[1]),
-                    ],
-                }),
-            }),
+                        this.commonCard(articleList[1])
+                    ]
+                })
+            })
         });
         return widget;
     }
