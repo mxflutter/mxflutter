@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  
   debugPaintSizeEnabled = false;
   test();
   //设置JSFlutter
