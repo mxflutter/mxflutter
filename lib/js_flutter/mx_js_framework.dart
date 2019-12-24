@@ -15,7 +15,7 @@ class MXJSFlutter {
   //单例代码
   static MXJSFlutter _instance;
 
-  static getInstance() {
+  static MXJSFlutter getInstance() {
     if (_instance == null) {
       _instance = MXJSFlutter._();
     }
@@ -79,7 +79,7 @@ class MXJSFlutter {
         currentApp.runJSApp(w);
       } catch (e) {
         MXJSLog.log("reloadApp error:$e");
-        throw(e);
+        rethrow;
       }
     } else {
       //runApp(MyApp());
