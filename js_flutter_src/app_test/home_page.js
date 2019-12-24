@@ -1,0 +1,231 @@
+let {
+    runApp,
+    MXJSFlutterApp,
+    MXJSStatefulWidget,
+    MXJSWidgetState,
+    Scaffold,
+    Container,
+    Color,
+    AppBar,
+    Text,
+    ListView,
+    ListTile,
+    Icon,
+    IconData,
+    EdgeInsets,
+    TextAlign,
+    Row,
+    Padding,
+    Theme
+} = require("js_flutter_ui.js");
+
+let {JSPestoPage} = require("./pesto.js");
+let {JSContactPage} = require("./contact.js");
+let {JSAnimationPage} = require("./animation.js");
+let {JSMaterialPage} = require("./material.js");
+let {JSZhiHuPage} = require("./zhihu/zhihu.js");
+
+main_ddc = require("./dart_js/main.ddc.js");
+flutter_demo_ddc = require("./dart_js/flutter_demo.ddc.js");
+contact_demo_ddc = require("./dart_js/contacts_demo.ddc.js");
+pesto_demo_ddc = require("./dart_js/pesto_demo.ddc.js");
+
+const packages__zhihu__home__home_page = require('packages/zhihu/home/home_page');
+const home_page = packages__zhihu__home__home_page.home__home_page;
+const packages__zhihu__idea__idea_page = require('packages/zhihu/idea/idea_page');
+const idea_page = packages__zhihu__idea__idea_page.idea__idea_page;
+const packages__zhihu__market__market_page = require('packages/zhihu/market/market_page');
+const market_page = packages__zhihu__market__market_page.market__market_page;
+const packages__zhihu__notice__notice_page = require('packages/zhihu/notice/notice_page');
+const notice_page = packages__zhihu__notice__notice_page.notice__notice_page;
+const packages__zhihu__my__my_page = require('packages/zhihu/my/my_page');
+const my_page = packages__zhihu__my__my_page.my__my_page;
+const packages__zhihu__index = require('packages/zhihu/index/index');
+const index_page = packages__zhihu__index.index__index;
+
+//flutter_gallery
+const packages__flutter_gallery__gallery__app = require('packages/flutter_gallery/gallery/app');
+const flutter_gallery_app = packages__flutter_gallery__gallery__app.gallery__app;
+
+//业务代码
+class JSWidgetHomePage extends MXJSStatefulWidget {
+    constructor() {
+        super("JSWidgetHomePage");
+
+        this.data = "biz data";
+        this.count = 0;
+    }
+
+    createState() {
+        return new JSWidgetHomePageState(this);
+    }
+}
+
+class JSWidgetHomePageState extends MXJSWidgetState {
+
+    build(context) {
+
+        let demoList = new ListView({
+
+            children: [
+                new Padding({ padding: EdgeInsets.all(1.0) }),
+                this.sectionTitle(context, "App Demo"),
+                new ListTile({
+                    leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
+                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    title: new Text('ZhiHu'),
+                    subtitle: new Text('ZhiHu high copy'),
+                    onTap:function () {
+                        this.navigatorPush(new JSZhiHuPage);
+                    }
+                }),
+
+                new ListTile({
+                    leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
+                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    title: new Text('Pesto'),
+                    subtitle: new Text('Simple recipe browser'),
+                    onTap:function () {
+                        this.navigatorPush(new JSPestoPage);
+                    }
+                }),
+    
+                new ListTile({
+                    leading:new Icon(new IconData(0xe06d,{fontFamily:'MaterialIcons'})),
+                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    title: new Text('Shrine'),
+                    subtitle: new Text('Basic shopping app'),
+                    onTap: function () {
+                        this.navigatorPush(new JSPestoPage);
+                    }
+                }),
+                new ListTile({
+                    leading:new Icon(new IconData(0xe0d0,{fontFamily:'MaterialIcons'}),{color:Theme.of(context).primaryColor}),
+                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    title: new Text('Contact profile'),
+                    subtitle: new Text('Address book entry with a flexible appbar'),
+                    onTap: function () {
+                        this.navigatorPush(new JSContactPage);
+                    }
+                }),
+                new ListTile({
+                    leading:new Icon(new IconData(0xe06d,{fontFamily:'MaterialIcons'})),
+                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    title: new Text('Animation'),
+                    subtitle: new Text('Section organizer'),
+                    onTap: function () {
+                        this.navigatorPush(new JSAnimationPage);
+                    }
+                }),
+                // this.sectionTitle(context, "JSWidget Demo"),
+
+                // new ListTile({
+                //     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                //     title: new Text('Material'),
+                //     subtitle: new Text('Material UI Demo'),
+                //     onTap: function () {
+                //         this.navigatorPush(new JSMaterialPage);
+                //     }
+                // }), 
+
+                // this.sectionTitle(context, "More Material"),
+                // new ListTile({
+                //     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                //     title: new Text('More Material'),
+                //     subtitle: new Text('More Material UI Demo'),
+                //     onTap: function () {
+                //         this.navigatorPush(new JSPestoPage);
+                //     }
+                // }),
+                       
+                this.sectionTitle(context, "Dart2js"),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Dart2js样例'),
+                    subtitle: new Text('简单样例'),
+                    onTap: function () {
+                        main_ddc.main.main();
+                    }
+                }),
+               new ListTile({
+                   leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                   trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                   title: new Text('FlutterDemo'),
+                   subtitle: new Text('简单样例'),
+                   onTap: function () {
+                       this.navigatorPush(new flutter_demo_ddc.main.MyHomePage.new);
+                   }
+               }),
+               new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('ContactDemo'),
+                    subtitle: new Text('联系人'),
+                    onTap: function () {
+                        this.navigatorPush(new contact_demo_ddc.contacts_demo.ContactsDemo.new);
+                    }
+                }),
+               new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('PestoDemo'),
+                    subtitle: new Text('菜谱'),
+                    onTap: function () {
+                        this.navigatorPush(new pesto_demo_ddc.pesto_demo.PestoDemo.new);
+                    }
+                }),
+               new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('ZhiHu'),
+                    subtitle: new Text('知乎-高仿版'),
+                    onTap: function () {
+                        this.navigatorPush(new index_page.Index.new);
+                    }
+                }),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Flutter Gallery'),
+                    subtitle: new Text('Flutter Gallery'),
+                    onTap: function () {
+                        this.navigatorPush(new flutter_gallery_app.GalleryApp.new);
+                    }
+                }),
+            ]
+        });
+
+        let w = new Scaffold({
+            appBar: new AppBar({
+                title: new Text("JSFlutter UI Demo")
+            }),
+            body: demoList
+        });
+
+
+        return w;
+    }
+
+    sectionTitle(context, title){
+        let t = new Container({
+            padding: EdgeInsets.all(5.0),
+            color: Theme.of(context).primaryColor,
+            child: new Row({
+                children: [
+                    new Icon(new IconData(0xe80e), { size: 16.1, color: new Color(0xFFFFFFFF) }),
+                    new Padding({ padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0) }),
+                    new Text(title, { textAlign: TextAlign.start })]
+            })
+        });
+
+        return t;
+
+    }
+
+
+}
+
+module.exports = { JSWidgetHomePage };
