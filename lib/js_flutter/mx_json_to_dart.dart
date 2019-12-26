@@ -87,7 +87,7 @@ class MXJsonObjToDartObject {
           "MXJsonObjToDartObject:jsonObjToDartObject error:$e ;decode:class $className, jsonObj:$jsonObj ");
 
           //打印日志重新抛出
-          throw e;
+          rethrow;
     }
   }
 

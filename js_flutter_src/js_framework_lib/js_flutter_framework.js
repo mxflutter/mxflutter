@@ -735,6 +735,8 @@ class MXJSWidgetHelper {
   }
 
   updatePushingWidgetsData(jsWidget) {
+
+    //那种根节点不是statewidget的页面 比如Theme
     var newJSWidget;
     if (jsWidget.className != "MXJSStatefulWidget" && jsWidget.className != "MXJSStatelessWidget") {
       // 特殊处理，用MXJSStatelessWidget包裹一层
