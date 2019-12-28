@@ -10,12 +10,9 @@
 #import "MXJSFlutterViewController.h"
 #import "MXJSFlutter.h"
 
-static FlutterMethodChannel* jsFlutterAppChannelStatic;
-static MXJSFlutterEngine* jsFlutterEngineStatic;
-
 @interface MXJSFlutterApp ()
 
-@property (nonatomic,strong)  FlutterMethodChannel* jsFlutterAppChannel;
+@property (nonatomic, strong)  FlutterMethodChannel* jsFlutterAppChannel;
 
 @end
 
@@ -27,17 +24,16 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
     {
         self.appName = appName;
         self.jsFlutterEngine = jsFlutterEngine;
-        jsFlutterEngineStatic = jsFlutterEngine;
         self.appRootPath = appRootPath;
         
         [self setupChannel];
         [self setupJSEngine];
-        
     }
     return self;
 }
 
-- (void)dealloc{
+- (void)dealloc
+{
     MXJSFlutterLog(@"appName%@",self.appName);
 }
 
@@ -46,6 +42,8 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
     [self unsetup];
     
     self.jsEngine = [[MXJSEngine alloc] init];
+    self.jsEngine.flutterEngine = self.jsFlutterEngine.flutterEngine;
+    self.jsEngine.jsFlutterEngine = self.jsFlutterEngine;
     
     //调试时，指向本地路径，可以热重载
     NSString *jsBasePath = @"";
@@ -53,7 +51,6 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
     if (jsBasePath.length == 0) {
         jsBasePath = [[NSBundle mainBundle] bundlePath];
     }
-    
     
     //JSFlutter JS运行库搜索路径
     NSString *jsFlutterFrameworkDir = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_FRAMEWORK_DIR];
@@ -74,10 +71,10 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
     [self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
         
     }];
-    
 }
 
-- (void)unsetup{
+- (void)unsetup
+{
 
 }
 
@@ -86,14 +83,12 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
     self.jsFlutterAppChannel = [FlutterMethodChannel
                          methodChannelWithName:@"js_flutter.js_flutter_app_channel"
                          binaryMessenger:_jsFlutterEngine.flutterViewController.binaryMessenger];
-    jsFlutterAppChannelStatic = self.jsFlutterAppChannel;
     
-      __weak MXJSFlutterApp *weakSelf = self;
+    __weak MXJSFlutterApp *weakSelf = self;
     
     [self.jsFlutterAppChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull flutterResult) {
         
         MXJSFlutterApp *strongSelf = weakSelf;
-        
         if (!strongSelf) {
             return;
         }
@@ -118,12 +113,9 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
 //加载main.js 调用main函数
 - (void)runAppWithPageName:(NSString*)pageName
 {
-    
     __weak MXJSFlutterApp *weakSelf = self;
     [self.jsExecutor executeMXJSBlockOnJSThread:^(MXJSExecutor *executor) {
-        
         MXJSFlutterApp *strongSelf = weakSelf;
-        
         if (!strongSelf) {
             return;
         }
@@ -141,8 +133,6 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
             //
             //            NSLog(@"MXJSFlutter : call main error:%@",error);
             //        }];
-            
-        
         }];
         
     }];
@@ -153,7 +143,6 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
     self.jsAppObj = nil;
     self.jsEngine = nil;
 }
-
 
 - (MXJSExecutor*)jsExecutor
 {
@@ -166,9 +155,7 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
 - (void)jsAPISetCurrentJSApp:(JSValue*)jsAppObj
 {
     self.jsAppObj = jsAppObj;
-    
 }
-
 
   - (void)jsAPICallFlutterReloadApp:(JSValue*)jsAppObj  widgetData:(NSString*)data
 {
@@ -176,8 +163,6 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
     
     [self.jsFlutterEngine.flutterViewController callFlutterReloadAppWithJSWidgetData:data];
 }
-
-
 
 - (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments
 {

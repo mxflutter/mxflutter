@@ -1,6 +1,7 @@
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:convert';
 
 import 'mx_build_owner.dart';
 import 'mx_js_flutter_common.dart';
@@ -51,6 +52,9 @@ class MXJSFlutter {
     });
 
     _jsFlutterMainChannelFunRegMap["reloadApp"] = reloadApp;
+    //------mxflutterBridge------
+    _jsFlutterMainChannelFunRegMap["mxflutterBridgeMethodChannelInvoke"] = mxflutterBridgeMethodChannelInvoke;
+    //------mxflutterBridge------
   }
 
   //flutter -> js
@@ -64,6 +68,20 @@ class MXJSFlutter {
 
     //暂时只支持一个
     currentApp = MXJSFlutterApp(jsAppName);
+  }
+
+  Future<dynamic> mxflutterBridgeMethodChannelInvoke(args) async {
+    var channelName = args["channelName"];
+    var methodName = args["methodName"];
+    var params = args["params"];
+
+    var flutterChannel = MethodChannel(channelName);
+
+    try {
+      dynamic result = await flutterChannel.invokeMethod(methodName, params);
+      return result;
+    } on PlatformException {
+    }
   }
 
   //js->flutter 显示js页面

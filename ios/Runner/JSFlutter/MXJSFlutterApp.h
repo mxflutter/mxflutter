@@ -33,21 +33,21 @@ JSExportAs(callFlutterWidgetChannel,
 @interface MXJSFlutterApp : NSObject <MXJSFlutterAppJSExport>
 
 //唯一标示
-@property (nonatomic,strong) NSString *appName;
-@property (nonatomic,strong) NSString *appRootPath;
-@property (nonatomic,strong) NSString *mainJSPath;
+@property (nonatomic, strong) NSString *appName;
+@property (nonatomic, strong) NSString *appRootPath;
+@property (nonatomic, strong) NSString *mainJSPath;
 
-@property (nonatomic,strong,nullable) MXJSEngine *jsEngine;
-@property (nonatomic,strong) JSValue *jsAppObj;
+@property (nonatomic, strong, nullable) MXJSEngine *jsEngine;
+@property (nonatomic, strong) JSValue * _Nullable jsAppObj;
 
-@property (nonatomic,weak) MXJSFlutterEngine *jsFlutterEngine;
+@property (nonatomic, weak) MXJSFlutterEngine * _Nullable jsFlutterEngine;
 
-- (instancetype)initWithAppName:(NSString*)AppName engine:(MXJSFlutterEngine*)jsFlutterEngine appRootPath:(NSString*)appRootPath;
+- (instancetype)initWithAppName:(NSString*)AppName engine:(MXJSFlutterEngine*)jsFlutterEngine appRootPath:(NSString* _Nullable)appRootPath;
 
 - (void)runApp;
-- (void)runAppWithPageName:(NSString*)PageName;
+- (void)runAppWithPageName:(NSString* _Nullable)PageName;
 
--(void)exitApp;
+- (void)exitApp;
 
 
 @end

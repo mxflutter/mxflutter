@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "MXJSExecutor.h"
 
+@class FlutterEngine;
+@class MXJSFlutterEngine;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /*
@@ -18,7 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MXJSEngine : NSObject
 
-@property(nonatomic,strong) MXJSExecutor *jsExecutor;
+@property (nonatomic, weak) FlutterEngine* flutterEngine;
+@property (nonatomic, weak) MXJSFlutterEngine *jsFlutterEngine;
+
+@property (nonatomic, strong) MXJSExecutor *jsExecutor;
 
 - (instancetype)init;
 

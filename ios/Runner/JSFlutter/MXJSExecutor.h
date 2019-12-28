@@ -11,7 +11,7 @@
 
 @class MXJSExecutor;
 
-typedef void (^MXJSCompleteBlock)(NSError *error);
+typedef void (^MXJSCompleteBlock)(NSError * _Nullable error);
 typedef void (^MXJSCallback)(id result, NSError *error);
 typedef void (^MXJSValueCallback)(JSValue *result, NSError *error);
 typedef void (^MXJSDispatchBlock)(MXJSExecutor *jsExecutor);

@@ -8,7 +8,10 @@
 
 #import "MXJSEngine.h"
 #import "MXJSFlutter.h"
+#import "MXJSFlutterEngine.h"
 #import "JSModule.h"
+#include "MXJSFlutterViewController.h"
+#import <Flutter/Flutter.h>
 
 @interface MXJSEngine()
 
@@ -43,7 +46,7 @@
     
     __weak MXJSEngine *weakSelf = self;
     [self.jsExecutor executeMXJSBlockOnJSThread:^(MXJSExecutor *executor) {
-        setupBasicJSRuntime(weakSelf,executor.jsContext);
+        [self setupBasicJSRuntime:weakSelf context:executor.jsContext];
     }];
 }
 
@@ -56,7 +59,7 @@
     [self.searchDirArray addObject:dir];
 }
 
-static void setupBasicJSRuntime(MXJSEngine* jsEngine,  JSContext* context)
+- (void)setupBasicJSRuntime:(MXJSEngine* )jsEngine context:(JSContext* )context
 {
     __weak MXJSEngine *weakSelf = jsEngine;
     
@@ -117,6 +120,25 @@ static void setupBasicJSRuntime(MXJSEngine* jsEngine,  JSContext* context)
         });
     };
     //------Dart2Js支持------
+    
+    //------Flutter Bridge------
+    
+    /**
+    * @param channelName 通道名
+    * @param methodName 方法名
+    * @param params 参数
+    * @param function 回调
+    */
+    context[@"mx_jsbridge_MethodChannel_invokeMethod"] = ^(NSString* channelName, NSString* methodName, JSValue* params, JSValue* function) {
+        [self.jsFlutterEngine.flutterViewController callFlutterMethodChannelInvoke:channelName methodName:methodName params:[params toDictionary] callback:^(id  _Nullable result) {
+            if (result) {
+                [function callWithArguments:@[result]];
+            } else {
+                [function callWithArguments:@[]];
+            }
+        }];
+    };
+    //------Flutter Bridge------
 }
 
 @end

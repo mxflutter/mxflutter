@@ -28,26 +28,23 @@
     {
         _flutterEngineIsDidRender = NO;
         _jsAppName = jsAppName;
+        
         [self setup];
     }
     return self;
 }
 
-
-
 - (instancetype)initWithEngine:(MXJSFlutterEngine*)jsFlutterEngine jsAppName:(NSString*)jsAppName
 {
-    self  = [super init];
+    self = [super init];
     if (self) {
-        
         _jsFlutterEngine = jsFlutterEngine;
-         _jsAppName = jsAppName;
+        _jsAppName = jsAppName;
         
         [self setup];
     }
     
     return self;
-    
 }
 
 - (void)setup
@@ -70,28 +67,35 @@
         NSString *rootDir = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_SRC_DIR];
         _jsFlutterEngine = [[MXJSFlutterEngine alloc] initRootPath:rootDir];
         _jsFlutterEngine.flutterViewController = self;
+        _jsFlutterEngine.flutterEngine = self.engine;
     }
-    
 }
 
 - (void)setupChannel
 {
     self.basicChannel = [FlutterMethodChannel
                          methodChannelWithName:@"js_flutter.flutter_main_channel"
-                         binaryMessenger:self];
+                         binaryMessenger:self.engine.binaryMessenger];
     
     __weak MXJSFlutterViewController *weakSelf = self;
-    
     [self.basicChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
-        
         MXJSFlutterViewController *strongSelf = weakSelf;
-        
         if (!strongSelf) {
             return;
         }
         
         if ([call.method isEqualToString:@"callNativeRunJSApp"]) {
             [strongSelf callNativeRunJSApp:call.arguments];
+        }
+    }];
+    
+    //Test
+    FlutterMethodChannel* batteryChannel = [FlutterMethodChannel methodChannelWithName:@"samples.flutter.io/battery" binaryMessenger:self.engine.binaryMessenger];
+    [batteryChannel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
+        if ([call.method isEqualToString:@"getPlatformVersion"]) {
+            result(@"samples.flutter.io/battery test string");
+        } else {
+            result(@(404));
         }
     }];
 }
@@ -109,13 +113,12 @@
 - (void)runJSApp:(NSString*)appName
 {
     [self.jsFlutterEngine runApp:appName pageName:nil];
-    
 }
 
 //MARK: - flutter -> Native
 //由Flutter 代码启动JSApp。 可以用在先显示Dart页面，然后路由调转到JS页面
 //启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
--(void)callNativeRunJSApp:(id)arguments
+- (void)callNativeRunJSApp:(id)arguments
 {
     NSDictionary *argsMap = arguments;
     NSString *jsAppName = argsMap[@"jsAppName"];
@@ -149,6 +152,23 @@
     
     [self.basicChannel invokeMethod:call.method arguments:call.arguments];
 }
+
+- (void)callFlutterMethodChannelInvoke:(NSString*)channelName methodName:(NSString*)methodName params:(NSDictionary *)params callback:(void(^)(id _Nullable result))callback
+{
+    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke" arguments:@{@"channelName":channelName,@"methodName":methodName,@"params":params}];
+    if (!_flutterEngineIsDidRender) {
+        [self.callFlutterQueue addObject:call];
+        return;
+    }
+    
+    [self.basicChannel invokeMethod:call.method arguments:call.arguments result:^(id  _Nullable result) {
+        if (callback) {
+            callback(result);
+        }
+    }];
+}
+
+
 
 @end
 
