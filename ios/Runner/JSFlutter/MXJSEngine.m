@@ -15,8 +15,9 @@
 
 @interface MXJSEngine()
 
-@property (nonatomic,strong) JSModule *moduleLoader;
-@property (nonatomic,strong) NSMutableArray *searchDirArray;
+@property (nonatomic, strong) JSModule *moduleLoader;
+@property (nonatomic, strong) NSMutableArray *searchDirArray;
+@property (nonatomic, strong) NSMutableDictionary *jsCallbackCache;
 
 @end
 
@@ -29,7 +30,8 @@
     {
         self.searchDirArray = [NSMutableArray array];
         self.moduleLoader = [[JSModule alloc] init];
-
+        self.jsCallbackCache = [NSMutableDictionary dictionary];
+        
         [self setup];
     }
     return self;
@@ -138,7 +140,52 @@
             }
         }];
     };
+    
+    /**
+    * @param channelName 通道名
+    * @param streamParam receiveBroadcastStream参数
+    * @param onData 回调
+    * @param onError 回调
+    * @param onDone 回调
+    * @param cancelOnError 回调
+    */
+    context[@"mx_jsbridge_EventChannel_receiveBroadcastStream_listen"] = ^(NSString* channelName,
+                                                                           NSString* streamParam,
+                                                                           JSValue* onData,
+                                                                           JSValue* onError,
+                                                                           JSValue* onDone,
+                                                                           NSNumber* cancelOnError) {
+        NSString *onDataId = [self storeJsCallBack:onData];
+        NSString *onErrorId = [self storeJsCallBack:onError];
+        NSString *onDoneId = [self storeJsCallBack:onDone];
+
+        [self.jsFlutterEngine.flutterViewController callFlutterEventChannelReceiveBroadcastStreamListenInvoke:channelName streamParam:streamParam onDataId:onDataId onErrorId:onErrorId onDoneId:onDoneId cancelOnError:cancelOnError];
+    };
     //------Flutter Bridge------
+}
+
+- (NSString *)storeJsCallBack:(JSValue *)function {
+    NSString *callbackId = [NSString stringWithFormat:@"jsCallback_%ld", self.jsCallbackCache.count];
+    [self.jsCallbackCache setValue:function forKey:callbackId];
+    return callbackId;
+}
+
+- (JSValue *)getJsCallBackWithCallbackId:(NSString *)callbackId {
+    if (callbackId.length <= 0) {
+        return nil;
+    }
+    return [self.jsCallbackCache objectForKey:callbackId];
+}
+
+- (void)callJSCallbackFunction:(NSString *)callbackId param:(id)param {
+    JSValue *callback = [self getJsCallBackWithCallbackId:callbackId];
+    if (callback) {
+        if (param) {
+            [callback callWithArguments:@[param]];
+        } else {
+            [callback callWithArguments:@[]];
+        }
+    }
 }
 
 @end

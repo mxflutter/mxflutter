@@ -9,6 +9,7 @@
 #import "MXJSFlutterApp.h"
 #import "MXJSFlutterViewController.h"
 #import "MXJSFlutter.h"
+#import "MXJSEngine.h"
 
 @interface MXJSFlutterApp ()
 
@@ -44,7 +45,8 @@
     self.jsEngine = [[MXJSEngine alloc] init];
     self.jsEngine.flutterEngine = self.jsFlutterEngine.flutterEngine;
     self.jsEngine.jsFlutterEngine = self.jsFlutterEngine;
-    
+    self.jsEngine.jsFlutterEngine.jsEngine = self.jsEngine;
+
     //调试时，指向本地路径，可以热重载
     NSString *jsBasePath = @"";
     

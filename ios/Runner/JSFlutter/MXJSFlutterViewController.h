@@ -39,6 +39,12 @@
                              methodName:(NSString*)methodName
                                  params:(NSDictionary *)params
                                callback:(void(^)(id _Nullable result))callback;
+- (void)callFlutterEventChannelReceiveBroadcastStreamListenInvoke:(NSString * _Nonnull)channelName
+                                                      streamParam:(NSString * _Nullable)streamParam
+                                                         onDataId:(NSString * _Nullable)onDataId
+                                                        onErrorId:(NSString * _Nullable)onErrorId
+                                                         onDoneId:(NSString * _Nullable)onDoneId
+                                                    cancelOnError:(NSNumber * _Nullable)cancelOnError;
 @end
 
 

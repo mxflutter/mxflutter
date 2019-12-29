@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MXJSEngine.h"
 
 @class MXJSFlutterViewController;
 @class FlutterEngine;
+@class MXJSEngine;
 
 NS_ASSUME_NONNULL_BEGIN
 /*
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) MXJSFlutterViewController* flutterViewController;
 
 @property (nonatomic, weak) FlutterEngine* flutterEngine;
+@property (nonatomic, weak) MXJSEngine* jsEngine;
 
 - (instancetype)initRootPath:(NSString *)appRootPath;
 - (void)runApp:(NSString*)appName pageName:(NSString*)pageName;

@@ -9,13 +9,14 @@
 #import "MXJSFlutterViewController.h"
 #import "MXJSFlutterEngine.h"
 #import "MXJSFlutter.h"
+#import "MXJSEngine.h"
 
 @interface MXJSFlutterViewController ()
 {
     BOOL _flutterEngineIsDidRender;
 }
 
-@property (nonatomic,strong)  FlutterMethodChannel* basicChannel;
+@property (nonatomic,strong) FlutterMethodChannel* basicChannel;
 @property (nonatomic,strong) NSMutableArray<FlutterMethodCall*> *callFlutterQueue;
 
 @end
@@ -86,6 +87,8 @@
         
         if ([call.method isEqualToString:@"callNativeRunJSApp"]) {
             [strongSelf callNativeRunJSApp:call.arguments];
+        } else if ([call.method isEqualToString:@"callJsCallbackFunction"]) {
+            [strongSelf callJsCallBackFunction:call.arguments];
         }
     }];
     
@@ -125,6 +128,15 @@
     NSString *pageName = argsMap[@"pageName"];
     
     [self.jsFlutterEngine runApp:jsAppName pageName:pageName];
+}
+
+- (void)callJsCallBackFunction:(id)arguments
+{
+    NSDictionary *argsMap = arguments;
+    NSString *callbackId = argsMap[@"callbackId"];
+    NSString *param = argsMap[@"param"];
+    
+    [self.jsFlutterEngine.jsEngine callJSCallbackFunction:callbackId param:param];
 }
 
 //MARK: - native -> flutter
@@ -168,7 +180,31 @@
     }];
 }
 
-
+- (void)callFlutterEventChannelReceiveBroadcastStreamListenInvoke:(NSString*)channelName
+                                                      streamParam:(NSString *)streamParam
+                                                         onDataId:(NSString *)onDataId
+                                                        onErrorId:(NSString *)onErrorId
+                                                         onDoneId:(NSString *)onDoneId
+                                                    cancelOnError:(NSNumber *)cancelOnError
+                            
+{
+    if ([streamParam isEqualToString:@"null"]) {
+        streamParam = nil;
+    }
+    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"
+                                                                arguments:@{@"channelName":channelName,
+                                                                            @"streamParam":streamParam?:@"",
+                                                                               @"onDataId":onDataId?:@"",
+                                                                              @"onErrorId":onErrorId?:@"",
+                                                                               @"onDoneId":onDoneId?:@"",
+                                                                        @"cancelOnError":cancelOnError}];
+    if (!_flutterEngineIsDidRender) {
+        [self.callFlutterQueue addObject:call];
+        return;
+    }
+    
+    [self.basicChannel invokeMethod:call.method arguments:call.arguments];
+}
 
 @end
 

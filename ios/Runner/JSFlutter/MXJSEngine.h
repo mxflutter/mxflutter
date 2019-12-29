@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addSearchDir:(NSString*)dir;
 
+- (void)callJSCallbackFunction:(NSString *)callbackId param:(id)param;
 
 @end
 

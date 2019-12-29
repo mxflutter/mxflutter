@@ -54,6 +54,7 @@ class MXJSFlutter {
     _jsFlutterMainChannelFunRegMap["reloadApp"] = reloadApp;
     //------mxflutterBridge------
     _jsFlutterMainChannelFunRegMap["mxflutterBridgeMethodChannelInvoke"] = mxflutterBridgeMethodChannelInvoke;
+    _jsFlutterMainChannelFunRegMap["mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"] = mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke;
     //------mxflutterBridge------
   }
 
@@ -70,6 +71,11 @@ class MXJSFlutter {
     currentApp = MXJSFlutterApp(jsAppName);
   }
 
+  callJsCallbackFunction(String callbackId, param) {
+    var args = {"callbackId": callbackId, "param": param};
+    _jsFlutterMainChannel.invokeMethod("callJsCallbackFunction", args);
+  }
+
   Future<dynamic> mxflutterBridgeMethodChannelInvoke(args) async {
     var channelName = args["channelName"];
     var methodName = args["methodName"];
@@ -81,6 +87,34 @@ class MXJSFlutter {
       dynamic result = await flutterChannel.invokeMethod(methodName, params);
       return result;
     } on PlatformException {
+    }
+  }
+
+  Future<dynamic> mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke(args) async {
+    var channelName = args["channelName"];
+    var streamParam = args["streamParam"];
+    var onDataId = args["onDataId"];
+    var onErrorId = args["onErrorId"];
+    var onDoneId = args["onDoneId"];
+    var cancelOnError = args["cancelOnError"];
+
+    void onData(Object event) {
+      callJsCallbackFunction(onDataId, event);
+    }
+
+    void onError(Object event) {
+      callJsCallbackFunction(onErrorId, event);
+    }
+
+    void onDone() {
+      callJsCallbackFunction(onDoneId, {});
+    }
+
+    var flutterEventChannel = EventChannel(channelName);
+    if (streamParam == "") {
+      flutterEventChannel.receiveBroadcastStream().listen(onData, onError: onError, onDone: onDone, cancelOnError: cancelOnError);    
+    } else {
+      flutterEventChannel.receiveBroadcastStream(streamParam).listen(onData, onError: onError, onDone: onDone, cancelOnError: cancelOnError);    
     }
   }
 
