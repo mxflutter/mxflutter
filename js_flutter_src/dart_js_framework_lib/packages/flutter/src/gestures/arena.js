@@ -37,6 +37,7 @@ const typed_data = dart_sdk.typed_data;
 
 const platform_channel = Object.create(dart.library);
 
+const name$ = dart.privateName(platform_channel, "MethodChannel.name");
 platform_channel.MethodChannel = class MethodChannel extends core.Object {
   get name() {
     return this[name$];
@@ -71,7 +72,7 @@ platform_channel.MethodChannel = class MethodChannel extends core.Object {
           return completer.future;
         }
 
-        let result = yield mxflutter_MethodChannel_invokeMethod(this.name["name"]);
+        let result = yield mxflutter_MethodChannel_invokeMethod(this.name);
         if (result == null) {
           dart.throw(
             new message_codec.MissingPluginException.new(
@@ -88,7 +89,7 @@ platform_channel.MethodChannel = class MethodChannel extends core.Object {
     );
   }
 };
-(platform_channel.MethodChannel.new = function(name) {
+(platform_channel.MethodChannel.new = function(name, codec = null, binaryMessenger = null) {
   this[name$] = name;
   if (!(name != null))
     dart.assertFailed(
@@ -99,10 +100,41 @@ platform_channel.MethodChannel = class MethodChannel extends core.Object {
       "name != null"
     );
 }).prototype = platform_channel.MethodChannel.prototype;
-const MethodChannel_name = dart.privateName(
-  platform_channel,
-  "MethodChannel.name"
-);
-const name$ = MethodChannel_name;
+
+const name$0 = dart.privateName(platform_channel, "EventChannel.name");
+
+class FakeStreamController {
+  constructor(channelName, streamParam) {
+    this.channelName = channelName;
+    this.streamParam = streamParam;
+  }
+
+  listen(onData, opts) {
+    let onError = opts && 'onError' in opts ? opts.onError : null;
+    let onDone = opts && 'onDone' in opts ? opts.onDone : null;
+    let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
+    cancelOnError = true === cancelOnError;
+    mx_jsbridge_EventChannel_receiveBroadcastStream_listen(this.channelName, this.streamParam, onData, onError, onDone, cancelOnError);
+  }
+};
+
+platform_channel.EventChannel = class EventChannel extends core.Object {
+  get name() {
+    return this[name$0];
+  }
+  set name(value) {
+    super.name = value;
+  }
+
+  receiveBroadcastStream($arguments) {
+    if ($arguments === void 0) $arguments = null;
+    return new FakeStreamController(this.name, $arguments);
+  }
+};
+(platform_channel.EventChannel.new = function(name, codec = null, binaryMessenger = null) {
+  this[name$0] = name;
+  if (!(name != null)) dart.assertFailed(null, "org-dartlang-app:///packages/flutter/src/services/platform_channel.dart", 473, 16, "name != null");
+  ;
+}).prototype = platform_channel.EventChannel.prototype;
 
 exports.src__services__platform_channel = platform_channel;
