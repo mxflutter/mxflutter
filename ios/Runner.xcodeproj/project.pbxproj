@@ -20,10 +20,8 @@
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */; };
-		A62F318E21E48B9E007B59F8 /* MXJSFlutter.m in Sources */ = {isa = PBXBuildFile; fileRef = A62F318D21E48B9E007B59F8 /* MXJSFlutter.m */; };
 		A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569321CE8FEE00530D0C /* MXJSEngine.m */; };
 		A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569621CE903E00530D0C /* MXJSExecutor.m */; };
-		A6A4569A21CE909A00530D0C /* MXJSFlutterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569921CE909A00530D0C /* MXJSFlutterViewController.m */; };
 		A6C8C13521D1D10500F71E5B /* MXJSFlutterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8C13321D1D10500F71E5B /* MXJSFlutterEngine.m */; };
 		A6C8C13B21D39E8F00F71E5B /* js_flutter_src in Resources */ = {isa = PBXBuildFile; fileRef = A6C8C13921D39E3700F71E5B /* js_flutter_src */; };
 		BA22F63F2395469E00257D57 /* JSModule.m in Sources */ = {isa = PBXBuildFile; fileRef = BA22F63E2395469E00257D57 /* JSModule.m */; };
@@ -63,14 +61,11 @@
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterApp.h; sourceTree = "<group>"; };
 		A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXJSFlutterApp.mm; sourceTree = "<group>"; };
-		A62F318C21E48B9E007B59F8 /* MXJSFlutter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutter.h; sourceTree = "<group>"; };
-		A62F318D21E48B9E007B59F8 /* MXJSFlutter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSFlutter.m; sourceTree = "<group>"; };
+		A62F318C21E48B9E007B59F8 /* MXJSFlutterDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterDefines.h; sourceTree = "<group>"; };
 		A6A4569221CE8FEE00530D0C /* MXJSEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSEngine.h; sourceTree = "<group>"; };
 		A6A4569321CE8FEE00530D0C /* MXJSEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSEngine.m; sourceTree = "<group>"; };
 		A6A4569521CE903E00530D0C /* MXJSExecutor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSExecutor.h; sourceTree = "<group>"; };
 		A6A4569621CE903E00530D0C /* MXJSExecutor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSExecutor.m; sourceTree = "<group>"; };
-		A6A4569821CE909A00530D0C /* MXJSFlutterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterViewController.h; sourceTree = "<group>"; };
-		A6A4569921CE909A00530D0C /* MXJSFlutterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSFlutterViewController.m; sourceTree = "<group>"; };
 		A6C8C13321D1D10500F71E5B /* MXJSFlutterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXJSFlutterEngine.m; sourceTree = "<group>"; };
 		A6C8C13421D1D10500F71E5B /* MXJSFlutterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterEngine.h; sourceTree = "<group>"; };
 		A6C8C13921D39E3700F71E5B /* js_flutter_src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js_flutter_src; path = ../js_flutter_src; sourceTree = "<group>"; };
@@ -160,10 +155,7 @@
 				A6A4569321CE8FEE00530D0C /* MXJSEngine.m */,
 				A6A4569521CE903E00530D0C /* MXJSExecutor.h */,
 				A6A4569621CE903E00530D0C /* MXJSExecutor.m */,
-				A6A4569821CE909A00530D0C /* MXJSFlutterViewController.h */,
-				A6A4569921CE909A00530D0C /* MXJSFlutterViewController.m */,
-				A62F318C21E48B9E007B59F8 /* MXJSFlutter.h */,
-				A62F318D21E48B9E007B59F8 /* MXJSFlutter.m */,
+				A62F318C21E48B9E007B59F8 /* MXJSFlutterDefines.h */,
 			);
 			path = JSFlutter;
 			sourceTree = "<group>";
@@ -277,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				978B8F6F1D3862AE00F588F7 /* AppDelegate.mm in Sources */,
-				A6A4569A21CE909A00530D0C /* MXJSFlutterViewController.m in Sources */,
 				A6C8C13521D1D10500F71E5B /* MXJSFlutterEngine.m in Sources */,
 				97C146F31CF9000F007C117D /* main.mm in Sources */,
 				A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */,
@@ -285,7 +276,6 @@
 				BA22F63F2395469E00257D57 /* JSModule.m in Sources */,
 				A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */,
 				A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */,
-				A62F318E21E48B9E007B59F8 /* MXJSFlutter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

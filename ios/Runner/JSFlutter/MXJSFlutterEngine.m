@@ -9,38 +9,195 @@
 #import "MXJSFlutterEngine.h"
 #import "MXJSFlutterApp.h"
 #import "JSModule.h"
+#import "MXJSFlutterDefines.h"
+#import <Flutter/Flutter.h>
+#import "AppDelegate.h"
+#import "MXJSEngine.h"
 
 @interface MXJSFlutterEngine ()
+{
+//    BOOL _flutterEngineIsDidRender;
+}
 
-@property (nonatomic,strong) NSString *rootPath;
-@property (nonatomic,strong) MXJSFlutterApp *currentApp;
-@property (nonatomic,strong) NSMutableDictionary<NSString*,MXJSFlutterApp*> *unsetupJSApp;
+@property (nonatomic, strong) NSString *rootPath;
+@property (nonatomic, strong) MXJSFlutterApp *currentApp;
+
+@property (nonatomic, strong) FlutterMethodChannel *basicChannel;
+@property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callFlutterQueue;
 
 @end
 
 @implementation MXJSFlutterEngine
 
-- (instancetype)initRootPath:(NSString *)rootPath
+- (instancetype)initJSAppName:(NSString*)jsAppName
 {
     if (self = [super init])
     {
-        self.rootPath = rootPath;
-        self.unsetupJSApp = [NSMutableDictionary dictionary];
+//        _flutterEngineIsDidRender = NO;
+        _jsAppName = jsAppName;
+        
+        [self setup];
     }
     return self;
-    
 }
 
 - (void)setup
 {
     [self unsetup];
+    
+    self.rootPath = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_SRC_DIR];
+    self.callFlutterQueue = [NSMutableArray arrayWithCapacity:2];
+//    __weak MXJSFlutterViewController *weakSelf = self;
+//    
+//    [self setFlutterViewDidRenderCallback:^{
+//        _flutterEngineIsDidRender = YES;
+//        
+//        for (FlutterMethodCall *call in weakSelf.callFlutterQueue) {
+//            [weakSelf.basicChannel invokeMethod:call.method arguments:call.arguments];
+//        }
+//    }];
+    
+    AppDelegate *delegate = ((AppDelegate *)UIApplication.sharedApplication.delegate);
+    self.flutterEngine = delegate.flutterEngine;
+    
+    [self setupChannel];
+    
+    if (self.jsAppName && self.jsAppName.length > 0)
+    {
+        [self runJSApp:self.jsAppName];
+    }
 }
+
+- (void)setupChannel
+{
+    
+    self.basicChannel = [FlutterMethodChannel
+                         methodChannelWithName:@"js_flutter.flutter_main_channel"
+                         binaryMessenger:self.flutterEngine.binaryMessenger];
+    
+    __weak MXJSFlutterEngine *weakSelf = self;
+    [self.basicChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
+        __strong MXJSFlutterEngine *strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
+        
+        if ([call.method isEqualToString:@"callNativeRunJSApp"]) {
+            [strongSelf callNativeRunJSApp:call.arguments];
+        } else if ([call.method isEqualToString:@"callJsCallbackFunction"]) {
+            [strongSelf callJsCallBackFunction:call.arguments];
+        }
+    }];
+    
+    //Test
+    FlutterMethodChannel* batteryChannel = [FlutterMethodChannel methodChannelWithName:@"samples.flutter.io/battery" binaryMessenger:self.flutterEngine.binaryMessenger];
+    [batteryChannel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
+        if ([call.method isEqualToString:@"getPlatformVersion"]) {
+            result(@"samples.flutter.io/battery test string");
+        } else {
+            result(@(404));
+        }
+    }];
+}
+
+- (void)runJSApp:(NSString*)appName
+{
+    [self runApp:appName pageName:nil];
+}
+
+- (void)callJsCallBackFunction:(id)arguments
+{
+    NSDictionary *argsMap = arguments;
+    NSString *callbackId = argsMap[@"callbackId"];
+    NSString *param = argsMap[@"param"];
+    
+    [self.jsEngine callJSCallbackFunction:callbackId param:param];
+}
+
+//MARK: - flutter -> Native
+//由Flutter 代码启动JSApp。 可以用在先显示Dart页面，然后路由调转到JS页面
+//启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
+- (void)callNativeRunJSApp:(id)arguments
+{
+    NSDictionary *argsMap = arguments;
+    NSString *jsAppName = argsMap[@"jsAppName"];
+    NSString *pageName = argsMap[@"pageName"];
+    
+    [self runApp:jsAppName pageName:pageName];
+}
+
+//MARK: - native -> flutter
+//--------------------------------------------
+//调用Flutter切换到JSWidget，显示JS渲染的内容
+//MARK: - native -> flutter
+//--------------------------------------------
+- (void)callFlutterReloadAppWithJSWidgetData:(NSString*)widgetData
+{
+    [self callFlutterReloadAppWithRouteName:@"MXJSWidget" widgetData:widgetData];
+}
+
+- (void)callFlutterReloadAppWithRouteName:(NSString*)routeName widgetData:(NSString*)widgetData
+{
+    routeName = routeName?routeName:@"";
+    widgetData = widgetData?widgetData:@"";
+    
+    FlutterMethodCall* call  = [FlutterMethodCall methodCallWithMethodName:@"reloadApp" arguments:@{@"routeName":routeName,@"widgetData":widgetData,}];
+    
+//    if (!_flutterEngineIsDidRender) {
+//
+//        [self.callFlutterQueue addObject:call];
+//        return;
+//    }
+    
+    [self.basicChannel invokeMethod:call.method arguments:call.arguments];
+}
+
+- (void)callFlutterMethodChannelInvoke:(NSString*)channelName methodName:(NSString*)methodName params:(NSDictionary *)params callback:(void(^)(id _Nullable result))callback
+{
+    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke" arguments:@{@"channelName":channelName,@"methodName":methodName,@"params":params}];
+//    if (!_flutterEngineIsDidRender) {
+//        [self.callFlutterQueue addObject:call];
+//        return;
+//    }
+    
+    [self.basicChannel invokeMethod:call.method arguments:call.arguments result:^(id  _Nullable result) {
+        if (callback) {
+            callback(result);
+        }
+    }];
+}
+
+- (void)callFlutterEventChannelReceiveBroadcastStreamListenInvoke:(NSString*)channelName
+                                                      streamParam:(NSString *)streamParam
+                                                         onDataId:(NSString *)onDataId
+                                                        onErrorId:(NSString *)onErrorId
+                                                         onDoneId:(NSString *)onDoneId
+                                                    cancelOnError:(NSNumber *)cancelOnError
+                            
+{
+    if ([streamParam isEqualToString:@"null"]) {
+        streamParam = nil;
+    }
+    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"
+                                                                arguments:@{@"channelName":channelName,
+                                                                            @"streamParam":streamParam?:@"",
+                                                                            @"onDataId":onDataId?:@"",
+                                                                            @"onErrorId":onErrorId?:@"",
+                                                                            @"onDoneId":onDoneId?:@"",
+                                                                            @"cancelOnError":cancelOnError}];
+//    if (!_flutterEngineIsDidRender) {
+//        [self.callFlutterQueue addObject:call];
+//        return;
+//    }
+    
+    [self.basicChannel invokeMethod:call.method arguments:call.arguments];
+}
+
 
 - (void)unsetup {
     if (self.currentApp) {
         [self.currentApp exitApp];
         self.currentApp = nil;
-        //self.unsetupJSApp[self.currentApp.appName] = self.currentApp;
     }
 }
 

@@ -7,10 +7,9 @@
 //
 
 #import "MXJSEngine.h"
-#import "MXJSFlutter.h"
+#import "MXJSFlutterDefines.h"
 #import "MXJSFlutterEngine.h"
 #import "JSModule.h"
-#include "MXJSFlutterViewController.h"
 #import <Flutter/Flutter.h>
 
 @interface MXJSEngine()
@@ -132,7 +131,7 @@
     * @param function 回调
     */
     context[@"mx_jsbridge_MethodChannel_invokeMethod"] = ^(NSString* channelName, NSString* methodName, JSValue* params, JSValue* function) {
-        [self.jsFlutterEngine.flutterViewController callFlutterMethodChannelInvoke:channelName methodName:methodName params:[params toDictionary] callback:^(id  _Nullable result) {
+        [self.jsFlutterEngine callFlutterMethodChannelInvoke:channelName methodName:methodName params:[params toDictionary] callback:^(id  _Nullable result) {
             if (result) {
                 [function callWithArguments:@[result]];
             } else {
@@ -159,7 +158,7 @@
         NSString *onErrorId = [self storeJsCallBack:onError];
         NSString *onDoneId = [self storeJsCallBack:onDone];
 
-        [self.jsFlutterEngine.flutterViewController callFlutterEventChannelReceiveBroadcastStreamListenInvoke:channelName streamParam:streamParam onDataId:onDataId onErrorId:onErrorId onDoneId:onDoneId cancelOnError:cancelOnError];
+        [self.jsFlutterEngine callFlutterEventChannelReceiveBroadcastStreamListenInvoke:channelName streamParam:streamParam onDataId:onDataId onErrorId:onErrorId onDoneId:onDoneId cancelOnError:cancelOnError];
     };
     //------Flutter Bridge------
 }

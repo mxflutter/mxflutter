@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
-#import "MXJSFlutterEngine.h"
-#import "MXJSFlutterApp.h"
-
 //把JS文件重定向到本地地址，简单支持模拟器JS文件热重载
 //Flutter的热重载，经常出问题
 //仅支持模拟器环境使用

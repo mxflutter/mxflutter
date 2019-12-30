@@ -7,13 +7,13 @@
 //
 
 #import "MXJSFlutterApp.h"
-#import "MXJSFlutterViewController.h"
-#import "MXJSFlutter.h"
+#import "MXJSFlutterDefines.h"
+#import <Flutter/Flutter.h>
 #import "MXJSEngine.h"
 
 @interface MXJSFlutterApp ()
 
-@property (nonatomic, strong)  FlutterMethodChannel* jsFlutterAppChannel;
+@property (nonatomic, strong) FlutterMethodChannel* jsFlutterAppChannel;
 
 @end
 
@@ -84,7 +84,7 @@
 {
     self.jsFlutterAppChannel = [FlutterMethodChannel
                          methodChannelWithName:@"js_flutter.js_flutter_app_channel"
-                         binaryMessenger:_jsFlutterEngine.flutterViewController.binaryMessenger];
+                         binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger];
     
     __weak MXJSFlutterApp *weakSelf = self;
     
@@ -163,7 +163,7 @@
 {
     self.jsAppObj = jsAppObj;
     
-    [self.jsFlutterEngine.flutterViewController callFlutterReloadAppWithJSWidgetData:data];
+    [self.jsFlutterEngine callFlutterReloadAppWithJSWidgetData:data];
 }
 
 - (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments

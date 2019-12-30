@@ -10,7 +10,7 @@
 
 #import <pthread.h>
 #import <UIKit/UIDevice.h>
-#import "MXJSFlutter.h"
+#import "MXJSFlutterDefines.h"
 
 
 @interface MXJSContext : NSObject

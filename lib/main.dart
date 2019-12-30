@@ -8,18 +8,14 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   
   debugPaintSizeEnabled = false;
-  test();
+
   //设置JSFlutter
   MXJSFlutter.getInstance().setup();
 
   //先把JSApp启动起来，不显示任何界面
   MXJSFlutter.getInstance().runJSApp(jsAppName: "app_test", pageName: null);
+
   runApp(MyApp());
-}
-
-void test(){
-
-
 }
 
 class InheritedContext extends InheritedWidget {
