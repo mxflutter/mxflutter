@@ -221,7 +221,7 @@ void runJSApp(dynamic jsWidget) {
       {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) async {
     MethodCall jsMethodCall =
         MethodCall("flutterCallNavigatorPushWithPageName", {
-      "pageName": name,
+      "pageName": widgetName,
       "themeData": MXUtil.cThemeDataToJson(themeData),
       "mediaQueryData": MXUtil.cMediaQueryDataToJson(mediaQueryData),
       "iconThemeData": MXUtil.cIconThemeDataToJson(iconThemeData),
