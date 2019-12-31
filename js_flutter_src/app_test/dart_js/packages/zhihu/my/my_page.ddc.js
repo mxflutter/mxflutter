@@ -9,7 +9,6 @@ const packages__flutter__src__widgets__actions = require('packages/flutter/src/w
 const framework = packages__flutter__src__widgets__actions.src__widgets__framework;
 const container = packages__flutter__src__widgets__actions.src__widgets__container;
 const navigator = packages__flutter__src__widgets__actions.src__widgets__navigator;
-const widget_inspector = packages__flutter__src__widgets__actions.src__widgets__widget_inspector;
 const basic = packages__flutter__src__widgets__actions.src__widgets__basic;
 const icon = packages__flutter__src__widgets__actions.src__widgets__icon;
 const text = packages__flutter__src__widgets__actions.src__widgets__text;
@@ -49,8 +48,8 @@ let VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))()
 let JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
 const CT = Object.create(null);
 dart.defineLazy(CT, {
-  get C6() {
-    return C6 = dart.const({
+  get C0() {
+    return C0 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 26,
@@ -58,24 +57,24 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C40() {
-    return C40 = dart.const({
+  get C2() {
+    return C2 = dart.const({
       __proto__: ui.Radius.prototype,
       [Radius_y]: 4,
       [Radius_x]: 4
     });
   },
-  get C39() {
-    return C39 = dart.const({
+  get C1() {
+    return C1 = dart.const({
       __proto__: border_radius.BorderRadius.prototype,
-      [BorderRadius_bottomRight]: C40 || CT.C40,
-      [BorderRadius_bottomLeft]: C40 || CT.C40,
-      [BorderRadius_topRight]: C40 || CT.C40,
-      [BorderRadius_topLeft]: C40 || CT.C40
+      [BorderRadius_bottomRight]: C2 || CT.C2,
+      [BorderRadius_bottomLeft]: C2 || CT.C2,
+      [BorderRadius_topRight]: C2 || CT.C2,
+      [BorderRadius_topLeft]: C2 || CT.C2
     });
   },
-  get C45() {
-    return C45 = dart.const({
+  get C3() {
+    return C3 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 6,
       [EdgeInsets_right]: 0,
@@ -83,8 +82,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C46() {
-    return C46 = dart.const({
+  get C4() {
+    return C4 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 8,
       [EdgeInsets_right]: 0,
@@ -92,8 +91,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C47() {
-    return C47 = dart.const({
+  get C5() {
+    return C5 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 16,
       [EdgeInsets_right]: 16,
@@ -101,8 +100,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 16
     });
   },
-  get C55() {
-    return C55 = dart.const({
+  get C6() {
+    return C6 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 2,
       [EdgeInsets_right]: 0,
@@ -110,8 +109,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C63() {
-    return C63 = dart.const({
+  get C7() {
+    return C7 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 0,
@@ -119,8 +118,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C235() {
-    return C235 = dart.const({
+  get C8() {
+    return C8 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 6,
       [EdgeInsets_right]: 0,
@@ -128,8 +127,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C236() {
-    return C236 = dart.const({
+  get C9() {
+    return C9 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 6,
       [EdgeInsets_right]: 0,
@@ -137,8 +136,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C380() {
-    return C380 = dart.const({
+  get C10() {
+    return C10 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 0,
@@ -146,8 +145,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C646() {
-    return C646 = dart.const({
+  get C11() {
+    return C11 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 20,
       [EdgeInsets_right]: 0,
@@ -155,8 +154,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 16
     });
   },
-  get C659() {
-    return C659 = dart.const({
+  get C12() {
+    return C12 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 0,
@@ -164,8 +163,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 8
     });
   },
-  get C689() {
-    return C689 = dart.const({
+  get C13() {
+    return C13 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 0,
@@ -173,8 +172,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 16
     });
   },
-  get C690() {
-    return C690 = dart.const({
+  get C14() {
+    return C14 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 6,
@@ -182,24 +181,24 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C692() {
-    return C692 = dart.const({
+  get C16() {
+    return C16 = dart.const({
       __proto__: ui.Radius.prototype,
       [Radius_y]: 6,
       [Radius_x]: 6
     });
   },
-  get C691() {
-    return C691 = dart.const({
+  get C15() {
+    return C15 = dart.const({
       __proto__: border_radius.BorderRadius.prototype,
-      [BorderRadius_bottomRight]: C692 || CT.C692,
-      [BorderRadius_bottomLeft]: C692 || CT.C692,
-      [BorderRadius_topRight]: C692 || CT.C692,
-      [BorderRadius_topLeft]: C692 || CT.C692
+      [BorderRadius_bottomRight]: C16 || CT.C16,
+      [BorderRadius_bottomLeft]: C16 || CT.C16,
+      [BorderRadius_topRight]: C16 || CT.C16,
+      [BorderRadius_topLeft]: C16 || CT.C16
     });
   },
-  get C801() {
-    return C801 = dart.const({
+  get C17() {
+    return C17 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 0,
@@ -207,8 +206,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 10
     });
   },
-  get C813() {
-    return C813 = dart.const({
+  get C18() {
+    return C18 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 0,
@@ -216,8 +215,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C833() {
-    return C833 = dart.const({
+  get C19() {
+    return C19 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 10,
       [EdgeInsets_right]: 10,
@@ -231,78 +230,68 @@ my_page.MyPage = class MyPage extends framework.StatefulWidget {
     return new my_page._MyPageState.new();
   }
 };
-(my_page.MyPage.new = function(opts) {
-  let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-  my_page.MyPage.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-  ;
+(my_page.MyPage.new = function() {
+  my_page.MyPage.__proto__.new.call(this);
 }).prototype = my_page.MyPage.prototype;
-;
-;
-dart.setLibraryUri(my_page.MyPage, "package:zhihu/my/my_page.dart");
-const _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-const _Location_name = dart.privateName(widget_inspector, "_Location.name");
-const _Location_column = dart.privateName(widget_inspector, "_Location.column");
-const _Location_line = dart.privateName(widget_inspector, "_Location.line");
-const _Location_file = dart.privateName(widget_inspector, "_Location.file");
 const EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
 const EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
 const EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
 const EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-let C6;
+let C0;
 const Radius_y = dart.privateName(ui, "Radius.y");
 const Radius_x = dart.privateName(ui, "Radius.x");
-let C40;
+let C2;
 const BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
 const BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
 const BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
 const BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-let C39;
-let C45;
-let C46;
-let C47;
-let C55;
-let C63;
-let C235;
-let C236;
-let C380;
-let C646;
-let C659;
-let C689;
-let C690;
-let C692;
-let C691;
-let C801;
-let C813;
-let C833;
+let C1;
+let C3;
+let C4;
+let C5;
+let C6;
+let C7;
+let C8;
+let C9;
+let C10;
+let C11;
+let C12;
+let C13;
+let C14;
+let C16;
+let C15;
+let C17;
+let C18;
+let C19;
 my_page._MyPageState = class _MyPageState extends framework.State$(my_page.MyPage) {
   barSearch() {
     return new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-          navigator.Navigator.of(this.context).push(dart.dynamic, new page.MaterialPageRoute.new({builder: dart.fn(context => new search_page.SearchPage.new({$creationLocationd_0dea112b090073317d4: {}}), BuildContextToSearchPage())}));
-        }, VoidToNull()), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({child: new icon.Icon.new(icons.Icons.search, {size: 18.0, $creationLocationd_0dea112b090073317d4: {}}), margin: C6 || CT.C6, $creationLocationd_0dea112b090073317d4: {}}), new basic.Expanded.new({child: new container.Container.new({child: new text.Text.new("搜索知乎内容", {$creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                }, VoidToNull()), child: new icon.Icon.new(icons.Icons.settings_overscan, {size: 18.0, $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), width: 40.0, $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), decoration: new box_decoration.BoxDecoration.new({borderRadius: C39 || CT.C39, color: global_config.GlobalConfig.searchBackgroundColor}), $creationLocationd_0dea112b090073317d4: {}});
+          navigator.Navigator.of(this.context).push(dart.dynamic, new page.MaterialPageRoute.new({builder: dart.fn(context => new search_page.SearchPage.new(), BuildContextToSearchPage())}));
+        }, VoidToNull()), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({child: new icon.Icon.new(icons.Icons.search, {size: 18.0}), margin: C0 || CT.C0}), new basic.Expanded.new({child: new container.Container.new({child: new text.Text.new("搜索知乎内容")})}), new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                }, VoidToNull()), child: new icon.Icon.new(icons.Icons.settings_overscan, {size: 18.0})}), width: 40.0})])})}), decoration: new box_decoration.BoxDecoration.new({borderRadius: C1 || CT.C1, color: global_config.GlobalConfig.searchBackgroundColor})});
   }
   myInfoCard() {
-    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C45 || CT.C45, padding: C46 || CT.C46, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C47 || CT.C47, decoration: new box_decoration.BoxDecoration.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white10 : new ui.Color.new(4294309365), borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-              }, VoidToNull()), child: new container.Container.new({child: new list_tile.ListTile.new({leading: new container.Container.new({child: new circle_avatar.CircleAvatar.new({backgroundImage: new _network_image_web.NetworkImage.new("https://pic1.zhimg.com/v2-ec7ed574da66e1b495fcad2cc3d71cb9_xl.jpg"), radius: 20.0, $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), title: new container.Container.new({margin: C55 || CT.C55, child: new text.Text.new("learner", {$creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), subtitle: new container.Container.new({margin: C63 || CT.C63, child: new text.Text.new("查看或编辑个人主页", {$creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidget().of([new container.Container.new({width: (dart.notNull(media_query.MediaQuery.of(this.context).size.width) - 6.0) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({height: 50.0, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new("57", {style: new text_style.TextStyle.new({fontSize: 16.0, color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("我的创作", {style: new text_style.TextStyle.new({fontSize: 12.0, color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({height: 14.0, width: 1.0, decoration: new box_decoration.BoxDecoration.new({border: new box_border.BorderDirectional.new({start: new borders.BorderSide.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white12 : colors.Colors.black12, width: 1.0})})}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: (dart.notNull(media_query.MediaQuery.of(this.context).size.width) - 6.0) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({height: 50.0, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new("210", {style: new text_style.TextStyle.new({fontSize: 16.0, color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("关注", {style: new text_style.TextStyle.new({fontSize: 12.0, color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({height: 14.0, width: 1.0, decoration: new box_decoration.BoxDecoration.new({border: new box_border.BorderDirectional.new({start: new borders.BorderSide.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white12 : colors.Colors.black12, width: 1.0})})}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: (dart.notNull(media_query.MediaQuery.of(this.context).size.width) - 6.0) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({height: 50.0, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new("18", {style: new text_style.TextStyle.new({fontSize: 16.0, color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("我的收藏", {style: new text_style.TextStyle.new({fontSize: 12.0, color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({height: 14.0, width: 1.0, decoration: new box_decoration.BoxDecoration.new({border: new box_border.BorderDirectional.new({start: new borders.BorderSide.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white12 : colors.Colors.black12, width: 1.0})})}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: (dart.notNull(media_query.MediaQuery.of(this.context).size.width) - 6.0) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({height: 50.0, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new("33", {style: new text_style.TextStyle.new({fontSize: 16.0, color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("最近浏览", {style: new text_style.TextStyle.new({fontSize: 12.0, color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C3 || CT.C3, padding: C4 || CT.C4, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C5 || CT.C5, decoration: new box_decoration.BoxDecoration.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white10 : new ui.Color.new(4294309365), borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+              }, VoidToNull()), child: new container.Container.new({child: new list_tile.ListTile.new({leading: new container.Container.new({child: new circle_avatar.CircleAvatar.new({backgroundImage: new _network_image_web.NetworkImage.new("https://pic1.zhimg.com/v2-ec7ed574da66e1b495fcad2cc3d71cb9_xl.jpg"), radius: 20.0})}), title: new container.Container.new({margin: C6 || CT.C6, child: new text.Text.new("learner")}), subtitle: new container.Container.new({margin: C7 || CT.C7, child: new text.Text.new("查看或编辑个人主页")})})})})}), new container.Container.new({child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidget().of([new container.Container.new({width: (dart.notNull(media_query.MediaQuery.of(this.context).size.width) - 6.0) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({height: 50.0, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new("57", {style: new text_style.TextStyle.new({fontSize: 16.0, color: global_config.GlobalConfig.fontColor})})}), new container.Container.new({child: new text.Text.new("我的创作", {style: new text_style.TextStyle.new({fontSize: 12.0, color: global_config.GlobalConfig.fontColor})})})])})})})}), new container.Container.new({height: 14.0, width: 1.0, decoration: new box_decoration.BoxDecoration.new({border: new box_border.BorderDirectional.new({start: new borders.BorderSide.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white12 : colors.Colors.black12, width: 1.0})})})}), new container.Container.new({width: (dart.notNull(media_query.MediaQuery.of(this.context).size.width) - 6.0) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({height: 50.0, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new("210", {style: new text_style.TextStyle.new({fontSize: 16.0, color: global_config.GlobalConfig.fontColor})})}), new container.Container.new({child: new text.Text.new("关注", {style: new text_style.TextStyle.new({fontSize: 12.0, color: global_config.GlobalConfig.fontColor})})})])})})})}), new container.Container.new({height: 14.0, width: 1.0, decoration: new box_decoration.BoxDecoration.new({border: new box_border.BorderDirectional.new({start: new borders.BorderSide.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white12 : colors.Colors.black12, width: 1.0})})})}), new container.Container.new({width: (dart.notNull(media_query.MediaQuery.of(this.context).size.width) - 6.0) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({height: 50.0, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new("18", {style: new text_style.TextStyle.new({fontSize: 16.0, color: global_config.GlobalConfig.fontColor})})}), new container.Container.new({child: new text.Text.new("我的收藏", {style: new text_style.TextStyle.new({fontSize: 12.0, color: global_config.GlobalConfig.fontColor})})})])})})})}), new container.Container.new({height: 14.0, width: 1.0, decoration: new box_decoration.BoxDecoration.new({border: new box_border.BorderDirectional.new({start: new borders.BorderSide.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white12 : colors.Colors.black12, width: 1.0})})})}), new container.Container.new({width: (dart.notNull(media_query.MediaQuery.of(this.context).size.width) - 6.0) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({height: 50.0, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new("33", {style: new text_style.TextStyle.new({fontSize: 16.0, color: global_config.GlobalConfig.fontColor})})}), new container.Container.new({child: new text.Text.new("最近浏览", {style: new text_style.TextStyle.new({fontSize: 12.0, color: global_config.GlobalConfig.fontColor})})})])})})})})])})})])})});
   }
   myServiceCard() {
-    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C235 || CT.C235, padding: C46 || CT.C46, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidget().of([new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.book, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: colors.Colors.green, $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("我的书架", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.flash_on, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: colors.Colors.blue, $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("我的 Live", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.free_breakfast, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4289105746), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("私家课", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.attach_money, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4281686683), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("付费咨询", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C380 || CT.C380, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: JSArrayOfWidget().of([new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.shop, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4278750644), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("已购", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.radio, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: colors.Colors.blue, $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("余额礼卷", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.wifi_tethering, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4278360639), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("服务", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C8 || CT.C8, padding: C4 || CT.C4, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidget().of([new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.book, {color: colors.Colors.white}), backgroundColor: colors.Colors.green})}), new container.Container.new({child: new text.Text.new("我的书架", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.flash_on, {color: colors.Colors.white}), backgroundColor: colors.Colors.blue})}), new container.Container.new({child: new text.Text.new("我的 Live", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.free_breakfast, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4289105746)})}), new container.Container.new({child: new text.Text.new("私家课", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.attach_money, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4281686683)})}), new container.Container.new({child: new text.Text.new("付费咨询", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})})])})}), new container.Container.new({margin: C10 || CT.C10, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: JSArrayOfWidget().of([new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.shop, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4278750644)})}), new container.Container.new({child: new text.Text.new("已购", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.radio, {color: colors.Colors.white}), backgroundColor: colors.Colors.blue})}), new container.Container.new({child: new text.Text.new("余额礼卷", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.wifi_tethering, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4278360639)})}), new container.Container.new({child: new text.Text.new("服务", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})})])})})])})});
   }
   settingCard() {
-    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C235 || CT.C235, padding: C46 || CT.C46, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: JSArrayOfWidget().of([new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-              }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.invert_colors, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4290283520), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("社区建设", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-              }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.golf_course, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4284703085), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("反馈", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C8 || CT.C8, padding: C4 || CT.C4, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: JSArrayOfWidget().of([new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+              }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.invert_colors, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4290283520)})}), new container.Container.new({child: new text.Text.new("社区建设", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+              }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.golf_course, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4284703085)})}), new container.Container.new({child: new text.Text.new("反馈", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
                 this.setState(dart.fn(() => {
                   if (dart.equals(global_config.GlobalConfig.dark, true)) {
                     global_config.GlobalConfig.themeData = theme_data.ThemeData.new({primaryColor: colors.Colors.white, scaffoldBackgroundColor: new ui.Color.new(4293651435)});
@@ -318,28 +307,24 @@ my_page._MyPageState = class _MyPageState extends framework.State$(my_page.MyPag
                     global_config.GlobalConfig.dark = true;
                   }
                 }, VoidToNull()));
-              }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(dart.equals(global_config.GlobalConfig.dark, true) ? icons.Icons.wb_sunny : icons.Icons.brightness_2, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4290275853), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new(dart.equals(global_config.GlobalConfig.dark, true) ? "日间模式" : "夜间模式", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-              }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C236 || CT.C236, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.perm_data_setting, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4284703337), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new("设置", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+              }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(dart.equals(global_config.GlobalConfig.dark, true) ? icons.Icons.wb_sunny : icons.Icons.brightness_2, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4290275853)})}), new container.Container.new({child: new text.Text.new(dart.equals(global_config.GlobalConfig.dark, true) ? "日间模式" : "夜间模式", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 4, child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+              }, VoidToNull()), child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C9 || CT.C9, child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.perm_data_setting, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4284703337)})}), new container.Container.new({child: new text.Text.new("设置", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor, fontSize: 14.0})})})])})})})})])})});
   }
   videoCard() {
-    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C235 || CT.C235, padding: C46 || CT.C46, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C646 || CT.C646, child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.videocam, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: new ui.Color.new(4289947909), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new basic.Expanded.new({child: new container.Container.new({margin: C659 || CT.C659, child: new text.Text.new("视频创作", {style: new text_style.TextStyle.new({fontSize: 18.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new text.Text.new("拍一个", {style: new text_style.TextStyle.new({color: colors.Colors.blue}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C689 || CT.C689, child: new single_child_scroll_view.SingleChildScrollView.new({scrollDirection: basic_types.Axis.horizontal, child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 2.5, margin: C690 || CT.C690, child: new basic.AspectRatio.new({aspectRatio: 4.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic2.zhimg.com/50/v2-5942a51e6b834f10074f8d50be5bbd4d_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C691 || CT.C691}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C690 || CT.C690, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 2.5, child: new basic.AspectRatio.new({aspectRatio: 4.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic3.zhimg.com/50/v2-7fc9a1572c6fc72a3dea0b73a9be36e7_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C691 || CT.C691}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C690 || CT.C690, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 2.5, child: new basic.AspectRatio.new({aspectRatio: 4.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic4.zhimg.com/50/v2-898f43a488b606061c877ac2a471e221_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C691 || CT.C691}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 2.5, child: new basic.AspectRatio.new({aspectRatio: 4.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic1.zhimg.com/50/v2-0008057d1ad2bd813aea4fc247959e63_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C691 || CT.C691}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C8 || CT.C8, padding: C4 || CT.C4, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C11 || CT.C11, child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.videocam, {color: colors.Colors.white}), backgroundColor: new ui.Color.new(4289947909)})}), new basic.Expanded.new({child: new container.Container.new({margin: C12 || CT.C12, child: new text.Text.new("视频创作", {style: new text_style.TextStyle.new({fontSize: 18.0})})})}), new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new text.Text.new("拍一个", {style: new text_style.TextStyle.new({color: colors.Colors.blue})})})})])})}), new container.Container.new({margin: C13 || CT.C13, child: new single_child_scroll_view.SingleChildScrollView.new({scrollDirection: basic_types.Axis.horizontal, child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 2.5, margin: C14 || CT.C14, child: new basic.AspectRatio.new({aspectRatio: 4.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic2.zhimg.com/50/v2-5942a51e6b834f10074f8d50be5bbd4d_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C15 || CT.C15})})})}), new container.Container.new({margin: C14 || CT.C14, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 2.5, child: new basic.AspectRatio.new({aspectRatio: 4.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic3.zhimg.com/50/v2-7fc9a1572c6fc72a3dea0b73a9be36e7_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C15 || CT.C15})})})}), new container.Container.new({margin: C14 || CT.C14, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 2.5, child: new basic.AspectRatio.new({aspectRatio: 4.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic4.zhimg.com/50/v2-898f43a488b606061c877ac2a471e221_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C15 || CT.C15})})})}), new container.Container.new({width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 2.5, child: new basic.AspectRatio.new({aspectRatio: 4.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic1.zhimg.com/50/v2-0008057d1ad2bd813aea4fc247959e63_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C15 || CT.C15})})})})])})})})])})});
   }
   ideaCard() {
-    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C235 || CT.C235, padding: C46 || CT.C46, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C646 || CT.C646, child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.all_inclusive, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: {}}), backgroundColor: colors.Colors.blue, $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new basic.Expanded.new({child: new container.Container.new({margin: C659 || CT.C659, child: new text.Text.new("想法", {style: new text_style.TextStyle.new({fontSize: 18.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-                    }, VoidToNull()), child: new text.Text.new("去往想法首页", {style: new text_style.TextStyle.new({color: colors.Colors.blue}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C689 || CT.C689, child: new single_child_scroll_view.SingleChildScrollView.new({scrollDirection: basic_types.Axis.horizontal, child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C690 || CT.C690, decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.searchBackgroundColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C801 || CT.C801, child: new basic.Column.new({children: JSArrayOfWidget().of([new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({child: new text.Text.new("苹果 WWDC 2018 正在举行", {style: new text_style.TextStyle.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({margin: C813 || CT.C813, child: new text.Text.new("软件更新意料之中，硬件之谜...", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C833 || CT.C833, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 5, child: new basic.AspectRatio.new({aspectRatio: 1.0 / 1.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic2.zhimg.com/50/v2-55039fa535f3fe06365c0fcdaa9e3847_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C691 || CT.C691}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C690 || CT.C690, decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.searchBackgroundColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C801 || CT.C801, child: new basic.Column.new({children: JSArrayOfWidget().of([new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({child: new text.Text.new("此刻你的桌子是什么样子？", {style: new text_style.TextStyle.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({margin: C813 || CT.C813, child: new text.Text.new("晒一晒你的书桌/办公桌", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C833 || CT.C833, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 5, child: new basic.AspectRatio.new({aspectRatio: 1.0 / 1.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic3.zhimg.com/v2-b4551f702970ff37709cdd7fd884de5e_294x245|adx4.png"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C691 || CT.C691}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C690 || CT.C690, decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.searchBackgroundColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C801 || CT.C801, child: new basic.Column.new({children: JSArrayOfWidget().of([new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({child: new text.Text.new("关于高考你印象最深的是...", {style: new text_style.TextStyle.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({margin: C813 || CT.C813, child: new text.Text.new("聊聊你的高三生活", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C833 || CT.C833, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 5, child: new basic.AspectRatio.new({aspectRatio: 1.0 / 1.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic2.zhimg.com/50/v2-ce2e01a047e4aba9bfabf8469cfd3e75_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C691 || CT.C691}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C690 || CT.C690, decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.searchBackgroundColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C801 || CT.C801, child: new basic.Column.new({children: JSArrayOfWidget().of([new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({child: new text.Text.new("夏天一定要吃的食物有哪些", {style: new text_style.TextStyle.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({margin: C813 || CT.C813, child: new text.Text.new("最适合夏天吃的那种", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({margin: C833 || CT.C833, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 5, child: new basic.AspectRatio.new({aspectRatio: 1.0 / 1.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic1.zhimg.com/50/v2-bb3806c2ced60e5b7f38a0aa06b89511_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C691 || CT.C691}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+    return new container.Container.new({color: global_config.GlobalConfig.cardBackgroundColor, margin: C8 || CT.C8, padding: C4 || CT.C4, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C11 || CT.C11, child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({child: new circle_avatar.CircleAvatar.new({radius: 20.0, child: new icon.Icon.new(icons.Icons.all_inclusive, {color: colors.Colors.white}), backgroundColor: colors.Colors.blue})}), new basic.Expanded.new({child: new container.Container.new({margin: C12 || CT.C12, child: new text.Text.new("想法", {style: new text_style.TextStyle.new({fontSize: 18.0})})})}), new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
+                    }, VoidToNull()), child: new text.Text.new("去往想法首页", {style: new text_style.TextStyle.new({color: colors.Colors.blue})})})})])})}), new container.Container.new({margin: C13 || CT.C13, child: new single_child_scroll_view.SingleChildScrollView.new({scrollDirection: basic_types.Axis.horizontal, child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C14 || CT.C14, decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.searchBackgroundColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C17 || CT.C17, child: new basic.Column.new({children: JSArrayOfWidget().of([new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({child: new text.Text.new("苹果 WWDC 2018 正在举行", {style: new text_style.TextStyle.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black, fontSize: 16.0})})})}), new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({margin: C18 || CT.C18, child: new text.Text.new("软件更新意料之中，硬件之谜...", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor})})})})])})}), new container.Container.new({margin: C19 || CT.C19, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 5, child: new basic.AspectRatio.new({aspectRatio: 1.0 / 1.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic2.zhimg.com/50/v2-55039fa535f3fe06365c0fcdaa9e3847_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C15 || CT.C15})})})})])})}), new container.Container.new({margin: C14 || CT.C14, decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.searchBackgroundColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C17 || CT.C17, child: new basic.Column.new({children: JSArrayOfWidget().of([new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({child: new text.Text.new("此刻你的桌子是什么样子？", {style: new text_style.TextStyle.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black, fontSize: 16.0})})})}), new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({margin: C18 || CT.C18, child: new text.Text.new("晒一晒你的书桌/办公桌", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor})})})})])})}), new container.Container.new({margin: C19 || CT.C19, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 5, child: new basic.AspectRatio.new({aspectRatio: 1.0 / 1.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic3.zhimg.com/v2-b4551f702970ff37709cdd7fd884de5e_294x245|adx4.png"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C15 || CT.C15})})})})])})}), new container.Container.new({margin: C14 || CT.C14, decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.searchBackgroundColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C17 || CT.C17, child: new basic.Column.new({children: JSArrayOfWidget().of([new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({child: new text.Text.new("关于高考你印象最深的是...", {style: new text_style.TextStyle.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black, fontSize: 16.0})})})}), new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({margin: C18 || CT.C18, child: new text.Text.new("聊聊你的高三生活", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor})})})})])})}), new container.Container.new({margin: C19 || CT.C19, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 5, child: new basic.AspectRatio.new({aspectRatio: 1.0 / 1.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic2.zhimg.com/50/v2-ce2e01a047e4aba9bfabf8469cfd3e75_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C15 || CT.C15})})})})])})}), new container.Container.new({margin: C14 || CT.C14, decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.searchBackgroundColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(6.0))}), child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C17 || CT.C17, child: new basic.Column.new({children: JSArrayOfWidget().of([new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({child: new text.Text.new("夏天一定要吃的食物有哪些", {style: new text_style.TextStyle.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black, fontSize: 16.0})})})}), new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new container.Container.new({margin: C18 || CT.C18, child: new text.Text.new("最适合夏天吃的那种", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor})})})})])})}), new container.Container.new({margin: C19 || CT.C19, width: dart.notNull(media_query.MediaQuery.of(this.context).size.width) / 5, child: new basic.AspectRatio.new({aspectRatio: 1.0 / 1.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pic1.zhimg.com/50/v2-bb3806c2ced60e5b7f38a0aa06b89511_400x224.jpg"), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C15 || CT.C15})})})})])})})])})})})])})});
   }
   build(context) {
-    return new app.MaterialApp.new({theme: global_config.GlobalConfig.themeData, home: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: this.barSearch(), $creationLocationd_0dea112b090073317d4: {}}), body: new single_child_scroll_view.SingleChildScrollView.new({child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([this.myInfoCard(), this.myServiceCard(), this.settingCard(), this.videoCard(), this.ideaCard()]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+    return new app.MaterialApp.new({theme: global_config.GlobalConfig.themeData, home: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: this.barSearch()}), body: new single_child_scroll_view.SingleChildScrollView.new({child: new container.Container.new({child: new basic.Column.new({children: JSArrayOfWidget().of([this.myInfoCard(), this.myServiceCard(), this.settingCard(), this.videoCard(), this.ideaCard()])})})})})});
   }
 };
 (my_page._MyPageState.new = function() {
   my_page._MyPageState.__proto__.new.call(this);
-  ;
 }).prototype = my_page._MyPageState.prototype;
-;
-;
-dart.setLibraryUri(my_page._MyPageState, "package:zhihu/my/my_page.dart");
 // Exports:
 exports.my__my_page = my_page;
 

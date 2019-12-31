@@ -21,11 +21,7 @@ navigation_icon_view.NavigationIconView = class NavigationIconView extends core.
   let title = opts && 'title' in opts ? opts.title : null;
   let vsync = opts && 'vsync' in opts ? opts.vsync : null;
   this[item] = new bottom_navigation_bar_item.BottomNavigationBarItem.new({icon: icon, title: title});
-  ;
 }).prototype = navigation_icon_view.NavigationIconView.prototype;
-;
-dart.setLibraryUri(navigation_icon_view.NavigationIconView, "package:zhihu/index/navigation_icon_view.dart");
-;
 // Exports:
 exports.index__navigation_icon_view = navigation_icon_view;
 

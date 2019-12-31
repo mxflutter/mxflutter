@@ -10,7 +10,6 @@ const framework = packages__flutter__src__widgets__actions.src__widgets__framewo
 const container = packages__flutter__src__widgets__actions.src__widgets__container;
 const basic = packages__flutter__src__widgets__actions.src__widgets__basic;
 const navigator = packages__flutter__src__widgets__actions.src__widgets__navigator;
-const widget_inspector = packages__flutter__src__widgets__actions.src__widgets__widget_inspector;
 const icon = packages__flutter__src__widgets__actions.src__widgets__icon;
 const text = packages__flutter__src__widgets__actions.src__widgets__text;
 const packages__flutter__material = require('packages/flutter/material');
@@ -47,20 +46,20 @@ let BuildContextToAskPage = () => (BuildContextToAskPage = dart.constFn(dart.fnT
 let JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
 const CT = Object.create(null);
 dart.defineLazy(CT, {
-  get C46() {
-    return C46 = dart.const({
+  get C1() {
+    return C1 = dart.const({
       __proto__: ui.Radius.prototype,
       [Radius_y]: 4,
       [Radius_x]: 4
     });
   },
-  get C45() {
-    return C45 = dart.const({
+  get C0() {
+    return C0 = dart.const({
       __proto__: border_radius.BorderRadius.prototype,
-      [BorderRadius_bottomRight]: C46 || CT.C46,
-      [BorderRadius_bottomLeft]: C46 || CT.C46,
-      [BorderRadius_topRight]: C46 || CT.C46,
-      [BorderRadius_topLeft]: C46 || CT.C46
+      [BorderRadius_bottomRight]: C1 || CT.C1,
+      [BorderRadius_bottomLeft]: C1 || CT.C1,
+      [BorderRadius_topRight]: C1 || CT.C1,
+      [BorderRadius_topLeft]: C1 || CT.C1
     });
   }
 });
@@ -69,46 +68,32 @@ home_page.HomePage = class HomePage extends framework.StatefulWidget {
     return new home_page._HomePageState.new();
   }
 };
-(home_page.HomePage.new = function(opts) {
-  let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-  home_page.HomePage.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-  ;
+(home_page.HomePage.new = function() {
+  home_page.HomePage.__proto__.new.call(this);
 }).prototype = home_page.HomePage.prototype;
-;
-;
-dart.setLibraryUri(home_page.HomePage, "package:zhihu/home/home_page.dart");
-const _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-const _Location_name = dart.privateName(widget_inspector, "_Location.name");
-const _Location_column = dart.privateName(widget_inspector, "_Location.column");
-const _Location_line = dart.privateName(widget_inspector, "_Location.line");
-const _Location_file = dart.privateName(widget_inspector, "_Location.file");
 const Radius_y = dart.privateName(ui, "Radius.y");
 const Radius_x = dart.privateName(ui, "Radius.x");
-let C46;
+let C1;
 const BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
 const BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
 const BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
 const BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-let C45;
+let C0;
 home_page._HomePageState = class _HomePageState extends framework.State$(home_page.HomePage) {
   barSearch() {
     return new container.Container.new({child: new basic.Row.new({children: JSArrayOfWidget().of([new basic.Expanded.new({child: new flat_button._FlatButtonWithIcon.new({onPressed: dart.fn(() => {
-                navigator.Navigator.of(this.context).push(dart.dynamic, new page.MaterialPageRoute.new({builder: dart.fn(context => new search_page.SearchPage.new({$creationLocationd_0dea112b090073317d4: {}}), BuildContextToSearchPage())}));
-              }, VoidToNull()), icon: new icon.Icon.new(icons.Icons.search, {color: global_config.GlobalConfig.fontColor, size: 16.0, $creationLocationd_0dea112b090073317d4: {}}), label: new text.Text.new("坚果R1摄像头损坏", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({decoration: new box_decoration.BoxDecoration.new({border: new box_border.BorderDirectional.new({start: new borders.BorderSide.new({color: global_config.GlobalConfig.fontColor, width: 1.0})})}), height: 14.0, width: 1.0, $creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new flat_button._FlatButtonWithIcon.new({onPressed: dart.fn(() => {
-                navigator.Navigator.of(this.context).push(dart.dynamic, new page.MaterialPageRoute.new({builder: dart.fn(context => new ask_page.AskPage.new({$creationLocationd_0dea112b090073317d4: {}}), BuildContextToAskPage())}));
-              }, VoidToNull()), icon: new icon.Icon.new(icons.Icons.border_color, {color: global_config.GlobalConfig.fontColor, size: 14.0, $creationLocationd_0dea112b090073317d4: {}}), label: new text.Text.new("提问", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), decoration: new box_decoration.BoxDecoration.new({borderRadius: C45 || CT.C45, color: global_config.GlobalConfig.searchBackgroundColor}), $creationLocationd_0dea112b090073317d4: {}});
+                navigator.Navigator.of(this.context).push(dart.dynamic, new page.MaterialPageRoute.new({builder: dart.fn(context => new search_page.SearchPage.new(), BuildContextToSearchPage())}));
+              }, VoidToNull()), icon: new icon.Icon.new(icons.Icons.search, {color: global_config.GlobalConfig.fontColor, size: 16.0}), label: new text.Text.new("坚果R1摄像头损坏", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor})})})}), new container.Container.new({decoration: new box_decoration.BoxDecoration.new({border: new box_border.BorderDirectional.new({start: new borders.BorderSide.new({color: global_config.GlobalConfig.fontColor, width: 1.0})})}), height: 14.0, width: 1.0}), new container.Container.new({child: new flat_button._FlatButtonWithIcon.new({onPressed: dart.fn(() => {
+                navigator.Navigator.of(this.context).push(dart.dynamic, new page.MaterialPageRoute.new({builder: dart.fn(context => new ask_page.AskPage.new(), BuildContextToAskPage())}));
+              }, VoidToNull()), icon: new icon.Icon.new(icons.Icons.border_color, {color: global_config.GlobalConfig.fontColor, size: 14.0}), label: new text.Text.new("提问", {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor})})})})])}), decoration: new box_decoration.BoxDecoration.new({borderRadius: C0 || CT.C0, color: global_config.GlobalConfig.searchBackgroundColor})});
   }
   build(context) {
-    return new tab_controller.DefaultTabController.new({length: 3, child: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: this.barSearch(), bottom: new tabs.TabBar.new({labelColor: dart.equals(global_config.GlobalConfig.dark, true) ? new ui.Color.new(4284743129) : colors.Colors.blue, unselectedLabelColor: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white : colors.Colors.black, tabs: JSArrayOfWidget().of([new tabs.Tab.new({text: "关注", $creationLocationd_0dea112b090073317d4: {}}), new tabs.Tab.new({text: "推荐", $creationLocationd_0dea112b090073317d4: {}}), new tabs.Tab.new({text: "热榜", $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), body: new tabs.TabBarView.new({children: JSArrayOfWidget().of([new follow.Follow.new({$creationLocationd_0dea112b090073317d4: {}}), new recommend.Recommend.new({$creationLocationd_0dea112b090073317d4: {}}), new hot.Hot.new({$creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+    return new tab_controller.DefaultTabController.new({length: 3, child: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: this.barSearch(), bottom: new tabs.TabBar.new({labelColor: dart.equals(global_config.GlobalConfig.dark, true) ? new ui.Color.new(4284743129) : colors.Colors.blue, unselectedLabelColor: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white : colors.Colors.black, tabs: JSArrayOfWidget().of([new tabs.Tab.new({text: "关注"}), new tabs.Tab.new({text: "推荐"}), new tabs.Tab.new({text: "热榜"})])})}), body: new tabs.TabBarView.new({children: JSArrayOfWidget().of([new follow.Follow.new(), new recommend.Recommend.new(), new hot.Hot.new()])})})});
   }
 };
 (home_page._HomePageState.new = function() {
   home_page._HomePageState.__proto__.new.call(this);
-  ;
 }).prototype = home_page._HomePageState.prototype;
-;
-;
-dart.setLibraryUri(home_page._HomePageState, "package:zhihu/home/home_page.dart");
 // Exports:
 exports.home__home_page = home_page;
 

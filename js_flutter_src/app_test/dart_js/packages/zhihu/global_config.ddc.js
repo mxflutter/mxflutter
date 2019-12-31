@@ -11,10 +11,7 @@ const global_config = Object.create(dart.library);
 const CT = Object.create(null);
 global_config.GlobalConfig = class GlobalConfig extends core.Object {};
 (global_config.GlobalConfig.new = function() {
-  ;
 }).prototype = global_config.GlobalConfig.prototype;
-;
-dart.setLibraryUri(global_config.GlobalConfig, "package:zhihu/global_config.dart");
 dart.defineLazy(global_config.GlobalConfig, {
   /*global_config.GlobalConfig.dark*/get dark() {
     return true;

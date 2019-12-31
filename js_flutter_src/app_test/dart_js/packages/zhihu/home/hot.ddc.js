@@ -9,7 +9,6 @@ const packages__flutter__src__widgets__actions = require('packages/flutter/src/w
 const framework = packages__flutter__src__widgets__actions.src__widgets__framework;
 const container = packages__flutter__src__widgets__actions.src__widgets__container;
 const navigator = packages__flutter__src__widgets__actions.src__widgets__navigator;
-const widget_inspector = packages__flutter__src__widgets__actions.src__widgets__widget_inspector;
 const basic = packages__flutter__src__widgets__actions.src__widgets__basic;
 const text = packages__flutter__src__widgets__actions.src__widgets__text;
 const icon = packages__flutter__src__widgets__actions.src__widgets__icon;
@@ -43,8 +42,8 @@ let VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))()
 let JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
 const CT = Object.create(null);
 dart.defineLazy(CT, {
-  get C2() {
-    return C2 = dart.const({
+  get C0() {
+    return C0 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 8,
       [EdgeInsets_right]: 0,
@@ -52,8 +51,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C35() {
-    return C35 = dart.const({
+  get C1() {
+    return C1 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 10,
       [EdgeInsets_right]: 4,
@@ -61,8 +60,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C45() {
-    return C45 = dart.const({
+  get C2() {
+    return C2 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 8,
       [EdgeInsets_right]: 4,
@@ -70,24 +69,24 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C68() {
-    return C68 = dart.const({
+  get C4() {
+    return C4 = dart.const({
       __proto__: ui.Radius.prototype,
       [Radius_y]: 6,
       [Radius_x]: 6
     });
   },
-  get C67() {
-    return C67 = dart.const({
+  get C3() {
+    return C3 = dart.const({
       __proto__: border_radius.BorderRadius.prototype,
-      [BorderRadius_bottomRight]: C68 || CT.C68,
-      [BorderRadius_bottomLeft]: C68 || CT.C68,
-      [BorderRadius_topRight]: C68 || CT.C68,
-      [BorderRadius_topLeft]: C68 || CT.C68
+      [BorderRadius_bottomRight]: C4 || CT.C4,
+      [BorderRadius_bottomLeft]: C4 || CT.C4,
+      [BorderRadius_topRight]: C4 || CT.C4,
+      [BorderRadius_topLeft]: C4 || CT.C4
     });
   },
-  get C95() {
-    return C95 = dart.const({
+  get C5() {
+    return C5 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 0,
@@ -101,52 +100,38 @@ hot.Hot = class Hot extends framework.StatefulWidget {
     return new hot.HotState.new();
   }
 };
-(hot.Hot.new = function(opts) {
-  let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-  hot.Hot.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-  ;
+(hot.Hot.new = function() {
+  hot.Hot.__proto__.new.call(this);
 }).prototype = hot.Hot.prototype;
-;
-;
-dart.setLibraryUri(hot.Hot, "package:zhihu/home/hot.dart");
-const _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-const _Location_name = dart.privateName(widget_inspector, "_Location.name");
-const _Location_column = dart.privateName(widget_inspector, "_Location.column");
-const _Location_line = dart.privateName(widget_inspector, "_Location.line");
-const _Location_file = dart.privateName(widget_inspector, "_Location.file");
 const EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
 const EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
 const EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
 const EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+let C0;
+let C1;
 let C2;
-let C35;
-let C45;
 const Radius_y = dart.privateName(ui, "Radius.y");
 const Radius_x = dart.privateName(ui, "Radius.x");
-let C68;
+let C4;
 const BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
 const BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
 const BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
 const BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-let C67;
-let C95;
+let C3;
+let C5;
 hot.HotState = class HotState extends framework.State$(hot.Hot) {
   hotCard(question) {
     return new container.Container.new({decoration: new box_decoration.BoxDecoration.new({color: global_config.GlobalConfig.cardBackgroundColor, border: new box_border.BorderDirectional.new({bottom: new borders.BorderSide.new({color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white12 : colors.Colors.black12, width: 1.0})})}), child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
-          navigator.Navigator.of(this.context).push(dart.dynamic, new page.MaterialPageRoute.new({builder: dart.fn(context => new question_page.QuestionPage.new({$creationLocationd_0dea112b090073317d4: {}}), BuildContextToQuestionPage())}));
-        }, VoidToNull()), child: new container.Container.new({padding: C2 || CT.C2, child: new basic.Row.new({children: JSArrayOfWidget().of([new basic.Expanded.new({flex: 1, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new(question.order, {style: new text_style.TextStyle.new({color: question.order[$compareTo]("03") <= 0 ? colors.Colors.red : colors.Colors.yellow, fontSize: 18.0}), $creationLocationd_0dea112b090073317d4: {}}), alignment: alignment.Alignment.topLeft, $creationLocationd_0dea112b090073317d4: {}}), question.rise != null ? new basic.Row.new({children: JSArrayOfWidget().of([new icon.Icon.new(icons.Icons.arrow_upward, {color: colors.Colors.red, size: 10.0, $creationLocationd_0dea112b090073317d4: {}}), new text.Text.new(question.rise, {style: new text_style.TextStyle.new({color: colors.Colors.red, fontSize: 10.0}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}) : new container.Container.new({$creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new basic.Expanded.new({flex: 6, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new(question.title, {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.bold, fontSize: 16.0, height: 1.1, color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black}), $creationLocationd_0dea112b090073317d4: {}}), padding: C35 || CT.C35, alignment: alignment.Alignment.topLeft, $creationLocationd_0dea112b090073317d4: {}}), question.mark != null ? new container.Container.new({child: new text.Text.new(question.mark, {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), alignment: alignment.Alignment.topLeft, padding: C45 || CT.C45, $creationLocationd_0dea112b090073317d4: {}}) : new container.Container.new({$creationLocationd_0dea112b090073317d4: {}}), new container.Container.new({child: new text.Text.new(question.hotNum, {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor}), $creationLocationd_0dea112b090073317d4: {}}), alignment: alignment.Alignment.topLeft, $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), new basic.Expanded.new({flex: 3, child: new basic.AspectRatio.new({aspectRatio: 3.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new(question.imgUrl), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C67 || CT.C67}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}})]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+          navigator.Navigator.of(this.context).push(dart.dynamic, new page.MaterialPageRoute.new({builder: dart.fn(context => new question_page.QuestionPage.new(), BuildContextToQuestionPage())}));
+        }, VoidToNull()), child: new container.Container.new({padding: C0 || CT.C0, child: new basic.Row.new({children: JSArrayOfWidget().of([new basic.Expanded.new({flex: 1, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new(question.order, {style: new text_style.TextStyle.new({color: question.order[$compareTo]("03") <= 0 ? colors.Colors.red : colors.Colors.yellow, fontSize: 18.0})}), alignment: alignment.Alignment.topLeft}), question.rise != null ? new basic.Row.new({children: JSArrayOfWidget().of([new icon.Icon.new(icons.Icons.arrow_upward, {color: colors.Colors.red, size: 10.0}), new text.Text.new(question.rise, {style: new text_style.TextStyle.new({color: colors.Colors.red, fontSize: 10.0})})])}) : new container.Container.new()])})}), new basic.Expanded.new({flex: 6, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new text.Text.new(question.title, {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.bold, fontSize: 16.0, height: 1.1, color: dart.equals(global_config.GlobalConfig.dark, true) ? colors.Colors.white70 : colors.Colors.black})}), padding: C1 || CT.C1, alignment: alignment.Alignment.topLeft}), question.mark != null ? new container.Container.new({child: new text.Text.new(question.mark, {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor})}), alignment: alignment.Alignment.topLeft, padding: C2 || CT.C2}) : new container.Container.new(), new container.Container.new({child: new text.Text.new(question.hotNum, {style: new text_style.TextStyle.new({color: global_config.GlobalConfig.fontColor})}), alignment: alignment.Alignment.topLeft})])})}), new basic.Expanded.new({flex: 3, child: new basic.AspectRatio.new({aspectRatio: 3.0 / 2.0, child: new container.Container.new({foregroundDecoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new(question.imgUrl), centerSlice: new ui.Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0)}), borderRadius: C3 || CT.C3})})})})])})})})});
   }
   build(context) {
-    return new single_child_scroll_view.SingleChildScrollView.new({child: new container.Container.new({margin: C95 || CT.C95, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C95 || CT.C95, $creationLocationd_0dea112b090073317d4: {}}), this.hotCard(question.questionList[$_get](0)), this.hotCard(question.questionList[$_get](1)), this.hotCard(question.questionList[$_get](2)), this.hotCard(question.questionList[$_get](3)), this.hotCard(question.questionList[$_get](4))]), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}});
+    return new single_child_scroll_view.SingleChildScrollView.new({child: new container.Container.new({margin: C5 || CT.C5, child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({margin: C5 || CT.C5}), this.hotCard(question.questionList[$_get](0)), this.hotCard(question.questionList[$_get](1)), this.hotCard(question.questionList[$_get](2)), this.hotCard(question.questionList[$_get](3)), this.hotCard(question.questionList[$_get](4))])})})});
   }
 };
 (hot.HotState.new = function() {
   hot.HotState.__proto__.new.call(this);
-  ;
 }).prototype = hot.HotState.prototype;
-;
-;
-dart.setLibraryUri(hot.HotState, "package:zhihu/home/hot.dart");
 // Exports:
 exports.home__hot = hot;
 

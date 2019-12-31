@@ -6,7 +6,6 @@ const dartx = dart_sdk.dartx;
 const packages__flutter__src__widgets__actions = require('packages/flutter/src/widgets/actions');
 const framework = packages__flutter__src__widgets__actions.src__widgets__framework;
 const text = packages__flutter__src__widgets__actions.src__widgets__text;
-const widget_inspector = packages__flutter__src__widgets__actions.src__widgets__widget_inspector;
 const basic = packages__flutter__src__widgets__actions.src__widgets__basic;
 const packages__flutter__material = require('packages/flutter/material');
 const app = packages__flutter__material.src__material__app;
@@ -21,31 +20,17 @@ notice_page.NoticePage = class NoticePage extends framework.StatefulWidget {
     return new notice_page._NoticePageState.new();
   }
 };
-(notice_page.NoticePage.new = function(opts) {
-  let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-  notice_page.NoticePage.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-  ;
+(notice_page.NoticePage.new = function() {
+  notice_page.NoticePage.__proto__.new.call(this);
 }).prototype = notice_page.NoticePage.prototype;
-;
-;
-dart.setLibraryUri(notice_page.NoticePage, "package:zhihu/notice/notice_page.dart");
-const _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-const _Location_name = dart.privateName(widget_inspector, "_Location.name");
-const _Location_column = dart.privateName(widget_inspector, "_Location.column");
-const _Location_line = dart.privateName(widget_inspector, "_Location.line");
-const _Location_file = dart.privateName(widget_inspector, "_Location.file");
 notice_page._NoticePageState = class _NoticePageState extends framework.State$(notice_page.NoticePage) {
   build(context) {
-    return new app.MaterialApp.new({home: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("通知", {$creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), body: new basic.Center.new({child: null, $creationLocationd_0dea112b090073317d4: {}}), $creationLocationd_0dea112b090073317d4: {}}), theme: global_config.GlobalConfig.themeData, $creationLocationd_0dea112b090073317d4: {}});
+    return new app.MaterialApp.new({home: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("通知")}), body: new basic.Center.new({child: null})}), theme: global_config.GlobalConfig.themeData});
   }
 };
 (notice_page._NoticePageState.new = function() {
   notice_page._NoticePageState.__proto__.new.call(this);
-  ;
 }).prototype = notice_page._NoticePageState.prototype;
-;
-;
-dart.setLibraryUri(notice_page._NoticePageState, "package:zhihu/notice/notice_page.dart");
 // Exports:
 exports.notice__notice_page = notice_page;
 
