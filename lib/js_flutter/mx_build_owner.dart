@@ -156,6 +156,7 @@ class MXJsonBuildOwner {
 
   void jsCallRebuild(args) {
     String widgetDataStr = args["widgetData"];
+    bool isRootWidget = args["isRootWidget"];
 
     Map widgetMap = json.decode(widgetDataStr);
     dynamic jsWidget = buildRootWidget(widgetMap);
@@ -166,8 +167,14 @@ class MXJsonBuildOwner {
       return;
     }
     String widgetID = jsWidget.widgetID;
-
-    var bo = findBuildOwner(widgetID);
+    
+    var bo;
+    if (isRootWidget != true) {
+      bo = findBuildOwner(widgetID);
+    } else {
+      // 针对从flutter侧push进来的js页面，作为根页面，统一通过jsWidget.name来获取BuildOwner。解决根页面是StatelessWidget，获取BuildOwner错误的问题
+      bo = findBuildOwner(jsWidget.name);
+    }
 
     if (bo == null) {
       MXJSLog.log(

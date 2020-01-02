@@ -139,9 +139,9 @@ class MXJSFlutter {
   }
 
   //flutter层 主动push页面
-  dynamic navigatorPushWithPageName(String widgetName,
+  dynamic navigatorPushWithName(String widgetName,
       {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) {
-    dynamic jsWidget = currentApp?.navigatorPushWithPageName(widgetName,
+    dynamic jsWidget = currentApp?.navigatorPushWithName(widgetName,
         themeData: themeData, mediaQueryData: mediaQueryData, iconThemeData: iconThemeData);
 
     return jsWidget;
@@ -185,8 +185,8 @@ void runJSApp(dynamic jsWidget) {
 }
 
 //push js页面
-//先创建一个空的MXJSWidget，调用JS，等待JS层widgetData来刷新页面
-  MXJSStatefulWidget navigatorPushWithPageName(String widgetName,
+//先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
+  MXJSStatefulWidget navigatorPushWithName(String widgetName,
       {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) {
 
     // 此处判断firstBuildWidget是否并返回。是为了解决解决子wiget触发父widget被navigatorPush（比如textField和textFormField获取键盘焦点），导致子widget事件绑定失效的问题
@@ -199,7 +199,7 @@ void runJSApp(dynamic jsWidget) {
       parentBuildOwner: _rootBuildOwner
     );
 
-    callJSNavigatorPushWithPageName(widgetName,
+    callJSNavigatorPushWithName(widgetName,
         themeData: themeData, mediaQueryData: mediaQueryData, iconThemeData: iconThemeData);
 
     firstBuildWidget = jsWidget;
@@ -217,11 +217,11 @@ void runJSApp(dynamic jsWidget) {
   /// flutter -> JS flutter 调用 JS
 
   //flutter层 主动push页面
-  callJSNavigatorPushWithPageName(String widgetName,
+  callJSNavigatorPushWithName(String widgetName,
       {ThemeData themeData, MediaQueryData mediaQueryData, IconThemeData iconThemeData}) async {
     MethodCall jsMethodCall =
-        MethodCall("flutterCallNavigatorPushWithPageName", {
-      "pageName": widgetName,
+        MethodCall("flutterCallNavigatorPushWithName", {
+      "widgetName": widgetName,
       "themeData": MXUtil.cThemeDataToJson(themeData),
       "mediaQueryData": MXUtil.cMediaQueryDataToJson(mediaQueryData),
       "iconThemeData": MXUtil.cIconThemeDataToJson(iconThemeData),
@@ -310,7 +310,7 @@ class MXJSWidgetHelper extends Object {
             child: new Text("widgetData=null pop")));
   }
 
-  void jsRebuild(MXJSStatefulWidget jsWidget) {
+  void jsRebuild(dynamic jsWidget) {
     bool needRebuild = widget.helper.updateWidget(jsWidget);
 
     if (needRebuild) {

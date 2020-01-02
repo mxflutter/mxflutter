@@ -174,11 +174,12 @@ class MXJSFlutterBuildContext {
   }
 
   //js->flutter
-  callFlutterRebuild(widget) {
+  callFlutterRebuild(widget, isRootWidget) {
     let widgetData = MXJSWidgetHelper.buildWidgetData(widget);
     //call flutter setState
     MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", {
-      widgetData
+      widgetData,
+      isRootWidget
     });
   }
 
@@ -201,19 +202,20 @@ class MXJSFlutterApp {
     this.disposeBuildContextList = [];
   }
 
-  run() {
-    runWithPageName(this.initialRoute);
-  }
+  // run() {
+  //   runWithName(this.initialRoute);
+  // }
 
-  //子类重写
-  //flutter->js 用于app直接显示
-  runWithPageName(pageName) {
-    let w = this.createJSWidgetWithName(pageName);
-    this.runApp(w);
-  }
+  // //子类重写
+  // //flutter->js 用于app直接显示
+  // runWithName(name) {
+  //   let w = this.createJSWidgetWithName(name);
+  //   this.runApp(w);
+  // }
 
-  navigatorPushWithPageName(pageName, args) {
-    let w = this.createJSWidgetWithName(pageName);
+  navigatorPushWithName(widgetName, args) {
+    let launcher = require("launcher.js");
+    let w = launcher.createJSRootWidget(widgetName);
 
     // 主动调用initState方法
     if (w instanceof MXJSStatefulWidget) {
@@ -222,10 +224,6 @@ class MXJSFlutterApp {
 
     this.navigatorPush(w, args);
   }
-
-  //子类重写,根据widget名创建widget
-  //flutter->js 用于路由跳转
-  createJSWidgetWithName(pageName) {}
 
   //基础
   //创建MXJSWidget，调用build 创建jsonWidgetTree，调用Flutter runApp 重新加载Flutter根页面
@@ -248,7 +246,7 @@ class MXJSFlutterApp {
     this.disposeBuildContext(this.rootBuildContext);
     this.rootBuildContext = new MXJSFlutterBuildContext(this.rootWidget);
     this.rootBuildContext.setInheritedInfo(args);
-    this.rootBuildContext.callFlutterRebuild(this.rootWidget);
+    this.rootBuildContext.callFlutterRebuild(this.rootWidget, true);
   }
 
   disposeBuildContext(buildContext) {
@@ -282,10 +280,10 @@ class MXJSFlutterApp {
     return this.rootWidget.helper.onEventCallback(args);
   }
 
-  flutterCallNavigatorPushWithPageName(args) {
-    let pageName = args["pageName"];
+  flutterCallNavigatorPushWithName(args) {
+    let widgetName = args["widgetName"];
 
-    this.navigatorPushWithPageName(pageName, args);
+    this.navigatorPushWithName(widgetName, args);
   }
 
   flutterCallOnBuildEnd(args) {
