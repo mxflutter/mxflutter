@@ -40,47 +40,52 @@ class MXJsonObjToDartObject {
     init();
   }
 
-  static dynamic jsonToDartObj(
-      MXJsonBuildOwner buildOwner, dynamic jsonMap, {BuildContext context}) {
+  static dynamic jsonToDartObj(MXJsonBuildOwner buildOwner, dynamic jsonMap,
+      {BuildContext context}) {
     return MXJsonObjToDartObject.getInstance()
-        .jsonObjToDartObject(buildOwner, jsonMap, context:context);
+        .jsonObjToDartObject(buildOwner, jsonMap, context: context);
   }
 
-  dynamic jsonObjToDartObject(MXJsonBuildOwner buildOwner, dynamic jsonObj, {BuildContext context}) {
+  dynamic jsonObjToDartObject(MXJsonBuildOwner buildOwner, dynamic jsonObj,
+      {BuildContext context}) {
     String className;
-     try {
+    try {
       ///map
       if (jsonObj is Map) {
-          className = getJsonObjClassName(jsonObj);
+        className = getJsonObjClassName(jsonObj);
 
-          // 解决Icon.icon的转换问题
-          Map<String, dynamic> newJsonObj = {};
+        // 解决Icon.icon的转换问题
+        Map<String, dynamic> newJsonObj = {};
+        if (jsonObj.length > 0) {
           jsonObj.forEach((k, v) {
             if (k.runtimeType == String) {
               String key = k;
               if (key.contains('.')) {
                 List array = key.split(".");
-                newJsonObj[array[1]] = v; 
+                newJsonObj[array[1]] = v;
                 className = array[0];
                 newJsonObj["className"] = array[0];
               } else {
-                newJsonObj[k] = v; 
+                newJsonObj[k] = v;
               }
-            } else  {
-              newJsonObj[k] = v; 
+            } else {
+              newJsonObj[k] = v;
             }
           });
-
+        }
 
         ///如果Map里找到了Class字段，则转换成对应Dart对象
         if (className != null) {
-          return jsonMapObjToDartObject(buildOwner, newJsonObj, context:context);
+          return jsonMapObjToDartObject(buildOwner, newJsonObj,
+              context: context);
         } else {
           ///如果Map里没找到Class字段，则转换成对应Dart里的Map对象，并对齐子元素，递归转换
-          return jsonMapObjToDartMapRecursive(buildOwner, newJsonObj, context:context);
+          return jsonMapObjToDartMapRecursive(buildOwner, newJsonObj,
+              context: context);
         }
       } else if (jsonObj is List) {
-        return jsonListObjToDartListRecursive(buildOwner, jsonObj, context:context);
+        return jsonListObjToDartListRecursive(buildOwner, jsonObj,
+            context: context);
       } else {
         return jsonObj;
       }
@@ -88,14 +93,14 @@ class MXJsonObjToDartObject {
       MXJSLog.error(
           "MXJsonObjToDartObject:jsonObjToDartObject error:$e ;decode:class $className, jsonObj:$jsonObj ");
 
-          //打印日志重新抛出
-          rethrow;
+      //打印日志重新抛出
+      rethrow;
     }
   }
 
   ///如果Map里找到了Class字段，则转换成对应Dart对象
-  dynamic jsonMapObjToDartObject(
-      MXJsonBuildOwner buildOwner, Map jsonMap, {BuildContext context}) {
+  dynamic jsonMapObjToDartObject(MXJsonBuildOwner buildOwner, Map jsonMap,
+      {BuildContext context}) {
     String className = jsonMap["className"];
 
     if (className == null || className.isEmpty) {
@@ -103,7 +108,7 @@ class MXJsonObjToDartObject {
     }
 
     dynamic mirrorObject = buildOwner.getMirrorObjectFromMap(jsonMap);
-    if (mirrorObject != null){
+    if (mirrorObject != null) {
       return mirrorObject;
     }
 
@@ -122,19 +127,20 @@ class MXJsonObjToDartObject {
       _className2Proxy[className] = proxy;
     }
 
-    dynamic dartObject = proxy.jsonObjToDartObject(buildOwner, jsonMap, context:context);
+    dynamic dartObject =
+        proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
     buildOwner.setMirrorObject(dartObject, jsonMap);
 
     return dartObject;
   }
 
   ///如果Map里没找到Class字段，则转换成对应Dart里的Map对象，并对齐子元素，递归转换
-  dynamic jsonMapObjToDartMapRecursive(
-      MXJsonBuildOwner buildOwner, Map jsonMap, {BuildContext context}) {
+  dynamic jsonMapObjToDartMapRecursive(MXJsonBuildOwner buildOwner, Map jsonMap,
+      {BuildContext context}) {
     Map map = {};
 
     jsonMap.forEach((k, v) {
-      map[k] = jsonToDartObj(buildOwner, v, context:context);
+      map[k] = jsonToDartObj(buildOwner, v, context: context);
     });
 
     return map;
@@ -142,11 +148,12 @@ class MXJsonObjToDartObject {
 
   ///List对象，对子元素，递归转换
   dynamic jsonListObjToDartListRecursive(
-      MXJsonBuildOwner buildOwner, List jsonList, {BuildContext context}) {
+      MXJsonBuildOwner buildOwner, List jsonList,
+      {BuildContext context}) {
     List list = [];
 
     jsonList.forEach((v) {
-      var vObj = jsonToDartObj(buildOwner, v, context:context);
+      var vObj = jsonToDartObj(buildOwner, v, context: context);
 
       list.add(vObj);
     });
@@ -173,7 +180,8 @@ class MXJsonObjToDartObject {
 
     // 第三方库
     registerProxy(MXProxyRegisterHelperPullToRefreshSeries.registerProxys());
-    registerProxy(MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
+    registerProxy(
+        MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
   }
 
   void registerProxy(Map<String, CreateJsonObjProxyFun> m) {
@@ -197,10 +205,12 @@ class MXJsonObjToDartObject {
 }
 
 typedef dynamic ConstructorFun(
-    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap, {BuildContext context});
+    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap,
+    {BuildContext context});
 
 typedef dynamic StaticFunction(
-    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap, {BuildContext context});
+    MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap,
+    {BuildContext context});
 
 class MXJsonObjProxy {
   ///静态接口,子类重写*********************************************
@@ -260,7 +270,7 @@ class MXJsonObjProxy {
   void registerStaticFunction(
       {String className,
       String staticFunctionName = "",
-      StaticFunction staticFunction }) {
+      StaticFunction staticFunction}) {
     if (className == null || className.isEmpty || staticFunction == null) {
       return;
     }
@@ -284,7 +294,8 @@ class MXJsonObjProxy {
 
   ///用于多构造函数分发，一般不用重载，只重载constructor即可
   Object jsonObjToDartObject(
-      MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap, {BuildContext context}) {
+      MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     if (!check(jsonMap)) {
       return null;
     }
@@ -293,17 +304,20 @@ class MXJsonObjProxy {
     StaticFunction staticFun = findStaticFunction(jsonMap);
 
     var obj;
-    ///是否使用静态方法 
+
+    ///是否使用静态方法
     if (staticFun != null) {
-      obj = staticFun(buildOwner, jsonMap, context:context);
+      obj = staticFun(buildOwner, jsonMap, context: context);
     }
+
     ///是否使用自定义的构造方法
     else if (constructorFun != null) {
-      obj = constructorFun(buildOwner, jsonMap, context:context);
+      obj = constructorFun(buildOwner, jsonMap, context: context);
     }
-    ///默认构造方法 
+
+    ///默认构造方法
     else {
-      obj = constructor(buildOwner, jsonMap, context:context);
+      obj = constructor(buildOwner, jsonMap, context: context);
     }
 
     return obj;
@@ -337,8 +351,8 @@ class MXJsonObjProxy {
   }
 
   ///子类重写constructor函数把map转换到dart类
-  dynamic constructor(
-      MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  dynamic constructor(MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     return null;
   }
 
@@ -369,12 +383,10 @@ class MXJsonObjProxy {
     return jsonMap["staticFunctionName"];
   }
 
-
-
   dynamic mxj2d(MXJsonBuildOwner buildOwner, dynamic jsonObj,
       {dynamic defaultValue, BuildContext context}) {
     var v = MXJsonObjToDartObject.getInstance()
-        .jsonObjToDartObject(buildOwner, jsonObj, context:context);
+        .jsonObjToDartObject(buildOwner, jsonObj, context: context);
 
     v ??= defaultValue;
     return v;
@@ -391,9 +403,9 @@ class MXJsonObjProxy {
     Map<int, T> result = map?.map((k, v) {
       if (v.runtimeType == T) {
         return MapEntry<int, T>(int.parse(k), v);
-      }
-      else {
-        MXJSLog.error("toMapIntT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+      } else {
+        MXJSLog.error(
+            "toMapIntT: value type is different from T type, value type is $v.runtimeType, T type is $T");
       }
     });
     return result;
@@ -403,9 +415,9 @@ class MXJsonObjProxy {
     Map<String, T> result = map?.map((k, v) {
       if (v.runtimeType == T) {
         return MapEntry<String, T>(k, v);
-      }
-      else {
-        MXJSLog.error("toMapStringT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+      } else {
+        MXJSLog.error(
+            "toMapStringT: value type is different from T type, value type is $v.runtimeType, T type is $T");
       }
     });
     return result;
@@ -458,8 +470,8 @@ class MXJsonObjProxy {
 
     return cb;
   }
-  
-   //生成StringFunctionGenericCallback<T> 闭包
+
+  //生成StringFunctionGenericCallback<T> 闭包
   StringFunctionGenericCallback<T> createStringValueGenericHandle<T>(
       MXJsonBuildOwner bo, dynamic eventCallbackID) {
     if (eventCallbackID == null) {
@@ -503,12 +515,17 @@ class MXJsonObjProxy {
     return cb;
   }
 
-  dynamic createLayoutWidgetBuilder (MXJsonBuildOwner bo, dynamic eventCallbackID, BoxConstraints constraints) async {
+  dynamic createLayoutWidgetBuilder(MXJsonBuildOwner bo,
+      dynamic eventCallbackID, BoxConstraints constraints) async {
     if (eventCallbackID == null) {
       return null;
     }
 
-    var cb = await bo.eventCallback(eventCallbackID, p: {"widgetName" : "LayoutBuilder", "functionName" : "builder", "constraints" : MXUtil.cBoxConstraintsToJson(constraints)});
+    var cb = await bo.eventCallback(eventCallbackID, p: {
+      "widgetName": "LayoutBuilder",
+      "functionName": "builder",
+      "constraints": MXUtil.cBoxConstraintsToJson(constraints)
+    });
     return cb;
   }
 }

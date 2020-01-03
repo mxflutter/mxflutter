@@ -53,6 +53,10 @@ class CachedNetworkImage extends FlutterWidget {
     }
 }
 
+CachedNetworkImage.new = function(arg) {
+    return new CachedNetworkImage(arg);
+};
+
 src__cached_image_widget = Object.create(null);
 src__cached_image_widget.CachedNetworkImage = CachedNetworkImage;
 exports.src__cached_image_widget = src__cached_image_widget;
