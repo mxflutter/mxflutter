@@ -3148,6 +3148,89 @@ ButtonThemeData.new = function({
   return this;
 }
 
+class NotificationListener extends DartClass {
+  constructor ({
+    key,
+    child,
+    onNotification,
+  } = {}) {
+    super();
+
+    this.key = key;
+    this.child = child;
+    this.onNotification = onNotification;
+  }
+}
+
+NotificationListener.new = function(arg) {
+  return new NotificationListener(arg);
+};
+
+class PreferredSize extends DartClass {
+  constructor ({
+    key,
+    child,
+    preferredSize,
+  } = {}) {
+    super();
+
+    this.key = key;
+    this.child = child;
+    this.preferredSize = preferredSize;
+  }
+}
+
+PreferredSize.new = function(arg) {
+  return new PreferredSize(arg);
+};
+
+class PreferredSizeWidget extends DartClass {
+  constructor (
+
+    ) {
+      super();
+    }
+}
+
+PreferredSizeWidget.new = function(args) {
+  return PreferredSizeWidget(args);
+};
+
+class Notification extends DartClass {
+  constructor (
+
+  ) {
+    super();
+  }
+}
+
+Notification.new = function(arg) {
+  return new Notification(arg);
+};
+
+class ClipRRect extends DartClass {
+  constructor ({
+    key,
+    borderRadius,
+    clipper,
+    clipBehavior,
+    child,
+  } = {}) {
+    super();
+
+    this.key = key;
+    this.borderRadius = borderRadius;
+    this.clipper = clipper;
+    this.clipBehavior = clipBehavior;
+    this.child = child;
+  }
+}
+
+ClipRRect.new = function(arg) {
+  return new ClipRRect(arg);
+};
+
+
 module.exports = {
   DartClass,
   FlutterWidget,
@@ -3246,5 +3329,10 @@ module.exports = {
   ColorScheme,
   ButtonThemeData,
   ButtonBarLayoutBehavior,
+  NotificationListener,
+  PreferredSize,
+  PreferredSizeWidget,
+  Notification,
+  ClipRRect,
   assert
 };

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
@@ -88,6 +90,7 @@ class MXProxyRegisterHelperLayoutSeries {
     m.addAll(MXProxySingleChildScrollView.registerProxy());
     m.addAll(MXProxySliverToBoxAdapter.registerProxy());
     m.addAll(MXProxyTableCell.registerProxy());
+    m.addAll(MXProxyOffsetBase.registerProxy());
 
     return m;
   }
@@ -1950,6 +1953,25 @@ class MXProxyTableCell extends MXJsonObjProxy {
 			verticalAlignment: MXTableCellVerticalAlignment.parse(mxj2d(bo, jsonMap["verticalAlignment"])),
 			child: mxj2d(bo, jsonMap["child"]),
 		);
+		return widget;
+	}
+}
+
+class MXProxyOffsetBase extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "OffsetBase";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyOffsetBase()..init(className: regClassName)};
+	}
+
+	@override
+	OffsetBase constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    //TODO: 因为是抽象类，无法给实例化，暂用子类Size。可以考虑从js framework生成的json入手，加入子类的名称。
+		var widget = Size(
+      mxj2d(bo, jsonMap["_dx"])?.toDouble(), 
+      mxj2d(bo, jsonMap["_dy"])?.toDouble(), 
+    );
 		return widget;
 	}
 }

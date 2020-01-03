@@ -545,11 +545,67 @@ class ListView extends FlutterWidget {
     this.children = children;
     this.semanticChildCount = semanticChildCount;
   }
+
+  preBuild(jsWidgetHelper, buildContext) {
+    if (this.itemBuilder) {
+      this.children = [];
+      for (let i = 0; i < this.itemCount; ++i) {
+        let w = this.itemBuilder(buildContext, i);
+        this.children.push(w);
+      }
+      delete this.itemBuilder;
+    }
+
+    super.preBuild(jsWidgetHelper, buildContext);
+  }
 }
 
 ListView.new = function(arg) {
   return new ListView(arg);
 };
+
+ListView.builder = function({
+  key,
+  scrollDirection,
+  reverse,
+  controller,
+  primary,
+  physics,
+  shrinkWrap,
+  padding,
+  itemExtent,
+  itemBuilder,
+  itemCount,
+  addAutomaticKeepAlives,
+  addRepaintBoundaries,
+  addSemanticIndexes,
+  cacheExtent,
+  semanticChildCount,
+  dragStartBehavior,
+}) {
+  let jsObj = new ListView();
+  jsObj.constructorName = "builder";
+
+  jsObj.key = key;
+  jsObj.scrollDirection = scrollDirection;
+  jsObj.reverse = reverse;
+  jsObj.controller = controller;
+  jsObj.primary = primary;
+  jsObj.physics = physics;
+  jsObj.shrinkWrap = shrinkWrap;
+  jsObj.padding = padding;
+  jsObj.itemExtent = itemExtent;
+  jsObj.itemBuilder = itemBuilder;
+  jsObj.itemCount = itemCount;
+  jsObj.addAutomaticKeepAlives = addAutomaticKeepAlives;
+  jsObj.addRepaintBoundaries = addRepaintBoundaries;
+  jsObj.addSemanticIndexes = addSemanticIndexes;
+  jsObj.cacheExtent = cacheExtent;
+  jsObj.semanticChildCount = semanticChildCount;
+  jsObj.dragStartBehavior = dragStartBehavior;
+
+  return jsObj;
+}
 
 class ListTile extends FlutterWidget {
   constructor({
@@ -1035,7 +1091,6 @@ class TableCell extends FlutterWidget {
 TableCell.new = function(arg) {
   return new TableCell(arg);
 };
-
 
 module.exports = {
   Center,

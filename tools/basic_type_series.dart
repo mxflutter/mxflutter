@@ -2095,6 +2095,38 @@ const ButtonThemeData({
   padded,
 }
 """,
+
+"""
+const NotificationListener({
+    Key key,
+    @required this.child,
+    this.onNotification,
+  }) : super(key: key);
+""",
+
+"""
+const PreferredSize({
+    Key key,
+    @required this.child,
+    @required this.preferredSize,
+  })
+  """,
+
+  """
+const Notification(
+  
+)
+""",
+
+"""
+const ClipRRect({
+    Key key,
+    this.borderRadius = BorderRadius.zero,
+    this.clipper,
+    this.clipBehavior = Clip.antiAlias,
+    Widget child,
+  })
+  """,
 ];
 
 void main(List<String> arguments) {

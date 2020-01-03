@@ -61,6 +61,7 @@ src__widgets__basic.Builder = materialExports.Builder;
 src__widgets__basic.Positioned = basicExports.Positioned;
 src__widgets__basic.Opacity = basicExports.Opacity;
 src__widgets__basic.SliverToBoxAdapter = layoutExports.SliverToBoxAdapter;
+src__widgets__basic.ClipRRect = basicExports.ClipRRect;
 exports.src__widgets__basic = src__widgets__basic;
 
 let src__widgets__icon = Object.create(null);
@@ -184,4 +185,15 @@ src__widgets__navigator.Navigator = materialExports.Navigator;
 src__widgets__navigator.RouteSettings = materialExports.RouteSettings;
 exports.src__widgets__navigator = src__widgets__navigator;
 
+let src__widgets__notification_listener = Object.create(null);
+src__widgets__notification_listener.NotificationListener = basicExports.NotificationListener;
+src__widgets__notification_listener.NotificationListener$ = function() {
+    return basicExports.NotificationListener;
+};
+src__widgets__notification_listener.Notification = basicExports.Notification;
+exports.src__widgets__notification_listener = src__widgets__notification_listener;
 
+let src__widgets__preferred_size = Object.create(null);
+src__widgets__preferred_size.PreferredSize = basicExports.PreferredSize;
+src__widgets__preferred_size.PreferredSizeWidget = basicExports.PreferredSizeWidget;
+exports.src__widgets__preferred_size = src__widgets__preferred_size;

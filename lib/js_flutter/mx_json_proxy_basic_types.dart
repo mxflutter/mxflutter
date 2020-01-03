@@ -82,6 +82,9 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyMaterialAccentColor.registerProxy());
     m.addAll(MXProxyColorScheme.registerProxy());
     m.addAll(MXProxyButtonThemeData.registerProxy());
+    m.addAll(MXProxyNotificationListener.registerProxy());
+    m.addAll(MXProxyPreferredSize.registerProxy());
+    m.addAll(MXProxyClipRRect.registerProxy());
     return m;
   }
 }
@@ -3012,5 +3015,81 @@ class MXButtonBarLayoutBehavior  {
 		var valueStr = valueMap["_name"].trim();
 		var v = str2VMap[valueStr];
 		return v??defaultValue;
+	}
+}
+
+class MXProxyNotificationListener extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "NotificationListener";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyNotificationListener()..init(className: regClassName)};
+	}
+
+	@override
+	NotificationListener constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+		var widget = NotificationListener(
+			key: mxj2d(bo, jsonMap["key"]),
+			child: mxj2d(bo, jsonMap["child"]),
+			onNotification: mxj2d(bo, jsonMap["onNotification"]),
+		);
+		return widget;
+	}
+}
+
+class MXProxyPreferredSize extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "PreferredSize";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyPreferredSize()..init(className: regClassName)};
+	}
+
+	@override
+	PreferredSize constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+		var widget = PreferredSize(
+			key: mxj2d(bo, jsonMap["key"]),
+			child: mxj2d(bo, jsonMap["child"]),
+			preferredSize: mxj2d(bo, jsonMap["preferredSize"]),
+		);
+		return widget;
+	}
+}
+
+// class MXProxyNotification extends MXJsonObjProxy {
+// 	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+// 		///**@@@  2 替换类名字符串
+// 		final String regClassName = "Notification";
+// 		///**@@@  3 替换类构造函数
+// 		return {regClassName: () => MXProxyNotification()..init(className: regClassName)};
+// 	}
+
+// 	@override
+// 	Notification constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+// 		var widget = Notification(
+
+// 		);
+// 		return widget;
+// 	}
+// }
+
+class MXProxyClipRRect extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "ClipRRect";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyClipRRect()..init(className: regClassName)};
+	}
+
+	@override
+	ClipRRect constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+		var widget = ClipRRect(
+			key: mxj2d(bo, jsonMap["key"]),
+			borderRadius: mxj2d(bo, jsonMap["borderRadius"], defaultValue:BorderRadius.zero),
+			clipper: mxj2d(bo, jsonMap["clipper"]),
+			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue:Clip.antiAlias),
+			child: mxj2d(bo, jsonMap["child"]),
+		);
+		return widget;
 	}
 }

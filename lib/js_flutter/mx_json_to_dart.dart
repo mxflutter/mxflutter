@@ -9,6 +9,8 @@ import 'mx_json_proxy_image.dart';
 import 'mx_json_proxy_cupertino.dart';
 import 'mx_js_flutter_common.dart';
 import 'mx_json_proxy_animation.dart';
+import 'packages/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
+import 'packages/cached_network_image/mx_json_proxy_cached_network_image.dart';
 import 'dart:core';
 
 typedef dynamic CreateJsonObjProxyFun();
@@ -168,6 +170,10 @@ class MXJsonObjToDartObject {
     registerProxy(MXProxyRegisterHelperImageSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperCupertinoSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperAnimationSeries.registerProxys());
+
+    // 第三方库
+    registerProxy(MXProxyRegisterHelperPullToRefreshSeries.registerProxys());
+    registerProxy(MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
   }
 
   void registerProxy(Map<String, CreateJsonObjProxyFun> m) {
