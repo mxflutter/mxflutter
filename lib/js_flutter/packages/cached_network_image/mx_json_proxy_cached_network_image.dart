@@ -28,7 +28,9 @@ class MXProxyCachedNetworkImage extends MXJsonObjProxy {
 			key: mxj2d(bo, jsonMap["key"]),
 			imageUrl: mxj2d(bo, jsonMap["imageUrl"]),
 			// imageBuilder: mxj2d(bo, jsonMap["imageBuilder"]),
-			// placeholder: mxj2d(bo, jsonMap["placeholder"]),
+      placeholder: (context, url) {
+        return mxj2d(bo, jsonMap["placeholderChild"]);
+      },
 			// errorWidget: mxj2d(bo, jsonMap["errorWidget"]),
 			fadeOutDuration: mxj2d(bo, jsonMap["fadeOutDuration"], defaultValue:const Duration(milliseconds: 1000)),
 			fadeOutCurve: mxj2d(bo, jsonMap["fadeOutCurve"], defaultValue:Curves.easeOut),

@@ -51,6 +51,16 @@ class CachedNetworkImage extends FlutterWidget {
         this.colorBlendMode = colorBlendMode;
         this.placeholderFadeInDuration = placeholderFadeInDuration;
     }
+
+    preBuild(jsWidgetHelper, buildContext) {
+        // 暂时只处理placeholder
+        if (this.placeholder) {
+          this.placeholderChild = this.placeholder(buildContext, this.imageUrl);
+          delete this.placeholder;
+        }
+
+        super.preBuild(jsWidgetHelper, buildContext);
+      }
 }
 
 CachedNetworkImage.new = function(arg) {
