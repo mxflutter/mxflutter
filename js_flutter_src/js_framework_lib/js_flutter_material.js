@@ -1203,7 +1203,7 @@ class Navigator extends FlutterWidget {
     var navigatorState = new NavigatorState(context);
     navigatorState.push(T, materialPageRoute);
   }
-  static pop(context, T) {
+  static pop(T, context) {
     var navigatorState = new NavigatorState(context);
     navigatorState.pop(T);
   }
