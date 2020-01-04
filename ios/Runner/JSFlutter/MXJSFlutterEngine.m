@@ -141,7 +141,9 @@
     routeName = routeName?routeName:@"";
     widgetData = widgetData?widgetData:@"";
     
-    FlutterMethodCall* call  = [FlutterMethodCall methodCallWithMethodName:@"reloadApp" arguments:@{@"routeName":routeName,@"widgetData":widgetData,}];
+    FlutterMethodCall* call  = [FlutterMethodCall methodCallWithMethodName:@"reloadApp"
+                                                                 arguments:@{@"routeName":routeName?:@"",
+                                                                             @"widgetData":widgetData?:@""}];
     
 //    if (!_flutterEngineIsDidRender) {
 //
@@ -154,7 +156,10 @@
 
 - (void)callFlutterMethodChannelInvoke:(NSString*)channelName methodName:(NSString*)methodName params:(NSDictionary *)params callback:(void(^)(id _Nullable result))callback
 {
-    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke" arguments:@{@"channelName":channelName,@"methodName":methodName,@"params":params}];
+    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke"
+                                                                arguments:@{@"channelName":channelName?:@"",
+                                                                            @"methodName":methodName?:@"",
+                                                                            @"params":params?:@{}}];
 //    if (!_flutterEngineIsDidRender) {
 //        [self.callFlutterQueue addObject:call];
 //        return;
@@ -179,12 +184,12 @@
         streamParam = nil;
     }
     FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"
-                                                                arguments:@{@"channelName":channelName,
+                                                                arguments:@{@"channelName":channelName?:@"",
                                                                             @"streamParam":streamParam?:@"",
                                                                             @"onDataId":onDataId?:@"",
                                                                             @"onErrorId":onErrorId?:@"",
                                                                             @"onDoneId":onDoneId?:@"",
-                                                                            @"cancelOnError":cancelOnError}];
+                                                                            @"cancelOnError":cancelOnError?:@(-1)}];
 //    if (!_flutterEngineIsDidRender) {
 //        [self.callFlutterQueue addObject:call];
 //        return;
