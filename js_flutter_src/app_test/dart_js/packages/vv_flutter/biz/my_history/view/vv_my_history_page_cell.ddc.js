@@ -123,11 +123,9 @@ vv_my_history_page_cell._VVMyHistoryPageCellState = class _VVMyHistoryPageCellSt
 ) {
   [_getEditModeIcon]() {
     let imagePath = "assets/images/myfavoritecell_uncheck@2x.png";
-    // this.setState(dart.fn(() => {
-    //   if (dart.test(this.widget.isSelected)) {
-    //     imagePath = "assets/images/myfavoritecell_checked@2x.png";
-    //   }
-    // }, VoidToNull()));
+    if (dart.test(this.widget.isSelected)) {
+      imagePath = "assets/images/myfavoritecell_checked@2x.png";
+    }
     if (dart.test(this.widget.isEditMode)) {
       return new container.Container.new({
         padding: new edge_insets.EdgeInsets.only({ right: 16.0 }),
