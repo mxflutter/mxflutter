@@ -141,9 +141,16 @@
     routeName = routeName?routeName:@"";
     widgetData = widgetData?widgetData:@"";
     
-    FlutterMethodCall* call  = [FlutterMethodCall methodCallWithMethodName:@"reloadApp"
-                                                                 arguments:@{@"routeName":routeName?:@"",
-                                                                             @"widgetData":widgetData?:@""}];
+    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+    if (routeName)
+    {
+        [arguments setObject:routeName forKey:@"routeName"];
+    }
+    if (widgetData)
+    {
+        [arguments setObject:widgetData forKey:@"widgetData"];
+    }
+    FlutterMethodCall* call  = [FlutterMethodCall methodCallWithMethodName:@"reloadApp" arguments:arguments];
     
 //    if (!_flutterEngineIsDidRender) {
 //
@@ -156,10 +163,20 @@
 
 - (void)callFlutterMethodChannelInvoke:(NSString*)channelName methodName:(NSString*)methodName params:(NSDictionary *)params callback:(void(^)(id _Nullable result))callback
 {
-    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke"
-                                                                arguments:@{@"channelName":channelName?:@"",
-                                                                            @"methodName":methodName?:@"",
-                                                                            @"params":params?:@{}}];
+    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+    if (channelName)
+    {
+        [arguments setObject:channelName forKey:@"channelName"];
+    }
+    if (methodName)
+    {
+        [arguments setObject:methodName forKey:@"methodName"];
+    }
+    if (params)
+    {
+        [arguments setObject:params forKey:@"params"];
+    }
+    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke" arguments:arguments];
 //    if (!_flutterEngineIsDidRender) {
 //        [self.callFlutterQueue addObject:call];
 //        return;
@@ -183,13 +200,34 @@
     if ([streamParam isEqualToString:@"null"]) {
         streamParam = nil;
     }
+    
+    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+    if (channelName)
+    {
+        [arguments setObject:channelName forKey:@"channelName"];
+    }
+    if (streamParam)
+    {
+        [arguments setObject:streamParam forKey:@"streamParam"];
+    }
+    if (onDataId)
+    {
+        [arguments setObject:onDataId forKey:@"onDataId"];
+    }
+    if (onErrorId)
+    {
+        [arguments setObject:onErrorId forKey:@"onErrorId"];
+    }
+    if (onErrorId)
+    {
+        [arguments setObject:onErrorId forKey:@"onErrorId"];
+    }
+    if (cancelOnError)
+    {
+        [arguments setObject:cancelOnError forKey:@"cancelOnError"];
+    }
     FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"
-                                                                arguments:@{@"channelName":channelName?:@"",
-                                                                            @"streamParam":streamParam?:@"",
-                                                                            @"onDataId":onDataId?:@"",
-                                                                            @"onErrorId":onErrorId?:@"",
-                                                                            @"onDoneId":onDoneId?:@"",
-                                                                            @"cancelOnError":cancelOnError?:@(-1)}];
+                                                                arguments:arguments];
 //    if (!_flutterEngineIsDidRender) {
 //        [self.callFlutterQueue addObject:call];
 //        return;
