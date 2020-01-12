@@ -7,6 +7,9 @@ import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 void main() {
   debugPaintSizeEnabled = false;
   test();
+
+  WidgetsFlutterBinding.ensureInitialized();
+  
   //设置JSFlutter
   MXJSFlutter.getInstance().setup();
 
