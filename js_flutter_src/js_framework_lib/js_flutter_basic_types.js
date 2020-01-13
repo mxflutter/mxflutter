@@ -1532,7 +1532,9 @@ class IconData extends DartClass {
             fontFamily,
             fontPackage,
             matchTextDirection
-        } = {}) {
+        } = {
+          fontFamily:'MaterialIcons'
+      }) {
         super();
 
         this.codePoint = codePoint;
