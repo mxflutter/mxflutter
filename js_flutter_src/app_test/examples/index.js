@@ -73,6 +73,7 @@ let { PageExampleButton }  = jsFlutterRequire("examples/example_button.js");
 let { PageExampleAppBar } = jsFlutterRequire("examples/example_app_bar.js");
 let { PageExampleSnakeBar } = jsFlutterRequire("examples/example_snake_bar.js");
 let { PageExampleColumn } = jsFlutterRequire("examples/example_column.js");
+let { PageExampleRow } = jsFlutterRequire("examples/example_row.js");
 
 
 class ExamplesPage extends MXJSWidget {
@@ -103,6 +104,12 @@ class ExamplesPage extends MXJSWidget {
             title:new Text("Column"),
             onTap: this.createCallbackID(function () {
               this.navigatorPush(new PageExampleColumn());
+            }),
+          }),
+          new ListTile({
+            title:new Text("Row"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExampleRow());
             }),
           }),
           new ListTile({

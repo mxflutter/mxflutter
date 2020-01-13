@@ -70,42 +70,42 @@ let {
 } = jsFlutterRequire("js_flutter_ui.js");
 
 
-class PageExampleColumn extends MXJSWidget {
+class PageExampleRow extends MXJSWidget {
   constructor(){
-    super("PageExampleColumn");
+    super("PageExampleRow");
   }
 
   genSevenContainers(){
     return  [
       new Container({
         color:Colors.red(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
       new Container({
         color:Colors.orange(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
       new Container({
         color:Colors.yellow(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
       new Container({
         color:Colors.green(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
       new Container({
         color:Colors.indigo(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
       new Container({
         color:Colors.purple(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
     ];
   }
@@ -115,18 +115,18 @@ class PageExampleColumn extends MXJSWidget {
     return  [
       new Container({
         color:Colors.red(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
       new Container({
         color:Colors.orange(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
       new Container({
         color:Colors.yellow(),
-        height:30,
-        width:100,
+        height:100,
+        width:30,
       }),
     ];
   }
@@ -134,127 +134,133 @@ class PageExampleColumn extends MXJSWidget {
   build(context){
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('Column',),
+        title: new Text('Row',),
       }),
       body: new ListView({
         children:[
-          new ListTile({title:new Text("Column"),}),
-          new Column({
+          new ListTile({title:new Text("Row"),}),
+          new Row({
             children: [
               new Container({
                 color:Colors.red(),
-                height:30,
+                height:100,
+                width:30,
               }),
               new Container({
                 color:Colors.orange(),
-                height:30,
+                height:100,
+                width:30,
               }),
               new Container({
                 color:Colors.yellow(),
-                height:30,
+                height:100,
+                width:30,
               }),
               new Container({
                 color:Colors.green(),
-                height:30,
+                height:100,
+                width:30,
               }),
               new Container({
                 color:Colors.indigo(),
-                height:30,
+                height:100,
+                width:30,
               }),
               new Container({
                 color:Colors.purple(),
-                height:30,
+                height:100,
+                width:30,
               }),
             ],
           }),
 
-          new ListTile({title:new Text("Column Top-Left"),}),
+          new ListTile({title:new Text("Row Top-Left"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.start,
               crossAxisAlignment:CrossAxisAlignment.start,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column Top-Middle"),}),
+          new ListTile({title:new Text("Row Top-Middle"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.start,
               crossAxisAlignment:CrossAxisAlignment.center,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column Top-Right"),}),
+          new ListTile({title:new Text("Row Top-Right"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.start,
               crossAxisAlignment:CrossAxisAlignment.end,
               children: this.genThreeContainers(),
             }),
           }),
 
-          new ListTile({title:new Text("Column Center-Left"),}),
+          new ListTile({title:new Text("Row Center-Left"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.center,
               crossAxisAlignment:CrossAxisAlignment.start,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column Center-Center"),}),
+          new ListTile({title:new Text("Row Center-Center"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.center,
               crossAxisAlignment:CrossAxisAlignment.center,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column Center-Right"),}),
+          new ListTile({title:new Text("Row Center-Right"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.center,
               crossAxisAlignment:CrossAxisAlignment.end,
               children: this.genThreeContainers(),
             }),
           }),
 
-          new ListTile({title:new Text("Column Bottom-Left"),}),
+          new ListTile({title:new Text("Row Bottom-Left"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.end,
               crossAxisAlignment:CrossAxisAlignment.start,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column Bottom-Middle"),}),
+          new ListTile({title:new Text("Row Bottom-Middle"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.end,
               crossAxisAlignment:CrossAxisAlignment.center,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column Bottom-Right"),}),
+          new ListTile({title:new Text("Row Bottom-Right"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.end,
               crossAxisAlignment:CrossAxisAlignment.end,
               children: this.genThreeContainers(),
@@ -263,31 +269,31 @@ class PageExampleColumn extends MXJSWidget {
 
 
 
-          new ListTile({title:new Text("Column SpaceAround-Left"),}),
+          new ListTile({title:new Text("Row SpaceAround-Left"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceAround,
               crossAxisAlignment:CrossAxisAlignment.start,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column SpaceAround-Middle"),}),
+          new ListTile({title:new Text("Row SpaceAround-Middle"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceAround,
               crossAxisAlignment:CrossAxisAlignment.center,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column SpaceAround-Right"),}),
+          new ListTile({title:new Text("Row SpaceAround-Right"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceAround,
               crossAxisAlignment:CrossAxisAlignment.end,
               children: this.genThreeContainers(),
@@ -297,62 +303,62 @@ class PageExampleColumn extends MXJSWidget {
 
 
 
-          new ListTile({title:new Text("Column SpaceBetween-Left"),}),
+          new ListTile({title:new Text("Row SpaceBetween-Left"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceBetween,
               crossAxisAlignment:CrossAxisAlignment.start,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column SpaceBetween-Middle"),}),
+          new ListTile({title:new Text("Row SpaceBetween-Middle"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceBetween,
               crossAxisAlignment:CrossAxisAlignment.center,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column SpaceBetween-Right"),}),
+          new ListTile({title:new Text("Row SpaceBetween-Right"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceBetween,
               crossAxisAlignment:CrossAxisAlignment.end,
               children: this.genThreeContainers(),
             }),
           }),
 
-          new ListTile({title:new Text("Column SpaceEvenly-Left"),}),
+          new ListTile({title:new Text("Row SpaceEvenly-Left"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceEvenly,
               crossAxisAlignment:CrossAxisAlignment.start,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column SpaceEvenly-Middle"),}),
+          new ListTile({title:new Text("Row SpaceEvenly-Middle"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceEvenly,
               crossAxisAlignment:CrossAxisAlignment.center,
               children: this.genThreeContainers(),
             }),
           }),
-          new ListTile({title:new Text("Column SpaceEvenly-Right"),}),
+          new ListTile({title:new Text("Row SpaceEvenly-Right"),}),
           new Container({
             color:Colors.grey(),
             height:200,
-            child:new Column({
+            child:new Row({
               mainAxisAlignment:MainAxisAlignment.spaceEvenly,
               crossAxisAlignment:CrossAxisAlignment.end,
               children: this.genThreeContainers(),
@@ -368,5 +374,5 @@ class PageExampleColumn extends MXJSWidget {
 }
 
 module.exports = {
-  PageExampleColumn,
+  PageExampleRow,
 };
