@@ -68,8 +68,8 @@ class JSWidgetHomePage extends MXJSWidget {
               new ListTile({
                 leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
                 trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                title: new Text('懒虫笔记'),
-                subtitle: new Text('随时随地，想记就记'),
+                title: new Text('Idea Test'),
+                subtitle: new Text('Good Idea，Try it'),
                 onTap:function () {
                   this.navigatorPush(new TimelinePage);
                 }

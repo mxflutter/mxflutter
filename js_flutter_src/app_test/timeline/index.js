@@ -77,41 +77,40 @@ class TimelinePage extends MXJSWidget {
   build(context){
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('懒虫笔记'),
+        title: new Text('Idea Test',),
       }),
       body: new ListView({
         children:[
           new ListTile({
-            title:new Text("Container"),
+            title:new Text("Scaffold.of(context) 测试"),
           }),
-          new Container({
-            height:100,
-            color: Colors.indigo(),
-            child: new Center({
-              child: new Text("Hello123",{
-                style: new TextStyle({
-                  fontSize: 20.0,
-                  color: Colors.red(),
-                  fontWeight: FontWeight.bold
-                }),
-              })
-            }),
-          }),
-          new RaisedButton({
-            child:new Text("Normal Button"),
-            onPressed: this.createCallbackID(function (widgetID) {
-              console.log("------>widgetID",widgetID);
-              Scaffold.of(context).showSnackBar(
-                new SnackBar({content: new Text('This is a dummy sheet action.')})
-              );
-            }),
-          })
+          new MyScaffoldBody(),
         ],
       })
     });
     return widget;
   }
 }
+
+class MyScaffoldBody extends MXJSWidget {
+  constructor(){
+    super("MyScaffoldBody");
+  }
+
+  build(context){
+    let widget =  new RaisedButton({
+      child:new Text("测试 Scaffold.of(context)"),
+      onPressed: this.createCallbackID(function (widgetID) {
+        console.log("------>widgetID",widgetID);
+        Scaffold.of(context).showSnackBar(
+          new SnackBar({content: new Text('This is a dummy sheet action.')})
+        );
+      }),
+    });
+    return widget;
+  }
+}
+
 
 module.exports = {
   TimelinePage,

@@ -2,9 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TestPage extends StatelessWidget{
+
+class TestPageScaffoldNorWork extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("My Test"),
@@ -20,6 +22,38 @@ class TestPage extends StatelessWidget{
             },
           )
         ],
+      ),
+    );
+  }
+}
+
+
+
+class TestPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("My Test"),
+      ),
+      body: MyScaffoldBody(),
+    );
+  }
+}
+
+class MyScaffoldBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: RaisedButton(
+        child: Text('SHOW A SNACKBAR'),
+        onPressed: () {
+          Scaffold.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Have a snack!'),
+            ),
+          );
+        },
       ),
     );
   }

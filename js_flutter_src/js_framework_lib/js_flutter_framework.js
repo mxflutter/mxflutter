@@ -534,7 +534,7 @@ class MXJSWidget {
 
 
     createCallbackID(callback) {
-        callback = callback.bind(this);
+        callback = callback.bind(this,this.widgetID,);
         return this.buildingWidgetTree.createCallbackID(this.widgetID,callback);
     }
 

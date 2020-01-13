@@ -153,7 +153,7 @@ class Scaffold extends FlutterWidget {
         //4.执行调用
         MXJSLog.log("showSnackBar in js call native-->");
         var argument = new FlutterCallArgs({
-          widgetID:  "2",
+          widgetID:  "3",
           className: 'Scaffold',
           funcName: 'of',
           args: {
