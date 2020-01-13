@@ -52,6 +52,10 @@ class MXProxyRegisterHelperMaterialSeries {
     m.addAll(MXProxyTabController.registerProxy());
     m.addAll(MXProxyTab.registerProxy());
 
+    m.addAll(MXProxyScrollbar.registerProxy());
+
+    m.addAll(MXProxySnackBar.registerProxy());
+
     return m;
   }
 }
@@ -672,7 +676,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
         child: mxj2d(bo, jsonMap["child"])
       );
-      
+
   Widget functionFlatButtonIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
     FlatButton.icon(
       key: mxj2d(bo, jsonMap["key"]),
@@ -717,7 +721,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         animationDuration: mxj2d(bo, jsonMap["animationDuration"]),
         child: mxj2d(bo, jsonMap["child"]),
       );
-    
+
   Widget functionRaisedButtonIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
     RaisedButton.icon(
       key: mxj2d(bo, jsonMap["key"]),
@@ -889,7 +893,7 @@ class MXProxyHero extends MXJsonObjProxy {
 			createRectTween: mxj2d(bo, jsonMap["createRectTween"]), //TODO:createRectTween
 			flightShuttleBuilder: mxj2d(bo, jsonMap["flightShuttleBuilder"]), //TODO:flightShuttleBuilder
 			placeholderBuilder: mxj2d(bo, jsonMap["placeholderBuilder"]), //TODO:placeholderBuilder
-			transitionOnUserGestures: mxj2d(bo, jsonMap["transitionOnUserGestures"], defaultValue:false), 
+			transitionOnUserGestures: mxj2d(bo, jsonMap["transitionOnUserGestures"], defaultValue:false),
 			child: mxj2d(bo, jsonMap["child"]),
 		);
 		return widget;
@@ -1186,7 +1190,7 @@ class MXProxySafeArea extends MXJsonObjProxy {
 class MXMaterialTapTargetSize  {
 	static Map str2VMap =  {
 			"MaterialTapTargetSize.padded": MaterialTapTargetSize.padded,
-			"MaterialTapTargetSize.shrinkWrap": MaterialTapTargetSize.shrinkWrap}; 
+			"MaterialTapTargetSize.shrinkWrap": MaterialTapTargetSize.shrinkWrap};
 
 	static MaterialTapTargetSize parse(String valueStr,{MaterialTapTargetSize defaultValue }) {
 		if(valueStr == null) return defaultValue;
@@ -1296,3 +1300,58 @@ class MXProxyTabBarView extends MXJsonObjProxy {
 	}
 }
 
+
+class MXProxyScrollbar extends MXJsonObjProxy {
+  static String regClassName = "Scrollbar";
+
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyScrollbar()..init(className: regClassName)
+    };
+  }
+
+  /// ListBody({
+  ///   Key key,
+  ///   this.mainAxis = Axis.vertical,
+  ///   this.reverse = false,
+  ///   List<Widget> children = const <Widget>[],
+  /// })
+  @override
+  Scrollbar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = Scrollbar(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+
+    return widget;
+  }
+}
+
+class MXProxySnackBar extends MXJsonObjProxy {
+  static String regClassName = "SnackBar";
+
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxySnackBar()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SnackBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = SnackBar(
+      key: mxj2d(bo, jsonMap["key"]),
+      content:mxj2d(bo, jsonMap["child"]),
+      backgroundColor:mxj2d(bo, jsonMap["backgroundColor"]),
+      elevation:mxj2d(bo, jsonMap["elevation"]),
+      shape:mxj2d(bo, jsonMap["shape"]),
+      behavior:mxj2d(bo, jsonMap["behavior"]),
+      action:mxj2d(bo, jsonMap["action"]),
+      duration:mxj2d(bo, jsonMap["duration"]),
+      animation:mxj2d(bo, jsonMap["animation"]),
+      onVisible:mxj2d(bo, jsonMap["onVisible"]),
+    );
+    return widget;
+  }
+}

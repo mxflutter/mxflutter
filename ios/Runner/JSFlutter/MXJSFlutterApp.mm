@@ -93,7 +93,7 @@ static MXJSFlutterEngine* jsFlutterEngineStatic;
         
         if ([call.method isEqualToString:@"callJS"]) {
             
-            [strongSelf.jsExecutor invokeJSValue:strongSelf.jsAppObj mothod:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
+            [strongSelf.jsExecutor invokeJSValue:strongSelf.jsAppObj method:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
                 
             }];
         }

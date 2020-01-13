@@ -50,11 +50,13 @@ class FlutterWidgetMirrorMgr {
 
 class FlutterCallArgs{
     constructor({
+        widgetID,
         mirrorID,
         className,
         funcName,
         args
     } = {}) {
+        this.widgetID = widgetID;
         this.mirrorID = mirrorID;
         this.className = className;
         this.funcName = funcName;
@@ -86,7 +88,7 @@ class FlutterWidget extends DartClass {
     }
 
     //在生成json前调用
-    //用于list delegate 等的items build 
+    //用于list delegate 等的items build
     //用于widget有类似onTab等响应函数变量，在此转换成callbackid,
     //但注意，delegate中确实需要funtion,要转不需ID的，不要调用super.preBuild
     preBuild(jsWidget,buildContext){
@@ -1436,18 +1438,14 @@ class Radius extends DartClass {
 }
 
 class BorderRadius extends DartClass {
-    constructor(
-
-    ) {
+    constructor() {
         super();
 
 
     }
 
 
-    static all(
-        radius
-    ) {
+    static all(radius) {
         let v = new BorderRadius();
         v.constructorName = "all";
 
@@ -1455,16 +1453,15 @@ class BorderRadius extends DartClass {
 
         return v;
     }
-    static circular(
-        radius
-    ) {
+
+    static circular(radius) {
         let v = new BorderRadius();
         v.constructorName = "circular";
 
         v.radius = radius;
-
         return v;
     }
+
     static vertical({
         top,
         bottom
@@ -1564,7 +1561,7 @@ class Border extends FlutterWidget {
         this.bottom = bottom;
         this.left = left;
     }
-    
+
     static all({color, width, style}) {
         let side = new BorderSide({
             color: color,
@@ -1945,7 +1942,7 @@ class IconThemeData extends DartClass {
                     case "color":
                         obj[p] = new Color(v);
                         break;
-                        
+
                     default:
                         obj[p] = v;
                         break;
@@ -2150,7 +2147,7 @@ class InputBorder extends DartClass {
     static get none(){
         let v = new InputBorder();
         v.staticFunctionName = "none";
-        
+
         return v;
     }
 }

@@ -21,16 +21,14 @@ class MXJsonBuildOwner {
   // Map<String, MXJSWidget> childrenWidget = {};
 
   List mirrorObjKeyList = [];
-  //
 
   MXJSWidgetState _jsWidgetState;
   Map<String, dynamic> _widgetMap;
 
   var widgetName;
   get jsWidgetState => _jsWidgetState;
-  
-  MXJsonBuildOwner(
-      MXJSWidgetState jsWidgetState, MXJsonBuildOwner parentBuildOwner) {
+
+  MXJsonBuildOwner(MXJSWidgetState jsWidgetState, MXJsonBuildOwner parentBuildOwner) {
     this.ownerApp = parentBuildOwner?.ownerApp;
     this._jsWidgetState = jsWidgetState;
     this.parentBuildOwner = parentBuildOwner;
@@ -301,12 +299,44 @@ class MXJsonBuildOwner {
     return null;
   }
 
+  void jsCallInvokeCommon(widgetDataStr){
+    Map argMap = json.decode(widgetDataStr);
+
+    String widgetID = argMap["widgetID"];
+    String className = argMap["className"];
+    String funcName = argMap["funcName"];
+    Map args = argMap["args"];
+    invokeFunctionCommon(widgetID,className, funcName, args);
+  }
+
+  void invokeFunctionCommon(String widgetID,String className, String funcName, Map args){
+    var bo = findBuildOwner(widgetID);
+    if (bo == null) {
+      MXJSLog.error(
+          "jsCallNavigatorPop(bo == null: widgetID:$widgetID");
+      return;
+    }
+
+    final context =  bo._jsWidgetState.widget.buildContext;
+    if (className == 'Scaffold'){
+      if (funcName == 'of'){
+        final scaffoldState = Scaffold.of(context); //
+        //todo...设置snackbar,写死的snackbar
+        scaffoldState.showSnackBar(SnackBar(
+          content: Text("Hello SnackBar"),
+        ));
+
+      }
+    }
+  }
+
+
   void jsCallInvoke(widgetDataStr) {
     Map argMap = json.decode(widgetDataStr);
     String mirrorID = argMap["mirrorID"];
     dynamic mirrorObj = getMirrorObjectFromID(mirrorID);
     if (mirrorObj != null)
-    { 
+    {
       String className = argMap["className"];
       String funcName = argMap["funcName"];
       Map args = argMap["args"];
@@ -316,6 +346,7 @@ class MXJsonBuildOwner {
 
   // 先写在一起跑通再说，后面再考虑把代码写得优雅些
   void invokeFunction(String mirrorID, dynamic mirrorObj, String className, String funcName, Map args){
+
     if (className == 'AnimationController'){
       if (funcName == 'forward'){
         (mirrorObj as AnimationController).forward();
@@ -329,7 +360,7 @@ class MXJsonBuildOwner {
       }
     }
   }
-  
+
   //MirrorObj事件回调
   //flutter->JS
   Future<dynamic> mirrorObjEventCallback(dynamic mirrorID, String functionName, {dynamic p}) async {

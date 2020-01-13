@@ -5,11 +5,9 @@ import 'dart:convert';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   debugPaintSizeEnabled = false;
   test();
-
-  WidgetsFlutterBinding.ensureInitialized();
-  
   //设置JSFlutter
   MXJSFlutter.getInstance().setup();
 
@@ -19,7 +17,6 @@ void main() {
 }
 
 void test(){
-
 
 }
 
@@ -103,7 +100,6 @@ class _DemoList extends StatelessWidget {
     var themeData = Theme.of(context);
     var iconThemeData = IconTheme.of(context);
 
-
     return ListView(
       children: <Widget>[
         ListTile(
@@ -143,6 +139,10 @@ class _DemoList extends StatelessWidget {
         ListTile(
           title: Text('在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击JSFlutter UI Demo，可以在Safari调试JS'),
         ),
+        ListTile(
+          leading: Icon(Icons.photo),
+          title: Text("这是一条测试"),
+        )
       ],
     );
   }

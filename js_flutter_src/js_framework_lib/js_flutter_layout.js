@@ -780,7 +780,7 @@ class GestureDetector extends FlutterWidget {
         this.excludeFromSemantics = excludeFromSemantics;
     }
 
- 
+
 }
 
 class Expanded extends FlutterWidget {

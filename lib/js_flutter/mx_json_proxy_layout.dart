@@ -9,10 +9,10 @@ import 'package:flutter/gestures.dart';
 /*
     // 1. Matrix4
     //   Transform.transform
-    
+
     2. Delegate
       CustomSingleChildLayout.delegate
-    
+
     3. Delegate
       Flow.delegate
 
@@ -1768,7 +1768,7 @@ class MXProxySliverList extends MXJsonObjProxy {
 class MXDecorationPosition  {
 	static Map str2VMap =  {
 			"DecorationPosition.background": DecorationPosition.background,
-			"DecorationPosition.foreground": DecorationPosition.foreground}; 
+			"DecorationPosition.foreground": DecorationPosition.foreground};
 
 	static DecorationPosition parse(String valueStr,{DecorationPosition defaultValue }) {
 		if(valueStr == null) return defaultValue;

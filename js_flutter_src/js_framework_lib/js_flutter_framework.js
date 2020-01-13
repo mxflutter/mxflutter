@@ -74,12 +74,21 @@ function invokeFlutterFunction(flutterCallArgs){
     MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invoke", arguments);
 }
 
+
+function invokeCommonFlutterFunction(flutterCallArgs){
+  if (typeof(g_platform) != "undefined" && g_platform === "android") {
+    arguments = {"invokeParams": JSON.stringify(flutterCallArgs)}
+  } else {
+    arguments = JSON.stringify(flutterCallArgs);
+  }
+  MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invokeCommon", arguments);
+}
+
 //JSFlutter JS Runtime
 class MXJSLog {
     static log() {
-
         if (g_isNativeEnvironment) {
-            JSAPI_log("MXJSFlutter:[JS]-" + arguments[0]);
+            JSAPI_log("MXJSFlutter:[JS]-" + JSON.stringify(arguments));
         } else {
             console.log("MXJSFlutter:[JS]-:");
             console.log(...arguments);
@@ -87,9 +96,8 @@ class MXJSLog {
     }
 
     static error() {
-
         if (g_isNativeEnvironment) {
-            JSAPI_log("MXJSFlutter:[JS]-[Error]:" + arguments[0]);
+            JSAPI_log("MXJSFlutter:[JS]-[Error]:" + JSON.stringify(arguments));
         } else {
             console.log("MXJSFlutter:[JS]-[Error]:");
             console.log(...arguments);
@@ -209,7 +217,6 @@ class MXJSFlutterBuildContext {
 
     setInheritedInfo(args) {
         this.inheritedInfo = args;
-
         this.mediaQueryData = MediaQueryData.fromJson(args["mediaQueryData"]);
         this.themeData = ThemeData.fromJson(args["themeData"]);
         this.iconThemeData = IconThemeData.fromJson(args["iconThemeData"]);
@@ -249,7 +256,6 @@ class MXJSFlutterApp {
     //子类重写,根据widget名创建widget
     //flutter->js 用于路由跳转
     createJSWidgetWithName(pageName) {
-
 
     }
 
@@ -429,19 +435,19 @@ class MXJSWidget {
             fun = fun.bind(this);
             fun();
         }
-        
-        //call-> Flutter 
+
+        //call-> Flutter
         this.buildContext.callFlutterRebuild(this);
     }
 
 
-    //子类重载 
+    //子类重载
     build(buildContext) {
 
         return null;
     }
 
-    //子类重载 
+    //子类重载
     dispose() { }
 
     //util api
@@ -548,14 +554,14 @@ class MXJSWidget {
     //flutter -> js
     onEventCallback(args) {
 
-        let callID = args["callID"];  //   widgetID/callID 格式 ： "1313/3434" 
+        let callID = args["callID"];  //   widgetID/callID 格式 ： "1313/3434"
         if (callID == null) {
             return;
         }
         let arr = callID.split('/');
 
         let widgetID = arr[0];
-    
+
         let buildWidgetDataSeq = args["buildSeq"];
         let callArgs = args["args"];
 
@@ -582,7 +588,7 @@ class MXJSWidget {
             if (w) {
                 return w;
             }
-    
+
             for (let k in widgetTree.childrenWidget) {
                 let jsWidget = widgetTree.childrenWidget[k];
                 w = jsWidget.findWidgetWithName(widgetID);
@@ -726,7 +732,7 @@ class MXJSWidget {
 
 
     //js->flutter
-    //navigator route 
+    //navigator route
     navigatorPush(jsWidget) {
         this.updatePushingWidgetsData(jsWidget);
         let widgetData = jsWidget.widgetData;
@@ -765,7 +771,7 @@ class MXJSWidget {
         if (rootWidget == null) {
             return this;
         }
-        
+
         return rootWidget.findTopRootWidget(rootWidget);
     }
 }
@@ -780,7 +786,7 @@ class MXJSStatelessWidget {
         this.className = "MXJSStatelessWidget";
     }
 
-    //子类重载 
+    //子类重载
     build(buildContext) {
 
         return null;
@@ -848,7 +854,7 @@ class MediaQueryData extends DartClass {
 
         for (var p in mapObj) {
             if (mapObj.hasOwnProperty(p)) {
-                let v = mapObj[p];;
+                let v = mapObj[p];
                 switch (p) {
                     case "size":
                         obj[p] = Size.fromJson(v);
@@ -1038,13 +1044,13 @@ class ThemeData extends DartClass {
                     case "toggleableActiveColor":
                         obj[p] = new Color(v);
                         break;
-            
+
                     case "textTheme":
                     case "primaryTextTheme":
                     case "accentTextTheme":
                         obj[p] = TextTheme.fromJson(v);
                         break;
-                        
+
                     default:
                         obj[p] = v;
                         break;
@@ -1061,6 +1067,7 @@ class ThemeData extends DartClass {
 module.exports = {
     runApp,
     invokeFlutterFunction,
+    invokeCommonFlutterFunction,
     //class 定义
     MXNativeJSFlutterAppProxy,
     MXJSLog,

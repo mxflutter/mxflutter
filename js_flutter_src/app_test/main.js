@@ -46,7 +46,6 @@ class AppTest extends MXJSFlutterApp {
     }
 }
 
-
 function main(pageName) {
 
     MXJSLog.log("main:pageName" + pageName);
