@@ -100,8 +100,10 @@ class MyScaffoldBody extends MXJSWidget {
   build(context){
     let widget =  new RaisedButton({
       child:new Text("测试 Scaffold.of(context)"),
-      onPressed: this.createCallbackID(function (widgetID) {
-        console.log("------>widgetID",widgetID);
+      onPressed: this.createCallbackID(function () {
+        let context = {
+          widgetID:widgetID,
+        };
         Scaffold.of(context).showSnackBar(
           new SnackBar({content: new Text('This is a dummy sheet action.')})
         );
