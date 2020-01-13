@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/colin/flutter
-FLUTTER_APPLICATION_PATH=/Users/colin/Downloads/MXFlutter-master
-FLUTTER_TARGET=/Users/colin/Downloads/MXFlutter-master/lib/main.dart
+FLUTTER_APPLICATION_PATH=/Users/colin/Work/open_source/MXFlutter
+FLUTTER_TARGET=/Users/colin/Work/open_source/MXFlutter/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Users/colin/flutter/bin/cache/artifacts/engine/ios

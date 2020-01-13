@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:js_flutter/test.dart';
 import 'js_flutter/mx_js_flutter.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -141,7 +142,12 @@ class _DemoList extends StatelessWidget {
         ),
         ListTile(
           leading: Icon(Icons.photo),
-          title: Text("这是一条测试"),
+          title: Text("实验室"),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return TestPage();
+            }));
+          },
         )
       ],
     );
