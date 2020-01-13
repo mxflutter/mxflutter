@@ -17,7 +17,12 @@ let {
 let {
   invokeFlutterFunction,
   invokeCommonFlutterFunction,
-} = jsFlutterRequire("./js_flutter_framework.js")
+} = jsFlutterRequire("./js_flutter_framework.js");
+
+
+let {
+  Icons,
+} = jsFlutterRequire("./material/js_flutter_icons.js");
 
 class MaterialApp extends FlutterWidget {
 
@@ -1126,4 +1131,5 @@ module.exports = {
     TabBarView,
     Scrollbar,
     SnackBar,
+    Icons,
 };
