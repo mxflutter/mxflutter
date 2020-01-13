@@ -1793,6 +1793,10 @@ class Colors {
         return new Color(0x8AFFFFFF);
     }
 
+    static white38(){
+      return new Color(0x62FFFFFF);
+    }
+
     static white30(){
         return new Color(0x4DFFFFFF);
     }
@@ -1817,33 +1821,166 @@ class Colors {
         return new Color(0xFFF44336);
     }
 
-    static purple(){
-        return new Color(0xFF9C27B0);
-    }
+    static red50(){return new Color(0xFFFFEBEE);}
+    static red100(){return new Color(0xFFFFCDD2);}
+    static red200(){return new Color(0xFFEF9A9A);}
+    static red300(){return new Color(0xFFE57373);}
+    static red400(){return new Color(0xFFEF5350);}
+    static red500(){return new Color(0xFFF44336);}
+    static red600(){return new Color(0xFFE53935);}
+    static red700(){return new Color(0xFFD32F2F);}
+    static red800(){return new Color(0xFFC62828);}
+    static red900(){return new Color(0xFFB71C1C);}
+
+    static redAccent(){return new Color(0xFFFF5252);}
+    static redAccent100(){return new Color(0xFFFF8A80);}
+    static redAccent200(){return new Color(0xFFFF5252);}
+    static redAccent400(){return new Color(0xFFFF1744);}
+    static redAccent700(){return new Color(0xFFD50000);}
 
     static pink(){
         return new Color(0xFFE91E63);
     }
+    static pink50(){return new Color(0xFFFCE4EC);}
+    static pink100(){return new Color(0xFFF8BBD0);}
+    static pink200(){return new Color(0xFFF48FB1);}
+    static pink300(){return new Color(0xFFF06292);}
+    static pink400(){return new Color(0xFFEC407A);}
+    static pink500(){return new Color(0xFFE91E63);}
+    static pink600(){return new Color(0xFFD81B60);}
+    static pink700(){return new Color(0xFFC2185B);}
+    static pink800(){return new Color(0xFFAD1457);}
+    static pink900(){return new Color(0xFF880E4F);}
 
-    static indigo(){
-        return new Color(0xFF3F51B5);
+    static pinkAccent(){return new Color(0xFFFF4081);}
+    static pinkAccent100(){return new Color(0xFFFF80AB);}
+    static pinkAccent200(){return new Color(0xFFFF4081);}
+    static pinkAccent400(){return new Color(0xFFF50057);}
+    static pinkAccent700(){return new Color(0xFFC51162);}
+
+    static purple(){
+      return new Color(0xFF9C27B0);
     }
+    static purple50(){return new Color(0xFFF3E5F5);}
+    static purple100(){return new Color(0xFFE1BEE7);}
+    static purple200(){return new Color(0xFFCE93D8);}
+    static purple300(){return new Color(0xFFBA68C8);}
+    static purple400(){return new Color(0xFFAB47BC);}
+    static purple500(){return new Color(0xFF9C27B0);}
+    static purple600(){return new Color(0xFF8E24AA);}
+    static purple700(){return new Color(0xFF7B1FA2);}
+    static purple800(){return new Color(0xFF6A1B9A);}
+    static purple900(){return new Color(0xFF4A148C);}
+
+    static purpleAccent(){return new Color(0xFFE040FB);}
+    static purpleAccent100(){return new Color(0xFFEA80FC);}
+    static purpleAccent200(){return new Color(0xFFE040FB);}
+    static purpleAccent400(){return new Color(0xFFD500F9);}
+    static purpleAccent700(){return new Color(0xFFAA00FF);}
+
+
 
     static deepPurple(){
         return new Color(0xFF673AB7);
     }
+    static deepPurple50(){return new Color(0xFFEDE7F6);}
+    static deepPurple100(){return new Color(0xFFD1C4E9);}
+    static deepPurple200(){return new Color(0xFFB39DDB);}
+    static deepPurple300(){return new Color(0xFF9575CD);}
+    static deepPurple400(){return new Color(0xFF7E57C2);}
+    static deepPurple500(){return new Color(0xFF673AB7);}
+    static deepPurple600(){return new Color(0xFF5E35B1);}
+    static deepPurple700(){return new Color(0xFF512DA8);}
+    static deepPurple800(){return new Color(0xFF4527A0);}
+    static deepPurple900(){return new Color(0xFF311B92);}
+
+    static deepPurpleAccent(){return new Color(0xFF7C4DFF);}
+    static deepPurpleAccent100(){return new Color(0xFFB388FF);}
+    static deepPurpleAccent200(){return new Color(0xFF7C4DFF);}
+    static deepPurpleAccent400(){return new Color(0xFF651FFF);}
+    static deepPurpleAccent700(){return new Color(0xFF6200EA);}
+
+    static indigo(){
+      return new Color(0xFF3F51B5);
+    }
+    static indigo50(){return new Color(0xFFE8EAF6);}
+    static indigo100(){return new Color(0xFFC5CAE9);}
+    static indigo200(){return new Color(0xFF9FA8DA);}
+    static indigo300(){return new Color(0xFF7986CB);}
+    static indigo400(){return new Color(0xFF5C6BC0);}
+    static indigo500(){return new Color(0xFF3F51B5);}
+    static indigo600(){return new Color(0xFF3949AB);}
+    static indigo700(){return new Color(0xFF303F9F);}
+    static indigo800(){return new Color(0xFF283593);}
+    static indigo900(){return new Color(0xFF1A237E);}
+
+    static indigoAccent(){return new Color(0xFF536DFE);}
+    static indigoAccent100(){return new Color(0xFF8C9EFF);}
+    static indigoAccent200(){return new Color(0xFF536DFE);}
+    static indigoAccent400(){return new Color(0xFF3D5AFE);}
+    static indigoAccent700(){return new Color(0xFF304FFE);}
 
     static blue(){
         return new Color(0xFF2196F3);
     }
+    static blue50(){return new Color(0xFFE3F2FD);}
+    static blue100(){return new Color(0xFFBBDEFB);}
+    static blue200(){return new Color(0xFF90CAF9);}
+    static blue300(){return new Color(0xFF64B5F6);}
+    static blue400(){return new Color(0xFF42A5F5);}
+    static blue500(){return new Color(0xFF2196F3);}
+    static blue600(){return new Color(0xFF1E88E5);}
+    static blue700(){return new Color(0xFF1976D2);}
+    static blue800(){return new Color(0xFF1565C0);}
+    static blue900(){return new Color(0xFF0D47A1);}
+
+    static blueAccent(){return new Color(0xFF448AFF);}
+    static blueAccent100(){return new Color(0xFF82B1FF);}
+    static blueAccent200(){return new Color(0xFF448AFF);}
+    static blueAccent400(){return new Color(0xFF2979FF);}
+    static blueAccent700(){return new Color(0xFF2962FF);}
 
     static lightBlue(){
         return new Color(0xFF03A9F4);
     }
+    static lightBlue50(){return new Color(0xFFE1F5FE);}
+    static lightBlue100(){return new Color(0xFFB3E5FC);}
+    static lightBlue200(){return new Color(0xFF81D4FA);}
+    static lightBlue300(){return new Color(0xFF4FC3F7);}
+    static lightBlue400(){return new Color(0xFF29B6F6);}
+    static lightBlue500(){return new Color(0xFF03A9F4);}
+    static lightBlue600(){return new Color(0xFF039BE5);}
+    static lightBlue700(){return new Color(0xFF0288D1);}
+    static lightBlue800(){return new Color(0xFF0277BD);}
+    static lightBlue900(){return new Color(0xFF01579B);}
+
+    static lightBlueAccent(){return new Color(0xFF40C4FF);}
+
+    static lightBlueAccent100(){return new Color(0xFF80D8FF);}
+    static lightBlueAccent200(){return new Color(0xFF40C4FF);}
+    static lightBlueAccent400(){return new Color(0xFF00B0FF);}
+    static lightBlueAccent700(){return new Color(0xFF0091EA);}
 
     static cyan(){
         return new Color(0xFF00BCD4);
     }
+    static cyan50(){return new Color(0xFFE0F7FA);}
+    static cyan100(){return new Color(0xFFB2EBF2);}
+    static cyan200(){return new Color(0xFF80DEEA);}
+    static cyan300(){return new Color(0xFF4DD0E1);}
+    static cyan400(){return new Color(0xFF26C6DA);}
+    static cyan500(){return new Color(0xFF00BCD4);}
+    static cyan600(){return new Color(0xFF00ACC1);}
+    static cyan700(){return new Color(0xFF0097A7);}
+    static cyan800(){return new Color(0xFF00838F);}
+    static cyan900(){return new Color(0xFF006064);}
+
+    static cyanAccent(){return new Color(0xFF18FFFF);}
+
+    static cyanAccent100(){return new Color(0xFF84FFFF);}
+    static cyanAccent200(){return new Color(0xFF18FFFF);}
+    static cyanAccent400(){return new Color(0xFF00E5FF);}
+    static cyanAccent700(){return new Color(0xFF00B8D4);}
 
     static green(){
         return new Color(0xFF4CAF50);
