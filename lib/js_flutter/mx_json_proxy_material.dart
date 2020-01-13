@@ -1342,13 +1342,13 @@ class MXProxySnackBar extends MXJsonObjProxy {
   SnackBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     var widget = SnackBar(
       key: mxj2d(bo, jsonMap["key"]),
-      content:mxj2d(bo, jsonMap["child"]),
+      content:mxj2d(bo, jsonMap["content"]),
       backgroundColor:mxj2d(bo, jsonMap["backgroundColor"]),
       elevation:mxj2d(bo, jsonMap["elevation"]),
       shape:mxj2d(bo, jsonMap["shape"]),
       behavior:mxj2d(bo, jsonMap["behavior"]),
       action:mxj2d(bo, jsonMap["action"]),
-      duration:mxj2d(bo, jsonMap["duration"]),
+      duration:mxj2d(bo, jsonMap["duration"], defaultValue:Duration(milliseconds: 4000)),
       animation:mxj2d(bo, jsonMap["animation"]),
       onVisible:mxj2d(bo, jsonMap["onVisible"]),
     );

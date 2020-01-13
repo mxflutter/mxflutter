@@ -320,12 +320,12 @@ class MXJsonBuildOwner {
     final context =  bo._jsWidgetState.widget.buildContext;
     if (className == 'Scaffold'){
       if (funcName == 'of'){
+        //查找scaffoldState
         final scaffoldState = Scaffold.of(context); //
-        //todo...设置snackbar,写死的snackbar
-        scaffoldState.showSnackBar(SnackBar(
-          content: Text("Hello SnackBar"),
-        ));
-
+        //动态构建snackbar
+        var snackBar = MXJsonObjToDartObject.jsonToDartObj(this, args["snackBar"], context:context);
+        //设置snackbar
+        scaffoldState.showSnackBar(snackBar);
       }
     }
   }
