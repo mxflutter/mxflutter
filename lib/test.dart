@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 class TestPageScaffoldNorWork extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
+    Colors.red
+
     return Scaffold(
       appBar: AppBar(
         title: Text("My Test"),
@@ -45,15 +47,20 @@ class MyScaffoldBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RaisedButton(
-        child: Text('SHOW A SNACKBAR'),
-        onPressed: () {
-          Scaffold.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Have a snack!'),
-            ),
-          );
-        },
+      child: ListView(
+        children: <Widget>[
+          Icon(Icons.message),
+          RaisedButton(
+            child: Text('SHOW A SNACKBAR'),
+            onPressed: () {
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Have a snack!'),
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }

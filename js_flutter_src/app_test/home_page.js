@@ -46,7 +46,7 @@ let {JSAnimationPage} = jsFlutterRequire("./animation.js");
 let {JSMaterialPage} = jsFlutterRequire("./material.js");
 let {JSCupertinoPage} = jsFlutterRequire("./cupertino.js");
 let {JSZhiHuPage} = jsFlutterRequire("./zhihu/zhihu.js");
-let { TimelinePage } = jsFlutterRequire("./timeline/index.js");
+let { ExamplesPage } = jsFlutterRequire("./examples/index.js");
 
 //业务代码
 
@@ -68,10 +68,10 @@ class JSWidgetHomePage extends MXJSWidget {
               new ListTile({
                 leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
                 trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                title: new Text('Idea Test'),
-                subtitle: new Text('Good Idea，Try it'),
+                title: new Text('Examples'),
+                subtitle: new Text('All examples'),
                 onTap:function () {
-                  this.navigatorPush(new TimelinePage);
+                  this.navigatorPush(new ExamplesPage);
                 }
               }),
 
