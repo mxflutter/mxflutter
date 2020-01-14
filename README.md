@@ -269,7 +269,7 @@ MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施�
 
 > 成员
 
-项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，wenn负责了Android平台的实现，IP老师帮忙提供了单元测试，健身大神yofer老师负责了代码维护，工具建设。 
+项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，wenn和不咸同学负责了Android平台的实现，IP老师提供了单元测试，健身大神yofer老师负责了代码维护，工具建设。 
 
 > 项目由来
 
