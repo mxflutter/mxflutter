@@ -80,10 +80,8 @@ let { PageExampleColor } = jsFlutterRequire("examples/example_flutter_color.js")
 let { PageExampleIcon } = jsFlutterRequire("examples/example_flutter_icon.js");
 let { PageExampleImage } = jsFlutterRequire("examples/example_image.js");
 let { PageExamplePlaceholder } = jsFlutterRequire("examples/example_placeholder.js");
-
-
-
-
+let { PageExampleScaffold } = jsFlutterRequire("examples/example_scaffold.js");
+let { PageExampleText } = jsFlutterRequire("examples/example_text.js");
 
 
 class ExamplesPage extends MXJSWidget {
@@ -102,6 +100,12 @@ class ExamplesPage extends MXJSWidget {
             title:new Text("AppBar"),
             onTap: this.createCallbackID(function () {
               this.navigatorPush(new PageExampleAppBar());
+            }),
+          }),
+          new ListTile({
+            title:new Text("Text"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExampleText());
             }),
           }),
           new ListTile({
@@ -156,6 +160,12 @@ class ExamplesPage extends MXJSWidget {
             title:new Text("Placeholder"),
             onTap: this.createCallbackID(function () {
               this.navigatorPush(new PageExamplePlaceholder());
+            }),
+          }),
+          new ListTile({
+            title:new Text("Scaffold"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExampleScaffold());
             }),
           }),
           new ListTile({
