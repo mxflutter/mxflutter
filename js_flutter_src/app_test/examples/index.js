@@ -74,6 +74,11 @@ let { PageExampleAppBar } = jsFlutterRequire("examples/example_app_bar.js");
 let { PageExampleSnakeBar } = jsFlutterRequire("examples/example_snake_bar.js");
 let { PageExampleColumn } = jsFlutterRequire("examples/example_column.js");
 let { PageExampleRow } = jsFlutterRequire("examples/example_row.js");
+let { PageExampleContainer } = jsFlutterRequire("examples/example_container.js");
+let { PageExampleFlutterLogo } = jsFlutterRequire("examples/example_flutter_logo.js");
+let { PageExampleColor } = jsFlutterRequire("examples/example_flutter_color.js");
+let { PageExampleIcon } = jsFlutterRequire("examples/example_flutter_icon.js");
+
 
 
 class ExamplesPage extends MXJSWidget {
@@ -84,7 +89,7 @@ class ExamplesPage extends MXJSWidget {
   build(context){
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('Idea Test',),
+        title: new Text('Flutter Examples',),
       }),
       body: new ListView({
         children:[
@@ -110,6 +115,30 @@ class ExamplesPage extends MXJSWidget {
             title:new Text("Row"),
             onTap: this.createCallbackID(function () {
               this.navigatorPush(new PageExampleRow());
+            }),
+          }),
+          new ListTile({
+            title:new Text("Container"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExampleContainer());
+            }),
+          }),
+          new ListTile({
+            title:new Text("FlutterLogo"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExampleFlutterLogo());
+            }),
+          }),
+          new ListTile({
+            title:new Text("Color"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExampleColor());
+            }),
+          }),
+          new ListTile({
+            title:new Text("Icon"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExampleIcon());
             }),
           }),
           new ListTile({
