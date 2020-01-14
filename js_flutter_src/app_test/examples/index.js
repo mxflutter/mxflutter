@@ -66,7 +66,7 @@ let {
   ListView,
   Slider,
   Icons,
-  Navi
+  Image,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let { PageExampleButton }  = jsFlutterRequire("examples/example_button.js");
@@ -78,6 +78,10 @@ let { PageExampleContainer } = jsFlutterRequire("examples/example_container.js")
 let { PageExampleFlutterLogo } = jsFlutterRequire("examples/example_flutter_logo.js");
 let { PageExampleColor } = jsFlutterRequire("examples/example_flutter_color.js");
 let { PageExampleIcon } = jsFlutterRequire("examples/example_flutter_icon.js");
+let { PageExampleImage } = jsFlutterRequire("examples/example_image.js");
+
+
+
 
 
 
@@ -139,6 +143,12 @@ class ExamplesPage extends MXJSWidget {
             title:new Text("Icon"),
             onTap: this.createCallbackID(function () {
               this.navigatorPush(new PageExampleIcon());
+            }),
+          }),
+          new ListTile({
+            title:new Text("Image"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExampleImage());
             }),
           }),
           new ListTile({
