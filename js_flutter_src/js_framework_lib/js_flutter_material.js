@@ -12,12 +12,17 @@ let {
     DartClass,
     FlutterWidget,
     FlutterCallArgs,
+    Color,
 } = jsFlutterRequire("./js_flutter_basic_types.js");
 
 let {
   invokeFlutterFunction,
   invokeCommonFlutterFunction,
 } = jsFlutterRequire("./js_flutter_framework.js");
+
+let {
+  Duration,
+} = jsFlutterRequire("./js_flutter_animation.js");
 
 
 let {
@@ -1072,17 +1077,17 @@ class Scrollbar extends FlutterWidget {
 
 class SnackBar extends FlutterWidget {
   constructor({
-    key,
-    content, //@required
-    backgroundColor,
-    elevation,
-    shape,
-    behavior,
-    action,
-    duration,
-    animation,
-    onVisible,
-  } = {}) {
+                key,
+                content, //@required
+                backgroundColor,
+                elevation,
+                shape,
+                behavior,
+                action,
+                duration,
+                animation,
+                onVisible,
+              } = {}) {
     super();
     this.key = key;
     this.content = content;
@@ -1094,6 +1099,32 @@ class SnackBar extends FlutterWidget {
     this.duration = duration;
     this.animation = animation;
     this.onVisible = onVisible;
+  }
+}
+
+
+class FlutterLogo extends FlutterWidget {
+  constructor({
+    key,
+    size,
+    colors,
+    textColor,
+    style,
+    duration,
+    curve,
+  } = {
+    textColor:new Color(0xFF616161),
+    // style:FlutterLogoStyle.markOnly,
+    duration:new Duration({milliseconds: 750}),
+    curve:Curves.fastOutSlowIn
+  }){
+    super();
+    this.key = key;
+    this.size = size;
+    this.colors = colors;
+    this.textColor = textColor;
+    this.duration = duration;
+    this.curve = curve;
   }
 }
 
@@ -1132,4 +1163,5 @@ module.exports = {
     Scrollbar,
     SnackBar,
     Icons,
+    FlutterLogo,
 };
