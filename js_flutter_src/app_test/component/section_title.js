@@ -37,12 +37,12 @@ let {
   IconData,
   EdgeInsets,
   Colors,
-  IconButton,
   FlatButton,
   RaisedButton,
   FloatingActionButton,
   Column,
   Row,
+  IconButton,
   DropdownButton,
   DropdownMenuItem,
   MainAxisAlignment,
@@ -66,57 +66,39 @@ let {
   ListView,
   Slider,
   Icons,
+  Padding,
+  Theme,
 } = jsFlutterRequire("js_flutter_ui.js");
 
-const { SectionTitle } = jsFlutterRequire("./component/section_title.js");
-
-
-class PageExampleButton extends MXJSWidget {
-  constructor(){
-    super("PageExampleButton");
+class SectionTitle extends MXJSWidget {
+  constructor(title){
+    super("SectionTitle");
+    this.title = title;
   }
 
   build(context){
-    let widget = new Scaffold({
-      appBar: new AppBar({
-        title: new Text('Button',),
-      }),
-      body: new ListView({
-        children:[
-          new SectionTitle("RaisedButton"),
-          new RaisedButton({
-            child:new Text("普通按钮"),
-            onPressed:this.createCallbackID(function () {
-              MXJSLog.log("Click");
-            }),
-          }),
-          new SectionTitle("失效Disable"),
-          new RaisedButton({
-            child:new Text("Disable 按钮"),
-          }),
-          new SectionTitle("FlatButton"),
-          new FlatButton({
-            child:new Text("Flat 按钮"),
-          }),
-          new FlatButton({
-            textColor:Colors.black(),
-            child:new Text("Flat 按钮"),
-          }),
-          new SectionTitle("Icon Button"),
-          new IconButton({
-            icon:new Icon(Icons.camera),
-          }),
-          new SectionTitle("Floating Action Button"),
-          new FloatingActionButton({
-            child:new Icon(Icons.camera),
-          }),
-        ],
+    return new Container({
+      padding: EdgeInsets.all(10.0),
+      color: Theme.of(context).primaryColor,
+      child: new Row({
+        children: [
+          new Icon(new IconData(0xe80e, { fontFamily: 'MaterialIcons' }), { size: 20, color: new Color(0xFFFFFFFF) }),
+          new Padding({ padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0) }),
+          new Text(this.title, {
+            textAlign: TextAlign.start,
+            style:new TextStyle({
+              fontSize: 16,
+              fontWeight: Theme.of(context).textTheme.title.fontWeight,
+              color:Colors.white()
+            })
+          })
+        ]
       })
     });
-    return widget;
   }
 }
 
 module.exports = {
-  PageExampleButton,
-};
+  SectionTitle,
+}
+

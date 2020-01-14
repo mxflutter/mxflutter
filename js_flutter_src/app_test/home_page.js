@@ -25,6 +25,7 @@ let {
     Scaffold,
     Container,
     Color,
+    Colors,
     AppBar,
     Text,
     ListView,
@@ -33,6 +34,7 @@ let {
     IconData,
     EdgeInsets,
     TextAlign,
+    TextStyle,
     Row,
     Padding,
     Theme,
@@ -63,7 +65,6 @@ class JSWidgetHomePage extends MXJSWidget {
         let demoList = new Scrollbar({
           child:new ListView({
             children: [
-              new Padding({ padding: EdgeInsets.all(1.0) }),
               this.sectionTitle(context, "App Demo"),
               new ListTile({
                 leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
@@ -175,7 +176,8 @@ class JSWidgetHomePage extends MXJSWidget {
                 onTap: function () {
                   this.navigatorPush(new JSPestoPage);
                 }
-              })
+              }),
+
             ]
           })
         });
@@ -192,21 +194,25 @@ class JSWidgetHomePage extends MXJSWidget {
 
     sectionTitle(context, title){
         let t = new Container({
-            padding: EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(10.0),
             color: Theme.of(context).primaryColor,
             child: new Row({
                 children: [
-                    new Icon(new IconData(0xe80e, { fontFamily: 'MaterialIcons' }), { size: 16.1, color: new Color(0xFFFFFFFF) }),
-                    new Padding({ padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0) }),
-                    new Text(title, { textAlign: TextAlign.start })]
+                    new Icon(new IconData(0xe80e, { fontFamily: 'MaterialIcons' }), { size: 20, color: new Color(0xFFFFFFFF) }),
+                    new Padding({ padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0) }),
+                    new Text(title, {
+                        textAlign: TextAlign.start,
+                        style:new TextStyle({
+                          fontSize: 16,
+                          fontWeight: Theme.of(context).textTheme.title.fontWeight,
+                          color:Colors.white()
+                      })
+                    })
+                ]
             })
         });
-
         return t;
-
     }
-
-
 }
 
 module.exports = { JSWidgetHomePage };

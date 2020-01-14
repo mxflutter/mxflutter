@@ -114,8 +114,8 @@ kFabCenterFloat = new JSChoiceValue({
     title: 'Free - Center',
     label: 'floating action button is floats above the center of the bottom app bar',
     value: FloatingActionButtonLocation.centerFloat
-});        
-    
+});
+
 
 kFabColors = [
     new JSNamedColor({color: new Color(0xFFFFFFFF), name: 'Clear'}),
@@ -216,7 +216,7 @@ class _JSColorsItem extends MXJSWidget{
         this.selectedColor = selectedColor;
         this.onChanged = onChanged;
     }
-    
+
     build(context){
         let rowContents = [];
         this.colors.forEach(function(namedColor) {
@@ -266,9 +266,9 @@ class JSBottomAPPBarDemo extends MXJSWidget {
         'the floating action button animates to its new position.'
         'The BottomAppBar adapts its shape appropriately.';
 
-        _scaffoldKey.currentState.showSnackBar(
-            new SnackBar({content: Text(text)})
-        );
+        // _scaffoldKey.currentState.showSnackBar(
+        //     new SnackBar({content: Text(text)})
+        // );
     }
 
     onShowNotchChanged(value) {
@@ -277,13 +277,13 @@ class JSBottomAPPBarDemo extends MXJSWidget {
             this._showNotch = value;
         });
     }
-    
+
     onFabLocationChanged(value) {
         this.setState(function() {
             this._fabLocation = value;
         });
     }
-    
+
     onBabColorChange(value) {
         this.setState(function() {
             this._babColor = value;
@@ -367,7 +367,7 @@ class JSBottomAPPBarDemo extends MXJSWidget {
             floatingActionButton: new FloatingActionButton({
                 child: new Icon(new IconData(0xe145,{fontFamily:'MaterialIcons',semanticLabel: 'Action'})),
                 onPressed: this.createCallbackID(function () {
-        
+
                 }),
                 backgroundColor: Colors.orange()
             }),

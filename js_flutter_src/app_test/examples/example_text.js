@@ -71,6 +71,8 @@ let {
   Padding,
 } = jsFlutterRequire("js_flutter_ui.js");
 
+const { SectionTitle } = jsFlutterRequire("./component/section_title.js");
+
 class PageExampleText extends MXJSWidget {
   constructor(){
     super("PageExampleText");
@@ -83,9 +85,7 @@ class PageExampleText extends MXJSWidget {
       }),
       body: new ListView({
         children:[
-          new ListTile({
-            title:new Text("普通文本"),
-          }),
+          new SectionTitle("普通文本"),
           new ListTile({
             title:new Text("设置文本颜色",{
               style:new TextStyle({
@@ -93,9 +93,7 @@ class PageExampleText extends MXJSWidget {
               })
             }),
           }),
-          new ListTile({
-            title:new Text("富文本"),
-          }),
+          new SectionTitle("富文本"),
           new Padding({
             padding:EdgeInsets.all(10),
             child: new RichText({
