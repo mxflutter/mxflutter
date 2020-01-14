@@ -79,6 +79,7 @@ let { PageExampleFlutterLogo } = jsFlutterRequire("examples/example_flutter_logo
 let { PageExampleColor } = jsFlutterRequire("examples/example_flutter_color.js");
 let { PageExampleIcon } = jsFlutterRequire("examples/example_flutter_icon.js");
 let { PageExampleImage } = jsFlutterRequire("examples/example_image.js");
+let { PageExamplePlaceholder } = jsFlutterRequire("examples/example_placeholder.js");
 
 
 
@@ -149,6 +150,12 @@ class ExamplesPage extends MXJSWidget {
             title:new Text("Image"),
             onTap: this.createCallbackID(function () {
               this.navigatorPush(new PageExampleImage());
+            }),
+          }),
+          new ListTile({
+            title:new Text("Placeholder"),
+            onTap: this.createCallbackID(function () {
+              this.navigatorPush(new PageExamplePlaceholder());
             }),
           }),
           new ListTile({
