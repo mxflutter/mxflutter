@@ -7,8 +7,6 @@ class TestPageScaffoldNorWork extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    Colors.red
-
     return Scaffold(
       appBar: AppBar(
         title: Text("My Test"),
@@ -22,7 +20,7 @@ class TestPageScaffoldNorWork extends StatelessWidget{
                 const SnackBar(content: Text('这里是')),
               );
             },
-          )
+          ),
         ],
       ),
     );
@@ -38,7 +36,9 @@ class TestPage extends StatelessWidget{
       appBar: AppBar(
         title: Text("My Test"),
       ),
-      body: MyScaffoldBody(),
+      body: Scrollbar(
+        child: MyScaffoldBody(),
+      ),
     );
   }
 }
@@ -49,7 +49,9 @@ class MyScaffoldBody extends StatelessWidget {
     return Center(
       child: ListView(
         children: <Widget>[
-          Icon(Icons.message),
+          FlutterLogo(
+            colors: Colors.orange,
+          ),
           RaisedButton(
             child: Text('SHOW A SNACKBAR'),
             onPressed: () {
