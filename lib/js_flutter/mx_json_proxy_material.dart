@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'mx_json_proxy_animation.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
@@ -55,6 +56,8 @@ class MXProxyRegisterHelperMaterialSeries {
     m.addAll(MXProxyScrollbar.registerProxy());
 
     m.addAll(MXProxySnackBar.registerProxy());
+    m.addAll(MXProxyFlutterLogo.registerProxy());
+
 
     return m;
   }
@@ -1311,12 +1314,6 @@ class MXProxyScrollbar extends MXJsonObjProxy {
     };
   }
 
-  /// ListBody({
-  ///   Key key,
-  ///   this.mainAxis = Axis.vertical,
-  ///   this.reverse = false,
-  ///   List<Widget> children = const <Widget>[],
-  /// })
   @override
   Scrollbar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
     var widget = Scrollbar(
@@ -1351,6 +1348,31 @@ class MXProxySnackBar extends MXJsonObjProxy {
       duration:mxj2d(bo, jsonMap["duration"], defaultValue:Duration(milliseconds: 4000)),
       animation:mxj2d(bo, jsonMap["animation"]),
       onVisible:mxj2d(bo, jsonMap["onVisible"]),
+    );
+    return widget;
+  }
+}
+
+
+class MXProxyFlutterLogo extends MXJsonObjProxy {
+  static String regClassName = "FlutterLogo";
+
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyFlutterLogo()..init(className: regClassName)
+    };
+  }
+
+  @override
+  FlutterLogo constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = FlutterLogo(
+      key: mxj2d(bo, jsonMap["key"]),
+      size:mxj2d(bo, jsonMap["size"],defaultValue:24)?.toDouble(),
+      colors:mxj2d(bo, jsonMap["colors"]),
+      textColor:mxj2d(bo, jsonMap["textColor"],defaultValue: const Color(0xFF616161)),
+      duration:mxj2d(bo, jsonMap["duration"],defaultValue: const Duration(milliseconds: 750)),
+      curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]), defaultValue: Curves.fastOutSlowIn),
     );
     return widget;
   }
