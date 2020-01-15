@@ -31,14 +31,14 @@ class FlutterWidgetMirrorMgr {
     }
 
     generateID(obj) {
-        var d = ++this.mirrorIDFeed;
-        var idString = String(d);
+        const d = ++this.mirrorIDFeed;
+        const idString = String(d);
         this.mirrorObjMap[idString] = obj;
         return idString;
     }
 
     removeMirrorObjects(mirrorIDList){
-        for (var mirrorID in mirrorIDList){
+        for (let mirrorID in mirrorIDList){
             this.mirrorObjMap.delete(mirrorID);
         }
     }
@@ -70,7 +70,6 @@ class DartClass {
         this.className = this.constructor.name;
     }
 
-
     // build() {
     //     let m = JSON.stringify(this);
     //     return m;
@@ -99,11 +98,8 @@ class FlutterWidget extends DartClass {
                 this[k] = jsWidget.createCallbackID(v);
             }
         }
-
     }
-
 }
-
 
 //包装类
 class Key extends DartClass {

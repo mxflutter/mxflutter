@@ -27,8 +27,6 @@ class TestPageScaffoldNorWork extends StatelessWidget{
   }
 }
 
-
-
 class TestPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,8 @@ class TestPage extends StatelessWidget{
         title: Text("My Test"),
       ),
       body: Scrollbar(
-        child: MyScaffoldBody(),
+        child: AnimatedDefaultTextStyle(
+        ),
       ),
     );
   }

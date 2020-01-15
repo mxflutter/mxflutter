@@ -55,13 +55,11 @@ let { ExamplesPage } = jsFlutterRequire("./examples/index.js");
 class JSWidgetHomePage extends MXJSWidget {
     constructor() {
         super("JSWidgetHomePage");
-
         this.data = "biz data";
         this.count = 0;
     }
 
     build(context) {
-
         let demoList = new Scrollbar({
           child:new ListView({
             children: [

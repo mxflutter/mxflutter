@@ -3,6 +3,8 @@ import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
 import 'dart:convert';
+import 'package:expressions/expressions.dart';
+import 'dart:math';
 
 ///把Widget按分类注册，方便写代码，
 ///分类：Material/Layout/Text/(Assets.Images.icons)/input...
@@ -20,6 +22,9 @@ class MXProxyRegisterHelperAnimationSeries {
     m.addAll(MXProxyInterval.registerProxy());
     m.addAll(MXProxyFadeTransition.registerProxy());
     m.addAll(MXProxySlideTransition.registerProxy());
+    m.addAll(MXProxyAnimatedContainer.registerProxy());
+    m.addAll(MXProxyAnimatedCrossFade.registerProxy());
+    m.addAll(MXProxyAnimatedDefaultTextStyle.registerProxy());
 
     return m;
   }
@@ -128,31 +133,50 @@ class MXProxyAnimatedBuilder extends MXJsonObjProxy {
 
 	@override
 	AnimatedBuilder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-    Animation animation = mxj2d(bo, jsonMap["animation"]);
+
+	  dynamic animation  =  mxj2d(bo, jsonMap["animation"]);
 		var widget = AnimatedBuilder(
 			key: mxj2d(bo, jsonMap["key"]),
 			animation: animation,
-			builder: (BuildContext context, Widget child){
-        String targetString = 'animation.value';
-        Map widgetMap = replaceSpecificValue(jsonMap["widget"], targetString, animation.value?.toDouble());
+			builder: (BuildContext context, Widget child)  {
+//			  if(jsonMap.containsKey("builder")){
+//			    print("调用JS的builder生成数据，返回");
+//			    final builderCallbackID = jsonMap["builder"];
+//          final data = bo.eventCallback(builderCallbackID, p: []);
+//			    return Center(child: Text("需要JS端生成数据22"),);
+//        }else{
+//
+//        }
+        String targetString = '\$value';
+        var context = {
+          "sin":sin,
+          "cos":cos,
+          "\$value":animation.value?.toDouble(),
+        };
+        Map widgetMap = replaceSpecificValue(jsonMap["widget"], targetString, context);
         return mxj2d(bo, widgetMap);
       },
 			child: mxj2d(bo, jsonMap["child"]),
 		);
 		return widget;
 	}
-  
-  Map replaceSpecificValue(Map map, String targetValue, dynamic replaceValue){
+
+  Map replaceSpecificValue(Map map, String targetValue, dynamic context){
     Map nMap = <String, dynamic>{};
-    map.forEach((key, value){
-      if (value is Map){
-        nMap[key] = replaceSpecificValue(value, targetValue, replaceValue);
-      }else if (value == targetValue){
-        nMap[key] = replaceValue;
-      }else {
-        nMap[key] = value;
-      }
-    });
+    if(map!=null){
+      map.forEach((key, value){
+        if (value is Map){
+          nMap[key] = replaceSpecificValue(value, targetValue, context);
+        }else if (value.toString().contains(targetValue)){
+          final evaluator = const ExpressionEvaluator();
+          Expression expression = Expression.parse(value);
+          var replaceValue = evaluator.eval(expression, context);
+          nMap[key] = replaceValue;
+        }else {
+          nMap[key] = value;
+        }
+      });
+    }
     return nMap;
   }
 
@@ -253,12 +277,30 @@ class MXProxyInterval extends MXJsonObjProxy {
 	@override
 	Interval constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 		var widget = Interval(
-      mxj2d(bo, jsonMap["begin"])?.toDouble(), 
+      mxj2d(bo, jsonMap["begin"])?.toDouble(),
       mxj2d(bo, jsonMap["end"])?.toDouble(),
 			curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]), defaultValue:Curves.linear),
 		);
 		return widget;
 	}
+}
+
+class MXCrossFadeState {
+  static CrossFadeState parse(String value,{CrossFadeState defaultValue = CrossFadeState.showFirst}){
+    CrossFadeState retValue = CrossFadeState.showFirst;
+    switch(value){
+      case "CrossFadeState.showFirst":
+        retValue = CrossFadeState.showFirst;
+        break;
+      case "CrossFadeState.showSecond":
+        retValue = CrossFadeState.showSecond;
+        break;
+      default:
+        retValue = defaultValue;
+        break;
+    }
+    return retValue;
+  }
 }
 
 class MXCurves {
@@ -333,22 +375,111 @@ class MXProxyFadeTransition extends MXJsonObjProxy {
 }
 
 class MXProxySlideTransition extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "SlideTransition";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySlideTransition()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SlideTransition";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxySlideTransition()..init(className: regClassName)};
+  }
 
-	@override
-	SlideTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = SlideTransition(
-			key: mxj2d(bo, jsonMap["key"]),
-			position: mxj2d(bo, jsonMap["position"]),
-			transformHitTests: mxj2d(bo, jsonMap["transformHitTests"], defaultValue:true),
-			textDirection: mxj2d(bo, jsonMap["textDirection"]),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+  @override
+  SlideTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = SlideTransition(
+      key: mxj2d(bo, jsonMap["key"]),
+      position: mxj2d(bo, jsonMap["position"]),
+      transformHitTests: mxj2d(bo, jsonMap["transformHitTests"], defaultValue:true),
+      textDirection: mxj2d(bo, jsonMap["textDirection"]),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
+
+class MXProxyAnimatedContainer extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "AnimatedContainer";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyAnimatedContainer()..init(className: regClassName)};
+  }
+
+  @override
+  AnimatedContainer constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = AnimatedContainer(
+      key: mxj2d(bo, jsonMap["key"]),
+      alignment: mxj2d(bo, jsonMap["alignment"]),
+      padding: mxj2d(bo, jsonMap["padding"]),
+      color: mxj2d(bo, jsonMap["color"]),
+      decoration: mxj2d(bo, jsonMap["decoration"]),
+      foregroundDecoration: mxj2d(bo, jsonMap["foregroundDecoration"]),
+      width: mxj2d(bo, jsonMap["width"])?.toDouble(),
+      height: mxj2d(bo, jsonMap["height"])?.toDouble(),
+      constraints: mxj2d(bo, jsonMap["constraints"]),
+      margin: mxj2d(bo, jsonMap["margin"]),
+      transform: mxj2d(bo, jsonMap["transform"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      curve: mxj2d(bo, jsonMap["curve"],defaultValue: Curves.linear),
+      duration: mxj2d(bo, jsonMap["duration"]),
+      onEnd: mxj2d(bo, jsonMap["onEnd"]),
+    );
+    return widget;
+  }
+}
+
+
+class MXProxyAnimatedCrossFade extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "AnimatedCrossFade";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyAnimatedCrossFade()..init(className: regClassName)};
+  }
+
+  @override
+  AnimatedCrossFade constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = AnimatedCrossFade(
+      key: mxj2d(bo, jsonMap["key"]),
+      firstChild: mxj2d(bo, jsonMap["firstChild"]),
+      secondChild: mxj2d(bo, jsonMap["secondChild"]),
+      firstCurve: mxj2d(bo, MXCurves.parse(jsonMap["firstCurve"])),
+      secondCurve: mxj2d(bo, MXCurves.parse(jsonMap["secondCurve"])),
+      sizeCurve: mxj2d(bo, MXCurves.parse(jsonMap["sizeCurve"])),
+      alignment: mxj2d(bo, jsonMap["alignment"],defaultValue: Alignment.topCenter),
+      crossFadeState: mxj2d(bo, MXCrossFadeState.parse(jsonMap["crossFadeState"])),
+      duration: mxj2d(bo, jsonMap["duration"]),
+      reverseDuration: mxj2d(bo, jsonMap["reverseDuration"]),
+      layoutBuilder: mxj2d(bo, jsonMap["layoutBuilder"],defaultValue: AnimatedCrossFade.defaultLayoutBuilder),
+    );
+    return widget;
+  }
+}
+
+
+
+class MXProxyAnimatedDefaultTextStyle extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "AnimatedDefaultTextStyle";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyAnimatedDefaultTextStyle()..init(className: regClassName)};
+  }
+
+  @override
+  AnimatedDefaultTextStyle constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = AnimatedDefaultTextStyle(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      style: mxj2d(bo, jsonMap["style"]),
+      textAlign: mxj2d(bo, jsonMap["textAlign"]),
+      softWrap: mxj2d(bo, jsonMap["softWrap"],defaultValue: true),
+      overflow: mxj2d(bo, jsonMap["overflow"],defaultValue: TextOverflow.clip),
+      maxLines: mxj2d(bo, jsonMap["maxLines"]),
+      curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]),defaultValue: Curves.linear),
+      duration: mxj2d(bo, jsonMap["duration"]),
+      onEnd: mxj2d(bo, jsonMap["onEnd"]),
+    );
+    return widget;
+  }
+}
+
+

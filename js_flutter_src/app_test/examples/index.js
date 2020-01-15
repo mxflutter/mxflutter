@@ -86,8 +86,27 @@ let { PageExamplePlaceholder } = jsFlutterRequire("examples/example_placeholder.
 let { PageExampleScaffold } = jsFlutterRequire("examples/example_scaffold.js");
 let { PageExampleText } = jsFlutterRequire("examples/example_text.js");
 const { SectionTitle } = jsFlutterRequire("./component/section_title.js");
-
-
+//Animated
+const { PageExampleAnimatedBuilder } = jsFlutterRequire("./examples/animation/example_animated_builder.js");
+const { PageExampleAnimatedBuilderV2 } = jsFlutterRequire("./examples/animation/example_animated_builder_v2.js");
+const { PageExampleAnimatedContainer } = jsFlutterRequire("./examples/animation/example_animated_container.js");
+const { PageExampleAnimatedCrossFade } = jsFlutterRequire("./examples/animation/example_animated_cross_fade.js");
+const { PageExampleAnimatedDefaultTextStyle } = jsFlutterRequire("./examples/animation/example_animated_default_text_style.js");
+const { PageExampleAnimatedListState } = jsFlutterRequire("./examples/animation/example_animated_list_state.js");
+const { PageExampleAnimatedModalBarrier } = jsFlutterRequire("./examples/animation/example_animated_modal_barrier.js");
+const { PageExampleAnimatedOpacity } = jsFlutterRequire("./examples/animation/example_animated_opacity.js");
+const { PageExampleAnimatedPhysicalModel } = jsFlutterRequire("./examples/animation/example_animated_physical_model.js");
+const { PageExampleAnimatedPositioned } = jsFlutterRequire("./examples/animation/example_animated_positioned.js");
+const { PageExampleAnimatedWidget } = jsFlutterRequire("./examples/animation/example_animated_widget.js");
+const { PageExampleAnimatedWidgetBaseState } = jsFlutterRequire("./examples/animation/example_animated_widget_base_state.js");
+const { PageExampleDecoratedBoxTransition } = jsFlutterRequire("./examples/animation/example_decorated_box_transition.js");
+const { PageExampleFadeTransition } = jsFlutterRequire("./examples/animation/example_fade_transition.js");
+const { PageExampleHero } = jsFlutterRequire("./examples/animation/example_hero.js");
+const { PageExamplePositionedTransition } = jsFlutterRequire("./examples/animation/example_positioned_transition.js");
+const { PageExampleRotationTransition } = jsFlutterRequire("./examples/animation/example_rotation_transition.js");
+const { PageExampleScaleTransition } = jsFlutterRequire("./examples/animation/example_scale_transition.js");
+const { PageExampleSizeTransition } = jsFlutterRequire("./examples/animation/example_size_transition.js");
+const { PageExampleSlideTransition } = jsFlutterRequire("./examples/animation/example_slide_transition.js");
 
 class ExamplesPage extends MXJSWidget {
   constructor(){
@@ -186,6 +205,127 @@ class ExamplesPage extends MXJSWidget {
               }),
             }),
 
+            this.genSectionTitle(context,"动画组件"),
+            new ListTile({
+              title:new Text("AnimatedBuilder"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedBuilder());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedBuilder v2"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedBuilderV2());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedContainer"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedContainer());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedCrossFade"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedCrossFade());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedDefaultTextStyle"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedDefaultTextStyle());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedListState"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedListState());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedModalBarrier"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedModalBarrier());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedOpacity"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedOpacity());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedPhysicalModel"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedPhysicalModel());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedPositioned"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedPositioned());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedWidget"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedWidget());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedWidgetBaseState"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedWidgetBaseState());
+              }),
+            }),
+            new ListTile({
+              title:new Text("DecoratedBoxTransition"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleDecoratedBoxTransition());
+              }),
+            }),
+            new ListTile({
+              title:new Text("FadeTransition"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleFadeTransition());
+              }),
+            }),
+            new ListTile({
+              title:new Text("Hero"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleHero());
+              }),
+            }),
+            new ListTile({
+              title:new Text("PositionedTransition"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExamplePositionedTransition());
+              }),
+            }),
+            new ListTile({
+              title:new Text("RotationTransition"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleRotationTransition());
+              }),
+            }),
+            new ListTile({
+              title:new Text("ScaleTransition"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleScaleTransition());
+              }),
+            }),
+            new ListTile({
+              title:new Text("SizeTransition"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleSizeTransition());
+              }),
+            }),
+            new ListTile({
+              title:new Text("SlideTransition"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleSlideTransition());
+              }),
+            }),
             this.genSectionTitle(context,"其他组件"),
             new ListTile({
               title:new Text("FlutterLogo"),
