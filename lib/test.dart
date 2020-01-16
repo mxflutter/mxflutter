@@ -30,6 +30,9 @@ class TestPageScaffoldNorWork extends StatelessWidget{
 class TestPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+
+    AnimatedPositioned();
+
     return Scaffold(
       appBar: AppBar(
         title: Text("My Test"),

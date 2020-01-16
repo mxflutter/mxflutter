@@ -107,6 +107,22 @@ var list = <String>[
     VoidCallback onEnd,
   })
   """
+  ,
+  """
+  const AnimatedPositioned({
+    Key key,
+    @required this.child,
+    this.left,
+    this.top,
+    this.right,
+    this.bottom,
+    this.width,
+    this.height,
+    Curve curve = Curves.linear,
+    @required Duration duration,
+    VoidCallback onEnd,
+  })
+  """
 ];
 
 void main(List<String> arguments) {

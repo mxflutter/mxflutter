@@ -455,6 +455,36 @@ class AnimatedPhysicalModel extends FlutterWidget {
     }
 }
 
+class AnimatedPositioned extends FlutterWidget {
+    constructor ({
+                     key,
+                     child,
+                     left,
+                     top,
+                     right,
+                     bottom,
+                     width,
+                     height,
+                     curve,
+                     duration,
+                     onEnd,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.left = left;
+        this.top = top;
+        this.right = right;
+        this.bottom = bottom;
+        this.width = width;
+        this.height = height;
+        this.curve = curve;
+        this.duration = duration;
+        this.onEnd = onEnd;
+    }
+}
+
 module.exports = {
     Animation,
     Tween,
@@ -473,5 +503,6 @@ module.exports = {
     AnimatedDefaultTextStyle,
     AnimatedOpacity,
     AnimatedPhysicalModel,
+    AnimatedPositioned,
 };
 

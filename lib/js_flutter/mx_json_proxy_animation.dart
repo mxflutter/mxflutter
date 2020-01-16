@@ -28,6 +28,7 @@ class MXProxyRegisterHelperAnimationSeries {
 
     m.addAll(MXProxyAnimatedOpacity.registerProxy());
     m.addAll(MXProxyAnimatedPhysicalModel.registerProxy());
+    m.addAll(MXProxyAnimatedPositioned.registerProxy());
 
     return m;
   }
@@ -538,4 +539,29 @@ class MXProxyAnimatedPhysicalModel extends MXJsonObjProxy {
   }
 }
 
+class MXProxyAnimatedPositioned extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "AnimatedPositioned";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyAnimatedPositioned()..init(className: regClassName)};
+  }
 
+  @override
+  AnimatedPositioned constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = AnimatedPositioned(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      left: mxj2d(bo, jsonMap["left"])?.toDouble(),
+      top: mxj2d(bo, jsonMap["top"])?.toDouble(),
+      right: mxj2d(bo, jsonMap["right"])?.toDouble(),
+      bottom: mxj2d(bo, jsonMap["bottom"])?.toDouble(),
+      width: mxj2d(bo, jsonMap["width"])?.toDouble(),
+      height: mxj2d(bo, jsonMap["height"])?.toDouble(),
+      curve: mxj2d(bo, jsonMap["curve"], defaultValue:Curves.linear),
+      duration: mxj2d(bo, jsonMap["duration"]),
+      onEnd: mxj2d(bo, jsonMap["onEnd"]),
+    );
+    return widget;
+  }
+}
