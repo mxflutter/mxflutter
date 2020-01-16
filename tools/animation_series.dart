@@ -3,7 +3,7 @@ import 'dart_builder.dart';
 var list = <String>[
   """
   Tween({
-    this.begin, 
+    this.begin,
     this.end,
   })
   """
@@ -40,19 +40,19 @@ var list = <String>[
       int microseconds = 0})
   """
   ,
-  
+
   """
   CurveTween({
-     @required this.curve 
+     @required this.curve
      })
   """
   ,
- 
+
   """
   const Interval(
-    this.begin, 
-    this.end, 
-    { this.curve = Curves.linear 
+    this.begin,
+    this.end,
+    { this.curve = Curves.linear
     })
    """
   ,
@@ -79,55 +79,16 @@ var list = <String>[
   ,
 
   """
- 
+  const AnimatedOpacity({
+    Key key,
+    this.child,
+    @required this.opacity,
+    Curve curve = Curves.linear,
+    @required Duration duration,
+    VoidCallback onEnd,
+    this.alwaysIncludeSemantics = false,
+  })
   """
-  ,
-  
-  """
- 
-  """
-  ,
-  
-  """
- 
-  """
-  ,
-  
-  """
- 
-  """
-  ,
-  
-  """
- 
-  """
-  ,
-  
-  """
- 
-  """
-  ,
-  
-  """
- 
-  """
-  ,
-  
-  """
- 
-  """
-  ,
-  
-  """
- 
-  """
-  ,
-  
-  """
- 
-  """
-  ,
-  
 ];
 
 void main(List<String> arguments) {

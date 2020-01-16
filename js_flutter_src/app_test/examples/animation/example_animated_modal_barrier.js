@@ -86,6 +86,7 @@ class PageExampleAnimatedModalBarrier extends MXJSWidget {
       body: new ListView({
         children:[
           new SectionTitle("PageExampleAnimatedModalBarrier"),
+          new SectionTitle("todo..."),
         ],
       })
     });

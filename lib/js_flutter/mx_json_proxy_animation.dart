@@ -26,6 +26,9 @@ class MXProxyRegisterHelperAnimationSeries {
     m.addAll(MXProxyAnimatedCrossFade.registerProxy());
     m.addAll(MXProxyAnimatedDefaultTextStyle.registerProxy());
 
+    m.addAll(MXProxyAnimatedOpacity.registerProxy());
+
+
     return m;
   }
 }
@@ -477,6 +480,30 @@ class MXProxyAnimatedDefaultTextStyle extends MXJsonObjProxy {
       curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]),defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
       onEnd: mxj2d(bo, jsonMap["onEnd"]),
+    );
+    return widget;
+  }
+}
+
+
+class MXProxyAnimatedOpacity extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "AnimatedOpacity";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyAnimatedOpacity()..init(className: regClassName)};
+  }
+
+  @override
+  AnimatedOpacity constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = AnimatedOpacity(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      opacity: mxj2d(bo, jsonMap["opacity"])?.toDouble(),
+      curve: mxj2d(bo, jsonMap["curve"], defaultValue:Curves.linear),
+      duration: mxj2d(bo, jsonMap["duration"]),
+      onEnd: mxj2d(bo, jsonMap["onEnd"]),
+      alwaysIncludeSemantics: mxj2d(bo, jsonMap["alwaysIncludeSemantics"], defaultValue:false),
     );
     return widget;
   }

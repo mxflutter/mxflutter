@@ -22,6 +22,7 @@ let {
 
 let {
   Duration,
+  Curves,
 } = jsFlutterRequire("./js_flutter_animation.js");
 
 

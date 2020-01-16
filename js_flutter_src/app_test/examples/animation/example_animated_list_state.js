@@ -86,6 +86,7 @@ class PageExampleAnimatedListState extends MXJSWidget {
       body: new ListView({
         children:[
           new SectionTitle("PageExampleAnimatedListState"),
+          new SectionTitle("Todo...."),
         ],
       })
     });

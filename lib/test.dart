@@ -35,7 +35,7 @@ class TestPage extends StatelessWidget{
         title: Text("My Test"),
       ),
       body: Scrollbar(
-        child: AnimatedDefaultTextStyle(
+        child: AnimatedOpacity(
         ),
       ),
     );

@@ -399,6 +399,28 @@ class AnimatedDefaultTextStyle extends FlutterWidget {
     }
 }
 
+class AnimatedOpacity extends FlutterWidget {
+    constructor ({
+                     key,
+                     child,
+                     opacity,
+                     curve,
+                     duration,
+                     onEnd,
+                     alwaysIncludeSemantics,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.opacity = opacity;
+        this.curve = curve;
+        this.duration = duration;
+        this.onEnd = onEnd;
+        this.alwaysIncludeSemantics = alwaysIncludeSemantics;
+    }
+}
+
 module.exports = {
     Animation,
     Tween,
@@ -415,4 +437,5 @@ module.exports = {
     AnimatedCrossFade,
     CrossFadeState,
     AnimatedDefaultTextStyle,
+    AnimatedOpacity,
 };
