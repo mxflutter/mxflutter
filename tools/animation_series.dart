@@ -89,6 +89,24 @@ var list = <String>[
     this.alwaysIncludeSemantics = false,
   })
   """
+  ,
+  """
+  const AnimatedPhysicalModel({
+    Key key,
+    @required this.child,
+    @required this.shape,
+    this.clipBehavior = Clip.none,
+    this.borderRadius = BorderRadius.zero,
+    @required this.elevation,
+    @required this.color,
+    this.animateColor = true,
+    @required this.shadowColor,
+    this.animateShadowColor = true,
+    Curve curve = Curves.linear,
+    @required Duration duration,
+    VoidCallback onEnd,
+  })
+  """
 ];
 
 void main(List<String> arguments) {

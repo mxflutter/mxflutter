@@ -421,6 +421,40 @@ class AnimatedOpacity extends FlutterWidget {
     }
 }
 
+class AnimatedPhysicalModel extends FlutterWidget {
+    constructor ({
+                     key,
+                     child,
+                     shape,
+                     clipBehavior,
+                     borderRadius,
+                     elevation,
+                     color,
+                     animateColor,
+                     shadowColor,
+                     animateShadowColor,
+                     curve,
+                     duration,
+                     onEnd,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.shape = shape;
+        this.clipBehavior = clipBehavior;
+        this.borderRadius = borderRadius;
+        this.elevation = elevation;
+        this.color = color;
+        this.animateColor = animateColor;
+        this.shadowColor = shadowColor;
+        this.animateShadowColor = animateShadowColor;
+        this.curve = curve;
+        this.duration = duration;
+        this.onEnd = onEnd;
+    }
+}
+
 module.exports = {
     Animation,
     Tween,
@@ -438,4 +472,6 @@ module.exports = {
     CrossFadeState,
     AnimatedDefaultTextStyle,
     AnimatedOpacity,
+    AnimatedPhysicalModel,
 };
+

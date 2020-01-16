@@ -69,13 +69,23 @@ let {
   TextDecorationStyle,
   TextOverflow,
   Padding,
+  AnimatedPhysicalModel,
+  Duration,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 const { SectionTitle } = jsFlutterRequire("./component/section_title.js");
 
 class PageExampleAnimatedPhysicalModel extends MXJSWidget {
+
   constructor(){
     super("PageExampleAnimatedPhysicalModel");
+    this.elevation = 50.0;
+  }
+
+  changeOpacity() {
+    this.setState(function(){
+      this.elevation = this.elevation == 50.0 ? 0.0 : 50.0;
+    });
   }
 
   build(context){
@@ -83,11 +93,26 @@ class PageExampleAnimatedPhysicalModel extends MXJSWidget {
       appBar: new AppBar({
         title: new Text('PageExampleAnimatedPhysicalModel',),
       }),
-      body: new ListView({
-        children:[
-          new SectionTitle("PageExampleAnimatedPhysicalModel"),
-        ],
-      })
+      floatingActionButton: new FloatingActionButton({
+        child: new Icon(Icons.add),
+        onPressed: this.createCallbackID(function () {
+          this.changeOpacity();
+        }),
+      }),
+      body: new Center({
+        child: new AnimatedPhysicalModel({
+          child:new Container({
+            width: 200,
+            height: 200,
+            color:Colors.orange(),
+          }),
+          shape:BoxShape.rectangle,
+          elevation: this.elevation,
+          color:Colors.blue(),
+          shadowColor: Colors.grey(),
+          duration:new Duration({milliseconds:500}),
+        }),
+      }),
     });
     return widget;
   }

@@ -2386,7 +2386,7 @@ class Colors {
 
 
   static grey(){
-    const _greyPrimaryValue = 0xFF00BCD4;
+    const _greyPrimaryValue = 0xFF9E9E9E;
     return new MaterialColor(_greyPrimaryValue,{
       50:  new Color(0xFFFAFAFA),
       100: new Color(0xFFF5F5F5),

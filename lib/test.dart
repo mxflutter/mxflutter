@@ -35,7 +35,17 @@ class TestPage extends StatelessWidget{
         title: Text("My Test"),
       ),
       body: Scrollbar(
-        child: AnimatedOpacity(
+        child: AnimatedPhysicalModel(
+          child:Container(
+            width: 100,
+            height: 50,
+            color: Colors.orange,
+          ),
+          shape: BoxShape.rectangle,
+          elevation: 100,
+          color: Colors.blue,
+          shadowColor: Colors.grey,
+          duration: new Duration(seconds:2),
         ),
       ),
     );

@@ -27,7 +27,7 @@ class MXProxyRegisterHelperAnimationSeries {
     m.addAll(MXProxyAnimatedDefaultTextStyle.registerProxy());
 
     m.addAll(MXProxyAnimatedOpacity.registerProxy());
-
+    m.addAll(MXProxyAnimatedPhysicalModel.registerProxy());
 
     return m;
   }
@@ -504,6 +504,35 @@ class MXProxyAnimatedOpacity extends MXJsonObjProxy {
       duration: mxj2d(bo, jsonMap["duration"]),
       onEnd: mxj2d(bo, jsonMap["onEnd"]),
       alwaysIncludeSemantics: mxj2d(bo, jsonMap["alwaysIncludeSemantics"], defaultValue:false),
+    );
+    return widget;
+  }
+}
+
+class MXProxyAnimatedPhysicalModel extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "AnimatedPhysicalModel";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyAnimatedPhysicalModel()..init(className: regClassName)};
+  }
+
+  @override
+  AnimatedPhysicalModel constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = AnimatedPhysicalModel(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      shape: mxj2d(bo, MXBoxShape.parse(jsonMap["shape"])),
+      clipBehavior: mxj2d(bo, jsonMap["clipBehavior"], defaultValue:Clip.none),
+      borderRadius: mxj2d(bo, jsonMap["borderRadius"], defaultValue:BorderRadius.zero),
+      elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
+      color: mxj2d(bo, jsonMap["color"]),
+      animateColor: mxj2d(bo, jsonMap["animateColor"], defaultValue:true),
+      shadowColor: mxj2d(bo, jsonMap["shadowColor"]),
+      animateShadowColor: mxj2d(bo, jsonMap["animateShadowColor"], defaultValue:true),
+      curve: mxj2d(bo, jsonMap["curve"], defaultValue:Curves.linear),
+      duration: mxj2d(bo, jsonMap["duration"]),
+      onEnd: mxj2d(bo, jsonMap["onEnd"]),
     );
     return widget;
   }
