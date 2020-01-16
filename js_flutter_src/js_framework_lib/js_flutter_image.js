@@ -13,7 +13,6 @@ let {
     FlutterWidget
 } = jsFlutterRequire("./js_flutter_basic_types.js");
 
-
 class AssetImage extends FlutterWidget {
     constructor({
         assetName,
@@ -50,7 +49,6 @@ class FileImage extends FlutterWidget {
         scale
     } = {}) {
         super();
-
         this.file = file;
         this.scale = scale;
     }

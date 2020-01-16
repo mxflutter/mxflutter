@@ -119,8 +119,8 @@ class ScaleAnimation extends MXJSWidget{
       child: new AnimatedBuilder({
         animation: this.animation,
         widget: new Container({
-          height: this.animation.value() * imageRatio + 2 - 5,
-          width: this.animation.value(),
+          // height: this.animation.value() * imageRatio + 2 - 5,
+          width: "$value",
           child: this.child
         })
         // child: this.child,

@@ -139,22 +139,22 @@ class MXProxyAnimatedBuilder extends MXJsonObjProxy {
 			key: mxj2d(bo, jsonMap["key"]),
 			animation: animation,
 			builder: (BuildContext context, Widget child)  {
-//			  if(jsonMap.containsKey("builder")){
-//			    print("调用JS的builder生成数据，返回");
-//			    final builderCallbackID = jsonMap["builder"];
-//          final data = bo.eventCallback(builderCallbackID, p: []);
-//			    return Center(child: Text("需要JS端生成数据22"),);
-//        }else{
-//
-//        }
-        String targetString = '\$value';
-        var context = {
-          "sin":sin,
-          "cos":cos,
-          "\$value":animation.value?.toDouble(),
-        };
-        Map widgetMap = replaceSpecificValue(jsonMap["widget"], targetString, context);
-        return mxj2d(bo, widgetMap);
+			  if(jsonMap.containsKey("builder")){
+          //todo...
+			    print("调用JS的builder生成数据，返回");
+			    final builderCallbackID = jsonMap["builder"];
+          final widgetMap = bo.eventCallback(builderCallbackID, p: []);
+			    return  mxj2d(bo, widgetMap);
+        }else{
+          String targetString = '\$value';
+          var context = {
+            "sin":sin,
+            "cos":cos,
+            "\$value":animation.value?.toDouble(),
+          };
+          Map widgetMap = replaceSpecificValue(jsonMap["widget"], targetString, context);
+          return mxj2d(bo, widgetMap);
+        }
       },
 			child: mxj2d(bo, jsonMap["child"]),
 		);
