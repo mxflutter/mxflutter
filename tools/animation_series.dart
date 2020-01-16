@@ -123,6 +123,26 @@ var list = <String>[
     VoidCallback onEnd,
   })
   """
+  ,
+  """
+  const AnimatedSize({
+      Key key,
+      Widget child,
+      this.alignment = Alignment.center,
+      this.curve = Curves.linear,
+      @required this.duration,
+      this.reverseDuration,
+      @required this.vsync,
+    })
+  """,
+  """
+   const DecoratedBoxTransition({
+    Key key,
+    @required this.decoration,
+    this.position = DecorationPosition.background,
+    @required this.child,
+  })
+  """
 ];
 
 void main(List<String> arguments) {

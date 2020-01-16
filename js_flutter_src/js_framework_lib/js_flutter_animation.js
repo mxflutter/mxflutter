@@ -485,6 +485,45 @@ class AnimatedPositioned extends FlutterWidget {
     }
 }
 
+class AnimatedSize extends FlutterWidget {
+    constructor ({
+                     key,
+                     child,
+                     alignment,
+                     curve,
+                     duration,
+                     reverseDuration,
+                     vsync,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.alignment = alignment;
+        this.curve = curve;
+        this.duration = duration;
+        this.reverseDuration = reverseDuration;
+        this.vsync = vsync;
+    }
+}
+
+class DecoratedBoxTransition extends FlutterWidget {
+    constructor ({
+                     key,
+                     decoration,
+                     position,
+                     child,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.decoration = decoration;
+        this.position = position;
+        this.child = child;
+    }
+}
+
+
 module.exports = {
     Animation,
     Tween,
@@ -504,5 +543,6 @@ module.exports = {
     AnimatedOpacity,
     AnimatedPhysicalModel,
     AnimatedPositioned,
+    AnimatedSize,
 };
 

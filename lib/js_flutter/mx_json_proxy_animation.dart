@@ -29,6 +29,8 @@ class MXProxyRegisterHelperAnimationSeries {
     m.addAll(MXProxyAnimatedOpacity.registerProxy());
     m.addAll(MXProxyAnimatedPhysicalModel.registerProxy());
     m.addAll(MXProxyAnimatedPositioned.registerProxy());
+    m.addAll(MXProxyAnimatedSize.registerProxy());
+    m.addAll(MXProxyDecoratedBoxTransition.registerProxy());
 
     return m;
   }
@@ -561,6 +563,51 @@ class MXProxyAnimatedPositioned extends MXJsonObjProxy {
       curve: mxj2d(bo, jsonMap["curve"], defaultValue:Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
       onEnd: mxj2d(bo, jsonMap["onEnd"]),
+    );
+    return widget;
+  }
+}
+
+
+class MXProxyAnimatedSize extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "AnimatedSize";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyAnimatedSize()..init(className: regClassName)};
+  }
+
+  @override
+  AnimatedSize constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = AnimatedSize(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      alignment: mxj2d(bo, jsonMap["alignment"], defaultValue:Alignment.center),
+      curve: mxj2d(bo, jsonMap["curve"], defaultValue:Curves.linear),
+      duration: mxj2d(bo, jsonMap["duration"]),
+      reverseDuration: mxj2d(bo, jsonMap["reverseDuration"]),
+      vsync: bo.jsWidgetState, //mxj2d(bo, jsonMap["vsync"]),
+    );
+    return widget;
+  }
+}
+
+
+class MXProxyDecoratedBoxTransition extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "DecoratedBoxTransition";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyDecoratedBoxTransition()..init(className: regClassName)};
+  }
+
+  @override
+  DecoratedBoxTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = DecoratedBoxTransition(
+      key: mxj2d(bo, jsonMap["key"]),
+      decoration: mxj2d(bo, jsonMap["decoration"]),
+      position: mxj2d(bo, jsonMap["position"], defaultValue:DecorationPosition.background),
+      child: mxj2d(bo, jsonMap["child"]),
     );
     return widget;
   }

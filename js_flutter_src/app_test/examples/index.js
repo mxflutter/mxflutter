@@ -97,6 +97,8 @@ const { PageExampleAnimatedModalBarrier } = jsFlutterRequire("./examples/animati
 const { PageExampleAnimatedOpacity } = jsFlutterRequire("./examples/animation/example_animated_opacity.js");
 const { PageExampleAnimatedPhysicalModel } = jsFlutterRequire("./examples/animation/example_animated_physical_model.js");
 const { PageExampleAnimatedPositioned } = jsFlutterRequire("./examples/animation/example_animated_positioned.js");
+const { PageExampleAnimatedSize } = jsFlutterRequire("./examples/animation/example_animated_size.js");
+
 const { PageExampleAnimatedWidget } = jsFlutterRequire("./examples/animation/example_animated_widget.js");
 const { PageExampleAnimatedWidgetBaseState } = jsFlutterRequire("./examples/animation/example_animated_widget_base_state.js");
 const { PageExampleDecoratedBoxTransition } = jsFlutterRequire("./examples/animation/example_decorated_box_transition.js");
@@ -266,6 +268,12 @@ class ExamplesPage extends MXJSWidget {
               title:new Text("AnimatedPositioned"),
               onTap: this.createCallbackID(function () {
                 this.navigatorPush(new PageExampleAnimatedPositioned());
+              }),
+            }),
+            new ListTile({
+              title:new Text("AnimatedSize"),
+              onTap: this.createCallbackID(function () {
+                this.navigatorPush(new PageExampleAnimatedSize());
               }),
             }),
             new ListTile({
