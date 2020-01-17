@@ -144,8 +144,8 @@ class ExamplesPage extends MXJSWidget {
       body: new Scrollbar({
         child:new ListView({
           children:[
-            // new SectionTitle("基础组件"),
-            this.genSectionTitle(context,"基础组件"),
+            new SectionTitle("基础组件",{key:"1"}),
+            // this.genSectionTitle(context,"基础组件"),
             new ListTile({
               title:new Text("AppBar"),
               onTap: this.createCallbackID(function () {
@@ -188,8 +188,8 @@ class ExamplesPage extends MXJSWidget {
                 this.navigatorPush(new PageExampleColor());
               }),
             }),
-            // new SectionTitle("布局组件"),
-            this.genSectionTitle(context,"布局组件"),
+            new SectionTitle("布局组件",{key:"2"}),
+            // this.genSectionTitle(context,"布局组件"),
             new ListTile({
               title:new Text("Column"),
               onTap: this.createCallbackID(function () {
@@ -208,8 +208,8 @@ class ExamplesPage extends MXJSWidget {
                 this.navigatorPush(new PageExampleContainer());
               }),
             }),
-            // new SectionTitle("动画组件"),
-            this.genSectionTitle(context,"动画组件"),
+            new SectionTitle("动画组件",{key:"2"}),
+            // this.genSectionTitle(context,"动画组件"),
             new ListTile({
               title:new Text("AnimatedBuilder"),
               onTap: this.createCallbackID(function () {
@@ -336,8 +336,8 @@ class ExamplesPage extends MXJSWidget {
                 this.navigatorPush(new PageExampleSlideTransition());
               }),
             }),
-            // new SectionTitle("其他组件"),
-            this.genSectionTitle(context,"其他组件"),
+            new SectionTitle("其他组件",{key:"2"}),
+            // this.genSectionTitle(context,"其他组件"),
             new ListTile({
               title:new Text("FlutterLogo"),
               onTap: this.createCallbackID(function () {

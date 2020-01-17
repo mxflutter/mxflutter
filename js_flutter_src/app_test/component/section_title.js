@@ -71,8 +71,8 @@ let {
 } = jsFlutterRequire("js_flutter_ui.js");
 
 class SectionTitle extends MXJSWidget {
-  constructor(title){
-    super("SectionTitle");
+  constructor(title,{key}){
+    super("SectionTitle",{key:key});
     this.title = title;
   }
 
