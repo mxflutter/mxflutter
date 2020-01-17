@@ -31,6 +31,7 @@ class MXProxyRegisterHelperAnimationSeries {
     m.addAll(MXProxyAnimatedPositioned.registerProxy());
     m.addAll(MXProxyAnimatedSize.registerProxy());
     m.addAll(MXProxyDecoratedBoxTransition.registerProxy());
+    m.addAll(MXProxyDecorationTween.registerProxy());
 
     return m;
   }
@@ -603,12 +604,35 @@ class MXProxyDecoratedBoxTransition extends MXJsonObjProxy {
 
   @override
   DecoratedBoxTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+
+    Animation<Decoration> animation =  mxj2d(bo, jsonMap["decoration"]);
+
+
     var widget = DecoratedBoxTransition(
       key: mxj2d(bo, jsonMap["key"]),
-      decoration: mxj2d(bo, jsonMap["decoration"]),
+      decoration: animation,
       position: mxj2d(bo, jsonMap["position"], defaultValue:DecorationPosition.background),
       child: mxj2d(bo, jsonMap["child"]),
     );
     return widget;
   }
 }
+
+class MXProxyDecorationTween extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "DecorationTween";
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyDecorationTween()..init(className: regClassName)};
+  }
+
+  @override
+  DecorationTween constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    var widget = DecorationTween(
+      begin: mxj2d(bo, jsonMap["begin"]),
+      end: mxj2d(bo, jsonMap["end"]),
+    );
+    return widget;
+  }
+}
+

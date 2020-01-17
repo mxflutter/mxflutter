@@ -523,6 +523,29 @@ class DecoratedBoxTransition extends FlutterWidget {
     }
 }
 
+class DecorationTween extends FlutterWidget {
+    constructor ({
+                     begin,
+                     end,
+                 } = {}) {
+        super();
+
+        this.begin = begin;
+        this.end = end;
+    }
+
+    animate(parent){
+        const argument = new FlutterCallArgs({
+            mirrorID: this.mirrorID,
+            className: 'DecorationTween',
+            funcName: 'animate',
+            args: {
+                parent: parent,
+            },
+        });
+        invokeFlutterFunction(argument);
+    }
+}
 
 module.exports = {
     Animation,
@@ -544,5 +567,7 @@ module.exports = {
     AnimatedPhysicalModel,
     AnimatedPositioned,
     AnimatedSize,
+    DecorationTween,
+    DecoratedBoxTransition,
 };
 

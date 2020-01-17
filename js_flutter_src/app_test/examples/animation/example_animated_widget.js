@@ -86,6 +86,7 @@ class PageExampleAnimatedWidget extends MXJSWidget {
       body: new ListView({
         children:[
           new SectionTitle("PageExampleAnimatedWidget"),
+          new SectionTitle("抽象类"),
         ],
       })
     });

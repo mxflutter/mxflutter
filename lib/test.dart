@@ -31,7 +31,7 @@ class TestPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    AnimatedSize();
+    DecorationTween();
 
     return Scaffold(
       appBar: AppBar(

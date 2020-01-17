@@ -142,6 +142,12 @@ var list = <String>[
     this.position = DecorationPosition.background,
     @required this.child,
   })
+  """,
+  """
+  DecorationTween({
+    this.begin,
+    this.end,
+  })
   """
 ];
 

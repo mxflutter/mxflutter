@@ -69,6 +69,14 @@ let {
   TextDecorationStyle,
   TextOverflow,
   Padding,
+  Duration,
+  DecoratedBoxTransition,
+  Radius,
+  BoxDecoration,
+  AnimationController,
+  DecorationTween,
+  FlutterLogo,
+  BorderRadius,
 } = jsFlutterRequire("js_flutter_ui.js");
 
 const { SectionTitle } = jsFlutterRequire("./component/section_title.js");
@@ -76,6 +84,26 @@ const { SectionTitle } = jsFlutterRequire("./component/section_title.js");
 class PageExampleDecoratedBoxTransition extends MXJSWidget {
   constructor(){
     super("PageExampleDecoratedBoxTransition");
+    this.controller = new AnimationController();
+    this.controller.duration = new Duration({seconds: 2});
+    this.controller.createMirrorObjectID();
+
+
+    this.rectAnimation=new DecorationTween({
+      begin:new BoxDecoration({
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(0))
+      }),
+      end:new BoxDecoration({
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(20))
+      })
+    });
+    this.rectAnimation.createMirrorObjectID();
+
+    this.rectAnimation.animate(this.controller.view);
+
+    this.controller.forward();
   }
 
   build(context){
@@ -83,10 +111,9 @@ class PageExampleDecoratedBoxTransition extends MXJSWidget {
       appBar: new AppBar({
         title: new Text('PageExampleDecoratedBoxTransition',),
       }),
-      body: new ListView({
-        children:[
-          new SectionTitle("PageExampleDecoratedBoxTransition"),
-        ],
+      body: new DecoratedBoxTransition({
+        child: new FlutterLogo({size: 100}),
+        decoration: this.rectAnimation,
       })
     });
     return widget;
