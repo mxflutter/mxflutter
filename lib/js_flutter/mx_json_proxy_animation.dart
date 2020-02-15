@@ -427,7 +427,7 @@ class MXProxyAnimatedContainer extends MXJsonObjProxy {
       child: mxj2d(bo, jsonMap["child"]),
       curve: mxj2d(bo, jsonMap["curve"],defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
-      onEnd: mxj2d(bo, jsonMap["onEnd"]),
+      //onEnd: mxj2d(bo, jsonMap["onEnd"]),//TODO: Flutter master的新特性暂时注释，目前支持到Flutter channel stable flutter_macos_v1.12.13+hotfix.8-stable版本，如有需求，可自行打开注释
     );
     return widget;
   }
@@ -483,7 +483,7 @@ class MXProxyAnimatedDefaultTextStyle extends MXJsonObjProxy {
       maxLines: mxj2d(bo, jsonMap["maxLines"]),
       curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]),defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
-      onEnd: mxj2d(bo, jsonMap["onEnd"]),
+      //onEnd: mxj2d(bo, jsonMap["onEnd"]),//TODO: Flutter master的新特性暂时注释，目前支持到Flutter channel stable flutter_macos_v1.12.13+hotfix.8-stable版本，如有需求，可自行打开注释
     );
     return widget;
   }
@@ -506,8 +506,8 @@ class MXProxyAnimatedOpacity extends MXJsonObjProxy {
       opacity: mxj2d(bo, jsonMap["opacity"])?.toDouble(),
       curve: mxj2d(bo, jsonMap["curve"], defaultValue:Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
-      onEnd: mxj2d(bo, jsonMap["onEnd"]),
-      alwaysIncludeSemantics: mxj2d(bo, jsonMap["alwaysIncludeSemantics"], defaultValue:false),
+      //onEnd: mxj2d(bo, jsonMap["onEnd"]),//TODO: Flutter master的新特性暂时注释，目前支持到Flutter channel stable flutter_macos_v1.12.13+hotfix.8-stable版本，如有需求，可自行打开注释
+      //alwaysIncludeSemantics: mxj2d(bo, jsonMap["alwaysIncludeSemantics"], defaultValue:false),
     );
     return widget;
   }
@@ -536,7 +536,7 @@ class MXProxyAnimatedPhysicalModel extends MXJsonObjProxy {
       animateShadowColor: mxj2d(bo, jsonMap["animateShadowColor"], defaultValue:true),
       curve: mxj2d(bo, jsonMap["curve"], defaultValue:Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
-      onEnd: mxj2d(bo, jsonMap["onEnd"]),
+      //onEnd: mxj2d(bo, jsonMap["onEnd"]),//TODO: Flutter master的新特性暂时注释，目前支持到Flutter channel stable flutter_macos_v1.12.13+hotfix.8-stable版本，如有需求，可自行打开注释
     );
     return widget;
   }
@@ -563,7 +563,7 @@ class MXProxyAnimatedPositioned extends MXJsonObjProxy {
       height: mxj2d(bo, jsonMap["height"])?.toDouble(),
       curve: mxj2d(bo, jsonMap["curve"], defaultValue:Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
-      onEnd: mxj2d(bo, jsonMap["onEnd"]),
+      //onEnd: mxj2d(bo, jsonMap["onEnd"]),//TODO: Flutter master的新特性暂时注释，目前支持到Flutter channel stable flutter_macos_v1.12.13+hotfix.8-stable版本，如有需求，可自行打开注释
     );
     return widget;
   }
