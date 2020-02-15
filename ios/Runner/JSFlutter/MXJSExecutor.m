@@ -255,7 +255,7 @@
 }
 
 
-- (void )invokeJSValue:(JSValue *)jsValue mothod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
+- (void )invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
 {
     [self executeBlockOnJSThread:^{
         

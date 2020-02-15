@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)executeBlockOnJSThread:(dispatch_block_t)block;
 
-- (void)invokeJSValue:(JSValue *)jsValue mothod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
+- (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
 
 - (void)invokeMothod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
 

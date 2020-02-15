@@ -79,7 +79,6 @@ static void setupBasicJSRuntime(MXJSEngine* jsEngine,  JSContext* context)
         NSLog(@"%@",log);
     };
     
-    
     context[@"JSAPI_require"] = (id) ^(NSString *filePath) {
         
         MXJSFlutterLog(@"mxInclude file:%@",filePath);

@@ -17,6 +17,8 @@ let textExports = jsFlutterRequire("./js_flutter_text.js");
 let imageExports = jsFlutterRequire("./js_flutter_image.js");
 let animationExports = jsFlutterRequire("./js_flutter_animation.js");
 
+let widgetExports = jsFlutterRequire("./js_flutter_widget.js");
+
 
 module.exports = Object.assign(
     frameworkExports,
@@ -25,4 +27,6 @@ module.exports = Object.assign(
     layoutExports,
     textExports,
     imageExports,
-    animationExports);
+    animationExports,
+    widgetExports,
+);

@@ -48,7 +48,7 @@ let {
   SingleChildScrollView,
   Alignment,
   CircleAvatar
-  
+
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
@@ -135,7 +135,7 @@ class Follow extends MXJSWidget {
                             child: new Text(article.title, {
                                 style: new TextStyle({
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 16.0, 
+                                    fontSize: 16.0,
                                     height: 1.3,
                                     color: Colors.black()
                                 })
@@ -193,7 +193,7 @@ class Follow extends MXJSWidget {
     billboard(){
         return new Container({
             margin: EdgeInsets.only({
-                top: 5.0, 
+                top: 5.0,
                 bottom: 5.0
             }),
             color: GlobalConfig.cardBackgroundColor,
@@ -208,7 +208,7 @@ class Follow extends MXJSWidget {
                                 children: [
                                     new Container({
                                         child: new CircleAvatar({
-                                            backgroundImage: new NetworkImage("https://pic1.zhimg.com/50/v2-0c9de2012cc4c5e8b01657d96da35534_s.jpg"),
+                                            backgroundImage: new NetworkImage("https://pic2.zhimg.com/50/v2-6416ef6d3181117a0177275286fac8f3_hd.jpg"),
                                             radius: 11.0
                                         })
                                     }),
@@ -225,7 +225,7 @@ class Follow extends MXJSWidget {
                             child: new Text("考过CPA，非名牌大学也能进名企", {
                                 style: new TextStyle({
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 16.0, 
+                                    fontSize: 16.0,
                                     height: 1.3,
                                     color: GlobalConfig.fontColor
                                 })

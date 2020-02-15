@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:js_flutter/js_flutter/mx_json_proxy_widget.dart';
 import 'mx_build_owner.dart';
 
 import 'mx_json_proxy_material.dart';
@@ -148,6 +149,7 @@ class MXJsonObjToDartObject {
     registerProxy(MXProxyRegisterHelperImageSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperCupertinoSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperAnimationSeries.registerProxys());
+    registerProxy(MXProxyRegisterHelperWidgetSeries.registerProxys());
   }
 
   void registerProxy(Map<String, CreateJsonObjProxyFun> m) {
@@ -267,7 +269,7 @@ class MXJsonObjProxy {
     StaticFunction staticFun = findStaticFunction(jsonMap);
 
     var obj;
-    ///是否使用静态方法 
+    ///是否使用静态方法
     if (staticFun != null) {
       obj = staticFun(buildOwner, jsonMap, context:context);
     }
@@ -275,7 +277,7 @@ class MXJsonObjProxy {
     else if (constructorFun != null) {
       obj = constructorFun(buildOwner, jsonMap, context:context);
     }
-    ///默认构造方法 
+    ///默认构造方法
     else {
       obj = constructor(buildOwner, jsonMap, context:context);
     }
@@ -432,7 +434,7 @@ class MXJsonObjProxy {
 
     return cb;
   }
-  
+
    //生成StringFunctionGenericCallback<T> 闭包
   StringFunctionGenericCallback<T> createStringValueGenericHandle<T>(
       MXJsonBuildOwner bo, dynamic eventCallbackID) {

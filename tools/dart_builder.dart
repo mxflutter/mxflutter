@@ -78,7 +78,10 @@ class Parse2Dart {
     var name =
         match.group(1).trim(); // TODO 这里可能会出错，如果不匹配说明出问题了，不需要特意try catch.
 
-    var result = 'class MXProxy$name extends MXJsonObjProxy {\n'
+    var result = '//添加下面行 到 registerProxys 函数中\n'
+        'm.addAll(MXProxy$name.registerProxy()); \n'
+        '\n'
+        'class MXProxy$name extends MXJsonObjProxy {\n'
         '\tstatic Map<String, CreateJsonObjProxyFun> registerProxy() {\n'
         '\t\t///**@@@  2 替换类名字符串\n'
         '\t\tfinal String regClassName = "$name";\n'

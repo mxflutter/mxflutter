@@ -14,7 +14,9 @@ let {
 } = jsFlutterRequire("./js_flutter_basic_types.js");
 
 let {
-    invokeFlutterFunction
+    invokeFlutterFunction,
+    Curves,
+    Alignment,
 } = jsFlutterRequire("./js_flutter_framework.js");
 
 
@@ -32,13 +34,13 @@ class Animation extends FlutterWidget {
     }
 
     statusListenerCallback(status) {
-        for (var funcKey in this.statusListenerList){
+        for (let funcKey in this.statusListenerList){
             this.statusListenerList[funcKey](status);
         }
     }
 
     listenerCallback(status) {
-        for (var funcKey in this.listenerList){
+        for (let funcKey in this.listenerList){
             this.listenerList[funcKey](status);
         }
     }
@@ -52,7 +54,7 @@ class Animation extends FlutterWidget {
     }
 
     removeListener(callback){
-        var index = this.listenerList.indexOf(callback);
+        const index = this.listenerList.indexOf(callback);
         this.listenerList.splice(index);
     }
 
@@ -61,7 +63,7 @@ class Animation extends FlutterWidget {
     }
 
     removeStatusListener(callback){
-        var index = this.statusListenerList.indexOf(callback);
+        const index = this.statusListenerList.indexOf(callback);
         this.statusListenerList.splice(index);
     }
 }
@@ -101,7 +103,7 @@ class AnimationController extends FlutterWidget {
 
     ///TODO:
     dispose(){
-        
+
     }
 
     forward(from){
@@ -272,6 +274,279 @@ class SlideTransition extends FlutterWidget {
     }
 }
 
+/**
+ Key key,
+ this.alignment,
+ this.padding,
+ Color color,
+ Decoration decoration,
+ this.foregroundDecoration,
+ double width,
+ double height,
+ BoxConstraints constraints,
+ this.margin,
+ this.transform,
+ this.child,
+ Curve curve = Curves.linear,
+ @required Duration duration,
+ VoidCallback onEnd,
+ */
+class AnimatedContainer extends FlutterWidget {
+    constructor ({
+        key,
+        alignment,
+        padding,
+        color,
+        decoration,
+        foregroundDecoration,
+        width,
+        height,
+        constraints,
+        margin,
+        transform,
+        child,
+        curve,
+        duration,
+        onEnd,
+    } = {}) {
+        super();
+
+        this.key = key;
+        this.alignment = alignment;
+        this.padding=padding;
+        this.color=color;
+        this.decoration=decoration;
+        this.foregroundDecoration=foregroundDecoration;
+        this.width=width;
+        this.height=height;
+        this.constraints=constraints;
+        this.margin=margin;
+        this.transform=transform;
+        this.child=child;
+        this.curve=curve;
+        this.duration=duration;  //@required
+        this.onEnd=onEnd;
+    }
+}
+
+class AnimatedCrossFade extends FlutterWidget {
+    constructor ({
+         key,
+         firstChild, //@required
+         secondChild, //@required
+         firstCurve,
+         secondCurve,
+         sizeCurve,
+         alignment,
+         crossFadeState, //@required
+         duration, //@required
+         reverseDuration,
+         layoutBuilder,
+    } = {
+        firstCurve : Curves.linear,
+        secondCurve : Curves.linear,
+        sizeCurve : Curves.linear,
+        alignment : Alignment.topCenter,
+    }) {
+        super();
+
+        this.key = key;
+        this.firstChild = firstChild;
+        this.secondChild=secondChild;
+        this.firstCurve=firstCurve;
+        this.secondCurve=secondCurve;
+        this.sizeCurve=sizeCurve;
+        this.crossFadeState=crossFadeState;
+        this.duration=duration;
+        this.reverseDuration=reverseDuration;
+        this.layoutBuilder=layoutBuilder;
+    }
+}
+
+const CrossFadeState = {
+    /// Show the first child ([AnimatedCrossFade.firstChild]) and hide the second
+    /// ([AnimatedCrossFade.secondChild]]).
+    showFirst:"CrossFadeState.showFirst",
+    /// Show the second child ([AnimatedCrossFade.secondChild]) and hide the first
+    /// ([AnimatedCrossFade.firstChild]).
+    showSecond:"CrossFadeState.showSecond",
+}
+
+
+
+class AnimatedDefaultTextStyle extends FlutterWidget {
+    constructor ({
+        key,
+        child, //@required
+        style, //@required
+        textAlign,
+        softWrap,
+        overflow,
+        maxLines,
+        duration,
+        onEnd,
+    } = {}) {
+        super();
+        this.key = key;
+        this.child = child;
+        this.style=style;
+        this.textAlign=textAlign;
+        this.softWrap=softWrap;
+        this.overflow=overflow;
+        this.maxLines=maxLines;
+        this.duration=duration;
+        this.onEnd=onEnd;
+    }
+}
+
+class AnimatedOpacity extends FlutterWidget {
+    constructor ({
+                     key,
+                     child,
+                     opacity,
+                     curve,
+                     duration,
+                     onEnd,
+                     alwaysIncludeSemantics,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.opacity = opacity;
+        this.curve = curve;
+        this.duration = duration;
+        this.onEnd = onEnd;
+        this.alwaysIncludeSemantics = alwaysIncludeSemantics;
+    }
+}
+
+class AnimatedPhysicalModel extends FlutterWidget {
+    constructor ({
+                     key,
+                     child,
+                     shape,
+                     clipBehavior,
+                     borderRadius,
+                     elevation,
+                     color,
+                     animateColor,
+                     shadowColor,
+                     animateShadowColor,
+                     curve,
+                     duration,
+                     onEnd,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.shape = shape;
+        this.clipBehavior = clipBehavior;
+        this.borderRadius = borderRadius;
+        this.elevation = elevation;
+        this.color = color;
+        this.animateColor = animateColor;
+        this.shadowColor = shadowColor;
+        this.animateShadowColor = animateShadowColor;
+        this.curve = curve;
+        this.duration = duration;
+        this.onEnd = onEnd;
+    }
+}
+
+class AnimatedPositioned extends FlutterWidget {
+    constructor ({
+                     key,
+                     child,
+                     left,
+                     top,
+                     right,
+                     bottom,
+                     width,
+                     height,
+                     curve,
+                     duration,
+                     onEnd,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.left = left;
+        this.top = top;
+        this.right = right;
+        this.bottom = bottom;
+        this.width = width;
+        this.height = height;
+        this.curve = curve;
+        this.duration = duration;
+        this.onEnd = onEnd;
+    }
+}
+
+class AnimatedSize extends FlutterWidget {
+    constructor ({
+                     key,
+                     child,
+                     alignment,
+                     curve,
+                     duration,
+                     reverseDuration,
+                     vsync,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.child = child;
+        this.alignment = alignment;
+        this.curve = curve;
+        this.duration = duration;
+        this.reverseDuration = reverseDuration;
+        this.vsync = vsync;
+    }
+}
+
+class DecoratedBoxTransition extends FlutterWidget {
+    constructor ({
+                     key,
+                     decoration,
+                     position,
+                     child,
+                 } = {}) {
+        super();
+
+        this.key = key;
+        this.decoration = decoration;
+        this.position = position;
+        this.child = child;
+    }
+}
+
+class DecorationTween extends FlutterWidget {
+    constructor ({
+                     begin,
+                     end,
+                 } = {}) {
+        super();
+
+        this.begin = begin;
+        this.end = end;
+    }
+
+    animate(parent){
+        const argument = new FlutterCallArgs({
+            mirrorID: this.mirrorID,
+            className: 'DecorationTween',
+            funcName: 'animate',
+            args: {
+                parent: parent,
+            },
+        });
+        invokeFlutterFunction(argument);
+    }
+}
+
 module.exports = {
     Animation,
     Tween,
@@ -283,5 +558,16 @@ module.exports = {
     Interval,
     Curves,
     FadeTransition,
-    SlideTransition
+    SlideTransition,
+    AnimatedContainer,
+    AnimatedCrossFade,
+    CrossFadeState,
+    AnimatedDefaultTextStyle,
+    AnimatedOpacity,
+    AnimatedPhysicalModel,
+    AnimatedPositioned,
+    AnimatedSize,
+    DecorationTween,
+    DecoratedBoxTransition,
 };
+

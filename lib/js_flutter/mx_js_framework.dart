@@ -148,7 +148,7 @@ void runJSApp(MXJSWidget jsWidget) {
 
     // 此处判断firstBuildWidget是否并返回。是为了解决解决子wiget触发父widget被navigatorPush（比如textField和textFormField获取键盘焦点），导致子widget事件绑定失效的问题
     if (firstBuildWidget != null) {
-      return firstBuildWidget; 
+      return firstBuildWidget;
     }
 
     MXJSWidget jsWidget = MXJSWidget(
@@ -257,6 +257,7 @@ void runJSApp(MXJSWidget jsWidget) {
     _jsFlutterAppChannelFunRegMap["navigatorPush"] = _navigatorPush;
     _jsFlutterAppChannelFunRegMap["navigatorPop"] = _navigatorPop;
     _jsFlutterAppChannelFunRegMap["invoke"] = _jsInvoke;
+    _jsFlutterAppChannelFunRegMap["invokeCommon"] = _jsInvokeCommon;
   }
 
   /// JS ->  flutter  开放给调用 JS
@@ -278,6 +279,10 @@ void runJSApp(MXJSWidget jsWidget) {
   Future<dynamic> _jsInvoke(args) async {
     _rootBuildOwner.jsCallInvoke(args);
   }
+
+  Future<dynamic> _jsInvokeCommon(args) async{
+    _rootBuildOwner.jsCallInvokeCommon(args);
+  }
 }
 
 ///封装JSWidget
@@ -288,8 +293,12 @@ class MXJSWidget extends StatefulWidget {
   String buildWidgetDataSeq;
   String languageType;//"JS" "Dart"
 
+  //Add BuildContext by Colin3dmax
+  BuildContext buildContext;
+
   MXJSWidgetState _state;
   MXJsonBuildOwner _parentBuildOwner;
+
 
   // The Widget Pages that pushed this Widget ID
   // 把当前widget（this） push 出来的widget ID
@@ -405,6 +414,9 @@ class MXJSWidgetState extends State<MXJSWidget>  with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     MXJSLog.log("MXJSWidget:build: ${widget.widgetData} ");
+    //add By Colin3dmax
+    widget.buildContext = context;
+
     if (widget.widgetData == null) {
       return _buildErrorWidget();
     }

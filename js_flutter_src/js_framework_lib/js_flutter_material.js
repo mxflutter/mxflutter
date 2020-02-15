@@ -10,8 +10,25 @@ let jsFlutterRequire = typeof mxRequire != "undefined" ? mxRequire : require;
 
 let {
     DartClass,
-    FlutterWidget
+    FlutterWidget,
+    FlutterCallArgs,
+    Color,
 } = jsFlutterRequire("./js_flutter_basic_types.js");
+
+let {
+  invokeFlutterFunction,
+  invokeCommonFlutterFunction,
+} = jsFlutterRequire("./js_flutter_framework.js");
+
+let {
+  Duration,
+  Curves,
+} = jsFlutterRequire("./js_flutter_animation.js");
+
+
+let {
+  Icons,
+} = jsFlutterRequire("./material/js_flutter_icons.js");
 
 class MaterialApp extends FlutterWidget {
 
@@ -136,6 +153,31 @@ class Scaffold extends FlutterWidget {
         this.resizeToAvoidBottomPadding = resizeToAvoidBottomPadding;
         this.primary = primary;
     }
+
+  static of(context) {
+    return {
+      showSnackBar:function (snackBar) {
+        //准备调用Native方法执行真正的 showSnackBar动作
+        //1.把这里的context和snackBar数据传递到native层 ✔️
+        //2.通过context找到Native里的 Scaffold.of(context) ？
+        //3.解析snackBar为真snackBar对象 ✔️
+        //4.执行调用
+        MXJSLog.log("showSnackBar in js call native-->");
+        let argument = new FlutterCallArgs({
+          widgetID:  context.widgetID,
+          className: 'Scaffold',
+          funcName: 'of',
+          args: {
+            snackBar: snackBar,
+          },
+        });
+        invokeCommonFlutterFunction(argument);
+      },
+      openDrawer:function () {
+        MXJSLog.log("openDrawer---in js---to call native-->");
+      },
+    };
+  }
 }
 
 class AppBar extends FlutterWidget {
@@ -343,7 +385,7 @@ class RaisedButton extends FlutterWidget {
         v.textColor = textColor;
         v.disabledTextColor = disabledTextColor;
         v.color = color;
-        v.disabledColor = disabledColor; 
+        v.disabledColor = disabledColor;
         v.highlightColor = highlightColor;
         v.splashColor = splashColor;
         v.colorBrightness = colorBrightness;
@@ -351,7 +393,7 @@ class RaisedButton extends FlutterWidget {
         v.highlightElevation = highlightElevation;
         v.disabledElevation = disabledElevation;
         v.shape = shape;
-        v.clipBehavior = clipBehavior; 
+        v.clipBehavior = clipBehavior;
         v.materialTapTargetSize = materialTapTargetSize;
         v.animationDuration = animationDuration;
         v.icon = icon;
@@ -484,13 +526,13 @@ class PopupMenuButton extends FlutterWidget {
         this.child = child;
         this.icon = icon;
         this.offset = offset;
-        
+
         // 本地创建的，供flutter使用
         this.children = [];
     }
 
     //在生成json前调用
-    //用于list delegate 等的items build 
+    //用于list delegate 等的items build
     //用于 widget 有类似 onTab 等响应函数变量，在此转换成 callback id,
     //但注意，delegate 中确实需要 function ,不需要转ID的，不要调用super.preBuild
     preBuild(jsWidget, buildContext) {
@@ -1020,6 +1062,73 @@ MaterialTapTargetSize = {
     shrinkWrap: "MaterialTapTargetSize.shrinkWrap"
 };
 
+class Scrollbar extends FlutterWidget {
+  constructor({
+    key,
+    child,
+  }={})
+  {
+    super();
+    this.key = key;
+    this.child = child;
+  }
+
+}
+
+
+class SnackBar extends FlutterWidget {
+  constructor({
+                key,
+                content, //@required
+                backgroundColor,
+                elevation,
+                shape,
+                behavior,
+                action,
+                duration,
+                animation,
+                onVisible,
+              } = {}) {
+    super();
+    this.key = key;
+    this.content = content;
+    this.backgroundColor = backgroundColor;
+    this.elevation = elevation;
+    this.shape = shape;
+    this.behavior = behavior;
+    this.action = action;
+    this.duration = duration;
+    this.animation = animation;
+    this.onVisible = onVisible;
+  }
+}
+
+
+class FlutterLogo extends FlutterWidget {
+  constructor({
+    key,
+    size,
+    colors,
+    textColor,
+    style,
+    duration,
+    curve,
+  } = {
+    textColor:new Color(0xFF616161),
+    // style:FlutterLogoStyle.markOnly,
+    duration:new Duration({milliseconds: 750}),
+    curve:Curves.fastOutSlowIn
+  }){
+    super();
+    this.key = key;
+    this.size = size;
+    this.colors = colors;
+    this.textColor = textColor;
+    this.duration = duration;
+    this.curve = curve;
+  }
+}
+
 module.exports = {
     MaterialApp,
     Material,
@@ -1051,5 +1160,9 @@ module.exports = {
     TabBar,
     TabController,
     Tab,
-    TabBarView
+    TabBarView,
+    Scrollbar,
+    SnackBar,
+    Icons,
+    FlutterLogo,
 };
