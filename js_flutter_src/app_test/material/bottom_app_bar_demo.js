@@ -341,21 +341,34 @@ class JSBottomAPPBarDemo extends MXJSWidget {
             appBar: new AppBar({
                 title: new Text('Bottom app bar')
             }),
-            body: new ListView({
+            body: new Column({
                 children : [
                     new _JSHeading({text: "Notch"}),
-                    new _JSRadioItem({value: kShowNotchTrue, groupValue: this._showNotch, onChanged: this.onShowNotchChanged.bind(this)}),
-                    new _JSRadioItem({value: kShowNotchFalse, groupValue: this._showNotch, onChanged: this.onShowNotchChanged.bind(this)}),
+                    new Expanded({child:new _JSRadioItem({value: kShowNotchTrue, groupValue: this._showNotch, onChanged: this.onShowNotchChanged.bind(this)}) }) ,
+                    new Expanded({child:new _JSRadioItem({value: kShowNotchFalse, groupValue: this._showNotch, onChanged: this.onShowNotchChanged.bind(this)}) }) ,
 
                     new _JSHeading({text: "FAB Position"}),
-                    new _JSRadioItem({value: kFabEndDocked, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)}),
-                    new _JSRadioItem({value: kFabCenterDocked, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)}),
-                    new _JSRadioItem({value: kFabEndFloat, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)}),
-                    new _JSRadioItem({value: kFabCenterFloat, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)}),
+                    new Expanded({child:new _JSRadioItem({value: kFabEndDocked, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)})  }) ,
+                    new Expanded({child:new _JSRadioItem({value: kFabCenterDocked, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)})  }) ,
+                    new Expanded({child:new _JSRadioItem({value: kFabEndFloat, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)})  }) ,
+                    new Expanded({child:new _JSRadioItem({value: kFabCenterFloat, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)})  }) ,
 
                     new _JSHeading({text: "App bar color"}),
-                    new _JSColorsItem({colors: kFabColors, selectedColor: this._babColor, onChanged:this.onBabColorChange.bind(this)})
+                    new Expanded({child:new _JSColorsItem({colors: kFabColors, selectedColor: this._babColor, onChanged:this.onBabColorChange.bind(this)})  }) ,
 
+//                    list children TODO:Bugfix  exp:owner._debugcurrentbuildtarget == this' is not true
+//                    new _JSHeading({text: "Notch"}),
+//                    new _JSRadioItem({value: kShowNotchTrue, groupValue: this._showNotch, onChanged: this.onShowNotchChanged.bind(this)}),
+//                    new _JSRadioItem({value: kShowNotchFalse, groupValue: this._showNotch, onChanged: this.onShowNotchChanged.bind(this)}),
+//
+//                    new _JSHeading({text: "FAB Position"}),
+//                    new _JSRadioItem({value: kFabEndDocked, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)}),
+//                    new _JSRadioItem({value: kFabCenterDocked, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)}),
+//                    new _JSRadioItem({value: kFabEndFloat, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)}),
+//                    new _JSRadioItem({value: kFabCenterFloat, groupValue: this._fabLocation, onChanged: this.onFabLocationChanged.bind(this)}),
+//
+//                    new _JSHeading({text: "App bar color"}),
+//                    new _JSColorsItem({colors: kFabColors, selectedColor: this._babColor, onChanged:this.onBabColorChange.bind(this)})
                 ]
             }),
             bottomNavigationBar: new BottomAppBar({
