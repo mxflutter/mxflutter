@@ -265,13 +265,13 @@ MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施�
 
 特别感谢以下开发者的贡献
 
- [colin3dmax](https://github.com/colin3dmax)
+![](https://avatars1.githubusercontent.com/u/1397062?s=60&v=4) [colin3dmax](https://github.com/colin3dmax)
  
- [yuxizhe](https://github.com/yuxizhe)
+![](https://avatars1.githubusercontent.com/u/14990734?s=60&v=4) [yuxizhe](https://github.com/yuxizhe)
  
- [Johnny](https://github.com/chenzhengxu)
+![](https://avatars1.githubusercontent.com/u/26341415?s=60&v=4) [Johnny](https://github.com/chenzhengxu)
  
- [AiNiBaBa](https://github.com/AiNiBaBa)
+![](https://avatars0.githubusercontent.com/u/42312863?s=60&v=4) [AiNiBaBa](https://github.com/AiNiBaBa)
  
 ----
 
