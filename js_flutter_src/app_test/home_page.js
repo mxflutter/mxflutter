@@ -94,15 +94,6 @@ class JSWidgetHomePage extends MXJSWidget {
                 }
               }),
 
-//              new ListTile({
-//                leading:new Icon(new IconData(0xe06d,{fontFamily:'MaterialIcons'})),
-//                trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-//                title: new Text('Shrine'),
-//                subtitle: new Text('Basic shopping app'),
-//                onTap: function () {
-//                  this.navigatorPush(new JSPestoPage);
-//                }
-//              }),
               new ListTile({
                 leading:new Icon(new IconData(0xe0d0,{fontFamily:'MaterialIcons'}),{color:Theme.of(context).primaryColor}),
                 trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
@@ -154,27 +145,7 @@ class JSWidgetHomePage extends MXJSWidget {
 //                }
 //              }),
 //
-//              this.sectionTitle(context, "More Material"),
-//              new ListTile({
-//                leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
-//                trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-//                title: new Text('More Material'),
-//                subtitle: new Text('More Material UI Demo'),
-//                onTap: function () {
-//                  this.navigatorPush(new JSPestoPage);
-//                }
-//              }),
-//
-//              this.sectionTitle(context, "More Material"),
-//              new ListTile({
-//                leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
-//                trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-//                title: new Text('More Material'),
-//                subtitle: new Text('More Material UI Demo'),
-//                onTap: function () {
-//                  this.navigatorPush(new JSPestoPage);
-//                }
-//              }),
+
 
             ]
           })
