@@ -208,7 +208,7 @@ class ExamplesPage extends MXJSWidget {
                 this.navigatorPush(new PageExampleContainer());
               }),
             }),
-            new SectionTitle("动画组件",{key:"2"}),
+            new SectionTitle("动画组件",{key:"3"}),
             // this.genSectionTitle(context,"动画组件"),
             new ListTile({
               title:new Text("AnimatedBuilder"),
