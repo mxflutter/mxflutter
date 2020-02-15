@@ -264,10 +264,15 @@ MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施�
 如果你有好的意见或建议，也欢迎给我们提 `Issues` 或 `Pull Requests`。
 
 特别感谢以下开发者的贡献
- ![colin3dmax](https://github.com/colin3dmax)
- ![yuxizhe](https://github.com/yuxizhe)
- ![Johnny](https://github.com/chenzhengxu)
- ![AiNiBaBa](https://github.com/AiNiBaBa)
+
+ [colin3dmax](https://github.com/colin3dmax)
+ 
+ [yuxizhe](https://github.com/yuxizhe)
+ 
+ [Johnny](https://github.com/chenzhengxu)
+ 
+ [AiNiBaBa](https://github.com/AiNiBaBa)
+ 
 ----
 
 ## <a name="title9">九、团队介绍</a>
