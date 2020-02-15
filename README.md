@@ -271,7 +271,7 @@ MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施�
  
 ![](https://avatars1.githubusercontent.com/u/26341415?s=60&v=4) [Johnny](https://github.com/chenzhengxu)
  
-![](https://avatars0.githubusercontent.com/u/42312863?s=60&v=4) [AiNiBaBa](https://github.com/AiNiBaBa)
+[AiNiBaBa](https://github.com/AiNiBaBa)
  
 ----
 
