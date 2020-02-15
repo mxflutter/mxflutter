@@ -1347,7 +1347,7 @@ class MXProxySnackBar extends MXJsonObjProxy {
       action:mxj2d(bo, jsonMap["action"]),
       duration:mxj2d(bo, jsonMap["duration"], defaultValue:Duration(milliseconds: 4000)),
       animation:mxj2d(bo, jsonMap["animation"]),
-      onVisible:mxj2d(bo, jsonMap["onVisible"]),
+      //onVisible:mxj2d(bo, jsonMap["onVisible"]),//TODO: Flutter master的新特性暂时注释，目前支持到Flutter channel stable flutter_macos_v1.12.13+hotfix.8-stable版本，如有需求，可自行打开注释
     );
     return widget;
   }
