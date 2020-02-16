@@ -1,5 +1,11 @@
 # MXFlutter技术预览版
 
+---
+
+目前支持到Flutter channel stable/ flutter_macos_v1.12.13+hotfix.8-stable版本
+
+---
+
 [中文版文档](README.md)|[English Document](Documentation/README-EN.md)
 
 ----
