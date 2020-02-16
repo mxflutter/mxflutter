@@ -53,7 +53,8 @@ let {
     CircleAvatar,
     ListTile,
     MediaQuery,
-    Axis
+    Axis,
+    Key,
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -61,7 +62,7 @@ let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 let {SearchPage} = jsFlutterRequire("./zhihu/home/search_page.js");
 class MyPage extends MXJSWidget {
     constructor(){
-        super("MyPage", {key: "MyPage"});
+        super("MyPage", {key: new Key("MyPage")});
     }
 
     barSearch(){

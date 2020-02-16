@@ -26,7 +26,8 @@ let {
     Scaffold,
     AppBar,
     Text,
-    Center
+    Center,
+      Key
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -34,7 +35,7 @@ let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 
 class IdeaPage extends MXJSWidget {
     constructor(){
-        super("IdeaPage", {key: "IdeaPage"});
+        super("IdeaPage", {key: new Key("IdeaPage")});
     }
 
     build(context){

@@ -70,6 +70,7 @@ let {
   Theme,
   Padding,
   Scrollbar,
+  Key
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let { PageExampleButton }  = jsFlutterRequire("examples/example_button.js");
@@ -144,7 +145,7 @@ class ExamplesPage extends MXJSWidget {
       body: new Scrollbar({
         child:new ListView({
           children:[
-            new SectionTitle("基础组件",{key:"1"}),
+            new SectionTitle("基础组件",{key: new Key("1")}),
             // this.genSectionTitle(context,"基础组件"),
             new ListTile({
               title:new Text("AppBar"),
@@ -188,7 +189,7 @@ class ExamplesPage extends MXJSWidget {
                 this.navigatorPush(new PageExampleColor());
               }),
             }),
-            new SectionTitle("布局组件",{key:"2"}),
+            new SectionTitle("布局组件",{key:new Key("2")}),
             // this.genSectionTitle(context,"布局组件"),
             new ListTile({
               title:new Text("Column"),
@@ -208,7 +209,7 @@ class ExamplesPage extends MXJSWidget {
                 this.navigatorPush(new PageExampleContainer());
               }),
             }),
-            new SectionTitle("动画组件",{key:"3"}),
+            new SectionTitle("动画组件",{key:new Key("3")}),
             // this.genSectionTitle(context,"动画组件"),
             new ListTile({
               title:new Text("AnimatedBuilder"),
@@ -336,7 +337,7 @@ class ExamplesPage extends MXJSWidget {
                 this.navigatorPush(new PageExampleSlideTransition());
               }),
             }),
-            new SectionTitle("其他组件",{key:"2"}),
+            new SectionTitle("其他组件",{key:new Key("4")}),
             // this.genSectionTitle(context,"其他组件"),
             new ListTile({
               title:new Text("FlutterLogo"),

@@ -441,11 +441,8 @@ class MXProxyMXJSWidget extends MXJsonObjProxy {
   @override
   MXJSWidget constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
 
-    var kValue = jsonMap["key"];
-    Key k = kValue != null?Key(kValue):null;
-
     var widget = MXJSWidget(
-        key:k,
+        key: mxj2d(bo,jsonMap["key"]),
         name: mxj2d(bo, jsonMap["name"]),
         widgetID: mxj2d(bo, jsonMap["widgetID"]),
         widgetData: jsonMap["widgetData"],

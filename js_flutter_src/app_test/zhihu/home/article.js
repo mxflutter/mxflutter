@@ -20,7 +20,8 @@ function jsFlutterRequire(file) {
 
 let {
   runApp,
-  MXJSFlutterApp
+  MXJSFlutterApp,
+  Key
 } = jsFlutterRequire("js_flutter_ui.js");
 
 class Article {

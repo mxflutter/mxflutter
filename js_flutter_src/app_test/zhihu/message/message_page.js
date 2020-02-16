@@ -26,7 +26,8 @@ let {
     Scaffold,
     AppBar,
     Text,
-    Center
+    Center,
+      Key
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -34,7 +35,7 @@ let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
 
 class MessagePage extends MXJSWidget {
     constructor(){
-        super("MessagePage", {key: "MessagePage"});
+        super("MessagePage", {key: new Key("MessagePage")});
     }
 
     build(context){

@@ -41,7 +41,8 @@ let {
     DefaultTabController,
     TabBar,
     Tab,
-    TabBarView
+    TabBarView,
+      Key
 } = jsFlutterRequire("js_flutter_ui.js");
 
 let {GlobalConfig} = jsFlutterRequire("./zhihu/global_config.js");
@@ -53,7 +54,7 @@ let {AskPage} = jsFlutterRequire("./zhihu/home/ask_page.js");
 
 class HomePage extends MXJSWidget {
     constructor(){
-        super("HomePage", {key: "HomePage"});
+        super("HomePage", {key: new Key("HomePage")});
     }
 
     barSearch(){

@@ -47,7 +47,8 @@ let {
   PopupMenuItem,
   SingleChildScrollView,
   Alignment,
-  CircleAvatar
+  CircleAvatar,
+    Key
 
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -57,7 +58,7 @@ let {ReplyPage} = jsFlutterRequire("./zhihu/home/reply_page.js");
 
 class Follow extends MXJSWidget {
     constructor(){
-        super("Follow", {key: "Follow"});
+        super("Follow", {key: new Key("Follow")});
     }
 
     wordsCard(article){

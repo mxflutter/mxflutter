@@ -42,7 +42,8 @@ let {
     Column,
     FontWeight,
     SingleChildScrollView,
-    Alignment
+    Alignment,
+      Key
   
 } = jsFlutterRequire("js_flutter_ui.js");
 
@@ -52,7 +53,7 @@ let {ReplyPage} = jsFlutterRequire("./zhihu/home/reply_page.js");
 
 class Recommend extends MXJSWidget {
     constructor(){
-        super("Recommend", {key: "Recommend"});
+        super("Recommend", {key:new Key( "Recommend")});
     }
 
     commonCard(article){
