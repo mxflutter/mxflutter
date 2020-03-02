@@ -27,7 +27,7 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 
 @implementation JSModule {
-    JSManagedValue *_exports;
+    JSValue *_exports;
     NSString *_id;
     NSString *_filename;
     bool _loaded;
@@ -197,11 +197,6 @@ static JSModule *currentLoadingModule = nil;
     return [JSModule require:module fullModulePath:fullModulePath inContext:[JSContext currentContext]];
 }
 
-+ (JSModule *)require:(NSString *)module atPath:(NSString *)path
-{
-    return [JSModule require:module atPath:path inContext:[JSContext currentContext]];
-}
-
 + (JSModule *)require:(NSString *)module fullModulePath:(NSString *)fullModulePath inContext:(JSContext *)context
 {
     assert(context);
@@ -221,18 +216,11 @@ static JSModule *currentLoadingModule = nil;
 
     [newModule didStartLoading];
 
-    JSValue *savedExports = context[@"exports"];
-    context[@"exports"] = [newModule exports];
-
-    JSValue *savedModule = context[@"module"];
-    context[@"module"] = newModule;
-    context[@"module"][@"exports"] = [newModule exports];
-
     JSValue *savedPlatformObject = context[@"platform"];
     context[@"platform"] = [newModule platformObjectInContext:context];
-
-    script = [NSString stringWithFormat:@"(function(){%@})();" ,script];
-
+    
+    JSValue *exports = [JSValue new];
+    NSString *exportScript = [NSString stringWithFormat:@"(function() { var module = { exports: {}}; var exports = module.exports; %@; return module.exports; })();", script];
 
     if ([context respondsToSelector:@selector(evaluateScript:withSourceURL:)]) {
         NSString *jsFilePathPrefix = [fullModulePath stringByDeletingLastPathComponent];
@@ -244,76 +232,21 @@ static JSModule *currentLoadingModule = nil;
 
         NSString *jsFilePathID = [NSString stringWithFormat:@"...%@/%@",jsFilePathPrefix, [fullModulePath lastPathComponent]];
 
-        [context evaluateScript:script withSourceURL:[NSURL URLWithString:jsFilePathID]];
+        exports = [context evaluateScript:exportScript withSourceURL:[NSURL URLWithString:jsFilePathID]];
     } else {
         // Load the module.
-        [context evaluateScript:script];
+        exports = [context evaluateScript:exportScript];
     }
     
-    if (context[@"module"][@"exports"] != context[@"exports"]) {
-        if ([context[@"exports"] toDictionary].count == 0) {
-            context[@"exports"] = context[@"module"][@"exports"];
-        } else {
-            context[@"module"][@"exports"] = context[@"exports"];
-        }
-    }
-    [context.virtualMachine removeManagedReference:newModule->_exports withOwner:self];
-    newModule->_exports = [JSManagedValue managedValueWithValue:context[@"module"][@"exports"]];
-    [context.virtualMachine addManagedReference:newModule->_exports withOwner:self];
+    newModule->_exports = exports;
 
     context[@"platform"] = savedPlatformObject;
-    context[@"module"] = savedModule;
-    context[@"exports"] = savedExports;
 
     [newModule didFinishLoading];
 
     return newModule;
 }
 
-+ (JSModule *)require:(NSString *)module atPath:(NSString *)path inContext:(JSContext *)context
-{
-    assert(context);
-    NSString *fullModulePath = [JSModule resolve:module atPath:path];
-    
-    if (!fullModulePath)
-        return nil;
-    
-    if (isCached(fullModulePath))
-        return cachedModule(fullModulePath);
-    
-    Class moduleClass = classForModule(module);
-    JSModule *newModule = [[moduleClass alloc] initWithId:fullModulePath filename:fullModulePath context:context];
-    cacheModule(fullModulePath, newModule);
-    
-    NSString *script = [NSString stringWithContentsOfFile:fullModulePath encoding:NSUTF8StringEncoding error:nil];
-    
-    [newModule didStartLoading];
-    
-    JSValue *savedExports = context[@"exports"];
-    context[@"exports"] = [newModule exports];
-
-    JSValue *savedModule = context[@"module"];
-    context[@"module"] = newModule;
-    context[@"module"][@"exports"] = [newModule exports];
-    
-    JSValue *savedPlatformObject = context[@"platform"];
-    context[@"platform"] = [newModule platformObjectInContext:context];
-    
-    // Load the module.
-    [context evaluateScript:script];
-    
-    [context.virtualMachine removeManagedReference:newModule->_exports withOwner:self];
-    newModule->_exports = [JSManagedValue managedValueWithValue:context[@"module"][@"exports"]];
-    [context.virtualMachine addManagedReference:newModule->_exports withOwner:self];
-    
-    context[@"platform"] = savedPlatformObject;
-    context[@"module"] = savedModule;
-    context[@"exports"] = savedExports;
-
-    [newModule didFinishLoading];
-
-    return newModule;
-}
 
 - (JSValue *)platformObjectInContext:(JSContext *)context
 {
@@ -328,7 +261,7 @@ static JSModule *currentLoadingModule = nil;
     if (!self)
         return nil;
     
-    _exports = [JSManagedValue managedValueWithValue:[JSValue valueWithNewObjectInContext:context]];
+    _exports = [JSValue new];
     [context.virtualMachine addManagedReference:_exports withOwner:self];
     _id = myId;
     _filename = filename;
@@ -337,13 +270,6 @@ static JSModule *currentLoadingModule = nil;
     _children = [[NSMutableArray alloc] init];
     
     return self;
-}
-
-- (void)dealloc
-{
-    JSValue *exports = [_exports value];
-    if (exports)
-        [exports.context.virtualMachine removeManagedReference:_exports withOwner:self];
 }
 
 - (void)didStartLoading
@@ -360,15 +286,9 @@ static JSModule *currentLoadingModule = nil;
     currentLoadingModule = _parent;
 }
 
-- (JSModule *)require:(NSString *)module
-{
-    // TODO
-    return nil;
-}
-
 - (JSValue *)exports
 {
-    return [_exports value];
+    return _exports;
 }
 
 @end

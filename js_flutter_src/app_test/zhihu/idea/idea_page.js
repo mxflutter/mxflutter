@@ -11,7 +11,8 @@ let {
     Scaffold,
     AppBar,
     Text,
-    Center
+    Center,
+    Key
   
 } = require("js_flutter_ui.js");
 
@@ -19,7 +20,7 @@ let {GlobalConfig} = require("./zhihu/global_config.js");
 
 class IdeaPage extends MXJSStatefulWidget {
     constructor(){
-        super("IdeaPage", {key: "IdeaPage"});
+        super("IdeaPage", {key: new Key("IdeaPage")});
     }
 
     createState() {

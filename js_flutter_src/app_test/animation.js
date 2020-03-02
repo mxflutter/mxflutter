@@ -84,43 +84,20 @@ class JSAnimationPageState extends MXJSWidgetState {
             this.beginAnimation();
         }
       }),
-      body: new ScaleAnimation({
-        child: Image.network('http://ugc.qpic.cn/gbar_pic/1ZU94WW9oGojjwGATy7UB9VNkIrn9Ud4t79Tbd7VnMvV4hG8zbfrJFsq0VTOCOicg/'),
-        animation: this.animation
+      body: new Center({
+        child: new AnimatedBuilder({
+          animation: this.animation,
+          widget: new Container({
+            height: this.animation.value() * imageRatio + 2 - 5,
+            width: this.animation.value(),
+            child: Image.network('http://ugc.qpic.cn/gbar_pic/1ZU94WW9oGojjwGATy7UB9VNkIrn9Ud4t79Tbd7VnMvV4hG8zbfrJFsq0VTOCOicg/'),
+          })
+          // child: this.child,
+        })
       })
     });
 
     return w;
-  }
-
-}
-
-class ScaleAnimation extends MXJSStatelessWidget{
-
-  constructor ({
-    child,
-    animation
-  } = {}) {
-    super();
-
-    this.child = child;
-    this.animation = animation;
-  }
-
-  build(context){
-    var imageRatio = 1.455;
-    let widget = new Center({
-      child: new AnimatedBuilder({
-        animation: this.animation,
-        widget: new Container({
-          height: this.animation.value() * imageRatio + 2 - 5,
-          width: this.animation.value(),
-          child: this.child
-        })
-        // child: this.child,
-      })
-    })
-    return widget;
   }
 }
 

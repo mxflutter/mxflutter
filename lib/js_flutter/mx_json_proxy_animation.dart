@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:js_flutter/js_flutter/mx_js_framework.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
@@ -113,7 +114,7 @@ class MXProxyAnimationController extends MXJsonObjProxy {
 			lowerBound: mxj2d(bo, jsonMap["lowerBound"], defaultValue:0.0)?.toDouble(),
 			upperBound: mxj2d(bo, jsonMap["upperBound"], defaultValue:1.0)?.toDouble(),
 			animationBehavior: mxj2d(bo, jsonMap["animationBehavior"], defaultValue:AnimationBehavior.normal),
-			vsync: bo.widget.state,//mxj2d(bo, jsonMap["vsync"]),
+			vsync: bo.widget.state,//mxj2d(bo, jsonMap["vsync"]), TODO: 此处不能为StatelessWidget
 		);
 		return widget;
 	}

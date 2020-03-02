@@ -1,14 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
+import 'mx_js_framework.dart';
 
 class MXJSLog {
   static log(Object object) {
-    print("MXJSFlutter:[Flutter]-$object");
+    String log = "MXJSFlutter:[Flutter]-$object";
+    print(log);
+    callNativelog(log);
   }
 
   static error(Object object) {
-    print("MXJSFlutter:[Flutter]-[ERR]::$object");
+
+    String log = "MXJSFlutter:[Flutter]-[ERR]::$object";
+    print(log);
+    callNativelog(log);
+
+  }
+
+  static debug(Object object) {
+
+    String log = "MXJSFlutter:[Flutter]-[DEBUG]::$object";
+    print(log);
+    callNativelog(log);
+
+  }
+
+  static callNativelog(String log) {
+    //MXJSFlutter.getInstance().mxLog(log);
   }
 }
 
@@ -246,13 +265,13 @@ class MXUtil {
           break;
         }
 
-      // case TargetPlatform.macOS:
-      //   {
-      //     v = {"_name" : "TargetPlatform.macOS",
-      //          "index" : 3
-      //         };
-      //     break;
-      //   }
+      case TargetPlatform.macOS:
+        {
+          v = {"_name" : "TargetPlatform.macOS",
+               "index" : 3
+              };
+          break;
+        }
     }
 
     return v;

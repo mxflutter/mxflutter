@@ -2245,7 +2245,6 @@ core.Object = class Object {
   }
 };
 (core.Object.new = function() {
-  ;
 }).prototype = core.Object.prototype;
 ;
 dart.setGetterSignature(core.Object, () => ({
@@ -2275,7 +2274,6 @@ dart.DartType = class DartType extends core.Object {
   }
 };
 (dart.DartType.new = function() {
-  ;
 }).prototype = dart.DartType.prototype;
 ;
 dart.DartType[dart.implements] = () => [core.Type];
@@ -2300,7 +2298,6 @@ dart.DynamicType = class DynamicType extends dart.DartType {
   }
 };
 (dart.DynamicType.new = function() {
-  ;
 }).prototype = dart.DynamicType.prototype;
 ;
 dart.setLibraryUri(dart.DynamicType, "dart:_runtime");
@@ -2312,7 +2309,6 @@ dart.VoidType = class VoidType extends dart.DartType {
   }
 };
 (dart.VoidType.new = function() {
-  ;
 }).prototype = dart.VoidType.prototype;
 ;
 dart.setLibraryUri(dart.VoidType, "dart:_runtime");
@@ -2324,7 +2320,6 @@ dart.JSObjectType = class JSObjectType extends dart.DartType {
   }
 };
 (dart.JSObjectType.new = function() {
-  ;
 }).prototype = dart.JSObjectType.prototype;
 ;
 dart.setLibraryUri(dart.JSObjectType, "dart:_runtime");
@@ -2432,7 +2427,6 @@ dart.LazyJSType = class LazyJSType extends dart.DartType {
   this[_rawJSType] = null;
   this[_getRawJSTypeFn$] = _getRawJSTypeFn;
   this[_dartName$] = _dartName;
-  ;
 }).prototype = dart.LazyJSType.prototype;
 ;
 ;
@@ -2455,7 +2449,6 @@ dart.AnonymousJSType = class AnonymousJSType extends dart.DartType {
 };
 (dart.AnonymousJSType.new = function(_dartName) {
   this[_dartName$] = _dartName;
-  ;
 }).prototype = dart.AnonymousJSType.prototype;
 ;
 dart.setLibraryUri(dart.AnonymousJSType, "dart:_runtime");
@@ -2467,14 +2460,12 @@ dart.BottomType = class BottomType extends dart.DartType {
   }
 };
 (dart.BottomType.new = function() {
-  ;
 }).prototype = dart.BottomType.prototype;
 ;
 dart.setLibraryUri(dart.BottomType, "dart:_runtime");
 dart.defineExtensionMethods(dart.BottomType, ['toString']);
 core.Type = class Type extends core.Object {};
 (core.Type.new = function() {
-  ;
 }).prototype = core.Type.prototype;
 ;
 dart.setLibraryUri(core.Type, "dart:core");
@@ -2488,7 +2479,6 @@ dart._Type = class _Type extends core.Type {
 };
 (dart._Type.new = function(_type) {
   this[_type$] = _type;
-  ;
 }).prototype = dart._Type.prototype;
 ;
 dart.setLibraryUri(dart._Type, "dart:_runtime");
@@ -2497,7 +2487,6 @@ dart.defineExtensionMethods(dart._Type, ['toString']);
 dart.defineExtensionAccessors(dart._Type, ['runtimeType']);
 dart.AbstractFunctionType = class AbstractFunctionType extends dart.DartType {};
 (dart.AbstractFunctionType.new = function() {
-  ;
 }).prototype = dart.AbstractFunctionType.prototype;
 ;
 dart.setLibraryUri(dart.AbstractFunctionType, "dart:_runtime");
@@ -2691,7 +2680,6 @@ dart.TypeVariable = class TypeVariable extends dart.DartType {
 };
 (dart.TypeVariable.new = function(name) {
   this[name$] = name;
-  ;
 }).prototype = dart.TypeVariable.prototype;
 ;
 dart.setLibraryUri(dart.TypeVariable, "dart:_runtime");
@@ -2699,7 +2687,6 @@ dart.setLibraryUri(dart.TypeVariable, "dart:_runtime");
 dart.defineExtensionMethods(dart.TypeVariable, ['toString']);
 dart.Variance = class Variance extends core.Object {};
 (dart.Variance.new = function() {
-  ;
 }).prototype = dart.Variance.prototype;
 ;
 dart.setLibraryUri(dart.Variance, "dart:_runtime");
@@ -2837,7 +2824,6 @@ dart.GenericFunctionType = class GenericFunctionType extends dart.AbstractFuncti
   this[_instantiateTypeBounds$] = _instantiateTypeBounds;
   this[_instantiateTypeParts] = instantiateTypeParts;
   this[formalCount] = instantiateTypeParts.length;
-  ;
 }).prototype = dart.GenericFunctionType.prototype;
 ;
 ;
@@ -2989,7 +2975,6 @@ dart._TypeInferrer = class _TypeInferrer extends core.Object {
 };
 (dart._TypeInferrer.new = function(typeVariables) {
   this[_typeVariables] = LinkedHashMapOfTypeVariable$TypeConstraint().fromIterables(typeVariables, typeVariables[$map](dart.TypeConstraint, _ => new dart.TypeConstraint.new()));
-  ;
 }).prototype = dart._TypeInferrer.prototype;
 ;
 ;
@@ -3039,7 +3024,6 @@ dart.TypeConstraint = class TypeConstraint extends core.Object {
 (dart.TypeConstraint.new = function() {
   this[lower] = null;
   this[upper] = null;
-  ;
 }).prototype = dart.TypeConstraint.prototype;
 ;
 ;
@@ -3076,13 +3060,11 @@ dart._StackTrace = class _StackTrace extends core.Object {
   this[_trace] = null;
   this[_jsError$] = _jsError;
   this[_jsObjectMissingTrace] = null;
-  ;
 }).prototype = dart._StackTrace.prototype;
 (dart._StackTrace.missing = function(caughtObj) {
   this[_trace] = null;
   this[_jsObjectMissingTrace] = caughtObj != null ? caughtObj : "null";
   this[_jsError$] = Error();
-  ;
 }).prototype = dart._StackTrace.prototype;
 ;
 dart._StackTrace[dart.implements] = () => [core.StackTrace];
@@ -3109,7 +3091,6 @@ core.Invocation = class Invocation extends core.Object {
   }
 };
 (core.Invocation.new = function() {
-  ;
 }).prototype = core.Invocation.prototype;
 ;
 dart.setGetterSignature(core.Invocation, () => ({
@@ -3199,7 +3180,6 @@ dart.InvocationImpl = class InvocationImpl extends core.Invocation {
   this[namedArguments$] = dart.InvocationImpl._namedArgsToSymbols(namedArguments);
   this[typeArguments$] = typeArguments == null ? const$ || (const$ = dart.constList([], core.Type)) : ListOfType().unmodifiable(typeArguments[$map](dart.dynamic, dart.wrapType));
   dart.InvocationImpl.__proto__.new.call(this);
-  ;
 }).prototype = dart.InvocationImpl.prototype;
 ;
 dart.setLibraryUri(dart.InvocationImpl, "dart:_runtime");
@@ -5905,7 +5885,6 @@ _debugger.JsonMLConfig = class JsonMLConfig extends core.Object {
 };
 (_debugger.JsonMLConfig.new = function(name) {
   this[name$0] = name;
-  ;
 }).prototype = _debugger.JsonMLConfig.prototype;
 ;
 dart.setLibraryUri(_debugger.JsonMLConfig, "dart:_debugger");
@@ -5940,7 +5919,6 @@ _debugger.JSNative = class JSNative extends core.Object {
   }
 };
 (_debugger.JSNative.new = function() {
-  ;
 }).prototype = _debugger.JSNative.prototype;
 ;
 dart.setLibraryUri(_debugger.JSNative, "dart:_debugger");
@@ -5994,7 +5972,6 @@ _debugger.NameValuePair = class NameValuePair extends core.Object {
   this[value$] = value;
   this[config$] = config;
   this[hideName$] = hideName;
-  ;
 }).prototype = _debugger.NameValuePair.prototype;
 ;
 dart.setGetterSignature(_debugger.NameValuePair, () => ({
@@ -6026,7 +6003,6 @@ _debugger.MapEntry = class MapEntry extends core.Object {
   let value = opts && 'value' in opts ? opts.value : null;
   this[key$] = key;
   this[value$0] = value;
-  ;
 }).prototype = _debugger.MapEntry.prototype;
 ;
 dart.setLibraryUri(_debugger.MapEntry, "dart:_debugger");
@@ -6088,7 +6064,6 @@ _debugger.IterableSpan = class IterableSpan extends core.Object {
   this[start$] = start;
   this[end$] = end;
   this[iterable$] = iterable;
-  ;
 }).prototype = _debugger.IterableSpan.prototype;
 ;
 ;
@@ -6119,7 +6094,6 @@ _debugger.Library = class Library extends core.Object {
 (_debugger.Library.new = function(name, object) {
   this[name$2] = name;
   this[object$] = object;
-  ;
 }).prototype = _debugger.Library.prototype;
 ;
 dart.setLibraryUri(_debugger.Library, "dart:_debugger");
@@ -6135,7 +6109,6 @@ _debugger.NamedConstructor = class NamedConstructor extends core.Object {
 };
 (_debugger.NamedConstructor.new = function(object) {
   this[object$0] = object;
-  ;
 }).prototype = _debugger.NamedConstructor.prototype;
 ;
 dart.setLibraryUri(_debugger.NamedConstructor, "dart:_debugger");
@@ -6159,7 +6132,6 @@ _debugger.HeritageClause = class HeritageClause extends core.Object {
 (_debugger.HeritageClause.new = function(name, types) {
   this[name$3] = name;
   this[types$] = types;
-  ;
 }).prototype = _debugger.HeritageClause.prototype;
 ;
 dart.setLibraryUri(_debugger.HeritageClause, "dart:_debugger");
@@ -6282,7 +6254,6 @@ _debugger.JsonMLFormatter = class JsonMLFormatter extends core.Object {
 (_debugger.JsonMLFormatter.new = function(_simpleFormatter) {
   this[customFormattersOn] = false;
   this[_simpleFormatter$] = _simpleFormatter;
-  ;
 }).prototype = _debugger.JsonMLFormatter.prototype;
 ;
 ;
@@ -6290,7 +6261,6 @@ dart.setLibraryUri(_debugger.JsonMLFormatter, "dart:_debugger");
 ;
 _debugger.Formatter = class Formatter extends core.Object {};
 (_debugger.Formatter.new = function() {
-  ;
 }).prototype = _debugger.Formatter.prototype;
 ;
 dart.setLibraryUri(_debugger.Formatter, "dart:_debugger");
@@ -6382,7 +6352,6 @@ _debugger.ObjectFormatter = class ObjectFormatter extends _debugger.Formatter {
   }
 };
 (_debugger.ObjectFormatter.new = function() {
-  ;
 }).prototype = _debugger.ObjectFormatter.prototype;
 ;
 ;
@@ -6396,7 +6365,6 @@ _debugger.ObjectInternalsFormatter = class ObjectInternalsFormatter extends _deb
   }
 };
 (_debugger.ObjectInternalsFormatter.new = function() {
-  ;
 }).prototype = _debugger.ObjectInternalsFormatter.prototype;
 ;
 dart.setLibraryUri(_debugger.ObjectInternalsFormatter, "dart:_debugger");
@@ -6424,7 +6392,6 @@ _debugger.LibraryModuleFormatter = class LibraryModuleFormatter extends core.Obj
   }
 };
 (_debugger.LibraryModuleFormatter.new = function() {
-  ;
 }).prototype = _debugger.LibraryModuleFormatter.prototype;
 ;
 _debugger.LibraryModuleFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6463,7 +6430,6 @@ _debugger.LibraryFormatter = class LibraryFormatter extends core.Object {
 };
 (_debugger.LibraryFormatter.new = function() {
   this[genericParameters] = new (IdentityMapOfString$String()).new();
-  ;
 }).prototype = _debugger.LibraryFormatter.prototype;
 ;
 _debugger.LibraryFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6491,7 +6457,6 @@ _debugger.FunctionFormatter = class FunctionFormatter extends core.Object {
   }
 };
 (_debugger.FunctionFormatter.new = function() {
-  ;
 }).prototype = _debugger.FunctionFormatter.prototype;
 ;
 _debugger.FunctionFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6518,7 +6483,6 @@ _debugger.MapOverviewFormatter = class MapOverviewFormatter extends core.Object 
   }
 };
 (_debugger.MapOverviewFormatter.new = function() {
-  ;
 }).prototype = _debugger.MapOverviewFormatter.prototype;
 ;
 _debugger.MapOverviewFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6552,7 +6516,6 @@ _debugger.MapFormatter = class MapFormatter extends core.Object {
   }
 };
 (_debugger.MapFormatter.new = function() {
-  ;
 }).prototype = _debugger.MapFormatter.prototype;
 ;
 _debugger.MapFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6583,7 +6546,6 @@ _debugger.IterableFormatter = class IterableFormatter extends core.Object {
   }
 };
 (_debugger.IterableFormatter.new = function() {
-  ;
 }).prototype = _debugger.IterableFormatter.prototype;
 ;
 _debugger.IterableFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6604,7 +6566,6 @@ _debugger.NamedConstructorFormatter = class NamedConstructorFormatter extends co
   }
 };
 (_debugger.NamedConstructorFormatter.new = function() {
-  ;
 }).prototype = _debugger.NamedConstructorFormatter.prototype;
 ;
 _debugger.NamedConstructorFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6626,7 +6587,6 @@ _debugger.MapEntryFormatter = class MapEntryFormatter extends core.Object {
   }
 };
 (_debugger.MapEntryFormatter.new = function() {
-  ;
 }).prototype = _debugger.MapEntryFormatter.prototype;
 ;
 _debugger.MapEntryFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6655,7 +6615,6 @@ _debugger.HeritageClauseFormatter = class HeritageClauseFormatter extends core.O
   }
 };
 (_debugger.HeritageClauseFormatter.new = function() {
-  ;
 }).prototype = _debugger.HeritageClauseFormatter.prototype;
 ;
 _debugger.HeritageClauseFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6676,7 +6635,6 @@ _debugger.IterableSpanFormatter = class IterableSpanFormatter extends core.Objec
   }
 };
 (_debugger.IterableSpanFormatter.new = function() {
-  ;
 }).prototype = _debugger.IterableSpanFormatter.prototype;
 ;
 _debugger.IterableSpanFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6707,7 +6665,6 @@ _debugger.ErrorAndExceptionFormatter = class ErrorAndExceptionFormatter extends 
   }
 };
 (_debugger.ErrorAndExceptionFormatter.new = function() {
-  ;
 }).prototype = _debugger.ErrorAndExceptionFormatter.prototype;
 ;
 ;
@@ -6732,7 +6689,6 @@ _debugger.StackTraceFormatter = class StackTraceFormatter extends core.Object {
   }
 };
 (_debugger.StackTraceFormatter.new = function() {
-  ;
 }).prototype = _debugger.StackTraceFormatter.prototype;
 ;
 _debugger.StackTraceFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6790,7 +6746,6 @@ _debugger.ClassFormatter = class ClassFormatter extends core.Object {
   }
 };
 (_debugger.ClassFormatter.new = function() {
-  ;
 }).prototype = _debugger.ClassFormatter.prototype;
 ;
 _debugger.ClassFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6811,7 +6766,6 @@ _debugger.TypeFormatter = class TypeFormatter extends core.Object {
   }
 };
 (_debugger.TypeFormatter.new = function() {
-  ;
 }).prototype = _debugger.TypeFormatter.prototype;
 ;
 _debugger.TypeFormatter[dart.implements] = () => [_debugger.Formatter];
@@ -6831,7 +6785,6 @@ _debugger._CallMethodRecord = class _CallMethodRecord extends core.Object {};
 (_debugger._CallMethodRecord.new = function(jsError, type) {
   this.jsError = jsError;
   this.type = type;
-  ;
 }).prototype = _debugger._CallMethodRecord.prototype;
 ;
 dart.setLibraryUri(_debugger._CallMethodRecord, "dart:_debugger");
@@ -7059,7 +7012,6 @@ _foreign_helper.JSExportName = class JSExportName extends core.Object {
 };
 (_foreign_helper.JSExportName.new = function(name) {
   this[name$4] = name;
-  ;
 }).prototype = _foreign_helper.JSExportName.prototype;
 ;
 dart.setLibraryUri(_foreign_helper.JSExportName, "dart:_foreign_helper");
@@ -7075,14 +7027,12 @@ _foreign_helper.JS_CONST = class JS_CONST extends core.Object {
 };
 (_foreign_helper.JS_CONST.new = function(code) {
   this[code$] = code;
-  ;
 }).prototype = _foreign_helper.JS_CONST.prototype;
 ;
 dart.setLibraryUri(_foreign_helper.JS_CONST, "dart:_foreign_helper");
 ;
 _foreign_helper._Rest = class _Rest extends core.Object {};
 (_foreign_helper._Rest.new = function() {
-  ;
 }).prototype = _foreign_helper._Rest.prototype;
 ;
 dart.setLibraryUri(_foreign_helper._Rest, "dart:_foreign_helper");
@@ -7165,7 +7115,6 @@ _interceptors.Interceptor = class Interceptor extends core.Object {
   }
 };
 (_interceptors.Interceptor.new = function() {
-  ;
 }).prototype = _interceptors.Interceptor.prototype;
 ;
 dart.setLibraryUri(_interceptors.Interceptor, "dart:_interceptors");
@@ -7195,7 +7144,6 @@ _interceptors.JSBool = class JSBool extends _interceptors.Interceptor {
 };
 (_interceptors.JSBool.new = function() {
   _interceptors.JSBool.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.JSBool.prototype;
 ;
 _interceptors.JSBool[dart.implements] = () => [core.bool];
@@ -7207,9 +7155,7 @@ const _is_JSIndexable_default = Symbol('_is_JSIndexable_default');
 _interceptors.JSIndexable$ = dart.generic(E => {
   class JSIndexable extends core.Object {}
   (JSIndexable.new = function() {
-    ;
   }).prototype = JSIndexable.prototype;
-  ;
   JSIndexable.prototype[_is_JSIndexable_default] = true;
   dart.setLibraryUri(JSIndexable, "dart:_interceptors");
   return JSIndexable;
@@ -7218,7 +7164,6 @@ _interceptors.JSIndexable = _interceptors.JSIndexable$();
 ;
 _interceptors.JSObject = class JSObject extends core.Object {};
 (_interceptors.JSObject.new = function() {
-  ;
 }).prototype = _interceptors.JSObject.prototype;
 ;
 dart.setLibraryUri(_interceptors.JSObject, "dart:_interceptors");
@@ -7232,7 +7177,6 @@ _interceptors.JavaScriptObject = class JavaScriptObject extends _interceptors.In
 };
 (_interceptors.JavaScriptObject.new = function() {
   _interceptors.JavaScriptObject.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.JavaScriptObject.prototype;
 ;
 _interceptors.JavaScriptObject[dart.implements] = () => [_interceptors.JSObject];
@@ -7241,7 +7185,6 @@ dart.defineExtensionAccessors(_interceptors.JavaScriptObject, ['hashCode', 'runt
 _interceptors.PlainJavaScriptObject = class PlainJavaScriptObject extends _interceptors.JavaScriptObject {};
 (_interceptors.PlainJavaScriptObject.new = function() {
   _interceptors.PlainJavaScriptObject.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.PlainJavaScriptObject.prototype;
 ;
 dart.setLibraryUri(_interceptors.PlainJavaScriptObject, "dart:_interceptors");
@@ -7252,7 +7195,6 @@ _interceptors.UnknownJavaScriptObject = class UnknownJavaScriptObject extends _i
 };
 (_interceptors.UnknownJavaScriptObject.new = function() {
   _interceptors.UnknownJavaScriptObject.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.UnknownJavaScriptObject.prototype;
 ;
 dart.setLibraryUri(_interceptors.UnknownJavaScriptObject, "dart:_interceptors");
@@ -7264,7 +7206,6 @@ _interceptors.NativeError = class NativeError extends _interceptors.Interceptor 
 };
 (_interceptors.NativeError.new = function() {
   _interceptors.NativeError.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.NativeError.prototype;
 ;
 ;
@@ -7344,7 +7285,6 @@ _interceptors.JSNoSuchMethodError = class JSNoSuchMethodError extends _intercept
 };
 (_interceptors.JSNoSuchMethodError.new = function() {
   _interceptors.JSNoSuchMethodError.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.JSNoSuchMethodError.prototype;
 ;
 _interceptors.JSNoSuchMethodError[dart.implements] = () => [core.NoSuchMethodError];
@@ -7399,7 +7339,6 @@ _interceptors.JSFunction = class JSFunction extends _interceptors.Interceptor {
 };
 (_interceptors.JSFunction.new = function() {
   _interceptors.JSFunction.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.JSFunction.prototype;
 ;
 dart.setLibraryUri(_interceptors.JSFunction, "dart:_interceptors");
@@ -7413,7 +7352,6 @@ _interceptors.JSNull = class JSNull extends core.Object {
   }
 };
 (_interceptors.JSNull.new = function() {
-  ;
 }).prototype = _interceptors.JSNull.prototype;
 ;
 dart.setLibraryUri(_interceptors.JSNull, "dart:_interceptors");
@@ -7455,7 +7393,6 @@ _interceptors.JSRangeError = class JSRangeError extends _interceptors.Intercepto
 };
 (_interceptors.JSRangeError.new = function() {
   _interceptors.JSRangeError.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.JSRangeError.prototype;
 ;
 _interceptors.JSRangeError[dart.implements] = () => [core.ArgumentError];
@@ -8048,14 +7985,11 @@ _interceptors.JSArray$ = dart.generic(E => {
     }
   }
   (JSArray.new = function() {
-    ;
   }).prototype = JSArray.prototype;
   dart.setExtensionBaseClass(JSArray, dart.global.Array);
   JSArray.prototype[dart.isList] = true;
-  ;
   JSArray.prototype[_is_JSArray_default] = true;
   JSArray[dart.implements] = () => [core.List$(E), _interceptors.JSIndexable$(E)];
-  ;
   dart.setGetterSignature(JSArray, () => ({
     __proto__: dart.getGetters(JSArray.__proto__),
     [$first]: E,
@@ -8084,9 +8018,7 @@ _interceptors.JSMutableArray$ = dart.generic(E => {
   class JSMutableArray extends _interceptors.JSArray$(E) {}
   (JSMutableArray.new = function() {
     JSMutableArray.__proto__.new.call(this);
-    ;
   }).prototype = JSMutableArray.prototype;
-  ;
   JSMutableArray.prototype[_is_JSMutableArray_default] = true;
   dart.setLibraryUri(JSMutableArray, "dart:_interceptors");
   return JSMutableArray;
@@ -8098,9 +8030,7 @@ _interceptors.JSFixedArray$ = dart.generic(E => {
   class JSFixedArray extends _interceptors.JSMutableArray$(E) {}
   (JSFixedArray.new = function() {
     JSFixedArray.__proto__.new.call(this);
-    ;
   }).prototype = JSFixedArray.prototype;
-  ;
   JSFixedArray.prototype[_is_JSFixedArray_default] = true;
   dart.setLibraryUri(JSFixedArray, "dart:_interceptors");
   return JSFixedArray;
@@ -8112,9 +8042,7 @@ _interceptors.JSExtendableArray$ = dart.generic(E => {
   class JSExtendableArray extends _interceptors.JSMutableArray$(E) {}
   (JSExtendableArray.new = function() {
     JSExtendableArray.__proto__.new.call(this);
-    ;
   }).prototype = JSExtendableArray.prototype;
-  ;
   JSExtendableArray.prototype[_is_JSExtendableArray_default] = true;
   dart.setLibraryUri(JSExtendableArray, "dart:_interceptors");
   return JSExtendableArray;
@@ -8126,9 +8054,7 @@ _interceptors.JSUnmodifiableArray$ = dart.generic(E => {
   class JSUnmodifiableArray extends _interceptors.JSArray$(E) {}
   (JSUnmodifiableArray.new = function() {
     JSUnmodifiableArray.__proto__.new.call(this);
-    ;
   }).prototype = JSUnmodifiableArray.prototype;
-  ;
   JSUnmodifiableArray.prototype[_is_JSUnmodifiableArray_default] = true;
   dart.setLibraryUri(JSUnmodifiableArray, "dart:_interceptors");
   return JSUnmodifiableArray;
@@ -8164,18 +8090,14 @@ _interceptors.ArrayIterator$ = dart.generic(E => {
     this[_iterable] = iterable;
     this[_length] = iterable[$length];
     this[_index] = 0;
-    ;
   }).prototype = ArrayIterator.prototype;
-  ;
   ArrayIterator.prototype[_is_ArrayIterator_default] = true;
   ArrayIterator[dart.implements] = () => [core.Iterator$(E)];
-  ;
   dart.setGetterSignature(ArrayIterator, () => ({
     __proto__: dart.getGetters(ArrayIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(ArrayIterator, "dart:_interceptors");
-  ;
   return ArrayIterator;
 });
 _interceptors.ArrayIterator = _interceptors.ArrayIterator$();
@@ -8640,7 +8562,6 @@ _interceptors.JSNumber = class JSNumber extends _interceptors.Interceptor {
 };
 (_interceptors.JSNumber.new = function() {
   _interceptors.JSNumber.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.JSNumber.prototype;
 ;
 _interceptors.JSNumber[dart.implements] = () => [core.int, core.double];
@@ -9070,7 +8991,6 @@ _interceptors.JSString = class JSString extends _interceptors.Interceptor {
 (_interceptors.JSString.new = function() {
   this[length] = null;
   _interceptors.JSString.__proto__.new.call(this);
-  ;
 }).prototype = _interceptors.JSString.prototype;
 ;
 _interceptors.JSString[dart.implements] = () => [core.String, _interceptors.JSIndexable$(core.String)];
@@ -9600,13 +9520,10 @@ collection.ListMixin$ = dart.generic(E => {
     }
   }
   (ListMixin.new = function() {
-    ;
   }).prototype = ListMixin.prototype;
   ListMixin.prototype[dart.isList] = true;
-  ;
   ListMixin.prototype[_is_ListMixin_default] = true;
   ListMixin[dart.implements] = () => [core.List$(E)];
-  ;
   dart.setGetterSignature(ListMixin, () => ({
     __proto__: dart.getGetters(ListMixin.__proto__),
     iterator: core.Iterator$(E),
@@ -9708,9 +9625,7 @@ collection.ListBase$ = dart.generic(E => {
     }
   }
   (ListBase.new = function() {
-    ;
   }).prototype = ListBase.prototype;
-  ;
   ListBase.prototype[_is_ListBase_default] = true;
   dart.setLibraryUri(ListBase, "dart:collection");
   return ListBase;
@@ -9806,13 +9721,10 @@ _internal.UnmodifiableListMixin$ = dart.generic(E => {
     }
   }
   (UnmodifiableListMixin.new = function() {
-    ;
   }).prototype = UnmodifiableListMixin.prototype;
   UnmodifiableListMixin.prototype[dart.isList] = true;
-  ;
   UnmodifiableListMixin.prototype[_is_UnmodifiableListMixin_default] = true;
   UnmodifiableListMixin[dart.implements] = () => [core.List$(E)];
-  ;
   dart.setSetterSignature(UnmodifiableListMixin, () => ({
     __proto__: dart.getSetters(UnmodifiableListMixin.__proto__),
     length: core.int,
@@ -9856,9 +9768,7 @@ _internal.UnmodifiableListBase$ = dart.generic(E => {
   dart.applyMixin(ListBase_UnmodifiableListMixin$36, _internal.UnmodifiableListMixin$(E));
   class UnmodifiableListBase extends ListBase_UnmodifiableListMixin$36 {}
   (UnmodifiableListBase.new = function() {
-    ;
   }).prototype = UnmodifiableListBase.prototype;
-  ;
   UnmodifiableListBase.prototype[_is_UnmodifiableListBase_default] = true;
   dart.setLibraryUri(UnmodifiableListBase, "dart:_internal");
   return UnmodifiableListBase;
@@ -9899,7 +9809,6 @@ core.num = class num extends core.Object {
   }
 };
 (core.num.new = function() {
-  ;
 }).prototype = core.num.prototype;
 core.num[dart.implements] = () => [core.Comparable$(core.num)];
 dart.setLibraryUri(core.num, "dart:core");
@@ -9950,7 +9859,6 @@ _internal.CodeUnits = class CodeUnits extends _internal.UnmodifiableListBase$(co
 };
 (_internal.CodeUnits.new = function(_string) {
   this[_string$] = _string;
-  ;
 }).prototype = _internal.CodeUnits.prototype;
 ;
 ;
@@ -9974,7 +9882,6 @@ _internal.ExternalName = class ExternalName extends core.Object {
 };
 (_internal.ExternalName.new = function(name) {
   this[name$5] = name;
-  ;
 }).prototype = _internal.ExternalName.prototype;
 ;
 dart.setLibraryUri(_internal.ExternalName, "dart:_internal");
@@ -9990,14 +9897,12 @@ _internal.Since = class Since extends core.Object {
 };
 (_internal.Since.new = function(version) {
   this[version$] = version;
-  ;
 }).prototype = _internal.Since.prototype;
 ;
 dart.setLibraryUri(_internal.Since, "dart:_internal");
 ;
 _internal.HttpStatus = class HttpStatus extends core.Object {};
 (_internal.HttpStatus.new = function() {
-  ;
 }).prototype = _internal.HttpStatus.prototype;
 ;
 dart.setLibraryUri(_internal.HttpStatus, "dart:_internal");
@@ -10996,14 +10901,10 @@ async.Stream$ = dart.generic(T => {
     }
   }
   (Stream.new = function() {
-    ;
   }).prototype = Stream.prototype;
   (Stream._internal = function() {
-    ;
   }).prototype = Stream.prototype;
-  ;
   Stream.prototype[dart.isStream] = true;
-  ;
   dart.setGetterSignature(Stream, () => ({
     __proto__: dart.getGetters(Stream.__proto__),
     isBroadcast: core.bool,
@@ -11042,13 +10943,9 @@ _internal.CastStream$ = dart.generic((S, T) => {
   (CastStream.new = function(_source) {
     this[_source$] = _source;
     CastStream.__proto__.new.call(this);
-    ;
   }).prototype = CastStream.prototype;
-  ;
   CastStream.prototype[_is_CastStream_default] = true;
-  ;
   dart.setLibraryUri(CastStream, "dart:_internal");
-  ;
   return CastStream;
 });
 _internal.CastStream = _internal.CastStream$();
@@ -11122,16 +11019,13 @@ _internal.CastStreamSubscription$ = dart.generic((S, T) => {
     this[_source$].onData(dart.bind(this, _onData));
   }).prototype = CastStreamSubscription.prototype;
   CastStreamSubscription.prototype[dart.isStreamSubscription] = true;
-  ;
   CastStreamSubscription.prototype[_is_CastStreamSubscription_default] = true;
   CastStreamSubscription[dart.implements] = () => [async.StreamSubscription$(T)];
-  ;
   dart.setGetterSignature(CastStreamSubscription, () => ({
     __proto__: dart.getGetters(CastStreamSubscription.__proto__),
     isPaused: core.bool
   }));
   dart.setLibraryUri(CastStreamSubscription, "dart:_internal");
-  ;
   return CastStreamSubscription;
 });
 _internal.CastStreamSubscription = _internal.CastStreamSubscription$();
@@ -11144,12 +11038,9 @@ async.StreamTransformerBase$ = dart.generic((S, T) => {
     }
   }
   (StreamTransformerBase.new = function() {
-    ;
   }).prototype = StreamTransformerBase.prototype;
-  ;
   StreamTransformerBase.prototype[_is_StreamTransformerBase_default] = true;
   StreamTransformerBase[dart.implements] = () => [async.StreamTransformer$(S, T)];
-  ;
   dart.setLibraryUri(StreamTransformerBase, "dart:async");
   return StreamTransformerBase;
 });
@@ -11170,13 +11061,9 @@ _internal.CastStreamTransformer$ = dart.generic((SS, ST, TS, TT) => {
   (CastStreamTransformer.new = function(_source) {
     this[_source$] = _source;
     CastStreamTransformer.__proto__.new.call(this);
-    ;
   }).prototype = CastStreamTransformer.prototype;
-  ;
   CastStreamTransformer.prototype[_is_CastStreamTransformer_default] = true;
-  ;
   dart.setLibraryUri(CastStreamTransformer, "dart:_internal");
-  ;
   return CastStreamTransformer;
 });
 _internal.CastStreamTransformer = _internal.CastStreamTransformer$();
@@ -11208,11 +11095,8 @@ convert.Converter$ = dart.generic((S, T) => {
   }
   (Converter.new = function() {
     Converter.__proto__.new.call(this);
-    ;
   }).prototype = Converter.prototype;
-  ;
   Converter.prototype[_is_Converter_default] = true;
-  ;
   dart.setLibraryUri(Converter, "dart:convert");
   return Converter;
 });
@@ -11237,13 +11121,9 @@ _internal.CastConverter$ = dart.generic((SS, ST, TS, TT) => {
   (CastConverter.new = function(_source) {
     this[_source$] = _source;
     CastConverter.__proto__.new.call(this);
-    ;
   }).prototype = CastConverter.prototype;
-  ;
   CastConverter.prototype[_is_CastConverter_default] = true;
-  ;
   dart.setLibraryUri(CastConverter, "dart:_internal");
-  ;
   return CastConverter;
 });
 _internal.CastConverter = _internal.CastConverter$();
@@ -11469,11 +11349,8 @@ core.Iterable$ = dart.generic(E => {
     }
   }
   (Iterable.new = function() {
-    ;
   }).prototype = Iterable.prototype;
-  ;
   Iterable.prototype[dart.isIterable] = true;
-  ;
   dart.setGetterSignature(Iterable, () => ({
     __proto__: dart.getGetters(Iterable.__proto__),
     length: core.int,
@@ -11580,9 +11457,7 @@ _internal._CastIterableBase$ = dart.generic((S, T) => {
   }
   (_CastIterableBase.new = function() {
     _CastIterableBase.__proto__.new.call(this);
-    ;
   }).prototype = _CastIterableBase.prototype;
-  ;
   _CastIterableBase.prototype[_is__CastIterableBase_default] = true;
   dart.setGetterSignature(_CastIterableBase, () => ({
     __proto__: dart.getGetters(_CastIterableBase.__proto__),
@@ -11623,18 +11498,14 @@ _internal.CastIterator$ = dart.generic((S, T) => {
   }
   (CastIterator.new = function(_source) {
     this[_source$] = _source;
-    ;
   }).prototype = CastIterator.prototype;
-  ;
   CastIterator.prototype[_is_CastIterator_default] = true;
   CastIterator[dart.implements] = () => [core.Iterator$(T)];
-  ;
   dart.setGetterSignature(CastIterator, () => ({
     __proto__: dart.getGetters(CastIterator.__proto__),
     current: T
   }));
   dart.setLibraryUri(CastIterator, "dart:_internal");
-  ;
   return CastIterator;
 });
 _internal.CastIterator = _internal.CastIterator$();
@@ -11662,12 +11533,9 @@ _internal.CastIterable$ = dart.generic((S, T) => {
   (CastIterable.__ = function(_source) {
     this[_source$0] = _source;
     CastIterable.__proto__.new.call(this);
-    ;
   }).prototype = CastIterable.prototype;
-  ;
   CastIterable.prototype[_is_CastIterable_default] = true;
   dart.setLibraryUri(CastIterable, "dart:_internal");
-  ;
   dart.defineExtensionMethods(CastIterable, ['cast']);
   return CastIterable;
 });
@@ -11678,9 +11546,7 @@ _internal._EfficientLengthCastIterable$ = dart.generic((S, T) => {
   class _EfficientLengthCastIterable extends _internal.CastIterable$(S, T) {}
   (_EfficientLengthCastIterable.new = function(source) {
     _EfficientLengthCastIterable.__proto__.__.call(this, source);
-    ;
   }).prototype = _EfficientLengthCastIterable.prototype;
-  ;
   _EfficientLengthCastIterable.prototype[_is__EfficientLengthCastIterable_default] = true;
   _EfficientLengthCastIterable[dart.implements] = () => [_internal.EfficientLengthIterable$(T)];
   dart.setLibraryUri(_EfficientLengthCastIterable, "dart:_internal");
@@ -11782,11 +11648,8 @@ _internal._CastListBase$ = dart.generic((S, T) => {
   }
   (_CastListBase.new = function() {
     _CastListBase.__proto__.new.call(this);
-    ;
   }).prototype = _CastListBase.prototype;
-  ;
   _CastListBase.prototype[_is__CastListBase_default] = true;
-  ;
   dart.setSetterSignature(_CastListBase, () => ({
     __proto__: dart.getSetters(_CastListBase.__proto__),
     length: core.int,
@@ -11836,12 +11699,9 @@ _internal.CastList$ = dart.generic((S, T) => {
   (CastList.new = function(_source) {
     this[_source$1] = _source;
     CastList.__proto__.new.call(this);
-    ;
   }).prototype = CastList.prototype;
-  ;
   CastList.prototype[_is_CastList_default] = true;
   dart.setLibraryUri(CastList, "dart:_internal");
-  ;
   dart.defineExtensionMethods(CastList, ['cast']);
   return CastList;
 });
@@ -11940,14 +11800,10 @@ _internal.CastSet$ = dart.generic((S, T) => {
     this[_source$2] = _source;
     this[_emptySet$] = _emptySet;
     CastSet.__proto__.new.call(this);
-    ;
   }).prototype = CastSet.prototype;
-  ;
   CastSet.prototype[_is_CastSet_default] = true;
   CastSet[dart.implements] = () => [core.Set$(T)];
-  ;
   dart.setLibraryUri(CastSet, "dart:_internal");
-  ;
   dart.defineExtensionMethods(CastSet, ['cast', 'toSet']);
   return CastSet;
 });
@@ -12070,13 +11926,10 @@ collection.MapMixin$ = dart.generic((K, V) => {
     }
   }
   (MapMixin.new = function() {
-    ;
   }).prototype = MapMixin.prototype;
   MapMixin.prototype[dart.isMap] = true;
-  ;
   MapMixin.prototype[_is_MapMixin_default] = true;
   MapMixin[dart.implements] = () => [core.Map$(K, V)];
-  ;
   dart.setGetterSignature(MapMixin, () => ({
     __proto__: dart.getGetters(MapMixin.__proto__),
     entries: core.Iterable$(core.MapEntry$(K, V)),
@@ -12170,9 +12023,7 @@ collection.MapBase$ = dart.generic((K, V) => {
     }
   }
   (MapBase.new = function() {
-    ;
   }).prototype = MapBase.prototype;
-  ;
   MapBase.prototype[_is_MapBase_default] = true;
   dart.setLibraryUri(MapBase, "dart:collection");
   return MapBase;
@@ -12278,18 +12129,14 @@ _internal.CastMap$ = dart.generic((SK, SV, K, V) => {
   }
   (CastMap.new = function(_source) {
     this[_source$] = _source;
-    ;
   }).prototype = CastMap.prototype;
-  ;
   CastMap.prototype[_is_CastMap_default] = true;
-  ;
   dart.setGetterSignature(CastMap, () => ({
     __proto__: dart.getGetters(CastMap.__proto__),
     keys: core.Iterable$(K),
     [$keys]: core.Iterable$(K)
   }));
   dart.setLibraryUri(CastMap, "dart:_internal");
-  ;
   dart.defineExtensionMethods(CastMap, [
     'cast',
     'containsValue',
@@ -12372,14 +12219,10 @@ _internal.CastQueue$ = dart.generic((S, T) => {
   (CastQueue.new = function(_source) {
     this[_source$3] = _source;
     CastQueue.__proto__.new.call(this);
-    ;
   }).prototype = CastQueue.prototype;
-  ;
   CastQueue.prototype[_is_CastQueue_default] = true;
   CastQueue[dart.implements] = () => [collection.Queue$(T)];
-  ;
   dart.setLibraryUri(CastQueue, "dart:_internal");
-  ;
   dart.defineExtensionMethods(CastQueue, ['cast']);
   return CastQueue;
 });
@@ -12390,9 +12233,7 @@ _internal.EfficientLengthIterable$ = dart.generic(T => {
   class EfficientLengthIterable extends core.Iterable$(T) {}
   (EfficientLengthIterable.new = function() {
     EfficientLengthIterable.__proto__.new.call(this);
-    ;
   }).prototype = EfficientLengthIterable.prototype;
-  ;
   EfficientLengthIterable.prototype[_is_EfficientLengthIterable_default] = true;
   dart.setLibraryUri(EfficientLengthIterable, "dart:_internal");
   return EfficientLengthIterable;
@@ -12613,9 +12454,7 @@ _internal.ListIterable$ = dart.generic(E => {
   }
   (ListIterable.new = function() {
     ListIterable.__proto__.new.call(this);
-    ;
   }).prototype = ListIterable.prototype;
-  ;
   ListIterable.prototype[_is_ListIterable_default] = true;
   dart.setGetterSignature(ListIterable, () => ({
     __proto__: dart.getGetters(ListIterable.__proto__),
@@ -12738,7 +12577,6 @@ _internal.SubListIterable$ = dart.generic(E => {
       }
     }
   }).prototype = SubListIterable.prototype;
-  ;
   SubListIterable.prototype[_is_SubListIterable_default] = true;
   dart.setGetterSignature(SubListIterable, () => ({
     __proto__: dart.getGetters(SubListIterable.__proto__),
@@ -12746,7 +12584,6 @@ _internal.SubListIterable$ = dart.generic(E => {
     [_startIndex]: core.int
   }));
   dart.setLibraryUri(SubListIterable, "dart:_internal");
-  ;
   dart.defineExtensionMethods(SubListIterable, ['elementAt', 'skip', 'take', 'toList']);
   dart.defineExtensionAccessors(SubListIterable, ['length']);
   return SubListIterable;
@@ -12781,18 +12618,14 @@ _internal.ListIterator$ = dart.generic(E => {
     this[_iterable$] = iterable;
     this[_length$] = iterable[$length];
     this[_index$] = 0;
-    ;
   }).prototype = ListIterator.prototype;
-  ;
   ListIterator.prototype[_is_ListIterator_default] = true;
   ListIterator[dart.implements] = () => [core.Iterator$(E)];
-  ;
   dart.setGetterSignature(ListIterator, () => ({
     __proto__: dart.getGetters(ListIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(ListIterator, "dart:_internal");
-  ;
   return ListIterator;
 });
 _internal.ListIterator = _internal.ListIterator$();
@@ -12834,9 +12667,7 @@ _internal.MappedIterable$ = dart.generic((S, T) => {
     this[_iterable$] = _iterable;
     this[_f$] = _f;
     MappedIterable.__proto__.new.call(this);
-    ;
   }).prototype = MappedIterable.prototype;
-  ;
   MappedIterable.prototype[_is_MappedIterable_default] = true;
   dart.setGetterSignature(MappedIterable, () => ({
     __proto__: dart.getGetters(MappedIterable.__proto__),
@@ -12844,7 +12675,6 @@ _internal.MappedIterable$ = dart.generic((S, T) => {
     [$iterator]: core.Iterator$(T)
   }));
   dart.setLibraryUri(MappedIterable, "dart:_internal");
-  ;
   dart.defineExtensionMethods(MappedIterable, ['elementAt']);
   dart.defineExtensionAccessors(MappedIterable, [
     'iterator',
@@ -12863,9 +12693,7 @@ _internal.EfficientLengthMappedIterable$ = dart.generic((S, T) => {
   class EfficientLengthMappedIterable extends _internal.MappedIterable$(S, T) {}
   (EfficientLengthMappedIterable.new = function(iterable, $function) {
     EfficientLengthMappedIterable.__proto__.__.call(this, iterable, $function);
-    ;
   }).prototype = EfficientLengthMappedIterable.prototype;
-  ;
   EfficientLengthMappedIterable.prototype[_is_EfficientLengthMappedIterable_default] = true;
   EfficientLengthMappedIterable[dart.implements] = () => [_internal.EfficientLengthIterable$(T)];
   dart.setLibraryUri(EfficientLengthMappedIterable, "dart:_internal");
@@ -12878,9 +12706,7 @@ const _is_Iterator_default = Symbol('_is_Iterator_default');
 core.Iterator$ = dart.generic(E => {
   class Iterator extends core.Object {}
   (Iterator.new = function() {
-    ;
   }).prototype = Iterator.prototype;
-  ;
   Iterator.prototype[_is_Iterator_default] = true;
   dart.setLibraryUri(Iterator, "dart:core");
   return Iterator;
@@ -12906,17 +12732,13 @@ _internal.MappedIterator$ = dart.generic((S, T) => {
     this[_current$] = null;
     this[_iterator$] = _iterator;
     this[_f$] = _f;
-    ;
   }).prototype = MappedIterator.prototype;
-  ;
   MappedIterator.prototype[_is_MappedIterator_default] = true;
-  ;
   dart.setGetterSignature(MappedIterator, () => ({
     __proto__: dart.getGetters(MappedIterator.__proto__),
     current: T
   }));
   dart.setLibraryUri(MappedIterator, "dart:_internal");
-  ;
   return MappedIterator;
 });
 _internal.MappedIterator = _internal.MappedIterator$();
@@ -12935,12 +12757,9 @@ _internal.MappedListIterable$ = dart.generic((S, T) => {
     this[_source$] = _source;
     this[_f$] = _f;
     MappedListIterable.__proto__.new.call(this);
-    ;
   }).prototype = MappedListIterable.prototype;
-  ;
   MappedListIterable.prototype[_is_MappedListIterable_default] = true;
   dart.setLibraryUri(MappedListIterable, "dart:_internal");
-  ;
   dart.defineExtensionMethods(MappedListIterable, ['elementAt']);
   dart.defineExtensionAccessors(MappedListIterable, ['length']);
   return MappedListIterable;
@@ -12962,9 +12781,7 @@ _internal.WhereIterable$ = dart.generic(E => {
     this[_iterable$] = _iterable;
     this[_f$] = _f;
     WhereIterable.__proto__.new.call(this);
-    ;
   }).prototype = WhereIterable.prototype;
-  ;
   WhereIterable.prototype[_is_WhereIterable_default] = true;
   dart.setGetterSignature(WhereIterable, () => ({
     __proto__: dart.getGetters(WhereIterable.__proto__),
@@ -12972,7 +12789,6 @@ _internal.WhereIterable$ = dart.generic(E => {
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(WhereIterable, "dart:_internal");
-  ;
   dart.defineExtensionMethods(WhereIterable, ['map']);
   dart.defineExtensionAccessors(WhereIterable, ['iterator']);
   return WhereIterable;
@@ -12997,17 +12813,13 @@ _internal.WhereIterator$ = dart.generic(E => {
   (WhereIterator.new = function(_iterator, _f) {
     this[_iterator$] = _iterator;
     this[_f$] = _f;
-    ;
   }).prototype = WhereIterator.prototype;
-  ;
   WhereIterator.prototype[_is_WhereIterator_default] = true;
-  ;
   dart.setGetterSignature(WhereIterator, () => ({
     __proto__: dart.getGetters(WhereIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(WhereIterator, "dart:_internal");
-  ;
   return WhereIterator;
 });
 _internal.WhereIterator = _internal.WhereIterator$();
@@ -13024,9 +12836,7 @@ _internal.ExpandIterable$ = dart.generic((S, T) => {
     this[_iterable$] = _iterable;
     this[_f$] = _f;
     ExpandIterable.__proto__.new.call(this);
-    ;
   }).prototype = ExpandIterable.prototype;
-  ;
   ExpandIterable.prototype[_is_ExpandIterable_default] = true;
   dart.setGetterSignature(ExpandIterable, () => ({
     __proto__: dart.getGetters(ExpandIterable.__proto__),
@@ -13034,7 +12844,6 @@ _internal.ExpandIterable$ = dart.generic((S, T) => {
     [$iterator]: core.Iterator$(T)
   }));
   dart.setLibraryUri(ExpandIterable, "dart:_internal");
-  ;
   dart.defineExtensionAccessors(ExpandIterable, ['iterator']);
   return ExpandIterable;
 });
@@ -13068,18 +12877,14 @@ _internal.ExpandIterator$ = dart.generic((S, T) => {
     this[_current$] = null;
     this[_iterator$] = _iterator;
     this[_f$] = _f;
-    ;
   }).prototype = ExpandIterator.prototype;
-  ;
   ExpandIterator.prototype[_is_ExpandIterator_default] = true;
   ExpandIterator[dart.implements] = () => [core.Iterator$(T)];
-  ;
   dart.setGetterSignature(ExpandIterator, () => ({
     __proto__: dart.getGetters(ExpandIterator.__proto__),
     current: T
   }));
   dart.setLibraryUri(ExpandIterator, "dart:_internal");
-  ;
   return ExpandIterator;
 });
 _internal.ExpandIterator = _internal.ExpandIterator$();
@@ -13105,9 +12910,7 @@ _internal.TakeIterable$ = dart.generic(E => {
     this[_iterable$] = _iterable;
     this[_takeCount$] = _takeCount;
     TakeIterable.__proto__.new.call(this);
-    ;
   }).prototype = TakeIterable.prototype;
-  ;
   TakeIterable.prototype[_is_TakeIterable_default] = true;
   dart.setGetterSignature(TakeIterable, () => ({
     __proto__: dart.getGetters(TakeIterable.__proto__),
@@ -13115,7 +12918,6 @@ _internal.TakeIterable$ = dart.generic(E => {
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(TakeIterable, "dart:_internal");
-  ;
   dart.defineExtensionAccessors(TakeIterable, ['iterator']);
   return TakeIterable;
 });
@@ -13132,9 +12934,7 @@ _internal.EfficientLengthTakeIterable$ = dart.generic(E => {
   }
   (EfficientLengthTakeIterable.new = function(iterable, takeCount) {
     EfficientLengthTakeIterable.__proto__.__.call(this, iterable, takeCount);
-    ;
   }).prototype = EfficientLengthTakeIterable.prototype;
-  ;
   EfficientLengthTakeIterable.prototype[_is_EfficientLengthTakeIterable_default] = true;
   EfficientLengthTakeIterable[dart.implements] = () => [_internal.EfficientLengthIterable$(E)];
   dart.setLibraryUri(EfficientLengthTakeIterable, "dart:_internal");
@@ -13165,15 +12965,12 @@ _internal.TakeIterator$ = dart.generic(E => {
     this[_remaining$] = _remaining;
     if (!(dart.notNull(this[_remaining$]) >= 0)) dart.assertFailed(null, "org-dartlang-sdk:///dart-sdk/lib/internal/iterable.dart", 531, 12, "_remaining >= 0");
   }).prototype = TakeIterator.prototype;
-  ;
   TakeIterator.prototype[_is_TakeIterator_default] = true;
-  ;
   dart.setGetterSignature(TakeIterator, () => ({
     __proto__: dart.getGetters(TakeIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(TakeIterator, "dart:_internal");
-  ;
   return TakeIterator;
 });
 _internal.TakeIterator = _internal.TakeIterator$();
@@ -13190,9 +12987,7 @@ _internal.TakeWhileIterable$ = dart.generic(E => {
     this[_iterable$] = _iterable;
     this[_f$] = _f;
     TakeWhileIterable.__proto__.new.call(this);
-    ;
   }).prototype = TakeWhileIterable.prototype;
-  ;
   TakeWhileIterable.prototype[_is_TakeWhileIterable_default] = true;
   dart.setGetterSignature(TakeWhileIterable, () => ({
     __proto__: dart.getGetters(TakeWhileIterable.__proto__),
@@ -13200,7 +12995,6 @@ _internal.TakeWhileIterable$ = dart.generic(E => {
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(TakeWhileIterable, "dart:_internal");
-  ;
   dart.defineExtensionAccessors(TakeWhileIterable, ['iterator']);
   return TakeWhileIterable;
 });
@@ -13227,17 +13021,13 @@ _internal.TakeWhileIterator$ = dart.generic(E => {
     this[_isFinished] = false;
     this[_iterator$] = _iterator;
     this[_f$] = _f;
-    ;
   }).prototype = TakeWhileIterator.prototype;
-  ;
   TakeWhileIterator.prototype[_is_TakeWhileIterator_default] = true;
-  ;
   dart.setGetterSignature(TakeWhileIterator, () => ({
     __proto__: dart.getGetters(TakeWhileIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(TakeWhileIterator, "dart:_internal");
-  ;
   return TakeWhileIterator;
 });
 _internal.TakeWhileIterator = _internal.TakeWhileIterator$();
@@ -13265,9 +13055,7 @@ _internal.SkipIterable$ = dart.generic(E => {
     this[_iterable$] = _iterable;
     this[_skipCount$] = _skipCount;
     SkipIterable.__proto__.new.call(this);
-    ;
   }).prototype = SkipIterable.prototype;
-  ;
   SkipIterable.prototype[_is_SkipIterable_default] = true;
   dart.setGetterSignature(SkipIterable, () => ({
     __proto__: dart.getGetters(SkipIterable.__proto__),
@@ -13275,7 +13063,6 @@ _internal.SkipIterable$ = dart.generic(E => {
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(SkipIterable, "dart:_internal");
-  ;
   dart.defineExtensionMethods(SkipIterable, ['skip']);
   dart.defineExtensionAccessors(SkipIterable, ['iterator']);
   return SkipIterable;
@@ -13300,9 +13087,7 @@ _internal.EfficientLengthSkipIterable$ = dart.generic(E => {
   }
   (EfficientLengthSkipIterable.__ = function(iterable, count) {
     EfficientLengthSkipIterable.__proto__.__.call(this, iterable, count);
-    ;
   }).prototype = EfficientLengthSkipIterable.prototype;
-  ;
   EfficientLengthSkipIterable.prototype[_is_EfficientLengthSkipIterable_default] = true;
   EfficientLengthSkipIterable[dart.implements] = () => [_internal.EfficientLengthIterable$(E)];
   dart.setLibraryUri(EfficientLengthSkipIterable, "dart:_internal");
@@ -13330,15 +13115,12 @@ _internal.SkipIterator$ = dart.generic(E => {
     this[_skipCount$] = _skipCount;
     if (!(dart.notNull(this[_skipCount$]) >= 0)) dart.assertFailed(null, "org-dartlang-sdk:///dart-sdk/lib/internal/iterable.dart", 636, 12, "_skipCount >= 0");
   }).prototype = SkipIterator.prototype;
-  ;
   SkipIterator.prototype[_is_SkipIterator_default] = true;
-  ;
   dart.setGetterSignature(SkipIterator, () => ({
     __proto__: dart.getGetters(SkipIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(SkipIterator, "dart:_internal");
-  ;
   return SkipIterator;
 });
 _internal.SkipIterator = _internal.SkipIterator$();
@@ -13355,9 +13137,7 @@ _internal.SkipWhileIterable$ = dart.generic(E => {
     this[_iterable$] = _iterable;
     this[_f$] = _f;
     SkipWhileIterable.__proto__.new.call(this);
-    ;
   }).prototype = SkipWhileIterable.prototype;
-  ;
   SkipWhileIterable.prototype[_is_SkipWhileIterable_default] = true;
   dart.setGetterSignature(SkipWhileIterable, () => ({
     __proto__: dart.getGetters(SkipWhileIterable.__proto__),
@@ -13365,7 +13145,6 @@ _internal.SkipWhileIterable$ = dart.generic(E => {
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(SkipWhileIterable, "dart:_internal");
-  ;
   dart.defineExtensionAccessors(SkipWhileIterable, ['iterator']);
   return SkipWhileIterable;
 });
@@ -13392,17 +13171,13 @@ _internal.SkipWhileIterator$ = dart.generic(E => {
     this[_hasSkipped] = false;
     this[_iterator$] = _iterator;
     this[_f$] = _f;
-    ;
   }).prototype = SkipWhileIterator.prototype;
-  ;
   SkipWhileIterator.prototype[_is_SkipWhileIterator_default] = true;
-  ;
   dart.setGetterSignature(SkipWhileIterator, () => ({
     __proto__: dart.getGetters(SkipWhileIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(SkipWhileIterator, "dart:_internal");
-  ;
   return SkipWhileIterator;
 });
 _internal.SkipWhileIterator = _internal.SkipWhileIterator$();
@@ -13506,9 +13281,7 @@ _internal.EmptyIterable$ = dart.generic(E => {
   }
   (EmptyIterable.new = function() {
     EmptyIterable.__proto__.new.call(this);
-    ;
   }).prototype = EmptyIterable.prototype;
-  ;
   EmptyIterable.prototype[_is_EmptyIterable_default] = true;
   dart.setGetterSignature(EmptyIterable, () => ({
     __proto__: dart.getGetters(EmptyIterable.__proto__),
@@ -13560,12 +13333,9 @@ _internal.EmptyIterator$ = dart.generic(E => {
     }
   }
   (EmptyIterator.new = function() {
-    ;
   }).prototype = EmptyIterator.prototype;
-  ;
   EmptyIterator.prototype[_is_EmptyIterator_default] = true;
   EmptyIterator[dart.implements] = () => [core.Iterator$(E)];
-  ;
   dart.setGetterSignature(EmptyIterator, () => ({
     __proto__: dart.getGetters(EmptyIterator.__proto__),
     current: E
@@ -13622,9 +13392,7 @@ _internal.FollowedByIterable$ = dart.generic(E => {
     this[_first$] = _first;
     this[_second$] = _second;
     FollowedByIterable.__proto__.new.call(this);
-    ;
   }).prototype = FollowedByIterable.prototype;
-  ;
   FollowedByIterable.prototype[_is_FollowedByIterable_default] = true;
   dart.setGetterSignature(FollowedByIterable, () => ({
     __proto__: dart.getGetters(FollowedByIterable.__proto__),
@@ -13632,7 +13400,6 @@ _internal.FollowedByIterable$ = dart.generic(E => {
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(FollowedByIterable, "dart:_internal");
-  ;
   dart.defineExtensionMethods(FollowedByIterable, ['contains']);
   dart.defineExtensionAccessors(FollowedByIterable, [
     'iterator',
@@ -13677,9 +13444,7 @@ _internal.EfficientLengthFollowedByIterable$ = dart.generic(E => {
   }
   (EfficientLengthFollowedByIterable.new = function(first, second) {
     EfficientLengthFollowedByIterable.__proto__.new.call(this, first, second);
-    ;
   }).prototype = EfficientLengthFollowedByIterable.prototype;
-  ;
   EfficientLengthFollowedByIterable.prototype[_is_EfficientLengthFollowedByIterable_default] = true;
   EfficientLengthFollowedByIterable[dart.implements] = () => [_internal.EfficientLengthIterable$(E)];
   dart.setLibraryUri(EfficientLengthFollowedByIterable, "dart:_internal");
@@ -13710,18 +13475,14 @@ _internal.FollowedByIterator$ = dart.generic(E => {
   (FollowedByIterator.new = function(first, _nextIterable) {
     this[_nextIterable$] = _nextIterable;
     this[_currentIterator] = first[$iterator];
-    ;
   }).prototype = FollowedByIterator.prototype;
-  ;
   FollowedByIterator.prototype[_is_FollowedByIterator_default] = true;
   FollowedByIterator[dart.implements] = () => [core.Iterator$(E)];
-  ;
   dart.setGetterSignature(FollowedByIterator, () => ({
     __proto__: dart.getGetters(FollowedByIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(FollowedByIterator, "dart:_internal");
-  ;
   return FollowedByIterator;
 });
 _internal.FollowedByIterator = _internal.FollowedByIterator$();
@@ -13737,9 +13498,7 @@ _internal.WhereTypeIterable$ = dart.generic(T => {
   (WhereTypeIterable.new = function(_source) {
     this[_source$] = _source;
     WhereTypeIterable.__proto__.new.call(this);
-    ;
   }).prototype = WhereTypeIterable.prototype;
-  ;
   WhereTypeIterable.prototype[_is_WhereTypeIterable_default] = true;
   dart.setGetterSignature(WhereTypeIterable, () => ({
     __proto__: dart.getGetters(WhereTypeIterable.__proto__),
@@ -13747,7 +13506,6 @@ _internal.WhereTypeIterable$ = dart.generic(T => {
     [$iterator]: core.Iterator$(T)
   }));
   dart.setLibraryUri(WhereTypeIterable, "dart:_internal");
-  ;
   dart.defineExtensionAccessors(WhereTypeIterable, ['iterator']);
   return WhereTypeIterable;
 });
@@ -13768,18 +13526,14 @@ _internal.WhereTypeIterator$ = dart.generic(T => {
   }
   (WhereTypeIterator.new = function(_source) {
     this[_source$] = _source;
-    ;
   }).prototype = WhereTypeIterator.prototype;
-  ;
   WhereTypeIterator.prototype[_is_WhereTypeIterator_default] = true;
   WhereTypeIterator[dart.implements] = () => [core.Iterator$(T)];
-  ;
   dart.setGetterSignature(WhereTypeIterator, () => ({
     __proto__: dart.getGetters(WhereTypeIterator.__proto__),
     current: T
   }));
   dart.setLibraryUri(WhereTypeIterator, "dart:_internal");
-  ;
   return WhereTypeIterator;
 });
 _internal.WhereTypeIterator = _internal.WhereTypeIterator$();
@@ -13796,7 +13550,6 @@ _internal.IterableElementError = class IterableElementError extends core.Object 
   }
 };
 (_internal.IterableElementError.new = function() {
-  ;
 }).prototype = _internal.IterableElementError.prototype;
 ;
 dart.setLibraryUri(_internal.IterableElementError, "dart:_internal");
@@ -13850,11 +13603,8 @@ _internal.FixedLengthListMixin$ = dart.generic(E => {
     }
   }
   (FixedLengthListMixin.new = function() {
-    ;
   }).prototype = FixedLengthListMixin.prototype;
-  ;
   FixedLengthListMixin.prototype[_is_FixedLengthListMixin_default] = true;
-  ;
   dart.setSetterSignature(FixedLengthListMixin, () => ({
     __proto__: dart.getSetters(FixedLengthListMixin.__proto__),
     length: core.int,
@@ -13888,9 +13638,7 @@ _internal.FixedLengthListBase$ = dart.generic(E => {
   dart.applyMixin(ListBase_FixedLengthListMixin$36, _internal.FixedLengthListMixin$(E));
   class FixedLengthListBase extends ListBase_FixedLengthListMixin$36 {}
   (FixedLengthListBase.new = function() {
-    ;
   }).prototype = FixedLengthListBase.prototype;
-  ;
   FixedLengthListBase.prototype[_is_FixedLengthListBase_default] = true;
   dart.setLibraryUri(FixedLengthListBase, "dart:_internal");
   return FixedLengthListBase;
@@ -13910,7 +13658,6 @@ _internal._ListIndicesIterable = class _ListIndicesIterable extends _internal.Li
 (_internal._ListIndicesIterable.new = function(_backedList) {
   this[_backedList$] = _backedList;
   _internal._ListIndicesIterable.__proto__.new.call(this);
-  ;
 }).prototype = _internal._ListIndicesIterable.prototype;
 ;
 dart.setLibraryUri(_internal._ListIndicesIterable, "dart:_internal");
@@ -13969,13 +13716,10 @@ collection._UnmodifiableMapMixin$ = dart.generic((K, V) => {
     }
   }
   (_UnmodifiableMapMixin.new = function() {
-    ;
   }).prototype = _UnmodifiableMapMixin.prototype;
   _UnmodifiableMapMixin.prototype[dart.isMap] = true;
-  ;
   _UnmodifiableMapMixin.prototype[_is__UnmodifiableMapMixin_default] = true;
   _UnmodifiableMapMixin[dart.implements] = () => [core.Map$(K, V)];
-  ;
   dart.setLibraryUri(_UnmodifiableMapMixin, "dart:collection");
   dart.defineExtensionMethods(_UnmodifiableMapMixin, [
     '_set',
@@ -14000,9 +13744,7 @@ collection.UnmodifiableMapBase$ = dart.generic((K, V) => {
   dart.applyMixin(MapBase__UnmodifiableMapMixin$36, collection._UnmodifiableMapMixin$(K, V));
   class UnmodifiableMapBase extends MapBase__UnmodifiableMapMixin$36 {}
   (UnmodifiableMapBase.new = function() {
-    ;
   }).prototype = UnmodifiableMapBase.prototype;
-  ;
   UnmodifiableMapBase.prototype[_is_UnmodifiableMapBase_default] = true;
   dart.setLibraryUri(UnmodifiableMapBase, "dart:collection");
   return UnmodifiableMapBase;
@@ -14049,18 +13791,14 @@ _internal.ListMapView$ = dart.generic(E => {
   }
   (ListMapView.new = function(_values) {
     this[_values$] = _values;
-    ;
   }).prototype = ListMapView.prototype;
-  ;
   ListMapView.prototype[_is_ListMapView_default] = true;
-  ;
   dart.setGetterSignature(ListMapView, () => ({
     __proto__: dart.getGetters(ListMapView.__proto__),
     keys: core.Iterable$(core.int),
     [$keys]: core.Iterable$(core.int)
   }));
   dart.setLibraryUri(ListMapView, "dart:_internal");
-  ;
   dart.defineExtensionMethods(ListMapView, ['_get', 'containsValue', 'containsKey', 'forEach']);
   dart.defineExtensionAccessors(ListMapView, [
     'length',
@@ -14086,12 +13824,9 @@ _internal.ReversedListIterable$ = dart.generic(E => {
   (ReversedListIterable.new = function(_source) {
     this[_source$] = _source;
     ReversedListIterable.__proto__.new.call(this);
-    ;
   }).prototype = ReversedListIterable.prototype;
-  ;
   ReversedListIterable.prototype[_is_ReversedListIterable_default] = true;
   dart.setLibraryUri(ReversedListIterable, "dart:_internal");
-  ;
   dart.defineExtensionMethods(ReversedListIterable, ['elementAt']);
   dart.defineExtensionAccessors(ReversedListIterable, ['length']);
   return ReversedListIterable;
@@ -14113,7 +13848,6 @@ _internal.UnmodifiableListError = class UnmodifiableListError extends core.Objec
   }
 };
 (_internal.UnmodifiableListError.new = function() {
-  ;
 }).prototype = _internal.UnmodifiableListError.prototype;
 ;
 dart.setLibraryUri(_internal.UnmodifiableListError, "dart:_internal");
@@ -14129,7 +13863,6 @@ _internal.NonGrowableListError = class NonGrowableListError extends core.Object 
   }
 };
 (_internal.NonGrowableListError.new = function() {
-  ;
 }).prototype = _internal.NonGrowableListError.prototype;
 ;
 dart.setLibraryUri(_internal.NonGrowableListError, "dart:_internal");
@@ -14354,7 +14087,6 @@ _internal.Sort = class Sort extends core.Object {
   }
 };
 (_internal.Sort.new = function() {
-  ;
 }).prototype = _internal.Sort.prototype;
 ;
 dart.setLibraryUri(_internal.Sort, "dart:_internal");
@@ -14404,15 +14136,12 @@ _internal.Symbol = class Symbol extends core.Object {
 };
 (_internal.Symbol.new = function(name) {
   this[_name$] = name;
-  ;
 }).prototype = _internal.Symbol.prototype;
 (_internal.Symbol.unvalidated = function(_name) {
   this[_name$] = _name;
-  ;
 }).prototype = _internal.Symbol.prototype;
 (_internal.Symbol.validated = function(name) {
   this[_name$] = _internal.Symbol.validatePublicSymbol(name);
-  ;
 }).prototype = _internal.Symbol.prototype;
 ;
 _internal.Symbol[dart.implements] = () => [core.Symbol];
@@ -14487,9 +14216,7 @@ collection.IterableBase$ = dart.generic(E => {
   }
   (IterableBase.new = function() {
     IterableBase.__proto__.new.call(this);
-    ;
   }).prototype = IterableBase.prototype;
-  ;
   IterableBase.prototype[_is_IterableBase_default] = true;
   dart.setLibraryUri(IterableBase, "dart:collection");
   return IterableBase;
@@ -14579,18 +14306,14 @@ _internal.LinkedList$ = dart.generic(T => {
     this[last] = null;
     this[length$] = 0;
     LinkedList.__proto__.new.call(this);
-    ;
   }).prototype = LinkedList.prototype;
-  ;
   LinkedList.prototype[_is_LinkedList_default] = true;
-  ;
   dart.setGetterSignature(LinkedList, () => ({
     __proto__: dart.getGetters(LinkedList.__proto__),
     iterator: core.Iterator$(T),
     [$iterator]: core.Iterator$(T)
   }));
   dart.setLibraryUri(LinkedList, "dart:_internal");
-  ;
   dart.defineExtensionAccessors(LinkedList, [
     'first',
     'last',
@@ -14636,13 +14359,9 @@ _internal.LinkedListEntry$ = dart.generic(T => {
     this[_next$] = null;
     this[_previous$] = null;
     this[_list] = null;
-    ;
   }).prototype = LinkedListEntry.prototype;
-  ;
   LinkedListEntry.prototype[_is_LinkedListEntry_default] = true;
-  ;
   dart.setLibraryUri(LinkedListEntry, "dart:_internal");
-  ;
   return LinkedListEntry;
 });
 _internal.LinkedListEntry = _internal.LinkedListEntry$();
@@ -14674,12 +14393,9 @@ _internal._LinkedListIterator$ = dart.generic(T => {
     this[_list$] = _list;
     if (this[_list$].length === 0) this[_list$] = null;
   }).prototype = _LinkedListIterator.prototype;
-  ;
   _LinkedListIterator.prototype[_is__LinkedListIterator_default] = true;
   _LinkedListIterator[dart.implements] = () => [core.Iterator$(T)];
-  ;
   dart.setLibraryUri(_LinkedListIterator, "dart:_internal");
-  ;
   return _LinkedListIterator;
 });
 _internal._LinkedListIterator = _internal._LinkedListIterator$();
@@ -14833,7 +14549,6 @@ dart.defineLazy(_isolate_helper, {
 });
 _js_helper._Patch = class _Patch extends core.Object {};
 (_js_helper._Patch.new = function() {
-  ;
 }).prototype = _js_helper._Patch.prototype;
 ;
 dart.setLibraryUri(_js_helper._Patch, "dart:_js_helper");
@@ -14854,18 +14569,14 @@ _js_helper.DartIterator$ = dart.generic(E => {
   (DartIterator.new = function(_jsIterator) {
     this[_current$0] = null;
     this[_jsIterator$] = _jsIterator;
-    ;
   }).prototype = DartIterator.prototype;
-  ;
   DartIterator.prototype[_is_DartIterator_default] = true;
   DartIterator[dart.implements] = () => [core.Iterator$(E)];
-  ;
   dart.setGetterSignature(DartIterator, () => ({
     __proto__: dart.getGetters(DartIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(DartIterator, "dart:_js_helper");
-  ;
   return DartIterator;
 });
 _js_helper.DartIterator = _js_helper.DartIterator$();
@@ -14885,18 +14596,14 @@ _js_helper.SyncIterable$ = dart.generic(E => {
   (SyncIterable.new = function(_initGenerator) {
     this[_initGenerator$] = _initGenerator;
     SyncIterable.__proto__.new.call(this);
-    ;
   }).prototype = SyncIterable.prototype;
-  ;
   SyncIterable.prototype[_is_SyncIterable_default] = true;
-  ;
   dart.setGetterSignature(SyncIterable, () => ({
     __proto__: dart.getGetters(SyncIterable.__proto__),
     iterator: core.Iterator$(E),
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(SyncIterable, "dart:_js_helper");
-  ;
   dart.defineExtensionAccessors(SyncIterable, ['iterator']);
   return SyncIterable;
 });
@@ -15171,7 +14878,6 @@ _js_helper.Primitives = class Primitives extends core.Object {
   }
 };
 (_js_helper.Primitives.new = function() {
-  ;
 }).prototype = _js_helper.Primitives.prototype;
 ;
 dart.setLibraryUri(_js_helper.Primitives, "dart:_js_helper");
@@ -15223,7 +14929,6 @@ core.Error = class Error extends core.Object {
   }
 };
 (core.Error.new = function() {
-  ;
 }).prototype = core.Error.prototype;
 ;
 dart.setGetterSignature(core.Error, () => ({
@@ -15272,7 +14977,6 @@ _js_helper.JsNoSuchMethodError = class JsNoSuchMethodError extends core.Error {
   this[_method] = match == null ? null : match.method;
   this[_receiver$1] = match == null ? null : match.receiver;
   _js_helper.JsNoSuchMethodError.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper.JsNoSuchMethodError.prototype;
 ;
 _js_helper.JsNoSuchMethodError[dart.implements] = () => [core.NoSuchMethodError];
@@ -15296,7 +15000,6 @@ _js_helper.UnknownJsTypeError = class UnknownJsTypeError extends core.Error {
 (_js_helper.UnknownJsTypeError.new = function(_message) {
   this[_message$] = _message;
   _js_helper.UnknownJsTypeError.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper.UnknownJsTypeError.prototype;
 ;
 dart.setLibraryUri(_js_helper.UnknownJsTypeError, "dart:_js_helper");
@@ -15313,7 +15016,6 @@ _js_helper.Creates = class Creates extends core.Object {
 };
 (_js_helper.Creates.new = function(types) {
   this[types$0] = types;
-  ;
 }).prototype = _js_helper.Creates.prototype;
 ;
 dart.setLibraryUri(_js_helper.Creates, "dart:_js_helper");
@@ -15329,7 +15031,6 @@ _js_helper.Returns = class Returns extends core.Object {
 };
 (_js_helper.Returns.new = function(types) {
   this[types$1] = types;
-  ;
 }).prototype = _js_helper.Returns.prototype;
 ;
 dart.setLibraryUri(_js_helper.Returns, "dart:_js_helper");
@@ -15345,7 +15046,6 @@ _js_helper.JSName = class JSName extends core.Object {
 };
 (_js_helper.JSName.new = function(name) {
   this[name$6] = name;
-  ;
 }).prototype = _js_helper.JSName.prototype;
 ;
 dart.setLibraryUri(_js_helper.JSName, "dart:_js_helper");
@@ -15354,9 +15054,7 @@ const _is_JavaScriptIndexingBehavior_default = Symbol('_is_JavaScriptIndexingBeh
 _js_helper.JavaScriptIndexingBehavior$ = dart.generic(E => {
   class JavaScriptIndexingBehavior extends core.Object {}
   (JavaScriptIndexingBehavior.new = function() {
-    ;
   }).prototype = JavaScriptIndexingBehavior.prototype;
-  ;
   JavaScriptIndexingBehavior.prototype[_is_JavaScriptIndexingBehavior_default] = true;
   dart.setLibraryUri(JavaScriptIndexingBehavior, "dart:_js_helper");
   return JavaScriptIndexingBehavior;
@@ -15378,7 +15076,6 @@ _js_helper.TypeErrorImpl = class TypeErrorImpl extends core.Error {
 (_js_helper.TypeErrorImpl.new = function(message) {
   this[message$] = message;
   _js_helper.TypeErrorImpl.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper.TypeErrorImpl.prototype;
 ;
 _js_helper.TypeErrorImpl[dart.implements] = () => [core.TypeError];
@@ -15400,7 +15097,6 @@ _js_helper.CastErrorImpl = class CastErrorImpl extends core.Error {
 (_js_helper.CastErrorImpl.new = function(message) {
   this[message$0] = message;
   _js_helper.CastErrorImpl.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper.CastErrorImpl.prototype;
 ;
 _js_helper.CastErrorImpl[dart.implements] = () => [core.CastError];
@@ -15414,11 +15110,9 @@ core.FallThroughError = class FallThroughError extends core.Error {
 };
 (core.FallThroughError.new = function() {
   core.FallThroughError.__proto__.new.call(this);
-  ;
 }).prototype = core.FallThroughError.prototype;
 (core.FallThroughError._create = function(url, line) {
   core.FallThroughError.__proto__.new.call(this);
-  ;
 }).prototype = core.FallThroughError.prototype;
 ;
 dart.setLibraryUri(core.FallThroughError, "dart:core");
@@ -15430,7 +15124,6 @@ _js_helper.FallThroughErrorImplementation = class FallThroughErrorImplementation
 };
 (_js_helper.FallThroughErrorImplementation.new = function() {
   _js_helper.FallThroughErrorImplementation.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper.FallThroughErrorImplementation.prototype;
 ;
 dart.setLibraryUri(_js_helper.FallThroughErrorImplementation, "dart:_js_helper");
@@ -15450,7 +15143,6 @@ _js_helper.RuntimeError = class RuntimeError extends core.Error {
 (_js_helper.RuntimeError.new = function(message) {
   this[message$1] = message;
   _js_helper.RuntimeError.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper.RuntimeError.prototype;
 ;
 dart.setLibraryUri(_js_helper.RuntimeError, "dart:_js_helper");
@@ -15476,7 +15168,6 @@ core.AssertionError = class AssertionError extends core.Error {
   if (message === void 0) message = null;
   this[message$2] = message;
   core.AssertionError.__proto__.new.call(this);
-  ;
 }).prototype = core.AssertionError.prototype;
 ;
 dart.setLibraryUri(core.AssertionError, "dart:core");
@@ -15502,7 +15193,6 @@ _js_helper.AssertionErrorImpl = class AssertionErrorImpl extends core.AssertionE
   this[_column$] = _column;
   this[_conditionSource$] = _conditionSource;
   _js_helper.AssertionErrorImpl.__proto__.new.call(this, message);
-  ;
 }).prototype = _js_helper.AssertionErrorImpl.prototype;
 ;
 dart.setLibraryUri(_js_helper.AssertionErrorImpl, "dart:_js_helper");
@@ -15515,7 +15205,6 @@ _js_helper.BooleanConversionAssertionError = class BooleanConversionAssertionErr
 };
 (_js_helper.BooleanConversionAssertionError.new = function() {
   _js_helper.BooleanConversionAssertionError.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper.BooleanConversionAssertionError.prototype;
 ;
 dart.setLibraryUri(_js_helper.BooleanConversionAssertionError, "dart:_js_helper");
@@ -15557,7 +15246,6 @@ _js_helper.PrivateSymbol = class PrivateSymbol extends core.Object {
 (_js_helper.PrivateSymbol.new = function(_name, _nativeSymbol) {
   this[_name$1] = _name;
   this[_nativeSymbol$] = _nativeSymbol;
-  ;
 }).prototype = _js_helper.PrivateSymbol.prototype;
 ;
 _js_helper.PrivateSymbol[dart.implements] = () => [core.Symbol];
@@ -15567,19 +15255,16 @@ dart.defineExtensionMethods(_js_helper.PrivateSymbol, ['_equals', 'toString']);
 dart.defineExtensionAccessors(_js_helper.PrivateSymbol, ['hashCode']);
 _js_helper.ForceInline = class ForceInline extends core.Object {};
 (_js_helper.ForceInline.new = function() {
-  ;
 }).prototype = _js_helper.ForceInline.prototype;
 ;
 dart.setLibraryUri(_js_helper.ForceInline, "dart:_js_helper");
 _js_helper._NotNull = class _NotNull extends core.Object {};
 (_js_helper._NotNull.new = function() {
-  ;
 }).prototype = _js_helper._NotNull.prototype;
 ;
 dart.setLibraryUri(_js_helper._NotNull, "dart:_js_helper");
 _js_helper.NoReifyGeneric = class NoReifyGeneric extends core.Object {};
 (_js_helper.NoReifyGeneric.new = function() {
-  ;
 }).prototype = _js_helper.NoReifyGeneric.prototype;
 ;
 dart.setLibraryUri(_js_helper.NoReifyGeneric, "dart:_js_helper");
@@ -15594,32 +15279,27 @@ _js_helper.ReifyFunctionTypes = class ReifyFunctionTypes extends core.Object {
 };
 (_js_helper.ReifyFunctionTypes.new = function(value) {
   this[value$1] = value;
-  ;
 }).prototype = _js_helper.ReifyFunctionTypes.prototype;
 ;
 dart.setLibraryUri(_js_helper.ReifyFunctionTypes, "dart:_js_helper");
 ;
 _js_helper._NullCheck = class _NullCheck extends core.Object {};
 (_js_helper._NullCheck.new = function() {
-  ;
 }).prototype = _js_helper._NullCheck.prototype;
 ;
 dart.setLibraryUri(_js_helper._NullCheck, "dart:_js_helper");
 _js_helper._Undefined = class _Undefined extends core.Object {};
 (_js_helper._Undefined.new = function() {
-  ;
 }).prototype = _js_helper._Undefined.prototype;
 ;
 dart.setLibraryUri(_js_helper._Undefined, "dart:_js_helper");
 _js_helper.NoThrows = class NoThrows extends core.Object {};
 (_js_helper.NoThrows.new = function() {
-  ;
 }).prototype = _js_helper.NoThrows.prototype;
 ;
 dart.setLibraryUri(_js_helper.NoThrows, "dart:_js_helper");
 _js_helper.NoInline = class NoInline extends core.Object {};
 (_js_helper.NoInline.new = function() {
-  ;
 }).prototype = _js_helper.NoInline.prototype;
 ;
 dart.setLibraryUri(_js_helper.NoInline, "dart:_js_helper");
@@ -15634,7 +15314,6 @@ _js_helper.Native = class Native extends core.Object {
 };
 (_js_helper.Native.new = function(name) {
   this[name$7] = name;
-  ;
 }).prototype = _js_helper.Native.prototype;
 ;
 dart.setLibraryUri(_js_helper.Native, "dart:_js_helper");
@@ -15651,14 +15330,12 @@ _js_helper.JsPeerInterface = class JsPeerInterface extends core.Object {
 (_js_helper.JsPeerInterface.new = function(opts) {
   let name = opts && 'name' in opts ? opts.name : null;
   this[name$8] = name;
-  ;
 }).prototype = _js_helper.JsPeerInterface.prototype;
 ;
 dart.setLibraryUri(_js_helper.JsPeerInterface, "dart:_js_helper");
 ;
 _js_helper.SupportJsExtensionMethods = class SupportJsExtensionMethods extends core.Object {};
 (_js_helper.SupportJsExtensionMethods.new = function() {
-  ;
 }).prototype = _js_helper.SupportJsExtensionMethods.prototype;
 ;
 dart.setLibraryUri(_js_helper.SupportJsExtensionMethods, "dart:_js_helper");
@@ -15678,9 +15355,7 @@ _js_helper.InternalMap$ = dart.generic((K, V) => {
     }
   }
   (InternalMap.new = function() {
-    ;
   }).prototype = InternalMap.prototype;
-  ;
   InternalMap.prototype[_is_InternalMap_default] = true;
   InternalMap[dart.implements] = () => [collection.LinkedHashMap$(K, V), collection.HashMap$(K, V)];
   dart.setLibraryUri(InternalMap, "dart:_js_helper");
@@ -15870,7 +15545,6 @@ _js_helper.LinkedMap$ = dart.generic((K, V) => {
     this[_map] = new Map();
     this[_keyMap] = new Map();
     this[_modifications$] = 0;
-    ;
   }).prototype = LinkedMap.prototype;
   (LinkedMap.from = function(entries) {
     this[_map] = new Map();
@@ -15889,16 +15563,13 @@ _js_helper.LinkedMap$ = dart.generic((K, V) => {
       map.set(key, value);
     }
   }).prototype = LinkedMap.prototype;
-  ;
   LinkedMap.prototype[_is_LinkedMap_default] = true;
-  ;
   dart.setGetterSignature(LinkedMap, () => ({
     __proto__: dart.getGetters(LinkedMap.__proto__),
     keys: core.Iterable$(K),
     [$keys]: core.Iterable$(K)
   }));
   dart.setLibraryUri(LinkedMap, "dart:_js_helper");
-  ;
   dart.defineExtensionMethods(LinkedMap, [
     'containsKey',
     'containsValue',
@@ -15947,9 +15618,7 @@ _js_helper.ImmutableMap$ = dart.generic((K, V) => {
   }
   (ImmutableMap.from = function(entries) {
     ImmutableMap.__proto__.from.call(this, entries);
-    ;
   }).prototype = ImmutableMap.prototype;
-  ;
   ImmutableMap.prototype[_is_ImmutableMap_default] = true;
   dart.setLibraryUri(ImmutableMap, "dart:_js_helper");
   dart.defineExtensionMethods(ImmutableMap, [
@@ -16060,11 +15729,13 @@ _js_helper.IdentityMap$ = dart.generic((K, V) => {
         this[_modifications] = this[_modifications] + 1 & 67108863;
       }
     }
+    innerValue() {
+      return this[_map$0];
+    }
   }
   (IdentityMap.new = function() {
     this[_map$0] = new Map();
     this[_modifications$0] = 0;
-    ;
   }).prototype = IdentityMap.prototype;
   (IdentityMap.from = function(entries) {
     this[_map$0] = new Map();
@@ -16074,16 +15745,13 @@ _js_helper.IdentityMap$ = dart.generic((K, V) => {
       map.set(entries[i], entries[i + 1]);
     }
   }).prototype = IdentityMap.prototype;
-  ;
   IdentityMap.prototype[_is_IdentityMap_default] = true;
-  ;
   dart.setGetterSignature(IdentityMap, () => ({
     __proto__: dart.getGetters(IdentityMap.__proto__),
     keys: core.Iterable$(K),
     [$keys]: core.Iterable$(K)
   }));
   dart.setLibraryUri(IdentityMap, "dart:_js_helper");
-  ;
   dart.defineExtensionMethods(IdentityMap, [
     'containsKey',
     'containsValue',
@@ -16144,18 +15812,14 @@ _js_helper._JSMapIterable$ = dart.generic(E => {
     this[_map$] = _map;
     this[_isKeys$] = _isKeys;
     _JSMapIterable.__proto__.new.call(this);
-    ;
   }).prototype = _JSMapIterable.prototype;
-  ;
   _JSMapIterable.prototype[_is__JSMapIterable_default] = true;
-  ;
   dart.setGetterSignature(_JSMapIterable, () => ({
     __proto__: dart.getGetters(_JSMapIterable.__proto__),
     iterator: core.Iterator$(E),
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(_JSMapIterable, "dart:_js_helper");
-  ;
   dart.defineExtensionMethods(_JSMapIterable, ['contains', 'forEach']);
   dart.defineExtensionAccessors(_JSMapIterable, ['length', 'isEmpty', 'iterator']);
   return _JSMapIterable;
@@ -16332,18 +15996,14 @@ _js_helper.CustomHashMap$ = dart.generic((K, V) => {
     this[_modifications$1] = 0;
     this[_equals$] = _equals;
     this[_hashCode$] = _hashCode;
-    ;
   }).prototype = CustomHashMap.prototype;
-  ;
   CustomHashMap.prototype[_is_CustomHashMap_default] = true;
-  ;
   dart.setGetterSignature(CustomHashMap, () => ({
     __proto__: dart.getGetters(CustomHashMap.__proto__),
     keys: core.Iterable$(K),
     [$keys]: core.Iterable$(K)
   }));
   dart.setLibraryUri(CustomHashMap, "dart:_js_helper");
-  ;
   dart.defineExtensionMethods(CustomHashMap, [
     'containsKey',
     'containsValue',
@@ -16384,12 +16044,9 @@ _js_helper.CustomKeyHashMap$ = dart.generic((K, V) => {
   (CustomKeyHashMap.new = function(equals, hashCode, _validKey) {
     this[_validKey$] = _validKey;
     CustomKeyHashMap.__proto__.new.call(this, equals, hashCode);
-    ;
   }).prototype = CustomKeyHashMap.prototype;
-  ;
   CustomKeyHashMap.prototype[_is_CustomKeyHashMap_default] = true;
   dart.setLibraryUri(CustomKeyHashMap, "dart:_js_helper");
-  ;
   dart.defineExtensionMethods(CustomKeyHashMap, ['containsKey', '_get', 'remove']);
   return CustomKeyHashMap;
 });
@@ -16526,7 +16183,6 @@ _js_helper.JSSyntaxRegExp = class JSSyntaxRegExp extends core.Object {
   this[_nativeAnchoredRegExp] = null;
   this[pattern] = source;
   this[_nativeRegExp] = _js_helper.JSSyntaxRegExp.makeNative(source, multiLine, caseSensitive, unicode, dotAll, false);
-  ;
 }).prototype = _js_helper.JSSyntaxRegExp.prototype;
 ;
 _js_helper.JSSyntaxRegExp[dart.implements] = () => [core.RegExp];
@@ -16617,7 +16273,6 @@ const _string$0 = dart.privateName(_js_helper, "_string");
 const _start$0 = dart.privateName(_js_helper, "_start");
 core.RegExpMatch = class RegExpMatch extends core.Object {};
 (core.RegExpMatch.new = function() {
-  ;
 }).prototype = core.RegExpMatch.prototype;
 ;
 core.RegExpMatch[dart.implements] = () => [core.Match];
@@ -16632,7 +16287,6 @@ _js_helper._AllMatchesIterable = class _AllMatchesIterable extends collection.It
   this[_string$0] = _string;
   this[_start$0] = _start;
   _js_helper._AllMatchesIterable.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper._AllMatchesIterable.prototype;
 ;
 dart.setGetterSignature(_js_helper._AllMatchesIterable, () => ({
@@ -16682,7 +16336,6 @@ _js_helper._AllMatchesIterator = class _AllMatchesIterator extends core.Object {
   this[_regExp$] = _regExp;
   this[_string$0] = _string;
   this[_nextIndex$] = _nextIndex;
-  ;
 }).prototype = _js_helper._AllMatchesIterator.prototype;
 ;
 _js_helper._AllMatchesIterator[dart.implements] = () => [core.Iterator$(core.RegExpMatch)];
@@ -16742,7 +16395,6 @@ _js_helper.StringMatch = class StringMatch extends core.Object {
   this[start$0] = start;
   this[input$] = input;
   this[pattern$] = pattern;
-  ;
 }).prototype = _js_helper.StringMatch.prototype;
 ;
 _js_helper.StringMatch[dart.implements] = () => [core.Match];
@@ -16759,7 +16411,6 @@ const _pattern$ = dart.privateName(_js_helper, "_pattern");
 const _index$0 = dart.privateName(_js_helper, "_index");
 core.Match = class Match extends core.Object {};
 (core.Match.new = function() {
-  ;
 }).prototype = core.Match.prototype;
 ;
 dart.setLibraryUri(core.Match, "dart:core");
@@ -16780,7 +16431,6 @@ _js_helper._StringAllMatchesIterable = class _StringAllMatchesIterable extends c
   this[_pattern$] = _pattern;
   this[_index$0] = _index;
   _js_helper._StringAllMatchesIterable.__proto__.new.call(this);
-  ;
 }).prototype = _js_helper._StringAllMatchesIterable.prototype;
 ;
 dart.setGetterSignature(_js_helper._StringAllMatchesIterable, () => ({
@@ -16818,7 +16468,6 @@ _js_helper._StringAllMatchesIterator = class _StringAllMatchesIterator extends c
   this[_input$] = _input;
   this[_pattern$] = _pattern;
   this[_index$0] = _index;
-  ;
 }).prototype = _js_helper._StringAllMatchesIterator.prototype;
 ;
 _js_helper._StringAllMatchesIterator[dart.implements] = () => [core.Iterator$(core.Match)];
@@ -17171,7 +16820,6 @@ _js_mirrors.JsMirrorSystem = class JsMirrorSystem extends core.Object {
   }
 };
 (_js_mirrors.JsMirrorSystem.new = function() {
-  ;
 }).prototype = _js_mirrors.JsMirrorSystem.prototype;
 ;
 _js_mirrors.JsMirrorSystem[dart.implements] = () => [mirrors.MirrorSystem];
@@ -17191,7 +16839,6 @@ _js_mirrors.JsMirror = class JsMirror extends core.Object {
   }
 };
 (_js_mirrors.JsMirror.new = function() {
-  ;
 }).prototype = _js_mirrors.JsMirror.prototype;
 ;
 _js_mirrors.JsMirror[dart.implements] = () => [mirrors.Mirror];
@@ -17212,7 +16859,6 @@ _js_mirrors.JsCombinatorMirror = class JsCombinatorMirror extends _js_mirrors.Js
   }
 };
 (_js_mirrors.JsCombinatorMirror.new = function() {
-  ;
 }).prototype = _js_mirrors.JsCombinatorMirror.prototype;
 ;
 _js_mirrors.JsCombinatorMirror[dart.implements] = () => [mirrors.CombinatorMirror];
@@ -17254,7 +16900,6 @@ _js_mirrors.JsDeclarationMirror = class JsDeclarationMirror extends _js_mirrors.
   }
 };
 (_js_mirrors.JsDeclarationMirror.new = function() {
-  ;
 }).prototype = _js_mirrors.JsDeclarationMirror.prototype;
 ;
 _js_mirrors.JsDeclarationMirror[dart.implements] = () => [mirrors.DeclarationMirror];
@@ -17288,7 +16933,6 @@ _js_mirrors.JsIsolateMirror = class JsIsolateMirror extends _js_mirrors.JsMirror
   }
 };
 (_js_mirrors.JsIsolateMirror.new = function() {
-  ;
 }).prototype = _js_mirrors.JsIsolateMirror.prototype;
 ;
 _js_mirrors.JsIsolateMirror[dart.implements] = () => [mirrors.IsolateMirror];
@@ -17341,7 +16985,6 @@ _js_mirrors.JsLibraryDependencyMirror = class JsLibraryDependencyMirror extends 
   }
 };
 (_js_mirrors.JsLibraryDependencyMirror.new = function() {
-  ;
 }).prototype = _js_mirrors.JsLibraryDependencyMirror.prototype;
 ;
 _js_mirrors.JsLibraryDependencyMirror[dart.implements] = () => [mirrors.LibraryDependencyMirror];
@@ -17379,7 +17022,6 @@ _js_mirrors.JsObjectMirror = class JsObjectMirror extends _js_mirrors.JsMirror {
   }
 };
 (_js_mirrors.JsObjectMirror.new = function() {
-  ;
 }).prototype = _js_mirrors.JsObjectMirror.prototype;
 ;
 _js_mirrors.JsObjectMirror[dart.implements] = () => [mirrors.ObjectMirror];
@@ -17428,7 +17070,6 @@ _js_mirrors.JsInstanceMirror = class JsInstanceMirror extends _js_mirrors.JsObje
 };
 (_js_mirrors.JsInstanceMirror.__ = function(reflectee) {
   this[reflectee$] = reflectee;
-  ;
 }).prototype = _js_mirrors.JsInstanceMirror.prototype;
 ;
 _js_mirrors.JsInstanceMirror[dart.implements] = () => [mirrors.InstanceMirror];
@@ -17455,7 +17096,6 @@ _js_mirrors.JsClosureMirror = class JsClosureMirror extends _js_mirrors.JsInstan
 };
 (_js_mirrors.JsClosureMirror.__ = function(reflectee) {
   _js_mirrors.JsClosureMirror.__proto__.__.call(this, reflectee);
-  ;
 }).prototype = _js_mirrors.JsClosureMirror.prototype;
 ;
 _js_mirrors.JsClosureMirror[dart.implements] = () => [mirrors.ClosureMirror];
@@ -17816,7 +17456,6 @@ _js_mirrors.JsVariableMirror = class JsVariableMirror extends _js_mirrors.JsMirr
   this[_name$2] = _js_mirrors.getName(symbol);
   this[type] = _js_mirrors.reflectType(t);
   this[metadata$] = ListOfInstanceMirror().unmodifiable((t28$ = (t28 = annotations, t28 == null ? null : t28[$map](dart.dynamic, C79 || CT.C79)), t28$ == null ? [] : t28$));
-  ;
 }).prototype = _js_mirrors.JsVariableMirror.prototype;
 (_js_mirrors.JsVariableMirror._fromField = function(symbol, fieldInfo) {
   _js_mirrors.JsVariableMirror.__.call(this, symbol, dart.wrapType(fieldInfo.type), fieldInfo.metadata, {isFinal: fieldInfo.isFinal});
@@ -17860,7 +17499,6 @@ _js_mirrors.JsParameterMirror = class JsParameterMirror extends _js_mirrors.JsVa
 };
 (_js_mirrors.JsParameterMirror.__ = function(member, t, annotations) {
   _js_mirrors.JsParameterMirror.__proto__.__.call(this, member, t, annotations);
-  ;
 }).prototype = _js_mirrors.JsParameterMirror.prototype;
 ;
 _js_mirrors.JsParameterMirror[dart.implements] = () => [mirrors.ParameterMirror];
@@ -18290,7 +17928,6 @@ _native_typed_data.NativeByteBuffer = class NativeByteBuffer extends core.Object
   }
 };
 (_native_typed_data.NativeByteBuffer.new = function() {
-  ;
 }).prototype = _native_typed_data.NativeByteBuffer.prototype;
 ;
 _native_typed_data.NativeByteBuffer[dart.implements] = () => [typed_data.ByteBuffer];
@@ -19140,11 +18777,9 @@ _native_typed_data.NativeFloat32x4List = class NativeFloat32x4List extends Objec
 };
 (_native_typed_data.NativeFloat32x4List.new = function(length) {
   this[_storage$] = _native_typed_data.NativeFloat32List.new(dart.notNull(length) * 4);
-  ;
 }).prototype = _native_typed_data.NativeFloat32x4List.prototype;
 (_native_typed_data.NativeFloat32x4List._externalStorage = function(_storage) {
   this[_storage$] = _storage;
-  ;
 }).prototype = _native_typed_data.NativeFloat32x4List.prototype;
 (_native_typed_data.NativeFloat32x4List._slowFromList = function(list) {
   this[_storage$] = _native_typed_data.NativeFloat32List.new(dart.notNull(list[$length]) * 4);
@@ -20021,11 +19656,9 @@ _native_typed_data.NativeInt32x4List = class NativeInt32x4List extends Object_Fi
 };
 (_native_typed_data.NativeInt32x4List.new = function(length) {
   this[_storage$] = _native_typed_data.NativeInt32List.new(dart.notNull(length) * 4);
-  ;
 }).prototype = _native_typed_data.NativeInt32x4List.prototype;
 (_native_typed_data.NativeInt32x4List._externalStorage = function(storage) {
   this[_storage$] = storage;
-  ;
 }).prototype = _native_typed_data.NativeInt32x4List.prototype;
 (_native_typed_data.NativeInt32x4List._slowFromList = function(list) {
   this[_storage$] = _native_typed_data.NativeInt32List.new(dart.notNull(list[$length]) * 4);
@@ -20128,11 +19761,9 @@ _native_typed_data.NativeFloat64x2List = class NativeFloat64x2List extends Objec
 };
 (_native_typed_data.NativeFloat64x2List.new = function(length) {
   this[_storage$] = _native_typed_data.NativeFloat64List.new(dart.notNull(length) * 2);
-  ;
 }).prototype = _native_typed_data.NativeFloat64x2List.prototype;
 (_native_typed_data.NativeFloat64x2List._externalStorage = function(_storage) {
   this[_storage$] = _storage;
-  ;
 }).prototype = _native_typed_data.NativeFloat64x2List.prototype;
 (_native_typed_data.NativeFloat64x2List._slowFromList = function(list) {
   this[_storage$] = _native_typed_data.NativeFloat64List.new(dart.notNull(list[$length]) * 2);
@@ -20198,7 +19829,6 @@ _native_typed_data.NativeTypedData = class NativeTypedData extends core.Object {
   }
 };
 (_native_typed_data.NativeTypedData.new = function() {
-  ;
 }).prototype = _native_typed_data.NativeTypedData.prototype;
 ;
 _native_typed_data.NativeTypedData[dart.implements] = () => [typed_data.TypedData];
@@ -20387,7 +20017,6 @@ _native_typed_data.NativeTypedArray = class NativeTypedArray extends _native_typ
   }
 };
 (_native_typed_data.NativeTypedArray.new = function() {
-  ;
 }).prototype = _native_typed_data.NativeTypedArray.prototype;
 ;
 _native_typed_data.NativeTypedArray[dart.implements] = () => [_js_helper.JavaScriptIndexingBehavior];
@@ -20414,7 +20043,6 @@ core.double = class double extends core.num {
   }
 };
 (core.double.new = function() {
-  ;
 }).prototype = core.double.prototype;
 dart.setLibraryUri(core.double, "dart:core");
 dart.defineLazy(core.double, {
@@ -20471,7 +20099,6 @@ _native_typed_data.NativeTypedArrayOfDouble = class NativeTypedArrayOfDouble ext
   }
 };
 (_native_typed_data.NativeTypedArrayOfDouble.new = function() {
-  ;
 }).prototype = _native_typed_data.NativeTypedArrayOfDouble.prototype;
 ;
 ;
@@ -20516,7 +20143,6 @@ _native_typed_data.NativeTypedArrayOfInt = class NativeTypedArrayOfInt extends N
   }
 };
 (_native_typed_data.NativeTypedArrayOfInt.new = function() {
-  ;
 }).prototype = _native_typed_data.NativeTypedArrayOfInt.prototype;
 _native_typed_data.NativeTypedArrayOfInt.prototype[dart.isList] = true;
 ;
@@ -21159,14 +20785,12 @@ _native_typed_data.NativeFloat32x4 = class NativeFloat32x4 extends core.Object {
   this[y$] = core.double._check(_native_typed_data.NativeFloat32x4._truncate(y));
   this[z$] = core.double._check(_native_typed_data.NativeFloat32x4._truncate(z));
   this[w$] = core.double._check(_native_typed_data.NativeFloat32x4._truncate(w));
-  ;
 }).prototype = _native_typed_data.NativeFloat32x4.prototype;
 (_native_typed_data.NativeFloat32x4._truncated = function(x, y, z, w) {
   this[x$] = x;
   this[y$] = y;
   this[z$] = z;
   this[w$] = w;
-  ;
 }).prototype = _native_typed_data.NativeFloat32x4.prototype;
 ;
 _native_typed_data.NativeFloat32x4[dart.implements] = () => [typed_data.Float32x4];
@@ -21377,14 +21001,12 @@ _native_typed_data.NativeInt32x4 = class NativeInt32x4 extends core.Object {
   this[y$0] = dart.test(y) ? -1 : 0;
   this[z$0] = dart.test(z) ? -1 : 0;
   this[w$0] = dart.test(w) ? -1 : 0;
-  ;
 }).prototype = _native_typed_data.NativeInt32x4.prototype;
 (_native_typed_data.NativeInt32x4._truncated = function(x, y, z, w) {
   this[x$0] = x;
   this[y$0] = y;
   this[z$0] = z;
   this[w$0] = w;
-  ;
 }).prototype = _native_typed_data.NativeInt32x4.prototype;
 ;
 _native_typed_data.NativeInt32x4[dart.implements] = () => [typed_data.Int32x4];
@@ -21501,7 +21123,6 @@ _native_typed_data.NativeFloat64x2 = class NativeFloat64x2 extends core.Object {
 (_native_typed_data.NativeFloat64x2._doubles = function(x, y) {
   this[x$1] = x;
   this[y$1] = y;
-  ;
 }).prototype = _native_typed_data.NativeFloat64x2.prototype;
 ;
 _native_typed_data.NativeFloat64x2[dart.implements] = () => [typed_data.Float64x2];
@@ -21727,16 +21348,13 @@ async._AsyncStarImpl$ = dart.generic(T => {
     this.controller = StreamControllerOfT().new({onListen: this.onListen.bind(this), onResume: this.onResume.bind(this), onCancel: this.onCancel.bind(this)});
     this.jsIterator = this.initGenerator(this)[Symbol.iterator]();
   }).prototype = _AsyncStarImpl.prototype;
-  ;
   _AsyncStarImpl.prototype[_is__AsyncStarImpl_default] = true;
-  ;
   dart.setGetterSignature(_AsyncStarImpl, () => ({
     __proto__: dart.getGetters(_AsyncStarImpl.__proto__),
     stream: async.Stream$(T),
     handleError: dart.fnType(core.Null, [core.Object, core.StackTrace])
   }));
   dart.setLibraryUri(_AsyncStarImpl, "dart:async");
-  ;
   return _AsyncStarImpl;
 });
 async._AsyncStarImpl = async._AsyncStarImpl$();
@@ -21766,11 +21384,8 @@ async._StreamImpl$ = dart.generic(T => {
   }
   (_StreamImpl.new = function() {
     _StreamImpl.__proto__.new.call(this);
-    ;
   }).prototype = _StreamImpl.prototype;
-  ;
   _StreamImpl.prototype[_is__StreamImpl_default] = true;
-  ;
   dart.setLibraryUri(_StreamImpl, "dart:async");
   return _StreamImpl;
 });
@@ -21793,13 +21408,9 @@ async._ControllerStream$ = dart.generic(T => {
   (_ControllerStream.new = function(_controller) {
     this[_controller$] = _controller;
     _ControllerStream.__proto__.new.call(this);
-    ;
   }).prototype = _ControllerStream.prototype;
-  ;
   _ControllerStream.prototype[_is__ControllerStream_default] = true;
-  ;
   dart.setLibraryUri(_ControllerStream, "dart:async");
-  ;
   dart.defineExtensionMethods(_ControllerStream, ['_equals']);
   dart.defineExtensionAccessors(_ControllerStream, ['hashCode']);
   return _ControllerStream;
@@ -21815,9 +21426,7 @@ async._BroadcastStream$ = dart.generic(T => {
   }
   (_BroadcastStream.new = function(controller) {
     _BroadcastStream.__proto__.new.call(this, controller);
-    ;
   }).prototype = _BroadcastStream.prototype;
-  ;
   _BroadcastStream.prototype[_is__BroadcastStream_default] = true;
   dart.setLibraryUri(_BroadcastStream, "dart:async");
   return _BroadcastStream;
@@ -22161,10 +21770,8 @@ async._BufferingStreamSubscription$ = dart.generic(T => {
     this.onDone(onDone);
   }).prototype = _BufferingStreamSubscription.prototype;
   _BufferingStreamSubscription.prototype[dart.isStreamSubscription] = true;
-  ;
   _BufferingStreamSubscription.prototype[_is__BufferingStreamSubscription_default] = true;
   _BufferingStreamSubscription[dart.implements] = () => [async.StreamSubscription$(T), async._EventSink$(T), async._EventDispatch$(T)];
-  ;
   dart.setGetterSignature(_BufferingStreamSubscription, () => ({
     __proto__: dart.getGetters(_BufferingStreamSubscription.__proto__),
     [_isInputPaused]: core.bool,
@@ -22180,7 +21787,6 @@ async._BufferingStreamSubscription$ = dart.generic(T => {
     isPaused: core.bool
   }));
   dart.setLibraryUri(_BufferingStreamSubscription, "dart:async");
-  ;
   return _BufferingStreamSubscription;
 });
 async._BufferingStreamSubscription = async._BufferingStreamSubscription$();
@@ -22227,12 +21833,9 @@ async._ControllerSubscription$ = dart.generic(T => {
   (_ControllerSubscription.new = function(_controller, onData, onError, onDone, cancelOnError) {
     this[_controller$] = _controller;
     _ControllerSubscription.__proto__.new.call(this, onData, onError, onDone, cancelOnError);
-    ;
   }).prototype = _ControllerSubscription.prototype;
-  ;
   _ControllerSubscription.prototype[_is__ControllerSubscription_default] = true;
   dart.setLibraryUri(_ControllerSubscription, "dart:async");
-  ;
   return _ControllerSubscription;
 });
 async._ControllerSubscription = async._ControllerSubscription$();
@@ -22283,16 +21886,13 @@ async._BroadcastSubscription$ = dart.generic(T => {
     _BroadcastSubscription.__proto__.new.call(this, controller, onData, onError, onDone, cancelOnError);
     this[_next$0] = this[_previous$0] = this;
   }).prototype = _BroadcastSubscription.prototype;
-  ;
   _BroadcastSubscription.prototype[_is__BroadcastSubscription_default] = true;
-  ;
   dart.setGetterSignature(_BroadcastSubscription, () => ({
     __proto__: dart.getGetters(_BroadcastSubscription.__proto__),
     [_isFiring]: core.bool,
     [_removeAfterFiring]: core.bool
   }));
   dart.setLibraryUri(_BroadcastSubscription, "dart:async");
-  ;
   return _BroadcastSubscription;
 });
 async._BroadcastSubscription = async._BroadcastSubscription$();
@@ -22545,12 +22145,9 @@ async._BroadcastStreamController$ = dart.generic(T => {
     this.onListen = onListen;
     this.onCancel = onCancel;
     this[_state] = 0;
-    ;
   }).prototype = _BroadcastStreamController.prototype;
-  ;
   _BroadcastStreamController.prototype[_is__BroadcastStreamController_default] = true;
   _BroadcastStreamController[dart.implements] = () => [async._StreamControllerBase$(T)];
-  ;
   dart.setGetterSignature(_BroadcastStreamController, () => ({
     __proto__: dart.getGetters(_BroadcastStreamController.__proto__),
     onPause: dart.fnType(dart.void, []),
@@ -22573,7 +22170,6 @@ async._BroadcastStreamController$ = dart.generic(T => {
     onResume: dart.fnType(dart.void, [])
   }));
   dart.setLibraryUri(_BroadcastStreamController, "dart:async");
-  ;
   return _BroadcastStreamController;
 });
 async._BroadcastStreamController = async._BroadcastStreamController$();
@@ -22645,12 +22241,9 @@ async._SyncBroadcastStreamController$ = dart.generic(T => {
   }
   (_SyncBroadcastStreamController.new = function(onListen, onCancel) {
     _SyncBroadcastStreamController.__proto__.new.call(this, onListen, onCancel);
-    ;
   }).prototype = _SyncBroadcastStreamController.prototype;
-  ;
   _SyncBroadcastStreamController.prototype[_is__SyncBroadcastStreamController_default] = true;
   _SyncBroadcastStreamController[dart.implements] = () => [async.SynchronousStreamController$(T)];
-  ;
   dart.setLibraryUri(_SyncBroadcastStreamController, "dart:async");
   return _SyncBroadcastStreamController;
 });
@@ -22684,11 +22277,8 @@ async._AsyncBroadcastStreamController$ = dart.generic(T => {
   }
   (_AsyncBroadcastStreamController.new = function(onListen, onCancel) {
     _AsyncBroadcastStreamController.__proto__.new.call(this, onListen, onCancel);
-    ;
   }).prototype = _AsyncBroadcastStreamController.prototype;
-  ;
   _AsyncBroadcastStreamController.prototype[_is__AsyncBroadcastStreamController_default] = true;
-  ;
   dart.setLibraryUri(_AsyncBroadcastStreamController, "dart:async");
   return _AsyncBroadcastStreamController;
 });
@@ -22751,18 +22341,14 @@ async._AsBroadcastStreamController$ = dart.generic(T => {
   (_AsBroadcastStreamController.new = function(onListen, onCancel) {
     this[_pending$] = null;
     _AsBroadcastStreamController.__proto__.new.call(this, onListen, onCancel);
-    ;
   }).prototype = _AsBroadcastStreamController.prototype;
-  ;
   _AsBroadcastStreamController.prototype[_is__AsBroadcastStreamController_default] = true;
   _AsBroadcastStreamController[dart.implements] = () => [async._EventDispatch$(T)];
-  ;
   dart.setGetterSignature(_AsBroadcastStreamController, () => ({
     __proto__: dart.getGetters(_AsBroadcastStreamController.__proto__),
     [_hasPending]: core.bool
   }));
   dart.setLibraryUri(_AsBroadcastStreamController, "dart:async");
-  ;
   return _AsBroadcastStreamController;
 });
 async._AsBroadcastStreamController = async._AsBroadcastStreamController$();
@@ -22790,7 +22376,6 @@ async.DeferredLibrary = class DeferredLibrary extends core.Object {
   let uri = opts && 'uri' in opts ? opts.uri : null;
   this[libraryName$] = libraryName;
   this[uri$] = uri;
-  ;
 }).prototype = async.DeferredLibrary.prototype;
 ;
 ;
@@ -22804,7 +22389,6 @@ async.DeferredLoadException = class DeferredLoadException extends core.Object {
 };
 (async.DeferredLoadException.new = function(_s) {
   this[_s$] = _s;
-  ;
 }).prototype = async.DeferredLoadException.prototype;
 ;
 async.DeferredLoadException[dart.implements] = () => [core.Exception];
@@ -23047,7 +22631,6 @@ async.Future$ = dart.generic(T => {
   }
   (Future[dart.mixinNew] = function() {
   }).prototype = Future.prototype;
-  ;
   Future.prototype[dart.isFuture] = true;
   dart.setLibraryUri(Future, "dart:async");
   return Future;
@@ -23088,7 +22671,6 @@ async.TimeoutException = class TimeoutException extends core.Object {
   if (duration === void 0) duration = null;
   this[message$3] = message;
   this[duration$] = duration;
-  ;
 }).prototype = async.TimeoutException.prototype;
 ;
 async.TimeoutException[dart.implements] = () => [core.Exception];
@@ -23107,7 +22689,6 @@ async.Completer$ = dart.generic(T => {
   }
   (Completer[dart.mixinNew] = function() {
   }).prototype = Completer.prototype;
-  ;
   Completer.prototype[_is_Completer_default] = true;
   dart.setLibraryUri(Completer, "dart:async");
   return Completer;
@@ -23135,18 +22716,14 @@ async._Completer$ = dart.generic(T => {
   }
   (_Completer.new = function() {
     this.future = new (_FutureOfT()).new();
-    ;
   }).prototype = _Completer.prototype;
-  ;
   _Completer.prototype[_is__Completer_default] = true;
   _Completer[dart.implements] = () => [async.Completer$(T)];
-  ;
   dart.setGetterSignature(_Completer, () => ({
     __proto__: dart.getGetters(_Completer.__proto__),
     isCompleted: core.bool
   }));
   dart.setLibraryUri(_Completer, "dart:async");
-  ;
   return _Completer;
 });
 async._Completer = async._Completer$();
@@ -23167,11 +22744,8 @@ async._AsyncCompleter$ = dart.generic(T => {
   }
   (_AsyncCompleter.new = function() {
     _AsyncCompleter.__proto__.new.call(this);
-    ;
   }).prototype = _AsyncCompleter.prototype;
-  ;
   _AsyncCompleter.prototype[_is__AsyncCompleter_default] = true;
-  ;
   dart.setLibraryUri(_AsyncCompleter, "dart:async");
   return _AsyncCompleter;
 });
@@ -23193,11 +22767,8 @@ async._SyncCompleter$ = dart.generic(T => {
   }
   (_SyncCompleter.new = function() {
     _SyncCompleter.__proto__.new.call(this);
-    ;
   }).prototype = _SyncCompleter.prototype;
-  ;
   _SyncCompleter.prototype[_is__SyncCompleter_default] = true;
-  ;
   dart.setLibraryUri(_SyncCompleter, "dart:async");
   return _SyncCompleter;
 });
@@ -23278,7 +22849,6 @@ async._FutureListener$ = dart.generic((S, T) => {
     this.callback = onValue;
     this.errorCallback = errorCallback;
     this.state = errorCallback == null ? 1 : 3;
-    ;
   }).prototype = _FutureListener.prototype;
   (_FutureListener.thenAwait = function(result, onValue, errorCallback) {
     this[_nextListener] = null;
@@ -23286,7 +22856,6 @@ async._FutureListener$ = dart.generic((S, T) => {
     this.callback = onValue;
     this.errorCallback = errorCallback;
     this.state = ((errorCallback == null ? 1 : 3) | 16) >>> 0;
-    ;
   }).prototype = _FutureListener.prototype;
   (_FutureListener.catchError = function(result, errorCallback, callback) {
     this[_nextListener] = null;
@@ -23294,7 +22863,6 @@ async._FutureListener$ = dart.generic((S, T) => {
     this.errorCallback = errorCallback;
     this.callback = callback;
     this.state = callback == null ? 2 : 6;
-    ;
   }).prototype = _FutureListener.prototype;
   (_FutureListener.whenComplete = function(result, callback) {
     this[_nextListener] = null;
@@ -23302,11 +22870,8 @@ async._FutureListener$ = dart.generic((S, T) => {
     this.callback = callback;
     this.errorCallback = null;
     this.state = 8;
-    ;
   }).prototype = _FutureListener.prototype;
-  ;
   _FutureListener.prototype[_is__FutureListener_default] = true;
-  ;
   dart.setGetterSignature(_FutureListener, () => ({
     __proto__: dart.getGetters(_FutureListener.__proto__),
     [_zone$]: async.Zone,
@@ -23322,7 +22887,6 @@ async._FutureListener$ = dart.generic((S, T) => {
     hasErrorCallback: core.bool
   }));
   dart.setLibraryUri(_FutureListener, "dart:async");
-  ;
   return _FutureListener;
 });
 async._FutureListener = async._FutureListener$();
@@ -23850,7 +23414,6 @@ async._Future$ = dart.generic(T => {
     this[_state] = 0;
     this[_resultOrListeners] = null;
     this[_zone$] = async.Zone.current;
-    ;
   }).prototype = _Future.prototype;
   (_Future.immediate = function(result) {
     this[_state] = 0;
@@ -23875,10 +23438,8 @@ async._Future$ = dart.generic(T => {
     _Future.zoneValue.call(this, value, async.Zone.current);
   }).prototype = _Future.prototype;
   _Future.prototype[dart.isFuture] = true;
-  ;
   _Future.prototype[_is__Future_default] = true;
   _Future[dart.implements] = () => [async.Future$(T)];
-  ;
   dart.setGetterSignature(_Future, () => ({
     __proto__: dart.getGetters(_Future.__proto__),
     [_mayComplete]: core.bool,
@@ -23891,7 +23452,6 @@ async._Future$ = dart.generic(T => {
     [_chainSource]: async._Future
   }));
   dart.setLibraryUri(_Future, "dart:async");
-  ;
   return _Future;
 });
 async._Future = async._Future$();
@@ -23917,7 +23477,6 @@ async._AsyncCallbackEntry = class _AsyncCallbackEntry extends core.Object {};
 (async._AsyncCallbackEntry.new = function(callback) {
   this.next = null;
   this.callback = callback;
-  ;
 }).prototype = async._AsyncCallbackEntry.prototype;
 ;
 dart.setLibraryUri(async._AsyncCallbackEntry, "dart:async");
@@ -23950,7 +23509,6 @@ async._AsyncRun = class _AsyncRun extends core.Object {
   }
 };
 (async._AsyncRun.new = function() {
-  ;
 }).prototype = async._AsyncRun.prototype;
 ;
 dart.setLibraryUri(async._AsyncRun, "dart:async");
@@ -23962,9 +23520,7 @@ dart.defineLazy(async._AsyncRun, {
 async.StreamSubscription$ = dart.generic(T => {
   class StreamSubscription extends core.Object {}
   (StreamSubscription.new = function() {
-    ;
   }).prototype = StreamSubscription.prototype;
-  ;
   StreamSubscription.prototype[dart.isStreamSubscription] = true;
   dart.setLibraryUri(StreamSubscription, "dart:async");
   return StreamSubscription;
@@ -23975,9 +23531,7 @@ const _is_EventSink_default = Symbol('_is_EventSink_default');
 async.EventSink$ = dart.generic(T => {
   class EventSink extends core.Object {}
   (EventSink.new = function() {
-    ;
   }).prototype = EventSink.prototype;
-  ;
   EventSink.prototype[_is_EventSink_default] = true;
   EventSink[dart.implements] = () => [core.Sink$(T)];
   dart.setLibraryUri(EventSink, "dart:async");
@@ -24014,13 +23568,9 @@ async.StreamView$ = dart.generic(T => {
   (StreamView.new = function(stream) {
     this[_stream] = stream;
     StreamView.__proto__._internal.call(this);
-    ;
   }).prototype = StreamView.prototype;
-  ;
   StreamView.prototype[_is_StreamView_default] = true;
-  ;
   dart.setLibraryUri(StreamView, "dart:async");
-  ;
   return StreamView;
 });
 async.StreamView = async.StreamView$();
@@ -24029,9 +23579,7 @@ const _is_StreamConsumer_default = Symbol('_is_StreamConsumer_default');
 async.StreamConsumer$ = dart.generic(S => {
   class StreamConsumer extends core.Object {}
   (StreamConsumer.new = function() {
-    ;
   }).prototype = StreamConsumer.prototype;
-  ;
   StreamConsumer.prototype[_is_StreamConsumer_default] = true;
   dart.setLibraryUri(StreamConsumer, "dart:async");
   return StreamConsumer;
@@ -24042,9 +23590,7 @@ const _is_StreamSink_default = Symbol('_is_StreamSink_default');
 async.StreamSink$ = dart.generic(S => {
   class StreamSink extends core.Object {}
   (StreamSink.new = function() {
-    ;
   }).prototype = StreamSink.prototype;
-  ;
   StreamSink.prototype[_is_StreamSink_default] = true;
   StreamSink[dart.implements] = () => [async.EventSink$(S), async.StreamConsumer$(S)];
   dart.setLibraryUri(StreamSink, "dart:async");
@@ -24061,7 +23607,6 @@ async.StreamTransformer$ = dart.generic((S, T) => {
   }
   (StreamTransformer[dart.mixinNew] = function() {
   }).prototype = StreamTransformer.prototype;
-  ;
   StreamTransformer.prototype[_is_StreamTransformer_default] = true;
   dart.setLibraryUri(StreamTransformer, "dart:async");
   return StreamTransformer;
@@ -24077,7 +23622,6 @@ async.StreamIterator$ = dart.generic(T => {
   }
   (StreamIterator[dart.mixinNew] = function() {
   }).prototype = StreamIterator.prototype;
-  ;
   StreamIterator.prototype[_is_StreamIterator_default] = true;
   dart.setLibraryUri(StreamIterator, "dart:async");
   return StreamIterator;
@@ -24101,14 +23645,10 @@ async._ControllerEventSinkWrapper$ = dart.generic(T => {
   }
   (_ControllerEventSinkWrapper.new = function(_sink) {
     this[_sink$] = _sink;
-    ;
   }).prototype = _ControllerEventSinkWrapper.prototype;
-  ;
   _ControllerEventSinkWrapper.prototype[_is__ControllerEventSinkWrapper_default] = true;
   _ControllerEventSinkWrapper[dart.implements] = () => [async.EventSink$(T)];
-  ;
   dart.setLibraryUri(_ControllerEventSinkWrapper, "dart:async");
-  ;
   return _ControllerEventSinkWrapper;
 });
 async._ControllerEventSinkWrapper = async._ControllerEventSinkWrapper$();
@@ -24133,7 +23673,6 @@ async.StreamController$ = dart.generic(T => {
   }
   (StreamController[dart.mixinNew] = function() {
   }).prototype = StreamController.prototype;
-  ;
   StreamController.prototype[_is_StreamController_default] = true;
   StreamController[dart.implements] = () => [async.StreamSink$(T)];
   dart.setLibraryUri(StreamController, "dart:async");
@@ -24145,9 +23684,7 @@ const _is_SynchronousStreamController_default = Symbol('_is_SynchronousStreamCon
 async.SynchronousStreamController$ = dart.generic(T => {
   class SynchronousStreamController extends core.Object {}
   (SynchronousStreamController.new = function() {
-    ;
   }).prototype = SynchronousStreamController.prototype;
-  ;
   SynchronousStreamController.prototype[_is_SynchronousStreamController_default] = true;
   SynchronousStreamController[dart.implements] = () => [async.StreamController$(T)];
   dart.setLibraryUri(SynchronousStreamController, "dart:async");
@@ -24171,11 +23708,8 @@ async._StreamControllerLifecycle$ = dart.generic(T => {
     }
   }
   (_StreamControllerLifecycle.new = function() {
-    ;
   }).prototype = _StreamControllerLifecycle.prototype;
-  ;
   _StreamControllerLifecycle.prototype[_is__StreamControllerLifecycle_default] = true;
-  ;
   dart.setLibraryUri(_StreamControllerLifecycle, "dart:async");
   return _StreamControllerLifecycle;
 });
@@ -24185,9 +23719,7 @@ const _is__StreamControllerBase_default = Symbol('_is__StreamControllerBase_defa
 async._StreamControllerBase$ = dart.generic(T => {
   class _StreamControllerBase extends core.Object {}
   (_StreamControllerBase.new = function() {
-    ;
   }).prototype = _StreamControllerBase.prototype;
-  ;
   _StreamControllerBase.prototype[_is__StreamControllerBase_default] = true;
   _StreamControllerBase[dart.implements] = () => [async.StreamController$(T), async._StreamControllerLifecycle$(T), async._EventSink$(T), async._EventDispatch$(T)];
   dart.setLibraryUri(_StreamControllerBase, "dart:async");
@@ -24422,12 +23954,9 @@ async._StreamController$ = dart.generic(T => {
     this.onPause = onPause;
     this.onResume = onResume;
     this.onCancel = onCancel;
-    ;
   }).prototype = _StreamController.prototype;
-  ;
   _StreamController.prototype[_is__StreamController_default] = true;
   _StreamController[dart.implements] = () => [async._StreamControllerBase$(T)];
-  ;
   dart.setGetterSignature(_StreamController, () => ({
     __proto__: dart.getGetters(_StreamController.__proto__),
     stream: async.Stream$(T),
@@ -24444,7 +23973,6 @@ async._StreamController$ = dart.generic(T => {
     done: async.Future
   }));
   dart.setLibraryUri(_StreamController, "dart:async");
-  ;
   return _StreamController;
 });
 async._StreamController = async._StreamController$();
@@ -24483,12 +24011,9 @@ async._SyncStreamControllerDispatch$ = dart.generic(T => {
     }
   }
   (_SyncStreamControllerDispatch.new = function() {
-    ;
   }).prototype = _SyncStreamControllerDispatch.prototype;
-  ;
   _SyncStreamControllerDispatch.prototype[_is__SyncStreamControllerDispatch_default] = true;
   _SyncStreamControllerDispatch[dart.implements] = () => [async._StreamController$(T), async.SynchronousStreamController$(T)];
-  ;
   dart.setLibraryUri(_SyncStreamControllerDispatch, "dart:async");
   return _SyncStreamControllerDispatch;
 });
@@ -24509,12 +24034,9 @@ async._AsyncStreamControllerDispatch$ = dart.generic(T => {
     }
   }
   (_AsyncStreamControllerDispatch.new = function() {
-    ;
   }).prototype = _AsyncStreamControllerDispatch.prototype;
-  ;
   _AsyncStreamControllerDispatch.prototype[_is__AsyncStreamControllerDispatch_default] = true;
   _AsyncStreamControllerDispatch[dart.implements] = () => [async._StreamController$(T)];
-  ;
   dart.setLibraryUri(_AsyncStreamControllerDispatch, "dart:async");
   return _AsyncStreamControllerDispatch;
 });
@@ -24530,9 +24052,7 @@ async._AsyncStreamController$ = dart.generic(T => {
   class _AsyncStreamController extends _StreamController__AsyncStreamControllerDispatch$36 {}
   (_AsyncStreamController.new = function(onListen, onPause, onResume, onCancel) {
     _AsyncStreamController.__proto__.new.call(this, onListen, onPause, onResume, onCancel);
-    ;
   }).prototype = _AsyncStreamController.prototype;
-  ;
   _AsyncStreamController.prototype[_is__AsyncStreamController_default] = true;
   dart.setLibraryUri(_AsyncStreamController, "dart:async");
   return _AsyncStreamController;
@@ -24549,9 +24069,7 @@ async._SyncStreamController$ = dart.generic(T => {
   class _SyncStreamController extends _StreamController__SyncStreamControllerDispatch$36 {}
   (_SyncStreamController.new = function(onListen, onPause, onResume, onCancel) {
     _SyncStreamController.__proto__.new.call(this, onListen, onPause, onResume, onCancel);
-    ;
   }).prototype = _SyncStreamController.prototype;
-  ;
   _SyncStreamController.prototype[_is__SyncStreamController_default] = true;
   dart.setLibraryUri(_SyncStreamController, "dart:async");
   return _SyncStreamController;
@@ -24584,18 +24102,14 @@ async._StreamSinkWrapper$ = dart.generic(T => {
   }
   (_StreamSinkWrapper.new = function(_target) {
     this[_target$] = _target;
-    ;
   }).prototype = _StreamSinkWrapper.prototype;
-  ;
   _StreamSinkWrapper.prototype[_is__StreamSinkWrapper_default] = true;
   _StreamSinkWrapper[dart.implements] = () => [async.StreamSink$(T)];
-  ;
   dart.setGetterSignature(_StreamSinkWrapper, () => ({
     __proto__: dart.getGetters(_StreamSinkWrapper.__proto__),
     done: async.Future
   }));
   dart.setLibraryUri(_StreamSinkWrapper, "dart:async");
-  ;
   return _StreamSinkWrapper;
 });
 async._StreamSinkWrapper = async._StreamSinkWrapper$();
@@ -24632,13 +24146,9 @@ async._AddStreamState$ = dart.generic(T => {
   (_AddStreamState.new = function(controller, source, cancelOnError) {
     this.addStreamFuture = new async._Future.new();
     this.addSubscription = source.listen(dart.bind(controller, _add), {onError: core.Function._check(dart.test(cancelOnError) ? async._AddStreamState.makeErrorHandler(controller) : dart.bind(controller, _addError)), onDone: dart.bind(controller, _close), cancelOnError: cancelOnError});
-    ;
   }).prototype = _AddStreamState.prototype;
-  ;
   _AddStreamState.prototype[_is__AddStreamState_default] = true;
-  ;
   dart.setLibraryUri(_AddStreamState, "dart:async");
-  ;
   return _AddStreamState;
 });
 async._AddStreamState = async._AddStreamState$();
@@ -24653,10 +24163,8 @@ async._StreamControllerAddStreamState$ = dart.generic(T => {
       this.addSubscription.pause();
     }
   }).prototype = _StreamControllerAddStreamState.prototype;
-  ;
   _StreamControllerAddStreamState.prototype[_is__StreamControllerAddStreamState_default] = true;
   dart.setLibraryUri(_StreamControllerAddStreamState, "dart:async");
-  ;
   return _StreamControllerAddStreamState;
 });
 async._StreamControllerAddStreamState = async._StreamControllerAddStreamState$();
@@ -24665,9 +24173,7 @@ const _is__EventSink_default = Symbol('_is__EventSink_default');
 async._EventSink$ = dart.generic(T => {
   class _EventSink extends core.Object {}
   (_EventSink.new = function() {
-    ;
   }).prototype = _EventSink.prototype;
-  ;
   _EventSink.prototype[_is__EventSink_default] = true;
   dart.setLibraryUri(_EventSink, "dart:async");
   return _EventSink;
@@ -24678,9 +24184,7 @@ const _is__EventDispatch_default = Symbol('_is__EventDispatch_default');
 async._EventDispatch$ = dart.generic(T => {
   class _EventDispatch extends core.Object {}
   (_EventDispatch.new = function() {
-    ;
   }).prototype = _EventDispatch.prototype;
-  ;
   _EventDispatch.prototype[_is__EventDispatch_default] = true;
   dart.setLibraryUri(_EventDispatch, "dart:async");
   return _EventDispatch;
@@ -24705,12 +24209,9 @@ async._GeneratedStreamImpl$ = dart.generic(T => {
     this[_isUsed] = false;
     this[_pending$] = _pending;
     _GeneratedStreamImpl.__proto__.new.call(this);
-    ;
   }).prototype = _GeneratedStreamImpl.prototype;
-  ;
   _GeneratedStreamImpl.prototype[_is__GeneratedStreamImpl_default] = true;
   dart.setLibraryUri(_GeneratedStreamImpl, "dart:async");
-  ;
   return _GeneratedStreamImpl;
 });
 async._GeneratedStreamImpl = async._GeneratedStreamImpl$();
@@ -24750,18 +24251,14 @@ async._PendingEvents$ = dart.generic(T => {
   }
   (_PendingEvents.new = function() {
     this[_state] = 0;
-    ;
   }).prototype = _PendingEvents.prototype;
-  ;
   _PendingEvents.prototype[_is__PendingEvents_default] = true;
-  ;
   dart.setGetterSignature(_PendingEvents, () => ({
     __proto__: dart.getGetters(_PendingEvents.__proto__),
     isScheduled: core.bool,
     [_eventScheduled]: core.bool
   }));
   dart.setLibraryUri(_PendingEvents, "dart:async");
-  ;
   return _PendingEvents;
 });
 async._PendingEvents = async._PendingEvents$();
@@ -24817,17 +24314,13 @@ async._IterablePendingEvents$ = dart.generic(T => {
   (_IterablePendingEvents.new = function(data) {
     this[_iterator] = data[$iterator];
     _IterablePendingEvents.__proto__.new.call(this);
-    ;
   }).prototype = _IterablePendingEvents.prototype;
-  ;
   _IterablePendingEvents.prototype[_is__IterablePendingEvents_default] = true;
-  ;
   dart.setGetterSignature(_IterablePendingEvents, () => ({
     __proto__: dart.getGetters(_IterablePendingEvents.__proto__),
     isEmpty: core.bool
   }));
   dart.setLibraryUri(_IterablePendingEvents, "dart:async");
-  ;
   return _IterablePendingEvents;
 });
 async._IterablePendingEvents = async._IterablePendingEvents$();
@@ -24837,12 +24330,9 @@ async._DelayedEvent$ = dart.generic(T => {
   class _DelayedEvent extends core.Object {}
   (_DelayedEvent.new = function() {
     this.next = null;
-    ;
   }).prototype = _DelayedEvent.prototype;
-  ;
   _DelayedEvent.prototype[_is__DelayedEvent_default] = true;
   dart.setLibraryUri(_DelayedEvent, "dart:async");
-  ;
   return _DelayedEvent;
 });
 async._DelayedEvent = async._DelayedEvent$();
@@ -24859,13 +24349,9 @@ async._DelayedData$ = dart.generic(T => {
   (_DelayedData.new = function(value) {
     this.value = value;
     _DelayedData.__proto__.new.call(this);
-    ;
   }).prototype = _DelayedData.prototype;
-  ;
   _DelayedData.prototype[_is__DelayedData_default] = true;
-  ;
   dart.setLibraryUri(_DelayedData, "dart:async");
-  ;
   return _DelayedData;
 });
 async._DelayedData = async._DelayedData$();
@@ -24880,7 +24366,6 @@ async._DelayedError = class _DelayedError extends async._DelayedEvent {
   this.error = error;
   this.stackTrace = stackTrace;
   async._DelayedError.__proto__.new.call(this);
-  ;
 }).prototype = async._DelayedError.prototype;
 ;
 ;
@@ -24899,7 +24384,6 @@ async._DelayedDone = class _DelayedDone extends core.Object {
   }
 };
 (async._DelayedDone.new = function() {
-  ;
 }).prototype = async._DelayedDone.prototype;
 ;
 async._DelayedDone[dart.implements] = () => [async._DelayedEvent];
@@ -24946,17 +24430,13 @@ async._StreamImplEvents$ = dart.generic(T => {
     this.firstPendingEvent = null;
     this.lastPendingEvent = null;
     _StreamImplEvents.__proto__.new.call(this);
-    ;
   }).prototype = _StreamImplEvents.prototype;
-  ;
   _StreamImplEvents.prototype[_is__StreamImplEvents_default] = true;
-  ;
   dart.setGetterSignature(_StreamImplEvents, () => ({
     __proto__: dart.getGetters(_StreamImplEvents.__proto__),
     isEmpty: core.bool
   }));
   dart.setLibraryUri(_StreamImplEvents, "dart:async");
-  ;
   return _StreamImplEvents;
 });
 async._StreamImplEvents = async._StreamImplEvents$();
@@ -25026,10 +24506,8 @@ async._DoneStreamSubscription$ = dart.generic(T => {
     this[_schedule]();
   }).prototype = _DoneStreamSubscription.prototype;
   _DoneStreamSubscription.prototype[dart.isStreamSubscription] = true;
-  ;
   _DoneStreamSubscription.prototype[_is__DoneStreamSubscription_default] = true;
   _DoneStreamSubscription[dart.implements] = () => [async.StreamSubscription$(T)];
-  ;
   dart.setGetterSignature(_DoneStreamSubscription, () => ({
     __proto__: dart.getGetters(_DoneStreamSubscription.__proto__),
     [_isSent]: core.bool,
@@ -25037,7 +24515,6 @@ async._DoneStreamSubscription$ = dart.generic(T => {
     isPaused: core.bool
   }));
   dart.setLibraryUri(_DoneStreamSubscription, "dart:async");
-  ;
   return _DoneStreamSubscription;
 });
 async._DoneStreamSubscription = async._DoneStreamSubscription$();
@@ -25128,15 +24605,12 @@ async._AsBroadcastStream$ = dart.generic(T => {
     _AsBroadcastStream.__proto__.new.call(this);
     this[_controller$] = new (_AsBroadcastStreamControllerOfT()).new(dart.bind(this, _onListen$), dart.bind(this, _onCancel));
   }).prototype = _AsBroadcastStream.prototype;
-  ;
   _AsBroadcastStream.prototype[_is__AsBroadcastStream_default] = true;
-  ;
   dart.setGetterSignature(_AsBroadcastStream, () => ({
     __proto__: dart.getGetters(_AsBroadcastStream.__proto__),
     [_isSubscriptionPaused]: core.bool
   }));
   dart.setLibraryUri(_AsBroadcastStream, "dart:async");
-  ;
   return _AsBroadcastStream;
 });
 async._AsBroadcastStream = async._AsBroadcastStream$();
@@ -25174,19 +24648,15 @@ async._BroadcastSubscriptionWrapper$ = dart.generic(T => {
   }
   (_BroadcastSubscriptionWrapper.new = function(_stream) {
     this[_stream$] = _stream;
-    ;
   }).prototype = _BroadcastSubscriptionWrapper.prototype;
   _BroadcastSubscriptionWrapper.prototype[dart.isStreamSubscription] = true;
-  ;
   _BroadcastSubscriptionWrapper.prototype[_is__BroadcastSubscriptionWrapper_default] = true;
   _BroadcastSubscriptionWrapper[dart.implements] = () => [async.StreamSubscription$(T)];
-  ;
   dart.setGetterSignature(_BroadcastSubscriptionWrapper, () => ({
     __proto__: dart.getGetters(_BroadcastSubscriptionWrapper.__proto__),
     isPaused: core.bool
   }));
   dart.setLibraryUri(_BroadcastSubscriptionWrapper, "dart:async");
-  ;
   return _BroadcastSubscriptionWrapper;
 });
 async._BroadcastSubscriptionWrapper = async._BroadcastSubscriptionWrapper$();
@@ -25273,18 +24743,14 @@ async._StreamIterator$ = dart.generic(T => {
     this[_subscription] = null;
     this[_isPaused] = false;
     this[_stateData] = (t43 = stream, t43 == null ? dart.throw(new core.ArgumentError.notNull("stream")) : t43);
-    ;
   }).prototype = _StreamIterator.prototype;
-  ;
   _StreamIterator.prototype[_is__StreamIterator_default] = true;
   _StreamIterator[dart.implements] = () => [async.StreamIterator$(T)];
-  ;
   dart.setGetterSignature(_StreamIterator, () => ({
     __proto__: dart.getGetters(_StreamIterator.__proto__),
     current: T
   }));
   dart.setLibraryUri(_StreamIterator, "dart:async");
-  ;
   return _StreamIterator;
 });
 async._StreamIterator = async._StreamIterator$();
@@ -25305,11 +24771,8 @@ async._EmptyStream$ = dart.generic(T => {
   }
   (_EmptyStream.new = function() {
     _EmptyStream.__proto__._internal.call(this);
-    ;
   }).prototype = _EmptyStream.prototype;
-  ;
   _EmptyStream.prototype[_is__EmptyStream_default] = true;
-  ;
   dart.setLibraryUri(_EmptyStream, "dart:async");
   return _EmptyStream;
 });
@@ -25353,13 +24816,9 @@ async._ForwardingStream$ = dart.generic((S, T) => {
   (_ForwardingStream.new = function(_source) {
     this[_source$4] = _source;
     _ForwardingStream.__proto__.new.call(this);
-    ;
   }).prototype = _ForwardingStream.prototype;
-  ;
   _ForwardingStream.prototype[_is__ForwardingStream_default] = true;
-  ;
   dart.setLibraryUri(_ForwardingStream, "dart:async");
-  ;
   return _ForwardingStream;
 });
 async._ForwardingStream = async._ForwardingStream$();
@@ -25408,11 +24867,8 @@ async._ForwardingStreamSubscription$ = dart.generic((S, T) => {
     _ForwardingStreamSubscription.__proto__.new.call(this, onData, onError, onDone, cancelOnError);
     this[_subscription] = this[_stream$][_source$4].listen(dart.bind(this, _handleData$), {onError: dart.bind(this, _handleError$), onDone: dart.bind(this, _handleDone$)});
   }).prototype = _ForwardingStreamSubscription.prototype;
-  ;
   _ForwardingStreamSubscription.prototype[_is__ForwardingStreamSubscription_default] = true;
-  ;
   dart.setLibraryUri(_ForwardingStreamSubscription, "dart:async");
-  ;
   return _ForwardingStreamSubscription;
 });
 async._ForwardingStreamSubscription = async._ForwardingStreamSubscription$();
@@ -25439,13 +24895,9 @@ async._WhereStream$ = dart.generic(T => {
   (_WhereStream.new = function(source, test) {
     this[_test] = test;
     _WhereStream.__proto__.new.call(this, source);
-    ;
   }).prototype = _WhereStream.prototype;
-  ;
   _WhereStream.prototype[_is__WhereStream_default] = true;
-  ;
   dart.setLibraryUri(_WhereStream, "dart:async");
-  ;
   return _WhereStream;
 });
 async._WhereStream = async._WhereStream$();
@@ -25470,13 +24922,9 @@ async._MapStream$ = dart.generic((S, T) => {
   (_MapStream.new = function(source, transform) {
     this[_transform] = transform;
     _MapStream.__proto__.new.call(this, source);
-    ;
   }).prototype = _MapStream.prototype;
-  ;
   _MapStream.prototype[_is__MapStream_default] = true;
-  ;
   dart.setLibraryUri(_MapStream, "dart:async");
-  ;
   return _MapStream;
 });
 async._MapStream = async._MapStream$();
@@ -25500,13 +24948,9 @@ async._ExpandStream$ = dart.generic((S, T) => {
   (_ExpandStream.new = function(source, expand) {
     this[_expand] = expand;
     _ExpandStream.__proto__.new.call(this, source);
-    ;
   }).prototype = _ExpandStream.prototype;
-  ;
   _ExpandStream.prototype[_is__ExpandStream_default] = true;
-  ;
   dart.setLibraryUri(_ExpandStream, "dart:async");
-  ;
   return _ExpandStream;
 });
 async._ExpandStream = async._ExpandStream$();
@@ -25548,13 +24992,9 @@ async._HandleErrorStream$ = dart.generic(T => {
     this[_transform] = onError;
     this[_test] = test;
     _HandleErrorStream.__proto__.new.call(this, source);
-    ;
   }).prototype = _HandleErrorStream.prototype;
-  ;
   _HandleErrorStream.prototype[_is__HandleErrorStream_default] = true;
-  ;
   dart.setLibraryUri(_HandleErrorStream, "dart:async");
-  ;
   return _HandleErrorStream;
 });
 async._HandleErrorStream = async._HandleErrorStream$();
@@ -25590,11 +25030,8 @@ async._TakeStream$ = dart.generic(T => {
     _TakeStream.__proto__.new.call(this, source);
     core.ArgumentError.checkNotNull(count, "count");
   }).prototype = _TakeStream.prototype;
-  ;
   _TakeStream.prototype[_is__TakeStream_default] = true;
-  ;
   dart.setLibraryUri(_TakeStream, "dart:async");
-  ;
   return _TakeStream;
 });
 async._TakeStream = async._TakeStream$();
@@ -25627,9 +25064,7 @@ async._StateStreamSubscription$ = dart.generic(T => {
   (_StateStreamSubscription.new = function(stream, onData, onError, onDone, cancelOnError, _sharedState) {
     this[_sharedState$] = _sharedState;
     _StateStreamSubscription.__proto__.new.call(this, stream, onData, onError, onDone, cancelOnError);
-    ;
   }).prototype = _StateStreamSubscription.prototype;
-  ;
   _StateStreamSubscription.prototype[_is__StateStreamSubscription_default] = true;
   dart.setGetterSignature(_StateStreamSubscription, () => ({
     __proto__: dart.getGetters(_StateStreamSubscription.__proto__),
@@ -25644,7 +25079,6 @@ async._StateStreamSubscription$ = dart.generic(T => {
     [_value]: core.Object
   }));
   dart.setLibraryUri(_StateStreamSubscription, "dart:async");
-  ;
   return _StateStreamSubscription;
 });
 async._StateStreamSubscription = async._StateStreamSubscription$();
@@ -25673,13 +25107,9 @@ async._TakeWhileStream$ = dart.generic(T => {
   (_TakeWhileStream.new = function(source, test) {
     this[_test] = test;
     _TakeWhileStream.__proto__.new.call(this, source);
-    ;
   }).prototype = _TakeWhileStream.prototype;
-  ;
   _TakeWhileStream.prototype[_is__TakeWhileStream_default] = true;
-  ;
   dart.setLibraryUri(_TakeWhileStream, "dart:async");
-  ;
   return _TakeWhileStream;
 });
 async._TakeWhileStream = async._TakeWhileStream$();
@@ -25707,11 +25137,8 @@ async._SkipStream$ = dart.generic(T => {
     core.ArgumentError.checkNotNull(count, "count");
     core.RangeError.checkNotNegative(count, "count");
   }).prototype = _SkipStream.prototype;
-  ;
   _SkipStream.prototype[_is__SkipStream_default] = true;
-  ;
   dart.setLibraryUri(_SkipStream, "dart:async");
-  ;
   return _SkipStream;
 });
 async._SkipStream = async._SkipStream$();
@@ -25749,13 +25176,9 @@ async._SkipWhileStream$ = dart.generic(T => {
   (_SkipWhileStream.new = function(source, test) {
     this[_test] = test;
     _SkipWhileStream.__proto__.new.call(this, source);
-    ;
   }).prototype = _SkipWhileStream.prototype;
-  ;
   _SkipWhileStream.prototype[_is__SkipWhileStream_default] = true;
-  ;
   dart.setLibraryUri(_SkipWhileStream, "dart:async");
-  ;
   return _SkipWhileStream;
 });
 async._SkipWhileStream = async._SkipWhileStream$();
@@ -25799,13 +25222,9 @@ async._DistinctStream$ = dart.generic(T => {
   (_DistinctStream.new = function(source, equals) {
     this[_equals] = equals;
     _DistinctStream.__proto__.new.call(this, source);
-    ;
   }).prototype = _DistinctStream.prototype;
-  ;
   _DistinctStream.prototype[_is__DistinctStream_default] = true;
-  ;
   dart.setLibraryUri(_DistinctStream, "dart:async");
-  ;
   return _DistinctStream;
 });
 async._DistinctStream = async._DistinctStream$();
@@ -25832,14 +25251,10 @@ async._EventSinkWrapper$ = dart.generic(T => {
   }
   (_EventSinkWrapper.new = function(_sink) {
     this[_sink$] = _sink;
-    ;
   }).prototype = _EventSinkWrapper.prototype;
-  ;
   _EventSinkWrapper.prototype[_is__EventSinkWrapper_default] = true;
   _EventSinkWrapper[dart.implements] = () => [async.EventSink$(T)];
-  ;
   dart.setLibraryUri(_EventSinkWrapper, "dart:async");
-  ;
   return _EventSinkWrapper;
 });
 async._EventSinkWrapper = async._EventSinkWrapper$();
@@ -25928,15 +25343,12 @@ async._SinkTransformerStreamSubscription$ = dart.generic((S, T) => {
     this[_transformerSink] = mapper(eventSink);
     this[_subscription] = source.listen(dart.bind(this, _handleData$), {onError: dart.bind(this, _handleError$), onDone: dart.bind(this, _handleDone$)});
   }).prototype = _SinkTransformerStreamSubscription.prototype;
-  ;
   _SinkTransformerStreamSubscription.prototype[_is__SinkTransformerStreamSubscription_default] = true;
-  ;
   dart.setGetterSignature(_SinkTransformerStreamSubscription, () => ({
     __proto__: dart.getGetters(_SinkTransformerStreamSubscription.__proto__),
     [_isSubscribed]: core.bool
   }));
   dart.setLibraryUri(_SinkTransformerStreamSubscription, "dart:async");
-  ;
   return _SinkTransformerStreamSubscription;
 });
 async._SinkTransformerStreamSubscription = async._SinkTransformerStreamSubscription$();
@@ -25962,13 +25374,9 @@ async._StreamSinkTransformer$ = dart.generic((S, T) => {
   (_StreamSinkTransformer.new = function(_sinkMapper) {
     this[_sinkMapper$0] = _sinkMapper;
     _StreamSinkTransformer.__proto__.new.call(this);
-    ;
   }).prototype = _StreamSinkTransformer.prototype;
-  ;
   _StreamSinkTransformer.prototype[_is__StreamSinkTransformer_default] = true;
-  ;
   dart.setLibraryUri(_StreamSinkTransformer, "dart:async");
-  ;
   return _StreamSinkTransformer;
 });
 async._StreamSinkTransformer = async._StreamSinkTransformer$();
@@ -25993,13 +25401,9 @@ async._BoundSinkStream$ = dart.generic((S, T) => {
     this[_stream$] = _stream;
     this[_sinkMapper$] = _sinkMapper;
     _BoundSinkStream.__proto__.new.call(this);
-    ;
   }).prototype = _BoundSinkStream.prototype;
-  ;
   _BoundSinkStream.prototype[_is__BoundSinkStream_default] = true;
-  ;
   dart.setLibraryUri(_BoundSinkStream, "dart:async");
-  ;
   return _BoundSinkStream;
 });
 async._BoundSinkStream = async._BoundSinkStream$();
@@ -26052,16 +25456,13 @@ async._HandlerEventSink$ = dart.generic((S, T) => {
       dart.throw(new core.ArgumentError.new("The provided sink must not be null."));
     }
   }).prototype = _HandlerEventSink.prototype;
-  ;
   _HandlerEventSink.prototype[_is__HandlerEventSink_default] = true;
   _HandlerEventSink[dart.implements] = () => [async.EventSink$(S)];
-  ;
   dart.setGetterSignature(_HandlerEventSink, () => ({
     __proto__: dart.getGetters(_HandlerEventSink.__proto__),
     [_isClosed]: core.bool
   }));
   dart.setLibraryUri(_HandlerEventSink, "dart:async");
-  ;
   return _HandlerEventSink;
 });
 async._HandlerEventSink = async._HandlerEventSink$();
@@ -26083,9 +25484,7 @@ async._StreamHandlerTransformer$ = dart.generic((S, T) => {
     let handleError = opts && 'handleError' in opts ? opts.handleError : null;
     let handleDone = opts && 'handleDone' in opts ? opts.handleDone : null;
     _StreamHandlerTransformer.__proto__.new.call(this, dart.fn(outputSink => new (_HandlerEventSinkOfS$T()).new(handleData, handleError, handleDone, outputSink), EventSinkOfTTo_HandlerEventSinkOfS$T()));
-    ;
   }).prototype = _StreamHandlerTransformer.prototype;
-  ;
   _StreamHandlerTransformer.prototype[_is__StreamHandlerTransformer_default] = true;
   dart.setLibraryUri(_StreamHandlerTransformer, "dart:async");
   return _StreamHandlerTransformer;
@@ -26105,13 +25504,9 @@ async._StreamBindTransformer$ = dart.generic((S, T) => {
   (_StreamBindTransformer.new = function(_bind) {
     this[_bind$] = _bind;
     _StreamBindTransformer.__proto__.new.call(this);
-    ;
   }).prototype = _StreamBindTransformer.prototype;
-  ;
   _StreamBindTransformer.prototype[_is__StreamBindTransformer_default] = true;
-  ;
   dart.setLibraryUri(_StreamBindTransformer, "dart:async");
-  ;
   return _StreamBindTransformer;
 });
 async._StreamBindTransformer = async._StreamBindTransformer$();
@@ -26136,13 +25531,9 @@ async._StreamSubscriptionTransformer$ = dart.generic((S, T) => {
   (_StreamSubscriptionTransformer.new = function(_onListen) {
     this[_onListen$0] = _onListen;
     _StreamSubscriptionTransformer.__proto__.new.call(this);
-    ;
   }).prototype = _StreamSubscriptionTransformer.prototype;
-  ;
   _StreamSubscriptionTransformer.prototype[_is__StreamSubscriptionTransformer_default] = true;
-  ;
   dart.setLibraryUri(_StreamSubscriptionTransformer, "dart:async");
-  ;
   return _StreamSubscriptionTransformer;
 });
 async._StreamSubscriptionTransformer = async._StreamSubscriptionTransformer$();
@@ -26169,13 +25560,9 @@ async._BoundSubscriptionStream$ = dart.generic((S, T) => {
     this[_stream$] = _stream;
     this[_onListen$] = _onListen;
     _BoundSubscriptionStream.__proto__.new.call(this);
-    ;
   }).prototype = _BoundSubscriptionStream.prototype;
-  ;
   _BoundSubscriptionStream.prototype[_is__BoundSubscriptionStream_default] = true;
-  ;
   dart.setLibraryUri(_BoundSubscriptionStream, "dart:async");
-  ;
   return _BoundSubscriptionStream;
 });
 async._BoundSubscriptionStream = async._BoundSubscriptionStream$();
@@ -26234,7 +25621,6 @@ async.AsyncError = class AsyncError extends core.Object {
 (async.AsyncError.new = function(error, stackTrace) {
   this[error$] = error;
   this[stackTrace$] = stackTrace;
-  ;
 }).prototype = async.AsyncError.prototype;
 ;
 async.AsyncError[dart.implements] = () => [core.Error];
@@ -26263,12 +25649,9 @@ async._ZoneFunction$ = dart.generic(T => {
   (_ZoneFunction.new = function(zone, $function) {
     this[zone$] = zone;
     this[func] = $function;
-    ;
   }).prototype = _ZoneFunction.prototype;
-  ;
   _ZoneFunction.prototype[_is__ZoneFunction_default] = true;
   dart.setLibraryUri(_ZoneFunction, "dart:async");
-  ;
   return _ZoneFunction;
 });
 async._ZoneFunction = async._ZoneFunction$();
@@ -26416,7 +25799,6 @@ async._ZoneSpecification = class _ZoneSpecification extends core.Object {
   this[createPeriodicTimer$] = createPeriodicTimer;
   this[print$] = print;
   this[fork$] = fork;
-  ;
 }).prototype = async._ZoneSpecification.prototype;
 ;
 async._ZoneSpecification[dart.implements] = () => [async.ZoneSpecification];
@@ -26424,7 +25806,6 @@ dart.setLibraryUri(async._ZoneSpecification, "dart:async");
 ;
 async.ZoneDelegate = class ZoneDelegate extends core.Object {};
 (async.ZoneDelegate.new = function() {
-  ;
 }).prototype = async.ZoneDelegate.prototype;
 ;
 dart.setLibraryUri(async.ZoneDelegate, "dart:async");
@@ -26446,7 +25827,6 @@ async.Zone = class Zone extends core.Object {
   }
 };
 (async.Zone.__ = function() {
-  ;
 }).prototype = async.Zone.prototype;
 ;
 dart.setLibraryUri(async.Zone, "dart:async");
@@ -26556,7 +25936,6 @@ async._ZoneDelegate = class _ZoneDelegate extends core.Object {
 };
 (async._ZoneDelegate.new = function(_delegationTarget) {
   this[_delegationTarget$] = _delegationTarget;
-  ;
 }).prototype = async._ZoneDelegate.prototype;
 ;
 async._ZoneDelegate[dart.implements] = () => [async.ZoneDelegate];
@@ -26569,7 +25948,6 @@ async._Zone = class _Zone extends core.Object {
   }
 };
 (async._Zone.new = function() {
-  ;
 }).prototype = async._Zone.prototype;
 ;
 async._Zone[dart.implements] = () => [async.Zone];
@@ -27079,7 +26457,6 @@ async._RootZone = class _RootZone extends async._Zone {
 };
 (async._RootZone.new = function() {
   async._RootZone.__proto__.new.call(this);
-  ;
 }).prototype = async._RootZone.prototype;
 ;
 ;
@@ -27811,12 +27188,9 @@ collection._SetBase$ = dart.generic(E => {
     }
   }
   (_SetBase.new = function() {
-    ;
   }).prototype = _SetBase.prototype;
-  ;
   _SetBase.prototype[_is__SetBase_default] = true;
   _SetBase[dart.implements] = () => [core.Set$(E)];
-  ;
   dart.setGetterSignature(_SetBase, () => ({
     __proto__: dart.getGetters(_SetBase.__proto__),
     isEmpty: core.bool,
@@ -27899,11 +27273,8 @@ collection._InternalSet$ = dart.generic(E => {
   }
   (_InternalSet.new = function() {
     _InternalSet.__proto__.new.call(this);
-    ;
   }).prototype = _InternalSet.prototype;
-  ;
   _InternalSet.prototype[_is__InternalSet_default] = true;
-  ;
   dart.setGetterSignature(_InternalSet, () => ({
     __proto__: dart.getGetters(_InternalSet.__proto__),
     length: core.int,
@@ -28059,14 +27430,10 @@ collection._HashSet$ = dart.generic(E => {
     this[_keyMap$] = new Map();
     this[_modifications$3] = 0;
     _HashSet.__proto__.new.call(this);
-    ;
   }).prototype = _HashSet.prototype;
-  ;
   _HashSet.prototype[_is__HashSet_default] = true;
   _HashSet[dart.implements] = () => [collection.HashSet$(E), collection.LinkedHashSet$(E)];
-  ;
   dart.setLibraryUri(_HashSet, "dart:collection");
-  ;
   dart.defineExtensionMethods(_HashSet, ['contains']);
   return _HashSet;
 });
@@ -28103,7 +27470,6 @@ collection._ImmutableSet$ = dart.generic(E => {
       map.add(key);
     }
   }).prototype = _ImmutableSet.prototype;
-  ;
   _ImmutableSet.prototype[_is__ImmutableSet_default] = true;
   dart.setLibraryUri(_ImmutableSet, "dart:collection");
   return _ImmutableSet;
@@ -28179,14 +27545,10 @@ collection._IdentityHashSet$ = dart.generic(E => {
     this[_map$6] = new Set();
     this[_modifications$4] = 0;
     _IdentityHashSet.__proto__.new.call(this);
-    ;
   }).prototype = _IdentityHashSet.prototype;
-  ;
   _IdentityHashSet.prototype[_is__IdentityHashSet_default] = true;
   _IdentityHashSet[dart.implements] = () => [collection.HashSet$(E), collection.LinkedHashSet$(E)];
-  ;
   dart.setLibraryUri(_IdentityHashSet, "dart:collection");
-  ;
   dart.defineExtensionMethods(_IdentityHashSet, ['contains']);
   return _IdentityHashSet;
 });
@@ -28309,14 +27671,10 @@ collection._CustomHashSet$ = dart.generic(E => {
     this[_equals$0] = _equals;
     this[_hashCode$0] = _hashCode;
     _CustomHashSet.__proto__.new.call(this);
-    ;
   }).prototype = _CustomHashSet.prototype;
-  ;
   _CustomHashSet.prototype[_is__CustomHashSet_default] = true;
   _CustomHashSet[dart.implements] = () => [collection.HashSet$(E), collection.LinkedHashSet$(E)];
-  ;
   dart.setLibraryUri(_CustomHashSet, "dart:collection");
-  ;
   dart.defineExtensionMethods(_CustomHashSet, ['contains']);
   return _CustomHashSet;
 });
@@ -28348,12 +27706,9 @@ collection._CustomKeyHashSet$ = dart.generic(E => {
   (_CustomKeyHashSet.new = function(equals, hashCode, _validKey) {
     this[_validKey$0] = _validKey;
     _CustomKeyHashSet.__proto__.new.call(this, equals, hashCode);
-    ;
   }).prototype = _CustomKeyHashSet.prototype;
-  ;
   _CustomKeyHashSet.prototype[_is__CustomKeyHashSet_default] = true;
   dart.setLibraryUri(_CustomKeyHashSet, "dart:collection");
-  ;
   dart.defineExtensionMethods(_CustomKeyHashSet, ['contains']);
   return _CustomKeyHashSet;
 });
@@ -28378,18 +27733,14 @@ collection.UnmodifiableListView$ = dart.generic(E => {
   }
   (UnmodifiableListView.new = function(source) {
     this[_source] = source;
-    ;
   }).prototype = UnmodifiableListView.prototype;
-  ;
   UnmodifiableListView.prototype[_is_UnmodifiableListView_default] = true;
-  ;
   dart.setGetterSignature(UnmodifiableListView, () => ({
     __proto__: dart.getGetters(UnmodifiableListView.__proto__),
     length: core.int,
     [$length]: core.int
   }));
   dart.setLibraryUri(UnmodifiableListView, "dart:collection");
-  ;
   dart.defineExtensionMethods(UnmodifiableListView, ['cast', '_get']);
   dart.defineExtensionAccessors(UnmodifiableListView, ['length']);
   return UnmodifiableListView;
@@ -28459,7 +27810,6 @@ collection.HashMap$ = dart.generic((K, V) => {
   (HashMap[dart.mixinNew] = function() {
   }).prototype = HashMap.prototype;
   HashMap.prototype[dart.isMap] = true;
-  ;
   HashMap.prototype[_is_HashMap_default] = true;
   HashMap[dart.implements] = () => [core.Map$(K, V)];
   dart.setLibraryUri(HashMap, "dart:collection");
@@ -28510,7 +27860,6 @@ collection.HashSet$ = dart.generic(E => {
   }
   (HashSet[dart.mixinNew] = function() {
   }).prototype = HashSet.prototype;
-  ;
   HashSet.prototype[_is_HashSet_default] = true;
   HashSet[dart.implements] = () => [core.Set$(E)];
   dart.setLibraryUri(HashSet, "dart:collection");
@@ -28733,13 +28082,10 @@ collection.IterableMixin$ = dart.generic(E => {
     }
   }
   (IterableMixin.new = function() {
-    ;
   }).prototype = IterableMixin.prototype;
   IterableMixin.prototype[dart.isIterable] = true;
-  ;
   IterableMixin.prototype[_is_IterableMixin_default] = true;
   IterableMixin[dart.implements] = () => [core.Iterable$(E)];
-  ;
   dart.setGetterSignature(IterableMixin, () => ({
     __proto__: dart.getGetters(IterableMixin.__proto__),
     length: core.int,
@@ -28822,17 +28168,13 @@ collection.HasNextIterator$ = dart.generic(E => {
   (HasNextIterator.new = function(_iterator) {
     this[_state$] = 2;
     this[_iterator$0] = _iterator;
-    ;
   }).prototype = HasNextIterator.prototype;
-  ;
   HasNextIterator.prototype[_is_HasNextIterator_default] = true;
-  ;
   dart.setGetterSignature(HasNextIterator, () => ({
     __proto__: dart.getGetters(HasNextIterator.__proto__),
     hasNext: core.bool
   }));
   dart.setLibraryUri(HasNextIterator, "dart:collection");
-  ;
   return HasNextIterator;
 });
 collection.HasNextIterator = collection.HasNextIterator$();
@@ -28905,7 +28247,6 @@ collection.LinkedHashMap$ = dart.generic((K, V) => {
   (LinkedHashMap[dart.mixinNew] = function() {
   }).prototype = LinkedHashMap.prototype;
   LinkedHashMap.prototype[dart.isMap] = true;
-  ;
   LinkedHashMap.prototype[_is_LinkedHashMap_default] = true;
   LinkedHashMap[dart.implements] = () => [core.Map$(K, V)];
   dart.setLibraryUri(LinkedHashMap, "dart:collection");
@@ -28956,7 +28297,6 @@ collection.LinkedHashSet$ = dart.generic(E => {
   }
   (LinkedHashSet[dart.mixinNew] = function() {
   }).prototype = LinkedHashSet.prototype;
-  ;
   LinkedHashSet.prototype[_is_LinkedHashSet_default] = true;
   LinkedHashSet[dart.implements] = () => [core.Set$(E)];
   dart.setLibraryUri(LinkedHashSet, "dart:collection");
@@ -29096,18 +28436,14 @@ collection.LinkedList$ = dart.generic(E => {
     this[_length$0] = 0;
     this[_first] = null;
     LinkedList.__proto__.new.call(this);
-    ;
   }).prototype = LinkedList.prototype;
-  ;
   LinkedList.prototype[_is_LinkedList_default$] = true;
-  ;
   dart.setGetterSignature(LinkedList, () => ({
     __proto__: dart.getGetters(LinkedList.__proto__),
     iterator: core.Iterator$(E),
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(LinkedList, "dart:collection");
-  ;
   dart.defineExtensionMethods(LinkedList, ['forEach']);
   dart.defineExtensionAccessors(LinkedList, [
     'iterator',
@@ -29149,18 +28485,14 @@ collection._LinkedListIterator$ = dart.generic(E => {
     this[_modificationCount] = list[_modificationCount];
     this[_next$2] = list[_first];
     this[_visitedFirst] = false;
-    ;
   }).prototype = _LinkedListIterator.prototype;
-  ;
   _LinkedListIterator.prototype[_is__LinkedListIterator_default$] = true;
   _LinkedListIterator[dart.implements] = () => [core.Iterator$(E)];
-  ;
   dart.setGetterSignature(_LinkedListIterator, () => ({
     __proto__: dart.getGetters(_LinkedListIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(_LinkedListIterator, "dart:collection");
-  ;
   return _LinkedListIterator;
 });
 collection._LinkedListIterator = collection._LinkedListIterator$();
@@ -29217,11 +28549,8 @@ collection.LinkedListEntry$ = dart.generic(E => {
     this[_list$1] = null;
     this[_next$3] = null;
     this[_previous$3] = null;
-    ;
   }).prototype = LinkedListEntry.prototype;
-  ;
   LinkedListEntry.prototype[_is_LinkedListEntry_default$] = true;
-  ;
   dart.setGetterSignature(LinkedListEntry, () => ({
     __proto__: dart.getGetters(LinkedListEntry.__proto__),
     list: collection.LinkedList$(E),
@@ -29229,7 +28558,6 @@ collection.LinkedListEntry$ = dart.generic(E => {
     previous: E
   }));
   dart.setLibraryUri(LinkedListEntry, "dart:collection");
-  ;
   return LinkedListEntry;
 });
 collection.LinkedListEntry = collection.LinkedListEntry$();
@@ -29263,9 +28591,7 @@ collection._MapBaseValueIterable$ = dart.generic((K, V) => {
   (_MapBaseValueIterable.new = function(_map) {
     this[_map$4] = _map;
     _MapBaseValueIterable.__proto__.new.call(this);
-    ;
   }).prototype = _MapBaseValueIterable.prototype;
-  ;
   _MapBaseValueIterable.prototype[_is__MapBaseValueIterable_default] = true;
   dart.setGetterSignature(_MapBaseValueIterable, () => ({
     __proto__: dart.getGetters(_MapBaseValueIterable.__proto__),
@@ -29273,7 +28599,6 @@ collection._MapBaseValueIterable$ = dart.generic((K, V) => {
     [$iterator]: core.Iterator$(V)
   }));
   dart.setLibraryUri(_MapBaseValueIterable, "dart:collection");
-  ;
   dart.defineExtensionAccessors(_MapBaseValueIterable, [
     'length',
     'isEmpty',
@@ -29307,18 +28632,14 @@ collection._MapBaseValueIterator$ = dart.generic((K, V) => {
     this[_current$1] = null;
     this[_map$4] = map;
     this[_keys] = map[$keys][$iterator];
-    ;
   }).prototype = _MapBaseValueIterator.prototype;
-  ;
   _MapBaseValueIterator.prototype[_is__MapBaseValueIterator_default] = true;
   _MapBaseValueIterator[dart.implements] = () => [core.Iterator$(V)];
-  ;
   dart.setGetterSignature(_MapBaseValueIterator, () => ({
     __proto__: dart.getGetters(_MapBaseValueIterator.__proto__),
     current: V
   }));
   dart.setLibraryUri(_MapBaseValueIterator, "dart:collection");
-  ;
   return _MapBaseValueIterator;
 });
 collection._MapBaseValueIterator = collection._MapBaseValueIterator$();
@@ -29421,13 +28742,10 @@ collection.MapView$ = dart.generic((K, V) => {
   }
   (MapView.new = function(map) {
     this[_map$8] = map;
-    ;
   }).prototype = MapView.prototype;
   MapView.prototype[dart.isMap] = true;
-  ;
   MapView.prototype[_is_MapView_default] = true;
   MapView[dart.implements] = () => [core.Map$(K, V)];
-  ;
   dart.setGetterSignature(MapView, () => ({
     __proto__: dart.getGetters(MapView.__proto__),
     isEmpty: core.bool,
@@ -29444,7 +28762,6 @@ collection.MapView$ = dart.generic((K, V) => {
     [$entries]: core.Iterable$(core.MapEntry$(K, V))
   }));
   dart.setLibraryUri(MapView, "dart:collection");
-  ;
   dart.defineExtensionMethods(MapView, [
     'cast',
     '_get',
@@ -29489,9 +28806,7 @@ collection.UnmodifiableMapView$ = dart.generic((K, V) => {
   }
   (UnmodifiableMapView.new = function(map) {
     UnmodifiableMapView.__proto__.new.call(this, map);
-    ;
   }).prototype = UnmodifiableMapView.prototype;
-  ;
   UnmodifiableMapView.prototype[_is_UnmodifiableMapView_default] = true;
   dart.setLibraryUri(UnmodifiableMapView, "dart:collection");
   dart.defineExtensionMethods(UnmodifiableMapView, ['cast']);
@@ -29511,7 +28826,6 @@ collection.Queue$ = dart.generic(E => {
   }
   (Queue[dart.mixinNew] = function() {
   }).prototype = Queue.prototype;
-  ;
   Queue.prototype[_is_Queue_default] = true;
   Queue[dart.implements] = () => [_internal.EfficientLengthIterable$(E)];
   dart.setLibraryUri(Queue, "dart:collection");
@@ -29555,13 +28869,9 @@ collection._DoubleLink$ = dart.generic(Link => {
   (_DoubleLink.new = function() {
     this[_previousLink$] = null;
     this[_nextLink$] = null;
-    ;
   }).prototype = _DoubleLink.prototype;
-  ;
   _DoubleLink.prototype[_is__DoubleLink_default] = true;
-  ;
   dart.setLibraryUri(_DoubleLink, "dart:collection");
-  ;
   return _DoubleLink;
 });
 collection._DoubleLink = collection._DoubleLink$();
@@ -29599,13 +28909,9 @@ collection.DoubleLinkedQueueEntry$ = dart.generic(E => {
   (DoubleLinkedQueueEntry.new = function(element) {
     this[element$] = element;
     DoubleLinkedQueueEntry.__proto__.new.call(this);
-    ;
   }).prototype = DoubleLinkedQueueEntry.prototype;
-  ;
   DoubleLinkedQueueEntry.prototype[_is_DoubleLinkedQueueEntry_default] = true;
-  ;
   dart.setLibraryUri(DoubleLinkedQueueEntry, "dart:collection");
-  ;
   return DoubleLinkedQueueEntry;
 }, E => {
   dart.setBaseClass(collection.DoubleLinkedQueueEntry$(E), collection._DoubleLink$(collection.DoubleLinkedQueueEntry$(E)));
@@ -29645,17 +28951,13 @@ collection._DoubleLinkedQueueEntry$ = dart.generic(E => {
   (_DoubleLinkedQueueEntry.new = function(element, _queue) {
     this[_queue$] = _queue;
     _DoubleLinkedQueueEntry.__proto__.new.call(this, element);
-    ;
   }).prototype = _DoubleLinkedQueueEntry.prototype;
-  ;
   _DoubleLinkedQueueEntry.prototype[_is__DoubleLinkedQueueEntry_default] = true;
-  ;
   dart.setGetterSignature(_DoubleLinkedQueueEntry, () => ({
     __proto__: dart.getGetters(_DoubleLinkedQueueEntry.__proto__),
     [_element]: E
   }));
   dart.setLibraryUri(_DoubleLinkedQueueEntry, "dart:collection");
-  ;
   return _DoubleLinkedQueueEntry;
 });
 collection._DoubleLinkedQueueEntry = collection._DoubleLinkedQueueEntry$();
@@ -29702,11 +29004,8 @@ collection._DoubleLinkedQueueElement$ = dart.generic(E => {
   }
   (_DoubleLinkedQueueElement.new = function(element, queue) {
     _DoubleLinkedQueueElement.__proto__.new.call(this, element, queue);
-    ;
   }).prototype = _DoubleLinkedQueueElement.prototype;
-  ;
   _DoubleLinkedQueueElement.prototype[_is__DoubleLinkedQueueElement_default] = true;
-  ;
   dart.setLibraryUri(_DoubleLinkedQueueElement, "dart:collection");
   return _DoubleLinkedQueueElement;
 });
@@ -29730,9 +29029,7 @@ collection._DoubleLinkedQueueSentinel$ = dart.generic(E => {
     this[_previousLink] = this;
     this[_nextLink] = this;
   }).prototype = _DoubleLinkedQueueSentinel.prototype;
-  ;
   _DoubleLinkedQueueSentinel.prototype[_is__DoubleLinkedQueueSentinel_default] = true;
-  ;
   dart.setLibraryUri(_DoubleLinkedQueueSentinel, "dart:collection");
   return _DoubleLinkedQueueSentinel;
 });
@@ -29893,17 +29190,14 @@ collection.DoubleLinkedQueue$ = dart.generic(E => {
     DoubleLinkedQueue.__proto__.new.call(this);
     this[_sentinel] = new (_DoubleLinkedQueueSentinelOfE()).new(this);
   }).prototype = DoubleLinkedQueue.prototype;
-  ;
   DoubleLinkedQueue.prototype[_is_DoubleLinkedQueue_default] = true;
   DoubleLinkedQueue[dart.implements] = () => [collection.Queue$(E)];
-  ;
   dart.setGetterSignature(DoubleLinkedQueue, () => ({
     __proto__: dart.getGetters(DoubleLinkedQueue.__proto__),
     iterator: collection._DoubleLinkedQueueIterator$(E),
     [$iterator]: collection._DoubleLinkedQueueIterator$(E)
   }));
   dart.setLibraryUri(DoubleLinkedQueue, "dart:collection");
-  ;
   dart.defineExtensionMethods(DoubleLinkedQueue, ['cast', 'toString']);
   dart.defineExtensionAccessors(DoubleLinkedQueue, [
     'length',
@@ -29946,18 +29240,14 @@ collection._DoubleLinkedQueueIterator$ = dart.generic(E => {
     this[_current$1] = null;
     this[_sentinel] = sentinel;
     this[_nextEntry] = _DoubleLinkedQueueEntryOfE()._check(sentinel[_nextLink]);
-    ;
   }).prototype = _DoubleLinkedQueueIterator.prototype;
-  ;
   _DoubleLinkedQueueIterator.prototype[_is__DoubleLinkedQueueIterator_default] = true;
   _DoubleLinkedQueueIterator[dart.implements] = () => [core.Iterator$(E)];
-  ;
   dart.setGetterSignature(_DoubleLinkedQueueIterator, () => ({
     __proto__: dart.getGetters(_DoubleLinkedQueueIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(_DoubleLinkedQueueIterator, "dart:collection");
-  ;
   return _DoubleLinkedQueueIterator;
 });
 collection._DoubleLinkedQueueIterator = collection._DoubleLinkedQueueIterator$();
@@ -30253,12 +29543,9 @@ collection.ListQueue$ = dart.generic(E => {
     if (!dart.test(collection.ListQueue._isPowerOf2(initialCapacity))) dart.assertFailed(null, "org-dartlang-sdk:///dart-sdk/lib/collection/queue.dart", 530, 12, "_isPowerOf2(initialCapacity)");
     this[_table] = ListOfE().new(initialCapacity);
   }).prototype = ListQueue.prototype;
-  ;
   ListQueue.prototype[_is_ListQueue_default] = true;
   ListQueue[dart.implements] = () => [collection.Queue$(E)];
-  ;
   dart.setLibraryUri(ListQueue, "dart:collection");
-  ;
   dart.defineExtensionMethods(ListQueue, [
     'cast',
     'forEach',
@@ -30308,18 +29595,14 @@ collection._ListQueueIterator$ = dart.generic(E => {
     this[_end] = queue[_tail];
     this[_modificationCount] = queue[_modificationCount];
     this[_position] = queue[_head];
-    ;
   }).prototype = _ListQueueIterator.prototype;
-  ;
   _ListQueueIterator.prototype[_is__ListQueueIterator_default] = true;
   _ListQueueIterator[dart.implements] = () => [core.Iterator$(E)];
-  ;
   dart.setGetterSignature(_ListQueueIterator, () => ({
     __proto__: dart.getGetters(_ListQueueIterator.__proto__),
     current: E
   }));
   dart.setLibraryUri(_ListQueueIterator, "dart:collection");
-  ;
   return _ListQueueIterator;
 });
 collection._ListQueueIterator = collection._ListQueueIterator$();
@@ -30582,12 +29865,9 @@ collection.SetMixin$ = dart.generic(E => {
     }
   }
   (SetMixin.new = function() {
-    ;
   }).prototype = SetMixin.prototype;
-  ;
   SetMixin.prototype[_is_SetMixin_default] = true;
   SetMixin[dart.implements] = () => [core.Set$(E)];
-  ;
   dart.setGetterSignature(SetMixin, () => ({
     __proto__: dart.getGetters(SetMixin.__proto__),
     isEmpty: core.bool,
@@ -30649,9 +29929,7 @@ collection.SetBase$ = dart.generic(E => {
     }
   }
   (SetBase.new = function() {
-    ;
   }).prototype = SetBase.prototype;
-  ;
   SetBase.prototype[_is_SetBase_default] = true;
   dart.setLibraryUri(SetBase, "dart:collection");
   return SetBase;
@@ -30721,11 +29999,8 @@ collection._UnmodifiableSet$ = dart.generic(E => {
   (_UnmodifiableSet.new = function(_map) {
     this[_map$9] = _map;
     _UnmodifiableSet.__proto__.new.call(this);
-    ;
   }).prototype = _UnmodifiableSet.prototype;
-  ;
   _UnmodifiableSet.prototype[_is__UnmodifiableSet_default] = true;
-  ;
   dart.setGetterSignature(_UnmodifiableSet, () => ({
     __proto__: dart.getGetters(_UnmodifiableSet.__proto__),
     iterator: core.Iterator$(E),
@@ -30734,7 +30009,6 @@ collection._UnmodifiableSet$ = dart.generic(E => {
     [$length]: core.int
   }));
   dart.setLibraryUri(_UnmodifiableSet, "dart:collection");
-  ;
   dart.defineExtensionMethods(_UnmodifiableSet, ['contains']);
   dart.defineExtensionAccessors(_UnmodifiableSet, ['iterator', 'length']);
   return _UnmodifiableSet;
@@ -30764,12 +30038,9 @@ collection._SplayTreeNode$ = dart.generic(K => {
     this[left] = null;
     this[right] = null;
     this.key = key;
-    ;
   }).prototype = _SplayTreeNode.prototype;
-  ;
   _SplayTreeNode.prototype[_is__SplayTreeNode_default] = true;
   dart.setLibraryUri(_SplayTreeNode, "dart:collection");
-  ;
   return _SplayTreeNode;
 });
 collection._SplayTreeNode = collection._SplayTreeNode$();
@@ -30788,12 +30059,9 @@ collection._SplayTreeMapNode$ = dart.generic((K, V) => {
   (_SplayTreeMapNode.new = function(key, value) {
     this[value$2] = value;
     _SplayTreeMapNode.__proto__.new.call(this, key);
-    ;
   }).prototype = _SplayTreeMapNode.prototype;
-  ;
   _SplayTreeMapNode.prototype[_is__SplayTreeMapNode_default] = true;
   dart.setLibraryUri(_SplayTreeMapNode, "dart:collection");
-  ;
   return _SplayTreeMapNode;
 });
 collection._SplayTreeMapNode = collection._SplayTreeMapNode$();
@@ -30935,18 +30203,14 @@ collection._SplayTree$ = dart.generic((K, Node) => {
     this[_count$] = 0;
     this[_modificationCount] = 0;
     this[_splayCount] = 0;
-    ;
   }).prototype = _SplayTree.prototype;
-  ;
   _SplayTree.prototype[_is__SplayTree_default] = true;
-  ;
   dart.setGetterSignature(_SplayTree, () => ({
     __proto__: dart.getGetters(_SplayTree.__proto__),
     [_first]: Node,
     [_last]: Node
   }));
   dart.setLibraryUri(_SplayTree, "dart:collection");
-  ;
   return _SplayTree;
 });
 collection._SplayTree = collection._SplayTree$();
@@ -30959,11 +30223,8 @@ collection._TypeTest$ = dart.generic(T => {
     }
   }
   (_TypeTest.new = function() {
-    ;
   }).prototype = _TypeTest.prototype;
-  ;
   _TypeTest.prototype[_is__TypeTest_default] = true;
-  ;
   dart.setLibraryUri(_TypeTest, "dart:collection");
   return _TypeTest;
 });
@@ -31193,7 +30454,6 @@ collection.SplayTreeMap$ = dart.generic((K, V) => {
     this[_comparator$] = (t65 = compare, t65 == null ? collection._defaultCompare(K) : t65);
     this[_validKey] = (t65$ = isValidKey, t65$ == null ? dart.fn(v => K.is(v), dynamicTobool()) : t65$);
     SplayTreeMap.__proto__.new.call(this);
-    ;
   }).prototype = SplayTreeMap.prototype;
   (SplayTreeMap._internal = function() {
     this[_root$] = null;
@@ -31201,18 +30461,14 @@ collection.SplayTreeMap$ = dart.generic((K, V) => {
     this[_validKey] = null;
     this[_comparator$] = null;
     SplayTreeMap.__proto__.new.call(this);
-    ;
   }).prototype = SplayTreeMap.prototype;
-  ;
   SplayTreeMap.prototype[_is_SplayTreeMap_default] = true;
-  ;
   dart.setGetterSignature(SplayTreeMap, () => ({
     __proto__: dart.getGetters(SplayTreeMap.__proto__),
     keys: core.Iterable$(K),
     [$keys]: core.Iterable$(K)
   }));
   dart.setLibraryUri(SplayTreeMap, "dart:collection");
-  ;
   dart.defineExtensionMethods(SplayTreeMap, [
     '_get',
     'remove',
@@ -31306,16 +30562,13 @@ collection._SplayTreeIterator$ = dart.generic((K, T) => {
       this[_workList][$add](tree[_root]);
     }
   }).prototype = _SplayTreeIterator.prototype;
-  ;
   _SplayTreeIterator.prototype[_is__SplayTreeIterator_default] = true;
   _SplayTreeIterator[dart.implements] = () => [core.Iterator$(T)];
-  ;
   dart.setGetterSignature(_SplayTreeIterator, () => ({
     __proto__: dart.getGetters(_SplayTreeIterator.__proto__),
     current: T
   }));
   dart.setLibraryUri(_SplayTreeIterator, "dart:collection");
-  ;
   return _SplayTreeIterator;
 });
 collection._SplayTreeIterator = collection._SplayTreeIterator$();
@@ -31346,9 +30599,7 @@ collection._SplayTreeKeyIterable$ = dart.generic(K => {
   (_SplayTreeKeyIterable.new = function(_tree) {
     this[_tree$] = _tree;
     _SplayTreeKeyIterable.__proto__.new.call(this);
-    ;
   }).prototype = _SplayTreeKeyIterable.prototype;
-  ;
   _SplayTreeKeyIterable.prototype[_is__SplayTreeKeyIterable_default] = true;
   dart.setGetterSignature(_SplayTreeKeyIterable, () => ({
     __proto__: dart.getGetters(_SplayTreeKeyIterable.__proto__),
@@ -31356,7 +30607,6 @@ collection._SplayTreeKeyIterable$ = dart.generic(K => {
     [$iterator]: core.Iterator$(K)
   }));
   dart.setLibraryUri(_SplayTreeKeyIterable, "dart:collection");
-  ;
   dart.defineExtensionMethods(_SplayTreeKeyIterable, ['toSet']);
   dart.defineExtensionAccessors(_SplayTreeKeyIterable, ['length', 'isEmpty', 'iterator']);
   return _SplayTreeKeyIterable;
@@ -31380,9 +30630,7 @@ collection._SplayTreeValueIterable$ = dart.generic((K, V) => {
   (_SplayTreeValueIterable.new = function(_map) {
     this[_map$4] = _map;
     _SplayTreeValueIterable.__proto__.new.call(this);
-    ;
   }).prototype = _SplayTreeValueIterable.prototype;
-  ;
   _SplayTreeValueIterable.prototype[_is__SplayTreeValueIterable_default] = true;
   dart.setGetterSignature(_SplayTreeValueIterable, () => ({
     __proto__: dart.getGetters(_SplayTreeValueIterable.__proto__),
@@ -31390,7 +30638,6 @@ collection._SplayTreeValueIterable$ = dart.generic((K, V) => {
     [$iterator]: core.Iterator$(V)
   }));
   dart.setLibraryUri(_SplayTreeValueIterable, "dart:collection");
-  ;
   dart.defineExtensionAccessors(_SplayTreeValueIterable, ['length', 'isEmpty', 'iterator']);
   return _SplayTreeValueIterable;
 });
@@ -31405,11 +30652,8 @@ collection._SplayTreeKeyIterator$ = dart.generic(K => {
   }
   (_SplayTreeKeyIterator.new = function(map) {
     _SplayTreeKeyIterator.__proto__.new.call(this, map);
-    ;
   }).prototype = _SplayTreeKeyIterator.prototype;
-  ;
   _SplayTreeKeyIterator.prototype[_is__SplayTreeKeyIterator_default] = true;
-  ;
   dart.setLibraryUri(_SplayTreeKeyIterator, "dart:collection");
   return _SplayTreeKeyIterator;
 });
@@ -31426,11 +30670,8 @@ collection._SplayTreeValueIterator$ = dart.generic((K, V) => {
   }
   (_SplayTreeValueIterator.new = function(map) {
     _SplayTreeValueIterator.__proto__.new.call(this, map);
-    ;
   }).prototype = _SplayTreeValueIterator.prototype;
-  ;
   _SplayTreeValueIterator.prototype[_is__SplayTreeValueIterator_default] = true;
-  ;
   dart.setLibraryUri(_SplayTreeValueIterator, "dart:collection");
   return _SplayTreeValueIterator;
 });
@@ -31445,15 +30686,11 @@ collection._SplayTreeNodeIterator$ = dart.generic(K => {
   }
   (_SplayTreeNodeIterator.new = function(tree) {
     _SplayTreeNodeIterator.__proto__.new.call(this, tree);
-    ;
   }).prototype = _SplayTreeNodeIterator.prototype;
   (_SplayTreeNodeIterator.startAt = function(tree, startKey) {
     _SplayTreeNodeIterator.__proto__.startAt.call(this, tree, startKey);
-    ;
   }).prototype = _SplayTreeNodeIterator.prototype;
-  ;
   _SplayTreeNodeIterator.prototype[_is__SplayTreeNodeIterator_default] = true;
-  ;
   dart.setLibraryUri(_SplayTreeNodeIterator, "dart:collection");
   return _SplayTreeNodeIterator;
 });
@@ -31664,18 +30901,14 @@ collection.SplayTreeSet$ = dart.generic(E => {
     this[_comparator$0] = (t65 = compare, t65 == null ? collection._defaultCompare(E) : t65);
     this[_validKey$1] = (t65$ = isValidKey, t65$ == null ? dart.fn(v => E.is(v), dynamicTobool()) : t65$);
     SplayTreeSet.__proto__.new.call(this);
-    ;
   }).prototype = SplayTreeSet.prototype;
-  ;
   SplayTreeSet.prototype[_is_SplayTreeSet_default] = true;
-  ;
   dart.setGetterSignature(SplayTreeSet, () => ({
     __proto__: dart.getGetters(SplayTreeSet.__proto__),
     iterator: core.Iterator$(E),
     [$iterator]: core.Iterator$(E)
   }));
   dart.setLibraryUri(SplayTreeSet, "dart:collection");
-  ;
   dart.defineExtensionMethods(SplayTreeSet, ['cast', 'contains', 'toSet', 'toString']);
   dart.defineExtensionAccessors(SplayTreeSet, [
     'iterator',
@@ -32036,7 +31269,6 @@ convert._JsonMap = class _JsonMap extends collection.MapBase$(core.String, dart.
   this[_processed] = convert._JsonMap._newJavaScriptObject();
   this[_data] = null;
   this[_original$] = _original;
-  ;
 }).prototype = convert._JsonMap.prototype;
 ;
 ;
@@ -32085,7 +31317,6 @@ convert._JsonMapKeyIterable = class _JsonMapKeyIterable extends _internal.ListIt
 (convert._JsonMapKeyIterable.new = function(_parent) {
   this[_parent$] = _parent;
   convert._JsonMapKeyIterable.__proto__.new.call(this);
-  ;
 }).prototype = convert._JsonMapKeyIterable.prototype;
 ;
 dart.setLibraryUri(convert._JsonMapKeyIterable, "dart:convert");
@@ -32108,7 +31339,6 @@ convert.StringConversionSinkMixin = class StringConversionSinkMixin extends core
   }
 };
 (convert.StringConversionSinkMixin.new = function() {
-  ;
 }).prototype = convert.StringConversionSinkMixin.prototype;
 ;
 convert.StringConversionSinkMixin[dart.implements] = () => [convert.StringConversionSink];
@@ -32116,7 +31346,6 @@ convert.StringConversionSinkMixin[dart.implements] = () => [convert.StringConver
 dart.setLibraryUri(convert.StringConversionSinkMixin, "dart:convert");
 convert.StringConversionSinkBase = class StringConversionSinkBase extends convert.StringConversionSinkMixin {};
 (convert.StringConversionSinkBase.new = function() {
-  ;
 }).prototype = convert.StringConversionSinkBase.prototype;
 ;
 dart.setLibraryUri(convert.StringConversionSinkBase, "dart:convert");
@@ -32148,20 +31377,15 @@ convert._StringSinkConversionSink$ = dart.generic(TStringSink => {
   }
   (_StringSinkConversionSink.new = function(_stringSink) {
     this[_stringSink$] = _stringSink;
-    ;
   }).prototype = _StringSinkConversionSink.prototype;
-  ;
   _StringSinkConversionSink.prototype[_is__StringSinkConversionSink_default] = true;
-  ;
   dart.setLibraryUri(_StringSinkConversionSink, "dart:convert");
-  ;
   return _StringSinkConversionSink;
 });
 convert._StringSinkConversionSink = convert._StringSinkConversionSink$();
 ;
 core.StringSink = class StringSink extends core.Object {};
 (core.StringSink.new = function() {
-  ;
 }).prototype = core.StringSink.prototype;
 ;
 dart.setLibraryUri(core.StringSink, "dart:core");
@@ -32180,7 +31404,6 @@ convert._JsonDecoderSink = class _JsonDecoderSink extends convert._StringSinkCon
   this[_reviver$] = _reviver;
   this[_sink$0] = _sink;
   convert._JsonDecoderSink.__proto__.new.call(this, new core.StringBuffer.new(""));
-  ;
 }).prototype = convert._JsonDecoderSink.prototype;
 ;
 dart.setLibraryUri(convert._JsonDecoderSink, "dart:convert");
@@ -32213,11 +31436,8 @@ convert.Codec$ = dart.generic((S, T) => {
     }
   }
   (Codec.new = function() {
-    ;
   }).prototype = Codec.prototype;
-  ;
   Codec.prototype[_is_Codec_default] = true;
-  ;
   dart.setGetterSignature(Codec, () => ({
     __proto__: dart.getGetters(Codec.__proto__),
     inverted: convert.Codec$(T, S)
@@ -32330,7 +31550,6 @@ core.List$ = dart.generic(E => {
   }
   (List[dart.mixinNew] = function() {
   }).prototype = List.prototype;
-  ;
   List.prototype[dart.isList] = true;
   List[dart.implements] = () => [_internal.EfficientLengthIterable$(E)];
   dart.setLibraryUri(List, "dart:core");
@@ -32355,7 +31574,6 @@ convert.Encoding = class Encoding extends convert.Codec$(core.String, core.List$
 };
 (convert.Encoding.new = function() {
   convert.Encoding.__proto__.new.call(this);
-  ;
 }).prototype = convert.Encoding.prototype;
 ;
 ;
@@ -32401,7 +31619,6 @@ convert.AsciiCodec = class AsciiCodec extends convert.Encoding {
   let allowInvalid = opts && 'allowInvalid' in opts ? opts.allowInvalid : false;
   this[_allowInvalid$] = allowInvalid;
   convert.AsciiCodec.__proto__.new.call(this);
-  ;
 }).prototype = convert.AsciiCodec.prototype;
 ;
 ;
@@ -32450,7 +31667,6 @@ convert._UnicodeSubsetEncoder = class _UnicodeSubsetEncoder extends convert.Conv
 (convert._UnicodeSubsetEncoder.new = function(_subsetMask) {
   this[_subsetMask$0] = _subsetMask;
   convert._UnicodeSubsetEncoder.__proto__.new.call(this);
-  ;
 }).prototype = convert._UnicodeSubsetEncoder.prototype;
 ;
 const _subsetMask$0 = _UnicodeSubsetEncoder__subsetMask;
@@ -32460,7 +31676,6 @@ dart.setLibraryUri(convert._UnicodeSubsetEncoder, "dart:convert");
 convert.AsciiEncoder = class AsciiEncoder extends convert._UnicodeSubsetEncoder {};
 (convert.AsciiEncoder.new = function() {
   convert.AsciiEncoder.__proto__.new.call(this, 127);
-  ;
 }).prototype = convert.AsciiEncoder.prototype;
 ;
 dart.setLibraryUri(convert.AsciiEncoder, "dart:convert");
@@ -32485,7 +31700,6 @@ convert._UnicodeSubsetEncoderSink = class _UnicodeSubsetEncoderSink extends conv
 (convert._UnicodeSubsetEncoderSink.new = function(_subsetMask, _sink) {
   this[_subsetMask$] = _subsetMask;
   this[_sink$0] = _sink;
-  ;
 }).prototype = convert._UnicodeSubsetEncoderSink.prototype;
 ;
 ;
@@ -32541,7 +31755,6 @@ convert._UnicodeSubsetDecoder = class _UnicodeSubsetDecoder extends convert.Conv
   this[_allowInvalid$0] = _allowInvalid;
   this[_subsetMask$1] = _subsetMask;
   convert._UnicodeSubsetDecoder.__proto__.new.call(this);
-  ;
 }).prototype = convert._UnicodeSubsetDecoder.prototype;
 ;
 const _allowInvalid$0 = _UnicodeSubsetDecoder__allowInvalid;
@@ -32568,7 +31781,6 @@ convert.AsciiDecoder = class AsciiDecoder extends convert._UnicodeSubsetDecoder 
 (convert.AsciiDecoder.new = function(opts) {
   let allowInvalid = opts && 'allowInvalid' in opts ? opts.allowInvalid : false;
   convert.AsciiDecoder.__proto__.new.call(this, allowInvalid, 127);
-  ;
 }).prototype = convert.AsciiDecoder.prototype;
 ;
 ;
@@ -32579,9 +31791,7 @@ const _is_ChunkedConversionSink_default = Symbol('_is_ChunkedConversionSink_defa
 convert.ChunkedConversionSink$ = dart.generic(T => {
   class ChunkedConversionSink extends core.Object {}
   (ChunkedConversionSink.new = function() {
-    ;
   }).prototype = ChunkedConversionSink.prototype;
-  ;
   ChunkedConversionSink.prototype[_is_ChunkedConversionSink_default] = true;
   ChunkedConversionSink[dart.implements] = () => [core.Sink$(T)];
   dart.setLibraryUri(ChunkedConversionSink, "dart:convert");
@@ -32592,7 +31802,6 @@ convert.ChunkedConversionSink = convert.ChunkedConversionSink$();
 convert.ByteConversionSink = class ByteConversionSink extends convert.ChunkedConversionSink$(core.List$(core.int)) {};
 (convert.ByteConversionSink.new = function() {
   convert.ByteConversionSink.__proto__.new.call(this);
-  ;
 }).prototype = convert.ByteConversionSink.prototype;
 ;
 dart.setLibraryUri(convert.ByteConversionSink, "dart:convert");
@@ -32604,7 +31813,6 @@ convert.ByteConversionSinkBase = class ByteConversionSinkBase extends convert.By
 };
 (convert.ByteConversionSinkBase.new = function() {
   convert.ByteConversionSinkBase.__proto__.new.call(this);
-  ;
 }).prototype = convert.ByteConversionSinkBase.prototype;
 ;
 ;
@@ -32636,7 +31844,6 @@ convert._ErrorHandlingAsciiDecoderSink = class _ErrorHandlingAsciiDecoderSink ex
 (convert._ErrorHandlingAsciiDecoderSink.new = function(_utf8Sink) {
   this[_utf8Sink$] = _utf8Sink;
   convert._ErrorHandlingAsciiDecoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._ErrorHandlingAsciiDecoderSink.prototype;
 ;
 ;
@@ -32670,7 +31877,6 @@ convert._SimpleAsciiDecoderSink = class _SimpleAsciiDecoderSink extends convert.
 (convert._SimpleAsciiDecoderSink.new = function(_sink) {
   this[_sink$0] = _sink;
   convert._SimpleAsciiDecoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._SimpleAsciiDecoderSink.prototype;
 ;
 ;
@@ -32792,12 +31998,10 @@ convert.Base64Codec = class Base64Codec extends convert.Codec$(core.List$(core.i
 (convert.Base64Codec.new = function() {
   this[_encoder$] = C146 || CT.C146;
   convert.Base64Codec.__proto__.new.call(this);
-  ;
 }).prototype = convert.Base64Codec.prototype;
 (convert.Base64Codec.urlSafe = function() {
   this[_encoder$] = C147 || CT.C147;
   convert.Base64Codec.__proto__.new.call(this);
-  ;
 }).prototype = convert.Base64Codec.prototype;
 ;
 ;
@@ -32834,12 +32038,10 @@ convert.Base64Encoder = class Base64Encoder extends convert.Converter$(core.List
 (convert.Base64Encoder.new = function() {
   this[_urlSafe$] = false;
   convert.Base64Encoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.Base64Encoder.prototype;
 (convert.Base64Encoder.urlSafe = function() {
   this[_urlSafe$] = true;
   convert.Base64Encoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.Base64Encoder.prototype;
 ;
 const _urlSafe$ = Base64Encoder__urlSafe;
@@ -32934,7 +32136,6 @@ convert._Base64Encoder = class _Base64Encoder extends core.Object {
 (convert._Base64Encoder.new = function(urlSafe) {
   this[_state$0] = 0;
   this[_alphabet] = dart.test(urlSafe) ? convert._Base64Encoder._base64UrlAlphabet : convert._Base64Encoder._base64Alphabet;
-  ;
 }).prototype = convert._Base64Encoder.prototype;
 ;
 ;
@@ -32968,7 +32169,6 @@ convert._BufferCachingBase64Encoder = class _BufferCachingBase64Encoder extends 
 (convert._BufferCachingBase64Encoder.new = function(urlSafe) {
   this.bufferCache = null;
   convert._BufferCachingBase64Encoder.__proto__.new.call(this, urlSafe);
-  ;
 }).prototype = convert._BufferCachingBase64Encoder.prototype;
 ;
 dart.setLibraryUri(convert._BufferCachingBase64Encoder, "dart:convert");
@@ -32990,7 +32190,6 @@ convert._Base64EncoderSink = class _Base64EncoderSink extends convert.ByteConver
 };
 (convert._Base64EncoderSink.new = function() {
   convert._Base64EncoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._Base64EncoderSink.prototype;
 ;
 ;
@@ -33011,7 +32210,6 @@ convert._AsciiBase64EncoderSink = class _AsciiBase64EncoderSink extends convert.
   this[_sink$0] = _sink;
   this[_encoder] = new convert._BufferCachingBase64Encoder.new(urlSafe);
   convert._AsciiBase64EncoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._AsciiBase64EncoderSink.prototype;
 ;
 ;
@@ -33029,7 +32227,6 @@ convert._Utf8Base64EncoderSink = class _Utf8Base64EncoderSink extends convert._B
   this[_sink$0] = _sink;
   this[_encoder] = new convert._Base64Encoder.new(urlSafe);
   convert._Utf8Base64EncoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._Utf8Base64EncoderSink.prototype;
 ;
 ;
@@ -33054,7 +32251,6 @@ convert.Base64Decoder = class Base64Decoder extends convert.Converter$(core.Stri
 };
 (convert.Base64Decoder.new = function() {
   convert.Base64Decoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.Base64Decoder.prototype;
 ;
 ;
@@ -33246,7 +32442,6 @@ convert._Base64Decoder = class _Base64Decoder extends core.Object {
 };
 (convert._Base64Decoder.new = function() {
   this[_state$0] = 0;
-  ;
 }).prototype = convert._Base64Decoder.prototype;
 ;
 ;
@@ -33310,7 +32505,6 @@ convert._Base64DecoderSink = class _Base64DecoderSink extends convert.StringConv
 (convert._Base64DecoderSink.new = function(_sink) {
   this[_decoder] = new convert._Base64Decoder.new();
   this[_sink$0] = _sink;
-  ;
 }).prototype = convert._Base64DecoderSink.prototype;
 ;
 ;
@@ -33328,7 +32522,6 @@ convert._ByteAdapterSink = class _ByteAdapterSink extends convert.ByteConversion
 (convert._ByteAdapterSink.new = function(_sink) {
   this[_sink$0] = _sink;
   convert._ByteAdapterSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._ByteAdapterSink.prototype;
 ;
 ;
@@ -33371,7 +32564,6 @@ convert._ByteCallbackSink = class _ByteCallbackSink extends convert.ByteConversi
   this[_bufferIndex] = 0;
   this[_callback$] = callback;
   convert._ByteCallbackSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._ByteCallbackSink.prototype;
 ;
 ;
@@ -33399,13 +32591,9 @@ convert._SimpleCallbackSink$ = dart.generic(T => {
     this[_accumulated] = JSArrayOfT().of([]);
     this[_callback$] = _callback;
     _SimpleCallbackSink.__proto__.new.call(this);
-    ;
   }).prototype = _SimpleCallbackSink.prototype;
-  ;
   _SimpleCallbackSink.prototype[_is__SimpleCallbackSink_default] = true;
-  ;
   dart.setLibraryUri(_SimpleCallbackSink, "dart:convert");
-  ;
   return _SimpleCallbackSink;
 });
 convert._SimpleCallbackSink = convert._SimpleCallbackSink$();
@@ -33430,14 +32618,10 @@ convert._ConverterStreamEventSink$ = dart.generic((S, T) => {
   (_ConverterStreamEventSink.new = function(converter, sink) {
     this[_eventSink] = sink;
     this[_chunkedSink$] = converter.startChunkedConversion(sink);
-    ;
   }).prototype = _ConverterStreamEventSink.prototype;
-  ;
   _ConverterStreamEventSink.prototype[_is__ConverterStreamEventSink_default] = true;
   _ConverterStreamEventSink[dart.implements] = () => [async.EventSink$(S)];
-  ;
   dart.setLibraryUri(_ConverterStreamEventSink, "dart:convert");
-  ;
   return _ConverterStreamEventSink;
 });
 convert._ConverterStreamEventSink = convert._ConverterStreamEventSink$();
@@ -33458,9 +32642,7 @@ convert._FusedCodec$ = dart.generic((S, M, T) => {
     this[_first$0] = _first;
     this[_second$0] = _second;
     _FusedCodec.__proto__.new.call(this);
-    ;
   }).prototype = _FusedCodec.prototype;
-  ;
   _FusedCodec.prototype[_is__FusedCodec_default] = true;
   dart.setGetterSignature(_FusedCodec, () => ({
     __proto__: dart.getGetters(_FusedCodec.__proto__),
@@ -33468,7 +32650,6 @@ convert._FusedCodec$ = dart.generic((S, M, T) => {
     decoder: convert.Converter$(T, S)
   }));
   dart.setLibraryUri(_FusedCodec, "dart:convert");
-  ;
   return _FusedCodec;
 });
 convert._FusedCodec = convert._FusedCodec$();
@@ -33490,9 +32671,7 @@ convert._InvertedCodec$ = dart.generic((T, S) => {
   (_InvertedCodec.new = function(codec) {
     this[_codec] = codec;
     _InvertedCodec.__proto__.new.call(this);
-    ;
   }).prototype = _InvertedCodec.prototype;
-  ;
   _InvertedCodec.prototype[_is__InvertedCodec_default] = true;
   dart.setGetterSignature(_InvertedCodec, () => ({
     __proto__: dart.getGetters(_InvertedCodec.__proto__),
@@ -33500,7 +32679,6 @@ convert._InvertedCodec$ = dart.generic((T, S) => {
     decoder: convert.Converter$(S, T)
   }));
   dart.setLibraryUri(_InvertedCodec, "dart:convert");
-  ;
   return _InvertedCodec;
 });
 convert._InvertedCodec = convert._InvertedCodec$();
@@ -33522,13 +32700,9 @@ convert._FusedConverter$ = dart.generic((S, M, T) => {
     this[_first$0] = _first;
     this[_second$0] = _second;
     _FusedConverter.__proto__.new.call(this);
-    ;
   }).prototype = _FusedConverter.prototype;
-  ;
   _FusedConverter.prototype[_is__FusedConverter_default] = true;
-  ;
   dart.setLibraryUri(_FusedConverter, "dart:convert");
-  ;
   return _FusedConverter;
 });
 convert._FusedConverter = convert._FusedConverter$();
@@ -33584,7 +32758,6 @@ convert.HtmlEscapeMode = class HtmlEscapeMode extends core.Object {
   this[escapeQuot$] = escapeQuot;
   this[escapeApos$] = escapeApos;
   this[escapeSlash$] = escapeSlash;
-  ;
 }).prototype = convert.HtmlEscapeMode.prototype;
 (convert.HtmlEscapeMode.new = function(opts) {
   let name = opts && 'name' in opts ? opts.name : "custom";
@@ -33597,7 +32770,6 @@ convert.HtmlEscapeMode = class HtmlEscapeMode extends core.Object {
   this[escapeApos$] = escapeApos;
   this[escapeSlash$] = escapeSlash;
   this[_name$4] = name;
-  ;
 }).prototype = convert.HtmlEscapeMode.prototype;
 ;
 dart.setLibraryUri(convert.HtmlEscapeMode, "dart:convert");
@@ -33688,7 +32860,6 @@ convert.HtmlEscape = class HtmlEscape extends convert.Converter$(core.String, co
   if (mode === void 0) mode = C149 || CT.C149;
   this[mode$] = mode;
   convert.HtmlEscape.__proto__.new.call(this);
-  ;
 }).prototype = convert.HtmlEscape.prototype;
 ;
 ;
@@ -33712,7 +32883,6 @@ convert._HtmlEscapeSink = class _HtmlEscapeSink extends convert.StringConversion
 (convert._HtmlEscapeSink.new = function(_escape, _sink) {
   this[_escape$] = _escape;
   this[_sink$0] = _sink;
-  ;
 }).prototype = convert._HtmlEscapeSink.prototype;
 ;
 ;
@@ -33758,7 +32928,6 @@ convert.JsonUnsupportedObjectError = class JsonUnsupportedObjectError extends co
   this[cause$] = cause;
   this[partialResult$] = partialResult;
   convert.JsonUnsupportedObjectError.__proto__.new.call(this);
-  ;
 }).prototype = convert.JsonUnsupportedObjectError.prototype;
 ;
 dart.setLibraryUri(convert.JsonUnsupportedObjectError, "dart:convert");
@@ -33771,7 +32940,6 @@ convert.JsonCyclicError = class JsonCyclicError extends convert.JsonUnsupportedO
 };
 (convert.JsonCyclicError.new = function(object) {
   convert.JsonCyclicError.__proto__.new.call(this, object);
-  ;
 }).prototype = convert.JsonCyclicError.prototype;
 ;
 dart.setLibraryUri(convert.JsonCyclicError, "dart:convert");
@@ -33825,7 +32993,6 @@ convert.JsonCodec = class JsonCodec extends convert.Codec$(core.Object, core.Str
   this[_reviver] = reviver;
   this[_toEncodable] = toEncodable;
   convert.JsonCodec.__proto__.new.call(this);
-  ;
 }).prototype = convert.JsonCodec.prototype;
 (convert.JsonCodec.withReviver = function(reviver) {
   convert.JsonCodec.new.call(this, {reviver: reviver});
@@ -33879,14 +33046,12 @@ convert.JsonEncoder = class JsonEncoder extends convert.Converter$(core.Object, 
   this[indent$] = null;
   this[_toEncodable$0] = toEncodable;
   convert.JsonEncoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.JsonEncoder.prototype;
 (convert.JsonEncoder.withIndent = function(indent, toEncodable) {
   if (toEncodable === void 0) toEncodable = null;
   this[indent$] = indent;
   this[_toEncodable$0] = toEncodable;
   convert.JsonEncoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.JsonEncoder.prototype;
 ;
 const indent$ = JsonEncoder_indent;
@@ -33956,7 +33121,6 @@ convert.JsonUtf8Encoder = class JsonUtf8Encoder extends convert.Converter$(core.
   this[_toEncodable$] = toEncodable;
   this[_bufferSize$] = bufferSize;
   convert.JsonUtf8Encoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.JsonUtf8Encoder.prototype;
 ;
 ;
@@ -33990,7 +33154,6 @@ convert._JsonEncoderSink = class _JsonEncoderSink extends convert.ChunkedConvers
   this[_toEncodable$] = _toEncodable;
   this[_indent$] = _indent;
   convert._JsonEncoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._JsonEncoderSink.prototype;
 ;
 ;
@@ -34023,7 +33186,6 @@ convert._JsonUtf8EncoderSink = class _JsonUtf8EncoderSink extends convert.Chunke
   this[_indent$] = _indent;
   this[_bufferSize$] = _bufferSize;
   convert._JsonUtf8EncoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._JsonUtf8EncoderSink.prototype;
 ;
 ;
@@ -34052,7 +33214,6 @@ convert.JsonDecoder = class JsonDecoder extends convert.Converter$(core.String, 
   if (reviver === void 0) reviver = null;
   this[_reviver$0] = reviver;
   convert.JsonDecoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.JsonDecoder.prototype;
 ;
 const _reviver$0 = JsonDecoder__reviver;
@@ -34232,7 +33393,6 @@ convert._JsonStringifier = class _JsonStringifier extends core.Object {
   let t66;
   this[_seen] = [];
   this[_toEncodable$] = (t66 = toEncodable, t66 == null ? C155 || CT.C155 : t66);
-  ;
 }).prototype = convert._JsonStringifier.prototype;
 ;
 ;
@@ -34341,7 +33501,6 @@ convert._JsonPrettyPrintMixin = class _JsonPrettyPrintMixin extends core.Object 
 };
 (convert._JsonPrettyPrintMixin.new = function() {
   this[_indentLevel] = 0;
-  ;
 }).prototype = convert._JsonPrettyPrintMixin.prototype;
 ;
 convert._JsonPrettyPrintMixin[dart.implements] = () => [convert._JsonStringifier];
@@ -34382,7 +33541,6 @@ convert._JsonStringStringifier = class _JsonStringStringifier extends convert._J
 (convert._JsonStringStringifier.new = function(_sink, _toEncodable) {
   this[_sink$0] = _sink;
   convert._JsonStringStringifier.__proto__.new.call(this, _toEncodable);
-  ;
 }).prototype = convert._JsonStringStringifier.prototype;
 ;
 ;
@@ -34407,7 +33565,6 @@ convert._JsonStringStringifierPretty = class _JsonStringStringifierPretty extend
 (convert._JsonStringStringifierPretty.new = function(sink, toEncodable, _indent) {
   this[_indent$] = _indent;
   convert._JsonStringStringifierPretty.__proto__.new.call(this, sink, toEncodable);
-  ;
 }).prototype = convert._JsonStringStringifierPretty.prototype;
 ;
 ;
@@ -34511,7 +33668,6 @@ convert._JsonUtf8Stringifier = class _JsonUtf8Stringifier extends convert._JsonS
   this.addChunk = addChunk;
   this.buffer = _native_typed_data.NativeUint8List.new(bufferSize);
   convert._JsonUtf8Stringifier.__proto__.new.call(this, toEncodable);
-  ;
 }).prototype = convert._JsonUtf8Stringifier.prototype;
 ;
 ;
@@ -34556,7 +33712,6 @@ convert._JsonUtf8StringifierPretty = class _JsonUtf8StringifierPretty extends _J
 (convert._JsonUtf8StringifierPretty.new = function(toEncodable, indent, bufferSize, addChunk) {
   this.indent = indent;
   convert._JsonUtf8StringifierPretty.__proto__.new.call(this, toEncodable, bufferSize, addChunk);
-  ;
 }).prototype = convert._JsonUtf8StringifierPretty.prototype;
 ;
 ;
@@ -34601,7 +33756,6 @@ convert.Latin1Codec = class Latin1Codec extends convert.Encoding {
   let allowInvalid = opts && 'allowInvalid' in opts ? opts.allowInvalid : false;
   this[_allowInvalid$1] = allowInvalid;
   convert.Latin1Codec.__proto__.new.call(this);
-  ;
 }).prototype = convert.Latin1Codec.prototype;
 ;
 ;
@@ -34616,7 +33770,6 @@ dart.setLibraryUri(convert.Latin1Codec, "dart:convert");
 convert.Latin1Encoder = class Latin1Encoder extends convert._UnicodeSubsetEncoder {};
 (convert.Latin1Encoder.new = function() {
   convert.Latin1Encoder.__proto__.new.call(this, 255);
-  ;
 }).prototype = convert.Latin1Encoder.prototype;
 ;
 dart.setLibraryUri(convert.Latin1Encoder, "dart:convert");
@@ -34636,7 +33789,6 @@ convert.Latin1Decoder = class Latin1Decoder extends convert._UnicodeSubsetDecode
 (convert.Latin1Decoder.new = function(opts) {
   let allowInvalid = opts && 'allowInvalid' in opts ? opts.allowInvalid : false;
   convert.Latin1Decoder.__proto__.new.call(this, allowInvalid, 255);
-  ;
 }).prototype = convert.Latin1Decoder.prototype;
 ;
 ;
@@ -34686,7 +33838,6 @@ convert._Latin1DecoderSink = class _Latin1DecoderSink extends convert.ByteConver
 (convert._Latin1DecoderSink.new = function(_sink) {
   this[_sink$0] = _sink;
   convert._Latin1DecoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._Latin1DecoderSink.prototype;
 ;
 ;
@@ -34714,7 +33865,6 @@ convert._Latin1AllowInvalidDecoderSink = class _Latin1AllowInvalidDecoderSink ex
 };
 (convert._Latin1AllowInvalidDecoderSink.new = function(sink) {
   convert._Latin1AllowInvalidDecoderSink.__proto__.new.call(this, sink);
-  ;
 }).prototype = convert._Latin1AllowInvalidDecoderSink.prototype;
 ;
 dart.setLibraryUri(convert._Latin1AllowInvalidDecoderSink, "dart:convert");
@@ -34777,7 +33927,6 @@ convert.LineSplitter = class LineSplitter extends async.StreamTransformerBase$(c
 };
 (convert.LineSplitter.new = function() {
   convert.LineSplitter.__proto__.new.call(this);
-  ;
 }).prototype = convert.LineSplitter.prototype;
 ;
 ;
@@ -34841,7 +33990,6 @@ convert._LineSplitterSink = class _LineSplitterSink extends convert.StringConver
   this[_carry] = null;
   this[_skipLeadingLF] = false;
   this[_sink$0] = _sink;
-  ;
 }).prototype = convert._LineSplitterSink.prototype;
 ;
 ;
@@ -34856,7 +34004,6 @@ convert._LineSplitterEventSink = class _LineSplitterEventSink extends convert._L
 (convert._LineSplitterEventSink.new = function(eventSink) {
   this[_eventSink] = eventSink;
   convert._LineSplitterEventSink.__proto__.new.call(this, new convert._StringAdapterSink.new(eventSink));
-  ;
 }).prototype = convert._LineSplitterEventSink.prototype;
 ;
 convert._LineSplitterEventSink[dart.implements] = () => [async.EventSink$(core.String)];
@@ -34866,7 +34013,6 @@ dart.setLibraryUri(convert._LineSplitterEventSink, "dart:convert");
 convert.StringConversionSink = class StringConversionSink extends convert.ChunkedConversionSink$(core.String) {};
 (convert.StringConversionSink.new = function() {
   convert.StringConversionSink.__proto__.new.call(this);
-  ;
 }).prototype = convert.StringConversionSink.prototype;
 ;
 dart.setLibraryUri(convert.StringConversionSink, "dart:convert");
@@ -34895,7 +34041,6 @@ convert._ClosableStringSink = class _ClosableStringSink extends core.Object {
 (convert._ClosableStringSink.new = function(_sink, _callback) {
   this[_sink$0] = _sink;
   this[_callback$] = _callback;
-  ;
 }).prototype = convert._ClosableStringSink.prototype;
 ;
 convert._ClosableStringSink[dart.implements] = () => [convert.ClosableStringSink];
@@ -34947,7 +34092,6 @@ convert._StringConversionSinkAsStringSinkAdapter = class _StringConversionSinkAs
 (convert._StringConversionSinkAsStringSinkAdapter.new = function(_chunkedSink) {
   this[_chunkedSink$] = _chunkedSink;
   this[_buffer] = new core.StringBuffer.new();
-  ;
 }).prototype = convert._StringConversionSinkAsStringSinkAdapter.prototype;
 ;
 convert._StringConversionSinkAsStringSinkAdapter[dart.implements] = () => [convert.ClosableStringSink];
@@ -35017,7 +34161,6 @@ core.StringBuffer = class StringBuffer extends core.Object {
 (core.StringBuffer.new = function(content) {
   if (content === void 0) content = "";
   this[_contents] = dart.str(content);
-  ;
 }).prototype = core.StringBuffer.prototype;
 ;
 core.StringBuffer[dart.implements] = () => [core.StringSink];
@@ -35044,7 +34187,6 @@ convert._StringCallbackSink = class _StringCallbackSink extends convert._StringS
 (convert._StringCallbackSink.new = function(_callback) {
   this[_callback$] = _callback;
   convert._StringCallbackSink.__proto__.new.call(this, new core.StringBuffer.new());
-  ;
 }).prototype = convert._StringCallbackSink.prototype;
 ;
 dart.setLibraryUri(convert._StringCallbackSink, "dart:convert");
@@ -35068,7 +34210,6 @@ convert._StringAdapterSink = class _StringAdapterSink extends convert.StringConv
 };
 (convert._StringAdapterSink.new = function(_sink) {
   this[_sink$0] = _sink;
-  ;
 }).prototype = convert._StringAdapterSink.prototype;
 ;
 ;
@@ -35092,7 +34233,6 @@ convert._Utf8StringSinkAdapter = class _Utf8StringSinkAdapter extends convert.By
   this[_sink$0] = _sink;
   this[_decoder] = new convert._Utf8Decoder.new(stringSink, allowMalformed);
   convert._Utf8StringSinkAdapter.__proto__.new.call(this);
-  ;
 }).prototype = convert._Utf8StringSinkAdapter.prototype;
 ;
 ;
@@ -35132,7 +34272,6 @@ convert._Utf8ConversionSink = class _Utf8ConversionSink extends convert.ByteConv
   this[_decoder] = new convert._Utf8Decoder.new(stringBuffer, allowMalformed);
   this[_buffer] = stringBuffer;
   convert._Utf8ConversionSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._Utf8ConversionSink.prototype;
 ;
 ;
@@ -35168,7 +34307,6 @@ convert.Utf8Codec = class Utf8Codec extends convert.Encoding {
   let allowMalformed = opts && 'allowMalformed' in opts ? opts.allowMalformed : false;
   this[_allowMalformed] = allowMalformed;
   convert.Utf8Codec.__proto__.new.call(this);
-  ;
 }).prototype = convert.Utf8Codec.prototype;
 ;
 ;
@@ -35213,7 +34351,6 @@ convert.Utf8Encoder = class Utf8Encoder extends convert.Converter$(core.String, 
 };
 (convert.Utf8Encoder.new = function() {
   convert.Utf8Encoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.Utf8Encoder.prototype;
 ;
 ;
@@ -35281,7 +34418,6 @@ convert._Utf8Encoder = class _Utf8Encoder extends core.Object {
   this[_carry] = 0;
   this[_bufferIndex] = 0;
   this[_buffer] = convert._Utf8Encoder._createBuffer(bufferSize);
-  ;
 }).prototype = convert._Utf8Encoder.prototype;
 ;
 ;
@@ -35346,7 +34482,6 @@ convert._Utf8EncoderSink = class _Utf8EncoderSink extends _Utf8Encoder_StringCon
 (convert._Utf8EncoderSink.new = function(_sink) {
   this[_sink$0] = _sink;
   convert._Utf8EncoderSink.__proto__.new.call(this);
-  ;
 }).prototype = convert._Utf8EncoderSink.prototype;
 ;
 ;
@@ -35457,7 +34592,6 @@ convert.Utf8Decoder = class Utf8Decoder extends convert.Converter$(core.List$(co
   let allowMalformed = opts && 'allowMalformed' in opts ? opts.allowMalformed : false;
   this[_allowMalformed$0] = allowMalformed;
   convert.Utf8Decoder.__proto__.new.call(this);
-  ;
 }).prototype = convert.Utf8Decoder.prototype;
 ;
 ;
@@ -35606,7 +34740,6 @@ convert._Utf8Decoder = class _Utf8Decoder extends core.Object {
   this[_extraUnits] = 0;
   this[_stringSink$] = _stringSink;
   this[_allowMalformed$] = _allowMalformed;
-  ;
 }).prototype = convert._Utf8Decoder.prototype;
 ;
 ;
@@ -35810,7 +34943,6 @@ developer._FakeUserTag = class _FakeUserTag extends core.Object {
 };
 (developer._FakeUserTag.real = function(label) {
   this.label = label;
-  ;
 }).prototype = developer._FakeUserTag.prototype;
 ;
 developer._FakeUserTag[dart.implements] = () => [developer.UserTag];
@@ -36030,7 +35162,6 @@ developer.Counter = class Counter extends developer.Metric {
 (developer.Counter.new = function(name, description) {
   this[_value$0] = 0.0;
   developer.Counter.__proto__.new.call(this, name, description);
-  ;
 }).prototype = developer.Counter.prototype;
 ;
 ;
@@ -36073,7 +35204,6 @@ developer.Metrics = class Metrics extends core.Object {
   }
 };
 (developer.Metrics.new = function() {
-  ;
 }).prototype = developer.Metrics.prototype;
 ;
 dart.setLibraryUri(developer.Metrics, "dart:developer");
@@ -36116,7 +35246,6 @@ developer.ServiceProtocolInfo = class ServiceProtocolInfo extends core.Object {
   this[majorVersion] = developer._getServiceMajorVersion();
   this[minorVersion] = developer._getServiceMinorVersion();
   this[serverUri$] = serverUri;
-  ;
 }).prototype = developer.ServiceProtocolInfo.prototype;
 ;
 dart.setLibraryUri(developer.ServiceProtocolInfo, "dart:developer");
@@ -36153,7 +35282,6 @@ developer.Service = class Service extends core.Object {
   }
 };
 (developer.Service.new = function() {
-  ;
 }).prototype = developer.Service.prototype;
 ;
 dart.setLibraryUri(developer.Service, "dart:developer");
@@ -36181,7 +35309,6 @@ developer.Flow = class Flow extends core.Object {
 (developer.Flow.__ = function(_type, id) {
   this[_type$0] = _type;
   this[id$] = id;
-  ;
 }).prototype = developer.Flow.prototype;
 ;
 dart.setLibraryUri(developer.Flow, "dart:developer");
@@ -36258,7 +35385,6 @@ developer.Timeline = class Timeline extends core.Object {
   }
 };
 (developer.Timeline.new = function() {
-  ;
 }).prototype = developer.Timeline.prototype;
 ;
 dart.setLibraryUri(developer.Timeline, "dart:developer");
@@ -36344,7 +35470,6 @@ developer._AsyncBlock = class _AsyncBlock extends core.Object {
   this.category = "Dart";
   this.name = name;
   this[_taskId$] = _taskId;
-  ;
 }).prototype = developer._AsyncBlock.prototype;
 ;
 ;
@@ -36370,7 +35495,6 @@ developer._SyncBlock = class _SyncBlock extends core.Object {
   this.name = name;
   this[_start$1] = _start;
   this[_startCpu$] = _startCpu;
-  ;
 }).prototype = developer._SyncBlock.prototype;
 ;
 ;
@@ -36605,7 +35729,6 @@ io._CopyingBytesBuilder = class _CopyingBytesBuilder extends core.Object {
   if (initialCapacity === void 0) initialCapacity = 0;
   this[_length$1] = 0;
   this[_buffer$] = dart.notNull(initialCapacity) <= 0 ? io._CopyingBytesBuilder._emptyList : _native_typed_data.NativeUint8List.new(io._CopyingBytesBuilder._pow2roundup(initialCapacity));
-  ;
 }).prototype = io._CopyingBytesBuilder.prototype;
 ;
 io._CopyingBytesBuilder[dart.implements] = () => [io.BytesBuilder];
@@ -36686,7 +35809,6 @@ io._BytesBuilder = class _BytesBuilder extends core.Object {
 (io._BytesBuilder.new = function() {
   this[_length$1] = 0;
   this[_chunks] = JSArrayOfUint8List().of([]);
-  ;
 }).prototype = io._BytesBuilder.prototype;
 ;
 io._BytesBuilder[dart.implements] = () => [io.BytesBuilder];
@@ -36705,7 +35827,6 @@ io.IOException = class IOException extends core.Object {
   }
 };
 (io.IOException.new = function() {
-  ;
 }).prototype = io.IOException.prototype;
 ;
 io.IOException[dart.implements] = () => [core.Exception];
@@ -36755,7 +35876,6 @@ io.OSError = class OSError extends core.Object {
   if (errorCode === void 0) errorCode = -1;
   this[message$4] = message;
   this[errorCode$0] = errorCode;
-  ;
 }).prototype = io.OSError.prototype;
 ;
 dart.setLibraryUri(io.OSError, "dart:io");
@@ -36770,7 +35890,6 @@ io._BufferAndStart = class _BufferAndStart extends core.Object {};
 (io._BufferAndStart.new = function(buffer, start) {
   this.buffer = buffer;
   this.start = start;
-  ;
 }).prototype = io._BufferAndStart.prototype;
 ;
 dart.setLibraryUri(io._BufferAndStart, "dart:io");
@@ -36781,13 +35900,11 @@ io._IOCrypto = class _IOCrypto extends core.Object {
   }
 };
 (io._IOCrypto.new = function() {
-  ;
 }).prototype = io._IOCrypto.prototype;
 ;
 dart.setLibraryUri(io._IOCrypto, "dart:io");
 io.ZLibOption = class ZLibOption extends core.Object {};
 (io.ZLibOption.new = function() {
-  ;
 }).prototype = io.ZLibOption.prototype;
 ;
 dart.setLibraryUri(io.ZLibOption, "dart:io");
@@ -36964,7 +36081,6 @@ io.ZLibCodec = class ZLibCodec extends convert.Codec$(core.List$(core.int), core
   this[gzip$] = false;
   this[dictionary$] = null;
   io.ZLibCodec.__proto__.new.call(this);
-  ;
 }).prototype = io.ZLibCodec.prototype;
 ;
 dart.setGetterSignature(io.ZLibCodec, () => ({
@@ -37061,7 +36177,6 @@ io.GZipCodec = class GZipCodec extends convert.Codec$(core.List$(core.int), core
   this[gzip$0] = true;
   this[dictionary$0] = null;
   io.GZipCodec.__proto__.new.call(this);
-  ;
 }).prototype = io.GZipCodec.prototype;
 ;
 dart.setGetterSignature(io.GZipCodec, () => ({
@@ -37265,7 +36380,6 @@ io._BufferSink = class _BufferSink extends convert.ByteConversionSink {
 (io._BufferSink.new = function() {
   this.builder = io.BytesBuilder.new({copy: false});
   io._BufferSink.__proto__.new.call(this);
-  ;
 }).prototype = io._BufferSink.prototype;
 ;
 ;
@@ -37323,7 +36437,6 @@ io._FilterSink = class _FilterSink extends convert.ByteConversionSink {
   this[_sink$1] = _sink;
   this[_filter$] = _filter;
   io._FilterSink.__proto__.new.call(this);
-  ;
 }).prototype = io._FilterSink.prototype;
 ;
 ;
@@ -37332,14 +36445,12 @@ dart.setLibraryUri(io._FilterSink, "dart:io");
 io._ZLibEncoderSink = class _ZLibEncoderSink extends io._FilterSink {};
 (io._ZLibEncoderSink.__ = function(sink, gzip, level, windowBits, memLevel, strategy, dictionary, raw) {
   io._ZLibEncoderSink.__proto__.new.call(this, sink, io.RawZLibFilter._makeZLibDeflateFilter(gzip, level, windowBits, memLevel, strategy, dictionary, raw));
-  ;
 }).prototype = io._ZLibEncoderSink.prototype;
 ;
 dart.setLibraryUri(io._ZLibEncoderSink, "dart:io");
 io._ZLibDecoderSink = class _ZLibDecoderSink extends io._FilterSink {};
 (io._ZLibDecoderSink.__ = function(sink, windowBits, dictionary, raw) {
   io._ZLibDecoderSink.__proto__.new.call(this, sink, io.RawZLibFilter._makeZLibInflateFilter(windowBits, dictionary, raw));
-  ;
 }).prototype = io._ZLibDecoderSink.prototype;
 ;
 dart.setLibraryUri(io._ZLibDecoderSink, "dart:io");
@@ -37668,7 +36779,6 @@ io.FileSystemEntity = class FileSystemEntity extends core.Object {
 (io.FileSystemEntity.new = function() {
   this[_path] = null;
   this[_rawPath] = null;
-  ;
 }).prototype = io.FileSystemEntity.prototype;
 ;
 ;
@@ -38148,7 +37258,6 @@ dart.defineLazy(io._AsyncDirectoryLister, {
 });
 io._EmbedderConfig = class _EmbedderConfig extends core.Object {};
 (io._EmbedderConfig.new = function() {
-  ;
 }).prototype = io._EmbedderConfig.prototype;
 ;
 dart.setLibraryUri(io._EmbedderConfig, "dart:io");
@@ -38180,7 +37289,6 @@ io._EventHandler = class _EventHandler extends core.Object {
   }
 };
 (io._EventHandler.new = function() {
-  ;
 }).prototype = io._EventHandler.prototype;
 ;
 dart.setLibraryUri(io._EventHandler, "dart:io");
@@ -38201,7 +37309,6 @@ io.FileMode = class FileMode extends core.Object {
 };
 (io.FileMode._internal = function(_mode) {
   this[_mode$] = _mode;
-  ;
 }).prototype = io.FileMode.prototype;
 ;
 dart.setLibraryUri(io.FileMode, "dart:io");
@@ -38254,7 +37361,6 @@ io.FileLock = class FileLock extends core.Object {
 };
 (io.FileLock._internal = function(_type) {
   this[_type$1] = _type;
-  ;
 }).prototype = io.FileLock.prototype;
 ;
 dart.setLibraryUri(io.FileLock, "dart:io");
@@ -38307,7 +37413,6 @@ io.File[dart.implements] = () => [io.FileSystemEntity];
 dart.setLibraryUri(io.File, "dart:io");
 io.RandomAccessFile = class RandomAccessFile extends core.Object {};
 (io.RandomAccessFile.new = function() {
-  ;
 }).prototype = io.RandomAccessFile.prototype;
 ;
 dart.setLibraryUri(io.RandomAccessFile, "dart:io");
@@ -38362,7 +37467,6 @@ io.FileSystemException = class FileSystemException extends core.Object {
   this[message$5] = message;
   this[path$] = path;
   this[osError$] = osError;
-  ;
 }).prototype = io.FileSystemException.prototype;
 ;
 io.FileSystemException[dart.implements] = () => [io.IOException];
@@ -38523,7 +37627,6 @@ io._FileStream = class _FileStream extends async.Stream$(core.List$(core.int)) {
   this[_path$] = null;
   this[_position$] = 0;
   io._FileStream.__proto__.new.call(this);
-  ;
 }).prototype = io._FileStream.prototype;
 ;
 ;
@@ -39428,7 +38531,6 @@ io.FileSystemEntityType = class FileSystemEntityType extends core.Object {
 };
 (io.FileSystemEntityType._internal = function(_type) {
   this[_type$2] = _type;
-  ;
 }).prototype = io.FileSystemEntityType.prototype;
 ;
 dart.setLibraryUri(io.FileSystemEntityType, "dart:io");
@@ -39571,7 +38673,6 @@ io.FileStat = class FileStat extends core.Object {
   this[type$] = type;
   this[mode$0] = mode;
   this[size$] = size;
-  ;
 }).prototype = io.FileStat.prototype;
 (io.FileStat._internalNotFound = function() {
   this[changed$] = null;
@@ -39580,7 +38681,6 @@ io.FileStat = class FileStat extends core.Object {
   this[type$] = io.FileSystemEntityType.notFound;
   this[mode$0] = 0;
   this[size$] = -1;
-  ;
 }).prototype = io.FileStat.prototype;
 ;
 ;
@@ -39637,7 +38737,6 @@ io.FileSystemEvent = class FileSystemEvent extends core.Object {
   this[type$0] = type;
   this[path$0] = path;
   this[isDirectory$] = isDirectory;
-  ;
 }).prototype = io.FileSystemEvent.prototype;
 ;
 dart.setLibraryUri(io.FileSystemEvent, "dart:io");
@@ -39690,7 +38789,6 @@ io.FileSystemCreateEvent = class FileSystemCreateEvent extends io.FileSystemEven
 };
 (io.FileSystemCreateEvent.__ = function(path, isDirectory) {
   io.FileSystemCreateEvent.__proto__.__.call(this, 1, core.String._check(path), core.bool._check(isDirectory));
-  ;
 }).prototype = io.FileSystemCreateEvent.prototype;
 ;
 dart.setLibraryUri(io.FileSystemCreateEvent, "dart:io");
@@ -39710,7 +38808,6 @@ io.FileSystemModifyEvent = class FileSystemModifyEvent extends io.FileSystemEven
 (io.FileSystemModifyEvent.__ = function(path, isDirectory, contentChanged) {
   this[contentChanged$] = contentChanged;
   io.FileSystemModifyEvent.__proto__.__.call(this, 2, core.String._check(path), core.bool._check(isDirectory));
-  ;
 }).prototype = io.FileSystemModifyEvent.prototype;
 ;
 dart.setLibraryUri(io.FileSystemModifyEvent, "dart:io");
@@ -39723,7 +38820,6 @@ io.FileSystemDeleteEvent = class FileSystemDeleteEvent extends io.FileSystemEven
 };
 (io.FileSystemDeleteEvent.__ = function(path, isDirectory) {
   io.FileSystemDeleteEvent.__proto__.__.call(this, 4, core.String._check(path), core.bool._check(isDirectory));
-  ;
 }).prototype = io.FileSystemDeleteEvent.prototype;
 ;
 dart.setLibraryUri(io.FileSystemDeleteEvent, "dart:io");
@@ -39747,7 +38843,6 @@ io.FileSystemMoveEvent = class FileSystemMoveEvent extends io.FileSystemEvent {
 (io.FileSystemMoveEvent.__ = function(path, isDirectory, destination) {
   this[destination$] = destination;
   io.FileSystemMoveEvent.__proto__.__.call(this, 8, core.String._check(path), core.bool._check(isDirectory));
-  ;
 }).prototype = io.FileSystemMoveEvent.prototype;
 ;
 dart.setLibraryUri(io.FileSystemMoveEvent, "dart:io");
@@ -39762,7 +38857,6 @@ io._FileSystemWatcher = class _FileSystemWatcher extends core.Object {
   }
 };
 (io._FileSystemWatcher.new = function() {
-  ;
 }).prototype = io._FileSystemWatcher.prototype;
 ;
 dart.setLibraryUri(io._FileSystemWatcher, "dart:io");
@@ -39783,7 +38877,6 @@ io._IOResourceInfo = class _IOResourceInfo extends core.Object {
 (io._IOResourceInfo.new = function(type) {
   this.type = type;
   this.id = io._IOResourceInfo.getNextID();
-  ;
 }).prototype = io._IOResourceInfo.prototype;
 ;
 dart.setGetterSignature(io._IOResourceInfo, () => ({
@@ -39831,7 +38924,6 @@ io._ReadWriteResourceInfo = class _ReadWriteResourceInfo extends io._IOResourceI
   this.lastRead = 0.0;
   this.lastWrite = 0.0;
   io._ReadWriteResourceInfo.__proto__.new.call(this, type);
-  ;
 }).prototype = io._ReadWriteResourceInfo.prototype;
 ;
 ;
@@ -40191,19 +39283,15 @@ io._StreamSinkImpl$ = dart.generic(T => {
     this[_isBound] = false;
     this[_hasError$] = false;
     this[_target$0] = _target;
-    ;
   }).prototype = _StreamSinkImpl.prototype;
-  ;
   _StreamSinkImpl.prototype[_is__StreamSinkImpl_default] = true;
   _StreamSinkImpl[dart.implements] = () => [async.StreamSink$(T)];
-  ;
   dart.setGetterSignature(_StreamSinkImpl, () => ({
     __proto__: dart.getGetters(_StreamSinkImpl.__proto__),
     done: async.Future,
     [_controller]: async.StreamController$(T)
   }));
   dart.setLibraryUri(_StreamSinkImpl, "dart:io");
-  ;
   return _StreamSinkImpl;
 });
 io._StreamSinkImpl = io._StreamSinkImpl$();
@@ -40254,7 +39342,6 @@ io._IOSinkImpl = class _IOSinkImpl extends io._StreamSinkImpl$(core.List$(core.i
   this[_encodingMutable] = true;
   this[_encoding$] = _encoding;
   io._IOSinkImpl.__proto__.new.call(this, target);
-  ;
 }).prototype = io._IOSinkImpl.prototype;
 ;
 io._IOSinkImpl[dart.implements] = () => [io.IOSink];
@@ -40275,7 +39362,6 @@ io._IOService = class _IOService extends core.Object {
   }
 };
 (io._IOService.new = function() {
-  ;
 }).prototype = io._IOService.prototype;
 ;
 dart.setLibraryUri(io._IOService, "dart:io");
@@ -40598,7 +39684,6 @@ io._Namespace = class _Namespace extends core.Object {
   }
 };
 (io._Namespace.new = function() {
-  ;
 }).prototype = io._Namespace.prototype;
 ;
 dart.setLibraryUri(io._Namespace, "dart:io");
@@ -40630,7 +39715,6 @@ io._NetworkProfiling = class _NetworkProfiling extends core.Object {
   }
 };
 (io._NetworkProfiling.new = function() {
-  ;
 }).prototype = io._NetworkProfiling.prototype;
 ;
 dart.setLibraryUri(io._NetworkProfiling, "dart:io");
@@ -40649,7 +39733,6 @@ io._HttpProfile = class _HttpProfile extends core.Object {
   }
 };
 (io._HttpProfile.new = function() {
-  ;
 }).prototype = io._HttpProfile.prototype;
 ;
 dart.setLibraryUri(io._HttpProfile, "dart:io");
@@ -40665,7 +39748,6 @@ io._SocketProfile = class _SocketProfile extends core.Object {
   }
 };
 (io._SocketProfile.new = function() {
-  ;
 }).prototype = io._SocketProfile.prototype;
 ;
 dart.setLibraryUri(io._SocketProfile, "dart:io");
@@ -40769,7 +39851,6 @@ io.IOOverrides = class IOOverrides extends core.Object {
   }
 };
 (io.IOOverrides.new = function() {
-  ;
 }).prototype = io.IOOverrides.prototype;
 ;
 ;
@@ -40925,7 +40006,6 @@ io._IOOverridesScope = class _IOOverridesScope extends io.IOOverrides {
   this[_socketConnect$] = _socketConnect;
   this[_socketStartConnect$] = _socketStartConnect;
   this[_serverSocketBind$] = _serverSocketBind;
-  ;
 }).prototype = io._IOOverridesScope.prototype;
 ;
 dart.setLibraryUri(io._IOOverridesScope, "dart:io");
@@ -40975,7 +40055,6 @@ io.Platform = class Platform extends core.Object {
   }
 };
 (io.Platform.new = function() {
-  ;
 }).prototype = io.Platform.prototype;
 ;
 dart.setLibraryUri(io.Platform, "dart:io");
@@ -41130,7 +40209,6 @@ io._Platform = class _Platform extends core.Object {
   }
 };
 (io._Platform.new = function() {
-  ;
 }).prototype = io._Platform.prototype;
 ;
 dart.setLibraryUri(io._Platform, "dart:io");
@@ -41254,18 +40332,14 @@ io._CaseInsensitiveStringMap$ = dart.generic(V => {
   }
   (_CaseInsensitiveStringMap.new = function() {
     this[_map$10] = new (LinkedMapOfString$V()).new();
-    ;
   }).prototype = _CaseInsensitiveStringMap.prototype;
-  ;
   _CaseInsensitiveStringMap.prototype[_is__CaseInsensitiveStringMap_default] = true;
-  ;
   dart.setGetterSignature(_CaseInsensitiveStringMap, () => ({
     __proto__: dart.getGetters(_CaseInsensitiveStringMap.__proto__),
     keys: core.Iterable$(core.String),
     [$keys]: core.Iterable$(core.String)
   }));
   dart.setLibraryUri(_CaseInsensitiveStringMap, "dart:io");
-  ;
   dart.defineExtensionMethods(_CaseInsensitiveStringMap, [
     'containsKey',
     'containsValue',
@@ -41315,7 +40389,6 @@ io._ProcessUtils = class _ProcessUtils extends core.Object {
   }
 };
 (io._ProcessUtils.new = function() {
-  ;
 }).prototype = io._ProcessUtils.prototype;
 ;
 dart.setLibraryUri(io._ProcessUtils, "dart:io");
@@ -41328,7 +40401,6 @@ io.ProcessInfo = class ProcessInfo extends core.Object {
   }
 };
 (io.ProcessInfo.new = function() {
-  ;
 }).prototype = io.ProcessInfo.prototype;
 ;
 dart.setLibraryUri(io.ProcessInfo, "dart:io");
@@ -41355,7 +40427,6 @@ io.ProcessStartMode = class ProcessStartMode extends core.Object {
 };
 (io.ProcessStartMode._internal = function(_mode) {
   this[_mode$0] = _mode;
-  ;
 }).prototype = io.ProcessStartMode.prototype;
 ;
 const _mode$0 = ProcessStartMode__mode;
@@ -41425,7 +40496,6 @@ io.Process = class Process extends core.Object {
   }
 };
 (io.Process.new = function() {
-  ;
 }).prototype = io.Process.prototype;
 ;
 dart.setLibraryUri(io.Process, "dart:io");
@@ -41464,7 +40534,6 @@ io.ProcessResult = class ProcessResult extends core.Object {
   this[exitCode$] = exitCode;
   this[stdout$] = stdout;
   this[stderr$] = stderr;
-  ;
 }).prototype = io.ProcessResult.prototype;
 ;
 dart.setLibraryUri(io.ProcessResult, "dart:io");
@@ -41522,7 +40591,6 @@ io.ProcessSignal = class ProcessSignal extends core.Object {
 (io.ProcessSignal.__ = function(_signalNumber, _name) {
   this[_signalNumber$] = _signalNumber;
   this[_name$6] = _name;
-  ;
 }).prototype = io.ProcessSignal.prototype;
 ;
 const _signalNumber$ = ProcessSignal__signalNumber;
@@ -41734,7 +40802,6 @@ io.SignalException = class SignalException extends core.Object {
   if (osError === void 0) osError = null;
   this[message$6] = message;
   this[osError$0] = osError;
-  ;
 }).prototype = io.SignalException.prototype;
 ;
 io.SignalException[dart.implements] = () => [io.IOException];
@@ -41783,7 +40850,6 @@ io.ProcessException = class ProcessException extends core.Object {
   this[arguments$] = $arguments;
   this[message$7] = message;
   this[errorCode$1] = errorCode;
-  ;
 }).prototype = io.ProcessException.prototype;
 ;
 io.ProcessException[dart.implements] = () => [io.IOException];
@@ -41863,7 +40929,6 @@ io.SecureServerSocket = class SecureServerSocket extends async.Stream$(io.Secure
 (io.SecureServerSocket.__ = function(_socket) {
   this[_socket$] = _socket;
   io.SecureServerSocket.__proto__.new.call(this);
-  ;
 }).prototype = io.SecureServerSocket.prototype;
 ;
 ;
@@ -41923,7 +40988,6 @@ io.RawSecureSocket = class RawSecureSocket extends core.Object {
   }
 };
 (io.RawSecureSocket.new = function() {
-  ;
 }).prototype = io.RawSecureSocket.prototype;
 ;
 io.RawSecureSocket[dart.implements] = () => [io.RawSocket];
@@ -42052,7 +41116,6 @@ io._FilterStatus = class _FilterStatus extends core.Object {};
   this.writePlaintextNoLongerFull = false;
   this.readEncryptedNoLongerFull = false;
   this.writeEncryptedNoLongerEmpty = false;
-  ;
 }).prototype = io._FilterStatus.prototype;
 ;
 dart.setLibraryUri(io._FilterStatus, "dart:io");
@@ -42117,7 +41180,6 @@ io.RawSocketEvent = class RawSocketEvent extends core.Object {
 };
 (io.RawSocketEvent.__ = function(_value) {
   this[_value$2] = _value;
-  ;
 }).prototype = io.RawSocketEvent.prototype;
 ;
 dart.setLibraryUri(io.RawSocketEvent, "dart:io");
@@ -42915,7 +41977,6 @@ io.TlsException = class TlsException extends core.Object {
   this[type$1] = type;
   this[message$8] = message;
   this[osError$1] = osError;
-  ;
 }).prototype = io.TlsException.prototype;
 ;
 io.TlsException[dart.implements] = () => [io.IOException];
@@ -42927,7 +41988,6 @@ io.HandshakeException = class HandshakeException extends io.TlsException {};
   if (message === void 0) message = "";
   if (osError === void 0) osError = null;
   io.HandshakeException.__proto__.__.call(this, "HandshakeException", message, osError);
-  ;
 }).prototype = io.HandshakeException.prototype;
 ;
 dart.setLibraryUri(io.HandshakeException, "dart:io");
@@ -42936,7 +41996,6 @@ io.CertificateException = class CertificateException extends io.TlsException {};
   if (message === void 0) message = "";
   if (osError === void 0) osError = null;
   io.CertificateException.__proto__.__.call(this, "CertificateException", message, osError);
-  ;
 }).prototype = io.CertificateException.prototype;
 ;
 dart.setLibraryUri(io.CertificateException, "dart:io");
@@ -43033,7 +42092,6 @@ io._ServiceObject = class _ServiceObject extends core.Object {
 };
 (io._ServiceObject.new = function() {
   this[__serviceId] = 0;
-  ;
 }).prototype = io._ServiceObject.prototype;
 ;
 ;
@@ -43086,7 +42144,6 @@ io.InternetAddressType = class InternetAddressType extends core.Object {
 };
 (io.InternetAddressType.__ = function(_value) {
   this[_value$3] = _value;
-  ;
 }).prototype = io.InternetAddressType.prototype;
 ;
 dart.setGetterSignature(io.InternetAddressType, () => ({
@@ -43168,7 +42225,6 @@ io.NetworkInterface = class NetworkInterface extends core.Object {
   }
 };
 (io.NetworkInterface.new = function() {
-  ;
 }).prototype = io.NetworkInterface.prototype;
 ;
 dart.setLibraryUri(io.NetworkInterface, "dart:io");
@@ -43181,7 +42237,6 @@ io.RawServerSocket = class RawServerSocket extends core.Object {
   }
 };
 (io.RawServerSocket.new = function() {
-  ;
 }).prototype = io.RawServerSocket.prototype;
 io.RawServerSocket.prototype[dart.isStream] = true;
 ;
@@ -43206,7 +42261,6 @@ io.ServerSocket = class ServerSocket extends core.Object {
   }
 };
 (io.ServerSocket.new = function() {
-  ;
 }).prototype = io.ServerSocket.prototype;
 io.ServerSocket.prototype[dart.isStream] = true;
 ;
@@ -43226,7 +42280,6 @@ io.SocketDirection = class SocketDirection extends core.Object {
 };
 (io.SocketDirection.__ = function(_value) {
   this[_value$4] = _value;
-  ;
 }).prototype = io.SocketDirection.prototype;
 ;
 dart.setLibraryUri(io.SocketDirection, "dart:io");
@@ -43267,7 +42320,6 @@ io.SocketOption = class SocketOption extends core.Object {
 };
 (io.SocketOption.__ = function(_value) {
   this[_value$5] = _value;
-  ;
 }).prototype = io.SocketOption.prototype;
 ;
 dart.setLibraryUri(io.SocketOption, "dart:io");
@@ -43308,7 +42360,6 @@ io._RawSocketOptions = class _RawSocketOptions extends core.Object {
 (io._RawSocketOptions.new = function(index, _name) {
   this.index = index;
   this[_name$5] = _name;
-  ;
 }).prototype = io._RawSocketOptions.prototype;
 ;
 dart.setLibraryUri(io._RawSocketOptions, "dart:io");
@@ -43385,7 +42436,6 @@ io.RawSocketOption = class RawSocketOption extends core.Object {
   this[level$2] = level;
   this[option$] = option;
   this[value$3] = value;
-  ;
 }).prototype = io.RawSocketOption.prototype;
 ;
 dart.setLibraryUri(io.RawSocketOption, "dart:io");
@@ -43411,13 +42461,9 @@ io.ConnectionTask$ = dart.generic(S => {
     if (!(onCancel != null)) dart.assertFailed(null, "org-dartlang-sdk:///dart-sdk/lib/io/socket.dart", 559, 16, "onCancel != null");
     this[socket$] = socket;
     this[_onCancel$] = onCancel;
-    ;
   }).prototype = ConnectionTask.prototype;
-  ;
   ConnectionTask.prototype[_is_ConnectionTask_default] = true;
-  ;
   dart.setLibraryUri(ConnectionTask, "dart:io");
-  ;
   return ConnectionTask;
 });
 io.ConnectionTask = io.ConnectionTask$();
@@ -43450,7 +42496,6 @@ io.RawSocket = class RawSocket extends core.Object {
 (io.RawSocket.new = function() {
   this[readEventsEnabled] = null;
   this[writeEventsEnabled] = null;
-  ;
 }).prototype = io.RawSocket.prototype;
 io.RawSocket.prototype[dart.isStream] = true;
 ;
@@ -43486,7 +42531,6 @@ io.Socket = class Socket extends core.Object {
   }
 };
 (io.Socket.new = function() {
-  ;
 }).prototype = io.Socket.prototype;
 io.Socket.prototype[dart.isStream] = true;
 ;
@@ -43519,7 +42563,6 @@ io.Datagram = class Datagram extends core.Object {
   this[data$] = data;
   this[address$] = address;
   this[port$] = port;
-  ;
 }).prototype = io.Datagram.prototype;
 ;
 dart.setLibraryUri(io.Datagram, "dart:io");
@@ -43582,7 +42625,6 @@ io.RawDatagramSocket = class RawDatagramSocket extends async.Stream$(io.RawSocke
   this[multicastInterface] = null;
   this[broadcastEnabled] = null;
   io.RawDatagramSocket.__proto__.new.call(this);
-  ;
 }).prototype = io.RawDatagramSocket.prototype;
 ;
 dart.setLibraryUri(io.RawDatagramSocket, "dart:io");
@@ -43644,14 +42686,12 @@ io.SocketException = class SocketException extends core.Object {
   this[osError$2] = osError;
   this[address$0] = address;
   this[port$0] = port;
-  ;
 }).prototype = io.SocketException.prototype;
 (io.SocketException.closed = function() {
   this[message$9] = "Socket has been closed";
   this[osError$2] = null;
   this[address$0] = null;
   this[port$0] = null;
-  ;
 }).prototype = io.SocketException.prototype;
 ;
 io.SocketException[dart.implements] = () => [io.IOException];
@@ -43669,7 +42709,6 @@ io._StdStream = class _StdStream extends async.Stream$(core.List$(core.int)) {
 (io._StdStream.new = function(_stream) {
   this[_stream$0] = _stream;
   io._StdStream.__proto__.new.call(this);
-  ;
 }).prototype = io._StdStream.prototype;
 ;
 ;
@@ -43758,7 +42797,6 @@ io.Stdin = class Stdin extends io._StdStream {
 (io.Stdin.__ = function(stream, _fd) {
   this[_fd$] = _fd;
   io.Stdin.__proto__.new.call(this, stream);
-  ;
 }).prototype = io.Stdin.prototype;
 io.Stdin.prototype[dart.isStream] = true;
 ;
@@ -43827,7 +42865,6 @@ io._StdSink = class _StdSink extends core.Object {
 };
 (io._StdSink.new = function(_sink) {
   this[_sink$1] = _sink;
-  ;
 }).prototype = io._StdSink.prototype;
 ;
 io._StdSink[dart.implements] = () => [io.IOSink];
@@ -43877,7 +42914,6 @@ io.Stdout = class Stdout extends io._StdSink {
   this[_nonBlocking] = null;
   this[_fd$] = _fd;
   io.Stdout.__proto__.new.call(this, sink);
-  ;
 }).prototype = io.Stdout.prototype;
 ;
 io.Stdout[dart.implements] = () => [io.IOSink];
@@ -43915,7 +42951,6 @@ io.StdoutException = class StdoutException extends core.Object {
   if (osError === void 0) osError = null;
   this[message$10] = message;
   this[osError$3] = osError;
-  ;
 }).prototype = io.StdoutException.prototype;
 ;
 io.StdoutException[dart.implements] = () => [io.IOException];
@@ -43945,7 +42980,6 @@ io.StdinException = class StdinException extends core.Object {
   if (osError === void 0) osError = null;
   this[message$11] = message;
   this[osError$4] = osError;
-  ;
 }).prototype = io.StdinException.prototype;
 ;
 io.StdinException[dart.implements] = () => [io.IOException];
@@ -43976,7 +43010,6 @@ io._StdConsumer = class _StdConsumer extends core.Object {
 };
 (io._StdConsumer.new = function(fd) {
   this[_file$] = io._File._openStdioSync(fd);
-  ;
 }).prototype = io._StdConsumer.prototype;
 ;
 io._StdConsumer[dart.implements] = () => [async.StreamConsumer$(core.List$(core.int))];
@@ -44001,7 +43034,6 @@ io.StdioType = class StdioType extends core.Object {
 };
 (io.StdioType.__ = function(name) {
   this[name$10] = name;
-  ;
 }).prototype = io.StdioType.prototype;
 ;
 dart.setLibraryUri(io.StdioType, "dart:io");
@@ -44048,7 +43080,6 @@ io._StdIOUtils = class _StdIOUtils extends core.Object {
   }
 };
 (io._StdIOUtils.new = function() {
-  ;
 }).prototype = io._StdIOUtils.prototype;
 ;
 dart.setLibraryUri(io._StdIOUtils, "dart:io");
@@ -44084,7 +43115,6 @@ io.SystemEncoding = class SystemEncoding extends convert.Encoding {
 };
 (io.SystemEncoding.new = function() {
   io.SystemEncoding.__proto__.new.call(this);
-  ;
 }).prototype = io.SystemEncoding.prototype;
 ;
 dart.setGetterSignature(io.SystemEncoding, () => ({
@@ -44113,7 +43143,6 @@ io._WindowsCodePageEncoder = class _WindowsCodePageEncoder extends convert.Conve
 };
 (io._WindowsCodePageEncoder.new = function() {
   io._WindowsCodePageEncoder.__proto__.new.call(this);
-  ;
 }).prototype = io._WindowsCodePageEncoder.prototype;
 ;
 ;
@@ -44140,7 +43169,6 @@ io._WindowsCodePageEncoderSink = class _WindowsCodePageEncoderSink extends conve
 };
 (io._WindowsCodePageEncoderSink.new = function(_sink) {
   this[_sink$1] = _sink;
-  ;
 }).prototype = io._WindowsCodePageEncoderSink.prototype;
 ;
 ;
@@ -44161,7 +43189,6 @@ io._WindowsCodePageDecoder = class _WindowsCodePageDecoder extends convert.Conve
 };
 (io._WindowsCodePageDecoder.new = function() {
   io._WindowsCodePageDecoder.__proto__.new.call(this);
-  ;
 }).prototype = io._WindowsCodePageDecoder.prototype;
 ;
 ;
@@ -44178,7 +43205,6 @@ io._WindowsCodePageDecoderSink = class _WindowsCodePageDecoderSink extends conve
 (io._WindowsCodePageDecoderSink.new = function(_sink) {
   this[_sink$1] = _sink;
   io._WindowsCodePageDecoderSink.__proto__.new.call(this);
-  ;
 }).prototype = io._WindowsCodePageDecoderSink.prototype;
 ;
 ;
@@ -44190,7 +43216,6 @@ io.RawSynchronousSocket = class RawSynchronousSocket extends core.Object {
   }
 };
 (io.RawSynchronousSocket.new = function() {
-  ;
 }).prototype = io.RawSynchronousSocket.prototype;
 ;
 dart.setLibraryUri(io.RawSynchronousSocket, "dart:io");
@@ -44480,7 +43505,6 @@ isolate._ReceivePort = class _ReceivePort extends async.Stream {
 };
 (isolate._ReceivePort.new = function() {
   isolate._ReceivePort.__proto__.new.call(this);
-  ;
 }).prototype = isolate._ReceivePort.prototype;
 ;
 isolate._ReceivePort[dart.implements] = () => [isolate.ReceivePort];
@@ -44504,7 +43528,6 @@ isolate.IsolateSpawnException = class IsolateSpawnException extends core.Object 
 };
 (isolate.IsolateSpawnException.new = function(message) {
   this[message$12] = message;
-  ;
 }).prototype = isolate.IsolateSpawnException.prototype;
 ;
 isolate.IsolateSpawnException[dart.implements] = () => [core.Exception];
@@ -44633,7 +43656,6 @@ isolate.Isolate = class Isolate extends core.Object {
   this[controlPort$] = controlPort;
   this[pauseCapability$] = pauseCapability;
   this[terminateCapability$] = terminateCapability;
-  ;
 }).prototype = isolate.Isolate.prototype;
 ;
 ;
@@ -44654,7 +43676,6 @@ dart.defineLazy(isolate.Isolate, {
 });
 isolate.SendPort = class SendPort extends core.Object {};
 (isolate.SendPort.new = function() {
-  ;
 }).prototype = isolate.SendPort.prototype;
 ;
 isolate.SendPort[dart.implements] = () => [isolate.Capability];
@@ -44696,7 +43717,6 @@ isolate.RemoteError = class RemoteError extends core.Object {
 (isolate.RemoteError.new = function(description, stackDescription) {
   this[_description] = description;
   this[stackTrace$0] = new core._StringStackTrace.new(stackDescription);
-  ;
 }).prototype = isolate.RemoteError.prototype;
 ;
 isolate.RemoteError[dart.implements] = () => [core.Error];
@@ -44857,7 +43877,6 @@ js.JsFunction = class JsFunction extends js.JsObject {
 };
 (js.JsFunction._fromJs = function(jsObject) {
   js.JsFunction.__proto__._fromJs.call(this, jsObject);
-  ;
 }).prototype = js.JsFunction.prototype;
 ;
 ;
@@ -44960,20 +43979,15 @@ js.JsArray$ = dart.generic(E => {
   }
   (JsArray.new = function() {
     JsArray.__proto__._fromJs.call(this, []);
-    ;
   }).prototype = JsArray.prototype;
   (JsArray.from = function(other) {
     let t93;
     JsArray.__proto__._fromJs.call(this, (t93 = [], t93[$addAll](other[$map](dart.dynamic, C262 || CT.C262)), t93));
-    ;
   }).prototype = JsArray.prototype;
   (JsArray._fromJs = function(jsObject) {
     JsArray.__proto__._fromJs.call(this, jsObject);
-    ;
   }).prototype = JsArray.prototype;
-  ;
   JsArray.prototype[_is_JsArray_default] = true;
-  ;
   dart.setGetterSignature(JsArray, () => ({
     __proto__: dart.getGetters(JsArray.__proto__),
     length: core.int,
@@ -45006,7 +44020,6 @@ const _dartObj$ = dart.privateName(js, "_dartObj");
 js._DartObject = class _DartObject extends core.Object {};
 (js._DartObject.new = function(_dartObj) {
   this[_dartObj$] = _dartObj;
-  ;
 }).prototype = js._DartObject.prototype;
 ;
 dart.setLibraryUri(js._DartObject, "dart:js");
@@ -45228,7 +44241,6 @@ math._JSRandom = class _JSRandom extends core.Object {
   }
 };
 (math._JSRandom.new = function() {
-  ;
 }).prototype = math._JSRandom.prototype;
 ;
 math._JSRandom[dart.implements] = () => [math.Random];
@@ -45439,7 +44451,6 @@ math._JenkinsSmiHash = class _JenkinsSmiHash extends core.Object {
   }
 };
 (math._JenkinsSmiHash.new = function() {
-  ;
 }).prototype = math._JenkinsSmiHash.prototype;
 ;
 dart.setLibraryUri(math._JenkinsSmiHash, "dart:math");
@@ -45500,17 +44511,13 @@ math.Point$ = dart.generic(T => {
   (Point.new = function(x, y) {
     this[x$2] = x;
     this[y$2] = y;
-    ;
   }).prototype = Point.prototype;
-  ;
   Point.prototype[_is_Point_default] = true;
-  ;
   dart.setGetterSignature(Point, () => ({
     __proto__: dart.getGetters(Point.__proto__),
     magnitude: core.double
   }));
   dart.setLibraryUri(Point, "dart:math");
-  ;
   dart.defineExtensionMethods(Point, ['toString', '_equals']);
   dart.defineExtensionAccessors(Point, ['hashCode']);
   return Point;
@@ -45603,11 +44610,8 @@ math._RectangleBase$ = dart.generic(T => {
     }
   }
   (_RectangleBase.new = function() {
-    ;
   }).prototype = _RectangleBase.prototype;
-  ;
   _RectangleBase.prototype[_is__RectangleBase_default] = true;
-  ;
   dart.setGetterSignature(_RectangleBase, () => ({
     __proto__: dart.getGetters(_RectangleBase.__proto__),
     right: T,
@@ -45691,12 +44695,9 @@ math.Rectangle$ = dart.generic(T => {
     this[width$] = dart.notNull(width) < 0 ? -dart.notNull(width) * 0 : width;
     this[height$] = dart.notNull(height) < 0 ? -dart.notNull(height) * 0 : height;
     Rectangle.__proto__.new.call(this);
-    ;
   }).prototype = Rectangle.prototype;
-  ;
   Rectangle.prototype[_is_Rectangle_default] = true;
   dart.setLibraryUri(Rectangle, "dart:math");
-  ;
   dart.defineExtensionAccessors(Rectangle, ['left', 'top', 'width', 'height']);
   return Rectangle;
 });
@@ -45751,9 +44752,7 @@ math.MutableRectangle$ = dart.generic(T => {
     this[_width] = dart.notNull(width) < 0 ? math._clampToZero(T, width) : width;
     this[_height] = dart.notNull(height) < 0 ? math._clampToZero(T, height) : height;
     MutableRectangle.__proto__.new.call(this);
-    ;
   }).prototype = MutableRectangle.prototype;
-  ;
   MutableRectangle.prototype[_is_MutableRectangle_default] = true;
   MutableRectangle[dart.implements] = () => [math.Rectangle$(T)];
   dart.setGetterSignature(MutableRectangle, () => ({
@@ -45771,7 +44770,6 @@ math.MutableRectangle$ = dart.generic(T => {
     [$height]: core.Object
   }));
   dart.setLibraryUri(MutableRectangle, "dart:math");
-  ;
   dart.defineExtensionAccessors(MutableRectangle, ['left', 'top', 'width', 'height']);
   return MutableRectangle;
 });
@@ -45879,131 +44877,112 @@ mirrors.MirrorSystem = class MirrorSystem extends core.Object {
   }
 };
 (mirrors.MirrorSystem.new = function() {
-  ;
 }).prototype = mirrors.MirrorSystem.prototype;
 ;
 ;
 dart.setLibraryUri(mirrors.MirrorSystem, "dart:mirrors");
 mirrors.Mirror = class Mirror extends core.Object {};
 (mirrors.Mirror.new = function() {
-  ;
 }).prototype = mirrors.Mirror.prototype;
 ;
 dart.setLibraryUri(mirrors.Mirror, "dart:mirrors");
 mirrors.IsolateMirror = class IsolateMirror extends core.Object {};
 (mirrors.IsolateMirror.new = function() {
-  ;
 }).prototype = mirrors.IsolateMirror.prototype;
 ;
 mirrors.IsolateMirror[dart.implements] = () => [mirrors.Mirror];
 dart.setLibraryUri(mirrors.IsolateMirror, "dart:mirrors");
 mirrors.DeclarationMirror = class DeclarationMirror extends core.Object {};
 (mirrors.DeclarationMirror.new = function() {
-  ;
 }).prototype = mirrors.DeclarationMirror.prototype;
 ;
 mirrors.DeclarationMirror[dart.implements] = () => [mirrors.Mirror];
 dart.setLibraryUri(mirrors.DeclarationMirror, "dart:mirrors");
 mirrors.ObjectMirror = class ObjectMirror extends core.Object {};
 (mirrors.ObjectMirror.new = function() {
-  ;
 }).prototype = mirrors.ObjectMirror.prototype;
 ;
 mirrors.ObjectMirror[dart.implements] = () => [mirrors.Mirror];
 dart.setLibraryUri(mirrors.ObjectMirror, "dart:mirrors");
 mirrors.InstanceMirror = class InstanceMirror extends core.Object {};
 (mirrors.InstanceMirror.new = function() {
-  ;
 }).prototype = mirrors.InstanceMirror.prototype;
 ;
 mirrors.InstanceMirror[dart.implements] = () => [mirrors.ObjectMirror];
 dart.setLibraryUri(mirrors.InstanceMirror, "dart:mirrors");
 mirrors.ClosureMirror = class ClosureMirror extends core.Object {};
 (mirrors.ClosureMirror.new = function() {
-  ;
 }).prototype = mirrors.ClosureMirror.prototype;
 ;
 mirrors.ClosureMirror[dart.implements] = () => [mirrors.InstanceMirror];
 dart.setLibraryUri(mirrors.ClosureMirror, "dart:mirrors");
 mirrors.LibraryMirror = class LibraryMirror extends core.Object {};
 (mirrors.LibraryMirror.new = function() {
-  ;
 }).prototype = mirrors.LibraryMirror.prototype;
 ;
 mirrors.LibraryMirror[dart.implements] = () => [mirrors.DeclarationMirror, mirrors.ObjectMirror];
 dart.setLibraryUri(mirrors.LibraryMirror, "dart:mirrors");
 mirrors.LibraryDependencyMirror = class LibraryDependencyMirror extends core.Object {};
 (mirrors.LibraryDependencyMirror.new = function() {
-  ;
 }).prototype = mirrors.LibraryDependencyMirror.prototype;
 ;
 mirrors.LibraryDependencyMirror[dart.implements] = () => [mirrors.Mirror];
 dart.setLibraryUri(mirrors.LibraryDependencyMirror, "dart:mirrors");
 mirrors.CombinatorMirror = class CombinatorMirror extends core.Object {};
 (mirrors.CombinatorMirror.new = function() {
-  ;
 }).prototype = mirrors.CombinatorMirror.prototype;
 ;
 mirrors.CombinatorMirror[dart.implements] = () => [mirrors.Mirror];
 dart.setLibraryUri(mirrors.CombinatorMirror, "dart:mirrors");
 mirrors.TypeMirror = class TypeMirror extends core.Object {};
 (mirrors.TypeMirror.new = function() {
-  ;
 }).prototype = mirrors.TypeMirror.prototype;
 ;
 mirrors.TypeMirror[dart.implements] = () => [mirrors.DeclarationMirror];
 dart.setLibraryUri(mirrors.TypeMirror, "dart:mirrors");
 mirrors.ClassMirror = class ClassMirror extends core.Object {};
 (mirrors.ClassMirror.new = function() {
-  ;
 }).prototype = mirrors.ClassMirror.prototype;
 ;
 mirrors.ClassMirror[dart.implements] = () => [mirrors.TypeMirror, mirrors.ObjectMirror];
 dart.setLibraryUri(mirrors.ClassMirror, "dart:mirrors");
 mirrors.FunctionTypeMirror = class FunctionTypeMirror extends core.Object {};
 (mirrors.FunctionTypeMirror.new = function() {
-  ;
 }).prototype = mirrors.FunctionTypeMirror.prototype;
 ;
 mirrors.FunctionTypeMirror[dart.implements] = () => [mirrors.ClassMirror];
 dart.setLibraryUri(mirrors.FunctionTypeMirror, "dart:mirrors");
 mirrors.TypeVariableMirror = class TypeVariableMirror extends mirrors.TypeMirror {};
 (mirrors.TypeVariableMirror.new = function() {
-  ;
 }).prototype = mirrors.TypeVariableMirror.prototype;
 ;
 dart.setLibraryUri(mirrors.TypeVariableMirror, "dart:mirrors");
 mirrors.TypedefMirror = class TypedefMirror extends core.Object {};
 (mirrors.TypedefMirror.new = function() {
-  ;
 }).prototype = mirrors.TypedefMirror.prototype;
 ;
 mirrors.TypedefMirror[dart.implements] = () => [mirrors.TypeMirror];
 dart.setLibraryUri(mirrors.TypedefMirror, "dart:mirrors");
 mirrors.MethodMirror = class MethodMirror extends core.Object {};
 (mirrors.MethodMirror.new = function() {
-  ;
 }).prototype = mirrors.MethodMirror.prototype;
 ;
 mirrors.MethodMirror[dart.implements] = () => [mirrors.DeclarationMirror];
 dart.setLibraryUri(mirrors.MethodMirror, "dart:mirrors");
 mirrors.VariableMirror = class VariableMirror extends core.Object {};
 (mirrors.VariableMirror.new = function() {
-  ;
 }).prototype = mirrors.VariableMirror.prototype;
 ;
 mirrors.VariableMirror[dart.implements] = () => [mirrors.DeclarationMirror];
 dart.setLibraryUri(mirrors.VariableMirror, "dart:mirrors");
 mirrors.ParameterMirror = class ParameterMirror extends core.Object {};
 (mirrors.ParameterMirror.new = function() {
-  ;
 }).prototype = mirrors.ParameterMirror.prototype;
 ;
 mirrors.ParameterMirror[dart.implements] = () => [mirrors.VariableMirror];
 dart.setLibraryUri(mirrors.ParameterMirror, "dart:mirrors");
 mirrors.SourceLocation = class SourceLocation extends core.Object {};
 (mirrors.SourceLocation.new = function() {
-  ;
 }).prototype = mirrors.SourceLocation.prototype;
 ;
 dart.setLibraryUri(mirrors.SourceLocation, "dart:mirrors");
@@ -46034,7 +45013,6 @@ mirrors.Comment = class Comment extends core.Object {
   this[text$] = text;
   this[trimmedText$] = trimmedText;
   this[isDocComment$] = isDocComment;
-  ;
 }).prototype = mirrors.Comment.prototype;
 ;
 dart.setLibraryUri(mirrors.Comment, "dart:mirrors");
@@ -46078,7 +45056,6 @@ mirrors.MirrorsUsed = class MirrorsUsed extends core.Object {
   this[targets$] = targets;
   this[metaTargets$] = metaTargets;
   this[override$] = override;
-  ;
 }).prototype = mirrors.MirrorsUsed.prototype;
 ;
 dart.setLibraryUri(mirrors.MirrorsUsed, "dart:mirrors");
@@ -46125,25 +45102,21 @@ mirrors.reflectType = function reflectType$(type, typeArguments) {
 };
 typed_data.ByteBuffer = class ByteBuffer extends core.Object {};
 (typed_data.ByteBuffer.new = function() {
-  ;
 }).prototype = typed_data.ByteBuffer.prototype;
 ;
 dart.setLibraryUri(typed_data.ByteBuffer, "dart:typed_data");
 typed_data.TypedData = class TypedData extends core.Object {};
 (typed_data.TypedData.new = function() {
-  ;
 }).prototype = typed_data.TypedData.prototype;
 ;
 dart.setLibraryUri(typed_data.TypedData, "dart:typed_data");
 typed_data._TypedIntList = class _TypedIntList extends typed_data.TypedData {};
 (typed_data._TypedIntList.new = function() {
-  ;
 }).prototype = typed_data._TypedIntList.prototype;
 ;
 dart.setLibraryUri(typed_data._TypedIntList, "dart:typed_data");
 typed_data._TypedFloatList = class _TypedFloatList extends typed_data.TypedData {};
 (typed_data._TypedFloatList.new = function() {
-  ;
 }).prototype = typed_data._TypedFloatList.prototype;
 ;
 dart.setLibraryUri(typed_data._TypedFloatList, "dart:typed_data");
@@ -46159,7 +45132,6 @@ typed_data.Endian = class Endian extends core.Object {
 };
 (typed_data.Endian.__ = function(_littleEndian) {
   this[_littleEndian$] = _littleEndian;
-  ;
 }).prototype = typed_data.Endian.prototype;
 ;
 const _littleEndian$ = Endian__littleEndian;
@@ -46577,7 +45549,6 @@ typed_data.UnmodifiableByteBufferView = class UnmodifiableByteBufferView extends
 };
 (typed_data.UnmodifiableByteBufferView.new = function(data) {
   this[_data$] = data;
-  ;
 }).prototype = typed_data.UnmodifiableByteBufferView.prototype;
 ;
 typed_data.UnmodifiableByteBufferView[dart.implements] = () => [typed_data.ByteBuffer];
@@ -46703,7 +45674,6 @@ typed_data.UnmodifiableByteDataView = class UnmodifiableByteDataView extends cor
 };
 (typed_data.UnmodifiableByteDataView.new = function(data) {
   this[_data$] = data;
-  ;
 }).prototype = typed_data.UnmodifiableByteDataView.prototype;
 ;
 typed_data.UnmodifiableByteDataView[dart.implements] = () => [typed_data.ByteData];
@@ -46780,11 +45750,8 @@ typed_data._UnmodifiableListMixin$ = dart.generic((N, L, TD) => {
     }
   }
   (_UnmodifiableListMixin.new = function() {
-    ;
   }).prototype = _UnmodifiableListMixin.prototype;
-  ;
   _UnmodifiableListMixin.prototype[_is__UnmodifiableListMixin_default] = true;
-  ;
   dart.setGetterSignature(_UnmodifiableListMixin, () => ({
     __proto__: dart.getGetters(_UnmodifiableListMixin.__proto__),
     [_data$]: TD,
@@ -46817,7 +45784,6 @@ typed_data.UnmodifiableUint8ListView = class UnmodifiableUint8ListView extends U
 };
 (typed_data.UnmodifiableUint8ListView.new = function(list) {
   this[_list$3] = list;
-  ;
 }).prototype = typed_data.UnmodifiableUint8ListView.prototype;
 ;
 typed_data.UnmodifiableUint8ListView[dart.implements] = () => [typed_data.Uint8List];
@@ -46850,7 +45816,6 @@ typed_data.UnmodifiableInt8ListView = class UnmodifiableInt8ListView extends Unm
 };
 (typed_data.UnmodifiableInt8ListView.new = function(list) {
   this[_list$4] = list;
-  ;
 }).prototype = typed_data.UnmodifiableInt8ListView.prototype;
 ;
 typed_data.UnmodifiableInt8ListView[dart.implements] = () => [typed_data.Int8List];
@@ -46883,7 +45848,6 @@ typed_data.UnmodifiableUint8ClampedListView = class UnmodifiableUint8ClampedList
 };
 (typed_data.UnmodifiableUint8ClampedListView.new = function(list) {
   this[_list$5] = list;
-  ;
 }).prototype = typed_data.UnmodifiableUint8ClampedListView.prototype;
 ;
 typed_data.UnmodifiableUint8ClampedListView[dart.implements] = () => [typed_data.Uint8ClampedList];
@@ -46916,7 +45880,6 @@ typed_data.UnmodifiableUint16ListView = class UnmodifiableUint16ListView extends
 };
 (typed_data.UnmodifiableUint16ListView.new = function(list) {
   this[_list$6] = list;
-  ;
 }).prototype = typed_data.UnmodifiableUint16ListView.prototype;
 ;
 typed_data.UnmodifiableUint16ListView[dart.implements] = () => [typed_data.Uint16List];
@@ -46949,7 +45912,6 @@ typed_data.UnmodifiableInt16ListView = class UnmodifiableInt16ListView extends U
 };
 (typed_data.UnmodifiableInt16ListView.new = function(list) {
   this[_list$7] = list;
-  ;
 }).prototype = typed_data.UnmodifiableInt16ListView.prototype;
 ;
 typed_data.UnmodifiableInt16ListView[dart.implements] = () => [typed_data.Int16List];
@@ -46982,7 +45944,6 @@ typed_data.UnmodifiableUint32ListView = class UnmodifiableUint32ListView extends
 };
 (typed_data.UnmodifiableUint32ListView.new = function(list) {
   this[_list$8] = list;
-  ;
 }).prototype = typed_data.UnmodifiableUint32ListView.prototype;
 ;
 typed_data.UnmodifiableUint32ListView[dart.implements] = () => [typed_data.Uint32List];
@@ -47015,7 +45976,6 @@ typed_data.UnmodifiableInt32ListView = class UnmodifiableInt32ListView extends U
 };
 (typed_data.UnmodifiableInt32ListView.new = function(list) {
   this[_list$9] = list;
-  ;
 }).prototype = typed_data.UnmodifiableInt32ListView.prototype;
 ;
 typed_data.UnmodifiableInt32ListView[dart.implements] = () => [typed_data.Int32List];
@@ -47048,7 +46008,6 @@ typed_data.UnmodifiableUint64ListView = class UnmodifiableUint64ListView extends
 };
 (typed_data.UnmodifiableUint64ListView.new = function(list) {
   this[_list$10] = list;
-  ;
 }).prototype = typed_data.UnmodifiableUint64ListView.prototype;
 ;
 typed_data.UnmodifiableUint64ListView[dart.implements] = () => [typed_data.Uint64List];
@@ -47081,7 +46040,6 @@ typed_data.UnmodifiableInt64ListView = class UnmodifiableInt64ListView extends U
 };
 (typed_data.UnmodifiableInt64ListView.new = function(list) {
   this[_list$11] = list;
-  ;
 }).prototype = typed_data.UnmodifiableInt64ListView.prototype;
 ;
 typed_data.UnmodifiableInt64ListView[dart.implements] = () => [typed_data.Int64List];
@@ -47114,7 +46072,6 @@ typed_data.UnmodifiableInt32x4ListView = class UnmodifiableInt32x4ListView exten
 };
 (typed_data.UnmodifiableInt32x4ListView.new = function(list) {
   this[_list$12] = list;
-  ;
 }).prototype = typed_data.UnmodifiableInt32x4ListView.prototype;
 ;
 typed_data.UnmodifiableInt32x4ListView[dart.implements] = () => [typed_data.Int32x4List];
@@ -47147,7 +46104,6 @@ typed_data.UnmodifiableFloat32x4ListView = class UnmodifiableFloat32x4ListView e
 };
 (typed_data.UnmodifiableFloat32x4ListView.new = function(list) {
   this[_list$13] = list;
-  ;
 }).prototype = typed_data.UnmodifiableFloat32x4ListView.prototype;
 ;
 typed_data.UnmodifiableFloat32x4ListView[dart.implements] = () => [typed_data.Float32x4List];
@@ -47180,7 +46136,6 @@ typed_data.UnmodifiableFloat64x2ListView = class UnmodifiableFloat64x2ListView e
 };
 (typed_data.UnmodifiableFloat64x2ListView.new = function(list) {
   this[_list$14] = list;
-  ;
 }).prototype = typed_data.UnmodifiableFloat64x2ListView.prototype;
 ;
 typed_data.UnmodifiableFloat64x2ListView[dart.implements] = () => [typed_data.Float64x2List];
@@ -47213,7 +46168,6 @@ typed_data.UnmodifiableFloat32ListView = class UnmodifiableFloat32ListView exten
 };
 (typed_data.UnmodifiableFloat32ListView.new = function(list) {
   this[_list$15] = list;
-  ;
 }).prototype = typed_data.UnmodifiableFloat32ListView.prototype;
 ;
 typed_data.UnmodifiableFloat32ListView[dart.implements] = () => [typed_data.Float32List];
@@ -47246,7 +46200,6 @@ typed_data.UnmodifiableFloat64ListView = class UnmodifiableFloat64ListView exten
 };
 (typed_data.UnmodifiableFloat64ListView.new = function(list) {
   this[_list$16] = list;
-  ;
 }).prototype = typed_data.UnmodifiableFloat64ListView.prototype;
 ;
 typed_data.UnmodifiableFloat64ListView[dart.implements] = () => [typed_data.Float64List];
@@ -47270,7 +46223,6 @@ core._CompileTimeError = class _CompileTimeError extends core.Error {
 (core._CompileTimeError.new = function(_errorMsg) {
   this[_errorMsg$] = _errorMsg;
   core._CompileTimeError.__proto__.new.call(this);
-  ;
 }).prototype = core._CompileTimeError.prototype;
 ;
 dart.setLibraryUri(core._CompileTimeError, "dart:core");
@@ -47284,7 +46236,6 @@ core._DuplicatedFieldInitializerError = class _DuplicatedFieldInitializerError e
 };
 (core._DuplicatedFieldInitializerError.new = function(_name) {
   this[_name$7] = _name;
-  ;
 }).prototype = core._DuplicatedFieldInitializerError.prototype;
 ;
 dart.setLibraryUri(core._DuplicatedFieldInitializerError, "dart:core");
@@ -48606,7 +47557,6 @@ core._BigIntImpl = class _BigIntImpl extends core.Object {
   this[_used$] = _used;
   this[_digits$] = _digits;
   this[_isNegative] = _used === 0 ? false : isNegative;
-  ;
 }).prototype = core._BigIntImpl.prototype;
 ;
 core._BigIntImpl[dart.implements] = () => [core.BigInt];
@@ -48695,7 +47645,6 @@ dart.defineLazy(core._BigIntImpl, {
 });
 core._BigIntReduction = class _BigIntReduction extends core.Object {};
 (core._BigIntReduction.new = function() {
-  ;
 }).prototype = core._BigIntReduction.prototype;
 ;
 dart.setLibraryUri(core._BigIntReduction, "dart:core");
@@ -48755,7 +47704,6 @@ core._BigIntClassic = class _BigIntClassic extends core.Object {
 (core._BigIntClassic.new = function(_modulus) {
   this[_modulus$] = _modulus;
   this[_normalizedModulus] = _modulus['<<'](16 - _modulus[_digits$][$_get](dart.notNull(_modulus[_used$]) - 1)[$bitLength]);
-  ;
 }).prototype = core._BigIntClassic.prototype;
 ;
 core._BigIntClassic[dart.implements] = () => [core._BigIntReduction];
@@ -48779,7 +47727,6 @@ core.Deprecated = class Deprecated extends core.Object {
 };
 (core.Deprecated.new = function(message) {
   this[message$13] = message;
-  ;
 }).prototype = core.Deprecated.prototype;
 ;
 dart.setGetterSignature(core.Deprecated, () => ({
@@ -48791,7 +47738,6 @@ dart.setLibraryUri(core.Deprecated, "dart:core");
 dart.defineExtensionMethods(core.Deprecated, ['toString']);
 core._Override = class _Override extends core.Object {};
 (core._Override.new = function() {
-  ;
 }).prototype = core._Override.prototype;
 ;
 dart.setLibraryUri(core._Override, "dart:core");
@@ -48802,7 +47748,6 @@ core.Provisional = class Provisional extends core.Object {
 };
 (core.Provisional.new = function(opts) {
   let message = opts && 'message' in opts ? opts.message : null;
-  ;
 }).prototype = core.Provisional.prototype;
 ;
 dart.setGetterSignature(core.Provisional, () => ({
@@ -48812,7 +47757,6 @@ dart.setGetterSignature(core.Provisional, () => ({
 dart.setLibraryUri(core.Provisional, "dart:core");
 core._Proxy = class _Proxy extends core.Object {};
 (core._Proxy.new = function() {
-  ;
 }).prototype = core._Proxy.prototype;
 ;
 dart.setLibraryUri(core._Proxy, "dart:core");
@@ -48836,7 +47780,6 @@ core.pragma = class pragma extends core.Object {
   if (options === void 0) options = null;
   this[name$11] = name;
   this[options$] = options;
-  ;
 }).prototype = core.pragma.prototype;
 ;
 dart.setLibraryUri(core.pragma, "dart:core");
@@ -48909,9 +47852,7 @@ core.Comparable$ = dart.generic(T => {
     }
   }
   (Comparable.new = function() {
-    ;
   }).prototype = Comparable.prototype;
-  ;
   Comparable.prototype[_is_Comparable_default] = true;
   dart.setLibraryUri(Comparable, "dart:core");
   return Comparable;
@@ -49174,12 +48115,10 @@ core.DateTime = class DateTime extends core.Object {
 (core.DateTime._internal = function(year, month, day, hour, minute, second, millisecond, microsecond, isUtc) {
   this[isUtc$] = typeof isUtc == 'boolean' ? isUtc : dart.throw(new core.ArgumentError.value(isUtc, "isUtc"));
   this[_value$6] = core.int._check(_js_helper.checkInt(_js_helper.Primitives.valueFromDecomposedDate(year, month, day, hour, minute, second, dart.notNull(millisecond) + dart.notNull(core.DateTime._microsecondInRoundedMilliseconds(microsecond)), isUtc)));
-  ;
 }).prototype = core.DateTime.prototype;
 (core.DateTime._now = function() {
   this[isUtc$] = false;
   this[_value$6] = _js_helper.Primitives.dateNow();
-  ;
 }).prototype = core.DateTime.prototype;
 ;
 core.DateTime[dart.implements] = () => [core.Comparable$(core.DateTime)];
@@ -49382,7 +48321,6 @@ core.Duration = class Duration extends core.Object {
 }).prototype = core.Duration.prototype;
 (core.Duration._microseconds = function(_duration) {
   this[_duration$] = _duration;
-  ;
 }).prototype = core.Duration.prototype;
 ;
 core.Duration[dart.implements] = () => [core.Comparable$(core.Duration)];
@@ -49454,14 +48392,12 @@ dart.defineLazy(core.Duration, {
 core.TypeError = class TypeError extends core.AssertionError {};
 (core.TypeError.new = function() {
   core.TypeError.__proto__.new.call(this);
-  ;
 }).prototype = core.TypeError.prototype;
 ;
 dart.setLibraryUri(core.TypeError, "dart:core");
 core.CastError = class CastError extends core.Error {};
 (core.CastError.new = function() {
   core.CastError.__proto__.new.call(this);
-  ;
 }).prototype = core.CastError.prototype;
 ;
 dart.setLibraryUri(core.CastError, "dart:core");
@@ -49472,7 +48408,6 @@ core.NullThrownError = class NullThrownError extends core.Error {
 };
 (core.NullThrownError.new = function() {
   core.NullThrownError.__proto__.new.call(this);
-  ;
 }).prototype = core.NullThrownError.prototype;
 ;
 dart.setLibraryUri(core.NullThrownError, "dart:core");
@@ -49529,7 +48464,6 @@ core.ArgumentError = class ArgumentError extends core.Error {
   this[_hasValue$] = false;
   this[name$12] = null;
   core.ArgumentError.__proto__.new.call(this);
-  ;
 }).prototype = core.ArgumentError.prototype;
 (core.ArgumentError.value = function(value, name, message) {
   if (name === void 0) name = null;
@@ -49539,7 +48473,6 @@ core.ArgumentError = class ArgumentError extends core.Error {
   this[invalidValue] = value;
   this[_hasValue$] = true;
   core.ArgumentError.__proto__.new.call(this);
-  ;
 }).prototype = core.ArgumentError.prototype;
 (core.ArgumentError.notNull = function(name) {
   if (name === void 0) name = null;
@@ -49548,7 +48481,6 @@ core.ArgumentError = class ArgumentError extends core.Error {
   this[message$14] = "Must not be null";
   this[invalidValue] = null;
   core.ArgumentError.__proto__.new.call(this);
-  ;
 }).prototype = core.ArgumentError.prototype;
 ;
 dart.setGetterSignature(core.ArgumentError, () => ({
@@ -49640,7 +48572,6 @@ core.RangeError = class RangeError extends core.ArgumentError {
   this[start] = null;
   this[end] = null;
   core.RangeError.__proto__.new.call(this, message);
-  ;
 }).prototype = core.RangeError.prototype;
 (core.RangeError.value = function(value, name, message) {
   if (name === void 0) name = null;
@@ -49648,7 +48579,6 @@ core.RangeError = class RangeError extends core.ArgumentError {
   this[start] = null;
   this[end] = null;
   core.RangeError.__proto__.value.call(this, value, name, message != null ? message : "Value not in range");
-  ;
 }).prototype = core.RangeError.prototype;
 (core.RangeError.range = function(invalidValue, minValue, maxValue, name, message) {
   if (name === void 0) name = null;
@@ -49656,7 +48586,6 @@ core.RangeError = class RangeError extends core.ArgumentError {
   this[start] = minValue;
   this[end] = maxValue;
   core.RangeError.__proto__.value.call(this, invalidValue, name, message != null ? message : "Invalid value");
-  ;
 }).prototype = core.RangeError.prototype;
 ;
 dart.setLibraryUri(core.RangeError, "dart:core");
@@ -49705,7 +48634,6 @@ core.IndexError = class IndexError extends core.ArgumentError {
   this[indexable$] = indexable;
   this[length$0] = core.int._check((t95 = length, t95 == null ? dart.dload(indexable, 'length') : t95));
   core.IndexError.__proto__.value.call(this, invalidValue, name, message != null ? message : "Index out of range");
-  ;
 }).prototype = core.IndexError.prototype;
 ;
 core.IndexError[dart.implements] = () => [core.RangeError];
@@ -49725,7 +48653,6 @@ core.AbstractClassInstantiationError = class AbstractClassInstantiationError ext
 (core.AbstractClassInstantiationError.new = function(className) {
   this[_className] = className;
   core.AbstractClassInstantiationError.__proto__.new.call(this);
-  ;
 }).prototype = core.AbstractClassInstantiationError.prototype;
 ;
 dart.setLibraryUri(core.AbstractClassInstantiationError, "dart:core");
@@ -49771,7 +48698,6 @@ core.NoSuchMethodError = class NoSuchMethodError extends core.Error {
   this[_existingArgumentNames$] = null;
   this[_invocation$] = invocation;
   core.NoSuchMethodError.__proto__.new.call(this);
-  ;
 }).prototype = core.NoSuchMethodError.prototype;
 (core.NoSuchMethodError.new = function(receiver, memberName, positionalArguments, namedArguments, existingArgumentNames) {
   if (existingArgumentNames === void 0) existingArgumentNames = null;
@@ -49782,7 +48708,6 @@ core.NoSuchMethodError = class NoSuchMethodError extends core.Error {
   this[_existingArgumentNames$] = existingArgumentNames;
   this[_invocation$] = null;
   core.NoSuchMethodError.__proto__.new.call(this);
-  ;
 }).prototype = core.NoSuchMethodError.prototype;
 ;
 dart.setLibraryUri(core.NoSuchMethodError, "dart:core");
@@ -49803,7 +48728,6 @@ core.UnsupportedError = class UnsupportedError extends core.Error {
 (core.UnsupportedError.new = function(message) {
   this[message$15] = message;
   core.UnsupportedError.__proto__.new.call(this);
-  ;
 }).prototype = core.UnsupportedError.prototype;
 ;
 dart.setLibraryUri(core.UnsupportedError, "dart:core");
@@ -49825,7 +48749,6 @@ core.UnimplementedError = class UnimplementedError extends core.Error {
   if (message === void 0) message = null;
   this[message$16] = message;
   core.UnimplementedError.__proto__.new.call(this);
-  ;
 }).prototype = core.UnimplementedError.prototype;
 ;
 core.UnimplementedError[dart.implements] = () => [core.UnsupportedError];
@@ -49847,7 +48770,6 @@ core.StateError = class StateError extends core.Error {
 (core.StateError.new = function(message) {
   this[message$17] = message;
   core.StateError.__proto__.new.call(this);
-  ;
 }).prototype = core.StateError.prototype;
 ;
 dart.setLibraryUri(core.StateError, "dart:core");
@@ -49872,7 +48794,6 @@ core.ConcurrentModificationError = class ConcurrentModificationError extends cor
   if (modifiedObject === void 0) modifiedObject = null;
   this[modifiedObject$] = modifiedObject;
   core.ConcurrentModificationError.__proto__.new.call(this);
-  ;
 }).prototype = core.ConcurrentModificationError.prototype;
 ;
 dart.setLibraryUri(core.ConcurrentModificationError, "dart:core");
@@ -49887,7 +48808,6 @@ core.OutOfMemoryError = class OutOfMemoryError extends core.Object {
   }
 };
 (core.OutOfMemoryError.new = function() {
-  ;
 }).prototype = core.OutOfMemoryError.prototype;
 ;
 core.OutOfMemoryError[dart.implements] = () => [core.Error];
@@ -49908,7 +48828,6 @@ core.StackOverflowError = class StackOverflowError extends core.Object {
   }
 };
 (core.StackOverflowError.new = function() {
-  ;
 }).prototype = core.StackOverflowError.prototype;
 ;
 core.StackOverflowError[dart.implements] = () => [core.Error];
@@ -49936,7 +48855,6 @@ core.CyclicInitializationError = class CyclicInitializationError extends core.Er
   if (variableName === void 0) variableName = null;
   this[variableName$] = variableName;
   core.CyclicInitializationError.__proto__.new.call(this);
-  ;
 }).prototype = core.CyclicInitializationError.prototype;
 ;
 dart.setLibraryUri(core.CyclicInitializationError, "dart:core");
@@ -49945,7 +48863,6 @@ dart.defineExtensionMethods(core.CyclicInitializationError, ['toString']);
 core.LateInitializationError = class LateInitializationError extends core.Error {};
 (core.LateInitializationError.new = function() {
   core.LateInitializationError.__proto__.new.call(this);
-  ;
 }).prototype = core.LateInitializationError.prototype;
 ;
 dart.setLibraryUri(core.LateInitializationError, "dart:core");
@@ -49968,7 +48885,6 @@ core._Exception = class _Exception extends core.Object {
 (core._Exception.new = function(message) {
   if (message === void 0) message = null;
   this.message = message;
-  ;
 }).prototype = core._Exception.prototype;
 ;
 core._Exception[dart.implements] = () => [core.Exception];
@@ -50082,7 +48998,6 @@ core.FormatException = class FormatException extends core.Object {
   this[message$18] = message;
   this[source$] = source;
   this[offset$] = offset;
-  ;
 }).prototype = core.FormatException.prototype;
 ;
 core.FormatException[dart.implements] = () => [core.Exception];
@@ -50095,7 +49010,6 @@ core.IntegerDivisionByZeroException = class IntegerDivisionByZeroException exten
   }
 };
 (core.IntegerDivisionByZeroException.new = function() {
-  ;
 }).prototype = core.IntegerDivisionByZeroException.prototype;
 ;
 core.IntegerDivisionByZeroException[dart.implements] = () => [core.Exception];
@@ -50143,13 +49057,9 @@ core.Expando$ = dart.generic(T => {
   (Expando.new = function(name) {
     if (name === void 0) name = null;
     this[name$13] = name;
-    ;
   }).prototype = Expando.prototype;
-  ;
   Expando.prototype[_is_Expando_default] = true;
-  ;
   dart.setLibraryUri(Expando, "dart:core");
-  ;
   dart.defineExtensionMethods(Expando, ['toString']);
   return Expando;
 });
@@ -50200,7 +49110,6 @@ core.Function = class Function extends core.Object {
   }
 };
 (core.Function.new = function() {
-  ;
 }).prototype = core.Function.prototype;
 dart.setLibraryUri(core.Function, "dart:core");
 const _positional = dart.privateName(core, "_positional");
@@ -50250,21 +49159,18 @@ core._Invocation = class _Invocation extends core.Object {
   this.typeArguments = core._Invocation._ensureNonNullTypes(core._Invocation._makeUnmodifiable(core.Type, types));
   this[_positional] = (t95 = core._Invocation._makeUnmodifiable(core.Object, positional), t95 == null ? C269 || CT.C269 : t95);
   this[_named] = named == null || dart.test(named[$isEmpty]) ? C270 || CT.C270 : MapOfSymbol$Object().unmodifiable(named);
-  ;
 }).prototype = core._Invocation.prototype;
 (core._Invocation.getter = function(memberName) {
   this.memberName = memberName;
   this.typeArguments = C0 || CT.C0;
   this[_positional] = null;
   this[_named] = null;
-  ;
 }).prototype = core._Invocation.prototype;
 (core._Invocation.setter = function(memberName, argument) {
   this.memberName = memberName;
   this.typeArguments = C0 || CT.C0;
   this[_positional] = ListOfObject().unmodifiable([argument]);
   this[_named] = null;
-  ;
 }).prototype = core._Invocation.prototype;
 ;
 core._Invocation[dart.implements] = () => [core.Invocation];
@@ -50304,12 +49210,9 @@ core._GeneratorIterable$ = dart.generic(E => {
     this[length$1] = length;
     this[_generator] = generator != null ? generator : intToE().as(C271 || CT.C271);
     _GeneratorIterable.__proto__.new.call(this);
-    ;
   }).prototype = _GeneratorIterable.prototype;
-  ;
   _GeneratorIterable.prototype[_is__GeneratorIterable_default] = true;
   dart.setLibraryUri(_GeneratorIterable, "dart:core");
-  ;
   dart.defineExtensionMethods(_GeneratorIterable, ['elementAt']);
   dart.defineExtensionAccessors(_GeneratorIterable, ['length']);
   return _GeneratorIterable;
@@ -50320,9 +49223,7 @@ const _is_BidirectionalIterator_default = Symbol('_is_BidirectionalIterator_defa
 core.BidirectionalIterator$ = dart.generic(E => {
   class BidirectionalIterator extends core.Object {}
   (BidirectionalIterator.new = function() {
-    ;
   }).prototype = BidirectionalIterator.prototype;
-  ;
   BidirectionalIterator.prototype[_is_BidirectionalIterator_default] = true;
   BidirectionalIterator[dart.implements] = () => [core.Iterator$(E)];
   dart.setLibraryUri(BidirectionalIterator, "dart:core");
@@ -50347,7 +49248,6 @@ core.Map$ = dart.generic((K, V) => {
   }
   (Map[dart.mixinNew] = function() {
   }).prototype = Map.prototype;
-  ;
   Map.prototype[dart.isMap] = true;
   dart.setLibraryUri(Map, "dart:core");
   return Map;
@@ -50378,12 +49278,9 @@ core.MapEntry$ = dart.generic((K, V) => {
   (MapEntry.__ = function(key, value) {
     this[key$0] = key;
     this[value$4] = value;
-    ;
   }).prototype = MapEntry.prototype;
-  ;
   MapEntry.prototype[_is_MapEntry_default] = true;
   dart.setLibraryUri(MapEntry, "dart:core");
-  ;
   dart.defineExtensionMethods(MapEntry, ['toString']);
   return MapEntry;
 });
@@ -50415,7 +49312,6 @@ dart.defineExtensionMethods(core.Null, ['toString']);
 dart.defineExtensionAccessors(core.Null, ['hashCode']);
 core.Pattern = class Pattern extends core.Object {};
 (core.Pattern.new = function() {
-  ;
 }).prototype = core.Pattern.prototype;
 ;
 dart.setLibraryUri(core.Pattern, "dart:core");
@@ -50444,7 +49340,6 @@ core.Set$ = dart.generic(E => {
       return new (_internal.CastSet$(S, T)).new(source, newSet);
     }
   }
-  ;
   Set.prototype[_is_Set_default] = true;
   dart.setLibraryUri(Set, "dart:core");
   return Set;
@@ -50455,9 +49350,7 @@ const _is_Sink_default = Symbol('_is_Sink_default');
 core.Sink$ = dart.generic(T => {
   class Sink extends core.Object {}
   (Sink.new = function() {
-    ;
   }).prototype = Sink.prototype;
-  ;
   Sink.prototype[_is_Sink_default] = true;
   dart.setLibraryUri(Sink, "dart:core");
   return Sink;
@@ -50470,7 +49363,6 @@ core.StackTrace = class StackTrace extends core.Object {
   }
 };
 (core.StackTrace.new = function() {
-  ;
 }).prototype = core.StackTrace.prototype;
 ;
 dart.setLibraryUri(core.StackTrace, "dart:core");
@@ -50482,7 +49374,6 @@ core._StringStackTrace = class _StringStackTrace extends core.Object {
 };
 (core._StringStackTrace.new = function(_stackTrace) {
   this[_stackTrace$] = _stackTrace;
-  ;
 }).prototype = core._StringStackTrace.prototype;
 ;
 core._StringStackTrace[dart.implements] = () => [core.StackTrace];
@@ -50591,7 +49482,6 @@ core.Runes = class Runes extends core.Iterable$(core.int) {
 (core.Runes.new = function(string) {
   this[string$] = string;
   core.Runes.__proto__.new.call(this);
-  ;
 }).prototype = core.Runes.prototype;
 ;
 dart.setGetterSignature(core.Runes, () => ({
@@ -50691,7 +49581,6 @@ core.RuneIterator = class RuneIterator extends core.Object {
   this[string$0] = string;
   this[_position$0] = 0;
   this[_nextPosition] = 0;
-  ;
 }).prototype = core.RuneIterator.prototype;
 (core.RuneIterator.at = function(string, index) {
   this[_currentCodePoint] = null;
@@ -52370,7 +51259,6 @@ core._Uri = class _Uri extends core.Object {
   this.path = path;
   this[_query$] = _query;
   this[_fragment$] = _fragment;
-  ;
 }).prototype = core._Uri.prototype;
 ;
 core._Uri[dart.implements] = () => [core.Uri];
@@ -52780,7 +51668,6 @@ core.UriData = class UriData extends core.Object {
   this[_text$] = _text;
   this[_separatorIndices$] = _separatorIndices;
   this[_uriCache$] = _uriCache;
-  ;
 }).prototype = core.UriData.prototype;
 ;
 ;
@@ -53172,7 +52059,6 @@ core._SimpleUri = class _SimpleUri extends core.Object {
   this[_queryStart$] = _queryStart;
   this[_fragmentStart$] = _fragmentStart;
   this[_schemeCache$] = _schemeCache;
-  ;
 }).prototype = core._SimpleUri.prototype;
 ;
 core._SimpleUri[dart.implements] = () => [core.Uri];
@@ -53219,7 +52105,6 @@ core._DataUri = class _DataUri extends core._Uri {
 (core._DataUri.new = function(_data, path, query) {
   this[_data$0] = _data;
   core._DataUri.__proto__._internal.call(this, "data", null, null, null, path, query, null);
-  ;
 }).prototype = core._DataUri.prototype;
 ;
 dart.setLibraryUri(core._DataUri, "dart:core");
@@ -53555,7 +52440,6 @@ ui.PointMode = class PointMode extends core.Object {
 (ui.PointMode.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PointMode.prototype;
 ;
 dart.setLibraryUri(ui.PointMode, "dart:ui");
@@ -53576,7 +52460,6 @@ ui.ClipOp = class ClipOp extends core.Object {
 (ui.ClipOp.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.ClipOp.prototype;
 ;
 dart.setLibraryUri(ui.ClipOp, "dart:ui");
@@ -53597,7 +52480,6 @@ ui.VertexMode = class VertexMode extends core.Object {
 (ui.VertexMode.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.VertexMode.prototype;
 ;
 dart.setLibraryUri(ui.VertexMode, "dart:ui");
@@ -53618,7 +52500,6 @@ ui.PathFillType = class PathFillType extends core.Object {
 (ui.PathFillType.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PathFillType.prototype;
 ;
 dart.setLibraryUri(ui.PathFillType, "dart:ui");
@@ -53641,7 +52522,6 @@ ui.PathOperation = class PathOperation extends core.Object {
 (ui.PathOperation.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PathOperation.prototype;
 ;
 dart.setLibraryUri(ui.PathOperation, "dart:ui");
@@ -53706,7 +52586,6 @@ ui.OffsetBase = class OffsetBase extends core.Object {
 (ui.OffsetBase.new = function(_dx, _dy) {
   this[_dx$] = _dx;
   this[_dy$] = _dy;
-  ;
 }).prototype = ui.OffsetBase.prototype;
 ;
 ;
@@ -53801,7 +52680,6 @@ ui.Offset = class Offset extends ui.OffsetBase {
 };
 (ui.Offset.new = function(dx, dy) {
   ui.Offset.__proto__.new.call(this, dx, dy);
-  ;
 }).prototype = ui.Offset.prototype;
 ;
 ;
@@ -53941,27 +52819,21 @@ ui.Size = class Size extends ui.OffsetBase {
 };
 (ui.Size.new = function(width, height) {
   ui.Size.__proto__.new.call(this, width, height);
-  ;
 }).prototype = ui.Size.prototype;
 (ui.Size.copy = function(source) {
   ui.Size.__proto__.new.call(this, source.width, source.height);
-  ;
 }).prototype = ui.Size.prototype;
 (ui.Size.square = function(dimension) {
   ui.Size.__proto__.new.call(this, dimension, dimension);
-  ;
 }).prototype = ui.Size.prototype;
 (ui.Size.fromWidth = function(width) {
   ui.Size.__proto__.new.call(this, width, 1 / 0);
-  ;
 }).prototype = ui.Size.prototype;
 (ui.Size.fromHeight = function(height) {
   ui.Size.__proto__.new.call(this, 1 / 0, height);
-  ;
 }).prototype = ui.Size.prototype;
 (ui.Size.fromRadius = function(radius) {
   ui.Size.__proto__.new.call(this, dart.notNull(radius) * 2.0, dart.notNull(radius) * 2.0);
-  ;
 }).prototype = ui.Size.prototype;
 ;
 ;
@@ -54139,7 +53011,6 @@ ui.Rect = class Rect extends core.Object {
   if (!(top != null)) dart.assertFailed(null, "org-dartlang-sdk:///flutter_web_sdk/lib/ui/src/ui/geometry.dart", 654, 16, "top != null");
   if (!(right != null)) dart.assertFailed(null, "org-dartlang-sdk:///flutter_web_sdk/lib/ui/src/ui/geometry.dart", 655, 16, "right != null");
   if (!(bottom != null)) dart.assertFailed(null, "org-dartlang-sdk:///flutter_web_sdk/lib/ui/src/ui/geometry.dart", 656, 16, "bottom != null");
-  ;
 }).prototype = ui.Rect.prototype;
 (ui.Rect.fromLTWH = function(left, top, width, height) {
   ui.Rect.fromLTRB.call(this, left, top, dart.notNull(left) + dart.notNull(width), dart.notNull(top) + dart.notNull(height));
@@ -54270,7 +53141,6 @@ ui.Radius = class Radius extends core.Object {
 (ui.Radius.elliptical = function(x, y) {
   this[x$3] = x;
   this[y$3] = y;
-  ;
 }).prototype = ui.Radius.prototype;
 ;
 ;
@@ -54285,7 +53155,6 @@ dart.defineLazy(ui.Radius, {
 });
 ui._HashEnd = class _HashEnd extends core.Object {};
 (ui._HashEnd.new = function() {
-  ;
 }).prototype = ui._HashEnd.prototype;
 ;
 dart.setLibraryUri(ui._HashEnd, "dart:ui");
@@ -54380,15 +53249,12 @@ ui.Color = class Color extends core.Object {
 };
 (ui.Color.new = function(value) {
   this[value$5] = (dart.notNull(value) & 4294967295) >>> 0;
-  ;
 }).prototype = ui.Color.prototype;
 (ui.Color.fromARGB = function(a, r, g, b) {
   this[value$5] = (((dart.notNull(a) & 255) << 24 | (dart.notNull(r) & 255) << 16 | (dart.notNull(g) & 255) << 8 | (dart.notNull(b) & 255) << 0) & 4294967295) >>> 0;
-  ;
 }).prototype = ui.Color.prototype;
 (ui.Color.fromRGBO = function(r, g, b, opacity) {
   this[value$5] = ((((dart.notNull(opacity) * 255 / 1)[$truncate]() & 255) << 24 | (dart.notNull(r) & 255) << 16 | (dart.notNull(g) & 255) << 8 | (dart.notNull(b) & 255) << 0) & 4294967295) >>> 0;
-  ;
 }).prototype = ui.Color.prototype;
 ;
 ;
@@ -54442,7 +53308,6 @@ ui.BlendMode = class BlendMode extends core.Object {
 (ui.BlendMode.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.BlendMode.prototype;
 ;
 dart.setLibraryUri(ui.BlendMode, "dart:ui");
@@ -54491,7 +53356,6 @@ ui.FilterQuality = class FilterQuality extends core.Object {
 (ui.FilterQuality.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.FilterQuality.prototype;
 ;
 dart.setLibraryUri(ui.FilterQuality, "dart:ui");
@@ -54514,7 +53378,6 @@ ui.StrokeCap = class StrokeCap extends core.Object {
 (ui.StrokeCap.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.StrokeCap.prototype;
 ;
 dart.setLibraryUri(ui.StrokeCap, "dart:ui");
@@ -54536,7 +53399,6 @@ ui.StrokeJoin = class StrokeJoin extends core.Object {
 (ui.StrokeJoin.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.StrokeJoin.prototype;
 ;
 dart.setLibraryUri(ui.StrokeJoin, "dart:ui");
@@ -54557,7 +53419,6 @@ ui.PaintingStyle = class PaintingStyle extends core.Object {
 (ui.PaintingStyle.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PaintingStyle.prototype;
 ;
 dart.setLibraryUri(ui.PaintingStyle, "dart:ui");
@@ -54579,7 +53440,6 @@ ui.Clip = class Clip extends core.Object {
 (ui.Clip.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.Clip.prototype;
 ;
 dart.setLibraryUri(ui.Clip, "dart:ui");
@@ -54602,7 +53462,6 @@ ui.ImageByteFormat = class ImageByteFormat extends core.Object {
 (ui.ImageByteFormat.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.ImageByteFormat.prototype;
 ;
 dart.setLibraryUri(ui.ImageByteFormat, "dart:ui");
@@ -54623,7 +53482,6 @@ ui.PixelFormat = class PixelFormat extends core.Object {
 (ui.PixelFormat.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PixelFormat.prototype;
 ;
 dart.setLibraryUri(ui.PixelFormat, "dart:ui");
@@ -54656,7 +53514,6 @@ ui.BlurStyle = class BlurStyle extends core.Object {
 (ui.BlurStyle.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.BlurStyle.prototype;
 ;
 dart.setLibraryUri(ui.BlurStyle, "dart:ui");
@@ -54683,7 +53540,6 @@ ui.PointerChange = class PointerChange extends core.Object {
 (ui.PointerChange.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PointerChange.prototype;
 ;
 dart.setLibraryUri(ui.PointerChange, "dart:ui");
@@ -54711,7 +53567,6 @@ ui.PointerDeviceKind = class PointerDeviceKind extends core.Object {
 (ui.PointerDeviceKind.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PointerDeviceKind.prototype;
 ;
 dart.setLibraryUri(ui.PointerDeviceKind, "dart:ui");
@@ -54735,7 +53590,6 @@ ui.PointerSignalKind = class PointerSignalKind extends core.Object {
 (ui.PointerSignalKind.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PointerSignalKind.prototype;
 ;
 dart.setLibraryUri(ui.PointerSignalKind, "dart:ui");
@@ -55006,7 +53860,6 @@ ui.PointerData = class PointerData extends core.Object {
   this[platformData$] = platformData;
   this[scrollDeltaX$] = scrollDeltaX;
   this[scrollDeltaY$] = scrollDeltaY;
-  ;
 }).prototype = ui.PointerData.prototype;
 ;
 ;
@@ -55026,7 +53879,6 @@ ui.PointerDataPacket = class PointerDataPacket extends core.Object {
 (ui.PointerDataPacket.new = function(opts) {
   let data = opts && 'data' in opts ? opts.data : C404 || CT.C404;
   this[data$0] = data;
-  ;
 }).prototype = ui.PointerDataPacket.prototype;
 ;
 dart.setLibraryUri(ui.PointerDataPacket, "dart:ui");
@@ -55042,7 +53894,6 @@ ui.FontStyle = class FontStyle extends core.Object {
 (ui.FontStyle.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.FontStyle.prototype;
 ;
 dart.setLibraryUri(ui.FontStyle, "dart:ui");
@@ -55066,7 +53917,6 @@ ui.PlaceholderAlignment = class PlaceholderAlignment extends core.Object {
 (ui.PlaceholderAlignment.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.PlaceholderAlignment.prototype;
 ;
 dart.setLibraryUri(ui.PlaceholderAlignment, "dart:ui");
@@ -55109,7 +53959,6 @@ ui.FontWeight = class FontWeight extends core.Object {
 };
 (ui.FontWeight.__ = function(index) {
   this[index$] = index;
-  ;
 }).prototype = ui.FontWeight.prototype;
 ;
 dart.setLibraryUri(ui.FontWeight, "dart:ui");
@@ -55168,7 +54017,6 @@ ui.TextAlign = class TextAlign extends core.Object {
 (ui.TextAlign.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.TextAlign.prototype;
 ;
 dart.setLibraryUri(ui.TextAlign, "dart:ui");
@@ -55192,7 +54040,6 @@ ui.TextBaseline = class TextBaseline extends core.Object {
 (ui.TextBaseline.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.TextBaseline.prototype;
 ;
 dart.setLibraryUri(ui.TextBaseline, "dart:ui");
@@ -55215,7 +54062,6 @@ ui.TextDecorationStyle = class TextDecorationStyle extends core.Object {
 (ui.TextDecorationStyle.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.TextDecorationStyle.prototype;
 ;
 dart.setLibraryUri(ui.TextDecorationStyle, "dart:ui");
@@ -55238,7 +54084,6 @@ ui.TextDirection = class TextDirection extends core.Object {
 (ui.TextDirection.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.TextDirection.prototype;
 ;
 dart.setLibraryUri(ui.TextDirection, "dart:ui");
@@ -55258,7 +54103,6 @@ ui.TextAffinity = class TextAffinity extends core.Object {
 (ui.TextAffinity.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.TextAffinity.prototype;
 ;
 dart.setLibraryUri(ui.TextAffinity, "dart:ui");
@@ -55281,7 +54125,6 @@ ui.BoxHeightStyle = class BoxHeightStyle extends core.Object {
 (ui.BoxHeightStyle.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.BoxHeightStyle.prototype;
 ;
 dart.setLibraryUri(ui.BoxHeightStyle, "dart:ui");
@@ -55304,7 +54147,6 @@ ui.BoxWidthStyle = class BoxWidthStyle extends core.Object {
 (ui.BoxWidthStyle.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.BoxWidthStyle.prototype;
 ;
 dart.setLibraryUri(ui.BoxWidthStyle, "dart:ui");
@@ -55325,7 +54167,6 @@ ui.TileMode = class TileMode extends core.Object {
 (ui.TileMode.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.TileMode.prototype;
 ;
 dart.setLibraryUri(ui.TileMode, "dart:ui");
@@ -55348,7 +54189,6 @@ ui.AppLifecycleState = class AppLifecycleState extends core.Object {
 (ui.AppLifecycleState.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.AppLifecycleState.prototype;
 ;
 dart.setLibraryUri(ui.AppLifecycleState, "dart:ui");
@@ -55370,7 +54210,6 @@ ui.Brightness = class Brightness extends core.Object {
 (ui.Brightness.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.Brightness.prototype;
 ;
 dart.setLibraryUri(ui.Brightness, "dart:ui");
@@ -55392,7 +54231,6 @@ ui.FramePhase = class FramePhase extends core.Object {
 (ui.FramePhase.new = function(index, _name) {
   this.index = index;
   this[_name$8] = _name;
-  ;
 }).prototype = ui.FramePhase.prototype;
 ;
 dart.setLibraryUri(ui.FramePhase, "dart:ui");
@@ -55618,7 +54456,6 @@ _http.HttpConnectionsInfo = class HttpConnectionsInfo extends core.Object {
   this[active] = 0;
   this[idle] = 0;
   this[closing] = 0;
-  ;
 }).prototype = _http.HttpConnectionsInfo.prototype;
 ;
 dart.setLibraryUri(_http.HttpConnectionsInfo, "dart:_http");
@@ -55702,7 +54539,6 @@ _http.HttpHeaders = class HttpHeaders extends core.Object {
   this[contentLength] = null;
   this[persistentConnection] = null;
   this[chunkedTransferEncoding] = null;
-  ;
 }).prototype = _http.HttpHeaders.prototype;
 ;
 dart.setLibraryUri(_http.HttpHeaders, "dart:_http");
@@ -56046,7 +54882,6 @@ _http.HeaderValue = class HeaderValue extends core.Object {
 dart.setLibraryUri(_http.HeaderValue, "dart:_http");
 _http.HttpSession = class HttpSession extends core.Object {};
 (_http.HttpSession.new = function() {
-  ;
 }).prototype = _http.HttpSession.prototype;
 _http.HttpSession.prototype[dart.isMap] = true;
 ;
@@ -56172,7 +55007,6 @@ dart.setLibraryUri(_http.Cookie, "dart:_http");
 ;
 _http.HttpRequest = class HttpRequest extends core.Object {};
 (_http.HttpRequest.new = function() {
-  ;
 }).prototype = _http.HttpRequest.prototype;
 _http.HttpRequest.prototype[dart.isStream] = true;
 ;
@@ -56229,7 +55063,6 @@ _http.HttpResponse = class HttpResponse extends core.Object {
   this[persistentConnection$] = null;
   this[deadline] = null;
   this[bufferOutput] = null;
-  ;
 }).prototype = _http.HttpResponse.prototype;
 ;
 _http.HttpResponse[dart.implements] = () => [io.IOSink];
@@ -56366,7 +55199,6 @@ _http.HttpClientRequest = class HttpClientRequest extends core.Object {
   this[maxRedirects] = null;
   this[contentLength$0] = null;
   this[bufferOutput$] = null;
-  ;
 }).prototype = _http.HttpClientRequest.prototype;
 ;
 _http.HttpClientRequest[dart.implements] = () => [io.IOSink];
@@ -56374,7 +55206,6 @@ dart.setLibraryUri(_http.HttpClientRequest, "dart:_http");
 ;
 _http.HttpClientResponse = class HttpClientResponse extends core.Object {};
 (_http.HttpClientResponse.new = function() {
-  ;
 }).prototype = _http.HttpClientResponse.prototype;
 _http.HttpClientResponse.prototype[dart.isStream] = true;
 ;
@@ -56393,7 +55224,6 @@ _http.HttpClientResponseCompressionState = class HttpClientResponseCompressionSt
 (_http.HttpClientResponseCompressionState.new = function(index, _name) {
   this.index = index;
   this[_name$9] = _name;
-  ;
 }).prototype = _http.HttpClientResponseCompressionState.prototype;
 ;
 dart.setLibraryUri(_http.HttpClientResponseCompressionState, "dart:_http");
@@ -56405,7 +55235,6 @@ _http.HttpClientResponseCompressionState.compressed = C481 || CT.C481;
 _http.HttpClientResponseCompressionState.values = C482 || CT.C482;
 _http.HttpClientCredentials = class HttpClientCredentials extends core.Object {};
 (_http.HttpClientCredentials.new = function() {
-  ;
 }).prototype = _http.HttpClientCredentials.prototype;
 ;
 dart.setLibraryUri(_http.HttpClientCredentials, "dart:_http");
@@ -56425,19 +55254,16 @@ _http.HttpClientDigestCredentials = class HttpClientDigestCredentials extends _h
 dart.setLibraryUri(_http.HttpClientDigestCredentials, "dart:_http");
 _http.HttpConnectionInfo = class HttpConnectionInfo extends core.Object {};
 (_http.HttpConnectionInfo.new = function() {
-  ;
 }).prototype = _http.HttpConnectionInfo.prototype;
 ;
 dart.setLibraryUri(_http.HttpConnectionInfo, "dart:_http");
 _http.RedirectInfo = class RedirectInfo extends core.Object {};
 (_http.RedirectInfo.new = function() {
-  ;
 }).prototype = _http.RedirectInfo.prototype;
 ;
 dart.setLibraryUri(_http.RedirectInfo, "dart:_http");
 _http.DetachedSocket = class DetachedSocket extends core.Object {};
 (_http.DetachedSocket.new = function() {
-  ;
 }).prototype = _http.DetachedSocket.prototype;
 ;
 dart.setLibraryUri(_http.DetachedSocket, "dart:_http");
@@ -56469,7 +55295,6 @@ _http.HttpException = class HttpException extends core.Object {
   let uri = opts && 'uri' in opts ? opts.uri : null;
   this[message$19] = message;
   this[uri$0] = uri;
-  ;
 }).prototype = _http.HttpException.prototype;
 ;
 _http.HttpException[dart.implements] = () => [io.IOException];
@@ -56501,7 +55326,6 @@ _http.RedirectException = class RedirectException extends core.Object {
 (_http.RedirectException.new = function(message, redirects) {
   this[message$20] = message;
   this[redirects$] = redirects;
-  ;
 }).prototype = _http.RedirectException.prototype;
 ;
 _http.RedirectException[dart.implements] = () => [_http.HttpException];
@@ -56622,7 +55446,6 @@ _http._CryptoUtils = class _CryptoUtils extends core.Object {
   }
 };
 (_http._CryptoUtils.new = function() {
-  ;
 }).prototype = _http._CryptoUtils.prototype;
 ;
 dart.setLibraryUri(_http._CryptoUtils, "dart:_http");
@@ -57079,7 +55902,6 @@ _http.HttpDate = class HttpDate extends core.Object {
     function toInt(s) {
       let index = 0;
       for (; index < s.length && dart.test(isDigit(s[$_get](index))); index = index + 1)
-        ;
       return core.int.parse(s[$substring](0, index));
     }
     dart.fn(toInt, StringToint());
@@ -57133,7 +55955,6 @@ _http.HttpDate = class HttpDate extends core.Object {
   }
 };
 (_http.HttpDate.new = function() {
-  ;
 }).prototype = _http.HttpDate.prototype;
 ;
 dart.setLibraryUri(_http.HttpDate, "dart:_http");
@@ -58009,7 +56830,6 @@ _http._ContentType = class _ContentType extends _http._HeaderValue {
   this[_primaryType] = "";
   this[_subType] = "";
   _http._ContentType.__proto__.new.call(this);
-  ;
 }).prototype = _http._ContentType.prototype;
 ;
 _http._ContentType[dart.implements] = () => [_http.ContentType];
@@ -58198,7 +57018,6 @@ _http._Cookie = class _Cookie extends core.Object {
   this[_name$9] = _http._Cookie._validateName(name);
   this[_value$7] = _http._Cookie._validateValue(value);
   this.httpOnly = true;
-  ;
 }).prototype = _http._Cookie.prototype;
 (_http._Cookie.fromSetCookieValue = function(value) {
   this.expires = null;
@@ -58249,7 +57068,6 @@ _http._ServiceObject = class _ServiceObject extends core.Object {
 };
 (_http._ServiceObject.new = function() {
   this[__serviceId$] = 0;
-  ;
 }).prototype = _http._ServiceObject.prototype;
 ;
 ;
@@ -58338,7 +57156,6 @@ _http._CopyingBytesBuilder = class _CopyingBytesBuilder extends core.Object {
   if (initialCapacity === void 0) initialCapacity = 0;
   this[_length$2] = 0;
   this[_buffer$1] = dart.notNull(initialCapacity) <= 0 ? _http._CopyingBytesBuilder._emptyList : _native_typed_data.NativeUint8List.new(_http._CopyingBytesBuilder._pow2roundup(initialCapacity));
-  ;
 }).prototype = _http._CopyingBytesBuilder.prototype;
 ;
 _http._CopyingBytesBuilder[dart.implements] = () => [io.BytesBuilder];
@@ -58397,7 +57214,6 @@ _http._HttpIncoming = class _HttpIncoming extends async.Stream$(typed_data.Uint8
   this[_transferLength$] = _transferLength;
   this[_stream$1] = _stream;
   _http._HttpIncoming.__proto__.new.call(this);
-  ;
 }).prototype = _http._HttpIncoming.prototype;
 ;
 ;
@@ -58432,7 +57248,6 @@ _http._HttpInboundMessageListInt = class _HttpInboundMessageListInt extends asyn
   this[_cookies] = null;
   this[_incoming$] = _incoming;
   _http._HttpInboundMessageListInt.__proto__.new.call(this);
-  ;
 }).prototype = _http._HttpInboundMessageListInt.prototype;
 ;
 dart.setGetterSignature(_http._HttpInboundMessageListInt, () => ({
@@ -58467,7 +57282,6 @@ _http._HttpInboundMessage = class _HttpInboundMessage extends async.Stream$(type
   this[_cookies] = null;
   this[_incoming$] = _incoming;
   _http._HttpInboundMessage.__proto__.new.call(this);
-  ;
 }).prototype = _http._HttpInboundMessage.prototype;
 ;
 dart.setGetterSignature(_http._HttpInboundMessage, () => ({
@@ -58819,7 +57633,6 @@ _http._ToUint8List = class _ToUint8List extends convert.Converter$(core.List$(co
 };
 (_http._ToUint8List.new = function() {
   _http._ToUint8List.__proto__.new.call(this);
-  ;
 }).prototype = _http._ToUint8List.prototype;
 ;
 ;
@@ -58843,7 +57656,6 @@ _http._Uint8ListConversionSink = class _Uint8ListConversionSink extends core.Obj
 };
 (_http._Uint8ListConversionSink.new = function(_target) {
   this[_target$2] = _target;
-  ;
 }).prototype = _http._Uint8ListConversionSink.prototype;
 ;
 _http._Uint8ListConversionSink[dart.implements] = () => [core.Sink$(core.List$(core.int))];
@@ -58979,19 +57791,15 @@ _http._StreamSinkImpl$ = dart.generic(T => {
     this[_isBound$] = false;
     this[_hasError$0] = false;
     this[_target$1] = _target;
-    ;
   }).prototype = _StreamSinkImpl.prototype;
-  ;
   _StreamSinkImpl.prototype[_is__StreamSinkImpl_default$] = true;
   _StreamSinkImpl[dart.implements] = () => [async.StreamSink$(T)];
-  ;
   dart.setGetterSignature(_StreamSinkImpl, () => ({
     __proto__: dart.getGetters(_StreamSinkImpl.__proto__),
     done: async.Future,
     [_controller$0]: async.StreamController$(T)
   }));
   dart.setLibraryUri(_StreamSinkImpl, "dart:_http");
-  ;
   return _StreamSinkImpl;
 });
 _http._StreamSinkImpl = _http._StreamSinkImpl$();
@@ -59042,7 +57850,6 @@ _http._IOSinkImpl = class _IOSinkImpl extends _http._StreamSinkImpl$(core.List$(
   this[_encodingMutable$] = true;
   this[_encoding$0] = _encoding;
   _http._IOSinkImpl.__proto__.new.call(this, target);
-  ;
 }).prototype = _http._IOSinkImpl.prototype;
 ;
 _http._IOSinkImpl[dart.implements] = () => [io.IOSink];
@@ -59126,7 +57933,6 @@ _http._HttpOutboundMessage$ = dart.generic(T => {
     this[_outgoing].outbound = this;
     this[_encodingMutable$] = false;
   }).prototype = _HttpOutboundMessage.prototype;
-  ;
   _HttpOutboundMessage.prototype[_is__HttpOutboundMessage_default] = true;
   dart.setGetterSignature(_HttpOutboundMessage, () => ({
     __proto__: dart.getGetters(_HttpOutboundMessage.__proto__),
@@ -59142,7 +57948,6 @@ _http._HttpOutboundMessage$ = dart.generic(T => {
     bufferOutput: core.bool
   }));
   dart.setLibraryUri(_HttpOutboundMessage, "dart:_http");
-  ;
   return _HttpOutboundMessage;
 });
 _http._HttpOutboundMessage = _http._HttpOutboundMessage$();
@@ -59666,7 +58471,6 @@ _http._HttpGZipSink = class _HttpGZipSink extends convert.ByteConversionSink {
 (_http._HttpGZipSink.new = function(_consume) {
   this[_consume$] = _consume;
   _http._HttpGZipSink.__proto__.new.call(this);
-  ;
 }).prototype = _http._HttpGZipSink.prototype;
 ;
 ;
@@ -59955,7 +58759,6 @@ _http._HttpOutgoing = class _HttpOutgoing extends core.Object {
   this[_socketError] = false;
   this.outbound = null;
   this.socket = socket;
-  ;
 }).prototype = _http._HttpOutgoing.prototype;
 ;
 _http._HttpOutgoing[dart.implements] = () => [async.StreamConsumer$(core.List$(core.int))];
@@ -60207,7 +59010,6 @@ _http._ConnectionInfo = class _ConnectionInfo extends core.Object {};
 (_http._ConnectionInfo.new = function(connection, proxy) {
   this.connection = connection;
   this.proxy = proxy;
-  ;
 }).prototype = _http._ConnectionInfo.prototype;
 ;
 dart.setLibraryUri(_http._ConnectionInfo, "dart:_http");
@@ -60353,7 +59155,6 @@ _http._ConnectionTarget = class _ConnectionTarget extends core.Object {
   this.port = port;
   this.isSecure = isSecure;
   this.context = context;
-  ;
 }).prototype = _http._ConnectionTarget.prototype;
 ;
 ;
@@ -60710,7 +59511,6 @@ _http._HttpClient = class _HttpClient extends core.Object {
   this.autoUncompress = true;
   this.userAgent = _http._getHttpVersion();
   this[_context$0] = _context;
-  ;
 }).prototype = _http._HttpClient.prototype;
 ;
 _http._HttpClient[dart.implements] = () => [_http.HttpClient];
@@ -61216,7 +60016,6 @@ _http._ProxyConfiguration = class _ProxyConfiguration extends core.Object {
 }).prototype = _http._ProxyConfiguration.prototype;
 (_http._ProxyConfiguration.direct = function() {
   this[proxies] = C500 || CT.C500;
-  ;
 }).prototype = _http._ProxyConfiguration.prototype;
 ;
 const proxies = _ProxyConfiguration_proxies;
@@ -61271,7 +60070,6 @@ _http._Proxy = class _Proxy extends core.Object {
   this[username$] = username;
   this[password$] = password;
   this[isDirect] = false;
-  ;
 }).prototype = _http._Proxy.prototype;
 (_http._Proxy.direct = function() {
   this[host$] = null;
@@ -61279,7 +60077,6 @@ _http._Proxy = class _Proxy extends core.Object {
   this[username$] = null;
   this[password$] = null;
   this[isDirect] = true;
-  ;
 }).prototype = _http._Proxy.prototype;
 ;
 const host$ = _Proxy_host;
@@ -61314,7 +60111,6 @@ _http._HttpConnectionInfo = class _HttpConnectionInfo extends core.Object {
   this.remoteAddress = null;
   this.remotePort = null;
   this.localPort = null;
-  ;
 }).prototype = _http._HttpConnectionInfo.prototype;
 ;
 _http._HttpConnectionInfo[dart.implements] = () => [_http.HttpConnectionInfo];
@@ -61400,7 +60196,6 @@ _http._DetachedSocket = class _DetachedSocket extends async.Stream$(typed_data.U
   this[_socket$0] = _socket;
   this[_incoming$] = _incoming;
   _http._DetachedSocket.__proto__.new.call(this);
-  ;
 }).prototype = _http._DetachedSocket.prototype;
 ;
 _http._DetachedSocket[dart.implements] = () => [io.Socket];
@@ -61445,7 +60240,6 @@ _http._AuthenticationScheme = class _AuthenticationScheme extends core.Object {
 };
 (_http._AuthenticationScheme.new = function(_scheme) {
   this[_scheme$] = _scheme;
-  ;
 }).prototype = _http._AuthenticationScheme.prototype;
 ;
 dart.setLibraryUri(_http._AuthenticationScheme, "dart:_http");
@@ -61510,7 +60304,6 @@ _http._SiteCredentials = class _SiteCredentials extends _http._Credentials {
 (_http._SiteCredentials.new = function(uri, realm, creds) {
   this.uri = uri;
   _http._SiteCredentials.__proto__.new.call(this, creds, core.String._check(realm));
-  ;
 }).prototype = _http._SiteCredentials.prototype;
 ;
 ;
@@ -61532,7 +60325,6 @@ _http._ProxyCredentials = class _ProxyCredentials extends _http._Credentials {
   this.host = host;
   this.port = port;
   _http._ProxyCredentials.__proto__.new.call(this, creds, core.String._check(realm));
-  ;
 }).prototype = _http._ProxyCredentials.prototype;
 ;
 ;
@@ -61540,7 +60332,6 @@ dart.setLibraryUri(_http._ProxyCredentials, "dart:_http");
 ;
 _http._HttpClientCredentials = class _HttpClientCredentials extends core.Object {};
 (_http._HttpClientCredentials.new = function() {
-  ;
 }).prototype = _http._HttpClientCredentials.prototype;
 ;
 _http._HttpClientCredentials[dart.implements] = () => [_http.HttpClientCredentials];
@@ -61563,7 +60354,6 @@ _http._HttpClientBasicCredentials = class _HttpClientBasicCredentials extends _h
 (_http._HttpClientBasicCredentials.new = function(username, password) {
   this.username = username;
   this.password = password;
-  ;
 }).prototype = _http._HttpClientBasicCredentials.prototype;
 ;
 _http._HttpClientBasicCredentials[dart.implements] = () => [_http.HttpClientBasicCredentials];
@@ -61635,7 +60425,6 @@ _http._HttpClientDigestCredentials = class _HttpClientDigestCredentials extends 
 (_http._HttpClientDigestCredentials.new = function(username, password) {
   this.username = username;
   this.password = password;
-  ;
 }).prototype = _http._HttpClientDigestCredentials.prototype;
 ;
 _http._HttpClientDigestCredentials[dart.implements] = () => [_http.HttpClientDigestCredentials];
@@ -61673,7 +60462,6 @@ _http._RedirectInfo = class _RedirectInfo extends core.Object {
   this[statusCode$] = statusCode;
   this[method$] = method;
   this[location$] = location;
-  ;
 }).prototype = _http._RedirectInfo.prototype;
 ;
 _http._RedirectInfo[dart.implements] = () => [_http.RedirectInfo];
@@ -61686,7 +60474,6 @@ let C509;
 let C510;
 _http._Const = class _Const extends core.Object {};
 (_http._Const.new = function() {
-  ;
 }).prototype = _http._Const.prototype;
 ;
 dart.setLibraryUri(_http._Const, "dart:_http");
@@ -61715,7 +60502,6 @@ dart.defineLazy(_http._Const, {
 });
 _http._CharCode = class _CharCode extends core.Object {};
 (_http._CharCode.new = function() {
-  ;
 }).prototype = _http._CharCode.prototype;
 ;
 dart.setLibraryUri(_http._CharCode, "dart:_http");
@@ -61762,7 +60548,6 @@ dart.defineLazy(_http._CharCode, {
 });
 _http._State = class _State extends core.Object {};
 (_http._State.new = function() {
-  ;
 }).prototype = _http._State.prototype;
 ;
 dart.setLibraryUri(_http._State, "dart:_http");
@@ -61857,7 +60642,6 @@ dart.defineLazy(_http._State, {
 });
 _http._HttpVersion = class _HttpVersion extends core.Object {};
 (_http._HttpVersion.new = function() {
-  ;
 }).prototype = _http._HttpVersion.prototype;
 ;
 dart.setLibraryUri(_http._HttpVersion, "dart:_http");
@@ -61874,7 +60658,6 @@ dart.defineLazy(_http._HttpVersion, {
 });
 _http._MessageType = class _MessageType extends core.Object {};
 (_http._MessageType.new = function() {
-  ;
 }).prototype = _http._MessageType.prototype;
 ;
 dart.setLibraryUri(_http._MessageType, "dart:_http");
@@ -61960,7 +60743,6 @@ _http._HttpDetachedStreamSubscription = class _HttpDetachedStreamSubscription ex
   this[_subscription$0] = _subscription;
   this[_injectData$] = _injectData;
   this[_userOnData$] = _userOnData;
-  ;
 }).prototype = _http._HttpDetachedStreamSubscription.prototype;
 _http._HttpDetachedStreamSubscription.prototype[dart.isStreamSubscription] = true;
 ;
@@ -62001,7 +60783,6 @@ _http._HttpDetachedIncoming = class _HttpDetachedIncoming extends async.Stream$(
   this.subscription = subscription;
   this.bufferedData = bufferedData;
   _http._HttpDetachedIncoming.__proto__.new.call(this);
-  ;
 }).prototype = _http._HttpDetachedIncoming.prototype;
 ;
 ;
@@ -62890,7 +61671,6 @@ _http._HttpSession = class _HttpSession extends core.Object {
   this[_sessionManager$] = _sessionManager;
   this.id = id;
   this[_lastSeen] = new core.DateTime.now();
-  ;
 }).prototype = _http._HttpSession.prototype;
 ;
 _http._HttpSession[dart.implements] = () => [_http.HttpSession];
@@ -63041,7 +61821,6 @@ _http._HttpSessionManager = class _HttpSessionManager extends core.Object {
   this[_tail$] = null;
   this[_timer] = null;
   this[_sessions] = new (IdentityMapOfString$_HttpSession()).new();
-  ;
 }).prototype = _http._HttpSessionManager.prototype;
 ;
 ;
@@ -63080,7 +61859,6 @@ _http.HttpOverrides = class HttpOverrides extends core.Object {
   }
 };
 (_http.HttpOverrides.new = function() {
-  ;
 }).prototype = _http.HttpOverrides.prototype;
 ;
 ;
@@ -63114,14 +61892,12 @@ _http._HttpOverridesScope = class _HttpOverridesScope extends _http.HttpOverride
   this[_previous$5] = _http.HttpOverrides.current;
   this[_createHttpClient$] = _createHttpClient;
   this[_findProxyFromEnvironment$] = _findProxyFromEnvironment;
-  ;
 }).prototype = _http._HttpOverridesScope.prototype;
 ;
 dart.setLibraryUri(_http._HttpOverridesScope, "dart:_http");
 ;
 _http.WebSocketStatus = class WebSocketStatus extends core.Object {};
 (_http.WebSocketStatus.new = function() {
-  ;
 }).prototype = _http.WebSocketStatus.prototype;
 ;
 dart.setLibraryUri(_http.WebSocketStatus, "dart:_http");
@@ -63320,7 +62096,6 @@ _http.CompressionOptions = class CompressionOptions extends core.Object {
   this[clientMaxWindowBits$] = clientMaxWindowBits;
   this[serverMaxWindowBits$] = serverMaxWindowBits;
   this[enabled$] = enabled;
-  ;
 }).prototype = _http.CompressionOptions.prototype;
 ;
 ;
@@ -63392,7 +62167,6 @@ _http.WebSocket = class WebSocket extends core.Object {
 };
 (_http.WebSocket.new = function() {
   this[pingInterval] = null;
-  ;
 }).prototype = _http.WebSocket.prototype;
 _http.WebSocket.prototype[dart.isStream] = true;
 ;
@@ -63440,7 +62214,6 @@ _http.WebSocketException = class WebSocketException extends core.Object {
 (_http.WebSocketException.new = function(message) {
   if (message === void 0) message = "";
   this[message$21] = message;
-  ;
 }).prototype = _http.WebSocketException.prototype;
 ;
 _http.WebSocketException[dart.implements] = () => [io.IOException];
@@ -63449,7 +62222,6 @@ dart.setLibraryUri(_http.WebSocketException, "dart:_http");
 dart.defineExtensionMethods(_http.WebSocketException, ['toString']);
 _http._WebSocketMessageType = class _WebSocketMessageType extends core.Object {};
 (_http._WebSocketMessageType.new = function() {
-  ;
 }).prototype = _http._WebSocketMessageType.prototype;
 ;
 dart.setLibraryUri(_http._WebSocketMessageType, "dart:_http");
@@ -63466,7 +62238,6 @@ dart.defineLazy(_http._WebSocketMessageType, {
 });
 _http._WebSocketOpcode = class _WebSocketOpcode extends core.Object {};
 (_http._WebSocketOpcode.new = function() {
-  ;
 }).prototype = _http._WebSocketOpcode.prototype;
 ;
 dart.setLibraryUri(_http._WebSocketOpcode, "dart:_http");
@@ -63523,7 +62294,6 @@ dart.defineLazy(_http._WebSocketOpcode, {
 _http._EncodedString = class _EncodedString extends core.Object {};
 (_http._EncodedString.new = function(bytes) {
   this.bytes = bytes;
-  ;
 }).prototype = _http._EncodedString.prototype;
 ;
 dart.setLibraryUri(_http._EncodedString, "dart:_http");
@@ -63538,7 +62308,6 @@ _http._CompressionMaxWindowBits = class _CompressionMaxWindowBits extends core.O
   if (maxWindowBits === void 0) maxWindowBits = null;
   this.headerValue = headerValue;
   this.maxWindowBits = maxWindowBits;
-  ;
 }).prototype = _http._CompressionMaxWindowBits.prototype;
 ;
 dart.setLibraryUri(_http._CompressionMaxWindowBits, "dart:_http");
@@ -63863,7 +62632,6 @@ _http._WebSocketProtocolTransformer = class _WebSocketProtocolTransformer extend
   this[_serverSide$] = _serverSide;
   this[_deflate$] = _deflate;
   _http._WebSocketProtocolTransformer.__proto__.new.call(this);
-  ;
 }).prototype = _http._WebSocketProtocolTransformer.prototype;
 ;
 _http._WebSocketProtocolTransformer[dart.implements] = () => [async.EventSink$(core.List$(core.int))];
@@ -63912,7 +62680,6 @@ _http._WebSocketPing = class _WebSocketPing extends core.Object {};
 (_http._WebSocketPing.new = function(payload) {
   if (payload === void 0) payload = null;
   this.payload = payload;
-  ;
 }).prototype = _http._WebSocketPing.prototype;
 ;
 dart.setLibraryUri(_http._WebSocketPing, "dart:_http");
@@ -63921,7 +62688,6 @@ _http._WebSocketPong = class _WebSocketPong extends core.Object {};
 (_http._WebSocketPong.new = function(payload) {
   if (payload === void 0) payload = null;
   this.payload = payload;
-  ;
 }).prototype = _http._WebSocketPong.prototype;
 ;
 dart.setLibraryUri(_http._WebSocketPong, "dart:_http");
@@ -64050,7 +62816,6 @@ _http._WebSocketTransformerImpl = class _WebSocketTransformerImpl extends async.
   this[_protocolSelector$] = _protocolSelector;
   this[_compression$] = _compression;
   _http._WebSocketTransformerImpl.__proto__.new.call(this);
-  ;
 }).prototype = _http._WebSocketTransformerImpl.prototype;
 ;
 _http._WebSocketTransformerImpl[dart.implements] = () => [_http.WebSocketTransformer];
@@ -64131,7 +62896,6 @@ _http._WebSocketPerMessageDeflate = class _WebSocketPerMessageDeflate extends co
   this.serverNoContextTakeover = serverNoContextTakeover;
   this.clientNoContextTakeover = clientNoContextTakeover;
   this.serverSide = serverSide;
-  ;
 }).prototype = _http._WebSocketPerMessageDeflate.prototype;
 ;
 ;
@@ -64415,7 +63179,6 @@ _http._WebSocketConsumer = class _WebSocketConsumer extends core.Object {
   this[_completer] = null;
   this.webSocket = webSocket;
   this.socket = socket;
-  ;
 }).prototype = _http._WebSocketConsumer.prototype;
 ;
 _http._WebSocketConsumer[dart.implements] = () => [async.StreamConsumer];

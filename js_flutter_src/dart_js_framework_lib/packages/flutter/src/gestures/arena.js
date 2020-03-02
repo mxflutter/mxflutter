@@ -29,6 +29,29 @@ src__services__asset_bundle.PlatformAssetBundle =
 exports.src__services__asset_bundle = src__services__asset_bundle;
 
 //Message Channel
+function mapToObj(map) {
+  let obj = Object.create(null);
+  for (let [k,v] of map) {
+    obj[k] = v;
+  }
+  return obj;
+}
+
+function encodeParam(param) {
+  if (param === null) {
+    return param;
+  }
+
+  if (param.innerValue) {
+    param = param.innerValue();
+  }
+
+  if (param instanceof Map) {
+    param = mapToObj(param);
+  }
+  return param;
+}
+
 const dart_sdk = require("dart_sdk");
 const core = dart_sdk.core;
 const async = dart_sdk.async;
@@ -64,7 +87,7 @@ platform_channel.MethodChannel = class MethodChannel extends core.Object {
           mx_jsbridge_MethodChannel_invokeMethod(
             channelName,
             method,
-            $arguments,
+            encodeParam($arguments),
             dart.fn(value => {
                 completer.complete(value);
               }, dart.fnType(core.Null, [T]))
@@ -134,7 +157,6 @@ platform_channel.EventChannel = class EventChannel extends core.Object {
 (platform_channel.EventChannel.new = function(name, codec = null, binaryMessenger = null) {
   this[name$0] = name;
   if (!(name != null)) dart.assertFailed(null, "org-dartlang-app:///packages/flutter/src/services/platform_channel.dart", 473, 16, "name != null");
-  ;
 }).prototype = platform_channel.EventChannel.prototype;
 
 exports.src__services__platform_channel = platform_channel;

@@ -26,7 +26,8 @@ let {
     DefaultTabController,
     TabBar,
     Tab,
-    TabBarView
+    TabBarView,
+    Key
 } = require("js_flutter_ui.js");
 
 let {GlobalConfig} = require("./zhihu/global_config.js");
@@ -38,7 +39,7 @@ let {AskPage} = require("./zhihu/home/ask_page.js");
 
 class HomePage extends MXJSStatefulWidget {
     constructor(){
-        super("HomePage", {key: "HomePage"});
+        super("HomePage", {key: new Key("HomePage")});
     }
   
     createState() {

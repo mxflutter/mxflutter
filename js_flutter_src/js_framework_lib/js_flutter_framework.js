@@ -19,6 +19,7 @@ const dart_sdk = require("dart_sdk");
 const core = dart_sdk.core;
 const dart = dart_sdk.dart;
 
+
 //全局函数
 function runApp(app) {
   MXNativeJSFlutterAppProxy.callNativeSetCurrentJSApp(app);
@@ -120,7 +121,7 @@ function MXInvokeCallback(callbackID, args) {
 
 class MXJSWidgetMgr {
   constructor() {
-    this.widgetIDFeed = 0;
+    this.widgetIDFeed = 0; //JS侧现生成的MXJSWidget， widgetID为偶数，从0开始
     this.widgetID2WidgetMap = {};
   }
 
@@ -133,7 +134,10 @@ class MXJSWidgetMgr {
   }
 
   generateWidgetID() {
-    let wID = ++this.widgetIDFeed;
+
+    //JS侧现生成的MXJSWidget， widgetID为偶数，从0开始 +2
+    this.widgetIDFeed = this.widgetIDFeed + 2;
+    let wID = this.widgetIDFeed;
     return String(wID);
   }
 
@@ -141,7 +145,7 @@ class MXJSWidgetMgr {
     this.widgetID2WidgetMap[widget.widgetID] = widget;
   }
 
-  remove(widgetID) {}
+  remove(widgetID) { }
 
   findWidget(widgetID) {
     return this.widgetID2WidgetMap[widgetID];
@@ -170,11 +174,14 @@ class MXJSFlutterBuildContext {
   }
 
   buildRootWidget() {
+    MXJSLog.log("buildRootWidget ::" + this.rootWidget.widgetLogInfoStr());
     return MXJSWidgetHelper.buildWidgetData(this.rootWidget);
   }
 
   //js->flutter
   callFlutterRebuild(widget, isRootWidget) {
+
+    MXJSLog.log("callFlutterRebuild ::" + widget.widgetLogInfoStr());
     let widgetData = MXJSWidgetHelper.buildWidgetData(widget);
     //call flutter setState
     MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", {
@@ -213,16 +220,23 @@ class MXJSFlutterApp {
   //   this.runApp(w);
   // }
 
-  navigatorPushWithName(widgetName, args) {
+  navigatorPushWithName(widgetName, widgetID, args) {
     let launcher = require("launcher.js");
     let w = launcher.createJSRootWidget(widgetName);
 
-    // 主动调用initState方法
-    if (w instanceof MXJSStatefulWidget) {
-      w.state.initState();
-    }
+    this.setupWidget(w, widgetName, widgetID, args);
 
     this.navigatorPush(w, args);
+  }
+
+  setupWidget(widget, widgetName, widgetID, args) {
+    //设置widgetID
+    widget.widgetID = widgetID;
+
+    // 主动调用initState方法
+    if (widget instanceof MXJSStatefulWidget) {
+      widget.state.initState();
+    }
   }
 
   //基础
@@ -259,7 +273,6 @@ class MXJSFlutterApp {
 
     if (typeof g_platform != "undefined" && g_platform === "android") {
       args = args.paramJson;
-      MXJSLog.log("DDDDDDDD" + args);
       args = JSON.parse(args);
     }
 
@@ -282,8 +295,9 @@ class MXJSFlutterApp {
 
   flutterCallNavigatorPushWithName(args) {
     let widgetName = args["widgetName"];
+    let widgetID = args["widgetID"];
 
-    this.navigatorPushWithName(widgetName, args);
+    this.navigatorPushWithName(widgetName, widgetID, args);
   }
 
   flutterCallOnBuildEnd(args) {
@@ -322,6 +336,7 @@ class MXJSWidgetTree {
 
     this.callbackID2fun = {};
     this.widgetTreeObjMap = null;
+    this.ownerWidget = null;
   }
 
   //统一用全局的id生成器
@@ -329,8 +344,8 @@ class MXJSWidgetTree {
     return MXJSCallbackMgr.getInstance().generateID();
   }
 
-  createCallbackID(widgetID, callback) {
-    let callbackID = widgetID + "/" + this.generateID();
+  createCallbackID(callback) {
+    let callbackID = this.ownerWidget.widgetID + "/" + this.generateID();
     this.callbackID2fun[callbackID] = callback;
     return callbackID;
   }
@@ -347,7 +362,11 @@ class MXJSWidgetTree {
 
 function initMXJSWidgetData(obj) {
   //继承自MXJSBaseWidget 自定义控件，使用Flutter 继承自MXJSBaseWidget 来承载。
-  obj.widgetID = MXJSWidgetMgr.getInstance().generateWidgetID();
+
+  if (obj.widgetID == null || obj.widgetID == undefined || obj.widgetID == '') {
+    obj.widgetID = MXJSWidgetMgr.getInstance().generateWidgetID();
+  }
+
   obj.helper = new MXJSWidgetHelper(obj);
 
   //widgetTree
@@ -373,10 +392,11 @@ function initMXJSWidgetData(obj) {
   obj.navPushedWidgets = {};
   //
   obj.buildContext = null;
-  obj.currentWidgetTree = null;
   obj.buildingWidgetTree = null;
+  obj.currentWidgetTree = null;
   obj.preWidgetTree = null;
   obj.buildWidgetDataSeqFeed = 0;
+  obj.buildSeq2WTreeMap = {};
 }
 
 class MXJSWidgetHelper {
@@ -392,7 +412,13 @@ class MXJSWidgetHelper {
   //building
 
   static buildWidgetData(rootWidget) {
-    let widgetDataStr = JSON.stringify(rootWidget, function(key, value) {
+
+    MXJSLog.log("buildWidgetData ::" + rootWidget.widgetLogInfoStr());
+
+    let widgetDataStr = JSON.stringify(rootWidget, function (key, value) {
+
+      let newValue = value;
+
       if (value instanceof MXJSStatefulWidget || value instanceof MXJSStatelessWidget) {
         // 解决widget生成时不调用构造方法的问题
         if (value.helper == null) {
@@ -403,21 +429,21 @@ class MXJSWidgetHelper {
             value.state.widget = value;
           }
         }
-        
-        if (rootWidget != value) {
-          value.buildContext = MXJSFlutterBuildContext.copyWith(value, rootWidget.buildContext);
-          if (rootWidget instanceof MXJSStatefulWidget || rootWidget instanceof MXJSStatelessWidget) {
-            //Widget 的子Widget 没有层级关系，平铺在rootWidget
-            rootWidget.helper.addChildWidget(value);
-          }
+
+        if (value != rootWidget) {
+          value.buildContext = rootWidget.buildContext;
+          //TODO:FIXME addChildWidget逻辑，这里局部刷新，会有两份Widget数据，但功能正常
+          //Widget 的子Widget 没有层级关系，平铺在rootWidget
+          rootWidget.helper.addChildWidget(value);
         }
 
         //如果是MXJSWidget类需要调用一下build，返回build内容
-        return value.helper.buildWidgetTree();
+        newValue = value.helper.buildWidgetTree();
       }
 
-      return value;
+      return newValue;
     });
+
     return widgetDataStr;
   }
 
@@ -425,25 +451,31 @@ class MXJSWidgetHelper {
     this.widget.buildWidgetDataSeq = String(
       ++this.widget.buildWidgetDataSeqFeed
     );
-    this.widget.buildingWidgetTree = new MXJSWidgetTree(
+
+    let tempWidgetTree = new MXJSWidgetTree(
       this.widget.buildWidgetDataSeq
     );
+    tempWidgetTree.ownerWidget = this.widget;
 
-    MXJSLog.log(
-      "JSWidget buildWidgetTree: buildseq:" + this.widget.buildWidgetDataSeq
-    );
-    let tempTree;
+    this.widget.buildingWidgetTree = tempWidgetTree;
+    MXJSLog.log("JSWidget buildWidgetTree ::" + this.widget.widgetLogInfoStr());
+
+    let tempWidgetTreeObjMap;
     if (this.widget instanceof MXJSStatelessWidget) {
-      tempTree = this.widget.build(this.widget.buildContext);
+      tempWidgetTreeObjMap = this.widget.build(this.widget.buildContext);
     } else if (this.widget instanceof MXJSStatefulWidget) {
-      tempTree = this.widget.state.build(this.widget.buildContext);
+      tempWidgetTreeObjMap = this.widget.state.build(this.widget.buildContext);
     }
 
-    this.preBuildJson(tempTree);
-    this.widget.buildingWidgetTree.widgetTreeObjMap = tempTree;
+    tempWidgetTree.widgetTreeObjMap = tempWidgetTreeObjMap;
+
+    this.preBuildJson(tempWidgetTree, tempWidgetTree.widgetTreeObjMap);
+
+    //加入缓存map
+    this.widget.buildSeq2WTreeMap[tempWidgetTree.buildWidgetDataSeq] = tempWidgetTree;
     //
     //生成Json用
-    this.widget.widgetData = this.widget.buildingWidgetTree.widgetTreeObjMap;
+    this.widget.widgetData = tempWidgetTree.widgetTreeObjMap;
 
     //json实际包含的字段
     let jsonMap = {
@@ -459,39 +491,48 @@ class MXJSWidgetHelper {
     return jsonMap;
   }
 
-  preBuildJson(flutterWidget) {
+  preBuildJson(widgetTree, widgetTreeObjMap) {
+
     //MXJSLog.log("preBuildJson:" + flutterWidget);
-    if (flutterWidget instanceof Object) {
-      if (flutterWidget instanceof FlutterWidget) {
-        flutterWidget.preBuild(this, this.widget.buildContext);
-      }
+    if (!(widgetTreeObjMap instanceof Object)) {
+      return;
+    }
 
-      for (let p in flutterWidget) {
-        // 无关属性不处理
-        if (p == "widgetData" || p == "rootWidget" ||
-            p == "navPushedWidgets" || p == "navPushingWidgets" ||
-            p == "buildContext" || p == "state" || p == "helper" ||
-            p == "currentWidgetTree" || p == "buildingWidgetTree" || 
-            p == "preWidgetTree") {
-          continue;
-        }
+    //这里只处理FlutterWidget的子类，即JS的镜像Flutter的类
+    if (widgetTreeObjMap instanceof MXJSStatefulWidget || widgetTreeObjMap instanceof MXJSStatelessWidget) {
+      return;
+    }
 
-        //MXJSStatelessWidge 摊平
-        let v = flutterWidget[p];
+    if (widgetTreeObjMap instanceof FlutterWidget) {
+      //ListView等类似需要提前处理build的FlutterWidget 有preBuild 函数
+      widgetTreeObjMap.preBuild(this, this.widget.buildContext);
+    }
 
-        if (v instanceof MXJSStatelessWidget) {
-          flutterWidget[p] = v.build(this.widget.buildContext);
-        }
+    // // 无关属性不处理
+    // const blackPSet = new Set(["widgetData",
+    //   "rootWidget",
+    //   "navPushedWidgets",
+    //   "navPushingWidgets",
+    //   "buildContext",
+    //   "state",
+    //   "helper",
+    //   "currentWidgetTree",
+    //   "buildingWidgetTree",
+    //   "preWidgetTree",
+    //   "buildSeq2WTreeMap",
+    // ]);
 
-        this.preBuildJson(flutterWidget[p]);
-      }
+    for (let p in widgetTreeObjMap) {
+
+      let value = widgetTreeObjMap[p];
+      this.preBuildJson(widgetTree, value);
     }
   }
 
-  createCallbackID(callback) {
+  //buildingCreateCallbackID 只允许building过程中调用，不是对外API
+  buildingCreateCallbackID(callback) {
     callback = callback.bind(this);
     return this.widget.buildingWidgetTree.createCallbackID(
-      this.widget.widgetID,
       callback
     );
   }
@@ -569,30 +610,32 @@ class MXJSWidgetHelper {
   }
 
   invokeCallback(buildWidgetDataSeq, callID, args) {
-    if (
-      this.widget.currentWidgetTree.buildWidgetDataSeq != buildWidgetDataSeq
-    ) {
+
+    MXJSLog.log("JSWidget invokeCallback ::" + this.widget.widgetLogInfoStr() + " buildWidgetDataSeq: " + buildWidgetDataSeq + " callID: " + callID);
+
+    if (this.widget.currentWidgetTree && this.widget.currentWidgetTree.buildWidgetDataSeq != buildWidgetDataSeq) {
       MXJSLog.error(
-        "MXJSWidget:invokeCallback:this.widget.currentWidgetTree.buildWidgetDataSeq != buildWidgetDataSeq :buildSeq:" +
-          buildWidgetDataSeq +
-          "callID:" +
-          callID
+        "MXJSWidget:invokeCallback:this.widget.currentWidgetTree.buildWidgetDataSeq(" + this.widget.currentWidgetTree.buildWidgetDataSeq + ")  != buildWidgetDataSeq(" + buildWidgetDataSeq + ") " +
+        " callID: " +
+        callID
       );
 
-      if (this.widget.preWidgetTree.buildWidgetDataSeq != buildWidgetDataSeq) {
+      if (this.widget.preWidgetTree && this.widget.preWidgetTree.buildWidgetDataSeq == buildWidgetDataSeq) {
         MXJSLog.error(
-          "MXJSWidget:invokeCallback:this.widget.preWidgetTree.buildWidgetDataSeq != buildWidgetDataSeq :buildSeq:" +
-            buildWidgetDataSeq +
-            "callID:" +
-            callID
+          "MXJSWidget:invokeCallback:this.widget.preWidgetTree.buildWidgetDataSeq(" + this.widget.preWidgetTree.buildWidgetDataSeq + ")  == buildWidgetDataSeq(" + buildWidgetDataSeq + ") " +
+          " callID: " +
+          callID
         );
-      } else {
+
+      }
+
+      if (this.widget.buildingWidgetTree && this.widget.buildingWidgetTree.buildWidgetDataSeq == buildWidgetDataSeq) {
         MXJSLog.error(
-          "MXJSWidget:invokeCallback:this.widget.preWidgetTree.buildWidgetDataSeq == buildWidgetDataSeq :buildSeq:" +
-            buildWidgetDataSeq +
-            "callID:" +
-            callID
+          "MXJSWidget:invokeCallback:this.widget.buildingWidgetTree.buildWidgetDataSeq(" + this.widget.buildingWidgetTree.buildWidgetDataSeq + ")  == buildWidgetDataSeq(" + buildWidgetDataSeq + ") " +
+          " callID: " +
+          callID
         );
+
       }
 
       return null;
@@ -609,30 +652,52 @@ class MXJSWidgetHelper {
     if (jsWidget != null) {
       jsWidget.helper.onFlutterBuildEnd(buildWidgetDataSeq);
     } else {
-      // MXJSLog.error("onBuildEnd error: jsWidget == null widgetID " + widgetID);
+      MXJSLog.error("onBuildEnd error: jsWidget == null widgetID: " + widgetID + " buildWidgetDataSeq: " + buildWidgetDataSeq);
 
-      // 如果已从parentWidget移除了，再重新rebuild一下rootWidget
-      let rootWidgetID = args["rootWidgetID"];
-      let rootJsWidget = this.findWidgetWithWidgetID(rootWidgetID);
-      if (rootJsWidget != null) {
-        rootJsWidget.buildContext.callFlutterRebuild(rootJsWidget);
-      }
+      // TODO:如果已从parentWidget移除了，再重新rebuild一下rootWidget
+      // let rootWidgetID = args["rootWidgetID"];
+      // let rootJsWidget = this.findWidgetWithWidgetID(rootWidgetID);
+      // if (rootJsWidget != null) {
+      //   rootJsWidget.buildContext.callFlutterRebuild(rootJsWidget);
+      // }
     }
   }
 
   onFlutterBuildEnd(buildWidgetDataSeq) {
-    MXJSLog.log("OnFlutterBuildEnd:buildWidgetDataSeq" + buildWidgetDataSeq);
 
-    if (
-      buildWidgetDataSeq == this.widget.buildingWidgetTree.buildWidgetDataSeq
-    ) {
+    let tree = this.widget.buildSeq2WTreeMap[buildWidgetDataSeq];
+
+    if (tree != null) {
       this.widget.preWidgetTree = this.widget.currentWidgetTree;
-      this.widget.currentWidgetTree = this.widget.buildingWidgetTree;
+      this.widget.currentWidgetTree = tree;
+
+      MXJSLog.log("JSWidget onFlutterBuildEnd success::" + this.widget.widgetLogInfoStr() + " buildWidgetDataSeq: " + buildWidgetDataSeq);
+
+      this.clearWidgetTree(buildWidgetDataSeq);
     } else {
-      MXJSLog.error(
-        "OnFlutterBuildEnd:buildWidgetDataSeq" + buildWidgetDataSeq
-      );
+      MXJSLog.error("JSWidget onFlutterBuildEnd fail buildSeq2WTreeMap.keys: [" + Object.keys(this.widget.buildSeq2WTreeMap).join("|") + "]::" + this.widget.widgetLogInfoStr() + " buildWidgetDataSeq: " + buildWidgetDataSeq);
     }
+  }
+
+  //比buildWidgetDataSeq小的tree 可以清理掉了
+  clearWidgetTree(buildWidgetDataSeq) {
+
+    let intCurSeq = parseInt(buildWidgetDataSeq);
+    let clearSeqs = [];
+
+    for (let seq in this.widget.buildSeq2WTreeMap) {
+      let intSeq = parseInt(seq);
+
+      if (intSeq < intCurSeq) {
+        clearSeqs.push(seq);
+      }
+    }
+
+    for (let i = 0; i < clearSeqs.length ; ++i) {
+      //MXJSLog.debug("JSWidget clearWidgetTree::" + this.widget.widgetLogInfoStr() + " delSeq: " + delSeq);
+      delete this.widget.buildSeq2WTreeMap[clearSeqs[i]];
+    }
+
   }
 
   onDispose(args) {
@@ -644,10 +709,12 @@ class MXJSWidgetHelper {
       jsWidget.helper.onFlutterDispose();
 
       if (jsWidget.rootWidget) {
-        jsWidget.rootWidget.helper.removeChildWidget(jsWidget);
+        //TODO: FIXME listview 滑动，滑出之后再回来，就不响应了，先不删除
+        //jsWidget.rootWidget.helper.removeChildWidget(jsWidget);
       }
 
       if (jsWidget.navPushingWidget) {
+        //TODO: FIXME listview 滑动，滑出之后再回来，就不响应了，先不删除
         jsWidget.navPushingWidget.helper.removePushingWidget(jsWidget);
       }
     } else {
@@ -656,7 +723,8 @@ class MXJSWidgetHelper {
   }
 
   onFlutterDispose() {
-    MXJSLog.log("onFlutterDispose: widgetID:" + this.widget.widgetID);
+
+    MXJSLog.log("JSWidget onFlutterDispose ::" + this.widget.widgetLogInfoStr());
     //调用子widget disposeWidget
     if (
       this.widget.currentWidgetTree &&
@@ -691,7 +759,7 @@ class MXJSWidgetHelper {
       if (obj.navPushingWidget) {
         obj.navPushingWidget.helper.removePushingWidget(obj);
       }
-    } 
+    }
 
     // 主动调用initState方法
     if (jsWidget instanceof MXJSStatefulWidget) {
@@ -734,12 +802,13 @@ class MXJSWidgetHelper {
 
   updatePushingWidgetsData(jsWidget) {
 
+    MXJSLog.log("updatePushingWidgetsData WidgetName:" + jsWidget.widgetName);
     //那种根节点不是statewidget的页面 比如Theme
     var newJSWidget;
     if (jsWidget.className != "MXJSStatefulWidget" && jsWidget.className != "MXJSStatelessWidget") {
       // 特殊处理，用MXJSStatelessWidget包裹一层
-      newJSWidget= new MXJSStatelessWidget("FakeStatelessWidget");
-      newJSWidget.build = function(context) {
+      newJSWidget = new MXJSStatelessWidget("FakeStatelessWidget");
+      newJSWidget.build = function (context) {
         return jsWidget;
       };
     } else {
@@ -752,7 +821,7 @@ class MXJSWidgetHelper {
     newJSWidget.navPushingWidgetID = this.widget.widgetID;
     this.widget.navPushedWidgets[newJSWidget.widgetID] = newJSWidget;
     newJSWidget.widgetData = MXJSWidgetHelper.buildWidgetData(newJSWidget);
-    
+
     return newJSWidget.widgetData;
   }
 
@@ -775,21 +844,40 @@ class MXJSBaseWidget extends core.Object {
 
     initMXJSWidgetData(this);
   }
+
+  widgetLogInfoStr() {
+    let log = "WidgetInfo: Name: " + this.widgetName + " Class: " + this.className + " WID: " + this.widgetID + " buildseq: " + this.buildWidgetDataSeq +
+      " currentTreeSeq: " + this.getWidgetTreeBuildSeq(this.currentWidgetTree) + " buildingseq: " + this.getWidgetTreeBuildSeq(this.buildingWidgetTree) +
+      " preTreeSeq: " + this.getWidgetTreeBuildSeq(this.preWidgetTree);
+    return log;
+  }
+
+  getWidgetTreeBuildSeq(widgetTree) {
+
+    if (widgetTree == null) {
+      return "0";
+    }
+
+    return widgetTree.buildWidgetDataSeq;
+
+  }
 }
 
 class MXJSStatefulWidget extends MXJSBaseWidget {
   constructor(name, { key } = {}) {
-    super(name, {key: key});
+    super(name, { key: key });
 
     this.className = "MXJSStatefulWidget";
+    initMXJSWidgetData(this);
+
     this.state = this.createState();
     this.state.widget = this;
   }
 
-  createState() {}
+  createState() { }
 }
 
-(MXJSStatefulWidget.new = function({ key } = {}) {
+(MXJSStatefulWidget.new = function ({ key } = {}) {
   this.name = this.title;
   this.key = key;
   this.className = "MXJSStatefulWidget";
@@ -802,16 +890,19 @@ class MXJSStatefulWidget extends MXJSBaseWidget {
 // MXJSStatefulWidget.new = MXJSStatefulWidget.constructor;
 
 class MXJSWidgetState {
-  constructor() {}
+  constructor() { }
 
   get context() {
     return this.widget.buildContext;
   }
 
   //子类重载
-  initState() {}
+  initState() { }
 
   setState(fun) {
+
+    MXJSLog.log("MXJSWidgetState setState ::" + this.widget.widgetLogInfoStr());
+
     if (fun) {
       fun = fun.bind(this);
       fun();
@@ -827,20 +918,19 @@ class MXJSWidgetState {
   }
 
   //子类重载
-  dispose() {}
+  dispose() { }
 }
 
-(MXJSWidgetState.new = function() {}).prototype = MXJSWidgetState.prototype;
+(MXJSWidgetState.new = function () { }).prototype = MXJSWidgetState.prototype;
 
 //在JS层，要封装控件，如不需要改变UI内容，使用无状态的MXJSStatelessWidget
-//在JS Build JSON 阶段会预先展开为Build返回的内容
-//在flutter层没有与之相对应的Widget，避免了MXJSBaseWidget 为支持状态变化背后如事件，刷新等一系列的支持类。节省内存和执行效率。
-
 class MXJSStatelessWidget extends MXJSBaseWidget {
   constructor(name, { key } = {}) {
-    super(name, {key: key});
+    super(name, { key: key });
 
     this.className = "MXJSStatelessWidget";
+
+    initMXJSWidgetData(this);
   }
 
   //子类重载
@@ -849,7 +939,7 @@ class MXJSStatelessWidget extends MXJSBaseWidget {
   }
 }
 
-(MXJSStatelessWidget.new = function({ key } = {}) {
+(MXJSStatelessWidget.new = function ({ key } = {}) {
   this.name = this.title;
   this.key = key;
   this.className = "MXJSStatelessWidget";
@@ -876,7 +966,7 @@ class MediaQuery extends DartClass {
   }
 }
 
-MediaQuery.new = function(arg) {
+MediaQuery.new = function (arg) {
   return new MediaQuery(arg);
 };
 
@@ -934,7 +1024,7 @@ class MediaQueryData extends DartClass {
   }
 }
 
-MediaQueryData.new = function(arg) {
+MediaQueryData.new = function (arg) {
   return new MediaQueryData(arg);
 };
 
@@ -953,12 +1043,12 @@ class Theme extends DartClass {
   }
 }
 
-Theme.new = function(arg) {
+Theme.new = function (arg) {
   return new Theme(arg);
 };
 
 class ThemeData extends DartClass {
-  constructor ({
+  constructor({
     brightness,
     primarySwatch,
     primaryColor,
@@ -1030,7 +1120,7 @@ class ThemeData extends DartClass {
     this.brightness = brightness;
     var isDark = brightness == Brightness.dark;
     this.primarySwatch = primarySwatch != null ? primarySwatch : Colors.blue;
-    this.primaryColor =  primaryColor != null ? primaryColor : (isDark ? Colors.grey[900] : primarySwatch);
+    this.primaryColor = primaryColor != null ? primaryColor : (isDark ? Colors.grey[900] : primarySwatch);
     this.primaryColorBrightness = primaryColorBrightness;
     this.primaryColorLight = primaryColorLight;
     this.primaryColorDark = primaryColorDark;
@@ -1176,88 +1266,88 @@ class ThemeData extends DartClass {
     buttonBarTheme,
   } = {}) {
     let obj = new ThemeData({
-      brightness : (brightness != null ? brightness : this.brightness),
-      primarySwatch : this.primarySwatch,
-      primaryColor : (primaryColor != null ? primaryColor : this.primaryColor), 
-      primaryColorBrightness : (primaryColorBrightness != null ? primaryColorBrightness : this.primaryColorBrightness),
-      primaryColorLight : (primaryColorLight != null ? primaryColorLight : this.primaryColorLight),
-      primaryColorDark : (primaryColorDark != null ? primaryColorDark : this.primaryColorDark),
-      accentColor : (accentColor != null ? accentColor : this.accentColor),
-      accentColorBrightness : (accentColorBrightness != null ? accentColorBrightness : this.accentColorBrightness),
-      canvasColor : (canvasColor != null ? canvasColor : this.canvasColor),
-      scaffoldBackgroundColor : (scaffoldBackgroundColor != null ? scaffoldBackgroundColor : this.scaffoldBackgroundColor),
-      bottomAppBarColor : (bottomAppBarColor != null ? bottomAppBarColor : this.bottomAppBarColor),
-      cardColor : (cardColor != null ? cardColor : this.cardColor),
-      dividerColor : (dividerColor != null ? dividerColor : this.dividerColor),
-      focusColor : (focusColor != null ? focusColor : this.focusColor),
-      hoverColor : (hoverColor != null ? hoverColor : this.hoverColor),
-      highlightColor : (highlightColor != null ? highlightColor : this.highlightColor),
-      splashColor : (splashColor != null ? splashColor : this.splashColor),
-      splashFactory : (splashFactory != null ? splashFactory : this.splashFactory),
-      selectedRowColor : (selectedRowColor != null ? selectedRowColor : this.selectedRowColor),
-      unselectedWidgetColor : (unselectedWidgetColor != null ? unselectedWidgetColor : this.unselectedWidgetColor),
-      disabledColor : (disabledColor != null ? disabledColor : this.disabledColor),
-      buttonColor : (buttonColor != null ? buttonColor : this.buttonColor),
-      buttonTheme : (buttonTheme != null ? buttonTheme : this.buttonTheme),
+      brightness: (brightness != null ? brightness : this.brightness),
+      primarySwatch: this.primarySwatch,
+      primaryColor: (primaryColor != null ? primaryColor : this.primaryColor),
+      primaryColorBrightness: (primaryColorBrightness != null ? primaryColorBrightness : this.primaryColorBrightness),
+      primaryColorLight: (primaryColorLight != null ? primaryColorLight : this.primaryColorLight),
+      primaryColorDark: (primaryColorDark != null ? primaryColorDark : this.primaryColorDark),
+      accentColor: (accentColor != null ? accentColor : this.accentColor),
+      accentColorBrightness: (accentColorBrightness != null ? accentColorBrightness : this.accentColorBrightness),
+      canvasColor: (canvasColor != null ? canvasColor : this.canvasColor),
+      scaffoldBackgroundColor: (scaffoldBackgroundColor != null ? scaffoldBackgroundColor : this.scaffoldBackgroundColor),
+      bottomAppBarColor: (bottomAppBarColor != null ? bottomAppBarColor : this.bottomAppBarColor),
+      cardColor: (cardColor != null ? cardColor : this.cardColor),
+      dividerColor: (dividerColor != null ? dividerColor : this.dividerColor),
+      focusColor: (focusColor != null ? focusColor : this.focusColor),
+      hoverColor: (hoverColor != null ? hoverColor : this.hoverColor),
+      highlightColor: (highlightColor != null ? highlightColor : this.highlightColor),
+      splashColor: (splashColor != null ? splashColor : this.splashColor),
+      splashFactory: (splashFactory != null ? splashFactory : this.splashFactory),
+      selectedRowColor: (selectedRowColor != null ? selectedRowColor : this.selectedRowColor),
+      unselectedWidgetColor: (unselectedWidgetColor != null ? unselectedWidgetColor : this.unselectedWidgetColor),
+      disabledColor: (disabledColor != null ? disabledColor : this.disabledColor),
+      buttonColor: (buttonColor != null ? buttonColor : this.buttonColor),
+      buttonTheme: (buttonTheme != null ? buttonTheme : this.buttonTheme),
       toggleButtonsTheme: (toggleButtonsTheme != null ? toggleButtonsTheme : this.toggleButtonsTheme),
-      secondaryHeaderColor : (secondaryHeaderColor != null ? secondaryHeaderColor : this.secondaryHeaderColor),
-      textSelectionColor : (textSelectionColor != null ? textSelectionColor : this.textSelectionColor),
-      cursorColor : (cursorColor != null ? cursorColor : this.cursorColor),
-      textSelectionHandleColor : (textSelectionHandleColor != null ? textSelectionHandleColor : this.textSelectionHandleColor),
-      backgroundColor : (backgroundColor != null ? backgroundColor : this.backgroundColor),
-      dialogBackgroundColor : (dialogBackgroundColor != null ? dialogBackgroundColor : this.dialogBackgroundColor),
-      indicatorColor : (indicatorColor != null ? indicatorColor : this.indicatorColor),
-      hintColor : (hintColor != null ? hintColor : this.hintColor),
-      errorColor : (errorColor != null ? errorColor : this.errorColor),
-      toggleableActiveColor : (toggleableActiveColor != null ? toggleableActiveColor : this.toggleableActiveColor),
-      textTheme : (textTheme != null ? textTheme : this.textTheme),
-      primaryTextTheme : (primaryTextTheme != null ? primaryTextTheme : this.primaryTextTheme),
-      accentTextTheme : (accentTextTheme != null ? accentTextTheme : this.accentTextTheme),
-      inputDecorationTheme : (inputDecorationTheme != null ? inputDecorationTheme : this.inputDecorationTheme),
-      iconTheme : (iconTheme != null ? iconTheme : this.iconTheme),
-      primaryIconTheme : (primaryIconTheme != null ? primaryIconTheme : this.primaryIconTheme),
-      accentIconTheme : (accentIconTheme != null ? accentIconTheme : this.accentIconTheme),
-      sliderTheme : (sliderTheme != null ? sliderTheme : this.sliderTheme),
-      tabBarTheme : (tabBarTheme != null ? tabBarTheme : this.tabBarTheme),
-      tooltipTheme : (tooltipTheme != null ? tooltipTheme : this.tooltipTheme),
-      cardTheme : (cardTheme != null ? cardTheme : this.cardTheme),
-      chipTheme : (chipTheme != null ? chipTheme : this.chipTheme),
-      platform : (platform != null ? platform : this.platform),
-      materialTapTargetSize : (materialTapTargetSize != null ? materialTapTargetSize : this.materialTapTargetSize),
-      applyElevationOverlayColor : (applyElevationOverlayColor != null ? applyElevationOverlayColor : this.applyElevationOverlayColor),
-      pageTransitionsTheme : (pageTransitionsTheme != null ? pageTransitionsTheme : this.pageTransitionsTheme),
-      appBarTheme : (appBarTheme != null ? appBarTheme : this.appBarTheme),
-      bottomAppBarTheme : (bottomAppBarTheme != null ? bottomAppBarTheme : this.bottomAppBarTheme),
-      colorScheme : (colorScheme != null ? colorScheme : this.colorScheme),
-      dialogTheme : (dialogTheme != null ? dialogTheme : this.dialogTheme),
-      floatingActionButtonTheme : (floatingActionButtonTheme != null ? floatingActionButtonTheme : this.floatingActionButtonTheme),
-      typography : (typography != null ? typography : this.typography),
-      cupertinoOverrideTheme : (cupertinoOverrideTheme != null ? cupertinoOverrideTheme : this.cupertinoOverrideTheme),
-      snackBarTheme : (snackBarTheme != null ? snackBarTheme : this.snackBarTheme),
-      bottomSheetTheme : (bottomSheetTheme != null ? bottomSheetTheme : this.bottomSheetTheme),
-      popupMenuTheme : (popupMenuTheme != null ? popupMenuTheme : this.popupMenuTheme),
-      bannerTheme : (bannerTheme != null ? bannerTheme : this.bannerTheme),
-      dividerTheme : (dividerTheme != null ? dividerTheme : this.dividerTheme),
-      buttonBarTheme : (buttonBarTheme != null ? buttonBarTheme : this.buttonBarTheme),
+      secondaryHeaderColor: (secondaryHeaderColor != null ? secondaryHeaderColor : this.secondaryHeaderColor),
+      textSelectionColor: (textSelectionColor != null ? textSelectionColor : this.textSelectionColor),
+      cursorColor: (cursorColor != null ? cursorColor : this.cursorColor),
+      textSelectionHandleColor: (textSelectionHandleColor != null ? textSelectionHandleColor : this.textSelectionHandleColor),
+      backgroundColor: (backgroundColor != null ? backgroundColor : this.backgroundColor),
+      dialogBackgroundColor: (dialogBackgroundColor != null ? dialogBackgroundColor : this.dialogBackgroundColor),
+      indicatorColor: (indicatorColor != null ? indicatorColor : this.indicatorColor),
+      hintColor: (hintColor != null ? hintColor : this.hintColor),
+      errorColor: (errorColor != null ? errorColor : this.errorColor),
+      toggleableActiveColor: (toggleableActiveColor != null ? toggleableActiveColor : this.toggleableActiveColor),
+      textTheme: (textTheme != null ? textTheme : this.textTheme),
+      primaryTextTheme: (primaryTextTheme != null ? primaryTextTheme : this.primaryTextTheme),
+      accentTextTheme: (accentTextTheme != null ? accentTextTheme : this.accentTextTheme),
+      inputDecorationTheme: (inputDecorationTheme != null ? inputDecorationTheme : this.inputDecorationTheme),
+      iconTheme: (iconTheme != null ? iconTheme : this.iconTheme),
+      primaryIconTheme: (primaryIconTheme != null ? primaryIconTheme : this.primaryIconTheme),
+      accentIconTheme: (accentIconTheme != null ? accentIconTheme : this.accentIconTheme),
+      sliderTheme: (sliderTheme != null ? sliderTheme : this.sliderTheme),
+      tabBarTheme: (tabBarTheme != null ? tabBarTheme : this.tabBarTheme),
+      tooltipTheme: (tooltipTheme != null ? tooltipTheme : this.tooltipTheme),
+      cardTheme: (cardTheme != null ? cardTheme : this.cardTheme),
+      chipTheme: (chipTheme != null ? chipTheme : this.chipTheme),
+      platform: (platform != null ? platform : this.platform),
+      materialTapTargetSize: (materialTapTargetSize != null ? materialTapTargetSize : this.materialTapTargetSize),
+      applyElevationOverlayColor: (applyElevationOverlayColor != null ? applyElevationOverlayColor : this.applyElevationOverlayColor),
+      pageTransitionsTheme: (pageTransitionsTheme != null ? pageTransitionsTheme : this.pageTransitionsTheme),
+      appBarTheme: (appBarTheme != null ? appBarTheme : this.appBarTheme),
+      bottomAppBarTheme: (bottomAppBarTheme != null ? bottomAppBarTheme : this.bottomAppBarTheme),
+      colorScheme: (colorScheme != null ? colorScheme : this.colorScheme),
+      dialogTheme: (dialogTheme != null ? dialogTheme : this.dialogTheme),
+      floatingActionButtonTheme: (floatingActionButtonTheme != null ? floatingActionButtonTheme : this.floatingActionButtonTheme),
+      typography: (typography != null ? typography : this.typography),
+      cupertinoOverrideTheme: (cupertinoOverrideTheme != null ? cupertinoOverrideTheme : this.cupertinoOverrideTheme),
+      snackBarTheme: (snackBarTheme != null ? snackBarTheme : this.snackBarTheme),
+      bottomSheetTheme: (bottomSheetTheme != null ? bottomSheetTheme : this.bottomSheetTheme),
+      popupMenuTheme: (popupMenuTheme != null ? popupMenuTheme : this.popupMenuTheme),
+      bannerTheme: (bannerTheme != null ? bannerTheme : this.bannerTheme),
+      dividerTheme: (dividerTheme != null ? dividerTheme : this.dividerTheme),
+      buttonBarTheme: (buttonBarTheme != null ? buttonBarTheme : this.buttonBarTheme),
     });
     return obj;
   }
 }
 
-ThemeData.new = function(arg) {
+ThemeData.new = function (arg) {
   return new ThemeData(arg);
 };
 
-ThemeData.light = function() {
-  return new ThemeData({brightness:Brightness.light});
+ThemeData.light = function () {
+  return new ThemeData({ brightness: Brightness.light });
 };
 
-ThemeData.dark = function() {
-  return new ThemeData({brightness: Brightness.dark});
+ThemeData.dark = function () {
+  return new ThemeData({ brightness: Brightness.dark });
 };
 
 //TODO
-ThemeData.fromJson = function(mapObj) {
+ThemeData.fromJson = function (mapObj) {
   if (mapObj == null || mapObj == undefined) {
     return null;
   }
@@ -1320,7 +1410,7 @@ class GlobalKey extends DartClass {
   }
 }
 
-GlobalKey.new = function(arg) {
+GlobalKey.new = function (arg) {
   return new GlobalKey(arg);
 };
 

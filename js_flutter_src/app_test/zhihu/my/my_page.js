@@ -38,7 +38,8 @@ let {
     CircleAvatar,
     ListTile,
     MediaQuery,
-    Axis
+    Axis,
+    Key
   
 } = require("js_flutter_ui.js");
 
@@ -47,7 +48,7 @@ let {SearchPage} = require("./zhihu/home/search_page.js");
 
 class MyPage extends MXJSStatefulWidget {
     constructor(){
-        super("MyPage", {key: "MyPage"});
+        super("MyPage", {key: new Key("MyPage")});
     }
     createState() {
         return new MyPageState(this);

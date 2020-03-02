@@ -87,17 +87,11 @@
         } else if ([call.method isEqualToString:@"callJsCallbackFunction"]) {
             [strongSelf callJsCallBackFunction:call.arguments];
         }
-    }];
-    
-    //Test
-    FlutterMethodChannel* batteryChannel = [FlutterMethodChannel methodChannelWithName:@"samples.flutter.io/battery" binaryMessenger:self.flutterEngine.binaryMessenger];
-    [batteryChannel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
-        if ([call.method isEqualToString:@"getPlatformVersion"]) {
-            result(@"samples.flutter.io/battery test string");
-        } else {
-            result(@(404));
+        else if ([call.method isEqualToString:@"mxLog"]) {
+            NSLog(@"%@", call.arguments);
         }
     }];
+    
 }
 
 - (void)runJSApp:(NSString*)appName

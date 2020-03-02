@@ -111,7 +111,7 @@ class _DemoList extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => MXJSFlutter.getInstance()
-                      .navigatorPushWithName("JSWidgetHomePage", themeData:themeData,mediaQueryData:mediaQueryData,iconThemeData:iconThemeData)),
+                      .navigatorPushWithName("JSWidgetHomePage", Key("MXFlutterPage"), themeData:themeData,mediaQueryData:mediaQueryData,iconThemeData:iconThemeData)),
             );
           },
         ),

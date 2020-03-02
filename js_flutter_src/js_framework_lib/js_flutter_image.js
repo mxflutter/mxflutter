@@ -10,14 +10,8 @@ class AssetImage extends FlutterWidget {
   }
 }
 
-AssetImage.new = function({ assetName, bundle, packageJS } = {}) {
-  this.className = "AssetImage";
-
-  this.assetName = assetName;
-  this.bundle = bundle;
-  this.package = packageJS;
-
-  return this;
+AssetImage.new = function(args) {
+  return new AssetImage(args);
 };
 
 class ExactAssetImage extends FlutterWidget {
@@ -31,15 +25,8 @@ class ExactAssetImage extends FlutterWidget {
   }
 }
 
-ExactAssetImage.new = function({ assetName, scale, bundle, packageJS } = {}) {
-  this.className = "ExactAssetImage";
-
-  this.assetName = assetName;
-  this.scale = scale;
-  this.bundle = bundle;
-  this.package = packageJS;
-
-  return this;
+ExactAssetImage.new = function(args) {
+  return new ExactAssetImage(args);
 };
 
 class FileImage extends FlutterWidget {
@@ -51,13 +38,8 @@ class FileImage extends FlutterWidget {
   }
 }
 
-FileImage.new = function({ file, scale } = {}) {
-  this.className = "FileImage";
-
-  this.file = file;
-  this.scale = scale;
-
-  return this;
+FileImage.new = function(args) {
+  return new FileImage(args);
 };
 
 class MemoryImage extends FlutterWidget {
@@ -69,13 +51,8 @@ class MemoryImage extends FlutterWidget {
   }
 }
 
-MemoryImage.new = function({ bytes, scale } = {}) {
-  this.className = "MemoryImage";
-
-  this.bytes = bytes;
-  this.scale = scale;
-
-  return this;
+MemoryImage.new = function(args) {
+  return new MemoryImage(args);
 };
 
 class NetworkImage extends FlutterWidget {
@@ -88,14 +65,8 @@ class NetworkImage extends FlutterWidget {
   }
 }
 
-NetworkImage.new = function(url, { scale, headers } = {}) {
-  this.className = "NetworkImage";
-
-  this.url = url;
-  this.scale = scale;
-  this.headers = headers;
-
-  return this;
+NetworkImage.new = function(url, args) {
+  return new NetworkImage(url, args);
 };
 
 class Image extends FlutterWidget {
@@ -136,42 +107,8 @@ class Image extends FlutterWidget {
   }
 }
 
-Image.new = function({
-  key,
-  image,
-  semanticLabel,
-  excludeFromSemantics,
-  width,
-  height,
-  color,
-  colorBlendMode,
-  fit,
-  alignment,
-  repeat,
-  centerSlice,
-  matchTextDirection,
-  gaplessPlayback,
-  filterQuality
-} = {}) {
-  this.className = "Image";
-
-  this.key = key;
-  this.image = image;
-  this.semanticLabel = semanticLabel;
-  this.excludeFromSemantics = excludeFromSemantics;
-  this.width = width;
-  this.height = height;
-  this.color = color;
-  this.colorBlendMode = colorBlendMode;
-  this.fit = fit;
-  this.alignment = alignment;
-  this.repeat = repeat;
-  this.centerSlice = centerSlice;
-  this.matchTextDirection = matchTextDirection;
-  this.gaplessPlayback = gaplessPlayback;
-  this.filterQuality = filterQuality;
-
-  return this;
+Image.new = function(args) {
+  return new Image(args);
 };
 
 Image.network = function(
@@ -380,26 +317,8 @@ class DecorationImage extends FlutterWidget {
   }
 }
 
-DecorationImage.new = function({
-  image,
-  colorFilter,
-  fit,
-  alignment,
-  centerSlice,
-  repeat,
-  matchTextDirection
-} = {}) {
-  this.className = "DecorationImage";
-
-  this.image = image;
-  this.colorFilter = colorFilter;
-  this.fit = fit;
-  this.alignment = alignment;
-  this.centerSlice = centerSlice;
-  this.repeat = repeat;
-  this.matchTextDirection = matchTextDirection;
-
-  return this;
+DecorationImage.new = function(args) {
+  return new DecorationImage(args);
 };
 
 module.exports = {

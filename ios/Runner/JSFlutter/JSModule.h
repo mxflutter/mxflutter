@@ -35,13 +35,9 @@
 
 @property (readonly) JSValue *exports;
 
-+ (JSModule *)require:(NSString *)module atPath:(NSString *)path inContext:(JSContext *)context;
-+ (JSModule *)require:(NSString *)module atPath:(NSString *)path;
 + (JSModule *)require:(NSString *)module fullModulePath:(NSString *)fullModulePath inContext:(JSContext *)context;
 + (JSModule *)require:(NSString *)module fullModulePath:(NSString *)fullModulePath;
 + (NSString *)resolve:(NSString *)module atPath:(NSString *)path;
-
-- (JSModule *)require:(NSString *)module;
 
 - (JSValue *)platformObjectInContext:(JSContext *)context;
 

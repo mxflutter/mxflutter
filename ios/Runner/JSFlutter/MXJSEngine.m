@@ -16,7 +16,9 @@
 
 @property (nonatomic, strong) JSModule *moduleLoader;
 @property (nonatomic, strong) NSMutableArray *searchDirArray;
+
 @property (nonatomic, strong) NSMutableDictionary *jsCallbackCache;
+@property (nonatomic, assign) NSInteger jsCallbackCount;
 
 @end
 
@@ -68,7 +70,7 @@
         MXJSFlutterLog(@"js context.exceptionHandler  %@", exception);
     };
     context[@"require"] = ^(NSString *filePath) {
-        MXJSFlutterLog(@"require file:%@",filePath);
+        //MXJSFlutterLog(@"require file:%@",filePath);
         
         NSString *prefix = @"./";
         if ([filePath hasPrefix:prefix]) {
@@ -93,9 +95,9 @@
             }
         }
         
-        JSModule *module = [JSModule new];
+        JSModule *module = nil;
         if (absolutePath.length != 0) {
-            MXJSFlutterLog(@"require file:%@ found absolutePath=%@",filePath, absolutePath);
+            //MXJSFlutterLog(@"require file:%@ found absolutePath=%@",filePath, absolutePath);
             module = [JSModule require:filePath fullModulePath:absolutePath inContext:context];
             if (!module) {
                 [[JSContext currentContext] evaluateScript:@"throw 'not found'"];
@@ -131,7 +133,7 @@
     * @param function 回调
     */
     context[@"mx_jsbridge_MethodChannel_invokeMethod"] = ^(NSString* channelName, NSString* methodName, JSValue* params, JSValue* function) {
-        [self.jsFlutterEngine callFlutterMethodChannelInvoke:channelName methodName:methodName params:[params toDictionary] callback:^(id  _Nullable result) {
+        [self.jsFlutterEngine callFlutterMethodChannelInvoke:channelName methodName:methodName params:[params toObject] callback:^(id  _Nullable result) {
             if (result) {
                 [function callWithArguments:@[result]];
             } else {
@@ -154,18 +156,27 @@
                                                                            JSValue* onError,
                                                                            JSValue* onDone,
                                                                            NSNumber* cancelOnError) {
-        NSString *onDataId = [self storeJsCallBack:onData];
-        NSString *onErrorId = [self storeJsCallBack:onError];
-        NSString *onDoneId = [self storeJsCallBack:onDone];
+        NSString *onDataId = [self storeJsCallback:onData];
+        NSString *onErrorId = [self storeJsCallback:onError];
+        NSString *onDoneId = [self storeJsCallback:onDone];
 
         [self.jsFlutterEngine callFlutterEventChannelReceiveBroadcastStreamListenInvoke:channelName streamParam:streamParam onDataId:onDataId onErrorId:onErrorId onDoneId:onDoneId cancelOnError:cancelOnError];
     };
     //------Flutter Bridge------
 }
 
-- (NSString *)storeJsCallBack:(JSValue *)function {
-    NSString *callbackId = [NSString stringWithFormat:@"jsCallback_%ld", self.jsCallbackCache.count];
-    [self.jsCallbackCache setValue:function forKey:callbackId];
+- (NSString *)storeJsCallback:(JSValue *)function {
+    //生成callbackId
+    NSString *callbackId = [NSString stringWithFormat:@"jsCallback_%ld", self.jsCallbackCount ++];
+    
+    //通过JSManagedValue保存，绑定JS生命周期
+//    JSManagedValue *cacheValue = [JSManagedValue managedValueWithValue:function];
+//    [[self.jsExecutor.jsContext virtualMachine] addManagedReference:cacheValue withOwner:self];
+    
+    //存入Cache字典，便于索引
+//    [self.jsCallbackCache setObject:cacheValue forKey:callbackId];
+    [self.jsCallbackCache setObject:function forKey:callbackId];
+    
     return callbackId;
 }
 
@@ -173,7 +184,12 @@
     if (callbackId.length <= 0) {
         return nil;
     }
-    return [self.jsCallbackCache objectForKey:callbackId];
+    
+    //根据callbackId取出对应缓存Callback
+//    JSManagedValue *cacheValue = [self.jsCallbackCache objectForKey:callbackId];
+//    return [cacheValue value];
+    JSValue *function = [self.jsCallbackCache objectForKey:callbackId];
+    return function;
 }
 
 - (void)callJSCallbackFunction:(NSString *)callbackId param:(id)param {

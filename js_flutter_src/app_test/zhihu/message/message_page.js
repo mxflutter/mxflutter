@@ -11,14 +11,15 @@ let {
     Scaffold,
     AppBar,
     Text,
-    Center
+    Center,
+    Key
   
 } = require("js_flutter_ui.js");
 
 let {GlobalConfig} = require("./zhihu/global_config.js")
 class MessagePage extends MXJSStatefulWidget {
     constructor(){
-        super("MessagePage", {key: "MessagePage"});
+        super("MessagePage", {key: new Key("MessagePage")});
     }
 
     createState() {

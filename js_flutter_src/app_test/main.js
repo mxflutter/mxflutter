@@ -7,18 +7,11 @@ var {
 
 var currentJSApp = null
 
-class VVFlutterApp extends MXJSFlutterApp {
-    constructor() {
-        super("VVFlutterApp", "initRouteName");
-    }
-}
-
-
 function main(pageName) {
 
     MXJSLog.log("main:pageName" + pageName);
 
-    let app = new VVFlutterApp();
+    let app = new MXJSFlutterApp();
     runApp(app);
 
     //先不要显示页面,等待dart调用，显示对应js页面

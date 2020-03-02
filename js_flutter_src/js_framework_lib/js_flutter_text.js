@@ -55,36 +55,8 @@ class Text extends FlutterWidget {
   //   })
 }
 
-Text.new = function(
-  data,
-  {
-    key,
-    style,
-    textAlign,
-    textDirection,
-    locale,
-    softWrap,
-    overflow,
-    textScaleFactor,
-    maxLines,
-    semanticsLabel
-  } = {}
-) {
-  this.className = "Text";
-
-  this.data = data;
-  this.key = key;
-  this.style = style;
-  this.textAlign = textAlign;
-  this.textDirection = textDirection;
-  this.locale = locale;
-  this.softWrap = softWrap;
-  this.overflow = overflow;
-  this.textScaleFactor = textScaleFactor;
-  this.maxLines = maxLines;
-  this.semanticsLabel = semanticsLabel;
-
-  return this;
+Text.new = function(data, args) {
+  return new Text(data, args);
 };
 
 Text.rich = function(
@@ -144,30 +116,8 @@ class RichText extends FlutterWidget {
   }
 }
 
-RichText.new = function({
-  key,
-  text,
-  textAlign,
-  textDirection,
-  softWrap,
-  overflow,
-  textScaleFactor,
-  maxLines,
-  locale
-} = {}) {
-  this.className = "RichText";
-
-  this.key = key;
-  this.text = text;
-  this.textAlign = textAlign;
-  this.textDirection = textDirection;
-  this.softWrap = softWrap;
-  this.overflow = overflow;
-  this.textScaleFactor = textScaleFactor;
-  this.maxLines = maxLines;
-  this.locale = locale;
-
-  return this;
+RichText.new = function(args) {
+  return new RichText(args);
 };
 
 class DefaultTextStyle extends FlutterWidget {
@@ -192,26 +142,8 @@ class DefaultTextStyle extends FlutterWidget {
   }
 }
 
-DefaultTextStyle.new = function({
-  key,
-  style,
-  textAlign,
-  softWrap,
-  overflow,
-  maxLines,
-  child
-} = {}) {
-  this.className = "DefaultTextStyle";
-
-  this.key = key;
-  this.style = style;
-  this.textAlign = textAlign;
-  this.softWrap = softWrap;
-  this.overflow = overflow;
-  this.maxLines = maxLines;
-  this.child = child;
-
-  return this;
+DefaultTextStyle.new = function(args) {
+  return new DefaultTextStyle(args);
 };
 
 class TextStyle extends DartClass {
@@ -260,50 +192,8 @@ class TextStyle extends DartClass {
   }
 }
 
-TextStyle.new = function({
-  inherit,
-  color,
-  fontSize,
-  fontWeight,
-  fontStyle,
-  letterSpacing,
-  wordSpacing,
-  textBaseline,
-  height,
-  locale,
-  foreground,
-  background,
-  shadows,
-  decoration,
-  decorationColor,
-  decorationStyle,
-  debugLabel,
-  fontFamily,
-  packages // 此处因为和 js 的关键字 package 冲突了，所以改成 packages
-} = {}) {
-  this.className = "TextStyle";
-
-  this.inherit = inherit;
-  this.color = color;
-  this.fontSize = fontSize;
-  this.fontWeight = fontWeight;
-  this.fontStyle = fontStyle;
-  this.letterSpacing = letterSpacing;
-  this.wordSpacing = wordSpacing;
-  this.textBaseline = textBaseline;
-  this.height = height;
-  this.locale = locale;
-  this.foreground = foreground;
-  this.background = background;
-  this.shadows = shadows;
-  this.decoration = decoration;
-  this.decorationColor = decorationColor;
-  this.decorationStyle = decorationStyle;
-  this.debugLabel = debugLabel;
-  this.fontFamily = fontFamily;
-  this.packages = packages;
-
-  return this;
+TextStyle.new = function(args) {
+  return new TextStyle(args);
 };
 
 TextStyle.fromJson = function(mapObj) {
@@ -362,15 +252,8 @@ class TextSpan extends FlutterWidget {
   }
 }
 
-TextSpan.new = function({ style, text, children, recognizer } = {}) {
-  this.className = "TextSpan";
-
-  this.style = style;
-  this.text = text;
-  this.children = children;
-  this.recognizer = recognizer;
-
-  return this;
+TextSpan.new = function(args) {
+  return new TextSpan(args);
 };
 
 // TextDecoration = {
@@ -451,38 +334,8 @@ class TextTheme extends DartClass {
   }
 }
 
-TextTheme.new = function({
-  display4,
-  display3,
-  display2,
-  display1,
-  headline,
-  title,
-  subhead,
-  body2,
-  body1,
-  caption,
-  button,
-  subtitle,
-  overline
-} = {}) {
-  this.className = "TextTheme";
-
-  this.display4 = display4;
-  this.display3 = display3;
-  this.display2 = display2;
-  this.display1 = display1;
-  this.headline = headline;
-  this.title = title;
-  this.subhead = subhead;
-  this.body2 = body2;
-  this.body1 = body1;
-  this.caption = caption;
-  this.button = button;
-  this.subtitle = subtitle;
-  this.overline = overline;
-
-  return this;
+TextTheme.new = function(args) {
+  return new TextTheme(args);
 };
 
 TextTheme.fromJson = function(mapObj) {
@@ -589,14 +442,8 @@ class Shadow extends FlutterWidget {
   }
 }
 
-Shadow.new = function({ color, offset, blurRadius } = {}) {
-  this.className = "Shadow";
-
-  this.color = color;
-  this.offset = offset;
-  this.blurRadius = blurRadius;
-
-  return this;
+Shadow.new = function(args) {
+  return new Shadow(args);
 };
 
 Shadow.fromJson = function(mapObj) {
@@ -699,74 +546,8 @@ class TextFormField extends FlutterWidget {
   }
 }
 
-TextFormField.new = function({
-  key,
-  controller,
-  initialValue,
-  focusNode,
-  decoration,
-  keyboardType,
-  textCapitalization,
-  textInputAction,
-  style,
-  textDirection,
-  textAlign,
-  autofocus,
-  obscureText,
-  autocorrect,
-  autovalidate,
-  maxLengthEnforced,
-  maxLines,
-  maxLength,
-  onEditingComplete,
-  onFieldSubmitted,
-  onSaved,
-  validator,
-  inputFormatters,
-  enabled,
-  cursorWidth,
-  cursorRadius,
-  cursorColor,
-  keyboardAppearance,
-  scrollPadding,
-  enableInteractiveSelection,
-  buildCounter
-} = {}) {
-  this.className = "TextFormField";
-
-  this.key = key;
-  this.controller = controller;
-  this.initialValue = initialValue;
-  this.focusNode = focusNode;
-  this.decoration = decoration;
-  this.keyboardType = keyboardType;
-  this.textCapitalization = textCapitalization;
-  this.textInputAction = textInputAction;
-  this.style = style;
-  this.textDirection = textDirection;
-  this.textAlign = textAlign;
-  this.autofocus = autofocus;
-  this.obscureText = obscureText;
-  this.autocorrect = autocorrect;
-  this.autovalidate = autovalidate;
-  this.maxLengthEnforced = maxLengthEnforced;
-  this.maxLines = maxLines;
-  this.maxLength = maxLength;
-  this.onEditingComplete = onEditingComplete;
-  this.onFieldSubmitted = onFieldSubmitted;
-  this.onSaved = onSaved;
-  this.validator = validator;
-  this.inputFormatters = inputFormatters;
-  this.enabled = enabled;
-  this.cursorWidth = cursorWidth;
-  this.cursorRadius = cursorRadius;
-  this.cursorColor = cursorColor;
-  this.keyboardAppearance = keyboardAppearance;
-  this.scrollPadding = scrollPadding;
-  this.enableInteractiveSelection = enableInteractiveSelection;
-  this.buildCounter = buildCounter;
-
-  return this;
+TextFormField.new = function(args) {
+  return new TextFormField(args);
 };
 
 class InputDecoration extends FlutterWidget {
@@ -849,84 +630,8 @@ class InputDecoration extends FlutterWidget {
   }
 }
 
-InputDecoration.new = function({
-  icon,
-  labelText,
-  labelStyle,
-  helperText,
-  helperStyle,
-  hintText,
-  hintStyle,
-  hintMaxLines,
-  errorText,
-  errorStyle,
-  errorMaxLines,
-  hasFloatingPlaceholder,
-  isDense,
-  contentPadding,
-  prefixIcon,
-  prefix,
-  prefixText,
-  prefixStyle,
-  suffixIcon,
-  suffix,
-  suffixText,
-  suffixStyle,
-  counter,
-  counterText,
-  counterStyle,
-  filled,
-  fillColor,
-  errorBorder,
-  focusedBorder,
-  focusedErrorBorder,
-  disabledBorder,
-  enabledBorder,
-  border,
-  enabled,
-  semanticCounterText,
-  alignLabelWithHint
-} = {}) {
-  this.className = "InputDecoration";
-
-  this.icon = icon;
-  this.labelText = labelText;
-  this.labelStyle = labelStyle;
-  this.helperText = helperText;
-  this.helperStyle = helperStyle;
-  this.hintText = hintText;
-  this.hintStyle = hintStyle;
-  this.hintMaxLines = hintMaxLines;
-  this.errorText = errorText;
-  this.errorStyle = errorStyle;
-  this.errorMaxLines = errorMaxLines;
-  this.hasFloatingPlaceholder = hasFloatingPlaceholder;
-  this.isDense = isDense;
-  this.contentPadding = contentPadding;
-  this.prefixIcon = prefixIcon;
-  this.prefix = prefix;
-  this.prefixText = prefixText;
-  this.prefixStyle = prefixStyle;
-  this.suffixIcon = suffixIcon;
-  this.suffix = suffix;
-  this.suffixText = suffixText;
-  this.suffixStyle = suffixStyle;
-  this.counter = counter;
-  this.counterText = counterText;
-  this.counterStyle = counterStyle;
-  this.filled = filled;
-  this.fillColor = fillColor;
-  this.errorBorder = errorBorder;
-  this.focusedBorder = focusedBorder;
-  this.focusedErrorBorder = focusedErrorBorder;
-  this.disabledBorder = disabledBorder;
-  this.enabledBorder = enabledBorder;
-  this.border = border;
-  this.enabled = enabled;
-  this.semanticCounterText = semanticCounterText;
-  this.alignLabelWithHint = alignLabelWithHint;
-
-  return this;
+InputDecoration.new = function(args) {
+  return new InputDecoration(args);
 };
 
 InputDecoration.collapsed = function({
@@ -959,12 +664,8 @@ class TextEditingController extends FlutterWidget {
   }
 }
 
-TextEditingController.new = function({ text } = {}) {
-  this.className = "TextEditingController";
-
-  this.text = text;
-
-  return this;
+TextEditingController.new = function(args) {
+  return new TextEditingController(args);
 };
 
 class TextInputType extends DartClass {
@@ -973,10 +674,8 @@ class TextInputType extends DartClass {
   }
 }
 
-TextInputType.new = function() {
-  this.className = "TextInputType";
-
-  return this;
+TextInputType.new = function(args) {
+  return new TextInputType(args);
 };
 
 TextInputType.numberWithOptions = function(signed, decimal) {
@@ -1093,13 +792,8 @@ class UnderlineInputBorder extends FlutterWidget {
   }
 }
 
-UnderlineInputBorder.new = function({ borderSide, borderRadius } = {}) {
-  this.className = "UnderlineInputBorder";
-
-  this.borderSide = borderSide;
-  this.borderRadius = borderRadius;
-
-  return this;
+UnderlineInputBorder.new = function(args) {
+  return new UnderlineInputBorder(args);
 };
 
 class OutlineInputBorder extends FlutterWidget {
@@ -1112,18 +806,8 @@ class OutlineInputBorder extends FlutterWidget {
   }
 }
 
-OutlineInputBorder.new = function({
-  borderSide,
-  borderRadius,
-  gapPadding
-} = {}) {
-  this.className = "OutlineInputBorder";
-
-  this.borderSide = borderSide;
-  this.borderRadius = borderRadius;
-  this.gapPadding = gapPadding;
-
-  return this;
+OutlineInputBorder.new = function(args) {
+  return new OutlineInputBorder(args);
 };
 
 class TextField extends FlutterWidget {
@@ -1194,72 +878,8 @@ class TextField extends FlutterWidget {
   }
 }
 
-TextField.new = function({
-  key,
-  controller,
-  focusNode,
-  decoration,
-  keyboardType,
-  textInputAction,
-  textCapitalization,
-  style,
-  textAlign,
-  textDirection,
-  autofocus,
-  obscureText,
-  autocorrect,
-  maxLines,
-  maxLength,
-  maxLengthEnforced,
-  onChanged,
-  onEditingComplete,
-  onSubmitted,
-  inputFormatters,
-  enabled,
-  cursorWidth,
-  cursorRadius,
-  cursorColor,
-  keyboardAppearance,
-  scrollPadding,
-  dragStartBehavior,
-  enableInteractiveSelection,
-  onTap,
-  buildCounter
-} = {}) {
-  this.className = "TextField";
-
-  this.key = key;
-  this.controller = controller;
-  this.focusNode = focusNode;
-  this.decoration = decoration;
-  this.keyboardType = keyboardType;
-  this.textInputAction = textInputAction;
-  this.textCapitalization = textCapitalization;
-  this.style = style;
-  this.textAlign = textAlign;
-  this.textDirection = textDirection;
-  this.autofocus = autofocus;
-  this.obscureText = obscureText;
-  this.autocorrect = autocorrect;
-  this.maxLines = maxLines;
-  this.maxLength = maxLength;
-  this.maxLengthEnforced = maxLengthEnforced;
-  this.onChanged = onChanged;
-  this.onEditingComplete = onEditingComplete;
-  this.onSubmitted = onSubmitted;
-  this.inputFormatters = inputFormatters;
-  this.enabled = enabled;
-  this.cursorWidth = cursorWidth;
-  this.cursorRadius = cursorRadius;
-  this.cursorColor = cursorColor;
-  this.keyboardAppearance = keyboardAppearance;
-  this.scrollPadding = scrollPadding;
-  this.dragStartBehavior = dragStartBehavior;
-  this.enableInteractiveSelection = enableInteractiveSelection;
-  this.onTap = onTap;
-  this.buildCounter = buildCounter;
-
-  return this;
+TextField.new = function(args) {
+  return new TextField(args);
 };
 
 module.exports = {

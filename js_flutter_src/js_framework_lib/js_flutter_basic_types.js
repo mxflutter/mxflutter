@@ -79,7 +79,7 @@ class FlutterWidget extends DartClass {
     for (let k in this) {
       let v = this[k];
       if (typeof v == "function") {
-        this[k] = jsWidgetHelper.createCallbackID(v);
+        this[k] = jsWidgetHelper.buildingCreateCallbackID(v);
       }
     }
   }
@@ -93,11 +93,8 @@ class Key extends DartClass {
   }
 }
 
-Key.new = function(value) {
-  this.className = "Key";
-
-  this.value = value;
-  return this;
+Key.new = function(args) {
+  return new Key(args);
 };
 
 class AlignmentDirectional extends DartClass {
@@ -109,12 +106,8 @@ class AlignmentDirectional extends DartClass {
   }
 }
 
-AlignmentDirectional.new = function({ start, y } = {}) {
-  this.className = "AlignmentDirectional";
-
-  this.start = start;
-  this.y = y;
-  return this;
+AlignmentDirectional.new = function(args) {
+  return new AlignmentDirectional(args);
 };
 
 class EdgeInsetsDirectional extends DartClass {
@@ -129,14 +122,7 @@ class EdgeInsetsDirectional extends DartClass {
 }
 
 EdgeInsetsDirectional.new = function(start, top, end, bottom) {
-  this.className = "EdgeInsetsDirectional";
-
-  this.start = start;
-  this.top = top;
-  this.end = end;
-  this.bottom = bottom;
-
-  return this;
+  return new EdgeInsetsDirectional(start, top, end, bottom);
 };
 
 EdgeInsetsDirectional.fromSTEB = function({ start, top, end, bottom } = {}) {
@@ -177,14 +163,7 @@ class EdgeInsets extends DartClass {
 }
 
 EdgeInsets.new = function(left, top, right, bottom) {
-  this.className = "EdgeInsets";
-
-  this.left = left;
-  this.top = top;
-  this.right = right;
-  this.bottom = bottom;
-
-  return this;
+  return new EdgeInsets(left, top, right, bottom);
 };
 
 EdgeInsets.fromLTRB = function(left, top, right, bottom) {
@@ -267,12 +246,8 @@ class Color extends DartClass {
   /// value.
 }
 
-Color.new = function(value) {
-  this.className = "Color";
-
-  this.value = value;
-
-  return this;
+Color.new = function(args) {
+  return new Color(args);
 };
 
 ///const Color.fromARGB(int a, int r, int g, int b)
@@ -416,12 +391,7 @@ class Alignment extends DartClass {
 }
 
 Alignment.new = function(x, y) {
-  this.className = "Alignment";
-
-  this.x = x;
-  this.y = y;
-
-  return this;
+  return new Alignment(x, y);
 };
 
 /// The top left corner.
@@ -491,14 +461,8 @@ class Paint {
   }
 }
 
-Paint.new = function(argsMap) {
-  this.className = "Paint";
-
-  argsMap.forEach((k, v) => {
-    this[k] = v;
-  });
-
-  return this;
+Paint.new = function(args) {
+  return new Paint(args);
 };
 
 class ColorFilter extends DartClass {
@@ -511,12 +475,7 @@ class ColorFilter extends DartClass {
 }
 
 ColorFilter.new = function(color, blendMode) {
-  this.className = "ColorFilter";
-
-  this.color = color;
-  this.blendMode = blendMode;
-
-  return this;
+  return new ColorFilter(color, blendMode);
 };
 
 ColorFilter.mode = function(color, blendMode) {
@@ -535,12 +494,7 @@ class MaskFilter extends DartClass {
 }
 
 MaskFilter.new = function(style, sigma) {
-  this.className = "MaskFilter";
-
-  this.style = style;
-  this.sigma = sigma;
-
-  return this;
+  return new MaskFilter(style, sigma);
 };
 
 MaskFilter.blur = function(style, sigma) {
@@ -571,16 +525,8 @@ class LinearGradient extends DartClass {
   }
 }
 
-LinearGradient.new = function({ begin, end, colors, stops, tileMode } = {}) {
-  this.className = "LinearGradient";
-
-  this.begin = begin;
-  this.end = end;
-  this.colors = colors;
-  this.stops = stops;
-  this.tileMode = tileMode;
-
-  return this;
+LinearGradient.new = function(args) {
+  return new LinearGradient(args);
 };
 
 class RadialGradient extends DartClass {
@@ -605,18 +551,8 @@ class RadialGradient extends DartClass {
   }
 }
 
-RadialGradient.new = function(arg) {
-  this.className = "RadialGradient";
-
-  this.center = center;
-  this.radius = radius;
-  this.colors = colors;
-  this.stops = stops;
-  this.tileMode = tileMode;
-  this.focal = focal;
-  this.focalRadius = focalRadius;
-
-  return this;
+RadialGradient.new = function(args) {
+  return new RadialGradient(args);
 };
 
 class SweepGradient extends DartClass {
@@ -632,24 +568,8 @@ class SweepGradient extends DartClass {
   }
 }
 
-SweepGradient.new = function({
-  center,
-  startAngle,
-  endAngle,
-  colors,
-  stops,
-  tileMode
-} = {}) {
-  this.className = "SweepGradient";
-
-  this.center = center;
-  this.startAngle = startAngle;
-  this.endAngle = endAngle;
-  this.colors = colors;
-  this.stops = stops;
-  this.tileMode = tileMode;
-
-  return this;
+SweepGradient.new = function(args) {
+  return new SweepGradient(args);
 };
 
 class ImageShader extends DartClass {
@@ -663,15 +583,8 @@ class ImageShader extends DartClass {
   }
 }
 
-ImageShader.new = function({ image, tmx, tmy, matrix4 } = {}) {
-  this.className = "ImageShader";
-
-  this.image = image;
-  this.tmx = tmx;
-  this.tmy = tmy;
-  this.matrix4 = matrix4;
-
-  return this;
+ImageShader.new = function(args) {
+  return new ImageShader(args);
 };
 
 class BoxDecoration extends DartClass {
@@ -698,28 +611,8 @@ class BoxDecoration extends DartClass {
   }
 }
 
-BoxDecoration.new = function({
-  color,
-  image,
-  border,
-  borderRadius,
-  boxShadow,
-  gradient,
-  backgroundBlendMode,
-  shape
-} = {}) {
-  this.className = "BoxDecoration";
-
-  this.color = color;
-  this.image = image;
-  this.border = border;
-  this.borderRadius = borderRadius;
-  this.boxShadow = boxShadow;
-  this.gradient = gradient;
-  this.backgroundBlendMode = backgroundBlendMode;
-  this.shape = shape;
-
-  return this;
+BoxDecoration.new = function(args) {
+  return new BoxDecoration(args);
 };
 
 class Locale extends DartClass {
@@ -731,13 +624,8 @@ class Locale extends DartClass {
   }
 }
 
-Locale.new = function(languageCode, countryCode) {
-  this.className = "Locale";
-
-  this.languageCode = languageCode;
-  this.countryCode = countryCode;
-
-  return this;
+Locale.new = function(args) {
+  return new Locale(args);
 };
 
 Locale.fromJson = function(mapObj) {
@@ -832,20 +720,8 @@ class BoxConstraints extends DartClass {
   }
 }
 
-BoxConstraints.new = function({
-  minWidth,
-  maxWidth,
-  minHeight,
-  maxHeight
-} = {}) {
-  this.className = "BoxConstraints";
-
-  this.minWidth = minWidth;
-  this.maxWidth = maxWidth;
-  this.minHeight = minHeight;
-  this.maxHeight = maxHeight;
-
-  return this;
+BoxConstraints.new = function(args) {
+  return new BoxConstraints(args);
 };
 
 class Size extends DartClass {
@@ -858,12 +734,7 @@ class Size extends DartClass {
 }
 
 Size.new = function(width, height) {
-  this.className = "Size";
-
-  this.width = width;
-  this.height = height;
-
-  return this;
+  return new Size(width, height);
 };
 
 Size.fromJson = function(mapObj) {
@@ -893,12 +764,7 @@ class Offset extends DartClass {
 }
 
 Offset.new = function(dx, dy) {
-  this.className = "Offset";
-
-  this.dx = dx;
-  this.dy = dy;
-
-  return this;
+  return new Offset(dx, dy);
 };
 
 class TableRow extends DartClass {
@@ -911,14 +777,8 @@ class TableRow extends DartClass {
   }
 }
 
-TableRow.new = function({ key, decoration, children } = {}) {
-  this.className = "TableRow";
-
-  this.key = key;
-  this.decoration = decoration;
-  this.children = children;
-
-  return this;
+TableRow.new = function(args) {
+  return new TableRow(args);
 };
 
 // BoxFit = {
@@ -1008,24 +868,8 @@ class TableBorder extends DartClass {
   }
 }
 
-TableBorder.new = function({
-  top,
-  right,
-  bottom,
-  left,
-  horizontalInside,
-  verticalInside
-} = {}) {
-  this.className = "TableBorder";
-
-  this.top = top;
-  this.right = right;
-  this.bottom = bottom;
-  this.left = left;
-  this.horizontalInside = horizontalInside;
-  this.verticalInside = verticalInside;
-
-  return this;
+TableBorder.new = function(args) {
+  return new TableBorder(args);
 };
 
 class BorderSide extends DartClass {
@@ -1038,14 +882,8 @@ class BorderSide extends DartClass {
   }
 }
 
-BorderSide.new = function({ color, width, style } = {}) {
-  this.className = "BorderSide";
-
-  this.color = color;
-  this.width = width;
-  this.style = style;
-
-  return this;
+BorderSide.new = function(args) {
+  return new BorderSide(args);
 };
 
 // BorderStyle = {
@@ -1064,12 +902,8 @@ class FlexColumnWidth extends DartClass {
   }
 }
 
-FlexColumnWidth.new = function(value) {
-  this.className = "FlexColumnWidth";
-
-  this.value = value;
-
-  return this;
+FlexColumnWidth.new = function(args) {
+  return new FlexColumnWidth(args);
 };
 
 class FixedColumnWidth extends FlutterWidget {
@@ -1080,13 +914,10 @@ class FixedColumnWidth extends FlutterWidget {
   }
 }
 
-FixedColumnWidth.new = function(value) {
-  this.className = "FixedColumnWidth";
-
-  this.value = value;
-
-  return this;
+FixedColumnWidth.new = function(args) {
+  return new FixedColumnWidth(args);
 };
+
 
 // WrapAlignment = {
 //   start: "WrapAlignment.start",
@@ -1195,44 +1026,8 @@ class Matrix4 extends DartClass {
   }
 }
 
-Matrix4.new = function({
-  arg0,
-  arg1,
-  arg2,
-  arg3,
-  arg4,
-  arg5,
-  arg6,
-  arg7,
-  arg8,
-  arg9,
-  arg10,
-  arg11,
-  arg12,
-  arg13,
-  arg14,
-  arg15
-} = {}) {
-  this.className = "Matrix4";
-
-  this.arg0 = arg0;
-  this.arg1 = arg1;
-  this.arg2 = arg2;
-  this.arg3 = arg3;
-  this.arg4 = arg4;
-  this.arg5 = arg5;
-  this.arg6 = arg6;
-  this.arg7 = arg7;
-  this.arg8 = arg8;
-  this.arg9 = arg9;
-  this.arg10 = arg10;
-  this.arg11 = arg11;
-  this.arg12 = arg12;
-  this.arg13 = arg13;
-  this.arg14 = arg14;
-  this.arg15 = arg15;
-
-  return this;
+Matrix4.new = function(args) {
+  return new Matrix4(args);
 };
 
 Matrix4.identity = function() {
@@ -1409,14 +1204,7 @@ class Vector4 extends DartClass {
 }
 
 Vector4.new = function(x, y, z, w) {
-  this.className = "Vector4";
-
-  this.x = x;
-  this.y = y;
-  this.z = z;
-  this.w = w;
-
-  return this;
+  return new Vector4(x, y, z, w);
 };
 
 Vector4.array = function(array, offset) {
@@ -1456,13 +1244,7 @@ class Vector3 extends DartClass {
 }
 
 Vector3.new = function(x, y, z) {
-  this.className = "Vector3";
-
-  this.x = x;
-  this.y = y;
-  this.z = z;
-
-  return this;
+  return new Vector3(x, y, z);
 };
 
 Vector3.zero = function() {
@@ -1500,18 +1282,8 @@ class ScrollController extends DartClass {
   }
 }
 
-ScrollController.new = function({
-  initialScrollOffset,
-  keepScrollOffset,
-  debugLabel
-} = {}) {
-  this.className = "ScrollController";
-
-  this.initialScrollOffset = initialScrollOffset;
-  this.keepScrollOffset = keepScrollOffset;
-  this.debugLabel = debugLabel;
-
-  return this;
+ScrollController.new = function(args) {
+  return new ScrollController(args);
 };
 
 class ScrollPhysics extends DartClass {
@@ -1522,12 +1294,8 @@ class ScrollPhysics extends DartClass {
   }
 }
 
-ScrollPhysics.new = function({ parent } = {}) {
-  this.className = "ScrollPhysics";
-
-  this.parent = parent;
-
-  return this;
+ScrollPhysics.new = function(args) {
+  return new ScrollPhysics(args);
 };
 
 class ClampingScrollPhysics extends DartClass {
@@ -1538,12 +1306,8 @@ class ClampingScrollPhysics extends DartClass {
   }
 }
 
-ClampingScrollPhysics.new = function({ parent } = {}) {
-  this.className = "ClampingScrollPhysics";
-
-  this.parent = parent;
-
-  return this;
+ClampingScrollPhysics.new = function(args) {
+  return new ClampingScrollPhysics(args);
 };
 
 class AlwaysScrollableScrollPhysics extends DartClass {
@@ -1554,12 +1318,9 @@ class AlwaysScrollableScrollPhysics extends DartClass {
   }
 }
 
-AlwaysScrollableScrollPhysics.new = function({ parent } = {}) {
-  this.className = "AlwaysScrollableScrollPhysics";
 
-  this.parent = parent;
-
-  return this;
+AlwaysScrollableScrollPhysics.new = function(args) {
+  return new AlwaysScrollableScrollPhysics(args);
 };
 
 class NeverScrollableScrollPhysics extends DartClass {
@@ -1570,12 +1331,8 @@ class NeverScrollableScrollPhysics extends DartClass {
   }
 }
 
-NeverScrollableScrollPhysics.new = function({ parent } = {}) {
-  this.className = "NeverScrollableScrollPhysics";
-
-  this.parent = parent;
-
-  return this;
+NeverScrollableScrollPhysics.new = function(args) {
+  return new NeverScrollableScrollPhysics(args);
 };
 
 class SliverChildBuilderDelegate extends FlutterWidget {
@@ -1617,18 +1374,20 @@ class SliverChildBuilderDelegate extends FlutterWidget {
   }
 }
 
-SliverChildBuilderDelegate.new = function(build, arg) {
-  return new SliverChildBuilderDelegate(build, arg);
+SliverChildBuilderDelegate.new = function(builder, arg) {
+  return new SliverChildBuilderDelegate(builder, arg);
 };
 
 class SliverChildListDelegate extends DartClass {
   constructor(
     children,
-    addAutomaticKeepAlives,
-    addRepaintBoundaries,
-    addSemanticIndexes,
-    semanticIndexCallback,
-    semanticIndexOffset
+    {    
+      addAutomaticKeepAlives,
+      addRepaintBoundaries,
+      addSemanticIndexes,
+      semanticIndexCallback,
+      semanticIndexOffset
+    }
   ) {
     super();
 
@@ -1641,22 +1400,8 @@ class SliverChildListDelegate extends DartClass {
   }
 }
 
-SliverChildListDelegate.new = function(
-  children,
-  addAutomaticKeepAlives,
-  addRepaintBoundaries,
-  addSemanticIndexes,
-  semanticIndexCallback,
-  semanticIndexOffset
-) {
-  return new SliverChildListDelegate(
-    children,
-    addAutomaticKeepAlives,
-    addRepaintBoundaries,
-    addSemanticIndexes,
-    semanticIndexCallback,
-    semanticIndexOffset
-  );
+SliverChildListDelegate.new = function(children,args) {
+  return new SliverChildListDelegate(children, args);
 };
 
 // Clip = {
@@ -1678,10 +1423,8 @@ class Rect extends DartClass {
   }
 }
 
-Rect.new = function() {
-  this.className = "Rect";
-
-  return this;
+Rect.new = function(args) {
+  return new Rect(args);
 };
 
 Rect.fromLTRB = function(left, top, right, bottom) {
@@ -1734,10 +1477,8 @@ class PlatformAssetBundle extends DartClass {
   }
 }
 
-PlatformAssetBundle.new = function() {
-  this.className = "PlatformAssetBundle";
-
-  return this;
+PlatformAssetBundle.new = function(args) {
+  return new PlatformAssetBundle(args);
 };
 
 class NetworkAssetBundle extends DartClass {
@@ -1748,12 +1489,8 @@ class NetworkAssetBundle extends DartClass {
   }
 }
 
-NetworkAssetBundle.new = function(baseUrl) {
-  this.className = "NetworkAssetBundle";
-
-  this.baseUrl = baseUrl;
-
-  return this;
+NetworkAssetBundle.new = function(args) {
+  return new NetworkAssetBundle(args);
 };
 
 class File extends DartClass {
@@ -1764,12 +1501,8 @@ class File extends DartClass {
   }
 }
 
-File.new = function(path) {
-  this.className = "File";
-
-  this.path = path;
-
-  return this;
+File.new = function(args) {
+  return new File(args);
 };
 
 File.fromUri = function(uri) {
@@ -1798,12 +1531,8 @@ class Uint8List extends DartClass {
   }
 }
 
-Uint8List.new = function(length) {
-  this.className = "Uint8List";
-
-  this.length = length;
-
-  return this;
+Uint8List.new = function(args) {
+  return new Uint8List(args);
 };
 
 Uint8List.fromList = function(elements) {
@@ -1831,10 +1560,8 @@ class Radius extends DartClass {
   }
 }
 
-Radius.new = function(arg) {
-  this.className = "Radius";
-
-  return this;
+Radius.new = function(args) {
+  return new Radius(args);
 };
 
 Radius.circular = function(radius) {
@@ -1860,10 +1587,8 @@ class BorderRadius extends DartClass {
   }
 }
 
-BorderRadius.new = function(arg) {
-  this.className = "BorderRadius";
-
-  return this;
+BorderRadius.new = function(args) {
+  return new BorderRadius(args);
 };
 
 BorderRadius.all = function(radius) {
@@ -1930,20 +1655,8 @@ class BottomNavigationBarItem extends DartClass {
   }
 }
 
-BottomNavigationBarItem.new = function({
-  icon,
-  title,
-  activeIcon,
-  backgroundColor
-} = {}) {
-  this.className = "BottomNavigationBarItem";
-
-  this.icon = icon;
-  this.title = title;
-  this.activeIcon = activeIcon;
-  this.backgroundColor = backgroundColor;
-
-  return this;
+BottomNavigationBarItem.new = function(args) {
+  return new BottomNavigationBarItem(args);
 };
 
 // BottomNavigationBarType = {
@@ -1965,18 +1678,8 @@ class IconData extends DartClass {
   }
 }
 
-IconData.new = function(
-  codePoint,
-  { fontFamily, fontPackage, matchTextDirection } = {}
-) {
-  this.className = "IconData";
-
-  this.codePoint = codePoint;
-  this.fontFamily = fontFamily;
-  this.fontPackage = fontPackage;
-  this.matchTextDirection = matchTextDirection;
-
-  return this;
+IconData.new = function(codePoint, args) {
+  return new IconData(codePoint, args);
 };
 
 // TabBarIndicatorSize = {
@@ -1999,16 +1702,10 @@ class Border extends FlutterWidget {
   }
 }
 
-Border.new = function({ top, right, bottom, left } = {}) {
-  this.className = "Border";
-
-  this.top = top;
-  this.right = right;
-  this.bottom = bottom;
-  this.left = left;
-
-  return this;
+Border.new = function(args) {
+  return new Border(args);
 };
+
 Border.all = function({ color, width, style }) {
   let side = new BorderSide({
     color: color,
@@ -2034,15 +1731,8 @@ class AnnotatedRegion extends DartClass {
   }
 }
 
-AnnotatedRegion.new = function({ key, child, value, sized } = {}) {
-  this.className = "AnnotatedRegion";
-
-  this.key = key;
-  this.child = child;
-  this.value = value;
-  this.sized = sized;
-
-  return this;
+AnnotatedRegion.new = function(args) {
+  return new AnnotatedRegion(args);
 };
 
 // Brightness = {
@@ -2099,24 +1789,8 @@ class SystemUiOverlayStyle extends DartClass {
   // }
 }
 
-SystemUiOverlayStyle.new = function({
-  systemNavigationBarColor,
-  systemNavigationBarDividerColor,
-  systemNavigationBarIconBrightness,
-  statusBarColor,
-  statusBarBrightness,
-  statusBarIconBrightness
-} = {}) {
-  this.className = "SystemUiOverlayStyle";
-
-  this.systemNavigationBarColor = systemNavigationBarColor;
-  this.systemNavigationBarDividerColor = systemNavigationBarDividerColor;
-  this.systemNavigationBarIconBrightness = systemNavigationBarIconBrightness;
-  this.statusBarColor = statusBarColor;
-  this.statusBarBrightness = statusBarBrightness;
-  this.statusBarIconBrightness = statusBarIconBrightness;
-
-  return this;
+SystemUiOverlayStyle.new = function(args) {
+  return new SystemUiOverlayStyle(args);
 };
 
 SystemUiOverlayStyle.light = new SystemUiOverlayStyle({
@@ -2147,12 +1821,7 @@ class MaterialColor extends DartClass {
 }
 
 MaterialColor.new = function(primary, swatch) {
-  this.className = "MaterialColor";
-
-  this.primary = primary;
-  this.swatch = swatch;
-
-  return this;
+  return new MaterialColor(primary, swatch);
 };
 
 class MaterialAccentColor extends DartClass {
@@ -2168,12 +1837,7 @@ class MaterialAccentColor extends DartClass {
 }
 
 MaterialAccentColor.new = function(primary, swatch) {
-  this.className = "MaterialAccentColor";
-
-  this.primary = primary;
-  this.swatch = swatch;
-
-  return this;
+  return new MaterialAccentColor(primary, swatch);
 };
 
 class InputDecorationTheme extends DartClass {
@@ -2224,52 +1888,8 @@ class InputDecorationTheme extends DartClass {
   }
 }
 
-InputDecorationTheme.new = function({
-  labelStyle,
-  helperStyle,
-  hintStyle,
-  errorStyle,
-  errorMaxLines,
-  hasFloatingPlaceholder,
-  isDense,
-  contentPadding,
-  isCollapsed,
-  prefixStyle,
-  suffixStyle,
-  counterStyle,
-  filled,
-  fillColor,
-  errorBorder,
-  focusedBorder,
-  focusedErrorBorder,
-  disabledBorder,
-  enabledBorder,
-  border
-} = {}) {
-  this.className = "InputDecorationTheme";
-
-  this.labelStyle = labelStyle;
-  this.helperStyle = helperStyle;
-  this.hintStyle = hintStyle;
-  this.errorStyle = errorStyle;
-  this.errorMaxLines = errorMaxLines;
-  this.hasFloatingPlaceholder = hasFloatingPlaceholder;
-  this.isDense = isDense;
-  this.contentPadding = contentPadding;
-  this.isCollapsed = isCollapsed;
-  this.prefixStyle = prefixStyle;
-  this.suffixStyle = suffixStyle;
-  this.counterStyle = counterStyle;
-  this.filled = filled;
-  this.fillColor = fillColor;
-  this.errorBorder = errorBorder;
-  this.focusedBorder = focusedBorder;
-  this.focusedErrorBorder = focusedErrorBorder;
-  this.disabledBorder = disabledBorder;
-  this.enabledBorder = enabledBorder;
-  this.border = border;
-
-  return this;
+InputDecorationTheme.new = function(args) {
+  return new InputDecorationTheme(args);
 };
 
 InputDecorationTheme.fromJson = function(mapObj) {
@@ -2553,10 +2173,8 @@ class CircularNotchedRectangle extends DartClass {
   }
 }
 
-CircularNotchedRectangle.new = function(arg) {
-  this.className = "CircularNotchedRectangle";
-
-  return this;
+CircularNotchedRectangle.new = function(args) {
+  return new CircularNotchedRectangle(args);
 };
 
 class IconTheme extends DartClass {
@@ -2569,14 +2187,8 @@ class IconTheme extends DartClass {
   }
 }
 
-IconTheme.new = function({ key, data, child } = {}) {
-  this.className = "IconTheme";
-
-  this.key = key;
-  this.data = data;
-  this.child = child;
-
-  return this;
+IconTheme.new = function(args) {
+  return new IconTheme(args);
 };
 
 IconTheme.of = function(context) {
@@ -2593,14 +2205,8 @@ class IconThemeData extends DartClass {
   }
 }
 
-IconThemeData.new = function({ color, opacity, size } = {}) {
-  this.className = "IconThemeData";
-
-  this.color = color;
-  this.opacity = opacity;
-  this.size = size;
-
-  return this;
+IconThemeData.new = function(args) {
+  return new IconThemeData(args);
 };
 
 //TODO
@@ -2639,14 +2245,8 @@ class DropdownMenuItem extends DartClass {
   }
 }
 
-DropdownMenuItem.new = function({ key, value, child } = {}) {
-  this.className = "DropdownMenuItem";
-
-  this.key = key;
-  this.value = value;
-  this.child = child;
-
-  return this;
+DropdownMenuItem.new = function(args) {
+  return new DropdownMenuItem(args);
 };
 
 function assert(condition, message) {
@@ -2670,15 +2270,8 @@ class BoxShadow extends DartClass {
   }
 }
 
-BoxShadow.new = function({ color, offset, blurRadius, spreadRadius } = {}) {
-  this.className = "BoxShadow";
-
-  this.color = color;
-  this.offset = offset;
-  this.blurRadius = blurRadius;
-  this.spreadRadius = spreadRadius;
-
-  return this;
+BoxShadow.new = function(args) {
+  return new BoxShadow(args);
 };
 
 // BoxShape = {
@@ -2703,14 +2296,7 @@ class Quaternion extends DartClass {
 }
 
 Quaternion.new = function(x, y, z, w) {
-  this.className = "Quaternion";
-
-  this.x = x;
-  this.y = y;
-  this.z = z;
-  this.w = w;
-
-  return this;
+  return new Quaternion(x, y, z, w);
 };
 
 class Slider extends FlutterWidget {
@@ -2773,28 +2359,8 @@ class CircleAvatar extends DartClass {
   }
 }
 
-CircleAvatar.new = function({
-  key,
-  child,
-  backgroundColor,
-  backgroundImage,
-  foregroundColor,
-  radius,
-  minRadius,
-  maxRadius
-} = {}) {
-  this.className = "CircleAvatar";
-
-  this.key = key;
-  this.child = child;
-  this.backgroundColor = backgroundColor;
-  this.backgroundImage = backgroundImage;
-  this.foregroundColor = foregroundColor;
-  this.radius = radius;
-  this.minRadius = minRadius;
-  this.maxRadius = maxRadius;
-
-  return this;
+CircleAvatar.new = function(args) {
+  return new CircleAvatar(args);
 };
 
 class BorderDirectional extends DartClass {
@@ -2808,15 +2374,8 @@ class BorderDirectional extends DartClass {
   }
 }
 
-BorderDirectional.new = function({ top, start, end, bottom } = {}) {
-  this.className = "BorderDirectional";
-
-  this.top = top;
-  this.start = start;
-  this.end = end;
-  this.bottom = bottom;
-
-  return this;
+BorderDirectional.new = function(args) {
+  return new BorderDirectional(args);
 };
 
 // ButtonTextTheme = {
@@ -2883,10 +2442,8 @@ class InputBorder extends DartClass {
   }
 }
 
-InputBorder.new = function(arg) {
-  this.className = "InputBorder";
-
-  return this;
+InputBorder.new = function(args) {
+  return new InputBorder(args);
 };
 
 InputBorder.none = function() {
@@ -2911,28 +2468,8 @@ class Positioned extends DartClass {
   }
 }
 
-Positioned.new = function({
-  key,
-  left,
-  top,
-  right,
-  bottom,
-  width,
-  height,
-  child
-} = {}) {
-  this.className = "Positioned";
-
-  this.key = key;
-  this.left = left;
-  this.top = top;
-  this.right = right;
-  this.bottom = bottom;
-  this.width = width;
-  this.height = height;
-  this.child = child;
-
-  return this;
+Positioned.new = function(args) {
+  return new Positioned(args);
 };
 
 Positioned.fromRect = function({ key, rect, child } = {}) {
@@ -2956,15 +2493,9 @@ class Opacity extends DartClass {
     this.child = child;
   }
 }
-Opacity.new = function({ key, opacity, alwaysIncludeSemantics, child } = {}) {
-  this.className = "Opacity";
 
-  this.key = key;
-  this.opacity = opacity;
-  this.alwaysIncludeSemantics = alwaysIncludeSemantics;
-  this.child = child;
-
-  return this;
+Opacity.new = function(args) {
+  return new Opacity(args);
 };
 
 class TableColumnWidth extends DartClass {
@@ -2972,10 +2503,9 @@ class TableColumnWidth extends DartClass {
     super();
   }
 }
-TableColumnWidth.new = function(arg) {
-  this.className = "TableColumnWidth";
 
-  return this;
+TableColumnWidth.new = function(args) {
+  return new TableColumnWidth(args);
 };
 
 class ColorScheme extends DartClass {
@@ -3033,39 +2563,9 @@ class ColorScheme extends DartClass {
   }
 }
 
-ColorScheme.new = function ({
-    primary,
-    primaryVariant,
-    secondary,
-    secondaryVariant,
-    surface,
-    background,
-    error,
-    onPrimary,
-    onSecondary,
-    onSurface,
-    onBackground,
-    onError,
-    brightness,
-  } = {}) {
-    this.className = "ColorScheme";
-
-    this.primary = primary;
-    this.primaryVariant = primaryVariant;
-    this.secondary = secondary;
-    this.secondaryVariant = secondaryVariant;
-    this.surface = surface;
-    this.background = background;
-    this.error = error;
-    this.onPrimary = onPrimary;
-    this.onSecondary = onSecondary;
-    this.onSurface = onSurface;
-    this.onBackground = onBackground;
-    this.onError = onError;
-    this.brightness = brightness;
-
-    return this;
-}
+ColorScheme.new = function(args) {
+  return new ColorScheme(args);
+};
 
 ButtonBarLayoutBehavior = {
 	constrained:{ _name: "ButtonBarLayoutBehavior.constrained", index: 0 },
@@ -3110,43 +2610,9 @@ class ButtonThemeData extends DartClass {
   }
 }
 
-ButtonThemeData.new = function({
-  textTheme,
-  minWidth,
-  height,
-  padding,
-  shape,
-  layoutBehavior,
-  alignedDropdown,
-  buttonColor,
-  disabledColor,
-  focusColor,
-  hoverColor,
-  highlightColor,
-  splashColor,
-  colorScheme,
-  materialTapTargetSize,
-} = {}) {
-  this.className = "ButtonThemeData";
-
-  this.textTheme = textTheme;
-  this.minWidth = minWidth;
-  this.height = height;
-  this.padding = padding;
-  this.shape = shape;
-  this.layoutBehavior = layoutBehavior;
-  this.alignedDropdown = alignedDropdown;
-  this.buttonColor = buttonColor;
-  this.disabledColor = disabledColor;
-  this.focusColor = focusColor;
-  this.hoverColor = hoverColor;
-  this.highlightColor = highlightColor;
-  this.splashColor = splashColor;
-  this.colorScheme = colorScheme;
-  this.materialTapTargetSize = materialTapTargetSize;
-  
-  return this;
-}
+ButtonThemeData.new = function(args) {
+  return new ButtonThemeData(args);
+};
 
 class NotificationListener extends DartClass {
   constructor ({

@@ -44,8 +44,8 @@ const packages__zhihu__index = require('packages/zhihu/index/index');
 const index_page = packages__zhihu__index.index__index;
 
 //flutter_gallery
-const packages__flutter_gallery__gallery__app = require('packages/flutter_gallery/gallery/app');
-const flutter_gallery_app = packages__flutter_gallery__gallery__app.gallery__app;
+// const packages__flutter_gallery__gallery__app = require('packages/flutter_gallery/gallery/app');
+// const flutter_gallery_app = packages__flutter_gallery__gallery__app.gallery__app;
 
 //业务代码
 class JSWidgetHomePage extends MXJSStatefulWidget {
@@ -186,15 +186,15 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                         this.navigatorPush(new index_page.Index.new);
                     }
                 }),
-                new ListTile({
-                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
-                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Flutter Gallery'),
-                    subtitle: new Text('Flutter Gallery'),
-                    onTap: function () {
-                        this.navigatorPush(new flutter_gallery_app.GalleryApp.new);
-                    }
-                }),
+                // new ListTile({
+                //     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                //     title: new Text('Flutter Gallery'),
+                //     subtitle: new Text('Flutter Gallery'),
+                //     onTap: function () {
+                //         this.navigatorPush(new flutter_gallery_app.GalleryApp.new);
+                //     }
+                // }),
             ]
         });
 
