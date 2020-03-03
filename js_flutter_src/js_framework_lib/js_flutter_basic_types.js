@@ -1345,7 +1345,7 @@ class SliverChildBuilderDelegate extends FlutterWidget {
       addSemanticIndexes,
       semanticIndexCallback,
       semanticIndexOffset
-    }
+    }= {}
   ) {
     super();
 
@@ -1387,7 +1387,7 @@ class SliverChildListDelegate extends DartClass {
       addSemanticIndexes,
       semanticIndexCallback,
       semanticIndexOffset
-    }
+    } = {}
   ) {
     super();
 

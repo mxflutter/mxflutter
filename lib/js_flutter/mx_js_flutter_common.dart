@@ -265,13 +265,13 @@ class MXUtil {
           break;
         }
 
-      case TargetPlatform.macOS:
-        {
-          v = {"_name" : "TargetPlatform.macOS",
-               "index" : 3
-              };
-          break;
-        }
+      // case TargetPlatform.macOS:
+      //   {
+      //     v = {"_name" : "TargetPlatform.macOS",
+      //          "index" : 3
+      //         };
+      //     break;
+      //   }
     }
 
     return v;

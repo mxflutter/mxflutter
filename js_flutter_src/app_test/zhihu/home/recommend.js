@@ -27,7 +27,9 @@ let {
     Column,
     FontWeight,
     SingleChildScrollView,
-    Alignment
+    Alignment,
+    MaterialPageRoute,
+    Navigator
   
 } = require("js_flutter_ui.js");
 
@@ -47,7 +49,7 @@ class Recommend extends MXJSStatefulWidget {
 
 class RecommendState extends MXJSWidgetState {
     
-    commonCard(article){
+    commonCard(context,article){
         let markWidget;
         if (article.imgUrl == null) {
             markWidget = new Text(
@@ -92,7 +94,11 @@ class RecommendState extends MXJSWidgetState {
             margin: EdgeInsets.only({top: 5.0, bottom: 5.0}),
             child: new FlatButton({
                 onPressed:function(){
-                    this.navigatorPush(new ReplyPage);
+                    Navigator.push(context, new MaterialPageRoute({
+                        builder: function (context) {
+                            return new ReplyPage;
+                        }
+                    }))
                 },
                 child: new Column({
                     children: [
@@ -134,8 +140,8 @@ class RecommendState extends MXJSWidgetState {
                 margin: EdgeInsets.only({top: 5.0}),
                 child: new Column({
                     children: [
-                        this.commonCard(articleList[0]),
-                        this.commonCard(articleList[1])
+                        this.commonCard(context,articleList[0]),
+                        this.commonCard(context,articleList[1])
                     ]
                 })
             })

@@ -32,7 +32,9 @@ let {
     MainAxisAlignment,
     Alignment,
     CircleAvatar,
-    ButtonTextTheme
+    ButtonTextTheme,
+    MaterialPageRoute,
+    Navigator
 
 } = require("js_flutter_ui.js");
 
@@ -199,7 +201,12 @@ class QuestionPageState extends MXJSWidgetState {
                                 margin: EdgeInsets.only({bottom: 5.0}),
                                 child: new FlatButton({
                                     onPressed: function(){
-                                        this.navigatorPush(new ReplyPage);
+                         
+                                        Navigator.push(context, new MaterialPageRoute({
+                                            builder: function (context) {
+                                                return new ReplyPage;
+                                            }
+                                        }))
                                     },
                                     child: new Column({
                                         children: [

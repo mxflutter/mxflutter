@@ -32,7 +32,8 @@ let {
     InputDecoration,
     Alignment,
     Chip,
-    InputBorder
+    InputBorder,
+    Navigator
 } = require("js_flutter_ui.js");
 
 let {GlobalConfig} = require("./zhihu/global_config.js");
@@ -49,14 +50,15 @@ class SearchPage extends MXJSStatefulWidget {
 
 class SearchPageState extends MXJSWidgetState {
 
-    searchInput() {
+    searchInput(context) {
         return new Container({
             child: new Row({
                 children: [
                     new Container({
                             child: FlatButton.icon({
                                 onPressed: function(){
-                                    this.navigatorPop();
+                                    Navigator.pop(context);
+                                    
                                 },
                                 icon: new Icon(new IconData(0xe5c4, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}),
                                 label: new Text("")
@@ -87,7 +89,7 @@ class SearchPageState extends MXJSWidgetState {
             // theme: GlobalConfig.themeData,
             home: new Scaffold({
                 appBar: new AppBar({
-                    title: this.searchInput()
+                    title: this.searchInput(context)
                 }),
                 body: new SingleChildScrollView({
                     child: new Column({

@@ -23,7 +23,8 @@ let {
   EdgeInsets,
   Column,
   SingleChildScrollView,
-  InputDecoration
+  InputDecoration,
+  Navigator
   
 } = require("js_flutter_ui.js");
 
@@ -52,7 +53,7 @@ class AskPageState extends MXJSWidgetState {
                             children: [
                                 FlatButton.icon({
                                     onPressed:function(){
-                                        this.navigatorPop();
+                                        Navigator.pop(context);
                                     },
                                     icon: new Icon(new IconData(0xe14c, {fontFamily: 'MaterialIcons'})),
                                     label: new Text("")

@@ -154,9 +154,11 @@ class MXJSWidgetMgr {
 
 //MXJSFlutterBuildContext 和flutter BuildContext 保持一致的编程方式
 class MXJSFlutterBuildContext {
-  constructor(rootWidget) {
-    this.rootWidget = rootWidget;
-    this.rootWidget.buildContext = this;
+  constructor(widget,parentBuildContext = null) {
+    this.widget = widget;
+    this.widget.buildContext = this;
+
+    this.parentBuildContext = parentBuildContext;
 
     this.inheritedInfo = {};
     this.mediaQueryData = null;
@@ -164,8 +166,8 @@ class MXJSFlutterBuildContext {
     this.iconThemeData = null;
   }
 
-  static copyWith(widget, buildContext) {
-    var context = new MXJSFlutterBuildContext(widget);
+  static inheritBuildContext(widget, buildContext) {
+    var context = new MXJSFlutterBuildContext(widget,buildContext);
     context.inheritedInfo = buildContext.inheritedInfo;
     context.mediaQueryData = buildContext.mediaQueryData;
     context.themeData = buildContext.themeData;
@@ -174,8 +176,8 @@ class MXJSFlutterBuildContext {
   }
 
   buildRootWidget() {
-    MXJSLog.log("buildRootWidget ::" + this.rootWidget.widgetLogInfoStr());
-    return MXJSWidgetHelper.buildWidgetData(this.rootWidget);
+    MXJSLog.log("buildRootWidget ::" + this.widget.widgetLogInfoStr());
+    return MXJSWidgetHelper.buildWidgetData(this.widget);
   }
 
   //js->flutter
@@ -431,7 +433,7 @@ class MXJSWidgetHelper {
         }
 
         if (value != rootWidget) {
-          value.buildContext = rootWidget.buildContext;
+          value.buildContext = MXJSFlutterBuildContext.inheritBuildContext(value,rootWidget.buildContext);
           //TODO:FIXME addChildWidget逻辑，这里局部刷新，会有两份Widget数据，但功能正常
           //Widget 的子Widget 没有层级关系，平铺在rootWidget
           rootWidget.helper.addChildWidget(value);
@@ -531,7 +533,8 @@ class MXJSWidgetHelper {
 
   //buildingCreateCallbackID 只允许building过程中调用，不是对外API
   buildingCreateCallbackID(callback) {
-    callback = callback.bind(this);
+    //* MXFlutter beta 0.0.1开始，框架不在帮助上层代码绑定this，开发者需要自己绑定需要的对象 
+    //callback = callback.bind(this.widget);
     return this.widget.buildingWidgetTree.createCallbackID(
       callback
     );
@@ -794,6 +797,7 @@ class MXJSWidgetHelper {
     }
   }
 
+  //这个函数命名是不是应该是removePushedWidget ,有点晕
   removePushingWidget(jsWidget) {
     if (this.widget.navPushedWidgets) {
       delete this.widget.navPushedWidgets[jsWidget.widgetID];
@@ -817,7 +821,7 @@ class MXJSWidgetHelper {
 
     //设置push jsWidget的widget
     newJSWidget.navPushingWidget = this.widget;
-    newJSWidget.buildContext = MXJSFlutterBuildContext.copyWith(newJSWidget, this.widget.buildContext);
+    newJSWidget.buildContext = MXJSFlutterBuildContext.inheritBuildContext(newJSWidget, this.widget.buildContext);
     newJSWidget.navPushingWidgetID = this.widget.widgetID;
     this.widget.navPushedWidgets[newJSWidget.widgetID] = newJSWidget;
     newJSWidget.widgetData = MXJSWidgetHelper.buildWidgetData(newJSWidget);

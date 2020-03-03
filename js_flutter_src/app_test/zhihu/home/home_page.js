@@ -27,42 +27,49 @@ let {
     TabBar,
     Tab,
     TabBarView,
-    Key
+    Key,
+    MaterialPageRoute,
+    Navigator
 } = require("js_flutter_ui.js");
 
-let {GlobalConfig} = require("./zhihu/global_config.js");
-let {Follow} = require("./zhihu/home/follow.js");
-let {Recommend} = require("./zhihu/home/recommend.js");
-let {Hot} = require("./zhihu/home/hot.js");
-let {SearchPage} = require("./zhihu/home/search_page.js");
-let {AskPage} = require("./zhihu/home/ask_page.js");
+let { GlobalConfig } = require("./zhihu/global_config.js");
+let { Follow } = require("./zhihu/home/follow.js");
+let { Recommend } = require("./zhihu/home/recommend.js");
+let { Hot } = require("./zhihu/home/hot.js");
+let { SearchPage } = require("./zhihu/home/search_page.js");
+let { AskPage } = require("./zhihu/home/ask_page.js");
 
 class HomePage extends MXJSStatefulWidget {
-    constructor(){
-        super("HomePage", {key: new Key("HomePage")});
+    constructor() {
+        super("HomePage", { key: new Key("HomePage") });
     }
-  
+
     createState() {
         return new HomePageState(this);
     }
 }
 
 class HomePageState extends MXJSWidgetState {
-  
-    barSearch(){
+
+    barSearch(context) {
         return new Container({
             child: new Row({
                 children: [
                     new Expanded({
                         child: FlatButton.icon({
-                            onPressed:function(){
-                                this.navigatorPush(new SearchPage);
+                            onPressed: function () {
+                       
+                                Navigator.push(context, new MaterialPageRoute({
+                                    builder: function (context) {
+                                        return new SearchPage;
+                                    }
+                                }))
                             },
-                            icon: new Icon(new IconData(0xe8b6, {fontFamily: 'MaterialIcons'}),{
+                            icon: new Icon(new IconData(0xe8b6, { fontFamily: 'MaterialIcons' }), {
                                 color: GlobalConfig.fontColor,
                                 size: 16.0
                             }),
-                            label: new Text("坚果R1摄像头损坏",{
+                            label: new Text("坚果R1摄像头损坏", {
                                 style: new TextStyle({
                                     color: GlobalConfig.fontColor
                                 })
@@ -83,10 +90,15 @@ class HomePageState extends MXJSWidgetState {
                     }),
                     new Container({
                         child: FlatButton.icon({
-                            onPressed: function(){
-                                this.navigatorPush(new AskPage);
+                            onPressed: function () {
+         
+                                Navigator.push(context, new MaterialPageRoute({
+                                    builder: function (context) {
+                                        return new AskPage;
+                                    }
+                                }))
                             },
-                            icon: new Icon(new IconData(0xe22b, {fontFamily: 'MaterialIcons'}),{
+                            icon: new Icon(new IconData(0xe22b, { fontFamily: 'MaterialIcons' }), {
                                 color: GlobalConfig.fontColor,
                                 size: 16.0
                             }),
@@ -106,21 +118,21 @@ class HomePageState extends MXJSWidgetState {
         })
     }
 
-    build(context){
+    build(context) {
         let widget = new DefaultTabController({
             length: 3,
             child: new Scaffold({
                 appBar: new AppBar({
-                    title: this.barSearch(),
+                    title: this.barSearch(context),
                     bottom: new TabBar({
-                      labelColor: Colors.blue,
-                      indicatorColor: Colors.blue,
-                      unselectedLabelColor: Colors.black,
-                      tabs: [
-                        new Tab({text: "关注"}),
-                        new Tab({text: "推荐"}),
-                        new Tab({text: "热榜"})
-                      ]
+                        labelColor: Colors.blue,
+                        indicatorColor: Colors.blue,
+                        unselectedLabelColor: Colors.black,
+                        tabs: [
+                            new Tab({ text: "关注" }),
+                            new Tab({ text: "推荐" }),
+                            new Tab({ text: "热榜" })
+                        ]
                     }),
                     backgroundColor: Colors.white
                 }),

@@ -39,7 +39,9 @@ let {
     IconButton,
     RaisedButton,
     BottomAppBar,
-    InputBorder
+    InputBorder,
+    MaterialPageRoute,
+    Navigator
 } = require("js_flutter_ui.js");
 
 let {GlobalConfig} = require("./zhihu/global_config.js");
@@ -53,7 +55,8 @@ class Common {
                     new Container({
                         child: FlatButton.icon({
                             onPressed: function(){
-                                this.navigatorPop();
+                    
+                                Navigator.pop(context);
                             },
                             icon: new Icon(new IconData(0xe5c4, {fontFamily: 'MaterialIcons'}), {color: GlobalConfig.fontColor}),
                             label: new Text("")
@@ -119,7 +122,12 @@ class ReplyPageState extends MXJSWidgetState {
                             new Container({
                                 child: new FlatButton({
                                     onPressed: function(){
-                                      this.navigatorPush(new QuestionPage);
+                             
+                                      Navigator.push(context, new MaterialPageRoute({
+                                        builder: function (context) {
+                                            return new QuestionPage;
+                                        }
+                                    }))
                                     },
                                     child: new Container({
                                         child: new Text("你认为《三体》中最牛的文明是？", {
@@ -161,7 +169,12 @@ class ReplyPageState extends MXJSWidgetState {
                                             child: new Container({
                                                 child: new FlatButton({
                                                     onPressed: function(){
-                                                        this.navigatorPush(new QuestionPage);
+                                      
+                                                        Navigator.push(context, new MaterialPageRoute({
+                                                            builder: function (context) {
+                                                                return new QuestionPage;
+                                                            }
+                                                        }))
                                                     },
                                                     child: new Text("查看全部10000个回答 > ")
                                                 })

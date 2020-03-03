@@ -1175,10 +1175,10 @@ class NavigatorState extends FlutterWidget {
   }
 
   push(T, materialPageRoute) {
-    this.context.rootWidget.helper.navigatorPush(materialPageRoute.builder(this.context));
+    this.context.widget.helper.navigatorPush(materialPageRoute.builder(this.context));
   }
   pop(T) {
-    this.context.rootWidget.helper.navigatorPop();
+    this.context.widget.helper.navigatorPop();
   }
 }
 
@@ -1199,11 +1199,13 @@ class Navigator extends FlutterWidget {
     this.observers = observers;
   }
 
-  static push(T, context, materialPageRoute) {
+  static push(context, materialPageRoute) {
+    let T = null;
     var navigatorState = new NavigatorState(context);
     navigatorState.push(T, materialPageRoute);
   }
-  static pop(T, context) {
+  static pop(context) {
+    let T = null;
     var navigatorState = new NavigatorState(context);
     navigatorState.pop(T);
   }

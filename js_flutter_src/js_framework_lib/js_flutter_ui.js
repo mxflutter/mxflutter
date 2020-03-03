@@ -7,6 +7,7 @@ let textExports = require("./js_flutter_text.js");
 let imageExports = require("./js_flutter_image.js");
 let animationExports = require("./js_flutter_animation.js");
 
+
 module.exports = Object.assign(
   frameworkExports,
   basicExports,
@@ -14,5 +15,5 @@ module.exports = Object.assign(
   layoutExports,
   textExports,
   imageExports,
-  animationExports
+  animationExports,
 );

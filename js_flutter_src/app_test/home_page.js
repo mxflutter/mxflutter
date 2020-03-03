@@ -16,14 +16,16 @@ let {
     TextAlign,
     Row,
     Padding,
-    Theme
+    Theme,
+    Navigator,
+    MaterialPageRoute
 } = require("js_flutter_ui.js");
 
-let {JSPestoPage} = require("./pesto.js");
-let {JSContactPage} = require("./contact.js");
-let {JSAnimationPage} = require("./animation.js");
-let {JSMaterialPage} = require("./material.js");
-let {JSZhiHuPage} = require("./zhihu/zhihu.js");
+let { JSPestoPage } = require("./pesto.js");
+let { JSContactPage } = require("./contact.js");
+let { JSAnimationPage } = require("./animation.js");
+let { JSMaterialPage } = require("./material.js");
+let { JSZhiHuPage } = require("./zhihu/zhihu.js");
 
 main_ddc = require("./dart_js/main.ddc.js");
 flutter_demo_ddc = require("./dart_js/flutter_demo.ddc.js");
@@ -71,50 +73,73 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                 new Padding({ padding: EdgeInsets.all(1.0) }),
                 this.sectionTitle(context, "App Demo"),
                 new ListTile({
-                    leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
-                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('ZhiHu'),
                     subtitle: new Text('ZhiHu high copy'),
-                    onTap:function () {
-                        this.navigatorPush(new JSZhiHuPage);
+                    onTap: function () {
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSZhiHuPage;
+                            }
+                        }))
                     }
                 }),
 
                 new ListTile({
-                    leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:Theme.of(context).primaryColor}),
-                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Pesto'),
                     subtitle: new Text('Simple recipe browser'),
-                    onTap:function () {
-                        this.navigatorPush(new JSPestoPage);
+
+                    onTap: function () {
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSPestoPage;
+                            }
+                        }))
                     }
                 }),
-    
+
                 new ListTile({
-                    leading:new Icon(new IconData(0xe06d,{fontFamily:'MaterialIcons'})),
-                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Shrine'),
                     subtitle: new Text('Basic shopping app'),
+    
                     onTap: function () {
-                        this.navigatorPush(new JSPestoPage);
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSPestoPage;
+                            }
+                        }))
                     }
                 }),
                 new ListTile({
-                    leading:new Icon(new IconData(0xe0d0,{fontFamily:'MaterialIcons'}),{color:Theme.of(context).primaryColor}),
-                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    leading: new Icon(new IconData(0xe0d0, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Contact profile'),
                     subtitle: new Text('Address book entry with a flexible appbar'),
+
                     onTap: function () {
-                        this.navigatorPush(new JSContactPage);
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSContactPage;
+                            }
+                        }))
                     }
                 }),
                 new ListTile({
-                    leading:new Icon(new IconData(0xe06d,{fontFamily:'MaterialIcons'})),
-                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Animation'),
                     subtitle: new Text('Section organizer'),
                     onTap: function () {
-                        this.navigatorPush(new JSAnimationPage);
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSAnimationPage;
+                            }
+                        }))
                     }
                 }),
                 // this.sectionTitle(context, "JSWidget Demo"),
@@ -139,7 +164,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                 //         this.navigatorPush(new JSPestoPage);
                 //     }
                 // }),
-                       
+
                 this.sectionTitle(context, "Dart2js"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
@@ -150,40 +175,58 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                         main_ddc.main.main();
                     }
                 }),
-               new ListTile({
-                   leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
-                   trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                   title: new Text('FlutterDemo'),
-                   subtitle: new Text('简单样例'),
-                   onTap: function () {
-                       this.navigatorPush(new flutter_demo_ddc.main.MyHomePage.new);
-                   }
-               }),
-               new ListTile({
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('FlutterDemo'),
+                    subtitle: new Text('简单样例'),
+                    onTap: function () {
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new flutter_demo_ddc.main.MyHomePage.new;
+                            }
+                        }))
+                    }
+                }),
+                new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('ContactDemo'),
                     subtitle: new Text('联系人'),
+     
                     onTap: function () {
-                        this.navigatorPush(new contact_demo_ddc.contacts_demo.ContactsDemo.new);
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new contact_demo_ddc.contacts_demo.ContactsDemo.new;
+                            }
+                        }))
                     }
                 }),
-               new ListTile({
+                new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('PestoDemo'),
                     subtitle: new Text('菜谱'),
                     onTap: function () {
-                        this.navigatorPush(new pesto_demo_ddc.pesto_demo.PestoDemo.new);
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new pesto_demo_ddc.pesto_demo.PestoDemo.new;
+                            }
+                        }))
                     }
                 }),
-               new ListTile({
+                new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('ZhiHu'),
                     subtitle: new Text('知乎-高仿版'),
+
                     onTap: function () {
-                        this.navigatorPush(new index_page.Index.new);
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new index_page.Index.new;
+                            }
+                        }))
                     }
                 }),
                 // new ListTile({
@@ -209,7 +252,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
         return w;
     }
 
-    sectionTitle(context, title){
+    sectionTitle(context, title) {
         let t = new Container({
             padding: EdgeInsets.all(5.0),
             color: Theme.of(context).primaryColor,

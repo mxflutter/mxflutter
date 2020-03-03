@@ -223,7 +223,7 @@ class MXJsonBuildOwner {
 
     //谁push jsWidget，找到对应的build owner
     String navPushingWidgetID = jsWidget.navPushingWidgetID;
-    var bo = findBuildOwner(navPushingWidgetID);
+    MXJsonBuildOwner bo = findBuildOwner(navPushingWidgetID);
 
     if (bo == null) {
       MXJSLog.error(

@@ -100,13 +100,14 @@ class IndexState extends MXJSWidgetState {
                     fixedColor: Colors.blue,
                     type: BottomNavigationBarType.fixed,
                     onTap: function(index) {
+                        let that = this;
                         this.setState(function() {
                             this._navigationViews[this._currentIndex].controller.reverse();
                             this._currentIndex = index;
                             this._navigationViews[this._currentIndex].controller.forward();
                             this._currentPage = this._pageList[this._currentIndex];
-                        })
-                    }
+                        }.bind(that))
+                    }.bind(this)
                 })
                 // theme: GlobalConfig.themeData,
             })

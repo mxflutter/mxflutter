@@ -29,7 +29,9 @@ let {
     Column,
     FontWeight,
     SingleChildScrollView,
-    Alignment
+    Alignment,
+    MaterialPageRoute,
+    Navigator
 } = require("js_flutter_ui.js");
 
 let {GlobalConfig} = require("./zhihu/global_config.js");
@@ -48,7 +50,7 @@ class Hot extends MXJSStatefulWidget {
 
 class HotState extends MXJSWidgetState {
     
-    hotCard(question){
+    hotCard(context,question){
         return new Container({
             decoration: new BoxDecoration({
                 color: GlobalConfig.cardBackgroundColor,
@@ -61,7 +63,12 @@ class HotState extends MXJSWidgetState {
             }),
             child: new FlatButton({
                 onPressed:function(){
-                    this.navigatorPush(new QuestionPage);
+     
+                    Navigator.push(context, new MaterialPageRoute({
+                        builder: function (context) {
+                            return new QuestionPage;
+                        }
+                    }))
                 },
                 child: new Container({
                     padding: EdgeInsets.only({top: 8.0, bottom: 8.0}),
@@ -162,11 +169,11 @@ class HotState extends MXJSWidgetState {
                 margin: EdgeInsets.only({top: 5.0}),
                 child: new Column({
                     children: [
-                        this.hotCard(questionList[0]),
-                        this.hotCard(questionList[1]),
-                        this.hotCard(questionList[2]),
-                        this.hotCard(questionList[3]),
-                        this.hotCard(questionList[4])
+                        this.hotCard(context,questionList[0]),
+                        this.hotCard(context,questionList[1]),
+                        this.hotCard(context,questionList[2]),
+                        this.hotCard(context,questionList[3]),
+                        this.hotCard(context,questionList[4])
                     ]
                 })
             })

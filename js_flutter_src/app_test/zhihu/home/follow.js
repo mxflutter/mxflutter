@@ -32,7 +32,9 @@ let {
   PopupMenuItem,
   SingleChildScrollView,
   Alignment,
-  CircleAvatar
+  CircleAvatar,
+  MaterialPageRoute,
+  Navigator
   
 } = require("js_flutter_ui.js");
 
@@ -52,7 +54,7 @@ class Follow extends MXJSStatefulWidget {
 
 class FollowState extends MXJSWidgetState {
 
-    wordsCard(article){
+    wordsCard(context,article){
         let markWidget;
         if (article.imgUrl == null) {
             markWidget = new Text(article.mark, {
@@ -101,7 +103,13 @@ class FollowState extends MXJSWidgetState {
             }),
             child: new FlatButton({
                 onPressed:function(){
-                    this.navigatorPush(new ReplyPage);
+             
+                    Navigator.push(context, new MaterialPageRoute({
+                        builder: function (context) {
+                            return new ReplyPage;
+                        }
+                    }))
+                    
                 },
                 child: new Column({
                     children: [
@@ -182,7 +190,7 @@ class FollowState extends MXJSWidgetState {
         });
     }
 
-    billboard(){
+    billboard(context){
         return new Container({
             margin: EdgeInsets.only({
                 top: 5.0, 
@@ -294,11 +302,11 @@ class FollowState extends MXJSWidgetState {
                 margin: EdgeInsets.only({top: 5.0}),
                 child: new Column({
                     children: [
-                        this.wordsCard(articleList[0]),
-                        this.wordsCard(articleList[1]),
-                        this.wordsCard(articleList[2]),
-                        this.billboard(),
-                        this.wordsCard(articleList[3])
+                        this.wordsCard(context,articleList[0]),
+                        this.wordsCard(context,articleList[1]),
+                        this.wordsCard(context,articleList[2]),
+                        this.billboard(context),
+                        this.wordsCard(context,articleList[3])
                     ]
                 })
             })

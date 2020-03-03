@@ -82,7 +82,7 @@ class JSAnimationPageState extends MXJSWidgetState {
         child: new Icon(new IconData(0xe145,{fontFamily:'MaterialIcons',semanticLabel: 'Action'})),
         onPressed: function () {
             this.beginAnimation();
-        }
+        }.bind(this)
       }),
       body: new Center({
         child: new AnimatedBuilder({

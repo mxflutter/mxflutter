@@ -39,7 +39,9 @@ let {
     ListTile,
     MediaQuery,
     Axis,
-    Key
+    Key,
+    MaterialPageRoute,
+    Navigator
   
 } = require("js_flutter_ui.js");
 
@@ -61,7 +63,12 @@ class MyPageState extends MXJSWidgetState {
         return new Container({
             child: new FlatButton({
                 onPressed: function(){
-                    this.navigatorPush(new SearchPage);
+      
+                    Navigator.push(context, new MaterialPageRoute({
+                        builder: function (context) {
+                            return new SearchPage;
+                        }
+                    }))
                 },
                 child: new Row({
                     children: [
