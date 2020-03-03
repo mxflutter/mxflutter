@@ -32,8 +32,10 @@
                          onThread:(NSThread *)javaScriptThread
 {
     if ((self = [super init])) {
+        
+        static NSInteger sJSContextIndex = 0;
         _context = context;
-        _context.name = @"MXJSFlutterJSContext";
+        _context.name = [NSString stringWithFormat:@"MXJSFlutterJSContext:%ld",(long)sJSContextIndex++] ;
         _javaScriptThread = javaScriptThread;
     }
     return self;
