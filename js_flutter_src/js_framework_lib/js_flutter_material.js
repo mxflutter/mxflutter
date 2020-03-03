@@ -1200,12 +1200,23 @@ class Navigator extends FlutterWidget {
   }
 
   static push(context, materialPageRoute) {
+
     let T = null;
+    if(arguments.length == 3){
+      T = arguments[0];
+      context = arguments[1];
+      materialPageRoute = arguments[2];
+    }
+    
     var navigatorState = new NavigatorState(context);
     navigatorState.push(T, materialPageRoute);
   }
   static pop(context) {
     let T = null;
+    if(arguments.length == 2){
+      T = arguments[0];
+      context = arguments[1];
+    }
     var navigatorState = new NavigatorState(context);
     navigatorState.pop(T);
   }
