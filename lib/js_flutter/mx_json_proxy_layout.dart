@@ -146,7 +146,8 @@ class MXProxyContainer extends MXJsonObjProxy {
   //   this.child,
   // })
   @override
-  Container constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Container constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Container(
         key: mxj2d(bo, jsonMap["key"]),
         alignment: mxj2d(bo, jsonMap["alignment"]),
@@ -179,7 +180,8 @@ class MXProxyCenter extends MXJsonObjProxy {
 
   ///Center({ Key key, double widthFactor, double heightFactor, Widget child })
   @override
-  Center constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Center constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Center(
       key: mxj2d(bo, jsonMap["key"]),
       widthFactor: mxj2d(bo, jsonMap["widthFactor"])?.toDouble(),
@@ -211,7 +213,8 @@ class MXProxyPadding extends MXJsonObjProxy {
   ///    Widget child,
   ///  })
   @override
-  Padding constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Padding constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Padding(
       key: mxj2d(bo, jsonMap["key"]),
       padding: mxj2d(bo, jsonMap["padding"]),
@@ -225,7 +228,7 @@ class MXProxyPadding extends MXJsonObjProxy {
 ///Align
 ///**@@@ 拷贝生成其他类 1 替换类名
 class MXProxyAlign extends MXJsonObjProxy {
-  ///把自己能处理的类注册到分发器中
+  ///把自己能处理的���注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
     final String regClassName = "Align";
@@ -242,7 +245,8 @@ class MXProxyAlign extends MXJsonObjProxy {
   ///     Widget child
   ///   })
   @override
-  Align constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Align constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Align(
       key: mxj2d(bo, jsonMap["key"]),
       alignment:
@@ -277,7 +281,8 @@ class MXProxyFittedBox extends MXJsonObjProxy {
   ///     Widget child,
   ///   })
   @override
-  FittedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  FittedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = FittedBox(
       key: mxj2d(bo, jsonMap["key"]),
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"]),
@@ -311,7 +316,8 @@ class MXProxyAspectRatio extends MXJsonObjProxy {
   ///   Widget child
   /// })
   @override
-  AspectRatio constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  AspectRatio constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = AspectRatio(
       key: mxj2d(bo, jsonMap["key"]),
       aspectRatio: mxj2d(bo, jsonMap["aspectRatio"])?.toDouble(),
@@ -343,8 +349,8 @@ class MXProxyConstrainedBox extends MXJsonObjProxy {
   ///   Widget child
   /// })
   @override
-  ConstrainedBox constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  ConstrainedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = ConstrainedBox(
       key: mxj2d(bo, jsonMap["key"]),
       constraints: mxj2d(bo, jsonMap["constraints"]),
@@ -376,7 +382,8 @@ class MXProxyBaseline extends MXJsonObjProxy {
   ///   Widget child
   /// })
   @override
-  Baseline constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Baseline constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Baseline(
       key: mxj2d(bo, jsonMap["key"]),
       baseline: mxj2d(bo, jsonMap["baseline"])?.toDouble(),
@@ -412,7 +419,8 @@ class MXProxyFractionallySizedBox extends MXJsonObjProxy {
   /// })
   @override
   FractionallySizedBox constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = FractionallySizedBox(
       key: mxj2d(bo, jsonMap["key"]),
       alignment: mxj2d(bo, jsonMap["alignment"]),
@@ -442,8 +450,8 @@ class MXProxyIntrinsicHeight extends MXJsonObjProxy {
 
   /// const IntrinsicHeight({ Key key, Widget child })
   @override
-  IntrinsicHeight constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  IntrinsicHeight constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = IntrinsicHeight(
       key: mxj2d(bo, jsonMap["key"]),
       child: mxj2d(bo, jsonMap["child"]),
@@ -469,8 +477,8 @@ class MXProxyIntrinsicWidth extends MXJsonObjProxy {
 
   /// const IntrinsicWidth({ Key key, this.stepWidth, this.stepHeight, Widget child })
   @override
-  IntrinsicWidth constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  IntrinsicWidth constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = IntrinsicWidth(
       key: mxj2d(bo, jsonMap["key"]),
       stepWidth: mxj2d(bo, jsonMap["stepWidth"])?.toDouble(),
@@ -485,7 +493,7 @@ class MXProxyIntrinsicWidth extends MXJsonObjProxy {
 ///LimitedBox
 ///**@@@ 拷贝生成其他类 1 替换类名
 class MXProxyLimitedBox extends MXJsonObjProxy {
-  ///把自己能处理的类注册到分发器中
+  ///把自己能处���的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
     final String regClassName = "LimitedBox";
@@ -503,7 +511,8 @@ class MXProxyLimitedBox extends MXJsonObjProxy {
   ///   Widget child,
   /// })
   @override
-  LimitedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  LimitedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = LimitedBox(
       key: mxj2d(bo, jsonMap["key"]),
       maxWidth: mxj2d(bo, jsonMap["maxWidth"], defaultValue: double.infinity)
@@ -533,7 +542,8 @@ class MXProxyOffstage extends MXJsonObjProxy {
 
   /// const Offstage({ Key key, this.offstage = true, Widget child })
   @override
-  Offstage constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Offstage constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Offstage(
       key: mxj2d(bo, jsonMap["key"]),
       offstage: mxj2d(bo, jsonMap["offstage"], defaultValue: true),
@@ -568,7 +578,8 @@ class MXProxyOverflowBox extends MXJsonObjProxy {
   ///   Widget child,
   /// })
   @override
-  OverflowBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  OverflowBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = OverflowBox(
       key: mxj2d(bo, jsonMap["key"]),
       alignment:
@@ -600,7 +611,8 @@ class MXProxySizedBox extends MXJsonObjProxy {
 
   /// const SizedBox({ Key key, this.width, this.height, Widget child })
   @override
-  SizedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  SizedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = SizedBox(
       key: mxj2d(bo, jsonMap["key"]),
       width: mxj2d(bo, jsonMap["width"])?.toDouble(),
@@ -635,7 +647,8 @@ class MXProxySizedOverflowBox extends MXJsonObjProxy {
   /// })
   @override
   SizedOverflowBox constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = SizedOverflowBox(
       key: mxj2d(bo, jsonMap["key"]),
       size: mxj2d(bo, jsonMap["size"]),
@@ -672,7 +685,8 @@ class MXProxyTransform extends MXJsonObjProxy {
   ///   Widget child,
   /// })
   @override
-  Transform constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Transform constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Transform(
       key: mxj2d(bo, jsonMap["key"]),
       transform: mxj2d(bo, jsonMap["transform"]),
@@ -710,7 +724,8 @@ class MXProxyCustomSingleChildLayout extends MXJsonObjProxy {
   /// })
   @override
   CustomSingleChildLayout constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = CustomSingleChildLayout(
       key: mxj2d(bo, jsonMap["key"]),
       //TODO:delegate
@@ -746,7 +761,8 @@ class MXProxyRow extends MXJsonObjProxy {
   ///   List<Widget> children = const <Widget>[],
   /// })
   @override
-  Row constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Row constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Row(
       key: mxj2d(bo, jsonMap["key"]),
       mainAxisAlignment: MXMainAxisAlignment.parse(
@@ -793,7 +809,8 @@ class MXProxyColumn extends MXJsonObjProxy {
   ///   List<Widget> children = const <Widget>[],
   /// })
   @override
-  Column constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Column constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Column(
       key: mxj2d(bo, jsonMap["key"]),
       mainAxisAlignment: MXMainAxisAlignment.parse(
@@ -838,7 +855,8 @@ class MXProxyStack extends MXJsonObjProxy {
   ///   List<Widget> children = const <Widget>[],
   /// })
   @override
-  Stack constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Stack constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Stack(
       key: mxj2d(bo, jsonMap["key"]),
       alignment: mxj2d(bo, jsonMap["alignment"],
@@ -879,7 +897,8 @@ class MXProxyIndexedStack extends MXJsonObjProxy {
   ///   List<Widget> children = const <Widget>[],
   /// })
   @override
-  IndexedStack constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  IndexedStack constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = IndexedStack(
       key: mxj2d(bo, jsonMap["key"]),
       alignment: mxj2d(bo, jsonMap["alignment"],
@@ -926,7 +945,8 @@ class MXProxyFlow extends MXJsonObjProxy {
   ///   List<Widget> children = const <Widget>[],
   /// })
   @override
-  Flow constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Flow constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Flow(
       key: mxj2d(bo, jsonMap["key"]),
       //TODO:delegate
@@ -937,7 +957,8 @@ class MXProxyFlow extends MXJsonObjProxy {
     return widget;
   }
 
-  Flow constructorUnwrapped(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  Flow constructorUnwrapped(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var obj = Flow.unwrapped(
       key: mxj2d(bo, jsonMap["key"]),
       //TODO:delegate
@@ -975,7 +996,8 @@ class MXProxyTable extends MXJsonObjProxy {
   ///   this.textBaseline,
   /// })
   @override
-  Table constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Table constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     // 单独处理columnWidths
     Map newColumnWidthsMap = <int, TableColumnWidth>{};
     Map columnWidthsMap = jsonMap["columnWidths"];
@@ -991,7 +1013,7 @@ class MXProxyTable extends MXJsonObjProxy {
       children: toListT<TableRow>(mxj2d(bo, jsonMap["children"])),
       columnWidths: newColumnWidthsMap,
       defaultColumnWidth: mxj2d(bo, jsonMap["defaultColumnWidth"],
-              defaultValue: const FlexColumnWidth(1.0)),
+          defaultValue: const FlexColumnWidth(1.0)),
       textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
       border: mxj2d(bo, jsonMap["border"]),
       defaultVerticalAlignment: MXTableCellVerticalAlignment.parse(
@@ -1032,7 +1054,8 @@ class MXProxyWrap extends MXJsonObjProxy {
   ///   List<Widget> children = const <Widget>[],
   /// })
   @override
-  Wrap constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Wrap constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Wrap(
       key: mxj2d(bo, jsonMap["key"]),
       direction: MXAxis.parse(mxj2d(bo, jsonMap["direction"]),
@@ -1042,7 +1065,8 @@ class MXProxyWrap extends MXJsonObjProxy {
       spacing: mxj2d(bo, jsonMap["spacing"], defaultValue: 0.0)?.toDouble(),
       runAlignment: MXWrapAlignment.parse(mxj2d(bo, jsonMap["runAlignment"]),
           defaultValue: WrapAlignment.start),
-      runSpacing: mxj2d(bo, jsonMap["runSpacing"], defaultValue: 0.0)?.toDouble(),
+      runSpacing:
+          mxj2d(bo, jsonMap["runSpacing"], defaultValue: 0.0)?.toDouble(),
       crossAxisAlignment: MXWrapCrossAlignment.parse(
           mxj2d(bo, jsonMap["crossAxisAlignment"]),
           defaultValue: WrapCrossAlignment.start),
@@ -1081,7 +1105,8 @@ class MXProxyListBody extends MXJsonObjProxy {
   ///   List<Widget> children = const <Widget>[],
   /// })
   @override
-  ListBody constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  ListBody constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = ListBody(
       key: mxj2d(bo, jsonMap["key"]),
       mainAxis: MXAxis.parse(mxj2d(bo, jsonMap["mainAxis"]),
@@ -1119,7 +1144,8 @@ class MXProxyCustomMultiChildLayout extends MXJsonObjProxy {
   /// })
   @override
   CustomMultiChildLayout constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = CustomMultiChildLayout(
       key: mxj2d(bo, jsonMap["key"]),
       //TODO:delegate
@@ -1189,7 +1215,8 @@ class MXProxyListView extends MXJsonObjProxy {
   /// })
 
   @override
-  ListView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  ListView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = ListView(
       key: mxj2d(bo, jsonMap["key"]),
       scrollDirection: MXAxis.parse(mxj2d(bo, jsonMap["scrollDirection"]),
@@ -1233,8 +1260,8 @@ class MXProxyListView extends MXJsonObjProxy {
   ///   double cacheExtent,
   ///   int semanticChildCount,
   /// })
-  ListView constructorBuilder(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  ListView constructorBuilder(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = ListView.builder(
       key: mxj2d(bo, jsonMap["key"]),
       scrollDirection: MXAxis.parse(mxj2d(bo, jsonMap["scrollDirection"]),
@@ -1281,7 +1308,8 @@ class MXProxyListView extends MXJsonObjProxy {
   ///   double cacheExtent,
   /// })
   ListView constructorSeparated(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = ListView.separated(
       key: mxj2d(bo, jsonMap["key"]),
       scrollDirection: MXAxis.parse(mxj2d(bo, jsonMap["scrollDirection"]),
@@ -1325,8 +1353,8 @@ class MXProxyListView extends MXJsonObjProxy {
   ///   double cacheExtent,
   ///   int semanticChildCount,
   /// })
-  ListView constructorCustom(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  ListView constructorCustom(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = ListView.custom(
       key: mxj2d(bo, jsonMap["key"]),
       scrollDirection: MXAxis.parse(mxj2d(bo, jsonMap["scrollDirection"]),
@@ -1370,12 +1398,13 @@ class MXProxyLayoutBuilder extends MXJsonObjProxy {
   ///   List<Widget> children = const <Widget>[],
   /// })
   @override
-  LayoutBuilder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  LayoutBuilder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = LayoutBuilder(
       key: mxj2d(bo, jsonMap["key"]),
       builder: (BuildContext context, BoxConstraints constraints) {
         //TODO: 此处异步要改成同步实现。否则会报错。另外，js framework的invokeCallback也要单独处理下
-        var widget =  getBuilderWidget(bo, jsonMap, constraints);
+        var widget = getBuilderWidget(bo, jsonMap, constraints);
         return widget;
       },
     );
@@ -1383,8 +1412,10 @@ class MXProxyLayoutBuilder extends MXJsonObjProxy {
     return widget;
   }
 
-  dynamic getBuilderWidget (MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, BoxConstraints constraints) async {
-    var widgetDataStr = await createLayoutWidgetBuilder(bo, mxj2d(bo, jsonMap["builder"]), constraints);
+  dynamic getBuilderWidget(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      BoxConstraints constraints) async {
+    var widgetDataStr = await createLayoutWidgetBuilder(
+        bo, mxj2d(bo, jsonMap["builder"]), constraints);
     Map widgetMap = json.decode(widgetDataStr);
     var widget = mxj2d(bo, widgetMap);
     return widget;
@@ -1403,7 +1434,8 @@ class MXProxyListTile extends MXJsonObjProxy {
   }
 
   @override
-  ListTile constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  ListTile constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = ListTile(
       key: mxj2d(bo, jsonMap["key"]),
       leading: mxj2d(bo, jsonMap["leading"]),
@@ -1436,24 +1468,28 @@ class MXProxyCustomScrollView extends MXJsonObjProxy {
   }
 
   @override
-  CustomScrollView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = CustomScrollView(
-			key: mxj2d(bo, jsonMap["key"]),
-			scrollDirection: mxj2d(bo, jsonMap["scrollDirection"], defaultValue:Axis.vertical),
-			reverse: mxj2d(bo, jsonMap["reverse"], defaultValue:false),
-			controller: mxj2d(bo, jsonMap["controller"]),
-			primary: mxj2d(bo, jsonMap["primary"]),
-			physics: mxj2d(bo, jsonMap["physics"]),
-			shrinkWrap: mxj2d(bo, jsonMap["shrinkWrap"], defaultValue:false),
-			center: mxj2d(bo, jsonMap["center"]),
-			anchor: mxj2d(bo, jsonMap["anchor"], defaultValue:0.0)?.toDouble(),
-			cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
-			slivers: toListT<Widget>(mxj2d(bo, jsonMap["slivers"], defaultValue:const <Widget>[], context:context)),
-			semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
-			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
-		);
-		return widget;
-	}
+  CustomScrollView constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = CustomScrollView(
+      key: mxj2d(bo, jsonMap["key"]),
+      scrollDirection:
+          mxj2d(bo, jsonMap["scrollDirection"], defaultValue: Axis.vertical),
+      reverse: mxj2d(bo, jsonMap["reverse"], defaultValue: false),
+      controller: mxj2d(bo, jsonMap["controller"]),
+      primary: mxj2d(bo, jsonMap["primary"]),
+      physics: mxj2d(bo, jsonMap["physics"]),
+      shrinkWrap: mxj2d(bo, jsonMap["shrinkWrap"], defaultValue: false),
+      center: mxj2d(bo, jsonMap["center"]),
+      anchor: mxj2d(bo, jsonMap["anchor"], defaultValue: 0.0)?.toDouble(),
+      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"])?.toDouble(),
+      slivers: toListT<Widget>(mxj2d(bo, jsonMap["slivers"],
+          defaultValue: const <Widget>[], context: context)),
+      semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
+      // dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+    );
+    return widget;
+  }
 }
 
 class MXProxySliverAppBar extends MXJsonObjProxy {
@@ -1468,7 +1504,8 @@ class MXProxySliverAppBar extends MXJsonObjProxy {
   }
 
   @override
-  SliverAppBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  SliverAppBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = SliverAppBar(
       key: mxj2d(bo, jsonMap["key"]),
       leading: mxj2d(bo, jsonMap["leading"]),
@@ -1487,7 +1524,8 @@ class MXProxySliverAppBar extends MXJsonObjProxy {
       primary: mxj2d(bo, jsonMap["primary"], defaultValue: true),
       centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
       titleSpacing: mxj2d(bo, jsonMap["titleSpacing"],
-          defaultValue: NavigationToolbar.kMiddleSpacing)?.toDouble(),
+              defaultValue: NavigationToolbar.kMiddleSpacing)
+          ?.toDouble(),
       expandedHeight: mxj2d(bo, jsonMap["expandedHeight"])?.toDouble(),
       floating: mxj2d(bo, jsonMap["floating"], defaultValue: false),
       pinned: mxj2d(bo, jsonMap["pinned"], defaultValue: false),
@@ -1509,7 +1547,8 @@ class MXProxySliverPadding extends MXJsonObjProxy {
   }
 
   @override
-  SliverPadding constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  SliverPadding constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = SliverPadding(
       key: mxj2d(bo, jsonMap["key"]),
       padding: mxj2d(bo, jsonMap["padding"]),
@@ -1531,7 +1570,8 @@ class MXProxySliverGrid extends MXJsonObjProxy {
   }
 
   @override
-  SliverGrid constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  SliverGrid constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = SliverGrid(
       key: mxj2d(bo, jsonMap["key"]),
       delegate: mxj2d(bo, jsonMap["delegate"]),
@@ -1555,7 +1595,8 @@ class MXProxySliverGridDelegateWithMaxCrossAxisExtent extends MXJsonObjProxy {
 
   @override
   SliverGridDelegateWithMaxCrossAxisExtent constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = SliverGridDelegateWithMaxCrossAxisExtent(
       maxCrossAxisExtent: mxj2d(bo, jsonMap["maxCrossAxisExtent"])?.toDouble(),
       mainAxisSpacing:
@@ -1585,7 +1626,8 @@ class MXProxySliverChildListDelegate extends MXJsonObjProxy {
 //暂时不支持 semanticIndexCallback
   @override
   SliverChildListDelegate constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = SliverChildListDelegate(
       toListT<Widget>(mxj2d(bo, jsonMap["children"])),
       addAutomaticKeepAlives:
@@ -1619,8 +1661,8 @@ class MXProxySliverChildBuilderDelegate extends MXJsonObjProxy {
 //暂时不支持 semanticIndexCallback
   @override
   SliverChildBuilderDelegate constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = SliverChildBuilderDelegate(
       (BuildContext context, int index) {
         List<Widget> children = toListT<Widget>(mxj2d(bo, jsonMap["children"]));
@@ -1654,8 +1696,8 @@ class MXProxyGestureDetector extends MXJsonObjProxy {
   }
 
   @override
-  GestureDetector constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  GestureDetector constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = GestureDetector(
       key: mxj2d(bo, jsonMap["key"]),
       child: mxj2d(bo, jsonMap["child"]),
@@ -1686,7 +1728,7 @@ class MXProxyGestureDetector extends MXJsonObjProxy {
       onScaleStart: mxj2d(bo, jsonMap["onScaleStart"]),
       onScaleUpdate: mxj2d(bo, jsonMap["onScaleUpdate"]),
       onScaleEnd: mxj2d(bo, jsonMap["onScaleEnd"]),
-      behavior: MXHitTestBehavior.parse(mxj2d(bo, jsonMap["behavior"])) ,
+      behavior: MXHitTestBehavior.parse(mxj2d(bo, jsonMap["behavior"])),
       excludeFromSemantics:
           mxj2d(bo, jsonMap["excludeFromSemantics"], defaultValue: false),
     );
@@ -1694,19 +1736,19 @@ class MXProxyGestureDetector extends MXJsonObjProxy {
   }
 }
 
-class MXHitTestBehavior  {
-	static Map str2VMap =  {
-		"HitTestBehavior.deferToChild": HitTestBehavior.deferToChild,
-		"HitTestBehavior.opaque": HitTestBehavior.opaque,
-		"HitTestBehavior.translucent": HitTestBehavior.translucent,
-	}; 
+class MXHitTestBehavior {
+  static Map str2VMap = {
+    "HitTestBehavior.deferToChild": HitTestBehavior.deferToChild,
+    "HitTestBehavior.opaque": HitTestBehavior.opaque,
+    "HitTestBehavior.translucent": HitTestBehavior.translucent,
+  };
 
-	static HitTestBehavior parse(Map valueMap,{HitTestBehavior defaultValue }) {
-		if(valueMap == null) return defaultValue;
-		var valueStr = valueMap["_name"].trim();
-		var v = str2VMap[valueStr];
-		return v??defaultValue;
-	}
+  static HitTestBehavior parse(Map valueMap, {HitTestBehavior defaultValue}) {
+    if (valueMap == null) return defaultValue;
+    var valueStr = valueMap["_name"].trim();
+    var v = str2VMap[valueStr];
+    return v ?? defaultValue;
+  }
 }
 
 class MXProxyExpanded extends MXJsonObjProxy {
@@ -1721,7 +1763,8 @@ class MXProxyExpanded extends MXJsonObjProxy {
   }
 
   @override
-  Expanded constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Expanded constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Expanded(
       key: mxj2d(bo, jsonMap["key"]),
       flex: mxj2d(bo, jsonMap["flex"], defaultValue: 1),
@@ -1732,115 +1775,143 @@ class MXProxyExpanded extends MXJsonObjProxy {
 }
 
 class MXProxyDecoratedBox extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "DecoratedBox";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyDecoratedBox()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "DecoratedBox";
 
-	@override
-	DecoratedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = DecoratedBox(
-			key: mxj2d(bo, jsonMap["key"]),
-			decoration: mxj2d(bo, jsonMap["decoration"]),
-			position: MXDecorationPosition.parse(mxj2d(bo, jsonMap["position"]), defaultValue:DecorationPosition.background),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyDecoratedBox()..init(className: regClassName)
+    };
+  }
+
+  @override
+  DecoratedBox constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = DecoratedBox(
+      key: mxj2d(bo, jsonMap["key"]),
+      decoration: mxj2d(bo, jsonMap["decoration"]),
+      position: MXDecorationPosition.parse(mxj2d(bo, jsonMap["position"]),
+          defaultValue: DecorationPosition.background),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxySliverList extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "SliverList";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySliverList()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SliverList";
 
-	@override
-	SliverList constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = SliverList(
-			key: mxj2d(bo, jsonMap["key"]),
-			delegate: mxj2d(bo, jsonMap["delegate"]),
-		);
-		return widget;
-	}
-}
-class MXDragStartBehavior  {
-	static Map str2VMap =  {
-		"DragStartBehavior.down": DragStartBehavior.down,
-		"DragStartBehavior.start": DragStartBehavior.start,
-	}; 
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxySliverList()..init(className: regClassName)
+    };
+  }
 
-	static DragStartBehavior parse(Map valueMap,{DragStartBehavior defaultValue }) {
-		if(valueMap == null) return defaultValue;
-		var valueStr = valueMap["_name"].trim();
-		var v = str2VMap[valueStr];
-		return v??defaultValue;
-	}
+  @override
+  SliverList constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SliverList(
+      key: mxj2d(bo, jsonMap["key"]),
+      delegate: mxj2d(bo, jsonMap["delegate"]),
+    );
+    return widget;
+  }
 }
 
-class MXDecorationPosition  {
-	static Map str2VMap =  {
-		"DecorationPosition.background": DecorationPosition.background,
-		"DecorationPosition.foreground": DecorationPosition.foreground,
-	}; 
+class MXDragStartBehavior {
+  static Map str2VMap = {
+    "DragStartBehavior.down": DragStartBehavior.down,
+    "DragStartBehavior.start": DragStartBehavior.start,
+  };
 
-	static DecorationPosition parse(Map valueMap,{DecorationPosition defaultValue }) {
-		if(valueMap == null) return defaultValue;
-		var valueStr = valueMap["_name"].trim();
-		var v = str2VMap[valueStr];
-		return v??defaultValue;
-	}
+  static DragStartBehavior parse(Map valueMap,
+      {DragStartBehavior defaultValue}) {
+    if (valueMap == null) return defaultValue;
+    var valueStr = valueMap["_name"].trim();
+    var v = str2VMap[valueStr];
+    return v ?? defaultValue;
+  }
+}
+
+class MXDecorationPosition {
+  static Map str2VMap = {
+    "DecorationPosition.background": DecorationPosition.background,
+    "DecorationPosition.foreground": DecorationPosition.foreground,
+  };
+
+  static DecorationPosition parse(Map valueMap,
+      {DecorationPosition defaultValue}) {
+    if (valueMap == null) return defaultValue;
+    var valueStr = valueMap["_name"].trim();
+    var v = str2VMap[valueStr];
+    return v ?? defaultValue;
+  }
 }
 
 class MXProxySliverOverlapInjector extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "SliverOverlapInjector";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySliverOverlapInjector()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SliverOverlapInjector";
 
-	@override
-	SliverOverlapInjector constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = SliverOverlapInjector(
-			key: mxj2d(bo, jsonMap["key"]),
-			handle: mxj2d(bo, jsonMap["handle"], context:context),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxySliverOverlapInjector()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SliverOverlapInjector constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SliverOverlapInjector(
+      key: mxj2d(bo, jsonMap["key"]),
+      handle: mxj2d(bo, jsonMap["handle"], context: context),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxySliverFixedExtentList extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "SliverFixedExtentList";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySliverFixedExtentList()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SliverFixedExtentList";
 
-	@override
-	SliverFixedExtentList constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = SliverFixedExtentList(
-			key: mxj2d(bo, jsonMap["key"]),
-			delegate: mxj2d(bo, jsonMap["delegate"]),
-			itemExtent: mxj2d(bo, jsonMap["itemExtent"])?.toDouble(),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxySliverFixedExtentList()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SliverFixedExtentList constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SliverFixedExtentList(
+      key: mxj2d(bo, jsonMap["key"]),
+      delegate: mxj2d(bo, jsonMap["delegate"]),
+      itemExtent: mxj2d(bo, jsonMap["itemExtent"])?.toDouble(),
+    );
+    return widget;
+  }
 }
 
 class MXProxyNestedScrollView extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "NestedScrollView";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyNestedScrollView()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "NestedScrollView";
+
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxyNestedScrollView()..init(className: regClassName)
+    };
+  }
 
   @override
   void init({String className}) {
@@ -1854,124 +1925,158 @@ class MXProxyNestedScrollView extends MXJsonObjProxy {
         staticFunction: functionSliverOverlapAbsorberHandleFor);
   }
 
-	@override
-	NestedScrollView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = NestedScrollView(
-			key: mxj2d(bo, jsonMap["key"]),
-			controller: mxj2d(bo, jsonMap["controller"]),
-			scrollDirection: mxj2d(bo, jsonMap["scrollDirection"], defaultValue:Axis.vertical),
-			reverse: mxj2d(bo, jsonMap["reverse"], defaultValue:false),
-			physics: mxj2d(bo, jsonMap["physics"]),
-			headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-        return toListT<Widget>(mxj2d(bo, jsonMap["children"], context:context));
+  @override
+  NestedScrollView constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = NestedScrollView(
+      key: mxj2d(bo, jsonMap["key"]),
+      controller: mxj2d(bo, jsonMap["controller"]),
+      scrollDirection:
+          mxj2d(bo, jsonMap["scrollDirection"], defaultValue: Axis.vertical),
+      reverse: mxj2d(bo, jsonMap["reverse"], defaultValue: false),
+      physics: mxj2d(bo, jsonMap["physics"]),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return toListT<Widget>(
+            mxj2d(bo, jsonMap["children"], context: context));
       },
-			body: mxj2d(bo, jsonMap["body"]),
-			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
-		);
-		return widget;
-	}
+      body: mxj2d(bo, jsonMap["body"]),
+      // dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+    );
+    return widget;
+  }
 
-  SliverOverlapAbsorberHandle functionSliverOverlapAbsorberHandleFor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  SliverOverlapAbsorberHandle functionSliverOverlapAbsorberHandleFor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     return NestedScrollView.sliverOverlapAbsorberHandleFor(context);
   }
 }
 
 class MXProxySliverOverlapAbsorber extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "SliverOverlapAbsorber";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySliverOverlapAbsorber()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SliverOverlapAbsorber";
 
-	@override
-	SliverOverlapAbsorber constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = SliverOverlapAbsorber(
-			key: mxj2d(bo, jsonMap["key"]),
-			handle: mxj2d(bo, jsonMap["handle"], context: context),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxySliverOverlapAbsorber()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SliverOverlapAbsorber constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SliverOverlapAbsorber(
+      key: mxj2d(bo, jsonMap["key"]),
+      handle: mxj2d(bo, jsonMap["handle"], context: context),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxySingleChildScrollView extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "SingleChildScrollView";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySingleChildScrollView()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SingleChildScrollView";
 
-	@override
-	SingleChildScrollView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = SingleChildScrollView(
-			key: mxj2d(bo, jsonMap["key"]),
-			scrollDirection: MXAxis.parse(mxj2d(bo, jsonMap["scrollDirection"]), defaultValue:Axis.vertical),
-			reverse: mxj2d(bo, jsonMap["reverse"], defaultValue:false),
-			padding: mxj2d(bo, jsonMap["padding"]),
-			primary: mxj2d(bo, jsonMap["primary"]),
-			physics: mxj2d(bo, jsonMap["physics"]),
-			controller: mxj2d(bo, jsonMap["controller"]),
-			child: mxj2d(bo, jsonMap["child"]),
-			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxySingleChildScrollView()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SingleChildScrollView constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SingleChildScrollView(
+      key: mxj2d(bo, jsonMap["key"]),
+      scrollDirection: MXAxis.parse(mxj2d(bo, jsonMap["scrollDirection"]),
+          defaultValue: Axis.vertical),
+      reverse: mxj2d(bo, jsonMap["reverse"], defaultValue: false),
+      padding: mxj2d(bo, jsonMap["padding"]),
+      primary: mxj2d(bo, jsonMap["primary"]),
+      physics: mxj2d(bo, jsonMap["physics"]),
+      controller: mxj2d(bo, jsonMap["controller"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      // dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+    );
+    return widget;
+  }
 }
 
 class MXProxySliverToBoxAdapter extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "SliverToBoxAdapter";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySliverToBoxAdapter()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SliverToBoxAdapter";
 
-	@override
-	SliverToBoxAdapter constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = SliverToBoxAdapter(
-			key: mxj2d(bo, jsonMap["key"]),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxySliverToBoxAdapter()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SliverToBoxAdapter constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SliverToBoxAdapter(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxyTableCell extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "TableCell";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyTableCell()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "TableCell";
 
-	@override
-	TableCell constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = TableCell(
-			key: mxj2d(bo, jsonMap["key"]),
-			verticalAlignment: MXTableCellVerticalAlignment.parse(mxj2d(bo, jsonMap["verticalAlignment"])),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyTableCell()..init(className: regClassName)
+    };
+  }
+
+  @override
+  TableCell constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = TableCell(
+      key: mxj2d(bo, jsonMap["key"]),
+      verticalAlignment: MXTableCellVerticalAlignment.parse(
+          mxj2d(bo, jsonMap["verticalAlignment"])),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxyOffsetBase extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "OffsetBase";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyOffsetBase()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "OffsetBase";
 
-	@override
-	OffsetBase constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyOffsetBase()..init(className: regClassName)
+    };
+  }
+
+  @override
+  OffsetBase constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     //TODO: 因为是抽象类，无法给实例化，暂用子类Size。可以考虑从js framework生成的json入手，加入子类的名称。
-		var widget = Size(
-      mxj2d(bo, jsonMap["_dx"])?.toDouble(), 
-      mxj2d(bo, jsonMap["_dy"])?.toDouble(), 
+    var widget = Size(
+      mxj2d(bo, jsonMap["_dx"])?.toDouble(),
+      mxj2d(bo, jsonMap["_dy"])?.toDouble(),
     );
-		return widget;
-	}
+    return widget;
+  }
 }

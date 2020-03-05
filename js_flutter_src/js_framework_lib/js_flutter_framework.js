@@ -51,6 +51,16 @@ function invokeFlutterFunction(flutterCallArgs) {
   MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invoke", arguments);
 }
 
+//github merge
+function invokeCommonFlutterFunction(flutterCallArgs) {
+    if (typeof (g_platform) != "undefined" && g_platform === "android") {
+        arguments = { "invokeParams": JSON.stringify(flutterCallArgs) }
+    } else {
+        arguments = JSON.stringify(flutterCallArgs);
+    }
+    MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invokeCommon", arguments);
+}
+
 //JSFlutter JS Runtime
 class MXJSLog {
   static log() {
@@ -1421,6 +1431,7 @@ GlobalKey.new = function (arg) {
 module.exports = {
   runApp,
   invokeFlutterFunction,
+  invokeCommonFlutterFunction,
   //class 定义
   MXNativeJSFlutterAppProxy,
   MXJSLog,

@@ -6,6 +6,7 @@ let {
     Scaffold,
     Container,
     Color,
+    Colors,
     AppBar,
     Text,
     ListView,
@@ -14,11 +15,13 @@ let {
     IconData,
     EdgeInsets,
     TextAlign,
+    TextStyle,
     Row,
     Padding,
     Theme,
     Navigator,
-    MaterialPageRoute
+    MaterialPageRoute,
+    Scrollbar,
 } = require("js_flutter_ui.js");
 
 let { JSPestoPage } = require("./pesto.js");
@@ -26,6 +29,9 @@ let { JSContactPage } = require("./contact.js");
 let { JSAnimationPage } = require("./animation.js");
 let { JSMaterialPage } = require("./material.js");
 let { JSZhiHuPage } = require("./zhihu/zhihu.js");
+
+let { ExamplesPage } = require("./examples/index.js");
+let { JSCupertinoPage } = require("./cupertino.js");
 
 main_ddc = require("./dart_js/main.ddc.js");
 flutter_demo_ddc = require("./dart_js/flutter_demo.ddc.js");
@@ -75,6 +81,19 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Examples'),
+                    subtitle: new Text('All examples'),
+                    onTap: function () {
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new ExamplesPage;
+                            }
+                        }))
+                    }
+                }),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('ZhiHu'),
                     subtitle: new Text('ZhiHu high copy'),
                     onTap: function () {
@@ -106,7 +125,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Shrine'),
                     subtitle: new Text('Basic shopping app'),
-    
+
                     onTap: function () {
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -193,7 +212,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('ContactDemo'),
                     subtitle: new Text('联系人'),
-     
+
                     onTap: function () {
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -238,6 +257,37 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                 //         this.navigatorPush(new flutter_gallery_app.GalleryApp.new);
                 //     }
                 // }),
+
+                this.sectionTitle(context, "JSWidget Demo"),
+
+                new ListTile({
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Material'),
+                    subtitle: new Text('Material UI Demo'),
+                    onTap: function () {
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSMaterialPage;
+                            }
+                        }))
+                    }
+                }),
+
+                new ListTile({
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Cupertino'),
+                    subtitle: new Text('Cupertino UI Demo'),
+                    onTap: function () {
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSCupertinoPage;
+                            }
+                        }))
+                    }
+                }),
+
             ]
         });
 

@@ -257,7 +257,7 @@
 }
 
 
-- (void )invokeJSValue:(JSValue *)jsValue mothod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
+- (void )invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
 {
     [self executeBlockOnJSThread:^{
         
@@ -269,7 +269,7 @@
     }];
 }
 
-- (void)invokeMothod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
+- (void)invokeMethod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
 {
     [self executeBlockOnJSThread:^{
         

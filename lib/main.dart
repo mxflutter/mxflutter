@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:js_flutter/test.dart';
 import 'js_flutter/mx_js_flutter.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -44,15 +45,14 @@ class _JSFlutterHomePageState extends State<JSFlutterHomePage> {
   @override
   Widget build(BuildContext context) {
     var scaffoldWidget = Scaffold(
-      appBar: AppBar(
-        leading: Image.asset(
-          "js_flutter_src/app_test/flutter_gallery_assets/logos/flutter_white/logo.png",
-          fit: BoxFit.contain,
+        appBar: AppBar(
+          leading: Image.asset(
+            "js_flutter_src/app_test/flutter_gallery_assets/logos/flutter_white/logo.png",
+            fit: BoxFit.contain,
+          ),
+          title: Text(widget.title),
         ),
-        title: Text(widget.title),
-      ),
-      body: _DemoList()
-    );
+        body: _DemoList());
 
     return scaffoldWidget;
   }
@@ -112,8 +112,16 @@ class _DemoList extends StatelessWidget {
           title: Text(
               '在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击JSFlutter UI Demo，可以在Safari调试JS'),
         ),
+        ListTile(
+          leading: Icon(Icons.photo),
+          title: Text("实验室"),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return TestPage();
+            }));
+          },
+        )
       ],
     );
   }
 }
-

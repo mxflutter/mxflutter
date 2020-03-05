@@ -26,14 +26,14 @@ class FlutterWidgetMirrorMgr {
   }
 
   generateID(obj) {
-    var d = ++this.mirrorIDFeed;
-    var idString = String(d);
+    const d = ++this.mirrorIDFeed;
+    const idString = String(d);
     this.mirrorObjMap[idString] = obj;
     return idString;
   }
 
   removeMirrorObjects(mirrorIDList) {
-    for (var mirrorID in mirrorIDList) {
+    for (let mirrorID in mirrorIDList) {
       this.mirrorObjMap.delete(mirrorID);
     }
   }
@@ -44,12 +44,19 @@ class FlutterWidgetMirrorMgr {
 }
 
 class FlutterCallArgs {
-  constructor({ mirrorID, className, funcName, args } = {}) {
-    this.mirrorID = mirrorID;
-    this.className = className;
-    this.funcName = funcName;
-    this.args = args;
-  }
+    constructor({
+        widgetID,
+        mirrorID,
+        className,
+        funcName,
+        args
+    } = {}) {
+        this.widgetID = widgetID;
+        this.mirrorID = mirrorID;
+        this.className = className;
+        this.funcName = funcName;
+        this.args = args;
+    }
 }
 
 //flutter 中 非widget继承 DartClass

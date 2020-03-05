@@ -4,9 +4,7 @@ import 'mx_json_to_dart.dart';
 import 'dart:convert';
 
 import 'mx_js_framework.dart';
-import 'mx_json_to_dart.dart';
 import 'mx_js_flutter_common.dart';
-import 'mx_json_proxy_animation.dart';
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
 
@@ -52,12 +50,11 @@ class MXJsonBuildOwner {
   }
 
   dynamic findWidget(Key key) {
-
-    if(key == null){
+    if (key == null) {
       return null;
     }
 
-    for(MXJsonBuildOwner bo in childrenBuildOwner.values){
+    for (MXJsonBuildOwner bo in childrenBuildOwner.values) {
       if (bo.widget.key == key) {
         return bo.widget;
       }
@@ -262,6 +259,39 @@ class MXJsonBuildOwner {
     }
 
     return null;
+  }
+
+  void jsCallInvokeCommon(widgetDataStr) {
+    Map argMap = json.decode(widgetDataStr);
+
+    String widgetID = argMap["widgetID"];
+    String className = argMap["className"];
+    String funcName = argMap["funcName"];
+    Map args = argMap["args"];
+    invokeFunctionCommon(widgetID, className, funcName, args);
+  }
+
+  void invokeFunctionCommon(
+      String widgetID, String className, String funcName, Map args) {
+    var bo = findBuildOwner(widgetID);
+    if (bo == null) {
+      MXJSLog.error("jsCallNavigatorPop(bo == null: widgetID:$widgetID");
+      return;
+    }
+
+    final context = bo.widget.buildContext;
+    if (className == 'Scaffold') {
+      if (funcName == 'of') {
+        //查找scaffoldState
+        final scaffoldState = Scaffold.of(context); //
+        //动态构建snackbar
+        var snackBar = MXJsonObjToDartObject.jsonToDartObj(
+            this, args["snackBar"],
+            context: context);
+        //设置snackbar
+        scaffoldState.showSnackBar(snackBar);
+      }
+    }
   }
 
   void jsCallInvoke(widgetDataStr) {

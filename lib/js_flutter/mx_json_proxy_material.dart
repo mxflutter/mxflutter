@@ -1,12 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
 import 'mx_json_proxy_text.dart';
-import 'mx_json_proxy_layout.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:convert';
-
+import 'mx_json_proxy_animation.dart';
 
 // TODO List
 // 1、默认值是私有类的方法
@@ -15,7 +16,6 @@ import 'dart:convert';
 ///分类：Material/Layout/Text/(Assets.Images.icons)/input...
 ///参照了官网https://flutter.io/docs/development/ui/widgets
 class MXProxyRegisterHelperMaterialSeries {
-
   static Map<String, CreateJsonObjProxyFun> registerProxys() {
     Map<String, CreateJsonObjProxyFun> m = {};
 
@@ -58,91 +58,125 @@ class MXProxyRegisterHelperMaterialSeries {
     m.addAll(MXProxyMaterialPageRoute.registerProxy());
     m.addAll(MXProxyRouteSettings.registerProxy());
 
+    m.addAll(MXProxyScrollbar.registerProxy());
+
+    m.addAll(MXProxySnackBar.registerProxy());
+    m.addAll(MXProxyFlutterLogo.registerProxy());
+
     return m;
   }
 }
 
-
 class MXProxyMaterial extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "Material";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyMaterial()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "Material";
 
-	@override
-	Material constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = Material(
-			key: mxj2d(bo, jsonMap["key"]),
-			type: mxj2d(bo, jsonMap["type"], defaultValue:MaterialType.canvas),
-			elevation: mxj2d(bo, jsonMap["elevation"], defaultValue:0.0),
-			color: mxj2d(bo, jsonMap["color"]),
-			shadowColor: mxj2d(bo, jsonMap["shadowColor"], defaultValue:const Color(0xFF000000)),
-			textStyle: mxj2d(bo, jsonMap["textStyle"]),
-			borderRadius: mxj2d(bo, jsonMap["borderRadius"]),
-			shape: mxj2d(bo, jsonMap["shape"]),
-			borderOnForeground: mxj2d(bo, jsonMap["borderOnForeground"], defaultValue:true),
-			clipBehavior: mxj2d(bo, jsonMap["clipBehavior"], defaultValue:Clip.none),
-			animationDuration: mxj2d(bo, jsonMap["animationDuration"], defaultValue:kThemeChangeDuration),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyMaterial()..init(className: regClassName)
+    };
+  }
+
+  @override
+  Material constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = Material(
+      key: mxj2d(bo, jsonMap["key"]),
+      type: mxj2d(bo, jsonMap["type"], defaultValue: MaterialType.canvas),
+      elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 0.0),
+      color: mxj2d(bo, jsonMap["color"]),
+      shadowColor: mxj2d(bo, jsonMap["shadowColor"],
+          defaultValue: const Color(0xFF000000)),
+      textStyle: mxj2d(bo, jsonMap["textStyle"]),
+      borderRadius: mxj2d(bo, jsonMap["borderRadius"]),
+      shape: mxj2d(bo, jsonMap["shape"]),
+      borderOnForeground:
+          mxj2d(bo, jsonMap["borderOnForeground"], defaultValue: true),
+      clipBehavior: mxj2d(bo, jsonMap["clipBehavior"], defaultValue: Clip.none),
+      animationDuration: mxj2d(bo, jsonMap["animationDuration"],
+          defaultValue: kThemeChangeDuration),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 ///MaterialApp
 ///**@@@  1 替换类名
 class MXProxyMaterialApp extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "MaterialApp";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyMaterialApp()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "MaterialApp";
 
-	@override
-	MaterialApp constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = MaterialApp(
-			key: mxj2d(bo, jsonMap["key"]),
-			navigatorKey: mxj2d(bo, jsonMap["navigatorKey"]), //TODO:navigationKey
-			home: mxj2d(bo, jsonMap["home"]),
-			routes: toMapStringT<WidgetBuilder>(mxj2d(bo, jsonMap["routes"], defaultValue:const <String, WidgetBuilder>{})), //TODO:routes
-			initialRoute: mxj2d(bo, jsonMap["initialRoute"]),
-			onGenerateRoute: mxj2d(bo, jsonMap["onGenerateRoute"]), //TODO:onGenerateRoute
-			onUnknownRoute: mxj2d(bo, jsonMap["onUnknownRoute"]), //TODO:onUnknownRoute
-			navigatorObservers: toListT<NavigatorObserver>(mxj2d(bo, jsonMap["navigatorObservers"], defaultValue:const <NavigatorObserver>[])),
-			builder: mxj2d(bo, jsonMap["builder"]), //TODO:builder
-			title: mxj2d(bo, jsonMap["title"], defaultValue:''),
-			onGenerateTitle: mxj2d(bo, jsonMap["onGenerateTitle"]), //TODO:onGenerateTitle
-			color: mxj2d(bo, jsonMap["color"]),
-			theme: mxj2d(bo, jsonMap["theme"]),
-			locale: mxj2d(bo, jsonMap["locale"]),
-			localizationsDelegates: mxj2d(bo, jsonMap["localizationsDelegates"]), //TODO:localizationsDelegates
-			localeListResolutionCallback: mxj2d(bo, jsonMap["localeListResolutionCallback"]),  //TODO:localeResolutionCallback
-			localeResolutionCallback: mxj2d(bo, jsonMap["localeResolutionCallback"]), //TODO:localeResolutionCallback
-			supportedLocales: mxj2d(bo, jsonMap["supportedLocales"], defaultValue: const <Locale>[Locale('en', 'US')]),  //TODO:supportedLocales
-			debugShowMaterialGrid: mxj2d(bo, jsonMap["debugShowMaterialGrid"], defaultValue:false),
-			showPerformanceOverlay: mxj2d(bo, jsonMap["showPerformanceOverlay"], defaultValue:false),
-			checkerboardRasterCacheImages: mxj2d(bo, jsonMap["checkerboardRasterCacheImages"], defaultValue:false),
-			checkerboardOffscreenLayers: mxj2d(bo, jsonMap["checkerboardOffscreenLayers"], defaultValue:false),
-			showSemanticsDebugger: mxj2d(bo, jsonMap["showSemanticsDebugger"], defaultValue:false),
-			debugShowCheckedModeBanner: mxj2d(bo, jsonMap["debugShowCheckedModeBanner"], defaultValue:true),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyMaterialApp()..init(className: regClassName)
+    };
+  }
+
+  @override
+  MaterialApp constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = MaterialApp(
+      key: mxj2d(bo, jsonMap["key"]),
+      navigatorKey: mxj2d(bo, jsonMap["navigatorKey"]), //TODO:navigationKey
+      home: mxj2d(bo, jsonMap["home"]),
+      routes: toMapStringT<WidgetBuilder>(mxj2d(bo, jsonMap["routes"],
+          defaultValue: const <String, WidgetBuilder>{})), //TODO:routes
+      initialRoute: mxj2d(bo, jsonMap["initialRoute"]),
+      onGenerateRoute:
+          mxj2d(bo, jsonMap["onGenerateRoute"]), //TODO:onGenerateRoute
+      onUnknownRoute:
+          mxj2d(bo, jsonMap["onUnknownRoute"]), //TODO:onUnknownRoute
+      navigatorObservers: toListT<NavigatorObserver>(mxj2d(
+          bo, jsonMap["navigatorObservers"],
+          defaultValue: const <NavigatorObserver>[])),
+      builder: mxj2d(bo, jsonMap["builder"]), //TODO:builder
+      title: mxj2d(bo, jsonMap["title"], defaultValue: ''),
+      onGenerateTitle:
+          mxj2d(bo, jsonMap["onGenerateTitle"]), //TODO:onGenerateTitle
+      color: mxj2d(bo, jsonMap["color"]),
+      theme: mxj2d(bo, jsonMap["theme"]),
+      locale: mxj2d(bo, jsonMap["locale"]),
+      localizationsDelegates: mxj2d(
+          bo, jsonMap["localizationsDelegates"]), //TODO:localizationsDelegates
+      localeListResolutionCallback: mxj2d(
+          bo,
+          jsonMap[
+              "localeListResolutionCallback"]), //TODO:localeResolutionCallback
+      localeResolutionCallback: mxj2d(bo,
+          jsonMap["localeResolutionCallback"]), //TODO:localeResolutionCallback
+      supportedLocales: mxj2d(bo, jsonMap["supportedLocales"],
+          defaultValue: const <Locale>[
+            Locale('en', 'US')
+          ]), //TODO:supportedLocales
+      debugShowMaterialGrid:
+          mxj2d(bo, jsonMap["debugShowMaterialGrid"], defaultValue: false),
+      showPerformanceOverlay:
+          mxj2d(bo, jsonMap["showPerformanceOverlay"], defaultValue: false),
+      checkerboardRasterCacheImages: mxj2d(
+          bo, jsonMap["checkerboardRasterCacheImages"],
+          defaultValue: false),
+      checkerboardOffscreenLayers: mxj2d(
+          bo, jsonMap["checkerboardOffscreenLayers"],
+          defaultValue: false),
+      showSemanticsDebugger:
+          mxj2d(bo, jsonMap["showSemanticsDebugger"], defaultValue: false),
+      debugShowCheckedModeBanner:
+          mxj2d(bo, jsonMap["debugShowCheckedModeBanner"], defaultValue: true),
+    );
+    return widget;
+  }
 }
-
-
 
 ///Scaffold
 class MXProxyScaffold extends MXJsonObjProxy {
-
   ///Dart类名 用于注册到转换器中
   static String regClassName = "Scaffold";
-  ///工厂函数 用于延迟加载转换器
-  static MXJsonObjProxy createProxy(){
 
+  ///工厂函数 用于延迟加载转换器
+  static MXJsonObjProxy createProxy() {
     //替换类名
     var p = MXProxyScaffold();
     p.className = regClassName;
@@ -150,8 +184,8 @@ class MXProxyScaffold extends MXJsonObjProxy {
   }
 
   ///把自己能处理的类注册到分发器中
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-    return {regClassName:createProxy};
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    return {regClassName: createProxy};
   }
 
 //  const Scaffold({
@@ -172,25 +206,27 @@ class MXProxyScaffold extends MXJsonObjProxy {
 //  })
 
   @override
-  Scaffold constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-
+  Scaffold constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Scaffold(
-      key: mxj2d(bo,jsonMap["key"]),
-      appBar: mxj2d(bo,jsonMap["appBar"]),
-      body: mxj2d(bo,jsonMap["body"]),
-      floatingActionButton: mxj2d(bo,jsonMap["floatingActionButton"]),
-      floatingActionButtonLocation: mxj2d(bo,jsonMap["floatingActionButtonLocation"]),
-      floatingActionButtonAnimator: mxj2d(bo,jsonMap["floatingActionButtonAnimator"]),
-      persistentFooterButtons: toListT<Widget>(mxj2d(bo,jsonMap["persistentFooterButtons"])),
-
-      drawer: mxj2d(bo,jsonMap["drawer"]),
-      endDrawer: mxj2d(bo,jsonMap["endDrawer"]),
-      bottomNavigationBar: mxj2d(bo,jsonMap["bottomNavigationBar"]),
-      bottomSheet: mxj2d(bo,jsonMap["bottomSheet"]),
-
-      backgroundColor: mxj2d(bo,jsonMap["backgroundColor"]),
-      resizeToAvoidBottomPadding: mxj2d(bo,jsonMap["resizeToAvoidBottomPadding"],defaultValue: true),
-      primary: mxj2d(bo,jsonMap["primary"],defaultValue: true),
+      key: mxj2d(bo, jsonMap["key"]),
+      appBar: mxj2d(bo, jsonMap["appBar"]),
+      body: mxj2d(bo, jsonMap["body"]),
+      floatingActionButton: mxj2d(bo, jsonMap["floatingActionButton"]),
+      floatingActionButtonLocation:
+          mxj2d(bo, jsonMap["floatingActionButtonLocation"]),
+      floatingActionButtonAnimator:
+          mxj2d(bo, jsonMap["floatingActionButtonAnimator"]),
+      persistentFooterButtons:
+          toListT<Widget>(mxj2d(bo, jsonMap["persistentFooterButtons"])),
+      drawer: mxj2d(bo, jsonMap["drawer"]),
+      endDrawer: mxj2d(bo, jsonMap["endDrawer"]),
+      bottomNavigationBar: mxj2d(bo, jsonMap["bottomNavigationBar"]),
+      bottomSheet: mxj2d(bo, jsonMap["bottomSheet"]),
+      backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
+      resizeToAvoidBottomPadding:
+          mxj2d(bo, jsonMap["resizeToAvoidBottomPadding"], defaultValue: true),
+      primary: mxj2d(bo, jsonMap["primary"], defaultValue: true),
     );
 
     return widget;
@@ -198,20 +234,22 @@ class MXProxyScaffold extends MXJsonObjProxy {
 }
 
 class MXProxyScaffoldState extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "ScaffoldState";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyScaffoldState()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "ScaffoldState";
 
-	@override
-	ScaffoldState constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = ScaffoldState(
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyScaffoldState()..init(className: regClassName)
+    };
+  }
 
-		);
-		return widget;
-	}
+  @override
+  ScaffoldState constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = ScaffoldState();
+    return widget;
+  }
 }
 
 //AppBar
@@ -248,22 +286,24 @@ class MXProxyScaffoldState extends MXJsonObjProxy {
 ///  ]
 ///
 class MXProxyAppBar extends MXJsonObjProxy {
-
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
-    final String regClassName1  = "AppBar";
+    final String regClassName1 = "AppBar";
 
     ///**@@@  3 替换类构造函数
-    return {regClassName1: () => MXProxyAppBar()..init(className: regClassName1)};
+    return {
+      regClassName1: () => MXProxyAppBar()..init(className: regClassName1)
+    };
   }
 
   @override
-  AppBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  AppBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = AppBar(
       key: mxj2d(bo, jsonMap["key"]),
       leading: mxj2d(bo, jsonMap["leading"]),
-      automaticallyImplyLeading: mxj2d(bo, jsonMap["automaticallyImplyLeading"], defaultValue: true),
+      automaticallyImplyLeading:
+          mxj2d(bo, jsonMap["automaticallyImplyLeading"], defaultValue: true),
       title: mxj2d(bo, jsonMap["title"]),
       actions: toListT<Widget>(mxj2d(bo, jsonMap["actions"])),
       flexibleSpace: mxj2d(bo, jsonMap["flexibleSpace"]),
@@ -275,9 +315,13 @@ class MXProxyAppBar extends MXJsonObjProxy {
       textTheme: mxj2d(bo, jsonMap["textTheme"]),
       primary: mxj2d(bo, jsonMap["primary"], defaultValue: true),
       centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
-      titleSpacing: mxj2d(bo, jsonMap["titleSpacing"], defaultValue: NavigationToolbar.kMiddleSpacing)?.toDouble(),
-      toolbarOpacity: mxj2d(bo, jsonMap["toolbarOpacity"], defaultValue: 1.0)?.toDouble(),
-      bottomOpacity: mxj2d(bo, jsonMap["bottomOpacity"], defaultValue: 1.0)?.toDouble(),
+      titleSpacing: mxj2d(bo, jsonMap["titleSpacing"],
+              defaultValue: NavigationToolbar.kMiddleSpacing)
+          ?.toDouble(),
+      toolbarOpacity:
+          mxj2d(bo, jsonMap["toolbarOpacity"], defaultValue: 1.0)?.toDouble(),
+      bottomOpacity:
+          mxj2d(bo, jsonMap["bottomOpacity"], defaultValue: 1.0)?.toDouble(),
     );
 
     return widget;
@@ -285,25 +329,28 @@ class MXProxyAppBar extends MXJsonObjProxy {
 }
 
 class MXProxyBottomAppBar extends MXJsonObjProxy {
-
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
-    final String regClassName1  = "BottomAppBar";
+    final String regClassName1 = "BottomAppBar";
 
     ///**@@@  3 替换类构造函数
-    return {regClassName1: () => MXProxyBottomAppBar()..init(className: regClassName1)};
+    return {
+      regClassName1: () => MXProxyBottomAppBar()..init(className: regClassName1)
+    };
   }
 
   @override
-  BottomAppBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-    var widget = BottomAppBar (
+  BottomAppBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = BottomAppBar(
       key: mxj2d(bo, jsonMap["key"]),
       color: mxj2d(bo, jsonMap["color"]),
       elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 8.0)?.toDouble(),
       shape: mxj2d(bo, jsonMap["shape"]),
-      clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none) ,
-      notchMargin: mxj2d(bo, jsonMap["notchMargin"], defaultValue: 4.0)?.toDouble(),
+      clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+          defaultValue: Clip.none),
+      notchMargin:
+          mxj2d(bo, jsonMap["notchMargin"], defaultValue: 4.0)?.toDouble(),
       child: mxj2d(bo, jsonMap["child"]),
     );
     return widget;
@@ -357,18 +404,21 @@ class MXProxyBottomAppBar extends MXJsonObjProxy {
 ///     }
 ///    ]
 class MXProxyBottomNavigationBar extends MXJsonObjProxy {
-
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
-    final String regClassName1  = "BottomNavigationBar";
+    final String regClassName1 = "BottomNavigationBar";
 
     ///**@@@  3 替换类构造函数
-    return {regClassName1: () => MXProxyBottomNavigationBar()..init(className: regClassName1)};
+    return {
+      regClassName1: () =>
+          MXProxyBottomNavigationBar()..init(className: regClassName1)
+    };
   }
 
   @override
-  BottomNavigationBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  BottomNavigationBar constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = BottomNavigationBar(
       key: mxj2d(bo, jsonMap["key"]),
       items: toListT<BottomNavigationBarItem>(mxj2d(bo, jsonMap["items"])),
@@ -383,108 +433,116 @@ class MXProxyBottomNavigationBar extends MXJsonObjProxy {
   }
 
   ///生成ValueChanged<int> 闭包
-  ValueChanged<int> createOnTapHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) => createValueGenericHandle<int>(bo, eventCallbackID);
+  ValueChanged<int> createOnTapHandle(
+          MXJsonBuildOwner bo, dynamic eventCallbackID) =>
+      createValueGenericHandle<int>(bo, eventCallbackID);
 }
 
 class MXProxyTabBar extends MXJsonObjProxy {
-
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
-    final String regClassName1  = "TabBar";
+    final String regClassName1 = "TabBar";
 
     ///**@@@  3 替换类构造函数
-    return {regClassName1: () => MXProxyTabBar()..init(className: regClassName1)};
+    return {
+      regClassName1: () => MXProxyTabBar()..init(className: regClassName1)
+    };
   }
 
   @override
-  TabBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-    var widget = TabBar (
+  TabBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = TabBar(
       key: mxj2d(bo, jsonMap["key"]),
       tabs: toListT<Widget>(mxj2d(bo, jsonMap["tabs"])),
       controller: mxj2d(bo, jsonMap["controller"]),
       isScrollable: mxj2d(bo, jsonMap["isScrollable"], defaultValue: false),
       indicatorColor: mxj2d(bo, jsonMap["indicatorColor"]),
-      indicatorWeight: mxj2d(bo, jsonMap["indicatorWeight"], defaultValue: 2.0)?.toDouble(),
-      indicatorPadding: mxj2d(bo, jsonMap["indicatorPadding"], defaultValue: EdgeInsets.zero),
+      indicatorWeight:
+          mxj2d(bo, jsonMap["indicatorWeight"], defaultValue: 2.0)?.toDouble(),
+      indicatorPadding:
+          mxj2d(bo, jsonMap["indicatorPadding"], defaultValue: EdgeInsets.zero),
       indicator: mxj2d(bo, jsonMap["indicator"]),
-      indicatorSize: MXTabBarIndicatorSize.parse(mxj2d(bo, jsonMap["indicatorSize"])),
+      indicatorSize:
+          MXTabBarIndicatorSize.parse(mxj2d(bo, jsonMap["indicatorSize"])),
       labelColor: mxj2d(bo, jsonMap["labelColor"]),
       labelStyle: mxj2d(bo, jsonMap["labelStyle"]),
       labelPadding: mxj2d(bo, jsonMap["labelPadding"]),
       unselectedLabelColor: mxj2d(bo, jsonMap["unselectedLabelColor"]),
       unselectedLabelStyle: mxj2d(bo, jsonMap["unselectedLabelStyle"]),
       // dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
-			onTap: createValueGenericHandle<int>(bo, mxj2d(bo, jsonMap["onTap"])),
+      onTap: createValueGenericHandle<int>(bo, mxj2d(bo, jsonMap["onTap"])),
     );
     return widget;
   }
 }
 
-
-
 ///BackButton系列,负责所有回退button的生成
 class MXProxyCloseButtonSeries extends MXJsonObjProxy {
-
   ///**@@@  2 替换类名字符串
-  static final  String regClassName1  = "CloseButton";
-  static final String regClassName2  = "BackButton";
-  static final String regClassName3  = "BackButtonIcon";
-
+  static final String regClassName1 = "CloseButton";
+  static final String regClassName2 = "BackButton";
+  static final String regClassName3 = "BackButtonIcon";
 
   ///静态接口,子类重写*********************************************
   ///把自己能处理的类注册到分发器中
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  3 替换类构造函数
-    return {regClassName1: ()=>MXProxyCloseButtonSeries()..init(className: regClassName1),
-      regClassName2: ()=>MXProxyCloseButtonSeries()..init(className: regClassName2),
-      regClassName3: ()=>MXProxyCloseButtonSeries()..init(className: regClassName3)};
+    return {
+      regClassName1: () =>
+          MXProxyCloseButtonSeries()..init(className: regClassName1),
+      regClassName2: () =>
+          MXProxyCloseButtonSeries()..init(className: regClassName2),
+      regClassName3: () =>
+          MXProxyCloseButtonSeries()..init(className: regClassName3)
+    };
   }
+
   ///*********************************************************************
 
   @override
-  void init({String className}){
+  void init({String className}) {
     super.init(className: className);
 
-    registerConstructor(className: regClassName1,constructor:constructorCloseButton );
-    registerConstructor(className: regClassName2,constructor:constructorBackButton );
-    registerConstructor(className: regClassName3,constructor:constructorBackButtonIcon );
-
+    registerConstructor(
+        className: regClassName1, constructor: constructorCloseButton);
+    registerConstructor(
+        className: regClassName2, constructor: constructorBackButton);
+    registerConstructor(
+        className: regClassName3, constructor: constructorBackButtonIcon);
   }
 
-
-  Widget constructorCloseButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-
-    var obj = CloseButton(key: mxj2d(bo,jsonMap["key"]));
-    return obj;
-
-  }
-
-  Widget constructorBackButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-
-    var obj = BackButton(key: mxj2d(bo,jsonMap["key"]));
+  Widget constructorCloseButton(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var obj = CloseButton(key: mxj2d(bo, jsonMap["key"]));
     return obj;
   }
 
-  Widget constructorBackButtonIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-    var obj = BackButtonIcon(key: mxj2d(bo,jsonMap["key"]));
+  Widget constructorBackButton(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var obj = BackButton(key: mxj2d(bo, jsonMap["key"]));
+    return obj;
+  }
+
+  Widget constructorBackButtonIcon(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var obj = BackButtonIcon(key: mxj2d(bo, jsonMap["key"]));
     return obj;
   }
 }
 
-
-
 ///RawMaterialButton
 ///**@@@ 拷贝生成其他类 1 替换类名
 class MXProxyRawMaterialButton extends MXJsonObjProxy {
-
   ///Dart类名 用于注册到转换器中
   ///**@@@ 拷贝生成其他类  2 替换类名字符串
   static String regClassName = "RawMaterialButton";
-  ///工厂函数 用于延迟加载转换器
-  static MXJsonObjProxy createProxy(){
 
+  ///工厂函数 用于延迟加载转换器
+  static MXJsonObjProxy createProxy() {
     ///**@@@@ 拷贝生成其他类  3 替换类构建函数
     var p = MXProxyRawMaterialButton();
     p.className = regClassName;
@@ -492,8 +550,8 @@ class MXProxyRawMaterialButton extends MXJsonObjProxy {
   }
 
   ///把自己能处理的类注册到分发器中
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-    return {regClassName:createProxy};
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    return {regClassName: createProxy};
   }
 
 //  class RawMaterialButton extends StatefulWidget {
@@ -522,38 +580,44 @@ class MXProxyRawMaterialButton extends MXJsonObjProxy {
 //  })
 
   @override
-  RawMaterialButton constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-
+  RawMaterialButton constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = RawMaterialButton(
-      key: mxj2d(bo,jsonMap["key"]),
-      onPressed: createVoidCallbackHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
-      onHighlightChanged:createStateChangedHandle(mxj2d(bo,jsonMap["onPressed"])),
-
-      textStyle: mxj2d(bo,jsonMap["textStyle"]),
-      fillColor: mxj2d(bo,jsonMap["fillColor"]),
-      highlightColor: mxj2d(bo,jsonMap["highlightColor"]),
-      splashColor: mxj2d(bo,jsonMap["splashColor"]),
-      elevation: mxj2d(bo,jsonMap["elevation"], defaultValue: 2.0)?.toDouble(),
-      highlightElevation: mxj2d(bo,jsonMap["highlightElevation"],defaultValue: 8.0)?.toDouble(),
-      disabledElevation: mxj2d(bo,jsonMap["disabledElevation"],defaultValue: 0.0)?.toDouble(),
-      padding: mxj2d(bo,jsonMap["padding"],defaultValue: EdgeInsets.zero),
-
-      constraints: mxj2d(bo,jsonMap["constraints"],defaultValue: const BoxConstraints(minWidth: 88.0, minHeight: 36.0)),
-      shape: mxj2d(bo,jsonMap["shape"],defaultValue: const RoundedRectangleBorder()),
-      animationDuration: mxj2d(bo,jsonMap["animationDuration"],defaultValue: kThemeChangeDuration),
-      clipBehavior: MXClip.parse(mxj2d(bo,jsonMap["clipBehavior"]), defaultValue: Clip.none),
-      materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
-      child: mxj2d(bo,jsonMap["child"]),
+      key: mxj2d(bo, jsonMap["key"]),
+      onPressed: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+      onHighlightChanged:
+          createStateChangedHandle(mxj2d(bo, jsonMap["onPressed"])),
+      textStyle: mxj2d(bo, jsonMap["textStyle"]),
+      fillColor: mxj2d(bo, jsonMap["fillColor"]),
+      highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
+      splashColor: mxj2d(bo, jsonMap["splashColor"]),
+      elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 2.0)?.toDouble(),
+      highlightElevation:
+          mxj2d(bo, jsonMap["highlightElevation"], defaultValue: 8.0)
+              ?.toDouble(),
+      disabledElevation:
+          mxj2d(bo, jsonMap["disabledElevation"], defaultValue: 0.0)
+              ?.toDouble(),
+      padding: mxj2d(bo, jsonMap["padding"], defaultValue: EdgeInsets.zero),
+      constraints: mxj2d(bo, jsonMap["constraints"],
+          defaultValue: const BoxConstraints(minWidth: 88.0, minHeight: 36.0)),
+      shape: mxj2d(bo, jsonMap["shape"],
+          defaultValue: const RoundedRectangleBorder()),
+      animationDuration: mxj2d(bo, jsonMap["animationDuration"],
+          defaultValue: kThemeChangeDuration),
+      clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+          defaultValue: Clip.none),
+      materialTapTargetSize: MXMaterialTapTargetSize.parse(
+          mxj2d(bo, jsonMap["materialTapTargetSize"])),
+      child: mxj2d(bo, jsonMap["child"]),
     );
 
     return widget;
   }
 
-  ValueChanged<bool> createStateChangedHandle(dynamic eventCallbackID){
-
-    ValueChanged<bool> cb = (bool b){
-
-    };
+  ValueChanged<bool> createStateChangedHandle(dynamic eventCallbackID) {
+    ValueChanged<bool> cb = (bool b) {};
 
     return cb;
   }
@@ -562,13 +626,12 @@ class MXProxyRawMaterialButton extends MXJsonObjProxy {
 ///MaterialButton
 ///**@@@ 拷贝生成其他类 1 替换类名
 class MXProxyMaterialButton extends MXJsonObjProxy {
-
   ///Dart类名 用于注册到转换器中
   ///**@@@ 拷贝生成其他类  2 替换类名字符串
   static String regClassName = "MaterialButton";
-  ///工厂函数 用于延迟加载转换器
-  static MXJsonObjProxy createProxy(){
 
+  ///工厂函数 用于延迟加载转换器
+  static MXJsonObjProxy createProxy() {
     ///**@@@@ 拷贝生成其他类  3 替换类构建函数
     var p = MXProxyMaterialButton();
     p.className = regClassName;
@@ -576,8 +639,8 @@ class MXProxyMaterialButton extends MXJsonObjProxy {
   }
 
   ///把自己能处理的类注册到分发器中
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-    return {regClassName:createProxy};
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    return {regClassName: createProxy};
   }
 
 //  const MaterialButton({
@@ -607,50 +670,49 @@ class MXProxyMaterialButton extends MXJsonObjProxy {
 
   ///**@@@@ 拷贝生成其他类  4 替换类名
   @override
-  MaterialButton constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
-
+  MaterialButton constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = MaterialButton(
-      key: mxj2d(bo,jsonMap["key"]),
-      onPressed: createEventHandle(bo,mxj2d(bo,jsonMap["onPressed"])),
-      onHighlightChanged:createStateChangedHandle(bo,mxj2d(bo,jsonMap["onPressed"])),
-
-      textTheme: mxj2d(bo,jsonMap["textTheme"]),
-      textColor: mxj2d(bo,jsonMap["textColor"]),
-      disabledTextColor: mxj2d(bo,jsonMap["disabledTextColor"]),
-      color: mxj2d(bo,jsonMap["color"]),
-      disabledColor: mxj2d(bo,jsonMap["disabledColor"]),
-
-      highlightColor: mxj2d(bo,jsonMap["highlightColor"]),
-      splashColor: mxj2d(bo,jsonMap["splashColor"]),
-      colorBrightness: MXBrightness.parse(mxj2d(bo,jsonMap["colorBrightness"])),
-      elevation: mxj2d(bo,jsonMap["elevation"])?.toDouble(),
-      highlightElevation: mxj2d(bo,jsonMap["highlightElevation"])?.toDouble(),
-
-      disabledElevation: mxj2d(bo,jsonMap["disabledElevation"])?.toDouble(),
-      padding: mxj2d(bo,jsonMap["padding"]),
-      shape: mxj2d(bo,jsonMap["shape"]),
-      clipBehavior: MXClip.parse(mxj2d(bo,jsonMap["clipBehavior"]), defaultValue: Clip.none),
-      materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
-
-      animationDuration: mxj2d(bo,jsonMap["animationDuration"]),
-      minWidth: mxj2d(bo,jsonMap["minWidth"])?.toDouble(),
-      height: mxj2d(bo,jsonMap["height"])?.toDouble(),
-      child: mxj2d(bo,jsonMap["child"]),
-
+      key: mxj2d(bo, jsonMap["key"]),
+      onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+      onHighlightChanged:
+          createStateChangedHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+      textTheme: mxj2d(bo, jsonMap["textTheme"]),
+      textColor: mxj2d(bo, jsonMap["textColor"]),
+      disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
+      color: mxj2d(bo, jsonMap["color"]),
+      disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
+      highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
+      splashColor: mxj2d(bo, jsonMap["splashColor"]),
+      colorBrightness:
+          MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
+      elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
+      highlightElevation: mxj2d(bo, jsonMap["highlightElevation"])?.toDouble(),
+      disabledElevation: mxj2d(bo, jsonMap["disabledElevation"])?.toDouble(),
+      padding: mxj2d(bo, jsonMap["padding"]),
+      shape: mxj2d(bo, jsonMap["shape"]),
+      clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+          defaultValue: Clip.none),
+      materialTapTargetSize: MXMaterialTapTargetSize.parse(
+          mxj2d(bo, jsonMap["materialTapTargetSize"])),
+      animationDuration: mxj2d(bo, jsonMap["animationDuration"]),
+      minWidth: mxj2d(bo, jsonMap["minWidth"])?.toDouble(),
+      height: mxj2d(bo, jsonMap["height"])?.toDouble(),
+      child: mxj2d(bo, jsonMap["child"]),
     );
 
     return widget;
   }
 
   ///生成VoidCallback 闭包
-  VoidCallback createEventHandle(MXJsonBuildOwner bo,dynamic eventCallbackID){
-
+  VoidCallback createEventHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) {
     return createVoidCallbackHandle(bo, eventCallbackID);
   }
 
   ///生成ValueChanged<bool> 闭包
-  ValueChanged<bool> createStateChangedHandle(MXJsonBuildOwner bo,dynamic eventCallbackID){
-   return createValueGenericHandle<bool>(bo, eventCallbackID);
+  ValueChanged<bool> createStateChangedHandle(
+      MXJsonBuildOwner bo, dynamic eventCallbackID) {
+    return createValueGenericHandle<bool>(bo, eventCallbackID);
   }
 }
 
@@ -666,29 +728,43 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
   static final String regClassName7 = "ButtonBar";
 
   ///**@@@  2 替换类构造函数
-  static  Map<String, CreateJsonObjProxyFun> registerProxy() => {
-    regClassName1: () => MXProxyButtonSeries()..init(className: regClassName1),
-    regClassName2: () => MXProxyButtonSeries()..init(className: regClassName2),
-    regClassName3: () => MXProxyButtonSeries()..init(className: regClassName3),
-    regClassName4: () => MXProxyButtonSeries()..init(className: regClassName4),
-    regClassName5: () => MXProxyButtonSeries()..init(className: regClassName5),
-    regClassName6: () => MXProxyButtonSeries()..init(className: regClassName6),
-    regClassName7: () => MXProxyButtonSeries()..init(className: regClassName7),
-  };
+  static Map<String, CreateJsonObjProxyFun> registerProxy() => {
+        regClassName1: () =>
+            MXProxyButtonSeries()..init(className: regClassName1),
+        regClassName2: () =>
+            MXProxyButtonSeries()..init(className: regClassName2),
+        regClassName3: () =>
+            MXProxyButtonSeries()..init(className: regClassName3),
+        regClassName4: () =>
+            MXProxyButtonSeries()..init(className: regClassName4),
+        regClassName5: () =>
+            MXProxyButtonSeries()..init(className: regClassName5),
+        regClassName6: () =>
+            MXProxyButtonSeries()..init(className: regClassName6),
+        regClassName7: () =>
+            MXProxyButtonSeries()..init(className: regClassName7),
+      };
 
   ///*********************************************************************
 
   @override
-  void init({String className}){
+  void init({String className}) {
     super.init(className: className);
 
-    registerConstructor(className: regClassName1, constructor: constructorFlatButton);
-    registerConstructor(className: regClassName2, constructor: constructorRaisedButton);
-    registerConstructor(className: regClassName3, constructor: constructorFloatingActionButton);
-    registerConstructor(className: regClassName4, constructor: constructorIconButton);
-    registerConstructor(className: regClassName5, constructor: constructorDropdownButton);
-    registerConstructor(className: regClassName6, constructor: constructorPopupMenuButton);
-    registerConstructor(className: regClassName7, constructor: constructorButtonBar);
+    registerConstructor(
+        className: regClassName1, constructor: constructorFlatButton);
+    registerConstructor(
+        className: regClassName2, constructor: constructorRaisedButton);
+    registerConstructor(
+        className: regClassName3, constructor: constructorFloatingActionButton);
+    registerConstructor(
+        className: regClassName4, constructor: constructorIconButton);
+    registerConstructor(
+        className: regClassName5, constructor: constructorDropdownButton);
+    registerConstructor(
+        className: regClassName6, constructor: constructorPopupMenuButton);
+    registerConstructor(
+        className: regClassName7, constructor: constructorButtonBar);
 
     registerStaticFunction(
         className: regClassName1,
@@ -701,11 +777,39 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         staticFunction: functionRaisedButtonIcon);
   }
 
-  Widget constructorFlatButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+  Widget constructorFlatButton(
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
       FlatButton(
+          key: mxj2d(bo, jsonMap["key"]),
+          onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+          onHighlightChanged: createStateChangedHandle(
+              bo, mxj2d(bo, jsonMap["onHighlightChanged"])),
+          textTheme: MXButtonTextTheme.parse(mxj2d(bo, jsonMap["textTheme"])),
+          textColor: mxj2d(bo, jsonMap["textColor"]),
+          disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
+          color: mxj2d(bo, jsonMap["color"]),
+          disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
+          highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
+          splashColor: mxj2d(bo, jsonMap["splashColor"]),
+          colorBrightness:
+              MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
+          padding: mxj2d(bo, jsonMap["padding"]),
+          shape: mxj2d(bo, jsonMap["shape"]),
+          clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+              defaultValue: Clip.none),
+          materialTapTargetSize: MXMaterialTapTargetSize.parse(
+              mxj2d(bo, jsonMap["materialTapTargetSize"])),
+          child: mxj2d(bo, jsonMap["child"]));
+
+  Widget functionFlatButtonIcon(
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
+      FlatButton.icon(
         key: mxj2d(bo, jsonMap["key"]),
-        onPressed: createEventHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
-        onHighlightChanged:createStateChangedHandle(bo, mxj2d(bo,jsonMap["onHighlightChanged"])),
+        onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+        onHighlightChanged: createStateChangedHandle(
+            bo, mxj2d(bo, jsonMap["onHighlightChanged"])),
         textTheme: MXButtonTextTheme.parse(mxj2d(bo, jsonMap["textTheme"])),
         textColor: mxj2d(bo, jsonMap["textColor"]),
         disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
@@ -713,40 +817,26 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
         highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
         splashColor: mxj2d(bo, jsonMap["splashColor"]),
-        colorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
+        colorBrightness:
+            MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
         padding: mxj2d(bo, jsonMap["padding"]),
         shape: mxj2d(bo, jsonMap["shape"]),
-        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none),
-        materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
-        child: mxj2d(bo, jsonMap["child"])
+        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+            defaultValue: Clip.none),
+        materialTapTargetSize: MXMaterialTapTargetSize.parse(
+            mxj2d(bo, jsonMap["materialTapTargetSize"])),
+        icon: mxj2d(bo, jsonMap["icon"]),
+        label: mxj2d(bo, jsonMap["label"]),
       );
-      
-  Widget functionFlatButtonIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
-    FlatButton.icon(
-      key: mxj2d(bo, jsonMap["key"]),
-			onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
-			onHighlightChanged: createStateChangedHandle(bo, mxj2d(bo, jsonMap["onHighlightChanged"])),
-			textTheme: MXButtonTextTheme.parse(mxj2d(bo, jsonMap["textTheme"])),
-			textColor: mxj2d(bo, jsonMap["textColor"]),
-			disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
-			color: mxj2d(bo, jsonMap["color"]),
-			disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
-			highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
-			splashColor: mxj2d(bo, jsonMap["splashColor"]),
-			colorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
-			padding: mxj2d(bo, jsonMap["padding"]),
-			shape: mxj2d(bo, jsonMap["shape"]),
-			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none),
-			materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo, jsonMap["materialTapTargetSize"])),
-			icon: mxj2d(bo, jsonMap["icon"]),
-			label: mxj2d(bo, jsonMap["label"]),
-    );
 
-  Widget constructorRaisedButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+  Widget constructorRaisedButton(
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
       RaisedButton(
         key: mxj2d(bo, jsonMap["key"]),
-        onPressed: createEventHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
-        onHighlightChanged:createStateChangedHandle(bo, mxj2d(bo,jsonMap["onHighlightChanged"])),
+        onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+        onHighlightChanged: createStateChangedHandle(
+            bo, mxj2d(bo, jsonMap["onHighlightChanged"])),
         textTheme: MXButtonTextTheme.parse(mxj2d(bo, jsonMap["textTheme"])),
         textColor: mxj2d(bo, jsonMap["textColor"]),
         disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
@@ -754,98 +844,128 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
         highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
         splashColor: mxj2d(bo, jsonMap["splashColor"]),
-        colorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
+        colorBrightness:
+            MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
         elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
-        highlightElevation: mxj2d(bo, jsonMap["highlightElevation"])?.toDouble(),
+        highlightElevation:
+            mxj2d(bo, jsonMap["highlightElevation"])?.toDouble(),
         disabledElevation: mxj2d(bo, jsonMap["disabledElevation"])?.toDouble(),
         padding: mxj2d(bo, jsonMap["padding"]),
         shape: mxj2d(bo, jsonMap["shape"]),
-        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none),
-        materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
+        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+            defaultValue: Clip.none),
+        materialTapTargetSize: MXMaterialTapTargetSize.parse(
+            mxj2d(bo, jsonMap["materialTapTargetSize"])),
         animationDuration: mxj2d(bo, jsonMap["animationDuration"]),
         child: mxj2d(bo, jsonMap["child"]),
       );
-    
-  Widget functionRaisedButtonIcon(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
-    RaisedButton.icon(
-      key: mxj2d(bo, jsonMap["key"]),
-			onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
-			onHighlightChanged: createStateChangedHandle(bo, mxj2d(bo, jsonMap["onHighlightChanged"])),
-			textTheme: MXButtonTextTheme.parse(mxj2d(bo, jsonMap["textTheme"])),
-			textColor: mxj2d(bo, jsonMap["textColor"]),
-			disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
-			color: mxj2d(bo, jsonMap["color"]),
-			disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
-			highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
-			splashColor: mxj2d(bo, jsonMap["splashColor"]),
-			colorBrightness: MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
-      elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
-			highlightElevation: mxj2d(bo, jsonMap["highlightElevation"])?.toDouble(),
-      disabledElevation: mxj2d(bo, jsonMap["disabledElevation"])?.toDouble(),
-			shape: mxj2d(bo, jsonMap["shape"]),
-			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none),
-			materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo, jsonMap["materialTapTargetSize"])),
-      animationDuration: mxj2d(bo, jsonMap["animationDuration"]),
-			icon: mxj2d(bo, jsonMap["icon"]),
-			label: mxj2d(bo, jsonMap["label"]),
-    );
 
-  Widget constructorFloatingActionButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+  Widget functionRaisedButtonIcon(
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
+      RaisedButton.icon(
+        key: mxj2d(bo, jsonMap["key"]),
+        onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
+        onHighlightChanged: createStateChangedHandle(
+            bo, mxj2d(bo, jsonMap["onHighlightChanged"])),
+        textTheme: MXButtonTextTheme.parse(mxj2d(bo, jsonMap["textTheme"])),
+        textColor: mxj2d(bo, jsonMap["textColor"]),
+        disabledTextColor: mxj2d(bo, jsonMap["disabledTextColor"]),
+        color: mxj2d(bo, jsonMap["color"]),
+        disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
+        highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
+        splashColor: mxj2d(bo, jsonMap["splashColor"]),
+        colorBrightness:
+            MXBrightness.parse(mxj2d(bo, jsonMap["colorBrightness"])),
+        elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
+        highlightElevation:
+            mxj2d(bo, jsonMap["highlightElevation"])?.toDouble(),
+        disabledElevation: mxj2d(bo, jsonMap["disabledElevation"])?.toDouble(),
+        shape: mxj2d(bo, jsonMap["shape"]),
+        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+            defaultValue: Clip.none),
+        materialTapTargetSize: MXMaterialTapTargetSize.parse(
+            mxj2d(bo, jsonMap["materialTapTargetSize"])),
+        animationDuration: mxj2d(bo, jsonMap["animationDuration"]),
+        icon: mxj2d(bo, jsonMap["icon"]),
+        label: mxj2d(bo, jsonMap["label"]),
+      );
+
+  Widget constructorFloatingActionButton(
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
       FloatingActionButton(
         key: mxj2d(bo, jsonMap["key"]),
         child: mxj2d(bo, jsonMap["child"]),
         tooltip: mxj2d(bo, jsonMap["tooltip"]),
         foregroundColor: mxj2d(bo, jsonMap["foregroundColor"]),
         backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
-        heroTag: mxj2d(bo, jsonMap["heroTag"]),   // TODO: defaultValue
-        elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 6.0)?.toDouble(),
-        highlightElevation: mxj2d(bo, jsonMap["highlightElevation"], defaultValue: 12.0?.toDouble()),
-        onPressed: createEventHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
+        heroTag: mxj2d(bo, jsonMap["heroTag"]), // TODO: defaultValue
+        elevation:
+            mxj2d(bo, jsonMap["elevation"], defaultValue: 6.0)?.toDouble(),
+        highlightElevation: mxj2d(bo, jsonMap["highlightElevation"],
+            defaultValue: 12.0?.toDouble()),
+        onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
         mini: mxj2d(bo, jsonMap["mini"], defaultValue: false),
         shape: mxj2d(bo, jsonMap["shape"], defaultValue: const CircleBorder()),
-        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue: Clip.none),
-        materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
+        clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+            defaultValue: Clip.none),
+        materialTapTargetSize: MXMaterialTapTargetSize.parse(
+            mxj2d(bo, jsonMap["materialTapTargetSize"])),
         isExtended: mxj2d(bo, jsonMap["isExtended"], defaultValue: false),
       );
 
-  Widget constructorIconButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+  Widget constructorIconButton(
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
       IconButton(
         key: mxj2d(bo, jsonMap["key"]),
-        iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0)?.toDouble(),
-        padding: mxj2d(bo, jsonMap["padding"], defaultValue: const EdgeInsets.all(8.0)),
-        alignment: mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
+        iconSize:
+            mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0)?.toDouble(),
+        padding: mxj2d(bo, jsonMap["padding"],
+            defaultValue: const EdgeInsets.all(8.0)),
+        alignment:
+            mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
         icon: mxj2d(bo, jsonMap["icon"]),
         color: mxj2d(bo, jsonMap["color"]),
         highlightColor: mxj2d(bo, jsonMap["highlightColor"]),
         splashColor: mxj2d(bo, jsonMap["splashColor"]),
         disabledColor: mxj2d(bo, jsonMap["disabledColor"]),
-        onPressed: createEventHandle(bo, mxj2d(bo,jsonMap["onPressed"])),
+        onPressed: createEventHandle(bo, mxj2d(bo, jsonMap["onPressed"])),
         tooltip: mxj2d(bo, jsonMap["tooltip"]),
       );
 
-  Widget constructorDropdownButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+  Widget constructorDropdownButton(
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
       DropdownButton(
         key: mxj2d(bo, jsonMap["key"]),
         items: toListT<DropdownMenuItem>(mxj2d(bo, jsonMap["items"])),
         value: mxj2d(bo, jsonMap["value"]),
         hint: mxj2d(bo, jsonMap["hint"]),
         disabledHint: mxj2d(bo, jsonMap["disabledHint"]),
-        onChanged: createValueChangedGenericHandle(bo, mxj2d(bo, jsonMap["onChanged"])),
+        onChanged: createValueChangedGenericHandle(
+            bo, mxj2d(bo, jsonMap["onChanged"])),
         elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 8),
         style: mxj2d(bo, jsonMap["style"]),
-        iconSize: mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0)?.toDouble(),
+        iconSize:
+            mxj2d(bo, jsonMap["iconSize"], defaultValue: 24.0)?.toDouble(),
         isDense: mxj2d(bo, jsonMap["isDense"], defaultValue: false),
         isExpanded: mxj2d(bo, jsonMap["isExpanded"], defaultValue: false),
       );
 
-  Widget constructorPopupMenuButton(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+  Widget constructorPopupMenuButton(
+          MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
       PopupMenuButton(
         key: mxj2d(bo, jsonMap["key"]),
         itemBuilder: (BuildContext context) {
           return toListT<PopupMenuEntry>(mxj2d(bo, jsonMap["children"]));
         },
         initialValue: mxj2d(bo, jsonMap["initialValue"]),
-        onSelected: createPopMenuItemSelectedHandle(bo, mxj2d(bo, jsonMap["onSelected"])),
+        onSelected: createPopMenuItemSelectedHandle(
+            bo, mxj2d(bo, jsonMap["onSelected"])),
+
         ///TODO: 此处泛型是否可以改写成下面这种形式呢？
 //        onSelected: (dynamic b) {
 //          PopupMenuItemSelected<dynamic> cb = (dynamic b) {
@@ -860,54 +980,65 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
           return cb;
         },
         tooltip: mxj2d(bo, jsonMap["tooltip"]),
-        elevation: mxj2d(bo, jsonMap["elevation"], defaultValue: 8.0)?.toDouble(),
-        padding: mxj2d(bo, jsonMap["padding"], defaultValue: const EdgeInsets.all(8.0)),
+        elevation:
+            mxj2d(bo, jsonMap["elevation"], defaultValue: 8.0)?.toDouble(),
+        padding: mxj2d(bo, jsonMap["padding"],
+            defaultValue: const EdgeInsets.all(8.0)),
         child: mxj2d(bo, jsonMap["child"]),
         icon: mxj2d(bo, jsonMap["icon"]),
         offset: mxj2d(bo, jsonMap["offset"], defaultValue: Offset.zero),
       );
 
-  Widget constructorButtonBar(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) =>
+  Widget constructorButtonBar(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+          {BuildContext context}) =>
       ButtonBar(
         key: mxj2d(bo, jsonMap["key"]),
-        alignment: MXMainAxisAlignment.parse(mxj2d(bo, jsonMap["alignment"]), defaultValue: MainAxisAlignment.end),
-        mainAxisSize: MXMainAxisSize.parse(mxj2d(bo, jsonMap["mainAxisSize"]), defaultValue: MainAxisSize.max),
-        children: toListT<Widget>(mxj2d(bo, jsonMap["children"], defaultValue: const <Widget>[])),
+        alignment: MXMainAxisAlignment.parse(mxj2d(bo, jsonMap["alignment"]),
+            defaultValue: MainAxisAlignment.end),
+        mainAxisSize: MXMainAxisSize.parse(mxj2d(bo, jsonMap["mainAxisSize"]),
+            defaultValue: MainAxisSize.max),
+        children: toListT<Widget>(
+            mxj2d(bo, jsonMap["children"], defaultValue: const <Widget>[])),
       );
 
   ///生成VoidCallback 闭包
-  VoidCallback createEventHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) => createVoidCallbackHandle(bo, eventCallbackID);
+  VoidCallback createEventHandle(
+          MXJsonBuildOwner bo, dynamic eventCallbackID) =>
+      createVoidCallbackHandle(bo, eventCallbackID);
 
   ///生成ValueChanged<bool> 闭包
-  ValueChanged<bool> createStateChangedHandle(MXJsonBuildOwner bo, dynamic eventCallbackID) => createValueGenericHandle<bool>(bo, eventCallbackID);
+  ValueChanged<bool> createStateChangedHandle(
+          MXJsonBuildOwner bo, dynamic eventCallbackID) =>
+      createValueGenericHandle<bool>(bo, eventCallbackID);
 
   ///生成ValueChanged<T> 闭包
-  ValueChanged<T> createValueChangedGenericHandle<T>(MXJsonBuildOwner bo, dynamic eventCallbackID) => createValueGenericHandle(bo, eventCallbackID);
+  ValueChanged<T> createValueChangedGenericHandle<T>(
+          MXJsonBuildOwner bo, dynamic eventCallbackID) =>
+      createValueGenericHandle(bo, eventCallbackID);
 
   ///生成PopupMenuItemSelected<T>闭包
-  PopupMenuItemSelected<T> createPopMenuItemSelectedHandle<T>(MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  PopupMenuItemSelected<T> createPopMenuItemSelectedHandle<T>(
+      MXJsonBuildOwner bo, dynamic eventCallbackID) {
     PopupMenuItemSelected<T> cb = (T b) {
-      bo.eventCallback(eventCallbackID, p:b);
+      bo.eventCallback(eventCallbackID, p: b);
     };
 
     return cb;
   }
 }
 
-
 class MXProxyIcon extends MXJsonObjProxy {
-
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
-    final String regClassName1  = "Icon";
+    final String regClassName1 = "Icon";
 
     ///**@@@  3 替换类构造函数
     return {regClassName1: () => MXProxyIcon()..init(className: regClassName1)};
   }
 
   @override
-  Icon constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Icon constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Icon(
       mxj2d(bo, jsonMap["icon"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -922,166 +1053,212 @@ class MXProxyIcon extends MXJsonObjProxy {
 }
 
 class MXProxyHero extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "Hero";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyHero()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "Hero";
 
-	@override
-	Hero constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = Hero(
-			key: mxj2d(bo, jsonMap["key"]),
-			tag: mxj2d(bo, jsonMap["tag"]),
-			createRectTween: mxj2d(bo, jsonMap["createRectTween"]), //TODO:createRectTween
-			flightShuttleBuilder: mxj2d(bo, jsonMap["flightShuttleBuilder"]), //TODO:flightShuttleBuilder
-			placeholderBuilder: mxj2d(bo, jsonMap["placeholderBuilder"]), //TODO:placeholderBuilder
-			transitionOnUserGestures: mxj2d(bo, jsonMap["transitionOnUserGestures"], defaultValue:false), 
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyHero()..init(className: regClassName)};
+  }
+
+  @override
+  Hero constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = Hero(
+      key: mxj2d(bo, jsonMap["key"]),
+      tag: mxj2d(bo, jsonMap["tag"]),
+      createRectTween:
+          mxj2d(bo, jsonMap["createRectTween"]), //TODO:createRectTween
+      flightShuttleBuilder: mxj2d(
+          bo, jsonMap["flightShuttleBuilder"]), //TODO:flightShuttleBuilder
+      placeholderBuilder:
+          mxj2d(bo, jsonMap["placeholderBuilder"]), //TODO:placeholderBuilder
+      transitionOnUserGestures:
+          mxj2d(bo, jsonMap["transitionOnUserGestures"], defaultValue: false),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxyCard extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "Card";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyCard()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "Card";
 
-	@override
-	Card constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = Card(
-			key: mxj2d(bo, jsonMap["key"]),
-			color: mxj2d(bo, jsonMap["color"]),
-			elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
-			shape: mxj2d(bo, jsonMap["shape"]),
-			margin: mxj2d(bo, jsonMap["margin"], defaultValue:const EdgeInsets.all(4.0)),
-			clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]), defaultValue:Clip.none),
-			child: mxj2d(bo, jsonMap["child"]),
-			semanticContainer: mxj2d(bo, jsonMap["semanticContainer"], defaultValue:true),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyCard()..init(className: regClassName)};
+  }
+
+  @override
+  Card constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = Card(
+      key: mxj2d(bo, jsonMap["key"]),
+      color: mxj2d(bo, jsonMap["color"]),
+      elevation: mxj2d(bo, jsonMap["elevation"])?.toDouble(),
+      shape: mxj2d(bo, jsonMap["shape"]),
+      margin:
+          mxj2d(bo, jsonMap["margin"], defaultValue: const EdgeInsets.all(4.0)),
+      clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
+          defaultValue: Clip.none),
+      child: mxj2d(bo, jsonMap["child"]),
+      semanticContainer:
+          mxj2d(bo, jsonMap["semanticContainer"], defaultValue: true),
+    );
+    return widget;
+  }
 }
 
 class MXProxyMergeSemantics extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "MergeSemantics";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyMergeSemantics()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "MergeSemantics";
 
-	@override
-	MergeSemantics constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = MergeSemantics(
-			key: mxj2d(bo, jsonMap["key"]),
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyMergeSemantics()..init(className: regClassName)
+    };
+  }
+
+  @override
+  MergeSemantics constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = MergeSemantics(
+      key: mxj2d(bo, jsonMap["key"]),
       child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    );
+    return widget;
+  }
 }
 
 class MXProxyPopupMenuItem extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "PopupMenuItem";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyPopupMenuItem()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "PopupMenuItem";
 
-	@override
-	PopupMenuItem constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = PopupMenuItem(
-			key: mxj2d(bo, jsonMap["key"]),
-			value: mxj2d(bo, jsonMap["value"]),
-			enabled: mxj2d(bo, jsonMap["enabled"], defaultValue:true),
-			height: mxj2d(bo, jsonMap["height"], defaultValue:48.0)?.toDouble(),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyPopupMenuItem()..init(className: regClassName)
+    };
+  }
+
+  @override
+  PopupMenuItem constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = PopupMenuItem(
+      key: mxj2d(bo, jsonMap["key"]),
+      value: mxj2d(bo, jsonMap["value"]),
+      enabled: mxj2d(bo, jsonMap["enabled"], defaultValue: true),
+      height: mxj2d(bo, jsonMap["height"], defaultValue: 48.0)?.toDouble(),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxyFlexibleSpaceBar extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "FlexibleSpaceBar";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyFlexibleSpaceBar()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "FlexibleSpaceBar";
 
-	@override
-	FlexibleSpaceBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = FlexibleSpaceBar(
-			key: mxj2d(bo, jsonMap["key"]),
-			title: mxj2d(bo, jsonMap["title"]),
-			background: mxj2d(bo, jsonMap["background"]),
-			centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
-			collapseMode: MXCollapseMode.parse(mxj2d(bo, jsonMap["collapseMode"]), defaultValue:CollapseMode.parallax),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxyFlexibleSpaceBar()..init(className: regClassName)
+    };
+  }
+
+  @override
+  FlexibleSpaceBar constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = FlexibleSpaceBar(
+      key: mxj2d(bo, jsonMap["key"]),
+      title: mxj2d(bo, jsonMap["title"]),
+      background: mxj2d(bo, jsonMap["background"]),
+      centerTitle: mxj2d(bo, jsonMap["centerTitle"]),
+      collapseMode: MXCollapseMode.parse(mxj2d(bo, jsonMap["collapseMode"]),
+          defaultValue: CollapseMode.parallax),
+    );
+    return widget;
+  }
 }
 
 ///FloatingActionButtonLocation系列,负责所有回退button的生成
 class MXProxyFloatingActionButtonLocationSeries extends MXJsonObjProxy {
-
   ///**@@@  2 替换类名字符串
-  static final  String regClassName1  = "FloatingActionButtonLocation.endDocked";
-  static final String regClassName2  = "FloatingActionButtonLocation.centerDocked";
-  static final String regClassName3  = "FloatingActionButtonLocation.endFloat";
-  static final String regClassName4  = "FloatingActionButtonLocation.centerFloat";
-  static final String regClassName5  = "FloatingActionButtonLocation";
-
+  static final String regClassName1 = "FloatingActionButtonLocation.endDocked";
+  static final String regClassName2 =
+      "FloatingActionButtonLocation.centerDocked";
+  static final String regClassName3 = "FloatingActionButtonLocation.endFloat";
+  static final String regClassName4 =
+      "FloatingActionButtonLocation.centerFloat";
+  static final String regClassName5 = "FloatingActionButtonLocation";
 
   ///静态接口,子类重写*********************************************
   ///把自己能处理的类注册到分发器中
-  static  Map<String, CreateJsonObjProxyFun> registerProxy(){
-
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  3 替换类构造函数
-    return {regClassName1: ()=>MXProxyFloatingActionButtonLocationSeries()..init(className: regClassName1),
-      regClassName2: ()=>MXProxyFloatingActionButtonLocationSeries()..init(className: regClassName2),
-      regClassName3: ()=>MXProxyFloatingActionButtonLocationSeries()..init(className: regClassName3),
-      regClassName4: ()=>MXProxyFloatingActionButtonLocationSeries()..init(className: regClassName4),
-      regClassName5: ()=>MXProxyFloatingActionButtonLocationSeries()..init(className: regClassName5)};
+    return {
+      regClassName1: () => MXProxyFloatingActionButtonLocationSeries()
+        ..init(className: regClassName1),
+      regClassName2: () => MXProxyFloatingActionButtonLocationSeries()
+        ..init(className: regClassName2),
+      regClassName3: () => MXProxyFloatingActionButtonLocationSeries()
+        ..init(className: regClassName3),
+      regClassName4: () => MXProxyFloatingActionButtonLocationSeries()
+        ..init(className: regClassName4),
+      regClassName5: () => MXProxyFloatingActionButtonLocationSeries()
+        ..init(className: regClassName5)
+    };
   }
+
   ///*********************************************************************
 
   @override
-  void init({String className}){
+  void init({String className}) {
     super.init(className: className);
 
-    registerConstructor(className: regClassName1,constructor:constructorEndDocked );
-    registerConstructor(className: regClassName2,constructor:constructorCenterDocked );
-    registerConstructor(className: regClassName3,constructor:constructorEndFloat );
-    registerConstructor(className: regClassName4,constructor:constructorCenterFloat );
-    registerConstructor(className: regClassName5,constructor:constructorNormal );
-
+    registerConstructor(
+        className: regClassName1, constructor: constructorEndDocked);
+    registerConstructor(
+        className: regClassName2, constructor: constructorCenterDocked);
+    registerConstructor(
+        className: regClassName3, constructor: constructorEndFloat);
+    registerConstructor(
+        className: regClassName4, constructor: constructorCenterFloat);
+    registerConstructor(
+        className: regClassName5, constructor: constructorNormal);
   }
 
-
-  FloatingActionButtonLocation constructorEndDocked(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  FloatingActionButtonLocation constructorEndDocked(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     return FloatingActionButtonLocation.endDocked;
   }
 
-  FloatingActionButtonLocation constructorCenterDocked(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  FloatingActionButtonLocation constructorCenterDocked(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     return FloatingActionButtonLocation.centerDocked;
   }
 
-  FloatingActionButtonLocation constructorEndFloat(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  FloatingActionButtonLocation constructorEndFloat(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     return FloatingActionButtonLocation.endFloat;
   }
 
-  FloatingActionButtonLocation constructorCenterFloat(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  FloatingActionButtonLocation constructorCenterFloat(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     return FloatingActionButtonLocation.centerFloat;
   }
 
-  FloatingActionButtonLocation constructorNormal(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  FloatingActionButtonLocation constructorNormal(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     MXFloatingActionButtonLocation mxLocation = MXFloatingActionButtonLocation(
       offset: mxj2d(bo, jsonMap["offset"], defaultValue: Offset.zero),
     );
@@ -1096,343 +1273,482 @@ class MXFloatingActionButtonLocation implements FloatingActionButtonLocation {
 
   final Offset offset;
 
-  Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry){
+  Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
     return this.offset;
   }
 }
 
 class MXProxyRadio extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "Radio";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyRadio()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "Radio";
 
-	@override
-	Radio constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyRadio()..init(className: regClassName)};
+  }
 
+  @override
+  Radio constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     //都转成字符串，便于Radio 比较和回传
     var value = json.encode(jsonMap["value"]);
     var groupValue = json.encode(jsonMap["groupValue"]);
 
-		var widget = Radio(
-			key: mxj2d(bo, jsonMap["key"]),
-			value: value,
-			groupValue:  groupValue,
-			onChanged: createValueChangedDynamicHandle(bo, mxj2d(bo,jsonMap["onChanged"])),
-			activeColor: mxj2d(bo, jsonMap["activeColor"]),
-			materialTapTargetSize: MXMaterialTapTargetSize.parse(mxj2d(bo,jsonMap["materialTapTargetSize"])),
-		);
-		return widget;
-	}
+    var widget = Radio(
+      key: mxj2d(bo, jsonMap["key"]),
+      value: value,
+      groupValue: groupValue,
+      onChanged:
+          createValueChangedDynamicHandle(bo, mxj2d(bo, jsonMap["onChanged"])),
+      activeColor: mxj2d(bo, jsonMap["activeColor"]),
+      materialTapTargetSize: MXMaterialTapTargetSize.parse(
+          mxj2d(bo, jsonMap["materialTapTargetSize"])),
+    );
+    return widget;
+  }
 }
 
 class MXProxySemantics extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "Semantics";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySemantics()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "Semantics";
 
-	@override
-	Semantics constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = Semantics(
-			key: mxj2d(bo, jsonMap["key"]),
-			child: mxj2d(bo, jsonMap["child"]),
-			container: mxj2d(bo, jsonMap["container"], defaultValue:false),
-			explicitChildNodes: mxj2d(bo, jsonMap["explicitChildNodes"], defaultValue:false),
-			excludeSemantics: mxj2d(bo, jsonMap["excludeSemantics"], defaultValue:false),
-			enabled: mxj2d(bo, jsonMap["enabled"]),
-			checked: mxj2d(bo, jsonMap["checked"]),
-			selected: mxj2d(bo, jsonMap["selected"]),
-			toggled: mxj2d(bo, jsonMap["toggled"]),
-			button: mxj2d(bo, jsonMap["button"]),
-			header: mxj2d(bo, jsonMap["header"]),
-			textField: mxj2d(bo, jsonMap["textField"]),
-			focused: mxj2d(bo, jsonMap["focused"]),
-			inMutuallyExclusiveGroup: mxj2d(bo, jsonMap["inMutuallyExclusiveGroup"]),
-			obscured: mxj2d(bo, jsonMap["obscured"]),
-			scopesRoute: mxj2d(bo, jsonMap["scopesRoute"]),
-			namesRoute: mxj2d(bo, jsonMap["namesRoute"]),
-			hidden: mxj2d(bo, jsonMap["hidden"]),
-			image: mxj2d(bo, jsonMap["image"]),
-			liveRegion: mxj2d(bo, jsonMap["liveRegion"]),
-			label: mxj2d(bo, jsonMap["label"]),
-			value: mxj2d(bo, jsonMap["value"]),
-			increasedValue: mxj2d(bo, jsonMap["increasedValue"]),
-			decreasedValue: mxj2d(bo, jsonMap["decreasedValue"]),
-			hint: mxj2d(bo, jsonMap["hint"]),
-			onTapHint: mxj2d(bo, jsonMap["onTapHint"]),
-			onLongPressHint: mxj2d(bo, jsonMap["onLongPressHint"]),
-			textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
-			sortKey: mxj2d(bo, jsonMap["sortKey"]),
-			onTap: mxj2d(bo, jsonMap["onTap"]),   //TODO:
-			onLongPress: mxj2d(bo, jsonMap["onLongPress"]), //TODO:
-			onScrollLeft: mxj2d(bo, jsonMap["onScrollLeft"]),//TODO:
-			onScrollRight: mxj2d(bo, jsonMap["onScrollRight"]),//TODO:
-			onScrollUp: mxj2d(bo, jsonMap["onScrollUp"]),//TODO:
-			onScrollDown: mxj2d(bo, jsonMap["onScrollDown"]),//TODO:
-			onIncrease: mxj2d(bo, jsonMap["onIncrease"]),//TODO:
-			onDecrease: mxj2d(bo, jsonMap["onDecrease"]),//TODO:
-			onCopy: mxj2d(bo, jsonMap["onCopy"]),//TODO:
-			onCut: mxj2d(bo, jsonMap["onCut"]),//TODO:
-			onPaste: mxj2d(bo, jsonMap["onPaste"]),//TODO:
-			onDismiss: mxj2d(bo, jsonMap["onDismiss"]),//TODO:
-			onMoveCursorForwardByCharacter: mxj2d(bo, jsonMap["onMoveCursorForwardByCharacter"]),//TODO:
-			onMoveCursorBackwardByCharacter: mxj2d(bo, jsonMap["onMoveCursorBackwardByCharacter"]),//TODO:
-			onSetSelection: mxj2d(bo, jsonMap["onSetSelection"]),//TODO:
-			onDidGainAccessibilityFocus: mxj2d(bo, jsonMap["onDidGainAccessibilityFocus"]),//TODO:
-			onDidLoseAccessibilityFocus: mxj2d(bo, jsonMap["onDidLoseAccessibilityFocus"]),//TODO:
-			customSemanticsActions: mxj2d(bo, jsonMap["customSemanticsActions"]),//TODO:
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxySemantics()..init(className: regClassName)
+    };
+  }
+
+  @override
+  Semantics constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = Semantics(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      container: mxj2d(bo, jsonMap["container"], defaultValue: false),
+      explicitChildNodes:
+          mxj2d(bo, jsonMap["explicitChildNodes"], defaultValue: false),
+      excludeSemantics:
+          mxj2d(bo, jsonMap["excludeSemantics"], defaultValue: false),
+      enabled: mxj2d(bo, jsonMap["enabled"]),
+      checked: mxj2d(bo, jsonMap["checked"]),
+      selected: mxj2d(bo, jsonMap["selected"]),
+      toggled: mxj2d(bo, jsonMap["toggled"]),
+      button: mxj2d(bo, jsonMap["button"]),
+      header: mxj2d(bo, jsonMap["header"]),
+      textField: mxj2d(bo, jsonMap["textField"]),
+      focused: mxj2d(bo, jsonMap["focused"]),
+      inMutuallyExclusiveGroup: mxj2d(bo, jsonMap["inMutuallyExclusiveGroup"]),
+      obscured: mxj2d(bo, jsonMap["obscured"]),
+      scopesRoute: mxj2d(bo, jsonMap["scopesRoute"]),
+      namesRoute: mxj2d(bo, jsonMap["namesRoute"]),
+      hidden: mxj2d(bo, jsonMap["hidden"]),
+      image: mxj2d(bo, jsonMap["image"]),
+      liveRegion: mxj2d(bo, jsonMap["liveRegion"]),
+      label: mxj2d(bo, jsonMap["label"]),
+      value: mxj2d(bo, jsonMap["value"]),
+      increasedValue: mxj2d(bo, jsonMap["increasedValue"]),
+      decreasedValue: mxj2d(bo, jsonMap["decreasedValue"]),
+      hint: mxj2d(bo, jsonMap["hint"]),
+      onTapHint: mxj2d(bo, jsonMap["onTapHint"]),
+      onLongPressHint: mxj2d(bo, jsonMap["onLongPressHint"]),
+      textDirection: MXTextDirection.parse(mxj2d(bo, jsonMap["textDirection"])),
+      sortKey: mxj2d(bo, jsonMap["sortKey"]),
+      onTap: mxj2d(bo, jsonMap["onTap"]), //TODO:
+      onLongPress: mxj2d(bo, jsonMap["onLongPress"]), //TODO:
+      onScrollLeft: mxj2d(bo, jsonMap["onScrollLeft"]), //TODO:
+      onScrollRight: mxj2d(bo, jsonMap["onScrollRight"]), //TODO:
+      onScrollUp: mxj2d(bo, jsonMap["onScrollUp"]), //TODO:
+      onScrollDown: mxj2d(bo, jsonMap["onScrollDown"]), //TODO:
+      onIncrease: mxj2d(bo, jsonMap["onIncrease"]), //TODO:
+      onDecrease: mxj2d(bo, jsonMap["onDecrease"]), //TODO:
+      onCopy: mxj2d(bo, jsonMap["onCopy"]), //TODO:
+      onCut: mxj2d(bo, jsonMap["onCut"]), //TODO:
+      onPaste: mxj2d(bo, jsonMap["onPaste"]), //TODO:
+      onDismiss: mxj2d(bo, jsonMap["onDismiss"]), //TODO:
+      onMoveCursorForwardByCharacter:
+          mxj2d(bo, jsonMap["onMoveCursorForwardByCharacter"]), //TODO:
+      onMoveCursorBackwardByCharacter:
+          mxj2d(bo, jsonMap["onMoveCursorBackwardByCharacter"]), //TODO:
+      onSetSelection: mxj2d(bo, jsonMap["onSetSelection"]), //TODO:
+      onDidGainAccessibilityFocus:
+          mxj2d(bo, jsonMap["onDidGainAccessibilityFocus"]), //TODO:
+      onDidLoseAccessibilityFocus:
+          mxj2d(bo, jsonMap["onDidLoseAccessibilityFocus"]), //TODO:
+      customSemanticsActions:
+          mxj2d(bo, jsonMap["customSemanticsActions"]), //TODO:
+    );
+    return widget;
+  }
 }
 
 class MXProxyCircleBorder extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "CircleBorder";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyCircleBorder()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "CircleBorder";
 
-	@override
-	CircleBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = CircleBorder(
-			side: mxj2d(bo, jsonMap["side"], defaultValue:BorderSide.none),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyCircleBorder()..init(className: regClassName)
+    };
+  }
+
+  @override
+  CircleBorder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = CircleBorder(
+      side: mxj2d(bo, jsonMap["side"], defaultValue: BorderSide.none),
+    );
+    return widget;
+  }
 }
 
 class MXProxySafeArea extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "SafeArea";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxySafeArea()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SafeArea";
 
-	@override
-	SafeArea constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = SafeArea(
-			key: mxj2d(bo, jsonMap["key"]),
-			left: mxj2d(bo, jsonMap["left"], defaultValue:true),
-			top: mxj2d(bo, jsonMap["top"], defaultValue:true),
-			right: mxj2d(bo, jsonMap["right"], defaultValue:true),
-			bottom: mxj2d(bo, jsonMap["bottom"], defaultValue:true),
-			minimum: mxj2d(bo, jsonMap["minimum"], defaultValue:EdgeInsets.zero),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxySafeArea()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SafeArea constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SafeArea(
+      key: mxj2d(bo, jsonMap["key"]),
+      left: mxj2d(bo, jsonMap["left"], defaultValue: true),
+      top: mxj2d(bo, jsonMap["top"], defaultValue: true),
+      right: mxj2d(bo, jsonMap["right"], defaultValue: true),
+      bottom: mxj2d(bo, jsonMap["bottom"], defaultValue: true),
+      minimum: mxj2d(bo, jsonMap["minimum"], defaultValue: EdgeInsets.zero),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
-class MXMaterialTapTargetSize  {
-	static Map str2VMap =  {
-		"MaterialTapTargetSize.padded": MaterialTapTargetSize.padded,
-		"MaterialTapTargetSize.shrinkWrap": MaterialTapTargetSize.shrinkWrap,
-	}; 
+class MXMaterialTapTargetSize {
+  static Map str2VMap = {
+    "MaterialTapTargetSize.padded": MaterialTapTargetSize.padded,
+    "MaterialTapTargetSize.shrinkWrap": MaterialTapTargetSize.shrinkWrap,
+  };
 
-	static MaterialTapTargetSize parse(Map valueMap,{MaterialTapTargetSize defaultValue }) {
-		if(valueMap == null) return defaultValue;
-		var valueStr = valueMap["_name"].trim();
-		var v = str2VMap[valueStr];
-		return v??defaultValue;
-	}
+  static MaterialTapTargetSize parse(Map valueMap,
+      {MaterialTapTargetSize defaultValue}) {
+    if (valueMap == null) return defaultValue;
+    var valueStr = valueMap["_name"].trim();
+    var v = str2VMap[valueStr];
+    return v ?? defaultValue;
+  }
 }
 
 class MXProxyBuilder extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "Builder";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyBuilder()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "Builder";
 
-	@override
-	Builder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = Builder(
-			key: mxj2d(bo, jsonMap["key"]),
-			builder: (BuildContext context) {
-        return mxj2d(bo, jsonMap["child"], context:context);
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyBuilder()..init(className: regClassName)
+    };
+  }
+
+  @override
+  Builder constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = Builder(
+      key: mxj2d(bo, jsonMap["key"]),
+      builder: (BuildContext context) {
+        return mxj2d(bo, jsonMap["child"], context: context);
       },
-		);
-		return widget;
-	}
+    );
+    return widget;
+  }
 }
 
 class MXProxyDefaultTabController extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "DefaultTabController";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyDefaultTabController()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "DefaultTabController";
 
-	@override
-	DefaultTabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = DefaultTabController(
-			key: mxj2d(bo, jsonMap["key"]),
-			length: mxj2d(bo, jsonMap["length"]),
-			initialIndex: mxj2d(bo, jsonMap["initialIndex"], defaultValue:0),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxyDefaultTabController()..init(className: regClassName)
+    };
+  }
+
+  @override
+  DefaultTabController constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = DefaultTabController(
+      key: mxj2d(bo, jsonMap["key"]),
+      length: mxj2d(bo, jsonMap["length"]),
+      initialIndex: mxj2d(bo, jsonMap["initialIndex"], defaultValue: 0),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxyTabController extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "TabController";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyTabController()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "TabController";
 
-	@override
-	TabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = TabController(
-			initialIndex: mxj2d(bo, jsonMap["initialIndex"], defaultValue:0),
-			length: mxj2d(bo, jsonMap["length"]),
-			vsync: mxj2d(bo, jsonMap["vsync"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyTabController()..init(className: regClassName)
+    };
+  }
+
+  @override
+  TabController constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = TabController(
+      initialIndex: mxj2d(bo, jsonMap["initialIndex"], defaultValue: 0),
+      length: mxj2d(bo, jsonMap["length"]),
+      vsync: mxj2d(bo, jsonMap["vsync"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxyTab extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "Tab";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyTab()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "Tab";
 
-	@override
-	Tab constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = Tab(
-			key: mxj2d(bo, jsonMap["key"]),
-			text: mxj2d(bo, jsonMap["text"]),
-			icon: mxj2d(bo, jsonMap["icon"]),
-			child: mxj2d(bo, jsonMap["child"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {regClassName: () => MXProxyTab()..init(className: regClassName)};
+  }
+
+  @override
+  Tab constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = Tab(
+      key: mxj2d(bo, jsonMap["key"]),
+      text: mxj2d(bo, jsonMap["text"]),
+      icon: mxj2d(bo, jsonMap["icon"]),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
 }
 
 class MXProxyTabBarView extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "TabBarView";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyTabBarView()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "TabBarView";
 
-	@override
-	TabBarView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = TabBarView(
-			key: mxj2d(bo, jsonMap["key"]),
-			children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
-			controller: mxj2d(bo, jsonMap["controller"]),
-			physics: mxj2d(bo, jsonMap["physics"]),
-			// dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyTabBarView()..init(className: regClassName)
+    };
+  }
+
+  @override
+  TabBarView constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = TabBarView(
+      key: mxj2d(bo, jsonMap["key"]),
+      children: toListT<Widget>(mxj2d(bo, jsonMap["children"])),
+      controller: mxj2d(bo, jsonMap["controller"]),
+      physics: mxj2d(bo, jsonMap["physics"]),
+      // dragStartBehavior: MXDragStartBehavior.parse(mxj2d(bo, jsonMap["dragStartBehavior"]), defaultValue:DragStartBehavior.down),
+    );
+    return widget;
+  }
 }
 
 class MXProxyNavigator extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "Navigator";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyNavigator()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "Navigator";
 
-	@override
-	Navigator constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = Navigator(
-			key: mxj2d(bo, jsonMap["key"]),
-			initialRoute: mxj2d(bo, jsonMap["initialRoute"]),
-			onGenerateRoute: mxj2d(bo, jsonMap["onGenerateRoute"]),
-			onUnknownRoute: mxj2d(bo, jsonMap["onUnknownRoute"]),
-			observers: mxj2d(bo, jsonMap["observers"], defaultValue:const <NavigatorObserver>[]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyNavigator()..init(className: regClassName)
+    };
+  }
+
+  @override
+  Navigator constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = Navigator(
+      key: mxj2d(bo, jsonMap["key"]),
+      initialRoute: mxj2d(bo, jsonMap["initialRoute"]),
+      onGenerateRoute: mxj2d(bo, jsonMap["onGenerateRoute"]),
+      onUnknownRoute: mxj2d(bo, jsonMap["onUnknownRoute"]),
+      observers: mxj2d(bo, jsonMap["observers"],
+          defaultValue: const <NavigatorObserver>[]),
+    );
+    return widget;
+  }
 }
 
 class MXProxyMaterialPageRoute extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "MaterialPageRoute";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyMaterialPageRoute()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "MaterialPageRoute";
 
-	@override
-	MaterialPageRoute constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = MaterialPageRoute(
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxyMaterialPageRoute()..init(className: regClassName)
+    };
+  }
+
+  @override
+  MaterialPageRoute constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = MaterialPageRoute(
       builder: (BuildContext context) {
-        return (mxj2d(bo, jsonMap["child"], context:context));
+        return (mxj2d(bo, jsonMap["child"], context: context));
       },
-			settings: mxj2d(bo, jsonMap["settings"]),
-			maintainState: mxj2d(bo, jsonMap["maintainState"], defaultValue:true),
-			fullscreenDialog: mxj2d(bo, jsonMap["fullscreenDialog"], defaultValue:false),
-		);
-		return widget;
-	}
+      settings: mxj2d(bo, jsonMap["settings"]),
+      maintainState: mxj2d(bo, jsonMap["maintainState"], defaultValue: true),
+      fullscreenDialog:
+          mxj2d(bo, jsonMap["fullscreenDialog"], defaultValue: false),
+    );
+    return widget;
+  }
 }
 
 class MXProxyRouteSettings extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "RouteSettings";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyRouteSettings()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "RouteSettings";
 
-	@override
-	RouteSettings constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = RouteSettings(
-			name: mxj2d(bo, jsonMap["name"]),
-			isInitialRoute: mxj2d(bo, jsonMap["isInitialRoute"], defaultValue:false),
-			arguments: mxj2d(bo, jsonMap["arguments"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyRouteSettings()..init(className: regClassName)
+    };
+  }
+
+  @override
+  RouteSettings constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = RouteSettings(
+      name: mxj2d(bo, jsonMap["name"]),
+      isInitialRoute: mxj2d(bo, jsonMap["isInitialRoute"], defaultValue: false),
+      arguments: mxj2d(bo, jsonMap["arguments"]),
+    );
+    return widget;
+  }
 }
 
-class MXStretchMode  {
-	static Map str2VMap =  {
-		"StretchMode.zoomBackground": StretchMode.zoomBackground,
-		"StretchMode.blurBackground": StretchMode.blurBackground,
-		"StretchMode.fadeTitle": StretchMode.fadeTitle,
-	}; 
+class MXStretchMode {
+  static Map str2VMap = {
+    "StretchMode.zoomBackground": StretchMode.zoomBackground,
+    "StretchMode.blurBackground": StretchMode.blurBackground,
+    "StretchMode.fadeTitle": StretchMode.fadeTitle,
+  };
 
-	static StretchMode parse(Map valueMap,{StretchMode defaultValue }) {
-		if(valueMap == null) return defaultValue;
-		var valueStr = valueMap["_name"].trim();
-		var v = str2VMap[valueStr];
-		return v??defaultValue;
-	}
+  static StretchMode parse(Map valueMap, {StretchMode defaultValue}) {
+    if (valueMap == null) return defaultValue;
+    var valueStr = valueMap["_name"].trim();
+    var v = str2VMap[valueStr];
+    return v ?? defaultValue;
+  }
 }
 
-class MXCollapseMode  {
-	static Map str2VMap =  {
-		"CollapseMode.parallax": CollapseMode.parallax,
-		"CollapseMode.pin": CollapseMode.pin,
-		"CollapseMode.none": CollapseMode.none,
-	}; 
+class MXCollapseMode {
+  static Map str2VMap = {
+    "CollapseMode.parallax": CollapseMode.parallax,
+    "CollapseMode.pin": CollapseMode.pin,
+    "CollapseMode.none": CollapseMode.none,
+  };
 
-	static CollapseMode parse(Map valueMap,{CollapseMode defaultValue }) {
-		if(valueMap == null) return defaultValue;
-		var valueStr = valueMap["_name"].trim();
-		var v = str2VMap[valueStr];
-		return v??defaultValue;
-	}
+  static CollapseMode parse(Map valueMap, {CollapseMode defaultValue}) {
+    if (valueMap == null) return defaultValue;
+    var valueStr = valueMap["_name"].trim();
+    var v = str2VMap[valueStr];
+    return v ?? defaultValue;
+  }
+}
+
+class MXProxyScrollbar extends MXJsonObjProxy {
+  static String regClassName = "Scrollbar";
+
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyScrollbar()..init(className: regClassName)
+    };
+  }
+
+  @override
+  Scrollbar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = Scrollbar(
+      key: mxj2d(bo, jsonMap["key"]),
+      child: mxj2d(bo, jsonMap["child"]),
+    );
+
+    return widget;
+  }
+}
+
+class MXProxySnackBar extends MXJsonObjProxy {
+  static String regClassName = "SnackBar";
+
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxySnackBar()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SnackBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SnackBar(
+      key: mxj2d(bo, jsonMap["key"]),
+      content: mxj2d(bo, jsonMap["content"]),
+      backgroundColor: mxj2d(bo, jsonMap["backgroundColor"]),
+      elevation: mxj2d(bo, jsonMap["elevation"]),
+      shape: mxj2d(bo, jsonMap["shape"]),
+      behavior: mxj2d(bo, jsonMap["behavior"]),
+      action: mxj2d(bo, jsonMap["action"]),
+      duration: mxj2d(bo, jsonMap["duration"],
+          defaultValue: Duration(milliseconds: 4000)),
+      animation: mxj2d(bo, jsonMap["animation"]),
+      onVisible: mxj2d(bo, jsonMap["onVisible"]),
+    );
+    return widget;
+  }
+}
+
+class MXProxyFlutterLogo extends MXJsonObjProxy {
+  static String regClassName = "FlutterLogo";
+
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyFlutterLogo()..init(className: regClassName)
+    };
+  }
+
+  @override
+  FlutterLogo constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = FlutterLogo(
+      key: mxj2d(bo, jsonMap["key"]),
+      size: mxj2d(bo, jsonMap["size"], defaultValue: 24)?.toDouble(),
+      colors: mxj2d(bo, jsonMap["colors"]),
+      textColor: mxj2d(bo, jsonMap["textColor"],
+          defaultValue: const Color(0xFF616161)),
+      duration: mxj2d(bo, jsonMap["duration"],
+          defaultValue: const Duration(milliseconds: 750)),
+      curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]),
+          defaultValue: Curves.fastOutSlowIn),
+    );
+    return widget;
+  }
 }

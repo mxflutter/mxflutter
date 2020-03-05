@@ -65,7 +65,8 @@ class MXProxyImageProvider extends MXJsonObjProxy {
   }
 
   AssetImage constructorAssetImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var obj = AssetImage(mxj2d(bo, jsonMap["assetName"]),
         bundle: mxj2d(bo, jsonMap["bundle"]),
         package: mxj2d(bo, jsonMap["package"]));
@@ -73,7 +74,8 @@ class MXProxyImageProvider extends MXJsonObjProxy {
   }
 
   ExactAssetImage constructorExactAssetImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var obj = ExactAssetImage(mxj2d(bo, jsonMap["assetName"]),
         bundle: mxj2d(bo, jsonMap["bundle"]),
         package: mxj2d(bo, jsonMap["package"]));
@@ -81,21 +83,24 @@ class MXProxyImageProvider extends MXJsonObjProxy {
   }
 
   FileImage constructorFileImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var obj = FileImage(mxj2d(bo, jsonMap["file"]),
         scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble());
     return obj;
   }
 
   MemoryImage constructorMemoryImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var obj = MemoryImage(mxj2d(bo, jsonMap["bytes"]),
         scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble());
     return obj;
   }
 
   NetworkImage constructorNetworkImage(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var obj = NetworkImage(mxj2d(bo, jsonMap["url"]),
         scale: mxj2d(bo, jsonMap["scale"], defaultValue: 1.0)?.toDouble(),
         headers: toMapStringT(mxj2d(bo, jsonMap["headers"])));
@@ -103,22 +108,21 @@ class MXProxyImageProvider extends MXJsonObjProxy {
   }
 }
 
-class MXImageRepeat  {
-	static Map str2VMap =  {
-		"ImageRepeat.repeat": ImageRepeat.repeat,
-		"ImageRepeat.repeatX": ImageRepeat.repeatX,
-		"ImageRepeat.repeatY": ImageRepeat.repeatY,
-		"ImageRepeat.noRepeat": ImageRepeat.noRepeat,
-	}; 
+class MXImageRepeat {
+  static Map str2VMap = {
+    "ImageRepeat.repeat": ImageRepeat.repeat,
+    "ImageRepeat.repeatX": ImageRepeat.repeatX,
+    "ImageRepeat.repeatY": ImageRepeat.repeatY,
+    "ImageRepeat.noRepeat": ImageRepeat.noRepeat,
+  };
 
-	static ImageRepeat parse(Map valueMap,{ImageRepeat defaultValue }) {
-		if(valueMap == null) return defaultValue;
-		var valueStr = valueMap["_name"].trim();
-		var v = str2VMap[valueStr];
-		return v??defaultValue;
-	}
+  static ImageRepeat parse(Map valueMap, {ImageRepeat defaultValue}) {
+    if (valueMap == null) return defaultValue;
+    var valueStr = valueMap["_name"].trim();
+    var v = str2VMap[valueStr];
+    return v ?? defaultValue;
+  }
 }
-
 
 class MXProxyImage extends MXJsonObjProxy {
   static String regClassName = "Image";
@@ -155,7 +159,8 @@ class MXProxyImage extends MXJsonObjProxy {
   }
 
   @override
-  Image constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+  Image constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Image(
       key: mxj2d(bo, jsonMap["key"]),
       image: mxj2d(bo, jsonMap["image"]),
@@ -169,19 +174,21 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]),
+          defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
-      filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
+      filterQuality: MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]),
+          defaultValue: FilterQuality.low),
     );
     return widget;
   }
 
-  Image constructorNetwork(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  Image constructorNetwork(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Image.network(
       mxj2d(bo, jsonMap["src"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -196,20 +203,22 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]),
+          defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
-      filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
+      filterQuality: MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]),
+          defaultValue: FilterQuality.low),
       headers: toMapStringT(mxj2d(bo, jsonMap["headers"])),
     );
     return widget;
   }
 
-  Image constructorFile(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  Image constructorFile(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Image.file(
       mxj2d(bo, jsonMap["file"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -224,19 +233,21 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]),
+          defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
-      filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
+      filterQuality: MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]),
+          defaultValue: FilterQuality.low),
     );
     return widget;
   }
 
-  Image constructorAsset(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  Image constructorAsset(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Image.asset(
       mxj2d(bo, jsonMap["name"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -252,20 +263,22 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]),
+          defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
       package: mxj2d(bo, jsonMap["package"]),
-      filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
+      filterQuality: MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]),
+          defaultValue: FilterQuality.low),
     );
     return widget;
   }
 
-  Image constructorMemory(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,  {BuildContext context}) {
+  Image constructorMemory(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
     var widget = Image.memory(
       mxj2d(bo, jsonMap["bytes"]),
       key: mxj2d(bo, jsonMap["key"]),
@@ -280,38 +293,47 @@ class MXProxyImage extends MXJsonObjProxy {
       fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue: ImageRepeat.noRepeat),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]),
+          defaultValue: ImageRepeat.noRepeat),
       centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
       matchTextDirection:
           mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
       gaplessPlayback:
           mxj2d(bo, jsonMap["gaplessPlayback"], defaultValue: false),
-      filterQuality:
-          MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]), defaultValue: FilterQuality.low),
+      filterQuality: MXFilterQuality.parse(mxj2d(bo, jsonMap["filterQuality"]),
+          defaultValue: FilterQuality.low),
     );
     return widget;
   }
 }
 
 class MXProxyDecorationImage extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "DecorationImage";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyDecorationImage()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "DecorationImage";
 
-	@override
-	DecorationImage constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = DecorationImage(
-			image: mxj2d(bo, jsonMap["image"]),
-			colorFilter: mxj2d(bo, jsonMap["colorFilter"]),
-			fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
-			alignment: mxj2d(bo, jsonMap["alignment"], defaultValue:Alignment.center),
-			centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
-			repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]), defaultValue:ImageRepeat.noRepeat),
-			matchTextDirection: mxj2d(bo, jsonMap["matchTextDirection"], defaultValue:false),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxyDecorationImage()..init(className: regClassName)
+    };
+  }
+
+  @override
+  DecorationImage constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = DecorationImage(
+      image: mxj2d(bo, jsonMap["image"]),
+      colorFilter: mxj2d(bo, jsonMap["colorFilter"]),
+      fit: MXBoxFit.parse(mxj2d(bo, jsonMap["fit"])),
+      alignment:
+          mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
+      centerSlice: mxj2d(bo, jsonMap["centerSlice"]),
+      repeat: MXImageRepeat.parse(mxj2d(bo, jsonMap["repeat"]),
+          defaultValue: ImageRepeat.noRepeat),
+      matchTextDirection:
+          mxj2d(bo, jsonMap["matchTextDirection"], defaultValue: false),
+    );
+    return widget;
+  }
 }

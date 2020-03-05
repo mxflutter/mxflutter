@@ -98,7 +98,7 @@
         
         if ([call.method isEqualToString:@"callJS"]) {
             
-            [strongSelf.jsExecutor invokeJSValue:strongSelf.jsAppObj mothod:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
+            [strongSelf.jsExecutor invokeJSValue:strongSelf.jsAppObj method:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
                 if (!error) 
                 {
                     flutterResult(result.toString);
@@ -132,7 +132,7 @@
             MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
             
             //执行main.js 时，自己执行main() ,方便用js IDE直接执行调试JS代码
-            //        [executor invokeMothod:@"main" args:@[pageName] callback:^(JSValue *result, NSError *error) {
+            //        [executor invokeMethod:@"main" args:@[pageName] callback:^(JSValue *result, NSError *error) {
             //
             //            NSLog(@"MXJSFlutter : call main error:%@",error);
             //        }];

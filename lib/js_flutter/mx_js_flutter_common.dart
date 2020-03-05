@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:convert';
-import 'mx_js_framework.dart';
 
 class MXJSLog {
   static log(Object object) {
@@ -11,19 +9,15 @@ class MXJSLog {
   }
 
   static error(Object object) {
-
     String log = "MXJSFlutter:[Flutter]-[ERR]::$object";
     print(log);
     callNativelog(log);
-
   }
 
   static debug(Object object) {
-
     String log = "MXJSFlutter:[Flutter]-[DEBUG]::$object";
     print(log);
     callNativelog(log);
-
   }
 
   static callNativelog(String log) {
@@ -33,6 +27,20 @@ class MXJSLog {
 
 class MXUtil {
   //MediaQueryData
+
+  static Map compressMap(Map map) {
+    if (map == null) {
+      return map;
+    }
+    Map retMap = {};
+    for (var k in map.keys) {
+      var v = map[k];
+      if (v != null) {
+        retMap[k] = v;
+      }
+    }
+    return retMap;
+  }
 
   static Map cMediaQueryDataToJson(MediaQueryData data) {
     var map = {
@@ -48,12 +56,12 @@ class MXUtil {
       "boldText": data.boldText,
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static Map cSizeToJson(Size sz) {
     var map = {"width": sz.width, "height": sz.height};
-    return map;
+    return compressMap(map);
   }
 
   //const EdgeInsets.fromLTRB(this.left, this.top, this.right, this.bottom);
@@ -65,7 +73,7 @@ class MXUtil {
       "right": insets.right,
       "bottom": insets.bottom
     };
-    return map;
+    return compressMap(map);
   }
 
   static Map cThemeDataToJson(ThemeData data) {
@@ -84,7 +92,7 @@ class MXUtil {
       "dividerColor": data.dividerColor?.value,
       "highlightColor": data.highlightColor?.value,
       "splashColor": data.splashColor?.value,
-      // "splashFactory": data.splashFactory, 
+      // "splashFactory": data.splashFactory,
       "selectedRowColor": data.selectedRowColor?.value,
       "unselectedWidgetColor": data.unselectedWidgetColor?.value,
       "disabledColor": data.disabledColor?.value,
@@ -109,14 +117,15 @@ class MXUtil {
       // "tabBarTheme": data.tabBarTheme,
       // "chipTheme": data.chipTheme,
       "platform": cTargetPlatformToJson(data.platform),
-      "materialTapTargetSize": cMaterialTapTargetSizeToJson(data.materialTapTargetSize),
+      "materialTapTargetSize":
+          cMaterialTapTargetSizeToJson(data.materialTapTargetSize),
       // "pageTransitionsTheme": data.pageTransitionsTheme,
       // "colorScheme": data.colorScheme,
       // "dialogTheme": data.dialogTheme,
       // "typography": data.typography,
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static Map cIconThemeDataToJson(IconThemeData data) {
@@ -126,7 +135,7 @@ class MXUtil {
       "opacity": data.opacity,
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static Map cBrightnessToJson(Brightness data) {
@@ -135,17 +144,13 @@ class MXUtil {
     switch (data) {
       case Brightness.light:
         {
-          v = {"_name" : "Brightness.light",
-               "index" : 0
-              };
+          v = {"_name": "Brightness.light", "index": 0};
           break;
         }
 
       case Brightness.dark:
         {
-          v = {"_name" : "Brightness.dark",
-               "index" : 1
-              };
+          v = {"_name": "Brightness.dark", "index": 1};
           break;
         }
     }
@@ -174,7 +179,7 @@ class MXUtil {
       "overline": cTextStyleToJson(data.overline),
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static Map cTextStyleToJson(TextStyle data) {
@@ -193,8 +198,8 @@ class MXUtil {
       "textBaseline": cTextBaselineToJson(data.textBaseline),
       "height": data.height,
       "locale": cLocaleToJson(data.locale),
-      // "foreground": data.foreground, 
-      // "background": data.background, 
+      // "foreground": data.foreground,
+      // "background": data.background,
       "shadows": cShadowToJson(data.shadows),
       "decoration": cTextDecorationToJson(data.decoration),
       "decorationColor": data.decorationColor?.value,
@@ -203,11 +208,11 @@ class MXUtil {
       "fontFamily": data.fontFamily,
     };
 
-    return map;
+    return compressMap(map);
   }
 
-   static Map cInputDecorationThemeToJson(InputDecorationTheme data) {
-     if (data == null) {
+  static Map cInputDecorationThemeToJson(InputDecorationTheme data) {
+    if (data == null) {
       return null;
     }
 
@@ -234,7 +239,7 @@ class MXUtil {
       "border": data.border,
     };
 
-    return map;
+    return compressMap(map);
   }
 
   static Map cTargetPlatformToJson(TargetPlatform data) {
@@ -243,25 +248,19 @@ class MXUtil {
     switch (data) {
       case TargetPlatform.android:
         {
-          v = {"_name" : "TargetPlatform.android",
-               "index" : 0
-              };
+          v = {"_name": "TargetPlatform.android", "index": 0};
           break;
         }
 
       case TargetPlatform.fuchsia:
         {
-          v = {"_name" : "TargetPlatform.fuchsia",
-               "index" : 1
-              };
+          v = {"_name": "TargetPlatform.fuchsia", "index": 1};
           break;
         }
 
       case TargetPlatform.iOS:
         {
-          v = {"_name" : "TargetPlatform.iOS",
-               "index" : 2
-              };
+          v = {"_name": "TargetPlatform.iOS", "index": 2};
           break;
         }
 
@@ -283,17 +282,13 @@ class MXUtil {
     switch (data) {
       case MaterialTapTargetSize.padded:
         {
-          v = {"_name" : "aterialTapTargetSize.padded",
-               "index" : 0
-              };
+          v = {"_name": "aterialTapTargetSize.padded", "index": 0};
           break;
         }
 
       case MaterialTapTargetSize.shrinkWrap:
         {
-          v = {"_name" : "MaterialTapTargetSize.shrinkWrap",
-               "index" : 1
-              };
+          v = {"_name": "MaterialTapTargetSize.shrinkWrap", "index": 1};
           break;
         }
     }
@@ -307,73 +302,55 @@ class MXUtil {
     switch (data.index) {
       case 0:
         {
-          v = {"_name" : "FontWeight.w100",
-               "index" : 0
-              };
+          v = {"_name": "FontWeight.w100", "index": 0};
           break;
         }
 
       case 1:
         {
-          v = {"_name" : "FontWeight.w200",
-               "index" : 1
-              };
+          v = {"_name": "FontWeight.w200", "index": 1};
           break;
         }
 
       case 2:
         {
-          v = {"_name" : "FontWeight.w300",
-               "index" : 2
-              };
+          v = {"_name": "FontWeight.w300", "index": 2};
           break;
         }
 
       case 3:
         {
-          v = {"_name" : "FontWeight.w400",
-               "index" : 3
-              };
+          v = {"_name": "FontWeight.w400", "index": 3};
           break;
         }
 
-        case 4:
+      case 4:
         {
-          v = {"_name" : "FontWeight.w500",
-               "index" : 4
-              };
+          v = {"_name": "FontWeight.w500", "index": 4};
           break;
         }
 
-        case 5:
+      case 5:
         {
-          v = {"_name" : "FontWeight.w600",
-               "index" : 5
-              };
+          v = {"_name": "FontWeight.w600", "index": 5};
           break;
         }
 
-        case 6:
+      case 6:
         {
-          v = {"_name" : "FontWeight.w700",
-               "index" : 6
-              };
+          v = {"_name": "FontWeight.w700", "index": 6};
           break;
         }
 
-        case 7:
+      case 7:
         {
-          v = {"_name" : "FontWeight.w800",
-               "index" : 7
-              };
+          v = {"_name": "FontWeight.w800", "index": 7};
           break;
         }
 
-        case 8:
+      case 8:
         {
-          v = {"_name" : "FontWeight.w900",
-               "index" : 8
-              };
+          v = {"_name": "FontWeight.w900", "index": 8};
           break;
         }
     }
@@ -387,17 +364,13 @@ class MXUtil {
     switch (data) {
       case FontStyle.normal:
         {
-          v = {"_name" : "FontStyle.normal",
-               "index" : 0
-              };
+          v = {"_name": "FontStyle.normal", "index": 0};
           break;
         }
 
       case FontStyle.italic:
         {
-          v = {"_name" : "FontStyle.italic",
-               "index" : 1
-              };
+          v = {"_name": "FontStyle.italic", "index": 1};
           break;
         }
     }
@@ -411,17 +384,13 @@ class MXUtil {
     switch (data) {
       case TextBaseline.alphabetic:
         {
-          v = {"_name" : "TextBaseline.alphabetic",
-               "index" : 0
-              };
+          v = {"_name": "TextBaseline.alphabetic", "index": 0};
           break;
         }
 
       case TextBaseline.ideographic:
         {
-          v = {"_name" : "TextBaseline.ideographic",
-               "index" : 1
-              };
+          v = {"_name": "TextBaseline.ideographic", "index": 1};
           break;
         }
     }
@@ -442,30 +411,17 @@ class MXUtil {
     return map;
   }
 
-static Map cTextDecorationToJson(TextDecoration data) {
-    Map v = {"_name" : "TextDecoration.none",
-             "index" : 0
-            };
+  static Map cTextDecorationToJson(TextDecoration data) {
+    Map v = {"_name": "TextDecoration.none", "index": 0};
 
     if (data == TextDecoration.none) {
-      v = {"_name" : "TextDecoration.none",
-           "index" : 0
-           };
-    }
-    else if (data == TextDecoration.underline) {
-      v = {"_name" : "TextDecoration.underline",
-           "index" : 1
-          };
-    }
-    else if (data == TextDecoration.overline) {
-      v = {"_name" : "TextDecoration.overline",
-           "index" : 2
-          };
-    }
-    else if (data == TextDecoration.lineThrough) { 
-      v = {"_name" : "TextDecoration.lineThrough",
-           "index" : 3
-          };
+      v = {"_name": "TextDecoration.none", "index": 0};
+    } else if (data == TextDecoration.underline) {
+      v = {"_name": "TextDecoration.underline", "index": 1};
+    } else if (data == TextDecoration.overline) {
+      v = {"_name": "TextDecoration.overline", "index": 2};
+    } else if (data == TextDecoration.lineThrough) {
+      v = {"_name": "TextDecoration.lineThrough", "index": 3};
     }
 
     return v;
@@ -477,41 +433,31 @@ static Map cTextDecorationToJson(TextDecoration data) {
     switch (data) {
       case TextDecorationStyle.solid:
         {
-          v = {"_name" : "TextDecorationStyle.solid",
-               "index" : 0
-              };
+          v = {"_name": "TextDecorationStyle.solid", "index": 0};
           break;
         }
 
       case TextDecorationStyle.double:
         {
-          v = {"_name" : "TextDecorationStyle.double",
-               "index" : 1
-              };
+          v = {"_name": "TextDecorationStyle.double", "index": 1};
           break;
         }
 
       case TextDecorationStyle.dotted:
         {
-          v = {"_name" : "TextDecorationStyle.dotted",
-               "index" : 2
-              };
+          v = {"_name": "TextDecorationStyle.dotted", "index": 2};
           break;
         }
-      
+
       case TextDecorationStyle.dashed:
         {
-          v = {"_name" : "TextDecorationStyle.dashed",
-               "index" : 3
-              };
+          v = {"_name": "TextDecorationStyle.dashed", "index": 3};
           break;
         }
 
       case TextDecorationStyle.wavy:
         {
-          v = {"_name" : "TextDecorationStyle.wavy",
-               "index" : 4
-              };
+          v = {"_name": "TextDecorationStyle.wavy", "index": 4};
           break;
         }
     }
@@ -538,7 +484,7 @@ static Map cTextDecorationToJson(TextDecoration data) {
   }
 
   static Map cBoxConstraintsToJson(BoxConstraints data) {
-     if (data == null) {
+    if (data == null) {
       return null;
     }
 

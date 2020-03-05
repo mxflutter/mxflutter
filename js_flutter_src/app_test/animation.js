@@ -84,16 +84,9 @@ class JSAnimationPageState extends MXJSWidgetState {
             this.beginAnimation();
         }.bind(this)
       }),
-      body: new Center({
-        child: new AnimatedBuilder({
-          animation: this.animation,
-          widget: new Container({
-            height: this.animation.value() * imageRatio + 2 - 5,
-            width: this.animation.value(),
-            child: Image.network('http://ugc.qpic.cn/gbar_pic/1ZU94WW9oGojjwGATy7UB9VNkIrn9Ud4t79Tbd7VnMvV4hG8zbfrJFsq0VTOCOicg/'),
-          })
-          // child: this.child,
-        })
+      body: new ScaleAnimation({
+        child: Image.network('https://pic2.zhimg.com/50/v2-6416ef6d3181117a0177275286fac8f3_hd.jpg'),
+        animation: this.animation
       })
     });
 
@@ -101,4 +94,32 @@ class JSAnimationPageState extends MXJSWidgetState {
   }
 }
 
+
+class ScaleAnimation extends MXJSWidget{
+
+  constructor ({
+    child,
+    animation
+  } = {}) {
+    super();
+    this.child = child;
+    this.animation = animation;
+  }
+
+  build(context){
+    var imageRatio = 1.455;
+    let widget = new Center({
+      child: new AnimatedBuilder({
+        animation: this.animation,
+        widget: new Container({
+          // height: this.animation.value() * imageRatio + 2 - 5,
+          width: "$value",
+          child: this.child
+        })
+        // child: this.child,
+      })
+    })
+    return widget;
+  }
+}
 module.exports = { JSAnimationPage };

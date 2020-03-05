@@ -109,6 +109,80 @@ var list = <String>[
     this.d
     )
   """,
+  
+  
+
+  """
+  const AnimatedOpacity({
+    Key key,
+    this.child,
+    @required this.opacity,
+    Curve curve = Curves.linear,
+    @required Duration duration,
+    VoidCallback onEnd,
+    this.alwaysIncludeSemantics = false,
+  })
+  """
+  ,
+  """
+  const AnimatedPhysicalModel({
+    Key key,
+    @required this.child,
+    @required this.shape,
+    this.clipBehavior = Clip.none,
+    this.borderRadius = BorderRadius.zero,
+    @required this.elevation,
+    @required this.color,
+    this.animateColor = true,
+    @required this.shadowColor,
+    this.animateShadowColor = true,
+    Curve curve = Curves.linear,
+    @required Duration duration,
+    VoidCallback onEnd,
+  })
+  """
+  ,
+  """
+  const AnimatedPositioned({
+    Key key,
+    @required this.child,
+    this.left,
+    this.top,
+    this.right,
+    this.bottom,
+    this.width,
+    this.height,
+    Curve curve = Curves.linear,
+    @required Duration duration,
+    VoidCallback onEnd,
+  })
+  """
+  ,
+  """
+  const AnimatedSize({
+      Key key,
+      Widget child,
+      this.alignment = Alignment.center,
+      this.curve = Curves.linear,
+      @required this.duration,
+      this.reverseDuration,
+      @required this.vsync,
+    })
+  """,
+  """
+   const DecoratedBoxTransition({
+    Key key,
+    @required this.decoration,
+    this.position = DecorationPosition.background,
+    @required this.child,
+  })
+  """,
+  """
+  DecorationTween({
+    this.begin,
+    this.end,
+  })
+  """
 ];
 
 void main(List<String> arguments) {

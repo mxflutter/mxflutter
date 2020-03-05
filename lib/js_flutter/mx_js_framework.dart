@@ -220,8 +220,8 @@ class MXJSFlutterApp {
       return jsWidget;
     }
 
-    jsWidget = MXJSStatefulWidget.createEmptyWidget(key: widgetKey,
-        name: widgetName, parentBuildOwner: _rootBuildOwner);
+    jsWidget = MXJSStatefulWidget.createEmptyWidget(
+        key: widgetKey, name: widgetName, parentBuildOwner: _rootBuildOwner);
 
     callJSNavigatorPushWithName(jsWidget.name, jsWidget.widgetID,
         themeData: themeData,
@@ -231,7 +231,6 @@ class MXJSFlutterApp {
     return jsWidget;
   }
 
-
   //JS->Flutter， js侧调用Flutter，传递Json Widget Tree，创建JSWidget
   dynamic createJSWidget(Map widgetData) {
     dynamic jsWidget = _rootBuildOwner.buildRootWidget(widgetData);
@@ -240,7 +239,7 @@ class MXJSFlutterApp {
 
   //flutter -> JS flutter 调用 JS
   //flutter层 主动push页面,call js 创建名字为widgetName的jswidget
-  //先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
+  //先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页���
   callJSNavigatorPushWithName(String widgetName, String widgetID,
       {ThemeData themeData,
       MediaQueryData mediaQueryData,
@@ -447,7 +446,7 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
 
   ///由dart侧创建MXWidget壳子
   static MXJSStatefulWidget createEmptyWidget(
-      { Key key,String name, MXJsonBuildOwner parentBuildOwner}) {
+      {Key key, String name, MXJsonBuildOwner parentBuildOwner}) {
     //由dart侧生成 widgetID
     String widgetID = MXJSBaseWidget.generateWidgetID();
     MXJSStatefulWidget widget = MXJSStatefulWidget(

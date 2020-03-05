@@ -130,6 +130,32 @@ class Scaffold extends FlutterWidget {
     this.resizeToAvoidBottomPadding = resizeToAvoidBottomPadding;
     this.primary = primary;
   }
+  
+  //FIXME,github mergegithub merge
+  static of(context) {
+        return {
+            showSnackBar: function (snackBar) {
+                //准备调用Native方法执行真正的 showSnackBar动作
+                //1.把这里的context和snackBar数据传递到native层 ✔️
+                //2.通过context找到Native里的 Scaffold.of(context) ？
+                //3.解析snackBar为真snackBar对象 ✔️
+                //4.执行调用
+                MXJSLog.log("showSnackBar in js call native-->");
+                let argument = new FlutterCallArgs({
+                    widgetID: context.widgetID,
+                    className: 'Scaffold',
+                    funcName: 'of',
+                    args: {
+                        snackBar: snackBar,
+                    },
+                });
+                invokeCommonFlutterFunction(argument);
+            },
+            openDrawer: function () {
+                MXJSLog.log("openDrawer---in js---to call native-->");
+            },
+        };
+      }  
 }
 
 Scaffold.new = function(arg) {
@@ -1291,6 +1317,78 @@ CollapseMode = {
 	pin:{ _name: "CollapseMode.pin", index: 1 },
 	none:{ _name: "CollapseMode.none", index: 2 },
 };
+
+//FIXME,github merge
+MaterialTapTargetSize = {
+    padded: "MaterialTapTargetSize.padded",
+    shrinkWrap: "MaterialTapTargetSize.shrinkWrap"
+};
+
+class Scrollbar extends FlutterWidget {
+    constructor({
+        key,
+        child,
+    } = {}) {
+        super();
+        this.key = key;
+        this.child = child;
+    }
+
+}
+
+
+class SnackBar extends FlutterWidget {
+    constructor({
+        key,
+        content, //@required
+        backgroundColor,
+        elevation,
+        shape,
+        behavior,
+        action,
+        duration,
+        animation,
+        onVisible,
+    } = {}) {
+        super();
+        this.key = key;
+        this.content = content;
+        this.backgroundColor = backgroundColor;
+        this.elevation = elevation;
+        this.shape = shape;
+        this.behavior = behavior;
+        this.action = action;
+        this.duration = duration;
+        this.animation = animation;
+        this.onVisible = onVisible;
+    }
+}
+
+
+class FlutterLogo extends FlutterWidget {
+    constructor({
+        key,
+        size,
+        colors,
+        textColor,
+        style,
+        duration,
+        curve,
+    } = {
+            textColor: new Color(0xFF616161),
+            // style:FlutterLogoStyle.markOnly,
+            duration: new Duration({ milliseconds: 750 }),
+            curve: Curves.fastOutSlowIn
+        }) {
+        super();
+        this.key = key;
+        this.size = size;
+        this.colors = colors;
+        this.textColor = textColor;
+        this.duration = duration;
+        this.curve = curve;
+    }
+}
 
 
 module.exports = {
