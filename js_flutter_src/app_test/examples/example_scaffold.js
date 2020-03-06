@@ -62,9 +62,9 @@ class HomePage extends MXJSStatelessWidget {
   constructor() {
     super("HomePage");
   }
-  build(context){
+  build(context) {
     return new Center({
-      child:new Text("HomePage"),
+      child: new Text("HomePage"),
     })
   }
 }
@@ -74,9 +74,9 @@ class IdeaPage extends MXJSStatelessWidget {
   constructor() {
     super("IdeaPage");
   }
-  build(context){
+  build(context) {
     return new Center({
-      child:new Text("IdeaPage"),
+      child: new Text("IdeaPage"),
     })
   }
 }
@@ -86,9 +86,9 @@ class MessagePage extends MXJSStatelessWidget {
   constructor() {
     super("MessagePage");
   }
-  build(context){
+  build(context) {
     return new Center({
-      child:new Text("MessagePage"),
+      child: new Text("MessagePage"),
     })
   }
 }
@@ -98,15 +98,15 @@ class MyPage extends MXJSStatelessWidget {
   constructor() {
     super("MyPage");
   }
-  build(context){
+  build(context) {
     return new Center({
-      child:new Text("MyPage"),
+      child: new Text("MyPage"),
     })
   }
 }
 
 class _NavigationIconView {
-  constructor({icon, title, vsync}) {
+  constructor({ icon, title, vsync }) {
     this.item = new BottomNavigationBarItem({
       icon: icon,
       title: title
@@ -119,16 +119,28 @@ class _NavigationIconView {
   }
 }
 
-class PageExampleScaffold extends MXJSStatelessWidget {
-  constructor(){
+
+
+class PageExampleScaffold extends MXJSStatefulWidget {
+  constructor() {
     super("PageExampleScaffold");
+  }
+
+  createState() {
+    return new PageExampleScaffoldState(this);
+  }
+}
+
+class PageExampleScaffoldState extends MXJSWidgetState {
+  constructor(widget) {
+    super(widget);
     this._currentIndex = 0;
     this._navigationViews = [];
     this._pageList = [];
     this._currentPage = null;
   }
 
-  build(context){
+  build(context) {
     this._navigationViews = [
       new _NavigationIconView({
         icon: new Icon(Icons.assignment),
@@ -160,30 +172,29 @@ class PageExampleScaffold extends MXJSStatelessWidget {
 
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('Scafold',),
+        title: new Text('Scafold'),
       }),
       body: new Center({
         child: this._currentPage
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
 
-        })
+        }
       }),
-      bottomNavigationBar:new BottomNavigationBar({
+      bottomNavigationBar: new BottomNavigationBar({
         items: this._navigationViews.map(navigationIconView => navigationIconView.item),
         currentIndex: this._currentIndex,
         fixedColor: Theme.of(context).primaryColor,
         type: BottomNavigationBarType.fixed,
-        onTap: function(index) {
-          let that = this;
-          this.setState(function() {
+        onTap: function (index) {
+          this.setState(function () {
             this._navigationViews[this._currentIndex].controller.reverse();
             this._currentIndex = index;
             this._navigationViews[this._currentIndex].controller.forward();
             this._currentPage = this._pageList[this._currentIndex];
-          }.bind(that))
+          }.bind(this))
         }.bind(this)
       }),
     });

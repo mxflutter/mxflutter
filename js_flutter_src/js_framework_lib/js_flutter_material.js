@@ -1,4 +1,5 @@
-let { DartClass, FlutterWidget } = require("./js_flutter_basic_types.js");
+let { DartClass, FlutterWidget, Color } = require("./js_flutter_basic_types.js");
+let { Duration , Curves} = require("./js_flutter_animation.js");
 
 class MaterialApp extends FlutterWidget {
   constructor({
@@ -56,13 +57,13 @@ class MaterialApp extends FlutterWidget {
   }
 }
 
-MaterialApp.new = function(arg) {
+MaterialApp.new = function (arg) {
   return new MaterialApp(arg);
 };
 
 
 class Material extends FlutterWidget {
-  constructor ({
+  constructor({
     key,
     type,
     elevation,
@@ -92,7 +93,7 @@ class Material extends FlutterWidget {
     this.child = child;
   }
 }
-Material.new = function(arg) {
+Material.new = function (arg) {
   return new Material(arg);
 };
 
@@ -130,45 +131,45 @@ class Scaffold extends FlutterWidget {
     this.resizeToAvoidBottomPadding = resizeToAvoidBottomPadding;
     this.primary = primary;
   }
-  
+
   //FIXME,github mergegithub merge
   static of(context) {
-        return {
-            showSnackBar: function (snackBar) {
-                //准备调用Native方法执行真正的 showSnackBar动作
-                //1.把这里的context和snackBar数据传递到native层 ✔️
-                //2.通过context找到Native里的 Scaffold.of(context) ？
-                //3.解析snackBar为真snackBar对象 ✔️
-                //4.执行调用
-                MXJSLog.log("showSnackBar in js call native-->");
-                let argument = new FlutterCallArgs({
-                    widgetID: context.widgetID,
-                    className: 'Scaffold',
-                    funcName: 'of',
-                    args: {
-                        snackBar: snackBar,
-                    },
-                });
-                invokeCommonFlutterFunction(argument);
-            },
-            openDrawer: function () {
-                MXJSLog.log("openDrawer---in js---to call native-->");
-            },
-        };
-      }  
+    return {
+      showSnackBar: function (snackBar) {
+        //准备调用Native方法执行真正的 showSnackBar动作
+        //1.把这里的context和snackBar数据传递到native层 ✔️
+        //2.通过context找到Native里的 Scaffold.of(context) ？
+        //3.解析snackBar为真snackBar对象 ✔️
+        //4.执行调用
+        MXJSLog.log("showSnackBar in js call native-->");
+        let argument = new FlutterCallArgs({
+          widgetID: context.widgetID,
+          className: 'Scaffold',
+          funcName: 'of',
+          args: {
+            snackBar: snackBar,
+          },
+        });
+        invokeCommonFlutterFunction(argument);
+      },
+      openDrawer: function () {
+        MXJSLog.log("openDrawer---in js---to call native-->");
+      },
+    };
+  }
 }
 
-Scaffold.new = function(arg) {
+Scaffold.new = function (arg) {
   return new Scaffold(arg);
 };
 
 class ScaffoldState extends DartClass {
-  constructor({} = {}) {
+  constructor({ } = {}) {
     super("ScaffoldState");
   }
 }
 
-ScaffoldState.new = function(arg) {
+ScaffoldState.new = function (arg) {
   return new ScaffoldState(arg);
 };
 
@@ -214,7 +215,7 @@ class AppBar extends FlutterWidget {
   }
 }
 
-AppBar.new = function(arg) {
+AppBar.new = function (arg) {
   return new AppBar(arg);
 };
 
@@ -258,11 +259,11 @@ class FlatButton extends FlutterWidget {
   }
 }
 
-FlatButton.new = function(arg) {
+FlatButton.new = function (arg) {
   return new FlatButton(arg);
 };
 
-FlatButton.icon = function({
+FlatButton.icon = function ({
   key,
   onPressed,
   onHighlightChanged,
@@ -350,7 +351,7 @@ class FlatButtonWithIcon extends FlatButton {
   }
 }
 
-FlatButtonWithIcon.new = function(arg) {
+FlatButtonWithIcon.new = function (arg) {
   return new FlatButtonWithIcon(arg);
 };
 
@@ -402,10 +403,10 @@ class RaisedButton extends FlutterWidget {
   }
 }
 
-RaisedButton.new = function(arg) {
+RaisedButton.new = function (arg) {
   return new RaisedButton(arg);
 };
-RaisedButton.icon = function({
+RaisedButton.icon = function ({
   key,
   onPressed,
   onHighlightChanged,
@@ -541,7 +542,7 @@ class FloatingActionButton extends FlutterWidget {
   }
 }
 
-FloatingActionButton.new = function(arg) {
+FloatingActionButton.new = function (arg) {
   return new FloatingActionButton(arg);
 };
 
@@ -575,7 +576,7 @@ class IconButton extends FlutterWidget {
   }
 }
 
-IconButton.new = function(arg) {
+IconButton.new = function (arg) {
   return new IconButton(arg);
 };
 
@@ -609,7 +610,7 @@ class DropdownButton extends FlutterWidget {
   }
 }
 
-DropdownButton.new = function(arg) {
+DropdownButton.new = function (arg) {
   return new DropdownButton(arg);
 };
 
@@ -661,7 +662,7 @@ class PopupMenuButton extends FlutterWidget {
   }
 }
 
-PopupMenuButton.new = function(arg) {
+PopupMenuButton.new = function (arg) {
   return new PopupMenuButton(arg);
 };
 
@@ -676,7 +677,7 @@ class ButtonBar extends FlutterWidget {
   }
 }
 
-ButtonBar.new = function(arg) {
+ButtonBar.new = function (arg) {
   return new ButtonBar(arg);
 };
 
@@ -693,7 +694,7 @@ class Icon extends FlutterWidget {
   }
 }
 
-Icon.new = function(arg1, arg2) {
+Icon.new = function (arg1, arg2) {
   return new Icon(arg1, arg2);
 };
 
@@ -719,7 +720,7 @@ class Hero extends FlutterWidget {
   }
 }
 
-Hero.new = function(arg) {
+Hero.new = function (arg) {
   return new Hero(arg);
 };
 
@@ -747,7 +748,7 @@ class Card extends FlutterWidget {
   }
 }
 
-Card.new = function(arg) {
+Card.new = function (arg) {
   return new Card(arg);
 };
 
@@ -760,7 +761,7 @@ class MergeSemantics extends FlutterWidget {
   }
 }
 
-MergeSemantics.new = function(arg) {
+MergeSemantics.new = function (arg) {
   return new MergeSemantics(arg);
 };
 
@@ -776,7 +777,7 @@ class PopupMenuItem extends FlutterWidget {
   }
 }
 
-PopupMenuItem.new = function(arg) {
+PopupMenuItem.new = function (arg) {
   return new PopupMenuItem(arg);
 };
 
@@ -792,7 +793,7 @@ class FlexibleSpaceBar extends FlutterWidget {
   }
 }
 
-FlexibleSpaceBar.new = function(arg) {
+FlexibleSpaceBar.new = function (arg) {
   return new FlexibleSpaceBar(arg);
 };
 
@@ -818,7 +819,7 @@ class BottomAppBar extends FlutterWidget {
   }
 }
 
-BottomAppBar.new = function(arg) {
+BottomAppBar.new = function (arg) {
   return new BottomAppBar(arg);
 };
 
@@ -844,7 +845,7 @@ class BottomNavigationBar extends FlutterWidget {
   }
 }
 
-BottomNavigationBar.new = function(arg) {
+BottomNavigationBar.new = function (arg) {
   return new BottomNavigationBar(arg);
 };
 
@@ -868,7 +869,7 @@ class Radio extends FlutterWidget {
   }
 }
 
-Radio.new = function(arg) {
+Radio.new = function (arg) {
   return new Radio(arg);
 };
 
@@ -974,7 +975,7 @@ class Semantics extends FlutterWidget {
   }
 }
 
-Semantics.new = function(arg) {
+Semantics.new = function (arg) {
   return new Semantics(arg);
 };
 
@@ -1020,7 +1021,7 @@ class RawMaterialButton extends FlutterWidget {
   }
 }
 
-RawMaterialButton.new = function(arg) {
+RawMaterialButton.new = function (arg) {
   return new RawMaterialButton(arg);
 };
 
@@ -1032,7 +1033,7 @@ class CircleBorder extends FlutterWidget {
   }
 }
 
-CircleBorder.new = function(arg) {
+CircleBorder.new = function (arg) {
   return new CircleBorder(arg);
 };
 
@@ -1050,7 +1051,7 @@ class SafeArea extends FlutterWidget {
   }
 }
 
-SafeArea.new = function(arg) {
+SafeArea.new = function (arg) {
   return new SafeArea(arg);
 };
 
@@ -1085,7 +1086,7 @@ class Builder extends FlutterWidget {
   }
 }
 
-Builder.new = function(arg) {
+Builder.new = function (arg) {
   return new Builder(arg);
 };
 
@@ -1100,7 +1101,7 @@ class DefaultTabController extends FlutterWidget {
   }
 }
 
-DefaultTabController.new = function(arg) {
+DefaultTabController.new = function (arg) {
   return new DefaultTabController(arg);
 };
 
@@ -1144,7 +1145,7 @@ class TabBar extends FlutterWidget {
   }
 }
 
-TabBar.new = function(arg) {
+TabBar.new = function (arg) {
   return new TabBar(arg);
 };
 
@@ -1158,7 +1159,7 @@ class TabController extends FlutterWidget {
   }
 }
 
-TabController.new = function(arg) {
+TabController.new = function (arg) {
   return new TabController(arg);
 };
 
@@ -1173,7 +1174,7 @@ class Tab extends FlutterWidget {
   }
 }
 
-Tab.new = function(arg) {
+Tab.new = function (arg) {
   return new Tab(arg);
 };
 
@@ -1189,12 +1190,12 @@ class TabBarView extends FlutterWidget {
   }
 }
 
-TabBarView.new = function(arg) {
+TabBarView.new = function (arg) {
   return new TabBarView(arg);
 };
 
 class NavigatorState extends FlutterWidget {
-  constructor (context) {
+  constructor(context) {
     super();
 
     this.context = context;
@@ -1209,7 +1210,7 @@ class NavigatorState extends FlutterWidget {
 }
 
 class Navigator extends FlutterWidget {
-  constructor ({
+  constructor({
     key,
     initialRoute,
     onGenerateRoute,
@@ -1228,18 +1229,18 @@ class Navigator extends FlutterWidget {
   static push(context, materialPageRoute) {
 
     let T = null;
-    if(arguments.length == 3){
+    if (arguments.length == 3) {
       T = arguments[0];
       context = arguments[1];
       materialPageRoute = arguments[2];
     }
-    
+
     var navigatorState = new NavigatorState(context);
     navigatorState.push(T, materialPageRoute);
   }
   static pop(context) {
     let T = null;
-    if(arguments.length == 2){
+    if (arguments.length == 2) {
       T = arguments[0];
       context = arguments[1];
     }
@@ -1253,12 +1254,12 @@ class Navigator extends FlutterWidget {
   }
 }
 
-Navigator.new = function(arg) {
+Navigator.new = function (arg) {
   return new Navigator(arg);
 };
 
 class MaterialPageRoute extends FlutterWidget {
-  constructor ({
+  constructor({
     builder,
     settings,
     maintainState,
@@ -1270,7 +1271,7 @@ class MaterialPageRoute extends FlutterWidget {
     this.settings = settings;
     this.maintainState = maintainState;
     this.fullscreenDialog = fullscreenDialog;
-    
+
     this.child = null;
   }
 
@@ -1284,12 +1285,12 @@ class MaterialPageRoute extends FlutterWidget {
   }
 }
 
-MaterialPageRoute.new = function(args) {
+MaterialPageRoute.new = function (args) {
   return new MaterialPageRoute(args);
 };
 
 class RouteSettings extends FlutterWidget {
-  constructor ({
+  constructor({
     name,
     isInitialRoute,
     arg,
@@ -1302,92 +1303,92 @@ class RouteSettings extends FlutterWidget {
   }
 }
 
-RouteSettings.new = function(args) {
+RouteSettings.new = function (args) {
   return new RouteSettings(args);
 };
 
 StretchMode = {
-	zoomBackground:{ _name: "StretchMode.zoomBackground", index: 0 },
-	blurBackground:{ _name: "StretchMode.blurBackground", index: 1 },
-	fadeTitle:{ _name: "StretchMode.fadeTitle", index: 2 },
+  zoomBackground: { _name: "StretchMode.zoomBackground", index: 0 },
+  blurBackground: { _name: "StretchMode.blurBackground", index: 1 },
+  fadeTitle: { _name: "StretchMode.fadeTitle", index: 2 },
 };
 
 CollapseMode = {
-	parallax:{ _name: "CollapseMode.parallax", index: 0 },
-	pin:{ _name: "CollapseMode.pin", index: 1 },
-	none:{ _name: "CollapseMode.none", index: 2 },
+  parallax: { _name: "CollapseMode.parallax", index: 0 },
+  pin: { _name: "CollapseMode.pin", index: 1 },
+  none: { _name: "CollapseMode.none", index: 2 },
 };
 
 //FIXME,github merge
 MaterialTapTargetSize = {
-    padded: "MaterialTapTargetSize.padded",
-    shrinkWrap: "MaterialTapTargetSize.shrinkWrap"
+  padded: "MaterialTapTargetSize.padded",
+  shrinkWrap: "MaterialTapTargetSize.shrinkWrap"
 };
 
 class Scrollbar extends FlutterWidget {
-    constructor({
-        key,
-        child,
-    } = {}) {
-        super();
-        this.key = key;
-        this.child = child;
-    }
+  constructor({
+    key,
+    child,
+  } = {}) {
+    super();
+    this.key = key;
+    this.child = child;
+  }
 
 }
 
 
 class SnackBar extends FlutterWidget {
-    constructor({
-        key,
-        content, //@required
-        backgroundColor,
-        elevation,
-        shape,
-        behavior,
-        action,
-        duration,
-        animation,
-        onVisible,
-    } = {}) {
-        super();
-        this.key = key;
-        this.content = content;
-        this.backgroundColor = backgroundColor;
-        this.elevation = elevation;
-        this.shape = shape;
-        this.behavior = behavior;
-        this.action = action;
-        this.duration = duration;
-        this.animation = animation;
-        this.onVisible = onVisible;
-    }
+  constructor({
+    key,
+    content, //@required
+    backgroundColor,
+    elevation,
+    shape,
+    behavior,
+    action,
+    duration,
+    animation,
+    onVisible,
+  } = {}) {
+    super();
+    this.key = key;
+    this.content = content;
+    this.backgroundColor = backgroundColor;
+    this.elevation = elevation;
+    this.shape = shape;
+    this.behavior = behavior;
+    this.action = action;
+    this.duration = duration;
+    this.animation = animation;
+    this.onVisible = onVisible;
+  }
 }
 
 
 class FlutterLogo extends FlutterWidget {
-    constructor({
-        key,
-        size,
-        colors,
-        textColor,
-        style,
-        duration,
-        curve,
-    } = {
-            textColor: new Color(0xFF616161),
-            // style:FlutterLogoStyle.markOnly,
-            duration: new Duration({ milliseconds: 750 }),
-            curve: Curves.fastOutSlowIn
-        }) {
-        super();
-        this.key = key;
-        this.size = size;
-        this.colors = colors;
-        this.textColor = textColor;
-        this.duration = duration;
-        this.curve = curve;
-    }
+  constructor({
+    key,
+    size,
+    colors,
+    textColor,
+    style,
+    duration,
+    curve,
+  } = {
+      textColor: new Color(0xFF616161),
+      // style:FlutterLogoStyle.markOnly,
+      duration: new Duration({ milliseconds: 750 }),
+      curve: Curves.fastOutSlowIn
+    }) {
+    super();
+    this.key = key;
+    this.size = size;
+    this.colors = colors;
+    this.textColor = textColor;
+    this.duration = duration;
+    this.curve = curve;
+  }
 }
 
 

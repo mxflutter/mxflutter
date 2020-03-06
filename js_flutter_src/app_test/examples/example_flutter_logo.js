@@ -74,7 +74,8 @@ class PageExampleFlutterLogo extends MXJSStatelessWidget {
           new ListTile({title:new Text("FlutterLogo Size"),}),
           new FlutterLogo({size:60}),
           new ListTile({title:new Text("FlutterLogo Size"),}),
-          new FlutterLogo({size:100, colors:Colors.orange}),
+          new FlutterLogo({size:100}),
+          //new FlutterLogo({size:100, colors:Colors.orange}),
         ],
       })
     });
