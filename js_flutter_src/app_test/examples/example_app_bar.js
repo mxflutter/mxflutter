@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -50,7 +52,7 @@ let {
 } = require("js_flutter_ui.js");
 
 
-class PageExampleAppBar extends MXJSWidget {
+class PageExampleAppBar extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleAppBar");
   }

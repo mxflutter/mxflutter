@@ -5,7 +5,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -52,7 +54,7 @@ let {
   Theme,
 } = require("js_flutter_ui.js");
 
-class SectionTitle extends MXJSWidget {
+class SectionTitle extends MXJSStatelessWidget {
   constructor(title,{key}={}){
     super("SectionTitle",{key:key});
     this.title = title;
@@ -71,7 +73,7 @@ class SectionTitle extends MXJSWidget {
             style:new TextStyle({
               fontSize: 16,
               fontWeight: Theme.of(context).textTheme.title.fontWeight,
-              color:Colors.white()
+              color:Colors.white
             })
           })
         ]

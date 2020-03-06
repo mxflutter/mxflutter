@@ -1431,4 +1431,8 @@ module.exports = {
   RouteSettings,
   StretchMode,
   CollapseMode,
+  Scrollbar,
+  SnackBar,
+  FlutterLogo,
+
 };

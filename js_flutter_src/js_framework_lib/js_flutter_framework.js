@@ -904,7 +904,9 @@ class MXJSStatefulWidget extends MXJSBaseWidget {
 // MXJSStatefulWidget.new = MXJSStatefulWidget.constructor;
 
 class MXJSWidgetState {
-  constructor() { }
+  constructor() { 
+    this.widget = null;
+  }
 
   get context() {
     return this.widget.buildContext;

@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -52,7 +54,7 @@ let {
 const { SectionTitle } = require("./component/section_title.js");
 
 
-class PageExampleButton extends MXJSWidget {
+class PageExampleButton extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleButton");
   }
@@ -67,9 +69,9 @@ class PageExampleButton extends MXJSWidget {
           new SectionTitle("RaisedButton"),
           new RaisedButton({
             child:new Text("普通按钮"),
-            onPressed:this.createCallbackID(function () {
+            onPressed:function () {
               MXJSLog.log("Click");
-            }),
+            },
           }),
           new SectionTitle("失效Disable"),
           new RaisedButton({
@@ -80,7 +82,7 @@ class PageExampleButton extends MXJSWidget {
             child:new Text("Flat 按钮"),
           }),
           new FlatButton({
-            textColor:Colors.black(),
+            textColor:Colors.black,
             child:new Text("Flat 按钮"),
           }),
           new SectionTitle("Icon Button"),

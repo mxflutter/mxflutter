@@ -7,6 +7,7 @@ let textExports = require("./js_flutter_text.js");
 let imageExports = require("./js_flutter_image.js");
 let animationExports = require("./js_flutter_animation.js");
 let widgetExports = require("./js_flutter_widget.js");
+let iconsExports = require("./material/js_flutter_icons.js");
 
 
 module.exports = Object.assign(
@@ -18,4 +19,5 @@ module.exports = Object.assign(
   imageExports,
   animationExports,
   widgetExports,
+  iconsExports,
 );

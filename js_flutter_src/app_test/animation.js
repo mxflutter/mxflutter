@@ -30,11 +30,11 @@ let {
 
 class JSAnimationPage extends MXJSStatefulWidget {
   constructor() {
-      super('JSAnimationPage');
+    super('JSAnimationPage');
   }
 
   createState() {
-      return new JSAnimationPageState(this);
+    return new JSAnimationPageState(this);
   }
 }
 
@@ -42,10 +42,10 @@ class JSAnimationPageState extends MXJSWidgetState {
   constructor() {
     super();
 
-    this.tween = new Tween({begin: 50.0, end: 300.0});
-    this.animationController = new AnimationController({duration: new Duration({seconds: 3})});
+    this.tween = new Tween({ begin: 50.0, end: 300.0 });
+    this.animationController = new AnimationController({ duration: new Duration({ seconds: 3 }) });
     this.animationController.createMirrorObjectID();
-    this.animation = new Animation({tween: this.tween, controller: this.animationController});
+    this.animation = new Animation({ tween: this.tween, controller: this.animationController });
     this.animation.createMirrorObjectID();
 
 
@@ -54,20 +54,20 @@ class JSAnimationPageState extends MXJSWidgetState {
     this.count = 0;
   }
 
-  animationLoopFunc(status){
+  animationLoopFunc(status) {
     MXJSLog.log('callback from flutter ....  ' + status);
     if (status == AnimationStatus.completed) {
       this.animationController.reverse();
-      this.count ++ ;
+      this.count++;
     } else if (status == AnimationStatus.dismissed) {
       this.animationController.forward();
     }
-    if (this.count > 5){
+    if (this.count > 5) {
       this.animation.removeStatusListener(this.animationLoopFunc);
     }
   }
 
-  beginAnimation(){
+  beginAnimation() {
     this.animationController.forward();
   }
 
@@ -79,9 +79,9 @@ class JSAnimationPageState extends MXJSWidgetState {
         title: new Text("Animation Demo")
       }),
       floatingActionButton: new FloatingActionButton({
-        child: new Icon(new IconData(0xe145,{fontFamily:'MaterialIcons',semanticLabel: 'Action'})),
+        child: new Icon(new IconData(0xe145, { fontFamily: 'MaterialIcons', semanticLabel: 'Action' })),
         onPressed: function () {
-            this.beginAnimation();
+          this.beginAnimation();
         }.bind(this)
       }),
       body: new ScaleAnimation({
@@ -95,26 +95,33 @@ class JSAnimationPageState extends MXJSWidgetState {
 }
 
 
-class ScaleAnimation extends MXJSWidget{
+class ScaleAnimation extends MXJSStatefulWidget {
 
-  constructor ({
+  constructor({
     child,
     animation
   } = {}) {
-    super();
+    super('ScaleAnimation');
     this.child = child;
     this.animation = animation;
   }
 
-  build(context){
+  createState() {
+    return new ScaleAnimationState(this);
+  }
+}
+
+class ScaleAnimationState extends MXJSWidgetState {
+
+  build(context) {
     var imageRatio = 1.455;
     let widget = new Center({
       child: new AnimatedBuilder({
-        animation: this.animation,
+        animation: this.widget.animation,
         widget: new Container({
           // height: this.animation.value() * imageRatio + 2 - 5,
           width: "$value",
-          child: this.child
+          child: this.widget.child
         })
         // child: this.child,
       })
