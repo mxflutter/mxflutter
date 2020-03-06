@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -57,7 +59,7 @@ let {
 } = require("js_flutter_ui.js");
 
 
-class PageExampleIcon extends MXJSWidget {
+class PageExampleIcon extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleIcon");
   }

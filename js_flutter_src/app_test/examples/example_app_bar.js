@@ -76,7 +76,7 @@ class PageExampleAppBar extends MXJSStatelessWidget {
           new AppBar({
             title: new Text('NormalAppBar',{
               style:new TextStyle({
-                color:Colors.white(),
+                color:Colors.white,
               }),
             }),
           }),
@@ -84,10 +84,10 @@ class PageExampleAppBar extends MXJSStatelessWidget {
             title: new Text('背景换色',),
           }),
           new AppBar({
-            backgroundColor: Colors.blue(),
+            backgroundColor: Colors.blue,
             title: new Text('NormalAppBar',{
               style:new TextStyle({
-                color:Colors.white(),
+                color:Colors.white,
               }),
             }),
           }),

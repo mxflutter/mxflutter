@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -54,7 +56,7 @@ let {
 } = require("js_flutter_ui.js");
 
 
-class PageExampleContainer extends MXJSWidget {
+class PageExampleContainer extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleContainer");
   }
@@ -62,32 +64,32 @@ class PageExampleContainer extends MXJSWidget {
   genSevenContainers(){
     return  [
       new Container({
-        color:Colors.red(),
+        color:Colors.red,
         height:100,
         width:30,
       }),
       new Container({
-        color:Colors.orange(),
+        color:Colors.orange,
         height:100,
         width:30,
       }),
       new Container({
-        color:Colors.yellow(),
+        color:Colors.yellow,
         height:100,
         width:30,
       }),
       new Container({
-        color:Colors.green(),
+        color:Colors.green,
         height:100,
         width:30,
       }),
       new Container({
-        color:Colors.indigo(),
+        color:Colors.indigo,
         height:100,
         width:30,
       }),
       new Container({
-        color:Colors.purple(),
+        color:Colors.purple,
         height:100,
         width:30,
       }),
@@ -98,17 +100,17 @@ class PageExampleContainer extends MXJSWidget {
   genThreeContainers(){
     return  [
       new Container({
-        color:Colors.red(),
+        color:Colors.red,
         height:100,
         width:30,
       }),
       new Container({
-        color:Colors.orange(),
+        color:Colors.orange,
         height:100,
         width:30,
       }),
       new Container({
-        color:Colors.yellow(),
+        color:Colors.yellow,
         height:100,
         width:30,
       }),
@@ -124,18 +126,18 @@ class PageExampleContainer extends MXJSWidget {
         children:[
           new ListTile({title:new Text("Container"),}),
           new Container({
-            color:Colors.red(),
+            color:Colors.red,
             height:100,
           }),
           new ListTile({title:new Text("放置内容的Container"),}),
           new Container({
-            color:Colors.orange(),
+            color:Colors.orange,
             height:100,
             child:new Text("我有内容")
           }),
           new ListTile({title:new Text("Container里的Padding"),}),
           new Container({
-            color:Colors.yellow(),
+            color:Colors.yellow,
             padding:EdgeInsets.all(10),
             child:new Text("我有内容")
           }),
@@ -145,7 +147,7 @@ class PageExampleContainer extends MXJSWidget {
             padding:EdgeInsets.all(10),
             decoration:new BoxDecoration({
               borderRadius:BorderRadius.all(Radius.circular(4.0)),
-              color:Colors.green(),
+              color:Colors.green,
             }),
             child:new Text("我是圆角Container")
           }),
@@ -158,10 +160,10 @@ class PageExampleContainer extends MXJSWidget {
               padding:EdgeInsets.all(10),
               decoration:new BoxDecoration({
                 borderRadius:BorderRadius.all(Radius.circular(4.0)),
-                color:Colors.green(),
+                color:Colors.green,
               }),
               child:new Text("100x100",{
-                style:new TextStyle({color:Colors.white()}),
+                style:new TextStyle({color:Colors.white}),
               })
             }),
           })

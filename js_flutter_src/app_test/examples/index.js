@@ -59,21 +59,24 @@ let {
 } = require("js_flutter_ui.js");
 
 const { SectionTitle } = require("./component/section_title.js");
-let { PageExampleButton } = require("examples/example_button.js");
-// let { PageExampleAppBar } = require("examples/example_app_bar.js");
-// let { PageExampleSnakeBar } = require("examples/example_snake_bar.js");
-// let { PageExampleColumn } = require("examples/example_column.js");
-// let { PageExampleRow } = require("examples/example_row.js");
-// let { PageExampleContainer } = require("examples/example_container.js");
-// let { PageExampleFlutterLogo } = require("examples/example_flutter_logo.js");
-// let { PageExampleColor } = require("examples/example_flutter_color.js");
-// let { PageExampleIcon } = require("examples/example_flutter_icon.js");
-// let { PageExampleImage } = require("examples/example_image.js");
-// let { PageExamplePlaceholder } = require("examples/example_placeholder.js");
-// let { PageExampleScaffold } = require("examples/example_scaffold.js");
-// let { PageExampleText } = require("examples/example_text.js");
 
-// //Animated
+let { PageExampleAppBar } = require("examples/example_app_bar.js");
+let { PageExampleText } = require("examples/example_text.js");
+let { PageExampleButton } = require("examples/example_button.js");
+
+let { PageExampleSnakeBar } = require("examples/example_snake_bar.js");
+let { PageExampleColumn } = require("examples/example_column.js");
+let { PageExampleRow } = require("examples/example_row.js");
+let { PageExampleContainer } = require("examples/example_container.js");
+let { PageExampleFlutterLogo } = require("examples/example_flutter_logo.js");
+let { PageExampleColor } = require("examples/example_flutter_color.js");
+let { PageExampleIcon } = require("examples/example_flutter_icon.js");
+let { PageExampleImage } = require("examples/example_image.js");
+let { PageExamplePlaceholder } = require("examples/example_placeholder.js");
+let { PageExampleScaffold } = require("examples/example_scaffold.js");
+
+
+//Animated
 // const { PageExampleAnimatedBuilder } = require("./examples/animation/example_animated_builder.js");
 // const { PageExampleAnimatedBuilderV2 } = require("./examples/animation/example_animated_builder_v2.js");
 // const { PageExampleAnimatedContainer } = require("./examples/animation/example_animated_container.js");
@@ -102,27 +105,6 @@ class ExamplesPage extends MXJSStatelessWidget {
     super("ExamplesPage");
   }
 
-  genSectionTitle(context, title) {
-    return new Container({
-      padding: EdgeInsets.all(10.0),
-      color: Theme.of(context).primaryColor,
-      child: new Row({
-        children: [
-          new Icon(new IconData(0xe80e, { fontFamily: 'MaterialIcons' }), { size: 20, color: new Color(0xFFFFFFFF) }),
-          new Padding({ padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0) }),
-          new Text(title, {
-            textAlign: TextAlign.start,
-            style: new TextStyle({
-              fontSize: 16,
-              fontWeight: Theme.of(context).textTheme.title.fontWeight,
-              color: Colors.white()
-            })
-          })
-        ]
-      })
-    });
-  }
-
   build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
@@ -132,7 +114,7 @@ class ExamplesPage extends MXJSStatelessWidget {
         child: new ListView({
           children: [
             new SectionTitle("基础组件", { key: new Key("1") }),
-            // this.genSectionTitle(context,"基础组件"),
+
             new ListTile({
               title: new Text("AppBar"),
               onTap: function () {

@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -51,7 +53,7 @@ let {
 
 
 
-class PageExampleSnakeBar extends MXJSWidget {
+class PageExampleSnakeBar extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleSnackbar");
   }
@@ -75,7 +77,7 @@ class PageExampleSnakeBar extends MXJSWidget {
   }
 }
 
-class MyScaffoldBody extends MXJSWidget {
+class MyScaffoldBody extends MXJSStatelessWidget {
   constructor(){
     super("MyScaffoldBody");
   }

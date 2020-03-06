@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -55,7 +57,7 @@ let {
 } = require("js_flutter_ui.js");
 
 
-class PageExampleFlutterLogo extends MXJSWidget {
+class PageExampleFlutterLogo extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleFlutterLogo");
   }
@@ -72,7 +74,7 @@ class PageExampleFlutterLogo extends MXJSWidget {
           new ListTile({title:new Text("FlutterLogo Size"),}),
           new FlutterLogo({size:60}),
           new ListTile({title:new Text("FlutterLogo Size"),}),
-          new FlutterLogo({size:100, colors:Colors.orange()}),
+          new FlutterLogo({size:100, colors:Colors.orange}),
         ],
       })
     });

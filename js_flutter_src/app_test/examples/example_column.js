@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -51,7 +53,7 @@ let {
 } = require("js_flutter_ui.js");
 
 
-class PageExampleColumn extends MXJSWidget {
+class PageExampleColumn extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleColumn");
   }
@@ -59,32 +61,32 @@ class PageExampleColumn extends MXJSWidget {
   genSevenContainers(){
     return  [
       new Container({
-        color:Colors.red(),
+        color:Colors.red,
         height:30,
         width:100,
       }),
       new Container({
-        color:Colors.orange(),
+        color:Colors.orange,
         height:30,
         width:100,
       }),
       new Container({
-        color:Colors.yellow(),
+        color:Colors.yellow,
         height:30,
         width:100,
       }),
       new Container({
-        color:Colors.green(),
+        color:Colors.green,
         height:30,
         width:100,
       }),
       new Container({
-        color:Colors.indigo(),
+        color:Colors.indigo,
         height:30,
         width:100,
       }),
       new Container({
-        color:Colors.purple(),
+        color:Colors.purple,
         height:30,
         width:100,
       }),
@@ -95,17 +97,17 @@ class PageExampleColumn extends MXJSWidget {
   genThreeContainers(){
     return  [
       new Container({
-        color:Colors.red(),
+        color:Colors.red,
         height:30,
         width:100,
       }),
       new Container({
-        color:Colors.orange(),
+        color:Colors.orange,
         height:30,
         width:100,
       }),
       new Container({
-        color:Colors.yellow(),
+        color:Colors.yellow,
         height:30,
         width:100,
       }),
@@ -123,27 +125,27 @@ class PageExampleColumn extends MXJSWidget {
           new Column({
             children: [
               new Container({
-                color:Colors.red(),
+                color:Colors.red,
                 height:30,
               }),
               new Container({
-                color:Colors.orange(),
+                color:Colors.orange,
                 height:30,
               }),
               new Container({
-                color:Colors.yellow(),
+                color:Colors.yellow,
                 height:30,
               }),
               new Container({
-                color:Colors.green(),
+                color:Colors.green,
                 height:30,
               }),
               new Container({
-                color:Colors.indigo(),
+                color:Colors.indigo,
                 height:30,
               }),
               new Container({
-                color:Colors.purple(),
+                color:Colors.purple,
                 height:30,
               }),
             ],
@@ -151,7 +153,7 @@ class PageExampleColumn extends MXJSWidget {
 
           new ListTile({title:new Text("Column Top-Left"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.start,
@@ -161,7 +163,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column Top-Middle"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.start,
@@ -171,7 +173,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column Top-Right"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.start,
@@ -182,7 +184,7 @@ class PageExampleColumn extends MXJSWidget {
 
           new ListTile({title:new Text("Column Center-Left"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.center,
@@ -192,7 +194,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column Center-Center"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.center,
@@ -202,7 +204,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column Center-Right"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.center,
@@ -213,7 +215,7 @@ class PageExampleColumn extends MXJSWidget {
 
           new ListTile({title:new Text("Column Bottom-Left"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.end,
@@ -223,7 +225,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column Bottom-Middle"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.end,
@@ -233,7 +235,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column Bottom-Right"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.end,
@@ -246,7 +248,7 @@ class PageExampleColumn extends MXJSWidget {
 
           new ListTile({title:new Text("Column SpaceAround-Left"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceAround,
@@ -256,7 +258,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column SpaceAround-Middle"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceAround,
@@ -266,7 +268,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column SpaceAround-Right"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceAround,
@@ -280,7 +282,7 @@ class PageExampleColumn extends MXJSWidget {
 
           new ListTile({title:new Text("Column SpaceBetween-Left"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceBetween,
@@ -290,7 +292,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column SpaceBetween-Middle"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceBetween,
@@ -300,7 +302,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column SpaceBetween-Right"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceBetween,
@@ -311,7 +313,7 @@ class PageExampleColumn extends MXJSWidget {
 
           new ListTile({title:new Text("Column SpaceEvenly-Left"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceEvenly,
@@ -321,7 +323,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column SpaceEvenly-Middle"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceEvenly,
@@ -331,7 +333,7 @@ class PageExampleColumn extends MXJSWidget {
           }),
           new ListTile({title:new Text("Column SpaceEvenly-Right"),}),
           new Container({
-            color:Colors.grey(),
+            color:Colors.grey,
             height:200,
             child:new Column({
               mainAxisAlignment:MainAxisAlignment.spaceEvenly,

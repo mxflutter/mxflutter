@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -56,7 +58,7 @@ let {
   Theme,
 } = require("js_flutter_ui.js");
 
-class HomePage extends MXJSWidget {
+class HomePage extends MXJSStatelessWidget {
   constructor() {
     super("HomePage");
   }
@@ -68,7 +70,7 @@ class HomePage extends MXJSWidget {
 }
 
 
-class IdeaPage extends MXJSWidget {
+class IdeaPage extends MXJSStatelessWidget {
   constructor() {
     super("IdeaPage");
   }
@@ -80,7 +82,7 @@ class IdeaPage extends MXJSWidget {
 }
 
 
-class MessagePage extends MXJSWidget {
+class MessagePage extends MXJSStatelessWidget {
   constructor() {
     super("MessagePage");
   }
@@ -92,7 +94,7 @@ class MessagePage extends MXJSWidget {
 }
 
 
-class MyPage extends MXJSWidget {
+class MyPage extends MXJSStatelessWidget {
   constructor() {
     super("MyPage");
   }
@@ -117,7 +119,7 @@ class _NavigationIconView {
   }
 }
 
-class PageExampleScaffold extends MXJSWidget {
+class PageExampleScaffold extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleScaffold");
     this._currentIndex = 0;
@@ -175,13 +177,14 @@ class PageExampleScaffold extends MXJSWidget {
         fixedColor: Theme.of(context).primaryColor,
         type: BottomNavigationBarType.fixed,
         onTap: function(index) {
+          let that = this;
           this.setState(function() {
             this._navigationViews[this._currentIndex].controller.reverse();
             this._currentIndex = index;
             this._navigationViews[this._currentIndex].controller.forward();
             this._currentPage = this._pageList[this._currentIndex];
-          })
-        }
+          }.bind(that))
+        }.bind(this)
       }),
     });
     return widget;

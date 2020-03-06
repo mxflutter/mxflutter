@@ -3,7 +3,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -96,11 +98,11 @@ class PageExampleAnimatedBuilderV2 extends MXJSWidget {
           child: new Container({
             height:"100+$value*100",   //动态计算$value
             width:"200+$value*200",    //动态计算$value
-            color: Colors.orange(),
+            color: Colors.orange,
             child: new Center({
               child: new Text("点击 ( + ) 号，重复播放",{
                 style:new TextStyle({
-                  color:Colors.white()
+                  color:Colors.white
                 })
               }),
             }),

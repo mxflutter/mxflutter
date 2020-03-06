@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -83,11 +85,11 @@ class PageExampleAnimatedCrossFade extends MXJSWidget {
         firstChild:new Container({
           width:500,
           height:300,
-          color:Colors.orange(),
+          color:Colors.orange,
           child: new Center({
             child:new Text("第一页",{
               style:new TextStyle({
-                color:Colors.white(),
+                color:Colors.white,
                 fontSize:20,
               })
             })
@@ -96,11 +98,11 @@ class PageExampleAnimatedCrossFade extends MXJSWidget {
         secondChild:new Container({
           width:500,
           height:300,
-          color:Colors.blue(),
+          color:Colors.blue,
           child: new Center({
             child:new Text("第二页",{
               style:new TextStyle({
-                color:Colors.white(),
+                color:Colors.white,
                 fontSize:20,
               })
             })

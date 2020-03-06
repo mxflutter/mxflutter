@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -51,7 +53,7 @@ let {
 } = require("js_flutter_ui.js");
 
 
-class PageExamplePlaceholder extends MXJSWidget {
+class PageExamplePlaceholder extends MXJSStatelessWidget {
   constructor(){
     super("PageExamplePlaceholder");
   }
@@ -72,7 +74,7 @@ class PageExamplePlaceholder extends MXJSWidget {
           }),
           new Placeholder({
             fallbackHeight:100,
-            color:Colors.orange(),
+            color:Colors.orange,
           }),
           new ListTile({
             title:new Text("占位符指定高度"),
@@ -80,7 +82,7 @@ class PageExamplePlaceholder extends MXJSWidget {
           new Placeholder({
             fallbackHeight:100,
             fallbackWidth:100,
-            color:Colors.yellow(),
+            color:Colors.yellow,
           }),
           new ListTile({
             title:new Text("占位符线条粗细"),
@@ -89,7 +91,7 @@ class PageExamplePlaceholder extends MXJSWidget {
             fallbackHeight:100,
             fallbackWidth:100,
             strokeWidth:4,
-            color:Colors.green(),
+            color:Colors.green,
           }),
         ],
       })

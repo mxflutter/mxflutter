@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -54,7 +56,7 @@ let {
 const _kSmallLogoImage = 'js_flutter_src/app_test/flutter_gallery_assets/logos/pesto/logo_small.png';
 const _kGalleryAssetsPackage = 'js_flutter_src/app_test/flutter_gallery_assets/';
 
-class PageExampleImage extends MXJSWidget {
+class PageExampleImage extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleImage");
   }
@@ -67,7 +69,7 @@ class PageExampleImage extends MXJSWidget {
       new Container({
         height:150,
         width: 300,
-        color:Colors.orange(),
+        color:Colors.orange,
         child:Image.asset(_kGalleryAssetsPackage + 'people/ali_landscape.png', {
           package: 'flutter_gallery_assets',
           fit: BoxFit[boxFitName],

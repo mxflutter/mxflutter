@@ -89,8 +89,8 @@ class HomePage extends MXJSWidget {
                 appBar: new AppBar({
                     title: this.barSearch(),
                     bottom: new TabBar({
-                      labelColor: Colors.blue(),
-                      indicatorColor: Colors.blue(),
+                      labelColor: Colors.blue,
+                      indicatorColor: Colors.blue,
                       unselectedLabelColor: Colors.black(),
                       tabs: [
                         new Tab({text: "关注"}),
@@ -98,7 +98,7 @@ class HomePage extends MXJSWidget {
                         new Tab({text: "热榜"}),
                       ],
                     }),
-                    backgroundColor: Colors.white(),
+                    backgroundColor: Colors.white,
                 }),
                 body: new TabBarView({
                     children: [

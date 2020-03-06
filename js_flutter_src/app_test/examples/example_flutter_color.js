@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -55,7 +57,7 @@ let {
 } = require("js_flutter_ui.js");
 
 
-class PageExampleColor extends MXJSWidget {
+class PageExampleColor extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleColor");
   }

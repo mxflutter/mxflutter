@@ -4,7 +4,9 @@ let {
   MXJSLog,
   runApp,
   MXJSFlutterApp,
-  MXJSWidget,
+  MXJSWidgetState,
+  MXJSStatefulWidget,
+  MXJSStatelessWidget,
   MaterialApp,
   Scaffold,
   Container,
@@ -81,12 +83,12 @@ class PageExampleAnimatedContainer extends MXJSWidget {
           new SectionTitle("PageExampleAnimatedContainer"),
           new AnimatedContainer({
             height:this.selected ? 300.0 : 100,
-            color:this.selected ? Colors.blue():Colors.orange(),
+            color:this.selected ? Colors.blue:Colors.orange,
             duration:new Duration({milliseconds:200}),
             child:new Center({
               child:new Text("动画容器",{
                 style:new TextStyle({
-                  color:Colors.white(),
+                  color:Colors.white,
                   fontSize:20,
                 })
               }),
