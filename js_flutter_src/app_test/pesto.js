@@ -165,7 +165,7 @@ class JSPestoPageState extends MXJSWidgetState {
   //   this.recipes.forEach(element => {
   //     let w = new RecipeCard({
   //       recipe: element,
-  //       onTap: this.createCallbackID(function () { showRecipePage(context, element); }),
+  //       onTap: function () { showRecipePage(context, element); },
   //     });
   //     recipeWidgetList.push(w);
   //   });

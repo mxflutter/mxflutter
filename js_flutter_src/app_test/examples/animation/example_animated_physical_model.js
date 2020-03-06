@@ -58,10 +58,19 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedPhysicalModel extends MXJSWidget {
+class PageExampleAnimatedPhysicalModel extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedPhysicalModel');
+  }
 
+  createState() {
+    return new PageExampleAnimatedPhysicalModelState();
+  }
+}
+
+class PageExampleAnimatedPhysicalModelState extends MXJSWidgetState {
   constructor(){
-    super("PageExampleAnimatedPhysicalModel");
+    super();
     this.elevation = 50.0;
   }
 
@@ -78,9 +87,9 @@ class PageExampleAnimatedPhysicalModel extends MXJSWidget {
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
           this.changeOpacity();
-        }),
+        }.bind(this),
       }),
       body: new Center({
         child: new AnimatedPhysicalModel({

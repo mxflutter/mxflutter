@@ -148,9 +148,9 @@ class JSPestoPage extends MXJSWidget {
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(new IconData(0xe3c9)),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
 
-        }),
+        },
       }),
       body: new CustomScrollView({
         semanticChildCount: this.recipes.length,
@@ -173,9 +173,9 @@ class JSPestoPage extends MXJSWidget {
         IconButton({
           icon: new Icon(new IconData(1)),
           tooltip: 'Search',
-          onPressed: this.createCallbackID(function () {
+          onPressed: function () {
 
-          }),
+          },
         }),
       ],
       flexibleSpace: LayoutBuilder({

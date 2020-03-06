@@ -60,38 +60,49 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedOpacity extends MXJSWidget {
-  constructor(){
-    super("PageExampleAnimatedOpacity");
+class PageExampleAnimatedOpacity extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedOpacity');
+  }
+
+  createState() {
+    return new PageExampleAnimatedOpacityState();
+  }
+}
+
+class PageExampleAnimatedOpacityState extends MXJSWidgetState {
+
+  constructor() {
+    super();
     this.opacityLevel = 1.0;
   }
 
   changeOpacity() {
-    this.setState(function(){
+    this.setState(function () {
       this.opacityLevel = this.opacityLevel == 0 ? 1.0 : 0.0;
     });
   }
 
-  build(context){
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleAnimatedOpacity',),
+        title: new Text('PageExampleAnimatedOpacity'),
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
           this.changeOpacity();
-        }),
+        }.bind(this),
       }),
       body: new ListView({
-        children:[
+        children: [
           new SectionTitle("PageExampleAnimatedOpacity"),
           new AnimatedOpacity({
             opacity: this.opacityLevel,
-            duration:new Duration({seconds: 1}),
-            child:new Padding({
+            duration: new Duration({ seconds: 1 }),
+            child: new Padding({
               padding: EdgeInsets.all(10),
-              child: new FlutterLogo({size:100}),
+              child: new FlutterLogo({ size: 100 }),
             }),
           })
         ],

@@ -122,11 +122,11 @@ class PageExampleAnimatedBuilderV2State extends MXJSWidgetState {
           })
         }),
         // builder 由于异步频繁调用JS，会导致JS线程性能问题，没有实现，async在builder中调用也存在技术问题
-        // builder: this.createCallbackID(function(context,child){
+        // builder: function(context,child){
         //   console.log("call builder in js....aaaa");
         //   MXJSLog.log("call builder in js....bbbb");
         //   return child;
-        // }),
+        // },
       })
     });
     return widget;

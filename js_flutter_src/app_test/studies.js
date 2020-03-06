@@ -47,54 +47,54 @@ class JSStudiesPage extends MXJSWidget {
 
     build(buildOwner) {
 
-        let demoList =  new ListView({
-            
+        let demoList = new ListView({
+
             children: [new ListTile({
-                leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'}) ,{color:new  Color(0xFFFF9800)}),
-                trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: new Color(0xFFFF9800) }),
+                trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                 title: new Text('Pesto'),
                 subtitle: new Text('Simple recipe browser'),
-                onTap: this.createCallbackID(function () {
+                onTap: function () {
                     //this.navigatorPush(new JSPestoPage);
-                })
+                }
             }),
 
             new ListTile({
-                leading:new Icon(new IconData(0xe06d,{fontFamily:'MaterialIcons'})),
-                trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                 title: new Text('Shrine'),
                 subtitle: new Text('Basic shopping app'),
-                onTap: this.createCallbackID(function () {
+                onTap: function () {
 
-                })
+                }
             }),
             new ListTile({
-                leading:new Icon(new IconData(0xe06d,{fontFamily:'MaterialIcons'})),
-                trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                 title: new Text('Contact profile'),
                 subtitle: new Text('Address book entry with a flexible appbar'),
-                onTap: this.createCallbackID(function () {
+                onTap: function () {
 
-                })
+                }
             }),
             new ListTile({
-                leading:new Icon(new IconData(0xe06d,{fontFamily:'MaterialIcons'})),
-                trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
+                leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                 title: new Text('Animation'),
                 subtitle: new Text('Section organizer'),
-                onTap: this.createCallbackID(function () {
+                onTap: function () {
 
-                })
+                }
             }),
-                new ListTile({
-                    leading:new Icon(new IconData(0xe39d,{fontFamily:'MaterialIcons'})),
-                    trailing: new Icon(new IconData(0xe5df, {fontFamily: 'MaterialIcons', matchTextDirection: true})),
-                    title: new Text('More Material'),
-                    subtitle: new Text('More Material UI Demo'),
-                    onTap: this.createCallbackID(function () {
+            new ListTile({
+                leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                title: new Text('More Material'),
+                subtitle: new Text('More Material UI Demo'),
+                onTap: function () {
 
-                    })
-                }),
+                }
+            }),
             ]
         });
 
@@ -102,7 +102,7 @@ class JSStudiesPage extends MXJSWidget {
             appBar: new AppBar({
                 title: new Text("Studies Demo")
             }),
-            body:demoList
+            body: demoList
         });
 
 

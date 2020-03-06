@@ -56,9 +56,20 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedListState extends MXJSWidget {
+class PageExampleAnimatedListState extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedListState');
+  }
+
+  createState() {
+    return new PageExampleAnimatedListStateState();
+  }
+}
+
+class PageExampleAnimatedListStateState extends MXJSWidgetState {
+
   constructor(){
-    super("PageExampleAnimatedListState");
+    super();
   }
 
   build(context){

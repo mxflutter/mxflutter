@@ -59,37 +59,48 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedSize extends MXJSWidget {
-  constructor(){
+class PageExampleAnimatedSize extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedSize');
+  }
+
+  createState() {
+    return new PageExampleAnimatedSizeState();
+  }
+}
+
+class PageExampleAnimatedSizeState extends MXJSWidgetState {
+
+  constructor() {
     super("PageExampleAnimatedSize");
     this.size = 200.0;
   }
 
   changeOpacity() {
-    this.setState(function(){
+    this.setState(function () {
       this.size = this.size == 200.0 ? 50.0 : 200.0;
-    });
+    }.bind(this));
   }
 
 
-  build(context){
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleAnimatedSize',),
+        title: new Text('PageExampleAnimatedSize'),
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
           this.changeOpacity();
-        }),
+        }.bind(this),
       }),
       body: new AnimatedSize({
-        child:new Container({
+        child: new Container({
           width: this.size,
           height: this.size,
-          color:Colors.orange,
+          color: Colors.orange,
         }),
-        duration:new Duration({milliseconds:300}),
+        duration: new Duration({ milliseconds: 300 }),
       }),
     });
     return widget;

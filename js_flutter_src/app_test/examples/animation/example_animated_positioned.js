@@ -58,41 +58,52 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedPositioned extends MXJSWidget {
-  constructor(){
-    super("PageExampleAnimatedPositioned");
+class PageExampleAnimatedPositioned extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedPositioned');
+  }
+
+  createState() {
+    return new PageExampleAnimatedPositionedState();
+  }
+}
+
+class PageExampleAnimatedPositionedState extends MXJSWidgetState {
+
+  constructor() {
+    super();
     this.top = 200.0;
   }
 
   changeOpacity() {
-    this.setState(function(){
+    this.setState(function () {
       this.top = this.top == 200.0 ? 0.0 : 200.0;
     });
   }
 
 
-  build(context){
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleAnimatedPositioned',),
+        title: new Text('PageExampleAnimatedPositioned'),
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
           this.changeOpacity();
-        }),
+        }.bind(this),
       }),
       body: new Stack({
-        children:[
+        children: [
           new AnimatedPositioned({
-            child:new Container({
+            child: new Container({
               width: 200,
               height: 200,
-              color:Colors.orange,
+              color: Colors.orange,
             }),
-            top:this.top,
-            left:this.top,
-            duration:new Duration({milliseconds:300}),
+            top: this.top,
+            left: this.top,
+            duration: new Duration({ milliseconds: 300 }),
           }),
         ]
       })

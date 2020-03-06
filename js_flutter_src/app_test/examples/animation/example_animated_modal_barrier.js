@@ -56,18 +56,29 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedModalBarrier extends MXJSWidget {
-  constructor(){
-    super("PageExampleAnimatedModalBarrier");
+
+class PageExampleAnimatedModalBarrier extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedModalBarrier');
   }
 
-  build(context){
+  createState() {
+    return new PageExampleAnimatedModalBarrierState();
+  }
+}
+
+class PageExampleAnimatedModalBarrierState extends MXJSWidgetState {
+
+  constructor() {
+    super();
+  }
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleAnimatedModalBarrier',),
+        title: new Text('PageExampleAnimatedModalBarrier'),
       }),
       body: new ListView({
-        children:[
+        children: [
           new SectionTitle("PageExampleAnimatedModalBarrier"),
           new SectionTitle("todo..."),
         ],

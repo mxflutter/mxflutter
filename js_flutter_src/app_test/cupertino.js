@@ -40,9 +40,9 @@ class JSCupertinoPageState extends MXJSWidgetState {
             }),
             // floatingActionButton: new FloatingActionButton({
             //     child: new Icon(new IconData(0xe3c9)),
-            //     onPressed: this.createCallbackID(function () {
+            //     onPressed: function () {
 
-            //     }),
+            //     },
             // }),
             body: new ListView({
                 children: [

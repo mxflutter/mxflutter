@@ -85,14 +85,14 @@ class MyScaffoldBody extends MXJSStatelessWidget {
   build(context){
     let widget =  new RaisedButton({
       child:new Text("测试 Scaffold.of(context)"),
-      onPressed: this.createCallbackID(function () {
+      onPressed: function () {
         let context = {
           widgetID: this.widgetID,
         };
         Scaffold.of(context).showSnackBar(
           new SnackBar({content: new Text('我是通过JS脚本构建的,终于动态化了！！')})
         );
-      }),
+      }.bind(this),
     });
     return widget;
   }
