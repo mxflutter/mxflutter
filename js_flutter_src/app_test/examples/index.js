@@ -89,16 +89,16 @@ const { PageExampleAnimatedPhysicalModel } = require("./examples/animation/examp
 const { PageExampleAnimatedPositioned } = require("./examples/animation/example_animated_positioned.js");
 const { PageExampleAnimatedSize } = require("./examples/animation/example_animated_size.js");
 
-// const { PageExampleAnimatedWidget } = require("./examples/animation/example_animated_widget.js");
-// const { PageExampleAnimatedWidgetBaseState } = require("./examples/animation/example_animated_widget_base_state.js");
-// const { PageExampleDecoratedBoxTransition } = require("./examples/animation/example_decorated_box_transition.js");
-// const { PageExampleFadeTransition } = require("./examples/animation/example_fade_transition.js");
-// const { PageExampleHero } = require("./examples/animation/example_hero.js");
-// const { PageExamplePositionedTransition } = require("./examples/animation/example_positioned_transition.js");
-// const { PageExampleRotationTransition } = require("./examples/animation/example_rotation_transition.js");
-// const { PageExampleScaleTransition } = require("./examples/animation/example_scale_transition.js");
-// const { PageExampleSizeTransition } = require("./examples/animation/example_size_transition.js");
-// const { PageExampleSlideTransition } = require("./examples/animation/example_slide_transition.js");
+const { PageExampleAnimatedWidget } = require("./examples/animation/example_animated_widget.js");
+const { PageExampleAnimatedWidgetBaseState } = require("./examples/animation/example_animated_widget_base_state.js");
+const { PageExampleDecoratedBoxTransition } = require("./examples/animation/example_decorated_box_transition.js");
+const { PageExampleFadeTransition } = require("./examples/animation/example_fade_transition.js");
+const { PageExampleHero } = require("./examples/animation/example_hero.js");
+const { PageExamplePositionedTransition } = require("./examples/animation/example_positioned_transition.js");
+const { PageExampleRotationTransition } = require("./examples/animation/example_rotation_transition.js");
+const { PageExampleScaleTransition } = require("./examples/animation/example_scale_transition.js");
+const { PageExampleSizeTransition } = require("./examples/animation/example_size_transition.js");
+const { PageExampleSlideTransition } = require("./examples/animation/example_slide_transition.js");
 
 class ExamplesPage extends MXJSStatelessWidget {
   constructor() {

@@ -56,18 +56,28 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleHero extends MXJSWidget {
-  constructor(){
-    super("PageExampleHero");
+class PageExampleHero extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleHero');
   }
 
-  build(context){
+  createState() {
+    return new PageExampleHeroState();
+  }
+}
+
+class PageExampleHeroState extends MXJSWidgetState {
+  constructor() {
+    super();
+  }
+
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleHero',),
+        title: new Text('PageExampleHero'),
       }),
       body: new ListView({
-        children:[
+        children: [
           new SectionTitle("PageExampleHero"),
         ],
       })

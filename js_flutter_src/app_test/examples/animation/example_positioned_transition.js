@@ -56,9 +56,19 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExamplePositionedTransition extends MXJSWidget {
+class PageExamplePositionedTransition extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExamplePositionedTransition');
+  }
+
+  createState() {
+    return new PageExamplePositionedTransitionState();
+  }
+}
+
+class PageExamplePositionedTransitionState extends MXJSWidgetState {
   constructor(){
-    super("PageExamplePositionedTransition");
+    super();
   }
 
   build(context){

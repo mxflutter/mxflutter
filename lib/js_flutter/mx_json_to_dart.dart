@@ -1,3 +1,4 @@
+import 'dart:core';
 import 'package:flutter/material.dart';
 import 'mx_build_owner.dart';
 
@@ -11,7 +12,8 @@ import 'mx_js_flutter_common.dart';
 import 'mx_json_proxy_animation.dart';
 import 'packages/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
 import 'packages/cached_network_image/mx_json_proxy_cached_network_image.dart';
-import 'dart:core';
+
+import 'package:js_flutter/js_flutter/mx_json_proxy_widget.dart';
 
 typedef dynamic CreateJsonObjProxyFun();
 
@@ -177,6 +179,9 @@ class MXJsonObjToDartObject {
     registerProxy(MXProxyRegisterHelperImageSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperCupertinoSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperAnimationSeries.registerProxys());
+
+    //helper widget
+    registerProxy(MXProxyRegisterHelperWidgetSeries.registerProxys());
 
     // 第三方库
     registerProxy(MXProxyRegisterHelperPullToRefreshSeries.registerProxys());

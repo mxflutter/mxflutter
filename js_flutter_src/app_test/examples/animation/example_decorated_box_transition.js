@@ -64,20 +64,31 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleDecoratedBoxTransition extends MXJSWidget {
-  constructor(){
-    super("PageExampleDecoratedBoxTransition");
+class PageExampleDecoratedBoxTransition extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleDecoratedBoxTransition');
+  }
+
+  createState() {
+    return new PageExampleDecoratedBoxTransitionState();
+  }
+}
+
+class PageExampleDecoratedBoxTransitionState extends MXJSWidgetState {
+
+  constructor() {
+    super();
     this.controller = new AnimationController();
-    this.controller.duration = new Duration({seconds: 2});
+    this.controller.duration = new Duration({ seconds: 2 });
     this.controller.createMirrorObjectID();
 
 
-    this.rectAnimation=new DecorationTween({
-      begin:new BoxDecoration({
+    this.rectAnimation = new DecorationTween({
+      begin: new BoxDecoration({
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(0))
       }),
-      end:new BoxDecoration({
+      end: new BoxDecoration({
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(20))
       })
@@ -89,13 +100,13 @@ class PageExampleDecoratedBoxTransition extends MXJSWidget {
     this.controller.forward();
   }
 
-  build(context){
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleDecoratedBoxTransition',),
+        title: new Text('PageExampleDecoratedBoxTransition'),
       }),
       body: new DecoratedBoxTransition({
-        child: new FlutterLogo({size: 100}),
+        child: new FlutterLogo({ size: 100 }),
         decoration: this.rectAnimation,
       })
     });

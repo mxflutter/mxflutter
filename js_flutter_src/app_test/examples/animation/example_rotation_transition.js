@@ -56,18 +56,29 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleRotationTransition extends MXJSWidget {
-  constructor(){
-    super("PageExampleRotationTransition");
+class PageExampleRotationTransition extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleRotationTransition');
   }
 
-  build(context){
+  createState() {
+    return new PageExampleRotationTransitionState();
+  }
+}
+
+class PageExampleRotationTransitionState extends MXJSWidgetState {
+
+  constructor() {
+    super();
+  }
+
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleRotationTransition',),
+        title: new Text('PageExampleRotationTransition'),
       }),
       body: new ListView({
-        children:[
+        children: [
           new SectionTitle("PageExampleRotationTransition"),
         ],
       })

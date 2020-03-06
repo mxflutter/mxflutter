@@ -56,9 +56,19 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleFadeTransition extends MXJSWidget {
+class PageExampleFadeTransition extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleFadeTransition');
+  }
+
+  createState() {
+    return new PageExampleFadeTransitionState();
+  }
+}
+
+class PageExampleFadeTransitionState extends MXJSWidgetState {
   constructor(){
-    super("PageExampleFadeTransition");
+    super();
   }
 
   build(context){

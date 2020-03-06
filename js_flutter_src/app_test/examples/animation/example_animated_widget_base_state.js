@@ -56,18 +56,29 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedWidgetBaseState extends MXJSWidget {
-  constructor(){
-    super("PageExampleAnimatedWidgetBaseState");
+class PageExampleAnimatedWidgetBaseState extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedWidgetBaseState');
   }
 
-  build(context){
+  createState() {
+    return new PageExampleAnimatedWidgetBaseStateState();
+  }
+}
+
+class PageExampleAnimatedWidgetBaseStateState extends MXJSWidgetState {
+
+  constructor() {
+    super();
+  }
+
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleAnimatedWidgetBaseState',),
+        title: new Text('PageExampleAnimatedWidgetBaseState'),
       }),
       body: new ListView({
-        children:[
+        children: [
           new SectionTitle("PageExampleAnimatedWidgetBaseState"),
           new SectionTitle("todo...泛型类"),
         ],

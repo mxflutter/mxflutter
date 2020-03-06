@@ -56,18 +56,29 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleSizeTransition extends MXJSWidget {
-  constructor(){
-    super("PageExampleSizeTransition");
+class PageExampleSizeTransition extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleSizeTransition');
   }
 
-  build(context){
+  createState() {
+    return new PageExampleSizeTransitionState();
+  }
+}
+
+class PageExampleSizeTransitionState extends MXJSWidgetState {
+
+  constructor() {
+    super();
+  }
+
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleSizeTransition',),
+        title: new Text('PageExampleSizeTransition'),
       }),
       body: new ListView({
-        children:[
+        children: [
           new SectionTitle("PageExampleSizeTransition"),
         ],
       })
