@@ -58,9 +58,21 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedContainer extends MXJSWidget {
+
+class PageExampleAnimatedContainer extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedContainer');
+  }
+
+  createState() {
+    return new PageExampleAnimatedContainerState();
+  }
+}
+
+class PageExampleAnimatedContainerState extends MXJSWidgetState {
+
   constructor(){
-    super("PageExampleAnimatedContainer");
+    super();
     this.selected = false;
   }
 
@@ -71,12 +83,12 @@ class PageExampleAnimatedContainer extends MXJSWidget {
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
 
           this.setState(function() {
             this.selected = !this.selected;
-          })
-        })
+          }.bind(this))
+        }.bind(this)
       }),
       body: new ListView({
         children:[

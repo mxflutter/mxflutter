@@ -59,9 +59,20 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedDefaultTextStyle extends MXJSWidget {
+class PageExampleAnimatedDefaultTextStyle extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedDefaultTextStyle');
+  }
+
+  createState() {
+    return new PageExampleAnimatedDefaultTextStyleState();
+  }
+}
+
+class PageExampleAnimatedDefaultTextStyleState extends MXJSWidgetState {
+
   constructor(){
-    super("PageExampleAnimatedDefaultTextStyle");
+    super();
     this.fontSize = 20;
   }
 
@@ -91,11 +102,11 @@ class PageExampleAnimatedDefaultTextStyle extends MXJSWidget {
             children: [
               new RaisedButton({
                 child:new Text("缩小"),
-                onPressed:this.createCallbackID(function(){
+                onPressed:function(){
                   this.setState(function() {
                     this.fontSize -= 30;
-                  });
-                })
+                  }.bind(this));
+                }.bind(this)
               }),
               new SizedBox({
                 width: 10,
@@ -103,11 +114,11 @@ class PageExampleAnimatedDefaultTextStyle extends MXJSWidget {
               }),
               new RaisedButton({
                 child:new Text("放大"),
-                onPressed:this.createCallbackID(function(){
+                onPressed:function(){
                   this.setState(function() {
                     this.fontSize += 30;
-                  });
-                })
+                  }.bind(this));
+                }.bind(this)
               }),
             ]
           }),

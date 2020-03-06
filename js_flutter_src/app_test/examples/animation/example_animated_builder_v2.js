@@ -64,9 +64,22 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedBuilderV2 extends MXJSWidget {
+
+class PageExampleAnimatedBuilderV2 extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedBuilderV2');
+  }
+
+  createState() {
+    return new PageExampleAnimatedBuilderV2State();
+  }
+}
+
+class PageExampleAnimatedBuilderV2State extends MXJSWidgetState {
+
   constructor(){
-    super("PageExampleAnimatedBuilderV2");
+    super();
+
     this.count = 0;
     this._controller = new AnimationController({
       duration: new Duration({seconds: 1}),
@@ -88,9 +101,9 @@ class PageExampleAnimatedBuilderV2 extends MXJSWidget {
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-        onPressed: this.createCallbackID(function () {
+        onPressed:function () {
           this.beginAnimation();
-        })
+        }.bind(this)
       }),
       body: new AnimatedBuilder({
         animation: this._controller,

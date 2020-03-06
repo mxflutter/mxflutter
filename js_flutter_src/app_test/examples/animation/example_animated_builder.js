@@ -66,19 +66,19 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedBuilder extends MXJSWidget {
-  constructor(){
+class PageExampleAnimatedBuilder extends MXJSStatelessWidget {
+  constructor() {
     super("PageExampleAnimatedBuilder");
     this.count = 0;
-    this.tween = new Tween({begin: 50.0, end: 300.0});
-    this.animationController = new AnimationController({duration: new Duration({seconds: 2})});
+    this.tween = new Tween({ begin: 50.0, end: 300.0 });
+    this.animationController = new AnimationController({ duration: new Duration({ seconds: 2 }) });
     this.animationController.createMirrorObjectID();
-    this.animation = new Animation({tween: this.tween, controller: this.animationController});
+    this.animation = new Animation({ tween: this.tween, controller: this.animationController });
     this.animation.createMirrorObjectID();
     this.animation.addStatusListener(this.animationLoopFunc.bind(this));
   }
 
-  animationLoopFunc(status){
+  animationLoopFunc(status) {
     MXJSLog.log('callback from flutter ....  ' + status);
     if (status === AnimationStatus.completed) {
       this.animationController.reverse();
@@ -86,25 +86,25 @@ class PageExampleAnimatedBuilder extends MXJSWidget {
     } else if (status === AnimationStatus.dismissed) {
       this.animationController.forward();
     }
-    if (this.count > 5){
+    if (this.count > 5) {
       this.animation.removeStatusListener(this.animationLoopFunc);
     }
   }
 
-  beginAnimation(){
+  beginAnimation() {
     this.animationController.forward();
   }
 
-  build(context){
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleAnimatedBuilder',),
+        title: new Text('PageExampleAnimatedBuilder'),
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-          onPressed: this.createCallbackID(function () {
-            this.beginAnimation();
-          })
+        onPressed: function () {
+          this.beginAnimation();
+        }.bind(this)
       }),
       body: new ScaleAnimation({
         child: Image.network('https://pic2.zhimg.com/50/v2-6416ef6d3181117a0177275286fac8f3_hd.jpg'),
@@ -115,24 +115,34 @@ class PageExampleAnimatedBuilder extends MXJSWidget {
   }
 }
 
-class ScaleAnimation extends MXJSWidget{
-  constructor ({
-     child,
-     animation
+
+
+class ScaleAnimation extends MXJSStatefulWidget {
+
+  constructor({
+    child,
+    animation
   } = {}) {
-    super();
+    super('ScaleAnimation');
     this.child = child;
     this.animation = animation;
   }
 
-  build(context){
+  createState() {
+    return new ScaleAnimationState();
+  }
+}
+
+class ScaleAnimationState extends MXJSWidgetState {
+
+  build(context) {
     const imageRatio = 1.455;
     const widget = new Center({
       child: new AnimatedBuilder({
-        animation: this.animation,
+        animation: this.widget.animation,
         widget: new Container({
           width: "$value",
-          child: this.child
+          child: this.widget.child
         })
         // child: this.child,
       })

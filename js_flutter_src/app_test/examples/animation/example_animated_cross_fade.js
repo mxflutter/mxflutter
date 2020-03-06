@@ -59,51 +59,61 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleAnimatedCrossFade extends MXJSWidget {
-  constructor(){
-    super("PageExampleAnimatedCrossFade");
+class PageExampleAnimatedCrossFade extends MXJSStatefulWidget {
+  constructor() {
+    super('PageExampleAnimatedCrossFade');
+  }
+
+  createState() {
+    return new PageExampleAnimatedCrossFadeState();
+  }
+}
+
+class PageExampleAnimatedCrossFadeState extends MXJSWidgetState {
+
+  constructor() {
+    super();
     this.selected = true;
   }
 
-  build(context){
+  build(context) {
     let widget = new Scaffold({
       appBar: new AppBar({
-        title: new Text('PageExampleAnimatedCrossFade',),
+        title: new Text('PageExampleAnimatedCrossFade'),
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(Icons.add),
-        onPressed: this.createCallbackID(function () {
-
-          this.setState(function() {
+        onPressed: function () {
+          this.setState(function () {
             this.selected = !this.selected;
-          })
-        })
+          }.bind(this))
+        }.bind(this)
       }),
-      body:  new AnimatedCrossFade({
-        crossFadeState:this.selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-        duration:new Duration({milliseconds:200}),
-        firstChild:new Container({
-          width:500,
-          height:300,
-          color:Colors.orange,
+      body: new AnimatedCrossFade({
+        crossFadeState: this.selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+        duration: new Duration({ milliseconds: 200 }),
+        firstChild: new Container({
+          width: 500,
+          height: 300,
+          color: Colors.orange,
           child: new Center({
-            child:new Text("第一页",{
-              style:new TextStyle({
-                color:Colors.white,
-                fontSize:20,
+            child: new Text("第一页", {
+              style: new TextStyle({
+                color: Colors.white,
+                fontSize: 20,
               })
             })
           }),
         }),
-        secondChild:new Container({
-          width:500,
-          height:300,
-          color:Colors.blue,
+        secondChild: new Container({
+          width: 500,
+          height: 300,
+          color: Colors.blue,
           child: new Center({
-            child:new Text("第二页",{
-              style:new TextStyle({
-                color:Colors.white,
-                fontSize:20,
+            child: new Text("第二页", {
+              style: new TextStyle({
+                color: Colors.white,
+                fontSize: 20,
               })
             })
           }),

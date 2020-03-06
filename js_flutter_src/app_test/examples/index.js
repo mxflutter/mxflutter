@@ -77,11 +77,11 @@ let { PageExampleScaffold } = require("examples/example_scaffold.js");
 
 
 //Animated
-// const { PageExampleAnimatedBuilder } = require("./examples/animation/example_animated_builder.js");
-// const { PageExampleAnimatedBuilderV2 } = require("./examples/animation/example_animated_builder_v2.js");
-// const { PageExampleAnimatedContainer } = require("./examples/animation/example_animated_container.js");
-// const { PageExampleAnimatedCrossFade } = require("./examples/animation/example_animated_cross_fade.js");
-// const { PageExampleAnimatedDefaultTextStyle } = require("./examples/animation/example_animated_default_text_style.js");
+const { PageExampleAnimatedBuilder } = require("./examples/animation/example_animated_builder.js");
+const { PageExampleAnimatedBuilderV2 } = require("./examples/animation/example_animated_builder_v2.js");
+const { PageExampleAnimatedContainer } = require("./examples/animation/example_animated_container.js");
+const { PageExampleAnimatedCrossFade } = require("./examples/animation/example_animated_cross_fade.js");
+const { PageExampleAnimatedDefaultTextStyle } = require("./examples/animation/example_animated_default_text_style.js");
 // const { PageExampleAnimatedListState } = require("./examples/animation/example_animated_list_state.js");
 // const { PageExampleAnimatedModalBarrier } = require("./examples/animation/example_animated_modal_barrier.js");
 // const { PageExampleAnimatedOpacity } = require("./examples/animation/example_animated_opacity.js");

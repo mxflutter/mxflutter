@@ -316,6 +316,7 @@ class MXProxyInterval extends MXJsonObjProxy {
   }
 }
 
+//TODO:JS CrossFadeState
 class MXCrossFadeState {
   static CrossFadeState parse(String value,
       {CrossFadeState defaultValue = CrossFadeState.showFirst}) {
@@ -512,13 +513,15 @@ class MXProxyAnimatedCrossFade extends MXJsonObjProxy {
       key: mxj2d(bo, jsonMap["key"]),
       firstChild: mxj2d(bo, jsonMap["firstChild"]),
       secondChild: mxj2d(bo, jsonMap["secondChild"]),
-      firstCurve: mxj2d(bo, MXCurves.parse(jsonMap["firstCurve"])),
-      secondCurve: mxj2d(bo, MXCurves.parse(jsonMap["secondCurve"])),
-      sizeCurve: mxj2d(bo, MXCurves.parse(jsonMap["sizeCurve"])),
+      firstCurve:
+          MXCurves.parse(jsonMap["firstCurve"], defaultValue: Curves.linear),
+      secondCurve:
+          MXCurves.parse(jsonMap["secondCurve"], defaultValue: Curves.linear),
+      sizeCurve:
+          MXCurves.parse(jsonMap["sizeCurve"], defaultValue: Curves.linear),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.topCenter),
-      crossFadeState:
-          mxj2d(bo, MXCrossFadeState.parse(jsonMap["crossFadeState"])),
+      crossFadeState: MXCrossFadeState.parse(jsonMap["crossFadeState"]),
       duration: mxj2d(bo, jsonMap["duration"]),
       reverseDuration: mxj2d(bo, jsonMap["reverseDuration"]),
       layoutBuilder: mxj2d(bo, jsonMap["layoutBuilder"],
@@ -552,8 +555,7 @@ class MXProxyAnimatedDefaultTextStyle extends MXJsonObjProxy {
       softWrap: mxj2d(bo, jsonMap["softWrap"], defaultValue: true),
       overflow: mxj2d(bo, jsonMap["overflow"], defaultValue: TextOverflow.clip),
       maxLines: mxj2d(bo, jsonMap["maxLines"]),
-      curve: mxj2d(bo, MXCurves.parse(jsonMap["curve"]),
-          defaultValue: Curves.linear),
+      curve: MXCurves.parse(jsonMap["curve"], defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
       onEnd: mxj2d(bo, jsonMap["onEnd"]),
     );
@@ -580,7 +582,7 @@ class MXProxyAnimatedOpacity extends MXJsonObjProxy {
       key: mxj2d(bo, jsonMap["key"]),
       child: mxj2d(bo, jsonMap["child"]),
       opacity: mxj2d(bo, jsonMap["opacity"])?.toDouble(),
-      curve: mxj2d(bo, jsonMap["curve"], defaultValue: Curves.linear),
+      curve: MXCurves.parse(jsonMap["curve"], defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
       onEnd: mxj2d(bo, jsonMap["onEnd"]),
       alwaysIncludeSemantics:
@@ -619,7 +621,7 @@ class MXProxyAnimatedPhysicalModel extends MXJsonObjProxy {
       shadowColor: mxj2d(bo, jsonMap["shadowColor"]),
       animateShadowColor:
           mxj2d(bo, jsonMap["animateShadowColor"], defaultValue: true),
-      curve: mxj2d(bo, jsonMap["curve"], defaultValue: Curves.linear),
+      curve: MXCurves.parse(jsonMap["curve"], defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
       onEnd: mxj2d(bo, jsonMap["onEnd"]),
     );
@@ -652,7 +654,7 @@ class MXProxyAnimatedPositioned extends MXJsonObjProxy {
       bottom: mxj2d(bo, jsonMap["bottom"])?.toDouble(),
       width: mxj2d(bo, jsonMap["width"])?.toDouble(),
       height: mxj2d(bo, jsonMap["height"])?.toDouble(),
-      curve: mxj2d(bo, jsonMap["curve"], defaultValue: Curves.linear),
+      curve: MXCurves.parse(jsonMap["curve"], defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
       onEnd: mxj2d(bo, jsonMap["onEnd"]),
     );
@@ -679,11 +681,11 @@ class MXProxyAnimatedSize extends MXJsonObjProxy {
       child: mxj2d(bo, jsonMap["child"]),
       alignment:
           mxj2d(bo, jsonMap["alignment"], defaultValue: Alignment.center),
-      curve: mxj2d(bo, jsonMap["curve"], defaultValue: Curves.linear),
+      curve: MXCurves.parse(jsonMap["curve"], defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
       reverseDuration: mxj2d(bo, jsonMap["reverseDuration"]),
-      vsync: bo.widget
-          .state, //mxj2d(bo, jsonMap["vsync"]), //TODO FIXME,bo.widget 不能是MXJSStatelessWidget
+      vsync: bo.widget.state,
+      //mxj2d(bo, jsonMap["vsync"]), //TODO FIXME,bo.widget 不能是MXJSStatelessWidget
     );
     return widget;
   }
