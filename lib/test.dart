@@ -7,6 +7,8 @@ class TestPageScaffoldNorWork extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
+    var c = Colors.red;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("My Test"),

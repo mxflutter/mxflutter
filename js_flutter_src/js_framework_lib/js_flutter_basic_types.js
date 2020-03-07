@@ -4,7 +4,6 @@
 //-------------------------------------------
 //不依赖任何文件的放这里
 //dart widget 封装
-
 const dart_sdk = require("dart_sdk");
 const core = dart_sdk.core;
 const dart = dart_sdk.dart;
@@ -2118,42 +2117,87 @@ Colors.white30 = new Color(0x4dffffff);
 Colors.white24 = new Color(0x3dffffff);
 Colors.white12 = new Color(0x1fffffff);
 Colors.white10 = new Color(0x1affffff);
-Colors.orange = new Color(0xffff9800);
-Colors.red = new Color(0xfff44336);
-Colors.purple = new Color(0xff9c27b0);
-Colors.pink = new Color(0xffe91e63);
-Colors.deepPurple = new Color(0xff673ab7);
-Colors.blue = new MaterialColor(0xFF2196F3, {
-  50: new Color(0xFFE3F2FD),
-  100: new Color(0xFFBBDEFB),
-  200: new Color(0xFF90CAF9),
-  300: new Color(0xFF64B5F6),
-  400: new Color(0xFF42A5F5),
-  500: new Color(0xFF2196F3),
-  600: new Color(0xFF1E88E5),
-  700: new Color(0xFF1976D2),
-  800: new Color(0xFF1565C0),
-  900: new Color(0xFF0D47A1),
+
+Colors.red = new MaterialColor(0xFFF44336, {
+  50: new Color(0xFFFFEBEE),
+  100:new  Color(0xFFFFCDD2),
+  200: new Color(0xFFEF9A9A),
+  300: new Color(0xFFE57373),
+  400: new Color(0xFFEF5350),
+  500: new Color(0xFFF44336),
+  600: new Color(0xFFE53935),
+  700: new Color(0xFFD32F2F),
+  800: new Color(0xFFC62828),
+  900: new Color(0xFFB71C1C),
 });
-Colors.lightBlue = new Color(0xff03a9f4);
-Colors.cyan = new Color(0xff00bcd4);
-Colors.green = new Color(0xff4caf50);
-Colors.lightGreen = new Color(0xff8bc34a);
-Colors.lime = new Color(0xffcddc39);
-Colors.yellow = new Color(0xffffeb3b);
-Colors.deepOrange = new Color(0xffff5722);
-Colors.teal = new MaterialColor(0xff009688, {
-  50: new Color(0xffe0f2f1),
-  100: new Color(0xffb2dfdb),
-  200: new Color(0xff80cbc4),
-  300: new Color(0xff4db6ac),
-  400: new Color(0xff26a69a),
-  500: new Color(0xff009688),
-  600: new Color(0xff00897b),
-  700: new Color(0xff00796b),
-  800: new Color(0xff00695c),
-  900: new Color(0xff004d40)
+
+Colors.redAccent = new MaterialAccentColor(0xFFFF5252, {
+  100: new Color(0xFFFF8A80),
+  200: new Color(0xFFFF5252),
+  400: new Color(0xFFFF1744),
+  700: new Color(0xFFD50000),
 });
+
+Colors.pink = new MaterialAccentColor(0xFFE91E63, {
+  50: new Color(0xFFFCE4EC),
+  100: new Color(0xFFF8BBD0),
+  200: new Color(0xFFF48FB1),
+  300: new Color(0xFFF06292),
+  400: new Color(0xFFEC407A),
+  500: new Color(0xFFE91E63),
+  600: new Color(0xFFD81B60),
+  700: new Color(0xFFC2185B),
+  800: new Color(0xFFAD1457),
+  900: new Color(0xFF880E4F),
+});
+
+Colors.pinkAccent = new MaterialAccentColor(0xFFFF4081, {
+  100: new Color(0xFFFF80AB),
+  200: new Color(0xFFFF4081),
+  400: new Color(0xFFF50057),
+  700: new Color(0xFFC51162),
+});
+
+Colors.purple = new MaterialAccentColor(0xFF9C27B0, {
+  50: new Color(0xFFF3E5F5),
+  100: new Color(0xFFE1BEE7),
+  200: new Color(0xFFCE93D8),
+  300: new Color(0xFFBA68C8),
+  400: new Color(0xFFAB47BC),
+  500: new Color(0xFF9C27B0),
+  600: new Color(0xFF8E24AA),
+  700: new Color(0xFF7B1FA2),
+  800: new Color(0xFF6A1B9A),
+  900: new Color(0xFF4A148C),
+});
+
+Colors.purpleAccent = new MaterialAccentColor(0xFFE040FB, {
+  100: new Color(0xFFEA80FC),
+  200: new Color(0xFFE040FB),
+  400: new Color(0xFFD500F9),
+  700: new Color(0xFFAA00FF),
+});
+
+Colors.deepPurple = new MaterialAccentColor(0xFF673AB7, {
+  50: new Color(0xFFEDE7F6),
+  100: new Color(0xFFD1C4E9),
+  200: new Color(0xFFB39DDB),
+  300: new Color(0xFF9575CD),
+  400: new Color(0xFF7E57C2),
+  500: new Color(0xFF673AB7),
+  600: new Color(0xFF5E35B1),
+  700: new Color(0xFF512DA8),
+  800: new Color(0xFF4527A0),
+  900: new Color(0xFF311B92),
+});
+
+Colors.deepPurpleAccent = new MaterialAccentColor(0xFF7C4DFF, {
+  100: new Color(0xFFB388FF),
+  200: new Color(0xFF7C4DFF),
+  400: new Color(0xFF651FFF),
+  700: new Color(0xFF6200EA),
+});
+
 Colors.indigo = new MaterialColor(0xFF3F51B5, {
   50: new Color(0xFFE8EAF6),
   100: new Color(0xFFC5CAE9),
@@ -2166,16 +2210,325 @@ Colors.indigo = new MaterialColor(0xFF3F51B5, {
   800: new Color(0xFF283593),
   900: new Color(0xFF1A237E)
 });
-Colors.amber = new Color(0xffffc107);
-Colors.brown = new Color(0xff795548);
-Colors.grey = new Color(0xff9e9e9e);
-Colors.blueGrey = new Color(0xff607d8b);
-Colors.redAccent = new MaterialAccentColor(0xFFFF5252, {
-  100: new Color(0xFFFF8A80),
-  200: new Color(0xFFFF5252),
-  400: new Color(0xFFFF1744),
-  700: new Color(0xFFD50000),
+
+Colors.indigoAccent = new MaterialAccentColor(0xFF536DFE, {
+  100: new Color(0xFF8C9EFF),
+  200: new Color(0xFF536DFE),
+  400: new Color(0xFF3D5AFE),
+  700: new Color(0xFF304FFE),
 });
+
+Colors.blue = new MaterialColor(0xFF2196F3, {
+  50: new Color(0xFFE3F2FD),
+  100: new Color(0xFFBBDEFB),
+  200: new Color(0xFF90CAF9),
+  300: new Color(0xFF64B5F6),
+  400: new Color(0xFF42A5F5),
+  500: new Color(0xFF2196F3),
+  600: new Color(0xFF1E88E5),
+  700: new Color(0xFF1976D2),
+  800: new Color(0xFF1565C0),
+  900: new Color(0xFF0D47A1),
+});
+
+Colors.blueAccent = new MaterialAccentColor(0xFF448AFF, {
+  100: new Color(0xFF82B1FF),
+  200: new Color(0xFF448AFF),
+  400: new Color(0xFF2979FF),
+  700: new Color(0xFF2962FF),
+});
+
+Colors.lightBlue = new MaterialColor(0xFF03A9F4, {
+  50: new Color(0xFFE1F5FE),
+  100: new Color(0xFFB3E5FC),
+  200: new Color(0xFF81D4FA),
+  300: new Color(0xFF4FC3F7),
+  400: new Color(0xFF29B6F6),
+  500: new Color(0xFF03A9F4),
+  600: new Color(0xFF039BE5),
+  700: new Color(0xFF0288D1),
+  800: new Color(0xFF0277BD),
+  900: new Color(0xFF01579B),
+});
+
+Colors.lightBlueAccent = new MaterialAccentColor(0xFF40C4FF, {
+  100: new Color(0xFF80D8FF),
+  200: new Color(0xFF40C4FF),
+  400: new Color(0xFF00B0FF),
+  700: new Color(0xFF0091EA),
+});
+
+Colors.cyan = new MaterialColor(0xFF00BCD4, {
+  50: new Color(0xFFE0F7FA),
+  100: new Color(0xFFB2EBF2),
+  200: new Color(0xFF80DEEA),
+  300: new Color(0xFF4DD0E1),
+  400: new Color(0xFF26C6DA),
+  500: new Color(0xFF00BCD4),
+  600: new Color(0xFF00ACC1),
+  700: new Color(0xFF0097A7),
+  800: new Color(0xFF00838F),
+  900: new Color(0xFF006064),
+});
+
+Colors.cyanAccent = new MaterialAccentColor(0xFF18FFFF, {
+  100: new Color(0xFF84FFFF),
+  200: new Color(0xFF18FFFF),
+  400: new Color(0xFF00E5FF),
+  700: new Color(0xFF00B8D4),
+});
+
+Colors.teal = new MaterialColor(0xff009688, {
+  50: new Color(0xffe0f2f1),
+  100: new Color(0xffb2dfdb),
+  200: new Color(0xff80cbc4),
+  300: new Color(0xff4db6ac),
+  400: new Color(0xff26a69a),
+  500: new Color(0xff009688),
+  600: new Color(0xff00897b),
+  700: new Color(0xff00796b),
+  800: new Color(0xff00695c),
+  900: new Color(0xff004d40)
+});
+
+Colors.tealAccent = new MaterialAccentColor(0xFF64FFDA, {
+  100: new Color(0xFF84FFFF),
+  200: new Color(0xFF64FFDA),
+  400: new Color(0xFF00E5FF),
+  700: new Color(0xFF00B8D4),
+});
+
+Colors.green = new MaterialColor(0xFF4CAF50, {
+  50: new Color(0xFFE8F5E9),
+  100: new Color(0xFFC8E6C9),
+  200: new Color(0xFFA5D6A7),
+  300: new Color(0xFF81C784),
+  400: new Color(0xFF66BB6A),
+  500: new Color(0xFF4CAF50),
+  600: new Color(0xFF43A047),
+  700: new Color(0xFF388E3C),
+  800: new Color(0xFF2E7D32),
+  900: new Color(0xFF1B5E20),
+});
+
+Colors.greenAccent = new MaterialAccentColor(0xFF69F0AE, {
+  100: new Color(0xFFB9F6CA),
+  200: new Color(0xFF69F0AE),
+  400: new Color(0xFF00E676),
+  700: new Color(0xFF00C853),
+});
+
+Colors.lightGreen = new MaterialColor(0xFF8BC34A, {
+  50: new Color(0xFFF1F8E9),
+  100: new Color(0xFFDCEDC8),
+  200: new Color(0xFFC5E1A5),
+  300: new Color(0xFFAED581),
+  400: new Color(0xFF9CCC65),
+  500: new Color(0xFF8BC34A),
+  600: new Color(0xFF7CB342),
+  700: new Color(0xFF689F38),
+  800: new Color(0xFF558B2F),
+  900: new Color(0xFF33691E),
+});
+
+Colors.lightGreenAccent = new MaterialAccentColor(0xFFB2FF59, {
+  100: new Color(0xFFCCFF90),
+  200: new Color(0xFFB2FF59),
+  400: new Color(0xFF76FF03),
+  700: new Color(0xFF64DD17),
+});
+
+Colors.lime = new MaterialColor(0xFFCDDC39, {
+  50: new Color(0xFFF9FBE7),
+  100: new Color(0xFFF0F4C3),
+  200: new Color(0xFFE6EE9C),
+  300: new Color(0xFFDCE775),
+  400: new Color(0xFFD4E157),
+  500: new Color(0xFFCDDC39),
+  600: new Color(0xFFC0CA33),
+  700: new Color(0xFFAFB42B),
+  800: new Color(0xFF9E9D24),
+  900: new Color(0xFF827717),
+});
+
+Colors.limeAccent = new MaterialAccentColor(0xFFEEFF41, {
+  100: new Color(0xFFF4FF81),
+  200: new Color(0xFFEEFF41),
+  400: new Color(0xFFC6FF00),
+  700: new Color(0xFFAEEA00),
+});
+
+Colors.yellow = new MaterialColor(0xFFFFEB3B, {
+  50: new Color(0xFFFFFDE7),
+  100: new Color(0xFFFFF9C4),
+  200: new Color(0xFFFFF59D),
+  300: new Color(0xFFFFF176),
+  400: new Color(0xFFFFEE58),
+  500: new Color(0xFFFFEB3B),
+  600: new Color(0xFFFDD835),
+  700: new Color(0xFFFBC02D),
+  800: new Color(0xFFF9A825),
+  900: new Color(0xFFF57F17),
+});
+
+Colors.yellowAccent = new MaterialAccentColor(0xFFFFFF00, {
+  100: new Color(0xFFFFFF8D),
+  200: new Color(0xFFFFFF00),
+  400: new Color(0xFFFFEA00),
+  700: new Color(0xFFFFD600),
+});
+
+Colors.amber = new MaterialColor(0xFFFFC107, {
+  50: new Color(0xFFFFF8E1),
+  100: new Color(0xFFFFECB3),
+  200: new Color(0xFFFFE082),
+  300: new Color(0xFFFFD54F),
+  400: new Color(0xFFFFCA28),
+  500: new Color(0xFFFFC107),
+  600: new Color(0xFFFFB300),
+  700: new Color(0xFFFFA000),
+  800: new Color(0xFFFF8F00),
+  900: new Color(0xFFFF6F00),
+});
+
+Colors.amberAccent = new MaterialAccentColor(0xFFFFD740, {
+  100: new Color(0xFFFFE57F),
+  200: new Color(0xFFFFD740),
+  400: new Color(0xFFFFC400),
+  700: new Color(0xFFFFAB00),
+});
+
+Colors.orange = new MaterialColor(0xFFFF9800, {
+  50: new Color(0xFFFFF3E0),
+  100: new Color(0xFFFFE0B2),
+  200: new Color(0xFFFFCC80),
+  300: new Color(0xFFFFB74D),
+  400: new Color(0xFFFFA726),
+  500: new Color(0xFFFF9800),
+  600: new Color(0xFFFB8C00),
+  700: new Color(0xFFF57C00),
+  800: new Color(0xFFEF6C00),
+  900: new Color(0xFFE65100),
+});
+
+Colors.orangeAccent = new MaterialAccentColor(0xFFFFAB40, {
+  100: new Color(0xFFFFD180),
+  200: new Color(0xFFFFAB40),
+  400: new Color(0xFFFF9100),
+  700: new Color(0xFFFF6D00),
+});
+
+Colors.deepOrange = new MaterialColor(0xFFFF5722, {
+  50: new Color(0xFFFBE9E7),
+  100: new Color(0xFFFFCCBC),
+  200: new Color(0xFFFFAB91),
+  300: new Color(0xFFFF8A65),
+  400: new Color(0xFFFF7043),
+  500: new Color(0xFFFF5722),
+  600: new Color(0xFFF4511E),
+  700: new Color(0xFFE64A19),
+  800: new Color(0xFFD84315),
+  900: new Color(0xFFBF360C),
+});
+
+Colors.deepOrangeAccent = new MaterialAccentColor(0xFFFF6E40, {
+  100: new Color(0xFFFF9E80),
+  200: new Color(0xFFFF6E40),
+  400: new Color(0xFFFF3D00),
+  700: new Color(0xFFDD2C00),
+});
+
+
+Colors.brown = new MaterialColor(0xFF795548, {
+  50: new Color(0xFFEFEBE9),
+  100: new Color(0xFFD7CCC8),
+  200: new Color(0xFFBCAAA4),
+  300: new Color(0xFFA1887F),
+  400: new Color(0xFF8D6E63),
+  500: new Color(0xFF795548),
+  600: new Color(0xFF6D4C41),
+  700: new Color(0xFF5D4037),
+  800: new Color(0xFF4E342E),
+  900: new Color(0xFF3E2723),
+});
+
+Colors.grey = new MaterialColor(0xFF9E9E9E, {
+  50: new Color(0xFFFAFAFA),
+  100: new Color(0xFFF5F5F5),
+  200: new Color(0xFFEEEEEE),
+  300: new Color(0xFFE0E0E0),
+  350: new Color(0xFFD6D6D6), // only for raised button while pressed in light theme
+  400: new Color(0xFFBDBDBD),
+  500: new Color(0xFF9E9E9E),
+  600: new Color(0xFF757575),
+  700: new Color(0xFF616161),
+  800: new Color(0xFF424242),
+  850: new Color(0xFF303030), // only for background color in dark theme
+  900: new Color(0xFF212121),
+});
+
+Colors.blueGrey = new MaterialColor(0xFF607D8B, {
+  50: new Color(0xFFECEFF1),
+  100: new Color(0xFFCFD8DC),
+  200: new Color(0xFFB0BEC5),
+  300: new Color(0xFF90A4AE),
+  400: new Color(0xFF78909C),
+  500: new Color(0xFF607D8B),
+  600: new Color(0xFF546E7A),
+  700: new Color(0xFF455A64),
+  800: new Color(0xFF37474F),
+  900: new Color(0xFF263238),
+});
+
+Colors.primaries = [
+  Colors.red,
+  Colors.pink,
+  Colors.purple,
+  Colors.deepPurple,
+  Colors.indigo,
+  Colors.blue,
+  Colors.lightBlue,
+  Colors.cyan,
+  Colors.teal,
+  Colors.green,
+  Colors.lightGreen,
+  Colors.lime,
+  Colors.yellow,
+  Colors.amber,
+  Colors.orange,
+  Colors.deepOrange,
+  Colors.brown,
+  // The grey swatch is intentionally omitted because when picking a color
+  // randomly from this list to colorize an application, picking grey suddenly
+  // makes the app look disabled.
+  Colors.blueGrey,
+];
+
+Colors.accents = [
+  Colors.redAccent,
+  Colors.pinkAccent,
+  Colors.purpleAccent,
+  Colors.deepPurpleAccent,
+  Colors.indigoAccent,
+  Colors.blueAccent,
+  Colors.lightBlueAccent,
+  Colors.cyanAccent,
+  Colors.tealAccent,
+  Colors.greenAccent,
+  Colors.lightGreenAccent,
+  Colors.limeAccent,
+  Colors.yellowAccent,
+  Colors.amberAccent,
+  Colors.orangeAccent,
+  Colors.deepOrangeAccent,
+  Colors.brownAccent,
+  // The grey swatch is intentionally omitted because when picking a color
+  // randomly from this list to colorize an application, picking grey suddenly
+  // makes the app look disabled.
+  Colors.blueGrey,
+];
+
+
 
 class CircularNotchedRectangle extends DartClass {
   constructor({} = {}) {
