@@ -707,7 +707,11 @@ class MXProxyDecoratedBoxTransition extends MXJsonObjProxy {
   DecoratedBoxTransition constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
-    Animation<Decoration> animation = mxj2d(bo, jsonMap["decoration"]);
+        
+    var decoration = mxj2d(bo, jsonMap["decoration"]);
+    AnimationController controller =
+        mxj2d(bo, jsonMap["decoration"]["controller"]);
+    Animation<Decoration> animation = decoration.animate(controller);
 
     var widget = DecoratedBoxTransition(
       key: mxj2d(bo, jsonMap["key"]),

@@ -620,6 +620,8 @@ class DecoratedBoxTransition extends FlutterWidget {
     this.position = position;
     this.child = child;
   }
+
+
 }
 
 class DecorationTween extends FlutterWidget {
@@ -631,18 +633,27 @@ class DecorationTween extends FlutterWidget {
 
     this.begin = begin;
     this.end = end;
+
+    //MXFlutter特殊逻辑
+    this.controller = null;
   }
 
-  animate(parent) {
-    const argument = new FlutterCallArgs({
-      mirrorID: this.mirrorID,
-      className: 'DecorationTween',
-      funcName: 'animate',
-      args: {
-        parent: parent,
-      },
-    });
-    invokeFlutterFunction(argument);
+  // animate(parent) {
+  //   const argument = new FlutterCallArgs({
+  //     mirrorID: this.mirrorID,
+  //     className: 'DecorationTween',
+  //     funcName: 'animate',
+  //     args: {
+  //       parent: parent,
+  //     },
+  //   });
+  //   invokeFlutterFunction(argument);
+  // }
+
+  //MXFlutter特殊逻辑
+  animate(controller){
+    this.controller = controller;
+    return this;
   }
 }
 

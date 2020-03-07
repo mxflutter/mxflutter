@@ -82,22 +82,20 @@ class PageExampleDecoratedBoxTransitionState extends MXJSWidgetState {
     this.controller.duration = new Duration({ seconds: 2 });
     this.controller.createMirrorObjectID();
 
-
-    this.rectAnimation = new DecorationTween({
+    let dTween = new DecorationTween({
       begin: new BoxDecoration({
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(0))
       }),
       end: new BoxDecoration({
-        color: Colors.white,
+        color: Colors.blue,
         borderRadius: BorderRadius.all(Radius.circular(20))
       })
     });
+
+    this.rectAnimation = dTween.animate(this.controller)
     this.rectAnimation.createMirrorObjectID();
 
-    this.rectAnimation.animate(this.controller.view);
-
-    this.controller.forward();
   }
 
   build(context) {
@@ -105,8 +103,14 @@ class PageExampleDecoratedBoxTransitionState extends MXJSWidgetState {
       appBar: new AppBar({
         title: new Text('PageExampleDecoratedBoxTransition'),
       }),
+      floatingActionButton: new FloatingActionButton({
+        child: new Icon(Icons.add),
+        onPressed: function () {
+          this.controller.forward();
+        }.bind(this),
+      }),
       body: new DecoratedBoxTransition({
-        child: new FlutterLogo({ size: 100 }),
+        child: new FlutterLogo({ size: 300 }),
         decoration: this.rectAnimation,
       })
     });
