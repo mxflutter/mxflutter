@@ -1955,7 +1955,10 @@ FloatingActionButtonLocation = {
     index: 1
   },
   endFloat: { _name: "FloatingActionButtonLocation.endFloat", index: 2 },
-  centerFloat: { _name: "FloatingActionButtonLocation.centerFloat", index: 3 }
+  centerFloat: { _name: "FloatingActionButtonLocation.centerFloat", index: 3 },
+  startTop: { _name: "FloatingActionButtonLocation.startTop", index: 4 },
+  miniStartTop: { _name: "FloatingActionButtonLocation.miniStartTop", index: 5 },
+  endTop: { _name: "FloatingActionButtonLocation.endTop", index: 6 },
 };
 
 class Colors {

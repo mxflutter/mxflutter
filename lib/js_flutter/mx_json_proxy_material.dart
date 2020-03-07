@@ -40,7 +40,7 @@ class MXProxyRegisterHelperMaterialSeries {
     m.addAll(MXProxyPopupMenuItem.registerProxy());
     m.addAll(MXProxyFlexibleSpaceBar.registerProxy());
 
-    m.addAll(MXProxyFloatingActionButtonLocationSeries.registerProxy());
+    //m.addAll(MXProxyFloatingActionButtonLocationSeries.registerProxy());
     m.addAll(MXProxyRadio.registerProxy());
     m.addAll(MXProxySemantics.registerProxy());
     m.addAll(MXProxyCircleBorder.registerProxy());
@@ -213,8 +213,8 @@ class MXProxyScaffold extends MXJsonObjProxy {
       appBar: mxj2d(bo, jsonMap["appBar"]),
       body: mxj2d(bo, jsonMap["body"]),
       floatingActionButton: mxj2d(bo, jsonMap["floatingActionButton"]),
-      floatingActionButtonLocation:
-          mxj2d(bo, jsonMap["floatingActionButtonLocation"]),
+      floatingActionButtonLocation: MXFloatingActionButtonLocation.parse(
+          jsonMap["floatingActionButtonLocation"]),
       floatingActionButtonAnimator:
           mxj2d(bo, jsonMap["floatingActionButtonAnimator"]),
       persistentFooterButtons:
@@ -1029,7 +1029,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
 
 class MXProxyIcon extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
-    ///**@@@  2 替换类名字符串
+    ///**@@@  2 替换类名字符��
     final String regClassName1 = "Icon";
 
     ///**@@@  3 替换类构造函数
@@ -1186,95 +1186,122 @@ class MXProxyFlexibleSpaceBar extends MXJsonObjProxy {
 }
 
 ///FloatingActionButtonLocation系列,负责所有回退button的生成
-class MXProxyFloatingActionButtonLocationSeries extends MXJsonObjProxy {
-  ///**@@@  2 替换类名字符串
-  static final String regClassName1 = "FloatingActionButtonLocation.endDocked";
-  static final String regClassName2 =
-      "FloatingActionButtonLocation.centerDocked";
-  static final String regClassName3 = "FloatingActionButtonLocation.endFloat";
-  static final String regClassName4 =
-      "FloatingActionButtonLocation.centerFloat";
-  static final String regClassName5 = "FloatingActionButtonLocation";
+// class MXProxyFloatingActionButtonLocationSeries extends MXJsonObjProxy {
+//   ///**@@@  2 替换类名字符串
+//   static final String regClassName1 = "FloatingActionButtonLocation.endDocked";
+//   static final String regClassName2 =
+//       "FloatingActionButtonLocation.centerDocked";
+//   static final String regClassName3 = "FloatingActionButtonLocation.endFloat";
+//   static final String regClassName4 =
+//       "FloatingActionButtonLocation.centerFloat";
+//   static final String regClassName5 = "FloatingActionButtonLocation";
 
-  ///静态接口,子类重写*********************************************
-  ///把自己能处理的类注册到分发器中
-  static Map<String, CreateJsonObjProxyFun> registerProxy() {
-    ///**@@@  3 替换类构造函数
-    return {
-      regClassName1: () => MXProxyFloatingActionButtonLocationSeries()
-        ..init(className: regClassName1),
-      regClassName2: () => MXProxyFloatingActionButtonLocationSeries()
-        ..init(className: regClassName2),
-      regClassName3: () => MXProxyFloatingActionButtonLocationSeries()
-        ..init(className: regClassName3),
-      regClassName4: () => MXProxyFloatingActionButtonLocationSeries()
-        ..init(className: regClassName4),
-      regClassName5: () => MXProxyFloatingActionButtonLocationSeries()
-        ..init(className: regClassName5)
-    };
-  }
+//   ///静态接口,子类重写*********************************************
+//   ///把自己能处理的类注册到分发器中
+//   static Map<String, CreateJsonObjProxyFun> registerProxy() {
+//     ///**@@@  3 替换类构造函数
+//     return {
+//       regClassName1: () => MXProxyFloatingActionButtonLocationSeries()
+//         ..init(className: regClassName1),
+//       regClassName2: () => MXProxyFloatingActionButtonLocationSeries()
+//         ..init(className: regClassName2),
+//       regClassName3: () => MXProxyFloatingActionButtonLocationSeries()
+//         ..init(className: regClassName3),
+//       regClassName4: () => MXProxyFloatingActionButtonLocationSeries()
+//         ..init(className: regClassName4),
+//       regClassName5: () => MXProxyFloatingActionButtonLocationSeries()
+//         ..init(className: regClassName5)
+//     };
+//   }
 
-  ///*********************************************************************
+//   ///*********************************************************************
 
-  @override
-  void init({String className}) {
-    super.init(className: className);
+//   @override
+//   void init({String className}) {
+//     super.init(className: className);
 
-    registerConstructor(
-        className: regClassName1, constructor: constructorEndDocked);
-    registerConstructor(
-        className: regClassName2, constructor: constructorCenterDocked);
-    registerConstructor(
-        className: regClassName3, constructor: constructorEndFloat);
-    registerConstructor(
-        className: regClassName4, constructor: constructorCenterFloat);
-    registerConstructor(
-        className: regClassName5, constructor: constructorNormal);
-  }
+//     registerConstructor(
+//         className: regClassName1, constructor: constructorEndDocked);
+//     registerConstructor(
+//         className: regClassName2, constructor: constructorCenterDocked);
+//     registerConstructor(
+//         className: regClassName3, constructor: constructorEndFloat);
+//     registerConstructor(
+//         className: regClassName4, constructor: constructorCenterFloat);
+//     registerConstructor(
+//         className: regClassName5, constructor: constructorNormal);
+//   }
 
-  FloatingActionButtonLocation constructorEndDocked(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
-      {BuildContext context}) {
-    return FloatingActionButtonLocation.endDocked;
-  }
+//   FloatingActionButtonLocation constructorEndDocked(
+//       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//       {BuildContext context}) {
+//     return FloatingActionButtonLocation.endDocked;
+//   }
 
-  FloatingActionButtonLocation constructorCenterDocked(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
-      {BuildContext context}) {
-    return FloatingActionButtonLocation.centerDocked;
-  }
+//   FloatingActionButtonLocation constructorCenterDocked(
+//       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//       {BuildContext context}) {
+//     return FloatingActionButtonLocation.centerDocked;
+//   }
 
-  FloatingActionButtonLocation constructorEndFloat(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
-      {BuildContext context}) {
-    return FloatingActionButtonLocation.endFloat;
-  }
+//   FloatingActionButtonLocation constructorEndFloat(
+//       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//       {BuildContext context}) {
+//     return FloatingActionButtonLocation.endFloat;
+//   }
 
-  FloatingActionButtonLocation constructorCenterFloat(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
-      {BuildContext context}) {
-    return FloatingActionButtonLocation.centerFloat;
-  }
+//   FloatingActionButtonLocation constructorCenterFloat(
+//       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//       {BuildContext context}) {
+//     return FloatingActionButtonLocation.centerFloat;
+//   }
 
-  FloatingActionButtonLocation constructorNormal(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
-      {BuildContext context}) {
-    MXFloatingActionButtonLocation mxLocation = MXFloatingActionButtonLocation(
-      offset: mxj2d(bo, jsonMap["offset"], defaultValue: Offset.zero),
-    );
-    return mxLocation;
-  }
-}
+//   FloatingActionButtonLocation constructorNormal(
+//       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//       {BuildContext context}) {
+//     MXFloatingActionButtonLocation mxLocation = MXFloatingActionButtonLocation(
+//       offset: mxj2d(bo, jsonMap["offset"], defaultValue: Offset.zero),
+//     );
+//     return mxLocation;
+//   }
+// }
 
-class MXFloatingActionButtonLocation implements FloatingActionButtonLocation {
-  const MXFloatingActionButtonLocation({
-    this.offset = Offset.zero,
-  });
+// class MXFloatingActionButtonLocation implements FloatingActionButtonLocation {
+//   const MXFloatingActionButtonLocation({
+//     this.offset = Offset.zero,
+//   });
 
-  final Offset offset;
+//   final Offset offset;
 
-  Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
-    return this.offset;
+//   Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
+//     return this.offset;
+//   }
+// }
+
+class MXFloatingActionButtonLocation {
+  static Map str2VMap = {
+    "FloatingActionButtonLocation.endDocked":
+        FloatingActionButtonLocation.endDocked,
+    "FloatingActionButtonLocation.centerDocked":
+        FloatingActionButtonLocation.centerDocked,
+    "FloatingActionButtonLocation.endFloat":
+        FloatingActionButtonLocation.endFloat,
+    "FloatingActionButtonLocation.centerFloat":
+        FloatingActionButtonLocation.centerFloat,
+    "FloatingActionButtonLocation.startTop":
+        FloatingActionButtonLocation.startTop,
+    "FloatingActionButtonLocation.miniStartTop":
+        FloatingActionButtonLocation.miniStartTop,
+    "FloatingActionButtonLocation.endTop":
+        FloatingActionButtonLocation.endTop,
+  };
+
+  static FloatingActionButtonLocation parse(Map valueMap,
+      {FloatingActionButtonLocation defaultValue}) {
+    if (valueMap == null) return defaultValue;
+    var valueStr = valueMap["_name"].trim();
+    var v = str2VMap[valueStr];
+    return v ?? defaultValue;
   }
 }
 

@@ -164,7 +164,7 @@ class _JSRadioItem extends MXJSStatelessWidget{
                             groupValue: this.groupValue,
                             onChanged: function () {
                                 this.onChanged(this.value);
-                            }
+                            }.bind(this)
                         }),
                         new Expanded({
                             child: new Semantics({
@@ -175,7 +175,7 @@ class _JSRadioItem extends MXJSStatelessWidget{
                                     behavior: HitTestBehavior.opaque,
                                     onTap: function () {
                                         this.onChanged(this.value);
-                                    },
+                                    }.bind(this),
                                     child: new Text(this.value.title)
                                 })
                             })
@@ -205,7 +205,7 @@ class _JSColorsItem extends MXJSStatelessWidget{
             let widget = new RawMaterialButton({
                 onPressed: function () {
                     this.onChanged(namedColor.color);
-                },
+                }.bind(this),
                 constraints: new BoxConstraints({
                     minWidth: 32,
                     maxWidth: 32,
@@ -268,19 +268,19 @@ class JSBottomAPPBarDemoState extends MXJSWidgetState {
         console.log("[JS]-MXJSFlutter:: require..........");
         this.setState(function() {
             this._showNotch = value;
-        });
+        }.bind(this));
     }
     
     onFabLocationChanged(value) {
         this.setState(function() {
             this._fabLocation = value;
-        });
+        }.bind(this));
     }
     
     onBabColorChange(value) {
         this.setState(function() {
             this._babColor = value;
-        });
+        }.bind(this));
     }
 
     build(context){
@@ -294,7 +294,7 @@ class JSBottomAPPBarDemoState extends MXJSWidgetState {
                     Scaffold.of(context).showSnackBar(
                         new SnackBar({content: new Text('This is a dummy sheet action.')})
                     );
-                }
+                }.bind(this)
             })
         ];
 
@@ -313,7 +313,7 @@ class JSBottomAPPBarDemoState extends MXJSWidgetState {
                     Scaffold.of(context).showSnackBar(
                     new SnackBar({content: new Text('This is a dummy search action.')})
                     );
-                }
+                }.bind(this)
             })
         );
 
@@ -325,7 +325,7 @@ class JSBottomAPPBarDemoState extends MXJSWidgetState {
                     Scaffold.of(context).showSnackBar(
                         new SnackBar({content: new Text('This is a dummy menu action.')})
                     );
-                }
+                }.bind(this)
             })
         );
 
