@@ -9,7 +9,7 @@ import 'mx_js_flutter_common.dart';
 typedef Future<dynamic> MXChannelFun(dynamic arguments);
 
 ///*接口类
-///MXJSFlutter是 Native层MXJSFlutterViewController的通讯代理类
+///MXJSFlutter是 Native层MXJSFlutterEngine的通讯代理类
 ///MXJSFluttr 在Flutter层的总入口
 ///负责MXJSFlutterApp 创建管理，事件分发
 class MXJSFlutter {
@@ -65,9 +65,8 @@ class MXJSFlutter {
   ///flutter -> js
   ///由Flutter 代码启动JSApp。 可以用在先显示Dart页面，然后路由调转到JS页面
   ///启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
-  runJSApp({String jsAppName, pageName}) {
-    pageName ??= "";
-    var args = {"jsAppName": jsAppName, "pageName": pageName};
+  runJSApp({String jsAppName}) {
+    var args = {"jsAppName": jsAppName};
     _jsFlutterMainChannel.invokeMethod("callNativeRunJSApp", args);
 
     //暂时只支持一个

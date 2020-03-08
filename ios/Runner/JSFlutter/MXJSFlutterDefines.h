@@ -3,7 +3,7 @@
 //  Runner
 //
 //  Created by soapyang on 2019/1/8.
-//  Copyright © 2019 The Chromium Authors. All rights reserved.
+//  Copyright © 2019 The MXFlutter Authors. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

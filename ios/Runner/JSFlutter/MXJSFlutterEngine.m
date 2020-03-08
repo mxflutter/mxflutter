@@ -16,7 +16,7 @@
 
 @interface MXJSFlutterEngine ()
 {
-//    BOOL _flutterEngineIsDidRender;
+
 }
 
 @property (nonatomic, strong) NSString *rootPath;
@@ -29,13 +29,11 @@
 
 @implementation MXJSFlutterEngine
 
-- (instancetype)initJSAppName:(NSString*)jsAppName
+- (instancetype)initWithEngine:(FlutterEngine*)engine
 {
     if (self = [super init])
     {
-//        _flutterEngineIsDidRender = NO;
-        _jsAppName = jsAppName;
-        
+        self.flutterEngine = engine;
         [self setup];
     }
     return self;
@@ -47,25 +45,8 @@
     
     self.rootPath = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_SRC_DIR];
     self.callFlutterQueue = [NSMutableArray arrayWithCapacity:2];
-//    __weak MXJSFlutterViewController *weakSelf = self;
-//    
-//    [self setFlutterViewDidRenderCallback:^{
-//        _flutterEngineIsDidRender = YES;
-//        
-//        for (FlutterMethodCall *call in weakSelf.callFlutterQueue) {
-//            [weakSelf.basicChannel invokeMethod:call.method arguments:call.arguments];
-//        }
-//    }];
-    
-    AppDelegate *delegate = ((AppDelegate *)UIApplication.sharedApplication.delegate);
-    self.flutterEngine = delegate.flutterEngine;
-    
+
     [self setupChannel];
-    
-    if (self.jsAppName && self.jsAppName.length > 0)
-    {
-        [self runJSApp:self.jsAppName];
-    }
 }
 
 - (void)setupChannel
@@ -94,9 +75,13 @@
     
 }
 
+- (void)unsetup {
+
+}
+
 - (void)runJSApp:(NSString*)appName
 {
-    [self runApp:appName pageName:nil];
+    [self runApp:appName];
 }
 
 - (void)callJsCallBackFunction:(id)arguments
@@ -115,9 +100,8 @@
 {
     NSDictionary *argsMap = arguments;
     NSString *jsAppName = argsMap[@"jsAppName"];
-    NSString *pageName = argsMap[@"pageName"];
-    
-    [self runApp:jsAppName pageName:pageName];
+
+    [self runApp:jsAppName];
 }
 
 //MARK: - native -> flutter
@@ -222,35 +206,26 @@
     }
     FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"
                                                                 arguments:arguments];
-//    if (!_flutterEngineIsDidRender) {
-//        [self.callFlutterQueue addObject:call];
-//        return;
-//    }
     
     [self.basicChannel invokeMethod:call.method arguments:call.arguments];
 }
 
 
-- (void)unsetup {
+- (void)runApp:(NSString*)appName 
+{
+    //退出原来的APP
     if (self.currentApp) {
         [self.currentApp exitApp];
         self.currentApp = nil;
     }
-}
-
-- (void)runApp:(NSString*)appName pageName:(NSString*)pageName
-{
-    [self setup];
+    
     [JSModule clearModuleCache];
     NSString *appRootPath = [self.rootPath stringByAppendingPathComponent:appName];
     self.currentApp  = [[MXJSFlutterApp alloc] initWithAppName:appName engine:self appRootPath:appRootPath];
     
-    [self.currentApp runAppWithPageName:pageName];
+    [self.currentApp runApp];
 }
 
-- (BOOL)showPage:(NSString*)pageName
-{
-    return YES;
-}
+
 
 @end

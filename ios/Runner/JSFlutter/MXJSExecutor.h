@@ -12,9 +12,9 @@
 @class MXJSExecutor;
 
 typedef void (^MXJSCompleteBlock)(NSError * _Nullable error);
-typedef void (^MXJSCallback)(id result, NSError *error);
-typedef void (^MXJSValueCallback)(JSValue *result, NSError *error);
-typedef void (^MXJSDispatchBlock)(MXJSExecutor *jsExecutor);
+typedef void (^MXJSCallback)(id _Nonnull result, NSError * _Nullable error);
+typedef void (^MXJSValueCallback)(JSValue * _Nonnull result, NSError * _Nullable error);
+typedef void (^MXJSDispatchBlock)(MXJSExecutor * _Nonnull jsExecutor);
 
 NS_ASSUME_NONNULL_BEGIN
 

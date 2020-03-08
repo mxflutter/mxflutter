@@ -3,7 +3,7 @@
 //  Runner
 //
 //  Created by soapyang on 2018/12/22.
-//  Copyright © 2018 The Chromium Authors. All rights reserved.
+//  Copyright © 2018 The MXFlutter Authors. All rights reserved.
 //
 
 #import "MXJSExecutor.h"

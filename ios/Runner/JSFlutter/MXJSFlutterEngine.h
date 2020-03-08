@@ -24,13 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong,readonly) NSString *jsAppName;
 
-- (void)runApp:(NSString*)appName pageName:(NSString*)pageName;
+- (void)runApp:(NSString*)appName ;
 
-//jsAppName 如何为空，只启动JSFlutter运行环境，不运行JS
-//可以由Flutter层主动运行JSApp
-- (instancetype)initJSAppName:(NSString*)jsAppName;
 
-//Native代码启动JSApp，启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
+///初始化MXFlutter主引擎，指定运行在哪个FlutterEngine之上
+- (instancetype)initWithEngine:(FlutterEngine*)engine;
+
+///运行JS代码，JS业务代码放置在一个文件夹中，并且有main.js文件，运行创建MXJSFlutterApp
+///FlutterEngine/Native/JSApp 三者结合起来
 - (void)runJSApp:(NSString*)appName;
 
 //MARK: - native -> flutter

@@ -3,8 +3,10 @@
 //  Runner
 //
 //  Created by soapyang on 2018/12/24.
-//  Copyright © 2018 The Chromium Authors. All rights reserved.
+//  Copyright 2019 The MXFlutter Authors. All rights reserved.
 //
+//  Use of this source code is governed by a MIT-style license that can be
+//  found in the LICENSE file.
 
 #import "MXJSFlutterApp.h"
 #import "MXJSFlutterDefines.h"
@@ -16,6 +18,9 @@
 @property (nonatomic, assign) NSUInteger index;
 @property (nonatomic, strong) FlutterMethodChannel* jsFlutterAppChannel;
 
+@property (nonatomic) BOOL isJSAPPRun;
+@property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callJSMethodQueue;
+
 @end
 
 @implementation MXJSFlutterApp
@@ -24,9 +29,12 @@
 {
     if (self = [super init])
     {
+        self.isJSAPPRun = NO;
         self.appName = appName;
         self.jsFlutterEngine = jsFlutterEngine;
         self.appRootPath = appRootPath;
+        
+        self.callJSMethodQueue = [[NSMutableArray alloc] initWithCapacity:1];
         
         [self setupChannel];
         [self setupJSEngine];
@@ -63,7 +71,7 @@
     [self.jsEngine addSearchDir:self.appRootPath];
     //__weak MXJSFlutterEngine *weakSelf = self;
     
-    //app业务代码搜索路径
+    //app业务代码搜索路径 TODO:fixme
     [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"dart_js"]];
     
     //JSFlutter Dart JS运行库搜索路径
@@ -98,6 +106,17 @@
         
         if ([call.method isEqualToString:@"callJS"]) {
             
+            MXJSFlutterLog(@"MXJSFlutter : jsFlutterAppChannel callJS:%@",call.arguments[@"method"]);
+            
+            if (!strongSelf.isJSAPPRun) {
+                
+                MXJSFlutterLog(@"MXJSFlutter : jsFlutterAppChannel callJS:%@ JSAPP not running",call.arguments[@"method"]);
+                
+                [strongSelf.callJSMethodQueue addObject:call];
+                
+                return;
+            }
+            
             [strongSelf.jsExecutor invokeJSValue:strongSelf.jsAppObj method:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
                 if (!error) 
                 {
@@ -110,12 +129,10 @@
 
 - (void)runApp
 {
-    [self runAppWithPageName:@""];
-}
-
-//加载main.js 调用main函数
-- (void)runAppWithPageName:(NSString*)pageName
-{
+    
+     self.isJSAPPRun = NO;
+     MXJSFlutterLog(@"MXJSFlutterApp : runApp：%@",self.appName);
+    
     __weak MXJSFlutterApp *weakSelf = self;
     [self.jsExecutor executeMXJSBlockOnJSThread:^(MXJSExecutor *executor) {
         MXJSFlutterApp *strongSelf = weakSelf;
@@ -131,14 +148,30 @@
             
             MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
             
-            //执行main.js 时，自己执行main() ,方便用js IDE直接执行调试JS代码
-            //        [executor invokeMethod:@"main" args:@[pageName] callback:^(JSValue *result, NSError *error) {
-            //
-            //            NSLog(@"MXJSFlutter : call main error:%@",error);
-            //        }];
+            [executor invokeMethod:@"main" args:@[] callback:^(JSValue *result, NSError *error) {
+            
+                self.isJSAPPRun = YES;
+                NSLog(@"MXJSFlutter : call main error:%@",error);
+                
+                [self callJSMethodCallQueqe];
+            }];
         }];
         
     }];
+}
+
+- (void)callJSMethodCallQueqe{
+    
+    for (FlutterMethodCall *call in self.callJSMethodQueue) {
+        [self.jsExecutor invokeJSValue:self.jsAppObj method:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
+//             if (!error)
+//             {
+//                 flutterResult(result.toString);
+//             }
+         }];
+    }
+    
+    [self.callJSMethodQueue removeAllObjects];
 }
 
 -(void)exitApp

@@ -49,7 +49,7 @@
     
     __weak MXJSEngine *weakSelf = self;
     [self.jsExecutor executeMXJSBlockOnJSThread:^(MXJSExecutor *executor) {
-        [self setupBasicJSRuntime:weakSelf context:executor.jsContext];
+        [weakSelf setupBasicJSRuntime:weakSelf context:executor.jsContext];
     }];
 }
 
@@ -70,7 +70,7 @@
         MXJSFlutterLog(@"js context.exceptionHandler  %@", exception);
     };
     context[@"require"] = ^(NSString *filePath) {
-        MXJSFlutterLog(@"require file:%@",filePath);
+        //MXJSFlutterLog(@"require file:%@",filePath);
         
         NSString *prefix = @"./";
         if ([filePath hasPrefix:prefix]) {
@@ -97,7 +97,7 @@
         
         JSModule *module = nil;
         if (absolutePath.length != 0) {
-            MXJSFlutterLog(@"require file:%@ found absolutePath=%@",filePath, absolutePath);
+            //MXJSFlutterLog(@"require file:%@ found absolutePath=%@",filePath, absolutePath);
             module = [JSModule require:filePath fullModulePath:absolutePath inContext:context];
             if (!module) {
                 [[JSContext currentContext] evaluateScript:@"throw 'not found'"];
