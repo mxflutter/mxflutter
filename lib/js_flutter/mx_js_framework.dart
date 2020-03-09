@@ -342,7 +342,13 @@ class MXJSWidgetHelper extends Object {
     //           Navigator.pop(context);
     //         },
     //         child: new Text("widgetData=null pop")));
-    return Center(child: CircularProgressIndicator());
+
+    return Container(
+          color: Colors.white,
+          child: Center(
+            child: CircularProgressIndicator(),
+          ));
+
   }
 
   void jsRebuild(String widgetID, Map widgetData, String buildWidgetDataSeq) {

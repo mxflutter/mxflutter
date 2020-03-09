@@ -7,7 +7,6 @@ import 'js_flutter/mx_js_flutter.dart';
 import 'test.dart';
 
 void main() {
-
   //-------MXFlutter 启动---------
   //1. Dart侧需要调用WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +30,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      //home: FlutterHomePage(title: "JSFlutter Demo"),
+      // home: Container(
+      //     color: Colors.white,
+      //     child: Center(
+      //       child: Text(''),
+      //     )),
       //路由表定义
       onGenerateRoute: (RouteSettings settings) {
         MXJSLog.log(
@@ -48,7 +51,6 @@ class MyApp extends StatelessWidget {
                 },
                 settings: settings,
               );
-
             }
           case 'MXJSPage':
             {
@@ -76,7 +78,6 @@ class MyApp extends StatelessWidget {
                 },
                 settings: settings,
               );
-    
             }
         }
 
@@ -151,8 +152,7 @@ class _DemoList extends StatelessWidget {
           isThreeLine: true,
           onTap: () {
             //先把JSApp启动起来，不显示任何界面
-            MXJSFlutter.getInstance()
-                .runJSApp(jsAppName: "app_test");
+            MXJSFlutter.getInstance().runJSApp(jsAppName: "app_test");
 
             Scaffold.of(context).showSnackBar(
               const SnackBar(
