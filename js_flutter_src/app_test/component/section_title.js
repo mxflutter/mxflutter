@@ -52,7 +52,7 @@ let {
   Icons,
   Padding,
   Theme,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 class SectionTitle extends MXJSStatelessWidget {
   constructor(title,{key}={}){

@@ -16,7 +16,7 @@ let {
   BottomNavigationBar,
   BottomNavigationBarType,
   Colors
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 let {GlobalConfig} = require("./zhihu/global_config.js");
 let {HomePage} = require("./zhihu/home/home_page.js");

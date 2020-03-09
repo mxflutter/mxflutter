@@ -56,7 +56,7 @@ let {
   Icons,
   Placeholder,
   Theme,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 class HomePage extends MXJSStatelessWidget {
   constructor() {

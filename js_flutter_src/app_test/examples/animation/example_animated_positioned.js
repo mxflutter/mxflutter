@@ -54,7 +54,7 @@ let {
   AnimatedPositioned,
   Duration,
   Stack,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 const { SectionTitle } = require("./component/section_title.js");
 

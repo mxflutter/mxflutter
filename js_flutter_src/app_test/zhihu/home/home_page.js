@@ -30,7 +30,7 @@ let {
     Key,
     MaterialPageRoute,
     Navigator
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 let { GlobalConfig } = require("./zhihu/global_config.js");
 let { Follow } = require("./zhihu/home/follow.js");

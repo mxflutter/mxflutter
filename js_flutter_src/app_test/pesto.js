@@ -31,7 +31,7 @@ let {
   Padding,
   MXJSStatelessWidget
   
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 
 //业务代码

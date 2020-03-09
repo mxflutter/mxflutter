@@ -43,7 +43,7 @@ let {
     MaterialPageRoute,
     Navigator
   
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 let {GlobalConfig} = require("./zhihu/global_config.js");
 let {SearchPage} = require("./zhihu/home/search_page.js");

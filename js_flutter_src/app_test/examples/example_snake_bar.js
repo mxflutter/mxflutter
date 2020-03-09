@@ -49,7 +49,7 @@ let {
   ListView,
   Slider,
   Icons,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 
 

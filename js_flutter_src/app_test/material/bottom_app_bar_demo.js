@@ -36,7 +36,7 @@ let {
   MainAxisAlignment,
   SizedBox
 
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 class JSChoiceValue{
     constructor({

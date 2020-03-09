@@ -42,7 +42,7 @@ let {
   TextEditingController,
   ListView,
   Slider
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 
 class JSEasyUIDemo extends MXJSStatefulWidget {

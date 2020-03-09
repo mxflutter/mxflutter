@@ -54,7 +54,7 @@ let {
   Slider,
   Icons,
   FlutterLogo,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 class PageExampleColor extends MXJSStatelessWidget {
   constructor() {

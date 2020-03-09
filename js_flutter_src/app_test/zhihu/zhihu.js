@@ -5,7 +5,7 @@ let {
   MXJSWidgetState,
   MXJSStatefulWidget,
   MaterialApp
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 let {Index} = require("./zhihu/index.js");
 

@@ -60,7 +60,8 @@ let {
     Theme,
     Navigator,
     MaterialPageRoute,
-} = require("js_flutter_ui.js");
+    MethodChannel
+} = require("js_flutter.js");
 
 let {SmartRefresher,ClassicFooter,RefreshController} = require('packages/pull_to_refresh/pull_to_refresh');
 
@@ -114,12 +115,21 @@ class ListViewDemoState extends MXJSWidgetState {
         super();
 
         this.refreshController = new RefreshController();
+        this.methodChannel = new MethodChannel("MXFlutter_MethodChannel_Demo");
 
         this.dataList = [
             "threesixty",
             "threed_rotation",
             "four_k",
         ];
+    }
+
+    refresh(){
+
+        let result = this.methodChannel.invodeMethod("","callNativeIconListRefresh",{});
+
+        MXJSLog("callNativeIconListRefresh result: " + result);
+        
     }
 
     build(context) {
@@ -155,6 +165,7 @@ class ListViewDemoState extends MXJSWidgetState {
                     onLoading: function() {
 
                         MXJSLog("onLoading");
+                        this.refresh();
                         
                     }.bind(this),
                 }),

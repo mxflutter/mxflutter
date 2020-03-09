@@ -13,7 +13,7 @@ let {
     IconData,
     EdgeInsets,
     Padding
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 
 let { JSBottomAPPBarDemo } = require("./material/bottom_app_bar_demo.js");

@@ -60,7 +60,7 @@ let {
   DecorationTween,
   FlutterLogo,
   BorderRadius,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 const { SectionTitle } = require("./component/section_title.js");
 

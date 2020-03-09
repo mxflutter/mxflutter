@@ -56,7 +56,7 @@ let {
   FlutterLogo,
   Wrap,
   Scrollbar,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 
 class PageExampleIcon extends MXJSStatelessWidget {

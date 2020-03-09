@@ -50,7 +50,7 @@ let {
   Slider,
   Icons,
   Placeholder,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 
 class PageExamplePlaceholder extends MXJSStatelessWidget {

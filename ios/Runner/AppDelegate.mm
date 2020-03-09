@@ -7,6 +7,8 @@
 
 @property (nonatomic, strong) MXJSFlutterEngine *jsFlutterEngine;
 
+@property (nonatomic, strong) FlutterMethodChannel *listViewDemoChannel;
+
 @end
 
 @implementation AppDelegate
@@ -53,7 +55,37 @@
 //        NSLog(@"    [flutterVC pushRoute:route];");
 //    });
     
+    //
+    [self setupMessageChannel:flutterVC.engine.binaryMessenger];
+    
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+
+
+- (void)setupMessageChannel:(NSObject<FlutterBinaryMessenger>*)messenger;{
+    
+    FlutterMethodChannel *basicChannel = [FlutterMethodChannel
+                         methodChannelWithName:@"MXFlutter_MethodChannel_Demo"
+                         binaryMessenger:messenger];
+    
+    __weak AppDelegate *weakSelf = self;
+    [basicChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
+        __strong AppDelegate *strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
+        
+        if ([call.method isEqualToString:@"callNativeIconListRefresh"]) {
+            
+             result(@[@1,@2,@3,@4]);
+           
+        } else if ([call.method isEqualToString:@"callNativeIconListLoadMore"]) {
+            
+             result(@[@4,@3,@2,@1]);
+        }
+    
+    }];
 }
 
 @end

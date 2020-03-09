@@ -31,7 +31,7 @@ let {
     Icon,
     IconData
 
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 //let {JSPestoPage} = require("./pesto.js");
 

@@ -8,7 +8,7 @@ let {
   ThemeData,
   Color,
   Colors
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 class GlobalConfig {
     static get themeData() {

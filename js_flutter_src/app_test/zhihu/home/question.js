@@ -5,7 +5,7 @@
 let {
   runApp,
   MXJSFlutterApp
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 class Question {
     constructor(

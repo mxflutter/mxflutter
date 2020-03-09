@@ -22,7 +22,7 @@ let {
     Navigator,
     MaterialPageRoute,
     Scrollbar,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 let { JSPestoPage } = require("./pesto.js");
 let { JSContactPage } = require("./contact.js");

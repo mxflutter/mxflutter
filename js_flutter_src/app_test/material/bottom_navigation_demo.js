@@ -32,7 +32,7 @@ let {
   Offset,
   BoxDecoration,
   Border
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 class NavigationIconView {
     constructor({

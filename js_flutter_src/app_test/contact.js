@@ -43,7 +43,7 @@ let {
     MXJSStatelessWidget,
     SafeArea,
     Colors
-  } = require("js_flutter_ui.js");
+  } = require("js_flutter.js");
 
 let _kGalleryAssetsPackage = 'js_flutter_src/app_test/flutter_gallery_assets/';
 

@@ -8,6 +8,7 @@ let imageExports = require("./js_flutter_image.js");
 let animationExports = require("./js_flutter_animation.js");
 let widgetExports = require("./js_flutter_widget.js");
 let iconsExports = require("./material/js_flutter_icons.js");
+let messageChannelExports = require("message_channel/js_flutter_message_channel.js");
 
 
 module.exports = Object.assign(
@@ -20,4 +21,5 @@ module.exports = Object.assign(
   animationExports,
   widgetExports,
   iconsExports,
+  messageChannelExports,
 );

@@ -50,7 +50,7 @@ let {
   Slider,
   Icons,
   Image,
-} = require("js_flutter_ui.js");
+} = require("js_flutter.js");
 
 
 const _kSmallLogoImage = 'js_flutter_src/app_test/flutter_gallery_assets/logos/pesto/logo_small.png';
