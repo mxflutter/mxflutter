@@ -150,10 +150,10 @@
             
             [executor invokeMethod:@"main" args:@[] callback:^(JSValue *result, NSError *error) {
             
-                self.isJSAPPRun = YES;
+                strongSelf.isJSAPPRun = YES;
                 NSLog(@"MXJSFlutter : call main error:%@",error);
                 
-                [self callJSMethodCallQueqe];
+                [strongSelf callJSMethodCallQueqe];
             }];
         }];
         
