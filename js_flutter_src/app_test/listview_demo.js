@@ -62,9 +62,11 @@ let {
     MaterialPageRoute,
 } = require("js_flutter_ui.js");
 
+let {SmartRefresher,ClassicFooter,RefreshController} = require('packages/pull_to_refresh/pull_to_refresh');
+
 //data
 let g_icons = null;
-
+let count = 0;
 
 class ListViewItem extends MXJSStatelessWidget {
     constructor(iconName) {
@@ -72,15 +74,15 @@ class ListViewItem extends MXJSStatelessWidget {
         this.iconName = iconName;
     }
 
+
     build(context) {
 
         const icon = Icons[this.iconName];
-
         return new Card({
             child: new ListTile({
-                leading: new Icon(icon,{size:50,color:Colors.orange}),
+                leading: new Icon(icon, { size: 50, color: Colors.orange }),
                 trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                title: new Text(this.iconName),
+                title: new Text((count++) + " " + this.iconName),
                 subtitle: new Text('ListItem Demo'),
                 onTap: function () {
                     Navigator.push(context, new MaterialPageRoute({
@@ -90,17 +92,6 @@ class ListViewItem extends MXJSStatelessWidget {
                     }))
                 }.bind(this)
             })
-
-            // new Container({
-            //     padding: EdgeInsets.all(10),
-            //     child: new Row({
-            //         children: [
-            //             new Icon(icon),
-            //             new SizedBox({ width: 10 }),
-            //             new Text(this.iconName),
-            //         ]
-            //     }),
-            // })
         });
     }
 }
@@ -122,13 +113,13 @@ class ListViewDemoState extends MXJSWidgetState {
     constructor() {
         super();
 
+        this.refreshController = new RefreshController();
+
         this.dataList = [
             "threesixty",
             "threed_rotation",
             "four_k",
         ];
-
-
     }
 
     build(context) {
@@ -138,22 +129,37 @@ class ListViewDemoState extends MXJSWidgetState {
                 title: new Text('ListViewDemo'),
             }),
             body: new Scrollbar({
-                //直接创建所有children方式
-                // child: new ListView({
-                //     children: [
-                //         ...g_icons.map((iconName) => {
-                //             return new ListViewItem(iconName);
-                //         })
-                //     ],
-                // })
+                child: new SmartRefresher({
+                    controller: this.refreshController,
+                    enablePullUp: true,
+                    enablePullDown: true,
+                    footer: new  ClassicFooter({
+                        failedIcon: null,
+                        canLoadingIcon: null,
+                        idleIcon: null,
+                        noMoreIcon: null,
+                        loadingIcon: null,
+                        canLoadingText: '',
+                        failedText: '网络错误，请重试',
+                        noDataText: '已经没有了',
+                        loadingText: '加载中...',
+                        idleText: '上拉加载更多',
+                    }),
+                    // 动态创建Item
+                    child: ListView.builder({
+                        itemCount: this.dataList.length,
+                        itemBuilder: function (context, index) {
+                            return new ListViewItem(this.dataList[index]);
+                        }.bind(this),
+                    }),
+                    onLoading: function() {
 
-                // 动态创建Item
-                child: ListView.builder({
-                    itemCount: this.dataList.length,
-                    itemBuilder: function (context, index) {
-                        return new ListViewItem(this.dataList[index]);
+                        MXJSLog("onLoading");
+                        
                     }.bind(this),
-                })
+                }),
+
+
             })
         });
         return widget;

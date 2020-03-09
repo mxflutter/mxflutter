@@ -299,3 +299,11 @@ src__indicator__classic_indicator.ClassicFooter = ClassicFooter;
 
 exports.src__smart_refresher = src__smart_refresher;
 exports.src__indicator__classic_indicator = src__indicator__classic_indicator;
+
+exports.SmartRefresher = SmartRefresher;
+exports.ClassicFooter = ClassicFooter;
+exports.RefreshController = RefreshController;
+exports.RefreshConfiguration = RefreshConfiguration;
+exports.LoadStatus = LoadStatus;
+exports.LoadStyle = LoadStyle;
+exports.IconPosition = IconPosition;
