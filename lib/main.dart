@@ -19,6 +19,7 @@ void main() {
 
   debugPaintSizeEnabled = false;
   runApp(MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {

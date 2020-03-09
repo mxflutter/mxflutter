@@ -32,6 +32,7 @@ let { JSZhiHuPage } = require("./zhihu/zhihu.js");
 
 let { ExamplesPage } = require("./examples/index.js");
 let { JSCupertinoPage } = require("./cupertino.js");
+let { ListViewDemo } = require("./listview_demo.js");
 
 main_ddc = require("./dart_js/main.ddc.js");
 flutter_demo_ddc = require("./dart_js/flutter_demo.ddc.js");
@@ -100,6 +101,21 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new JSZhiHuPage;
+                            }
+                        }))
+                    }
+                }),
+
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('ListViewDemo'),
+                    subtitle: new Text('ListView ,Message Channel, Pull to refresh'),
+
+                    onTap: function () {
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new ListViewDemo;
                             }
                         }))
                     }
