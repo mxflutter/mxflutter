@@ -303,7 +303,6 @@ class MXProxyRefreshController extends MXJsonObjProxy {
     invokeFunction(mirrorObj, funcName, args);
   }
 
-  // 先写在一起跑通再说，后面再考虑把代码写得优雅些
   void invokeFunction(RefreshController mirrorObj, String funcName, Map args) {
     switch (funcName) {
       case "refreshCompleted":

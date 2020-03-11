@@ -156,27 +156,47 @@ mx_platform_channel.MXMethodChannel = class MXMethodChannel extends platform_cha
 
         let promiseResult = new Promise(function (resolve, reject) {
 
-            mx_jsbridge_MethodChannel_invokeMethod(
-                channelName,
-                method,
-                encodeParam($arguments),
-                dart.fn(value => {
+            mx_jsbridge_MethodChannel_invokeMethod(this.name, method, encodeParam($arguments), function (value) {
+                if (value != null) {
+                    resolve(value);
+                } else {
+                    reject(null);
+                }
+            });
 
-                    if (value != null) {
-                        resolve(value);
-                    } else {
-                        reject(null);
-                    }
+            //代码的不生效
+            // let f = dart.fn(function (value) {
+            //     if (value != null) {
+            //         resolve(value);
+            //     } else {
+            //         reject(null);
+            //     }
 
-                }, dart.fnType(core.Null, [T]))
-            );
+            // }, dart.fnType(core.Null, [T]));
 
-        });
+            // mx_jsbridge_MethodChannel_invokeMethod(
+            //     this.name,
+            //     method,
+            //     encodeParam($arguments),
+            //     f
+            // );
+
+        }.bind(this));
 
         return promiseResult;
     }
 
 }
+
+
+mx_platform_channel.MethodCall = class MethodCall extends core.Object {
+    /// Creates a [MethodCall] representing the invocation of [method] with the
+    /// specified [arguments].
+    constructor(method, args){
+        this.method = method;
+        this.arguments = args;
+    }
+  }
 
 
 

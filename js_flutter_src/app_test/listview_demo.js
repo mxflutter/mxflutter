@@ -124,12 +124,12 @@ class ListViewDemoState extends MXJSWidgetState {
         ];
     }
 
-    refresh(){
+    async refresh(){
 
-        let result =  this.methodChannel.invokeMethod("","callNativeIconListRefresh",{});
+        //MessageChannel 用法示例
+        let result = await  this.methodChannel.invokeMethod("callNativeIconListRefresh",{});
 
         MXJSLog.log("callNativeIconListRefresh result: " + result);
-
         this.refreshController.refreshCompleted();
         
     }
