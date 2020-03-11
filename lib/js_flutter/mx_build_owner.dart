@@ -158,20 +158,6 @@ class MXJsonBuildOwner {
       return;
     }
 
-    // MXJsonBuildOwner bo;
-    // if (isRootWidget != true) {
-    //   bo = findBuildOwner(widgetID);
-    // } else {
-    //   // 针对从flutter侧push进来的js页面，作为根页面，统一通过jsWidget.name来获取BuildOwner。解决根页面是StatelessWidget，获取BuildOwner错误的问题
-    //   bo = findBuildOwner(name);
-    // }
-
-    // if (bo == null) {
-    //   MXJSLog.log(
-    //       "findBuildOwner(widgetID) == null: name:$name id:$widgetID");
-    //   bo = findBuildOwner(name);
-    // }
-
     //------
     MXJsonBuildOwner bo = findBuildOwner(widgetID);
 
@@ -198,9 +184,7 @@ class MXJsonBuildOwner {
     MXJSWidgetHelper helper = this.widget.helper;
     helper.jsRebuild(widgetID, widgetData, buildWidgetDataSeq);
 
-    //更新为widgetid
-    // parentBuildOwner?.addChildBuildOwner(widgetID, this);
-    // removeChildBuildOwner(name);
+
   }
 
   //js->flutter
@@ -309,51 +293,6 @@ class MXJsonBuildOwner {
     }
   }
 
-  // void jsCallInvoke2(widgetDataStr) {
-  //   Map argMap = json.decode(widgetDataStr);
-  //   String mirrorID = argMap["mirrorID"];
-  //   dynamic mirrorObj = getMirrorObjectFromID(mirrorID);
-  //   if (mirrorObj != null) {
-  //     String className = argMap["className"];
-  //     String funcName = argMap["funcName"];
-  //     Map args = argMap["args"];
-  //     invokeFunction(mirrorID, mirrorObj, className, funcName, args);
-  //   }
-  // }
-
-  // // 先写在一起跑通再说，后面再考虑把代码写得优雅些
-  // void invokeFunction(String mirrorID, dynamic mirrorObj, String className,
-  //     String funcName, Map args) {
-  //   if (className == 'AnimationController') {
-  //     if (funcName == 'forward') {
-  //       (mirrorObj as AnimationController).forward();
-  //       return;
-  //     } else if (funcName == 'reverse') {
-  //       (mirrorObj as AnimationController).reverse();
-  //       return;
-  //     } else if (funcName == 'repeat') {
-  //       (mirrorObj as AnimationController).repeat();
-  //       return;
-  //     } else if (funcName == 'drive') {
-  //       Animatable animatable = args['animatable'];
-  //       (mirrorObj as AnimationController).drive(animatable);
-  //       return;
-  //     }
-  //   }
-
-  //   if (className == 'RefreshController') {
-  //     if (funcName == 'loadComplete') {
-  //       mirrorObj.loadComplete();
-  //       return;
-  //     } else if (funcName == 'loadFailed') {
-  //       mirrorObj.loadFailed();
-  //       return;
-  //     } else if (funcName == 'loadNoData') {
-  //       mirrorObj.loadNoData();
-  //       return;
-  //     }
-  //   }
-  // }
 
   //MirrorObj事件回调
   //flutter->JS
