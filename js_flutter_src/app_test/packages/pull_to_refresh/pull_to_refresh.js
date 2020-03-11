@@ -3,8 +3,8 @@ let {
     FlutterCallArgs
 } = require("js_flutter_basic_types.js");
 
-let { 
-    invokeFlutterFunction 
+let {
+    invokeFlutterFunction
 } = require("js_flutter_framework.js");
 
 LoadStatus = {
@@ -239,6 +239,54 @@ class RefreshController extends FlutterWidget {
         this.createMirrorObjectID();
     }
 
+    /// request complete,the header will enter complete state,
+    ///
+    /// resetFooterState : it will set the footer state from noData to idle
+    refreshCompleted({ resetFooterState = false } = {}) {
+        var argument = new FlutterCallArgs({
+            mirrorID: this.mirrorID,
+            className: "RefreshController",
+            funcName: "refreshCompleted",
+            args: arguments
+        });
+        invokeFlutterFunction(argument);
+    }
+
+    /// end twoLeveling,will return back first floor
+    twoLevelComplete(
+        { duration = new Duration({ milliseconds: 500 }), curve } = {}) {
+        var argument = new FlutterCallArgs({
+            mirrorID: this.mirrorID,
+            className: "RefreshController",
+            funcName: "twoLevelComplete",
+            args: arguments
+        });
+        invokeFlutterFunction(argument);
+    }
+
+    /// request failed,the header display failed state
+    refreshFailed() {
+        var argument = new FlutterCallArgs({
+            mirrorID: this.mirrorID,
+            className: "RefreshController",
+            funcName: "refreshFailed",
+            args: arguments
+        });
+        invokeFlutterFunction(argument);
+    }
+
+    /// not show success or failed, it will set header state to idle and spring back at once
+    refreshToIdle() {
+        var argument = new FlutterCallArgs({
+            mirrorID: this.mirrorID,
+            className: "RefreshController",
+            funcName: "refreshToIdle",
+            args: arguments
+        });
+        invokeFlutterFunction(argument);
+    }
+
+
     loadComplete() {
         var argument = new FlutterCallArgs({
             mirrorID: this.mirrorID,
@@ -248,7 +296,7 @@ class RefreshController extends FlutterWidget {
         });
         invokeFlutterFunction(argument);
     }
-    
+
     loadFailed() {
         var argument = new FlutterCallArgs({
             mirrorID: this.mirrorID,
@@ -258,7 +306,7 @@ class RefreshController extends FlutterWidget {
         });
         invokeFlutterFunction(argument);
     }
-    
+
     loadNoData() {
         var argument = new FlutterCallArgs({
             mirrorID: this.mirrorID,
@@ -275,15 +323,15 @@ RefreshController.new = function (arg) {
 };
 
 RefreshStatus = {
-	idle:{ _name: "RefreshStatus.idle", index: 0 },
-	canRefresh:{ _name: "RefreshStatus.canRefresh", index: 1 },
-	refreshing:{ _name: "RefreshStatus.refreshing", index: 2 },
-	completed:{ _name: "RefreshStatus.completed", index: 3 },
-	failed:{ _name: "RefreshStatus.failed", index: 4 },
-	canTwoLevel:{ _name: "RefreshStatus.canTwoLevel", index: 5 },
-	twoLevelOpening:{ _name: "RefreshStatus.twoLevelOpening", index: 6 },
-	twoLeveling:{ _name: "RefreshStatus.twoLeveling", index: 7 },
-	twoLevelClosing:{ _name: "RefreshStatus.twoLevelClosing", index: 8 },
+    idle: { _name: "RefreshStatus.idle", index: 0 },
+    canRefresh: { _name: "RefreshStatus.canRefresh", index: 1 },
+    refreshing: { _name: "RefreshStatus.refreshing", index: 2 },
+    completed: { _name: "RefreshStatus.completed", index: 3 },
+    failed: { _name: "RefreshStatus.failed", index: 4 },
+    canTwoLevel: { _name: "RefreshStatus.canTwoLevel", index: 5 },
+    twoLevelOpening: { _name: "RefreshStatus.twoLevelOpening", index: 6 },
+    twoLeveling: { _name: "RefreshStatus.twoLeveling", index: 7 },
+    twoLevelClosing: { _name: "RefreshStatus.twoLevelClosing", index: 8 },
 };
 
 src__smart_refresher = Object.create(null);

@@ -126,9 +126,11 @@ class ListViewDemoState extends MXJSWidgetState {
 
     refresh(){
 
-        let result = this.methodChannel.invodeMethod("","callNativeIconListRefresh",{});
+        let result =  this.methodChannel.invokeMethod("","callNativeIconListRefresh",{});
 
-        MXJSLog("callNativeIconListRefresh result: " + result);
+        MXJSLog.log("callNativeIconListRefresh result: " + result);
+
+        this.refreshController.refreshCompleted();
         
     }
 
@@ -162,10 +164,16 @@ class ListViewDemoState extends MXJSWidgetState {
                             return new ListViewItem(this.dataList[index]);
                         }.bind(this),
                     }),
+                    onRefresh:function() {
+
+                        MXJSLog.log("onRefresh");
+                        this.refresh();
+                        
+                    }.bind(this),
                     onLoading: function() {
 
-                        MXJSLog("onLoading");
-                        this.refresh();
+                        MXJSLog.log("onLoading");
+                      
                         
                     }.bind(this),
                 }),

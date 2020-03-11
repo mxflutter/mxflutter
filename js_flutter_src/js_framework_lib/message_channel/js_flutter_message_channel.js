@@ -144,5 +144,43 @@ platform_channel.EventChannel = class EventChannel extends core.Object {
     if (!(name != null)) dart.assertFailed(null, "org-dartlang-app:///packages/flutter/src/services/platform_channel.dart", 473, 16, "name != null");
 }).prototype = platform_channel.EventChannel.prototype;
 
-exports.MethodChannel = platform_channel.MethodChannel;
+
+//--------------手写支持-----------------------
+
+let mx_platform_channel = Object.create(dart.library);
+mx_platform_channel.MXMethodChannel = class MXMethodChannel extends platform_channel.MethodChannel {
+
+    //重载
+    async invokeMethod(method, $arguments) {
+        if ($arguments === void 0) $arguments = null;
+
+        let promiseResult = new Promise(function (resolve, reject) {
+
+            mx_jsbridge_MethodChannel_invokeMethod(
+                channelName,
+                method,
+                encodeParam($arguments),
+                dart.fn(value => {
+
+                    if (value != null) {
+                        resolve(value);
+                    } else {
+                        reject(null);
+                    }
+
+                }, dart.fnType(core.Null, [T]))
+            );
+
+        });
+
+        return promiseResult;
+    }
+
+}
+
+
+
+exports.platform_channel = platform_channel;
+
+exports.MethodChannel = mx_platform_channel.MXMethodChannel;
 exports.EventChannel = platform_channel.EventChannel;

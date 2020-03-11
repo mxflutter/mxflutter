@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 
 class TestPageScaffoldNorWork extends StatelessWidget{
@@ -53,6 +54,17 @@ class TestPage extends StatelessWidget{
           duration: new Duration(seconds:2),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () async{
+
+          MethodChannel mc  = MethodChannel("MXFlutter_MethodChannel_Demo");
+
+          var r = await mc.invokeMethod("callNativeIconListRefresh");
+
+          print(r);
+
+
+
+      }),
     );
   }
 }

@@ -114,20 +114,7 @@ class MXJsonObjToDartObject {
       return mirrorObject;
     }
 
-    MXJsonObjProxy proxy = _className2Proxy[className];
-
-    if (proxy == null) {
-      CreateJsonObjProxyFun fun = _className2Handle[className];
-
-      if (fun == null) {
-        MXJSLog.error(
-            "MXJsonObjToDartObject:jsonMapObjToDartObject error:CreateJsonObjProxyFun fun = null,没有代理类 ;decode:class $className, jsonObj:$jsonMap ");
-        return null;
-      }
-
-      proxy = fun();
-      _className2Proxy[className] = proxy;
-    }
+    MXJsonObjProxy proxy = getJSObjProxy(className);
 
     dynamic dartObject =
         proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
@@ -156,11 +143,27 @@ class MXJsonObjToDartObject {
 
     jsonList.forEach((v) {
       var vObj = jsonToDartObj(buildOwner, v, context: context);
-
       list.add(vObj);
     });
 
     return list;
+  }
+
+  MXJsonObjProxy getJSObjProxy(String className) {
+    MXJsonObjProxy proxy = _className2Proxy[className];
+    if (proxy == null) {
+      CreateJsonObjProxyFun fun = _className2Handle[className];
+      if (fun == null) {
+        MXJSLog.error(
+            "MXJsonObjToDartObject:jsonMapObjToDartObject error:CreateJsonObjProxyFun fun = null,没有代理类 ;decode:class $className ");
+        return null;
+      }
+
+      proxy = fun();
+      _className2Proxy[className] = proxy;
+    }
+
+    return proxy;
   }
 
 //private
@@ -240,7 +243,7 @@ class MXJsonObjProxy {
   // 静态方法映射
   Map<String, Map<String, StaticFunction>> _className2StaicFunction;
 
-  ///如需要支持生成多个相似的类，支持一个雷支持多个构造函数，重载此函数
+  ///如需要支持生成多个相似的类，支持一个类支持多个构造函数，重载此函数
   void init({String className}) {
     this.className = className;
   }
@@ -436,7 +439,12 @@ class MXJsonObjProxy {
     return obj.toDouble();
   }
 
-  ///事件处理
+  ////-----------mirror 方法互相调用-----------
+  /// subclass override
+  /// mirrorObj 为一个类的实例对象，把调用对象方法，路由到代理类
+  void jsInvokeMirrorObjFunction(String mirrorID,dynamic mirrorObj, String funcName, Map args) {}
+
+  ///事件处理------------
 
   ///生成VoidCallback 闭包
   VoidCallback createVoidCallbackHandle(
@@ -534,3 +542,6 @@ class MXJsonObjProxy {
     return cb;
   }
 }
+
+
+

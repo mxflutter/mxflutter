@@ -5,6 +5,7 @@ import 'mx_json_proxy_basic_types.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'package:expressions/expressions.dart';
+import 'mx_js_mirror_obj_mgr.dart';
 
 ///把Widget按分类注册，方便写代码，
 ///分类：Material/Layout/Text/(Assets.Images.icons)/input...
@@ -143,6 +144,39 @@ class MXProxyAnimationController extends MXJsonObjProxy {
           .state, //mxj2d(bo, jsonMap["vsync"]), TODO: 此处不能为StatelessWidget
     );
     return widget;
+  }
+
+  //mirrorObj 为一个AnimationController类的实例对象，把调用对象方法，路由到代理类
+  @override
+  void jsInvokeMirrorObjFunction(
+      String mirrorID, dynamic mirrorObj, String funcName, Map args) {
+    if (mirrorObj == null || !(mirrorObj is AnimationController)) {
+      return;
+    }
+
+    invokeFunction(mirrorObj, funcName, args);
+  }
+
+  // 先写在一起跑通再说，后面再考虑把代码写得优雅些
+  void invokeFunction(
+      AnimationController mirrorObj, String funcName, Map args) {
+    if (funcName == 'forward') {
+      mirrorObj.forward();
+      return;
+    } else if (funcName == 'reverse') {
+      mirrorObj.reverse();
+      return;
+    } else if (funcName == 'repeat') {
+      mirrorObj.repeat();
+      return;
+    } else if (funcName == 'drive') {
+      Animatable animatable = args['animatable'];
+      mirrorObj.drive(animatable);
+      return;
+    } else if (funcName == 'dispose') {
+      mirrorObj.dispose();
+      return;
+    }
   }
 }
 
@@ -707,7 +741,6 @@ class MXProxyDecoratedBoxTransition extends MXJsonObjProxy {
   DecoratedBoxTransition constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
-        
     var decoration = mxj2d(bo, jsonMap["decoration"]);
     AnimationController controller =
         mxj2d(bo, jsonMap["decoration"]["controller"]);

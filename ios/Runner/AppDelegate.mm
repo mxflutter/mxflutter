@@ -65,12 +65,12 @@
 
 - (void)setupMessageChannel:(NSObject<FlutterBinaryMessenger>*)messenger;{
     
-    FlutterMethodChannel *basicChannel = [FlutterMethodChannel
+    self.listViewDemoChannel = [FlutterMethodChannel
                          methodChannelWithName:@"MXFlutter_MethodChannel_Demo"
                          binaryMessenger:messenger];
     
     __weak AppDelegate *weakSelf = self;
-    [basicChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
+    [self.listViewDemoChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
         __strong AppDelegate *strongSelf = weakSelf;
         if (!strongSelf) {
             return;
