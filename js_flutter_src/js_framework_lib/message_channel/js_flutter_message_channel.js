@@ -186,17 +186,24 @@ mx_platform_channel.MXMethodChannel = class MXMethodChannel extends platform_cha
         return promiseResult;
     }
 
+    //TODO:
+    ///handler:function (MethodCall){}
+    ///
+    setMethodCallHandler(handler) {
+        //mx_jsbridge_MethodChannel_setMethodCallHandler(this.name, handler);
+    }
+
 }
 
 
 mx_platform_channel.MethodCall = class MethodCall extends core.Object {
     /// Creates a [MethodCall] representing the invocation of [method] with the
     /// specified [arguments].
-    constructor(method, args){
+    constructor(method, args) {
         this.method = method;
         this.arguments = args;
     }
-  }
+}
 
 
 
