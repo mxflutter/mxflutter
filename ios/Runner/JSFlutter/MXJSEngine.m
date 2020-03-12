@@ -142,6 +142,14 @@
         }];
     };
     
+//    /**
+//    * @param channelName 通道名
+//    * @param function 回调
+//    */
+//    context[@"mx_jsbridge_MethodChannel_setMethodCallHandler"] = ^(NSString* channelName, JSValue* function) {
+//
+//    };
+    
     /**
     * @param channelName 通道名
     * @param streamParam receiveBroadcastStream参数

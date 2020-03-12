@@ -7,8 +7,7 @@ let layoutExports = require("js_flutter_layout.js");
 let textExports = require("js_flutter_text.js");
 let imageExports = require("js_flutter_image.js");
 let animationExports = require("js_flutter_animation.js");
-let animationExports = require("js_flutter_animation.js");
-let messageChannelExports = require("message_channel/js_flutter_message_channel.js");
+let {platform_channel} = require("message_channel/js_flutter_message_channel.js");
 
 let src__services__system_chrome = Object.create(null);
 src__services__system_chrome.SystemUiOverlayStyle =
@@ -29,11 +28,5 @@ let src__services__asset_bundle = Object.create(null);
 src__services__asset_bundle.PlatformAssetBundle =
   basicExports.PlatformAssetBundle;
 exports.src__services__asset_bundle = src__services__asset_bundle;
-
-
-const platform_channel = Object.create(null);
-platform_channel.MethodChannel = messageChannelExports.MethodChannel;
-platform_channel.EventChannel = messageChannelExports.EventChannel;
-
 
 exports.src__services__platform_channel = platform_channel;

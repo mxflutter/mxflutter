@@ -5,10 +5,9 @@ import 'dart:convert';
 
 import 'mx_js_framework.dart';
 import 'mx_js_flutter_common.dart';
+import 'mx_js_mirror_obj_mgr.dart';
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
-
-Map<String, dynamic> g_mirrorObjectMap = {};
 
 //buildOwner 除了根节点，于 MXJSWidgetState 一一对应，形成树状结构，持有MXJSWidgetState，
 //并接收JS调用操作MXJSWidgetState
@@ -159,20 +158,6 @@ class MXJsonBuildOwner {
       return;
     }
 
-    // MXJsonBuildOwner bo;
-    // if (isRootWidget != true) {
-    //   bo = findBuildOwner(widgetID);
-    // } else {
-    //   // 针对从flutter侧push进来的js页面，作为根页面，统一通过jsWidget.name来获取BuildOwner。解决根页面是StatelessWidget，获取BuildOwner错误的问题
-    //   bo = findBuildOwner(name);
-    // }
-
-    // if (bo == null) {
-    //   MXJSLog.log(
-    //       "findBuildOwner(widgetID) == null: name:$name id:$widgetID");
-    //   bo = findBuildOwner(name);
-    // }
-
     //------
     MXJsonBuildOwner bo = findBuildOwner(widgetID);
 
@@ -199,9 +184,7 @@ class MXJsonBuildOwner {
     MXJSWidgetHelper helper = this.widget.helper;
     helper.jsRebuild(widgetID, widgetData, buildWidgetDataSeq);
 
-    //更新为widgetid
-    // parentBuildOwner?.addChildBuildOwner(widgetID, this);
-    // removeChildBuildOwner(name);
+
   }
 
   //js->flutter
@@ -298,47 +281,18 @@ class MXJsonBuildOwner {
     Map argMap = json.decode(widgetDataStr);
     String mirrorID = argMap["mirrorID"];
     dynamic mirrorObj = getMirrorObjectFromID(mirrorID);
+
     if (mirrorObj != null) {
       String className = argMap["className"];
       String funcName = argMap["funcName"];
       Map args = argMap["args"];
-      invokeFunction(mirrorID, mirrorObj, className, funcName, args);
+
+      MXJsonObjProxy proxy =
+          MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
+      proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj,funcName, args);
     }
   }
 
-  // 先写在一起跑通再说，后面再考虑把代码写得优雅些
-  void invokeFunction(String mirrorID, dynamic mirrorObj, String className,
-      String funcName, Map args) {
-    if (className == 'AnimationController') {
-      if (funcName == 'forward') {
-        (mirrorObj as AnimationController).forward();
-        return;
-      } else if (funcName == 'reverse') {
-        (mirrorObj as AnimationController).reverse();
-        return;
-      } else if (funcName == 'repeat') {
-        (mirrorObj as AnimationController).repeat();
-        return;
-      } else if (funcName == 'drive') {
-        Animatable animatable = args['animatable'];
-        (mirrorObj as AnimationController).drive(animatable);
-        return;
-      }
-    }
-
-    if (className == 'RefreshController') {
-      if (funcName == 'loadComplete') {
-        mirrorObj.loadComplete();
-        return;
-      } else if (funcName == 'loadFailed') {
-        mirrorObj.loadFailed();
-        return;
-      } else if (funcName == 'loadNoData') {
-        mirrorObj.loadNoData();
-        return;
-      }
-    }
-  }
 
   //MirrorObj事件回调
   //flutter->JS
@@ -363,14 +317,11 @@ class MXJsonBuildOwner {
 
   dynamic getMirrorObjectFromMap(Map jsonMap) {
     dynamic mirrorID = jsonMap["mirrorID"];
-    if (mirrorID != null) {
-      return g_mirrorObjectMap[mirrorID];
-    }
-    return null;
+    return getMirrorObjectFromID(mirrorID);
   }
 
   dynamic getMirrorObjectFromID(dynamic mirrorID) {
-    return g_mirrorObjectMap[mirrorID];
+    return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
   }
 
   void setMirrorObject(dynamic mirrorObj, Map jsonMap) {
@@ -379,20 +330,23 @@ class MXJsonBuildOwner {
       if (!mirrorObjKeyList.contains(mirrorID)) {
         mirrorObjKeyList.add(mirrorID);
       }
-      g_mirrorObjectMap[mirrorID] = mirrorObj;
+
+      MXJSMirrorObjMgr.getInstance().addMirrorObject(mirrorID, mirrorObj);
     }
   }
 
   void removeMirrorObject(dynamic mirrorID) {
-    g_mirrorObjectMap.remove(mirrorID);
+    MXJSMirrorObjMgr.getInstance().removeMirrorObject(mirrorID);
   }
 
   void disposeMirrorObjs() {
     mirrorObjKeyList.forEach((dynamic mirrorID) {
-      dynamic mirrorObj = g_mirrorObjectMap[mirrorID];
-      if (mirrorObj is AnimationController) {
-        mirrorObj.dispose();
-      }
+      dynamic mirrorObj = getMirrorObjectFromID(mirrorID);
+      String className = mirrorObj.runtimeType.toString();
+
+      MXJsonObjProxy proxy =
+          MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
+      proxy?.jsInvokeMirrorObjFunction(mirrorID,mirrorObj,"dispose", null);
 
       removeMirrorObject(mirrorID);
     });

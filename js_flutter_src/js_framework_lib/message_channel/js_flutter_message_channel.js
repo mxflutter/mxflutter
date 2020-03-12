@@ -144,5 +144,70 @@ platform_channel.EventChannel = class EventChannel extends core.Object {
     if (!(name != null)) dart.assertFailed(null, "org-dartlang-app:///packages/flutter/src/services/platform_channel.dart", 473, 16, "name != null");
 }).prototype = platform_channel.EventChannel.prototype;
 
-exports.MethodChannel = platform_channel.MethodChannel;
+
+//--------------手写支持-----------------------
+
+let mx_platform_channel = Object.create(dart.library);
+mx_platform_channel.MXMethodChannel = class MXMethodChannel extends platform_channel.MethodChannel {
+
+    //重载
+    async invokeMethod(method, $arguments) {
+        if ($arguments === void 0) $arguments = null;
+
+        let promiseResult = new Promise(function (resolve, reject) {
+
+            mx_jsbridge_MethodChannel_invokeMethod(this.name, method, encodeParam($arguments), function (value) {
+                if (value != null) {
+                    resolve(value);
+                } else {
+                    reject(null);
+                }
+            });
+
+            //代码的不生效
+            // let f = dart.fn(function (value) {
+            //     if (value != null) {
+            //         resolve(value);
+            //     } else {
+            //         reject(null);
+            //     }
+
+            // }, dart.fnType(core.Null, [T]));
+
+            // mx_jsbridge_MethodChannel_invokeMethod(
+            //     this.name,
+            //     method,
+            //     encodeParam($arguments),
+            //     f
+            // );
+
+        }.bind(this));
+
+        return promiseResult;
+    }
+
+    //TODO:
+    ///handler:function (MethodCall){}
+    ///
+    setMethodCallHandler(handler) {
+        //mx_jsbridge_MethodChannel_setMethodCallHandler(this.name, handler);
+    }
+
+}
+
+
+mx_platform_channel.MethodCall = class MethodCall extends core.Object {
+    /// Creates a [MethodCall] representing the invocation of [method] with the
+    /// specified [arguments].
+    constructor(method, args) {
+        this.method = method;
+        this.arguments = args;
+    }
+}
+
+
+
+exports.platform_channel = platform_channel;
+
+exports.MethodChannel = mx_platform_channel.MXMethodChannel;
 exports.EventChannel = platform_channel.EventChannel;

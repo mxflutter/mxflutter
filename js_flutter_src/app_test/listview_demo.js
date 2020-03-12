@@ -1,4 +1,7 @@
-
+const dart_sdk = require("dart_sdk");
+const core = dart_sdk.core;
+const dart = dart_sdk.dart;
+const http = dart_sdk._http
 
 let {
     MXJSLog,
@@ -63,7 +66,8 @@ let {
     MethodChannel
 } = require("js_flutter.js");
 
-let {SmartRefresher,ClassicFooter,RefreshController} = require('packages/pull_to_refresh/pull_to_refresh');
+
+let { SmartRefresher, ClassicFooter, RefreshController } = require('packages/pull_to_refresh/pull_to_refresh');
 
 //data
 let g_icons = null;
@@ -124,12 +128,21 @@ class ListViewDemoState extends MXJSWidgetState {
         ];
     }
 
-    refresh(){
+    async refresh() {
 
-        let result = this.methodChannel.invodeMethod("","callNativeIconListRefresh",{});
+        //MessageChannel 用法示例
+        let result = await this.methodChannel.invokeMethod("callNativeIconListRefresh", {});
 
-        MXJSLog("callNativeIconListRefresh result: " + result);
-        
+        MXJSLog.log("callNativeIconListRefresh result: " + result);
+        this.refreshController.refreshCompleted();
+
+        this.requestHttpData();
+
+    }
+
+    requestHttpData() {
+
+
     }
 
     build(context) {
@@ -143,7 +156,7 @@ class ListViewDemoState extends MXJSWidgetState {
                     controller: this.refreshController,
                     enablePullUp: true,
                     enablePullDown: true,
-                    footer: new  ClassicFooter({
+                    footer: new ClassicFooter({
                         failedIcon: null,
                         canLoadingIcon: null,
                         idleIcon: null,
@@ -162,11 +175,17 @@ class ListViewDemoState extends MXJSWidgetState {
                             return new ListViewItem(this.dataList[index]);
                         }.bind(this),
                     }),
-                    onLoading: function() {
+                    onRefresh: function () {
 
-                        MXJSLog("onLoading");
+                        MXJSLog.log("onRefresh");
                         this.refresh();
-                        
+
+                    }.bind(this),
+                    onLoading: function () {
+
+                        MXJSLog.log("onLoading");
+
+
                     }.bind(this),
                 }),
 
