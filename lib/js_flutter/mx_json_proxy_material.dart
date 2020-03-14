@@ -1663,7 +1663,7 @@ class MXProxyRouteSettings extends MXJsonObjProxy {
       {BuildContext context}) {
     var widget = RouteSettings(
       name: mxj2d(bo, jsonMap["name"]),
-      isInitialRoute: mxj2d(bo, jsonMap["isInitialRoute"], defaultValue: false),
+      //isInitialRoute: mxj2d(bo, jsonMap["isInitialRoute"], defaultValue: false), //1.15.21 d
       arguments: mxj2d(bo, jsonMap["arguments"]),
     );
     return widget;
