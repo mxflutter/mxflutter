@@ -3,6 +3,8 @@
 #include "GeneratedPluginRegistrant.h"
 #import "MXJSFlutterEngine.h"
 
+#import "RCTNetworking.h"
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) MXJSFlutterEngine *jsFlutterEngine;
@@ -86,6 +88,108 @@
         }
     
     }];
+}
+
+typedef void (^ImageLoaderProgressBlock)(int64_t progress, int64_t total);
+typedef void (^ImageLoaderPartialLoadBlock)(UIImage *image);
+typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
+
+
+- (void)_loadURLRequest:(NSURLRequest *)request
+                                     progressBlock:(ImageLoaderProgressBlock)progressHandler
+                                   completionBlock:(void (^)(NSError *error, id imageOrData, NSURLResponse *response))completionHandler
+{
+
+
+
+  MXURLRequestCompletionBlock processResponse = ^(NSURLResponse *response, NSData *data, NSError *error) {
+    // Check for system errors
+    if (error) {
+      completionHandler(error, nil, response);
+      return;
+    } else if (!response) {
+      completionHandler(RCTErrorWithMessage(@"Response metadata error"), nil, response);
+      return;
+    } else if (!data) {
+      completionHandler(RCTErrorWithMessage(@"Unknown image download error"), nil, response);
+      return;
+    }
+
+    // Check for http errors
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+      NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
+      if (statusCode != 200) {
+        NSString *errorMessage = [NSString stringWithFormat:@"Failed to load %@", response.URL];
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: errorMessage};
+        completionHandler([[NSError alloc] initWithDomain:NSURLErrorDomain
+                                                     code:statusCode
+                                                 userInfo:userInfo], nil, response);
+        return;
+      }
+    }
+
+    // Call handler
+    completionHandler(nil, data, response);
+  };
+
+  // Download image
+  __weak __typeof(self) weakSelf = self;
+  __block RCTNetworkTask *task =
+  [networking networkTaskWithRequest:request
+                     completionBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
+                       __typeof(self) strongSelf = weakSelf;
+                       if (!strongSelf) {
+                         return;
+                       }
+
+                       if (error || !response || !data) {
+                         NSError *someError = nil;
+                         if (error) {
+                           someError = error;
+                         } else if (!response) {
+                           someError = RCTErrorWithMessage(@"Response metadata error");
+                         } else {
+                           someError = RCTErrorWithMessage(@"Unknown image download error");
+                         }
+                         completionHandler(someError, nil, response);
+                         [strongSelf dequeueTasks];
+                         return;
+                       }
+
+                       dispatch_async(strongSelf->_URLRequestQueue, ^{
+                         // Process image data
+                         processResponse(response, data, nil);
+
+                         // Prepare for next task
+                         [strongSelf dequeueTasks];
+                       });
+                     }];
+
+  task.downloadProgressBlock = ^(int64_t progress, int64_t total) {
+    if (progressHandler) {
+      progressHandler(progress, total);
+    }
+  };
+
+  if (task) {
+    if (!_pendingTasks) {
+      _pendingTasks = [NSMutableArray new];
+    }
+    [_pendingTasks addObject:task];
+    [self dequeueTasks];
+  }
+
+  return ^{
+    __typeof(self) strongSelf = weakSelf;
+    if (!strongSelf || !task) {
+      return;
+    }
+    dispatch_async(strongSelf->_URLRequestQueue, ^{
+      [task cancel];
+      task = nil;
+    });
+    [strongSelf dequeueTasks];
+  };
 }
 
 @end

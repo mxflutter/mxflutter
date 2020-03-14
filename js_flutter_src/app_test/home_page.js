@@ -22,6 +22,7 @@ let {
     Navigator,
     MaterialPageRoute,
     Scrollbar,
+    MXJSLog,
 } = require("js_flutter.js");
 
 let { JSPestoPage } = require("./pesto.js");
@@ -55,6 +56,43 @@ const index_page = packages__zhihu__index.index__index;
 //flutter_gallery
 // const packages__flutter_gallery__gallery__app = require('packages/flutter_gallery/gallery/app');
 // const flutter_gallery_app = packages__flutter_gallery__gallery__app.gallery__app;
+
+const dart_sdk = require("dart_sdk");
+let packages__dio__src__cancel_token = require('packages/dio/cancel_token.dart.lib.js');
+
+const core = dart_sdk.core;
+const async = dart_sdk.async;
+const typed_data = dart_sdk.typed_data;
+const dart = dart_sdk.dart;
+const dartx = dart_sdk.dartx;
+
+const { Dio } = require("packages/dio/dio_for_browser.dart.lib.js");
+
+let dioAPI = Dio.new();
+
+let url = "https://api.map.baidu.com/telematics/v3/weather?location=%E5%98%89%E5%85%B4&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ";
+
+function testDio() {
+
+    return async.async(dart.dynamic, (function* getHttp() {
+
+        try {
+            core.print("yield dioAPI.get(dart.dynamic, )" + url);
+
+            let response = (yield dioAPI.get(dart.dynamic, url));
+
+            core.print("end yield dioAPI.get(dart.dynamic, )" + url);
+            core.print(response);
+
+        } catch (e$) {
+            let e = dart.getThrown(e$);
+            core.print("dio:request() " + e);
+        }
+    }).bind(this));
+
+    MXJSLog.log(response);
+}
+
 
 //业务代码
 class JSWidgetHomePage extends MXJSStatefulWidget {
@@ -128,11 +166,12 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('Simple recipe browser'),
 
                     onTap: function () {
-                        Navigator.push(context, new MaterialPageRoute({
-                            builder: function (context) {
-                                return new JSPestoPage;
-                            }
-                        }))
+                        testDio();
+                        // Navigator.push(context, new MaterialPageRoute({
+                        //     builder: function (context) {
+                        //         return new JSPestoPage;
+                        //     }
+                        // }))
                     }
                 }),
 

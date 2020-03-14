@@ -9,16 +9,27 @@
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
-		3B80C3941E831B6300D905FE /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; };
-		3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks (3 items) */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; };
-		9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks (3 items) */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9740EEB41CF90195004384FC /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9740EEB21CF90195004384FC /* Debug.xcconfig */; };
 		978B8F6F1D3862AE00F588F7 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFD8EE1D35381100E5BB4D /* AppDelegate.mm */; };
 		97C146F31CF9000F007C117D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97C146F21CF9000F007C117D /* main.mm */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		A612C3D1241D04DF00D2383D /* RCTDataRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BB241D04DF00D2383D /* RCTDataRequestHandler.m */; };
+		A612C3D2241D04DF00D2383D /* RCTNetworkTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BC241D04DF00D2383D /* RCTNetworkTask.m */; };
+		A612C3D3241D04DF00D2383D /* RCTNetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BE241D04DF00D2383D /* RCTNetInfo.m */; };
+		A612C3D4241D04DF00D2383D /* XMLHttpRequest.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C0241D04DF00D2383D /* XMLHttpRequest.js */; };
+		A612C3D5241D04DF00D2383D /* NativeNetworkingAndroid.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C1241D04DF00D2383D /* NativeNetworkingAndroid.js */; };
+		A612C3D6241D04DF00D2383D /* RCTNetworking.ios.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C2241D04DF00D2383D /* RCTNetworking.ios.js */; };
+		A612C3D7241D04DF00D2383D /* fetch.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C3241D04DF00D2383D /* fetch.js */; };
+		A612C3D8241D04DF00D2383D /* convertRequestBody.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C4241D04DF00D2383D /* convertRequestBody.js */; };
+		A612C3D9241D04DF00D2383D /* XHRInterceptor.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C5241D04DF00D2383D /* XHRInterceptor.js */; };
+		A612C3DA241D04DF00D2383D /* NativeNetworkingIOS.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C6241D04DF00D2383D /* NativeNetworkingIOS.js */; };
+		A612C3DB241D04DF00D2383D /* RCTNetworking.android.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C7241D04DF00D2383D /* RCTNetworking.android.js */; };
+		A612C3DC241D04DF00D2383D /* FormData.js in Resources */ = {isa = PBXBuildFile; fileRef = A612C3C8241D04DF00D2383D /* FormData.js */; };
+		A612C3DD241D04DF00D2383D /* RCTHTTPRequestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */; };
+		A612C3DE241D04DF00D2383D /* RCTFileRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */; };
+		A612C3DF241D04DF00D2383D /* RCTNetworking.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CD241D04DF00D2383D /* RCTNetworking.mm */; };
 		A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */; };
 		A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569321CE8FEE00530D0C /* MXJSEngine.m */; };
 		A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569621CE903E00530D0C /* MXJSExecutor.m */; };
@@ -35,8 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks (3 items) */,
-				9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks (3 items) */,
 			);
 			name = "Embed Frameworks (3 items)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +57,6 @@
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		211FF29293902FEAF0AACC75 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
-		3B80C3931E831B6300D905FE /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = Flutter/App.framework; sourceTree = "<group>"; };
 		5C9C3A4B2FB78DFACDA2C146 /* libPods-Runner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Runner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,13 +64,33 @@
 		895B094E7608DA2883775E93 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
-		9740EEBA1CF902C7004384FC /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = Flutter/Flutter.framework; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C146F21CF9000F007C117D /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A612C3BB241D04DF00D2383D /* RCTDataRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTDataRequestHandler.m; sourceTree = "<group>"; };
+		A612C3BC241D04DF00D2383D /* RCTNetworkTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTNetworkTask.m; sourceTree = "<group>"; };
+		A612C3BD241D04DF00D2383D /* RCTHTTPRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTHTTPRequestHandler.h; sourceTree = "<group>"; };
+		A612C3BE241D04DF00D2383D /* RCTNetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTNetInfo.m; sourceTree = "<group>"; };
+		A612C3C0241D04DF00D2383D /* XMLHttpRequest.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = XMLHttpRequest.js; sourceTree = "<group>"; };
+		A612C3C1241D04DF00D2383D /* NativeNetworkingAndroid.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = NativeNetworkingAndroid.js; sourceTree = "<group>"; };
+		A612C3C2241D04DF00D2383D /* RCTNetworking.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RCTNetworking.ios.js; sourceTree = "<group>"; };
+		A612C3C3241D04DF00D2383D /* fetch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = fetch.js; sourceTree = "<group>"; };
+		A612C3C4241D04DF00D2383D /* convertRequestBody.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = convertRequestBody.js; sourceTree = "<group>"; };
+		A612C3C5241D04DF00D2383D /* XHRInterceptor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = XHRInterceptor.js; sourceTree = "<group>"; };
+		A612C3C6241D04DF00D2383D /* NativeNetworkingIOS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = NativeNetworkingIOS.js; sourceTree = "<group>"; };
+		A612C3C7241D04DF00D2383D /* RCTNetworking.android.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RCTNetworking.android.js; sourceTree = "<group>"; };
+		A612C3C8241D04DF00D2383D /* FormData.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FormData.js; sourceTree = "<group>"; };
+		A612C3C9241D04DF00D2383D /* RCTNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTNetworking.h; sourceTree = "<group>"; };
+		A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTHTTPRequestHandler.mm; sourceTree = "<group>"; };
+		A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTFileRequestHandler.m; sourceTree = "<group>"; };
+		A612C3CC241D04DF00D2383D /* RCTDataRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTDataRequestHandler.h; sourceTree = "<group>"; };
+		A612C3CD241D04DF00D2383D /* RCTNetworking.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNetworking.mm; sourceTree = "<group>"; };
+		A612C3CE241D04DF00D2383D /* RCTNetworkTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTNetworkTask.h; sourceTree = "<group>"; };
+		A612C3CF241D04DF00D2383D /* RCTNetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTNetInfo.h; sourceTree = "<group>"; };
+		A612C3D0241D04DF00D2383D /* RCTFileRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTFileRequestHandler.h; sourceTree = "<group>"; };
 		A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterApp.h; sourceTree = "<group>"; };
 		A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXJSFlutterApp.mm; sourceTree = "<group>"; };
 		A62F318C21E48B9E007B59F8 /* MXJSFlutterDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterDefines.h; sourceTree = "<group>"; };
@@ -83,8 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
-				3B80C3941E831B6300D905FE /* App.framework in Frameworks */,
 				F8C493500D184CA9C55C4CA4 /* libPods-Runner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,9 +129,7 @@
 		9740EEB11CF90186004384FC /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
-				3B80C3931E831B6300D905FE /* App.framework */,
 				3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */,
-				9740EEBA1CF902C7004384FC /* Flutter.framework */,
 				9740EEB21CF90195004384FC /* Debug.xcconfig */,
 				7AFA3C8E1D35360C0083082E /* Release.xcconfig */,
 				9740EEB31CF90195004384FC /* Generated.xcconfig */,
@@ -158,9 +182,54 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A612C38E241CF8C000D2383D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3BA241D04DE00D2383D /* Network */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		A612C3BA241D04DE00D2383D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3BB241D04DF00D2383D /* RCTDataRequestHandler.m */,
+				A612C3BC241D04DF00D2383D /* RCTNetworkTask.m */,
+				A612C3BD241D04DF00D2383D /* RCTHTTPRequestHandler.h */,
+				A612C3BE241D04DF00D2383D /* RCTNetInfo.m */,
+				A612C3BF241D04DF00D2383D /* js */,
+				A612C3C9241D04DF00D2383D /* RCTNetworking.h */,
+				A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */,
+				A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */,
+				A612C3CC241D04DF00D2383D /* RCTDataRequestHandler.h */,
+				A612C3CD241D04DF00D2383D /* RCTNetworking.mm */,
+				A612C3CE241D04DF00D2383D /* RCTNetworkTask.h */,
+				A612C3CF241D04DF00D2383D /* RCTNetInfo.h */,
+				A612C3D0241D04DF00D2383D /* RCTFileRequestHandler.h */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A612C3BF241D04DF00D2383D /* js */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3C0241D04DF00D2383D /* XMLHttpRequest.js */,
+				A612C3C1241D04DF00D2383D /* NativeNetworkingAndroid.js */,
+				A612C3C2241D04DF00D2383D /* RCTNetworking.ios.js */,
+				A612C3C3241D04DF00D2383D /* fetch.js */,
+				A612C3C4241D04DF00D2383D /* convertRequestBody.js */,
+				A612C3C5241D04DF00D2383D /* XHRInterceptor.js */,
+				A612C3C6241D04DF00D2383D /* NativeNetworkingIOS.js */,
+				A612C3C7241D04DF00D2383D /* RCTNetworking.android.js */,
+				A612C3C8241D04DF00D2383D /* FormData.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
 		A6A4568E21CE8EAD00530D0C /* JSFlutter */ = {
 			isa = PBXGroup;
 			children = (
+				A612C38E241CF8C000D2383D /* Packages */,
 				BA22F63D2395469E00257D57 /* JSModule.h */,
 				BA22F63E2395469E00257D57 /* JSModule.m */,
 				A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */,
@@ -183,7 +252,6 @@
 				FFB25DBEB96C4183036AA023 /* Pods-Runner.release.xcconfig */,
 				211FF29293902FEAF0AACC75 /* Pods-Runner.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -251,11 +319,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6C8C13B21D39E8F00F71E5B /* js_flutter_src in Resources */,
+				A612C3D4241D04DF00D2383D /* XMLHttpRequest.js in Resources */,
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				9740EEB41CF90195004384FC /* Debug.xcconfig in Resources */,
+				A612C3D9241D04DF00D2383D /* XHRInterceptor.js in Resources */,
+				A612C3D5241D04DF00D2383D /* NativeNetworkingAndroid.js in Resources */,
+				A612C3DC241D04DF00D2383D /* FormData.js in Resources */,
+				A612C3DA241D04DF00D2383D /* NativeNetworkingIOS.js in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
+				A612C3D6241D04DF00D2383D /* RCTNetworking.ios.js in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				A612C3D8241D04DF00D2383D /* convertRequestBody.js in Resources */,
+				A612C3D7241D04DF00D2383D /* fetch.js in Resources */,
+				A612C3DB241D04DF00D2383D /* RCTNetworking.android.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +351,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" thin";
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
 		};
 		93B55B52C868AA66E1E6752E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -336,11 +413,17 @@
 			files = (
 				978B8F6F1D3862AE00F588F7 /* AppDelegate.mm in Sources */,
 				A6C8C13521D1D10500F71E5B /* MXJSFlutterEngine.m in Sources */,
+				A612C3D1241D04DF00D2383D /* RCTDataRequestHandler.m in Sources */,
 				97C146F31CF9000F007C117D /* main.mm in Sources */,
+				A612C3DD241D04DF00D2383D /* RCTHTTPRequestHandler.mm in Sources */,
+				A612C3DF241D04DF00D2383D /* RCTNetworking.mm in Sources */,
 				A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 				BA22F63F2395469E00257D57 /* JSModule.m in Sources */,
+				A612C3D2241D04DF00D2383D /* RCTNetworkTask.m in Sources */,
 				A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */,
+				A612C3D3241D04DF00D2383D /* RCTNetInfo.m in Sources */,
+				A612C3DE241D04DF00D2383D /* RCTFileRequestHandler.m in Sources */,
 				A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

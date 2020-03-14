@@ -66,8 +66,8 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
 
     var completer = CompleterOfResponseBody().new();
     setTimeout(function(){
-      //completer.complete(new adapter.ResponseBody.fromString("diossssssssssss",200));
-      completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "mxerror", request: options }), core.StackTrace.current);
+      completer.complete(new adapter.ResponseBody.fromString("diossssssssssss",200));
+      //completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "mxerror", request: options }), core.StackTrace.current);
     },2000);
 
 
