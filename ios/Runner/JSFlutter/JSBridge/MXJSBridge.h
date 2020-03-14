@@ -11,6 +11,7 @@
 //  found in the LICENSE file.
 
 #import <Foundation/Foundation.h>
+#import "MXBridgeModule.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

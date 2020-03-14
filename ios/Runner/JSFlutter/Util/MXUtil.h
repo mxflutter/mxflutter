@@ -15,6 +15,7 @@ NSString *const MXErrorDomain = @"MXFlutterErrorDomain";
 
 static NSError * MXErrorWithMessage(NSString *message);
 static BOOL MXIsImageAssetsPath(NSString  * _Nullable path);
+static BOOL MXClassOverridesInstanceMethod(Class cls, SEL selector);
 
 @interface MXUtil : NSObject
 

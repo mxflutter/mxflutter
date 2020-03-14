@@ -32,6 +32,7 @@
 		A612C3DF241D04DF00D2383D /* RCTNetworking.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CD241D04DF00D2383D /* RCTNetworking.mm */; };
 		A612C3E3241D0AFD00D2383D /* MXUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3E2241D0AFD00D2383D /* MXUtil.m */; };
 		A612C3E9241D3A3200D2383D /* MXJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3E8241D3A3200D2383D /* MXJSBridge.m */; };
+		A612C3EE241D557B00D2383D /* MXEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3ED241D557B00D2383D /* MXEventEmitter.m */; };
 		A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */; };
 		A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569321CE8FEE00530D0C /* MXJSEngine.m */; };
 		A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569621CE903E00530D0C /* MXJSExecutor.m */; };
@@ -100,6 +101,8 @@
 		A612C3E7241D3A3200D2383D /* MXJSBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSBridge.h; sourceTree = "<group>"; };
 		A612C3E8241D3A3200D2383D /* MXJSBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSBridge.m; sourceTree = "<group>"; };
 		A612C3EA241D3C7000D2383D /* MXBridgeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXBridgeModule.h; sourceTree = "<group>"; };
+		A612C3EC241D4B3B00D2383D /* MXEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXEventEmitter.h; sourceTree = "<group>"; };
+		A612C3ED241D557B00D2383D /* MXEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEventEmitter.m; sourceTree = "<group>"; };
 		A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterApp.h; sourceTree = "<group>"; };
 		A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXJSFlutterApp.mm; sourceTree = "<group>"; };
 		A62F318C21E48B9E007B59F8 /* MXJSFlutterDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterDefines.h; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				A612C3EA241D3C7000D2383D /* MXBridgeModule.h */,
 				A612C3E7241D3A3200D2383D /* MXJSBridge.h */,
 				A612C3E8241D3A3200D2383D /* MXJSBridge.m */,
+				A612C3EC241D4B3B00D2383D /* MXEventEmitter.h */,
+				A612C3ED241D557B00D2383D /* MXEventEmitter.m */,
 			);
 			path = JSBridge;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */,
 				A612C3D3241D04DF00D2383D /* RCTNetInfo.m in Sources */,
 				A612C3DE241D04DF00D2383D /* RCTFileRequestHandler.m in Sources */,
+				A612C3EE241D557B00D2383D /* MXEventEmitter.m in Sources */,
 				A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

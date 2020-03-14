@@ -7,6 +7,8 @@
 //
 
 #import "MXUtil.h"
+#import <objc/message.h>
+#import <objc/runtime.h>
 
 static NSError *MXErrorWithMessage(NSString *message)
 {
@@ -19,6 +21,21 @@ static BOOL MXIsImageAssetsPath(NSString *path)
   NSString *extension = [path pathExtension];
   return [extension isEqualToString:@"png"] || [extension isEqualToString:@"jpg"];
 }
+
+BOOL MXClassOverridesInstanceMethod(Class cls, SEL selector)
+{
+  unsigned int numberOfMethods;
+  Method *methods = class_copyMethodList(cls, &numberOfMethods);
+  for (unsigned int i = 0; i < numberOfMethods; i++) {
+    if (method_getName(methods[i]) == selector) {
+      free(methods);
+      return YES;
+    }
+  }
+  free(methods);
+  return NO;
+}
+
 
 @implementation MXUtil
 

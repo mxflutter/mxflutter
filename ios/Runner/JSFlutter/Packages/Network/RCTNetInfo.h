@@ -8,8 +8,10 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 
+#import "MXEventEmitter.h"
 
-@interface RCTNetInfo : RCTEventEmitter
+
+@interface MXNetInfo : MXEventEmitter
 
 - (instancetype)initWithHost:(NSString *)host;
 

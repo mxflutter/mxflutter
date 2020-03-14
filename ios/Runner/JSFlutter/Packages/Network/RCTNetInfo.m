@@ -6,6 +6,7 @@
  */
 
 #import "RCTNetInfo.h"
+#import "MXBridgeModule.h"
 
 #if !TARGET_OS_TV && !TARGET_OS_UIKITFORMAC
   #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -31,7 +32,7 @@ static NSString *const RCTReachabilityStateNone = @"none";
 static NSString *const RCTReachabilityStateWifi = @"wifi";
 static NSString *const RCTReachabilityStateCell = @"cell";
 
-@implementation RCTNetInfo
+@implementation MXNetInfo
 {
   SCNetworkReachabilityRef _firstTimeReachability;
   SCNetworkReachabilityRef _reachability;
@@ -40,14 +41,15 @@ static NSString *const RCTReachabilityStateCell = @"cell";
   NSString *_statusDeprecated;
   NSString *_host;
   BOOL _isObserving;
-  RCTPromiseResolveBlock _resolve;
+  //TODO: soap
+  //RCTPromiseResolveBlock _resolve;
 }
 
-RCT_EXPORT_MODULE()
+MX_EXPORT_MODULE()
 
 static void RCTReachabilityCallback(__unused SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void *info)
 {
-  RCTNetInfo *self = (__bridge id)info;
+  mxNetInfo *self = (__bridge id)info;
   BOOL didSetReachabilityFlags = [self setReachabilityStatus:flags];
   
   NSString *connectionType = self->_connectionType ?: RCTConnectionTypeUnknown;
@@ -65,9 +67,9 @@ static void RCTReachabilityCallback(__unused SCNetworkReachabilityRef target, SC
   }
 
   if (didSetReachabilityFlags && self->_isObserving) {
-//    [self sendEventWithName:@"networkStatusDidChange" body:@{@"connectionType": connectionType,
-//                                                             @"effectiveConnectionType": effectiveConnectionType,
-//                                                             @"network_info": networkInfo}];
+ [self sendEventWithName:@"networkStatusDidChange" body:@{@"connectionType": connectionType,
+                                                             @"effectiveConnectionType": effectiveConnectionType,
+                                                             @"network_info": networkInfo}];
   }
 }
 
