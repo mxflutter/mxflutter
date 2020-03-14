@@ -7,7 +7,7 @@
 //
 
 #import "MXJSFlutterEngine.h"
-#import "MXJSFlutterApp.h"
+
 #import "JSModule.h"
 #import "MXJSFlutterDefines.h"
 #import <Flutter/Flutter.h>
@@ -20,7 +20,7 @@
 }
 
 @property (nonatomic, strong) NSString *rootPath;
-@property (nonatomic, strong) MXJSFlutterApp *currentApp;
+
 
 @property (nonatomic, strong) FlutterMethodChannel *basicChannel;
 @property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callFlutterQueue;

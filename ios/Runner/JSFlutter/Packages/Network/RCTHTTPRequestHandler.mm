@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTHTTPRequestHandler.h>
+#import "RCTHTTPRequestHandler.h"
 
 #import <mutex>
 
-#import <React/RCTNetworking.h>
+#import "RCTNetworking.h"
 
 @interface RCTHTTPRequestHandler () <NSURLSessionDataDelegate>
 
@@ -22,10 +22,6 @@
   std::mutex _mutex;
 }
 
-@synthesize bridge = _bridge;
-@synthesize methodQueue = _methodQueue;
-
-RCT_EXPORT_MODULE()
 
 - (void)invalidate
 {
@@ -71,7 +67,10 @@ RCT_EXPORT_MODULE()
     
     NSOperationQueue *callbackQueue = [NSOperationQueue new];
     callbackQueue.maxConcurrentOperationCount = 1;
-    callbackQueue.underlyingQueue = [[_bridge networking] methodQueue];
+      
+    //todo:mxnetwork.rew
+    //callbackQueue.underlyingQueue = [[currentAPP networking] methodQueue];
+      
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     // Set allowsCellularAccess to NO ONLY if key ReactNetworkForceWifiOnly exists AND its value is YES
     if (useWifiOnly) {

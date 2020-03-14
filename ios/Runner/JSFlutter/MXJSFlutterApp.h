@@ -10,7 +10,12 @@
 
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
-#import "MXJSFlutterEngine.h"
+
+#import "RCTNetworking.h"
+
+
+@class MXJSFlutterEngine;
+@class MXJSEngine;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,6 +55,10 @@ JSExportAs(callFlutterWidgetChannel,
 
 - (void)runApp;
 - (void)exitApp;
+
+/// TODO:mxnetwork.rew
+///packages
+@property (nonatomic, strong) RCTNetworking *networking;
 
 
 @end

@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTInvalidating.h>
-#import <React/RCTURLRequestHandler.h>
+
+#import "RCTURLRequestHandler.h"
 
 /**
  * This is the default RCTURLRequestHandler implementation for data URL requests.
  */
-@interface RCTDataRequestHandler : NSObject <RCTURLRequestHandler, RCTInvalidating>
+@interface RCTDataRequestHandler : NSObject <RCTURLRequestHandler>
 
 @end

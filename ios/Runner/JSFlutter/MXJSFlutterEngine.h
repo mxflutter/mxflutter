@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MXJSFlutterApp.h"
 
 @class FlutterEngine;
 @class MXJSEngine;
@@ -18,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
  *管理FluterJS代码
  */
 @interface MXJSFlutterEngine : NSObject
+
+@property (nonatomic, strong) MXJSFlutterApp *currentApp;
 
 @property (nonatomic, weak) FlutterEngine* flutterEngine;
 @property (nonatomic, weak) MXJSEngine* jsEngine;

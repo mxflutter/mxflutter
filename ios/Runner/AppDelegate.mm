@@ -5,11 +5,18 @@
 
 #import "RCTNetworking.h"
 
+typedef void (^ImageLoaderProgressBlock)(int64_t progress, int64_t total);
+typedef void (^ImageLoaderPartialLoadBlock)(UIImage *image);
+typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
+
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) MXJSFlutterEngine *jsFlutterEngine;
 
 @property (nonatomic, strong) FlutterMethodChannel *listViewDemoChannel;
+
+@property (nonatomic, strong) RCTNetworking *networking;
 
 @end
 
@@ -81,6 +88,14 @@
         if ([call.method isEqualToString:@"callNativeIconListRefresh"]) {
             
              result(@[@1,@2,@3,@4]);
+            
+            NSURLRequest *req = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:@"htttps://www.qq.com"]];
+            
+            [strongSelf _loadURLRequest:req progressBlock:^(int64_t progress, int64_t total) {
+                
+            } completionBlock:^(NSError *error, id imageOrData, NSURLResponse *response) {
+                
+            }];
            
         } else if ([call.method isEqualToString:@"callNativeIconListLoadMore"]) {
             
@@ -90,9 +105,10 @@
     }];
 }
 
-typedef void (^ImageLoaderProgressBlock)(int64_t progress, int64_t total);
-typedef void (^ImageLoaderPartialLoadBlock)(UIImage *image);
-typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
+
+
+
+
 
 
 - (void)_loadURLRequest:(NSURLRequest *)request
@@ -100,18 +116,21 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
                                    completionBlock:(void (^)(NSError *error, id imageOrData, NSURLResponse *response))completionHandler
 {
 
+    if (self.networking == nil) {
+        self.networking = [[RCTNetworking alloc] init];
+    }
+      
 
-
-  MXURLRequestCompletionBlock processResponse = ^(NSURLResponse *response, NSData *data, NSError *error) {
+  RCTURLRequestCompletionBlock processResponse = ^(NSURLResponse *response, NSData *data, NSError *error) {
     // Check for system errors
     if (error) {
       completionHandler(error, nil, response);
       return;
     } else if (!response) {
-      completionHandler(RCTErrorWithMessage(@"Response metadata error"), nil, response);
+      completionHandler(MXErrorWithMessage(@"Response metadata error"), nil, response);
       return;
     } else if (!data) {
-      completionHandler(RCTErrorWithMessage(@"Unknown image download error"), nil, response);
+      completionHandler(MXErrorWithMessage(@"Unknown image download error"), nil, response);
       return;
     }
 
@@ -147,22 +166,14 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
                          if (error) {
                            someError = error;
                          } else if (!response) {
-                           someError = RCTErrorWithMessage(@"Response metadata error");
+                           someError = MXErrorWithMessage(@"Response metadata error");
                          } else {
-                           someError = RCTErrorWithMessage(@"Unknown image download error");
+                           someError = MXErrorWithMessage(@"Unknown image download error");
                          }
                          completionHandler(someError, nil, response);
-                         [strongSelf dequeueTasks];
+                
                          return;
                        }
-
-                       dispatch_async(strongSelf->_URLRequestQueue, ^{
-                         // Process image data
-                         processResponse(response, data, nil);
-
-                         // Prepare for next task
-                         [strongSelf dequeueTasks];
-                       });
                      }];
 
   task.downloadProgressBlock = ^(int64_t progress, int64_t total) {
@@ -171,26 +182,9 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
     }
   };
 
-  if (task) {
-    if (!_pendingTasks) {
-      _pendingTasks = [NSMutableArray new];
-    }
-    [_pendingTasks addObject:task];
-    [self dequeueTasks];
-  }
-
-  return ^{
-    __typeof(self) strongSelf = weakSelf;
-    if (!strongSelf || !task) {
-      return;
-    }
-    dispatch_async(strongSelf->_URLRequestQueue, ^{
-      [task cancel];
-      task = nil;
-    });
-    [strongSelf dequeueTasks];
-  };
+  [task start];
 }
 
 @end
+
 

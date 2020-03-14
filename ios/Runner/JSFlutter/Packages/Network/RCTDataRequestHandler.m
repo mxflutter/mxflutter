@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTDataRequestHandler.h>
+#import "RCTDataRequestHandler.h"
 
 @implementation RCTDataRequestHandler
 {
   NSOperationQueue *_queue;
 }
 
-RCT_EXPORT_MODULE()
+//RCT_EXPORT_MODULE()
 
 - (void)invalidate
 {

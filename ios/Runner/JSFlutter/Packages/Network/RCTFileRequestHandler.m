@@ -5,18 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTFileRequestHandler.h>
-
+#import "RCTFileRequestHandler.h"
+#import "MXUtil.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-#import <React/RCTUtils.h>
+
 
 @implementation RCTFileRequestHandler
 {
   NSOperationQueue *_fileQueue;
 }
 
-RCT_EXPORT_MODULE()
 
 - (void)invalidate
 {
@@ -28,7 +27,7 @@ RCT_EXPORT_MODULE()
 {
   return
   [request.URL.scheme caseInsensitiveCompare:@"file"] == NSOrderedSame
-  && !RCTIsBundleAssetURL(request.URL);
+  && !MXIsImageAssetsPath(request.URL);
 }
 
 - (NSOperation *)sendRequest:(NSURLRequest *)request

@@ -5,9 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTEventEmitter.h>
-#import <React/RCTNetworkTask.h>
-#import <React/RCTURLRequestHandler.h>
+
+#import "RCTNetworkTask.h"
+#import "RCTURLRequestHandler.h"
+#import "MXUtil.h"
 
 @protocol RCTNetworkingRequestHandler <NSObject>
 
@@ -25,7 +26,7 @@
 
 @end
 
-@interface RCTNetworking : RCTEventEmitter
+@interface RCTNetworking : NSObject
 
 /**
  * Allows RCTNetworking instances to be initialized with handlers.

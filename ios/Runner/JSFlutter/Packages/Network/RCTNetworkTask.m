@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTLog.h>
-#import <React/RCTNetworkTask.h>
-#import <React/RCTUtils.h>
+
+#import "RCTNetworkTask.h"
+
 
 @implementation RCTNetworkTask
 {

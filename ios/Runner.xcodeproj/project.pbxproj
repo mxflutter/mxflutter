@@ -30,6 +30,8 @@
 		A612C3DD241D04DF00D2383D /* RCTHTTPRequestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */; };
 		A612C3DE241D04DF00D2383D /* RCTFileRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */; };
 		A612C3DF241D04DF00D2383D /* RCTNetworking.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CD241D04DF00D2383D /* RCTNetworking.mm */; };
+		A612C3E3241D0AFD00D2383D /* MXUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3E2241D0AFD00D2383D /* MXUtil.m */; };
+		A612C3E9241D3A3200D2383D /* MXJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3E8241D3A3200D2383D /* MXJSBridge.m */; };
 		A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */; };
 		A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569321CE8FEE00530D0C /* MXJSEngine.m */; };
 		A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569621CE903E00530D0C /* MXJSExecutor.m */; };
@@ -91,6 +93,13 @@
 		A612C3CE241D04DF00D2383D /* RCTNetworkTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTNetworkTask.h; sourceTree = "<group>"; };
 		A612C3CF241D04DF00D2383D /* RCTNetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTNetInfo.h; sourceTree = "<group>"; };
 		A612C3D0241D04DF00D2383D /* RCTFileRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTFileRequestHandler.h; sourceTree = "<group>"; };
+		A612C3E1241D0AFD00D2383D /* MXUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXUtil.h; sourceTree = "<group>"; };
+		A612C3E2241D0AFD00D2383D /* MXUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXUtil.m; sourceTree = "<group>"; };
+		A612C3E4241D170100D2383D /* RCTURLRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTURLRequestDelegate.h; sourceTree = "<group>"; };
+		A612C3E5241D170100D2383D /* RCTURLRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTURLRequestHandler.h; sourceTree = "<group>"; };
+		A612C3E7241D3A3200D2383D /* MXJSBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSBridge.h; sourceTree = "<group>"; };
+		A612C3E8241D3A3200D2383D /* MXJSBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSBridge.m; sourceTree = "<group>"; };
+		A612C3EA241D3C7000D2383D /* MXBridgeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXBridgeModule.h; sourceTree = "<group>"; };
 		A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterApp.h; sourceTree = "<group>"; };
 		A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXJSFlutterApp.mm; sourceTree = "<group>"; };
 		A62F318C21E48B9E007B59F8 /* MXJSFlutterDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterDefines.h; sourceTree = "<group>"; };
@@ -193,19 +202,21 @@
 		A612C3BA241D04DE00D2383D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A612C3BB241D04DF00D2383D /* RCTDataRequestHandler.m */,
-				A612C3BC241D04DF00D2383D /* RCTNetworkTask.m */,
-				A612C3BD241D04DF00D2383D /* RCTHTTPRequestHandler.h */,
-				A612C3BE241D04DF00D2383D /* RCTNetInfo.m */,
-				A612C3BF241D04DF00D2383D /* js */,
 				A612C3C9241D04DF00D2383D /* RCTNetworking.h */,
-				A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */,
-				A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */,
-				A612C3CC241D04DF00D2383D /* RCTDataRequestHandler.h */,
 				A612C3CD241D04DF00D2383D /* RCTNetworking.mm */,
 				A612C3CE241D04DF00D2383D /* RCTNetworkTask.h */,
+				A612C3BC241D04DF00D2383D /* RCTNetworkTask.m */,
 				A612C3CF241D04DF00D2383D /* RCTNetInfo.h */,
+				A612C3BE241D04DF00D2383D /* RCTNetInfo.m */,
+				A612C3CC241D04DF00D2383D /* RCTDataRequestHandler.h */,
+				A612C3BB241D04DF00D2383D /* RCTDataRequestHandler.m */,
+				A612C3BD241D04DF00D2383D /* RCTHTTPRequestHandler.h */,
+				A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */,
 				A612C3D0241D04DF00D2383D /* RCTFileRequestHandler.h */,
+				A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */,
+				A612C3E4241D170100D2383D /* RCTURLRequestDelegate.h */,
+				A612C3E5241D170100D2383D /* RCTURLRequestHandler.h */,
+				A612C3BF241D04DF00D2383D /* js */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -226,10 +237,31 @@
 			path = js;
 			sourceTree = "<group>";
 		};
+		A612C3E0241D0AD700D2383D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3E1241D0AFD00D2383D /* MXUtil.h */,
+				A612C3E2241D0AFD00D2383D /* MXUtil.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A612C3E6241D34B300D2383D /* JSBridge */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3EA241D3C7000D2383D /* MXBridgeModule.h */,
+				A612C3E7241D3A3200D2383D /* MXJSBridge.h */,
+				A612C3E8241D3A3200D2383D /* MXJSBridge.m */,
+			);
+			path = JSBridge;
+			sourceTree = "<group>";
+		};
 		A6A4568E21CE8EAD00530D0C /* JSFlutter */ = {
 			isa = PBXGroup;
 			children = (
+				A612C3E6241D34B300D2383D /* JSBridge */,
 				A612C38E241CF8C000D2383D /* Packages */,
+				A612C3E0241D0AD700D2383D /* Util */,
 				BA22F63D2395469E00257D57 /* JSModule.h */,
 				BA22F63E2395469E00257D57 /* JSModule.m */,
 				A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */,
@@ -416,6 +448,8 @@
 				A612C3D1241D04DF00D2383D /* RCTDataRequestHandler.m in Sources */,
 				97C146F31CF9000F007C117D /* main.mm in Sources */,
 				A612C3DD241D04DF00D2383D /* RCTHTTPRequestHandler.mm in Sources */,
+				A612C3E3241D0AFD00D2383D /* MXUtil.m in Sources */,
+				A612C3E9241D3A3200D2383D /* MXJSBridge.m in Sources */,
 				A612C3DF241D04DF00D2383D /* RCTNetworking.mm in Sources */,
 				A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,

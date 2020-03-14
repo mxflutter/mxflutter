@@ -12,6 +12,7 @@
 #import "MXJSFlutterDefines.h"
 #import <Flutter/Flutter.h>
 #import "MXJSEngine.h"
+#import "MXJSFlutterEngine.h"
 
 @interface MXJSFlutterApp ()
 
