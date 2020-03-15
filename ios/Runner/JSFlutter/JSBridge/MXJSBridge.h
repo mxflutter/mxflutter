@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)registerModules:(MXJSFlutterApp*)flutterApp jsAPPValueBridge:(JSValue*)jsAPPValueBridge;
 - (void)sendEventWithName:(NSString *)eventName data:(id)data;
 
+
+- (id)moduleForClass:(Class)moduleClass;
+
 @end
 
 NS_ASSUME_NONNULL_END

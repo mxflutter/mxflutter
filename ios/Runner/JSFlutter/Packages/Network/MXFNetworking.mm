@@ -151,21 +151,21 @@ static NSString *RCTGenerateFormBoundary()
     NSMutableArray<id<MXFNetworkingResponseHandler>> *_responseHandlers;
 }
 
-@synthesize methodQueue = _methodQueue;
+
 
 MX_EXPORT_MODULE(networking)
 
 
 + (id<MXBridgeModule>)registerModuleInMXFlutterJSContext:(JSValue*)jsAPPValue bridge:(MXJSBridge *)bridge
 {
-
+    
     MXFNetworking * networking = [[MXFNetworking alloc] initWithHandlersProvider:^NSArray<id<MXFURLRequestHandler>> * _Nonnull{
         return      @[
-        
-        [MXFHTTPRequestHandler new],
-        [MXFFileRequestHandler new],
-        [MXFDataRequestHandler new],
-        
+            
+            [MXFHTTPRequestHandler new],
+            [MXFFileRequestHandler new],
+            [MXFDataRequestHandler new],
+            
         ];;
     }];
     
@@ -184,6 +184,11 @@ MX_EXPORT_MODULE(networking)
         _handlersProvider = getHandlers;
     }
     return self;
+}
+                                                   
+- (dispatch_queue_t)methodQueue
+{
+    return dispatch_queue_create("MXFlutter-MXFNetworking", DISPATCH_QUEUE_SERIAL);
 }
 
 - (void)dispose
@@ -340,7 +345,7 @@ MX_EXPORT_MODULE(networking)
             [request setValue:(@(request.HTTPBody.length)).description forHTTPHeaderField:@"Content-Length"];
         }
         
-        dispatch_async(self->_methodQueue, ^{
+        dispatch_async(self.methodQueue, ^{
             block(request);
         });
         
@@ -403,7 +408,7 @@ MX_EXPORT_MODULE(networking)
         
         __block MXFURLRequestCancellationBlock cancellationBlock = nil;
         MXFNetworkTask *task = [self networkTaskWithRequest:request completionBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
-            dispatch_async(self->_methodQueue, ^{
+            dispatch_async(self.methodQueue, ^{
                 cancellationBlock = callback(error, data ? @{@"body": data, @"contentType": MXNullIfNil(response.MIMEType)} : nil);
             });
         }];
@@ -548,24 +553,25 @@ MX_EXPORT_MODULE(networking)
         if ([response isKindOfClass:[NSHTTPURLResponse class]]) { // Might be a local file request
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
             headers = httpResponse.allHeaderFields ?: @{};
-        status = httpResponse.statusCode;
-    } else {
-        headers = response.MIMEType ? @{@"Content-Type": response.MIMEType} : @{};
-status = 200;
-}
-id responseURL = response.URL ? response.URL.absoluteString : [NSNull null];
-NSArray<id> *responseJSON = @[task.requestID, @(status), headers, responseURL];
-[weakSelf sendEventWithName:@"didReceiveNetworkResponse" body:responseJSON];
-};
+            status = httpResponse.statusCode;
+        } else {
+            headers = response.MIMEType ? @{@"Content-Type": response.MIMEType} : @{};
+            status = 200;
+        }
 
-// XHR does not allow you to peek at xhr.response before the response is
-// finished. Only when xhr.responseType is set to ''/'text', consumers may
-// peek at xhr.responseText. So unless the requested responseType is 'text',
-// we only send progress updates and not incremental data updates to JS here.
-MXFURLRequestIncrementalDataBlock incrementalDataBlock = nil;
-MXFURLRequestProgressBlock downloadProgressBlock = nil;
-if (incrementalUpdates) {
-    if ([responseType isEqualToString:@"text"]) {
+        id responseURL = response.URL ? response.URL.absoluteString : [NSNull null];
+        NSArray<id> *responseJSON = @[task.requestID, @(status), headers, responseURL];
+        [weakSelf sendEventWithName:@"didReceiveNetworkResponse" body:responseJSON];
+    };
+
+    // XHR does not allow you to peek at xhr.response before the response is
+    // finished. Only when xhr.responseType is set to ''/'text', consumers may
+    // peek at xhr.responseText. So unless the requested responseType is 'text',
+    // we only send progress updates and not incremental data updates to JS here.
+    MXFURLRequestIncrementalDataBlock incrementalDataBlock = nil;
+    MXFURLRequestProgressBlock downloadProgressBlock = nil;
+    if (incrementalUpdates) {
+        if ([responseType isEqualToString:@"text"]) {
         
         // We need this to carry over bytes, which could not be decoded into text (such as broken UTF-8 characters).
         // The incremental data block holds the ownership of this object, and will be released upon release of the block.
@@ -677,7 +683,7 @@ if (task.requestID) {
     
     MXFNetworkTask *task = [[MXFNetworkTask alloc] initWithRequest:request
                                                            handler:handler
-                                                     callbackQueue:_methodQueue];
+                                                     callbackQueue:self.methodQueue];
     task.completionBlock = completionBlock;
     return task;
 }
@@ -722,12 +728,12 @@ if (task.requestID) {
 
 @end
 
-@implementation MXJSBridge (MXNetworking)
+@implementation MXJSBridge (MXFNetworking)
 
 - (MXFNetworking *)networking
 {
-    return nil;
-    //return [self moduleForClass:[MXNetworking class]];
+    
+    return [self moduleForClass:[MXFNetworking class]];
 }
 
 @end

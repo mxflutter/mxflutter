@@ -88,13 +88,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         
         if ([call.method isEqualToString:@"callNativeIconListRefresh"]) {
             
-            result(@[@1,@2,@3,@4]);
+            //result(@[@1,@2,@3,@4]);
             
-            NSURLRequest *req = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:@"htttps://www.qq.com"]];
+            NSURLRequest *req = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:@"https://reactnative.dev/movies.json"]];
             
-            [strongSelf _loadURLRequest:req progressBlock:^(int64_t progress, int64_t total) {
+            [strongSelf _loadURLRequest:req completionBlock:^(NSError *error, id imageOrData, NSURLResponse *response) {
                 
-            } completionBlock:^(NSError *error, id imageOrData, NSURLResponse *response) {
+                result([[NSString alloc] initWithData:imageOrData encoding:NSUTF8StringEncoding]);
                 
             }];
             
@@ -108,84 +108,33 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
 
 
-
-
-
-
 - (void)_loadURLRequest:(NSURLRequest *)request
-          progressBlock:(ImageLoaderProgressBlock)progressHandler
-        completionBlock:(void (^)(NSError *error, id imageOrData, NSURLResponse *response))completionHandler
+        completionBlock:(void (^)(NSError *error, id data, NSURLResponse *response))completionHandler
 {
     
     if (self.networking == nil) {
-        self.networking = [[MXFNetworking alloc] init];
+        self.networking = [MXJSBridge shareInstance].networking ;
     }
     
-    
-    MXFURLRequestCompletionBlock processResponse = ^(NSURLResponse *response, NSData *data, NSError *error) {
-        // Check for system errors
-        if (error) {
-            completionHandler(error, nil, response);
-            return;
-        } else if (!response) {
-            completionHandler(MXFErrorWithMessage(@"Response metadata error"), nil, response);
-            return;
-        } else if (!data) {
-            completionHandler(MXFErrorWithMessage(@"Unknown image download error"), nil, response);
-            return;
-        }
-        
-        // Check for http errors
-        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-            NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
-            if (statusCode != 200) {
-                NSString *errorMessage = [NSString stringWithFormat:@"Failed to load %@", response.URL];
-                NSDictionary *userInfo = @{NSLocalizedDescriptionKey: errorMessage};
-            completionHandler([[NSError alloc] initWithDomain:NSURLErrorDomain
-                                                         code:statusCode
-                                                     userInfo:userInfo], nil, response);
-            return;
-        }
-    }
-    
-    // Call handler
-    completionHandler(nil, data, response);
-};
-
-// Download image
-__weak __typeof(self) weakSelf = self;
-__block MXFNetworkTask *task =
-[self.networking networkTaskWithRequest:request
+    __weak __typeof(self) weakSelf = self;
+    __block MXFNetworkTask *task =
+    [self.networking networkTaskWithRequest:request
                         completionBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
-    __typeof(self) strongSelf = weakSelf;
-    if (!strongSelf) {
-        return;
-    }
-    
-    if (error || !response || !data) {
-        NSError *someError = nil;
-        if (error) {
-            someError = error;
-        } else if (!response) {
-            someError = MXFErrorWithMessage(@"Response metadata error");
-        } else {
-            someError = MXFErrorWithMessage(@"Unknown image download error");
-        }
-        completionHandler(someError, nil, response);
         
-        return;
-    }
-}];
+         __typeof(self) strongSelf = weakSelf;
+         if (!strongSelf) {
+            return;
+         }
+    
+         completionHandler(error, data, response);
+    }];
 
-task.downloadProgressBlock = ^(int64_t progress, int64_t total) {
-    if (progressHandler) {
-        progressHandler(progress, total);
-    }
-};
 
-[task start];
+
+    [task start];
 }
 
 @end
+
 
 

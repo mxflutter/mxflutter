@@ -84,7 +84,7 @@ JSExportAs(clearCookies,
 
 @end
 
-@interface MXJSBridge (MXNetworking)
+@interface MXJSBridge (MXFNetworking)
 
 @property (nonatomic, readonly) MXFNetworking *networking;
 

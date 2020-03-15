@@ -32,7 +32,7 @@
   return nil;
 }
 
-- (void)sendEventWithName:(NSString *)eventName data:(id)data
+- (void)sendEventWithName:(NSString *)eventName body:(id)data
 {
     [self.bridge sendEventWithName:eventName data:data];
 }
