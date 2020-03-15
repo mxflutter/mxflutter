@@ -5,17 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "RCTHTTPRequestHandler.h"
+#import "MXFHTTPRequestHandler.h"
 
 #import <mutex>
 
 #import "MXFNetworking.h"
 
-@interface RCTHTTPRequestHandler () <NSURLSessionDataDelegate>
+@interface MXFHTTPRequestHandler () <NSURLSessionDataDelegate>
 
 @end
 
-@implementation RCTHTTPRequestHandler
+@implementation MXFHTTPRequestHandler
 {
   NSMapTable *_delegates;
   NSURLSession *_session;

@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "RCTDataRequestHandler.h"
+#import "MXFDataRequestHandler.h"
 
-@implementation RCTDataRequestHandler
+@implementation MXFDataRequestHandler
 {
   NSOperationQueue *_queue;
 }

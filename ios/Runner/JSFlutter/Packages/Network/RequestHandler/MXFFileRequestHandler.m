@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "RCTFileRequestHandler.h"
+#import "MXFFileRequestHandler.h"
 #import "MXFUtil.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 
 
-@implementation RCTFileRequestHandler
+@implementation MXFFileRequestHandler
 {
   NSOperationQueue *_fileQueue;
 }

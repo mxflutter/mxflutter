@@ -15,11 +15,11 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		A612C3D1241D04DF00D2383D /* RCTDataRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BB241D04DF00D2383D /* RCTDataRequestHandler.m */; };
+		A612C3D1241D04DF00D2383D /* MXFDataRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BB241D04DF00D2383D /* MXFDataRequestHandler.m */; };
 		A612C3D2241D04DF00D2383D /* MXFNetworkTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BC241D04DF00D2383D /* MXFNetworkTask.m */; };
 		A612C3D3241D04DF00D2383D /* MXFNetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BE241D04DF00D2383D /* MXFNetInfo.m */; };
-		A612C3DD241D04DF00D2383D /* RCTHTTPRequestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */; };
-		A612C3DE241D04DF00D2383D /* RCTFileRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */; };
+		A612C3DD241D04DF00D2383D /* MXFHTTPRequestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CA241D04DF00D2383D /* MXFHTTPRequestHandler.mm */; };
+		A612C3DE241D04DF00D2383D /* MXFFileRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CB241D04DF00D2383D /* MXFFileRequestHandler.m */; };
 		A612C3DF241D04DF00D2383D /* MXFNetworking.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CD241D04DF00D2383D /* MXFNetworking.mm */; };
 		A612C3E3241D0AFD00D2383D /* MXFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3E2241D0AFD00D2383D /* MXFUtil.m */; };
 		A612C3E9241D3A3200D2383D /* MXJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3E8241D3A3200D2383D /* MXJSBridge.m */; };
@@ -66,18 +66,18 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A612C3BB241D04DF00D2383D /* RCTDataRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTDataRequestHandler.m; sourceTree = "<group>"; };
+		A612C3BB241D04DF00D2383D /* MXFDataRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFDataRequestHandler.m; sourceTree = "<group>"; };
 		A612C3BC241D04DF00D2383D /* MXFNetworkTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFNetworkTask.m; sourceTree = "<group>"; };
-		A612C3BD241D04DF00D2383D /* RCTHTTPRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTHTTPRequestHandler.h; sourceTree = "<group>"; };
+		A612C3BD241D04DF00D2383D /* MXFHTTPRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFHTTPRequestHandler.h; sourceTree = "<group>"; };
 		A612C3BE241D04DF00D2383D /* MXFNetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFNetInfo.m; sourceTree = "<group>"; };
 		A612C3C9241D04DF00D2383D /* MXFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetworking.h; sourceTree = "<group>"; };
-		A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTHTTPRequestHandler.mm; sourceTree = "<group>"; };
-		A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTFileRequestHandler.m; sourceTree = "<group>"; };
-		A612C3CC241D04DF00D2383D /* RCTDataRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTDataRequestHandler.h; sourceTree = "<group>"; };
+		A612C3CA241D04DF00D2383D /* MXFHTTPRequestHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXFHTTPRequestHandler.mm; sourceTree = "<group>"; };
+		A612C3CB241D04DF00D2383D /* MXFFileRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFFileRequestHandler.m; sourceTree = "<group>"; };
+		A612C3CC241D04DF00D2383D /* MXFDataRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFDataRequestHandler.h; sourceTree = "<group>"; };
 		A612C3CD241D04DF00D2383D /* MXFNetworking.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXFNetworking.mm; sourceTree = "<group>"; };
 		A612C3CE241D04DF00D2383D /* MXFNetworkTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetworkTask.h; sourceTree = "<group>"; };
 		A612C3CF241D04DF00D2383D /* MXFNetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetInfo.h; sourceTree = "<group>"; };
-		A612C3D0241D04DF00D2383D /* RCTFileRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTFileRequestHandler.h; sourceTree = "<group>"; };
+		A612C3D0241D04DF00D2383D /* MXFFileRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFFileRequestHandler.h; sourceTree = "<group>"; };
 		A612C3E1241D0AFD00D2383D /* MXFUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXFUtil.h; sourceTree = "<group>"; };
 		A612C3E2241D0AFD00D2383D /* MXFUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXFUtil.m; sourceTree = "<group>"; };
 		A612C3E4241D170100D2383D /* MXFURLRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXFURLRequestDelegate.h; sourceTree = "<group>"; };
@@ -234,12 +234,12 @@
 		A612C3F8241E7BEC00D2383D /* RequestHandler */ = {
 			isa = PBXGroup;
 			children = (
-				A612C3CC241D04DF00D2383D /* RCTDataRequestHandler.h */,
-				A612C3BB241D04DF00D2383D /* RCTDataRequestHandler.m */,
-				A612C3BD241D04DF00D2383D /* RCTHTTPRequestHandler.h */,
-				A612C3CA241D04DF00D2383D /* RCTHTTPRequestHandler.mm */,
-				A612C3D0241D04DF00D2383D /* RCTFileRequestHandler.h */,
-				A612C3CB241D04DF00D2383D /* RCTFileRequestHandler.m */,
+				A612C3CC241D04DF00D2383D /* MXFDataRequestHandler.h */,
+				A612C3BB241D04DF00D2383D /* MXFDataRequestHandler.m */,
+				A612C3BD241D04DF00D2383D /* MXFHTTPRequestHandler.h */,
+				A612C3CA241D04DF00D2383D /* MXFHTTPRequestHandler.mm */,
+				A612C3D0241D04DF00D2383D /* MXFFileRequestHandler.h */,
+				A612C3CB241D04DF00D2383D /* MXFFileRequestHandler.m */,
 				A612C3E4241D170100D2383D /* MXFURLRequestDelegate.h */,
 				A612C3E5241D170100D2383D /* MXFURLRequestHandler.h */,
 			);
@@ -426,9 +426,9 @@
 			files = (
 				978B8F6F1D3862AE00F588F7 /* AppDelegate.mm in Sources */,
 				A6C8C13521D1D10500F71E5B /* MXJSFlutterEngine.m in Sources */,
-				A612C3D1241D04DF00D2383D /* RCTDataRequestHandler.m in Sources */,
+				A612C3D1241D04DF00D2383D /* MXFDataRequestHandler.m in Sources */,
 				97C146F31CF9000F007C117D /* main.mm in Sources */,
-				A612C3DD241D04DF00D2383D /* RCTHTTPRequestHandler.mm in Sources */,
+				A612C3DD241D04DF00D2383D /* MXFHTTPRequestHandler.mm in Sources */,
 				A612C3E3241D0AFD00D2383D /* MXFUtil.m in Sources */,
 				A612C3E9241D3A3200D2383D /* MXJSBridge.m in Sources */,
 				A612C3DF241D04DF00D2383D /* MXFNetworking.mm in Sources */,
@@ -439,7 +439,7 @@
 				A612C3D2241D04DF00D2383D /* MXFNetworkTask.m in Sources */,
 				A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */,
 				A612C3D3241D04DF00D2383D /* MXFNetInfo.m in Sources */,
-				A612C3DE241D04DF00D2383D /* RCTFileRequestHandler.m in Sources */,
+				A612C3DE241D04DF00D2383D /* MXFFileRequestHandler.m in Sources */,
 				A612C3EE241D557B00D2383D /* MXEventEmitter.m in Sources */,
 				A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */,
 				A612C3F3241DE2C900D2383D /* MXFConvert.m in Sources */,

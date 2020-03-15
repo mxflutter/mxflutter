@@ -10,14 +10,14 @@
 #import "MXJSBridge.h"
 #import "MXFNetworkTask.h"
 #import "MXFNetworking.h"
-#import "RCTHTTPRequestHandler.h"
+#import "MXFHTTPRequestHandler.h"
 #import "MXFConvert.h"
 #import "NSData+GZIP.h"
 
 //
-#import "RCTDataRequestHandler.h"
-#import "RCTHTTPRequestHandler.h"
-#import "RCTFileRequestHandler.h"
+#import "MXFDataRequestHandler.h"
+#import "MXFHTTPRequestHandler.h"
+#import "MXFFileRequestHandler.h"
 
 
 typedef MXFURLRequestCancellationBlock (^MXFHTTPQueryResult)(NSError *error, NSDictionary<NSString *, id> *result);
@@ -162,9 +162,9 @@ MX_EXPORT_MODULE(networking)
     MXFNetworking * networking = [[MXFNetworking alloc] initWithHandlersProvider:^NSArray<id<MXFURLRequestHandler>> * _Nonnull{
         return      @[
         
-        [RCTHTTPRequestHandler new],
-        [RCTFileRequestHandler new],
-        [RCTDataRequestHandler new],
+        [MXFHTTPRequestHandler new],
+        [MXFFileRequestHandler new],
+        [MXFDataRequestHandler new],
         
         ];;
     }];
