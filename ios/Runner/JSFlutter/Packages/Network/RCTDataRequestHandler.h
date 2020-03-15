@@ -6,11 +6,12 @@
  */
 
 
-#import "RCTURLRequestHandler.h"
+#import "MXFURLRequestHandler.h"
+#import "MXFDispose.h"
 
 /**
  * This is the default RCTURLRequestHandler implementation for data URL requests.
  */
-@interface RCTDataRequestHandler : NSObject <RCTURLRequestHandler>
+@interface RCTDataRequestHandler : NSObject <MXFURLRequestHandler,MXFDispose>
 
 @end

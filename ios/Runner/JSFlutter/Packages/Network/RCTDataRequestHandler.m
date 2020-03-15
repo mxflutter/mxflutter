@@ -14,7 +14,7 @@
 
 //RCT_EXPORT_MODULE()
 
-- (void)invalidate
+- (void)dispose
 {
   [_queue cancelAllOperations];
   _queue = nil;
@@ -26,7 +26,7 @@
 }
 
 - (NSOperation *)sendRequest:(NSURLRequest *)request
-                withDelegate:(id<RCTURLRequestDelegate>)delegate
+                withDelegate:(id<MXFURLRequestDelegate>)delegate
 {
   // Lazy setup
   if (!_queue) {

@@ -6,7 +6,7 @@
  */
 
 #import "MXEventEmitter.h"
-#import "MXUtil.h"
+#import "MXFUtil.h"
 
 
 @implementation MXEventEmitter
@@ -22,7 +22,7 @@
 + (void)initialize
 {
   if (self != [MXEventEmitter class]) {
-    NSAssert(MXClassOverridesInstanceMethod(self, @selector(supportedEvents)),
+    NSAssert(MXFClassOverridesInstanceMethod(self, @selector(supportedEvents)),
               @"You must override the `supportedEvents` method of %@", self);
   }
 }
@@ -39,7 +39,7 @@
 //            "explicitly synthesized the bridge in %@, even though it's inherited "
 //            "from RCTEventEmitter.", eventName, body, [self class]);
 //
-//  if (RCT_DEBUG && ![[self supportedEvents] containsObject:eventName]) {
+//  if (MXF_DEBUG && ![[self supportedEvents] containsObject:eventName]) {
 //    RCTLogError(@"`%@` is not a supported event type for %@. Supported events are: `%@`",
 //                eventName, [self class], [[self supportedEvents] componentsJoinedByString:@"`, `"]);
 //  }
@@ -72,7 +72,7 @@
 
 - (void)addListener:(NSString *)eventName;
 {
-//  if (RCT_DEBUG && ![[self supportedEvents] containsObject:eventName]) {
+//  if (MXF_DEBUG && ![[self supportedEvents] containsObject:eventName]) {
 //    RCTLogError(@"`%@` is not a supported event type for %@. Supported events are: `%@`",
 //                eventName, [self class], [[self supportedEvents] componentsJoinedByString:@"`, `"]);
 //  }
@@ -85,7 +85,7 @@
 - (void)removeListeners:(double)count;
 {
 //  int currentCount = (int)count;
-//  if (RCT_DEBUG && currentCount > _listenerCount) {
+//  if (MXF_DEBUG && currentCount > _listenerCount) {
 //    RCTLogError(@"Attempted to remove more %@ listeners than added", [self class]);
 //  }
 //  _listenerCount = MAX(_listenerCount - currentCount, 0);

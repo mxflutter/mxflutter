@@ -11,6 +11,7 @@
 
 @class FlutterEngine;
 @class MXJSFlutterEngine;
+@class MXDispose;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  *负责Native/JS 二方衔接
  *导出Native业务接口
  */
-@interface MXJSEngine : NSObject
+@interface MXJSEngine : NSObject <MXFDispose>
 
 @property (nonatomic, weak) FlutterEngine* flutterEngine;
 @property (nonatomic, weak) MXJSFlutterEngine *jsFlutterEngine;

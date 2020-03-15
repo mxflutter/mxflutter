@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "MXFDispose.h"
 
 @class MXJSExecutor;
 
@@ -23,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  *封装了JS 后台线程执行逻辑
  *
  */
-@interface MXJSExecutor : NSObject
+@interface MXJSExecutor : NSObject <MXFDispose>
 
 
 @property (nonatomic, readonly) BOOL isValid;

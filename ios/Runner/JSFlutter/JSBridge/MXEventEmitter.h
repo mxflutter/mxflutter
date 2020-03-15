@@ -8,22 +8,24 @@
 #import "MXJSBridge.h"
 
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "MXJSFlutterDefines.h"
+
 
 @protocol MXEventEmitterJSExport <NSObject,JSExport>
 
 JSExportAs(addListener,
-        - (void)addListener:(NSString *)eventName
+           - (void)addListener:(NSString *)eventName
            );
 
 JSExportAs(removeListeners,
-- (void)removeListeners:(double)count
-   );
+           - (void)removeListeners:(double)count
+           );
 
 @end
 
 
 /**
- * RCTEventEmitter is an abstract base class to be used for modules that emit
+ * MXEventEmitter is an abstract base class to be used for modules that emit
  * events to be observed by JS.
  */
 @interface MXEventEmitter : NSObject <MXBridgeModule>

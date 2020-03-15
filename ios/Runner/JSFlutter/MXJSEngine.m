@@ -11,6 +11,7 @@
 #import "MXJSFlutterEngine.h"
 #import "JSModule.h"
 #import <Flutter/Flutter.h>
+#import "MXFDispose.h"
 
 @interface MXJSEngine()
 
@@ -38,10 +39,17 @@
     return self;
 }
 
+- (void)dispose
+{
+
+}
+
 - (void)dealloc
 {
     MXJSFlutterLog(@"dealloc ");
 }
+
+
 
 - (void)setup
 {
@@ -210,6 +218,7 @@
         }
     }
 }
+
 
 @end
 

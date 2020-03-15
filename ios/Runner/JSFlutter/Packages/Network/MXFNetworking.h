@@ -6,11 +6,39 @@
  */
 
 
-#import "RCTNetworkTask.h"
-#import "RCTURLRequestHandler.h"
-#import "MXUtil.h"
+#import "MXFNetworkTask.h"
+#import "MXFURLRequestHandler.h"
+#import "MXFUtil.h"
+#import "MXJSBridge.h"
+#import "MXEventEmitter.h"
+#import "MXBridgeModule.h"
 
-@protocol RCTNetworkingRequestHandler <NSObject>
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol MXFNetworkingJSExport <NSObject,JSExport>
+
+JSExportAs(sendRequest,
+           -(void)sendRequest:(NSDictionary *)query
+           responseSender:(MXResponseSenderBlock)responseSender
+           );
+
+JSExportAs(abortRequest,
+           -(void)abortRequest:(nonnull NSNumber *)requestID
+           );
+
+JSExportAs(clearCookies,
+           -(void)clearCookies:(MXResponseSenderBlock)responseSender
+           );
+
+
+
+
+@end
+
+
+
+
+@protocol MXFNetworkingRequestHandler <NSObject>
 
 // @lint-ignore FBOBJCUNTYPEDCOLLECTION1
 - (BOOL)canHandleNetworkingRequest:(NSDictionary *)data;
@@ -19,20 +47,20 @@
 
 @end
 
-@protocol RCTNetworkingResponseHandler <NSObject>
+@protocol MXFNetworkingResponseHandler <NSObject>
 
 - (BOOL)canHandleNetworkingResponse:(NSString *)responseType;
 - (id)handleNetworkingResponse:(NSURLResponse *)response data:(NSData *)data;
 
 @end
 
-@interface RCTNetworking : NSObject
+@interface MXFNetworking : MXEventEmitter <MXFNetworkingJSExport,MXFDispose>
 
 /**
- * Allows RCTNetworking instances to be initialized with handlers.
+ * Allows MXNetworking instances to be initialized with handlers.
  * The handlers will be requested via the bridge's moduleForName method when required.
  */
-- (instancetype)initWithHandlersProvider:(NSArray<id<RCTURLRequestHandler>> * (^)(void))getHandlers;
+- (instancetype)initWithHandlersProvider:(NSArray<id<MXFURLRequestHandler>> * (^)(void))getHandlers;
 
 /**
  * Does a handler exist for the specified request?
@@ -43,22 +71,22 @@
  * Return an RCTNetworkTask for the specified request. This is useful for
  * invoking the React Native networking stack from within native code.
  */
-- (RCTNetworkTask *)networkTaskWithRequest:(NSURLRequest *)request
-                           completionBlock:(RCTURLRequestCompletionBlock)completionBlock;
+- (MXFNetworkTask *)networkTaskWithRequest:(NSURLRequest *)request
+                          completionBlock:(MXFURLRequestCompletionBlock)completionBlock;
 
-- (void)addRequestHandler:(id<RCTNetworkingRequestHandler>)handler;
+- (void)addRequestHandler:(id<MXFNetworkingRequestHandler>)handler;
 
-- (void)addResponseHandler:(id<RCTNetworkingResponseHandler>)handler;
+- (void)addResponseHandler:(id<MXFNetworkingResponseHandler>)handler;
 
-- (void)removeRequestHandler:(id<RCTNetworkingRequestHandler>)handler;
+- (void)removeRequestHandler:(id<MXFNetworkingRequestHandler>)handler;
 
-- (void)removeResponseHandler:(id<RCTNetworkingResponseHandler>)handler;
+- (void)removeResponseHandler:(id<MXFNetworkingResponseHandler>)handler;
 
 @end
 
-@interface RCTBridge (RCTNetworking)
+@interface MXJSBridge (MXNetworking)
 
-@property (nonatomic, readonly) RCTNetworking *networking;
+@property (nonatomic, readonly) MXFNetworking *networking;
 
 @end
 
@@ -72,3 +100,5 @@
 // and we will either upload the thumbnail (bad!) or try to show the video in an <Image> (bad!).
 // Our solution is to change the URL scheme in the uploader.
 extern NSString *const RCTNetworkingPHUploadHackScheme;
+
+NS_ASSUME_NONNULL_END

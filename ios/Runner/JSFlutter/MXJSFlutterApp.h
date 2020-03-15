@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-#import "RCTNetworking.h"
+#import "MXFNetworking.h"
 
 
 @class MXJSFlutterEngine;
@@ -58,7 +58,7 @@ JSExportAs(callFlutterWidgetChannel,
 
 /// TODO:mxnetwork.rew
 ///packages
-@property (nonatomic, strong) RCTNetworking *networking;
+@property (nonatomic, strong) MXFNetworking *networking;
 
 
 @end

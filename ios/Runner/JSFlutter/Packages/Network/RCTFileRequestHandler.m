@@ -6,7 +6,7 @@
  */
 
 #import "RCTFileRequestHandler.h"
-#import "MXUtil.h"
+#import "MXFUtil.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 
@@ -17,7 +17,7 @@
 }
 
 
-- (void)invalidate
+- (void)dispose
 {
   [_fileQueue cancelAllOperations];
   _fileQueue = nil;
@@ -27,11 +27,11 @@
 {
   return
   [request.URL.scheme caseInsensitiveCompare:@"file"] == NSOrderedSame
-  && !MXIsImageAssetsPath(request.URL);
+  && !MXFIsBundleAssetURL(request.URL);
 }
 
 - (NSOperation *)sendRequest:(NSURLRequest *)request
-                withDelegate:(id<RCTURLRequestDelegate>)delegate
+                withDelegate:(id<MXFURLRequestDelegate>)delegate
 {
   // Lazy setup
   if (!_fileQueue) {

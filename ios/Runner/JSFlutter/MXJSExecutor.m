@@ -24,7 +24,7 @@
 
 @implementation MXJSContext
 {
-
+    
     NSThread *_javaScriptThread;
 }
 
@@ -47,7 +47,7 @@
     return _context != nil;
 }
 
-- (void)invalidate
+- (void)dispose
 {
     if (self.isValid) {
         _context = nil;
@@ -79,9 +79,9 @@
 - (void)dealloc
 {
     [_mxContext performSelector:@selector(invalidate)
-                     onThread:_javaScriptThread
-                   withObject:nil
-                waitUntilDone:NO];
+                       onThread:_javaScriptThread
+                     withObject:nil
+                  waitUntilDone:NO];
     _mxContext = nil;
     
     MXJSFlutterLog(@"dealloc ");
@@ -117,23 +117,23 @@
         JSContext *jsContext = [[JSContext alloc] init];
         strongSelf->_mxContext = [[MXJSContext alloc] initWithJSContext:jsContext onThread:strongSelf->_javaScriptThread];
         strongSelf->_isValid = YES;
-    
+        
     }];
-
+    
 }
 
 
 + (void)runRunLoopThread
 {
     @autoreleasepool {
-      
+        
         pthread_setname_np([NSThread currentThread].name.UTF8String);
         
         CFRunLoopSourceContext noSpinCtx = {0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
         CFRunLoopSourceRef noSpinSource = CFRunLoopSourceCreate(NULL, 0, &noSpinCtx);
         CFRunLoopAddSource(CFRunLoopGetCurrent(), noSpinSource, kCFRunLoopDefaultMode);
         CFRelease(noSpinSource);
- 
+        
         while (kCFRunLoopRunStopped != CFRunLoopRunInMode(kCFRunLoopDefaultMode, ((NSDate *)[NSDate distantFuture]).timeIntervalSinceReferenceDate, NO)) {
             
         }
@@ -147,7 +147,7 @@
     {
         return nil;
     }
-
+    
     return _mxContext;
 }
 
@@ -158,14 +158,14 @@
 
 
 - (void)executeScriptAsync:(NSString *)script
-                       sourceURL:(NSURL *)sourceURL
-                      onComplete:(MXJSCompleteBlock)onComplete
+                 sourceURL:(NSURL *)sourceURL
+                onComplete:(MXJSCompleteBlock)onComplete
 {
-
+    
     NSError *error = nil;
     
     [self executeBlockOnJSThread:^{
-
+        
         [self executeScript:script sourceURL:sourceURL];
         if (onComplete) {
             onComplete(error);

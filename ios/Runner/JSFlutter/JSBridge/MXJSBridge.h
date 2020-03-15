@@ -1,11 +1,10 @@
 //
 //  MXJSBridge.h
-//  Runner
+//  MXFlutter
 //
 //  Created by soap on 2020/3/15.
-//  Some code ,ideas   Copyright (c) Facebook ReactNative, Inc. and its affiliates.
-//
 //  Copyright 2019 The MXFlutter Authors. All rights reserved.
+//  Some code ,ideas   Copyright (c) Facebook ReactNative, Inc. and its affiliates.
 //
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.

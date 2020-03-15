@@ -6,25 +6,27 @@
  */
 
 
-#import "RCTNetworkTask.h"
+#import "MXFNetworkTask.h"
+#import "MXJSFlutterDefines.h"
+#import "MXFUtil.h"
 
 
-@implementation RCTNetworkTask
+@implementation MXFNetworkTask
 {
   NSMutableData *_data;
-  id<RCTURLRequestHandler> _handler;
+  id<MXFURLRequestHandler> _handler;
   dispatch_queue_t _callbackQueue;
 
-  RCTNetworkTask *_selfReference;
+  MXFNetworkTask *_selfReference;
 }
 
 - (instancetype)initWithRequest:(NSURLRequest *)request
-                        handler:(id<RCTURLRequestHandler>)handler
+                        handler:(id<MXFURLRequestHandler>)handler
                   callbackQueue:(dispatch_queue_t)callbackQueue
 {
-  RCTAssertParam(request);
-  RCTAssertParam(handler);
-  RCTAssertParam(callbackQueue);
+  MXAssertParam(request);
+  MXAssertParam(handler);
+  MXAssertParam(callbackQueue);
 
   static NSUInteger requestID = 0;
 
@@ -33,16 +35,16 @@
     _request = request;
     _handler = handler;
     _callbackQueue = callbackQueue;
-    _status = RCTNetworkTaskPending;
+    _status = MXFNetworkTaskPending;
 
     dispatch_queue_set_specific(callbackQueue, (__bridge void *)self, (__bridge void *)self, NULL);
   }
   return self;
 }
 
-RCT_NOT_IMPLEMENTED(- (instancetype)init)
+//- (instancetype)init
 
-- (void)invalidate
+- (void)dispose
 {
   _selfReference = nil;
   _completionBlock = nil;
@@ -64,8 +66,8 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
 
 - (void)start
 {
-  if (_status != RCTNetworkTaskPending) {
-    RCTLogError(@"RCTNetworkTask was already started or completed");
+    if (_status != MXFNetworkTaskPending) {
+    MXJSFlutterLog(@"RCTNetworkTask was already started or completed");
     return;
   }
 
@@ -73,23 +75,23 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
     id token = [_handler sendRequest:_request withDelegate:self];
     if ([self validateRequestToken:token]) {
       _selfReference = self;
-      _status = RCTNetworkTaskInProgress;
+      _status = MXFNetworkTaskInProgress;
     }
   }
 }
 
 - (void)cancel
 {
-  if (_status == RCTNetworkTaskFinished) {
+  if (_status == MXFNetworkTaskFinished) {
     return;
   }
 
-  _status = RCTNetworkTaskFinished;
+  _status = MXFNetworkTaskFinished;
   id token = _requestToken;
   if (token && [_handler respondsToSelector:@selector(cancelRequest:)]) {
     [_handler cancelRequest:token];
   }
-  [self invalidate];
+  [self dispose];
 }
 
 - (BOOL)validateRequestToken:(id)requestToken
@@ -97,28 +99,28 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
   BOOL valid = YES;
   if (_requestToken == nil) {
     if (requestToken == nil) {
-      if (RCT_DEBUG) {
-        RCTLogError(@"Missing request token for request: %@", _request);
+      if (MXF_DEBUG) {
+        MXJSFlutterLog(@"Missing request token for request: %@", _request);
       }
       valid = NO;
     }
     _requestToken = requestToken;
   } else if (![requestToken isEqual:_requestToken]) {
-    if (RCT_DEBUG) {
-      RCTLogError(@"Unrecognized request token: %@ expected: %@", requestToken, _requestToken);
+    if (MXF_DEBUG) {
+      MXJSFlutterLog(@"Unrecognized request token: %@ expected: %@", requestToken, _requestToken);
     }
     valid = NO;
   }
 
   if (!valid) {
-    _status = RCTNetworkTaskFinished;
+    _status = MXFNetworkTaskFinished;
     if (_completionBlock) {
-      RCTURLRequestCompletionBlock completionBlock = _completionBlock;
+      MXFURLRequestCompletionBlock completionBlock = _completionBlock;
       [self dispatchCallback:^{
-        completionBlock(self->_response, nil, RCTErrorWithMessage(@"Invalid request token."));
+        completionBlock(self->_response, nil, MXFErrorWithMessage(@"Invalid request token."));
       }];
     }
-    [self invalidate];
+    [self dispose];
   }
   return valid;
 }
@@ -130,7 +132,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
   }
 
   if (_uploadProgressBlock) {
-    RCTURLRequestProgressBlock uploadProgressBlock = _uploadProgressBlock;
+    MXFURLRequestProgressBlock uploadProgressBlock = _uploadProgressBlock;
     int64_t length = _request.HTTPBody.length;
     [self dispatchCallback:^{
       uploadProgressBlock(bytesSent, length);
@@ -146,7 +148,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
 
   _response = response;
   if (_responseBlock) {
-    RCTURLRequestResponseBlock responseBlock = _responseBlock;
+    MXFURLRequestResponseBlock responseBlock = _responseBlock;
     [self dispatchCallback:^{
       responseBlock(response);
     }];
@@ -168,13 +170,13 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
   int64_t total = _response.expectedContentLength;
 
   if (_incrementalDataBlock) {
-    RCTURLRequestIncrementalDataBlock incrementalDataBlock = _incrementalDataBlock;
+    MXFURLRequestIncrementalDataBlock incrementalDataBlock = _incrementalDataBlock;
     [self dispatchCallback:^{
       incrementalDataBlock(data, length, total);
     }];
   }
   if (_downloadProgressBlock && total > 0) {
-    RCTURLRequestProgressBlock downloadProgressBlock = _downloadProgressBlock;
+    MXFURLRequestProgressBlock downloadProgressBlock = _downloadProgressBlock;
     [self dispatchCallback:^{
       downloadProgressBlock(length, total);
     }];
@@ -187,14 +189,14 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
     return;
   }
 
-  _status = RCTNetworkTaskFinished;
+  _status = MXFNetworkTaskFinished;
   if (_completionBlock) {
-    RCTURLRequestCompletionBlock completionBlock = _completionBlock;
+    MXFURLRequestCompletionBlock completionBlock = _completionBlock;
     [self dispatchCallback:^{
       completionBlock(self->_response, self->_data, error);
     }];
   }
-  [self invalidate];
+  [self dispose];
 }
 
 @end

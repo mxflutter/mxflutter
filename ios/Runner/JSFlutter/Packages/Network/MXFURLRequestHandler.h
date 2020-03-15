@@ -6,13 +6,13 @@
  */
 
 
-#import "RCTURLRequestDelegate.h"
+#import "MXFURLRequestDelegate.h"
 
 /**
  * Provides the interface needed to register a request handler. Request handlers
  * are also bridge modules, so should be registered using RCT_EXPORT_MODULE().
  */
-@protocol RCTURLRequestHandler  <NSObject>
+@protocol MXFURLRequestHandler  <NSObject>
 
 /**
  * Indicates whether this handler is capable of processing the specified
@@ -30,7 +30,7 @@
  * Following common Objective-C pattern, `delegate` will not be retained.
  */
 - (id)sendRequest:(NSURLRequest *)request
-     withDelegate:(id<RCTURLRequestDelegate>)delegate;
+     withDelegate:(id<MXFURLRequestDelegate>)delegate;
 
 @optional
 

@@ -9,7 +9,7 @@
 
 #import <mutex>
 
-#import "RCTNetworking.h"
+#import "MXFNetworking.h"
 
 @interface RCTHTTPRequestHandler () <NSURLSessionDataDelegate>
 
@@ -23,7 +23,7 @@
 }
 
 
-- (void)invalidate
+- (void)dispose
 {
   std::lock_guard<std::mutex> lock(_mutex);
   [self->_session invalidateAndCancel];
@@ -52,7 +52,7 @@
 }
 
 - (NSURLSessionDataTask *)sendRequest:(NSURLRequest *)request
-                         withDelegate:(id<RCTURLRequestDelegate>)delegate
+                         withDelegate:(id<MXFURLRequestDelegate>)delegate
 {
   std::lock_guard<std::mutex> lock(_mutex);
   // Lazy setup
@@ -68,7 +68,7 @@
     NSOperationQueue *callbackQueue = [NSOperationQueue new];
     callbackQueue.maxConcurrentOperationCount = 1;
       
-    //todo:mxnetwork.rew
+    //TODO:mxnetwork.rew
     //callbackQueue.underlyingQueue = [[currentAPP networking] methodQueue];
       
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -110,7 +110,7 @@
     totalBytesSent:(int64_t)totalBytesSent
 totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
-  id<RCTURLRequestDelegate> delegate;
+  id<MXFURLRequestDelegate> delegate;
   {
     std::lock_guard<std::mutex> lock(_mutex);
     delegate = [_delegates objectForKey:task];
@@ -138,7 +138,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
 didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
 {
-  id<RCTURLRequestDelegate> delegate;
+  id<MXFURLRequestDelegate> delegate;
   {
     std::lock_guard<std::mutex> lock(_mutex);
     delegate = [_delegates objectForKey:task];
@@ -151,7 +151,7 @@ didReceiveResponse:(NSURLResponse *)response
           dataTask:(NSURLSessionDataTask *)task
     didReceiveData:(NSData *)data
 {
-  id<RCTURLRequestDelegate> delegate;
+  id<MXFURLRequestDelegate> delegate;
   {
     std::lock_guard<std::mutex> lock(_mutex);
     delegate = [_delegates objectForKey:task];
@@ -161,7 +161,7 @@ didReceiveResponse:(NSURLResponse *)response
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
-  id<RCTURLRequestDelegate> delegate;
+  id<MXFURLRequestDelegate> delegate;
   {
     std::lock_guard<std::mutex> lock(_mutex);
     delegate = [_delegates objectForKey:task];

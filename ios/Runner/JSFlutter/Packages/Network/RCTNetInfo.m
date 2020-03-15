@@ -7,6 +7,7 @@
 
 #import "RCTNetInfo.h"
 #import "MXBridgeModule.h"
+#import "MXFUtil.h"
 
 #if !TARGET_OS_TV && !TARGET_OS_UIKITFORMAC
   #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -32,7 +33,7 @@ static NSString *const RCTReachabilityStateNone = @"none";
 static NSString *const RCTReachabilityStateWifi = @"wifi";
 static NSString *const RCTReachabilityStateCell = @"cell";
 
-@implementation MXNetInfo
+@implementation MXFNetInfo
 {
   SCNetworkReachabilityRef _firstTimeReachability;
   SCNetworkReachabilityRef _reachability;
@@ -41,36 +42,36 @@ static NSString *const RCTReachabilityStateCell = @"cell";
   NSString *_statusDeprecated;
   NSString *_host;
   BOOL _isObserving;
-  //TODO: soap
-  //RCTPromiseResolveBlock _resolve;
+  MXPromiseResolveBlock _resolve;
+
 }
 
 MX_EXPORT_MODULE()
 
 static void RCTReachabilityCallback(__unused SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void *info)
 {
-  mxNetInfo *self = (__bridge id)info;
-  BOOL didSetReachabilityFlags = [self setReachabilityStatus:flags];
-  
-  NSString *connectionType = self->_connectionType ?: RCTConnectionTypeUnknown;
-  NSString *effectiveConnectionType = self->_effectiveConnectionType ?: RCTEffectiveConnectionTypeUnknown;
-  NSString *networkInfo = self->_statusDeprecated ?: RCTReachabilityStateUnknown;
-
-  if (self->_firstTimeReachability && self->_resolve) {
-    SCNetworkReachabilityUnscheduleFromRunLoop(self->_firstTimeReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
-    CFRelease(self->_firstTimeReachability);
-    self->_resolve(@{@"connectionType": connectionType,
-                     @"effectiveConnectionType": effectiveConnectionType,
-                     @"network_info": networkInfo});
-    self->_firstTimeReachability = nil;
-    self->_resolve = nil;
-  }
-
-  if (didSetReachabilityFlags && self->_isObserving) {
- [self sendEventWithName:@"networkStatusDidChange" body:@{@"connectionType": connectionType,
-                                                             @"effectiveConnectionType": effectiveConnectionType,
-                                                             @"network_info": networkInfo}];
-  }
+    MXFNetInfo *self = (__bridge id)info;
+    BOOL didSetReachabilityFlags = [self setReachabilityStatus:flags];
+    
+    NSString *connectionType = self->_connectionType ?: RCTConnectionTypeUnknown;
+    NSString *effectiveConnectionType = self->_effectiveConnectionType ?: RCTEffectiveConnectionTypeUnknown;
+    NSString *networkInfo = self->_statusDeprecated ?: RCTReachabilityStateUnknown;
+    
+    if (self->_firstTimeReachability && self->_resolve) {
+      SCNetworkReachabilityUnscheduleFromRunLoop(self->_firstTimeReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
+      CFRelease(self->_firstTimeReachability);
+      self->_resolve(@{@"connectionType": connectionType,
+                       @"effectiveConnectionType": effectiveConnectionType,
+                       @"network_info": networkInfo});
+      self->_firstTimeReachability = nil;
+      self->_resolve = nil;
+    }
+    
+    if (didSetReachabilityFlags && self->_isObserving) {
+        [self sendEventWithName:@"networkStatusDidChange" body:@{@"connectionType": connectionType,
+                                                                 @"effectiveConnectionType": effectiveConnectionType,
+                                                                 @"network_info": networkInfo}];
+    }
 }
 
 // We need RCTReachabilityCallback's and module methods to be called on the same thread so that we can have
@@ -84,8 +85,8 @@ static void RCTReachabilityCallback(__unused SCNetworkReachabilityRef target, SC
 
 - (instancetype)initWithHost:(NSString *)host
 {
-  RCTAssertParam(host);
-  RCTAssert(![host hasPrefix:@"http"], @"Host value should just contain the domain, not the URL scheme.");
+  MXAssertParam(host);
+  NSAssert(![host hasPrefix:@"http"], @"Host value should just contain the domain, not the URL scheme.");
 
   if ((self = [self init])) {
     _host = [host copy];
@@ -122,7 +123,6 @@ static void RCTReachabilityCallback(__unused SCNetworkReachabilityRef target, SC
     SCNetworkReachabilityUnscheduleFromRunLoop(self->_firstTimeReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
     CFRelease(self->_firstTimeReachability);
     _firstTimeReachability = nil;
-    _resolve = nil;
   }
 }
 
@@ -194,8 +194,8 @@ static void RCTReachabilityCallback(__unused SCNetworkReachabilityRef target, SC
 
 #pragma mark - Public API
 
-RCT_EXPORT_METHOD(getCurrentConnectivity:(RCTPromiseResolveBlock)resolve
-                  reject:(__unused RCTPromiseRejectBlock)reject)
+-(void)getCurrentConnectivity:(MXPromiseResolveBlock)resolve
+                  reject:(__unused MXPromiseRejectBlock)reject
 {
   if (_firstTimeReachability) {
     SCNetworkReachabilityUnscheduleFromRunLoop(self->_firstTimeReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);

@@ -11,7 +11,7 @@
  * An abstract interface used by request handler modules to send
  * data back over the bridge back to JS.
  */
-@protocol RCTURLRequestDelegate <NSObject>
+@protocol MXFURLRequestDelegate <NSObject>
 
 /**
  * Call this when you send request data to the server. This is used to track

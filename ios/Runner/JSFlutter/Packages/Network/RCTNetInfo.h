@@ -7,11 +7,21 @@
 
 #import <SystemConfiguration/SystemConfiguration.h>
 
-
 #import "MXEventEmitter.h"
 
 
-@interface MXNetInfo : MXEventEmitter
+@protocol MXFNetInfoJSExport <NSObject,JSExport>
+
+JSExportAs(getCurrentConnectivity,
+        -(void)getCurrentConnectivity:(MXPromiseResolveBlock)resolve
+        reject:(__unused MXPromiseRejectBlock)reject
+           );
+
+
+@end
+
+
+@interface MXFNetInfo : MXEventEmitter <MXFNetInfoJSExport>
 
 - (instancetype)initWithHost:(NSString *)host;
 

@@ -3,7 +3,8 @@
 #include "GeneratedPluginRegistrant.h"
 #import "MXJSFlutterEngine.h"
 
-#import "RCTNetworking.h"
+#import "MXFNetworking.h"
+#import "MXFUtil.h"
 
 typedef void (^ImageLoaderProgressBlock)(int64_t progress, int64_t total);
 typedef void (^ImageLoaderPartialLoadBlock)(UIImage *image);
@@ -16,15 +17,15 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
 
 @property (nonatomic, strong) FlutterMethodChannel *listViewDemoChannel;
 
-@property (nonatomic, strong) RCTNetworking *networking;
+@property (nonatomic, strong) MXFNetworking *networking;
 
 @end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
-    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -47,22 +48,22 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
     
     // 2.MXJSPage： 直接打开MXFlutter写的页面，TODO：JS引擎启动需要时间，这里会展示菊花，优化中。。。
     //NSString *route  = @"MXJSPage";
-
+    
     //设置InitialRoute Flutter有bug，必须按这种顺序 https://github.com/flutter/flutter/issues/27216
     [flutterVC setInitialRoute:route];
     
     //----------------MXFlutter的启动 end----------------------------
-
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:flutterVC];
     navigationController.navigationBar.hidden = YES;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
- 
-//  这里模拟，APP打开之后，一个Native用户点击，打开Flutter 指定页面
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [flutterVC pushRoute:route];
-//        NSLog(@"    [flutterVC pushRoute:route];");
-//    });
+    
+    //  这里模拟，APP打开之后，一个Native用户点击，打开Flutter 指定页面
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //        [flutterVC pushRoute:route];
+    //        NSLog(@"    [flutterVC pushRoute:route];");
+    //    });
     
     //
     [self setupMessageChannel:flutterVC.engine.binaryMessenger];
@@ -75,8 +76,8 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
 - (void)setupMessageChannel:(NSObject<FlutterBinaryMessenger>*)messenger;{
     
     self.listViewDemoChannel = [FlutterMethodChannel
-                         methodChannelWithName:@"MXFlutter_MethodChannel_Demo"
-                         binaryMessenger:messenger];
+                                methodChannelWithName:@"MXFlutter_MethodChannel_Demo"
+                                binaryMessenger:messenger];
     
     __weak AppDelegate *weakSelf = self;
     [self.listViewDemoChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
@@ -87,7 +88,7 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
         
         if ([call.method isEqualToString:@"callNativeIconListRefresh"]) {
             
-             result(@[@1,@2,@3,@4]);
+            result(@[@1,@2,@3,@4]);
             
             NSURLRequest *req = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:@"htttps://www.qq.com"]];
             
@@ -96,12 +97,12 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
             } completionBlock:^(NSError *error, id imageOrData, NSURLResponse *response) {
                 
             }];
-           
+            
         } else if ([call.method isEqualToString:@"callNativeIconListLoadMore"]) {
             
-             result(@[@4,@3,@2,@1]);
+            result(@[@4,@3,@2,@1]);
         }
-    
+        
     }];
 }
 
@@ -112,77 +113,77 @@ typedef void (^ImageLoaderCompletionBlock)(NSError *error, UIImage *image);
 
 
 - (void)_loadURLRequest:(NSURLRequest *)request
-                                     progressBlock:(ImageLoaderProgressBlock)progressHandler
-                                   completionBlock:(void (^)(NSError *error, id imageOrData, NSURLResponse *response))completionHandler
+          progressBlock:(ImageLoaderProgressBlock)progressHandler
+        completionBlock:(void (^)(NSError *error, id imageOrData, NSURLResponse *response))completionHandler
 {
-
+    
     if (self.networking == nil) {
-        self.networking = [[RCTNetworking alloc] init];
+        self.networking = [[MXFNetworking alloc] init];
     }
-      
-
-  RCTURLRequestCompletionBlock processResponse = ^(NSURLResponse *response, NSData *data, NSError *error) {
-    // Check for system errors
-    if (error) {
-      completionHandler(error, nil, response);
-      return;
-    } else if (!response) {
-      completionHandler(MXErrorWithMessage(@"Response metadata error"), nil, response);
-      return;
-    } else if (!data) {
-      completionHandler(MXErrorWithMessage(@"Unknown image download error"), nil, response);
-      return;
+    
+    
+    MXFURLRequestCompletionBlock processResponse = ^(NSURLResponse *response, NSData *data, NSError *error) {
+        // Check for system errors
+        if (error) {
+            completionHandler(error, nil, response);
+            return;
+        } else if (!response) {
+            completionHandler(MXFErrorWithMessage(@"Response metadata error"), nil, response);
+            return;
+        } else if (!data) {
+            completionHandler(MXFErrorWithMessage(@"Unknown image download error"), nil, response);
+            return;
+        }
+        
+        // Check for http errors
+        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+            NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
+            if (statusCode != 200) {
+                NSString *errorMessage = [NSString stringWithFormat:@"Failed to load %@", response.URL];
+                NSDictionary *userInfo = @{NSLocalizedDescriptionKey: errorMessage};
+            completionHandler([[NSError alloc] initWithDomain:NSURLErrorDomain
+                                                         code:statusCode
+                                                     userInfo:userInfo], nil, response);
+            return;
+        }
     }
-
-    // Check for http errors
-    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-      NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
-      if (statusCode != 200) {
-        NSString *errorMessage = [NSString stringWithFormat:@"Failed to load %@", response.URL];
-        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: errorMessage};
-        completionHandler([[NSError alloc] initWithDomain:NSURLErrorDomain
-                                                     code:statusCode
-                                                 userInfo:userInfo], nil, response);
-        return;
-      }
-    }
-
+    
     // Call handler
     completionHandler(nil, data, response);
-  };
+};
 
-  // Download image
-  __weak __typeof(self) weakSelf = self;
-  __block RCTNetworkTask *task =
-  [networking networkTaskWithRequest:request
-                     completionBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
-                       __typeof(self) strongSelf = weakSelf;
-                       if (!strongSelf) {
-                         return;
-                       }
-
-                       if (error || !response || !data) {
-                         NSError *someError = nil;
-                         if (error) {
-                           someError = error;
-                         } else if (!response) {
-                           someError = MXErrorWithMessage(@"Response metadata error");
-                         } else {
-                           someError = MXErrorWithMessage(@"Unknown image download error");
-                         }
-                         completionHandler(someError, nil, response);
-                
-                         return;
-                       }
-                     }];
-
-  task.downloadProgressBlock = ^(int64_t progress, int64_t total) {
-    if (progressHandler) {
-      progressHandler(progress, total);
+// Download image
+__weak __typeof(self) weakSelf = self;
+__block MXFNetworkTask *task =
+[self.networking networkTaskWithRequest:request
+                        completionBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
+    __typeof(self) strongSelf = weakSelf;
+    if (!strongSelf) {
+        return;
     }
-  };
+    
+    if (error || !response || !data) {
+        NSError *someError = nil;
+        if (error) {
+            someError = error;
+        } else if (!response) {
+            someError = MXFErrorWithMessage(@"Response metadata error");
+        } else {
+            someError = MXFErrorWithMessage(@"Unknown image download error");
+        }
+        completionHandler(someError, nil, response);
+        
+        return;
+    }
+}];
 
-  [task start];
+task.downloadProgressBlock = ^(int64_t progress, int64_t total) {
+    if (progressHandler) {
+        progressHandler(progress, total);
+    }
+};
+
+[task start];
 }
 
 @end

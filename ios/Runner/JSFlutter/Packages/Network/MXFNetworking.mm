@@ -7,35 +7,37 @@
 
 
 #import <mutex>
-
-#import "RCTNetworkTask.h"
-#import "RCTNetworking.h"
+#import "MXJSBridge.h"
+#import "MXFNetworkTask.h"
+#import "MXFNetworking.h"
 #import "RCTHTTPRequestHandler.h"
+#import "MXFConvert.h"
+#import "NSData+GZIP.h"
 
-typedef RCTURLRequestCancellationBlock (^RCTHTTPQueryResult)(NSError *error, NSDictionary<NSString *, id> *result);
+typedef MXFURLRequestCancellationBlock (^MXFHTTPQueryResult)(NSError *error, NSDictionary<NSString *, id> *result);
 
 NSString *const RCTNetworkingPHUploadHackScheme = @"ph-upload";
 
-@interface RCTNetworking ()
+@interface MXFNetworking ()
 
-- (RCTURLRequestCancellationBlock)processDataForHTTPQuery:(NSDictionary<NSString *, id> *)data
-                                                 callback:(RCTHTTPQueryResult)callback;
+- (MXFURLRequestCancellationBlock)processDataForHTTPQuery:(NSDictionary<NSString *, id> *)data
+                                                 callback:(MXFHTTPQueryResult)callback;
 @end
 
 /**
  * Helper to convert FormData payloads into multipart/formdata requests.
  */
-@interface RCTHTTPFormDataHelper : NSObject
+@interface MXFHTTPFormDataHelper : NSObject
 
-@property (nonatomic, weak) RCTNetworking *networker;
+@property (nonatomic, weak) MXFNetworking *networker;
 
 @end
 
-@implementation RCTHTTPFormDataHelper
+@implementation MXFHTTPFormDataHelper
 {
   NSMutableArray<NSDictionary<NSString *, id> *> *_parts;
   NSMutableData *_multipartBody;
-  RCTHTTPQueryResult _callback;
+  MXFHTTPQueryResult _callback;
   NSString *_boundary;
 }
 
@@ -58,10 +60,9 @@ static NSString *RCTGenerateFormBoundary()
   return [[NSString alloc] initWithBytesNoCopy:bytes length:boundaryLength encoding:NSUTF8StringEncoding freeWhenDone:YES];
 }
 
-- (RCTURLRequestCancellationBlock)process:(NSArray<NSDictionary *> *)formData
-                                 callback:(RCTHTTPQueryResult)callback
+- (MXFURLRequestCancellationBlock)process:(NSArray<NSDictionary *> *)formData
+                                 callback:(MXFHTTPQueryResult)callback
 {
-  RCTAssertThread(_networker.methodQueue, @"process: must be called on method queue");
 
   if (formData.count == 0) {
     return callback(nil, nil);
@@ -87,10 +88,9 @@ static NSString *RCTGenerateFormBoundary()
   }];
 }
 
-- (RCTURLRequestCancellationBlock)handleResult:(NSDictionary<NSString *, id> *)result
+- (MXFURLRequestCancellationBlock)handleResult:(NSDictionary<NSString *, id> *)result
                                          error:(NSError *)error
 {
-  RCTAssertThread(_networker.methodQueue, @"handleResult: must be called on method queue");
 
   if (error) {
     return _callback(error, nil);
@@ -135,21 +135,21 @@ static NSString *RCTGenerateFormBoundary()
 /**
  * Bridge module that provides the JS interface to the network stack.
  */
-@implementation RCTNetworking
+@implementation MXFNetworking
 {
-  NSMutableDictionary<NSNumber *, RCTNetworkTask *> *_tasksByRequestID;
+  NSMutableDictionary<NSNumber *, MXFNetworkTask *> *_tasksByRequestID;
   std::mutex _handlersLock;
-  NSArray<id<RCTURLRequestHandler>> *_handlers;
-  NSArray<id<RCTURLRequestHandler>> * (^_handlersProvider)(void);
-  NSMutableArray<id<RCTNetworkingRequestHandler>> *_requestHandlers;
-  NSMutableArray<id<RCTNetworkingResponseHandler>> *_responseHandlers;
+  NSArray<id<MXFURLRequestHandler>> *_handlers;
+  NSArray<id<MXFURLRequestHandler>> * (^_handlersProvider)(void);
+  NSMutableArray<id<MXFNetworkingRequestHandler>> *_requestHandlers;
+  NSMutableArray<id<MXFNetworkingResponseHandler>> *_responseHandlers;
 }
 
 @synthesize methodQueue = _methodQueue;
 
-RCT_EXPORT_MODULE()
+MX_EXPORT_MODULE()
 
-- (instancetype)initWithHandlersProvider:(NSArray<id<RCTURLRequestHandler>> * (^)(void))getHandlers
+- (instancetype)initWithHandlersProvider:(NSArray<id<MXFURLRequestHandler>> * (^)(void))getHandlers
 {
   if (self = [super init]) {
     _handlersProvider = getHandlers;
@@ -157,7 +157,7 @@ RCT_EXPORT_MODULE()
   return self;
 }
 
-- (void)invalidate
+- (void)dispose
 {
   for (NSNumber *requestID in _tasksByRequestID) {
     [_tasksByRequestID[requestID] cancel];
@@ -178,7 +178,7 @@ RCT_EXPORT_MODULE()
            @"didReceiveNetworkData"];
 }
 
-- (id<RCTURLRequestHandler>)handlerForRequest:(NSURLRequest *)request
+- (id<MXFURLRequestHandler>)handlerForRequest:(NSURLRequest *)request
 {
   if (!request.URL) {
     return nil;
@@ -190,12 +190,10 @@ RCT_EXPORT_MODULE()
     if (!_handlers) {
       if (_handlersProvider) {
         _handlers = _handlersProvider();
-      } else {
-        _handlers = [self.bridge modulesConformingToProtocol:@protocol(RCTURLRequestHandler)];
       }
 
       // Get handlers, sorted in reverse priority order (highest priority first)
-      _handlers = [_handlers sortedArrayUsingComparator:^NSComparisonResult(id<RCTURLRequestHandler> a, id<RCTURLRequestHandler> b) {
+      _handlers = [_handlers sortedArrayUsingComparator:^NSComparisonResult(id<MXFURLRequestHandler> a, id<MXFURLRequestHandler> b) {
         float priorityA = [a respondsToSelector:@selector(handlerPriority)] ? [a handlerPriority] : 0;
         float priorityB = [b respondsToSelector:@selector(handlerPriority)] ? [b handlerPriority] : 0;
         if (priorityA > priorityB) {
@@ -209,11 +207,11 @@ RCT_EXPORT_MODULE()
     }
   }
 
-  if (RCT_DEBUG) {
+  if (MXF_DEBUG) {
     // Check for handler conflicts
     float previousPriority = 0;
-    id<RCTURLRequestHandler> previousHandler = nil;
-    for (id<RCTURLRequestHandler> handler in _handlers) {
+    id<MXFURLRequestHandler> previousHandler = nil;
+    for (id<MXFURLRequestHandler> handler in _handlers) {
       float priority = [handler respondsToSelector:@selector(handlerPriority)] ? [handler handlerPriority] : 0;
       if (previousHandler && priority < previousPriority) {
         return previousHandler;
@@ -221,7 +219,7 @@ RCT_EXPORT_MODULE()
       if ([handler canHandleRequest:request]) {
         if (previousHandler) {
           if (priority == previousPriority) {
-            RCTLogError(@"The RCTURLRequestHandlers %@ and %@ both reported that"
+            MXJSFlutterLog(@"The RCTURLRequestHandlers %@ and %@ both reported that"
                         " they can handle the request %@, and have equal priority"
                         " (%g). This could result in non-deterministic behavior.",
                         handler, previousHandler, request, priority);
@@ -236,7 +234,7 @@ RCT_EXPORT_MODULE()
   }
 
   // Normal code path
-  for (id<RCTURLRequestHandler> handler in _handlers) {
+  for (id<MXFURLRequestHandler> handler in _handlers) {
     if ([handler canHandleRequest:request]) {
       return handler;
     }
@@ -257,15 +255,16 @@ RCT_EXPORT_MODULE()
   return result;
 }
 
-- (RCTURLRequestCancellationBlock)buildRequest:(NSDictionary<NSString *, id> *)query
+
+
+- (MXFURLRequestCancellationBlock)buildRequest:(NSDictionary<NSString *, id> *)query
                                  completionBlock:(void (^)(NSURLRequest *request))block
 {
-  RCTAssertThread(_methodQueue, @"buildRequest: must be called on method queue");
-
-  NSURL *URL = [RCTConvert NSURL:query[@"url"]]; // this is marked as nullable in JS, but should not be null
+    
+  NSURL *URL = [MXFConvert NSURL:query[@"url"]]; // this is marked as nullable in JS, but should not be null
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-  request.HTTPMethod = [RCTConvert NSString:RCTNilIfNull(query[@"method"])].uppercaseString ?: @"GET";
-  request.HTTPShouldHandleCookies = [RCTConvert BOOL:query[@"withCredentials"]];
+  request.HTTPMethod = [MXFConvert NSString:MXNilIfNull(query[@"method"])].uppercaseString ?: @"GET";
+  request.HTTPShouldHandleCookies = [MXFConvert BOOL:query[@"withCredentials"]];
 
   if (request.HTTPShouldHandleCookies == YES) {
     // Load and set the cookie header.
@@ -274,15 +273,15 @@ RCT_EXPORT_MODULE()
   }
 
   // Set supplied headers.
-  NSDictionary *headers = [RCTConvert NSDictionary:query[@"headers"]];
+  NSDictionary *headers = [MXFConvert NSDictionary:query[@"headers"]];
   [headers enumerateKeysAndObjectsUsingBlock:^(NSString *key, id value, BOOL *stop) {
     if (value) {
-      [request addValue:[RCTConvert NSString:value] forHTTPHeaderField:key];
+      [request addValue:[MXFConvert NSString:value] forHTTPHeaderField:key];
     }
   }];
 
-  request.timeoutInterval = [RCTConvert NSTimeInterval:query[@"timeout"]];
-  NSDictionary<NSString *, id> *data = [RCTConvert NSDictionary:RCTNilIfNull(query[@"data"])];
+  request.timeoutInterval = [MXFConvert NSTimeInterval:query[@"timeout"]];
+  NSDictionary<NSString *, id> *data = [MXFConvert NSDictionary:MXNilIfNull(query[@"data"])];
   NSString *trackingName = data[@"trackingName"];
   if (trackingName) {
     [NSURLProtocol setProperty:trackingName
@@ -291,9 +290,9 @@ RCT_EXPORT_MODULE()
   }
   return [self processDataForHTTPQuery:data callback:^(NSError *error, NSDictionary<NSString *, id> *result) {
     if (error) {
-      RCTLogError(@"Error processing request body: %@", error);
+      MXFLogError(@"Error processing request body: %@", error);
       // Ideally we'd circle back to JS here and notify an error/abort on the request.
-      return (RCTURLRequestCancellationBlock)nil;
+      return (MXFURLRequestCancellationBlock)nil;
     }
     request.HTTPBody = result[@"body"];
     NSString *dataContentType = result[@"contentType"];
@@ -308,7 +307,7 @@ RCT_EXPORT_MODULE()
 
     // Gzip the request body
     if ([request.allHTTPHeaderFields[@"Content-Encoding"] isEqualToString:@"gzip"]) {
-      request.HTTPBody = RCTGzipData(request.HTTPBody, -1 /* default */);
+      request.HTTPBody = [request.HTTPBody gzippedData];
       [request setValue:(@(request.HTTPBody.length)).description forHTTPHeaderField:@"Content-Length"];
     }
 
@@ -316,7 +315,7 @@ RCT_EXPORT_MODULE()
       block(request);
     });
 
-    return (RCTURLRequestCancellationBlock)nil;
+    return (MXFURLRequestCancellationBlock)nil;
   }];
 }
 
@@ -345,15 +344,14 @@ RCT_EXPORT_MODULE()
  * - @"contentType" (NSString): the content type header of the request
  *
  */
-- (RCTURLRequestCancellationBlock)processDataForHTTPQuery:(nullable NSDictionary<NSString *, id> *)query callback:
-(RCTURLRequestCancellationBlock (^)(NSError *error, NSDictionary<NSString *, id> *result))callback
+- (MXFURLRequestCancellationBlock)processDataForHTTPQuery:(nullable NSDictionary<NSString *, id> *)query callback:
+(MXFURLRequestCancellationBlock (^)(NSError *error, NSDictionary<NSString *, id> *result))callback
 {
-  RCTAssertThread(_methodQueue, @"processDataForHTTPQuery: must be called on method queue");
 
   if (!query) {
     return callback(nil, nil);
   }
-  for (id<RCTNetworkingRequestHandler> handler in _requestHandlers) {
+  for (id<MXFNetworkingRequestHandler> handler in _requestHandlers) {
     if ([handler canHandleNetworkingRequest:query]) {
       // @lint-ignore FBOBJCUNTYPEDCOLLECTION1
       NSDictionary *body = [handler handleNetworkingRequest:query];
@@ -362,28 +360,28 @@ RCT_EXPORT_MODULE()
       }
     }
   }
-  NSData *body = [RCTConvert NSData:query[@"string"]];
+  NSData *body = [MXFConvert NSData:query[@"string"]];
   if (body) {
     return callback(nil, @{@"body": body});
   }
-  NSString *base64String = [RCTConvert NSString:query[@"base64"]];
+  NSString *base64String = [MXFConvert NSString:query[@"base64"]];
   if (base64String) {
     NSData *data = [[NSData alloc] initWithBase64EncodedString:base64String options:0];
     return callback(nil, @{@"body": data});
   }
-  NSURLRequest *request = [RCTConvert NSURLRequest:query[@"uri"]];
+  NSURLRequest *request = [MXFConvert NSURLRequest:query[@"uri"]];
   if (request) {
 
-    __block RCTURLRequestCancellationBlock cancellationBlock = nil;
-    RCTNetworkTask *task = [self networkTaskWithRequest:request completionBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
+    __block MXFURLRequestCancellationBlock cancellationBlock = nil;
+      MXFNetworkTask *task = [self networkTaskWithRequest:request completionBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
       dispatch_async(self->_methodQueue, ^{
-        cancellationBlock = callback(error, data ? @{@"body": data, @"contentType": RCTNullIfNil(response.MIMEType)} : nil);
+        cancellationBlock = callback(error, data ? @{@"body": data, @"contentType": MXNullIfNil(response.MIMEType)} : nil);
       });
     }];
 
     [task start];
 
-    __weak RCTNetworkTask *weakTask = task;
+      __weak MXFNetworkTask *weakTask = task;
     return ^{
       [weakTask cancel];
       if (cancellationBlock) {
@@ -391,9 +389,9 @@ RCT_EXPORT_MODULE()
       }
     };
   }
-  NSArray<NSDictionary *> *formData = [RCTConvert NSDictionaryArray:query[@"formData"]];
+  NSArray<NSDictionary *> *formData = [MXFConvert NSDictionaryArray:query[@"formData"]];
   if (formData) {
-    RCTHTTPFormDataHelper *formDataHelper = [RCTHTTPFormDataHelper new];
+    MXFHTTPFormDataHelper *formDataHelper = [MXFHTTPFormDataHelper new];
     formDataHelper.networker = self;
     return [formDataHelper process:formData callback:callback];
   }
@@ -468,12 +466,11 @@ RCT_EXPORT_MODULE()
 - (void)sendData:(NSData *)data
     responseType:(NSString *)responseType
         response:(NSURLResponse *)response
-         forTask:(RCTNetworkTask *)task
+         forTask:(MXFNetworkTask *)task
 {
-  RCTAssertThread(_methodQueue, @"sendData: must be called on method queue");
 
   id responseData = nil;
-  for (id<RCTNetworkingResponseHandler> handler in _responseHandlers) {
+  for (id<MXFNetworkingResponseHandler> handler in _responseHandlers) {
     if ([handler canHandleNetworkingResponse:responseType]) {
       responseData = [handler handleNetworkingResponse:response data:data];
       break;
@@ -487,15 +484,15 @@ RCT_EXPORT_MODULE()
 
     if ([responseType isEqualToString:@"text"]) {
       // No carry storage is required here because the entire data has been loaded.
-      responseData = [RCTNetworking decodeTextData:data fromResponse:task.response withCarryData:nil];
+      responseData = [MXFNetworking decodeTextData:data fromResponse:task.response withCarryData:nil];
       if (!responseData) {
-        RCTLogWarn(@"Received data was not a string, or was not a recognised encoding.");
+        MXFLogWarn(@"Received data was not a string, or was not a recognised encoding.");
         return;
       }
     } else if ([responseType isEqualToString:@"base64"]) {
       responseData = [data base64EncodedStringWithOptions:0];
     } else {
-      RCTLogWarn(@"Invalid responseType: %@", responseType);
+      MXFLogWarn(@"Invalid responseType: %@", responseType);
       return;
     }
   }
@@ -506,17 +503,17 @@ RCT_EXPORT_MODULE()
 - (void)sendRequest:(NSURLRequest *)request
        responseType:(NSString *)responseType
  incrementalUpdates:(BOOL)incrementalUpdates
-     responseSender:(RCTResponseSenderBlock)responseSender
+     responseSender:(MXResponseSenderBlock)responseSender
 {
-  RCTAssertThread(_methodQueue, @"sendRequest: must be called on method queue");
+
   __weak __typeof(self) weakSelf = self;
-  __block RCTNetworkTask *task;
-  RCTURLRequestProgressBlock uploadProgressBlock = ^(int64_t progress, int64_t total) {
+  __block MXFNetworkTask *task;
+  MXFURLRequestProgressBlock uploadProgressBlock = ^(int64_t progress, int64_t total) {
     NSArray *responseJSON = @[task.requestID, @((double)progress), @((double)total)];
     [weakSelf sendEventWithName:@"didSendNetworkData" body:responseJSON];
   };
 
-  RCTURLRequestResponseBlock responseBlock = ^(NSURLResponse *response) {
+  MXFURLRequestResponseBlock responseBlock = ^(NSURLResponse *response) {
     NSDictionary<NSString *, NSString *> *headers;
     NSInteger status;
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) { // Might be a local file request
@@ -536,8 +533,8 @@ RCT_EXPORT_MODULE()
   // finished. Only when xhr.responseType is set to ''/'text', consumers may
   // peek at xhr.responseText. So unless the requested responseType is 'text',
   // we only send progress updates and not incremental data updates to JS here.
-  RCTURLRequestIncrementalDataBlock incrementalDataBlock = nil;
-  RCTURLRequestProgressBlock downloadProgressBlock = nil;
+  MXFURLRequestIncrementalDataBlock incrementalDataBlock = nil;
+  MXFURLRequestProgressBlock downloadProgressBlock = nil;
   if (incrementalUpdates) {
     if ([responseType isEqualToString:@"text"]) {
 
@@ -548,11 +545,11 @@ RCT_EXPORT_MODULE()
       incrementalDataBlock = ^(NSData *data, int64_t progress, int64_t total) {
         NSUInteger initialCarryLength = incrementalDataCarry.length;
 
-        NSString *responseString = [RCTNetworking decodeTextData:data
+        NSString *responseString = [MXFNetworking decodeTextData:data
                                                     fromResponse:task.response
                                                    withCarryData:incrementalDataCarry];
         if (!responseString) {
-          RCTLogWarn(@"Received data was not a string, or was not a recognised encoding.");
+          MXFLogWarn(@"Received data was not a string, or was not a recognised encoding.");
           return;
         }
 
@@ -572,7 +569,7 @@ RCT_EXPORT_MODULE()
     }
   }
 
-  RCTURLRequestCompletionBlock completionBlock =
+  MXFURLRequestCompletionBlock completionBlock =
   ^(NSURLResponse *response, NSData *data, NSError *error) {
     __typeof(self) strongSelf = weakSelf;
     if (!strongSelf) {
@@ -588,7 +585,7 @@ RCT_EXPORT_MODULE()
                    forTask:task];
     }
     NSArray *responseJSON = @[task.requestID,
-                              RCTNullIfNil(error.localizedDescription),
+                              MXNullIfNil(error.localizedDescription),
                               error.code == kCFURLErrorTimedOut ? @YES : @NO
                               ];
 
@@ -615,7 +612,7 @@ RCT_EXPORT_MODULE()
 
 #pragma mark - Public API
 
-- (void)addRequestHandler:(id<RCTNetworkingRequestHandler>)handler
+- (void)addRequestHandler:(id<MXFNetworkingRequestHandler>)handler
 {
   if (!_requestHandlers) {
     _requestHandlers = [NSMutableArray new];
@@ -623,7 +620,7 @@ RCT_EXPORT_MODULE()
   [_requestHandlers addObject:handler];
 }
 
-- (void)addResponseHandler:(id<RCTNetworkingResponseHandler>)handler
+- (void)addResponseHandler:(id<MXFNetworkingResponseHandler>)handler
 {
   if (!_responseHandlers) {
     _responseHandlers = [NSMutableArray new];
@@ -631,25 +628,25 @@ RCT_EXPORT_MODULE()
   [_responseHandlers addObject:handler];
 }
 
-- (void)removeRequestHandler:(id<RCTNetworkingRequestHandler>)handler
+- (void)removeRequestHandler:(id<MXFNetworkingRequestHandler>)handler
 {
   [_requestHandlers removeObject:handler];
 }
 
-- (void)removeResponseHandler:(id<RCTNetworkingResponseHandler>)handler
+- (void)removeResponseHandler:(id<MXFNetworkingResponseHandler>)handler
 {
   [_responseHandlers removeObject:handler];
 }
 
-- (RCTNetworkTask *)networkTaskWithRequest:(NSURLRequest *)request completionBlock:(RCTURLRequestCompletionBlock)completionBlock
+- (MXFNetworkTask *)networkTaskWithRequest:(NSURLRequest *)request completionBlock:(MXFURLRequestCompletionBlock)completionBlock
 {
-  id<RCTURLRequestHandler> handler = [self handlerForRequest:request];
+  id<MXFURLRequestHandler> handler = [self handlerForRequest:request];
   if (!handler) {
-    RCTLogError(@"No suitable URL request handler found for %@", request.URL);
+    MXFLogError(@"No suitable URL request handler found for %@", request.URL);
     return nil;
   }
 
-  RCTNetworkTask *task = [[RCTNetworkTask alloc] initWithRequest:request
+  MXFNetworkTask *task = [[MXFNetworkTask alloc] initWithRequest:request
                                                          handler:handler
                                                    callbackQueue:_methodQueue];
   task.completionBlock = completionBlock;
@@ -658,15 +655,15 @@ RCT_EXPORT_MODULE()
 
 #pragma mark - JS API
 
-RCT_EXPORT_METHOD(sendRequest:(NSDictionary *)query
-                  responseSender:(RCTResponseSenderBlock)responseSender)
+-(void)sendRequest:(NSDictionary *)query
+                  responseSender:(MXResponseSenderBlock)responseSender
 {
   // TODO: buildRequest returns a cancellation block, but there's currently
   // no way to invoke it, if, for example the request is cancelled while
   // loading a large file to build the request body
   [self buildRequest:query completionBlock:^(NSURLRequest *request) {
-    NSString *responseType = [RCTConvert NSString:query[@"responseType"]];
-    BOOL incrementalUpdates = [RCTConvert BOOL:query[@"incrementalUpdates"]];
+    NSString *responseType = [MXFConvert NSString:query[@"responseType"]];
+    BOOL incrementalUpdates = [MXFConvert BOOL:query[@"incrementalUpdates"]];
     [self sendRequest:request
          responseType:responseType
    incrementalUpdates:incrementalUpdates
@@ -674,13 +671,13 @@ RCT_EXPORT_METHOD(sendRequest:(NSDictionary *)query
   }];
 }
 
-RCT_EXPORT_METHOD(abortRequest:(nonnull NSNumber *)requestID)
+-(void)abortRequest:(nonnull NSNumber *)requestID
 {
   [_tasksByRequestID[requestID] cancel];
   [_tasksByRequestID removeObjectForKey:requestID];
 }
 
-RCT_EXPORT_METHOD(clearCookies:(RCTResponseSenderBlock)responseSender)
+-(void)clearCookies:(MXResponseSenderBlock)responseSender
 {
   NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
   if (!storage.cookies.count) {
@@ -696,11 +693,12 @@ RCT_EXPORT_METHOD(clearCookies:(RCTResponseSenderBlock)responseSender)
 
 @end
 
-@implementation RCTBridge (RCTNetworking)
+@implementation MXJSBridge (MXNetworking)
 
-- (RCTNetworking *)networking
+- (MXFNetworking *)networking
 {
-  return [self moduleForClass:[RCTNetworking class]];
+    return nil;
+  //return [self moduleForClass:[MXNetworking class]];
 }
 
 @end
