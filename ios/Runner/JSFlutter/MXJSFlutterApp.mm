@@ -13,6 +13,7 @@
 #import <Flutter/Flutter.h>
 #import "MXJSEngine.h"
 #import "MXJSFlutterEngine.h"
+#import "MXJSBridge.h"
 
 @interface MXJSFlutterApp ()
 
@@ -56,7 +57,7 @@
     self.jsEngine.flutterEngine = self.jsFlutterEngine.flutterEngine;
     self.jsEngine.jsFlutterEngine = self.jsFlutterEngine;
     self.jsEngine.jsFlutterEngine.jsEngine = self.jsEngine;
-
+    
     //调试时，指向本地路径，可以热重载
     NSString *jsBasePath = @"";
     
@@ -87,14 +88,14 @@
 
 - (void)unsetup
 {
-
+    
 }
 
 - (void)setupChannel
 {
     self.jsFlutterAppChannel = [FlutterMethodChannel
-                         methodChannelWithName:@"js_flutter.js_flutter_app_channel"
-                         binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger];
+                                methodChannelWithName:@"js_flutter.js_flutter_app_channel"
+                                binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger];
     
     __weak MXJSFlutterApp *weakSelf = self;
     
@@ -119,7 +120,7 @@
             }
             
             [strongSelf.jsExecutor invokeJSValue:strongSelf.jsAppObj method:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
-                if (!error) 
+                if (!error)
                 {
                     flutterResult(result.toString);
                 }
@@ -131,8 +132,8 @@
 - (void)runApp
 {
     
-     self.isJSAPPRun = NO;
-     MXJSFlutterLog(@"MXJSFlutterApp : runApp：%@",self.appName);
+    self.isJSAPPRun = NO;
+    MXJSFlutterLog(@"MXJSFlutterApp : runApp：%@",self.appName);
     
     __weak MXJSFlutterApp *weakSelf = self;
     [self.jsExecutor executeMXJSBlockOnJSThread:^(MXJSExecutor *executor) {
@@ -143,6 +144,9 @@
         
         executor.jsContext[@"MXNativeJSFlutterApp"] = strongSelf;
         
+        //把JSI 注册到MXNativeJSFlutterApp中
+        [[MXJSBridge shareInstance] registerModules: self jsAPPValueBridge:executor.jsContext[@"MXNativeJSFlutterApp"] ];
+        
         NSString *mainJS = [strongSelf.appRootPath stringByAppendingPathComponent:@"main.js"];
         
         [executor executeScriptPath:mainJS onComplete:^(NSError *error) {
@@ -150,7 +154,7 @@
             MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
             
             [executor invokeMethod:@"main" args:@[] callback:^(JSValue *result, NSError *error) {
-            
+                
                 strongSelf.isJSAPPRun = YES;
                 NSLog(@"MXJSFlutter : call main error:%@",error);
                 
@@ -165,11 +169,11 @@
     
     for (FlutterMethodCall *call in self.callJSMethodQueue) {
         [self.jsExecutor invokeJSValue:self.jsAppObj method:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
-//             if (!error)
-//             {
-//                 flutterResult(result.toString);
-//             }
-         }];
+            //             if (!error)
+            //             {
+            //                 flutterResult(result.toString);
+            //             }
+        }];
     }
     
     [self.callJSMethodQueue removeAllObjects];
@@ -186,6 +190,16 @@
     return self.jsEngine.jsExecutor;
 }
 
+- (JSContext*)mainJSContext
+{
+    return  self.jsEngine.jsExecutor.jsContext ;
+}
+
+- (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
+{
+    [self.jsEngine.jsExecutor invokeJSValue:jsValue method:method args:args callback:callback];
+}
+
 //MARK: - js -> native -> flutter
 //--------------------------------------------
 
@@ -194,7 +208,7 @@
     self.jsAppObj = jsAppObj;
 }
 
-  - (void)jsAPICallFlutterReloadApp:(JSValue*)jsAppObj  widgetData:(NSString*)data
+- (void)jsAPICallFlutterReloadApp:(JSValue*)jsAppObj  widgetData:(NSString*)data
 {
     self.jsAppObj = jsAppObj;
     

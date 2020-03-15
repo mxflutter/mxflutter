@@ -186,8 +186,8 @@
     NSString *callbackId = [NSString stringWithFormat:@"jsCallback_%ld", self.jsCallbackCount ++];
     
     //通过JSManagedValue保存，绑定JS生命周期
-//    JSManagedValue *cacheValue = [JSManagedValue managedValueWithValue:function];
-//    [[self.jsExecutor.jsContext virtualMachine] addManagedReference:cacheValue withOwner:self];
+    JSManagedValue *cacheValue = [JSManagedValue managedValueWithValue:function];
+    [[self.jsExecutor.jsContext virtualMachine] addManagedReference:cacheValue withOwner:self];
     
     //存入Cache字典，便于索引
 //    [self.jsCallbackCache setObject:cacheValue forKey:callbackId];

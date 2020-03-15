@@ -32,25 +32,9 @@
   return nil;
 }
 
-- (void)sendEventWithName:(NSString *)eventName body:(id)body
+- (void)sendEventWithName:(NSString *)eventName data:(id)data
 {
-//  RCTAssert(_bridge != nil, @"Error when sending event: %@ with body: %@. "
-//            "Bridge is not set. This is probably because you've "
-//            "explicitly synthesized the bridge in %@, even though it's inherited "
-//            "from RCTEventEmitter.", eventName, body, [self class]);
-//
-//  if (MXF_DEBUG && ![[self supportedEvents] containsObject:eventName]) {
-//    RCTLogError(@"`%@` is not a supported event type for %@. Supported events are: `%@`",
-//                eventName, [self class], [[self supportedEvents] componentsJoinedByString:@"`, `"]);
-//  }
-//  if (_listenerCount > 0) {
-//    [_bridge enqueueJSCall:@"RCTDeviceEventEmitter"
-//                    method:@"emit"
-//                      args:body ? @[eventName, body] : @[eventName]
-//                completion:NULL];
-//  } else {
-//    RCTLogWarn(@"Sending `%@` with no listeners registered.", eventName);
-//  }
+    [self.bridge sendEventWithName:eventName data:data];
 }
 
 - (void)startObserving

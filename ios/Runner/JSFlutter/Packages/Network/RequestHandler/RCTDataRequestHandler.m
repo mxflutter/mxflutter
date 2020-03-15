@@ -12,7 +12,6 @@
   NSOperationQueue *_queue;
 }
 
-//RCT_EXPORT_MODULE()
 
 - (void)dispose
 {

@@ -54,7 +54,7 @@ JSExportAs(clearCookies,
 
 @end
 
-@interface MXFNetworking : MXEventEmitter <MXFNetworkingJSExport,MXFDispose>
+@interface MXFNetworking : MXEventEmitter  <MXBridgeModule,MXFNetworkingJSExport,MXFDispose,MXBridgeModule>
 
 /**
  * Allows MXNetworking instances to be initialized with handlers.

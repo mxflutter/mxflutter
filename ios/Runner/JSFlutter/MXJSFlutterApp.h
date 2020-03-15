@@ -11,11 +11,12 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-#import "MXFNetworking.h"
+#import "MXJSExecutor.h"
 
 
 @class MXJSFlutterEngine;
 @class MXJSEngine;
+@class MXJSExecutor;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,9 +57,8 @@ JSExportAs(callFlutterWidgetChannel,
 - (void)runApp;
 - (void)exitApp;
 
-/// TODO:mxnetwork.rew
-///packages
-@property (nonatomic, strong) MXFNetworking *networking;
+- (JSContext*)mainJSContext;
+- (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
 
 
 @end

@@ -8,7 +8,7 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 #import "MXEventEmitter.h"
-
+#import "MXBridgeModule.h"
 
 @protocol MXFNetInfoJSExport <NSObject,JSExport>
 
@@ -21,7 +21,7 @@ JSExportAs(getCurrentConnectivity,
 @end
 
 
-@interface MXFNetInfo : MXEventEmitter <MXFNetInfoJSExport>
+@interface MXFNetInfo : MXEventEmitter <MXBridgeModule ,MXFNetInfoJSExport>
 
 - (instancetype)initWithHost:(NSString *)host;
 

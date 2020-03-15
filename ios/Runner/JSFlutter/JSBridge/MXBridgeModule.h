@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MXJSFlutterDefines.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @class MXJSBridge;
 
@@ -54,29 +55,13 @@ MX_EXTERN void MXRegisterModule(Class); \
 + (NSString *)moduleName { return @#js_name; } \
 + (void)load { MXRegisterModule(self); }
 
-/**
- * Same as RCT_EXPORT_MODULE, but uses __attribute__((constructor)) for module
- * registration. Useful for registering swift classes that forbids use of load
- * Used in RCT_EXTERN_REMAP_MODULE
- */
-#define MX_EXPORT_MODULE_NO_LOAD(js_name, objc_name) \
-MX_EXTERN void MXRegisterModule(Class); \
-+ (NSString *)moduleName { return @#js_name; } \
-__attribute__((constructor)) static void \
-RCT_CONCAT(initialize_, objc_name)() { MXRegisterModule([objc_name class]); }
-
-/**
- * To improve startup performance users may want to generate their module lists
- * at build time and hook the delegate to merge with the runtime list. This
- * macro takes the place of the above for those cases by omitting the +load
- * generation.
- *
- */
-#define MX_EXPORT_PRE_REGISTERED_MODULE(js_name) \
-+ (NSString *)moduleName { return @#js_name; }
+//Module register self in jsContext MXNativeJSFlutterApp
++ (id<MXBridgeModule>)registerModuleInMXFlutterJSContext:(JSValue*)jsAPPValue bridge:(MXJSBridge *)bridge;
 
 // Implemented by MX_EXPORT_MODULE
 + (NSString *)moduleName;
+
+
 
 @optional
 

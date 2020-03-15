@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "RCTNetInfo.h"
+#import "MXFNetInfo.h"
 #import "MXBridgeModule.h"
 #import "MXFUtil.h"
 
@@ -47,6 +47,21 @@ static NSString *const RCTReachabilityStateCell = @"cell";
 }
 
 MX_EXPORT_MODULE()
+
++ (id<MXBridgeModule>)registerModuleInMXFlutterJSContext:(JSValue*)jsAPPValue bridge:(MXJSBridge *)bridge
+{
+
+    MXFNetInfo * netInfo = [[MXFNetInfo alloc ] initWithHost:@"qq.com"];
+    
+    netInfo.bridge = bridge;
+    
+    //moduleName = networking
+    jsAPPValue[self.moduleName] = netInfo;
+    
+    return netInfo;
+    
+}
+
 
 static void RCTReachabilityCallback(__unused SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void *info)
 {
@@ -128,7 +143,7 @@ static void RCTReachabilityCallback(__unused SCNetworkReachabilityRef target, SC
 
 - (SCNetworkReachabilityRef)getReachabilityRef
 {
-  SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, _host.UTF8String ?: "apple.com");
+  SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, _host.UTF8String ?: "qq.com");
   SCNetworkReachabilityContext context = { 0, ( __bridge void *)self, NULL, NULL, NULL };
   SCNetworkReachabilitySetCallback(reachability, RCTReachabilityCallback, &context);
   SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
