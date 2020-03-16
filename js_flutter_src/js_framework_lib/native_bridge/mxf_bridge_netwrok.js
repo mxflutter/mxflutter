@@ -9,7 +9,7 @@
 
 class MXFNetworking {
   constructor() {
-    super();
+
   }
 
   sendRequest(
@@ -44,7 +44,7 @@ class MXFNetworking {
     callback,  //: (eventName ,eventInfo) => void,
   ) {
 
-    MXNativeJSFlutterApp.networking.sendRequest(
+    MXNativeJSFlutterApp.networking.sendRequestWithCallback(
       {
         method,
         url,
@@ -96,4 +96,4 @@ class MXFNetworking {
   }
 }
 
-module.JSINetworkInstance = new MXFNetworking();
+exports.JSINetworkInstance = new MXFNetworking;
