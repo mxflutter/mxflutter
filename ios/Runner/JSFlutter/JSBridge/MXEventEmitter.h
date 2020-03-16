@@ -44,6 +44,7 @@ JSExportAs(removeListeners,
  * or data update notification.
  */
 - (void)sendEventWithName:(NSString *)name body:(id)body;
+- (void)sendEventWithName:(NSString *)name body:(id)body callback:(JSValue*)jsCallbackFun;
 
 /**
  * These methods will be called when the first observer is added and when the

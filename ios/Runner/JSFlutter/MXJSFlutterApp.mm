@@ -200,6 +200,12 @@
     [self.jsEngine.jsExecutor invokeJSValue:jsValue method:method args:args callback:callback];
 }
 
+- (void)executeBlockOnJSThread:(dispatch_block_t)block
+{
+    [self.jsEngine.jsExecutor executeBlockOnJSThread:block];
+}
+
+
 //MARK: - js -> native -> flutter
 //--------------------------------------------
 

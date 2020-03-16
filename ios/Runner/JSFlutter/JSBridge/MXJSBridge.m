@@ -149,23 +149,31 @@ NSString *DropReactPrefixes(NSString *s)
 }
 
 #pragma mark - Event
-- (void)sendEventWithName:(NSString *)eventName data:(id)data
+- (void)sendEventWithName:(NSString *)eventName data:(id)data  callback:(JSValue*)jsCallbackFun
 {
-    JSValue* eventHandler = self.jsAPPValueBridge[@"onNativeEvent"];
     
-    if (eventHandler == nil || eventName.length == 0) {
-        return;
-    }
+    //callback方式
+    NSDictionary *arguments = data?@{@"eventName":eventName,@"data":data}:@{@"eventName":eventName};
     
-    NSDictionary *arguments = @{@"eventName":eventName};
-    
-    if (data) {
-        arguments = @{@"eventName":eventName,@"data":data};
-    }
-    
-    [self.flutterApp invokeJSValue:self.jsAPPValueBridge method:@"onNativeEvent" args:@[arguments] callback:^(JSValue * _Nonnull result, NSError * _Nullable error) {
+    if (jsCallbackFun != nil) {
         
-    }];
+        [self.flutterApp executeBlockOnJSThread:^{
+            [jsCallbackFun callWithArguments: @[arguments]];
+        }];
+    }
+    else
+    {
+        //全局通知方式
+        JSValue* eventHandler = self.jsAPPValueBridge[@"onNativeEvent"];
+        
+        if (eventHandler == nil || eventName.length == 0) {
+            return;
+        }
+        
+        [self.flutterApp invokeJSValue:self.jsAPPValueBridge method:@"onNativeEvent" args:@[arguments] callback:^(JSValue * _Nonnull result, NSError * _Nullable error) {
+            
+        }];
+    }
     
 }
 

@@ -281,4 +281,16 @@
     }];
 }
 
+- (void)callWithArguments:(NSArray *)args callback:(MXJSValueCallback )callback
+{
+    [self executeBlockOnJSThread:^{
+        
+        JSValue * reslut =   [self.jsContext callWithArguments:args];
+        
+        if (callback) {
+            callback(reslut,nil);
+        }
+    }];
+}
+
 @end

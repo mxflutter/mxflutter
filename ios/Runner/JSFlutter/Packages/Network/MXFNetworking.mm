@@ -531,7 +531,7 @@ MX_EXPORT_MODULE(networking)
         }
     }
     
-    [self sendEventWithName:@"didReceiveNetworkData" body:@[task.requestID, responseData]];
+    [self sendEventWithName:@"didReceiveNetworkData" body:@[task.requestID, responseData] callback:task.jsCallbackFun];
 }
 
 - (void)sendRequest:(NSURLRequest *)request
@@ -539,12 +539,21 @@ MX_EXPORT_MODULE(networking)
  incrementalUpdates:(BOOL)incrementalUpdates
      responseSender:(MXResponseSenderBlock)responseSender
 {
-    
+   [self sendRequestJSI:request responseType:responseType incrementalUpdates:incrementalUpdates responseSender:responseSender callback:nil];
+}
+
+- (void)sendRequestJSI:(NSURLRequest *)request
+       responseType:(NSString *)responseType
+ incrementalUpdates:(BOOL)incrementalUpdates
+     responseSender:(MXResponseSenderBlock)responseSender
+           callback:(JSValue*)jsCallbackFun
+{
+  
     __weak __typeof(self) weakSelf = self;
     __block MXFNetworkTask *task;
     MXFURLRequestProgressBlock uploadProgressBlock = ^(int64_t progress, int64_t total) {
         NSArray *responseJSON = @[task.requestID, @((double)progress), @((double)total)];
-        [weakSelf sendEventWithName:@"didSendNetworkData" body:responseJSON];
+        [weakSelf sendEventWithName:@"didSendNetworkData" body:responseJSON callback:jsCallbackFun];
     };
     
     MXFURLRequestResponseBlock responseBlock = ^(NSURLResponse *response) {
@@ -561,7 +570,7 @@ MX_EXPORT_MODULE(networking)
 
         id responseURL = response.URL ? response.URL.absoluteString : [NSNull null];
         NSArray<id> *responseJSON = @[task.requestID, @(status), headers, responseURL];
-        [weakSelf sendEventWithName:@"didReceiveNetworkResponse" body:responseJSON];
+        [weakSelf sendEventWithName:@"didReceiveNetworkResponse" body:responseJSON callback:jsCallbackFun];
     };
 
     // XHR does not allow you to peek at xhr.response before the response is
@@ -594,12 +603,12 @@ MX_EXPORT_MODULE(networking)
                                           @(progress + initialCarryLength - incrementalDataCarry.length),
                                           @(total)];
             
-            [weakSelf sendEventWithName:@"didReceiveNetworkIncrementalData" body:responseJSON];
+            [weakSelf sendEventWithName:@"didReceiveNetworkIncrementalData" body:responseJSON callback:jsCallbackFun];
         };
     } else {
         downloadProgressBlock = ^(int64_t progress, int64_t total) {
             NSArray<id> *responseJSON = @[task.requestID, @(progress), @(total)];
-            [weakSelf sendEventWithName:@"didReceiveNetworkDataProgress" body:responseJSON];
+            [weakSelf sendEventWithName:@"didReceiveNetworkDataProgress" body:responseJSON callback:jsCallbackFun];
         };
     }
 }
@@ -624,7 +633,7 @@ MXFURLRequestCompletionBlock completionBlock =
                               error.code == kCFURLErrorTimedOut ? @YES : @NO
     ];
     
-    [strongSelf sendEventWithName:@"didCompleteNetworkResponse" body:responseJSON];
+    [strongSelf sendEventWithName:@"didCompleteNetworkResponse" body:responseJSON callback:jsCallbackFun];
     [strongSelf->_tasksByRequestID removeObjectForKey:task.requestID];
 };
 
@@ -633,6 +642,7 @@ task.downloadProgressBlock = downloadProgressBlock;
 task.incrementalDataBlock = incrementalDataBlock;
 task.responseBlock = responseBlock;
 task.uploadProgressBlock = uploadProgressBlock;
+task.jsCallbackFun = jsCallbackFun;
 
 if (task.requestID) {
     if (!_tasksByRequestID) {
@@ -640,10 +650,13 @@ if (task.requestID) {
     }
     _tasksByRequestID[task.requestID] = task;
     responseSender(@[task.requestID]);
+    
+    [weakSelf sendEventWithName:@"didReceiveRequestID" body:@[task.requestID] callback:jsCallbackFun];
 }
 
 [task start];
 }
+
 
 #pragma mark - Public API
 
@@ -703,6 +716,23 @@ if (task.requestID) {
              responseType:responseType
        incrementalUpdates:incrementalUpdates
            responseSender:responseSender];
+    }];
+}
+
+-(void)sendRequest:(NSDictionary *)query
+    eventCallback:(JSValue*)jsCallbackFun
+{
+    // TODO: buildRequest returns a cancellation block, but there's currently
+    // no way to invoke it, if, for example the request is cancelled while
+    // loading a large file to build the request body
+    [self buildRequest:query completionBlock:^(NSURLRequest *request) {
+        NSString *responseType = [MXFConvert NSString:query[@"responseType"]];
+        BOOL incrementalUpdates = [MXFConvert BOOL:query[@"incrementalUpdates"]];
+        [self sendRequestJSI:request
+             responseType:responseType
+       incrementalUpdates:incrementalUpdates
+           responseSender:nil
+         callback:jsCallbackFun];
     }];
 }
 

@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shareInstance;
 
 - (void)registerModules:(MXJSFlutterApp*)flutterApp jsAPPValueBridge:(JSValue*)jsAPPValueBridge;
-- (void)sendEventWithName:(NSString *)eventName data:(id)data;
+- (void)sendEventWithName:(NSString *)eventName data:(id)data callback:(JSValue* _Nullable )jsCallbackFun;
 
 
 - (id)moduleForClass:(Class)moduleClass;

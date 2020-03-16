@@ -59,7 +59,7 @@ JSExportAs(callFlutterWidgetChannel,
 
 - (JSContext*)mainJSContext;
 - (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
-
+- (void)executeBlockOnJSThread:(dispatch_block_t)block;
 
 @end
 

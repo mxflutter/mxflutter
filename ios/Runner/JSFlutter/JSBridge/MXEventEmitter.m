@@ -34,7 +34,12 @@
 
 - (void)sendEventWithName:(NSString *)eventName body:(id)data
 {
-    [self.bridge sendEventWithName:eventName data:data];
+    [self.bridge sendEventWithName:eventName data:data callback:nil];
+}
+
+- (void)sendEventWithName:(NSString *)eventName body:(id)data callback:(JSValue*)jsCallbackFun
+{
+    [self.bridge sendEventWithName:eventName data:data callback:jsCallbackFun];
 }
 
 - (void)startObserving

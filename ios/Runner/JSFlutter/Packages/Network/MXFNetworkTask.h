@@ -10,6 +10,7 @@
 #import "MXFURLRequestDelegate.h"
 #import "MXFURLRequestHandler.h"
 #import "MXFDispose.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 typedef void (^MXFURLRequestCompletionBlock)(NSURLResponse *response, NSData *data, NSError *error);
 typedef void (^MXFURLRequestCancellationBlock)(void);
@@ -35,6 +36,7 @@ typedef NS_ENUM(NSInteger, MXFNetworkTaskStatus) {
 @property (nonatomic, copy) MXFURLRequestIncrementalDataBlock incrementalDataBlock;
 @property (nonatomic, copy) MXFURLRequestResponseBlock responseBlock;
 @property (nonatomic, copy) MXFURLRequestProgressBlock uploadProgressBlock;
+@property (nonatomic, strong) JSValue *jsCallbackFun;
 
 @property (nonatomic, readonly) MXFNetworkTaskStatus status;
 

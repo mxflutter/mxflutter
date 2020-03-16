@@ -30,6 +30,10 @@ JSExportAs(clearCookies,
            -(void)clearCookies:(MXResponseSenderBlock)responseSender
            );
 
+JSExportAs(sendRequestWithCallback,
+           -(void)sendRequest:(NSDictionary *)query callback:(JSValue*)jsCallbackFun
+           );
+
 
 
 
@@ -72,7 +76,7 @@ JSExportAs(clearCookies,
  * invoking the React Native networking stack from within native code.
  */
 - (MXFNetworkTask *)networkTaskWithRequest:(NSURLRequest *)request
-                          completionBlock:(MXFURLRequestCompletionBlock)completionBlock;
+                           completionBlock:(MXFURLRequestCompletionBlock)completionBlock;
 
 - (void)addRequestHandler:(id<MXFNetworkingRequestHandler>)handler;
 
