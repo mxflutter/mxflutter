@@ -53,6 +53,8 @@ const my_page = packages__zhihu__my__my_page.my__my_page;
 const packages__zhihu__index = require('packages/zhihu/index/index');
 const index_page = packages__zhihu__index.index__index;
 
+
+const {JSINetworkInstance} = require("packeges/native_bridge/mxf_bridge_netwrok.js");
 //flutter_gallery
 // const packages__flutter_gallery__gallery__app = require('packages/flutter_gallery/gallery/app');
 // const flutter_gallery_app = packages__flutter_gallery__gallery__app.gallery__app;
@@ -70,7 +72,7 @@ const { Dio } = require("packages/dio/dio_for_browser.dart.lib.js");
 
 let dioAPI = Dio.new();
 
-let url = "https://api.map.baidu.com/telematics/v3/weather?location=%E5%98%89%E5%85%B4&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ";
+let urlStr = "https://api.map.baidu.com/telematics/v3/weather?location=%E5%98%89%E5%85%B4&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ";
 
 function testDio() {
 
@@ -89,6 +91,12 @@ function testDio() {
             core.print("dio:request() " + e);
         }
     }).bind(this));
+
+    JSINetworkInstance.sendRequest({method:"GET",url:urlStr,},function eventCallbak(event,args){
+
+        core.print("JSINetworkInstance.sendRequest:eventName " + event + "eventInfo:" + args);
+
+    });
 
     MXJSLog.log(response);
 }
