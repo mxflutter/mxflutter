@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MXFNetworkingJSExport <NSObject,JSExport>
 
 JSExportAs(sendRequest,
-           -(void)sendRequest:(NSDictionary *)query
-           responseSender:(MXResponseSenderBlock)responseSender
+           -(void)sendRequest:(NSDictionary *)query callback:(JSValue*)jsCallbackFun
            );
 
 JSExportAs(abortRequest,
@@ -30,9 +29,7 @@ JSExportAs(clearCookies,
            -(void)clearCookies:(MXResponseSenderBlock)responseSender
            );
 
-JSExportAs(sendRequestWithCallback,
-           -(void)sendRequest:(NSDictionary *)query callback:(JSValue*)jsCallbackFun
-           );
+
 
 
 

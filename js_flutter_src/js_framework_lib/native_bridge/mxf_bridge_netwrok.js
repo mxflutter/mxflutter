@@ -1,11 +1,7 @@
 'use strict';
+const dart_sdk = require("dart_sdk");
+const convert = dart_sdk.convert;
 
-// return @[@"didCompleteNetworkResponse",
-// @"didReceiveNetworkResponse",
-// @"didSendNetworkData",
-// @"didReceiveNetworkIncrementalData",
-// @"didReceiveNetworkDataProgress",
-// @"didReceiveNetworkData"];
 
 class MXFNetworking {
   constructor() {
@@ -24,27 +20,19 @@ class MXFNetworking {
       trackingName,  //: string,
       //
       onCreateRequest,   // fun(requestID){}
-      onUploadProgress,  // fun(requestId: number,progress: number,total: number,)
       onReceiveResponse, //status: number,responseHeaders: ?Object,responseURL: ?string,
-      onReceiveData,
+      onCompleteResponse,  //* all in one: onCompleteResponse(status, respHeaders,responseType, responseData, errorDesc, isTimeOut);
       onReceiveIncrementalData,
       onReceiveDataProgress,
-      onCompleteResponse,
-
-
-      // onload,
-      // onloadstart,
-      // onprogress,
-      // ontimeout,
-      // onerror,
-      // onabort,
-      // onloadend,
-      // onreadystatechange,
-    },
-    callback,  //: (eventName ,eventInfo) => void,
+      onUploadProgress,  // fun(requestId: number,progress: number,total: number,)
+    }
   ) {
 
-    MXNativeJSFlutterApp.networking.sendRequestWithCallback(
+    let body = data;
+    let origResponseType = responseType;
+    responseType = this.getNativeResponseType(responseType);
+
+    MXNativeJSFlutterApp.networking.sendRequest(
       {
         method,
         url,
@@ -55,35 +43,69 @@ class MXFNetworking {
         timeout,
         withCredentials,
       },
-      function (eventName, eventInfo) {
+      function (eventName, args) {
 
-        if (callback != null) {
-          callback(arguments);
-        }
+        if (eventName == "didReceiveRequestID") {
 
-        if (eventName == "didReceiveNetworkResponse") {
-
-
+          let requestID = args[0];
+          if (onCreateRequest != null) onCreateRequest(requestID);
 
         } else if (eventName == "didReceiveNetworkResponse") {
 
-
+          //@[task.requestID, @(status), headers, responseURL];
+          let status = args[1];
+          let respHeaders = args[2];
+          let responseURL = args[3];
+          if (onReceiveResponse != null) onReceiveResponse(status, respHeaders, responseURL);
 
         } else if (eventName == "didSendNetworkData") {
 
+          //[task.requestID, @((double)progress), @((double)total)];
+          let progress = args[1];
+          let total = args[2];
+
+          if (onUploadProgress != null) onUploadProgress(progress, total);
+
         } else if (eventName == "didReceiveNetworkIncrementalData") {
+
+          // @[task.requestID,
+          //   responseString,
+          //   @(progress + initialCarryLength - incrementalDataCarry.length),
+          //   @(total)];
+          let responseString = args[1];
+          let progress = args[2];
+          let total = args[3];
+
+          if (onReceiveIncrementalData != null) onReceiveIncrementalData(responseString, progress, total);
 
         } else if (eventName == "didReceiveNetworkDataProgress") {
 
-        } else if (eventName == "didReceiveNetworkData") {
-
+          let progress = args[1];
+          let total = args[2];
+          if (onReceiveDataProgress != null) onReceiveDataProgress(progress, total);
         } else if (eventName == "didCompleteNetworkResponse") {
+
+          // @[task.requestID,
+          //   responseData?:@"",
+          //   MXNullIfNil(error.localizedDescription),
+          //   error.code == kCFURLErrorTimedOut ? @YES : @NO];
+
+          let status = args[1];
+          let respHeaders = args[2];
+
+          let responseData = args[3];
+          let errorDesc = args[4];
+          let isTimeOut = args[5];
+
+          if (origResponseType === 'arraybuffer') {
+            responseData = convert.base64Decode(responseData);
+          }
+
+          if (onCompleteResponse != null) onCompleteResponse(status, respHeaders,origResponseType, responseData, errorDesc, isTimeOut);
 
         }
 
-
-
-      },
+      }.bind(this),
     );
   }
 
@@ -94,6 +116,23 @@ class MXFNetworking {
   clearCookies(callback) {
     MXNativeJSFlutterApp.networking.clearCookies(callback);
   }
+
+  getNativeResponseType(responseType) {
+
+    let nativeResponseType = responseType;
+
+    if (responseType == null) {
+      nativeResponseType = 'text';
+    } else if (responseType === 'arraybuffer') {
+      nativeResponseType = 'base64';
+    }
+    else if (responseType === 'blob') {
+      nativeResponseType = 'base64'; //暂不支持
+    }
+
+    return nativeResponseType;
+
+  }
 }
 
-exports.JSINetworkInstance = new MXFNetworking;
+exports.network = new MXFNetworking;

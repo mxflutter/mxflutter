@@ -54,7 +54,7 @@ const packages__zhihu__index = require('packages/zhihu/index/index');
 const index_page = packages__zhihu__index.index__index;
 
 
-const {JSINetworkInstance} = require("packeges/native_bridge/mxf_bridge_netwrok.js");
+
 //flutter_gallery
 // const packages__flutter_gallery__gallery__app = require('packages/flutter_gallery/gallery/app');
 // const flutter_gallery_app = packages__flutter_gallery__gallery__app.gallery__app;
@@ -72,18 +72,19 @@ const { Dio } = require("packages/dio/dio_for_browser.dart.lib.js");
 
 let dioAPI = Dio.new();
 
-let urlStr = "https://api.map.baidu.com/telematics/v3/weather?location=%E5%98%89%E5%85%B4&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ";
+let urlStr = "https://facebook.github.io/react-native/movies.json";
+
 
 function testDio() {
 
     return async.async(dart.dynamic, (function* getHttp() {
 
         try {
-            core.print("yield dioAPI.get(dart.dynamic, )" + url);
+            core.print("yield dioAPI.get(dart.dynamic, )" + urlStr);
 
-            let response = (yield dioAPI.get(dart.dynamic, url));
+            let response = (yield dioAPI.get(dart.dynamic, urlStr));
 
-            core.print("end yield dioAPI.get(dart.dynamic, )" + url);
+            core.print("end yield dioAPI.get(dart.dynamic, )" + urlStr);
             core.print(response);
 
         } catch (e$) {
@@ -92,13 +93,19 @@ function testDio() {
         }
     }).bind(this));
 
-    JSINetworkInstance.sendRequest({method:"GET",url:urlStr,},function eventCallbak(event,args){
+    const NetWork = require("./native_bridge/mxf_bridge_netwrok.js");
 
-        core.print("JSINetworkInstance.sendRequest:eventName " + event + "eventInfo:" + args);
+    //let url2 = "https://a3.att.hudong.com/68/61/300000839764127060614318218_950.jpg";
 
-    });
 
-    MXJSLog.log(response);
+
+    // NetWork.MXFNetworkInstance.sendRequest({method:"GET",url:urlStr,responseType: 'arraybuffer',onCompleteResponse: function (status, respHeaders, responseData, errorDesc, isTimeOut){
+
+    //     core.print("JSINetworkInstance.sendRequest2:status:[" + status + "]  responseData: [" + responseData + "] ");
+
+    // }});
+
+
 }
 
 

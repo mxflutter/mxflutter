@@ -16,10 +16,8 @@ const dio_error = packages__dio__src__cancel_token.src__dio_error;
 const options = packages__dio__src__cancel_token.src__options;
 
 ////
-let html = Object.create(dart.library);
-html.HttpReques = {};
-html.ProgressEvent = {};
-
+const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
+const network = bridge_netwrok.network;
 
 ////
 
@@ -62,84 +60,103 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
   }
   fetch(options, requestStream, cancelFuture) {
 
-    core.print("fetch(options, requestStream, cancelFuture) {");
+    // core.print("fetch(options, requestStream, cancelFuture) {");
 
-    var completer = CompleterOfResponseBody().new();
-    setTimeout(function(){
-      completer.complete(new adapter.ResponseBody.fromString("diossssssssssss",200));
-      //completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "mxerror", request: options }), core.StackTrace.current);
-    },2000);
-
-
-    return completer.future.whenComplete(dart.fn(() => {
-      core.print("ompleter.future.whenComplete(dart.fn(() => {");
-    }, VoidToNull()));
-
-    // let t1, t0, t0$;
-    // let xhr = html.HttpRequest.new();
-    // this[_xhrs][$add](xhr);
-    // t0 = xhr;
-    // t0.open(options.method, dart.toString(options.uri), { async: true });
-    // t0.responseType = "blob";
-    // t0.withCredentials = core.bool._check((t1 = options.extra[$_get]("withCredentials"), t1 == null ? this.withCredentials : t1));
-    // t0;
-    // options.headers[$remove]("content-length");
-    // options.headers[$forEach](dart.fn((key, v) => xhr.setRequestHeader(key, dart.str(v)), StringAnddynamicTovoid()));
-    // let completer = CompleterOfResponseBody().new();
-    // xhr[$onLoad].first.then(core.Null, dart.fn(_ => {
-    //   let t0;
-    //   let blob = (t0 = xhr[$response], t0 == null ? html.Blob.new([]) : t0);
-    //   let reader = html.FileReader.new();
-    //   reader[$onLoad].first.then(core.Null, dart.fn(_ => {
-    //     let body = typed_data.Uint8List.as(reader[$result]);
-    //     completer.complete(new adapter.ResponseBody.fromBytes(body, xhr.status, { headers: xhr[$responseHeaders][$map](core.String, ListOfString(), dart.fn((k, v) => new (MapEntryOfString$ListOfString()).__(k[$toLowerCase](), v[$split](",")), StringAndStringToMapEntryOfString$ListOfString())), statusMessage: xhr.statusText, isRedirect: xhr.status === 302 || xhr.status === 301 }));
-    //   }, ProgressEventToNull()));
-    //   reader[$onError].first.then(core.Null, dart.fn(error => {
-    //     completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: error, request: options }), core.StackTrace.current);
-    //   }, ProgressEventToNull()));
-    //   reader.readAsArrayBuffer(html.Blob._check(blob));
-    // }, ProgressEventToNull()));
-    // xhr[$onError].first.then(core.Null, dart.fn(_ => {
-    //   completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "XMLHttpRequest error.", request: options }), core.StackTrace.current);
-    // }, ProgressEventToNull()));
-    // t0$ = cancelFuture;
-    // t0$ == null ? null : t0$.then(core.Null, dart.fn(_ => {
-    //   if (dart.notNull(xhr.readyState) < 4 && dart.notNull(xhr.readyState) > 0) {
-    //     try {
-    //       xhr.abort();
-    //     } catch (e$) {
-    //       let e = dart.getThrown(e$);
-    //     }
-    //   }
-    // }, dynamicToNull()));
-    // if (requestStream == null) {
-    //   xhr.send();
-    // } else {
-    //   requestStream.reduce(dart.fn((a, b) => _native_typed_data.NativeUint8List.fromList((() => {
-    //     let t1 = JSArrayOfint().of([]);
-    //     for (let t2 of a)
-    //       t1[$add](t2);
-    //     for (let t3 of b)
-    //       t1[$add](t3);
-    //     return t1;
-    //   })()), ListOfintAndListOfintToUint8List())).then(dart.void, dart.bind(xhr, 'send'));
-    // }
+    // var completer = CompleterOfResponseBody().new();
+    // setTimeout(function () {
+    //   completer.complete(new adapter.ResponseBody.fromString("diossssssssssss", 200));
+    //   //completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "mxerror", request: options }), core.StackTrace.current);
+    // }, 2000);
     // return completer.future.whenComplete(dart.fn(() => {
-    //   this[_xhrs][$remove](xhr);
+    //   core.print("ompleter.future.whenComplete(dart.fn(() => {");
     // }, VoidToNull()));
+
+    ///
+
+   
+
+    let that = this;
+    let completer = CompleterOfResponseBody().new();
+
+    function send(data) {
+     
+
+      let t1, t0, t0$;
+
+      network.sendRequest({
+        method: options.method,
+        url: dart.toString(options.uri),
+        responseType: 'arraybuffer',
+        headers: options.headers,
+        data: data,
+        withCredentials: core.bool._check((t1 = options.extra[$_get]("withCredentials"), t1 == null ? that.withCredentials : t1)),
+        onCreateRequest: function (requestID) {
+
+          this.requestIDArray.push(requestID);
+          t0$ = cancelFuture;
+          t0$ == null ? null : t0$.then(core.Null, dart.fn(_ => {
+
+            try {
+              network.abortRequest(requestID);
+            } catch (e$) {
+              let e = dart.getThrown(e$);
+            }
+
+          }, dynamicToNull()));
+
+          completer.future.whenComplete(dart.fn(() => {
+            this.requestIDArray.remove(requestID);
+          }, VoidToNull()));
+
+        }.bind(that),
+        onCompleteResponse: function (status, respHeaders, responseType,responseData, errorDesc, isTimeOut) {
+
+          core.print("network.sendRequest:status:[" + status + "]  responseData: [" + responseData + "] ");
+
+          if (errorDesc == null) {
+            completer.complete(new adapter.ResponseBody.fromBytes(responseData, status,
+              {
+                headers: {},//respHeaders[$map](core.String, ListOfString(), dart.fn((k, v) => new (MapEntryOfString$ListOfString()).__(k[$toLowerCase](), v[$split](",")), StringAndStringToMapEntryOfString$ListOfString())),
+                statusMessage: errorDesc,
+                isRedirect: status === 302 || status === 301
+              }));
+          }
+          else {
+            completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "XMLHttpRequest error: " + errorDesc, request: options }), core.StackTrace.current);
+          }
+        }
+      });
+    };
+
+    if (requestStream == null) {
+      send();
+    } else {
+      requestStream.reduce(dart.fn((a, b) => _native_typed_data.NativeUint8List.fromList((() => {
+        let t1 = JSArrayOfint().of([]);
+        for (let t2 of a)
+          t1[$add](t2);
+        for (let t3 of b)
+          t1[$add](t3);
+        return t1;
+      })()), ListOfintAndListOfintToUint8List())).then(dart.void, send);
+    }
+
+
+    return completer;
   }
+
   close(opts) {
-    // let force = opts && 'force' in opts ? opts.force : false;
-    // if (dart.test(force)) {
-    //   for (let xhr of this[_xhrs]) {
-    //     xhr.abort();
-    //   }
-    // }
-    // this[_xhrs][$clear]();
+    let force = opts && 'force' in opts ? opts.force : false;
+    if (dart.test(force)) {
+      for (let requestID of this.requestIDArray) {
+        network.abortRequest(requestID);
+      }
+    }
+    this.requestIDArray.clear();
   }
 };
 (browser_adapter.BrowserHttpClientAdapter.new = function () {
- // this[_xhrs] = JSArrayOfHttpRequest().of([]);
+  this.requestIDArray = [];
   this[withCredentials] = false;
   ;
 }).prototype = browser_adapter.BrowserHttpClientAdapter.prototype;
@@ -160,14 +177,6 @@ dart.setFieldSignature(browser_adapter.BrowserHttpClientAdapter, () => ({
 browser_adapter.createAdapter = function createAdapter() {
   return new browser_adapter.BrowserHttpClientAdapter.new();
 };
-dart.trackLibraries("/packages/dio/src/adapters/browser_adapter.dart", {
-  "package:dio/src/adapters/browser_adapter.dart": browser_adapter
-}, {
-}, '{"version":3,"sourceRoot":"","sources":["browser_adapter.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoBO;;;;;;UAGqC,SACpB,eAAsB;;AACtC,gBAAM;AACI,MAAd,AAAM,kBAAI,GAAG;AAK4D,WAHzE,GAAG;MACC,QAAK,AAAQ,OAAD,SAAqB,cAAZ,AAAQ,OAAD,eAAwB;MACpD,kBAAe;2BACf,kBAAmD,KAAjC,AAAQ,AAAK,OAAN,cAAO,0BAAD,OAAuB;;AACP,MAAnD,AAAQ,AAAQ,OAAT;AAC6D,MAApE,AAAQ,AAAQ,OAAT,mBAAiB,SAAC,KAAK,MAAM,AAAI,GAAD,kBAAkB,GAAG,EAAM,SAAF,CAAC;AAE7D,sBAAY;AAgCd,MA9BF,AAAI,AAAO,AAAM,GAAd,gCAAmB,QAAC;;AAEjB,oBAAoB,KAAb,AAAI,GAAD,mBAAC,OAAY,cAAK;AAC5B,qBAAS;AAcX,QAZF,AAAO,AAAO,AAAM,MAAd,gCAAmB,QAAC;AACpB,qBAAqB,wBAAd,AAAO,MAAD;AAUhB,UATD,AAAU,SAAD,UACM,mCACX,IAAI,EACJ,AAAI,GAAD,mBACM,AAAI,AACR,GADO,sDACH,SAAC,GAAG,MAAM,yCAAS,AAAE,CAAD,kBAAgB,AAAE,CAAD,SAAO,0EACtC,AAAI,GAAD,yBACN,AAAI,AAAO,AAAO,GAAf,YAAW,OAAO,AAAI,AAAO,GAAR,YAAW;;AAcnD,QATF,AAAO,AAAQ,AAAM,MAAf,iCAAoB,QAAC;AAQxB,UAPD,AAAU,SAAD,eACP,kCACqB,wCACZ,KAAK,WACH,OAAO,IAEP;;AAGe,QAA9B,AAAO,MAAD,oCAAmB,IAAI;;AAc7B,MAXF,AAAI,AAAQ,AAAM,GAAf,iCAAoB,QAAC;AAUrB,QAPD,AAAU,SAAD,eACP,kCACqB,wCACZ,kCACE,OAAO,IAEP;;AAYb,YARF,YAAY;oBAAZ,OAAc,oBAAK,QAAC;AAClB,YAAmB,aAAf,AAAI,GAAD,eAAc,KAAoB,aAAf,AAAI,GAAD,eAAc;AACzC;AACa,YAAX,AAAI,GAAD;;gBACI;;;;AAMb,UAAI,AAAc,aAAD,IAAI;AACT,QAAV,AAAI,GAAD;;AAIgB,QAFnB,AACK,AACA,aAFQ,QACD,SAAC,GAAG,MAAgB,4CAAS;;AAAC,wBAAG,EAAC;AAAJ;AAAM,wBAAG,EAAC;AAAJ;;oEAClC,UAAJ,GAAG;;AAGf,YAAO,AAAU,AAAO,UAAR,qBAAqB;AAClB,QAAjB,AAAM,qBAAO,GAAG;;IAEpB;;UAMiB;AACf,oBAAI,KAAK;AACP,iBAAS,MAAO;AACH,UAAX,AAAI,GAAD;;;AAGM,MAAb,AAAM;IACR;;;IAxGM,cAAqB;IAQtB,wBAAkB;;EAiGzB;;;;;;;;;;;;;;;;AA7GqC;EAA0B","file":"../../../../../../../../../../../packages/dio/src/adapters/browser_adapter.dart.lib.js"}');
-// Exports:
-// return {
-//   src__adapters__browser_adapter: browser_adapter
-// };
+
 exports.src__adapters__browser_adapter = browser_adapter;
 
-//# sourceMappingURL=browser_adapter.dart.lib.js.map

@@ -153,12 +153,12 @@ NSString *DropReactPrefixes(NSString *s)
 {
     
     //callback方式
-    NSDictionary *arguments = data?@{@"eventName":eventName,@"data":data}:@{@"eventName":eventName};
+    NSArray *arguments = data?@[eventName,data]:@[eventName];
     
     if (jsCallbackFun != nil) {
         
         [self.flutterApp executeBlockOnJSThread:^{
-            [jsCallbackFun callWithArguments: @[arguments]];
+            [jsCallbackFun callWithArguments: arguments];
         }];
     }
     else
@@ -170,7 +170,7 @@ NSString *DropReactPrefixes(NSString *s)
             return;
         }
         
-        [self.flutterApp invokeJSValue:self.jsAPPValueBridge method:@"onNativeEvent" args:@[arguments] callback:^(JSValue * _Nonnull result, NSError * _Nullable error) {
+        [self.flutterApp invokeJSValue:self.jsAPPValueBridge method:@"onNativeEvent" args:arguments callback:^(JSValue * _Nonnull result, NSError * _Nullable error) {
             
         }];
     }

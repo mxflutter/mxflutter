@@ -497,7 +497,7 @@ MX_EXPORT_MODULE(networking)
     return encodedResponse;
 }
 
-- (void)sendData:(NSData *)data
+- (id)convert:(NSData *)data
     responseType:(NSString *)responseType
         response:(NSURLResponse *)response
          forTask:(MXFNetworkTask *)task
@@ -513,7 +513,7 @@ MX_EXPORT_MODULE(networking)
     
     if (!responseData) {
         if (data.length == 0) {
-            return;
+            return data;
         }
         
         if ([responseType isEqualToString:@"text"]) {
@@ -521,17 +521,18 @@ MX_EXPORT_MODULE(networking)
             responseData = [MXFNetworking decodeTextData:data fromResponse:task.response withCarryData:nil];
             if (!responseData) {
                 MXFLogWarn(@"Received data was not a string, or was not a recognised encoding.");
-                return;
+                return data;
             }
         } else if ([responseType isEqualToString:@"base64"]) {
             responseData = [data base64EncodedStringWithOptions:0];
         } else {
             MXFLogWarn(@"Invalid responseType: %@", responseType);
-            return;
+            return data;
         }
     }
     
-    [self sendEventWithName:@"didReceiveNetworkData" body:@[task.requestID, responseData] callback:task.jsCallbackFun];
+    return responseData;
+    //[self sendEventWithName:@"didReceiveNetworkData" body:@[task.requestID, responseData] callback:task.jsCallbackFun];
 }
 
 - (void)sendRequest:(NSURLRequest *)request
@@ -620,15 +621,33 @@ MXFURLRequestCompletionBlock completionBlock =
         return;
     }
     
+    id responseData = data;
+    
     // Unless we were sending incremental (text) chunks to JS, all along, now
     // is the time to send the request body to JS.
     if (!(incrementalUpdates && [responseType isEqualToString:@"text"])) {
-        [strongSelf sendData:data
+        responseData = [strongSelf convert:data
                 responseType:responseType
                     response:response
                      forTask:task];
     }
+    
+    //--
+    NSDictionary<NSString *, NSString *> *headers;
+    NSInteger status;
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) { // Might be a local file request
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        headers = httpResponse.allHeaderFields ?: @{};
+        status = httpResponse.statusCode;
+    } else {
+        headers = response.MIMEType ? @{@"Content-Type": response.MIMEType} : @{};
+        status = 200;
+    }
+
     NSArray *responseJSON = @[task.requestID,
+                              @(status),
+                              headers,
+                              responseData?:@"",
                               MXNullIfNil(error.localizedDescription),
                               error.code == kCFURLErrorTimedOut ? @YES : @NO
     ];
@@ -649,7 +668,11 @@ if (task.requestID) {
         _tasksByRequestID = [NSMutableDictionary new];
     }
     _tasksByRequestID[task.requestID] = task;
-    responseSender(@[task.requestID]);
+    
+    if(responseSender )
+    {
+        responseSender(@[task.requestID]);
+    }
     
     [weakSelf sendEventWithName:@"didReceiveRequestID" body:@[task.requestID] callback:jsCallbackFun];
 }
@@ -720,7 +743,7 @@ if (task.requestID) {
 }
 
 -(void)sendRequest:(NSDictionary *)query
-    eventCallback:(JSValue*)jsCallbackFun
+    callback:(JSValue*)jsCallbackFun
 {
     // TODO: buildRequest returns a cancellation block, but there's currently
     // no way to invoke it, if, for example the request is cancelled while
