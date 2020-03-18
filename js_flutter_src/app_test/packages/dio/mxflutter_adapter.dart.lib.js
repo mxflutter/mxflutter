@@ -73,15 +73,13 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
 
     ///
 
-   
+    let t1, t0;
 
+    let reqTask = {};
     let that = this;
     let completer = CompleterOfResponseBody().new();
 
     function send(data) {
-     
-
-      let t1, t0, t0$;
 
       network.sendRequest({
         method: options.method,
@@ -92,31 +90,25 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
         withCredentials: core.bool._check((t1 = options.extra[$_get]("withCredentials"), t1 == null ? that.withCredentials : t1)),
         onCreateRequest: function (requestID) {
 
-          this.requestIDArray.push(requestID);
-          t0$ = cancelFuture;
-          t0$ == null ? null : t0$.then(core.Null, dart.fn(_ => {
-
-            try {
-              network.abortRequest(requestID);
-            } catch (e$) {
-              let e = dart.getThrown(e$);
-            }
-
-          }, dynamicToNull()));
-
-          completer.future.whenComplete(dart.fn(() => {
-            this.requestIDArray.remove(requestID);
-          }, VoidToNull()));
+          reqTask.requestID = requestID;
+          this.requestArray.push(reqTask);
 
         }.bind(that),
-        onCompleteResponse: function (status, respHeaders, responseType,responseData, errorDesc, isTimeOut) {
+        onCompleteResponse: function (status, respHeaders, responseType, responseData, errorDesc, isTimeOut) {
 
-          core.print("network.sendRequest:status:[" + status + "]  responseData: [" + responseData + "] ");
+          //core.print("network.sendRequest:status:[" + status + "]  responseData: [" + responseData + "] ");
 
           if (errorDesc == null) {
+
+            // completer.complete(new adapter.ResponseBody.fromString("diossssssssssss", 200));
+
+            let dartMapHeaders = that.convertDartMap(respHeaders);
+
+            let dartHeaders = dartMapHeaders[$map](core.String, ListOfString(), dart.fn((k, v) => new (MapEntryOfString$ListOfString()).__(k[$toLowerCase](), v[$split](",")), StringAndStringToMapEntryOfString$ListOfString()))
+
             completer.complete(new adapter.ResponseBody.fromBytes(responseData, status,
               {
-                headers: {},//respHeaders[$map](core.String, ListOfString(), dart.fn((k, v) => new (MapEntryOfString$ListOfString()).__(k[$toLowerCase](), v[$split](",")), StringAndStringToMapEntryOfString$ListOfString())),
+                headers: dartHeaders,
                 statusMessage: errorDesc,
                 isRedirect: status === 302 || status === 301
               }));
@@ -127,6 +119,16 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
         }
       });
     };
+
+    cancelFuture == null ? null : cancelFuture.then(core.Null, dart.fn(_ => {
+      try {
+        network.abortRequest(reqTask.requestID);
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+      }
+
+    }, dynamicToNull()));
+
 
     if (requestStream == null) {
       send();
@@ -141,8 +143,9 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
       })()), ListOfintAndListOfintToUint8List())).then(dart.void, send);
     }
 
-
-    return completer;
+    return completer.future.whenComplete(dart.fn(() => {
+      //that.requestArray.remove(reqTask.requestID);
+    }, VoidToNull()));;
   }
 
   close(opts) {
@@ -152,11 +155,36 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
         network.abortRequest(requestID);
       }
     }
-    this.requestIDArray.clear();
+    this.requestArray.clear();
+  }
+
+  convertDartMap(jsMap) {
+
+    let JSArrayOfJsObject = () => (JSArrayOfJsObject = dart.constFn(_interceptors.JSArray$(core.MapEntry)))();
+
+    let es = Array();
+    for (let key in jsMap) { // 遍历Map
+
+      let entry = new core.MapEntry;
+
+      let s = new core.String;
+      let ss = new _interceptors.JSString;
+      
+
+      entry.key = key;
+      entry.value = jsMap[key];
+
+      es.push(entry);
+    }
+
+    let dartArray = JSArrayOfJsObject().of(es);
+    let dartMap = core.Map.fromEntries(dartArray);
+
+    return dartMap;
   }
 };
 (browser_adapter.BrowserHttpClientAdapter.new = function () {
-  this.requestIDArray = [];
+  this.requestArray = [];
   this[withCredentials] = false;
   ;
 }).prototype = browser_adapter.BrowserHttpClientAdapter.prototype;

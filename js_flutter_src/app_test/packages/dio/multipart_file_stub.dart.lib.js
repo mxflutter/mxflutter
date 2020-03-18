@@ -76,7 +76,8 @@ multipart_file.MultipartFile = class MultipartFile extends core.Object {
   static fromString(value, opts) {
     let filename = opts && 'filename' in opts ? opts.filename : null;
     let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-    contentType == null ? contentType = new media_type.MediaType.new("text", "plain") : null;
+    //contentType == null ? contentType = new media_type.MediaType.new("text", "plain") : null;
+    contentType == null ? contentType = "text/plain" : null;
     let encoding = utils.encodingForCharset(contentType.parameters[$_get]("charset"), convert.utf8);
     contentType = contentType.change({ parameters: new (IdentityMapOfString$String()).from(["charset", encoding.name]) });
     return multipart_file.MultipartFile.fromBytes(encoding.encode(value), { filename: filename, contentType: contentType });

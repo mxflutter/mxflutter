@@ -1,6 +1,7 @@
 'use strict';
 const dart_sdk = require("dart_sdk");
 const convert = dart_sdk.convert;
+const _js_helper = dart_sdk._js_helper;
 
 
 class MXFNetworking {

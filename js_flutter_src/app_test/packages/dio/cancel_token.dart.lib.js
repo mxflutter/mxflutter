@@ -534,7 +534,8 @@ transformer.DefaultTransformer = class DefaultTransformer extends transformer.Tr
   }
   [_isJsonMime](contentType) {
     if (contentType == null) return false;
-    return media_type.MediaType.parse(contentType).mimeType[$toLowerCase]() === headers.Headers.jsonMimeType.mimeType;
+    //return media_type.MediaType.parse(contentType).mimeType[$toLowerCase]() === headers.Headers.jsonMimeType.mimeType;
+    return contentType[$toLowerCase]() === headers.Headers.jsonContentType;
   }
 };
 (transformer.DefaultTransformer.new = function (opts) {

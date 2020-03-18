@@ -67,6 +67,8 @@ const async = dart_sdk.async;
 const typed_data = dart_sdk.typed_data;
 const dart = dart_sdk.dart;
 const dartx = dart_sdk.dartx;
+const _interceptors = dart_sdk._interceptors;
+const js = dart_sdk.js;
 
 const { Dio } = require("packages/dio/dio_for_browser.dart.lib.js");
 
@@ -82,6 +84,21 @@ function testDio() {
         try {
             core.print("yield dioAPI.get(dart.dynamic, )" + urlStr);
 
+            var JSArrayOfJsObject = () => (JSArrayOfJsObject = dart.constFn(_interceptors.JSArray$(core.MapEntry)))();
+
+            let entry = new core.MapEntry;
+            entry.key = ("userAgent");
+            entry.value = ("dio");
+
+            let a = JSArrayOfJsObject().of([entry,entry]);
+
+            let h = core.Map.fromEntries(a);
+
+
+            //MapEntryOfK
+            dioAPI.options.headers = h;//{"userAgent": 'dio', 'common-header': 'xx'};
+
+
             let response = (yield dioAPI.get(dart.dynamic, urlStr));
 
             core.print("end yield dioAPI.get(dart.dynamic, )" + urlStr);
@@ -90,6 +107,8 @@ function testDio() {
         } catch (e$) {
             let e = dart.getThrown(e$);
             core.print("dio:request() " + e);
+            rethrow;
+
         }
     }).bind(this));
 
