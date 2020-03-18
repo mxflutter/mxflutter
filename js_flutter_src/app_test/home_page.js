@@ -69,14 +69,15 @@ const dart = dart_sdk.dart;
 const dartx = dart_sdk.dartx;
 const _interceptors = dart_sdk._interceptors;
 const js = dart_sdk.js;
+const _js_helper = dart_sdk._js_helper;
 
-const { Dio } = require("packages/dio/dio_for_browser.dart.lib.js");
+const { Dio, Response } = require("packages/dio/dio.js");
 
 const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
 const network = bridge_netwrok.network;
 const fetch = bridge_netwrok.fetch;
 
-let dioAPI = Dio.new();
+
 
 let urlStr = "https://facebook.github.io/react-native/movies.json";
 
@@ -88,19 +89,21 @@ function testDio() {
     //     try {
     //         core.print("yield dioAPI.get(dart.dynamic, )" + urlStr);
 
-    //         var JSArrayOfJsObject = () => (JSArrayOfJsObject = dart.constFn(_interceptors.JSArray$(core.MapEntry)))();
+    //         // var JSArrayOfJsObject = () => (JSArrayOfJsObject = dart.constFn(_interceptors.JSArray$(core.MapEntry)))();
 
-    //         let entry = new core.MapEntry;
-    //         entry.key = ("userAgent");
-    //         entry.value = ("dio");
+    //         // let entry = new core.MapEntry;
+    //         // entry.key = ("userAgent");
+    //         // entry.value = ("dio");
 
-    //         let a = JSArrayOfJsObject().of([entry, entry]);
+    //         // let a = JSArrayOfJsObject().of([entry, entry]);
 
-    //         let h = core.Map.fromEntries(a);
+    //         // let h = core.Map.fromEntries(a);
 
+    //         let m = new Map();
+    //         m["a"] = "b";
 
     //         //MapEntryOfK
-    //         dioAPI.options.headers = h;//{"userAgent": 'dio', 'common-header': 'xx'};
+    //         dioAPI.options.headers = m;//{"userAgent": 'dio', 'common-header': 'xx'};
 
 
     //         let response = (yield dioAPI.get(dart.dynamic, urlStr));
@@ -117,7 +120,7 @@ function testDio() {
     // }).bind(this));
 
 
-   
+
 
     //let url2 = "https://a3.att.hudong.com/68/61/300000839764127060614318218_950.jpg";
 
@@ -129,10 +132,25 @@ function testDio() {
 
     // }});
 
-    testFetch();
+    // testFetch();
+    testDio();
 
 
 }
+
+async function testDio() {
+    try {
+        let response = await Dio().get(urlStr);
+        core.print("await Dio.get(urlStr):request() " + response.json);
+
+    } catch (e$) {
+        let e = dart.getThrown(e$);
+        core.print("testDio() " + e);
+        rethrow;
+
+    }
+}
+
 
 async function testFetch() {
     let response = await fetch(urlStr);

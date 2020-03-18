@@ -178,16 +178,10 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
   convertDartMap(jsMap) {
 
     let JSArrayOfJsObject = () => (JSArrayOfJsObject = dart.constFn(_interceptors.JSArray$(core.MapEntry)))();
-
     let es = Array();
     for (let key in jsMap) { // 遍历Map
 
       let entry = new core.MapEntry;
-
-      let s = new core.String;
-      let ss = new _interceptors.JSString;
-      
-
       entry.key = key;
       entry.value = jsMap[key];
 

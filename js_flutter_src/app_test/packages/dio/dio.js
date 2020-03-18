@@ -16,12 +16,14 @@ class MXDio {
 
     constructor(baseOptions) {
 
-        if(baseOptions.headers && !checkIsLinkMap(baseOptions.headers)){
-            baseOptions.headers = convertDartMap(baseOptions.headers);
-        }
+        if (baseOptions) {
+            if (baseOptions.headers && !checkIsLinkMap(baseOptions.headers)) {
+                baseOptions.headers = convertDartMap(baseOptions.headers);
+            }
 
-        if(baseOptions.queryParameters && !checkIsLinkMap(baseOptions.queryParameters)){
-            baseOptions.queryParameters = convertDartMap(baseOptions.queryParameters);
+            if (baseOptions.queryParameters && !checkIsLinkMap(baseOptions.queryParameters)) {
+                baseOptions.queryParameters = convertDartMap(baseOptions.queryParameters);
+            }
         }
 
         this.dioAPI = dioLib.Dio.new(baseOptions);;
@@ -34,24 +36,42 @@ class MXDio {
         onReceiveProgress,
     } = {}) {
 
-        if(queryParameters && !checkIsLinkMap(queryParameters)){
+
+        if (queryParameters && !checkIsLinkMap(queryParameters)) {
             queryParameters = convertDartMap(queryParameters);
         }
 
-        if(options.headers && !checkIsLinkMap(options.headers)){
-            options.headers = convertDartMap(options.headers);
+        if (options) {
+            if (options.headers && !checkIsLinkMap(options.headers)) {
+                options.headers = convertDartMap(options.headers);
+            }
+
+            if (options.queryParameters && !checkIsLinkMap(options.queryParameters)) {
+                options.queryParameters = convertDartMap(options.queryParameters);
+            }
         }
 
-        if(options.queryParameters && !checkIsLinkMap(options.queryParameters)){
-            options.queryParameters = convertDartMap(options.queryParameters);
-        }
+        let promiseResult = new Promise(function (resolve, reject) {
 
-        return this.dioAPI.get(dart.dynamic, path, {
-            queryParameters,
-            options,
-            cancelToken,
-            onReceiveProgress,
+
+            this.dioAPI.get(dart.dynamic, path, {
+                queryParameters,
+                options,
+                cancelToken,
+                onReceiveProgress,
+            }).then(core.Null, dart.fn(value => {
+                resolve(value);
+            }, ResponseToNull())).catchError(dart.fn(e => {
+                reject(value);
+            }, dynamicToNull()));
+
         });
+        // return this.dioAPI.get(dart.dynamic, path, {
+        //     queryParameters,
+        //     options,
+        //     cancelToken,
+        //     onReceiveProgress,
+        // });
     }
 
     post(path, {
@@ -63,16 +83,18 @@ class MXDio {
         onReceiveProgress,//ProgressCallback
     } = {}) {
 
-        if(queryParameters && !checkIsLinkMap(queryParameters)){
+        if (queryParameters && !checkIsLinkMap(queryParameters)) {
             queryParameters = convertDartMap(queryParameters);
         }
 
-        if(options.headers && !checkIsLinkMap(options.headers)){
-            options.headers = convertDartMap(options.headers);
-        }
+        if (options) {
+            if (options.headers && !checkIsLinkMap(options.headers)) {
+                options.headers = convertDartMap(options.headers);
+            }
 
-        if(options.queryParameters && !checkIsLinkMap(options.queryParameters)){
-            options.queryParameters = convertDartMap(options.queryParameters);
+            if (options.queryParameters && !checkIsLinkMap(options.queryParameters)) {
+                options.queryParameters = convertDartMap(options.queryParameters);
+            }
         }
 
         return this.dioAPI.post(dart.dynamic, path, {
@@ -112,14 +134,14 @@ function convertDartMap(jsMap) {
     return dartMap;
 }
 
-function checkIsLinkMap(pMap){
+function checkIsLinkMap(pMap) {
 
     return pMap != null && typeof pMap === "LinkMap";
 }
 
 exports.Dio = Dio;
-exports.Response = dioLibObj.src__response;
-exports.options = dioLibObj.src__options;
+exports.Response = dioLibObj.src__response.Response;
+exports.options = dioLibObj.src__options.Options;
 
 
 
