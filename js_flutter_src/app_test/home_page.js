@@ -72,6 +72,10 @@ const js = dart_sdk.js;
 
 const { Dio } = require("packages/dio/dio_for_browser.dart.lib.js");
 
+const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
+const network = bridge_netwrok.network;
+const fetch = bridge_netwrok.fetch;
+
 let dioAPI = Dio.new();
 
 let urlStr = "https://facebook.github.io/react-native/movies.json";
@@ -79,40 +83,41 @@ let urlStr = "https://facebook.github.io/react-native/movies.json";
 
 function testDio() {
 
-    return async.async(dart.dynamic, (function* getHttp() {
+    // return async.async(dart.dynamic, (function* getHttp() {
 
-        try {
-            core.print("yield dioAPI.get(dart.dynamic, )" + urlStr);
+    //     try {
+    //         core.print("yield dioAPI.get(dart.dynamic, )" + urlStr);
 
-            var JSArrayOfJsObject = () => (JSArrayOfJsObject = dart.constFn(_interceptors.JSArray$(core.MapEntry)))();
+    //         var JSArrayOfJsObject = () => (JSArrayOfJsObject = dart.constFn(_interceptors.JSArray$(core.MapEntry)))();
 
-            let entry = new core.MapEntry;
-            entry.key = ("userAgent");
-            entry.value = ("dio");
+    //         let entry = new core.MapEntry;
+    //         entry.key = ("userAgent");
+    //         entry.value = ("dio");
 
-            let a = JSArrayOfJsObject().of([entry,entry]);
+    //         let a = JSArrayOfJsObject().of([entry, entry]);
 
-            let h = core.Map.fromEntries(a);
-
-
-            //MapEntryOfK
-            dioAPI.options.headers = h;//{"userAgent": 'dio', 'common-header': 'xx'};
+    //         let h = core.Map.fromEntries(a);
 
 
-            let response = (yield dioAPI.get(dart.dynamic, urlStr));
+    //         //MapEntryOfK
+    //         dioAPI.options.headers = h;//{"userAgent": 'dio', 'common-header': 'xx'};
 
-            core.print("end yield dioAPI.get(dart.dynamic, )" + urlStr);
-            core.print(response);
 
-        } catch (e$) {
-            let e = dart.getThrown(e$);
-            core.print("dio:request() " + e);
-            rethrow;
+    //         let response = (yield dioAPI.get(dart.dynamic, urlStr));
 
-        }
-    }).bind(this));
+    //         core.print("end yield dioAPI.get(dart.dynamic, )" + urlStr);
+    //         core.print(response);
 
-    const NetWork = require("./native_bridge/mxf_bridge_netwrok.js");
+    //     } catch (e$) {
+    //         let e = dart.getThrown(e$);
+    //         core.print("dio:request() " + e);
+    //         rethrow;
+
+    //     }
+    // }).bind(this));
+
+
+   
 
     //let url2 = "https://a3.att.hudong.com/68/61/300000839764127060614318218_950.jpg";
 
@@ -124,7 +129,14 @@ function testDio() {
 
     // }});
 
+    testFetch();
 
+
+}
+
+async function testFetch() {
+    let response = await fetch(urlStr);
+    core.print("let obj = await fetch():request() " + response.json);
 }
 
 

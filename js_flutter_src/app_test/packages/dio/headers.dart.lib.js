@@ -144,9 +144,9 @@ dart.defineLazy(headers.Headers, {
     /*headers.Headers.formUrlEncodedContentType*/get formUrlEncodedContentType() {
     return "application/x-www-form-urlencoded";
   },
-    /*headers.Headers.jsonMimeType*/get jsonMimeType() {
-    return media_type.MediaType.parse("application/json; charset=utf-8");
-  }
+  //   /*headers.Headers.jsonMimeType*/get jsonMimeType() {
+  //   return media_type.MediaType.parse("application/json; charset=utf-8");
+  // }
 }, true);
 dart.trackLibraries("/packages/dio/src/headers.dart", {
   "package:dio/src/headers.dart": headers

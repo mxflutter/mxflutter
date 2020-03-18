@@ -29,7 +29,7 @@ class MXFNetworking {
     }
   ) {
 
-    let body = data;
+    let body = this.convertRequestBody(data);
     let origResponseType = responseType;
     responseType = this.getNativeResponseType(responseType);
 
@@ -102,7 +102,7 @@ class MXFNetworking {
             responseData = convert.base64Decode(responseData);
           }
 
-          if (onCompleteResponse != null) onCompleteResponse(status, respHeaders,origResponseType, responseData, errorDesc, isTimeOut);
+          if (onCompleteResponse != null) onCompleteResponse(status, respHeaders, origResponseType, responseData, errorDesc, isTimeOut);
 
         }
 
@@ -134,6 +134,78 @@ class MXFNetworking {
     return nativeResponseType;
 
   }
+
+  convertRequestBody(body) {
+    if (typeof body === 'string') {
+      return { string: body };
+    }
+    // if (body instanceof Blob) {
+    //   return {blob: body.data};
+    // }
+    // if (body instanceof FormData) {
+    //   return {formData: body.getParts()};
+    // }
+    if (body instanceof ArrayBuffer || ArrayBuffer.isView(body)) {
+      // $FlowFixMe: no way to assert that 'body' is indeed an ArrayBufferVie
+      return { base64: convert.base64Encode(body) };
+    }
+    return body;
+  }
 }
 
-exports.network = new MXFNetworking;
+let network = new MXFNetworking;
+exports.network = network;
+
+class Response {
+  constructor({ url, type, status, ok, statusText, headers, json, text, data }) {
+    this.type = type;
+    this.status = status;
+    this.ok = this.status >= 200 && this.status < 300;
+    this.statusText = statusText;
+    this.headers = headers;
+    this.url = url || '';
+    this.json = json;
+    this.text = text;
+    this.data = data;
+  }
+}
+
+//支持fetch接口
+exports.fetch = function (url, { method, headers, body, credentials } = {}) {
+
+  return new Promise(function (resolve, reject) {
+
+    let withCredentials = credentials;
+
+    network.sendRequest({
+      url, method, headers, body, withCredentials,
+      onCompleteResponse: function (status, respHeaders, origResponseType, responseData, errorDesc, isTimeOut) {
+
+        let r = new Response({
+          url: url,
+          type: origResponseType,
+          status: status,
+          headers: respHeaders,
+          statusText: errorDesc,
+          json: responseData,
+          text: responseData,
+          data: responseData, //FIXME
+
+        });
+        if (errorDesc == null) {
+
+          resolve(r);
+        }
+        else {
+          reject(r);
+        }
+
+      }
+    });
+  });
+};
+
+exports.Response = Response;
+
+
+

@@ -71,6 +71,17 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
     //   core.print("ompleter.future.whenComplete(dart.fn(() => {");
     // }, VoidToNull()));
 
+
+    // if (showDownloadProgress) {
+    //   received = received + dart.notNull(data[$length]);
+    //   t0 = options;
+    //   t1 = received;
+    //   t2 = length;
+    //   t0.onReceiveProgress(t1, t2);
+    // }
+
+    let showDownloadProgress = options.onReceiveProgress != null;
+
     ///
 
     let t1, t0;
@@ -115,6 +126,11 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
           }
           else {
             completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "XMLHttpRequest error: " + errorDesc, request: options }), core.StackTrace.current);
+          }
+        },
+        onReceiveDataProgress:function(progress, total){
+          if (showDownloadProgress) {
+            options.onReceiveProgress(progress, total);
           }
         }
       });

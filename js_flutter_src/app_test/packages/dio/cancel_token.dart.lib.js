@@ -463,6 +463,7 @@ transformer.DefaultTransformer = class DefaultTransformer extends transformer.Tr
       let length = 0;
       let received = 0;
       let showDownloadProgress = options.onReceiveProgress != null;
+      showDownloadProgress = false; //FIXME can prof
       if (showDownloadProgress) {
         length = core.int.parse((t0$ = (t0 = response.headers[$_get]("content-length"), t0 == null ? null : t0[$first]), t0$ == null ? "-1" : t0$));
       }
