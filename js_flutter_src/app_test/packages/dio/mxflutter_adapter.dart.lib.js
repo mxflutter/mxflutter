@@ -160,6 +160,7 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
     }
 
     return completer.future.whenComplete(dart.fn(() => {
+      //TODO:FIXME
       //that.requestArray.remove(reqTask.requestID);
     }, VoidToNull()));;
   }
