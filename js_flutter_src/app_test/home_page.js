@@ -71,7 +71,9 @@ const _interceptors = dart_sdk._interceptors;
 const js = dart_sdk.js;
 const _js_helper = dart_sdk._js_helper;
 
-const { Dio, Response } = require("packages/dio/dio.js");
+const packages__dio = require("packages/dio/dio.js");
+
+
 
 const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
 const network = bridge_netwrok.network;
@@ -140,12 +142,20 @@ function testDio() {
 
 async function testDio() {
     try {
-        let response = await Dio().get(urlStr);
-        core.print("await Dio.get(urlStr):request() " + response.json);
+        let dio = packages__dio.Dio();
+        dio.options.connectTimeout = 5000; //5s
+        dio.options.receiveTimeout = 5000;
+        dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
+
+        let options = new packages__dio.Options.new();
+        options.headers = { "a": "b" };
+
+        let response = await dio.get(urlStr, { options });
+        core.print("await Dio.get(urlStr):request() :" + response);
 
     } catch (e$) {
         let e = dart.getThrown(e$);
-        core.print("testDio() " + e);
+        core.print("testDio() error:" + e);
         rethrow;
 
     }

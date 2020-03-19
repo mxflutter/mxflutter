@@ -60,29 +60,7 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
   }
   fetch(options, requestStream, cancelFuture) {
 
-    // core.print("fetch(options, requestStream, cancelFuture) {");
-
-    // var completer = CompleterOfResponseBody().new();
-    // setTimeout(function () {
-    //   completer.complete(new adapter.ResponseBody.fromString("diossssssssssss", 200));
-    //   //completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "mxerror", request: options }), core.StackTrace.current);
-    // }, 2000);
-    // return completer.future.whenComplete(dart.fn(() => {
-    //   core.print("ompleter.future.whenComplete(dart.fn(() => {");
-    // }, VoidToNull()));
-
-
-    // if (showDownloadProgress) {
-    //   received = received + dart.notNull(data[$length]);
-    //   t0 = options;
-    //   t1 = received;
-    //   t2 = length;
-    //   t0.onReceiveProgress(t1, t2);
-    // }
-
     let showDownloadProgress = options.onReceiveProgress != null;
-
-    ///
 
     let t1, t0;
 

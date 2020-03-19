@@ -72,6 +72,28 @@ var StringAnddynamicToMapEntryOfString$dynamic = () => (StringAnddynamicToMapEnt
 var StreamOfUint8List = () => (StreamOfUint8List = dart.constFn(async.Stream$(typed_data.Uint8List)))();
 var JSArrayOfint = () => (JSArrayOfint = dart.constFn(_interceptors.JSArray$(core.int)))();
 var intToUint8List = () => (intToUint8List = dart.constFn(dart.fnType(typed_data.Uint8List, [core.int])))();
+
+
+function convertJSMap2DartMapOfString$dynamic(jsMap) {
+  try {
+      let es = Array();
+      for (let key in jsMap) { // 遍历Map
+
+          es.push(key);
+          es.push(jsMap[key]);
+      }
+
+      return new (IdentityMapOfString$dynamic()).from(es);
+
+
+  } catch (e$) {
+      let e = dart.getThrown(e$);
+      core.print("convertJSMap2DartMapOfString$dynamic error:" + e);
+      return jsMap;
+
+  }
+}
+
 const CT = Object.create(null);
 var L0 = "package:dio/src/cancel_token.dart";
 var L4 = "package:dio/src/options.dart";
@@ -610,18 +632,24 @@ options$._RequestConfig = class _RequestConfig extends core.Object {
     return this[headers$0];
   }
   set headers(value) {
+    //MXFlutterDioFix
+    value = convertJSMap2DartMapOfString$dynamic(value);
     this[headers$0] = value;
   }
   get sendTimeout() {
     return this[sendTimeout$];
   }
   set sendTimeout(value) {
+          //MXFlutterDioFix 暂不支持
+          value = 0;
     this[sendTimeout$] = value;
   }
   get receiveTimeout() {
     return this[receiveTimeout$];
   }
   set receiveTimeout(value) {
+          //MXFlutterDioFix 暂不支持
+          value = 0;
     this[receiveTimeout$] = value;
   }
   get responseType() {
@@ -752,12 +780,16 @@ options$.BaseOptions = class BaseOptions extends options$._RequestConfig {
     return this[queryParameters$];
   }
   set queryParameters(value) {
+    //MXFlutterDioFix
+    value = convertJSMap2DartMapOfString$dynamic(value);
     this[queryParameters$] = value;
   }
   get connectTimeout() {
     return this[connectTimeout$];
   }
   set connectTimeout(value) {
+      //MXFlutterDioFix 暂不支持
+    value = 0;
     this[connectTimeout$] = value;
   }
   merge(opts) {
@@ -791,6 +823,10 @@ options$.BaseOptions = class BaseOptions extends options$._RequestConfig {
   let queryParameters = opts && 'queryParameters' in opts ? opts.queryParameters : null;
   let extra = opts && 'extra' in opts ? opts.extra : null;
   let headers = opts && 'headers' in opts ? opts.headers : null;
+
+  //MXFlutterDioFix
+  headers = convertJSMap2DartMapOfString$dynamic(headers);
+
   let responseType = opts && 'responseType' in opts ? opts.responseType : C7 || CT.C7;
   let contentType = opts && 'contentType' in opts ? opts.contentType : null;
   let validateStatus = opts && 'validateStatus' in opts ? opts.validateStatus : null;
@@ -892,6 +928,8 @@ options$.RequestOptions = class RequestOptions extends options$.Options {
     return this[queryParameters$0];
   }
   set queryParameters(value) {
+        //MXFlutterDioFix
+        value = convertJSMap2DartMapOfString$dynamic(value);
     this[queryParameters$0] = value;
   }
   get cancelToken() {
