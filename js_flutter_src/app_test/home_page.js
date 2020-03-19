@@ -226,8 +226,8 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Pesto'),
-                    subtitle: new Text('Simple recipe browser'),
+                    title: new Text('Test NetworkAPI'),
+                    subtitle: new Text('Debug testDio'),
 
                     onTap: function () {
                         testDio();
