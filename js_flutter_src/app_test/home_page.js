@@ -25,6 +25,8 @@ let {
     MXJSLog,
 } = require("js_flutter.js");
 
+const { SectionTitle } = require("./component/section_title.js");
+
 let { JSPestoPage } = require("./pesto.js");
 let { JSContactPage } = require("./contact.js");
 let { JSAnimationPage } = require("./animation.js");
@@ -34,6 +36,9 @@ let { JSZhiHuPage } = require("./zhihu/zhihu.js");
 let { ExamplesPage } = require("./examples/index.js");
 let { JSCupertinoPage } = require("./cupertino.js");
 let { ListViewDemo } = require("./listview_demo.js");
+
+
+let { PlatformExamplesPage } = require("./platform/index.js");
 
 main_ddc = require("./dart_js/main.ddc.js");
 flutter_demo_ddc = require("./dart_js/flutter_demo.ddc.js");
@@ -52,120 +57,6 @@ const packages__zhihu__my__my_page = require('packages/zhihu/my/my_page');
 const my_page = packages__zhihu__my__my_page.my__my_page;
 const packages__zhihu__index = require('packages/zhihu/index/index');
 const index_page = packages__zhihu__index.index__index;
-
-
-
-//flutter_gallery
-// const packages__flutter_gallery__gallery__app = require('packages/flutter_gallery/gallery/app');
-// const flutter_gallery_app = packages__flutter_gallery__gallery__app.gallery__app;
-
-const dart_sdk = require("dart_sdk");
-let packages__dio__src__cancel_token = require('packages/dio/cancel_token.dart.lib.js');
-
-const core = dart_sdk.core;
-const async = dart_sdk.async;
-const typed_data = dart_sdk.typed_data;
-const dart = dart_sdk.dart;
-const dartx = dart_sdk.dartx;
-const _interceptors = dart_sdk._interceptors;
-const js = dart_sdk.js;
-const _js_helper = dart_sdk._js_helper;
-
-const packages__dio = require("packages/dio/dio.js");
-
-
-
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
-const fetch = bridge_netwrok.fetch;
-
-
-
-let urlStr = "https://facebook.github.io/react-native/movies.json";
-
-
-function testDio() {
-
-    // return async.async(dart.dynamic, (function* getHttp() {
-
-    //     try {
-    //         core.print("yield dioAPI.get(dart.dynamic, )" + urlStr);
-
-    //         // var JSArrayOfJsObject = () => (JSArrayOfJsObject = dart.constFn(_interceptors.JSArray$(core.MapEntry)))();
-
-    //         // let entry = new core.MapEntry;
-    //         // entry.key = ("userAgent");
-    //         // entry.value = ("dio");
-
-    //         // let a = JSArrayOfJsObject().of([entry, entry]);
-
-    //         // let h = core.Map.fromEntries(a);
-
-    //         let m = new Map();
-    //         m["a"] = "b";
-
-    //         //MapEntryOfK
-    //         dioAPI.options.headers = m;//{"userAgent": 'dio', 'common-header': 'xx'};
-
-
-    //         let response = (yield dioAPI.get(dart.dynamic, urlStr));
-
-    //         core.print("end yield dioAPI.get(dart.dynamic, )" + urlStr);
-    //         core.print(response);
-
-    //     } catch (e$) {
-    //         let e = dart.getThrown(e$);
-    //         core.print("dio:request() " + e);
-    //         rethrow;
-
-    //     }
-    // }).bind(this));
-
-
-
-
-    //let url2 = "https://a3.att.hudong.com/68/61/300000839764127060614318218_950.jpg";
-
-
-
-    // NetWork.MXFNetworkInstance.sendRequest({method:"GET",url:urlStr,responseType: 'arraybuffer',onCompleteResponse: function (status, respHeaders, responseData, errorDesc, isTimeOut){
-
-    //     core.print("JSINetworkInstance.sendRequest2:status:[" + status + "]  responseData: [" + responseData + "] ");
-
-    // }});
-
-    // testFetch();
-    testDio();
-
-
-}
-
-async function testDio() {
-    try {
-        let dio = packages__dio.Dio();
-        dio.options.connectTimeout = 5000; //5s
-        dio.options.receiveTimeout = 5000;
-        dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
-
-        let options = new packages__dio.Options.new();
-        options.headers = { "a": "b" };
-
-        let response = await dio.get(urlStr, { options });
-        core.print("await Dio.get(urlStr):request() :" + response);
-
-    } catch (e$) {
-        let e = dart.getThrown(e$);
-        core.print("testDio() error:" + e);
-        rethrow;
-
-    }
-}
-
-
-async function testFetch() {
-    let response = await fetch(urlStr);
-    core.print("let obj = await fetch():request() " + response.json);
-}
 
 
 //业务代码
@@ -189,7 +80,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
         let demoList = new ListView({
 
             children: [
-                new Padding({ padding: EdgeInsets.all(1.0) }),
+
                 this.sectionTitle(context, "App Demo"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
@@ -236,16 +127,15 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Test NetworkAPI'),
-                    subtitle: new Text('Debug testDio'),
+                    title: new Text('PlatformAPIExamples'),
+                    subtitle: new Text('Network/Dio/MessageChannel'),
 
                     onTap: function () {
-                        testDio();
-                        // Navigator.push(context, new MaterialPageRoute({
-                        //     builder: function (context) {
-                        //         return new JSPestoPage;
-                        //     }
-                        // }))
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new PlatformExamplesPage;
+                            }
+                        }))
                     }
                 }),
 
@@ -422,7 +312,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
         let w = new Scaffold({
             appBar: new AppBar({
-                title: new Text("JSFlutter UI Demo")
+                title: new Text("MXFlutter Examples")
             }),
             body: demoList
         });
@@ -432,19 +322,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
     }
 
     sectionTitle(context, title) {
-        let t = new Container({
-            padding: EdgeInsets.all(5.0),
-            color: Theme.of(context).primaryColor,
-            child: new Row({
-                children: [
-                    new Icon(new IconData(0xe80e), { size: 16.1, color: new Color(0xFFFFFFFF) }),
-                    new Padding({ padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0) }),
-                    new Text(title, { textAlign: TextAlign.start })]
-            })
-        });
-
-        return t;
-
+        return new SectionTitle(title);
     }
 
 
