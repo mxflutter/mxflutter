@@ -70,3 +70,6 @@ CachedNetworkImage.new = function(arg) {
 src__cached_image_widget = Object.create(null);
 src__cached_image_widget.CachedNetworkImage = CachedNetworkImage;
 exports.src__cached_image_widget = src__cached_image_widget;
+
+//for js dev
+exports.CachedNetworkImage = CachedNetworkImage;

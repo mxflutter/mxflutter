@@ -63,32 +63,62 @@ let {
     Theme,
     Navigator,
     MaterialPageRoute,
-    MethodChannel
+    MethodChannel,
+    ClipRRect,
 } = require("js_flutter.js");
 
 
 let { SmartRefresher, ClassicFooter, RefreshController } = require('packages/pull_to_refresh/pull_to_refresh');
+const { CachedNetworkImage } = require("packages/cached_network_image/cached_network_image");
+
+
+const { SectionTitle } = require("./component/section_title.js");
+
+const packages__dio = require("packages/dio/dio.js");
+
+const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
+const network = bridge_netwrok.network;
+const fetch = bridge_netwrok.fetch;
+
+//用于演示网络请求cgi
+let cgi = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
 
 //data
 let g_icons = null;
 let count = 0;
 
 class ListViewItem extends MXJSStatelessWidget {
-    constructor(iconName) {
+    constructor(oneNewsMap) {
         super('ListViewItem');
-        this.iconName = iconName;
+        this.oneNewsMap = oneNewsMap;
     }
 
 
     build(context) {
 
-        const icon = Icons[this.iconName];
+        let imageUrl = this.oneNewsMap["imgsrc"];
+        let title = this.oneNewsMap["title"];
+        let desc = this.oneNewsMap["digest"];
+
+        let coverImage = new ClipRRect({
+            borderRadius: BorderRadius.circular(4.0),
+            child: new CachedNetworkImage({
+                fadeInDuration: new core.Duration.new({ milliseconds: 100 }),
+                fadeOutDuration: new core.Duration.new({ milliseconds: 100 }),
+                imageUrl: imageUrl,
+                width: 124.0,
+                height: 69.0,
+                fit: box_fit.BoxFit.fill
+            })
+        });
+
+        
         return new Card({
             child: new ListTile({
-                leading: new Icon(icon, { size: 50, color: Colors.orange }),
+                leading: coverImage,
                 trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                title: new Text((count++) + " " + this.iconName),
-                subtitle: new Text('ListItem Demo'),
+                title: new Text(count + " " + title),
+                subtitle: new Text(desc),
                 onTap: function () {
                     Navigator.push(context, new MaterialPageRoute({
                         builder: function (context) {
@@ -121,28 +151,70 @@ class ListViewDemoState extends MXJSWidgetState {
         this.refreshController = new RefreshController();
         this.methodChannel = new MethodChannel("MXFlutter_MethodChannel_Demo");
 
-        this.dataList = [
-            "threesixty",
-            "threed_rotation",
-            "four_k",
-        ];
+        this.pageCount = 10;
+        this.pageIndex = 0;
+
+        this.newsArray = [];
+
+        this.loading = false;
+    }
+
+    initState(){
+        super.initState();
+        this.refresh();
     }
 
     async refresh() {
-
         //MessageChannel 用法示例
-        let result = await this.methodChannel.invokeMethod("callNativeIconListRefresh", {});
+        let newsArray = await this.requestHttpData();
 
-        MXJSLog.log("callNativeIconListRefresh result: " + result);
-        this.refreshController.refreshCompleted();
+        setState(function () {
+            this.newsArray.concat(respArray);
+        }.bind(this));
+    }
 
-        this.requestHttpData();
+    async requestHttpData() {
+
+        if(this.loading){
+            return;
+        }
+
+        this.loading = true;
+        let result = await this.requestNews();
+        
+        if (result) {
+            this.refreshController.refreshCompleted();
+            let responseMap = JSON.parse(result);
+
+            let respArray = responseMap["T1348649580692"];
+
+            return respArray;
+        }
+        else {
+            this.refreshController.refreshFailed();
+        }
+        this.loading = false;
 
     }
 
-    requestHttpData() {
+    ///fetch 示例
+    async requestNews() {
+        this.pageIndex =  this.pageIndex%4
+        let startIndex = this.pageIndex * this.pageCount;
+        let endIndex = startIndex + this.pageCount;
 
+        let url = "https://c.m.163.com/nc/article/headline/T1348649580692/${startIndex}-${endIndex}.html";
+        try {
+            let response = await fetch(cgi);
+            MXJSLog.log("requestNews:resp: " + response.text);
+            return response.text;
 
+        } catch (e$) {
+            let e = dart.getThrown(e$);
+            MXJSLog.log("requestNews:resp:  error:" + e);
+            return null;
+
+        }
     }
 
     build(context) {
@@ -170,9 +242,9 @@ class ListViewDemoState extends MXJSWidgetState {
                     }),
                     // 动态创建Item
                     child: ListView.builder({
-                        itemCount: this.dataList.length,
+                        itemCount: this.newsArray.length,
                         itemBuilder: function (context, index) {
-                            return new ListViewItem(this.dataList[index]);
+                            return new ListViewItem(this.newsArray[index]);
                         }.bind(this),
                     }),
                     onRefresh: function () {

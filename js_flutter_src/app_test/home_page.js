@@ -33,7 +33,7 @@ let { JSAnimationPage } = require("./animation.js");
 let { JSMaterialPage } = require("./material.js");
 let { JSZhiHuPage } = require("./zhihu/zhihu.js");
 
-let { ExamplesPage } = require("./examples/index.js");
+//let { ExamplesPage } = require("./examples/index.js");
 let { JSCupertinoPage } = require("./cupertino.js");
 let { ListViewDemo } = require("./listview_demo.js");
 
@@ -114,6 +114,10 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('Examples'),
                     subtitle: new Text('All examples'),
                     onTap: function () {
+
+                        //点击时懒加载页面
+                        let { ExamplesPage } = require("./examples/index.js");
+
                         testDio1();
                         // Navigator.push(context, new MaterialPageRoute({
                         //     builder: function (context) {

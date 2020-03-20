@@ -55,6 +55,9 @@ let {
   MethodChannel
 } = require("js_flutter.js");
 
+const dart_sdk = require("dart_sdk");
+const dart = dart_sdk.dart;
+
 const { SectionTitle } = require("./component/section_title.js");
 
 const packages__dio = require("packages/dio/dio.js");
