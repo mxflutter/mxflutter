@@ -58,6 +58,32 @@ const my_page = packages__zhihu__my__my_page.my__my_page;
 const packages__zhihu__index = require('packages/zhihu/index/index');
 const index_page = packages__zhihu__index.index__index;
 
+const dart_sdk = require("dart_sdk");
+const dart = dart_sdk.dart;
+const packages__dio = require("packages/dio/dio.js");
+
+const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
+const network = bridge_netwrok.network;
+const fetch = bridge_netwrok.fetch;
+
+
+let cgiDataUrl = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
+let cgiJsonUrl = "https://reactnative.dev/movies.json";
+
+  //例子1，最简单的用法 
+  async function testDio1() {
+    try {
+      let response = await packages__dio.Dio().get(cgiJsonUrl);
+      MXJSLog.log("await Dio.get(urlStr):request() :" + response);
+      return response;
+
+    } catch (e$) {
+      let e = dart.getThrown(e$);
+      MXJSLog.log("testDio() error:" + e);
+      return e;
+
+    }
+  }
 
 //业务代码
 class JSWidgetHomePage extends MXJSStatefulWidget {
@@ -88,11 +114,12 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('Examples'),
                     subtitle: new Text('All examples'),
                     onTap: function () {
-                        Navigator.push(context, new MaterialPageRoute({
-                            builder: function (context) {
-                                return new ExamplesPage;
-                            }
-                        }))
+                        testDio1();
+                        // Navigator.push(context, new MaterialPageRoute({
+                        //     builder: function (context) {
+                        //         return new ExamplesPage;
+                        //     }
+                        // }))
                     }
                 }),
                 new ListTile({

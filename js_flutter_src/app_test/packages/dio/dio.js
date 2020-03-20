@@ -11,6 +11,7 @@ const dartx = dart_sdk.dartx;
 const _interceptors = dart_sdk._interceptors;
 const js = dart_sdk.js;
 const _js_helper = dart_sdk._js_helper;
+const convert = dart_sdk.convert;
 
 const dio = packages__dio__src__entry__dio_for_browser.src__dio;
 const response$ = packages__dio__src__cancel_token.src__response;
@@ -69,6 +70,7 @@ class MXDio {
                 onReceiveProgress,
             }).then(core.Null, dart.fn(value => {
                 //core.print("value: " + dart.str(value));
+                value.data = convertDartJSONMap2jsMap(value.data);
                 resolve(value);
             }, ResponseToNull())).catchError(dart.fn(e => {
                 //core.print("error: " + dart.str(e));
@@ -114,6 +116,7 @@ class MXDio {
                 onReceiveProgress,//ProgressCallback
             }).then(core.Null, dart.fn(value => {
                 //core.print("value: " + dart.str(value));
+                value.data = convertDartJSONMap2jsMap(value.data);
                 resolve(value);
             }, ResponseToNull())).catchError(dart.fn(e => {
                 //core.print("error: " + dart.str(e));
@@ -153,6 +156,28 @@ function convertJSMap2DartMapOfString$dynamic(jsMap) {
 }
 
 
+//dart_sdk.dart.runtimeType(response.data).toString()
+
+function convertDartJSONMap2jsMap(jsonMap) {
+    try {
+
+        if (dart_sdk.dart.runtimeType(jsonMap).toString() != "_JsonMap") {
+            return jsonMap;
+        }
+
+        //TODO：优化
+        let jsonStr = convert.json.encode(jsonMap);
+        let jsMap = JSON.parse(jsonStr);
+        
+        return  jsMap;
+
+
+    } catch (e$) {
+        let e = dart.getThrown(e$);
+        core.print("convertDartJSONMap2jsMap error:" + e);
+        return jsonMap;
+    }
+}
 
 
 function checkIsLinkMap(pMap) {

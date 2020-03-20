@@ -54,6 +54,9 @@ let {
   Icons,
 } = require("js_flutter.js");
 
+const dart_sdk = require("dart_sdk");
+const dart = dart_sdk.dart;
+
 const { SectionTitle } = require("./component/section_title.js");
 
 const packages__dio = require("packages/dio/dio.js");
@@ -63,7 +66,8 @@ const network = bridge_netwrok.network;
 const fetch = bridge_netwrok.fetch;
 
 
-let cgi = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
+let cgiDataUrl = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
+let cgiJsonUrl = "https://reactnative.dev/movies.json"
 
 class PageExampleDio extends MXJSStatefulWidget {
   constructor() {
@@ -88,10 +92,10 @@ class PageExampleDioState extends MXJSWidgetState {
     return "let resp = await Dio().get(cgi);";
   }
   
-  //例子1，接口还未完全支持
-  async testDio1() {
+  //例子1，最简单的用法 
+  async testDio1(url) {
     try {
-      let response = await packages__dio.Dio().get(cgi);
+      let response = await packages__dio.Dio().get(url);
       MXJSLog.log("await Dio.get(urlStr):request() :" + response);
       return response;
 
@@ -104,7 +108,7 @@ class PageExampleDioState extends MXJSWidgetState {
   }
 
   //例子2，接口还未完全支持
-  async testDio2() {
+  async testDio2(url) {
     try {
       let dio = packages__dio.Dio();
       dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
@@ -112,7 +116,10 @@ class PageExampleDioState extends MXJSWidgetState {
       let options = new packages__dio.Options.new();
       options.headers = { "a": "b" };
 
-      return await dio.get(cgi, { options });
+      return await dio.get(url, { options,onReceiveProgress:function (progress,total){
+
+        MXJSLog.log("testDio() error: progress: " + progress/total);
+      }});
 
     } catch (e$) {
       let e = dart.getThrown(e$);
@@ -128,7 +135,7 @@ class PageExampleDioState extends MXJSWidgetState {
       }),
       body: new ListView({
         children: [
-          new SectionTitle("Code 获取网易新闻"),
+          new SectionTitle("Code 获取网易新闻text"),
           new ListTile({
             trailing: new Icon(Icons["directions_run"]),
             title: new Text(this.dioCodeText(), {
@@ -137,11 +144,31 @@ class PageExampleDioState extends MXJSWidgetState {
               })
             }),
             onTap: async function () {
-              let response = await this.testDio1();
+              let response = await this.testDio2(cgiDataUrl);
 
               this.setState(function () {
 
-                this.response = response.data;
+                this.response = JSON.stringify( response.data);
+
+              }.bind(this));
+
+            }.bind(this)
+          }),
+          new SectionTitle("Code 获取Json Map"),
+          new ListTile({
+            trailing: new Icon(Icons["directions_run"]),
+            title: new Text(this.dioCodeText(), {
+              style: new TextStyle({
+                color: Colors.gray,
+              })
+            }),
+            onTap: async function () {
+              let response = await this.testDio1(cgiJsonUrl);
+
+              this.setState(function () {
+
+                //response.data 为json map obj
+                this.response = "json title:" + response.data["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify( response.data);
 
               }.bind(this));
 

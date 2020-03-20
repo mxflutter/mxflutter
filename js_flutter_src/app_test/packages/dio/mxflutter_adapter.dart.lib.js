@@ -76,6 +76,7 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
         responseType: 'arraybuffer',
         headers: options.headers,
         data: data,
+        incrementalUpdates:showDownloadProgress,
         withCredentials: core.bool._check((t1 = options.extra[$_get]("withCredentials"), t1 == null ? that.withCredentials : t1)),
         onCreateRequest: function (requestID) {
 
