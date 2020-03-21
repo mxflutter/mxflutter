@@ -442,7 +442,8 @@ class MXJsonObjProxy {
   ////-----------mirror 方法互相调用-----------
   /// subclass override
   /// mirrorObj 为一个类的实例对象，把调用对象方法，路由到代理类
-  void jsInvokeMirrorObjFunction(String mirrorID,dynamic mirrorObj, String funcName, Map args) {}
+  void jsInvokeMirrorObjFunction(
+      String mirrorID, dynamic mirrorObj, String funcName, Map args) {}
 
   ///事件处理------------
 
@@ -542,6 +543,3 @@ class MXJsonObjProxy {
     return cb;
   }
 }
-
-
-

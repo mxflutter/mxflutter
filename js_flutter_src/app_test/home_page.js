@@ -143,7 +143,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('ListViewDemo'),
+                    title: new Text('网易新闻 ListViewDemo'),
                     subtitle: new Text('ListView ,Message Channel, Pull to refresh'),
 
                     onTap: function () {
