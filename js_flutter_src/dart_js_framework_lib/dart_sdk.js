@@ -21743,9 +21743,9 @@ async.Future$ = dart.generic(T => {
       }, VoidToNull()));
       return result;
     }
-    static is(o) {
-      return typeof o == "Future";
-    }
+    // static is(o) {
+    //   return typeof o == "Future";
+    // }
     static microtask(computation) {
       let result = new (async._Future$(T)).new();
       async.scheduleMicrotask(dart.fn(() => {
