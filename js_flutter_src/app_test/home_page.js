@@ -40,8 +40,8 @@ let { ListViewDemo } = require("./listview_demo.js");
 
 let { PlatformExamplesPage } = require("./platform/index.js");
 
-main_ddc = require("./dart_js/main.ddc.js");
-flutter_demo_ddc = require("./dart_js/flutter_demo.ddc.js");
+
+
 contact_demo_ddc = require("./dart_js/contacts_demo.ddc.js");
 pesto_demo_ddc = require("./dart_js/pesto_demo.ddc.js");
 
@@ -242,6 +242,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('Dart2js样例'),
                     subtitle: new Text('简单样例'),
                     onTap: function () {
+                        let main_ddc = require("./dart_js/main.ddc.js");
                         main_ddc.main.main();
                     }
                 }),
@@ -251,6 +252,9 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('FlutterDemo'),
                     subtitle: new Text('简单样例'),
                     onTap: function () {
+                       
+                        let flutter_demo_ddc = require("./dart_js/flutter_demo.ddc.js");
+
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new flutter_demo_ddc.main.MyHomePage.new;

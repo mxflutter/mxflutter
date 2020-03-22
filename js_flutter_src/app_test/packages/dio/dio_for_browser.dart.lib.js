@@ -376,8 +376,8 @@ dio.DioMixin = class DioMixin extends core.Object {
       this.interceptors[$forEach](dart.fn(interceptor => {
         future = future.catchError(_errorInterceptorWrapper(dart.bind(interceptor, 'onError')));
       }, InterceptorToNull()));
-      return future;
-      return future.then(response$.Response$(T), dynamicToFutureOr().as(dart.fn(data => this.assureResponse(T, data), dart.fnType(response$.Response$(T), [dart.dynamic])))).catchError(dart.fn(err => {
+
+      return future.then(response$.Response$(T), dart.fn(data => this.assureResponse(T, data), dart.fnType(response$.Response$(T), [dart.dynamic]))).catchError(dart.fn(err => {
         if (err == null || dart.test(_isErrorOrException(err))) {
           dart.throw(this.assureDioError(err, requestOptions));
         }
