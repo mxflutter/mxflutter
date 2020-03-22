@@ -119,12 +119,14 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                         //点击时懒加载页面
                         let { ExamplesPage } = require("./examples/index.js");
 
-                        testDio1();
-                        // Navigator.push(context, new MaterialPageRoute({
-                        //     builder: function (context) {
-                        //         return new ExamplesPage;
-                        //     }
-                        // }))
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new ExamplesPage;
+                            }
+                        }))
+
+
+                        //testDio1();
                     }
                 }),
                 new ListTile({

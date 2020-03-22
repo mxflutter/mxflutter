@@ -128,8 +128,8 @@ class ListViewDemoState extends MXJSWidgetState {
     }
 
     async refresh() {
-      
-        let newsArray = await this.requestHttpData();
+
+        let newsArray = await this.requestHttpData(true);
 
         this.setState(function () {
             this.newsArray = newsArray.concat(this.newsArray);
@@ -137,15 +137,15 @@ class ListViewDemoState extends MXJSWidgetState {
     }
 
     async loadMore() {
-      
-        let newsArray = await this.requestHttpData();
+
+        let newsArray = await this.requestHttpData(false);
 
         this.setState(function () {
             this.newsArray = this.newsArray.concat(newsArray);
         }.bind(this));
     }
 
-    async requestHttpData() {
+    async requestHttpData(isRefresh) {
 
         if (this.loading) {
             return;
@@ -155,18 +155,31 @@ class ListViewDemoState extends MXJSWidgetState {
         let result = await this.requestNews();
         this.loading = false;
 
+        this.endRefreshOrLoadMore(isRefresh, result == null);
         if (result) {
-            this.refreshController.refreshCompleted();
+        
             let responseMap = JSON.parse(result);
-
             let respArray = responseMap["T1348649580692"];
-
             return respArray;
         }
-        else {
-            this.refreshController.refreshFailed();
-        }
 
+    }
+
+    endRefreshOrLoadMore(isRefresh, isNoData) {
+
+        if (isRefresh) {
+            this.refreshController.refreshCompleted();
+
+        } else {
+
+            if (isNoData) {
+                this.refreshController.loadNoData();
+            }
+            else {
+
+                this.refreshController.loadComplete();
+            }
+        }
 
     }
 
@@ -288,7 +301,7 @@ class ListViewItem extends MXJSStatelessWidget {
                                             child: new Text(
                                                 String(g_newsOrder), {
                                                 style: new TextStyle({
-                                                    color:  Colors.red ,
+                                                    color: Colors.red,
                                                     fontSize: 18.0
                                                 })
                                             }),
@@ -351,7 +364,7 @@ class ListViewItem extends MXJSStatelessWidget {
                                 flex: 3,
                                 child: new AspectRatio({
                                     aspectRatio: 3.0 / 2.0,
-                                    child:new ClipRRect({
+                                    child: new ClipRRect({
                                         borderRadius: BorderRadius.circular(4.0),
                                         child: new CachedNetworkImage({
                                             fadeInDuration: new Duration({ milliseconds: 10 }),
