@@ -16,8 +16,6 @@ let packages__dio__src__headers = require('packages/dio/headers.dart.lib.js');
 let packages__dio__src__redirect_record = require('packages/dio/redirect_record.dart.lib.js');
 let packages__dio__src__utils = require('packages/dio/utils.dart.lib.js');
 //let packages__http_parser__src__media_type = require('packages/http_parser/src/media_type.dart.lib.js');
-
-
 const core = dart_sdk.core;
 const async = dart_sdk.async;
 const convert = dart_sdk.convert;
@@ -64,7 +62,8 @@ var JSArrayOfUint8List = () => (JSArrayOfUint8List = dart.constFn(_interceptors.
 var Uint8ListToNull = () => (Uint8ListToNull = dart.constFn(dart.fnType(core.Null, [typed_data.Uint8List])))();
 var dynamicToNull = () => (dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))();
 var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
-var voidToFuture = () => (voidToFuture = dart.constFn(dart.fnType(async.Future, [dart.void])))();
+var FutureOfvoid = () => (FutureOfvoid = dart.constFn(async.Future$(dart.void)))();
+var voidToFutureOfvoid = () => (voidToFutureOfvoid = dart.constFn(dart.fnType(FutureOfvoid(), [dart.void])))();
 var LinkedHashMapOfString$dynamic = () => (LinkedHashMapOfString$dynamic = dart.constFn(collection.LinkedHashMap$(core.String, dart.dynamic)))();
 var IdentityMapOfString$dynamic = () => (IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))();
 var MapEntryOfString$dynamic = () => (MapEntryOfString$dynamic = dart.constFn(core.MapEntry$(core.String, dart.dynamic)))();
@@ -72,28 +71,25 @@ var StringAnddynamicToMapEntryOfString$dynamic = () => (StringAnddynamicToMapEnt
 var StreamOfUint8List = () => (StreamOfUint8List = dart.constFn(async.Stream$(typed_data.Uint8List)))();
 var JSArrayOfint = () => (JSArrayOfint = dart.constFn(_interceptors.JSArray$(core.int)))();
 var intToUint8List = () => (intToUint8List = dart.constFn(dart.fnType(typed_data.Uint8List, [core.int])))();
-
-
 function convertJSMap2DartMapOfString$dynamic(jsMap) {
   try {
-      let es = Array();
-      for (let key in jsMap) { // 遍历Map
+    let es = Array();
+    for (let key in jsMap) { // 遍历Map
 
-          es.push(key);
-          es.push(jsMap[key]);
-      }
+      es.push(key);
+      es.push(jsMap[key]);
+    }
 
-      return new (IdentityMapOfString$dynamic()).from(es);
+    return new (IdentityMapOfString$dynamic()).from(es);
 
 
   } catch (e$) {
-      let e = dart.getThrown(e$);
-      core.print("convertJSMap2DartMapOfString$dynamic error:" + e);
-      return jsMap;
+    let e = dart.getThrown(e$);
+    core.print("convertJSMap2DartMapOfString$dynamic error:" + e);
+    return jsMap;
 
   }
 }
-
 const CT = Object.create(null);
 var L0 = "package:dio/src/cancel_token.dart";
 var L4 = "package:dio/src/options.dart";
@@ -237,7 +233,7 @@ response.Response$ = dart.generic(T => {
       return this[data$];
     }
     set data(value) {
-      this[data$] = T._check(value);
+      this[data$] = T.as(value);
     }
     get headers() {
       return this[headers$];
@@ -516,7 +512,7 @@ transformer.DefaultTransformer = class DefaultTransformer extends transformer.Tr
         }, VoidToNull()), cancelOnError: true
       });
       t0$1 = (t0$0 = options.cancelToken, t0$0 == null ? null : t0$0.whenCancel);
-      t0$1 == null ? null : t0$1.then(dart.dynamic, dart.fn(_ => subscription.cancel(), voidToFuture()));
+      t0$1 == null ? null : t0$1.then(dart.void, dart.fn(_ => subscription.cancel(), voidToFutureOfvoid()));
       if (dart.notNull(options.receiveTimeout) > 0) {
         try {
           yield completer.future.timeout(new core.Duration.new({ milliseconds: options.receiveTimeout }));
@@ -640,16 +636,16 @@ options$._RequestConfig = class _RequestConfig extends core.Object {
     return this[sendTimeout$];
   }
   set sendTimeout(value) {
-          //MXFlutterDioFix 暂不支持
-          value = 0;
+    //MXFlutterDioFix 暂不支持
+    value = 0;
     this[sendTimeout$] = value;
   }
   get receiveTimeout() {
     return this[receiveTimeout$];
   }
   set receiveTimeout(value) {
-          //MXFlutterDioFix 暂不支持
-          value = 0;
+    //MXFlutterDioFix 暂不支持
+    value = 0;
     this[receiveTimeout$] = value;
   }
   get responseType() {
@@ -705,7 +701,7 @@ options$._RequestConfig = class _RequestConfig extends core.Object {
     this.headers[$_set]("content-type", (t2$ = (t2 = contentType, t2 == null ? null : t2[$toLowerCase]()), t2$ == null ? null : t2$[$trim]()));
   }
   get contentType() {
-    return core.String._check(this.headers[$_get]("content-type"));
+    return core.String.as(this.headers[$_get]("content-type"));
   }
 };
 (options$._RequestConfig.new = function (opts) {
@@ -788,7 +784,7 @@ options$.BaseOptions = class BaseOptions extends options$._RequestConfig {
     return this[connectTimeout$];
   }
   set connectTimeout(value) {
-      //MXFlutterDioFix 暂不支持
+    //MXFlutterDioFix 暂不支持
     value = 0;
     this[connectTimeout$] = value;
   }
@@ -823,10 +819,8 @@ options$.BaseOptions = class BaseOptions extends options$._RequestConfig {
   let queryParameters = opts && 'queryParameters' in opts ? opts.queryParameters : null;
   let extra = opts && 'extra' in opts ? opts.extra : null;
   let headers = opts && 'headers' in opts ? opts.headers : null;
-
   //MXFlutterDioFix
   headers = convertJSMap2DartMapOfString$dynamic(headers);
-
   let responseType = opts && 'responseType' in opts ? opts.responseType : C7 || CT.C7;
   let contentType = opts && 'contentType' in opts ? opts.contentType : null;
   let validateStatus = opts && 'validateStatus' in opts ? opts.validateStatus : null;
@@ -928,8 +922,8 @@ options$.RequestOptions = class RequestOptions extends options$.Options {
     return this[queryParameters$0];
   }
   set queryParameters(value) {
-        //MXFlutterDioFix
-        value = convertJSMap2DartMapOfString$dynamic(value);
+    //MXFlutterDioFix
+    value = convertJSMap2DartMapOfString$dynamic(value);
     this[queryParameters$0] = value;
   }
   get cancelToken() {
@@ -1162,7 +1156,7 @@ dart.setFieldSignature(adapter.ResponseBody, () => ({
   redirects: dart.fieldType(core.List$(redirect_record.RedirectRecord)),
   extra: dart.fieldType(core.Map$(core.String, dart.dynamic))
 }));
-dart.trackLibraries("/packages/dio/src/cancel_token.dart", {
+dart.trackLibraries("packages/dio/src/cancel_token.dart", {
   "package:dio/src/cancel_token.dart": cancel_token,
   "package:dio/src/response.dart": response,
   "package:dio/src/dio_error.dart": dio_error,
@@ -1170,7 +1164,7 @@ dart.trackLibraries("/packages/dio/src/cancel_token.dart", {
   "package:dio/src/options.dart": options$,
   "package:dio/src/adapter.dart": adapter
 }, {
-}, '{"version":3,"sourceRoot":"","sources":["cancel_token.dart","response.dart","dio_error.dart","transformer.dart","options.dart","adapter.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/dio/src/cancel_token.dart.lib.js"}');
+}, '{"version":3,"sourceRoot":"","sources":["cancel_token.dart","response.dart","dio_error.dart","transformer.dart","options.dart","adapter.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;oBAagC;AAC5B,YAAc,aAAP,AAAE,CAAD,OAAsB;IAChC;;AAM4B;IAAY;;AAKhB,YAAA,AAAa,uBAAG;IAAI;;AAGb,YAAA,AAAW;IAAM;WAG3B;AAC8C,MAAjE,qBAAe,kCAA4B,sCAAe,MAAM;AAC3C,MAArB,AAAW;IACb;;;IAjBS;IAKC;AAdgB,IAAxB,mBAAa;EACf;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MCSE;;;;;;MAGM;;;;;;MAGO;;;;;;MAGX;;;;;;MAKG;;;;;;MAGc;;;;;;MAQA;;;;;;MAKV;;;;;;;;AAMQ,oBAAA,AAAU,oCAAA,OAAM;sBAAN,OAAkB,AAAQ;MAAG;;AAKxD,YAAS,YAAL;AACF,gBAAO,AAAK,qBAAO;;AAErB,cAAY,eAAL;MACT;;;UAxDO;UACA;UACA;UACA;UACA;UACA;UACA;UACA;MAPA;MACA;MACA;MACA;MACA;MACA;MACA;MACA;;IACL;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ICMJ;;gDAnBK;;;;EAmBL;;;;;;;;;;;;;;;;;;;;;;IAYiB;;;;;;IAIN;;;;;;IAEI;;;;;;IAIL;;;;;;;;AAEc,2CAAC,OAAO;oBAAP,OAAqB;IAAG;;AAIzC,gBAAM,AAA4B,wBAAhB,aAAI,iBAAI;AAC9B,UAAU,cAAN;AAC4B,QAA9B,MAAA,AAAI,GAAD,IAAI,AAAuB,gBAAZ,WAAN;;AAEd,YAAO,IAAG;IACZ;;;QA5BO;QACA;QACA;QACA;IAHA;IACA;IACA;IACA;;EACL;;;;;;;;;;;;;;;;;;wBCM6B;AAC7B,YAAO,iBAAU,GAAG,EAAE,SAAC,KAAK;AAC1B,YAAI,AAAM,KAAD,IAAI,MAAM,MAAO,IAAG;AAC7B,cAA2D,UAAlD,GAAG,mBAAO,8BAA2B,cAAN,KAAK;;IAEjD;;;;EACF;;;;;;;IAWqB;;;;;;qBAG4B;AAAhB;;AACzB,oBAAoB,KAAb,AAAQ,OAAD,aAAC,OAAQ;AAC3B,cAAS,OAAL,IAAI;AACN,wBAAI,kBAAY,AAAQ,OAAD;AACrB,kBAAO,AAAK,qBAAO,AAAQ,OAAD;gBACrB,KAAS,YAAL,IAAI;AACb,kBAAmB,sCAAa,IAAI;;;AAGxC,cAAY,eAAL,IAAI;MACb;;sBAMmB,SAAsB;AADjB;;AAEtB,YAAyB,YAArB,AAAQ,OAAD,eAA8B;AACvC,gBAAO,SAAQ;;AAEb,qBAAS;AACT,uBAAW;AACX,mCAAuB,AAAQ,AAAkB,OAAnB,sBAAsB;AACxD,YAAI,oBAAoB;AAE2C,UADjE,SAAa,gBAC4C,YAArD,AAAS,AAAO,QAAR,gDAAQ,OAA+B,oBAA/B,OAAwC;;AAE1D,wBAAY;AACZ,qBACJ,AAAS,AAAO,QAAR,wCAA+C,wEACzC,SAAC,MAAM;;AACH,YAAd,AAAK,IAAD,KAAK,IAAI;AACb,gBAAI,oBAAoB;AACC,cAAvB,WAAA,AAAS,QAAD,gBAAI,AAAK,IAAD;AAC2B,mBAA3C,OAAO;mBAAmB,QAAQ;mBAAE,MAAM;cAAlC;;;AAKP,qBAAoB;AACvB,wBAAY;AACG,2BAAe,AAAO,MAAD,QAClC,QAAC;AACsB,UAAzB,YAAA,AAAU,SAAD,gBAAI,AAAM,KAAD;AACD,UAAjB,AAAO,MAAD,OAAK,KAAK;yCAET,QAAC;AACkB,YAA1B,AAAU,SAAD,eAAe,CAAC;uCAEnB;AACc,YAApB,AAAU,SAAD;2CAEI;AAKf,uBAFF,AAAQ,OAAD,6BAAC,OAAa;uBAAb,OAAyB,qBAAK,QAAC,KAC9B,AAAa,YAAD;AAErB,YAA2B,aAAvB,AAAQ,OAAD,mBAAkB;AAC3B;AAE8D,YAD5D,MAAM,AAAU,AACX,SADU,gBACF,qCAAuB,AAAQ,OAAD;;;AAC3C;AAC2B,cAA3B,MAAM,AAAa,YAAD;AAKjB,cAJD,WAAM,qCACK,OAAO,SACT,AAAqD,qCAA3B,AAAQ,OAAD,mBAAgB,aACrC;;;;;AAID,UAAtB,MAAM,AAAU,SAAD;;AAGX,4BAAgB,uCAAU,SAAS;AACrC,0BAAc;AAClB,iBAAS,QAAS,OAAM;AACkB,UAAxC,AAAc,aAAD,UAAQ,WAAW,EAAE,KAAK;AACZ,UAA3B,cAAA,AAAY,WAAD,gBAAI,AAAM,KAAD;;AAGtB,YAAyB,YAArB,AAAQ,OAAD,eAA8B,8BAAO,MAAO,cAAa;AAE7D;AACP,YAAI,AAAQ,OAAD,oBAAoB;AAEuB,UADpD,sBAAe,OAAO,OAClB,aAAa,OAAE,OAAO,aAAE,QAAQ,EAAE,YAAS,WADxB;;AAGwC,UAA/D,eAAe,AAAK,oBAAO,aAAa,mBAAkB;;AAE5D,YAAI,YAAY,IAAI,QAChB,AAAa,YAAD,iBACS,YAArB,AAAQ,OAAD,eAA8B,yCACrC,0BAAY,AAAS,AAAO,QAAR,gDAAQ,OAA6B;AAC3D,cAAI,2BAAsB;AACxB,mBAA0B,YAAY;kBAA/B;;AAEP,kBAAO,AAAK,qBAAO,YAAY;;;AAGnC,cAAO,aAAY;MACrB;;kBAEwB;AACtB,UAAI,AAAY,WAAD,IAAI,MAAM,MAAO;AAChC,YAAiB,AAAmB,AAAS,AAAc,4BAApC,WAAW,+BACtB,AAAa;IAC3B;;;QAhHyB;;;EAAoB;;;;;;;;;;;;;;;;;;;;;;;ICZ/C;;+CArBK;;;;EAqBL;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA6TS;;;;;;IAMc;;;;;;IAKjB;;;;;;IAOA;;;;;;IAyBS;;;;;;IAKE;;;;;;IAGV;;;;;;IAGgB;;;;;;IAGhB;;;;;;IAOD;;;;;;IAIW;;;;;;IAIC;;;;;;oBAhDO;;AACkD,MAAvE,AAAO,iDAA8B,WAAW,eAAX,OAAa,mCAAb,OAA4B;IACnE;;AAE0B,4BAAA,AAAO;IAA2B;;;;QAlDrD;QACA;QACA;QACgB;QACA;QACd;QACF;QACA;QACA;QACA;QACA;QACA;QACA;IAgBc;IAgDA;IA5Ed;IACA;IACA;IAIA;IACA;IACA;IACA;IACA;IACA;IACA;AAEuB,IAAvB,gBAAkB,KAAR,OAAO,QAAP,OAAW;AACF,IAAnB,cAAc,MAAN,KAAK,SAAL,OAAS;AACQ,IAAzB,mBAAc,WAAW;AAE6C,IADtE,eACI,AAAQ,8CAAI,SAAC,KAAK,MAAM,oCAAS,AAAI,AAAc,GAAf,+BAA2B,CAAC;EAC3E;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IApOO;;;;;;IAGc;;;;;;IAKjB;;;;;;;;UAhDK;UACA;UACc;UACd;UACH;UACA;UACA;UACiB;UACA;UACR;UACN;UACQ;UACV;UACA;UACD;UACW;UACC;AAEhB,YAAO,wCACU,KAAP,MAAM,QAAN,OAAe,6BACN,MAAR,OAAO,SAAP,OAAgB,uCACQ,OAAhB,eAAe,UAAf,OAAwB,+CACV,OAAf,cAAc,UAAd,OAAuB,8CACR,OAAf,cAAc,UAAd,OAAuB,2CACd,OAAZ,WAAW,UAAX,OAAoB,kCACpB,OAAN,KAAK,UAAL,OAAa,sCAAgB,uBAAN,OAAS,yDACtB,OAAR,OAAO,UAAP,OAAe,sCAAkB,2BAAR,OAAW,+DAClB,OAAb,YAAY,UAAZ,OAAqB,yCACV,OAAZ,WAAW,UAAX,OAAoB,2CACF,OAAf,cAAc,UAAd,OAAuB,0DAER,OAA3B,0BAA0B,UAA1B,OAAmC,2DACN,QAAhB,eAAe,WAAf,OAAwB,8CACd,QAAb,YAAY,WAAZ,OAAqB,4CACnB,cAAc,oBACG,QAAhB,eAAe,WAAf,OAAwB;IAE7C;;;QAvES;QACF;QACD;QACA;QACC;QACA;QACgB;QACA;QACR;QACN;QACQ;QACV;QACA;QACD;QACW;QACC;IAdX;IAGA;IACA;AAWF,2DACW,MAAM,kBACE,cAAc,eACjB,WAAW,SACjB,KAAK,WACH,OAAO,gBACF,YAAY,eACb,WAAW,kBACR,cAAc,8BACF,0BAA0B,mBACrC,eAAe,gBAClB,YAAY,kBACV,cAAc,mBACb,eAAe;;EACjC;;;;;;;;;;;;;;;;;UAyFE;UACH;UACA;UACiB;UACA;UACR;UACN;UACQ;UACV;UACA;UACD;UACW;UACC;AAEhB,YAAO,oCACU,KAAP,MAAM,QAAN,OAAe,iCACE,MAAZ,WAAW,SAAX,OAAoB,0CACF,OAAf,cAAc,UAAd,OAAuB,qCAC1B,OAAN,KAAK,UAAL,OAAa,sCAAgB,uBAAN,OAAS,yDACtB,OAAR,OAAO,UAAP,OAAe,sCAAkB,2BAAR,OAAW,+DAClB,OAAb,YAAY,UAAZ,OAAqB,yCACV,OAAZ,WAAW,UAAX,OAAoB,2CACF,OAAf,cAAc,UAAd,OAAuB,0DAER,OAA3B,0BAA0B,UAA1B,OAAmC,2DACN,OAAhB,eAAe,UAAf,OAAwB,6CACd,OAAb,YAAY,UAAZ,OAAqB,2CACnB,cAAc,oBACG,OAAhB,eAAe,UAAf,OAAwB;IAE7C;;;QA7DS;QACH;QACA;QACiB;QACA;QACR;QACN;QACQ;QACV;QACA;QACD;QACW;QACC;AACb,uDACW,MAAM,eACD,WAAW,kBACR,cAAc,SACvB,KAAK,WACH,OAAO,gBACF,YAAY,eACb,WAAW,kBACR,cAAc,8BACF,0BAA0B,mBACrC,eAAe,gBAClB,YAAY,kBACV,cAAc,mBACb,eAAe;;EACjC;;;;;;;;;;;;;;;;;IAgJC;;;;;;IAGD;;;;;;IAIA;;;;;;IAGc;;;;;;IAET;;;;;;IAEK;;;;;;IAEA;;;;;;IAEb;;;;;;;;UAnFK;UACH;UACA;UACA;UACG;UACA;UACc;UACd;UACU;UACA;UACL;UACS;UACA;UACR;UACN;UACQ;UACV;UACA;UACD;UACW;UACC;AAEhB,YAAO,2CACU,KAAP,MAAM,QAAN,OAAe,iCACE,MAAZ,WAAW,SAAX,OAAoB,0CACF,OAAf,cAAc,UAAd,OAAuB,8CACR,OAAf,cAAc,UAAd,OAAuB,oCAC5B,OAAL,IAAI,UAAJ,OAAa,0BACR,OAAL,IAAI,UAAJ,OAAa,qCACc,OAAhB,eAAe,UAAf,OAAwB,wCACxB,OAAR,OAAO,UAAP,OAAgB,0CACY,OAAlB,iBAAiB,UAAjB,OAA0B,iDACd,OAAf,cAAc,UAAd,OAAuB,2CACd,OAAZ,WAAW,UAAX,OAAoB,kCACpB,OAAN,KAAK,UAAL,OAAa,sCAAgB,uBAAN,OAAS,yDACtB,QAAR,OAAO,WAAP,OAAe,sCAAkB,2BAAR,OAAW,gEAClB,QAAb,YAAY,WAAZ,OAAqB,0CACV,QAAZ,WAAW,WAAX,OAAoB,4CACF,QAAf,cAAc,WAAd,OAAuB,2DAER,QAA3B,0BAA0B,WAA1B,OAAmC,4DACN,QAAhB,eAAe,WAAf,OAAwB,8CACd,QAAb,YAAY,WAAZ,OAAqB,4CACnB,cAAc,oBACG,QAAhB,eAAe,WAAf,OAAwB;IAE7C;;AAIM,iBAAO;AACX,WAAK,AAAK,IAAD,cAAY,gBAAO;AACL,QAArB,OAAe,aAAR,6BAAU,IAAI;AACjB,gBAAI,AAAK,IAAD,SAAO;AAC4B,QAA/C,OAAY,AAAO,aAAZ,AAAC,CAAA,QAAC,MAAK,OAAO,AAAC,AAAI,CAAJ,QAAC,gBAAc,MAAM;;AAEzC,kBAAoB,qCAAa;AACrC,UAAI,AAAM,KAAD;AACyC,QAAhD,OAAK,aAAL,IAAI,KAAqC,CAAhC,AAAK,IAAD,YAAU,OAAO,MAAM,oBAAO,KAAK;;AAGlD,YAAW,AAAY,gBAAN,IAAI;IACvB;;;QAtGS;QACH;QACA;QACC;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACgB;QACA;QACR;QACN;QACQ;QACV;QACA;QACD;QACW;QACC;IA4FX,cAAO;IA7GP;IACA;IACA;IACA;IACA;IACA;IACA;IACA;AAWF,8DACW,MAAM,eACD,WAAW,kBACR,cAAc,SACvB,KAAK,WACH,OAAO,gBACF,YAAY,eACb,WAAW,kBACR,cAAc,8BACF,0BAA0B,mBACrC,eAAe,gBAClB,YAAY,kBACV,cAAc,mBACb,eAAe;;EACjC;;;;;;;;;;;;;;;;;;;;;;;;;;EC/LT;;;;;;;;;;;;IAaoB;;;;;;IAGQ;;;;;;IAGtB;;;;;;IAKG;;;;;;IAGI;;;;;;IAEU;;;;;;IAEA;;;;;;;uCA3Bd,QACA;QACA;QACA;QACA;QACA;IAsBc,cAAQ;IA3BtB;IACA;IACA;IACA;IACA;IACA;;EACL;8CAwBO,MACF;QACA;QACA;QACA;IAPc,cAAQ;;IAItB;IACA;IACA;IACA;IACK,gBAAS,iCACX,AAAK,AAAa,AAAoC,oBAA1C,IAAI,8BAAM,QAAC,KAAgB,4CAAS,mBAAC,CAAC;;EAAa;6CAG7D,OACL;QACA;QACA;QACA;IAhBc,cAAQ;;IAatB;IACA;IACA;IACA;IACK,gBAAS,iCACX,AAAM,AAAoC,KAArC,6BAAK,QAAC,KAAgB,4CAAS,mBAAC,CAAC;;EAAa","file":"../../../../../../../../../../../../../packages/dio/src/cancel_token.dart.lib.js"}');
 // // Exports:
 // return {
 //   src__cancel_token: cancel_token,
@@ -1189,7 +1183,4 @@ exports.src__dio_error = dio_error;
 exports.src__transformer = transformer;
 exports.src__options = options$;
 exports.src__adapter = adapter;
-
-
-
 //# sourceMappingURL=cancel_token.dart.lib.js.map

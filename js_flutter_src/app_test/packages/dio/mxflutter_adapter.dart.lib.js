@@ -2,7 +2,6 @@
 'use strict';
 const dart_sdk = require("dart_sdk");
 let packages__dio__src__cancel_token = require('packages/dio/cancel_token.dart.lib.js');
-
 const core = dart_sdk.core;
 const _interceptors = dart_sdk._interceptors;
 //const html = dart_sdk.html;
@@ -60,6 +59,7 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
   }
   fetch(options, requestStream, cancelFuture) {
 
+    
     let showDownloadProgress = options.onReceiveProgress != null;
 
     let t1, t0;
@@ -77,7 +77,7 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
         headers: options.headers,
         data: data,
         incrementalUpdates:showDownloadProgress,
-        withCredentials: core.bool._check((t1 = options.extra[$_get]("withCredentials"), t1 == null ? that.withCredentials : t1)),
+        withCredentials: core.bool.as((t1 = options.extra[$_get]("withCredentials"), t1 == null ? that.withCredentials : t1)),
         onCreateRequest: function (requestID) {
 
           reqTask.requestID = requestID;
@@ -143,7 +143,6 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
       //that.requestArray.remove(reqTask.requestID);
     }, VoidToNull()));;
   }
-
   close(opts) {
     let force = opts && 'force' in opts ? opts.force : false;
     if (dart.test(force)) {
@@ -195,6 +194,14 @@ dart.setFieldSignature(browser_adapter.BrowserHttpClientAdapter, () => ({
 browser_adapter.createAdapter = function createAdapter() {
   return new browser_adapter.BrowserHttpClientAdapter.new();
 };
-
+dart.trackLibraries("packages/dio/src/adapters/browser_adapter.dart", {
+  "package:dio/src/adapters/browser_adapter.dart": browser_adapter
+}, {
+}, '{"version":3,"sourceRoot":"","sources":["browser_adapter.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoBO;;;;;;UAGqC,SACpB,eAAsB;;AACtC,gBAAM;AACI,MAAd,AAAM,kBAAI,GAAG;AAK4D,WAHzE,GAAG;MACC,QAAK,AAAQ,OAAD,SAAqB,cAAZ,AAAQ,OAAD,eAAwB;MACpD,kBAAe;2BACf,cAAmD,KAAjC,AAAQ,AAAK,OAAN,cAAO,0BAAD,OAAuB;;AACP,MAAnD,AAAQ,AAAQ,OAAT;AAC6D,MAApE,AAAQ,AAAQ,OAAT,mBAAiB,SAAC,KAAK,MAAM,AAAI,GAAD,kBAAkB,GAAG,EAAM,SAAF,CAAC;AAE7D,sBAAY;AAgCd,MA9BF,AAAI,AAAO,AAAM,GAAd,gCAAmB,QAAC;;AAEjB,oBAAoB,KAAb,AAAI,GAAD,mBAAC,OAAY,cAAK;AAC5B,qBAAS;AAcX,QAZF,AAAO,AAAO,AAAM,MAAd,gCAAmB,QAAC;AACpB,qBAAqB,wBAAd,AAAO,MAAD;AAUhB,UATD,AAAU,SAAD,UACM,mCACX,IAAI,EACJ,AAAI,GAAD,mBACM,AAAI,AACR,GADO,sDACH,SAAC,GAAG,MAAM,yCAAS,AAAE,CAAD,kBAAgB,AAAE,CAAD,SAAO,0EACtC,AAAI,GAAD,yBACN,AAAI,AAAO,AAAO,GAAf,YAAW,OAAO,AAAI,AAAO,GAAR,YAAW;;AAcnD,QATF,AAAO,AAAQ,AAAM,MAAf,iCAAoB,QAAC;AAQxB,UAPD,AAAU,SAAD,eACP,kCACqB,wCACZ,KAAK,WACH,OAAO,IAEP;;AAGe,QAA9B,AAAO,MAAD,gCAAmB,IAAI;;AAc7B,MAXF,AAAI,AAAQ,AAAM,GAAf,iCAAoB,QAAC;AAUrB,QAPD,AAAU,SAAD,eACP,kCACqB,wCACZ,kCACE,OAAO,IAEP;;AAYb,YARF,YAAY;oBAAZ,OAAc,oBAAK,QAAC;AAClB,YAAmB,aAAf,AAAI,GAAD,eAAc,KAAoB,aAAf,AAAI,GAAD,eAAc;AACzC;AACa,YAAX,AAAI,GAAD;;gBACI;;;;AAMb,UAAI,AAAc,aAAD,IAAI;AACT,QAAV,AAAI,GAAD;;AAIgB,QAFnB,AACK,AACA,aAFQ,QACD,SAAC,GAAG,MAAgB,4CAAS;;AAAC,wBAAG,EAAC;AAAJ;AAAM,wBAAG,EAAC;AAAJ;;oEAClC,UAAJ,GAAG;;AAGf,YAAO,AAAU,AAAO,UAAR,qBAAqB;AAClB,QAAjB,AAAM,qBAAO,GAAG;;IAEpB;;UAMiB;AACf,oBAAI,KAAK;AACP,iBAAS,MAAO;AACH,UAAX,AAAI,GAAD;;;AAGM,MAAb,AAAM;IACR;;;IAxGM,cAAqB;IAQtB,wBAAkB;;EAiGzB;;;;;;;;;;;;;;;;AA7GqC;EAA0B","file":"../../../../../../../../../../../../../../packages/dio/src/adapters/browser_adapter.dart.lib.js"}');
+// Exports:
+// return {
+//   src__adapters__browser_adapter: browser_adapter
+// };
 exports.src__adapters__browser_adapter = browser_adapter;
 
+//# sourceMappingURL=browser_adapter.dart.lib.js.map

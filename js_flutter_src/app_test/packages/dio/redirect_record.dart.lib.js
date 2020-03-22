@@ -1,7 +1,6 @@
 
 'use strict';
 const dart_sdk = require("dart_sdk");
-
 const core = dart_sdk.core;
 const dart = dart_sdk.dart;
 const dartx = dart_sdk.dartx;
@@ -46,11 +45,11 @@ dart.setFieldSignature(redirect_record.RedirectRecord, () => ({
   method: dart.finalFieldType(core.String),
   location: dart.finalFieldType(core.Uri)
 }));
-dart.trackLibraries("/packages/dio/src/redirect_record.dart", {
+dart.trackLibraries("packages/dio/src/redirect_record.dart", {
   "package:dio/src/redirect_record.dart": redirect_record
 }, {
-}, '{"version":3,"sourceRoot":"","sources":["redirect_record.dart"],"names":[],"mappings":";;;;;;;;;;;;IAIY;;;;;;IAGG;;;;;;IAGH;;;;;;;iDATU,YAAiB,QAAa;IAA9B;IAAiB;IAAa;;EAAS","file":"../../../../../../../../../../packages/dio/src/redirect_record.dart.lib.js"}');
-
+}, '{"version":3,"sourceRoot":"","sources":["redirect_record.dart"],"names":[],"mappings":";;;;;;;;;;;;IAIY;;;;;;IAGG;;;;;;IAGH;;;;;;;iDATU,YAAiB,QAAa;IAA9B;IAAiB;IAAa;;EAAS","file":"../../../../../../../../../../../../../packages/dio/src/redirect_record.dart.lib.js"}');
+// Exports:
 
 exports.src__redirect_record = redirect_record;
 

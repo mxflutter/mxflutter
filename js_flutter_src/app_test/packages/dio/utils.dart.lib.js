@@ -1,6 +1,6 @@
-'use strict';
+//define(['dart_sdk'], function(dart_sdk) {
 const dart_sdk = require("dart_sdk");
-
+'use strict';
 const core = dart_sdk.core;
 const async = dart_sdk.async;
 const convert = dart_sdk.convert;
@@ -60,9 +60,9 @@ utils.encodeMap = function encodeMap(data, handler, opts) {
     } else if (core.Map.is(sub)) {
       sub[$forEach](dart.fn((k, v) => {
         if (path === "") {
-          urlEncode(v, dart.str(encodeComponent(core.String._check(k))));
+          urlEncode(v, dart.str(encodeComponent(core.String.as(k))));
         } else {
-          urlEncode(v, dart.str(path) + leftBracket + dart.str(encodeComponent(core.String._check(k))) + rightBracket);
+          urlEncode(v, dart.str(path) + leftBracket + dart.str(encodeComponent(core.String.as(k))) + rightBracket);
         }
       }, dynamicAnddynamicToNull()));
     } else {
@@ -86,13 +86,14 @@ dart.defineLazy(utils, {
     return core.RegExp.new("^[\\x00-\\x7F]+$");
   }
 }, true);
-dart.trackLibraries("/packages/dio/src/utils.dart", {
+dart.trackLibraries("packages/dio/src/utils.dart", {
   "package:dio/src/utils.dart": utils
 }, {
-}, '{"version":3,"sourceRoot":"","sources":["utils.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6CAUyB;AAAW,UAAA,AAAY,4BAAS,MAAM;EAAC;uDAKhC,QAAkB;AAC5C,oBAAY;AAE+C,IAD/D,AAAO,MAAD,QAAa,UAAL,IAAI,oBACA,UAAL,IAAI,uBAAmB,cAAM,AAAU,SAAD;AACnD,UAAO,AAAU,UAAD;EAClB;yDAKmC,SAAmB;;AACpD,QAAI,AAAQ,OAAD,IAAI,MAAM,MAAO,SAAQ;AAChC,mBAAoB,2BAAU,OAAO;AACzC,SAAO,QAAQ;iBAAR,OAAY,QAAQ;EAC7B;uCAIiB,MAAuB;QAAe;AACjD,kBAAU,0BAAa;AACvB,gBAAQ;AACR,gCAAc,MAAM,IAAG,QAAQ;AAC/B,iCAAe,MAAM,IAAG,QAAQ;AAChC,oCAAkB,MAAM,kBAA8B,QAAC,KAAM,CAAC;AAClE,aAAK,UAAkB,KAAY;AACjC,UAAQ,aAAJ,GAAG;AACL,iBAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,AAAI,GAAD,YAAS,IAAA,AAAC,CAAA;AAEmD,UADlF,AAAS,SAAA,CAAC,AAAG,GAAA,QAAC,CAAC,GACkE,SAA3E,IAAI,IAAC,WAAW,YAAU,AAAO,YAAd,AAAG,GAAA,QAAC,CAAC,MAAmB,aAAP,AAAG,GAAA,QAAC,CAAC,KAAa,CAAC,GAAG,MAAI,YAAY;;YAE7E,KAAQ,YAAJ,GAAG;AAOV,QANF,AAAI,GAAD,WAAS,SAAC,GAAG;AACd,cAAI,AAAK,IAAD,KAAI;AAC2B,YAArC,AAAS,SAAA,CAAC,CAAC,EAAyB,SAApB,AAAe,eAAA,oBAAC,CAAC;;AAEkC,YAAnE,AAAS,SAAA,CAAC,CAAC,EAAuD,SAAnD,IAAI,IAAC,WAAW,YAAE,AAAe,eAAA,oBAAC,CAAC,MAAG,YAAY;;;;AAIjE,kBAAM,AAAO,OAAA,CAAC,IAAI,EAAE,GAAG;AACvB,yBAAa,AAAY,GAAT,IAAI,mBAAmB,WAAP,WAAJ,GAAG;AACnC,aAAK,KAAK,IAAI,UAAU;AACJ,UAAlB,AAAQ,OAAD,OAAO;;AAEH,QAAb,QAAQ;AACR,YAAI,UAAU;AACM,UAAlB,AAAQ,OAAD,OAAO,GAAG;;;;;AAKJ,IAAnB,AAAS,SAAA,CAAC,IAAI,EAAE;AAChB,UAAO,AAAQ,QAAD;EAChB;;MA9Da,iBAAW;YAAG,iBAAO","file":"../../../../../../../../../../packages/dio/src/utils.dart.lib.js"}');
-
+}, '{"version":3,"sourceRoot":"","sources":["utils.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6CAUyB;AAAW,UAAA,AAAY,4BAAS,MAAM;EAAC;uDAKhC,QAAkB;AAC5C,oBAAY;AAE+C,IAD/D,AAAO,MAAD,QAAa,UAAL,IAAI,oBACA,UAAL,IAAI,uBAAmB,cAAM,AAAU,SAAD;AACnD,UAAO,AAAU,UAAD;EAClB;yDAKmC,SAAmB;;AACpD,QAAI,AAAQ,OAAD,IAAI,MAAM,MAAO,SAAQ;AAChC,mBAAoB,2BAAU,OAAO;AACzC,SAAO,QAAQ;iBAAR,OAAY,QAAQ;EAC7B;uCAIiB,MAAuB;QAAe;AACjD,kBAAU,0BAAa;AACvB,gBAAQ;AACR,gCAAc,MAAM,IAAG,QAAQ;AAC/B,iCAAe,MAAM,IAAG,QAAQ;AAChC,oCAAkB,MAAM,kBAA8B,QAAC,KAAM,CAAC;AAClE,aAAK,UAAkB,KAAY;AACjC,UAAQ,aAAJ,GAAG;AACL,iBAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,AAAI,GAAD,YAAS,IAAA,AAAC,CAAA;AAEmD,UADlF,AAAS,SAAA,CAAC,AAAG,GAAA,QAAC,CAAC,GACkE,SAA3E,IAAI,IAAC,WAAW,YAAU,AAAO,YAAd,AAAG,GAAA,QAAC,CAAC,MAAmB,aAAP,AAAG,GAAA,QAAC,CAAC,KAAa,CAAC,GAAG,MAAI,YAAY;;YAE7E,KAAQ,YAAJ,GAAG;AAOV,QANF,AAAI,GAAD,WAAS,SAAC,GAAG;AACd,cAAI,AAAK,IAAD,KAAI;AAC2B,YAArC,AAAS,SAAA,CAAC,CAAC,EAAyB,SAApB,AAAe,eAAA,gBAAC,CAAC;;AAEkC,YAAnE,AAAS,SAAA,CAAC,CAAC,EAAuD,SAAnD,IAAI,IAAC,WAAW,YAAE,AAAe,eAAA,gBAAC,CAAC,MAAG,YAAY;;;;AAIjE,kBAAM,AAAO,OAAA,CAAC,IAAI,EAAE,GAAG;AACvB,yBAAa,AAAY,GAAT,IAAI,mBAAmB,WAAP,WAAJ,GAAG;AACnC,aAAK,KAAK,IAAI,UAAU;AACJ,UAAlB,AAAQ,OAAD,OAAO;;AAEH,QAAb,QAAQ;AACR,YAAI,UAAU;AACM,UAAlB,AAAQ,OAAD,OAAO,GAAG;;;;;AAKJ,IAAnB,AAAS,SAAA,CAAC,IAAI,EAAE;AAChB,UAAO,AAAQ,QAAD;EAChB;;MA9Da,iBAAW;YAAG,iBAAO","file":"../../../../../../../../../../../../../packages/dio/src/utils.dart.lib.js"}');
+// Exports:
+// return {
+//   src__utils: utils
+// };
 
 exports.src__utils = utils;
-
-
 //# sourceMappingURL=utils.dart.lib.js.map

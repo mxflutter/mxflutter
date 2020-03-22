@@ -5,7 +5,6 @@
 const dart_sdk = require("dart_sdk");
 //let packages__http_parser__src__media_type = require('packages/dio/media_type.dart.lib.js');
 let packages__dio__src__utils = require('packages/dio/utils.dart.lib.js');
-
 const core = dart_sdk.core;
 const async = dart_sdk.async;
 const _interceptors = dart_sdk._interceptors;
@@ -130,12 +129,12 @@ dart.setFieldSignature(multipart_file.MultipartFile, () => ({
   [_stream]: dart.finalFieldType(async.Stream$(core.List$(core.int))),
   [_isFinalized]: dart.fieldType(core.bool)
 }));
-dart.trackLibraries("/packages/dio/src/multipart_file_stub.dart", {
+dart.trackLibraries("packages/dio/src/multipart_file_stub.dart", {
   "package:dio/src/multipart_file_stub.dart": multipart_file_stub,
   "package:dio/src/multipart_file.dart": multipart_file
 }, {
-}, '{"version":3,"sourceRoot":"","sources":["multipart_file_stub.dart","multipart_file.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;6EAOmD;QACnC;QAAoB;AAChC,sBAAM;EAAI;qFAEiC;QAC/B;QAAoB;AAChC,sBAAM;EAAI;;MATR,wBAAI;YAAG,+BACT;;;;;;;;;ICaQ;;;;;;IAGG;;;;;;IAGG;;;;;;;AAMQ;IAAY;qBAsBxB;UACH;UACG;AAEN,mBAAgB,iCAAa,yBAAC,KAAK;AACvC,YAAO,sCACL,MAAM,EACN,AAAM,KAAD,sBACK,QAAQ,eACL,WAAW;IAE5B;sBASS;UACA;UACG;AAEgC,MAA1C,AAAY,WAAD,IAAC,OAAZ,cAAgB,6BAAU,QAAQ,WAAtB;AACR,qBAAW,yBAAmB,AAAY,AAAU,WAAX,mBAAY,YAAY;AACG,MAAxE,cAAc,AAAY,WAAD,qBAAoB,yCAAC,WAAW,AAAS,QAAD;AAEjE,YAAqB,wCACnB,AAAS,QAAD,QAAQ,KAAK,cACX,QAAQ,eACL,WAAW;IAE5B;oBAWS;UACA;UACG;AAER,uDACE,QAAQ,aACE,QAAQ,eACL,WAAW;IACzB;wBAGI;UACA;UACG;AAER,2DACE,QAAQ,aACE,QAAQ,eACL,WAAW;IACzB;;AAGH,oBAAI;AAC2D,QAA7D,WAAM,wBAAW;;AAEA,MAAnB,qBAAe;AACf,YAAO;IACT;;+CAnFoB,QACb;;QACA;QACK;IAZP,qBAAe;IAUb;IACA;IAEO,gBAAE,MAAM;IACJ,sBAAc,KAAZ,WAAW,QAAX,OAAe,6BAAU,eAAe;;EAAe","file":"../../../../../../../../../../packages/dio/src/multipart_file_stub.dart.lib.js"}');
-
+}, '{"version":3,"sourceRoot":"","sources":["multipart_file_stub.dart","multipart_file.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;6EAOmD;QACnC;QAAoB;AAChC,sBAAM;EAAI;qFAEiC;QAC/B;QAAoB;AAChC,sBAAM;EAAI;;MATR,wBAAI;YAAG,+BACT;;;;;;;;;ICaQ;;;;;;IAGG;;;;;;IAGG;;;;;;;AAMQ;IAAY;qBAsBxB;UACH;UACG;AAEN,mBAAgB,iCAAa,yBAAC,KAAK;AACvC,YAAO,sCACL,MAAM,EACN,AAAM,KAAD,sBACK,QAAQ,eACL,WAAW;IAE5B;sBASS;UACA;UACG;AAEgC,MAA1C,AAAY,WAAD,IAAC,OAAZ,cAAgB,6BAAU,QAAQ,WAAtB;AACR,qBAAW,yBAAmB,AAAY,AAAU,WAAX,mBAAY,YAAY;AACG,MAAxE,cAAc,AAAY,WAAD,qBAAoB,yCAAC,WAAW,AAAS,QAAD;AAEjE,YAAqB,wCACnB,AAAS,QAAD,QAAQ,KAAK,cACX,QAAQ,eACL,WAAW;IAE5B;oBAWS;UACA;UACG;AAER,uDACE,QAAQ,aACE,QAAQ,eACL,WAAW;IACzB;wBAGI;UACA;UACG;AAER,2DACE,QAAQ,aACE,QAAQ,eACL,WAAW;IACzB;;AAGH,oBAAI;AAC2D,QAA7D,WAAM,wBAAW;;AAEA,MAAnB,qBAAe;AACf,YAAO;IACT;;+CAnFoB,QACb;;QACA;QACK;IAZP,qBAAe;IAUb;IACA;IAEO,gBAAE,MAAM;IACJ,sBAAc,KAAZ,WAAW,QAAX,OAAe,6BAAU,eAAe;;EAAe","file":"../../../../../../../../../../../../../packages/dio/src/multipart_file_stub.dart.lib.js"}');
+// Exports:
 exports.src__multipart_file = multipart_file_stub;
 exports.src__multipart_file = multipart_file;
 

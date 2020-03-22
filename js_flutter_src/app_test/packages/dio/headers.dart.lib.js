@@ -5,8 +5,6 @@
 'use strict';
 const dart_sdk = require("dart_sdk");
 //let packages__http_parser__src__media_type = require('packages/dio/media_type.dart.lib.js');
-
-
 const core = dart_sdk.core;
 const _js_helper = dart_sdk._js_helper;
 const _interceptors = dart_sdk._interceptors;
@@ -66,7 +64,7 @@ headers.Headers = class Headers extends core.Object {
     if (core.List.is(value)) {
       this[_map][$_set](name, value[$map](core.String, dart.fn(e => dart.toString(e), dynamicToString()))[$toList]());
     } else {
-      this[_map][$_set](name, JSArrayOfString().of([core.String._check(dart.dsend(value, 'trim', []))]));
+      this[_map][$_set](name, JSArrayOfString().of([core.String.as(dart.dsend(value, 'trim', []))]));
     }
   }
   remove(name, value) {
@@ -148,10 +146,10 @@ dart.defineLazy(headers.Headers, {
   //   return media_type.MediaType.parse("application/json; charset=utf-8");
   // }
 }, true);
-dart.trackLibraries("/packages/dio/src/headers.dart", {
+dart.trackLibraries("packages/dio/src/headers.dart", {
   "package:dio/src/headers.dart": headers
 }, {
-}, '{"version":3,"sourceRoot":"","sources":["headers.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAoBuC;IAAI;SAST;AAC9B,YAAO,AAAI,mBAAC,AAAK,AAAO,IAAR;IAClB;UAMoB;AACd,gBAAU,UAAC,IAAI;AACnB,UAAI,AAAI,GAAD,IAAI,MAAM,MAAO;AACxB,UAAI,AAAI,AAAO,GAAR,cAAW,GAAG,MAAO,AAAI,IAAD;AAEwC,MADvE,WAAM,mBACF,AAAkE,gBAA/D,IAAI;IACb;QAIgB,MAAa;AACvB,gBAAU,UAAC,IAAI;AACnB,UAAI,AAAI,GAAD,IAAI,MAAM,MAAO,UAAI,IAAI,EAAE,KAAK;AACzB,MAAd,AAAI,GAAD,OAAK,KAAK;AACW,MAAxB,SAAI,IAAI,EAAE,AAAI,GAAD,QAAM;IACrB;QAIgB,MAAc;AACI,MAAhC,OAAO,AAAK,AAAO,IAAR;AACX,UAAU,aAAN,KAAK;AACqD,QAA5D,AAAI,kBAAC,IAAI,EAAI,AAAM,AAAiC,KAAlC,oBAAa,QAAC,KAAQ,cAAF,CAAC;;AAEZ,QAA3B,AAAI,kBAAC,IAAI,EAAI,yCAAO,WAAN,KAAK;;IAEvB;WAGmB,MAAa;AAC1B,gBAAU,UAAC,IAAI;AACnB,UAAI,AAAI,GAAD,IAAI,MAAM;AACiB,MAAlC,AAAI,GAAD,eAAa,QAAC,KAAM,AAAE,CAAD,IAAI,KAAK;IACnC;cAGsB;AACH,MAAjB,AAAK,oBAAO,IAAI;IAClB;;AAGc,MAAZ,AAAK;IACP;YAKmC;AACY,MAA7C,AAAK,AAAK,4BAAQ,QAAC,OAAQ,AAAC,CAAA,CAAC,GAAG,EAAM,UAAC,GAAG;IAC5C;;AAIM,yBAAe;AAGjB,MAFF,AAAK,qBAAQ,SAAC,KAAK;AACqC,QAAtD,AAAM,KAAD,WAAS,QAAC,KAAM,AAAa,YAAD,SAAmB,SAAR,GAAG,oBAAG,CAAC;;AAErD,YAAO,AAAa,aAAD;IACrB;;;IAzEiB,aAAwB;;EAAE;sCAED;IAC/B,aAAE,AAAI,GAAD,oCAAK,SAAC,GAAG,MAAM,yCAAS,AAAE,AAAO,CAAR,2BAAuB,CAAC;;EAAE;;;;;;;;;;;;;;;;;;;;;;;;;MAnBtD,4BAAY;;;MACZ,qCAAqB;;;MACrB,mCAAmB;;;MACnB,iCAAiB;;;MACjB,qCAAqB;;;MAGrB,+BAAe;;;MACf,yCAAyB;;;MAEzB,4BAAY;YAAa","file":"../../../../../../../../../../packages/dio/src/headers.dart.lib.js"}');
+}, '{"version":3,"sourceRoot":"","sources":["headers.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAoBuC;IAAI;SAST;AAC9B,YAAO,AAAI,mBAAC,AAAK,AAAO,IAAR;IAClB;UAMoB;AACd,gBAAU,UAAC,IAAI;AACnB,UAAI,AAAI,GAAD,IAAI,MAAM,MAAO;AACxB,UAAI,AAAI,AAAO,GAAR,cAAW,GAAG,MAAO,AAAI,IAAD;AAEwC,MADvE,WAAM,mBACF,AAAkE,gBAA/D,IAAI;IACb;QAIgB,MAAa;AACvB,gBAAU,UAAC,IAAI;AACnB,UAAI,AAAI,GAAD,IAAI,MAAM,MAAO,UAAI,IAAI,EAAE,KAAK;AACzB,MAAd,AAAI,GAAD,OAAK,KAAK;AACW,MAAxB,SAAI,IAAI,EAAE,AAAI,GAAD,QAAM;IACrB;QAIgB,MAAc;AACI,MAAhC,OAAO,AAAK,AAAO,IAAR;AACX,UAAU,aAAN,KAAK;AACqD,QAA5D,AAAI,kBAAC,IAAI,EAAI,AAAM,AAAiC,KAAlC,oBAAa,QAAC,KAAQ,cAAF,CAAC;;AAEZ,QAA3B,AAAI,kBAAC,IAAI,EAAI,qCAAO,WAAN,KAAK;;IAEvB;WAGmB,MAAa;AAC1B,gBAAU,UAAC,IAAI;AACnB,UAAI,AAAI,GAAD,IAAI,MAAM;AACiB,MAAlC,AAAI,GAAD,eAAa,QAAC,KAAM,AAAE,CAAD,IAAI,KAAK;IACnC;cAGsB;AACH,MAAjB,AAAK,oBAAO,IAAI;IAClB;;AAGc,MAAZ,AAAK;IACP;YAKmC;AACY,MAA7C,AAAK,AAAK,4BAAQ,QAAC,OAAQ,AAAC,CAAA,CAAC,GAAG,EAAM,UAAC,GAAG;IAC5C;;AAIM,yBAAe;AAGjB,MAFF,AAAK,qBAAQ,SAAC,KAAK;AACqC,QAAtD,AAAM,KAAD,WAAS,QAAC,KAAM,AAAa,YAAD,SAAmB,SAAR,GAAG,oBAAG,CAAC;;AAErD,YAAO,AAAa,aAAD;IACrB;;;IAzEiB,aAAwB;;EAAE;sCAED;IAC/B,aAAE,AAAI,GAAD,oCAAK,SAAC,GAAG,MAAM,yCAAS,AAAE,AAAO,CAAR,2BAAuB,CAAC;;EAAE;;;;;;;;;;;;;;;;;;;;;;;;;MAnBtD,4BAAY;;;MACZ,qCAAqB;;;MACrB,mCAAmB;;;MACnB,iCAAiB;;;MACjB,qCAAqB;;;MAGrB,+BAAe;;;MACf,yCAAyB;;;MAEzB,4BAAY;YAAa","file":"../../../../../../../../../../../../../packages/dio/src/headers.dart.lib.js"}');
 
 exports.src__headers = headers;
 

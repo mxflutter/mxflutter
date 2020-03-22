@@ -60,7 +60,7 @@ const index_page = packages__zhihu__index.index__index;
 
 const dart_sdk = require("dart_sdk");
 const dart = dart_sdk.dart;
-const packages__dio = require("packages/dio/dio.js");
+
 
 const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
 const network = bridge_netwrok.network;
@@ -73,8 +73,9 @@ let cgiJsonUrl = "https://reactnative.dev/movies.json";
   //例子1，最简单的用法 
   async function testDio1() {
     try {
+      const packages__dio = require("packages/dio/dio.js");
       let response = await packages__dio.Dio().get(cgiJsonUrl);
-      MXJSLog.log("await Dio.get(urlStr):request() :" + response);
+      MXJSLog.log("await Dio.get(urlStr):request() :" + JSON.stringify( response.data));
       return response;
 
     } catch (e$) {

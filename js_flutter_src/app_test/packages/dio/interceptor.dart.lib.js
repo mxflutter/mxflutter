@@ -3,7 +3,6 @@
 'use strict';
 const dart_sdk = require("dart_sdk");
 let packages__dio__src__cancel_token = require('packages/dio/cancel_token.dart.lib.js');
-
 const core = dart_sdk.core;
 const async = dart_sdk.async;
 const _interceptors = dart_sdk._interceptors;
@@ -182,7 +181,7 @@ interceptor.Interceptors = class Interceptors extends collection.ListMixin$(inte
   }
   _set(index, value$) {
     let value = value$;
-    interceptor.Interceptor._check(value);
+    interceptor.Interceptor.as(value);
     if (this[_list][$length] == index) {
       this[_list][$add](value);
     } else {
@@ -225,11 +224,11 @@ dart.setFieldSignature(interceptor.Interceptors, () => ({
 }));
 dart.defineExtensionMethods(interceptor.Interceptors, ['_get', '_set']);
 dart.defineExtensionAccessors(interceptor.Interceptors, ['length']);
-dart.trackLibraries("/packages/dio/src/interceptor.dart", {
+dart.trackLibraries("packages/dio/src/interceptor.dart", {
   "package:dio/src/interceptor.dart": interceptor
 }, {
-}, '{"version":3,"sourceRoot":"","sources":["interceptor.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAkBqB,YAAA,AAAM,gBAAG;IAAI;;AAQ9B,qBAAK;AACqB,QAAxB,mBAAa;AACY,QAAzB,cAAQ,AAAW;;IAEvB;;AAIE,oBAAI;AACmB,QAArB,AAAW;AACC,QAAZ,cAAQ;;IAEZ;UAGmB;AACjB,oBAAI;AAC2B,QAA7B,AAAW,+BAAc,GAAG;AAChB,QAAZ,cAAQ;;IAEZ;YAO+B;AAC7B,oBAAI;AAEF,cAAO,AAAM,gCAAK,QAAC,KAAM,AAAQ,QAAA;;AAEnC,YAAO;IACT;;;IA7CO;IACG;;EA6CZ;;;;;;;;;;;;;;;;;;;;;cAiBkC;AAAhB;AAAkC,sBAAO;;;eAO9B;AAAV;AAA6B,uBAAQ;;;YAO9B;AAAV;AAAwB,kBAAG;;;;;;EAC3C;;;;;;;;;;;;;;cAgBkC;AAAhB;;AACd,YAAI,oBAAc;AAChB,eAAkB,OAAO;gBAAlB;;MAEX;;eAG2B;AAAV;;AACf,YAAI,qBAAe;AACjB,eAAmB,QAAQ;gBAApB;;MAEX;;YAGwB;AAAV;;AACZ,YAAI,kBAAY;AACd,eAAgB,GAAG;gBAAZ;;MAEX;;;;QA1B0B;QACG;QACF;IACV,mBAAE,SAAS;IACV,oBAAE,UAAU;IACf,iBAAE,OAAO;;;;;;;;;;;;;;;;;;IAqCpB;;;;;;;AAPoB;IAAY;;AAEX;IAAa;;AAEhB;IAAU;SAMJ;AAC1B,YAAO,AAAK,oBAAC,KAAK;IACpB;SAGsB;UAAO;;AAC3B,UAAI,AAAM,AAAO,wBAAG,KAAK;AACP,QAAhB,AAAM,kBAAI,KAAK;;AAEK,QAApB,AAAK,mBAAC,KAAK,EAAI,KAAK;;;IAExB;;;IA1BM,cAAqB;IAChB,qBAAe;IACf,sBAAgB;IAChB,mBAAa;IASpB,eAAS;;EAef","file":"../../../../../../../../../../packages/dio/src/interceptor.dart.lib.js"}');
-
+}, '{"version":3,"sourceRoot":"","sources":["interceptor.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAkBqB,YAAA,AAAM,gBAAG;IAAI;;AAQ9B,qBAAK;AACqB,QAAxB,mBAAa;AACY,QAAzB,cAAQ,AAAW;;IAEvB;;AAIE,oBAAI;AACmB,QAArB,AAAW;AACC,QAAZ,cAAQ;;IAEZ;UAGmB;AACjB,oBAAI;AAC2B,QAA7B,AAAW,+BAAc,GAAG;AAChB,QAAZ,cAAQ;;IAEZ;YAO+B;AAC7B,oBAAI;AAEF,cAAO,AAAM,gCAAK,QAAC,KAAM,AAAQ,QAAA;;AAEnC,YAAO;IACT;;;IA7CO;IACG;;EA6CZ;;;;;;;;;;;;;;;;;;;;;cAiBkC;AAAhB;AAAkC,sBAAO;;;eAO9B;AAAV;AAA6B,uBAAQ;;;YAO9B;AAAV;AAAwB,kBAAG;;;;;;EAC3C;;;;;;;;;;;;;;cAgBkC;AAAhB;;AACd,YAAI,oBAAc;AAChB,eAAkB,OAAO;gBAAlB;;MAEX;;eAG2B;AAAV;;AACf,YAAI,qBAAe;AACjB,eAAmB,QAAQ;gBAApB;;MAEX;;YAGwB;AAAV;;AACZ,YAAI,kBAAY;AACd,eAAgB,GAAG;gBAAZ;;MAEX;;;;QA1B0B;QACG;QACF;IACV,mBAAE,SAAS;IACV,oBAAE,UAAU;IACf,iBAAE,OAAO;;;;;;;;;;;;;;;;;;IAqCpB;;;;;;;AAPoB;IAAY;;AAEX;IAAa;;AAEhB;IAAU;SAMJ;AAC1B,YAAO,AAAK,oBAAC,KAAK;IACpB;SAGsB;UAAO;;AAC3B,UAAI,AAAM,AAAO,wBAAG,KAAK;AACP,QAAhB,AAAM,kBAAI,KAAK;;AAEK,QAApB,AAAK,mBAAC,KAAK,EAAI,KAAK;;;IAExB;;;IA1BM,cAAqB;IAChB,qBAAe;IACf,sBAAgB;IAChB,mBAAa;IASpB,eAAS;;EAef","file":"../../../../../../../../../../../../../packages/dio/src/interceptor.dart.lib.js"}');
+// Exports:
 exports.src__interceptor = interceptor;
 
 //# sourceMappingURL=interceptor.dart.lib.js.map

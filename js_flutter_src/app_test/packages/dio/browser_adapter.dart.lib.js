@@ -2,7 +2,6 @@
 'use strict';
 const dart_sdk = require("dart_sdk");
 let packages__dio__src__cancel_token = require('packages/dio/cancel_token.dart.lib.js');
-
 const core = dart_sdk.core;
 const _interceptors = dart_sdk._interceptors;
 const html = dart_sdk.html;
@@ -14,7 +13,6 @@ const dartx = dart_sdk.dartx;
 const adapter = packages__dio__src__cancel_token.src__adapter;
 const dio_error = packages__dio__src__cancel_token.src__dio_error;
 const options = packages__dio__src__cancel_token.src__options;
-
 var browser_adapter = Object.create(dart.library);
 var $add = dartx.add;
 var $_get = dartx._get;
@@ -29,8 +27,6 @@ var $split = dartx.split;
 var $map = dartx.map;
 var $onError = dartx.onError;
 var $clear = dartx.clear;
-
-
 var JSArrayOfHttpRequest = () => (JSArrayOfHttpRequest = dart.constFn(_interceptors.JSArray$(html.HttpRequest)))();
 var StringAnddynamicTovoid = () => (StringAnddynamicTovoid = dart.constFn(dart.fnType(dart.void, [core.String, dart.dynamic])))();
 var CompleterOfResponseBody = () => (CompleterOfResponseBody = dart.constFn(async.Completer$(adapter.ResponseBody)))();
@@ -61,7 +57,7 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
     t0 = xhr;
     t0.open(options.method, dart.toString(options.uri), { async: true });
     t0.responseType = "blob";
-    t0.withCredentials = core.bool._check((t1 = options.extra[$_get]("withCredentials"), t1 == null ? this.withCredentials : t1));
+    t0.withCredentials = core.bool.as((t1 = options.extra[$_get]("withCredentials"), t1 == null ? this.withCredentials : t1));
     t0;
     options.headers[$remove]("content-length");
     options.headers[$forEach](dart.fn((key, v) => xhr.setRequestHeader(key, dart.str(v)), StringAnddynamicTovoid()));
@@ -77,7 +73,7 @@ browser_adapter.BrowserHttpClientAdapter = class BrowserHttpClientAdapter extend
       reader[$onError].first.then(core.Null, dart.fn(error => {
         completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: error, request: options }), core.StackTrace.current);
       }, ProgressEventToNull()));
-      reader.readAsArrayBuffer(html.Blob._check(blob));
+      reader.readAsArrayBuffer(html.Blob.as(blob));
     }, ProgressEventToNull()));
     xhr[$onError].first.then(core.Null, dart.fn(_ => {
       completer.completeError(new dio_error.DioError.new({ type: dio_error.DioErrorType.RESPONSE, error: "XMLHttpRequest error.", request: options }), core.StackTrace.current);
@@ -140,10 +136,10 @@ dart.setFieldSignature(browser_adapter.BrowserHttpClientAdapter, () => ({
 browser_adapter.createAdapter = function createAdapter() {
   return new browser_adapter.BrowserHttpClientAdapter.new();
 };
-dart.trackLibraries("/packages/dio/src/adapters/browser_adapter.dart", {
+dart.trackLibraries("packages/dio/src/adapters/browser_adapter.dart", {
   "package:dio/src/adapters/browser_adapter.dart": browser_adapter
 }, {
-}, '{"version":3,"sourceRoot":"","sources":["browser_adapter.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoBO;;;;;;UAGqC,SACpB,eAAsB;;AACtC,gBAAM;AACI,MAAd,AAAM,kBAAI,GAAG;AAK4D,WAHzE,GAAG;MACC,QAAK,AAAQ,OAAD,SAAqB,cAAZ,AAAQ,OAAD,eAAwB;MACpD,kBAAe;2BACf,kBAAmD,KAAjC,AAAQ,AAAK,OAAN,cAAO,0BAAD,OAAuB;;AACP,MAAnD,AAAQ,AAAQ,OAAT;AAC6D,MAApE,AAAQ,AAAQ,OAAT,mBAAiB,SAAC,KAAK,MAAM,AAAI,GAAD,kBAAkB,GAAG,EAAM,SAAF,CAAC;AAE7D,sBAAY;AAgCd,MA9BF,AAAI,AAAO,AAAM,GAAd,gCAAmB,QAAC;;AAEjB,oBAAoB,KAAb,AAAI,GAAD,mBAAC,OAAY,cAAK;AAC5B,qBAAS;AAcX,QAZF,AAAO,AAAO,AAAM,MAAd,gCAAmB,QAAC;AACpB,qBAAqB,wBAAd,AAAO,MAAD;AAUhB,UATD,AAAU,SAAD,UACM,mCACX,IAAI,EACJ,AAAI,GAAD,mBACM,AAAI,AACR,GADO,sDACH,SAAC,GAAG,MAAM,yCAAS,AAAE,CAAD,kBAAgB,AAAE,CAAD,SAAO,0EACtC,AAAI,GAAD,yBACN,AAAI,AAAO,AAAO,GAAf,YAAW,OAAO,AAAI,AAAO,GAAR,YAAW;;AAcnD,QATF,AAAO,AAAQ,AAAM,MAAf,iCAAoB,QAAC;AAQxB,UAPD,AAAU,SAAD,eACP,kCACqB,wCACZ,KAAK,WACH,OAAO,IAEP;;AAGe,QAA9B,AAAO,MAAD,oCAAmB,IAAI;;AAc7B,MAXF,AAAI,AAAQ,AAAM,GAAf,iCAAoB,QAAC;AAUrB,QAPD,AAAU,SAAD,eACP,kCACqB,wCACZ,kCACE,OAAO,IAEP;;AAYb,YARF,YAAY;oBAAZ,OAAc,oBAAK,QAAC;AAClB,YAAmB,aAAf,AAAI,GAAD,eAAc,KAAoB,aAAf,AAAI,GAAD,eAAc;AACzC;AACa,YAAX,AAAI,GAAD;;gBACI;;;;AAMb,UAAI,AAAc,aAAD,IAAI;AACT,QAAV,AAAI,GAAD;;AAIgB,QAFnB,AACK,AACA,aAFQ,QACD,SAAC,GAAG,MAAgB,4CAAS;;AAAC,wBAAG,EAAC;AAAJ;AAAM,wBAAG,EAAC;AAAJ;;oEAClC,UAAJ,GAAG;;AAGf,YAAO,AAAU,AAAO,UAAR,qBAAqB;AAClB,QAAjB,AAAM,qBAAO,GAAG;;IAEpB;;UAMiB;AACf,oBAAI,KAAK;AACP,iBAAS,MAAO;AACH,UAAX,AAAI,GAAD;;;AAGM,MAAb,AAAM;IACR;;;IAxGM,cAAqB;IAQtB,wBAAkB;;EAiGzB;;;;;;;;;;;;;;;;AA7GqC;EAA0B","file":"../../../../../../../../../../../packages/dio/src/adapters/browser_adapter.dart.lib.js"}');
+}, '{"version":3,"sourceRoot":"","sources":["browser_adapter.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoBO;;;;;;UAGqC,SACpB,eAAsB;;AACtC,gBAAM;AACI,MAAd,AAAM,kBAAI,GAAG;AAK4D,WAHzE,GAAG;MACC,QAAK,AAAQ,OAAD,SAAqB,cAAZ,AAAQ,OAAD,eAAwB;MACpD,kBAAe;2BACf,cAAmD,KAAjC,AAAQ,AAAK,OAAN,cAAO,0BAAD,OAAuB;;AACP,MAAnD,AAAQ,AAAQ,OAAT;AAC6D,MAApE,AAAQ,AAAQ,OAAT,mBAAiB,SAAC,KAAK,MAAM,AAAI,GAAD,kBAAkB,GAAG,EAAM,SAAF,CAAC;AAE7D,sBAAY;AAgCd,MA9BF,AAAI,AAAO,AAAM,GAAd,gCAAmB,QAAC;;AAEjB,oBAAoB,KAAb,AAAI,GAAD,mBAAC,OAAY,cAAK;AAC5B,qBAAS;AAcX,QAZF,AAAO,AAAO,AAAM,MAAd,gCAAmB,QAAC;AACpB,qBAAqB,wBAAd,AAAO,MAAD;AAUhB,UATD,AAAU,SAAD,UACM,mCACX,IAAI,EACJ,AAAI,GAAD,mBACM,AAAI,AACR,GADO,sDACH,SAAC,GAAG,MAAM,yCAAS,AAAE,CAAD,kBAAgB,AAAE,CAAD,SAAO,0EACtC,AAAI,GAAD,yBACN,AAAI,AAAO,AAAO,GAAf,YAAW,OAAO,AAAI,AAAO,GAAR,YAAW;;AAcnD,QATF,AAAO,AAAQ,AAAM,MAAf,iCAAoB,QAAC;AAQxB,UAPD,AAAU,SAAD,eACP,kCACqB,wCACZ,KAAK,WACH,OAAO,IAEP;;AAGe,QAA9B,AAAO,MAAD,gCAAmB,IAAI;;AAc7B,MAXF,AAAI,AAAQ,AAAM,GAAf,iCAAoB,QAAC;AAUrB,QAPD,AAAU,SAAD,eACP,kCACqB,wCACZ,kCACE,OAAO,IAEP;;AAYb,YARF,YAAY;oBAAZ,OAAc,oBAAK,QAAC;AAClB,YAAmB,aAAf,AAAI,GAAD,eAAc,KAAoB,aAAf,AAAI,GAAD,eAAc;AACzC;AACa,YAAX,AAAI,GAAD;;gBACI;;;;AAMb,UAAI,AAAc,aAAD,IAAI;AACT,QAAV,AAAI,GAAD;;AAIgB,QAFnB,AACK,AACA,aAFQ,QACD,SAAC,GAAG,MAAgB,4CAAS;;AAAC,wBAAG,EAAC;AAAJ;AAAM,wBAAG,EAAC;AAAJ;;oEAClC,UAAJ,GAAG;;AAGf,YAAO,AAAU,AAAO,UAAR,qBAAqB;AAClB,QAAjB,AAAM,qBAAO,GAAG;;IAEpB;;UAMiB;AACf,oBAAI,KAAK;AACP,iBAAS,MAAO;AACH,UAAX,AAAI,GAAD;;;AAGM,MAAb,AAAM;IACR;;;IAxGM,cAAqB;IAQtB,wBAAkB;;EAiGzB;;;;;;;;;;;;;;;;AA7GqC;EAA0B","file":"../../../../../../../../../../../../../../packages/dio/src/adapters/browser_adapter.dart.lib.js"}');
 // Exports:
 // return {
 //   src__adapters__browser_adapter: browser_adapter
