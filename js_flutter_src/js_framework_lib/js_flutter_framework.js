@@ -53,12 +53,12 @@ function invokeFlutterFunction(flutterCallArgs) {
 
 //github merge
 function invokeCommonFlutterFunction(flutterCallArgs) {
-    if (typeof (g_platform) != "undefined" && g_platform === "android") {
-        arguments = { "invokeParams": JSON.stringify(flutterCallArgs) }
-    } else {
-        arguments = JSON.stringify(flutterCallArgs);
-    }
-    MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invokeCommon", arguments);
+  if (typeof (g_platform) != "undefined" && g_platform === "android") {
+    arguments = { "invokeParams": JSON.stringify(flutterCallArgs) }
+  } else {
+    arguments = JSON.stringify(flutterCallArgs);
+  }
+  MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invokeCommon", arguments);
 }
 
 //JSFlutter JS Runtime
@@ -164,7 +164,7 @@ class MXJSWidgetMgr {
 
 //MXJSFlutterBuildContext 和flutter BuildContext 保持一致的编程方式
 class MXJSFlutterBuildContext {
-  constructor(widget,parentBuildContext = null) {
+  constructor(widget, parentBuildContext = null) {
     this.widget = widget;
     this.widget.buildContext = this;
 
@@ -177,7 +177,7 @@ class MXJSFlutterBuildContext {
   }
 
   static inheritBuildContext(widget, buildContext) {
-    var context = new MXJSFlutterBuildContext(widget,buildContext);
+    var context = new MXJSFlutterBuildContext(widget, buildContext);
     context.inheritedInfo = buildContext.inheritedInfo;
     context.mediaQueryData = buildContext.mediaQueryData;
     context.themeData = buildContext.themeData;
@@ -185,22 +185,7 @@ class MXJSFlutterBuildContext {
     return context;
   }
 
-  buildRootWidget() {
-    MXJSLog.log("buildRootWidget ::" + this.widget.widgetLogInfoStr());
-    return MXJSWidgetHelper.buildWidgetData(this.widget);
-  }
 
-  //js->flutter
-  callFlutterRebuild(widget, isRootWidget) {
-
-    MXJSLog.log("callFlutterRebuild ::" + widget.widgetLogInfoStr());
-    let widgetData = MXJSWidgetHelper.buildWidgetData(widget);
-    //call flutter setState
-    MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", {
-      widgetData,
-      isRootWidget
-    });
-  }
 
   setInheritedInfo(args) {
     this.inheritedInfo = args;
@@ -216,9 +201,11 @@ class MXJSFlutterApp {
   constructor(name, initialRoute) {
     this.name = name;
     this.initialRoute = initialRoute;
-    this.rootWidget = null;
-    this.rootBuildContext = null;
-    this.disposeBuildContextList = [];
+
+    //App的rootWidget是个虚拟Widget，负责管理push的Widget或runAPP 的Widget
+    this.rootWidget = new MXJSStatelessWidget("RootWidget");
+    this.rootWidget.helper.setupAsRootWidget();
+  
   }
 
   run() {
@@ -231,13 +218,14 @@ class MXJSFlutterApp {
     this.runApp(w);
   }
 
-  ///子类重写,当Flutter通过
-  ///MXJSFlutter.getInstance().navigatorPushWithName("JSWidgetHomePage",...);
+  ///子类重写
+  ///当Flutter通过MXJSFlutter.getInstance().navigatorPushWithName("JSWidgetHomePage",...);
   ///push页面时，在这里根据widgetName 创建你自己的Widget
-  createJSWidgetWithName(widgetName){
+  createJSWidgetWithName(widgetName) {
 
   }
 
+  //Flutter通过MXJSFlutter.getInstance().navigatorPushWithName("JSWidgetHomePage",...);push页面时,会调用到此函数
   navigatorPushWithName(widgetName, widgetID, args) {
 
     let w = this.createJSWidgetWithName(widgetName);
@@ -256,32 +244,51 @@ class MXJSFlutterApp {
     }
   }
 
-  //基础
+  ///JS侧入口API
   //创建MXJSWidget，调用build 创建jsonWidgetTree，调用Flutter runApp 重新加载Flutter根页面
   runApp(widget) {
-    this.rootWidget = widget;
 
-    this.disposeBuildContext(this.rootBuildContext);
-    this.rootBuildContext = new MXJSFlutterBuildContext(this.rootWidget);
+    //这个接口暂时不完备，要在JS侧创建setInheritedInfo，参照navigatorPush
+
+    let bc =  new MXJSFlutterBuildContext(widget);
+    widget.buildContext = bc;
+
+    this.rootWidget.helper.addChildWidget(widget);
 
     let app = this;
-    let widgetData = this.rootBuildContext.buildRootWidget();
+    this.buildRootWidget(widget);
+  }
+
+  ///JS侧入口API
+  //当Flutter层 PageRoute(builder: (context) =>  被调用时，创建MXJSWidget，build后调用rebuild界面
+  navigatorPush(widget, args) {
+
+    let bc =  new MXJSFlutterBuildContext(widget);
+    bc.setInheritedInfo(args);
+    widget.buildContext = bc;
+
+    this.rootWidget.helper.addChildWidget(widget);
+
+    this.callFlutterRebuild(widget,false);
+  }
+
+  buildRootWidget(widget) {
+    MXJSLog.log("buildRootWidget ::" + widget.widgetLogInfoStr());
+    let widgetData = MXJSWidgetHelper.buildWidgetData(widget);
 
     MXNativeJSFlutterAppProxy.callFlutterReloadApp(app, widgetData);
   }
 
-  //基础
-  //当Flutter层 PageRoute(builder: (context) =>  被调用时，创建MXJSWidget，build后调用rebuild界面
-  navigatorPush(widget, args) {
-    this.rootWidget = widget;
-    this.disposeBuildContext(this.rootBuildContext);
-    this.rootBuildContext = new MXJSFlutterBuildContext(this.rootWidget);
-    this.rootBuildContext.setInheritedInfo(args);
-    this.rootBuildContext.callFlutterRebuild(this.rootWidget, true);
-  }
+  //js->flutter
+  callFlutterRebuild(widget, isRootWidget) {
 
-  disposeBuildContext(buildContext) {
-    //this.disposeBuildContextList.add(buildContext);
+    MXJSLog.log("callFlutterRebuild ::" + widget.widgetLogInfoStr());
+    let widgetData = MXJSWidgetHelper.buildWidgetData(widget);
+    //call flutter setState
+    MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", {
+      widgetData,
+      isRootWidget
+    });
   }
 
   //flutter->js channel
@@ -378,7 +385,7 @@ class MXJSWidgetTree {
 }
 
 function initMXJSWidgetData(obj) {
-  //继承自MXJSBaseWidget 自定义控件，使用Flutter 继承自MXJSBaseWidget 来承载。
+  //继承自MXJSBaseWidget 自定义控件。
 
   if (obj.widgetID == null || obj.widgetID == undefined || obj.widgetID == '') {
     obj.widgetID = MXJSWidgetMgr.getInstance().generateWidgetID();
@@ -448,7 +455,7 @@ class MXJSWidgetHelper {
         }
 
         if (value != rootWidget) {
-          value.buildContext = MXJSFlutterBuildContext.inheritBuildContext(value,rootWidget.buildContext);
+          value.buildContext = MXJSFlutterBuildContext.inheritBuildContext(value, rootWidget.buildContext);
           //TODO:FIXME addChildWidget逻辑，这里局部刷新，会有两份Widget数据，但功能正常
           //Widget 的子Widget 没有层级关系，平铺在rootWidget
           rootWidget.helper.addChildWidget(value);
@@ -464,6 +471,7 @@ class MXJSWidgetHelper {
     return widgetDataStr;
   }
 
+  
   buildWidgetTree() {
     this.widget.buildWidgetDataSeq = String(
       ++this.widget.buildWidgetDataSeqFeed
@@ -553,6 +561,14 @@ class MXJSWidgetHelper {
     return this.widget.buildingWidgetTree.createCallbackID(
       callback
     );
+  }
+
+  setupAsRootWidget(){
+
+    let tempWidgetTree = new MXJSWidgetTree("1");
+    this.widget.buildingWidgetTree = tempWidgetTree;
+    this.widget.currentWidgetTree = this.widget.buildingWidgetTree;
+
   }
 
   //所有widget用root来管理，来消息时，从rootwidget开始查找
@@ -711,7 +727,7 @@ class MXJSWidgetHelper {
       }
     }
 
-    for (let i = 0; i < clearSeqs.length ; ++i) {
+    for (let i = 0; i < clearSeqs.length; ++i) {
       //MXJSLog.debug("JSWidget clearWidgetTree::" + this.widget.widgetLogInfoStr() + " delSeq: " + delSeq);
       delete this.widget.buildSeq2WTreeMap[clearSeqs[i]];
     }
@@ -909,7 +925,7 @@ class MXJSStatefulWidget extends MXJSBaseWidget {
 // MXJSStatefulWidget.new = MXJSStatefulWidget.constructor;
 
 class MXJSWidgetState {
-  constructor() { 
+  constructor() {
     this.widget = null;
   }
 
