@@ -221,21 +221,26 @@ class MXJSFlutterApp {
     this.disposeBuildContextList = [];
   }
 
-  // run() {
-  //   runWithName(this.initialRoute);
-  // }
+  run() {
+    runWithName(this.initialRoute);
+  }
 
-  // //子类重写
-  // //flutter->js 用于app直接显示
-  // runWithName(name) {
-  //   let w = this.createJSWidgetWithName(name);
-  //   this.runApp(w);
-  // }
+
+  runWithName(name) {
+    let w = this.createJSWidgetWithName(name);
+    this.runApp(w);
+  }
+
+  ///子类重写,当Flutter通过
+  ///MXJSFlutter.getInstance().navigatorPushWithName("JSWidgetHomePage",...);
+  ///push页面时，在这里根据widgetName 创建你自己的Widget
+  createJSWidgetWithName(widgetName){
+
+  }
 
   navigatorPushWithName(widgetName, widgetID, args) {
-    let launcher = require("launcher.js");
-    let w = launcher.createJSRootWidget(widgetName);
 
+    let w = this.createJSWidgetWithName(widgetName);
     this.setupWidget(w, widgetName, widgetID, args);
 
     this.navigatorPush(w, args);

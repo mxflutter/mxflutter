@@ -214,7 +214,6 @@ class ListViewDemoState extends MXJSWidgetState {
             }),
             body: new Scrollbar({
                 child: new SmartRefresher({
-                    key: new Key(String(this.buildCount)),
                     controller: this.refreshController,
                     enablePullUp: true,
                     enablePullDown: true,
