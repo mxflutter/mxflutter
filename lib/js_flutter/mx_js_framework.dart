@@ -143,7 +143,7 @@ class MXJSFlutter {
     }
   }
 
-  ///API - 由MXJSFlutter类提供的API，都是MXJS页面的入口API
+  ///API - 由MXJSFlutter类提供的API，是MXJS页面的入口API
   ///从Flutter Dart代码 Push一个 JS写的页面
   ///*重要：此API是从Dart侧打开一个JS页面的入口函数，将创建一个RootWidget，MXFlutter 的RootWidget对外只显示一个
   ///先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
@@ -159,7 +159,7 @@ class MXJSFlutter {
     return jsWidget;
   }
 
-  ///API- 由MXJSFlutter类提供的API，都是MXJS页面的入口API
+  ///API- 由MXJSFlutter类提供的API，是MXJS页面的入口API
   ///JS->Flutter
   ///js侧调用Flutter，传递Json Widget Tree，创建JSWidget
   dynamic createJSWidget(Map widgetData) {

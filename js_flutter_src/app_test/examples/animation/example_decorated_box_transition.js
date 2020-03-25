@@ -80,7 +80,7 @@ class PageExampleDecoratedBoxTransitionState extends MXJSWidgetState {
     super();
     this.controller = new AnimationController();
     this.controller.duration = new Duration({ seconds: 2 });
-    this.controller.createMirrorObjectID();
+
 
     let dTween = new DecorationTween({
       begin: new BoxDecoration({
@@ -94,7 +94,6 @@ class PageExampleDecoratedBoxTransitionState extends MXJSWidgetState {
     });
 
     this.rectAnimation = dTween.animate(this.controller)
-    this.rectAnimation.createMirrorObjectID();
 
   }
 

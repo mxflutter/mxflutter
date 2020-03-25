@@ -86,7 +86,7 @@ class PageExampleAnimatedBuilderV2State extends MXJSWidgetState {
       // upperBound: 100,
       // vsync: this,
     });
-    this._controller.createMirrorObjectID();
+
     this._controller.forward();
   }
 

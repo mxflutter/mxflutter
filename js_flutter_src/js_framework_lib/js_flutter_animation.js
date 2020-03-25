@@ -22,6 +22,9 @@ class Animation extends FlutterWidget {
   } = {}) {
     super();
 
+    //Mirror对象在构造函数创建 MirrorID
+    this.createMirrorObjectID();
+
     this.tween = tween;
     this.controller = controller;
     this.statusListenerList = [];
@@ -115,6 +118,9 @@ class AnimationController extends FlutterWidget {
     vsync
   } = {}) {
     super();
+
+    //Mirror对象在构造函数创建 MirrorID
+    this.createMirrorObjectID();
 
     this.value = value;
     this.duration = duration;

@@ -72,9 +72,7 @@ class PageExampleAnimatedBuilder extends MXJSStatelessWidget {
     this.count = 0;
     this.tween = new Tween({ begin: 50.0, end: 300.0 });
     this.animationController = new AnimationController({ duration: new Duration({ seconds: 2 }) });
-    this.animationController.createMirrorObjectID();
     this.animation = new Animation({ tween: this.tween, controller: this.animationController });
-    this.animation.createMirrorObjectID();
     this.animation.addStatusListener(this.animationLoopFunc.bind(this));
   }
 
