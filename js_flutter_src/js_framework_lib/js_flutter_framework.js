@@ -205,7 +205,7 @@ class MXJSFlutterApp {
     //App的rootWidget是个虚拟Widget，负责管理push的Widget或runAPP 的Widget
     this.rootWidget = new MXJSStatelessWidget("RootWidget");
     this.rootWidget.helper.setupAsRootWidget();
-  
+
   }
 
   run() {
@@ -250,7 +250,7 @@ class MXJSFlutterApp {
 
     //这个接口暂时不完备，要在JS侧创建setInheritedInfo，参照navigatorPush
 
-    let bc =  new MXJSFlutterBuildContext(widget);
+    let bc = new MXJSFlutterBuildContext(widget);
     widget.buildContext = bc;
 
     this.rootWidget.helper.addChildWidget(widget);
@@ -263,13 +263,13 @@ class MXJSFlutterApp {
   //当Flutter层 PageRoute(builder: (context) =>  被调用时，创建MXJSWidget，build后调用rebuild界面
   navigatorPush(widget, args) {
 
-    let bc =  new MXJSFlutterBuildContext(widget);
+    let bc = new MXJSFlutterBuildContext(widget);
     bc.setInheritedInfo(args);
     widget.buildContext = bc;
 
     this.rootWidget.helper.addChildWidget(widget);
 
-    this.callFlutterRebuild(widget,false);
+    widget.helper.callFlutterRebuild(false);
   }
 
   buildRootWidget(widget) {
@@ -279,17 +279,6 @@ class MXJSFlutterApp {
     MXNativeJSFlutterAppProxy.callFlutterReloadApp(app, widgetData);
   }
 
-  //js->flutter
-  callFlutterRebuild(widget, isRootWidget) {
-
-    MXJSLog.log("callFlutterRebuild ::" + widget.widgetLogInfoStr());
-    let widgetData = MXJSWidgetHelper.buildWidgetData(widget);
-    //call flutter setState
-    MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", {
-      widgetData,
-      isRootWidget
-    });
-  }
 
   //flutter->js channel
   nativeCall(args) {
@@ -471,7 +460,7 @@ class MXJSWidgetHelper {
     return widgetDataStr;
   }
 
-  
+
   buildWidgetTree() {
     this.widget.buildWidgetDataSeq = String(
       ++this.widget.buildWidgetDataSeqFeed
@@ -563,7 +552,7 @@ class MXJSWidgetHelper {
     );
   }
 
-  setupAsRootWidget(){
+  setupAsRootWidget() {
 
     let tempWidgetTree = new MXJSWidgetTree("1");
     this.widget.buildingWidgetTree = tempWidgetTree;
@@ -585,6 +574,19 @@ class MXJSWidgetHelper {
       delete this.widget.currentWidgetTree.childrenWidget[jsWidget.widgetID];
     }
   }
+
+  //js->flutter
+  callFlutterRebuild(isRootWidget = false) {
+
+    MXJSLog.log("callFlutterRebuild ::" + this.widget.widgetLogInfoStr());
+    let widgetData = MXJSWidgetHelper.buildWidgetData(this.widget);
+    //call flutter setState
+    MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("rebuild", {
+      widgetData,
+      isRootWidget
+    });
+  }
+
 
   //flutter -> js
   onEventCallback(args) {
@@ -946,7 +948,7 @@ class MXJSWidgetState {
     }
 
     //call-> Flutter
-    this.widget.buildContext.callFlutterRebuild(this.widget);
+    this.widget.helper.callFlutterRebuild();
   }
 
   //子类重载
