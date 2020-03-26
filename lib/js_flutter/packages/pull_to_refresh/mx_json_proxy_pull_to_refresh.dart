@@ -3,6 +3,7 @@ import '../../mx_json_to_dart.dart';
 import '../../mx_build_owner.dart';
 import "package:pull_to_refresh/pull_to_refresh.dart";
 import 'package:flutter/physics.dart';
+import 'package:flutter/foundation.dart';
 
 ShouldFollowContent createShouldFollowContentHandle(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
@@ -140,12 +141,21 @@ class MXProxySmartRefresher extends MXJsonObjProxy {
   @override
   SmartRefresher constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
+
+    //从外层修复SmartRefresher的bug，如果不传入header或者footer，SmartRefresher不会刷新onRefresh等回调函数
+     var defaultHeader =
+        defaultTargetPlatform == TargetPlatform.iOS
+            ? ClassicHeader()
+            : MaterialClassicHeader();
+
+    final LoadIndicator defaultFooter = ClassicFooter();
+
     var widget = SmartRefresher(
       key: mxj2d(bo, jsonMap["key"]),
       controller: mxj2d(bo, jsonMap["controller"]),
       child: mxj2d(bo, jsonMap["child"]),
-      header: mxj2d(bo, jsonMap["header"]),
-      footer: mxj2d(bo, jsonMap["footer"]),
+      header: mxj2d(bo, jsonMap["header"],defaultValue: defaultHeader),
+      footer: mxj2d(bo, jsonMap["footer"],defaultValue: defaultFooter),
       enablePullDown: mxj2d(bo, jsonMap["enablePullDown"], defaultValue: true),
       enablePullUp: mxj2d(bo, jsonMap["enablePullUp"], defaultValue: false),
       enableTwoLevel: mxj2d(bo, jsonMap["enableTwoLevel"], defaultValue: false),
@@ -306,13 +316,15 @@ class MXProxyRefreshController extends MXJsonObjProxy {
   void invokeFunction(RefreshController mirrorObj, String funcName, Map args) {
     switch (funcName) {
       case "refreshCompleted":
-        mirrorObj.refreshCompleted(resetFooterState:mxj2d(null, args["resetFooterState"], defaultValue: false));
+        mirrorObj.refreshCompleted(
+            resetFooterState:
+                mxj2d(null, args["resetFooterState"], defaultValue: false));
         break;
       case "twoLevelComplete":
         mirrorObj.twoLevelComplete(
-          duration:mxj2d(null, args["duration"], defaultValue: const Duration(milliseconds: 500)),
-          curve:mxj2d(null, args["curve"], defaultValue: Curves.linear) 
-        );
+            duration: mxj2d(null, args["duration"],
+                defaultValue: const Duration(milliseconds: 500)),
+            curve: mxj2d(null, args["curve"], defaultValue: Curves.linear));
         break;
       case "refreshFailed":
         mirrorObj.refreshFailed();

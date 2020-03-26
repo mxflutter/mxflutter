@@ -124,49 +124,62 @@ class ListViewDemoState extends MXJSWidgetState {
 
     initState() {
         super.initState();
-        this.refresh();
+        this.refresh(true);
     }
 
-    async refresh() {
+    async refresh(isInit) {
 
         let newsArray = await this.requestHttpData(true);
+
+        if(!isInit){
+            this.endRefreshOrLoadMore(true, newsArray == null || newsArray.length == 0);
+        }
 
         this.setState(function () {
             this.newsArray = newsArray.concat(this.newsArray);
         }.bind(this));
+
+        return newsArray;
     }
+
 
     async loadMore() {
 
         let newsArray = await this.requestHttpData(false);
+        this.endRefreshOrLoadMore(false, newsArray == null || newsArray.length == 0);
 
         this.setState(function () {
             this.newsArray = this.newsArray.concat(newsArray);
         }.bind(this));
+
+       
     }
 
     async requestHttpData(isRefresh) {
 
         if (this.loading) {
-            return;
+            return [];
         }
 
         this.loading = true;
         let result = await this.requestNews();
         this.loading = false;
 
-        this.endRefreshOrLoadMore(isRefresh, result == null);
         if (result) {
-        
+
             let responseMap = JSON.parse(result);
             let respArray = responseMap["T1348649580692"];
             return respArray;
+        } else {
+            return [];
         }
 
     }
 
     endRefreshOrLoadMore(isRefresh, isNoData) {
-
+        this.refreshController.loadComplete();
+        this.refreshController.refreshCompleted();
+        return;
         if (isRefresh) {
             this.refreshController.refreshCompleted();
 
