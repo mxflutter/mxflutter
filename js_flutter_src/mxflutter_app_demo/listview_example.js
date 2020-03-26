@@ -223,7 +223,7 @@ class ListViewDemoState extends MXJSWidgetState {
         this.buildCount++;
         let widget = new Scaffold({
             appBar: new AppBar({
-                title: new Text('网易新闻 ListViewDemo'),
+                title: new Text('网易新闻 ListViewExample'),
             }),
             body: new Scrollbar({
                 child: new SmartRefresher({
