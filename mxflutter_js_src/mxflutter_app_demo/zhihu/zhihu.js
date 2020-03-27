@@ -7,7 +7,7 @@ let {
   MaterialApp
 } = require("js_flutter.js");
 
-let {Index} = require("./zhihu/index.js.js");
+let {Index} = require("./zhihu/index.js");
 
 class JSZhiHuPage extends MXJSStatefulWidget {
     constructor() {

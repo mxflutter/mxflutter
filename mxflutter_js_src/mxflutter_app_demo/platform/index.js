@@ -58,7 +58,7 @@ let {
   MaterialPageRoute,
 } = require("js_flutter.js");
 
-const { SectionTitle } = require("./component/section_title.js.js");
+const { SectionTitle } = require("./component/section_title.js");
 
 let { PageExampleDio } = require("platform/example_dio.js");
 let { PageExampleFetch } = require("platform/example_fetch.js");
