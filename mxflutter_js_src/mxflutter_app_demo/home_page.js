@@ -41,8 +41,8 @@ let { PlatformExamplesPage } = require("./platform/index.js");
 
 
 
-contact_demo_ddc = require("./dart_js/contacts_demo.ddc.js");
-pesto_demo_ddc = require("./dart_js/pesto_demo.ddc.js");
+contact_demo_ddc = require("./dart2js_demo/contacts_demo.ddc.js");
+pesto_demo_ddc = require("./dart2js_demo/pesto_demo.ddc.js");
 
 const packages__zhihu__home__home_page = require('packages/zhihu/home/home_page');
 const home_page = packages__zhihu__home__home_page.home__home_page;
@@ -126,6 +126,19 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
 
                         //testDio1();
+                    }
+                }),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Material'),
+                    subtitle: new Text('Material UI Demo'),
+                    onTap: function () {
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSMaterialPage;
+                            }
+                        }))
                     }
                 }),
                 new ListTile({
@@ -219,40 +232,8 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                         }))
                     }
                 }),
-                // this.sectionTitle(context, "JSWidget Demo"),
 
-                // new ListTile({
-                //     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
-                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                //     title: new Text('Material'),
-                //     subtitle: new Text('Material UI Demo'),
-                //     onTap: function () {
-                //         this.navigatorPush(new JSMaterialPage);
-                //     }
-                // }), 
-
-                // this.sectionTitle(context, "More Material"),
-                // new ListTile({
-                //     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
-                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                //     title: new Text('More Material'),
-                //     subtitle: new Text('More Material UI Demo'),
-                //     onTap: function () {
-                //         this.navigatorPush(new JSPestoPage);
-                //     }
-                // }),
-
-                this.sectionTitle(context, "Dart2js"),
-                new ListTile({
-                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
-                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Dart2js样例'),
-                    subtitle: new Text('简单样例'),
-                    onTap: function () {
-                        let main_ddc = require("./dart_js/main.ddc.js");
-                        main_ddc.main.main();
-                    }
-                }),
+                this.sectionTitle(context, "Dart2js Demo"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
@@ -260,7 +241,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('简单样例'),
                     onTap: function () {
                        
-                        let flutter_demo_ddc = require("./dart_js/flutter_demo.ddc.js");
+                        let flutter_demo_ddc = require("./dart2js_demo/flutter_demo.ddc.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -310,46 +291,6 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                         }))
                     }
                 }),
-                // new ListTile({
-                //     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
-                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                //     title: new Text('Flutter Gallery'),
-                //     subtitle: new Text('Flutter Gallery'),
-                //     onTap: function () {
-                //         this.navigatorPush(new flutter_gallery_app.GalleryApp.new);
-                //     }
-                // }),
-
-                this.sectionTitle(context, "JSWidget Demo"),
-
-                new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
-                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Material'),
-                    subtitle: new Text('Material UI Demo'),
-                    onTap: function () {
-                        Navigator.push(context, new MaterialPageRoute({
-                            builder: function (context) {
-                                return new JSMaterialPage;
-                            }
-                        }))
-                    }
-                }),
-
-                // new ListTile({
-                //     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
-                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                //     title: new Text('Cupertino'),
-                //     subtitle: new Text('Cupertino UI Demo'),
-                //     onTap: function () {
-                //         Navigator.push(context, new MaterialPageRoute({
-                //             builder: function (context) {
-                //                 return new JSCupertinoPage;
-                //             }
-                //         }))
-                //     }
-                // }),
-
             ]
         });
 
@@ -367,8 +308,6 @@ class JSWidgetHomePageState extends MXJSWidgetState {
     sectionTitle(context, title) {
         return new SectionTitle(title);
     }
-
-
 }
 
 module.exports = { JSWidgetHomePage };

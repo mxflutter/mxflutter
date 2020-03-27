@@ -74,7 +74,9 @@
     //__weak MXJSFlutterEngine *weakSelf = self;
     
     //app业务代码搜索路径 TODO:fixme
-    [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"dart_js"]];
+    [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"app_demo"]];
+    [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"dart2js_demo"]];
+    [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"jswidget_demo"]];
     
     //JSFlutter Dart JS运行库搜索路径
     NSString *dartJsFlutterFrameworkDir = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_DART_FRAMEWORK_DIR];
