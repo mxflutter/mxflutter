@@ -104,7 +104,7 @@ class ListViewDemo extends MXJSStatefulWidget {
         return new ListViewDemoState(this);
     }
 
-    testIDE(var2,var2,list,abc){
+    testIDE(var1,var2,list,abc){
         return [];
     }
 }
