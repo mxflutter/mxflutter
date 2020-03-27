@@ -13,7 +13,7 @@ import 'mx_json_proxy_animation.dart';
 import 'packages/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
 import 'packages/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
-import 'package:js_flutter/js_flutter/mx_json_proxy_widget.dart';
+import 'mx_json_proxy_widget.dart';
 
 typedef dynamic CreateJsonObjProxyFun();
 

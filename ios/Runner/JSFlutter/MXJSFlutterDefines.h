@@ -21,9 +21,9 @@
 
 #endif
 
-#define JSFLUTTER_FRAMEWORK_DIR  @"js_flutter_src/js_framework_lib"
-#define JSFLUTTER_DART_FRAMEWORK_DIR  @"js_flutter_src/dart_js_framework_lib"
-#define JSFLUTTER_SRC_DIR  @"js_flutter_src"
+#define JSFLUTTER_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework"
+#define JSFLUTTER_DART_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework/dart_js_framework"
+#define JSFLUTTER_SRC_DIR  @"mxflutter_js_src"
 
 #define MXJSFlutterLog(fmt, ...) NSLog((@"MXJSFlutter:[Native]-" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
 

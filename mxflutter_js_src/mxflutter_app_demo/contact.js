@@ -45,7 +45,7 @@ let {
     Colors
   } = require("js_flutter.js");
 
-let _kGalleryAssetsPackage = 'js_flutter_src/app_test/flutter_gallery_assets/';
+let _kGalleryAssetsPackage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/';
 
 class ContactCategory extends MXJSStatelessWidget {
     constructor({icon, children} = {}) {

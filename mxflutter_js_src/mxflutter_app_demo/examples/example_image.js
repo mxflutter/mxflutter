@@ -53,8 +53,8 @@ let {
 } = require("js_flutter.js");
 
 
-const _kSmallLogoImage = 'js_flutter_src/app_test/flutter_gallery_assets/logos/pesto/logo_small.png';
-const _kGalleryAssetsPackage = 'js_flutter_src/app_test/flutter_gallery_assets/';
+const _kSmallLogoImage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/pesto/logo_small.png';
+const _kGalleryAssetsPackage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/';
 
 class PageExampleImage extends MXJSStatelessWidget {
   constructor(){

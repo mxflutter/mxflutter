@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:test_api/test_api.dart';
-import '../lib/js_flutter/mx.dart';
+import '../lib/mxflutter_framework/mxf_flutter_framework/mx.dart';
 
 /// consts
 final String kStr = 'kStr';

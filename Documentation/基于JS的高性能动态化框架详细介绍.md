@@ -268,7 +268,7 @@ VM不新建线程，直接由Flutter UI Thread 消息循环驱动，这样也同
 - Callback函数自动This绑定
 - ListView 像Dart层一样开发，支持itemBuilder回调函数
 
-具体的可以参考JS示例源码： [TGIF-iMatrix home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/home_page.js)
+具体的可以参考JS示例源码： [TGIF-iMatrix home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/home_page.js)
 
 ----
 

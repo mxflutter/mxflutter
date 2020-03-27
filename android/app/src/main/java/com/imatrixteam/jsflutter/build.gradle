@@ -47,7 +47,7 @@ android {
         main{
             assets{
                 srcDirs 'src/main/assets'
-                srcDirs '../../js_flutter_src'
+                srcDirs '../../mxflutter_js_src'
             }
         }
     }

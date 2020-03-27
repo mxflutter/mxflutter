@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
-import 'js_flutter/mx_js_flutter_common.dart';
-import 'js_flutter/mx_js_flutter.dart';
+import 'mxflutter_framework/mxflutter.dart';
+
+
+
+
 import 'test.dart';
 
 void main() {
@@ -15,7 +18,9 @@ void main() {
   MXJSFlutter.getInstance().setup();
 
   //3. 启动你的jsAPP，不显示任何界面
-  MXJSFlutter.getInstance().runJSApp(jsAppName: "app_test");
+  MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo");
+  //运行mxflutter_app_demo2，就启动mxflutter_app_demo2目录下的JS文件
+  //MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo2");
 
   debugPaintSizeEnabled = false;
   runApp(MyApp());
@@ -102,7 +107,7 @@ class _FlutterHomePageState extends State<FlutterHomePage> {
     var scaffoldWidget = Scaffold(
         appBar: AppBar(
           leading: Image.asset(
-            "js_flutter_src/app_test/flutter_gallery_assets/logos/flutter_white/logo.png",
+            "mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/flutter_white/logo.png",
             fit: BoxFit.contain,
           ),
           title: Text(widget.title),

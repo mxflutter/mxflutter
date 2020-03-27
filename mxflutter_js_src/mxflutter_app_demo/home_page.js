@@ -27,7 +27,6 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-let { JSPestoPage } = require("./pesto.js");
 let { JSContactPage } = require("./contact.js");
 let { JSAnimationPage } = require("./animation.js");
 let { JSMaterialPage } = require("./material.js");
@@ -35,7 +34,7 @@ let { JSZhiHuPage } = require("./zhihu/zhihu.js");
 
 //let { ExamplesPage } = require("./examples/index.js");
 let { JSCupertinoPage } = require("./cupertino.js");
-let { ListViewDemo } = require("./listview_demo.js");
+
 
 
 let { PlatformExamplesPage } = require("./platform/index.js");
@@ -55,14 +54,14 @@ const packages__zhihu__notice__notice_page = require('packages/zhihu/notice/noti
 const notice_page = packages__zhihu__notice__notice_page.notice__notice_page;
 const packages__zhihu__my__my_page = require('packages/zhihu/my/my_page');
 const my_page = packages__zhihu__my__my_page.my__my_page;
-const packages__zhihu__index = require('packages/zhihu/index/index');
+const packages__zhihu__index = require('packages/zhihu/index');
 const index_page = packages__zhihu__index.index__index;
 
 const dart_sdk = require("dart_sdk");
 const dart = dart_sdk.dart;
 
 
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
+const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js.js");
 const network = bridge_netwrok.network;
 const fetch = bridge_netwrok.fetch;
 
@@ -150,9 +149,12 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('ListView ,Message Channel, Pull to refresh'),
 
                     onTap: function () {
+
+                        let list_view = require("./listview_example.js");
+                    
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
-                                return new ListViewDemo;
+                                return  new list_view.ListViewDemo;
                             }
                         }))
                     }
@@ -180,9 +182,12 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('Basic shopping app'),
 
                     onTap: function () {
+
+                        let pesto = require("./pesto.js");
+
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
-                                return new JSPestoPage;
+                                return new pesto.JSPestoPage;
                             }
                         }))
                     }
