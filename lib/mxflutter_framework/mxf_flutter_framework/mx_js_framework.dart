@@ -344,11 +344,10 @@ class MXJSWidgetHelper extends Object {
     //         child: new Text("widgetData=null pop")));
 
     return Container(
-          color: Colors.white,
-          child: Center(
-            child: CircularProgressIndicator(),
-          ));
-
+        color: Colors.white,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ));
   }
 
   void jsRebuild(String widgetID, Map widgetData, String buildWidgetDataSeq) {
@@ -444,8 +443,6 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
     this.widgetData = widgetData;
     this.navPushingWidgetID = navPushingWidgetID;
     this.parentBuildOwner = parentBuildOwner;
-
-    this.buildOwner = MXJsonBuildOwner(this, this.parentBuildOwner);
     this.helper = MXJSWidgetHelper(this);
   }
 
@@ -470,6 +467,14 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
     _state = MXJSWidgetState();
     return _state;
   }
+
+  void resetBuildOwner() {
+    if (this.buildOwner == null) {
+      this.buildOwner = MXJsonBuildOwner(this, this.parentBuildOwner);
+    } else {
+      this.parentBuildOwner.addChildBuildOwner(widgetID,this.buildOwner);
+    }
+  }
 }
 
 class MXJSWidgetState extends State<MXJSStatefulWidget>
@@ -479,6 +484,10 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
   @override
   void initState() {
     super.initState();
+
+    //widget 在Tabbar中时可能被dispose后又重新inflateWidget，dispose时会从父BuildOwner中删除自己的BuildOwner
+    //flutter根据widget重新build，回先调用initState，重新插入BuildOwnerTree
+    this.widget.resetBuildOwner();
   }
 
   @override

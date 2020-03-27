@@ -357,6 +357,8 @@ class MXJsonBuildOwner {
   }
 
   void onDispose() {
+    //框架最困难的点在于确定何时释放不需要的对象
+
     // 移除parentBuildOwner中当前的widget
     parentBuildOwner.removeChildBuildOwner(this.widget.widgetID);
 
