@@ -57,21 +57,21 @@ class JSMaterialPageState extends MXJSWidgetState {
                         }
                     }),
 
-                    new ListTile({
-                        leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: new Color(0xFFFF9800) }),
-                        trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                        title: new Text('Bottom navigation——动画需完善才能出现'),
-                        subtitle: new Text('Bottom navigation with cross-fading views'),
-                        onTap: function () {
+                    // new ListTile({
+                    //     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: new Color(0xFFFF9800) }),
+                    //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    //     title: new Text('Bottom navigation——动画需完善才能出现'),
+                    //     subtitle: new Text('Bottom navigation with cross-fading views'),
+                    //     onTap: function () {
 
-                            Navigator.push(context, new MaterialPageRoute({
-                                builder: function (context) {
-                                    return new JSBottomNavigationDemo;
-                                }
-                            }))
+                    //         Navigator.push(context, new MaterialPageRoute({
+                    //             builder: function (context) {
+                    //                 return new JSBottomNavigationDemo;
+                    //             }
+                    //         }))
 
-                        }
-                    }),
+                    //     }
+                    // }),
 
                     new ListTile({
                         leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: new Color(0xFFFF9800) }),

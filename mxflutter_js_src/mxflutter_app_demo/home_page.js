@@ -178,8 +178,8 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                 new ListTile({
                     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Shrine'),
-                    subtitle: new Text('Basic shopping app'),
+                    title: new Text('Pesto'),
+                    subtitle: new Text('Simple recipe browser'),
 
                     onTap: function () {
 
@@ -336,19 +336,19 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     }
                 }),
 
-                new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
-                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Cupertino'),
-                    subtitle: new Text('Cupertino UI Demo'),
-                    onTap: function () {
-                        Navigator.push(context, new MaterialPageRoute({
-                            builder: function (context) {
-                                return new JSCupertinoPage;
-                            }
-                        }))
-                    }
-                }),
+                // new ListTile({
+                //     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                //     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                //     title: new Text('Cupertino'),
+                //     subtitle: new Text('Cupertino UI Demo'),
+                //     onTap: function () {
+                //         Navigator.push(context, new MaterialPageRoute({
+                //             builder: function (context) {
+                //                 return new JSCupertinoPage;
+                //             }
+                //         }))
+                //     }
+                // }),
 
             ]
         });
