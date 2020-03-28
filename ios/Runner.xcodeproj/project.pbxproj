@@ -145,6 +145,7 @@
 			children = (
 				A60E13E6242DB92500EBA76D /* mxf_js_framework */,
 				A60E13E4242DB90700EBA76D /* mxflutter_js_src */,
+				A6A4568E21CE8EAD00530D0C /* MXFlutterOCFramework */,
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
@@ -164,7 +165,6 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
-				A6A4568E21CE8EAD00530D0C /* JSFlutter */,
 				7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */,
 				7AFFD8EE1D35381100E5BB4D /* AppDelegate.mm */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
@@ -249,7 +249,7 @@
 			path = RequestHandler;
 			sourceTree = "<group>";
 		};
-		A6A4568E21CE8EAD00530D0C /* JSFlutter */ = {
+		A6A4568E21CE8EAD00530D0C /* MXFlutterOCFramework */ = {
 			isa = PBXGroup;
 			children = (
 				A612C3EF241DCC2B00D2383D /* Common */,
@@ -267,7 +267,7 @@
 				A6A4569621CE903E00530D0C /* MXJSExecutor.m */,
 				A62F318C21E48B9E007B59F8 /* MXJSFlutterDefines.h */,
 			);
-			path = JSFlutter;
+			path = MXFlutterOCFramework;
 			sourceTree = "<group>";
 		};
 		B586B830608F39A264984C64 /* Pods */ = {

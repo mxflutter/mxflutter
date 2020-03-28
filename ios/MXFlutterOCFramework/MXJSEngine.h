@@ -5,6 +5,8 @@
 //  Created by soapyang on 2018/12/22.
 //  Copyright © 2018 The Chromium Authors. All rights reserved.
 //
+//  Use of this source code is governed by a MIT-style license that can be
+//  found in the LICENSE file.
 
 #import <Foundation/Foundation.h>
 #import "MXJSExecutor.h"
