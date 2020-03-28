@@ -224,10 +224,10 @@
 
 - (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments
 {
-    if (arguments && [arguments isKindOfClass:[NSMutableDictionary class]]) {
-        arguments[@"index"] = @(++self.index);
-        NSLog(@"MXTimeStamp Native Beign %@ %lld index=%lu",method, (long long)([[NSDate date] timeIntervalSince1970] * 1000),(unsigned long)self.index);
-    }
+    // if (arguments && [arguments isKindOfClass:[NSMutableDictionary class]]) {
+    //     arguments[@"index"] = @(++self.index);
+    //     NSLog(@"MXTimeStamp Native Beign %@ %lld index=%lu",method, (long long)([[NSDate date] timeIntervalSince1970] * 1000),(unsigned long)self.index);
+    // }
     [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
 }
 
