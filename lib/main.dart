@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MXFlutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
               //进入Flutter index页面
               return MaterialPageRoute(
                 builder: (context) {
-                  return FlutterHomePage(title: "JSFlutter Demo");
+                  return FlutterHomePage(title: "MXFlutter Demo");
                 },
                 settings: settings,
               );
@@ -132,8 +132,8 @@ class _DemoList extends StatelessWidget {
         ListTile(
           leading: Icon(Icons.book),
           trailing: Icon(Icons.arrow_right),
-          title: Text('JSFlutter UI Demo'),
-          subtitle: Text('打开JSFlutter UI示例页面'),
+          title: Text('MXFlutter Demo'),
+          subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
           onTap: () {
             Navigator.push(
               context,
@@ -154,7 +154,7 @@ class _DemoList extends StatelessWidget {
             color: Colors.orange,
           ),
           title: Text('Reload JSApp'),
-          subtitle: Text('点击热重载JSApp，重新进入上面的JSFlutter UI Demo，即可看到界面更新'),
+          subtitle: Text('点击热重载JSApp，重新进入上面的MXFlutter Demo，即可看到界面更新'),
           isThreeLine: true,
           onTap: () {
             //先把JSApp启动起来，不显示任何界面
