@@ -184,6 +184,7 @@ class MXJSFlutterApp {
   String name;
 
   MethodChannel _jsFlutterAppChannel;
+  BasicMessageChannel<String> _jsFlutterAppRebuildChannel;
   Map<String, dynamic> _jsFlutterAppChannelFunRegMap = {};
   MXJsonBuildOwner _rootBuildOwner;
 
@@ -295,6 +296,20 @@ class MXJSFlutterApp {
     _jsFlutterAppChannelFunRegMap["navigatorPush"] = _navigatorPush;
     _jsFlutterAppChannelFunRegMap["navigatorPop"] = _navigatorPop;
     _jsFlutterAppChannelFunRegMap["invoke"] = _jsInvoke;
+
+    // 设置Rebuild方法通道
+    _jsFlutterAppRebuildChannel = const BasicMessageChannel(
+        'js_flutter.js_flutter_app_channel.rebuild', StringCodec());
+    _jsFlutterAppRebuildChannel
+        .setMessageHandler((String message) => Future<String>(() {
+              String isRootWidget = message.substring(0, 1);
+              String widgetData = message.substring(1);
+
+              Map args = {};
+              args["widgetData"] = widgetData;
+              args["isRootWidget"] = isRootWidget == '1';
+              _jsRebuild(args);
+            }));
   }
 
   /// JS ->  flutter  开放给调用 JS
