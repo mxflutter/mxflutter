@@ -193,9 +193,11 @@ class MXJsonObjToDartObject {
     registerProxy(MXProxyRegisterHelperWidgetSeries.registerProxys());
 
     // 第三方库
-    registerProxy(MXProxyRegisterHelperPullToRefreshSeries.registerProxys());
-    registerProxy(
-        MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
+    // pull_to_refresh
+    registerProxy(MXProxyRegisterHelperSmartRefresherSeries.registerProxys());
+    registerProxy(MXProxyRegisterHelperClassIndicatorSeries.registerProxys());
+    // cached_network_image
+    registerProxy(MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
   }
 
   void registerProxy(Map<String, CreateJsonObjProxyFun> m) {

@@ -2127,6 +2127,14 @@ const ClipRRect({
     Widget child,
   })
   """,
+
+  """
+    const SpringDescription({
+    this.mass,
+    this.stiffness,
+    this.damping,
+  });
+  """,
 ];
 
 void main(List<String> arguments) {

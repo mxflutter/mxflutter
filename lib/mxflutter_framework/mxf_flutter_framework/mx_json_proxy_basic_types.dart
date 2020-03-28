@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/physics.dart';
 
 import "mx_json_proxy_material.dart";
 
@@ -94,6 +95,7 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyNotificationListener.registerProxy());
     m.addAll(MXProxyPreferredSize.registerProxy());
     m.addAll(MXProxyClipRRect.registerProxy());
+    m.addAll(MXProxySpringDescription.registerProxy());
     return m;
   }
 }
@@ -3357,6 +3359,31 @@ class MXProxyClipRRect extends MXJsonObjProxy {
       clipBehavior: MXClip.parse(mxj2d(bo, jsonMap["clipBehavior"]),
           defaultValue: Clip.antiAlias),
       child: mxj2d(bo, jsonMap["child"]),
+    );
+    return widget;
+  }
+}
+
+class MXProxySpringDescription extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "SpringDescription";
+
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+          MXProxySpringDescription()..init(className: regClassName)
+    };
+  }
+
+  @override
+  SpringDescription constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = SpringDescription(
+      mass: mxj2d(bo, jsonMap["mass"]).toDouble(),
+      stiffness: mxj2d(bo, jsonMap["stiffness"]).toDouble(),
+      damping: mxj2d(bo, jsonMap["damping"]).toDouble(),
     );
     return widget;
   }
