@@ -277,11 +277,11 @@ class MXJSFlutterApp {
   _setupChannel() {
     _jsFlutterAppChannel = MethodChannel("js_flutter.js_flutter_app_channel");
     _jsFlutterAppChannel.setMethodCallHandler((MethodCall call) async {
-      if (call.arguments is Map) {
-        var ms = (new DateTime.now()).millisecondsSinceEpoch;
-        MXJSLog.log(
-            "MXTimeStamp Flutter Receive ${call.method} $ms index=${call.arguments["index"]}");
-      }
+      // if (call.arguments is Map) {
+      //   var ms = (new DateTime.now()).millisecondsSinceEpoch;
+      //   MXJSLog.log(
+      //       "MXTimeStamp Flutter Receive ${call.method} $ms index=${call.arguments["index"]}");
+      // }
 
       MXJSLog.log(
           "_jsFlutterAppChannel_methodHandler: recv js call ${call.method}");
