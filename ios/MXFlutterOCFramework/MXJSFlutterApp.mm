@@ -19,6 +19,7 @@
 
 @property (nonatomic, assign) NSUInteger index;
 @property (nonatomic, strong) FlutterMethodChannel* jsFlutterAppChannel;
+@property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterAppRebuildChannel;
 
 @property (nonatomic) BOOL isJSAPPRun;
 @property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callJSMethodQueue;
@@ -97,6 +98,12 @@
     self.jsFlutterAppChannel = [FlutterMethodChannel
                                 methodChannelWithName:@"js_flutter.js_flutter_app_channel"
                                 binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger];
+    
+    // Rebuild方法采用BasicMessageChannel
+    self.jsFlutterAppRebuildChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.rebuild"
+                                                                         binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger
+                                                                                   codec:[FlutterStringCodec sharedInstance]];
+
     
     __weak MXJSFlutterApp *weakSelf = self;
     
@@ -228,7 +235,14 @@
     //     arguments[@"index"] = @(++self.index);
     //     NSLog(@"MXTimeStamp Native Beign %@ %lld index=%lu",method, (long long)([[NSDate date] timeIntervalSince1970] * 1000),(unsigned long)self.index);
     // }
-    [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
+    if ([method isEqualToString:@"rebuild"]) {
+        NSString *isRootWidget = arguments[@"isRootWidget"]?:@"0";
+        NSString *widgetData = arguments[@"widgetData"];
+        NSString *data = [NSString stringWithFormat:@"%@%@", isRootWidget, widgetData];
+        [self.jsFlutterAppRebuildChannel sendMessage:data];
+    } else {
+        [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
+    }
 }
 
 @end
