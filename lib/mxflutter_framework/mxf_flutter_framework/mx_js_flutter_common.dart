@@ -270,11 +270,19 @@ class MXUtil {
           break;
         }
 
-      case TargetPlatform.macOS:
+      case TargetPlatform.linux:
         {
-          v = {"_name" : "TargetPlatform.macOS",
-               "index" : 3
-              };
+          v = {"_name" : "TargetPlatform.linux", "index" : 3};
+          break;
+        }
+        case TargetPlatform.macOS:
+        {
+          v = {"_name" : "TargetPlatform.macOS", "index" : 4};
+          break;
+        }
+        case TargetPlatform.windows:
+        {
+          v = {"_name" : "TargetPlatform.windows", "index" : 5};
           break;
         }
     }
