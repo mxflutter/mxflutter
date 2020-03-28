@@ -20,6 +20,8 @@
 @property (nonatomic, assign) NSUInteger index;
 @property (nonatomic, strong) FlutterMethodChannel* jsFlutterAppChannel;
 @property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterAppRebuildChannel;
+@property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterAppNavigatorPushChannel;
+
 
 @property (nonatomic) BOOL isJSAPPRun;
 @property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callJSMethodQueue;
@@ -101,6 +103,11 @@
     
     // Rebuild方法采用BasicMessageChannel
     self.jsFlutterAppRebuildChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.rebuild"
+                                                                         binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger
+                                                                                   codec:[FlutterStringCodec sharedInstance]];
+
+    // navigator_push方法采用BasicMessageChannel
+    self.jsFlutterAppNavigatorPushChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.navigator_push"
                                                                          binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger
                                                                                    codec:[FlutterStringCodec sharedInstance]];
 
@@ -236,11 +243,10 @@
     //     NSLog(@"MXTimeStamp Native Beign %@ %lld index=%lu",method, (long long)([[NSDate date] timeIntervalSince1970] * 1000),(unsigned long)self.index);
     // }
     if ([method isEqualToString:@"rebuild"]) {
-        NSString *isRootWidget = arguments[@"isRootWidget"]?:@"0";
-        NSString *widgetData = arguments[@"widgetData"];
-        NSString *data = [NSString stringWithFormat:@"%@%@", isRootWidget, widgetData];
-        [self.jsFlutterAppRebuildChannel sendMessage:data];
-    } else {
+        [self.jsFlutterAppRebuildChannel sendMessage:arguments];
+    }if([method isEqualToString:@"navigatorPush"]) {
+        [self.jsFlutterAppNavigatorPushChannel sendMessage:arguments];
+    }else {
         [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
     }
 }
