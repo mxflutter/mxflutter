@@ -1,6 +1,6 @@
 //
 //  MXJSExecutor.m
-//  Runner
+//  MXFlutterOCFramework
 //
 //  Created by soapyang on 2018/12/22.
 //  Copyright © 2018 The MXFlutter Authors. All rights reserved.

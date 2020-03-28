@@ -1,6 +1,6 @@
 //
 //  MXJSBridge.h
-//  MXFlutter
+//  MXFlutterOCFramework
 //
 //  Created by soap on 2020/3/15.
 //  Copyright 2019 The MXFlutter Authors. All rights reserved.

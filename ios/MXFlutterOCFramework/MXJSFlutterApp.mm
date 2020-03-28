@@ -1,6 +1,6 @@
 //
 //  MXJSAppProxy.m
-//  Runner
+//  MXFlutterOCFramework
 //
 //  Created by soapyang on 2018/12/24.
 //  Copyright 2019 The MXFlutter Authors. All rights reserved.

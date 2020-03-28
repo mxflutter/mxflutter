@@ -1,6 +1,6 @@
 //
 //  MXJSBridge.m
-//  Runner
+//  MXFlutterOCFramework
 //
 //  Created by soap on 2020/3/15.
 //  Copyright © 2020 The Chromium Authors. All rights reserved.

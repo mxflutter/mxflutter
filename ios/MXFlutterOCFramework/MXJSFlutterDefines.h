@@ -1,6 +1,6 @@
 //
 //  MXJSFlutter.h
-//  Runner
+//  MXFlutterOCFramework
 //
 //  Created by soapyang on 2019/1/8.
 //  Copyright © 2019 The MXFlutter Authors. All rights reserved.

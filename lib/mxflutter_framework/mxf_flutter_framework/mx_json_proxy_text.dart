@@ -1,3 +1,9 @@
+//  MXFlutterFramework
+//  Copyright 2019 The MXFlutter Authors. All rights reserved.
+//
+//  Use of this source code is governed by a MIT-style license that can be
+//  found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
