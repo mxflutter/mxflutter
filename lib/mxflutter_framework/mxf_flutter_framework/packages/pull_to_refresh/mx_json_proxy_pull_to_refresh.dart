@@ -347,6 +347,12 @@ class MXProxyRefreshController extends MXJsonObjProxy {
       case "loadNoData":
         mirrorObj.loadNoData();
         break;
+      case "resetNoData":
+        mirrorObj.resetNoData();
+        break;
+      case "dispose":
+        mirrorObj.dispose();
+        break;
 
       default:
     }
