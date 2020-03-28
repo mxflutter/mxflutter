@@ -148,8 +148,7 @@ class MXJsonBuildOwner {
 
   void jsCallRebuild(args) {
     String widgetDataStr = args["widgetData"];
-    bool isRootWidget = args["isRootWidget"];
-
+  
     Map widgetMap = json.decode(widgetDataStr);
     String widgetID = widgetMap["widgetID"];
     String name = widgetMap["name"];

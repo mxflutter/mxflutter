@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MXJSFlutterEngine : NSObject
 
-@property (nonatomic, strong) MXJSFlutterApp *currentApp;
+@property (nonatomic, strong) MXJSFlutterApp * _Nullable currentApp;
 
 @property (nonatomic, weak) FlutterEngine* flutterEngine;
 @property (nonatomic, weak) MXJSEngine* jsEngine;

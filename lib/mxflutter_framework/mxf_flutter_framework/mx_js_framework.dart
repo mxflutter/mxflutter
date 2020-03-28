@@ -184,7 +184,8 @@ class MXJSFlutterApp {
   String name;
 
   MethodChannel _jsFlutterAppChannel;
-  BasicMessageChannel<String> _jsFlutterAppRebuildChannel;
+  BasicMessageChannel<String> _jsFlutterAppRebuildChannel; //大数据通道
+  BasicMessageChannel<String> _jsFlutterAppJSPushWidgetChannel; //大数据通道
   Map<String, dynamic> _jsFlutterAppChannelFunRegMap = {};
   MXJsonBuildOwner _rootBuildOwner;
 
@@ -302,13 +303,19 @@ class MXJSFlutterApp {
         'js_flutter.js_flutter_app_channel.rebuild', StringCodec());
     _jsFlutterAppRebuildChannel
         .setMessageHandler((String message) => Future<String>(() {
-              String isRootWidget = message.substring(0, 1);
-              String widgetData = message.substring(1);
-
               Map args = {};
-              args["widgetData"] = widgetData;
-              args["isRootWidget"] = isRootWidget == '1';
+              args["widgetData"] = message;
               _jsRebuild(args);
+            }));
+
+    // 设置navigatorPush方法通道
+    _jsFlutterAppJSPushWidgetChannel = const BasicMessageChannel(
+        'js_flutter.js_flutter_app_channel.navigator_push', StringCodec());
+    _jsFlutterAppJSPushWidgetChannel
+        .setMessageHandler((String message) => Future<String>(() {
+              Map args = {};
+              args["widgetData"] = message;
+              _navigatorPush(args);
             }));
   }
 
@@ -493,7 +500,7 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
     if (this.buildOwner == null) {
       this.buildOwner = MXJsonBuildOwner(this, this.parentBuildOwner);
     } else {
-      this.parentBuildOwner.addChildBuildOwner(widgetID,this.buildOwner);
+      this.parentBuildOwner.addChildBuildOwner(widgetID, this.buildOwner);
     }
   }
 }
