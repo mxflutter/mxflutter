@@ -158,7 +158,7 @@ class _DemoList extends StatelessWidget {
           isThreeLine: true,
           onTap: () {
             //先把JSApp启动起来，不显示任何界面
-            MXJSFlutter.getInstance().runJSApp(jsAppName: "app_test");
+            MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo");
 
             Scaffold.of(context).showSnackBar(
               const SnackBar(
