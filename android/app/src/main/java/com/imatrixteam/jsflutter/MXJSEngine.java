@@ -9,8 +9,6 @@ import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Object;
-import com.eclipsesource.v8.V8ScriptException;
-import com.eclipsesource.v8.utils.V8ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,12 +38,13 @@ public class MXJSEngine {
 
 
     private void setup() {
-        this.jsExecutor =new MXJSExecutor(mContext);
+        this.jsExecutor = MXJSExecutor.getInstance(mContext);
         setupBasicJSRuntime();
     }
 
     private void setupBasicJSRuntime() {
-        JavaVoidCallback JSAPI_log = new JavaVoidCallback() {
+
+        JavaVoidCallback nativePrint = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
                 if (args.length() > 0) {
@@ -53,18 +52,34 @@ public class MXJSEngine {
                 }
             }
         };
-        jsExecutor.registerJavaMethod(JSAPI_log, "JSAPI_log");
+        jsExecutor.registerJavaMethod(nativePrint, "nativePrint");
 
-        JavaCallback JSAPI_require = new JavaCallback() {
+        JavaVoidCallback dartPrint = new JavaVoidCallback() {
+            @Override
+            public void invoke(V8Object v8Object, V8Array args) {
+                if (args.length() > 0) {
+                    Log.i(TAG, args.get(0).toString());
+                }
+            }
+        };
+        jsExecutor.registerJavaMethod(dartPrint, "dartPrint");
+
+        JavaCallback require = new JavaCallback() {
             @Override
             public Object invoke(V8Object v8Object, V8Array args) {
                 if (args.length() > 0) {
                     String filePath = args.get(0).toString();
 
-                    //filePath = filePath.replaceFirst("./","");
+                    String prefix = "./";
+                    if(filePath.startsWith(prefix)){
+                        filePath = filePath.substring(prefix.length());
+                    }
 
                     String absolutePath = "";
-                    String jsScript = "";
+
+                    ArrayList<String> extensions = new ArrayList<>();
+                    extensions.add(".js");
+                    extensions.add(".ddc.js");
 
                     for (String dir : searchDirArray
                     ) {
@@ -73,54 +88,45 @@ public class MXJSEngine {
                                 String[] files = mContext.getAssets().list(dir);
                                 dirMap.put(dir, files);
                             }
-                            if (dir.contains("app_test")) {
-                                String absolutePathTemp = dir + "/" + filePath;
-                                jsScript = FileUtils.getFromAssets(mContext, absolutePathTemp);
-                                if (!TextUtils.isEmpty(jsScript)) {
-                                    absolutePath = absolutePathTemp;
-                                    break;
-                                }
-                            } else {
-                                for (String fileName: dirMap.get(dir)
-                                ) {
-                                    if (fileName.equals(filePath)){
-                                        String absolutePathTemp = dir + "/" + filePath;
-                                        jsScript = FileUtils.getFromAssets(mContext, absolutePathTemp);
-                                        if (!TextUtils.isEmpty(jsScript)) {
-                                            absolutePath = absolutePathTemp;
-                                            break;
-                                        }
+
+                            for (String fileName : dirMap.get(dir)
+                            ) {
+                                for (String ext : extensions) {
+                                    String absolutePathTemp = dir + "/" + filePath;
+                                    if (!filePath.endsWith(".js")) {
+                                        absolutePathTemp += ext;
+                                        filePath += ext;
+                                    }
+                                    if (fileName.equals(filePath)) {
+                                        absolutePath = absolutePathTemp;
+                                        break;
                                     }
                                 }
                             }
-                            if (!TextUtils.isEmpty(jsScript)) {
-                                break;
-                            }
-                        }catch (Exception e) {
-                            e.printStackTrace();
-                        }
 
-                    }
-                    try {
-                        String injectScript = String.format("(function (){let module = {exports:{}};(function (){\n%s\n})(); return module.exports;})();", jsScript);
-                        V8Object value  = (V8Object) jsExecutor.runtime.executeObjectScript(injectScript);
-                        if (value != null) {
-                            Map<String, Object> module = new HashMap<>();
-                            module.put("absolutePath", absolutePath);
-                            module.put("exports", value);
-                            return V8ObjectUtils.toV8Object(jsExecutor.runtime, module);
+                        } catch (Exception e) {
+                            Log.e(TAG, "", e);
                         }
-                    }catch (V8ScriptException e) {
-                        Log.e(TAG,"V8ScriptException:JSMessage:"+e.getJSMessage());
-                        Log.e(TAG,"V8ScriptException:JSFilePath:"+absolutePath);
-                        Log.e(TAG,"V8ScriptException:SourceLine:"+e.getSourceLine());
-                        Log.e(TAG,"V8ScriptException:LineNumber:"+e.getLineNumber());
                     }
+                    JSModule module = null;
+                    if (!TextUtils.isEmpty(absolutePath)) {
+                        module = JSModule.require(filePath, absolutePath, jsExecutor.runtime);
+                        if (module == null) {
+                            jsExecutor.executeScript("throw 'not found'", new MXJSExecutor.ExecuteScriptCallback() {
+                                @Override
+                                public void onComplete(Object value) {
+
+                                }
+                            });
+                            return null;
+                        }
+                    }
+                    return module.mExports;
                 }
                 return null;
             }
         };
-        jsExecutor.registerJavaMethod(JSAPI_require, "JSAPI_require");
+        jsExecutor.registerJavaMethod(require, "require");
     }
 
     void addSearchDir(String dir) {
