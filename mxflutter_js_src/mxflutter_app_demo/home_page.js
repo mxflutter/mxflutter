@@ -68,61 +68,6 @@ const dart = dart_sdk.dart;
 const async = dart_sdk.async;
 
 
-
-function testPreference1() {
-    let packages__sp = require("packages/shared_preferences/shared_preferences.js");
-    let shared_preferences = packages__sp.shared_preferences;
-    return async.async(dart.dynamic, function* testPreference() {
-
-        try {
-
-            let _prefs = (yield shared_preferences.SharedPreferences.getInstance());
-            _prefs.setString("soap", "mxflutter uuuuu");
-            let v = _prefs.getString("soap");
-            MXJSLog.log("_prefs.getBool('soap'):" + v);
-
-        } catch (e$) {
-            let e = dart.getThrown(e$);
-            MXJSLog.log("testPreference error:" + e);
-            return e;
-
-        }
-
-    });
-}
-
-
- async function testPreference() {
-    let packages__sp = require("packages/shared_preferences/shared_preferences.js");
-  
-
-
-        try {
-
-            let _prefs = (await packages__sp.SharedPreferences.getInstance());
-            _prefs.setString("soap", "mxflutter uuuuu");
-
-          
-
-            let v = _prefs.getString("soap");
-            MXJSLog.log("_prefs.getString('soap'):" + v);
-
-            _prefs.setStringList("soaplist",["soap", "mxflutter uuuuu"]);
-
-            let vList = _prefs.getStringList("soaplist");
-            MXJSLog.log("_prefs.getStringList('soaplist'):" + vList);
-
-        } catch (e$) {
-            let e = dart.getThrown(e$);
-            MXJSLog.log("testPreference error:" + e);
-            return e;
-
-        }
-
-   
-}
-
-
 //业务代码
 class JSWidgetHomePage extends MXJSStatefulWidget {
     constructor() {
@@ -154,15 +99,15 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     onTap: function () {
 
                         //点击时懒加载页面
-                        // let { ExamplesPage } = require("./examples/index.js");
+                        let { ExamplesPage } = require("./examples/index.js");
 
-                        // Navigator.push(context, new MaterialPageRoute({
-                        //     builder: function (context) {
-                        //         return new ExamplesPage;
-                        //     }
-                        // }))
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new ExamplesPage;
+                            }
+                        }))
 
-                        testPreference();
+
                     }
                 }),
                 new ListTile({
