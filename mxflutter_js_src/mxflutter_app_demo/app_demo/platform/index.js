@@ -64,6 +64,7 @@ let { PageExampleDio } = require("platform/example_dio.js");
 let { PageExampleFetch } = require("platform/example_fetch.js");
 let { PageExampleNetworkAPI } = require("platform/example_network_native_api.js");
 let { PageExampleMessageChannel } = require("platform/example_message_channel.js");
+let { PageExampleSharedPreferences } = require("platform/example_shared_preferences.js");
 
 
 
@@ -81,6 +82,18 @@ class PlatformExamplesPage extends MXJSStatelessWidget {
       body: new Scrollbar({
         child: new ListView({
           children: [
+            new SectionTitle("MessageChannel"),
+
+            new ListTile({
+              title: new Text("MessageChannel"),
+              onTap: function () {
+                Navigator.push(context, new MaterialPageRoute({
+                  builder: function (context) {
+                    return new PageExampleMessageChannel;
+                  }
+                }))
+              }
+            }),
             new SectionTitle("网络组件", { key: new Key("1") }),
 
             new ListTile({
@@ -115,18 +128,19 @@ class PlatformExamplesPage extends MXJSStatelessWidget {
                 }))
               }
             }),
-            new SectionTitle("MessageChannel"),
+            new SectionTitle("存储"),
 
             new ListTile({
-              title: new Text("MessageChannel"),
+              title: new Text("shared_preferences"),
               onTap: function () {
                 Navigator.push(context, new MaterialPageRoute({
                   builder: function (context) {
-                    return new PageExampleMessageChannel;
+                    return new PageExampleSharedPreferences;
                   }
                 }))
               }
             }),
+
           ],
         })
       })

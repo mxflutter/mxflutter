@@ -57,54 +57,73 @@ let {
 
 const dart_sdk = require("dart_sdk");
 const dart = dart_sdk.dart;
+const async = dart_sdk.async;
 
 const { SectionTitle } = require("./component/section_title.js");
-
-const packages__dio = require("packages/dio/dio.js");
-
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
-const fetch = bridge_netwrok.fetch;
+let packages__sp = require("packages/shared_preferences/shared_preferences.js");
 
 
-let cgi = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
+async function testPreference() {
+  let packages__sp = require("packages/shared_preferences/shared_preferences.js");
 
-class PageExampleMessageChannel extends MXJSStatefulWidget {
+  try {
+
+    let _prefs = (await packages__sp.SharedPreferences.getInstance());
+    _prefs.setString("mxflutter", "MXFlutter SharedPreferences: Count : " + this.count++);
+
+
+
+    let v = _prefs.getString("soap");
+    MXJSLog.log("_prefs.getString('soap'):" + v);
+
+    _prefs.setStringList("soaplist", ["soap", "mxflutter uuuuu"]);
+
+    let vList = _prefs.getStringList("soaplist");
+    MXJSLog.log("_prefs.getStringList('soaplist'):" + vList);
+
+  } catch (e$) {
+    let e = dart.getThrown(e$);
+    MXJSLog.log("testPreference error:" + e);
+    return e;
+
+  }
+
+
+}
+
+
+class PageExampleSharedPreferences extends MXJSStatefulWidget {
   constructor() {
-    super("PageExampleMessageChannel");
+    super("PageExampleSharedPreferences");
 
   }
 
   createState() {
-    return new PageExampleMessageChannelState(this);
+    return new PageExampleSharedPreferencesState(this);
   }
 }
 
-class PageExampleMessageChannelState extends MXJSWidgetState {
+class PageExampleSharedPreferencesState extends MXJSWidgetState {
   constructor() {
-    super("PageExampleMessageChannelState");
+    super("PageExampleSharedPreferencesState");
     this.response = "点击小人Run上面的代码";
+    this.count = 0;
 
-    this.methodChannel = new MethodChannel("MXFlutter_MethodChannel_Demo");
+    this.prefs = null;
+    this.setup();
   }
+
+  async setup() {
+    this.prefs = (await packages__sp.SharedPreferences.getInstance());
+  }
+
 
   dioCodeText() {
-    return "let result = await this.methodChannel.invokeMethod('callNativeIconListRefresh', {});";
+    return "prefs.setString(‘mxflutter’, str)";
   }
   dioCodeText2() {
-    return "let result = await this.methodChannel.invokeMethod('callNativeIconListLoadMore', {});";
+    return "this.prefs.getString('mxflutter')";
   }
-
-  async callMethodChannel(method) {
-
-    //MessageChannel 用法示例
-    let result = await this.methodChannel.invokeMethod(method, {});
-
-    MXJSLog.log("callNativeIconListRefresh result: " + result);
-    return result;
-
-  }
-
 
 
   build(context) {
@@ -114,7 +133,7 @@ class PageExampleMessageChannelState extends MXJSWidgetState {
       }),
       body: new ListView({
         children: [
-          new SectionTitle("Code 调用MessageChannel ListRefresh"),
+          new SectionTitle("Code 调用prefs.setString"),
           new ListTile({
             trailing: new Icon(Icons["directions_run"]),
             title: new Text(this.dioCodeText(), {
@@ -123,17 +142,20 @@ class PageExampleMessageChannelState extends MXJSWidgetState {
               })
             }),
             onTap: async function () {
-              let response = await this.callMethodChannel("callNativeIconListRefresh");
+
 
               this.setState(function () {
 
-                this.response = JSON.stringify(response ? response : "messagechannel return empty");
+                let str = "MXFlutter SharedPreferences: Count : " + this.count++;
+
+                let v = this.prefs.setString("mxflutter", str);
+                this.response = " prefs.setString('mxflutter'," + str + ")";
 
               }.bind(this));
 
             }.bind(this)
           }),
-          new SectionTitle("Code 调用MessageChannel ListLoadMore"),
+          new SectionTitle("Code 调用 prefs.getString"),
           new ListTile({
             trailing: new Icon(Icons["directions_run"]),
             title: new Text(this.dioCodeText2(), {
@@ -142,17 +164,16 @@ class PageExampleMessageChannelState extends MXJSWidgetState {
               })
             }),
             onTap: async function () {
-              let response = await this.callMethodChannel("callNativeIconListLoadMore");
 
               this.setState(function () {
-
-                this.response = JSON.stringify(response ? response : "messagechannel return empty");
+                let v = this.prefs.getString("mxflutter");
+                this.response = v;
 
               }.bind(this));
 
             }.bind(this)
           }),
-          new SectionTitle("MessageChannel Result"),
+          new SectionTitle("prefs Result"),
 
           new Padding({
             padding: EdgeInsets.all(10),
@@ -171,5 +192,5 @@ class PageExampleMessageChannelState extends MXJSWidgetState {
 }
 
 module.exports = {
-  PageExampleMessageChannel,
+  PageExampleSharedPreferences,
 };

@@ -65,31 +65,63 @@ const index_page = packages__zhihu__index.index__index;
 
 const dart_sdk = require("dart_sdk");
 const dart = dart_sdk.dart;
+const async = dart_sdk.async;
 
 
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
-const fetch = bridge_netwrok.fetch;
+
+function testPreference1() {
+    let packages__sp = require("packages/shared_preferences/shared_preferences.js");
+    let shared_preferences = packages__sp.shared_preferences;
+    return async.async(dart.dynamic, function* testPreference() {
+
+        try {
+
+            let _prefs = (yield shared_preferences.SharedPreferences.getInstance());
+            _prefs.setString("soap", "mxflutter uuuuu");
+            let v = _prefs.getString("soap");
+            MXJSLog.log("_prefs.getBool('soap'):" + v);
+
+        } catch (e$) {
+            let e = dart.getThrown(e$);
+            MXJSLog.log("testPreference error:" + e);
+            return e;
+
+        }
+
+    });
+}
 
 
-let cgiDataUrl = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
-let cgiJsonUrl = "https://reactnative.dev/movies.json";
+ async function testPreference() {
+    let packages__sp = require("packages/shared_preferences/shared_preferences.js");
+  
 
-  //例子1，最简单的用法 
-  async function testDio1() {
-    try {
-      const packages__dio = require("packages/dio/dio.js");
-      let response = await packages__dio.Dio().get(cgiJsonUrl);
-      MXJSLog.log("await Dio.get(urlStr):request() :" + JSON.stringify( response.data));
-      return response;
 
-    } catch (e$) {
-      let e = dart.getThrown(e$);
-      MXJSLog.log("testDio() error:" + e);
-      return e;
+        try {
 
-    }
-  }
+            let _prefs = (await packages__sp.SharedPreferences.getInstance());
+            _prefs.setString("soap", "mxflutter uuuuu");
+
+          
+
+            let v = _prefs.getString("soap");
+            MXJSLog.log("_prefs.getString('soap'):" + v);
+
+            _prefs.setStringList("soaplist",["soap", "mxflutter uuuuu"]);
+
+            let vList = _prefs.getStringList("soaplist");
+            MXJSLog.log("_prefs.getStringList('soaplist'):" + vList);
+
+        } catch (e$) {
+            let e = dart.getThrown(e$);
+            MXJSLog.log("testPreference error:" + e);
+            return e;
+
+        }
+
+   
+}
+
 
 //业务代码
 class JSWidgetHomePage extends MXJSStatefulWidget {
@@ -122,16 +154,15 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     onTap: function () {
 
                         //点击时懒加载页面
-                        let { ExamplesPage } = require("./examples/index.js");
+                        // let { ExamplesPage } = require("./examples/index.js");
 
-                        Navigator.push(context, new MaterialPageRoute({
-                            builder: function (context) {
-                                return new ExamplesPage;
-                            }
-                        }))
+                        // Navigator.push(context, new MaterialPageRoute({
+                        //     builder: function (context) {
+                        //         return new ExamplesPage;
+                        //     }
+                        // }))
 
-
-                        //testDio1();
+                        testPreference();
                     }
                 }),
                 new ListTile({
@@ -170,10 +201,10 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     onTap: function () {
 
                         let list_view = require("./listview_example.js");
-                    
+
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
-                                return  new list_view.ListViewDemo;
+                                return new list_view.ListViewDemo;
                             }
                         }))
                     }
@@ -246,7 +277,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('FlutterDemo'),
                     subtitle: new Text('简单样例'),
                     onTap: function () {
-                       
+
                         let flutter_demo_ddc = require("./dart2js_demo/flutter_demo.ddc.js");
 
                         Navigator.push(context, new MaterialPageRoute({

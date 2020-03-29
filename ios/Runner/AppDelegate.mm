@@ -100,7 +100,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
             
         } else if ([call.method isEqualToString:@"callNativeIconListLoadMore"]) {
             
-            result(@[@4,@3,@2,@1]);
+            result(@{@"SomeStr":@"MethodCall",@"NumList":@[@4,@3,@2,@1]});
         }
         
     }];
