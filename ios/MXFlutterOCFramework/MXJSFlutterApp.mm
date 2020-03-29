@@ -244,9 +244,9 @@
     // }
     if ([method isEqualToString:@"rebuild"]) {
         [self.jsFlutterAppRebuildChannel sendMessage:arguments];
-    }if([method isEqualToString:@"navigatorPush"]) {
+    } else if([method isEqualToString:@"navigatorPush"]) {
         [self.jsFlutterAppNavigatorPushChannel sendMessage:arguments];
-    }else {
+    } else {
         [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
     }
 }
