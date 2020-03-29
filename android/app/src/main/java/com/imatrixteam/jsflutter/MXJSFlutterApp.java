@@ -4,8 +4,6 @@ import android.content.Context;
 
 import com.eclipsesource.v8.V8Object;
 
-import org.json.JSONObject;
-
 import java.util.HashMap;
 
 import io.flutter.plugin.common.BinaryMessenger;
@@ -14,6 +12,10 @@ import io.flutter.plugin.common.MethodChannel;
 
 public class MXJSFlutterApp {
 
+    private static String JSFLUTTER_FRAMEWORK_DIR = "mxf_js_framework";
+    private static String JSFLUTTER_DART_FRAMEWORK_DIR = "mxf_js_framework/dart_js_framework";
+    private static String JSFLUTTER_SRC_DIR1 = "mxflutter_app_demo";
+
     static MXJSFlutterEngine jsFlutterEngineStatic;
 
     private Context mContext;
@@ -21,11 +23,11 @@ public class MXJSFlutterApp {
     private String appName;
     private MXJSFlutterEngine jsFlutterEngine;
 
-    private V8Object jsAppObj;
     private MXJSEngine jsEngine;
     private MXJSExecutor jsExecutor;
 
     private MXJSFlutterApp currentApp;
+    private V8Object jsAppObj;
 
     //Flutter通道
     private static final String FLUTTER_METHED_CHANNEL_NAME = "js_flutter.js_flutter_app_channel";
@@ -52,14 +54,15 @@ public class MXJSFlutterApp {
         String jsBasePath = "";
 
         //JSFlutter JS运行库搜索路径
-        String jsFlutterFrameworkDir = "js_framework_lib";
-        jsEngine.addSearchDir(jsFlutterFrameworkDir);
+        jsEngine.addSearchDir(JSFLUTTER_FRAMEWORK_DIR);
 
         //app业务代码搜索路径
-        String jsAppCoreDir = "app_test";
-        jsEngine.addSearchDir(jsAppCoreDir);
+        jsEngine.addSearchDir(JSFLUTTER_SRC_DIR1);
 
-        String jsBasicLibPath = jsFlutterFrameworkDir + "/" +  "js_basic_lib.js";
+        //JSFlutter Dart JS运行库搜索路径
+        jsEngine.addSearchDir(JSFLUTTER_DART_FRAMEWORK_DIR);
+
+        String jsBasicLibPath = JSFLUTTER_FRAMEWORK_DIR + "/" +  "js_basic_lib.js";
         jsExecutor.executeScriptPath(jsBasicLibPath, new MXJSExecutor.ExecuteScriptCallback() {
             @Override
             public void onComplete(Object value) {
@@ -79,9 +82,9 @@ public class MXJSFlutterApp {
                     return;
 
                 if(methodCall.method.equals("callJS")){
-                    currentApp.jsExecutor.execute(new Runnable() {
+                    currentApp.jsExecutor.execute(new MXJSExecutor.MXJsTask() {
                         @Override
-                        public void run() {
+                        public void excute() {
                             if (jsAppObj == null) return;
                             currentApp.jsExecutor.invokeJSValue(jsAppObj, "nativeCall", methodCall.arguments, new MXJSExecutor.InvokeJSValueCallback() {
                                 @Override
@@ -103,7 +106,12 @@ public class MXJSFlutterApp {
 
 
     public void close() {
-        this.jsExecutor.execute(() -> jsAppObj.close());
+        this.jsExecutor.execute(new MXJSExecutor.MXJsTask(){
+            @Override
+            public void excute() {
+                jsAppObj.close();
+            }
+        });
         this.jsExecutor.close();
     }
 
@@ -113,9 +121,9 @@ public class MXJSFlutterApp {
 
     public void runAppWithPageName(String pageName) {
 
-        jsExecutor.execute(new Runnable() {
+        jsExecutor.execute(new MXJSExecutor.MXJsTask() {
             @Override
-            public void run() {
+            public void excute() {
                 MXNativeJSFlutterApp MXNativeJSFlutterApp = new MXNativeJSFlutterApp();
                 V8Object v8Object = new V8Object(jsExecutor.runtime);
                 jsExecutor.runtime.add("MXNativeJSFlutterApp",v8Object);
@@ -128,7 +136,7 @@ public class MXJSFlutterApp {
             }
         });
 
-        jsExecutor.executeScriptPath("app_test/main.js", new MXJSExecutor.ExecuteScriptCallback() {
+        jsExecutor.executeScriptPath(JSFLUTTER_SRC_DIR1+"/main.js", new MXJSExecutor.ExecuteScriptCallback() {
             @Override
             public void onComplete(Object value) {
 
