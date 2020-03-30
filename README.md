@@ -8,7 +8,7 @@
 
 ### 【NEW】(0.1.0) Beta Version   2020-03-30 
 
-  性能和稳定性优化，0.1.0版本已在线上使用。
+  性能和稳定性优化，0.1.0版本已在iOS线上使用，Android的支持在开发中。
 
   *   **API变化：区分MXJSStatefulWidget、MXJSStatelessWidget**
   *   **Framework目录整理**
