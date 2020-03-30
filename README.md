@@ -1,4 +1,4 @@
-# MXFlutter技术预览版
+# MXFlutter Beta
 
 [中文版文档](README.md)|[English Document](Documentation/README-EN.md)
 
