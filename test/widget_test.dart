@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:js_flutter/main.dart';
-import 'package:js_flutter/js_flutter/mx_json_proxy_layout.dart';
+import '../lib/mxflutter_framework/mxf_flutter_framework/mx.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

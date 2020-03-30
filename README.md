@@ -1,12 +1,24 @@
 # MXFlutter技术预览版
 
----
-
-目前支持到Flutter channel stable/ flutter_macos_v1.12.13+hotfix.8-stable版本
-
----
-
 [中文版文档](README.md)|[English Document](Documentation/README-EN.md)
+
+----
+
+## 新版本
+
+### 【NEW】(0.1.0) Beta Version   2020-03-30 
+
+  性能和稳定性优化，0.1.0版本已在iOS线上使用，Android的支持在开发中。
+
+  *   **API变化：区分MXJSStatefulWidget、MXJSStatelessWidget**
+  *   **Framework目录整理**
+  *   支持Packages
+      1.   dio
+      2.   pull_to_refresh
+      3.   cached_network_image
+      4.   shared_preferences
+  *   支持MessageChannel
+  *   性能和稳定性优化，Bug Fix
 
 ----
 
@@ -154,9 +166,9 @@ class JSPestoPage extends MXJSWidget {
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(new IconData(0xe3c9)),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
 
-        }),
+        },
       }),
       body: new CustomScrollView({
         semanticChildCount: this.recipes.length,
@@ -179,9 +191,9 @@ class JSPestoPage extends MXJSWidget {
         IconButton({
           icon: new Icon(new IconData(1)),
           tooltip: 'Search',
-          onPressed: this.createCallbackID(function () {
+          onPressed: function () {
 
-          }),
+          },
         }),
       ],
       flexibleSpace: LayoutBuilder({
@@ -248,7 +260,7 @@ class JSPestoPage extends MXJSWidget {
 > 项目演示
 
 源码中还有更丰满的示例，高仿知乎页面JSFlutter版，可以点此进入查看代码：
-[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js)
+[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js)
 
 下图是对应的UI，已经接近在线上版直接使用了：
 
@@ -269,31 +281,21 @@ MXFlutter遵循[MIT](http://opensource.org/licenses/MIT)开源许可证协议。
 MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施，如果大家有兴趣，欢迎加入一起开发。
 如果你有好的意见或建议，也欢迎给我们提 `Issues` 或 `Pull Requests`。
 
-特别感谢以下开发者的贡献
-
-![](https://avatars1.githubusercontent.com/u/1397062?s=60&v=4) [colin3dmax](https://github.com/colin3dmax)
- 
-![](https://avatars1.githubusercontent.com/u/14990734?s=60&v=4) [yuxizhe](https://github.com/yuxizhe)
- 
-![](https://avatars1.githubusercontent.com/u/26341415?s=60&v=4) [Johnny](https://github.com/chenzhengxu)
- 
-[AiNiBaBa](https://github.com/AiNiBaBa)
- 
 ----
 
 ## <a name="title9">九、团队介绍</a>
 
 > 成员
 
-项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，wenn和不咸同学负责了Android平台的实现，IP老师提供了单元测试，健身大神yofer老师负责了代码维护，工具建设。 
+项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，wenn负责了Android平台的实现，IP老师帮忙提供了单元测试，健身大神yofer老师负责了代码维护，工具建设。 
 
 > 项目由来
 
-18年10月份，团队开始引入 Flutter，发现Flutter功能强大，开发快捷，但有个缺点，不支持像ReactNative一样使用JavaScript语言开发，为了扩展Flutter的开发者阵营，所以启动了这个技术探索项目。
+18年10月份，团队尝试使用 Flutter，做为iOS开发，一接触到Flutter就马上感受到，Flutter 虽然强大，但不能像RN一样动态化是阻碍我们使用她的唯一障碍了。看Google团队对动态化的计划，短期内应该不会上线，所以撸起袖子自己动手，启动了这个技术探索项目。
 
 > 现状
 
-MXFlutter虽然各个模块已相对完整，并同时支持 iOS 和 Android 两个平台，但投入生产还需要一段时间。目前正对框架进行优化，尽早发布正式版本。因为目前还有其他项目要顾及，人力仍然很紧张，如果大家有兴趣，期待小伙伴们一起加入，共同丰富 MXFlutter 动态化能力。
+MXFlutter虽然各个模块已相对完整，并同时支持 iOS 和 Android 两个平台，但投入生产还需要一段时间。目前正对框架进行优化，并力争11月底前支持线上生产。因为目前还有其他项目要顾及，人力仍然很紧张，如果大家有兴趣，期待小伙伴们一起加入，共同丰富 MXFlutter 动态化能力。
 
 由于时间紧张，MXFlutter还有很多遗留的问题，作为一个技术探索，非常辛苦但非常有趣，期待各位大牛指导，期待小伙伴们提出问题一起讨论解决。
 

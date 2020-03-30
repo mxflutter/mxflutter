@@ -1,11 +1,14 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 
 class TestPageScaffoldNorWork extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+
+    var c = Colors.red;
 
     return Scaffold(
       appBar: AppBar(
@@ -51,6 +54,17 @@ class TestPage extends StatelessWidget{
           duration: new Duration(seconds:2),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () async{
+
+          MethodChannel mc  = MethodChannel("MXFlutter_MethodChannel_Demo");
+
+          var r = await mc.invokeMethod("callNativeIconListRefresh");
+
+          print(r);
+
+
+
+      }),
     );
   }
 }
@@ -80,3 +94,4 @@ class MyScaffoldBody extends StatelessWidget {
     );
   }
 }
+

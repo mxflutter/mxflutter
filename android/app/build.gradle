@@ -46,8 +46,8 @@ android {
     sourceSets{
         main{
             assets{
-                srcDirs 'src/main/assets'
-                srcDirs '../../js_flutter_src'
+                srcDirs '../../lib/mxflutter_framework'
+                srcDirs '../../mxflutter_js_src'
             }
         }
     }
@@ -56,10 +56,10 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.imatrixteam.jsflutter"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -69,6 +69,10 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
 }
 
 flutter {
@@ -77,7 +81,7 @@ flutter {
 
 dependencies {
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
-    implementation(name:'j2v8-5.0.103', ext:'aar')
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.eclipsesource.j2v8:j2v8:6.1.0@aar'
 }

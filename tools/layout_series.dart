@@ -521,11 +521,43 @@ const SliverList({
     this.dragStartBehavior = DragStartBehavior.down,
   }) 
   """,
+
+  """
+  enum HitTestBehavior {
+  /// Targets that defer to their children receive events within their bounds
+  /// only if one of their children is hit by the hit test.
+  deferToChild,
+
+  /// Opaque targets can be hit by hit tests, causing them to both receive
+  /// events within their bounds and prevent targets visually behind them from
+  /// also receiving events.
+  opaque,
+
+  /// Translucent targets both receive events within their bounds and permit
+  /// targets visually behind them to also receive events.
+  translucent,
+  }
+  """,
+
+  """
+  const SliverToBoxAdapter({
+    Key key,
+    Widget child,
+  }) 
+  """,
+
+  """
+  const TableCell({
+    Key key,
+    this.verticalAlignment,
+    @required Widget child,
+  })
+  """,
 ];
 
 void main(List<String> arguments) {
   //打印输出所有
-  //list.map(translate).toList().join('\n\n\n');
+  // list.map(translate).toList().join('\n\n\n');
 
   //打印输出最后一个
   translate(list.last);

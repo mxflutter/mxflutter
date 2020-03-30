@@ -51,9 +51,9 @@ class JSPestoPage extends MXJSWidget {
       }),
       floatingActionButton: new FloatingActionButton({
         child: new Icon(new IconData(0xe3c9)),
-        onPressed: this.createCallbackID(function () {
+        onPressed: function () {
 
-        }),
+        },
       }),
       body: new CustomScrollView({
         semanticChildCount: this.recipes.length,
@@ -76,9 +76,9 @@ class JSPestoPage extends MXJSWidget {
         IconButton({
           icon: new Icon(new IconData(1)),
           tooltip: 'Search',
-          onPressed: this.createCallbackID(function () {
+          onPressed: function () {
 
-          }),
+          },
         }),
       ],
       flexibleSpace: LayoutBuilder({
@@ -147,7 +147,7 @@ class JSPestoPage extends MXJSWidget {
 
 There is a richer example in the source code, using JSFlutter to imitate the page of ZhiHu app.
 
-[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/zhihu/home/home_page.js)
+[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js)
 
 This is the corresponding UI, which is very close to the online version.
 
@@ -356,7 +356,7 @@ Let developers write elegant code, we want the code written by developers using 
 
 Reference JS sample source code
 
-[TGIF-iMatrix home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/js_flutter_src/app_test/home_page.js)
+[TGIF-iMatrix home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/home_page.js)
 
 ## 0x05 MXFlutter Infrastructure
 

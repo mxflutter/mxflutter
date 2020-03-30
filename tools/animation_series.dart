@@ -3,7 +3,7 @@ import 'dart_builder.dart';
 var list = <String>[
   """
   Tween({
-    this.begin,
+    this.begin, 
     this.end,
   })
   """
@@ -40,19 +40,19 @@ var list = <String>[
       int microseconds = 0})
   """
   ,
-
+  
   """
   CurveTween({
-     @required this.curve
+     @required this.curve 
      })
   """
   ,
-
+ 
   """
   const Interval(
-    this.begin,
-    this.end,
-    { this.curve = Curves.linear
+    this.begin, 
+    this.end, 
+    { this.curve = Curves.linear 
     })
    """
   ,
@@ -77,6 +77,40 @@ var list = <String>[
   })
   """
   ,
+
+  """
+ enum AnimationStatus {
+  /// The animation is stopped at the beginning
+  dismissed,
+
+  /// The animation is running from beginning to end
+  forward,
+
+  /// The animation is running backwards, from end to beginning
+  reverse,
+
+  /// The animation is stopped at the end
+  completed,
+  }
+  """,
+
+  """
+  RectTween({ 
+    Rect begin, 
+    Rect end 
+    })
+  """,
+  
+  """
+  const Cubic(
+    this.a, 
+    this.b, 
+    this.c, 
+    this.d
+    )
+  """,
+  
+  
 
   """
   const AnimatedOpacity({
@@ -158,7 +192,6 @@ void main(List<String> arguments) {
 
   //打印输出最后一个
   translate(list.last);
-
 }
 
 String translate(String src) {

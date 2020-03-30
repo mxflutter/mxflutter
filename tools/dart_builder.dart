@@ -78,10 +78,7 @@ class Parse2Dart {
     var name =
         match.group(1).trim(); // TODO 这里可能会出错，如果不匹配说明出问题了，不需要特意try catch.
 
-    var result = '//添加下面行 到 registerProxys 函数中\n'
-        'm.addAll(MXProxy$name.registerProxy()); \n'
-        '\n'
-        'class MXProxy$name extends MXJsonObjProxy {\n'
+    var result = 'class MXProxy$name extends MXJsonObjProxy {\n'
         '\tstatic Map<String, CreateJsonObjProxyFun> registerProxy() {\n'
         '\t\t///**@@@  2 替换类名字符串\n'
         '\t\tfinal String regClassName = "$name";\n'
@@ -187,10 +184,10 @@ class Parse2Dart {
     name = name.trim();
 
     var result = 'class MX$name  {\n'
-        '\tstatic Map str2VMap =  {\n';
+        '\tstatic Map str2VMap =  {';
 
     // 去掉最后一行
-    //lines.removeLast();
+    lines.removeLast();
     var props = '';
     var length = lines.length;
     for (int i = 0; i < length; i++) {
@@ -201,19 +198,15 @@ class Parse2Dart {
         continue;
       }
 
-      if (i < length - 1) {
-        props += '\t\t\t' + enumParseSingleLine(name, line) + '\n';
-      } else {
-        props += '\t\t\t' + enumParseSingleLine(name, line);
-      }
+      props += '\n\t\t' + enumParseSingleLine(name, line);
     }
 
     result = result +
         props +
-        '\n\t\t\t}; \n'
-        '\n\tstatic $name parse(String valueStr,{$name defaultValue }) {\n'
-        '\t\tif(valueStr == null) return defaultValue;\n'
-        '\t\tvalueStr = valueStr.trim();\n'
+        '\n\t}; \n'
+        '\n\tstatic $name parse(Map valueMap,{$name defaultValue }) {\n'
+        '\t\tif(valueMap == null) return defaultValue;\n'
+        '\t\tvar valueStr = valueMap["_name"].trim();\n'
         '\t\tvar v = str2VMap[valueStr];\n'
         '\t\treturn v??defaultValue;\n'
         '\t}\n';
@@ -500,12 +493,13 @@ class Parse2JS {
 
     name = name.trim();
 
-    var result = '$name = {\n';
+    var result = '$name = {';
 
     // 去掉最后一行
     lines.removeLast();
     var props = '';
     var length = lines.length;
+    var index = 0;
     for (int i = 0; i < length; i++) {
       var line = lines[i];
       line = line.trim();
@@ -514,11 +508,7 @@ class Parse2JS {
         continue;
       }
 
-      if (i < length - 1) {
-        props += '\t\t\t' + enumParseSingleLine2JS(name, line) + '\n';
-      } else {
-        props += '\t\t\t' + enumParseSingleLine2JS(name, line);
-      }
+      props += '\n\t' + enumParseSingleLine2JS(name, line, index++);
     }
     // 构造函数结束部分
     result = result + props; // + '\t}\n';
@@ -529,7 +519,7 @@ class Parse2JS {
     return result;
   }
 
-  static String enumParseSingleLine2JS(String name, String line) {
+  static String enumParseSingleLine2JS(String name, String line, int index) {
     var result = '';
     line = line.trim();
 
@@ -555,7 +545,8 @@ class Parse2JS {
     // 删除this.
     property = property.replaceAll('this.', '').trim();
 
-    result = '$property: "$name.$property",';
+    // result = '$property: "$name.$property",';
+    result = '$property:{ _name: "$name.$property", index: $index },';
 
     return result;
   }

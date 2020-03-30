@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
-		3B80C3941E831B6300D905FE /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; };
-		3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks (3 items) */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; };
-		9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks (3 items) */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9740EEB41CF90195004384FC /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9740EEB21CF90195004384FC /* Debug.xcconfig */; };
 		978B8F6F1D3862AE00F588F7 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFD8EE1D35381100E5BB4D /* AppDelegate.mm */; };
 		97C146F31CF9000F007C117D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97C146F21CF9000F007C117D /* main.mm */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		A60E13E5242DB90700EBA76D /* mxflutter_js_src in Resources */ = {isa = PBXBuildFile; fileRef = A60E13E4242DB90700EBA76D /* mxflutter_js_src */; };
+		A60E13E7242DB92500EBA76D /* mxf_js_framework in Resources */ = {isa = PBXBuildFile; fileRef = A60E13E6242DB92500EBA76D /* mxf_js_framework */; };
+		A612C3D1241D04DF00D2383D /* MXFDataRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BB241D04DF00D2383D /* MXFDataRequestHandler.m */; };
+		A612C3D2241D04DF00D2383D /* MXFNetworkTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BC241D04DF00D2383D /* MXFNetworkTask.m */; };
+		A612C3D3241D04DF00D2383D /* MXFNetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3BE241D04DF00D2383D /* MXFNetInfo.m */; };
+		A612C3DD241D04DF00D2383D /* MXFHTTPRequestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CA241D04DF00D2383D /* MXFHTTPRequestHandler.mm */; };
+		A612C3DE241D04DF00D2383D /* MXFFileRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CB241D04DF00D2383D /* MXFFileRequestHandler.m */; };
+		A612C3DF241D04DF00D2383D /* MXFNetworking.mm in Sources */ = {isa = PBXBuildFile; fileRef = A612C3CD241D04DF00D2383D /* MXFNetworking.mm */; };
+		A612C3E3241D0AFD00D2383D /* MXFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3E2241D0AFD00D2383D /* MXFUtil.m */; };
+		A612C3E9241D3A3200D2383D /* MXJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3E8241D3A3200D2383D /* MXJSBridge.m */; };
+		A612C3EE241D557B00D2383D /* MXEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3ED241D557B00D2383D /* MXEventEmitter.m */; };
+		A612C3F3241DE2C900D2383D /* MXFConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3F2241DE2C900D2383D /* MXFConvert.m */; };
+		A612C3F7241DFB3000D2383D /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C3F5241DFB3000D2383D /* NSData+GZIP.m */; };
 		A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */; };
-		A62F318E21E48B9E007B59F8 /* MXJSFlutter.m in Sources */ = {isa = PBXBuildFile; fileRef = A62F318D21E48B9E007B59F8 /* MXJSFlutter.m */; };
 		A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569321CE8FEE00530D0C /* MXJSEngine.m */; };
 		A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569621CE903E00530D0C /* MXJSExecutor.m */; };
-		A6A4569A21CE909A00530D0C /* MXJSFlutterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A4569921CE909A00530D0C /* MXJSFlutterViewController.m */; };
 		A6C8C13521D1D10500F71E5B /* MXJSFlutterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8C13321D1D10500F71E5B /* MXJSFlutterEngine.m */; };
-		A6C8C13B21D39E8F00F71E5B /* js_flutter_src in Resources */ = {isa = PBXBuildFile; fileRef = A6C8C13921D39E3700F71E5B /* js_flutter_src */; };
+		BA22F63F2395469E00257D57 /* JSModule.m in Sources */ = {isa = PBXBuildFile; fileRef = BA22F63E2395469E00257D57 /* JSModule.m */; };
+		F8C493500D184CA9C55C4CA4 /* libPods-Runner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9C3A4B2FB78DFACDA2C146 /* libPods-Runner.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,8 +43,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks (3 items) */,
-				9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks (3 items) */,
 			);
 			name = "Embed Frameworks (3 items)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,34 +52,61 @@
 /* Begin PBXFileReference section */
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		211FF29293902FEAF0AACC75 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
-		3B80C3931E831B6300D905FE /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = Flutter/App.framework; sourceTree = "<group>"; };
+		5C9C3A4B2FB78DFACDA2C146 /* libPods-Runner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Runner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AFFD8EE1D35381100E5BB4D /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		895B094E7608DA2883775E93 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
-		9740EEBA1CF902C7004384FC /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = Flutter/Flutter.framework; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C146F21CF9000F007C117D /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A60E13E4242DB90700EBA76D /* mxflutter_js_src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mxflutter_js_src; path = ../mxflutter_js_src; sourceTree = "<group>"; };
+		A60E13E6242DB92500EBA76D /* mxf_js_framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mxf_js_framework; path = ../lib/mxflutter_framework/mxf_js_framework; sourceTree = "<group>"; };
+		A612C3BB241D04DF00D2383D /* MXFDataRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFDataRequestHandler.m; sourceTree = "<group>"; };
+		A612C3BC241D04DF00D2383D /* MXFNetworkTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFNetworkTask.m; sourceTree = "<group>"; };
+		A612C3BD241D04DF00D2383D /* MXFHTTPRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFHTTPRequestHandler.h; sourceTree = "<group>"; };
+		A612C3BE241D04DF00D2383D /* MXFNetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFNetInfo.m; sourceTree = "<group>"; };
+		A612C3C9241D04DF00D2383D /* MXFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetworking.h; sourceTree = "<group>"; };
+		A612C3CA241D04DF00D2383D /* MXFHTTPRequestHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXFHTTPRequestHandler.mm; sourceTree = "<group>"; };
+		A612C3CB241D04DF00D2383D /* MXFFileRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFFileRequestHandler.m; sourceTree = "<group>"; };
+		A612C3CC241D04DF00D2383D /* MXFDataRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFDataRequestHandler.h; sourceTree = "<group>"; };
+		A612C3CD241D04DF00D2383D /* MXFNetworking.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXFNetworking.mm; sourceTree = "<group>"; };
+		A612C3CE241D04DF00D2383D /* MXFNetworkTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetworkTask.h; sourceTree = "<group>"; };
+		A612C3CF241D04DF00D2383D /* MXFNetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetInfo.h; sourceTree = "<group>"; };
+		A612C3D0241D04DF00D2383D /* MXFFileRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFFileRequestHandler.h; sourceTree = "<group>"; };
+		A612C3E1241D0AFD00D2383D /* MXFUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXFUtil.h; sourceTree = "<group>"; };
+		A612C3E2241D0AFD00D2383D /* MXFUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXFUtil.m; sourceTree = "<group>"; };
+		A612C3E4241D170100D2383D /* MXFURLRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXFURLRequestDelegate.h; sourceTree = "<group>"; };
+		A612C3E5241D170100D2383D /* MXFURLRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXFURLRequestHandler.h; sourceTree = "<group>"; };
+		A612C3E7241D3A3200D2383D /* MXJSBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSBridge.h; sourceTree = "<group>"; };
+		A612C3E8241D3A3200D2383D /* MXJSBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSBridge.m; sourceTree = "<group>"; };
+		A612C3EA241D3C7000D2383D /* MXBridgeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXBridgeModule.h; sourceTree = "<group>"; };
+		A612C3EC241D4B3B00D2383D /* MXEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXEventEmitter.h; sourceTree = "<group>"; };
+		A612C3ED241D557B00D2383D /* MXEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEventEmitter.m; sourceTree = "<group>"; };
+		A612C3F0241DCD0E00D2383D /* MXFDispose.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXFDispose.h; sourceTree = "<group>"; };
+		A612C3F1241DE2C100D2383D /* MXFConvert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXFConvert.h; sourceTree = "<group>"; };
+		A612C3F2241DE2C900D2383D /* MXFConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFConvert.m; sourceTree = "<group>"; };
+		A612C3F5241DFB3000D2383D /* NSData+GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZIP.m"; sourceTree = "<group>"; };
+		A612C3F6241DFB3000D2383D /* NSData+GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZIP.h"; sourceTree = "<group>"; };
 		A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterApp.h; sourceTree = "<group>"; };
 		A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXJSFlutterApp.mm; sourceTree = "<group>"; };
-		A62F318C21E48B9E007B59F8 /* MXJSFlutter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutter.h; sourceTree = "<group>"; };
-		A62F318D21E48B9E007B59F8 /* MXJSFlutter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSFlutter.m; sourceTree = "<group>"; };
+		A62F318C21E48B9E007B59F8 /* MXJSFlutterDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterDefines.h; sourceTree = "<group>"; };
 		A6A4569221CE8FEE00530D0C /* MXJSEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSEngine.h; sourceTree = "<group>"; };
 		A6A4569321CE8FEE00530D0C /* MXJSEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSEngine.m; sourceTree = "<group>"; };
 		A6A4569521CE903E00530D0C /* MXJSExecutor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSExecutor.h; sourceTree = "<group>"; };
 		A6A4569621CE903E00530D0C /* MXJSExecutor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSExecutor.m; sourceTree = "<group>"; };
-		A6A4569821CE909A00530D0C /* MXJSFlutterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterViewController.h; sourceTree = "<group>"; };
-		A6A4569921CE909A00530D0C /* MXJSFlutterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXJSFlutterViewController.m; sourceTree = "<group>"; };
 		A6C8C13321D1D10500F71E5B /* MXJSFlutterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXJSFlutterEngine.m; sourceTree = "<group>"; };
 		A6C8C13421D1D10500F71E5B /* MXJSFlutterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterEngine.h; sourceTree = "<group>"; };
-		A6C8C13621D3314800F71E5B /* js_flutter_src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js_flutter_src; path = ../js_flutter_src; sourceTree = "<group>"; };
-		A6C8C13921D39E3700F71E5B /* js_flutter_src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js_flutter_src; path = ../js_flutter_src; sourceTree = "<group>"; };
+		BA22F63D2395469E00257D57 /* JSModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSModule.h; sourceTree = "<group>"; };
+		BA22F63E2395469E00257D57 /* JSModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSModule.m; sourceTree = "<group>"; };
+		FFB25DBEB96C4183036AA023 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,20 +114,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
-				3B80C3941E831B6300D905FE /* App.framework in Frameworks */,
+				F8C493500D184CA9C55C4CA4 /* libPods-Runner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8EF9194F97928444558C0380 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C9C3A4B2FB78DFACDA2C146 /* libPods-Runner.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9740EEB11CF90186004384FC /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
-				3B80C3931E831B6300D905FE /* App.framework */,
 				3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */,
-				9740EEBA1CF902C7004384FC /* Flutter.framework */,
 				9740EEB21CF90195004384FC /* Debug.xcconfig */,
 				7AFA3C8E1D35360C0083082E /* Release.xcconfig */,
 				9740EEB31CF90195004384FC /* Generated.xcconfig */,
@@ -105,11 +143,14 @@
 		97C146E51CF9000F007C117D = {
 			isa = PBXGroup;
 			children = (
-				A6C8C13921D39E3700F71E5B /* js_flutter_src */,
+				A60E13E6242DB92500EBA76D /* mxf_js_framework */,
+				A60E13E4242DB90700EBA76D /* mxflutter_js_src */,
+				A6A4568E21CE8EAD00530D0C /* MXFlutterOCFramework */,
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
-				A6C8C13821D39DEA00F71E5B /* Recovered References */,
+				B586B830608F39A264984C64 /* Pods */,
+				8EF9194F97928444558C0380 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,7 +165,6 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
-				A6A4568E21CE8EAD00530D0C /* JSFlutter */,
 				7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */,
 				7AFFD8EE1D35381100E5BB4D /* AppDelegate.mm */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
@@ -146,9 +186,77 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A6A4568E21CE8EAD00530D0C /* JSFlutter */ = {
+		A612C38E241CF8C000D2383D /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				A612C3BA241D04DE00D2383D /* Network */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		A612C3BA241D04DE00D2383D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3F8241E7BEC00D2383D /* RequestHandler */,
+				A612C3C9241D04DF00D2383D /* MXFNetworking.h */,
+				A612C3CD241D04DF00D2383D /* MXFNetworking.mm */,
+				A612C3CE241D04DF00D2383D /* MXFNetworkTask.h */,
+				A612C3BC241D04DF00D2383D /* MXFNetworkTask.m */,
+				A612C3CF241D04DF00D2383D /* MXFNetInfo.h */,
+				A612C3BE241D04DF00D2383D /* MXFNetInfo.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A612C3E6241D34B300D2383D /* JSBridge */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3EA241D3C7000D2383D /* MXBridgeModule.h */,
+				A612C3E7241D3A3200D2383D /* MXJSBridge.h */,
+				A612C3E8241D3A3200D2383D /* MXJSBridge.m */,
+				A612C3EC241D4B3B00D2383D /* MXEventEmitter.h */,
+				A612C3ED241D557B00D2383D /* MXEventEmitter.m */,
+			);
+			path = JSBridge;
+			sourceTree = "<group>";
+		};
+		A612C3EF241DCC2B00D2383D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3F0241DCD0E00D2383D /* MXFDispose.h */,
+				A612C3E1241D0AFD00D2383D /* MXFUtil.h */,
+				A612C3E2241D0AFD00D2383D /* MXFUtil.m */,
+				A612C3F1241DE2C100D2383D /* MXFConvert.h */,
+				A612C3F2241DE2C900D2383D /* MXFConvert.m */,
+				A612C3F6241DFB3000D2383D /* NSData+GZIP.h */,
+				A612C3F5241DFB3000D2383D /* NSData+GZIP.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A612C3F8241E7BEC00D2383D /* RequestHandler */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3CC241D04DF00D2383D /* MXFDataRequestHandler.h */,
+				A612C3BB241D04DF00D2383D /* MXFDataRequestHandler.m */,
+				A612C3BD241D04DF00D2383D /* MXFHTTPRequestHandler.h */,
+				A612C3CA241D04DF00D2383D /* MXFHTTPRequestHandler.mm */,
+				A612C3D0241D04DF00D2383D /* MXFFileRequestHandler.h */,
+				A612C3CB241D04DF00D2383D /* MXFFileRequestHandler.m */,
+				A612C3E4241D170100D2383D /* MXFURLRequestDelegate.h */,
+				A612C3E5241D170100D2383D /* MXFURLRequestHandler.h */,
+			);
+			path = RequestHandler;
+			sourceTree = "<group>";
+		};
+		A6A4568E21CE8EAD00530D0C /* MXFlutterOCFramework */ = {
+			isa = PBXGroup;
+			children = (
+				A612C3EF241DCC2B00D2383D /* Common */,
+				A612C3E6241D34B300D2383D /* JSBridge */,
+				A612C38E241CF8C000D2383D /* Packages */,
+				BA22F63D2395469E00257D57 /* JSModule.h */,
+				BA22F63E2395469E00257D57 /* JSModule.m */,
 				A62F317A21D61574007B59F8 /* MXJSFlutterApp.h */,
 				A62F317B21D61574007B59F8 /* MXJSFlutterApp.mm */,
 				A6C8C13421D1D10500F71E5B /* MXJSFlutterEngine.h */,
@@ -157,20 +265,19 @@
 				A6A4569321CE8FEE00530D0C /* MXJSEngine.m */,
 				A6A4569521CE903E00530D0C /* MXJSExecutor.h */,
 				A6A4569621CE903E00530D0C /* MXJSExecutor.m */,
-				A6A4569821CE909A00530D0C /* MXJSFlutterViewController.h */,
-				A6A4569921CE909A00530D0C /* MXJSFlutterViewController.m */,
-				A62F318C21E48B9E007B59F8 /* MXJSFlutter.h */,
-				A62F318D21E48B9E007B59F8 /* MXJSFlutter.m */,
+				A62F318C21E48B9E007B59F8 /* MXJSFlutterDefines.h */,
 			);
-			path = JSFlutter;
+			path = MXFlutterOCFramework;
 			sourceTree = "<group>";
 		};
-		A6C8C13821D39DEA00F71E5B /* Recovered References */ = {
+		B586B830608F39A264984C64 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A6C8C13621D3314800F71E5B /* js_flutter_src */,
+				895B094E7608DA2883775E93 /* Pods-Runner.debug.xcconfig */,
+				FFB25DBEB96C4183036AA023 /* Pods-Runner.release.xcconfig */,
+				211FF29293902FEAF0AACC75 /* Pods-Runner.profile.xcconfig */,
 			);
-			name = "Recovered References";
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,12 +287,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
+				93B55B52C868AA66E1E6752E /* [CP] Check Pods Manifest.lock */,
 				9740EEB61CF901F6004384FC /* Run Script */,
 				97C146EA1CF9000F007C117D /* Sources */,
 				97C146EB1CF9000F007C117D /* Frameworks */,
 				97C146EC1CF9000F007C117D /* Resources */,
 				9705A1C41CF9048500538489 /* Embed Frameworks (3 items) */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
+				EE28C0EFAA5EE38D72240481 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,7 +343,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6C8C13B21D39E8F00F71E5B /* js_flutter_src in Resources */,
+				A60E13E7242DB92500EBA76D /* mxf_js_framework in Resources */,
+				A60E13E5242DB90700EBA76D /* mxflutter_js_src in Resources */,
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				9740EEB41CF90195004384FC /* Debug.xcconfig in Resources */,
@@ -258,7 +368,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" thin";
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
+		};
+		93B55B52C868AA66E1E6752E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		9740EEB61CF901F6004384FC /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -274,6 +406,21 @@
 			shellPath = /bin/sh;
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
 		};
+		EE28C0EFAA5EE38D72240481 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -282,14 +429,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				978B8F6F1D3862AE00F588F7 /* AppDelegate.mm in Sources */,
-				A6A4569A21CE909A00530D0C /* MXJSFlutterViewController.m in Sources */,
 				A6C8C13521D1D10500F71E5B /* MXJSFlutterEngine.m in Sources */,
+				A612C3D1241D04DF00D2383D /* MXFDataRequestHandler.m in Sources */,
 				97C146F31CF9000F007C117D /* main.mm in Sources */,
+				A612C3DD241D04DF00D2383D /* MXFHTTPRequestHandler.mm in Sources */,
+				A612C3E3241D0AFD00D2383D /* MXFUtil.m in Sources */,
+				A612C3E9241D3A3200D2383D /* MXJSBridge.m in Sources */,
+				A612C3DF241D04DF00D2383D /* MXFNetworking.mm in Sources */,
 				A62F317C21D61574007B59F8 /* MXJSFlutterApp.mm in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				BA22F63F2395469E00257D57 /* JSModule.m in Sources */,
+				A612C3F7241DFB3000D2383D /* NSData+GZIP.m in Sources */,
+				A612C3D2241D04DF00D2383D /* MXFNetworkTask.m in Sources */,
 				A6A4569721CE903E00530D0C /* MXJSExecutor.m in Sources */,
+				A612C3D3241D04DF00D2383D /* MXFNetInfo.m in Sources */,
+				A612C3DE241D04DF00D2383D /* MXFFileRequestHandler.m in Sources */,
+				A612C3EE241D557B00D2383D /* MXEventEmitter.m in Sources */,
 				A6A4569421CE8FEE00530D0C /* MXJSEngine.m in Sources */,
-				A62F318E21E48B9E007B59F8 /* MXJSFlutter.m in Sources */,
+				A612C3F3241DE2C900D2383D /* MXFConvert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

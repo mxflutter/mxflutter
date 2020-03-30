@@ -18,8 +18,15 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  # MXFlutter Framework 必须的库
   cupertino_icons: ^0.1.2
   expressions: ^0.1.2
+
+  # 开发者选用的库
+  dio: ^3.0.9
+  pull_to_refresh: ^1.5.7
+  cached_network_image: ^2.0.0-rc.1
+  shared_preferences: ^0.5.6+3
 
 dev_dependencies:
   flutter_test:
@@ -32,13 +39,22 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    - js_flutter_src/app_test/flutter_gallery_assets/food/
-    - js_flutter_src/app_test/flutter_gallery_assets/food/icons/
-    - js_flutter_src/app_test/flutter_gallery_assets/logos/flutter_white/
-    - js_flutter_src/app_test/flutter_gallery_assets/logos/pesto/
-    - js_flutter_src/app_test/flutter_gallery_assets/people/
-    - js_flutter_src/app_test/flutter_gallery_assets/people/square/
-    - js_flutter_src/app_test/flutter_gallery_assets/products/
+    - mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/food/
+    - mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/food/icons/
+    - mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/flutter_white/
+    - mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/pesto/
+    - mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/people/
+    - mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/people/square/
+    - mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/products/
+
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/fonts/raleway/Raleway-Regular.ttf
+        - asset: mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/fonts/raleway/Raleway-Medium.ttf
+          weight: 500
+        - asset: mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/fonts/raleway/Raleway-SemiBold.ttf
+          weight: 600
 
 
   # The following line ensures that the Material Icons font is
