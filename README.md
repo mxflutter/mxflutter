@@ -4,6 +4,24 @@
 
 ----
 
+## 新版本
+
+### 【NEW】(0.1.0) Beta Version   2020-03-30 
+
+  性能和稳定性优化，0.1.0版本已在线上使用。
+
+  *   **API变化：区分MXJSStatefulWidget、MXJSStatelessWidget**
+  *   **Framework目录整理**
+  *   支持Packages
+      1.   dio
+      2.   pull_to_refresh
+      3.   cached_network_image
+      4.   shared_preferences
+  *   支持MessageChannel
+  *   性能和稳定性优化，Bug Fix
+
+----
+
 *  [一、项目介绍](#title1)
 *  [二、项目特性](#title2)
 *  [三、核心思想](#title3)
