@@ -143,7 +143,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => MXJSFlutter.getI
 
 ![](https://github.com/langbluesky/Image/blob/master/pesto_demo.jpeg?raw=true)
 
-下面是UI截图对应的JS代码，没错，你没有眼花，这个是真的 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI，简直是太厉害了（是不是很像Flutter里面的组件代码）！
+下面是UI截图对应的JS代码，没错，你没有眼花，这个是真的 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI，（是不是很像Flutter里面的组件代码）！
 
 ```javascript
 class JSPestoPage extends MXJSWidget {
