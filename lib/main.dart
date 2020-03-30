@@ -163,13 +163,13 @@ class _DemoList extends StatelessWidget {
             Scaffold.of(context).showSnackBar(
               const SnackBar(
                   content:
-                      Text('JSApp 重新加载完成，重新进入上面的JSFlutter UI Demo，即可看到界面更新！')),
+                      Text('JSApp 重新加载完成，重新进入上面的MXFlutter Demo，即可看到界面更新！')),
             );
           },
         ),
         ListTile(
           title: Text(
-              '在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击JSFlutter UI Demo，可以在Safari调试JS'),
+              '在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击MXFlutter Demo，可以在Safari调试JS'),
         ),
         ListTile(
           leading: Icon(Icons.photo),
