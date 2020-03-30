@@ -36,32 +36,10 @@ const { SectionTitle } = require("./component/section_title.js");
 let { JSContactPage } = require("./contact.js");
 let { JSAnimationPage } = require("./animation.js");
 let { JSMaterialPage } = require("./material.js");
-let { JSZhiHuPage } = require("./zhihu/zhihu.js");
+
 
 //let { ExamplesPage } = require("./examples/index.js");
 let { JSCupertinoPage } = require("./cupertino.js");
-
-
-
-let { PlatformExamplesPage } = require("./platform/index.js");
-
-
-
-contact_demo_ddc = require("./dart2js_demo/contacts_demo.ddc.js");
-pesto_demo_ddc = require("./dart2js_demo/pesto_demo.ddc.js");
-
-const packages__zhihu__home__home_page = require('packages/zhihu/home/home_page');
-const home_page = packages__zhihu__home__home_page.home__home_page;
-const packages__zhihu__idea__idea_page = require('packages/zhihu/idea/idea_page');
-const idea_page = packages__zhihu__idea__idea_page.idea__idea_page;
-const packages__zhihu__market__market_page = require('packages/zhihu/market/market_page');
-const market_page = packages__zhihu__market__market_page.market__market_page;
-const packages__zhihu__notice__notice_page = require('packages/zhihu/notice/notice_page');
-const notice_page = packages__zhihu__notice__notice_page.notice__notice_page;
-const packages__zhihu__my__my_page = require('packages/zhihu/my/my_page');
-const my_page = packages__zhihu__my__my_page.my__my_page;
-const packages__zhihu__index = require('packages/zhihu/index/index');
-const index_page = packages__zhihu__index.index__index;
 
 const dart_sdk = require("dart_sdk");
 const dart = dart_sdk.dart;
@@ -129,6 +107,9 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('ZhiHu'),
                     subtitle: new Text('ZhiHu high copy'),
                     onTap: function () {
+
+                        let { JSZhiHuPage } = require("./zhihu/zhihu.js");
+
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new JSZhiHuPage;
@@ -162,6 +143,9 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('Network/Dio/MessageChannel'),
 
                     onTap: function () {
+
+                        let { PlatformExamplesPage } = require("./platform/index.js");
+
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new PlatformExamplesPage;
@@ -239,6 +223,9 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('联系人'),
 
                     onTap: function () {
+
+                        let contact_demo_ddc = require("./dart2js_demo/contacts_demo.ddc.js");
+
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new contact_demo_ddc.contacts_demo.ContactsDemo.new;
@@ -252,6 +239,9 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('PestoDemo'),
                     subtitle: new Text('菜谱'),
                     onTap: function () {
+
+                        let pesto_demo_ddc = require("./dart2js_demo/pesto_demo.ddc.js");
+
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new pesto_demo_ddc.pesto_demo.PestoDemo.new;
@@ -266,6 +256,10 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('知乎-高仿版'),
 
                     onTap: function () {
+
+                        const packages__zhihu__index = require('packages/zhihu/index/index');
+                        const index_page = packages__zhihu__index.index__index;
+
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new index_page.Index.new;
