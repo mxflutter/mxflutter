@@ -16,15 +16,18 @@
 #if TARGET_IPHONE_SIMULATOR
 
 #define JSFLUTTER_SRC_BASE_DIR ([PROJECT_DIR stringByDeletingLastPathComponent])
+#define JSFLUTTER_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework"
+#define JSFLUTTER_DART_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework/dart_js_framework"
 
 #else
 
 #define JSFLUTTER_SRC_BASE_DIR ([[NSBundle mainBundle] bundlePath])
+#define JSFLUTTER_FRAMEWORK_DIR  @"mxf_js_framework"
+#define JSFLUTTER_DART_FRAMEWORK_DIR  @"mxf_js_framework/dart_js_framework"
 
 #endif
 
-#define JSFLUTTER_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework"
-#define JSFLUTTER_DART_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework/dart_js_framework"
+
 #define JSFLUTTER_SRC_DIR  @"mxflutter_js_src"
 
 #define MXJSFlutterLog(fmt, ...) NSLog((@"MXJSFlutter:[Native]-" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
