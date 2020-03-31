@@ -142,7 +142,9 @@ public class MXJSFlutterApp {
         this.jsExecutor.execute(new MXJSExecutor.MXJsTask() {
             @Override
             public void excute() {
-                jsAppObj.close();
+                if(jsAppObj != null){
+                    jsAppObj.close();
+                }
             }
         });
         this.jsExecutor.close();

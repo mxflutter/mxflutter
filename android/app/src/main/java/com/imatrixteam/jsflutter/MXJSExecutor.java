@@ -15,7 +15,6 @@ import com.imatrixteam.jsflutter.utils.FileUtils;
 import org.json.JSONObject;
 
 import java.util.Map;
-import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -27,25 +26,14 @@ public class MXJSExecutor {
 
     private volatile static MXJSExecutor sMXJSExecutor;
 
-    public static MXJSExecutor getInstance(Context context) {
-        if (sMXJSExecutor == null) {
-            synchronized (MXJSExecutor.class) {
-                if (sMXJSExecutor == null) {
-                    sMXJSExecutor = new MXJSExecutor(context);
-                }
-            }
-        }
-        return sMXJSExecutor;
-    }
-
     //不要在主线程使用
-    public V8 runtime;
+    public static V8 runtime;
 
     private ScheduledExecutorService executor;
 
     public Context context;
 
-    private MXJSExecutor(Context context) {
+    public MXJSExecutor(Context context) {
         this.context = context;
         this.executor = Executors.newSingleThreadScheduledExecutor();
         setup();
