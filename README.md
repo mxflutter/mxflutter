@@ -43,7 +43,7 @@
 
 ##  <a name="title1">一、项目介绍</a>
 
-MXFlutter是一套基于JavaScript的Flutter框架，它用极类似Dart的开发方式，通过编写JavaScript代码，来开发Flutter应用。更多细节在 [基于JS的高性能Flutter动态化框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍.md)。
+MXFlutter是一套基于JavaScript的Flutter框架，它用极类似Dart的开发方式，通过编写JavaScript代码，来开发Flutter应用。更多细节在 [基于JavaScript的Flutter框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍.md)。
 
 ----
 
@@ -62,7 +62,7 @@ MXFlutter是一套基于JavaScript的Flutter框架，它用极类似Dart的开�
 
 把 Flutter 的渲染逻辑中的三棵树（即：WidgetTree、Element、RenderObject ）中的第一棵（即：WidgetTree），放到 JavaScript 中生成。用 JavaScript 完整实现了 Flutter 控件层封装，可以使用 JavaScript，用极其类似 Dart 的开发方式，开发Flutter应用，利用JavaScript版的轻量级Flutter Runtime，生成UI描述，传递给Dart层的UI引擎，UI引擎把UI描述生产真正的 Flutter 控件。所以，它在iOS上是完全动态化的。
 
-关于MXFlutter动态化框架渲染、优化等更多详细细节介绍，请看文档：[基于JS的高性能Flutter动态化框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍)。
+关于MXFlutter动态化框架渲染、优化等更多详细细节介绍，请看文档：[基于JavaScript的Flutter框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍.md)。
 
 ----
 
@@ -260,7 +260,8 @@ class JSPestoPage extends MXJSWidget {
 > 项目演示
 
 源码中还有更丰满的示例，高仿知乎页面JSFlutter版，可以点此进入查看代码：
-[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js)
+
+[mxflutter_js_src/mxflutter_app_demo/app_demo/pesto.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/app_demo/pesto.js)
 
 下图是对应的UI，已经接近在线上版直接使用了：
 
