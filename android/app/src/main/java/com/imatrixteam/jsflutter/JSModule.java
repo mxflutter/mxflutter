@@ -2,9 +2,9 @@ package com.imatrixteam.jsflutter;
 
 import android.text.TextUtils;
 
+import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.V8ScriptException;
-import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.imatrixteam.jsflutter.utils.ClassUtils;
 import com.imatrixteam.jsflutter.utils.FileUtils;
 
@@ -18,7 +18,7 @@ import io.flutter.Log;
 /**
  * Created by wennliu on 2020-03-26
  */
-public class JSModule {
+public class JSModule{
 
     public static final String TAG = "JSModule";
 
@@ -26,7 +26,7 @@ public class JSModule {
 
     public static HashMap<String, Class> CORE_MODULE_CLASSES = new HashMap<>();  //<moduleClassName, module Class>
 
-    public static HashMap<String, JSModule> sClobalModuleCache = new HashMap<>();
+    public static V8Object sGlobalModuleCache;
 
     public static JSModule sCurrentLoadingModule = null;
 
@@ -45,6 +45,11 @@ public class JSModule {
         this.mContext = context;
 
         mExports = new V8Object(context.getRuntime());
+    }
+
+    public static void initGlobalModuleCache(V8 runtime){
+        sGlobalModuleCache = new V8Object(runtime);
+        runtime.add("_loadedMoudleCache",sGlobalModuleCache);
     }
 
     public static boolean isCoreModule(String moduleClassName) {
@@ -98,27 +103,26 @@ public class JSModule {
     }
 
     public static void clearModuleCache() {
-        sClobalModuleCache.clear();
+//        initGlobalModuleCache(MXJSExecutor.getInstance(MXFlutterApplication.getApplication()).runtime);
     }
 
     public static boolean isCached(String fullModulePath) {
-        return sClobalModuleCache.containsKey(fullModulePath);
+        return sGlobalModuleCache.contains(fullModulePath);
     }
 
-    public static JSModule getCacheModule(String fullModulePath) {
-        return sClobalModuleCache.get(fullModulePath);
+    public static V8Object getCacheModule(String fullModulePath) {
+        return sGlobalModuleCache.getObject(fullModulePath);
     }
 
-    public static void cacheModule(String fullModulePath, JSModule module) {
-        sClobalModuleCache.put(fullModulePath, module);
+    public static void cacheModule(String fullModulePath, V8Object exports) {
+        sGlobalModuleCache.add(fullModulePath, exports);
     }
 
-
-    public static JSModule require(String moduleClassName, String fullModulePath) {
+    public static V8Object require(String moduleClassName, String fullModulePath) {
         return require(moduleClassName, fullModulePath, MXJSExecutor.getInstance(MXFlutterApplication.getApplication()).runtime);
     }
 
-    public static JSModule require(String moduleClassName, String fullModulePath, V8Object context) {
+    public static V8Object require(String moduleClassName, String fullModulePath, V8Object context) {
         if (TextUtils.isEmpty(moduleClassName) || TextUtils.isEmpty(fullModulePath) || context == null)
             return null;
 
@@ -131,7 +135,6 @@ public class JSModule {
         JSModule newModule = (JSModule) ClassUtils.getInstance(moduleClass,
                 new Class[]{String.class, String.class, V8Object.class},
                 new Object[]{fullModulePath, fullModulePath, context});
-        cacheModule(fullModulePath, newModule);
 
         String script = FileUtils.getFromAssets(MXFlutterApplication.getApplication(), fullModulePath);
 
@@ -144,7 +147,7 @@ public class JSModule {
             V8Object value = (V8Object) context.getRuntime().executeObjectScript(exportScript);
 
             if (value != null) {
-                newModule.mExports = value.twin();
+                newModule.mExports = value;
             }
 
         } catch (V8ScriptException e) {
@@ -156,7 +159,9 @@ public class JSModule {
 
         newModule.didFinishLoading();
 
-        return newModule;
+        cacheModule(fullModulePath, newModule.mExports);
+
+        return newModule.mExports;
     }
 
     private void didStartLoading() {

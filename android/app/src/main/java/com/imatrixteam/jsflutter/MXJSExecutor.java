@@ -17,6 +17,8 @@ import org.json.JSONObject;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 public class MXJSExecutor {
@@ -36,16 +38,25 @@ public class MXJSExecutor {
         return sMXJSExecutor;
     }
 
+    //不要在主线程使用
     public V8 runtime;
 
-    private Executor executor;
+    private ScheduledExecutorService executor;
 
     public Context context;
 
     private MXJSExecutor(Context context) {
         this.context = context;
-        this.executor = Executors.newSingleThreadExecutor();
+        this.executor = Executors.newSingleThreadScheduledExecutor();
         setup();
+    }
+
+    public void executeDelay(MXJsTask action, long delay, TimeUnit unit) {
+        try {
+            executor.schedule(action, delay, unit);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -67,6 +78,7 @@ public class MXJSExecutor {
         });
     }
 
+    //global js runtime
     public void registerJavaMethod(JavaVoidCallback callback, String name) {
         executor.execute(new MXJsTask() {
             @Override
@@ -76,6 +88,16 @@ public class MXJSExecutor {
         });
     }
 
+    public void registerJavaMethod(JavaVoidCallback callback, String name, V8 runtime) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                runtime.registerJavaMethod(callback, name);
+            }
+        });
+    }
+
+    //global js runtime
     public void registerJavaMethod(JavaCallback callback, String name) {
         executor.execute(new MXJsTask() {
             @Override
@@ -85,6 +107,16 @@ public class MXJSExecutor {
         });
     }
 
+    public void registerJavaMethod(JavaCallback callback, String name, V8 runtime) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                runtime.registerJavaMethod(callback, name);
+            }
+        });
+    }
+
+    //global js runtime
     public void registerJavaMethod(Object object, String methodName, String jsFunctionName, Class<?>[] parameterTypes) {
         executor.execute(new MXJsTask() {
             @Override
@@ -94,6 +126,16 @@ public class MXJSExecutor {
         });
     }
 
+    public void registerJavaMethod(Object object, String methodName, String jsFunctionName, Class<?>[] parameterTypes, V8 runtime) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                runtime.registerJavaMethod(object, methodName, jsFunctionName, parameterTypes);
+            }
+        });
+    }
+
+    //global js runtime
     public void executeScriptPath(String path, ExecuteScriptCallback callback) {
         executor.execute(new MXJsTask() {
             @Override
@@ -105,6 +147,18 @@ public class MXJSExecutor {
         });
     }
 
+    public void executeScriptPath(String path, ExecuteScriptCallback callback, V8 runtime) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                String script = FileUtils.getFromAssets(context, path);
+                V8Object result = runtime.executeObjectScript(script);
+                callback.onComplete(result);
+            }
+        });
+    }
+
+    //global js runtime
     public void executeScript(String script, ExecuteScriptCallback callback) {
         executor.execute(new MXJsTask() {
             @Override
@@ -120,6 +174,20 @@ public class MXJSExecutor {
         });
     }
 
+    public void executeScript(String script, ExecuteScriptCallback callback, V8 runtime) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                Object result = runtime.executeScript(script);
+                ((Activity) context).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onComplete(result);
+                    }
+                });
+            }
+        });
+    }
 
     public void close() {
         executor.execute(new MXJsTask() {
@@ -160,7 +228,7 @@ public class MXJSExecutor {
         }
     }
 
-    public static abstract class MXJsTask implements Runnable{
+    public static abstract class MXJsTask implements Runnable {
 
         protected MXJsTask() {
         }
