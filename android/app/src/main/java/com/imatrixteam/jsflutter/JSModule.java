@@ -125,7 +125,7 @@ public class JSModule{
     }
 
     public static V8Object require(String moduleClassName, String fullModulePath) {
-        return require(moduleClassName, fullModulePath, MXJSExecutor.getInstance(MXFlutterApplication.getApplication()).runtime);
+        return require(moduleClassName, fullModulePath, MXJSExecutor.runtime);
     }
 
     public static V8Object require(String moduleClassName, String fullModulePath, V8Object context) {

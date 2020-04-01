@@ -45,9 +45,8 @@ public class MXJSEngine {
         setup();
     }
 
-
     private void setup() {
-        this.jsExecutor = MXJSExecutor.getInstance(mContext);
+        this.jsExecutor = new MXJSExecutor(mContext);
         setupBasicJSRuntime();
     }
 
