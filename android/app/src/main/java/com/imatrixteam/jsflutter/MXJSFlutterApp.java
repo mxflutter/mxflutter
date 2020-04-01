@@ -22,6 +22,8 @@ public class MXJSFlutterApp {
     public static String JSFLUTTER_DART_FRAMEWORK_DIR = "mxf_js_framework/dart_js_framework";
     public static String JSFLUTTER_SRC_DIR1 = "mxflutter_app_demo";
 
+    public static String JSFLUTTER_LOCAL_DIR;   //本地js路径
+
     static MXJSFlutterEngine jsFlutterEngineStatic;
 
     private Context mContext;

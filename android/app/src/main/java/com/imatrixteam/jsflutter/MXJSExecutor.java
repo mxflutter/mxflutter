@@ -124,22 +124,32 @@ public class MXJSExecutor {
     }
 
     //global js runtime
-    public void executeScriptPath(String path, ExecuteScriptCallback callback) {
+    public void executeScriptPath(final String path, ExecuteScriptCallback callback) {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                String script = FileUtils.getFromAssets(context, path);
+                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(MXFlutterApplication.getApplication());
+                String absolutePath = path;
+                if (!fromAsset) {
+                    absolutePath = MXJSFlutterApp.JSFLUTTER_LOCAL_DIR + "/" + path;
+                }
+                String script = FileUtils.getScriptFromPath(context, absolutePath, fromAsset);
                 V8Object result = runtime.executeObjectScript(script);
                 callback.onComplete(result);
             }
         });
     }
 
-    public void executeScriptPath(String path, ExecuteScriptCallback callback, V8 runtime) {
+    public void executeScriptPath(final String path, ExecuteScriptCallback callback, V8 runtime) {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                String script = FileUtils.getFromAssets(context, path);
+                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(MXFlutterApplication.getApplication());
+                String absolutePath = path;
+                if (!fromAsset) {
+                    absolutePath = MXJSFlutterApp.JSFLUTTER_LOCAL_DIR + "/" + path;
+                }
+                String script = FileUtils.getScriptFromPath(context, absolutePath, fromAsset);
                 V8Object result = runtime.executeObjectScript(script);
                 callback.onComplete(result);
             }

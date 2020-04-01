@@ -18,7 +18,7 @@ import io.flutter.Log;
 /**
  * Created by wennliu on 2020-03-26
  */
-public class JSModule{
+public class JSModule {
 
     public static final String TAG = "JSModule";
 
@@ -47,9 +47,9 @@ public class JSModule{
         mExports = new V8Object(context.getRuntime());
     }
 
-    public static void initGlobalModuleCache(V8 runtime){
+    public static void initGlobalModuleCache(V8 runtime) {
         sGlobalModuleCache = new V8Object(runtime);
-        runtime.add("_loadedMoudleCache",sGlobalModuleCache);
+        runtime.add("_loadedMoudleCache", sGlobalModuleCache);
     }
 
     public static boolean isCoreModule(String moduleClassName) {
@@ -118,11 +118,11 @@ public class JSModule{
         sGlobalModuleCache.add(fullModulePath, exports);
     }
 
-    public static V8Object require(String moduleClassName, String fullModulePath) {
-        return require(moduleClassName, fullModulePath, MXJSExecutor.runtime);
+    public static V8Object require(String moduleClassName, String fullModulePath, boolean fromAsset) {
+        return require(moduleClassName, fullModulePath, MXJSExecutor.runtime, fromAsset);
     }
 
-    public static V8Object require(String moduleClassName, String fullModulePath, V8Object context) {
+    public static V8Object require(String moduleClassName, String fullModulePath, V8Object context, boolean fromAsset) {
         if (TextUtils.isEmpty(moduleClassName) || TextUtils.isEmpty(fullModulePath) || context == null)
             return null;
 
@@ -136,7 +136,7 @@ public class JSModule{
                 new Class[]{String.class, String.class, V8Object.class},
                 new Object[]{fullModulePath, fullModulePath, context});
 
-        String script = FileUtils.getFromAssets(MXFlutterApplication.getApplication(), fullModulePath);
+        String script = FileUtils.getScriptFromPath(MXFlutterApplication.getApplication(), fullModulePath, fromAsset);
 
         newModule.didStartLoading();
 

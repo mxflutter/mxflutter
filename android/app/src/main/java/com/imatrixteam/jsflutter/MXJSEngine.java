@@ -9,6 +9,7 @@ import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Object;
+import com.imatrixteam.jsflutter.utils.FileUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -119,64 +120,17 @@ public class MXJSEngine {
             public Object invoke(V8Object v8Object, V8Array args) {
                 if (args.length() > 0) {
                     String filePath = args.get(0).toString();
-
-                    String prefix = "./";
-                    if (filePath.startsWith(prefix)) {
-                        filePath = filePath.substring(prefix.length());
+                    String absolutePath = null;
+                    boolean isFromAsset = !FileUtils.isCopiedFileFromAssets(mContext);
+                    if (isFromAsset) {
+                        absolutePath = FileUtils.getFilePathFromAsset(mContext, filePath, searchDirArray);
+                    } else {
+                        absolutePath = FileUtils.getFilePathFromFS(mContext, filePath, searchDirArray);
                     }
 
-                    String[] filePathSplitList = filePath.split("/");
-                    int filePathDeep = filePathSplitList.length;
-
-                    String absolutePath = "";
-
-                    ArrayList<String> extensions = new ArrayList<>();
-                    extensions.add(".js");
-                    extensions.add(".ddc.js");
-
-                    try {
-                        for (int i = 0; i < searchDirArray.size(); i++) {
-                            String curSearchDir = searchDirArray.get(i);
-
-                            for (int j = 0; j < filePathDeep; j++) {
-                                String[] files = mContext.getAssets().list(curSearchDir);
-                                boolean isFind = false;
-                                for (int k = 0; k < files.length; k++) {
-                                    if(j == filePathDeep -1){
-                                        for (String ext : extensions) {
-                                            if (!filePathSplitList[j].endsWith(".js")) {
-                                                filePathSplitList[j] += ext;
-                                                filePath += ext;
-                                            }
-                                            if (filePathSplitList[j].equals(files[k])) {
-                                                curSearchDir += ("/"+filePathSplitList[j]);
-                                                absolutePath = curSearchDir;
-                                                isFind = true;
-                                                break;
-                                            }
-                                        }
-                                    }else if (filePathSplitList[j].equals(files[k])) {
-                                        curSearchDir += ("/"+filePathSplitList[j]);
-                                        isFind = true;
-                                    }
-                                    if(isFind){
-                                        break;
-                                    }
-                                }
-                                if(!isFind){
-                                    break;
-                                }
-                            }
-                            if(!TextUtils.isEmpty(absolutePath)){
-                                break;
-                            }
-                        }
-                    } catch (Exception e) {
-                        Log.e(TAG, "", e);
-                    }
                     V8Object exports = null;
                     if (!TextUtils.isEmpty(absolutePath)) {
-                        exports = JSModule.require(filePath, absolutePath, jsExecutor.runtime);
+                        exports = JSModule.require(filePath, absolutePath, jsExecutor.runtime, isFromAsset);
                         if (exports == null) {
                             jsExecutor.executeScript("throw 'not found'", new MXJSExecutor.ExecuteScriptCallback() {
                                 @Override
