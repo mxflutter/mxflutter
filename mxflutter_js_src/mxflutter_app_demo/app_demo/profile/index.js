@@ -98,7 +98,22 @@ class ProfileExamplesPage extends MXJSStatelessWidget {
                 }));
               }
             }),
+            new SectionTitle("MXWidget子元素 column模拟"),
 
+            new ListTile({
+              title: new Text("Column"),
+              subtitle: new Text('100条FeedsMXWidget子元素渲染'),
+              onTap: function () {
+
+                let list_view = require("profile/column_submxwidget_profile.js");
+
+                Navigator.push(context, new MaterialPageRoute({
+                  builder: function (context) {
+                    return new list_view.ListViewProfileDemo1;
+                  }
+                }));
+              }
+            }),
             new SectionTitle("ListView"),
 
             new ListTile({
@@ -116,6 +131,7 @@ class ProfileExamplesPage extends MXJSStatelessWidget {
               }
             }),
 
+            
 
           ],
         })

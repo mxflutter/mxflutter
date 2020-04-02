@@ -132,7 +132,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
 
         for (let i = 0; i < g_max_count; ++i) {
 
-            let item = new Container({ child: this.hotCard(this.newsArray[i % this.newsArray.length]) });
+            let item = new Container({ child: new ListViewItem(this.newsArray[i % this.newsArray.length]) });
 
             items.push(item);
         }
@@ -150,12 +150,21 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
 
         return widget;
     }
+}
+
+class ListViewItem extends MXJSStatelessWidget {
+    constructor(oneNewsMap) {
+        super('ListViewItem');
+
+        this.newsModel = oneNewsMap;
+
+        this.index = Math.ceil(Math.random() * 10000);
 
 
+    }
 
 
-
-    hotCard(newsModel) {
+    hotCard(context, newsModel) {
 
         g_newsOrder++;
 
@@ -268,6 +277,19 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
                 })
             })
         })
+    }
+
+
+    build(context) {
+
+        try {
+            return this.hotCard(context, this.newsModel);
+        } catch (e$) {
+            let e = dart.getThrown(e$);
+            MXJSLog.log("card:build(context):  error:" + e);
+            return null;
+
+        }
     }
 }
 

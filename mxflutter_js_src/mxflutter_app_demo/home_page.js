@@ -198,6 +198,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                         }))
                     }
                 }),
+                this.sectionTitle(context, "性能测试"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
