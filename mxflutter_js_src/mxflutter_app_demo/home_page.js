@@ -198,7 +198,24 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                         }))
                     }
                 }),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Profile'),
+                    subtitle: new Text('性能测试 performance profiling'),
+                    onTap: function () {
+                      
 
+                        let { ProfileExamplesPage } = require("./profile/index.js");
+
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new ProfileExamplesPage;
+                            }
+                        }))
+                    }
+                }),
+                
                 this.sectionTitle(context, "Dart2js Demo"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
