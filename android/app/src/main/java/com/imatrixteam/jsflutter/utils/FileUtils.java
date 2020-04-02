@@ -1,3 +1,9 @@
+//  MXFlutterFramework
+//  Copyright 2019 The MXFlutter Authors. All rights reserved.
+//
+//  Use of this source code is governed by a MIT-style license that can be
+//  found in the LICENSE file.
+
 package com.imatrixteam.jsflutter.utils;
 
 import android.content.Context;
@@ -25,7 +31,7 @@ public class FileUtils {
     public static final String TAG = "FileUtils";
 
     public static String getScriptFromPath(Context context, String filename, boolean fromAsset) {
-        assertNotUiThread();
+        assertJSThread();
 
         if (fromAsset) {
             return getScriptFromAssets(context, filename);
@@ -35,7 +41,7 @@ public class FileUtils {
     }
 
     public static String getScriptFromAssets(Context context, String fileName) {
-        assertNotUiThread();
+        assertJSThread();
 
         InputStream input = null;
         ByteArrayOutputStream output = null;
@@ -67,7 +73,7 @@ public class FileUtils {
     }
 
     public static String getScriptFromFS(Context context, String fileName) {
-        assertNotUiThread();
+        assertJSThread();
 
         InputStream input = null;
         ByteArrayOutputStream output = null;
@@ -99,7 +105,7 @@ public class FileUtils {
     }
 
     public static String getFilePathFromAsset(Context context, String filePath, ArrayList<String> searchDirArray) {
-        assertNotUiThread();
+        assertJSThread();
 
         String prefix = "./";
         if (filePath.startsWith(prefix)) {
@@ -156,6 +162,39 @@ public class FileUtils {
             Log.e(TAG, "", e);
         }
 
+        return absolutePath;
+    }
+
+    public static String getFilePathFromFS(Context context, String filePath, ArrayList<String> searchDirArray) {
+        assertJSThread();
+
+        String prefix = "./";
+        if (filePath.startsWith(prefix)) {
+            filePath = filePath.substring(prefix.length());
+        }
+
+        String absolutePath = "";
+
+        ArrayList<String> extensions = new ArrayList<>();
+        extensions.add(".js");
+        extensions.add(".ddc.js");
+
+        for (String dir : searchDirArray) {
+            for (String ext : extensions) {
+                String absolutePathTemp = MXJSFlutterApp.JSFLUTTER_LOCAL_DIR + "/" + dir + "/" + filePath;
+                if (!filePath.endsWith(".js")) {
+                    absolutePathTemp = absolutePathTemp + ext;
+                }
+                File file = new File(absolutePathTemp);
+                if (file.exists()) {
+                    absolutePath = absolutePathTemp;
+                    break;
+                }
+            }
+            if (absolutePath.length() > 0) {
+                break;
+            }
+        }
         return absolutePath;
     }
 
@@ -236,6 +275,9 @@ public class FileUtils {
     private static boolean sCopiedFileFromAssets;
 
     public static boolean isCopiedFileFromAssets(Context context) {
+        if (MXJSFlutterApp.sUseAsset) {
+            return false;
+        }
         if (!sCopiedFileFromAssets) {
             sCopiedFileFromAssets = context.getSharedPreferences("mx_sp", Context.MODE_PRIVATE).getBoolean("copied_file_from_assets", false);
         }
@@ -244,39 +286,7 @@ public class FileUtils {
 
     public static void setCpiedFileFromAssets(Context context) {
         context.getSharedPreferences("mx_sp", Context.MODE_PRIVATE).edit().putBoolean("copied_file_from_assets", true).apply();
-    }
-
-    public static String getFilePathFromFS(Context context, String filePath, ArrayList<String> searchDirArray) {
-        assertNotUiThread();
-
-        String prefix = "./";
-        if (filePath.startsWith(prefix)) {
-            filePath = filePath.substring(prefix.length());
-        }
-
-        String absolutePath = "";
-
-        ArrayList<String> extensions = new ArrayList<>();
-        extensions.add(".js");
-        extensions.add(".ddc.js");
-
-        for (String dir : searchDirArray) {
-            for (String ext : extensions) {
-                String absolutePathTemp = MXJSFlutterApp.JSFLUTTER_LOCAL_DIR + "/" + dir + "/" + filePath;
-                if (!filePath.endsWith(".js")) {
-                    absolutePathTemp = absolutePathTemp + ext;
-                }
-                File file = new File(absolutePathTemp);
-                if (file.exists()) {
-                    absolutePath = absolutePathTemp;
-                    break;
-                }
-            }
-            if (absolutePath.length() > 0) {
-                break;
-            }
-        }
-        return absolutePath;
+        sCopiedFileFromAssets = true;
     }
 
     public static String stringByDeletingLastPathComponent(String path) {
@@ -294,6 +304,16 @@ public class FileUtils {
 
     public static void assertNotUiThread() {
         if (myLooper() == getMainLooper()) {
+            throw new IllegalStateException(
+                    "Must be called from Not UI thread. Current thread: "
+                            + Thread.currentThread());
+        }
+    }
+
+    public static void assertJSThread() {
+        if(MXScheduledExecutorService.sRunOnUI){
+            assertUiThread();
+        }else if (!Thread.currentThread().getName().startsWith(MXScheduledExecutorService.MX_JS_THREAD_POOL_PREFIX)) {
             throw new IllegalStateException(
                     "Must be called from Not UI thread. Current thread: "
                             + Thread.currentThread());

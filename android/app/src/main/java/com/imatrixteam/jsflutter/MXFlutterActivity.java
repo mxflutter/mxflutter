@@ -31,7 +31,7 @@ public class MXFlutterActivity extends FlutterActivity {
         mMXJSFlutterEngine = new MXJSFlutterEngine(this, this.getFlutterView());
 
         // 三.设置初始化启动哪个页面
-        String route  = "FlutterHomePage";
+        String route = "FlutterHomePage";
         getFlutterView().setInitialRoute(route);
     }
 

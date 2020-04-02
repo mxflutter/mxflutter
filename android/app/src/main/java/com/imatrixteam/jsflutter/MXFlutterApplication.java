@@ -6,6 +6,9 @@
 
 package com.imatrixteam.jsflutter;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import com.imatrixteam.jsflutter.utils.FileUtils;
 
 import io.flutter.app.FlutterApplication;
@@ -18,6 +21,7 @@ public class MXFlutterApplication extends FlutterApplication {
 
     private static MXFlutterApplication sApplication = null;
 
+    private Handler mainHandler;
 
     @Override
     public void onCreate() {
@@ -47,4 +51,12 @@ public class MXFlutterApplication extends FlutterApplication {
     public static MXFlutterApplication getApplication() {
         return sApplication;
     }
+
+    public Handler getMainHandler(){
+        if (mainHandler==null)
+            return (mainHandler = new Handler(Looper.getMainLooper()));
+        else
+            return mainHandler;
+    }
+
 }

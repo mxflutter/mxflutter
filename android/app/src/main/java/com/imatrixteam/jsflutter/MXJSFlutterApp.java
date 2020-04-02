@@ -9,9 +9,9 @@ package com.imatrixteam.jsflutter;
 import android.content.Context;
 
 import com.eclipsesource.v8.V8Object;
+import com.imatrixteam.jsflutter.utils.MXScheduledExecutorService;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import io.flutter.Log;
 import io.flutter.plugin.common.BasicMessageChannel;
@@ -29,6 +29,8 @@ public class MXJSFlutterApp {
     public static String JSFLUTTER_SRC_DIR1 = "mxflutter_app_demo";
 
     public static String JSFLUTTER_LOCAL_DIR;   //本地js路径
+
+    public static boolean sUseAsset = true;
 
     static MXJSFlutterEngine jsFlutterEngineStatic;
 
@@ -118,7 +120,7 @@ public class MXJSFlutterApp {
                         callJSMethodQueue.add(methodCall);
                         return;
                     }
-                    currentApp.jsExecutor.execute(new MXJSExecutor.MXJsTask() {
+                    currentApp.jsExecutor.execute(new MXScheduledExecutorService.MXJsTask() {
                         @Override
                         public void excute() {
                             if (jsAppObj == null) return;
@@ -129,7 +131,7 @@ public class MXJSFlutterApp {
                                 }
 
                                 @Override
-                                public void onFail(Error error) {
+                                public void onError(Error error) {
 
                                 }
                             });
@@ -147,10 +149,10 @@ public class MXJSFlutterApp {
 
 
     public void close() {
-        this.jsExecutor.execute(new MXJSExecutor.MXJsTask() {
+        this.jsExecutor.execute(new MXScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
-                if(jsAppObj != null){
+                if (jsAppObj != null) {
                     jsAppObj.close();
                 }
             }
@@ -165,7 +167,7 @@ public class MXJSFlutterApp {
 
     public void runAppWithPageName() {
 
-        jsExecutor.execute(new MXJSExecutor.MXJsTask() {
+        jsExecutor.execute(new MXScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
                 MXNativeJSFlutterApp MXNativeJSFlutterApp = new MXNativeJSFlutterApp();
@@ -212,7 +214,13 @@ public class MXJSFlutterApp {
         //js --> flutter
         public void callFlutterReloadApp(V8Object jsApp, String widgetData) {
             jsAppObj = (V8Object) jsExecutor.runtime.get("currentJSApp");
-            jsFlutterEngine.callFlutterReloadAppWithJSWidgetData(widgetData);
+
+            ((MXFlutterActivity) mContext).runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    jsFlutterEngine.callFlutterReloadAppWithJSWidgetData(widgetData);
+                }
+            });
         }
 
         //js --> flutter

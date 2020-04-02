@@ -14,16 +14,21 @@ import android.util.Log;
 import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8Array;
+import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
 import com.imatrixteam.jsflutter.utils.FileUtils;
+import com.imatrixteam.jsflutter.utils.MXScheduledExecutorService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.Nullable;
+import io.flutter.plugin.common.MethodChannel;
 
 public class MXJSEngine {
     static private String TAG = "MXJSEngine";
@@ -77,12 +82,12 @@ public class MXJSEngine {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
                 if (args.length() > 1) {
-                    jsExecutor.executeDelay(new MXJSExecutor.MXJsTask() {
+                    jsExecutor.executeDelay(new MXScheduledExecutorService.MXJsTask() {
                         @Override
                         public void excute() {
                             v8Object.getRuntime().executeScript(args.get(1).toString() + "()");
                         }
-                    }, Long.parseLong(args.get(1).toString()), TimeUnit.MILLISECONDS);
+                    }, Long.parseLong(args.get(1).toString()));
                 }
             }
         };
@@ -96,15 +101,23 @@ public class MXJSEngine {
                         String channelName = args.get(0).toString();
                         String methodName = args.get(1).toString();
                         JSONObject params = new JSONObject(args.get(2).toString());
-                        String function = args.get(3).toString();
-                        mMXJSFlutterEngine.callFlutterMethodChannelInvoke(channelName, methodName, params, new MXJSFlutterEngine.JsMethodChannelCallback() {
+                        V8Function function = (V8Function) args.get(3);
+                        mMXJSFlutterEngine.callFlutterMethodChannelInvoke(channelName, methodName, params, new MethodChannel.Result() {
                             @Override
-                            public void callback() {
-                                //todo
+                            public void success(@Nullable Object result) {
+                                jsExecutor.invokeJsFunction(v8Object,function,(Map)result);
+                            }
+
+                            @Override
+                            public void error(String errorCode, @Nullable String errorMessage, @Nullable Object errorDetails) {
+                            }
+
+                            @Override
+                            public void notImplemented() {
                             }
                         });
                     } catch (JSONException e) {
-                        e.printStackTrace();
+                        Log.e(TAG, "", e);
                     }
                 }
             }
@@ -155,7 +168,7 @@ public class MXJSEngine {
         jsExecutor.registerJavaMethod(require, "require");
 
 
-        jsExecutor.execute(new MXJSExecutor.MXJsTask() {
+        jsExecutor.execute(new MXScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
                 JSModule.initGlobalModuleCache(jsExecutor.runtime);
