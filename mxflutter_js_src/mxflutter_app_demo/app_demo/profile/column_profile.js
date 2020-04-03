@@ -80,7 +80,10 @@ let {
     AspectRatio,
     DecorationImage,
     Rect,
-    SingleChildScrollView
+    SingleChildScrollView,
+    Stack,
+    Padding,
+    MediaQuery,
 } = require("js_flutter.js");
 
 
@@ -113,13 +116,18 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
 
         this.newsArray = [];
         this.buildCount = 1;
+
+        this.isSimple = true;
+        this.simpleText = '的点点滴滴';
+        this.complexText = '22221111';
+
+        this.profileInfo = {};    // {startEncodeData: XXX, startTransferData: XXXX, startDecodeData: XXX, endDecodeData: XXX, buildEnd: XXX}
     }
 
     initState() {
         super.initState();
         this.newsArray = g_newsList;
     }
-
 
 
     build(context) {
@@ -141,10 +149,15 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
             appBar: new AppBar({
                 title: new Text('网易新闻 Row Widget '),
             }),
-            body: new SingleChildScrollView({
-                child: new Column({
-                    children: items
-                })
+            body: new Stack({
+                children: [
+                    new SingleChildScrollView({
+                        child: new Column({
+                            children: items
+                        })
+                    }),
+                    this.profileCard(context)
+                ]
             })
         });
 
@@ -152,7 +165,107 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
     }
 
 
+    profileCard(context) {
+        var widget = new Container({
+            decoration: new BoxDecoration({
+                color: new Color(0x77B3E5FC),
+            }),
+            child: new Padding({
+                padding: EdgeInsets.all(10.0),
+                child: new Column({
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:[
+                        new Row({
+                            children: [
+                                new Text('数据量少时                      ', {
+                                    style: new TextStyle({
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16.0,
+                                        color: Colors.black
+                                    })
+                                }),
+                                new FlatButton({
+                                    onPressed: function() {
+                                        this.isSimple = true;
 
+                                        MXJSLog.log('数据量少时，点击...');
+                                    },
+                                    child: new Text('请点击，查看耗时...', {
+                                        style: new TextStyle({
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12.0,
+                                            color: Colors.red
+                                        })
+                                    }),
+                                })
+                            ]
+                        }),
+                        new Padding({
+                            padding: EdgeInsets.only({top: 5.0, bottom: 5.0}),
+                            child: new Text(this.simpleText), 
+                        }),
+                        new Row({
+                            children: [
+                                new Text('数据量大时                      ', {
+                                    style: new TextStyle({
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16.0,
+                                        color: Colors.black
+                                    })
+                                }),
+                                new FlatButton({
+                                    onPressed: function(index) {
+                                        this.isSimple = false;
+
+                                        MXJSLog.log('数据量大时，点击...');
+                                        this.setState(function() {
+                                        }.bind(this))
+                                    }.bind(this),
+                                    child: new Text('请点击，查看耗时...', {
+                                        style: new TextStyle({
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12.0,
+                                            color: Colors.red
+                                        })
+                                    }),
+                                })
+                            ]
+                        }),
+                        new Padding({
+                            padding: EdgeInsets.only({top: 5.0, bottom: 5.0}),
+                            child: new Text(this.complexText), 
+                        }),
+                    ]
+                })
+            }),
+            height: 250.0,
+            width: MediaQuery.of(context).size.width,
+        });
+        return widget;
+    }
+
+    // startEncodeData: XXX, startTransferData: XXXX, startDecodeData: XXX, endDecodeData: XXX, buildEnd: XXX
+    calculateProfile() {
+        var startEncodeData = this.profileInfo['startEncodeData'];
+        var startTransferData = this.profileInfo['startTransferData'];
+        var startDecodeData = this.profileInfo['startDecodeData'];
+        var endDecodeData = this.profileInfo['endDecodeData'];
+        var buildEnd = this.profileInfo['buildEnd'];
+
+        var buildDataCost = startTransferData - startEncodeData;
+        var transferCost = startDecodeData - startTransferData;
+        var decodeDataCost = endDecodeData - startDecodeData;
+        var paintCost = buildEnd - endDecodeData;
+
+        var content = 'buildDataCost: ' + buildDataCost + ', transferCost: ' + transferCost + ', decodeDataCost: ' + decodeDataCost + ', paintCost: ' + paintCost;
+        if (self.isSimple) {
+            self.simpleText = content;
+        } else {
+            self.complexText = content;
+        }
+
+        this.setState();
+    }
 
 
     hotCard(newsModel) {
