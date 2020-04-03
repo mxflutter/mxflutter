@@ -105,12 +105,12 @@
     self.jsFlutterAppRebuildChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.rebuild"
                                                                          binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger
                                                                                    codec:[FlutterStringCodec sharedInstance]];
-
+    
     // navigator_push方法采用BasicMessageChannel
     self.jsFlutterAppNavigatorPushChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.navigator_push"
-                                                                         binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger
-                                                                                   codec:[FlutterStringCodec sharedInstance]];
-
+                                                                               binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger
+                                                                                         codec:[FlutterStringCodec sharedInstance]];
+    
     
     __weak MXJSFlutterApp *weakSelf = self;
     
@@ -168,7 +168,13 @@
             
             MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
             
-            [executor invokeMethod:@"main" args:@[] callback:^(JSValue *result, NSError *error) {
+            NSString *releaseMode = @"release";
+            
+#if DEBUG
+            releaseMode = @"debug";
+#endif
+            
+            [executor invokeMethod:@"main" args:@[releaseMode] callback:^(JSValue *result, NSError *error) {
                 
                 strongSelf.isJSAPPRun = YES;
                 NSLog(@"MXJSFlutter : call main error:%@",error);
