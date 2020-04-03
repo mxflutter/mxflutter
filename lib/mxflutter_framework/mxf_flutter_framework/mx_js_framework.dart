@@ -192,6 +192,9 @@ class MXJSFlutterApp {
   //JSWidget根节点
   dynamic rootWidget;
 
+  //calljs
+  List<Map> _frequencyLimitMethodCallQueue = [];
+
   MXJSFlutterApp(this.name) {
     _rootBuildOwner = MXJsonBuildOwner.rootBuildOwner(this);
     _setupChannel();
@@ -238,7 +241,7 @@ class MXJSFlutterApp {
     return jsWidget;
   }
 
-  //JS->Flutter， js侧调用Flutter，传递Json Widget Tree，创建JSWidget
+  //JS->Flutter， js侧调用Flutter，传递Json Widget Tree，������建JSWidget
   dynamic createJSWidget(Map widgetData) {
     dynamic jsWidget = _rootBuildOwner.buildRootWidget(widgetData);
     return jsWidget;
@@ -272,6 +275,31 @@ class MXJSFlutterApp {
     };
 
     return await _jsFlutterAppChannel.invokeMethod("callJS", jsArgs);
+  }
+
+  //flutter->js Channel
+  dynamic callJSNeedFrequencyLimit(MethodCall jsMethodCall) async {
+    MXJSLog.log("callJSWidget:${jsMethodCall.method}");
+
+    var jsCallMap = {
+      "method": jsMethodCall.method,
+      "arguments": jsMethodCall.arguments,
+    };
+
+    _frequencyLimitMethodCallQueue.add(jsCallMap);
+
+    if (_frequencyLimitMethodCallQueue.length == 1) {
+      Future.delayed(Duration(milliseconds: 500), () {
+        var jsArgs = {
+          "method": "flutterCallFrequencyLimitCallList",
+          "arguments": _frequencyLimitMethodCallQueue,
+        };
+
+        _jsFlutterAppChannel.invokeMethod("callJS", jsArgs);
+
+        _frequencyLimitMethodCallQueue.clear();
+      });
+    }
   }
 
   //事件处理
