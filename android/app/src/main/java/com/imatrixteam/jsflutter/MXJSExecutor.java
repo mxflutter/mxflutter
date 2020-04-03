@@ -19,8 +19,8 @@ import android.util.Log;
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.imatrixteam.jsflutter.utils.FileUtils;
-import com.imatrixteam.jsflutter.utils.MXScheduledExecutorService;
-import com.imatrixteam.jsflutter.utils.MXScheduledExecutorService.MXJsTask;
+import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
+import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService.MXJsTask;
 
 import java.util.Map;
 
@@ -31,13 +31,13 @@ public class MXJSExecutor {
     //如果JS初始化在其他线程，不要在主线程使用
     public static V8 runtime;
 
-    private MXScheduledExecutorService executor;
+    private MXJsScheduledExecutorService executor;
 
     public Context context;
 
     public MXJSExecutor(Context context) {
         this.context = context;
-        executor = new MXScheduledExecutorService();
+        executor = new MXJsScheduledExecutorService();
         setup();
     }
 
@@ -184,20 +184,20 @@ public class MXJSExecutor {
             @Override
             public void excute() {
                 if (runtime != null) {
-                    runtime.close();
+                    runtime.release(false);
                 }
             }
         });
     }
 
-    public void invokeJSValue(V8Object jsAppObj, String method, Object args, InvokeJSValueCallback callback) {
+    public void invokeJSValue(V8Object jsAppObj, String method, Map args, InvokeJSValueCallback callback) {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
                 //获取执行结果
                 if (jsAppObj != null) {
                     try {
-                        Object result = jsAppObj.executeFunction(method, new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, (Map) args)));
+                        Object result = jsAppObj.executeFunction(method, new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, args)));
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onError(new Error(e.getMessage()));
@@ -210,11 +210,11 @@ public class MXJSExecutor {
         });
     }
 
-    public void invokeJsFunction(V8Object runtime, V8Function v8Function, Map value){
+    public void invokeJsFunction(V8Function v8Function, Map value) {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                v8Function.call(runtime, new V8Array(runtime.getRuntime()).push(V8ObjectUtils.toV8Object(runtime.getRuntime(), value)));
+                v8Function.call(runtime, new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, value)));
             }
         });
     }

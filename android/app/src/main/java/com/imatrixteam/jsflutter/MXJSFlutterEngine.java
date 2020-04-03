@@ -14,6 +14,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import io.flutter.Log;
 import io.flutter.plugin.common.BinaryMessenger;
@@ -72,8 +74,8 @@ public class MXJSFlutterEngine {
                     result.success("success");
                 } else if (methodCall.method.equals("callJsCallbackFunction")) {
                     String jsAppName = methodCall.<String>argument("callbackId");
-                    String param = methodCall.<String>argument("param");
-                    callJSCallbackFunction(jsAppName, param);
+                    Map param = methodCall.<Map>argument("param");
+                    mJsEngine.callJSCallbackFunction(jsAppName, param);
                     result.success("success");
                 } else if (methodCall.method.equals("mxLog")) {
                     Log.i(TAG, methodCall.arguments.toString());
@@ -81,7 +83,6 @@ public class MXJSFlutterEngine {
             }
         });
     }
-
 
     public void destroy() {
         if (currentApp != null) {
@@ -106,10 +107,6 @@ public class MXJSFlutterEngine {
         currentApp.runAppWithPageName();
     }
 
-    public void callJSCallbackFunction(String callbackId, String params) {
-        //todo
-    }
-
     public void callFlutterReloadAppWithJSWidgetData(String widgetData) {
         callFlutterReloadAppWithRouteName("MXJSWidget", widgetData);
     }
@@ -120,39 +117,41 @@ public class MXJSFlutterEngine {
         if (routeName == null || widgetData == null) {
             return;
         }
-        try {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("routeName", routeName);
-            jsonObject.put("widgetData", widgetData);
-            MethodCall call = new MethodCall("reloadApp", jsonObject.toString());
-//            if (isFlutterEngineIsDidRender) {
-//                callFlutterQueue.add(call);
-//                return;
-//            }
-            jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
-        } catch (JSONException e) {
-            Log.e(TAG, "", e);
-        }
+        Map arg = new HashMap();
+
+        arg.put("routeName", routeName);
+        arg.put("widgetData", widgetData);
+        MethodCall call = new MethodCall("reloadApp", arg);
+//      if (isFlutterEngineIsDidRender) {
+//          callFlutterQueue.add(call);
+//          return;
+//      }
+        jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
     }
 
-    public void callFlutterMethodChannelInvoke(String channelName, String methodName, JSONObject params, MethodChannel.Result callback) {
+    public void callFlutterMethodChannelInvoke(String channelName, String methodName, Map params, MethodChannel.Result callback) {
         FileUtils.assertUiThread();
 
-        try {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("channelName", channelName);
-            jsonObject.put("methodName", methodName);
-            jsonObject.put("params", params);
-            MethodCall call = new MethodCall("mxflutterBridgeMethodChannelInvoke", jsonObject.toString());
-            jsFlutterAppChannel.invokeMethod(call.method, call.arguments, callback);
-        } catch (JSONException e) {
-            Log.e(TAG, "", e);
-        }
+        Map arg = new HashMap();
+        arg.put("channelName", channelName);
+        arg.put("params", params);
+        arg.put("methodName", methodName);
+
+        MethodCall call = new MethodCall("mxflutterBridgeMethodChannelInvoke", arg);
+        jsFlutterAppChannel.invokeMethod(call.method, call.arguments, callback);
     }
 
-    public void callFlutterEventChannelReceiveBroadcastStreamListenInvoke() {
+    public void callFlutterEventChannelReceiveBroadcastStreamListenInvoke(String channelName, String streamParam, String onDataId, String onErrorId, String onDoneId, boolean cancelOnError) {
         FileUtils.assertUiThread();
+        Map arg = new HashMap();
+        arg.put("channelName", channelName);
+        arg.put("streamParam", streamParam);
+        arg.put("onDataId", onDataId);
+        arg.put("onErrorId", onErrorId);
+        arg.put("onDoneId", onDoneId);
+        arg.put("cancelOnError", cancelOnError);
 
-        //todo
+        MethodCall call = new MethodCall("mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke", arg);
+        jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
     }
 }

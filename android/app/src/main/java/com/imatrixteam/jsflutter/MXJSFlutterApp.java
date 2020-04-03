@@ -9,11 +9,12 @@ package com.imatrixteam.jsflutter;
 import android.content.Context;
 
 import com.eclipsesource.v8.V8Object;
-import com.imatrixteam.jsflutter.utils.MXScheduledExecutorService;
+import com.imatrixteam.jsflutter.utils.LogUtilsKt;
+import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
+import java.util.Map;
 
-import io.flutter.Log;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -28,6 +29,7 @@ public class MXJSFlutterApp {
     public static String JSFLUTTER_DART_FRAMEWORK_DIR = "mxf_js_framework/dart_js_framework";
     public static String JSFLUTTER_SRC_DIR1 = "mxflutter_app_demo";
 
+    //todo 调试时，指向本地路径，可以热重载, 指向电脑路径请使用模拟器
     public static String JSFLUTTER_LOCAL_DIR;   //本地js路径
 
     public static boolean sUseAsset = true;
@@ -81,8 +83,6 @@ public class MXJSFlutterApp {
         jsFlutterEngine.setJsEngine(jsEngine);
 
         jsExecutor = jsEngine.jsExecutor;
-        //todo 调试时，指向本地路径，可以热重载
-        String jsBasePath = "";
 
         //JSFlutter JS运行库搜索路径
         jsEngine.addSearchDir(JSFLUTTER_FRAMEWORK_DIR);
@@ -114,17 +114,17 @@ public class MXJSFlutterApp {
                     return;
 
                 if (methodCall.method.equals("callJS")) {
-                    Log.d(TAG, "MXJSFlutter : jsFlutterAppChannel callJS");
+                    LogUtilsKt.MXJSFlutterLog("MXJSFlutter : jsFlutterAppChannel callJS:%s",(String) ((Map)methodCall.arguments).get("method"));
                     if (!isJSAPPRun) {
-                        Log.d(TAG, "MXJSFlutter : jsFlutterAppChannel callJS:%@ JSAPP not running");
+                        LogUtilsKt.MXJSFlutterLog("MXJSFlutter : jsFlutterAppChannel callJS:%s JSAPP not running",(String) ((Map)methodCall.arguments).get("method"));
                         callJSMethodQueue.add(methodCall);
                         return;
                     }
-                    currentApp.jsExecutor.execute(new MXScheduledExecutorService.MXJsTask() {
+                    currentApp.jsExecutor.execute(new MXJsScheduledExecutorService.MXJsTask() {
                         @Override
                         public void excute() {
                             if (jsAppObj == null) return;
-                            currentApp.jsExecutor.invokeJSValue(jsAppObj, "nativeCall", methodCall.arguments, new MXJSExecutor.InvokeJSValueCallback() {
+                            currentApp.jsExecutor.invokeJSValue(jsAppObj, "nativeCall", (Map) methodCall.arguments, new MXJSExecutor.InvokeJSValueCallback() {
                                 @Override
                                 public void onSuccess(Object value) {
 
@@ -149,7 +149,7 @@ public class MXJSFlutterApp {
 
 
     public void close() {
-        this.jsExecutor.execute(new MXScheduledExecutorService.MXJsTask() {
+        this.jsExecutor.execute(new MXJsScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
                 if (jsAppObj != null) {
@@ -166,8 +166,10 @@ public class MXJSFlutterApp {
     }
 
     public void runAppWithPageName() {
+        LogUtilsKt.MXJSFlutterLog("MXJSFlutterApp : runApp：%s",appName);
 
-        jsExecutor.execute(new MXScheduledExecutorService.MXJsTask() {
+
+        jsExecutor.execute(new MXJsScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
                 MXNativeJSFlutterApp MXNativeJSFlutterApp = new MXNativeJSFlutterApp();

@@ -16,18 +16,19 @@ import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
+import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.imatrixteam.jsflutter.utils.FileUtils;
-import com.imatrixteam.jsflutter.utils.MXScheduledExecutorService;
+import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import androidx.annotation.Nullable;
+import io.flutter.plugin.common.JSONUtil;
 import io.flutter.plugin.common.MethodChannel;
 
 public class MXJSEngine {
@@ -39,7 +40,8 @@ public class MXJSEngine {
 
     private ArrayList<String> searchDirArray;
 
-    private Set<String> runnedScriptFile;
+    private HashMap<String, V8Function> jsCallbackCache = new HashMap();
+    private long jsCallbackCount = 0;
 
     private Context mContext;
 
@@ -47,7 +49,6 @@ public class MXJSEngine {
         mContext = context;
         this.mMXJSFlutterEngine = mxjsFlutterEngine;
         this.searchDirArray = new ArrayList<>();
-        this.runnedScriptFile = new HashSet<>();
         setup();
     }
 
@@ -58,11 +59,12 @@ public class MXJSEngine {
 
     private void setupBasicJSRuntime() {
 
+        //------Dart2Js支持------
         JavaVoidCallback nativePrint = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
                 if (args.length() > 0) {
-                    Log.i(TAG, args.get(0).toString());
+                    Log.d(TAG, args.get(0).toString());
                 }
             }
         };
@@ -72,7 +74,7 @@ public class MXJSEngine {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
                 if (args.length() > 0) {
-                    Log.i(TAG, args.get(0).toString());
+                    Log.d(TAG, args.get(0).toString());
                 }
             }
         };
@@ -82,7 +84,7 @@ public class MXJSEngine {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
                 if (args.length() > 1) {
-                    jsExecutor.executeDelay(new MXScheduledExecutorService.MXJsTask() {
+                    jsExecutor.executeDelay(new MXJsScheduledExecutorService.MXJsTask() {
                         @Override
                         public void excute() {
                             v8Object.getRuntime().executeScript(args.get(1).toString() + "()");
@@ -92,47 +94,74 @@ public class MXJSEngine {
             }
         };
         jsExecutor.registerJavaMethod(setTimeout, "setTimeout");
+        //------Dart2Js支持------
 
+        //------Flutter Bridge------
+
+        /**
+         * @param channelName 通道名
+         * @param methodName 方法名
+         * @param params 参数
+         * @param function 回调
+         */
         JavaVoidCallback mx_jsbridge_MethodChannel_invokeMethod = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
                 if (args.length() > 3) {
-                    try {
-                        String channelName = args.get(0).toString();
-                        String methodName = args.get(1).toString();
-                        JSONObject params = new JSONObject(args.get(2).toString());
-                        V8Function function = (V8Function) args.get(3);
-                        mMXJSFlutterEngine.callFlutterMethodChannelInvoke(channelName, methodName, params, new MethodChannel.Result() {
-                            @Override
-                            public void success(@Nullable Object result) {
-                                jsExecutor.invokeJsFunction(v8Object,function,(Map)result);
+                    String channelName = args.get(0).toString();
+                    String methodName = args.get(1).toString();
+                    Map params = V8ObjectUtils.toMap((V8Object) args.get(2));
+                    V8Function function = (V8Function) args.get(3);
+                    mMXJSFlutterEngine.callFlutterMethodChannelInvoke(channelName, methodName, params, new MethodChannel.Result() {
+                        @Override
+                        public void success(@Nullable Object result) {
+                            try {
+                                jsExecutor.invokeJsFunction(function, (Map) JSONUtil.unwrap(new JSONObject((String) result)));
+                            } catch (JSONException e) {
+                                Log.e(TAG, "", e);
                             }
+                        }
 
-                            @Override
-                            public void error(String errorCode, @Nullable String errorMessage, @Nullable Object errorDetails) {
-                            }
+                        @Override
+                        public void error(String errorCode, @Nullable String errorMessage, @Nullable Object errorDetails) {
+                        }
 
-                            @Override
-                            public void notImplemented() {
-                            }
-                        });
-                    } catch (JSONException e) {
-                        Log.e(TAG, "", e);
-                    }
+                        @Override
+                        public void notImplemented() {
+                        }
+                    });
                 }
             }
         };
         jsExecutor.registerJavaMethod(mx_jsbridge_MethodChannel_invokeMethod, "mx_jsbridge_MethodChannel_invokeMethod");
 
+        /**
+         * @param channelName 通道名
+         * @param streamParam receiveBroadcastStream参数
+         * @param onData 回调
+         * @param onError 回调
+         * @param onDone 回调
+         * @param cancelOnError boolean
+         */
         JavaVoidCallback mx_jsbridge_EventChannel_receiveBroadcastStream_listen = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
-                if (args.length() > 0) {
-                    //todo
+                if (args.length() > 5) {
+                    String channelName = args.get(0).toString();
+                    String streamParam = args.get(1).toString();
+                    V8Function onData = (V8Function) args.get(2);
+                    V8Function onError = (V8Function) args.get(3);
+                    V8Function onDone = (V8Function) args.get(4);
+                    boolean cancelOnError = (boolean) args.get(5);
+                    String onDataId = storeJsCallback(onData);
+                    String onErrorId = storeJsCallback(onError);
+                    String onDoneId = storeJsCallback(onDone);
+                    mMXJSFlutterEngine.callFlutterEventChannelReceiveBroadcastStreamListenInvoke(channelName, streamParam, onDataId, onErrorId, onDoneId, cancelOnError);
                 }
             }
         };
         jsExecutor.registerJavaMethod(mx_jsbridge_EventChannel_receiveBroadcastStream_listen, "mx_jsbridge_EventChannel_receiveBroadcastStream_listen");
+        //------Flutter Bridge------
 
         JavaCallback require = new JavaCallback() {
             @Override
@@ -168,7 +197,7 @@ public class MXJSEngine {
         jsExecutor.registerJavaMethod(require, "require");
 
 
-        jsExecutor.execute(new MXScheduledExecutorService.MXJsTask() {
+        jsExecutor.execute(new MXJsScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
                 JSModule.initGlobalModuleCache(jsExecutor.runtime);
@@ -181,6 +210,25 @@ public class MXJSEngine {
             return;
         }
         searchDirArray.add(dir);
+    }
+
+    private String storeJsCallback(V8Function v8Function) {
+        String callbackId = "jsCallback_" + jsCallbackCount++;
+        jsCallbackCache.put(callbackId, v8Function);
+        return callbackId;
+    }
+
+    private V8Function getJsCallBackWithCallbackId(String callbackId) {
+        if (TextUtils.isEmpty(callbackId))
+            return null;
+        return jsCallbackCache.get(callbackId);
+    }
+
+    public void callJSCallbackFunction(String callbackId, Map params) {
+        V8Function callback = getJsCallBackWithCallbackId(callbackId);
+        if (callback != null) {
+            jsExecutor.invokeJsFunction(callback, params);
+        }
     }
 
 }

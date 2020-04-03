@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * 2.如果用MXFlutter作为主工程，可以在UI线程运行JS提升性能
  */
 
-public class MXScheduledExecutorService {
+public class MXJsScheduledExecutorService {
 
     public static final String TAG = "MXScheduledExecutor";
 
@@ -27,7 +27,7 @@ public class MXScheduledExecutorService {
 
     private ScheduledExecutorService executor;
 
-    public MXScheduledExecutorService() {
+    public MXJsScheduledExecutorService() {
         this.executor = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() {
             @Override
             public Thread newThread(Runnable r) {

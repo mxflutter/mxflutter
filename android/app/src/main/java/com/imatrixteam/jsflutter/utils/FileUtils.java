@@ -311,11 +311,11 @@ public class FileUtils {
     }
 
     public static void assertJSThread() {
-        if(MXScheduledExecutorService.sRunOnUI){
+        if (MXJsScheduledExecutorService.sRunOnUI) {
             assertUiThread();
-        }else if (!Thread.currentThread().getName().startsWith(MXScheduledExecutorService.MX_JS_THREAD_POOL_PREFIX)) {
+        } else if (!Thread.currentThread().getName().startsWith(MXJsScheduledExecutorService.MX_JS_THREAD_POOL_PREFIX)) {
             throw new IllegalStateException(
-                    "Must be called from Not UI thread. Current thread: "
+                    "Must be called from JS thread. Current thread: "
                             + Thread.currentThread());
         }
     }
