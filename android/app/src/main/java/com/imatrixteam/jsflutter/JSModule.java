@@ -14,8 +14,10 @@ import com.eclipsesource.v8.V8ScriptException;
 import com.imatrixteam.jsflutter.utils.ClassUtils;
 import com.imatrixteam.jsflutter.utils.FileUtils;
 
+import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -75,22 +77,90 @@ public class JSModule {
     }
 
     public static String resolveModuleAsFile(String moduleClassName) {
+        File moduleFile = new File(moduleClassName);
+        if (moduleFile.exists()) {
+            return moduleClassName;
+        }
+
+        moduleFile = new File(moduleClassName + ".js");
+        if (moduleFile.exists()) {
+            return moduleClassName + ".js";
+        }
+
         return null;
     }
 
-    public static String resolveModuleAsDirectory(String moduleClassName) {
+    public static String resolveModuleAsDirectory(String moduleClassName, V8Object runtime) {
+        String path = moduleClassName + "/" + "package.json";
+        if (new File(path).exists()) {
+            String filecontents = FileUtils.getScriptFromFS(MXFlutterApplication.getApplication(), path);
+            String script = String.format("JSON.parse(%s)", filecontents);
+            V8Object result = (V8Object) runtime.getRuntime().executeScript(script);
+            Object mainObj = result.get("main");
+            if (mainObj != null) {
+                return resolveModuleAsFile(mainObj.toString());
+            }
+        }
+        String indexPath = moduleClassName + "/" + "index.js";
+
+        if (new File(indexPath).exists()) {
+            return indexPath;
+        }
+
         return null;
     }
 
-    public static List nodeModulePaths(String start) {
-        return new ArrayList();
+    public static List<String> nodeModulePaths(String start) {
+        String[] paths = start.split("/");
+        ArrayList<String> pathList = new ArrayList(Arrays.asList(paths));
+        int rootIndex = pathList.indexOf("node_modules");
+        if (rootIndex <= 0) {
+            rootIndex = 0;
+        }
+
+        int i = pathList.size() - 1;
+        ArrayList dirs = new ArrayList();
+        while (i > rootIndex) {
+            String component = pathList.get(i);
+            if (component.equals("node_modules")) {
+                i -= 1;
+                continue;
+            }
+            String dirPath = "";
+            List<String> temp = pathList.subList(0, i);
+            for (int j = 0; j < temp.size(); j++) {
+                if (j == 0) {
+                    dirPath += pathList.get(j);
+                } else {
+                    dirPath += ("/" + pathList.get(j));
+                }
+            }
+            dirs.add(dirPath);
+        }
+
+        return dirs;
     }
 
-    public static String resolveAsNodeModule(String moduleClassName, String start) {
+    public static String resolveAsNodeModule(String moduleClassName, String start, V8Object runtime) {
+        List<String> dirs = nodeModulePaths(start);
+        for (int i = 0; i < dirs.size(); i++) {
+            String dir = dirs.get(i);
+
+            String result = resolveModuleAsFile(dir + "/" + moduleClassName);
+            if (!TextUtils.isEmpty(result))
+                return result;
+
+            result = resolveModuleAsDirectory(dir + "/" + moduleClassName, runtime);
+            if (!TextUtils.isEmpty(result))
+                return result;
+        }
         return null;
     }
 
-    public String resolve(String moduleClassName, String path) {
+    public String resolve(String moduleClassName, String path, boolean fromAsset, V8Object runtime) {
+        if (fromAsset)
+            throw new IllegalStateException(
+                    "Can not resolve Assets files");
         if (TextUtils.isEmpty(moduleClassName) || TextUtils.isEmpty(path))
             return null;
         if (isCoreModule(moduleClassName)) {
@@ -101,15 +171,16 @@ public class JSModule {
             result = resolveModuleAsFile(path + moduleClassName);
             if (!TextUtils.isEmpty(result))
                 return result;
-            result = resolveModuleAsDirectory(path + moduleClassName);
+            result = resolveModuleAsDirectory(path + moduleClassName, runtime);
             if (!TextUtils.isEmpty(result))
                 return result;
         }
-        return resolveAsNodeModule(moduleClassName, FileUtils.stringByDeletingLastPathComponent(path));
+        return resolveAsNodeModule(moduleClassName, FileUtils.stringByDeletingLastPathComponent(path), runtime);
     }
 
-    public static void clearModuleCache() {
-//        initGlobalModuleCache(MXJSExecutor.getInstance(MXFlutterApplication.getApplication()).runtime);
+    public static void clearModuleCache(V8 runtime) {
+        sGlobalModuleCache.close();
+        sGlobalModuleCache = null;
     }
 
     public static boolean isCached(String fullModulePath) {

@@ -9,8 +9,6 @@ package com.imatrixteam.jsflutter;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.imatrixteam.jsflutter.utils.FileUtils;
-
 import io.flutter.app.FlutterApplication;
 
 
@@ -27,33 +25,14 @@ public class MXFlutterApplication extends FlutterApplication {
     public void onCreate() {
         super.onCreate();
         sApplication = this;
-        MXJSFlutterApp.JSFLUTTER_LOCAL_DIR = this.getFilesDir().getAbsolutePath();
-
-        initJsFS();
-    }
-
-    //js文件转移到fs中
-    private void initJsFS() {
-        if (!FileUtils.isCopiedFileFromAssets(sApplication)) {
-            new Thread() {
-                @Override
-                public void run() {
-                    super.run();
-                    FileUtils.copyFilesFromAssetsAsync(sApplication, "", MXJSFlutterApp.JSFLUTTER_LOCAL_DIR, new String[]{
-                            MXJSFlutterApp.JSFLUTTER_FRAMEWORK_DIR,
-                            MXJSFlutterApp.JSFLUTTER_SRC_DIR1,
-                    });
-                }
-            }.start();
-        }
     }
 
     public static MXFlutterApplication getApplication() {
         return sApplication;
     }
 
-    public Handler getMainHandler(){
-        if (mainHandler==null)
+    public Handler getMainHandler() {
+        if (mainHandler == null)
             return (mainHandler = new Handler(Looper.getMainLooper()));
         else
             return mainHandler;

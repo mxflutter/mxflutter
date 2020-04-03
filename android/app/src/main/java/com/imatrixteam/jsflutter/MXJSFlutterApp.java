@@ -9,6 +9,7 @@ package com.imatrixteam.jsflutter;
 import android.content.Context;
 
 import com.eclipsesource.v8.V8Object;
+import com.imatrixteam.jsflutter.utils.FileUtils;
 import com.imatrixteam.jsflutter.utils.LogUtilsKt;
 import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
 
@@ -25,14 +26,15 @@ public class MXJSFlutterApp {
 
     public static final String TAG = "MXJSFlutterApp";
 
+    //todo 调试时，指向本地路径，可以热重载
+    public static String JSFLUTTER_LOCAL_DIR;   //本地js路径
+
+    //开发环境
+    public static boolean sUseAsset = true;
+
     public static String JSFLUTTER_FRAMEWORK_DIR = "mxf_js_framework";
     public static String JSFLUTTER_DART_FRAMEWORK_DIR = "mxf_js_framework/dart_js_framework";
     public static String JSFLUTTER_SRC_DIR1 = "mxflutter_app_demo";
-
-    //todo 调试时，指向本地路径，可以热重载, 指向电脑路径请使用模拟器
-    public static String JSFLUTTER_LOCAL_DIR;   //本地js路径
-
-    public static boolean sUseAsset = true;
 
     static MXJSFlutterEngine jsFlutterEngineStatic;
 
@@ -61,6 +63,7 @@ public class MXJSFlutterApp {
     private ArrayList<MethodCall> callJSMethodQueue;
 
     public MXJSFlutterApp initWithAppName(Context context, String appName, String rootPath, MXJSFlutterEngine jsFlutterEngine) {
+        initRuntime(context);
         this.mContext = context;
         this.appName = appName;
         this.rootPath = rootPath;
@@ -75,6 +78,28 @@ public class MXJSFlutterApp {
 
         currentApp = this;
         return this;
+    }
+
+    private void initRuntime(Context context) {
+        MXJSFlutterApp.JSFLUTTER_LOCAL_DIR = context.getFilesDir().getAbsolutePath();
+
+        initJsFS(context);
+    }
+
+    //js文件转移到fs中
+    private void initJsFS(Context context) {
+        if (FileUtils.isNeedCopyFileFromAssets(context)) {
+            new Thread() {
+                @Override
+                public void run() {
+                    super.run();
+                    FileUtils.copyFilesFromAssetsAsync(context, "", MXJSFlutterApp.JSFLUTTER_LOCAL_DIR, new String[]{
+                            MXJSFlutterApp.JSFLUTTER_FRAMEWORK_DIR,
+                            MXJSFlutterApp.JSFLUTTER_SRC_DIR1,
+                    });
+                }
+            }.start();
+        }
     }
 
     private void setupJSEngine(MXJSFlutterEngine jsFlutterEngine) {
@@ -114,9 +139,9 @@ public class MXJSFlutterApp {
                     return;
 
                 if (methodCall.method.equals("callJS")) {
-                    LogUtilsKt.MXJSFlutterLog("MXJSFlutter : jsFlutterAppChannel callJS:%s",(String) ((Map)methodCall.arguments).get("method"));
+                    LogUtilsKt.MXJSFlutterLog("MXJSFlutter : jsFlutterAppChannel callJS:%s", (String) ((Map) methodCall.arguments).get("method"));
                     if (!isJSAPPRun) {
-                        LogUtilsKt.MXJSFlutterLog("MXJSFlutter : jsFlutterAppChannel callJS:%s JSAPP not running",(String) ((Map)methodCall.arguments).get("method"));
+                        LogUtilsKt.MXJSFlutterLog("MXJSFlutter : jsFlutterAppChannel callJS:%s JSAPP not running", (String) ((Map) methodCall.arguments).get("method"));
                         callJSMethodQueue.add(methodCall);
                         return;
                     }
@@ -152,6 +177,9 @@ public class MXJSFlutterApp {
         this.jsExecutor.execute(new MXJsScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
+                //todo app release
+                JSModule.clearModuleCache(jsExecutor.runtime);
+
                 if (jsAppObj != null) {
                     jsAppObj.close();
                 }
@@ -166,8 +194,7 @@ public class MXJSFlutterApp {
     }
 
     public void runAppWithPageName() {
-        LogUtilsKt.MXJSFlutterLog("MXJSFlutterApp : runApp：%s",appName);
-
+        LogUtilsKt.MXJSFlutterLog("MXJSFlutterApp : runApp：%s", appName);
 
         jsExecutor.execute(new MXJsScheduledExecutorService.MXJsTask() {
             @Override

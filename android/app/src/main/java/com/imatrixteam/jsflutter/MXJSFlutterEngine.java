@@ -97,9 +97,6 @@ public class MXJSFlutterEngine {
             currentApp = null;
         }
 
-        JSModule.clearModuleCache();
-
-
         currentApp = new MXJSFlutterApp();
         currentApp.initWithAppName(mContext, rootPath + "/" + appName, rootPath, this);
         currentApp.runAppWithPageName();
