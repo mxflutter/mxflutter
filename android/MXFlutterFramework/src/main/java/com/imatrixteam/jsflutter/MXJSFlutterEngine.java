@@ -6,8 +6,6 @@
 
 package com.imatrixteam.jsflutter;
 
-import android.content.Context;
-
 import com.imatrixteam.jsflutter.utils.FileUtils;
 
 import java.util.ArrayList;
@@ -15,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.flutter.Log;
+import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -28,7 +27,7 @@ public class MXJSFlutterEngine {
     private String rootPath;
     private MXJSFlutterApp currentApp;
 
-    private Context mContext;
+    private FlutterActivity mContext;
     private BinaryMessenger mFlutterEngine;
 
     private MXJSEngine mJsEngine;
@@ -40,7 +39,7 @@ public class MXJSFlutterEngine {
     private boolean isFlutterEngineIsDidRender;
     private ArrayList<MethodCall> callFlutterQueue;
 
-    public MXJSFlutterEngine(Context context, BinaryMessenger flutterEngine) {
+    public MXJSFlutterEngine(FlutterActivity context, BinaryMessenger flutterEngine) {
         this.mContext = context;
         this.mFlutterEngine = flutterEngine;
         setup();

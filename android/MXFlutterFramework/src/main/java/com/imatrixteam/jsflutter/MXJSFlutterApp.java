@@ -16,6 +16,7 @@ import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
 import java.util.ArrayList;
 import java.util.Map;
 
+import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -38,7 +39,7 @@ public class MXJSFlutterApp {
 
     static MXJSFlutterEngine jsFlutterEngineStatic;
 
-    private Context mContext;
+    private FlutterActivity mContext;
 
     private String appName;
     private String rootPath;
@@ -62,7 +63,7 @@ public class MXJSFlutterApp {
 
     private ArrayList<MethodCall> callJSMethodQueue;
 
-    public MXJSFlutterApp initWithAppName(Context context, String appName, String rootPath, MXJSFlutterEngine jsFlutterEngine) {
+    public MXJSFlutterApp initWithAppName(FlutterActivity context, String appName, String rootPath, MXJSFlutterEngine jsFlutterEngine) {
         initRuntime(context);
         this.mContext = context;
         this.appName = appName;
@@ -74,7 +75,7 @@ public class MXJSFlutterApp {
         callJSMethodQueue = new ArrayList<>(1);
 
         setupJSEngine(jsFlutterEngine);
-        setUpChannel(((MXFlutterActivity) context).getFlutterView());
+        setUpChannel(context.getFlutterView());
 
         currentApp = this;
         return this;
@@ -244,7 +245,7 @@ public class MXJSFlutterApp {
         public void callFlutterReloadApp(V8Object jsApp, String widgetData) {
             jsAppObj = (V8Object) jsExecutor.runtime.get("currentJSApp");
 
-            ((MXFlutterActivity) mContext).runOnUiThread(new Runnable() {
+            mContext.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     jsFlutterEngine.callFlutterReloadAppWithJSWidgetData(widgetData);
@@ -259,7 +260,7 @@ public class MXJSFlutterApp {
 //            for (int i = 0; i < datas.length; i++) {
 //                dataMap.put(datas[i],args.get(datas[i]));
 //            }
-            ((MXFlutterActivity) mContext).runOnUiThread(new Runnable() {
+            mContext.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     if (methodName.equals("rebuild")) {

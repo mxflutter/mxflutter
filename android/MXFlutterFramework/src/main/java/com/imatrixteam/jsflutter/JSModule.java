@@ -112,14 +112,14 @@ public class JSModule {
 
     public static List<String> nodeModulePaths(String start) {
         String[] paths = start.split("/");
-        ArrayList<String> pathList = new ArrayList(Arrays.asList(paths));
+        ArrayList<String> pathList = new ArrayList<String>(Arrays.asList(paths));
         int rootIndex = pathList.indexOf("node_modules");
         if (rootIndex <= 0) {
             rootIndex = 0;
         }
 
         int i = pathList.size() - 1;
-        ArrayList dirs = new ArrayList();
+        ArrayList<String> dirs = new ArrayList();
         while (i > rootIndex) {
             String component = pathList.get(i);
             if (component.equals("node_modules")) {

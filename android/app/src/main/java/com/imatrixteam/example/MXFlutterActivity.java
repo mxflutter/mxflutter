@@ -4,9 +4,11 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter;
+package com.imatrixteam.example;
 
 import android.os.Bundle;
+
+import com.imatrixteam.jsflutter.MXJSFlutterEngine;
 
 import androidx.annotation.NonNull;
 import io.flutter.app.FlutterActivity;
@@ -55,7 +57,7 @@ public class MXFlutterActivity extends FlutterActivity {
         listViewDemoChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() {
             @Override
             public void onMethodCall(@NonNull MethodCall call, @NonNull MethodChannel.Result result) {
-                if(call.method.equals("callNativeIconListRefresh")){
+                if (call.method.equals("callNativeIconListRefresh")) {
                     //todo network
                     result.success("{" +
                             "  \"title\": \"The Basics - Networking\"," +
@@ -68,7 +70,7 @@ public class MXFlutterActivity extends FlutterActivity {
                             "    { \"id\": \"5\", \"title\": \"Interstellar\", \"releaseYear\": \"2014\" }" +
                             "  ]" +
                             "}");
-                }else if(call.method.equals("callNativeIconListLoadMore")){
+                } else if (call.method.equals("callNativeIconListLoadMore")) {
                     result.success("");
                 }
             }
