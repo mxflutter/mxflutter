@@ -40,7 +40,7 @@ public class MXJSEngine {
 
     private ArrayList<String> searchDirArray;
 
-    private HashMap<String, V8Function> jsCallbackCache = new HashMap();
+    private HashMap<String, V8Function> jsCallbackCache;
     private long jsCallbackCount = 0;
 
     private Context mContext;
@@ -54,6 +54,7 @@ public class MXJSEngine {
 
     private void setup() {
         this.jsExecutor = new MXJSExecutor(mContext);
+        jsCallbackCache = new HashMap();
         setupBasicJSRuntime();
     }
 

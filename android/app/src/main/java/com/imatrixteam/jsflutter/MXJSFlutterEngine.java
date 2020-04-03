@@ -10,9 +10,6 @@ import android.content.Context;
 
 import com.imatrixteam.jsflutter.utils.FileUtils;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -101,6 +98,7 @@ public class MXJSFlutterEngine {
         }
 
         JSModule.clearModuleCache();
+
 
         currentApp = new MXJSFlutterApp();
         currentApp.initWithAppName(mContext, rootPath + "/" + appName, rootPath, this);
