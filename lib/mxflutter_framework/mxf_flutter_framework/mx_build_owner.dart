@@ -124,10 +124,10 @@ class MXJsonBuildOwner {
     MethodCall jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
       "widgetID": ownerWidgetID,
       "buildSeq": buildSeq,
-      "rootWidgetID": parentWidgetID,
+      "parentWidgetID": parentWidgetID,
     });
 
-    ownerApp.callJS(jsMethodCall);
+    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
   }
 
   callJSOnDispose() {
@@ -137,7 +137,7 @@ class MXJsonBuildOwner {
       "mirrorObjIDList": mirrorObjKeyList,
     });
 
-    ownerApp.callJS(jsMethodCall);
+    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
   }
 
   ///动态创建Widget回调，如List
