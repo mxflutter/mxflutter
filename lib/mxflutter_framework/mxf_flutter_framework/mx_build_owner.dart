@@ -121,12 +121,23 @@ class MXJsonBuildOwner {
       parentWidgetID = parentWidget.widgetID;
     }
 
-    MethodCall jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-      "widgetID": ownerWidgetID,
-      "buildSeq": buildSeq,
-      "parentWidgetID": parentWidgetID,
-    });
-
+    MethodCall jsMethodCall;
+    if (this.widget.enableProfile == true) {
+        this.widget.profileInfo["buildEnd"] = (new DateTime.now()).millisecondsSinceEpoch;
+        jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
+          "widgetID": ownerWidgetID,
+          "buildSeq": buildSeq,
+          "rootWidgetID": parentWidgetID,
+          "profileInfo": this.widget.profileInfo,
+        });
+    } else {
+        jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
+          "widgetID": ownerWidgetID,
+          "buildSeq": buildSeq,
+          "rootWidgetID": parentWidgetID,
+        });
+    }
+    
     ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
   }
 
@@ -148,7 +159,8 @@ class MXJsonBuildOwner {
 
   void jsCallRebuild(args) {
     String widgetDataStr = args["widgetData"];
-  
+    var startDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
+    
     Map widgetMap = json.decode(widgetDataStr);
     String widgetID = widgetMap["widgetID"];
     String name = widgetMap["name"];
@@ -171,6 +183,18 @@ class MXJsonBuildOwner {
       MXJSLog.error(
           "findBuildOwner(jsWidget.widgetID)== null: name:$name id:$widgetID");
       return;
+    }
+
+    bool enableProfile = widgetMap["enableProfile"];
+    Map profileInfo = Map();
+    if (enableProfile == true) {
+      bo.widget.enableProfile = enableProfile;
+      profileInfo["startDecodeData"] = startDecodeData;
+    }
+    if (enableProfile == true) {
+      var endDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
+      profileInfo["endDecodeData"] = endDecodeData;
+      bo.widget.profileInfo = profileInfo;
     }
 
     bo.clearAllChildBuildOwner();

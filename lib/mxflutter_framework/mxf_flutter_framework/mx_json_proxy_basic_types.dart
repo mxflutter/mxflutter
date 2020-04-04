@@ -96,6 +96,7 @@ class MXProxyRegisterHelperBasicTypesSeries {
     m.addAll(MXProxyPreferredSize.registerProxy());
     m.addAll(MXProxyClipRRect.registerProxy());
     m.addAll(MXProxySpringDescription.registerProxy());
+    m.addAll(MXProxyUniqueKey.registerProxy());
     return m;
   }
 }
@@ -3387,4 +3388,21 @@ class MXProxySpringDescription extends MXJsonObjProxy {
     );
     return widget;
   }
+}
+
+class MXProxyUniqueKey extends MXJsonObjProxy {
+	static Map<String, CreateJsonObjProxyFun> registerProxy() {
+		///**@@@  2 替换类名字符串
+		final String regClassName = "UniqueKey";
+		///**@@@  3 替换类构造函数
+		return {regClassName: () => MXProxyUniqueKey()..init(className: regClassName)};
+	}
+
+	@override
+	UniqueKey constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
+		var widget = UniqueKey(
+
+		);
+		return widget;
+	}
 }

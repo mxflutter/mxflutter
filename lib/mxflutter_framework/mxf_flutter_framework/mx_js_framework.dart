@@ -473,6 +473,10 @@ class MXJSBaseWidget extends Object {
 
   BuildContext context;
 
+  // 性能数据 
+  bool enableProfile;
+  Map profileInfo;
+
   static String generateWidgetID() {
     //Flutter 侧生成的MXWidget widgetID 从1开始，为奇数 +2
     widgetIDFeed = widgetIDFeed + 2;

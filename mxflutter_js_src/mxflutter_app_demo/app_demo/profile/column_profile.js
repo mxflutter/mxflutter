@@ -84,6 +84,7 @@ let {
     Stack,
     Padding,
     MediaQuery,
+    UniqueKey,
 } = require("js_flutter.js");
 
 
@@ -98,16 +99,133 @@ const g_max_count = 100;
 
 //data
 let g_newsOrder = 0;
-//
+
+var simpleText = '耗时：';
+var complexText = '耗时：';
+
+// startEncodeData: XXX, startTransferData: XXXX, startDecodeData: XXX, endDecodeData: XXX, buildEnd: XXX
+function getProfileText(profileInfo) {
+    var startEncodeData = profileInfo['startEncodeData'];
+    var startTransferData = profileInfo['startTransferData'];
+    var startDecodeData = profileInfo['startDecodeData'];
+    var endDecodeData = profileInfo['endDecodeData'];
+    var buildEnd = profileInfo['buildEnd'];
+
+    var buildDataCost = startTransferData - startEncodeData;
+    var transferCost = startDecodeData - startTransferData;
+    var decodeDataCost = endDecodeData - startDecodeData;
+    var paintCost = buildEnd - endDecodeData;
+
+    var profileText = '耗时: buildDataCost: ' + buildDataCost + "ms, " + 'transferCost: ' + transferCost + "ms, " + 'decodeDataCost: ' + decodeDataCost + "ms, " + 'paintCost: ' + paintCost + "ms";
+    return profileText;
+}
+
+class ProfileSimpleContent extends MXJSStatefulWidget {
+    constructor() {
+        super("ProfileSimpleContent", {key: new UniqueKey()});
+
+        this.enableProfile = true;
+    }
+
+    createState() {
+        return new ProfileSimpleContentState(this);
+    }
+
+    onBuildEnd(args) {
+        var profileInfo = args["profileInfo"];
+        if (this.enableProfile == true && profileInfo) {
+            this.profileInfo["startDecodeData"] = profileInfo["startDecodeData"];
+            this.profileInfo["endDecodeData"] = profileInfo["endDecodeData"];
+            this.profileInfo["buildEnd"] = profileInfo["buildEnd"];
+    
+            this.state.calculateProfile();
+        }
+    }
+}
+
+
+class ProfileSimpleContentState extends MXJSWidgetState {
+    constructor() {
+        super();
+
+        this.profileText = '耗时: ';
+        this.endProfile = true;
+    }
+
+    build(context) {
+        var widget = new Column({
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+                new Row({
+                    children: [
+                        new Text('数据量少时                         ', {
+                            style: new TextStyle({
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.0,
+                                color: Colors.black
+                            })
+                        }),
+                        new FlatButton({
+                            onPressed: function(index) {
+                                this.endProfile = false;
+
+                                MXJSLog.log('数据量少时，点击...');
+                                this.setState();
+                            }.bind(this),
+                            child: new Text('请点击，查看耗时...', {
+                                style: new TextStyle({
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14.0,
+                                    color: Colors.red
+                                })
+                            }),
+                        })
+                    ]
+                }),
+                new Padding({
+                    padding: EdgeInsets.only({top: 5.0, bottom: 5.0}),
+                    child: new Text(simpleText), 
+                }),
+            ]
+        })
+        return widget;
+    }
+
+    calculateProfile() {
+        if (!this.widget.enableProfile || this.endProfile == true) {
+            return;
+        }
+
+        simpleText = getProfileText(this.widget.profileInfo);
+
+        this.setState();
+
+        this.endProfile = true;
+    }
+}
+
+
 class ListViewProfileDemo1 extends MXJSStatefulWidget {
     constructor() {
         super('ListViewDemo');
+
+        this.enableProfile = true;
     }
 
     createState() {
         return new ListViewProfileDemo1State(this);
     }
 
+    onBuildEnd(args) {
+        var profileInfo = args["profileInfo"];
+        if (this.enableProfile == true && profileInfo) {
+            this.profileInfo["startDecodeData"] = profileInfo["startDecodeData"];
+            this.profileInfo["endDecodeData"] = profileInfo["endDecodeData"];
+            this.profileInfo["buildEnd"] = profileInfo["buildEnd"];
+    
+            this.state.calculateProfile();
+        }
+    }
 }
 
 class ListViewProfileDemo1State extends MXJSWidgetState {
@@ -117,11 +235,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
         this.newsArray = [];
         this.buildCount = 1;
 
-        this.isSimple = true;
-        this.simpleText = '的点点滴滴';
-        this.complexText = '22221111';
-
-        this.profileInfo = {};    // {startEncodeData: XXX, startTransferData: XXXX, startDecodeData: XXX, endDecodeData: XXX, buildEnd: XXX}
+        this.endProfile = true;
     }
 
     initState() {
@@ -168,45 +282,17 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
     profileCard(context) {
         var widget = new Container({
             decoration: new BoxDecoration({
-                color: new Color(0x77B3E5FC),
+                color: new Color(0xDDB3E5FC),
             }),
             child: new Padding({
                 padding: EdgeInsets.all(10.0),
                 child: new Column({
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children:[
+                        new ProfileSimpleContent(),
                         new Row({
                             children: [
-                                new Text('数据量少时                      ', {
-                                    style: new TextStyle({
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16.0,
-                                        color: Colors.black
-                                    })
-                                }),
-                                new FlatButton({
-                                    onPressed: function() {
-                                        this.isSimple = true;
-
-                                        MXJSLog.log('数据量少时，点击...');
-                                    },
-                                    child: new Text('请点击，查看耗时...', {
-                                        style: new TextStyle({
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 12.0,
-                                            color: Colors.red
-                                        })
-                                    }),
-                                })
-                            ]
-                        }),
-                        new Padding({
-                            padding: EdgeInsets.only({top: 5.0, bottom: 5.0}),
-                            child: new Text(this.simpleText), 
-                        }),
-                        new Row({
-                            children: [
-                                new Text('数据量大时                      ', {
+                                new Text('数据量大时                         ', {
                                     style: new TextStyle({
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16.0,
@@ -215,7 +301,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
                                 }),
                                 new FlatButton({
                                     onPressed: function(index) {
-                                        this.isSimple = false;
+                                        this.endProfile = false;
 
                                         MXJSLog.log('数据量大时，点击...');
                                         this.setState(function() {
@@ -224,7 +310,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
                                     child: new Text('请点击，查看耗时...', {
                                         style: new TextStyle({
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 12.0,
+                                            fontSize: 14.0,
                                             color: Colors.red
                                         })
                                     }),
@@ -233,38 +319,28 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
                         }),
                         new Padding({
                             padding: EdgeInsets.only({top: 5.0, bottom: 5.0}),
-                            child: new Text(this.complexText), 
+                            child: new Text(complexText), 
                         }),
                     ]
                 })
             }),
-            height: 250.0,
+            height: 210.0,
             width: MediaQuery.of(context).size.width,
         });
         return widget;
     }
 
-    // startEncodeData: XXX, startTransferData: XXXX, startDecodeData: XXX, endDecodeData: XXX, buildEnd: XXX
+
     calculateProfile() {
-        var startEncodeData = this.profileInfo['startEncodeData'];
-        var startTransferData = this.profileInfo['startTransferData'];
-        var startDecodeData = this.profileInfo['startDecodeData'];
-        var endDecodeData = this.profileInfo['endDecodeData'];
-        var buildEnd = this.profileInfo['buildEnd'];
-
-        var buildDataCost = startTransferData - startEncodeData;
-        var transferCost = startDecodeData - startTransferData;
-        var decodeDataCost = endDecodeData - startDecodeData;
-        var paintCost = buildEnd - endDecodeData;
-
-        var content = 'buildDataCost: ' + buildDataCost + ', transferCost: ' + transferCost + ', decodeDataCost: ' + decodeDataCost + ', paintCost: ' + paintCost;
-        if (self.isSimple) {
-            self.simpleText = content;
-        } else {
-            self.complexText = content;
+        if (!this.widget.enableProfile || this.endProfile == true) {
+            return;
         }
 
+        complexText = getProfileText(this.widget.profileInfo);
+
         this.setState();
+
+        this.endProfile = true;
     }
 
 
