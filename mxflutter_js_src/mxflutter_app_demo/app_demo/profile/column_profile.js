@@ -95,34 +95,44 @@ const { SectionTitle } = require("./component/section_title.js");
 
 
 //
-const g_max_count = 100;
+const g_max_count = 200;
 
 //data
 let g_newsOrder = 0;
 
-var simpleText = '耗时：';
-var complexText = '耗时：';
+let simpleText = '耗时：';
+let complexText = '耗时：';
 
 // startEncodeData: XXX, startTransferData: XXXX, startDecodeData: XXX, endDecodeData: XXX, buildEnd: XXX
 function getProfileText(profileInfo) {
-    var startEncodeData = profileInfo['startEncodeData'];
-    var startTransferData = profileInfo['startTransferData'];
-    var startDecodeData = profileInfo['startDecodeData'];
-    var endDecodeData = profileInfo['endDecodeData'];
-    var buildEnd = profileInfo['buildEnd'];
+    let startEncodeData = profileInfo['startEncodeData'];
+    let startTransferData = profileInfo['startTransferData'];
+    let startDecodeData = profileInfo['startDecodeData'];
+    let endDecodeData = profileInfo['endDecodeData'];
+    let buildEnd = profileInfo['buildEnd'];
+    let transferDataLen = profileInfo['transferDataLen'];
 
-    var buildDataCost = startTransferData - startEncodeData;
-    var transferCost = startDecodeData - startTransferData;
-    var decodeDataCost = endDecodeData - startDecodeData;
-    var paintCost = buildEnd - endDecodeData;
 
-    var profileText = '耗时: buildDataCost: ' + buildDataCost + "ms, " + 'transferCost: ' + transferCost + "ms, " + 'decodeDataCost: ' + decodeDataCost + "ms, " + 'paintCost: ' + paintCost + "ms";
+
+    let buildDataCost = startTransferData - startEncodeData;
+    let transferCost = startDecodeData - startTransferData;
+    let decodeDataCost = endDecodeData - startDecodeData;
+    let paintCost = buildEnd - endDecodeData;
+
+    let mxcost = endDecodeData - startEncodeData;
+    let flutterBuild = endDecodeData - startEncodeData;
+
+    let profileText = '总耗时: MXFlutterJSTotalCost: ' + mxcost + 'ms FlutterBuildCost: ' + paintCost +'ms 详情:\n ' +
+        '[JS]buildJSWidgetTree2JsonCost: ' + buildDataCost + "ms \n " +
+        '[JS->Native->Dart]transferCost(' + (transferDataLen * 2.0 / 1024.0).toFixed(2) + 'Kb): ' + transferCost + "ms\n" +
+        '[Dart]DecodeJsonCost: ' + decodeDataCost + "ms\n" +
+        '[Dart]flutterBuildCost: ' + paintCost + "ms";
     return profileText;
 }
 
 class ProfileSimpleContent extends MXJSStatefulWidget {
     constructor() {
-        super("ProfileSimpleContent", {key: new UniqueKey()});
+        super("ProfileSimpleContent", { key: new UniqueKey() });
 
         this.enableProfile = true;
     }
@@ -132,12 +142,12 @@ class ProfileSimpleContent extends MXJSStatefulWidget {
     }
 
     onBuildEnd(args) {
-        var profileInfo = args["profileInfo"];
+        let profileInfo = args["profileInfo"];
         if (this.enableProfile == true && profileInfo) {
             this.profileInfo["startDecodeData"] = profileInfo["startDecodeData"];
             this.profileInfo["endDecodeData"] = profileInfo["endDecodeData"];
             this.profileInfo["buildEnd"] = profileInfo["buildEnd"];
-    
+
             this.state.calculateProfile();
         }
     }
@@ -153,7 +163,7 @@ class ProfileSimpleContentState extends MXJSWidgetState {
     }
 
     build(context) {
-        var widget = new Column({
+        let widget = new Column({
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                 new Row({
@@ -166,7 +176,7 @@ class ProfileSimpleContentState extends MXJSWidgetState {
                             })
                         }),
                         new FlatButton({
-                            onPressed: function(index) {
+                            onPressed: function (index) {
                                 this.endProfile = false;
 
                                 MXJSLog.log('数据量少时，点击...');
@@ -183,8 +193,8 @@ class ProfileSimpleContentState extends MXJSWidgetState {
                     ]
                 }),
                 new Padding({
-                    padding: EdgeInsets.only({top: 5.0, bottom: 5.0}),
-                    child: new Text(simpleText), 
+                    padding: EdgeInsets.only({ top: 5.0, bottom: 5.0 }),
+                    child: new Text(simpleText),
                 }),
             ]
         })
@@ -217,12 +227,12 @@ class ListViewProfileDemo1 extends MXJSStatefulWidget {
     }
 
     onBuildEnd(args) {
-        var profileInfo = args["profileInfo"];
+        let profileInfo = args["profileInfo"];
         if (this.enableProfile == true && profileInfo) {
             this.profileInfo["startDecodeData"] = profileInfo["startDecodeData"];
             this.profileInfo["endDecodeData"] = profileInfo["endDecodeData"];
             this.profileInfo["buildEnd"] = profileInfo["buildEnd"];
-    
+
             this.state.calculateProfile();
         }
     }
@@ -261,7 +271,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
 
         let widget = new Scaffold({
             appBar: new AppBar({
-                title: new Text('网易新闻 Row Widget '),
+                title: new Text('网易新闻 Column Widget '),
             }),
             body: new Stack({
                 children: [
@@ -280,7 +290,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
 
 
     profileCard(context) {
-        var widget = new Container({
+        let widget = new Container({
             decoration: new BoxDecoration({
                 color: new Color(0xDDB3E5FC),
             }),
@@ -288,7 +298,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
                 padding: EdgeInsets.all(10.0),
                 child: new Column({
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children:[
+                    children: [
                         new ProfileSimpleContent(),
                         new Row({
                             children: [
@@ -300,11 +310,11 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
                                     })
                                 }),
                                 new FlatButton({
-                                    onPressed: function(index) {
+                                    onPressed: function (index) {
                                         this.endProfile = false;
 
                                         MXJSLog.log('数据量大时，点击...');
-                                        this.setState(function() {
+                                        this.setState(function () {
                                         }.bind(this))
                                     }.bind(this),
                                     child: new Text('请点击，查看耗时...', {
@@ -318,13 +328,13 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
                             ]
                         }),
                         new Padding({
-                            padding: EdgeInsets.only({top: 5.0, bottom: 5.0}),
-                            child: new Text(complexText), 
+                            padding: EdgeInsets.only({ top: 5.0, bottom: 5.0 }),
+                            child: new Text(complexText),
                         }),
                     ]
                 })
             }),
-            height: 210.0,
+            height: 360.0,
             width: MediaQuery.of(context).size.width,
         });
         return widget;

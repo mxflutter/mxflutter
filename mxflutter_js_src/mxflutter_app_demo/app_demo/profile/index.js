@@ -86,7 +86,7 @@ class ProfileExamplesPage extends MXJSStatelessWidget {
 
             new ListTile({
               title: new Text("Column"),
-              subtitle: new Text('100条Feeds同时渲染，模拟大页面刷新'),
+              subtitle: new Text('200条Feeds同时渲染，模拟大页面刷新'),
               onTap: function () {
 
                 let list_view = require("profile/column_profile.js");

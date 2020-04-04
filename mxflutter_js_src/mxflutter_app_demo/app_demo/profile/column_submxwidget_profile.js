@@ -139,7 +139,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
 
         let widget = new Scaffold({
             appBar: new AppBar({
-                title: new Text('网易新闻 Row Widget '),
+                title: new Text('网易新闻 Column Widget '),
             }),
             body: new SingleChildScrollView({
                 child: new Column({
