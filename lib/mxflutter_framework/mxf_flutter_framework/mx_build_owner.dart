@@ -123,21 +123,22 @@ class MXJsonBuildOwner {
 
     MethodCall jsMethodCall;
     if (this.widget.enableProfile == true) {
-        this.widget.profileInfo["buildEnd"] = (new DateTime.now()).millisecondsSinceEpoch;
-        jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-          "widgetID": ownerWidgetID,
-          "buildSeq": buildSeq,
-          "rootWidgetID": parentWidgetID,
-          "profileInfo": this.widget.profileInfo,
-        });
+      this.widget.profileInfo["buildEnd"] =
+          (new DateTime.now()).millisecondsSinceEpoch;
+      jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
+        "widgetID": ownerWidgetID,
+        "buildSeq": buildSeq,
+        "rootWidgetID": parentWidgetID,
+        "profileInfo": this.widget.profileInfo,
+      });
     } else {
-        jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-          "widgetID": ownerWidgetID,
-          "buildSeq": buildSeq,
-          "rootWidgetID": parentWidgetID,
-        });
+      jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
+        "widgetID": ownerWidgetID,
+        "buildSeq": buildSeq,
+        "rootWidgetID": parentWidgetID,
+      });
     }
-    
+
     ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
   }
 
@@ -160,7 +161,7 @@ class MXJsonBuildOwner {
   void jsCallRebuild(args) {
     String widgetDataStr = args["widgetData"];
     var startDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
-    
+
     Map widgetMap = json.decode(widgetDataStr);
     String widgetID = widgetMap["widgetID"];
     String name = widgetMap["name"];
@@ -185,17 +186,20 @@ class MXJsonBuildOwner {
       return;
     }
 
+    //----性能分析代码
     bool enableProfile = widgetMap["enableProfile"];
-    Map profileInfo = Map();
+
     if (enableProfile == true) {
       bo.widget.enableProfile = enableProfile;
+
+      Map profileInfo = Map();
       profileInfo["startDecodeData"] = startDecodeData;
-    }
-    if (enableProfile == true) {
+
       var endDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
       profileInfo["endDecodeData"] = endDecodeData;
       bo.widget.profileInfo = profileInfo;
     }
+    //----性能分析代码 end
 
     bo.clearAllChildBuildOwner();
     bo.rebuildJSWidget(name, widgetID, widgetData, buildWidgetDataSeq);
@@ -212,16 +216,30 @@ class MXJsonBuildOwner {
 
     MXJSWidgetHelper helper = this.widget.helper;
     helper.jsRebuild(widgetID, widgetData, buildWidgetDataSeq);
-
-
   }
 
   //js->flutter
   jsCallNavigatorPush(args) {
     String widgetDataStr = args["widgetData"];
 
+    var startDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
     Map widgetMap = json.decode(widgetDataStr);
+    var endDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
+
     dynamic jsWidget = buildRootWidget(widgetMap);
+
+    //----性能分析代码
+    bool enableProfile = widgetMap["enableProfile"];
+    
+    if (enableProfile == true) {
+      jsWidget.enableProfile = enableProfile;
+
+      Map profileInfo = Map();
+      profileInfo["startDecodeData"] = startDecodeData;
+      profileInfo["endDecodeData"] = endDecodeData;
+      jsWidget.profileInfo = profileInfo;
+    }
+    //----性能分析代码 end
 
     if (jsWidget == null ||
         (jsWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) {
@@ -318,10 +336,9 @@ class MXJsonBuildOwner {
 
       MXJsonObjProxy proxy =
           MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
-      proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj,funcName, args);
+      proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, args);
     }
   }
-
 
   //MirrorObj事件回调
   //flutter->JS
@@ -375,7 +392,7 @@ class MXJsonBuildOwner {
 
       MXJsonObjProxy proxy =
           MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
-      proxy?.jsInvokeMirrorObjFunction(mirrorID,mirrorObj,"dispose", null);
+      proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, "dispose", null);
 
       removeMirrorObject(mirrorID);
     });

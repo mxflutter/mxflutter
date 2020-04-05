@@ -100,172 +100,181 @@ const g_max_count = 200;
 //data
 let g_newsOrder = 0;
 
-let simpleText = '耗时：';
-let complexText = '耗时：';
+//实现一个简单的event_bus
+let g_event_bus_map = {}; //type Map<key:String,function:handelFun>
 
-// startEncodeData: XXX, startTransferData: XXXX, startDecodeData: XXX, endDecodeData: XXX, buildEnd: XXX
-function getProfileText(profileInfo) {
-    let startEncodeData = profileInfo['startEncodeData'];
-    let startTransferData = profileInfo['startTransferData'];
-    let startDecodeData = profileInfo['startDecodeData'];
-    let endDecodeData = profileInfo['endDecodeData'];
-    let buildEnd = profileInfo['buildEnd'];
-    let transferDataLen = profileInfo['transferDataLen'];
-
-
-
-    let buildDataCost = startTransferData - startEncodeData;
-    let transferCost = startDecodeData - startTransferData;
-    let decodeDataCost = endDecodeData - startDecodeData;
-    let paintCost = buildEnd - endDecodeData;
-
-    let mxcost = endDecodeData - startEncodeData;
-    let flutterBuild = endDecodeData - startEncodeData;
-
-    let profileText = '总耗时: MXFlutterJSTotalCost: ' + mxcost + 'ms FlutterBuildCost: ' + paintCost +'ms 详情:\n ' +
-        '[JS]buildJSWidgetTree2JsonCost: ' + buildDataCost + "ms \n " +
-        '[JS->Native->Dart]transferCost(' + (transferDataLen * 2.0 / 1024.0).toFixed(2) + 'Kb): ' + transferCost + "ms\n" +
-        '[Dart]DecodeJsonCost: ' + decodeDataCost + "ms\n" +
-        '[Dart]flutterBuildCost: ' + paintCost + "ms";
-    return profileText;
-}
-
-class ProfileSimpleContent extends MXJSStatefulWidget {
-    constructor() {
-        super("ProfileSimpleContent", { key: new UniqueKey() });
-
-        this.enableProfile = true;
+class PerformanceProfilingWidget extends MXJSStatefulWidget {
+    constructor({ title, profileText, rebuildCallback } = {}) {
+        super("PerformanceProfilingWidget", { key: new UniqueKey() });
+        this.title = title ? title : "性能分析";
+        this.profileText = profileText;
+        this.rebuildCallback = rebuildCallback;
     }
 
     createState() {
-        return new ProfileSimpleContentState(this);
-    }
-
-    onBuildEnd(args) {
-        let profileInfo = args["profileInfo"];
-        if (this.enableProfile == true && profileInfo) {
-            this.profileInfo["startDecodeData"] = profileInfo["startDecodeData"];
-            this.profileInfo["endDecodeData"] = profileInfo["endDecodeData"];
-            this.profileInfo["buildEnd"] = profileInfo["buildEnd"];
-
-            this.state.calculateProfile();
-        }
+        return new PerformanceProfilingWidgetState(this);
     }
 }
 
+PerformanceProfilingWidget.Event_Refresh_ProfileInfo = "demo_pref_info_refresh";
 
-class ProfileSimpleContentState extends MXJSWidgetState {
-    constructor() {
+
+class PerformanceProfilingWidgetState extends MXJSWidgetState {
+    constructor(widget) {
         super();
+        this.profileText = widget.profileText ? widget.profileText : "";
+        this.buildCount = 0;
+    }
 
-        this.profileText = '耗时: ';
-        this.endProfile = true;
+    //Override
+    initState() {
+
+        //注册局部刷新事件
+        g_event_bus_map[PerformanceProfilingWidget.Event_Refresh_ProfileInfo] = function (profileText) {
+
+            this.refreshProfileText(profileText);
+
+        }.bind(this);
+
+    }
+
+    //Override
+    dispose() {
+        delete g_event_bus_map[PerformanceProfilingWidget.Event_Refresh_ProfileInfo];
     }
 
     build(context) {
-        let widget = new Column({
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-                new Row({
-                    children: [
-                        new Text('数据量少时                         ', {
-                            style: new TextStyle({
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16.0,
-                                color: Colors.black
-                            })
-                        }),
-                        new FlatButton({
-                            onPressed: function (index) {
-                                this.endProfile = false;
-
-                                MXJSLog.log('数据量少时，点击...');
-                                this.setState();
-                            }.bind(this),
-                            child: new Text('请点击，查看耗时...', {
+        let widget = new Padding({
+            padding: EdgeInsets.only({ top: 0.0, bottom: 0.0, left: 10.0, right: 10 }),
+            child: new Column({
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                    new Row({
+                        children: [
+                            new Text(this.widget.title + "(" + (++this.buildCount) + ")", {
                                 style: new TextStyle({
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 14.0,
-                                    color: Colors.red
+                                    fontSize: 16.0,
+                                    color: Colors.black
                                 })
                             }),
-                        })
-                    ]
-                }),
-                new Padding({
-                    padding: EdgeInsets.only({ top: 5.0, bottom: 5.0 }),
-                    child: new Text(simpleText),
-                }),
-            ]
-        })
-        return widget;
+                            new FlatButton({
+                                onPressed: function () {
+
+                                    if (this.widget.rebuildCallback) {
+                                        this.widget.rebuildCallback();
+                                        return;
+                                    }
+
+                                    //性能分析模式 
+                                    //打开性能分析模式，widget.enableProfile = true
+                                    //可以State类重载onBuildEnd，使用getProfileText获得这次Rebuild的各个阶段耗时
+                                    //如果onBuildEnd又触发setState 记得一定this.enableProfile = false; 否则会Rebuild死循环
+                                    this.widget.enableProfile = true;
+
+                                    this.setState();
+                                    MXJSLog.log('数据量少时，点击...');
+
+                                }.bind(this),
+                                child: new Text('请点击，查看耗时...', {
+                                    style: new TextStyle({
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14.0,
+                                        color: Colors.red
+                                    })
+                                }),
+                            })
+                        ]
+                    }),
+                    new Padding({
+                        padding: EdgeInsets.only({ top: 0.0, bottom: 10.0, left: 0.0, right: 0 }),
+                        child: new Text(this.profileText),
+                    }),
+                ]
+            })
+        });
+        return new Card({ child: widget, color: new Color(0xFFE1F5FE), margin: EdgeInsets.fromLTRB(8.0, 8.0, 10.0, 0.0) });
     }
 
-    calculateProfile() {
-        if (!this.widget.enableProfile || this.endProfile == true) {
+    onBuildEnd(args) {
+
+        if (!this.widget.enableProfile) {
             return;
         }
 
-        simpleText = getProfileText(this.widget.profileInfo);
+        this.refreshProfileText(this.widget.getProfileText());
+    }
 
-        this.setState();
-
-        this.endProfile = true;
+    refreshProfileText(profileText) {
+        //如果onBuildEnd又触发setState 记得一定this.enableProfile = false; 否则会Rebuild死循环
+        this.widget.enableProfile = false;
+        this.setState(function () {
+            this.profileText = profileText;
+        }.bind(this));
     }
 }
+
+
 
 
 class ListViewProfileDemo1 extends MXJSStatefulWidget {
     constructor() {
         super('ListViewDemo');
-
         this.enableProfile = true;
     }
 
     createState() {
         return new ListViewProfileDemo1State(this);
     }
-
-    onBuildEnd(args) {
-        let profileInfo = args["profileInfo"];
-        if (this.enableProfile == true && profileInfo) {
-            this.profileInfo["startDecodeData"] = profileInfo["startDecodeData"];
-            this.profileInfo["endDecodeData"] = profileInfo["endDecodeData"];
-            this.profileInfo["buildEnd"] = profileInfo["buildEnd"];
-
-            this.state.calculateProfile();
-        }
-    }
 }
 
 class ListViewProfileDemo1State extends MXJSWidgetState {
-    constructor() {
+    constructor(widget) {
         super();
 
         this.newsArray = [];
-        this.buildCount = 1;
-
-        this.endProfile = true;
+        this.buildCount = 0;
+        this.profileText = widget.getProfileText();
     }
 
     initState() {
         super.initState();
         this.newsArray = g_newsList;
+
+
     }
 
 
     build(context) {
 
         g_newsOrder = 0;
-        this.buildCount++;
-
+        ++this.buildCount
 
         let items = [];
 
+        items.push(new Container({ child: new PerformanceProfilingWidget({ title: "局部刷新小数据量测试" }) }));
+        items.push(new Container({
+            child: new PerformanceProfilingWidget({
+                title: "整个页面刷新大数据量测试",
+                profileText: this.profileText,
+                rebuildCallback: function () {
+
+                    //性能分析模式 
+                    //打开性能分析模式，widget.enableProfile = true
+                    //可以State类重载onBuildEnd，使用getProfileText获得这次Rebuild的各个阶段耗时
+                    //如果onBuildEnd又触发setState 记得一定this.enableProfile = false; 否则会Rebuild死循环
+                    this.widget.enableProfile = true;
+                    this.setState(function () {
+
+                    }.bind(this))
+
+                }.bind(this)
+            })
+        }));
+
         for (let i = 0; i < g_max_count; ++i) {
 
-            let item = new Container({ child: this.hotCard(this.newsArray[i % this.newsArray.length]) });
-
+            let item = new Container({ child: this.hotCard(this.newsArray[i % this.newsArray.length], this.buildCount) });
             items.push(item);
         }
 
@@ -273,88 +282,39 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
             appBar: new AppBar({
                 title: new Text('网易新闻 Column Widget '),
             }),
-            body: new Stack({
-                children: [
-                    new SingleChildScrollView({
-                        child: new Column({
-                            children: items
-                        })
-                    }),
-                    this.profileCard(context)
-                ]
+            body: new SingleChildScrollView({
+                child: new Column({
+                    children: items
+                })
             })
         });
 
         return widget;
     }
 
+    //
+    onBuildEnd(args) {
 
-    profileCard(context) {
-        let widget = new Container({
-            decoration: new BoxDecoration({
-                color: new Color(0xDDB3E5FC),
-            }),
-            child: new Padding({
-                padding: EdgeInsets.all(10.0),
-                child: new Column({
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                        new ProfileSimpleContent(),
-                        new Row({
-                            children: [
-                                new Text('数据量大时                         ', {
-                                    style: new TextStyle({
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16.0,
-                                        color: Colors.black
-                                    })
-                                }),
-                                new FlatButton({
-                                    onPressed: function (index) {
-                                        this.endProfile = false;
-
-                                        MXJSLog.log('数据量大时，点击...');
-                                        this.setState(function () {
-                                        }.bind(this))
-                                    }.bind(this),
-                                    child: new Text('请点击，查看耗时...', {
-                                        style: new TextStyle({
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14.0,
-                                            color: Colors.red
-                                        })
-                                    }),
-                                })
-                            ]
-                        }),
-                        new Padding({
-                            padding: EdgeInsets.only({ top: 5.0, bottom: 5.0 }),
-                            child: new Text(complexText),
-                        }),
-                    ]
-                })
-            }),
-            height: 360.0,
-            width: MediaQuery.of(context).size.width,
-        });
-        return widget;
-    }
-
-
-    calculateProfile() {
-        if (!this.widget.enableProfile || this.endProfile == true) {
+        if (!this.widget.enableProfile) {
             return;
         }
 
-        complexText = getProfileText(this.widget.profileInfo);
+        //如果onBuildEnd又触发setState 记得一定this.enableProfile = false; 否则会Rebuild死循环
+        this.widget.enableProfile = false;
 
-        this.setState();
+        //1. 整个页面刷新，把ProfileText显示出来
+        // this.setState(function () {
+        //     this.profileText = this.widget.getProfileText();
+        // }.bind(this));
 
-        this.endProfile = true;
+        //2. 给性能Cell 发个通知，局部刷新,把ProfileText显示出来
+        let handelFun = g_event_bus_map[PerformanceProfilingWidget.Event_Refresh_ProfileInfo];
+        if (handelFun) {
+            handelFun(this.widget.getProfileText());
+        }
     }
 
-
-    hotCard(newsModel) {
+    hotCard(newsModel, buildCount) {
 
         g_newsOrder++;
 
@@ -415,7 +375,7 @@ class ListViewProfileDemo1State extends MXJSWidgetState {
                                 child: new Column({
                                     children: [
                                         new Container({
-                                            child: new Text(newsModel.title, {
+                                            child: new Text("buildCount: " + buildCount + " " + newsModel.title, {
                                                 style: new TextStyle({
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 16.0,
