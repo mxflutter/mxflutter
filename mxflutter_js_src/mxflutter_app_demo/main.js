@@ -10,9 +10,6 @@ let {
     MXJSFlutterApp
 } = require("js_flutter_framework.js");
 
-//JSAPP 全局变量
-var currentJSApp = null
-
 
 //从MXJSFlutterApp继承自己的App类
 class MyApp extends MXJSFlutterApp {
@@ -41,7 +38,11 @@ class MyApp extends MXJSFlutterApp {
 }
 
 
-function main(args) {
+function main(releaseMode) {
+
+    if(releaseMode === "release"){
+        MXJSLog.setLogLev(MXJSLog.LogLevError);
+    }
 
     MXJSLog.log("main() start up ");
 

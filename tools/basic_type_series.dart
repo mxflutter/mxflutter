@@ -2135,6 +2135,13 @@ const ClipRRect({
     this.damping,
   });
   """,
+
+  """
+  UniqueKey(
+
+  );
+  """,
+  
 ];
 
 void main(List<String> arguments) {

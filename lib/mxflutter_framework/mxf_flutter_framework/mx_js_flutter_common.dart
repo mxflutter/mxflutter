@@ -6,27 +6,34 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 
 class MXJSLog {
-  static log(Object object) {
-    String log = "MXJSFlutter:[Flutter]-$object";
-    print(log);
-    callNativelog(log);
-  }
-
-  static error(Object object) {
-    String log = "MXJSFlutter:[Flutter]-[ERR]::$object";
-    print(log);
-    callNativelog(log);
-  }
 
   static debug(Object object) {
-    String log = "MXJSFlutter:[Flutter]-[DEBUG]::$object";
-    print(log);
-    callNativelog(log);
+    if (kDebugMode) {
+      String log = "MXJSFlutter:[Flutter]-[DEBUG]::";
+      callNativelog(log, object);
+    }
   }
 
-  static callNativelog(String log) {
+
+  static log(Object object) {
+    if (kDebugMode) {
+      String log = "MXJSFlutter:[Flutter]-";
+      callNativelog(log, object);
+    }
+  }
+
+
+  static error(Object object) {
+    String log = "MXJSFlutter:[Flutter]-[ERR]::";
+    callNativelog(log, object);
+  }
+
+  static callNativelog(String prefix, Object object) {
+    String log = "$prefix$object";
+    print(log);
     //MXJSFlutter.getInstance().mxLog(log);
   }
 }
@@ -269,22 +276,22 @@ class MXUtil {
           v = {"_name": "TargetPlatform.iOS", "index": 2};
           break;
         }
-
-      case TargetPlatform.linux:
-        {
-          v = {"_name" : "TargetPlatform.linux", "index" : 3};
-          break;
-        }
-        case TargetPlatform.macOS:
-        {
-          v = {"_name" : "TargetPlatform.macOS", "index" : 4};
-          break;
-        }
-        case TargetPlatform.windows:
-        {
-          v = {"_name" : "TargetPlatform.windows", "index" : 5};
-          break;
-        }
+//github based Channel stable, v1.12.13+hotfix.9
+//      case TargetPlatform.linux:
+//        {
+//          v = {"_name": "TargetPlatform.linux", "index": 3};
+//          break;
+//        }
+//      case TargetPlatform.macOS:
+//        {
+//          v = {"_name": "TargetPlatform.macOS", "index": 4};
+//          break;
+//        }
+//      case TargetPlatform.windows:
+//        {
+//          v = {"_name": "TargetPlatform.windows", "index": 5};
+//          break;
+//        }
     }
 
     return v;
