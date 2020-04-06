@@ -1,0 +1,6 @@
+module sqflite {
+  umbrella header "sqflite-umbrella.h"
+
+  export *
+  module * { export * }
+}

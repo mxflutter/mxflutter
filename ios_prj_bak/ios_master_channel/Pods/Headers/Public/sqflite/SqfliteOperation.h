@@ -1,0 +1,1 @@
+../../../../.symlinks/plugins/sqflite/ios/Classes/SqfliteOperation.h
