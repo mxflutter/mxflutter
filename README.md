@@ -10,6 +10,7 @@
 
       性能和稳定性优化，0.1.0版本已在iOS线上使用，Android的支持在开发中。
 
+  *   **对应Flutter (Channel stable tag:v1.12.13+hotfix.9) 和 (Channel master tag:v1.16.2)**
   *   **API变化：区分MXJSStatefulWidget、MXJSStatelessWidget**
   *   **Framework目录整理**
   *   支持Packages
@@ -19,6 +20,14 @@
       4.   shared_preferences
   *   支持MessageChannel
   *   性能和稳定性优化，Bug Fix
+
+ 
+``` 
+运行 MXFlutter
+  如果本机是 Flutter Channel stable，请更新到最新 tag:v1.12.13+hotfix.9
+  如果本机是 Flutter Channel master，请更新到 tag:v1.16.2 
+  如果遇到其他问题，可在QQ群（747535761）中讨论。
+```
 
 ----
 
@@ -310,3 +319,5 @@ MXFlutter虽然各个模块已相对完整，并同时支持 iOS 和 Android 两
 对MXFlutter有兴趣的小伙伴，可以加群交流 QQ群:747535761
 
 ![qrcode](https://github.com/langbluesky/Image/blob/master/qrcode.png?raw=true)
+
+
