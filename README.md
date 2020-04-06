@@ -6,9 +6,9 @@
 
 ## 新版本
 
-### 【NEW】MXFlutter Beta (0.1.0) Version   2020-03-30 
+### 【*NEW】MXFlutter Beta (0.1.0) Version   2020-03-30 
 
-      性能和稳定性优化，0.1.0版本已在iOS线上使用，Android的支持在开发中。
+      性能和稳定性优化，0.1.0版本已在iOS线上使用，Android平台的新功能还不完整，在开发中。
 
   *   **对应Flutter (Channel stable tag:v1.12.13+hotfix.9) 和 (Channel master tag:v1.16.2)**
   *   **API变化：区分MXJSStatefulWidget、MXJSStatelessWidget**
@@ -52,7 +52,7 @@
 
 ##  <a name="title1">一、项目介绍</a>
 
-MXFlutter是一套基于JS的高性能Flutter动态化框架，它用极类似Dart的开发方式，通过编写JavaScript代码，来开发Flutter应用。更多细节在 [基于JS的高性能Flutter动态化框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍.md)。
+MXFlutter是一套基于JavaScript的Flutter框架，它用极类似Dart的开发方式，通过编写JavaScript代码，来开发Flutter应用。更多细节在 [基于JavaScript的Flutter框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍.md)。
 
 ----
 
@@ -71,7 +71,7 @@ MXFlutter是一套基于JS的高性能Flutter动态化框架，它用极类似Da
 
 把 Flutter 的渲染逻辑中的三棵树（即：WidgetTree、Element、RenderObject ）中的第一棵（即：WidgetTree），放到 JavaScript 中生成。用 JavaScript 完整实现了 Flutter 控件层封装，可以使用 JavaScript，用极其类似 Dart 的开发方式，开发Flutter应用，利用JavaScript版的轻量级Flutter Runtime，生成UI描述，传递给Dart层的UI引擎，UI引擎把UI描述生产真正的 Flutter 控件。所以，它在iOS上是完全动态化的。
 
-关于MXFlutter动态化框架渲染、优化等更多详细细节介绍，请看文档：[基于JS的高性能Flutter动态化框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍)。
+关于MXFlutter动态化框架渲染、优化等更多详细细节介绍，请看文档：[基于JavaScript的Flutter框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍.md)。
 
 ----
 
@@ -152,7 +152,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => MXJSFlutter.getI
 
 ![](https://github.com/langbluesky/Image/blob/master/pesto_demo.jpeg?raw=true)
 
-下面是UI截图对应的JS代码，没错，你没有眼花，这个是真的 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI，简直是太厉害了（是不是很像Flutter里面的组件代码）！
+下面是UI截图对应的JS代码，没错，你没有眼花，这个是真的 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI，（是不是很像Flutter里面的组件代码）！
 
 ```javascript
 class JSPestoPage extends MXJSWidget {
@@ -269,7 +269,8 @@ class JSPestoPage extends MXJSWidget {
 > 项目演示
 
 源码中还有更丰满的示例，高仿知乎页面JSFlutter版，可以点此进入查看代码：
-[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js)
+
+[zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/app_demo/zhihu/home/home_page.js)
 
 下图是对应的UI，已经接近在线上版直接使用了：
 
@@ -290,23 +291,33 @@ MXFlutter遵循[MIT](http://opensource.org/licenses/MIT)开源许可证协议。
 MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施，如果大家有兴趣，欢迎加入一起开发。
 如果你有好的意见或建议，也欢迎给我们提 `Issues` 或 `Pull Requests`。
 
+特别感谢以下开发者的贡献
+
+![](https://avatars1.githubusercontent.com/u/1397062?s=60&v=4) [colin3dmax](https://github.com/colin3dmax)
+ 
+![](https://avatars1.githubusercontent.com/u/14990734?s=60&v=4) [yuxizhe](https://github.com/yuxizhe)
+ 
+![](https://avatars1.githubusercontent.com/u/26341415?s=60&v=4) [Johnny](https://github.com/chenzhengxu)
+ 
+[AiNiBaBa](https://github.com/AiNiBaBa)
+ 
 ----
 
 ## <a name="title9">九、团队介绍</a>
 
 > 成员
 
-项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，wenn负责了Android平台的实现，IP老师帮忙提供了单元测试，健身大神yofer老师负责了代码维护，工具建设。 
+项目成员luca浪哥，nice，yockie帅哥贡献了动画，控件，示例APP等核心实现， chaodong老师负责了DartVM方案，wenn和不咸同学负责了Android平台的实现，IP老师提供了单元测试，健身大神yofer老师负责了代码维护，工具建设。 
 
 > 项目由来
 
-18年10月份，团队尝试使用 Flutter，做为iOS开发，一接触到Flutter就马上感受到，Flutter 虽然强大，但不能像RN一样动态化是阻碍我们使用她的唯一障碍了。看Google团队对动态化的计划，短期内应该不会上线，所以撸起袖子自己动手，启动了这个技术探索项目。
+18年10月份，团队开始引入 Flutter，Flutter 功能强大，开发快捷，但不能像ReactNative一样使用JavaScript语言开发，为了扩展Flutter的开发者阵营，所以启动了这个技术探索项目。
 
 > 现状
 
-MXFlutter虽然各个模块已相对完整，并同时支持 iOS 和 Android 两个平台，但投入生产还需要一段时间。目前正对框架进行优化，并力争11月底前支持线上生产。因为目前还有其他项目要顾及，人力仍然很紧张，如果大家有兴趣，期待小伙伴们一起加入，共同丰富 MXFlutter 动态化能力。
+要实现JS开发Flutter是一个很大的工程，团队成员平时工作也非常繁忙，只能业余时间投入，所以人力情况非常紧张，如果大家有兴趣，期待小伙伴们一起加入，共同建设 MXFlutter ，各自为战，不如一起做一个完善的。
 
-由于时间紧张，MXFlutter还有很多遗留的问题，作为一个技术探索，非常辛苦但非常有趣，期待各位大牛指导，期待小伙伴们提出问题一起讨论解决。
+由于项目代码量大，时间紧张，MXFlutter还有很多遗留的问题，作为一个技术探索，非常辛苦但非常有趣，期待各位大牛指导，期待小伙伴们提出问题一起讨论解决。
 
 要了解全部，一定要拉下源码，运行起来看看，有问题可以留言一讨论，MXFlutter会持续更新。
 
@@ -314,10 +325,14 @@ MXFlutter虽然各个模块已相对完整，并同时支持 iOS 和 Android 两
 
 ## <a name="title10">十、联系我们</a>
 
-`TGIF-iMatrix` 是一个技术氛围浓厚，有美女有帅哥有趣有爱的团队，还有精通量子计算，5G等前沿技术的数据分析victor老王，欢迎iOS，Android开发小伙伴，数据开发，数据分析岗位同学投递简历哦：imatrixteam@qq.com
+`iMatrix Team` 是一个技术氛围浓厚，有美女有帅哥有趣有爱的团队，欢迎终端，后台，前端同学投递简历哦：imatrixteam@qq.com
 
 对MXFlutter有兴趣的小伙伴，可以加群交流 QQ群:747535761
 
 ![qrcode](https://github.com/langbluesky/Image/blob/master/qrcode.png?raw=true)
+
+
+
+
 
 
