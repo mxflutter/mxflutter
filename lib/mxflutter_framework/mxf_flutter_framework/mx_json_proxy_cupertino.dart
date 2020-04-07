@@ -401,7 +401,7 @@ class MXProxyCupertinoFullscreenDialogTransition extends MXJsonObjProxy {
     var widget = CupertinoFullscreenDialogTransition(
       key: mxj2d(bo, jsonMap["key"]),
       //TODO:animation
-      animation: null,
+//      animation: null,
       child: mxj2d(bo, jsonMap["child"]),
     );
     return widget;
