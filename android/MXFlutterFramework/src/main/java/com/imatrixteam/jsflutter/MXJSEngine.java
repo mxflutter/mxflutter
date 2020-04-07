@@ -117,7 +117,11 @@ public class MXJSEngine {
                         @Override
                         public void success(@Nullable Object result) {
                             try {
-                                jsExecutor.invokeJsFunction(function, (Map) JSONUtil.unwrap(new JSONObject((String) result)));
+                                String resultStr = (String) result;
+                                if(TextUtils.isEmpty(resultStr)){
+                                    resultStr = "{}";
+                                }
+                                jsExecutor.invokeJsFunction(function, (Map) JSONUtil.unwrap(new JSONObject(resultStr)));
                             } catch (JSONException e) {
                                 Log.e(TAG, "", e);
                             }

@@ -238,12 +238,12 @@ public class MXJSFlutterApp {
 
         //js --> native
         public void setCurrentJSApp(V8Object jsApp) {
-            jsAppObj = (V8Object) jsExecutor.runtime.get("currentJSApp");
+            jsAppObj = jsApp.twin();
         }
 
         //js --> flutter
         public void callFlutterReloadApp(V8Object jsApp, String widgetData) {
-            jsAppObj = (V8Object) jsExecutor.runtime.get("currentJSApp");
+            jsAppObj = jsApp.twin();
 
             mContext.runOnUiThread(new Runnable() {
                 @Override
