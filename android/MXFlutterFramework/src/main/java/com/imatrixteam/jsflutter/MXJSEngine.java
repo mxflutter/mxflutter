@@ -16,19 +16,16 @@ import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
+import com.eclipsesource.v8.V8ResultUndefined;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.imatrixteam.jsflutter.utils.FileUtils;
 import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import androidx.annotation.Nullable;
-import io.flutter.plugin.common.JSONUtil;
 import io.flutter.plugin.common.MethodChannel;
 
 public class MXJSEngine {
@@ -84,13 +81,15 @@ public class MXJSEngine {
         JavaVoidCallback setTimeout = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
+                final V8Array local_args = args.twin();
                 if (args.length() > 1) {
                     jsExecutor.executeDelay(new MXJsScheduledExecutorService.MXJsTask() {
                         @Override
                         public void excute() {
-                            v8Object.getRuntime().executeScript(args.get(1).toString() + "()");
+                            V8Function function = (V8Function) local_args.get(0);
+                            jsExecutor.invokeJsFunction(function, new HashMap());
                         }
-                    }, Long.parseLong(args.get(1).toString()));
+                    }, Long.parseLong(local_args.get(1).toString()));
                 }
             }
         };
@@ -116,14 +115,13 @@ public class MXJSEngine {
                     mMXJSFlutterEngine.callFlutterMethodChannelInvoke(channelName, methodName, params, new MethodChannel.Result() {
                         @Override
                         public void success(@Nullable Object result) {
-                            try {
-                                String resultStr = (String) result;
-                                if(TextUtils.isEmpty(resultStr)){
-                                    resultStr = "{}";
-                                }
-                                jsExecutor.invokeJsFunction(function, (Map) JSONUtil.unwrap(new JSONObject(resultStr)));
-                            } catch (JSONException e) {
-                                Log.e(TAG, "", e);
+                            if (result == null) {
+                                jsExecutor.invokeJsFunction(function, null);
+                            } else if (result instanceof Map) {
+                                jsExecutor.invokeJsFunction(function, (Map) result);
+                            } else {
+                                throw new IllegalArgumentException(
+                                        "MethodChannel.Result Must be return Map object");
                             }
                         }
 
