@@ -40,7 +40,7 @@ let {
   
 } = require("js_flutter.js");
 
-let _kGalleryAssetsPackage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/';
+let _kGalleryAssetsPackage = 'flutter_gallery_assets';
 
 class _Page {
     constructor({label}) {
@@ -159,8 +159,9 @@ class _CardDataItem extends MXJSStatelessWidget {
                             width: 144.0,
                             height: 144.0,
                             child: Image.asset(
-                                this.data.imageAssetPackage+this.data.imageAsset, {
+                                this.data.imageAsset, {
                                     fit: BoxFit.contain,
+                                    package: this.data.imageAssetPackage
                                 }
                             )
                         }),

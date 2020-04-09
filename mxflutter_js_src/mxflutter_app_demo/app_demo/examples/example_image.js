@@ -52,10 +52,6 @@ let {
   Image,
 } = require("js_flutter.js");
 
-
-const _kSmallLogoImage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/pesto/logo_small.png';
-const _kGalleryAssetsPackage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/';
-
 class PageExampleImage extends MXJSStatelessWidget {
   constructor(){
     super("PageExampleImage");
@@ -70,7 +66,7 @@ class PageExampleImage extends MXJSStatelessWidget {
         height:150,
         width: 300,
         color:Colors.orange,
-        child:Image.asset(_kGalleryAssetsPackage + 'people/ali_landscape.png', {
+        child:Image.asset('people/ali_landscape.png', {
           package: 'flutter_gallery_assets',
           fit: BoxFit[boxFitName],
           height: 100
@@ -97,7 +93,7 @@ class PageExampleImage extends MXJSStatelessWidget {
           new ListTile({
             title: new Text('加载本地图片',),
           }),
-          Image.asset(_kGalleryAssetsPackage + 'people/ali_landscape.png', {
+          Image.asset('people/ali_landscape.png', {
             package: 'flutter_gallery_assets',
             fit: BoxFit.cover,
             height: 250

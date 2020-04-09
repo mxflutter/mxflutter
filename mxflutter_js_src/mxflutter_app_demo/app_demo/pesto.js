@@ -41,8 +41,7 @@ let {
 
 //业务代码
 
-let _kSmallLogoImage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/pesto/logo_small.png';
-let _kGalleryAssetsPackage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/';
+let _kGalleryAssetsPackage = 'flutter_gallery_assets';
 let _kAppBarHeight = 128.0;
 let _kFabHalfSize = 28.0; // TODO(mpcomplete): needs to adapt to screen size
 let _kRecipePageMaxWidth = 500.0;
@@ -204,9 +203,9 @@ class RecipeCard extends MXJSStatelessWidget {
                 new AspectRatio({
                   aspectRatio: 4.0 / 3.0,
                   child: Image.asset(
-                    this.recipe.imagePackage + this.recipe.imagePath,
+                    this.recipe.imagePath,
                     {
-                      //package: this.recipe.imagePackage,
+                      package: this.recipe.imagePackage,
                       fit: BoxFit.cover,
                       semanticLabel: this.recipe.name
                     })
@@ -218,9 +217,9 @@ class RecipeCard extends MXJSStatelessWidget {
                   new Padding({
                     padding: EdgeInsets.all(16.0),
                     child: Image.asset(
-                      this.recipe.ingredientsImagePackage + this.recipe.ingredientsImagePath,
+                      this.recipe.ingredientsImagePath,
                       {
-                        //                    package: this.recipe.ingredientsImagePackage,
+                        package: this.recipe.ingredientsImagePackage,
                         width: 48.0,
                         height: 48.0
                       })

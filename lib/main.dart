@@ -107,8 +107,9 @@ class _FlutterHomePageState extends State<FlutterHomePage> {
     var scaffoldWidget = Scaffold(
         appBar: AppBar(
           leading: Image.asset(
-            "mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/flutter_white/logo.png",
+            "logos/flutter_white/logo.png",
             fit: BoxFit.contain,
+            package: "flutter_gallery_assets",
           ),
           title: Text(widget.title),
         ),
