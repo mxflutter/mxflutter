@@ -229,7 +229,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
-                                return new flutter_demo_ddc.main.MyHomePage.new;
+                                return new flutter_demo_ddc.main.MyHomePage.new({title: "Flutter Demo Home Page"});
                             }
                         }))
                     }
