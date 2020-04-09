@@ -22,10 +22,9 @@ const text_style = packages__flutter__src__painting__strut_style$46dart.src__pai
 const packages__flutter__src__material__icon_button$46dart = require('packages/flutter/src/material/icon_button.dart');
 const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
 const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
 const floating_action_button = packages__flutter__src__material__icon_button$46dart.src__material__floating_action_button;
 const snack_bar = packages__flutter__src__material__icon_button$46dart.src__material__snack_bar;
-const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
-const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
 const flexible_space_bar = packages__flutter__src__material__icon_button$46dart.src__material__flexible_space_bar;
 const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
 const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
@@ -35,18 +34,14 @@ const packages__flutter__src__widgets__icon_data$46dart = require('packages/flut
 const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
 const packages__flutter__src__widgets__scroll_view$46dart = require('packages/flutter/src/widgets/scroll_view.dart');
 const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
-const packages__flutter__src__widgets__layout_builder$46dart = require('packages/flutter/src/widgets/layout_builder.dart');
-const layout_builder = packages__flutter__src__widgets__layout_builder$46dart.src__widgets__layout_builder;
-const packages__flutter__src__animation__listener_helpers$46dart = require('packages/flutter/src/animation/listener_helpers.dart');
-const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
 const packages__flutter__src__painting__edge_insets$46dart = require('packages/flutter/src/painting/edge_insets.dart');
 const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-const packages__flutter__src__rendering__layer$46dart = require('packages/flutter/src/rendering/layer.dart');
-const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
 const packages__flutter__src__rendering__sliver_grid$46dart = require('packages/flutter/src/rendering/sliver_grid.dart');
 const sliver_grid = packages__flutter__src__rendering__sliver_grid$46dart.src__rendering__sliver_grid;
 const packages__flutter__src__material__page$46dart = require('packages/flutter/src/material/page.dart');
 const page = packages__flutter__src__material__page$46dart.src__material__page;
+const packages__flutter__src__animation__listener_helpers$46dart = require('packages/flutter/src/animation/listener_helpers.dart');
+const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
 const packages__flutter__src__animation__curves$46dart = require('packages/flutter/src/animation/curves.dart');
 const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
 const packages__vector_math__vector_math_64$46dart = require('packages/vector_math/vector_math_64.dart');
@@ -86,7 +81,6 @@ const table$ = packages__flutter__src__rendering__table$46dart.src__rendering__t
 var pesto_demo = Object.create(dart.library);
 var $toList = dartx.toList;
 var $length = dartx.length;
-var $clamp = dartx.clamp;
 var $_get = dartx._get;
 var $map = dartx.map;
 var $addAll = dartx.addAll;
@@ -94,8 +88,6 @@ var $add = dartx.add;
 var GlobalKeyOfScaffoldState = () => (GlobalKeyOfScaffoldState = dart.constFn(framework.GlobalKey$(scaffold.ScaffoldState)))();
 var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
 var JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
-var TweenOfdouble = () => (TweenOfdouble = dart.constFn(tween.Tween$(core.double)))();
-var BuildContextAndBoxConstraintsToPadding = () => (BuildContextAndBoxConstraintsToPadding = dart.constFn(dart.fnType(basic.Padding, [framework.BuildContext, box.BoxConstraints])))();
 var BuildContextAndintToRecipeCard = () => (BuildContextAndintToRecipeCard = dart.constFn(dart.fnType(pesto_demo.RecipeCard, [framework.BuildContext, core.int])))();
 var MaterialPageRouteOfvoid = () => (MaterialPageRouteOfvoid = dart.constFn(page.MaterialPageRoute$(dart.void)))();
 var BuildContextToPestoFavorites = () => (BuildContextToPestoFavorites = dart.constFn(dart.fnType(pesto_demo.PestoFavorites, [framework.BuildContext])))();
@@ -677,29 +669,8 @@ dart.defineLazy(CT, {
       [SnackBar_content]: C77 || CT.C77
     });
   },
-  get C79() {
-    return C79 = dart.const({
-      __proto__: icon_data.IconData.prototype,
-      [IconData_matchTextDirection]: false,
-      [IconData_fontPackage]: null,
-      [IconData_fontFamily]: "MaterialIcons",
-      [IconData_codePoint]: 59574
-    });
-  },
   get C78() {
     return C78 = dart.const({
-      __proto__: icon$.Icon.prototype,
-      [Widget__location]: null,
-      [Widget_key]: null,
-      [Icon_textDirection]: null,
-      [Icon_semanticLabel]: null,
-      [Icon_color]: null,
-      [Icon_size]: null,
-      [Icon_icon]: C79 || CT.C79
-    });
-  },
-  get C80() {
-    return C80 = dart.const({
       __proto__: sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.prototype,
       [SliverGridDelegateWithMaxCrossAxisExtent_childAspectRatio]: 1,
       [SliverGridDelegateWithMaxCrossAxisExtent_crossAxisSpacing]: 8,
@@ -707,41 +678,41 @@ dart.defineLazy(CT, {
       [SliverGridDelegateWithMaxCrossAxisExtent_maxCrossAxisExtent]: 500
     });
   },
-  get C81() {
-    return C81 = dart.const({
+  get C79() {
+    return C79 = dart.const({
       __proto__: navigator.RouteSettings.prototype,
       [RouteSettings_arguments]: null,
       [RouteSettings_name]: "/pesto/favorites"
     });
   },
-  get C82() {
-    return C82 = dart.const({
+  get C80() {
+    return C80 = dart.const({
       __proto__: navigator.RouteSettings.prototype,
       [RouteSettings_arguments]: null,
       [RouteSettings_name]: "/pesto/recipe"
     });
   },
-  get C84() {
-    return C84 = dart.const({
+  get C82() {
+    return C82 = dart.const({
       __proto__: ui.TextBaseline.prototype,
       [_name]: "TextBaseline.alphabetic",
       index: 0
     });
   },
-  get C85() {
-    return C85 = dart.const({
+  get C83() {
+    return C83 = dart.const({
       __proto__: ui.FontWeight.prototype,
       [FontWeight_index]: 8
     });
   },
-  get C86() {
-    return C86 = dart.const({
+  get C84() {
+    return C84 = dart.const({
       __proto__: ui.Color.prototype,
       [Color_value]: 4294967295.0
     });
   },
-  get C83() {
-    return C83 = dart.const({
+  get C81() {
+    return C81 = dart.const({
       __proto__: pesto_demo.PestoStyle.prototype,
       [TextStyle_fontFeatures]: null,
       [TextStyle_shadows]: null,
@@ -754,22 +725,22 @@ dart.defineLazy(CT, {
       [TextStyle_foreground]: null,
       [TextStyle_locale]: null,
       [TextStyle_height]: null,
-      [TextStyle_textBaseline]: C84 || CT.C84,
+      [TextStyle_textBaseline]: C82 || CT.C82,
       [TextStyle_wordSpacing]: null,
       [TextStyle_letterSpacing]: 3,
       [TextStyle_fontStyle]: null,
-      [TextStyle_fontWeight]: C85 || CT.C85,
+      [TextStyle_fontWeight]: C83 || CT.C83,
       [TextStyle_fontSize]: 48,
       [TextStyle__package]: null,
       [TextStyle__fontFamilyFallback]: null,
       [TextStyle_fontFamily]: "Raleway",
       [TextStyle_backgroundColor]: null,
-      [TextStyle_color]: C86 || CT.C86,
+      [TextStyle_color]: C84 || CT.C84,
       [TextStyle_inherit]: false
     });
   },
-  get C87() {
-    return C87 = dart.const({
+  get C85() {
+    return C85 = dart.const({
       __proto__: ui.Rect.prototype,
       [Rect_bottom]: 210,
       [Rect_right]: 220,
@@ -777,8 +748,8 @@ dart.defineLazy(CT, {
       [Rect_left]: 0
     });
   },
-  get C88() {
-    return C88 = dart.const({
+  get C86() {
+    return C86 = dart.const({
       __proto__: ui.Rect.prototype,
       [Rect_bottom]: 156,
       [Rect_right]: 220,
@@ -786,8 +757,8 @@ dart.defineLazy(CT, {
       [Rect_left]: 0
     });
   },
-  get C90() {
-    return C90 = dart.const({
+  get C88() {
+    return C88 = dart.const({
       __proto__: curves.Cubic.prototype,
       [Cubic_d]: 1,
       [Cubic_c]: 0.58,
@@ -795,16 +766,16 @@ dart.defineLazy(CT, {
       [Cubic_a]: 0.42
     });
   },
-  get C89() {
-    return C89 = dart.const({
+  get C87() {
+    return C87 = dart.const({
       __proto__: curves.Interval.prototype,
-      [Interval_curve]: C90 || CT.C90,
+      [Interval_curve]: C88 || CT.C88,
       [Interval_end]: 1,
       [Interval_begin]: 0.4
     });
   },
-  get C91() {
-    return C91 = dart.const({
+  get C89() {
+    return C89 = dart.const({
       __proto__: ui.Rect.prototype,
       [Rect_bottom]: 162,
       [Rect_right]: 220,
@@ -812,8 +783,8 @@ dart.defineLazy(CT, {
       [Rect_left]: 0
     });
   },
-  get C92() {
-    return C92 = dart.const({
+  get C90() {
+    return C90 = dart.const({
       __proto__: ui.Rect.prototype,
       [Rect_bottom]: 108,
       [Rect_right]: 220,
@@ -821,10 +792,50 @@ dart.defineLazy(CT, {
       [Rect_left]: 0
     });
   },
+  get C92() {
+    return C92 = dart.const({
+      __proto__: ui.FontWeight.prototype,
+      [FontWeight_index]: 5
+    });
+  },
+  get C91() {
+    return C91 = dart.const({
+      __proto__: pesto_demo.PestoStyle.prototype,
+      [TextStyle_fontFeatures]: null,
+      [TextStyle_shadows]: null,
+      [TextStyle_debugLabel]: null,
+      [TextStyle_decorationThickness]: null,
+      [TextStyle_decorationStyle]: null,
+      [TextStyle_decorationColor]: null,
+      [TextStyle_decoration]: null,
+      [TextStyle_background]: null,
+      [TextStyle_foreground]: null,
+      [TextStyle_locale]: null,
+      [TextStyle_height]: null,
+      [TextStyle_textBaseline]: C82 || CT.C82,
+      [TextStyle_wordSpacing]: null,
+      [TextStyle_letterSpacing]: null,
+      [TextStyle_fontStyle]: null,
+      [TextStyle_fontWeight]: C92 || CT.C92,
+      [TextStyle_fontSize]: 24,
+      [TextStyle__package]: null,
+      [TextStyle__fontFamilyFallback]: null,
+      [TextStyle_fontFamily]: "Raleway",
+      [TextStyle_backgroundColor]: null,
+      [TextStyle_color]: C72 || CT.C72,
+      [TextStyle_inherit]: false
+    });
+  },
   get C94() {
     return C94 = dart.const({
       __proto__: ui.FontWeight.prototype,
-      [FontWeight_index]: 5
+      [FontWeight_index]: 4
+    });
+  },
+  get C95() {
+    return C95 = dart.const({
+      __proto__: ui.Color.prototype,
+      [Color_value]: 2315255808.0
     });
   },
   get C93() {
@@ -841,62 +852,22 @@ dart.defineLazy(CT, {
       [TextStyle_foreground]: null,
       [TextStyle_locale]: null,
       [TextStyle_height]: null,
-      [TextStyle_textBaseline]: C84 || CT.C84,
+      [TextStyle_textBaseline]: C82 || CT.C82,
       [TextStyle_wordSpacing]: null,
       [TextStyle_letterSpacing]: null,
       [TextStyle_fontStyle]: null,
       [TextStyle_fontWeight]: C94 || CT.C94,
-      [TextStyle_fontSize]: 24,
-      [TextStyle__package]: null,
-      [TextStyle__fontFamilyFallback]: null,
-      [TextStyle_fontFamily]: "Raleway",
-      [TextStyle_backgroundColor]: null,
-      [TextStyle_color]: C72 || CT.C72,
-      [TextStyle_inherit]: false
-    });
-  },
-  get C96() {
-    return C96 = dart.const({
-      __proto__: ui.FontWeight.prototype,
-      [FontWeight_index]: 4
-    });
-  },
-  get C97() {
-    return C97 = dart.const({
-      __proto__: ui.Color.prototype,
-      [Color_value]: 2315255808.0
-    });
-  },
-  get C95() {
-    return C95 = dart.const({
-      __proto__: pesto_demo.PestoStyle.prototype,
-      [TextStyle_fontFeatures]: null,
-      [TextStyle_shadows]: null,
-      [TextStyle_debugLabel]: null,
-      [TextStyle_decorationThickness]: null,
-      [TextStyle_decorationStyle]: null,
-      [TextStyle_decorationColor]: null,
-      [TextStyle_decoration]: null,
-      [TextStyle_background]: null,
-      [TextStyle_foreground]: null,
-      [TextStyle_locale]: null,
-      [TextStyle_height]: null,
-      [TextStyle_textBaseline]: C84 || CT.C84,
-      [TextStyle_wordSpacing]: null,
-      [TextStyle_letterSpacing]: null,
-      [TextStyle_fontStyle]: null,
-      [TextStyle_fontWeight]: C96 || CT.C96,
       [TextStyle_fontSize]: 12,
       [TextStyle__package]: null,
       [TextStyle__fontFamilyFallback]: null,
       [TextStyle_fontFamily]: "Raleway",
       [TextStyle_backgroundColor]: null,
-      [TextStyle_color]: C97 || CT.C97,
+      [TextStyle_color]: C95 || CT.C95,
       [TextStyle_inherit]: false
     });
   },
-  get C98() {
-    return C98 = dart.const({
+  get C96() {
+    return C96 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 16,
       [EdgeInsets_right]: 16,
@@ -904,8 +875,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 16
     });
   },
-  get C99() {
-    return C99 = dart.const({
+  get C97() {
+    return C97 = dart.const({
       __proto__: pesto_demo.PestoStyle.prototype,
       [TextStyle_fontFeatures]: null,
       [TextStyle_shadows]: null,
@@ -918,7 +889,7 @@ dart.defineLazy(CT, {
       [TextStyle_foreground]: null,
       [TextStyle_locale]: null,
       [TextStyle_height]: 1.6,
-      [TextStyle_textBaseline]: C84 || CT.C84,
+      [TextStyle_textBaseline]: C82 || CT.C82,
       [TextStyle_wordSpacing]: null,
       [TextStyle_letterSpacing]: null,
       [TextStyle_fontStyle]: null,
@@ -928,94 +899,94 @@ dart.defineLazy(CT, {
       [TextStyle__fontFamilyFallback]: null,
       [TextStyle_fontFamily]: "Raleway",
       [TextStyle_backgroundColor]: null,
-      [TextStyle_color]: C97 || CT.C97,
+      [TextStyle_color]: C95 || CT.C95,
       [TextStyle_inherit]: false
     });
   },
-  get C102() {
-    return C102 = dart.const({
+  get C100() {
+    return C100 = dart.const({
       __proto__: flexible_space_bar.StretchMode.prototype,
       [_name$]: "StretchMode.zoomBackground",
       index: 0
     });
   },
-  get C101() {
-    return C101 = dart.constList([C102 || CT.C102], flexible_space_bar.StretchMode);
+  get C99() {
+    return C99 = dart.constList([C100 || CT.C100], flexible_space_bar.StretchMode);
   },
-  get C103() {
-    return C103 = dart.const({
+  get C101() {
+    return C101 = dart.const({
       __proto__: flexible_space_bar.CollapseMode.prototype,
       [_name$]: "CollapseMode.parallax",
       index: 0
     });
   },
-  get C105() {
-    return C105 = dart.const({
+  get C103() {
+    return C103 = dart.const({
       __proto__: proxy_box.DecorationPosition.prototype,
       [_name$0]: "DecorationPosition.background",
       index: 0
     });
   },
-  get C107() {
-    return C107 = dart.const({
+  get C105() {
+    return C105 = dart.const({
       __proto__: box_border.BoxShape.prototype,
       [_name$1]: "BoxShape.rectangle",
       index: 0
     });
   },
-  get C110() {
-    return C110 = dart.const({
+  get C108() {
+    return C108 = dart.const({
       __proto__: ui.Color.prototype,
       [Color_value]: 1610612736
     });
   },
-  get C111() {
-    return C111 = dart.const({
+  get C109() {
+    return C109 = dart.const({
       __proto__: ui.Color.prototype,
       [Color_value]: 0
     });
   },
-  get C109() {
-    return C109 = dart.constList([C110 || CT.C110, C111 || CT.C111], ui.Color);
+  get C107() {
+    return C107 = dart.constList([C108 || CT.C108, C109 || CT.C109], ui.Color);
   },
-  get C112() {
-    return C112 = dart.const({
+  get C110() {
+    return C110 = dart.const({
       __proto__: ui.TileMode.prototype,
       [_name]: "TileMode.clamp",
       index: 0
     });
   },
-  get C113() {
-    return C113 = dart.const({
+  get C111() {
+    return C111 = dart.const({
       __proto__: alignment.Alignment.prototype,
       [Alignment_y]: -0.2,
       [Alignment_x]: 0
     });
   },
-  get C114() {
-    return C114 = dart.const({
+  get C112() {
+    return C112 = dart.const({
       __proto__: alignment.Alignment.prototype,
       [Alignment_y]: -1,
       [Alignment_x]: 0
     });
   },
-  get C108() {
-    return C108 = dart.const({
+  get C106() {
+    return C106 = dart.const({
       __proto__: gradient.LinearGradient.prototype,
       [Gradient_transform]: null,
       [Gradient_stops]: null,
-      [Gradient_colors]: C109 || CT.C109,
-      [LinearGradient_tileMode]: C112 || CT.C112,
-      [LinearGradient_end]: C113 || CT.C113,
-      [LinearGradient_begin]: C114 || CT.C114
+      [Gradient_colors]: C107 || CT.C107,
+      [LinearGradient_tileMode]: C110 || CT.C110,
+      [LinearGradient_end]: C111 || CT.C111,
+      [LinearGradient_begin]: C112 || CT.C112
     });
   },
-  get C106() {
-    return C106 = dart.const({
+  get C104() {
+    return C104 = dart.const({
       __proto__: box_decoration.BoxDecoration.prototype,
-      [BoxDecoration_shape]: C107 || CT.C107,
+      [BoxDecoration_shape]: C105 || CT.C105,
       [BoxDecoration_backgroundBlendMode]: null,
-      [BoxDecoration_gradient]: C108 || CT.C108,
+      [BoxDecoration_gradient]: C106 || CT.C106,
       [BoxDecoration_boxShadow]: null,
       [BoxDecoration_borderRadius]: null,
       [BoxDecoration_border]: null,
@@ -1023,31 +994,31 @@ dart.defineLazy(CT, {
       [BoxDecoration_color]: null
     });
   },
-  get C104() {
-    return C104 = dart.const({
+  get C102() {
+    return C102 = dart.const({
       __proto__: container.DecoratedBox.prototype,
       [Widget__location]: null,
       [Widget_key]: null,
       [SingleChildRenderObjectWidget_child]: null,
-      [DecoratedBox_position]: C105 || CT.C105,
-      [DecoratedBox_decoration]: C106 || CT.C106
+      [DecoratedBox_position]: C103 || CT.C103,
+      [DecoratedBox_decoration]: C104 || CT.C104
     });
   },
-  get C100() {
-    return C100 = dart.const({
+  get C98() {
+    return C98 = dart.const({
       __proto__: flexible_space_bar.FlexibleSpaceBar.prototype,
       [Widget__location]: null,
       [Widget_key]: null,
       [FlexibleSpaceBar_titlePadding]: null,
-      [FlexibleSpaceBar_stretchModes]: C101 || CT.C101,
-      [FlexibleSpaceBar_collapseMode]: C103 || CT.C103,
+      [FlexibleSpaceBar_stretchModes]: C99 || CT.C99,
+      [FlexibleSpaceBar_collapseMode]: C101 || CT.C101,
       [FlexibleSpaceBar_centerTitle]: null,
-      [FlexibleSpaceBar_background]: C104 || CT.C104,
+      [FlexibleSpaceBar_background]: C102 || CT.C102,
       [FlexibleSpaceBar_title]: null
     });
   },
-  get C115() {
-    return C115 = dart.const({
+  get C113() {
+    return C113 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 0,
@@ -1055,13 +1026,75 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C116() {
-    return C116 = dart.const({
+  get C114() {
+    return C114 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 0,
       [EdgeInsets_right]: 24,
       [EdgeInsets_top]: 0,
       [EdgeInsets_left]: 0
+    });
+  },
+  get C115() {
+    return C115 = dart.const({
+      __proto__: pesto_demo.PestoStyle.prototype,
+      [TextStyle_fontFeatures]: null,
+      [TextStyle_shadows]: null,
+      [TextStyle_debugLabel]: null,
+      [TextStyle_decorationThickness]: null,
+      [TextStyle_decorationStyle]: null,
+      [TextStyle_decorationColor]: null,
+      [TextStyle_decoration]: null,
+      [TextStyle_background]: null,
+      [TextStyle_foreground]: null,
+      [TextStyle_locale]: null,
+      [TextStyle_height]: null,
+      [TextStyle_textBaseline]: C82 || CT.C82,
+      [TextStyle_wordSpacing]: null,
+      [TextStyle_letterSpacing]: null,
+      [TextStyle_fontStyle]: null,
+      [TextStyle_fontWeight]: null,
+      [TextStyle_fontSize]: 34,
+      [TextStyle__package]: null,
+      [TextStyle__fontFamilyFallback]: null,
+      [TextStyle_fontFamily]: "Raleway",
+      [TextStyle_backgroundColor]: null,
+      [TextStyle_color]: C72 || CT.C72,
+      [TextStyle_inherit]: false
+    });
+  },
+  get C116() {
+    return C116 = dart.const({
+      __proto__: pesto_demo.PestoStyle.prototype,
+      [TextStyle_fontFeatures]: null,
+      [TextStyle_shadows]: null,
+      [TextStyle_debugLabel]: null,
+      [TextStyle_decorationThickness]: null,
+      [TextStyle_decorationStyle]: null,
+      [TextStyle_decorationColor]: null,
+      [TextStyle_decoration]: null,
+      [TextStyle_background]: null,
+      [TextStyle_foreground]: null,
+      [TextStyle_locale]: null,
+      [TextStyle_height]: 1.6,
+      [TextStyle_textBaseline]: C82 || CT.C82,
+      [TextStyle_wordSpacing]: null,
+      [TextStyle_letterSpacing]: null,
+      [TextStyle_fontStyle]: null,
+      [TextStyle_fontWeight]: null,
+      [TextStyle_fontSize]: 15,
+      [TextStyle__package]: null,
+      [TextStyle__fontFamilyFallback]: null,
+      [TextStyle_fontFamily]: "Raleway",
+      [TextStyle_backgroundColor]: null,
+      [TextStyle_color]: C72 || CT.C72,
+      [TextStyle_inherit]: false
+    });
+  },
+  get C118() {
+    return C118 = dart.const({
+      __proto__: ui.FontWeight.prototype,
+      [FontWeight_index]: 6
     });
   },
   get C117() {
@@ -1077,74 +1110,12 @@ dart.defineLazy(CT, {
       [TextStyle_background]: null,
       [TextStyle_foreground]: null,
       [TextStyle_locale]: null,
-      [TextStyle_height]: null,
-      [TextStyle_textBaseline]: C84 || CT.C84,
-      [TextStyle_wordSpacing]: null,
-      [TextStyle_letterSpacing]: null,
-      [TextStyle_fontStyle]: null,
-      [TextStyle_fontWeight]: null,
-      [TextStyle_fontSize]: 34,
-      [TextStyle__package]: null,
-      [TextStyle__fontFamilyFallback]: null,
-      [TextStyle_fontFamily]: "Raleway",
-      [TextStyle_backgroundColor]: null,
-      [TextStyle_color]: C72 || CT.C72,
-      [TextStyle_inherit]: false
-    });
-  },
-  get C118() {
-    return C118 = dart.const({
-      __proto__: pesto_demo.PestoStyle.prototype,
-      [TextStyle_fontFeatures]: null,
-      [TextStyle_shadows]: null,
-      [TextStyle_debugLabel]: null,
-      [TextStyle_decorationThickness]: null,
-      [TextStyle_decorationStyle]: null,
-      [TextStyle_decorationColor]: null,
-      [TextStyle_decoration]: null,
-      [TextStyle_background]: null,
-      [TextStyle_foreground]: null,
-      [TextStyle_locale]: null,
       [TextStyle_height]: 1.6,
-      [TextStyle_textBaseline]: C84 || CT.C84,
+      [TextStyle_textBaseline]: C82 || CT.C82,
       [TextStyle_wordSpacing]: null,
       [TextStyle_letterSpacing]: null,
       [TextStyle_fontStyle]: null,
-      [TextStyle_fontWeight]: null,
-      [TextStyle_fontSize]: 15,
-      [TextStyle__package]: null,
-      [TextStyle__fontFamilyFallback]: null,
-      [TextStyle_fontFamily]: "Raleway",
-      [TextStyle_backgroundColor]: null,
-      [TextStyle_color]: C72 || CT.C72,
-      [TextStyle_inherit]: false
-    });
-  },
-  get C120() {
-    return C120 = dart.const({
-      __proto__: ui.FontWeight.prototype,
-      [FontWeight_index]: 6
-    });
-  },
-  get C119() {
-    return C119 = dart.const({
-      __proto__: pesto_demo.PestoStyle.prototype,
-      [TextStyle_fontFeatures]: null,
-      [TextStyle_shadows]: null,
-      [TextStyle_debugLabel]: null,
-      [TextStyle_decorationThickness]: null,
-      [TextStyle_decorationStyle]: null,
-      [TextStyle_decorationColor]: null,
-      [TextStyle_decoration]: null,
-      [TextStyle_background]: null,
-      [TextStyle_foreground]: null,
-      [TextStyle_locale]: null,
-      [TextStyle_height]: 1.6,
-      [TextStyle_textBaseline]: C84 || CT.C84,
-      [TextStyle_wordSpacing]: null,
-      [TextStyle_letterSpacing]: null,
-      [TextStyle_fontStyle]: null,
-      [TextStyle_fontWeight]: C120 || CT.C120,
+      [TextStyle_fontWeight]: C118 || CT.C118,
       [TextStyle_fontSize]: 16,
       [TextStyle__package]: null,
       [TextStyle__fontFamilyFallback]: null,
@@ -1154,8 +1125,8 @@ dart.defineLazy(CT, {
       [TextStyle_inherit]: false
     });
   },
-  get C121() {
-    return C121 = dart.const({
+  get C119() {
+    return C119 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 40,
       [EdgeInsets_right]: 16,
@@ -1163,17 +1134,17 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 16
     });
   },
-  get C123() {
-    return C123 = dart.const({
+  get C121() {
+    return C121 = dart.const({
       __proto__: table$.FixedColumnWidth.prototype,
       [FixedColumnWidth_value]: 64
     });
   },
-  get C122() {
-    return C122 = dart.constMap(core.int, table$.TableColumnWidth, [0, C123 || CT.C123]);
+  get C120() {
+    return C120 = dart.constMap(core.int, table$.TableColumnWidth, [0, C121 || CT.C121]);
   },
-  get C124() {
-    return C124 = dart.const({
+  get C122() {
+    return C122 = dart.const({
       __proto__: basic.SizedBox.prototype,
       [Widget__location]: null,
       [Widget_key]: null,
@@ -1182,8 +1153,8 @@ dart.defineLazy(CT, {
       [SizedBox_width]: null
     });
   },
-  get C125() {
-    return C125 = dart.const({
+  get C123() {
+    return C123 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 4,
       [EdgeInsets_right]: 0,
@@ -1191,8 +1162,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C126() {
-    return C126 = dart.const({
+  get C124() {
+    return C124 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 4,
       [EdgeInsets_right]: 0,
@@ -1200,8 +1171,8 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   },
-  get C127() {
-    return C127 = dart.const({
+  get C125() {
+    return C125 = dart.const({
       __proto__: edge_insets.EdgeInsets.prototype,
       [EdgeInsets_bottom]: 4,
       [EdgeInsets_right]: 0,
@@ -1435,42 +1406,27 @@ var Text_data = dart.privateName(text, "Text.data");
 var C77;
 var SnackBar_content = dart.privateName(snack_bar, "SnackBar.content");
 var C75;
-var _buildAppBar = dart.privateName(pesto_demo, "_buildAppBar");
 var _buildBody = dart.privateName(pesto_demo, "_buildBody");
-var C79;
-var C78;
 var SliverGridDelegateWithMaxCrossAxisExtent_childAspectRatio = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.childAspectRatio");
 var SliverGridDelegateWithMaxCrossAxisExtent_crossAxisSpacing = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.crossAxisSpacing");
 var SliverGridDelegateWithMaxCrossAxisExtent_mainAxisSpacing = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.mainAxisSpacing");
 var SliverGridDelegateWithMaxCrossAxisExtent_maxCrossAxisExtent = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.maxCrossAxisExtent");
-var C80;
+var C78;
 var RouteSettings_arguments = dart.privateName(navigator, "RouteSettings.arguments");
 var RouteSettings_name = dart.privateName(navigator, "RouteSettings.name");
-var C81;
-var C82;
+var C79;
+var C80;
 pesto_demo._RecipeGridPageState = class _RecipeGridPageState extends framework.State$(pesto_demo.RecipeGridPage) {
   build(context) {
     let statusBarHeight = media_query.MediaQuery.of(context).padding.top;
-    return new theme.Theme.new({data: pesto_demo._kTheme.copyWith({platform: theme.Theme.of(context).platform}), child: new scaffold.Scaffold.new({key: this.scaffoldKey, floatingActionButton: new floating_action_button.FloatingActionButton.new({child: C73 || CT.C73, onPressed: dart.fn(() => {
+    return new theme.Theme.new({data: pesto_demo._kTheme.copyWith({platform: theme.Theme.of(context).platform}), child: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Pesto Demo")}), key: this.scaffoldKey, floatingActionButton: new floating_action_button.FloatingActionButton.new({child: C73 || CT.C73, onPressed: dart.fn(() => {
             this.scaffoldKey.currentState.showSnackBar(C75 || CT.C75);
-          }, VoidToNull())}), body: new scroll_view.CustomScrollView.new({semanticChildCount: this.widget.recipes[$length], slivers: JSArrayOfWidget().of([this[_buildAppBar](context, statusBarHeight), this[_buildBody](context, statusBarHeight)])})})});
-  }
-  [_buildAppBar](context, statusBarHeight) {
-    return new app_bar.SliverAppBar.new({pinned: true, expandedHeight: 128, actions: JSArrayOfWidget().of([new icon_button.IconButton.new({icon: C78 || CT.C78, tooltip: "Search", onPressed: dart.fn(() => {
-            this.scaffoldKey.currentState.showSnackBar(C75 || CT.C75);
-          }, VoidToNull())})]), flexibleSpace: new layout_builder.LayoutBuilder.new({builder: dart.fn((context, constraints) => {
-          let size = constraints.biggest;
-          let appBarHeight = dart.notNull(size.height) - dart.notNull(statusBarHeight);
-          let t = (appBarHeight - 56) / (128 - 56);
-          let extraPadding = new (TweenOfdouble()).new({begin: 10.0, end: 24.0}).transform(t);
-          let logoHeight = appBarHeight - 1.5 * dart.notNull(extraPadding);
-          return new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({top: dart.notNull(statusBarHeight) + 0.5 * dart.notNull(extraPadding), bottom: extraPadding}), child: new basic.Center.new({child: new pesto_demo.PestoLogo.new({height: logoHeight, t: t[$clamp](0.0, 1.0)})})});
-        }, BuildContextAndBoxConstraintsToPadding())})});
+          }, VoidToNull())}), body: new scroll_view.CustomScrollView.new({semanticChildCount: this.widget.recipes[$length], slivers: JSArrayOfWidget().of([this[_buildBody](context, statusBarHeight)])})})});
   }
   [_buildBody](context, statusBarHeight) {
     let mediaPadding = media_query.MediaQuery.of(context).padding;
     let padding = new edge_insets.EdgeInsets.only({top: 8.0, left: 8.0 + dart.notNull(mediaPadding.left), right: 8.0 + dart.notNull(mediaPadding.right), bottom: 8.0});
-    return new basic.SliverPadding.new({padding: padding, sliver: new sliver.SliverGrid.new({gridDelegate: C80 || CT.C80, delegate: new sliver.SliverChildBuilderDelegate.new(dart.fn((context, index) => {
+    return new basic.SliverPadding.new({padding: padding, sliver: new sliver.SliverGrid.new({gridDelegate: C78 || CT.C78, delegate: new sliver.SliverChildBuilderDelegate.new(dart.fn((context, index) => {
           let recipe = this.widget.recipes[$_get](index);
           return new pesto_demo.RecipeCard.new({recipe: recipe, onTap: dart.fn(() => {
               this.showRecipePage(context, recipe);
@@ -1478,10 +1434,10 @@ pesto_demo._RecipeGridPageState = class _RecipeGridPageState extends framework.S
         }, BuildContextAndintToRecipeCard()), {childCount: this.widget.recipes[$length]})})});
   }
   showFavoritesPage(context) {
-    navigator.Navigator.push(dart.void, context, new (MaterialPageRouteOfvoid()).new({settings: C81 || CT.C81, builder: dart.fn(context => new pesto_demo.PestoFavorites.new(), BuildContextToPestoFavorites())}));
+    navigator.Navigator.push(dart.void, context, new (MaterialPageRouteOfvoid()).new({settings: C79 || CT.C79, builder: dart.fn(context => new pesto_demo.PestoFavorites.new(), BuildContextToPestoFavorites())}));
   }
   showRecipePage(context, recipe) {
-    navigator.Navigator.push(dart.void, context, new (MaterialPageRouteOfvoid()).new({settings: C82 || CT.C82, builder: dart.fn(context => new theme.Theme.new({data: pesto_demo._kTheme.copyWith({platform: theme.Theme.of(context).platform}), child: new pesto_demo.RecipePage.new({recipe: recipe})}), BuildContextToTheme())}));
+    navigator.Navigator.push(dart.void, context, new (MaterialPageRouteOfvoid()).new({settings: C80 || CT.C80, builder: dart.fn(context => new theme.Theme.new({data: pesto_demo._kTheme.copyWith({platform: theme.Theme.of(context).platform}), child: new pesto_demo.RecipePage.new({recipe: recipe})}), BuildContextToTheme())}));
   }
 };
 (pesto_demo._RecipeGridPageState.new = function() {
@@ -1494,7 +1450,6 @@ dart.addTypeCaches(pesto_demo._RecipeGridPageState);
 dart.setMethodSignature(pesto_demo._RecipeGridPageState, () => ({
   __proto__: dart.getMethods(pesto_demo._RecipeGridPageState.__proto__),
   build: dart.fnType(framework.Widget, [framework.BuildContext]),
-  [_buildAppBar]: dart.fnType(framework.Widget, [framework.BuildContext, core.double]),
   [_buildBody]: dart.fnType(framework.Widget, [framework.BuildContext, core.double]),
   showFavoritesPage: dart.fnType(dart.void, [framework.BuildContext]),
   showRecipePage: dart.fnType(dart.void, [framework.BuildContext, pesto_demo.Recipe])
@@ -1555,43 +1510,43 @@ var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
 var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
 var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
 var _name = dart.privateName(ui, "_name");
-var C84;
+var C82;
 var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
 var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
 var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
 var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
 var FontWeight_index = dart.privateName(ui, "FontWeight.index");
-var C85;
+var C83;
 var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
 var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
 var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
 var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
 var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
 var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
-var C86;
+var C84;
 var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
 var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
-var C83;
+var C81;
 var _textRectTween = dart.privateName(pesto_demo, "_textRectTween");
 var Rect_bottom = dart.privateName(ui, "Rect.bottom");
 var Rect_right = dart.privateName(ui, "Rect.right");
 var Rect_top = dart.privateName(ui, "Rect.top");
 var Rect_left = dart.privateName(ui, "Rect.left");
-var C87;
-var C88;
+var C85;
+var C86;
 var _textOpacity = dart.privateName(pesto_demo, "_textOpacity");
 var Cubic_d = dart.privateName(curves, "Cubic.d");
 var Cubic_c = dart.privateName(curves, "Cubic.c");
 var Cubic_b = dart.privateName(curves, "Cubic.b");
 var Cubic_a = dart.privateName(curves, "Cubic.a");
-var C90;
+var C88;
 var Interval_curve = dart.privateName(curves, "Interval.curve");
 var Interval_end = dart.privateName(curves, "Interval.end");
 var Interval_begin = dart.privateName(curves, "Interval.begin");
-var C89;
+var C87;
 var _imageRectTween = dart.privateName(pesto_demo, "_imageRectTween");
-var C91;
-var C92;
+var C89;
+var C90;
 pesto_demo._PestoLogoState = class _PestoLogoState extends framework.State$(pesto_demo.PestoLogo) {
   build(context) {
     let t0;
@@ -1599,10 +1554,10 @@ pesto_demo._PestoLogoState = class _PestoLogoState extends framework.State$(pest
   }
 };
 (pesto_demo._PestoLogoState.new = function() {
-  this.titleStyle = C83 || CT.C83;
-  this[_textRectTween] = new tween.RectTween.new({begin: C87 || CT.C87, end: C88 || CT.C88});
-  this[_textOpacity] = C89 || CT.C89;
-  this[_imageRectTween] = new tween.RectTween.new({begin: C91 || CT.C91, end: C92 || CT.C92});
+  this.titleStyle = C81 || CT.C81;
+  this[_textRectTween] = new tween.RectTween.new({begin: C85 || CT.C85, end: C86 || CT.C86});
+  this[_textOpacity] = C87 || CT.C87;
+  this[_imageRectTween] = new tween.RectTween.new({begin: C89 || CT.C89, end: C90 || CT.C90});
   pesto_demo._PestoLogoState.__proto__.new.call(this);
   ;
 }).prototype = pesto_demo._PestoLogoState.prototype;
@@ -1634,16 +1589,16 @@ dart.defineLazy(pesto_demo._PestoLogoState, {
     return 48;
   }
 }, true);
+var C92;
+var C91;
 var C94;
-var C93;
-var C96;
-var C97;
 var C95;
+var C93;
 var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
 var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
 var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
 var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-var C98;
+var C96;
 var recipe$ = dart.privateName(pesto_demo, "RecipeCard.recipe");
 var onTap$ = dart.privateName(pesto_demo, "RecipeCard.onTap");
 pesto_demo.RecipeCard = class RecipeCard extends framework.StatelessWidget {
@@ -1660,13 +1615,13 @@ pesto_demo.RecipeCard = class RecipeCard extends framework.StatelessWidget {
     super.onTap = value;
   }
   get titleStyle() {
-    return C93 || CT.C93;
+    return C91 || CT.C91;
   }
   get authorStyle() {
-    return C95 || CT.C95;
+    return C93 || CT.C93;
   }
   build(context) {
-    return new gesture_detector.GestureDetector.new({onTap: this.onTap, child: new card.Card.new({child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: JSArrayOfWidget().of([new heroes.Hero.new({tag: "packages/" + "flutter_gallery_assets" + "/" + dart.str(this.recipe.imagePath), child: new basic.AspectRatio.new({aspectRatio: 4.0 / 3.0, child: new image.Image.asset(this.recipe.imagePath, {package: this.recipe.imagePackage, fit: box_fit.BoxFit.cover, semanticLabel: this.recipe.name})})}), new basic.Expanded.new({child: new basic.Row.new({children: JSArrayOfWidget().of([new basic.Padding.new({padding: C98 || CT.C98, child: new image.Image.asset(this.recipe.ingredientsImagePath, {package: this.recipe.ingredientsImagePackage, width: 48.0, height: 48.0})}), new basic.Expanded.new({child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidget().of([new text.Text.new(this.recipe.name, {style: this.titleStyle, softWrap: false, overflow: paragraph.TextOverflow.ellipsis}), new text.Text.new(this.recipe.author, {style: this.authorStyle})])})})])})})])})})});
+    return new gesture_detector.GestureDetector.new({onTap: this.onTap, child: new card.Card.new({child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: JSArrayOfWidget().of([new heroes.Hero.new({tag: "packages/" + "flutter_gallery_assets" + "/" + dart.str(this.recipe.imagePath), child: new basic.AspectRatio.new({aspectRatio: 4.0 / 3.0, child: new image.Image.asset(this.recipe.imagePath, {package: this.recipe.imagePackage, fit: box_fit.BoxFit.cover, semanticLabel: this.recipe.name})})}), new basic.Expanded.new({child: new basic.Row.new({children: JSArrayOfWidget().of([new basic.Padding.new({padding: C96 || CT.C96, child: new image.Image.asset(this.recipe.ingredientsImagePath, {package: this.recipe.ingredientsImagePackage, width: 48.0, height: 48.0})}), new basic.Expanded.new({child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidget().of([new text.Text.new(this.recipe.name, {style: this.titleStyle, softWrap: false, overflow: paragraph.TextOverflow.ellipsis}), new text.Text.new(this.recipe.author, {style: this.authorStyle})])})})])})})])})})});
   }
 };
 (pesto_demo.RecipeCard.new = function(opts) {
@@ -1726,55 +1681,55 @@ dart.setFieldSignature(pesto_demo.RecipePage, () => ({
   recipe: dart.finalFieldType(pesto_demo.Recipe)
 }));
 var _scaffoldKey = dart.privateName(pesto_demo, "_scaffoldKey");
-var C99;
+var C97;
 var _getAppBarHeight = dart.privateName(pesto_demo, "_getAppBarHeight");
 var _buildMenuItem = dart.privateName(pesto_demo, "_buildMenuItem");
 var FlexibleSpaceBar_titlePadding = dart.privateName(flexible_space_bar, "FlexibleSpaceBar.titlePadding");
 var _name$ = dart.privateName(flexible_space_bar, "_name");
-var C102;
-var C101;
+var C100;
+var C99;
 var FlexibleSpaceBar_stretchModes = dart.privateName(flexible_space_bar, "FlexibleSpaceBar.stretchModes");
-var C103;
+var C101;
 var FlexibleSpaceBar_collapseMode = dart.privateName(flexible_space_bar, "FlexibleSpaceBar.collapseMode");
 var FlexibleSpaceBar_centerTitle = dart.privateName(flexible_space_bar, "FlexibleSpaceBar.centerTitle");
 var SingleChildRenderObjectWidget_child = dart.privateName(framework, "SingleChildRenderObjectWidget.child");
 var _name$0 = dart.privateName(proxy_box, "_name");
-var C105;
+var C103;
 var DecoratedBox_position = dart.privateName(container, "DecoratedBox.position");
 var _name$1 = dart.privateName(box_border, "_name");
-var C107;
+var C105;
 var BoxDecoration_shape = dart.privateName(box_decoration, "BoxDecoration.shape");
 var BoxDecoration_backgroundBlendMode = dart.privateName(box_decoration, "BoxDecoration.backgroundBlendMode");
 var Gradient_transform = dart.privateName(gradient, "Gradient.transform");
 var Gradient_stops = dart.privateName(gradient, "Gradient.stops");
-var C110;
-var C111;
+var C108;
 var C109;
+var C107;
 var Gradient_colors = dart.privateName(gradient, "Gradient.colors");
-var C112;
+var C110;
 var LinearGradient_tileMode = dart.privateName(gradient, "LinearGradient.tileMode");
 var Alignment_y = dart.privateName(alignment, "Alignment.y");
 var Alignment_x = dart.privateName(alignment, "Alignment.x");
-var C113;
+var C111;
 var LinearGradient_end = dart.privateName(gradient, "LinearGradient.end");
-var C114;
+var C112;
 var LinearGradient_begin = dart.privateName(gradient, "LinearGradient.begin");
-var C108;
+var C106;
 var BoxDecoration_gradient = dart.privateName(box_decoration, "BoxDecoration.gradient");
 var BoxDecoration_boxShadow = dart.privateName(box_decoration, "BoxDecoration.boxShadow");
 var BoxDecoration_borderRadius = dart.privateName(box_decoration, "BoxDecoration.borderRadius");
 var BoxDecoration_border = dart.privateName(box_decoration, "BoxDecoration.border");
 var BoxDecoration_image = dart.privateName(box_decoration, "BoxDecoration.image");
 var BoxDecoration_color = dart.privateName(box_decoration, "BoxDecoration.color");
-var C106;
-var DecoratedBox_decoration = dart.privateName(container, "DecoratedBox.decoration");
 var C104;
+var DecoratedBox_decoration = dart.privateName(container, "DecoratedBox.decoration");
+var C102;
 var FlexibleSpaceBar_background = dart.privateName(flexible_space_bar, "FlexibleSpaceBar.background");
 var FlexibleSpaceBar_title = dart.privateName(flexible_space_bar, "FlexibleSpaceBar.title");
-var C100;
-var C115;
+var C98;
+var C113;
 var _toggleFavorite = dart.privateName(pesto_demo, "_toggleFavorite");
-var C116;
+var C114;
 pesto_demo._RecipePageState = class _RecipePageState extends framework.State$(pesto_demo.RecipePage) {
   [_getAppBarHeight](context) {
     return dart.notNull(media_query.MediaQuery.of(context).size.height) * 0.3;
@@ -1785,10 +1740,10 @@ pesto_demo._RecipePageState = class _RecipePageState extends framework.State$(pe
     let fullWidth = dart.notNull(screenSize.width) < 500;
     let isFavorite = pesto_demo._favoriteRecipes.contains(this.widget.recipe);
     return new scaffold.Scaffold.new({key: this[_scaffoldKey], body: new basic.Stack.new({children: JSArrayOfWidget().of([new basic.Positioned.new({top: 0.0, left: 0.0, right: 0.0, height: dart.notNull(appBarHeight) + 28, child: new heroes.Hero.new({tag: "packages/" + "flutter_gallery_assets" + "/" + dart.str(this.widget.recipe.imagePath), child: new image.Image.asset(this.widget.recipe.imagePath, {package: this.widget.recipe.imagePackage, fit: fullWidth ? box_fit.BoxFit.fitWidth : box_fit.BoxFit.cover})})}), new scroll_view.CustomScrollView.new({slivers: JSArrayOfWidget().of([new app_bar.SliverAppBar.new({expandedHeight: dart.notNull(appBarHeight) - 28, backgroundColor: colors.Colors.transparent, actions: JSArrayOfWidget().of([new (PopupMenuButtonOfString()).new({onSelected: dart.fn(item => {
-                    }, StringToNull()), itemBuilder: dart.fn(context => JSArrayOfPopupMenuItemOfString().of([this[_buildMenuItem](icons.Icons.share, "Tweet recipe"), this[_buildMenuItem](icons.Icons.email, "Email recipe"), this[_buildMenuItem](icons.Icons.message, "Message recipe"), this[_buildMenuItem](icons.Icons.people, "Share on Facebook")]), BuildContextToListOfPopupMenuItemOfString())})]), flexibleSpace: C100 || CT.C100}), new basic.SliverToBoxAdapter.new({child: new basic.Stack.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C115 || CT.C115, width: fullWidth ? null : 500, child: new pesto_demo.RecipeSheet.new({recipe: this.widget.recipe})}), new basic.Positioned.new({right: 16.0, child: new floating_action_button.FloatingActionButton.new({child: new icon$.Icon.new(dart.test(isFavorite) ? icons.Icons.favorite : icons.Icons.favorite_border), onPressed: dart.bind(this, _toggleFavorite)})})])})})])})])})});
+                    }, StringToNull()), itemBuilder: dart.fn(context => JSArrayOfPopupMenuItemOfString().of([this[_buildMenuItem](icons.Icons.share, "Tweet recipe"), this[_buildMenuItem](icons.Icons.email, "Email recipe"), this[_buildMenuItem](icons.Icons.message, "Message recipe"), this[_buildMenuItem](icons.Icons.people, "Share on Facebook")]), BuildContextToListOfPopupMenuItemOfString())})]), flexibleSpace: C98 || CT.C98}), new basic.SliverToBoxAdapter.new({child: new basic.Stack.new({children: JSArrayOfWidget().of([new container.Container.new({padding: C113 || CT.C113, width: fullWidth ? null : 500, child: new pesto_demo.RecipeSheet.new({recipe: this.widget.recipe})}), new basic.Positioned.new({right: 16.0, child: new floating_action_button.FloatingActionButton.new({child: new icon$.Icon.new(dart.test(isFavorite) ? icons.Icons.favorite : icons.Icons.favorite_border), onPressed: dart.bind(this, _toggleFavorite)})})])})})])})])})});
   }
   [_buildMenuItem](icon, label) {
-    return new (PopupMenuItemOfString()).new({child: new basic.Row.new({children: JSArrayOfWidget().of([new basic.Padding.new({padding: C116 || CT.C116, child: new icon$.Icon.new(icon, {color: colors.Colors.black54})}), new text.Text.new(label, {style: this.menuItemStyle})])})});
+    return new (PopupMenuItemOfString()).new({child: new basic.Row.new({children: JSArrayOfWidget().of([new basic.Padding.new({padding: C114 || CT.C114, child: new icon$.Icon.new(icon, {color: colors.Colors.black54})}), new text.Text.new(label, {style: this.menuItemStyle})])})});
   }
   [_toggleFavorite]() {
     this.setState(dart.fn(() => {
@@ -1801,7 +1756,7 @@ pesto_demo._RecipePageState = class _RecipePageState extends framework.State$(pe
 };
 (pesto_demo._RecipePageState.new = function() {
   this[_scaffoldKey] = GlobalKeyOfScaffoldState().new();
-  this.menuItemStyle = C99 || CT.C99;
+  this.menuItemStyle = C97 || CT.C97;
   pesto_demo._RecipePageState.__proto__.new.call(this);
   ;
 }).prototype = pesto_demo._RecipePageState.prototype;
@@ -1820,21 +1775,21 @@ dart.setFieldSignature(pesto_demo._RecipePageState, () => ({
   [_scaffoldKey]: dart.finalFieldType(framework.GlobalKey$(scaffold.ScaffoldState)),
   menuItemStyle: dart.finalFieldType(text_style.TextStyle)
 }));
-var C117;
+var C115;
+var C116;
 var C118;
-var C120;
+var C117;
 var C119;
-var C121;
 var FixedColumnWidth_value = dart.privateName(table$, "FixedColumnWidth.value");
-var C123;
-var C122;
+var C121;
+var C120;
 var SizedBox_height = dart.privateName(basic, "SizedBox.height");
 var SizedBox_width = dart.privateName(basic, "SizedBox.width");
+var C122;
+var C123;
 var C124;
-var C125;
-var C126;
 var _buildItemRow = dart.privateName(pesto_demo, "_buildItemRow");
-var C127;
+var C125;
 var titleStyle = dart.privateName(pesto_demo, "RecipeSheet.titleStyle");
 var descriptionStyle = dart.privateName(pesto_demo, "RecipeSheet.descriptionStyle");
 var itemStyle = dart.privateName(pesto_demo, "RecipeSheet.itemStyle");
@@ -1880,23 +1835,23 @@ pesto_demo.RecipeSheet = class RecipeSheet extends framework.StatelessWidget {
   }
   build(context) {
     let t0;
-    return new material.Material.new({child: new safe_area.SafeArea.new({top: false, bottom: false, child: new basic.Padding.new({padding: C121 || CT.C121, child: new table.Table.new({columnWidths: C122 || CT.C122, children: (t0 = JSArrayOfTableRow().of([new table.TableRow.new({children: JSArrayOfWidget().of([new table.TableCell.new({verticalAlignment: table$.TableCellVerticalAlignment.middle, child: new image.Image.asset(this.recipe.ingredientsImagePath, {package: this.recipe.ingredientsImagePackage, width: 32.0, height: 32.0, alignment: alignment.Alignment.centerLeft, fit: box_fit.BoxFit.scaleDown})}), new table.TableCell.new({verticalAlignment: table$.TableCellVerticalAlignment.middle, child: new text.Text.new(this.recipe.name, {style: this.titleStyle})})])}), new table.TableRow.new({children: JSArrayOfWidget().of([C124 || CT.C124, new basic.Padding.new({padding: C125 || CT.C125, child: new text.Text.new(this.recipe.description, {style: this.descriptionStyle})})])}), new table.TableRow.new({children: JSArrayOfWidget().of([C124 || CT.C124, new basic.Padding.new({padding: C126 || CT.C126, child: new text.Text.new("Ingredients", {style: this.headingStyle})})])})]), t0[$addAll](this.recipe.ingredients[$map](table.TableRow, dart.fn(ingredient => this[_buildItemRow](ingredient.amount, ingredient.description), RecipeIngredientToTableRow()))), t0[$add](new table.TableRow.new({children: JSArrayOfWidget().of([C124 || CT.C124, new basic.Padding.new({padding: C126 || CT.C126, child: new text.Text.new("Steps", {style: this.headingStyle})})])})), t0[$addAll](this.recipe.steps[$map](table.TableRow, dart.fn(step => {
+    return new material.Material.new({child: new safe_area.SafeArea.new({top: false, bottom: false, child: new basic.Padding.new({padding: C119 || CT.C119, child: new table.Table.new({columnWidths: C120 || CT.C120, children: (t0 = JSArrayOfTableRow().of([new table.TableRow.new({children: JSArrayOfWidget().of([new table.TableCell.new({verticalAlignment: table$.TableCellVerticalAlignment.middle, child: new image.Image.asset(this.recipe.ingredientsImagePath, {package: this.recipe.ingredientsImagePackage, width: 32.0, height: 32.0, alignment: alignment.Alignment.centerLeft, fit: box_fit.BoxFit.scaleDown})}), new table.TableCell.new({verticalAlignment: table$.TableCellVerticalAlignment.middle, child: new text.Text.new(this.recipe.name, {style: this.titleStyle})})])}), new table.TableRow.new({children: JSArrayOfWidget().of([C122 || CT.C122, new basic.Padding.new({padding: C123 || CT.C123, child: new text.Text.new(this.recipe.description, {style: this.descriptionStyle})})])}), new table.TableRow.new({children: JSArrayOfWidget().of([C122 || CT.C122, new basic.Padding.new({padding: C124 || CT.C124, child: new text.Text.new("Ingredients", {style: this.headingStyle})})])})]), t0[$addAll](this.recipe.ingredients[$map](table.TableRow, dart.fn(ingredient => this[_buildItemRow](ingredient.amount, ingredient.description), RecipeIngredientToTableRow()))), t0[$add](new table.TableRow.new({children: JSArrayOfWidget().of([C122 || CT.C122, new basic.Padding.new({padding: C124 || CT.C124, child: new text.Text.new("Steps", {style: this.headingStyle})})])})), t0[$addAll](this.recipe.steps[$map](table.TableRow, dart.fn(step => {
               let t1;
               return this[_buildItemRow]((t1 = step.duration, t1 == null ? "" : t1), step.description);
             }, RecipeStepToTableRow()))), t0)})})})});
   }
   [_buildItemRow](left, right) {
-    return new table.TableRow.new({children: JSArrayOfWidget().of([new basic.Padding.new({padding: C127 || CT.C127, child: new text.Text.new(left, {style: this.itemAmountStyle})}), new basic.Padding.new({padding: C127 || CT.C127, child: new text.Text.new(right, {style: this.itemStyle})})])});
+    return new table.TableRow.new({children: JSArrayOfWidget().of([new basic.Padding.new({padding: C125 || CT.C125, child: new text.Text.new(left, {style: this.itemAmountStyle})}), new basic.Padding.new({padding: C125 || CT.C125, child: new text.Text.new(right, {style: this.itemStyle})})])});
   }
 };
 (pesto_demo.RecipeSheet.new = function(opts) {
   let key = opts && 'key' in opts ? opts.key : null;
   let recipe = opts && 'recipe' in opts ? opts.recipe : null;
-  this[titleStyle] = C117 || CT.C117;
-  this[descriptionStyle] = C99 || CT.C99;
-  this[itemStyle] = C118 || CT.C118;
+  this[titleStyle] = C115 || CT.C115;
+  this[descriptionStyle] = C97 || CT.C97;
+  this[itemStyle] = C116 || CT.C116;
   this[itemAmountStyle] = new pesto_demo.PestoStyle.new({fontSize: 15.0, color: pesto_demo._kTheme.primaryColor, height: 24.0 / 15.0});
-  this[headingStyle] = C119 || CT.C119;
+  this[headingStyle] = C117 || CT.C117;
   this[recipe$1] = recipe;
   pesto_demo.RecipeSheet.__proto__.new.call(this, {key: key});
   ;
