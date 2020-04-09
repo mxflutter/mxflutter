@@ -88,7 +88,7 @@
         }
         
         NSString *absolutePath = @"";
-        NSArray *extensions = @[@".js",@".ddc.js",@".lib.js"];
+        NSArray *extensions = @[@".js",@".lib.js",@".ddc.js"];
         for(NSString *dir in weakSelf.searchDirArray) {
             for (NSString *extension in extensions) {
                 NSString *absolutePathTemp = [dir stringByAppendingPathComponent:filePath];
