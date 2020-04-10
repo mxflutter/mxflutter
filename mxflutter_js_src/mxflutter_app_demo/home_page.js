@@ -275,7 +275,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
                     onTap: function () {
 
-                        const packages__zhihu__index = require('packages/zhihu/index/index');
+                        const packages__zhihu__index = require('packages/zhihu/index/index.dart.lib.js');
                         const index_page = packages__zhihu__index.index__index;
 
                         Navigator.push(context, new MaterialPageRoute({

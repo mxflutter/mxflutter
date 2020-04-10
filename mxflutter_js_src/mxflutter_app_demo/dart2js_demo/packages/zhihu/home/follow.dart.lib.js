@@ -5,48 +5,63 @@ const ui = dart_sdk.ui;
 const _interceptors = dart_sdk._interceptors;
 const dart = dart_sdk.dart;
 const dartx = dart_sdk.dartx;
-const packages__flutter__src__widgets__actions = require('packages/flutter/src/widgets/actions');
-const framework = packages__flutter__src__widgets__actions.src__widgets__framework;
-const text = packages__flutter__src__widgets__actions.src__widgets__text;
-const basic = packages__flutter__src__widgets__actions.src__widgets__basic;
-const container = packages__flutter__src__widgets__actions.src__widgets__container;
-const navigator = packages__flutter__src__widgets__actions.src__widgets__navigator;
-const icon = packages__flutter__src__widgets__actions.src__widgets__icon;
-const single_child_scroll_view = packages__flutter__src__widgets__actions.src__widgets__single_child_scroll_view;
-const packages__flutter__src__painting___network_image_web = require('packages/flutter/src/painting/_network_image_web');
-const text_style = packages__flutter__src__painting___network_image_web.src__painting__text_style;
-const box_decoration = packages__flutter__src__painting___network_image_web.src__painting__box_decoration;
-const decoration_image = packages__flutter__src__painting___network_image_web.src__painting__decoration_image;
-const _network_image_web = packages__flutter__src__painting___network_image_web.src__painting___network_image_web;
-const border_radius = packages__flutter__src__painting___network_image_web.src__painting__border_radius;
-const edge_insets = packages__flutter__src__painting___network_image_web.src__painting__edge_insets;
-const alignment = packages__flutter__src__painting___network_image_web.src__painting__alignment;
-const box_border = packages__flutter__src__painting___network_image_web.src__painting__box_border;
-const packages__zhihu__global_config = require('packages/zhihu/global_config');
-const global_config = packages__zhihu__global_config.global_config;
-const packages__flutter__material = require('packages/flutter/material');
-const flat_button = packages__flutter__material.src__material__flat_button;
-const page = packages__flutter__material.src__material__page;
-const circle_avatar = packages__flutter__material.src__material__circle_avatar;
-const colors = packages__flutter__material.src__material__colors;
-const popup_menu = packages__flutter__material.src__material__popup_menu;
-const icons = packages__flutter__material.src__material__icons;
-const packages__zhihu__home__question_page = require('packages/zhihu/home/question_page');
-const reply_page = packages__zhihu__home__question_page.home__reply_page;
-const packages__zhihu__home__article = require('packages/zhihu/home/article');
-const article = packages__zhihu__home__article.home__article;
-const follow = Object.create(dart.library);
-const $toString = dartx.toString;
-const $_get = dartx._get;
-let JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
-let BuildContextToReplyPage = () => (BuildContextToReplyPage = dart.constFn(dart.fnType(reply_page.ReplyPage, [framework.BuildContext])))();
-let VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
-let PopupMenuButtonOfString = () => (PopupMenuButtonOfString = dart.constFn(popup_menu.PopupMenuButton$(core.String)))();
-let PopupMenuItemOfString = () => (PopupMenuItemOfString = dart.constFn(popup_menu.PopupMenuItem$(core.String)))();
-let JSArrayOfPopupMenuItemOfString = () => (JSArrayOfPopupMenuItemOfString = dart.constFn(_interceptors.JSArray$(PopupMenuItemOfString())))();
-let ListOfPopupMenuItemOfString = () => (ListOfPopupMenuItemOfString = dart.constFn(core.List$(PopupMenuItemOfString())))();
-let BuildContextToListOfPopupMenuItemOfString = () => (BuildContextToListOfPopupMenuItemOfString = dart.constFn(dart.fnType(ListOfPopupMenuItemOfString(), [framework.BuildContext])))();
+const packages__flutter__src__widgets__widget_span$46dart = require('packages/flutter/src/widgets/widget_span.dart');
+const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+const packages__flutter__src__painting__strut_style$46dart = require('packages/flutter/src/painting/strut_style.dart');
+const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+const packages__zhihu__global_config$46dart = require('packages/zhihu/global_config.dart');
+const global_config = packages__zhihu__global_config$46dart.global_config;
+const packages__flutter__src__painting__box_decoration$46dart = require('packages/flutter/src/painting/box_decoration.dart');
+const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+const packages__flutter__src__painting__decoration_image$46dart = require('packages/flutter/src/painting/decoration_image.dart');
+const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+const packages__flutter__src__painting___network_image_web$46dart = require('packages/flutter/src/painting/_network_image_web.dart');
+const _network_image_web = packages__flutter__src__painting___network_image_web$46dart.src__painting___network_image_web;
+const packages__flutter__src__painting__border_radius$46dart = require('packages/flutter/src/painting/border_radius.dart');
+const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+const packages__flutter__src__painting__edge_insets$46dart = require('packages/flutter/src/painting/edge_insets.dart');
+const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+const packages__flutter__src__material__icon_button$46dart = require('packages/flutter/src/material/icon_button.dart');
+const flat_button = packages__flutter__src__material__icon_button$46dart.src__material__flat_button;
+const packages__flutter__src__material__page$46dart = require('packages/flutter/src/material/page.dart');
+const page = packages__flutter__src__material__page$46dart.src__material__page;
+const packages__zhihu__home__question_page$46dart = require('packages/zhihu/home/question_page.dart');
+const reply_page = packages__zhihu__home__question_page$46dart.home__reply_page;
+const packages__flutter__src__material__circle_avatar$46dart = require('packages/flutter/src/material/circle_avatar.dart');
+const circle_avatar = packages__flutter__src__material__circle_avatar$46dart.src__material__circle_avatar;
+const packages__flutter__src__material__colors$46dart = require('packages/flutter/src/material/colors.dart');
+const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+const packages__flutter__src__painting__alignment$46dart = require('packages/flutter/src/painting/alignment.dart');
+const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+const packages__flutter__src__material__popup_menu$46dart = require('packages/flutter/src/material/popup_menu.dart');
+const popup_menu = packages__flutter__src__material__popup_menu$46dart.src__material__popup_menu;
+const packages__flutter__src__widgets__icon$46dart = require('packages/flutter/src/widgets/icon.dart');
+const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+const packages__flutter__src__material__icons$46dart = require('packages/flutter/src/material/icons.dart');
+const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+const packages__flutter__src__painting__box_border$46dart = require('packages/flutter/src/painting/box_border.dart');
+const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+const packages__flutter__src__widgets__single_child_scroll_view$46dart = require('packages/flutter/src/widgets/single_child_scroll_view.dart');
+const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
+const packages__zhihu__home__article$46dart = require('packages/zhihu/home/article.dart');
+const article = packages__zhihu__home__article$46dart.home__article;
+var follow = Object.create(dart.library);
+var $toString = dartx.toString;
+var $_get = dartx._get;
+var JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
+var BuildContextToReplyPage = () => (BuildContextToReplyPage = dart.constFn(dart.fnType(reply_page.ReplyPage, [framework.BuildContext])))();
+var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+var PopupMenuButtonOfString = () => (PopupMenuButtonOfString = dart.constFn(popup_menu.PopupMenuButton$(core.String)))();
+var PopupMenuItemOfString = () => (PopupMenuItemOfString = dart.constFn(popup_menu.PopupMenuItem$(core.String)))();
+var JSArrayOfPopupMenuItemOfString = () => (JSArrayOfPopupMenuItemOfString = dart.constFn(_interceptors.JSArray$(PopupMenuItemOfString())))();
+var ListOfPopupMenuItemOfString = () => (ListOfPopupMenuItemOfString = dart.constFn(core.List$(PopupMenuItemOfString())))();
+var BuildContextToListOfPopupMenuItemOfString = () => (BuildContextToListOfPopupMenuItemOfString = dart.constFn(dart.fnType(ListOfPopupMenuItemOfString(), [framework.BuildContext])))();
 const CT = Object.create(null);
+var L0 = "package:zhihu/home/follow.dart";
 dart.defineLazy(CT, {
   get C1() {
     return C1 = dart.const({
@@ -134,7 +149,7 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 0
     });
   }
-});
+}, false);
 follow.Follow = class Follow extends framework.StatefulWidget {
   createState() {
     return new follow._FollowState.new();
@@ -142,27 +157,35 @@ follow.Follow = class Follow extends framework.StatefulWidget {
 };
 (follow.Follow.new = function() {
   follow.Follow.__proto__.new.call(this);
+  ;
 }).prototype = follow.Follow.prototype;
-const Radius_y = dart.privateName(ui, "Radius.y");
-const Radius_x = dart.privateName(ui, "Radius.x");
-let C1;
-const BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
-const BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
-const BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
-const BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-let C0;
-const EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-const EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-const EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-const EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-let C2;
-let C3;
-let C4;
-let C5;
-let C6;
-let C7;
-let C8;
-let C9;
+dart.addTypeTests(follow.Follow);
+dart.addTypeCaches(follow.Follow);
+dart.setMethodSignature(follow.Follow, () => ({
+  __proto__: dart.getMethods(follow.Follow.__proto__),
+  createState: dart.fnType(follow._FollowState, [])
+}));
+dart.setLibraryUri(follow.Follow, L0);
+var Radius_y = dart.privateName(ui, "Radius.y");
+var Radius_x = dart.privateName(ui, "Radius.x");
+var C1;
+var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+var C0;
+var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+var C2;
+var C3;
+var C4;
+var C5;
+var C6;
+var C7;
+var C8;
+var C9;
 follow._FollowState = class _FollowState extends framework.State$(follow.Follow) {
   wordsCard(article) {
     let markWidget = null;
@@ -185,8 +208,18 @@ follow._FollowState = class _FollowState extends framework.State$(follow.Follow)
 };
 (follow._FollowState.new = function() {
   follow._FollowState.__proto__.new.call(this);
+  ;
 }).prototype = follow._FollowState.prototype;
+dart.addTypeTests(follow._FollowState);
+dart.addTypeCaches(follow._FollowState);
+dart.setMethodSignature(follow._FollowState, () => ({
+  __proto__: dart.getMethods(follow._FollowState.__proto__),
+  wordsCard: dart.fnType(framework.Widget, [article.Article]),
+  billboard: dart.fnType(framework.Widget, []),
+  build: dart.fnType(framework.Widget, [framework.BuildContext])
+}));
+dart.setLibraryUri(follow._FollowState, L0);
 // Exports:
 exports.home__follow = follow;
 
-//# sourceMappingURL=follow.ddc.js.map
+//# sourceMappingURL=follow.dart.lib.js.map
