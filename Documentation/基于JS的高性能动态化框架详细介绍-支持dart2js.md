@@ -109,31 +109,48 @@ MXFlutter适配，主要包括几部分
 
 ![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E6%A1%A5%E6%8E%A5%E7%B1%BB.png?raw=true)
 
-编译出来的业务代码引用
+编译出来的业务代码，文件引用如下
 
 ```javascript
-main.ZhiHu = class ZhiHu extends framework.StatelessWidget {
-    build(context) {
-      return new app.MaterialApp.new({title: "知乎-高仿版", home: new index.Index.new({$creationLocationd_0dea112b090073317d4: C0 || CT.C0}), $creationLocationd_0dea112b090073317d4: C2 || CT.C2});
-    }
-  };
-  (main.ZhiHu.new = function(opts) {
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    main.ZhiHu.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = main.ZhiHu.prototype;
-  dart.addTypeTests(main.ZhiHu);
-  dart.addTypeCaches(main.ZhiHu);
-  dart.setMethodSignature(main.ZhiHu, () => ({
-    __proto__: dart.getMethods(main.ZhiHu.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(main.ZhiHu, L0);
-  var C6;
-  main.main = function main$() {
-    return binding.runApp(new main.ZhiHu.new({$creationLocationd_0dea112b090073317d4: C6 || CT.C6}));
-  };
+const packages__flutter__src__widgets__widget_span$46dart = require('packages/flutter/src/widgets/widget_span.dart');
+const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+const packages__flutter__src__material__icon_button$46dart = require('packages/flutter/src/material/icon_button.dart');
+const flat_button = packages__flutter__src__material__icon_button$46dart.src__material__flat_button;
+const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+const tabs = packages__flutter__src__material__icon_button$46dart.src__material__tabs;
+const packages__flutter__src__material__page$46dart = require('packages/flutter/src/material/page.dart');
+const page = packages__flutter__src__material__page$46dart.src__material__page;
+const packages__zhihu__home__search_page$46dart = require('packages/zhihu/home/search_page.dart');
+const search_page = packages__zhihu__home__search_page$46dart.home__search_page;
 ```
+
+桥接类代码如下
+
+```javascript
+let src__widgets__container = Object.create(null);
+src__widgets__container.DecoratedBox  = layoutExports.DecoratedBox;
+src__widgets__container.Container  = layoutExports.Container;
+exports.src__widgets__container = src__widgets__container;
+let src__widgets__navigator = Object.create(null);
+src__widgets__navigator.Navigator = materialExports.Navigator;
+src__widgets__navigator.RouteSettings = materialExports.RouteSettings;
+exports.src__widgets__navigator = src__widgets__navigator;
+let src__widgets__basic = Object.create(null);
+src__widgets__basic.Center = layoutExports.Center;
+src__widgets__basic.Column = layoutExports.Column;
+src__widgets__basic.Padding = layoutExports.Padding;
+src__widgets__basic.Align = layoutExports.Align;
+exports.src__widgets__basic = src__widgets__basic;
+let src__material__scaffold = Object.create(null);
+src__material__scaffold.Scaffold = materialExports.Scaffold;
+src__material__scaffold.ScaffoldState = materialExports.ScaffoldState;
+exports.src__material__scaffold = src__material__scaffold;
+```
+
 
 按照 dart2js 的路径引用，重新整理 lib 库，按照对应路径放置，并优化 JS 文件的重复引用
 
@@ -191,7 +208,9 @@ dartdevc 精简包括：
 * 简单插件。通过 native 或 js 等现有框架，无需 Flutter 就能实现的插件，重新封装，简化通信流程。如：dio、storage等插件
 * 自定义插件。MXFlutter 也支持用户将自定义插件作为一个普通 widget，按照指定方式接入框架，拓展 MXFlutter 生态
 
+
 ## 示例
+
 
 ## 许可协议
 
