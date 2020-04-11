@@ -1,25 +1,23 @@
-# 基于JS的高性能动态化框架MXFlutter-对dart的支持
+# 基于JS的高性能动态化框架 MXFlutter —对 dart 的支持
 
-Flutter 以其高性能、快速交付、流畅快速体验等特点，近两年已发展成为最流行的跨平台框架，得到了越来越多的应用。各个公司也在 Flutter 体系方面做了一系列尝试，如标准化、自动化、容器化、动态化等，并取得了不错的效果。Flutter 动态化是我们重点关注的部分。
+MXFlutter 自去年6月份在 GitHub 开源后，得到了很多开发者的关注和肯定。同时，也收到不少建议和优化，如：JS 写法不友好，开发效率不高，Flutter 生态无法复用等问题。为此，我们进行了探索和研究，实现了编写 Dart 代码，通过 dart2js 编译器，将 Dart 编译成 JS，运行在 MXFlutter 上，最终实现 Flutter 动态化。该方案已在 [GitHub](https://github.com/TGIF-iMatrix/MXFlutter) 开源
 
 ## MXFlutter框架
 
 Flutter的三棵树我们是比较熟悉的。Widget树存放渲染内容、视图布局等信息，重新创建的开销小。Element树存放上下文，通过 Element 遍历视图树，Element 同时持有 Widget 和 RenderObject。
 RenderObject树根据 Widget 的布局属性进行布局，绘制 Widget 传入的内容。它的创建是非常昂贵的。
 
-图 widget树
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/widget%E6%A0%91.png?raw=true)
 
 我们在JS侧复制了一棵和Widget树一样的树，作为虚拟Dom树，来描述我们的页面。每个 widget 通过唯一的 widgetID 对应，callback 也通过 callbackID 来实现对应。
 
-图 四棵树
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/widget%E4%BA%A4%E4%BA%92.png?raw=true)
 
-整体架构图如下。更多框架细节在 [基于JavaScript的Flutter框架详细介绍](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
+整体架构图如下。
 
-## 现有问题
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E6%9E%B6%E6%9E%84.png?raw=true)
 
-MXFlutter自去年6月份在github开源后，得到了很多开发者的关注和肯定，同时，也收到很多开发者对MXFlutter的建议和优化，如：JS写法不友好，开发效率不高，Flutter生态无法复用等问题。如果采用Dart作为上层语言，上述问题也可以迎刃而解，因此我们开始预研MXFlutter对Dart的支持
-
-目前现有问题截图
+更多技术细节在 [基于JavaScript的Flutter框架详细介绍](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
 
 ## 对dart的支持
 
@@ -30,7 +28,7 @@ Flutter For Web 是 Flutter 使用标准 Web 技术，跑在浏览器上的兼�
 
 修改dart:ui库和Flutter Engine，将Browser引擎替换回移动端使用的Skia引擎，这样既可以实现动态更新，也能保证性能。
 
-替换Browser的图片
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E6%9B%BF%E6%8D%A2engine-2.png?raw=true)
 
 顺着这个思路，我们初步尝试了下，单单dart:ui的接口就需要改动近200个，工作量很大。另外，Flutter Engine部分也要一并修改定制。这对后续更新升级也有影响。因此，该方法没有继续研究下去。
 
@@ -38,18 +36,162 @@ Flutter For Web 是 Flutter 使用标准 Web 技术，跑在浏览器上的兼�
 
 只引入dart2js编译器，将dart代码编译成js代码，运行在MXFlutter上。只要编译出的js代码能实现调用MXFlutter，就能正常跑起来了。
 
-dart2js编译器有两种环境: dart2js和dartdevc
+dart2js编译器有dart2js和dartdevc两种环境。
 
-该方案的难点在于：
-> dart2js编译器的抽取
+> dart2js：生产环境。经过minify优化，文件相对较小，但混淆后代码不可读
+> dartdevc：开发环境。代码可读性较强，但文件太大，调试信息多
+
+dart2js编译出JS代码如下
+
+```javascript
+(function dartProgram(){function copyProperties(a,b){var t=Object.keys(a)
+for(var s=0;s<t.length;s++){var r=t[s]
+b[r]=a[r]}}var z=function(){var t=function(){}
+t.prototype={p:{}}
+var s=new t()
+if(!(s.__proto__&&s.__proto__.p===t.prototype.p))return false
+try{if(typeof navigator!="undefined"&&typeof navigator.userAgent=="string"&&navigator.userAgent.indexOf("Chrome/")>=0)return true
+if(typeof version=="function"&&version.length==0){var r=version()
+if(/^\d+\.\d+\.\d+\.\d+$/.test(r))return true}}catch(q){}return false}()
+function setFunctionNamesIfNecessary(a){function t(){};if(typeof t.name=="string")return
+for(var t=0;t<a.length;t++){var s=a[t]
+var r=Object.keys(s)
+for(var q=0;q<r.length;q++){var p=r[q]
+var o=s[p]
+if(typeof o=='function')o.name=p}}}function inherit(a,b){a.prototype.constructor=a
+a.prototype["$i"+a.name]=a
+```
+
+dartdevc编译出JS代码如下
+
+```javascript
+main.ZhiHu = class ZhiHu extends framework.StatelessWidget {
+    build(context) {
+      return new app.MaterialApp.new({title: "知乎-高仿版", home: new index.Index.new({$creationLocationd_0dea112b090073317d4: C0 || CT.C0}), $creationLocationd_0dea112b090073317d4: C2 || CT.C2});
+    }
+  };
+  (main.ZhiHu.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    main.ZhiHu.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = main.ZhiHu.prototype;
+  dart.addTypeTests(main.ZhiHu);
+  dart.addTypeCaches(main.ZhiHu);
+  dart.setMethodSignature(main.ZhiHu, () => ({
+    __proto__: dart.getMethods(main.ZhiHu.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(main.ZhiHu, L0);
+  var C6;
+  main.main = function main$() {
+    return binding.runApp(new main.ZhiHu.new({$creationLocationd_0dea112b090073317d4: C6 || CT.C6}));
+  };
+```
+
+考虑到开发过程的代码可读性及调试，先考虑用dartdevc接入，并在适配完成和稳定后，再接入dart2js
+
+接入dartdevc，需解决下面两个难点，接下来一一详述
+> 编译器的抽取
 > MXFlutter的适配
 
-#### dart2js编译器的抽取
+#### 一、dart2js编译器的抽取
 
-#### MXFlutter的适配
-MXFlutter适配
+#### 二、MXFlutter的适配
 
-## 第三方库
+MXFlutter适配，主要包括几部分
+> 编译出的Widget如何与MXFlutter对应
+> Channel 的支持
+> dart_sdk太大及过多调试信息
+
+**1、编译出的Widget如何与MXFlutter对应**
+
+在桥接类中，创建相关空类，通过引用 MXFlutter 的 Framework 文件，声明 dartdevc 中 使用的widget。
+
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E6%A1%A5%E6%8E%A5%E7%B1%BB.png?raw=true)
+
+编译出来的业务代码引用
+
+```javascript
+main.ZhiHu = class ZhiHu extends framework.StatelessWidget {
+    build(context) {
+      return new app.MaterialApp.new({title: "知乎-高仿版", home: new index.Index.new({$creationLocationd_0dea112b090073317d4: C0 || CT.C0}), $creationLocationd_0dea112b090073317d4: C2 || CT.C2});
+    }
+  };
+  (main.ZhiHu.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    main.ZhiHu.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = main.ZhiHu.prototype;
+  dart.addTypeTests(main.ZhiHu);
+  dart.addTypeCaches(main.ZhiHu);
+  dart.setMethodSignature(main.ZhiHu, () => ({
+    __proto__: dart.getMethods(main.ZhiHu.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(main.ZhiHu, L0);
+  var C6;
+  main.main = function main$() {
+    return binding.runApp(new main.ZhiHu.new({$creationLocationd_0dea112b090073317d4: C6 || CT.C6}));
+  };
+```
+
+按照 dart2js 的路径引用，重新整理 lib 库，按照对应路径放置，并优化 JS 文件的重复引用
+
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E7%9B%AE%E5%BD%95%E8%B0%83%E6%95%B4.png?raw=true)
+
+MXFlutter Framework中，也要做相应的方法修改。
+
+* 增加 Objec.new = {} 方法
+* 增加 class.fuction() = {} 静态方法
+* 支持以 index 和 name 定义的枚举。如:
+
+```dart
+MainAxisAlignment = {
+    start: { _name: "MainAxisAlignment.start", index: 0 },
+    end: { _name: "MainAxisAlignment.end", index: 1 },
+    center: { _name: "MainAxisAlignment.center", index: 2 },
+    spaceBetween: { _name: "MainAxisAlignment.spaceBetween", index: 3 },
+    spaceAround: { _name: "MainAxisAlignment.spaceAround", index: 4 },
+    spaceEvenly: { _name: "MainAxisAlignment.spaceEvenly", index: 5 }
+};
+```
+
+**2、Channel的支持**
+
+对于 Channel，我们在 JS 侧定义同名镜像类，通过 JS 绑定，native 引擎 hook Flutter 的 Method/Event Channel 的注册方法，注册 JS 回调，实现直接从 Native 回调 JS。
+
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/channel.png?raw=true)
+
+**3、dart_sdk太大及过多调试信息**
+
+dart_sdk 精简包括：
+
+* 删除 web_sql、web_gl 以及 html 等在web上使用的类
+* 保留 dart_sdk 必须的库，如dart_sdk.ui、dart_sdk.core、 dart_sdk.io 等
+
+dartdevc 精简包括：
+
+* 删除无用调试信息，例如widget_inspector、 _Location_line
+* 删除编译 Flutter Framework 库生成的 JS 文件，如 action.js，material.js
+
+通过一系列精简，可以看到业务代码可以减少86%，dart_sdk 大小减少了73%
+
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E7%B2%BE%E7%AE%80%E6%95%88%E6%9E%9C1-3.png?raw=true)
+
+
+
+
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E7%B2%BE%E7%AE%80%E6%95%88%E6%9E%9C1-4.png?raw=true)
+
+## 第三方插件
+
+第三方插件，我们可以分为常用插件、简单插件及自定义插件
+
+* 常用插件。我们在框架内已经集成，开发者直接使用。如 pull_to_refresh、cached_network_image等
+* 简单插件。通过 native 或 js 等现有框架，无需 Flutter 就能实现的插件，重新封装，简化通信流程。如：dio、storage等插件
+* 自定义插件。MXFlutter 也支持用户将自定义插件作为一个普通 widget，按照指定方式接入框架，拓展 MXFlutter 生态
+
+## 示例
 
 ## 许可协议
 
