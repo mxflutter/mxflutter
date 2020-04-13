@@ -2,37 +2,11 @@
 
 MXFlutter 自去年6月份在 GitHub 开源后，得到了很多开发者的关注和肯定。同时，也收到不少建议和优化，如：JS 写法不友好，开发效率不高，Flutter 生态无法复用等问题。为此，我们进行了探索和研究，实现了编写 Dart 代码，通过 dart2js 编译器，将 Dart 编译成 JS，运行在 MXFlutter 上，最终实现 Flutter 动态化。该方案已在 [GitHub](https://github.com/TGIF-iMatrix/MXFlutter) 开源
 
-## MXFlutter框架
-
-Flutter的三棵树我们是比较熟悉的。Widget树存放渲染内容、视图布局等信息，重新创建的开销小。Element树存放上下文，通过 Element 遍历视图树，Element 同时持有 Widget 和 RenderObject。
-RenderObject树根据 Widget 的布局属性进行布局，绘制 Widget 传入的内容。它的创建是非常昂贵的。
-
-![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/widget%E6%A0%91.png?raw=true)
-
-我们在JS侧复制了一棵和Widget树一样的树，作为虚拟Dom树，来描述我们的页面。每个 widget 通过唯一的 widgetID 对应，callback 也通过 callbackID 来实现对应。
-
-![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/widget%E4%BA%A4%E4%BA%92.png?raw=true)
-
-整体架构图如下。
-
-![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E6%9E%B6%E6%9E%84.png?raw=true)
-
-更多技术细节在 [基于JavaScript的Flutter框架详细介绍](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
-
 ## 对dart的支持
 
 Flutter For Web 是 Flutter 使用标准 Web 技术，跑在浏览器上的兼容实现。它上层使用dart2js编译器，将业务代码、Flutter Framework一起编译成JS代码，通过重新实现 dart:ui 库，用针对 DOM 和 Canvas 的代码，替换移动端使用的对 Skia 引擎的绑定，使用 HTML+CSS+Cavas 完成绘制。
 
-
-### 方案一
-
-修改dart:ui库和Flutter Engine，将Browser引擎替换回移动端使用的Skia引擎，这样既可以实现动态更新，也能保证性能。
-
-![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E6%9B%BF%E6%8D%A2engine-2.png?raw=true)
-
-顺着这个思路，我们初步尝试了下，单单dart:ui的接口就需要改动近200个，工作量很大。另外，Flutter Engine部分也要一并修改定制。这对后续更新升级也有影响。因此，该方法没有继续研究下去。
-
-### 方案二
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/flutter%20for%20web.png?raw=true)
 
 只引入dart2js编译器，将dart代码编译成js代码，运行在MXFlutter上。只要编译出的js代码能实现调用MXFlutter，就能正常跑起来了。
 
