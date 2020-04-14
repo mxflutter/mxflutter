@@ -132,13 +132,21 @@
     }
     FlutterMethodCall* call  = [FlutterMethodCall methodCallWithMethodName:@"reloadApp" arguments:arguments];
     
-//    if (!_flutterEngineIsDidRender) {
-//
-//        [self.callFlutterQueue addObject:call];
-//        return;
-//    }
-    
+
     [self.basicChannel invokeMethod:call.method arguments:call.arguments];
+}
+
+//MARK: - JSI->Native->Flutter
+//  JSI->Native->Flutter 通用通道
+- (void)callFlutterInvoke:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback
+{
+    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridge_js2flutterSubCallChannel" arguments:argumentsJSONStr];
+
+    [self.basicChannel invokeMethod:call.method arguments:call.arguments result:^(id  _Nullable result) {
+        if (callback) {
+            callback(result);
+        }
+    }];
 }
 
 - (void)callFlutterMethodChannelInvoke:(NSString*)channelName methodName:(NSString*)methodName params:(NSDictionary *)params callback:(void(^)(id _Nullable result))callback
