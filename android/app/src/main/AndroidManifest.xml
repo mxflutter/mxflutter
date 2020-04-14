@@ -9,7 +9,8 @@
     <application
         android:name="com.imatrixteam.jsflutter.MXFlutterApplication"
         android:icon="@mipmap/ic_launcher"
-        android:label="js_flutter">
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:label="MXFlutter">
         <activity
             android:name="com.imatrixteam.example.MXFlutterActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"

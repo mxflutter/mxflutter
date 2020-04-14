@@ -283,6 +283,9 @@ public class FileUtils {
     private static boolean sCopiedFileFromAssets;
 
     public static boolean isCopiedFileFromAssets(Context context) {
+        if (MXJSFlutterApp.sUseAsset) {
+            return false;
+        }
         if (!sCopiedFileFromAssets) {
             sCopiedFileFromAssets = context.getSharedPreferences("mx_sp", Context.MODE_PRIVATE).getBoolean("copied_file_from_assets", false);
         }

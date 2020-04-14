@@ -123,6 +123,23 @@ public class MXJSFlutterEngine {
         jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
     }
 
+    public void callFlutterCreateFlutterObject(String params) {
+        FileUtils.assertUiThread();
+
+        MethodCall call = new MethodCall("mxflutterBridgeCreateFlutterObject", params);
+        jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
+    }
+
+    public void callFlutterInvokeWithCallback(String params, String onResultId) {
+        FileUtils.assertUiThread();
+        Map arg = new HashMap();
+        arg.put("params", params);
+        arg.put("onResultId", onResultId);
+
+        MethodCall call = new MethodCall("mxflutterBridgeInvokeWithCallback", arg);
+        jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
+    }
+
     public void callFlutterMethodChannelInvoke(String channelName, String methodName, Map params, MethodChannel.Result callback) {
         FileUtils.assertUiThread();
 
