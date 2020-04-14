@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 //调用Flutter切换到JSWidget，显示JS渲染的内容
 - (void)callFlutterReloadAppWithJSWidgetData:(NSString*)widgetData;
 - (void)callFlutterReloadAppWithRouteName:(NSString*)routeName  widgetData:(NSString*)widgetData;
+
+- (void)callFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback;
+
 - (void)callFlutterMethodChannelInvoke:(NSString*)channelName
                              methodName:(NSString*)methodName
                                  params:(NSDictionary *)params

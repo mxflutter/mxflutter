@@ -25,6 +25,7 @@
 
 
 @property (nonatomic, strong) FlutterMethodChannel *basicChannel;
+@property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterCommonBasicChannel;
 @property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callFlutterQueue;
 
 @end
@@ -73,6 +74,16 @@
         else if ([call.method isEqualToString:@"mxLog"]) {
             NSLog(@"%@", call.arguments);
         }
+    }];
+    
+    // js <===bridge===> flutter common channel
+    self.jsFlutterCommonBasicChannel = [FlutterBasicMessageChannel messageChannelWithName:@"mxflutter.mxflutter_common_basic_channel"
+    binaryMessenger:self.flutterEngine.binaryMessenger
+              codec:[FlutterStringCodec sharedInstance]];
+    
+
+    [self.jsFlutterCommonBasicChannel setMessageHandler:^(id  _Nullable message, FlutterReply  _Nonnull callback) {
+        
     }];
     
 }
@@ -138,13 +149,11 @@
 
 //MARK: - JSI->Native->Flutter
 //  JSI->Native->Flutter 通用通道
-- (void)callFlutterInvoke:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback
+- (void)callFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback
 {
-    FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridge_js2flutterSubCallChannel" arguments:argumentsJSONStr];
-
-    [self.basicChannel invokeMethod:call.method arguments:call.arguments result:^(id  _Nullable result) {
+    [self.jsFlutterCommonBasicChannel sendMessage:argumentsJSONStr reply:^(id  _Nullable reply) {
         if (callback) {
-            callback(result);
+            callback(reply);
         }
     }];
 }

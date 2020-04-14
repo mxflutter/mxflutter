@@ -42,6 +42,8 @@ class MXJSFlutter {
   MXJSFlutterApp currentApp;
 
   MethodChannel _jsFlutterMainChannel;
+  //通用js <===bridge===> flutter 通道
+  BasicMessageChannel<String> _jsFlutterCommonBasicChannel;
   Map<String, MXChannelFun> _jsFlutterMainChannelFunRegMap = {};
 
   MXJSFlutter._() {}
@@ -61,11 +63,16 @@ class MXJSFlutter {
       return fun(call.arguments);
     });
 
-    _jsFlutterMainChannelFunRegMap["reloadApp"] = reloadApp;
-    ///------mxflutterBridge js -> flutter ------
+    _jsFlutterCommonBasicChannel = const BasicMessageChannel(
+        'mxflutter.mxflutter_common_basic_channel', StringCodec());
 
-    _jsFlutterMainChannelFunRegMap["mxflutterBridge_js2flutterSubCallChannel"] =
-        js2flutterSubCallChannel;
+    _jsFlutterCommonBasicChannel
+        .setMessageHandler((String message) => Future<String>(() {
+              return js2flutterSubCallChannel(message);
+            }));
+
+    ///Method reg
+    _jsFlutterMainChannelFunRegMap["reloadApp"] = reloadApp;
 
     ///------mxflutterBridge js -> flutter  subcmd------
     ///由js2flutterSubCallChannel调用
@@ -78,6 +85,7 @@ class MXJSFlutter {
     _jsFlutterMainChannelFunRegMap[
             "mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"] =
         mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke;
+
     ///------mxflutterBridge------
   }
 
@@ -100,7 +108,7 @@ class MXJSFlutter {
 
   ///js->flutter 顶层通用调用通道
   ///args参数为JSON字符串argsJSONStr
-  Future<dynamic> js2flutterSubCallChannel(argsJSONStr) async {
+  Future<String> js2flutterSubCallChannel(argsJSONStr) async {
     MXJSLog.log("js2flutterSubCallChannel");
     MXJSLog.log(argsJSONStr);
 
@@ -114,12 +122,13 @@ class MXJSFlutter {
     return fun(funArgs);
   }
 
-  Future<dynamic> mxflutterBridgeCreateFlutterObject(args) async {
-    Map argMap = json.decode(args);
+  Future<dynamic> mxflutterBridgeCreateFlutterObject(argMap) async {
     MXJsonObjToDartObject.jsonToDartObj(argMap);
   }
 
-  Future<dynamic> mxflutterBridgeInvokeWithCallback(args) async {
+  Future<String> mxflutterBridgeInvokeWithCallback(args) async {
+    Completer<String> completer = new Completer<String>();
+
     String params = args["params"];
     Map paramMap = json.decode(params);
     String mirrorID = paramMap["mirrorID"];
@@ -136,9 +145,17 @@ class MXJSFlutter {
           MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
       proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
           callback: (params) {
+        Map returnArgs = {"callbackId": onResultId, "param": params};
+        String returnJSONStr = json.encode(returnArgs);
+        completer.complete(returnJSONStr);
+
         callJsCallbackFunction(onResultId, params);
       });
+
+      return completer.future;
     }
+
+    return null;
   }
 
   Future<dynamic> mxflutterBridgeMethodChannelInvoke(args) async {
@@ -391,6 +408,7 @@ class MXJSFlutterApp {
               Map args = {};
               args["widgetData"] = message;
               _jsRebuild(args);
+              return null;
             }));
 
     // 设置navigatorPush方法通道
@@ -401,6 +419,7 @@ class MXJSFlutterApp {
               Map args = {};
               args["widgetData"] = message;
               _navigatorPush(args);
+              return null;
             }));
   }
 
