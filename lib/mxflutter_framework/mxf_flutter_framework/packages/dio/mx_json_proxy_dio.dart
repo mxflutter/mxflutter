@@ -38,7 +38,7 @@ class MXProxyDio extends MXJsonObjProxy {
     return dio;
   }
 
-  //mirrorObj 为一个AnimationController类的实例对象，把调用对象方法，路由到代理类
+  //mirrorObj 为一个Dio类的实例对象，把调用对象方法，路由到代理类
   @override
   void jsInvokeMirrorObjFunction(
       String mirrorID, dynamic mirrorObj, String funcName, Map args,

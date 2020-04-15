@@ -137,6 +137,23 @@
     //------Flutter Bridge------
     
     /**
+    * @param callJSONStr 透传字段
+    * @param function 回调
+    */
+    context[@"mxfJSBridgeInvokeFlutterCommonChannel"] = ^(NSString* callJSONStr, JSValue* needNativeManagedValue, JSValue* function) {
+        
+        [self.jsFlutterEngine invokeFlutterCommonChannel:callJSONStr callback:^(id  _Nullable result) {
+            if (result) {
+                [function callWithArguments:@[result]];
+            } else {
+                [function callWithArguments:@[]];
+            }
+        }];
+        
+    };
+    
+    
+    /**
     * @param channelName 通道名
     * @param methodName 方法名
     * @param params 参数

@@ -42,6 +42,8 @@ class MXJSFlutter {
   MXJSFlutterApp currentApp;
 
   MethodChannel _jsFlutterMainChannel;
+  //通用js <===bridge===> flutter 通道
+  BasicMessageChannel<String> _jsFlutterCommonBasicChannel;
   Map<String, MXChannelFun> _jsFlutterMainChannelFunRegMap = {};
 
   MXJSFlutter._() {}
@@ -51,28 +53,40 @@ class MXJSFlutter {
   }
 
   setupChannel() {
+
+    ///[Native->flutter]
     _jsFlutterMainChannel = MethodChannel("js_flutter.flutter_main_channel");
     _jsFlutterMainChannel.setMethodCallHandler((MethodCall call) async {
       MXJSLog.log("_jsFlutterMainChannel_methodHandler:");
       MXJSLog.log(call);
 
       Function fun = _jsFlutterMainChannelFunRegMap[call.method];
-
       return fun(call.arguments);
     });
 
+    _jsFlutterCommonBasicChannel = const BasicMessageChannel(
+        'mxflutter.mxflutter_common_basic_channel', StringCodec());
+    _jsFlutterCommonBasicChannel
+        .setMessageHandler((String message) => Future<String>(() {
+              return js2flutterSubCallChannel(message);
+            }));
+
+    ///Method reg
     _jsFlutterMainChannelFunRegMap["reloadApp"] = reloadApp;
-    //------mxflutterBridge------
-    _jsFlutterMainChannelFunRegMap["mxflutterBridgeCreateFlutterObject"] =
-        mxflutterBridgeCreateFlutterObject;
-    _jsFlutterMainChannelFunRegMap["mxflutterBridgeInvokeWithCallback"] =
-        mxflutterBridgeInvokeWithCallback;
+
+    ///------mxflutterBridge [js ->native-> flutter]  subcmd------
+    ///由js2flutterSubCallChannel调用
+    _jsFlutterMainChannelFunRegMap["mxfJSBridgeCreateMirrorObj"] =
+        mxfJSBridgeCreateMirrorObj;
+    _jsFlutterMainChannelFunRegMap["mxfJSBridgeInvokeMirrorObjWithCallback"] =
+        mxfJSBridgeInvokeMirrorObjWithCallback;
     _jsFlutterMainChannelFunRegMap["mxflutterBridgeMethodChannelInvoke"] =
         mxflutterBridgeMethodChannelInvoke;
     _jsFlutterMainChannelFunRegMap[
-    "mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"] =
+            "mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"] =
         mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke;
-    //------mxflutterBridge------
+
+    ///------mxflutterBridge------
   }
 
   ///API
@@ -92,31 +106,62 @@ class MXJSFlutter {
     _jsFlutterMainChannel.invokeMethod("callJsCallbackFunction", args);
   }
 
-  Future<dynamic> mxflutterBridgeCreateFlutterObject(args) async {
-    Map argMap = json.decode(args);
-    MXJsonObjToDartObject.jsonToDartObj(argMap);
+  ///js->flutter 顶层通用调用通道
+  ///args参数为JSON字符串argsJSONStr
+  Future<String> js2flutterSubCallChannel(argsJSONStr) async {
+    MXJSLog.log("js2flutterSubCallChannel");
+    MXJSLog.log(argsJSONStr);
+
+    Map args = json.decode(argsJSONStr);
+    String funcName = args["funcName"];
+    dynamic funArgs = args["args"];
+
+    Function fun = _jsFlutterMainChannelFunRegMap[funcName];
+    return fun(funArgs);
   }
 
-  Future<dynamic> mxflutterBridgeInvokeWithCallback(args) async {
-    String params = args["params"];
-    Map paramMap = json.decode(params);
-    String mirrorID = paramMap["mirrorID"];
+  Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
+    MXJsonObjToDartObject.jsonToDartObj(argMap);
+    return null;
+  }
+
+  Future<String> mxfJSBridgeInvokeMirrorObjWithCallback(args) async {
+    if (args == null) {
+      return null;
+    }
+
+    String mirrorID = args["mirrorID"];
     dynamic mirrorObj =
-    MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+        MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
 
     if (mirrorObj != null) {
-      String className = paramMap["className"];
-      String funcName = paramMap["funcName"];
-      Map funArgs = paramMap["args"];
-      String onResultId = args["onResultId"];
+      String className = args["className"];
+      String funcName = args["funcName"];
+      Map funArgs = args["args"];
 
       MXJsonObjProxy proxy =
-      MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
-      proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
-          callback: (params){
-          callJsCallbackFunction(onResultId, params);
-      });
+          MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
+
+      if (proxy != null) {
+
+        Completer<String> completer = new Completer<String>();
+        proxy.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
+            callback: (result) {
+          var returnJSONStr = result;
+          if (result != null && !(result is String)) {
+            returnJSONStr = json.encode(result);
+          }
+
+          completer.complete(returnJSONStr);
+
+          //callJsCallbackFunction(onResultId, params);
+        });
+
+        return completer.future;
+      }
     }
+
+    return null;
   }
 
   Future<dynamic> mxflutterBridgeMethodChannelInvoke(args) async {
@@ -190,8 +235,8 @@ class MXJSFlutter {
   ///先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
   dynamic navigatorPushWithName(String widgetName, Key widgetKey,
       {ThemeData themeData,
-        MediaQueryData mediaQueryData,
-        IconThemeData iconThemeData}) {
+      MediaQueryData mediaQueryData,
+      IconThemeData iconThemeData}) {
     dynamic jsWidget = currentApp?.navigatorPushWithName(widgetName, widgetKey,
         themeData: themeData,
         mediaQueryData: mediaQueryData,
@@ -240,8 +285,7 @@ class MXJSFlutterApp {
   ///把MXJSWidget作为根节点展示在屏幕
   void runJSApp(dynamic jsWidget) {
     MXJSLog.log(
-        "MXJSFlutterApp:runJSApp:call runApp widgetName: ${jsWidget
-            .widgetName} ");
+        "MXJSFlutterApp:runJSApp:call runApp widgetName: ${jsWidget.widgetName} ");
     rootWidget = jsWidget;
     //call flutter runapp
     runApp(rootWidget);
@@ -253,8 +297,8 @@ class MXJSFlutterApp {
   ///先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
   MXJSStatefulWidget navigatorPushWithName(String widgetName, Key widgetKey,
       {ThemeData themeData,
-        MediaQueryData mediaQueryData,
-        IconThemeData iconThemeData}) {
+      MediaQueryData mediaQueryData,
+      IconThemeData iconThemeData}) {
     MXJSLog.log(
         "MXJSFlutterApp:navigatorPushWithName: widgetName: $widgetName ");
 
@@ -288,8 +332,8 @@ class MXJSFlutterApp {
   //先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页���
   callJSNavigatorPushWithName(String widgetName, String widgetID,
       {ThemeData themeData,
-        MediaQueryData mediaQueryData,
-        IconThemeData iconThemeData}) async {
+      MediaQueryData mediaQueryData,
+      IconThemeData iconThemeData}) async {
     MethodCall jsMethodCall = MethodCall("flutterCallNavigatorPushWithName", {
       "widgetName": widgetName,
       "widgetID": widgetID,
@@ -366,23 +410,23 @@ class MXJSFlutterApp {
     _jsFlutterAppRebuildChannel = const BasicMessageChannel(
         'js_flutter.js_flutter_app_channel.rebuild', StringCodec());
     _jsFlutterAppRebuildChannel
-        .setMessageHandler((String message) =>
-        Future<String>(() {
-          Map args = {};
-          args["widgetData"] = message;
-          _jsRebuild(args);
-        }));
+        .setMessageHandler((String message) => Future<String>(() {
+              Map args = {};
+              args["widgetData"] = message;
+              _jsRebuild(args);
+              return null;
+            }));
 
     // 设置navigatorPush方法通道
     _jsFlutterAppJSPushWidgetChannel = const BasicMessageChannel(
         'js_flutter.js_flutter_app_channel.navigator_push', StringCodec());
     _jsFlutterAppJSPushWidgetChannel
-        .setMessageHandler((String message) =>
-        Future<String>(() {
-          Map args = {};
-          args["widgetData"] = message;
-          _navigatorPush(args);
-        }));
+        .setMessageHandler((String message) => Future<String>(() {
+              Map args = {};
+              args["widgetData"] = message;
+              _navigatorPush(args);
+              return null;
+            }));
   }
 
   /// JS ->  flutter  开放给调用 JS
@@ -414,8 +458,8 @@ class MXJSWidgetHelper extends Object {
 
   dynamic widget;
 
-  bool updateWidget(String widgetID, Map widgetData,
-      String buildWidgetDataSeq) {
+  bool updateWidget(
+      String widgetID, Map widgetData, String buildWidgetDataSeq) {
     this.widget.widgetData = widgetData;
 
     if (this.widget.widgetID != null && this.widget.widgetID != widgetID) {
@@ -527,13 +571,14 @@ class MXJSBaseWidget extends Object {
 class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
   MXJSWidgetState _state;
 
-  MXJSStatefulWidget({Key key,
-    String name,
-    String widgetID,
-    Map widgetData,
-    String buildingWidgetDataSeq,
-    String navPushingWidgetID,
-    MXJsonBuildOwner parentBuildOwner})
+  MXJSStatefulWidget(
+      {Key key,
+      String name,
+      String widgetID,
+      Map widgetData,
+      String buildingWidgetDataSeq,
+      String navPushingWidgetID,
+      MXJsonBuildOwner parentBuildOwner})
       : super(key: key) {
     this.name = name;
     this.widgetID = widgetID;
@@ -598,10 +643,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
   @override
   Widget build(BuildContext context) {
     MXJSLog.log(
-        "MXJSStatefulWidget:build begin: widgetID ${widget
-            .widgetID} curBuildWidgetDataSeq:${widget
-            .buildWidgetDataSeq} buildingWidgetDataSeq:${widget
-            .buildingWidgetDataSeq}");
+        "MXJSStatefulWidget:build begin: widgetID ${widget.widgetID} curBuildWidgetDataSeq:${widget.buildWidgetDataSeq} buildingWidgetDataSeq:${widget.buildingWidgetDataSeq}");
 
     if (this.widget.buildOwner == null) {
       this.widget.buildOwner =
@@ -610,8 +652,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
 
     if (widget.widgetData == null) {
       MXJSLog.error(
-          "MXJSWidgetState:build: widget.widgetData == null this.widget.widgetID:${this
-              .widget.widgetID}");
+          "MXJSWidgetState:build: widget.widgetData == null this.widget.widgetID:${this.widget.widgetID}");
       return widget.helper.buildErrorWidget(context);
     }
 
@@ -622,32 +663,27 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
     //���诉JS层，使用当前JSWidget 序列号的数据构建，callbackID,widgetID  与之对应
 
     MXJSLog.log(
-        "MXJSStatefulWidget:building: widget:$w callJSOnBuildEnd  widgetID ${widget
-            .widgetID} curBuildWidgetDataSeq:${widget
-            .buildWidgetDataSeq} buildingWidgetDataSeq:${widget
-            .buildingWidgetDataSeq}");
+        "MXJSStatefulWidget:building: widget:$w callJSOnBuildEnd  widgetID ${widget.widgetID} curBuildWidgetDataSeq:${widget.buildWidgetDataSeq} buildingWidgetDataSeq:${widget.buildingWidgetDataSeq}");
 
     this.widget.buildWidgetDataSeq = this.widget.buildingWidgetDataSeq;
     this.widget.buildOwner.callJSOnBuildEnd();
 
     MXJSLog.log(
-        "MXJSStatefulWidget:build end: widget:$w callJSOnBuildEnd  widgetID ${widget
-            .widgetID} curBuildWidgetDataSeq:${widget
-            .buildWidgetDataSeq} buildingWidgetDataSeq:${widget
-            .buildingWidgetDataSeq}");
+        "MXJSStatefulWidget:build end: widget:$w callJSOnBuildEnd  widgetID ${widget.widgetID} curBuildWidgetDataSeq:${widget.buildWidgetDataSeq} buildingWidgetDataSeq:${widget.buildingWidgetDataSeq}");
     return w;
   }
 }
 
 ///静态json生成Widget
 class MXJSStatelessWidget extends StatelessWidget with MXJSBaseWidget {
-  MXJSStatelessWidget({Key key,
-    String name,
-    String widgetID,
-    Map widgetData,
-    String buildingWidgetDataSeq,
-    String navPushingWidgetID,
-    MXJsonBuildOwner parentBuildOwner})
+  MXJSStatelessWidget(
+      {Key key,
+      String name,
+      String widgetID,
+      Map widgetData,
+      String buildingWidgetDataSeq,
+      String navPushingWidgetID,
+      MXJsonBuildOwner parentBuildOwner})
       : super(key: key) {
     this.name = name;
     this.widgetID = widgetID;

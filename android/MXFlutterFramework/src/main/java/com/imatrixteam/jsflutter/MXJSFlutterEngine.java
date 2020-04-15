@@ -17,6 +17,8 @@ import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
+import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.StringCodec;
 
 import static com.imatrixteam.jsflutter.MXJSFlutterApp.JSFLUTTER_SRC_DIR1;
 
@@ -34,7 +36,9 @@ public class MXJSFlutterEngine {
 
     //Flutter通道
     private static final String FLUTTER_METHED_CHANNEL_NAME = "js_flutter.flutter_main_channel";
+    private static final String FLUTTER_COMMON_BASIC_CHANNEL_NAME = "mxflutter.mxflutter_common_basic_channel";
     MethodChannel jsFlutterAppChannel;
+    BasicMessageChannel jsFlutterCommonBasicChannel;
 
     private boolean isFlutterEngineIsDidRender;
     private ArrayList<MethodCall> callFlutterQueue;
@@ -78,6 +82,8 @@ public class MXJSFlutterEngine {
                 }
             }
         });
+
+        jsFlutterCommonBasicChannel =  new BasicMessageChannel<>(mFlutterEngine, FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
     }
 
     public void destroy() {
@@ -123,21 +129,10 @@ public class MXJSFlutterEngine {
         jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
     }
 
-    public void callFlutterCreateFlutterObject(String params) {
+    //顶层通用通道
+    public void invokeFlutterCommonChannel(String callJSONStr, BasicMessageChannel.Reply Reply) {
         FileUtils.assertUiThread();
-
-        MethodCall call = new MethodCall("mxflutterBridgeCreateFlutterObject", params);
-        jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
-    }
-
-    public void callFlutterInvokeWithCallback(String params, String onResultId) {
-        FileUtils.assertUiThread();
-        Map arg = new HashMap();
-        arg.put("params", params);
-        arg.put("onResultId", onResultId);
-
-        MethodCall call = new MethodCall("mxflutterBridgeInvokeWithCallback", arg);
-        jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
+        jsFlutterCommonBasicChannel.send(callJSONStr, Reply);
     }
 
     public void callFlutterMethodChannelInvoke(String channelName, String methodName, Map params, MethodChannel.Result callback) {

@@ -111,12 +111,12 @@ class PageExampleDioState extends MXJSWidgetState {
   async testDio2(url) {
     try {
       let dio = packages__dio.Dio();
-      dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
+      // dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
 
-      let options = new packages__dio.Options.new();
-      options.headers = { "a": "b" };
+      // let options = new packages__dio.Options.new();
+      // options.headers = { "a": "b" };
 
-      return await dio.get(url, { options,onReceiveProgress:function (progress,total){
+      return await dio.get(url, { onReceiveProgress:function (progress,total){
 
         MXJSLog.log("testDio() error: progress: " + progress/total);
       }});

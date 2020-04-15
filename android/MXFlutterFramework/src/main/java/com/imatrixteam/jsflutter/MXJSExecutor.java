@@ -221,6 +221,17 @@ public class MXJSExecutor {
         });
     }
 
+    public void invokeJsFunctionWithString(V8Function v8Function, String value) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                v8Function.call(runtime, value != null
+                        ? new V8Array(runtime).push(value)
+                        : null);
+            }
+        });
+    }
+
     interface ExecuteScriptCallback {
         void onComplete(Object value);
     }
