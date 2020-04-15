@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)callFlutterReloadAppWithJSWidgetData:(NSString*)widgetData;
 - (void)callFlutterReloadAppWithRouteName:(NSString*)routeName  widgetData:(NSString*)widgetData;
 
-- (void)callFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback;
+- (void)invokeFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback;
 
 - (void)callFlutterMethodChannelInvoke:(NSString*)channelName
                              methodName:(NSString*)methodName

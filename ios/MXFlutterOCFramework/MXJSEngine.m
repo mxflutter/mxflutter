@@ -140,16 +140,14 @@
     * @param callJSONStr 透传字段
     * @param function 回调
     */
-    context[@"mx_jsbridge_call_flutter_common_channel"] = ^(NSString* callJSONStr, JSValue* function) {
+    context[@"mxfJSBridgeInvokeFlutterCommonChannel"] = ^(NSString* callJSONStr, JSValue* function) {
         
-        [self.jsFlutterEngine callFlutterCommonChannel:callJSONStr callback:^(id  _Nullable result) {
-            
+        [self.jsFlutterEngine invokeFlutterCommonChannel:callJSONStr callback:^(id  _Nullable result) {
             if (result) {
                 [function callWithArguments:@[result]];
             } else {
                 [function callWithArguments:@[]];
             }
-            
         }];
         
     };

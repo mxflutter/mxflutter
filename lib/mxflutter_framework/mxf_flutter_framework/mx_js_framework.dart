@@ -53,19 +53,19 @@ class MXJSFlutter {
   }
 
   setupChannel() {
+
+    ///[Native->flutter]
     _jsFlutterMainChannel = MethodChannel("js_flutter.flutter_main_channel");
     _jsFlutterMainChannel.setMethodCallHandler((MethodCall call) async {
       MXJSLog.log("_jsFlutterMainChannel_methodHandler:");
       MXJSLog.log(call);
 
       Function fun = _jsFlutterMainChannelFunRegMap[call.method];
-
       return fun(call.arguments);
     });
 
     _jsFlutterCommonBasicChannel = const BasicMessageChannel(
         'mxflutter.mxflutter_common_basic_channel', StringCodec());
-
     _jsFlutterCommonBasicChannel
         .setMessageHandler((String message) => Future<String>(() {
               return js2flutterSubCallChannel(message);
@@ -74,12 +74,12 @@ class MXJSFlutter {
     ///Method reg
     _jsFlutterMainChannelFunRegMap["reloadApp"] = reloadApp;
 
-    ///------mxflutterBridge js -> flutter  subcmd------
+    ///------mxflutterBridge [js ->native-> flutter]  subcmd------
     ///由js2flutterSubCallChannel调用
-    _jsFlutterMainChannelFunRegMap["mxflutterBridgeCreateFlutterObject"] =
-        mxflutterBridgeCreateFlutterObject;
-    _jsFlutterMainChannelFunRegMap["mxflutterBridgeInvokeWithCallback"] =
-        mxflutterBridgeInvokeWithCallback;
+    _jsFlutterMainChannelFunRegMap["mxfJSBridgeCreateMirrorObj"] =
+        mxfJSBridgeCreateMirrorObj;
+    _jsFlutterMainChannelFunRegMap["mxfJSBridgeInvokeMirrorObjWithCallback"] =
+        mxfJSBridgeInvokeMirrorObjWithCallback;
     _jsFlutterMainChannelFunRegMap["mxflutterBridgeMethodChannelInvoke"] =
         mxflutterBridgeMethodChannelInvoke;
     _jsFlutterMainChannelFunRegMap[
@@ -113,46 +113,52 @@ class MXJSFlutter {
     MXJSLog.log(argsJSONStr);
 
     Map args = json.decode(argsJSONStr);
-
     String funcName = args["funcName"];
-    Map funArgs = args["args"];
+    dynamic funArgs = args["args"];
 
     Function fun = _jsFlutterMainChannelFunRegMap[funcName];
-
     return fun(funArgs);
   }
 
-  Future<dynamic> mxflutterBridgeCreateFlutterObject(argMap) async {
+  Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
     MXJsonObjToDartObject.jsonToDartObj(argMap);
+    return null;
   }
 
-  Future<String> mxflutterBridgeInvokeWithCallback(args) async {
-    Completer<String> completer = new Completer<String>();
+  Future<String> mxfJSBridgeInvokeMirrorObjWithCallback(args) async {
+    if (args == null) {
+      return null;
+    }
 
-    String params = args["params"];
-    Map paramMap = json.decode(params);
-    String mirrorID = paramMap["mirrorID"];
+    String mirrorID = args["mirrorID"];
     dynamic mirrorObj =
         MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
 
     if (mirrorObj != null) {
-      String className = paramMap["className"];
-      String funcName = paramMap["funcName"];
-      Map funArgs = paramMap["args"];
-      String onResultId = args["onResultId"];
+      String className = args["className"];
+      String funcName = args["funcName"];
+      Map funArgs = args["args"];
 
       MXJsonObjProxy proxy =
           MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
-      proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
-          callback: (params) {
-        Map returnArgs = {"callbackId": onResultId, "param": params};
-        String returnJSONStr = json.encode(returnArgs);
-        completer.complete(returnJSONStr);
 
-        callJsCallbackFunction(onResultId, params);
-      });
+      if (proxy != null) {
 
-      return completer.future;
+        Completer<String> completer = new Completer<String>();
+        proxy.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
+            callback: (result) {
+          var returnJSONStr = result;
+          if (result != null && !(result is String)) {
+            returnJSONStr = json.encode(result);
+          }
+
+          completer.complete(returnJSONStr);
+
+          //callJsCallbackFunction(onResultId, params);
+        });
+
+        return completer.future;
+      }
     }
 
     return null;

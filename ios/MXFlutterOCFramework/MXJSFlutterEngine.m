@@ -149,7 +149,7 @@
 
 //MARK: - JSI->Native->Flutter
 //  JSI->Native->Flutter 通用通道
-- (void)callFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback
+- (void)invokeFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback
 {
     [self.jsFlutterCommonBasicChannel sendMessage:argumentsJSONStr reply:^(id  _Nullable reply) {
         if (callback) {
@@ -174,11 +174,7 @@
         [arguments setObject:params forKey:@"params"];
     }
     FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke" arguments:arguments];
-//    if (!_flutterEngineIsDidRender) {
-//        [self.callFlutterQueue addObject:call];
-//        return;
-//    }
-    
+
     [self.basicChannel invokeMethod:call.method arguments:call.arguments result:^(id  _Nullable result) {
         if (callback) {
             callback(result);
