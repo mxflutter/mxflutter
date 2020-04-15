@@ -148,7 +148,7 @@ class PageExampleDioState extends MXJSWidgetState {
 
               this.setState(function () {
 
-                this.response = JSON.stringify( response.data);
+                this.response = JSON.stringify(response);
 
               }.bind(this));
 
@@ -168,7 +168,7 @@ class PageExampleDioState extends MXJSWidgetState {
               this.setState(function () {
 
                 //response.data 为json map obj
-                this.response = "json title:" + response.data["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify( response.data);
+                this.response = "json title:" + response["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify(response);
 
               }.bind(this));
 

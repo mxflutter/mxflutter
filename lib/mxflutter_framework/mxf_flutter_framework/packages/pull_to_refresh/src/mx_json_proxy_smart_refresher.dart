@@ -150,12 +150,10 @@ class MXProxySmartRefresher extends MXJsonObjProxy {
   @override
   SmartRefresher constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
-
     //从外层修复SmartRefresher的bug，如果不传入header或者footer，SmartRefresher不会刷新onRefresh等回调函数
-     var defaultHeader =
-        defaultTargetPlatform == TargetPlatform.iOS
-            ? ClassicHeader()
-            : MaterialClassicHeader();
+    var defaultHeader = defaultTargetPlatform == TargetPlatform.iOS
+        ? ClassicHeader()
+        : MaterialClassicHeader();
 
     final LoadIndicator defaultFooter = ClassicFooter();
 
@@ -163,8 +161,8 @@ class MXProxySmartRefresher extends MXJsonObjProxy {
       key: mxj2d(bo, jsonMap["key"]),
       controller: mxj2d(bo, jsonMap["controller"]),
       child: mxj2d(bo, jsonMap["child"]),
-      header: mxj2d(bo, jsonMap["header"],defaultValue: defaultHeader),
-      footer: mxj2d(bo, jsonMap["footer"],defaultValue: defaultFooter),
+      header: mxj2d(bo, jsonMap["header"], defaultValue: defaultHeader),
+      footer: mxj2d(bo, jsonMap["footer"], defaultValue: defaultFooter),
       enablePullDown: mxj2d(bo, jsonMap["enablePullDown"], defaultValue: true),
       enablePullUp: mxj2d(bo, jsonMap["enablePullUp"], defaultValue: false),
       enableTwoLevel: mxj2d(bo, jsonMap["enableTwoLevel"], defaultValue: false),
@@ -268,7 +266,8 @@ class MXProxyRefreshController extends MXJsonObjProxy {
   //mirrorObj 为一个RefreshController类的实例对象，把调用对象方法，路由的代理类
   @override
   void jsInvokeMirrorObjFunction(
-      String mirrorID, dynamic mirrorObj, String funcName, Map args) {
+      String mirrorID, dynamic mirrorObj, String funcName, Map args,
+      {InvokeCallback callback}) {
     if (mirrorObj == null || !(mirrorObj is RefreshController)) {
       return;
     }

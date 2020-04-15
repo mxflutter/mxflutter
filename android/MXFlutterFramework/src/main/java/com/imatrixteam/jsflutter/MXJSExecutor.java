@@ -214,7 +214,9 @@ public class MXJSExecutor {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                v8Function.call(runtime, new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, value)));
+                v8Function.call(runtime, value != null
+                        ? new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, value))
+                        : null);
             }
         });
     }

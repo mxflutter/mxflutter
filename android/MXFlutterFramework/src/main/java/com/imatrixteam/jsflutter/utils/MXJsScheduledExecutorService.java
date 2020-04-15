@@ -46,7 +46,6 @@ public class MXJsScheduledExecutorService {
                                        long delay) {
         if (sRunOnUI) {
             MXFlutterApplication.getApplication().getMainHandler().postDelayed(command, delay);
-            command.run();
             return null;
         } else {
             return executor.schedule(command, delay, TimeUnit.MILLISECONDS);
