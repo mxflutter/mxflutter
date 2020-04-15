@@ -1,21 +1,19 @@
 # 基于JS的高性能动态化框架 MXFlutter —对 dart 的支持
 
-MXFlutter 自去年6月份在 GitHub 开源后，得到了很多开发者的关注和肯定。同时，也收到不少建议和优化，如：JS 写法不友好，开发效率不高，Flutter 生态无法复用等问题。为此，我们进行了探索和研究，实现了编写 Dart 代码，通过 dart2js 编译器，将 Dart 编译成 JS，运行在 MXFlutter 上，最终实现 Flutter 动态化。该方案已在 [GitHub](https://github.com/TGIF-iMatrix/MXFlutter) 开源
+MXFlutter 自去年6月份在 GitHub 开源后，得到了很多开发者的关注和肯定。同时，也收到了不少建议和优化，如：JS 写法不友好，开发效率不高，Flutter 生态无法复用等问题。为此，我们进行了探索和研究，实现了编写 Dart 代码，通过 dart2js 编译器，将 Dart 编译成 JS，运行在 MXFlutter 上，最终实现 Flutter 动态化。该方案已在 [GitHub](https://github.com/TGIF-iMatrix/MXFlutter) 开源
 
 ## 对dart的支持
 
-Flutter For Web 是 Flutter 使用标准 Web 技术，跑在浏览器上的兼容实现。它上层使用dart2js编译器，将业务代码、Flutter Framework一起编译成JS代码，通过重新实现 dart:ui 库，用针对 DOM 和 Canvas 的代码，替换移动端使用的对 Skia 引擎的绑定，使用 HTML+CSS+Cavas 完成绘制。
+Flutter For Web 是 Flutter 使用标准 Web 技术，跑在浏览器上的兼容实现。它上层使用 dart2js 编译器，将业务代码、Flutter Framework 一起编译成 JS 代码，通过重新实现 dart:ui 库，用针对 DOM 和 Canvas 的代码，替换移动端使用的对 Skia 引擎的绑定，使用 HTML+CSS+Cavas 完成绘制。
 
-![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/flutter%20for%20web.png?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/Flutter%20For%20Web-1.png?raw=true)
 
-只引入dart2js编译器，将dart代码编译成js代码，运行在MXFlutter上。只要编译出的js代码能实现调用MXFlutter，就能正常跑起来了。
+dart2js 编译器有 dart2js 和 dartdevc 两种环境。
 
-dart2js编译器有dart2js和dartdevc两种环境。
-
-> dart2js：生产环境。经过minify优化，文件相对较小，但混淆后代码不可读
+> dart2js：生产环境。经过 minify 优化，文件相对较小，但混淆后代码不可读
 > dartdevc：开发环境。代码可读性较强，但文件太大，调试信息多
 
-dart2js编译出JS代码如下
+dart2js 编译出 JS 代码如下
 
 ```javascript
 (function dartProgram(){function copyProperties(a,b){var t=Object.keys(a)
@@ -36,7 +34,7 @@ if(typeof o=='function')o.name=p}}}function inherit(a,b){a.prototype.constructor
 a.prototype["$i"+a.name]=a
 ```
 
-dartdevc编译出JS代码如下
+dartdevc 编译出 JS 代码如下
 
 ```javascript
 main.ZhiHu = class ZhiHu extends framework.StatelessWidget {
@@ -62,22 +60,22 @@ main.ZhiHu = class ZhiHu extends framework.StatelessWidget {
   };
 ```
 
-考虑到开发过程的代码可读性及调试，先考虑用dartdevc接入，并在适配完成和稳定后，再接入dart2js
+考虑到开发过程的代码可读性及调试，先考虑用 dartdevc 接入，并在适配完成和稳定后，再接入 dart2js。
 
-接入dartdevc，需解决下面两个难点，接下来一一详述
+接入 dartdevc，并能实现对 MXFlutter 的调用，需解决下面两个问题
 > 编译器的抽取
-> MXFlutter的适配
+> MXFlutter 的适配
 
-#### 一、dart2js编译器的抽取
+#### 一、dart2js 编译器的抽取
 
-#### 二、MXFlutter的适配
+#### 二、MXFlutter 的适配
 
-MXFlutter适配，主要包括几部分
-> 编译出的Widget如何与MXFlutter对应
+MXFlutter 适配，主要包括几部分
+> 编译出的 Widget 如何与 MXFlutter 对应
 > Channel 的支持
-> dart_sdk太大及过多调试信息
+> dart_sdk 太大及过多调试信息
 
-**1、编译出的Widget如何与MXFlutter对应**
+**1、编译出的 Widget 如何与 MXFlutter 对应**
 
 在桥接类中，创建相关空类，通过引用 MXFlutter 的 Framework 文件，声明 dartdevc 中 使用的widget。
 
@@ -128,9 +126,9 @@ exports.src__material__scaffold = src__material__scaffold;
 
 按照 dart2js 的路径引用，重新整理 lib 库，按照对应路径放置，并优化 JS 文件的重复引用
 
-![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E7%9B%AE%E5%BD%95%E8%B0%83%E6%95%B4.png?raw=true)
+![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/dart2js%E9%87%8D%E5%AE%9A%E5%90%91%E5%BA%93.png?raw=true)
 
-MXFlutter Framework中，也要做相应的方法修改。
+MXFlutter Framework 中，也要做相应的方法修改。
 
 * 增加 Objec.new = {} 方法
 * 增加 class.fuction() = {} 静态方法
@@ -169,9 +167,6 @@ dartdevc 精简包括：
 
 ![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E7%B2%BE%E7%AE%80%E6%95%88%E6%9E%9C1-3.png?raw=true)
 
-
-
-
 ![](https://github.com/TGIF-lucaliu/Image/blob/master/dart2js/%E7%B2%BE%E7%AE%80%E6%95%88%E6%9E%9C1-4.png?raw=true)
 
 ## 第三方插件
@@ -181,28 +176,6 @@ dartdevc 精简包括：
 * 常用插件。我们在框架内已经集成，开发者直接使用。如 pull_to_refresh、cached_network_image等
 * 简单插件。通过 native 或 js 等现有框架，无需 Flutter 就能实现的插件，重新封装，简化通信流程。如：dio、storage等插件
 * 自定义插件。MXFlutter 也支持用户将自定义插件作为一个普通 widget，按照指定方式接入框架，拓展 MXFlutter 生态
-
-
-## 示例
-
-
-## 许可协议
-
-MXFlutter遵循[MIT](http://opensource.org/licenses/MIT)开源许可证协议。
-
-## 参与贡献
-
-如果你有好的意见或建议，欢迎给我们提 Issues 或 Pull Requests。
-
-## 参考文献
-
-[Flutter 和 Web 生态如何对接？](https://mp.weixin.qq.com/s/C1VLXVNK9-fjrmsoQk7nig)
-
-## QQ群
-
-对MXFlutter感兴趣的小伙伴，可以加QQ群交流，QQ群: 747535761。
-
-![qrcode](https://github.com/langbluesky/Image/blob/master/qrcode.png?raw=true)
 
 
 
