@@ -24,6 +24,7 @@ import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import io.flutter.plugin.common.BasicMessageChannel;
 
 import androidx.annotation.Nullable;
 import io.flutter.plugin.common.MethodChannel;
@@ -99,6 +100,37 @@ public class MXJSEngine {
         //------Flutter Bridge------
 
         /**
+         * @param callJSONStr 透传字段
+         * @param needNativeManagedValue JS中需要监控生命周期的对象
+         * @param function 回调
+         */
+        JavaVoidCallback mxfJSBridgeInvokeFlutterCommonChannel = new JavaVoidCallback() {
+            @Override
+            public void invoke(V8Object v8Object, V8Array args) {
+                assetJsFunctionArg(args.length(), 3);
+
+                String callJSONStr = args.get(0).toString();
+                //V8Object needNativeManagedValue = args.get(1); //TODO：如果不为空，需监控JS对象释放
+                V8Function function = (V8Function) args.get(2);
+                mMXJSFlutterEngine.invokeFlutterCommonChannel(callJSONStr, new BasicMessageChannel.Reply<String>() {
+                    @Override
+                    public void reply(String result) {
+                        if (result == null) {
+                            jsExecutor.invokeJsFunction(function, null);
+                        } else if (result instanceof String) {
+                            jsExecutor.invokeJsFunctionWithString(function, (String) result);
+                        } else {
+                            throw new IllegalArgumentException(
+                                    "BasicMessageChannel.Reply Must be return String object");
+                        }
+                    }
+                });
+
+            }
+        };
+        jsExecutor.registerJavaMethod(mxfJSBridgeInvokeFlutterCommonChannel, "mxfJSBridgeInvokeFlutterCommonChannel");
+
+        /**
          * @param channelName 通道名
          * @param methodName 方法名
          * @param params 参数
@@ -165,32 +197,6 @@ public class MXJSEngine {
         };
         jsExecutor.registerJavaMethod(mx_jsbridge_EventChannel_receiveBroadcastStream_listen, "mx_jsbridge_EventChannel_receiveBroadcastStream_listen");
 
-        /**
-         */
-        JavaVoidCallback mx_jsbridge_createFlutterObject = new JavaVoidCallback() {
-            @Override
-            public void invoke(V8Object v8Object, V8Array args) {
-                assetJsFunctionArg(args.length(), 1);
-
-                mMXJSFlutterEngine.callFlutterCreateFlutterObject((String) args.get(0));
-            }
-        };
-        jsExecutor.registerJavaMethod(mx_jsbridge_createFlutterObject, "mx_jsbridge_createFlutterObject");
-
-        /**
-         */
-        JavaVoidCallback mx_jsbridge_invokeWithCallback = new JavaVoidCallback() {
-            @Override
-            public void invoke(V8Object v8Object, V8Array args) {
-                assetJsFunctionArg(args.length(), 2);
-
-                String params = (String) args.get(0);
-                V8Function onResult = (V8Function) args.get(1);
-                String onResultId = storeJsCallback(onResult);
-                mMXJSFlutterEngine.callFlutterInvokeWithCallback(params, onResultId);
-            }
-        };
-        jsExecutor.registerJavaMethod(mx_jsbridge_invokeWithCallback, "mx_jsbridge_invokeWithCallback");
         //------Flutter Bridge------
 
         JavaCallback require = new JavaCallback() {
