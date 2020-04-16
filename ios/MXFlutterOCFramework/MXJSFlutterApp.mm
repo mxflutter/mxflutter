@@ -203,7 +203,11 @@
 -(void)exitApp
 {
     self.jsAppObj = nil;
+    
+    [self.jsEngine dispose];
     self.jsEngine = nil;
+  
+    
 }
 
 - (MXJSExecutor*)jsExecutor

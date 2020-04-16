@@ -24,6 +24,7 @@ import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import io.flutter.plugin.common.BasicMessageChannel;
 
 import androidx.annotation.Nullable;
 import io.flutter.plugin.common.MethodChannel;
@@ -61,9 +62,9 @@ public class MXJSEngine {
         JavaVoidCallback nativePrint = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
-                if (args.length() > 0) {
-                    Log.d(TAG, args.get(0).toString());
-                }
+                assetJsFunctionArg(args.length(), 1);
+
+                Log.d(TAG, args.get(0).toString());
             }
         };
         jsExecutor.registerJavaMethod(nativePrint, "nativePrint");
@@ -71,9 +72,9 @@ public class MXJSEngine {
         JavaVoidCallback dartPrint = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
-                if (args.length() > 0) {
-                    Log.d(TAG, args.get(0).toString());
-                }
+                assetJsFunctionArg(args.length(), 1);
+
+                Log.d(TAG, args.get(0).toString());
             }
         };
         jsExecutor.registerJavaMethod(dartPrint, "dartPrint");
@@ -82,21 +83,51 @@ public class MXJSEngine {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
                 final V8Array local_args = args.twin();
-                if (args.length() > 1) {
-                    jsExecutor.executeDelay(new MXJsScheduledExecutorService.MXJsTask() {
-                        @Override
-                        public void excute() {
-                            V8Function function = (V8Function) local_args.get(0);
-                            jsExecutor.invokeJsFunction(function, new HashMap());
-                        }
-                    }, Long.parseLong(local_args.get(1).toString()));
-                }
+                assetJsFunctionArg(args.length(), 2);
+
+                jsExecutor.executeDelay(new MXJsScheduledExecutorService.MXJsTask() {
+                    @Override
+                    public void excute() {
+                        V8Function function = (V8Function) local_args.get(0);
+                        jsExecutor.invokeJsFunction(function, new HashMap());
+                    }
+                }, Long.parseLong(local_args.get(1).toString()));
             }
         };
         jsExecutor.registerJavaMethod(setTimeout, "setTimeout");
         //------Dart2Js支持------
 
         //------Flutter Bridge------
+
+        /**
+         * @param callJSONStr 透传字段
+         * @param needNativeManagedValue JS中需要监控生命周期的对象
+         * @param function 回调
+         */
+        JavaVoidCallback mxfJSBridgeInvokeFlutterCommonChannel = new JavaVoidCallback() {
+            @Override
+            public void invoke(V8Object v8Object, V8Array args) {
+                assetJsFunctionArg(args.length(), 2);
+
+                String callJSONStr = args.get(0).toString();
+                V8Function function = (V8Function) args.get(1);
+                mMXJSFlutterEngine.invokeFlutterCommonChannel(callJSONStr, new BasicMessageChannel.Reply<String>() {
+                    @Override
+                    public void reply(String result) {
+                        if (result == null) {
+                            jsExecutor.invokeJsFunction(function, null);
+                        } else if (result instanceof String) {
+                            jsExecutor.invokeJsFunctionWithString(function, (String) result);
+                        } else {
+                            throw new IllegalArgumentException(
+                                    "BasicMessageChannel.Reply Must be return String object");
+                        }
+                    }
+                });
+
+            }
+        };
+        jsExecutor.registerJavaMethod(mxfJSBridgeInvokeFlutterCommonChannel, "mxfJSBridgeInvokeFlutterCommonChannel");
 
         /**
          * @param channelName 通道名
@@ -107,33 +138,33 @@ public class MXJSEngine {
         JavaVoidCallback mx_jsbridge_MethodChannel_invokeMethod = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
-                if (args.length() > 3) {
-                    String channelName = args.get(0).toString();
-                    String methodName = args.get(1).toString();
-                    Map params = V8ObjectUtils.toMap((V8Object) args.get(2));
-                    V8Function function = (V8Function) args.get(3);
-                    mMXJSFlutterEngine.callFlutterMethodChannelInvoke(channelName, methodName, params, new MethodChannel.Result() {
-                        @Override
-                        public void success(@Nullable Object result) {
-                            if (result == null) {
-                                jsExecutor.invokeJsFunction(function, null);
-                            } else if (result instanceof Map) {
-                                jsExecutor.invokeJsFunction(function, (Map) result);
-                            } else {
-                                throw new IllegalArgumentException(
-                                        "MethodChannel.Result Must be return Map object");
-                            }
-                        }
+                assetJsFunctionArg(args.length(), 4);
 
-                        @Override
-                        public void error(String errorCode, @Nullable String errorMessage, @Nullable Object errorDetails) {
+                String channelName = args.get(0).toString();
+                String methodName = args.get(1).toString();
+                Map params = V8ObjectUtils.toMap((V8Object) args.get(2));
+                V8Function function = (V8Function) args.get(3);
+                mMXJSFlutterEngine.callFlutterMethodChannelInvoke(channelName, methodName, params, new MethodChannel.Result() {
+                    @Override
+                    public void success(@Nullable Object result) {
+                        if (result == null) {
+                            jsExecutor.invokeJsFunction(function, null);
+                        } else if (result instanceof Map) {
+                            jsExecutor.invokeJsFunction(function, (Map) result);
+                        } else {
+                            throw new IllegalArgumentException(
+                                    "MethodChannel.Result Must be return Map object");
                         }
+                    }
 
-                        @Override
-                        public void notImplemented() {
-                        }
-                    });
-                }
+                    @Override
+                    public void error(String errorCode, @Nullable String errorMessage, @Nullable Object errorDetails) {
+                    }
+
+                    @Override
+                    public void notImplemented() {
+                    }
+                });
             }
         };
         jsExecutor.registerJavaMethod(mx_jsbridge_MethodChannel_invokeMethod, "mx_jsbridge_MethodChannel_invokeMethod");
@@ -149,52 +180,52 @@ public class MXJSEngine {
         JavaVoidCallback mx_jsbridge_EventChannel_receiveBroadcastStream_listen = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
-                if (args.length() > 5) {
-                    String channelName = args.get(0).toString();
-                    String streamParam = args.get(1).toString();
-                    V8Function onData = (V8Function) args.get(2);
-                    V8Function onError = (V8Function) args.get(3);
-                    V8Function onDone = (V8Function) args.get(4);
-                    boolean cancelOnError = (boolean) args.get(5);
-                    String onDataId = storeJsCallback(onData);
-                    String onErrorId = storeJsCallback(onError);
-                    String onDoneId = storeJsCallback(onDone);
-                    mMXJSFlutterEngine.callFlutterEventChannelReceiveBroadcastStreamListenInvoke(channelName, streamParam, onDataId, onErrorId, onDoneId, cancelOnError);
-                }
+                assetJsFunctionArg(args.length(), 6);
+
+                String channelName = args.get(0).toString();
+                String streamParam = args.get(1).toString();
+                V8Function onData = (V8Function) args.get(2);
+                V8Function onError = (V8Function) args.get(3);
+                V8Function onDone = (V8Function) args.get(4);
+                boolean cancelOnError = (boolean) args.get(5);
+                String onDataId = storeJsCallback(onData);
+                String onErrorId = storeJsCallback(onError);
+                String onDoneId = storeJsCallback(onDone);
+                mMXJSFlutterEngine.callFlutterEventChannelReceiveBroadcastStreamListenInvoke(channelName, streamParam, onDataId, onErrorId, onDoneId, cancelOnError);
             }
         };
         jsExecutor.registerJavaMethod(mx_jsbridge_EventChannel_receiveBroadcastStream_listen, "mx_jsbridge_EventChannel_receiveBroadcastStream_listen");
+
         //------Flutter Bridge------
 
         JavaCallback require = new JavaCallback() {
             @Override
             public Object invoke(V8Object v8Object, V8Array args) {
-                if (args.length() > 0) {
-                    String filePath = args.get(0).toString();
-                    String absolutePath = null;
-                    boolean isFromAsset = !FileUtils.isCopiedFileFromAssets(mContext);
-                    if (isFromAsset) {
-                        absolutePath = FileUtils.getFilePathFromAsset(mContext, filePath, searchDirArray);
-                    } else {
-                        absolutePath = FileUtils.getFilePathFromFS(mContext, filePath, searchDirArray);
-                    }
+                assetJsFunctionArg(args.length(), 1);
 
-                    V8Object exports = null;
-                    if (!TextUtils.isEmpty(absolutePath)) {
-                        exports = JSModule.require(filePath, absolutePath, jsExecutor.runtime, isFromAsset);
-                        if (exports == null) {
-                            jsExecutor.executeScript("throw 'not found'", new MXJSExecutor.ExecuteScriptCallback() {
-                                @Override
-                                public void onComplete(Object value) {
-
-                                }
-                            });
-                            return null;
-                        }
-                    }
-                    return exports;
+                String filePath = args.get(0).toString();
+                String absolutePath = null;
+                boolean isFromAsset = !FileUtils.isCopiedFileFromAssets(mContext);
+                if (isFromAsset) {
+                    absolutePath = FileUtils.getFilePathFromAsset(mContext, filePath, searchDirArray);
+                } else {
+                    absolutePath = FileUtils.getFilePathFromFS(mContext, filePath, searchDirArray);
                 }
-                return null;
+
+                V8Object exports = null;
+                if (!TextUtils.isEmpty(absolutePath)) {
+                    exports = JSModule.require(filePath, absolutePath, jsExecutor.runtime, isFromAsset);
+                    if (exports == null) {
+                        jsExecutor.executeScript("throw 'not found'", new MXJSExecutor.ExecuteScriptCallback() {
+                            @Override
+                            public void onComplete(Object value) {
+
+                            }
+                        });
+                        return null;
+                    }
+                }
+                return exports;
             }
         };
         jsExecutor.registerJavaMethod(require, "require");
@@ -231,6 +262,13 @@ public class MXJSEngine {
         V8Function callback = getJsCallBackWithCallbackId(callbackId);
         if (callback != null) {
             jsExecutor.invokeJsFunction(callback, params);
+        }
+    }
+
+    private void assetJsFunctionArg(int argSize, int legalSize) {
+        if (argSize < legalSize) {
+            throw new IllegalArgumentException(
+                    "Argument size not currect");
         }
     }
 

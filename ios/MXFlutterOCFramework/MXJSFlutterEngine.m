@@ -25,6 +25,7 @@
 
 
 @property (nonatomic, strong) FlutterMethodChannel *basicChannel;
+@property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterCommonBasicChannel;
 @property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callFlutterQueue;
 
 @end
@@ -73,6 +74,16 @@
         else if ([call.method isEqualToString:@"mxLog"]) {
             NSLog(@"%@", call.arguments);
         }
+    }];
+    
+    // js <===bridge===> flutter common channel
+    self.jsFlutterCommonBasicChannel = [FlutterBasicMessageChannel messageChannelWithName:@"mxflutter.mxflutter_common_basic_channel"
+    binaryMessenger:self.flutterEngine.binaryMessenger
+              codec:[FlutterStringCodec sharedInstance]];
+    
+
+    [self.jsFlutterCommonBasicChannel setMessageHandler:^(id  _Nullable message, FlutterReply  _Nonnull callback) {
+        
     }];
     
 }
@@ -132,13 +143,24 @@
     }
     FlutterMethodCall* call  = [FlutterMethodCall methodCallWithMethodName:@"reloadApp" arguments:arguments];
     
-//    if (!_flutterEngineIsDidRender) {
-//
-//        [self.callFlutterQueue addObject:call];
-//        return;
-//    }
-    
+
     [self.basicChannel invokeMethod:call.method arguments:call.arguments];
+}
+
+- (void)invokeFlutterRemoveMirrorObjsRef:(NSArray*)mirrorIDArray{
+    
+    [self.basicChannel invokeMethod:@"mxfJSBridgeRemoveMirrorObjsRef" arguments:mirrorIDArray];
+}
+
+//MARK: - JSI->Native->Flutter
+//  JSI->Native->Flutter 通用通道
+- (void)invokeFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback
+{
+    [self.jsFlutterCommonBasicChannel sendMessage:argumentsJSONStr reply:^(id  _Nullable reply) {
+        if (callback) {
+            callback(reply);
+        }
+    }];
 }
 
 - (void)callFlutterMethodChannelInvoke:(NSString*)channelName methodName:(NSString*)methodName params:(NSDictionary *)params callback:(void(^)(id _Nullable result))callback
@@ -157,11 +179,7 @@
         [arguments setObject:params forKey:@"params"];
     }
     FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke" arguments:arguments];
-//    if (!_flutterEngineIsDidRender) {
-//        [self.callFlutterQueue addObject:call];
-//        return;
-//    }
-    
+
     [self.basicChannel invokeMethod:call.method arguments:call.arguments result:^(id  _Nullable result) {
         if (callback) {
             callback(result);

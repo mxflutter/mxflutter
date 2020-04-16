@@ -111,12 +111,12 @@ class PageExampleDioState extends MXJSWidgetState {
   async testDio2(url) {
     try {
       let dio = packages__dio.Dio();
-      dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
+      // dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
 
-      let options = new packages__dio.Options.new();
-      options.headers = { "a": "b" };
+      // let options = new packages__dio.Options.new();
+      // options.headers = { "a": "b" };
 
-      return await dio.get(url, { options,onReceiveProgress:function (progress,total){
+      return await dio.get(url, { onReceiveProgress:function (progress,total){
 
         MXJSLog.log("testDio() error: progress: " + progress/total);
       }});
@@ -148,7 +148,7 @@ class PageExampleDioState extends MXJSWidgetState {
 
               this.setState(function () {
 
-                this.response = JSON.stringify( response.data);
+                this.response = JSON.stringify(response);
 
               }.bind(this));
 
@@ -168,7 +168,7 @@ class PageExampleDioState extends MXJSWidgetState {
               this.setState(function () {
 
                 //response.data 为json map obj
-                this.response = "json title:" + response.data["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify( response.data);
+                this.response = "json title:" + response["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify(response);
 
               }.bind(this));
 

@@ -48,4 +48,10 @@ class MXJSMirrorObjMgr {
   void removeMirrorObject(dynamic mirrorID) {
     g_mirrorObjectMap.remove(mirrorID);
   }
+
+  void removeMirrorObjects(List mirrorIDList) {
+    for (var mirrorID in mirrorIDList) {
+      g_mirrorObjectMap.remove(mirrorID);
+    }
+  }
 }
