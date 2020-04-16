@@ -59,6 +59,9 @@ NS_ASSUME_NONNULL_BEGIN
                                                     cancelOnError:(NSNumber * _Nullable)cancelOnError;
 
 
+- (void)invokeFlutterRemoveMirrorObjsRef:(NSArray*)mirrorIDArray;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -107,11 +107,10 @@ public class MXJSEngine {
         JavaVoidCallback mxfJSBridgeInvokeFlutterCommonChannel = new JavaVoidCallback() {
             @Override
             public void invoke(V8Object v8Object, V8Array args) {
-                assetJsFunctionArg(args.length(), 3);
+                assetJsFunctionArg(args.length(), 2);
 
                 String callJSONStr = args.get(0).toString();
-                //V8Object needNativeManagedValue = args.get(1); //TODO：如果不为空，需监控JS对象释放
-                V8Function function = (V8Function) args.get(2);
+                V8Function function = (V8Function) args.get(1);
                 mMXJSFlutterEngine.invokeFlutterCommonChannel(callJSONStr, new BasicMessageChannel.Reply<String>() {
                     @Override
                     public void reply(String result) {

@@ -86,6 +86,9 @@ class MXJSFlutter {
             "mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"] =
         mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke;
 
+    _jsFlutterMainChannelFunRegMap["mxfJSBridgeRemoveMirrorObjsRef"] =
+        mxfJSBridgeRemoveMirrorObjsRef;
+
     ///------mxflutterBridge------
   }
 
@@ -152,15 +155,19 @@ class MXJSFlutter {
             returnJSONStr = json.encode(result);
           }
 
-          completer.complete(returnJSONStr);
-
           //callJsCallbackFunction(onResultId, params);
+          completer.complete(returnJSONStr);
         });
 
         return completer.future;
       }
     }
 
+    return null;
+  }
+
+  Future<dynamic> mxfJSBridgeRemoveMirrorObjsRef(dynamic mirrorIDList){
+    MXJSMirrorObjMgr.getInstance().removeMirrorObjects(mirrorIDList);
     return null;
   }
 

@@ -147,6 +147,11 @@
     [self.basicChannel invokeMethod:call.method arguments:call.arguments];
 }
 
+- (void)invokeFlutterRemoveMirrorObjsRef:(NSArray*)mirrorIDArray{
+    
+    [self.basicChannel invokeMethod:@"mxfJSBridgeRemoveMirrorObjsRef" arguments:mirrorIDArray];
+}
+
 //MARK: - JSI->Native->Flutter
 //  JSI->Native->Flutter 通用通道
 - (void)invokeFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback
