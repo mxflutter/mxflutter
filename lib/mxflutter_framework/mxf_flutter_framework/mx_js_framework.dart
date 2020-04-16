@@ -53,7 +53,6 @@ class MXJSFlutter {
   }
 
   setupChannel() {
-
     ///[Native->flutter]
     _jsFlutterMainChannel = MethodChannel("js_flutter.flutter_main_channel");
     _jsFlutterMainChannel.setMethodCallHandler((MethodCall call) async {
@@ -123,6 +122,33 @@ class MXJSFlutter {
     return fun(funArgs);
   }
 
+  ///flutter->js  顶层通用调用通道
+  dynamic invokeJSCommonChannel(MethodCall jsMethodCall) async {
+    MXJSLog.log("invokeJSCommonChannel:${jsMethodCall.method}");
+
+    var callInfo = {
+      "method": jsMethodCall.method,
+      "arguments": jsMethodCall.arguments,
+    };
+
+    String sendStr = json.encode(callInfo);
+    return _jsFlutterCommonBasicChannel.send(sendStr);
+  }
+
+  //Mirror Sys 
+  invokeJSMirrorObj(
+      {dynamic mirrorID, String functionName, dynamic args}) async {
+    Map callInfo = {
+      "mirrorID": mirrorID,
+      "funcName": functionName,
+      "args": args
+    };
+
+    MethodCall jsMethodCall = MethodCall("invokeJSMirrorObj", callInfo);
+
+    invokeJSCommonChannel(jsMethodCall);
+  }
+
   Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
     MXJsonObjToDartObject.jsonToDartObj(argMap);
     return null;
@@ -146,7 +172,6 @@ class MXJSFlutter {
           MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
 
       if (proxy != null) {
-
         Completer<String> completer = new Completer<String>();
         proxy.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
             callback: (result) {
@@ -166,7 +191,7 @@ class MXJSFlutter {
     return null;
   }
 
-  Future<dynamic> mxfJSBridgeRemoveMirrorObjsRef(dynamic mirrorIDList){
+  Future<dynamic> mxfJSBridgeRemoveMirrorObjsRef(dynamic mirrorIDList) {
     MXJSMirrorObjMgr.getInstance().removeMirrorObjects(mirrorIDList);
     return null;
   }

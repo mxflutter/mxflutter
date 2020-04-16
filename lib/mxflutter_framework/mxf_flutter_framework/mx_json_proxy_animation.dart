@@ -164,7 +164,7 @@ class MXProxyAnimationController extends MXJsonObjProxy {
     invokeFunction(mirrorObj, funcName, args);
   }
 
-  // 先写在一起跑通再说，后面再考虑把代码写得优雅些
+  //TODO:优化分发
   void invokeFunction(
       AnimationController mirrorObj, String funcName, Map args) {
     if (funcName == 'forward') {
