@@ -52,9 +52,9 @@ android {
 
         consumerProguardFiles 'consumer-rules.pro'
 
-        ndk {
-            abiFilters 'armeabi-v7a'
-        }
+//        ndk {
+//            abiFilters 'armeabi-v7a'
+//        }
 
     }
 
