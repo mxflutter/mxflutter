@@ -6,18 +6,12 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
-int flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
 }
@@ -40,15 +34,30 @@ android {
         disable 'InvalidPackage'
     }
 
+    //不引入flutter使用的图片等资源
+    aaptOptions {
+        ignoreAssetsPattern "flutter_gallery_assets"
+    }
+
+    //js资源打包进assets
+    sourceSets{
+        main{
+            assets{
+                srcDirs '../../lib/mxflutter_framework'
+                srcDirs '../../mxflutter_js_src'
+            }
+        }
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.imatrixteam.example"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode flutterVersionCode
+        versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         consumerProguardFiles 'consumer-rules.pro'
 
@@ -60,7 +69,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -90,5 +100,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation project(':MXFlutterFramework')
+    implementation 'com.eclipsesource.j2v8:j2v8:6.1.0@aar'
 }

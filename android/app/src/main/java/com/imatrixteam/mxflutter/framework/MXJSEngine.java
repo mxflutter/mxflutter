@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter;
+package com.imatrixteam.mxflutter.framework;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -16,14 +16,14 @@ import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
-import com.eclipsesource.v8.V8ResultUndefined;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
-import com.imatrixteam.jsflutter.utils.FileUtils;
-import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
+import com.imatrixteam.mxflutter.framework.utils.FileUtils;
+import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 import io.flutter.plugin.common.BasicMessageChannel;
 
 import androidx.annotation.Nullable;
@@ -52,7 +52,7 @@ public class MXJSEngine {
 
     private void setup() {
         this.jsExecutor = new MXJSExecutor(mContext);
-        jsCallbackCache = new HashMap();
+        jsCallbackCache = new HashMap<String, V8Function>();
         setupBasicJSRuntime();
     }
 
@@ -89,7 +89,7 @@ public class MXJSEngine {
                     @Override
                     public void excute() {
                         V8Function function = (V8Function) local_args.get(0);
-                        jsExecutor.invokeJsFunction(function, new HashMap());
+                        jsExecutor.invokeJsFunction(function, null);
                     }
                 }, Long.parseLong(local_args.get(1).toString()));
             }
@@ -117,7 +117,7 @@ public class MXJSEngine {
                         if (result == null) {
                             jsExecutor.invokeJsFunction(function, null);
                         } else if (result instanceof String) {
-                            jsExecutor.invokeJsFunctionWithString(function, (String) result);
+                            jsExecutor.invokeJsFunctionWithString(function, result);
                         } else {
                             throw new IllegalArgumentException(
                                     "BasicMessageChannel.Reply Must be return String object");
@@ -214,7 +214,7 @@ public class MXJSEngine {
 
                 V8Object exports = null;
                 if (!TextUtils.isEmpty(absolutePath)) {
-                    exports = JSModule.require(filePath, absolutePath, jsExecutor.runtime, isFromAsset);
+                    exports = JSModule.require(filePath, absolutePath, MXJSExecutor.runtime, isFromAsset);
                     if (exports == null) {
                         jsExecutor.executeScript("throw 'not found'", new MXJSExecutor.ExecuteScriptCallback() {
                             @Override
@@ -234,7 +234,7 @@ public class MXJSEngine {
         jsExecutor.execute(new MXJsScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
-                JSModule.initGlobalModuleCache(jsExecutor.runtime);
+                JSModule.initGlobalModuleCache(MXJSExecutor.runtime);
             }
         });
     }

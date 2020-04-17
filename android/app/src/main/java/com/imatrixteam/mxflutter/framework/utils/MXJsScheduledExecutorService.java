@@ -4,10 +4,10 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter.utils;
+package com.imatrixteam.mxflutter.framework.utils;
 
 import com.eclipsesource.v8.V8ScriptException;
-import com.imatrixteam.jsflutter.MXFlutterApplication;
+import com.imatrixteam.mxflutter.framework.MXFlutterApplication;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

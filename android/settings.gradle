@@ -1,4 +1,4 @@
-include ':MXFlutterFramework', ':app'
+include ':app'
 
 def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
 

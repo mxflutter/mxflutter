@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter.utils;
+package com.imatrixteam.mxflutter.framework.utils;
 
 import android.util.Log;
 
@@ -18,7 +18,7 @@ public class ClassUtils {
 
     public static final String TAG = "ClassUtils";
 
-    public static Object getInstance(Class clazz, Class classParas[], Object paras[]) {
+    public static Object getInstance(Class<?> clazz, Class[] classParas, Object[] paras) {
         Object o = null;
         try {
             Constructor con = clazz.getConstructor(classParas);
