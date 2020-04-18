@@ -59,13 +59,6 @@ const dart = dart_sdk.dart;
 
 const { SectionTitle } = require("./component/section_title.js");
 
-const packages__dio = require("packages/dio/dio.js");
-
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
-const fetch = bridge_netwrok.fetch;
-
-
 let cgi = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
 
 class PageExampleNetworkAPI extends MXJSStatefulWidget {
@@ -88,8 +81,12 @@ class PageExampleNetworkAPIState extends MXJSWidgetState {
     return "network.sendRequest";
   }
 
-  ///networkapi 示例
+  ///networkapi 示例,network.sendRequest 只有iOS 可以调用，android网络请求使用Dio
   testNetwork(url, method, { headers, body, incrementalUpdates, withCredentials } = {}) {
+
+    const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
+    const network = bridge_netwrok.network_ios;
+
     network.sendRequest({
       url, method, headers, body, withCredentials,
       onCreateRequest: function (requestID) {
@@ -147,7 +144,8 @@ class PageExampleNetworkAPIState extends MXJSWidgetState {
             }),
             onTap: async function () {
 
-              this.testNetwork(cgi);
+              // this.testNetwork(cgi);
+              this.testNetworkDio(cgi);
 
             }.bind(this)
           }),

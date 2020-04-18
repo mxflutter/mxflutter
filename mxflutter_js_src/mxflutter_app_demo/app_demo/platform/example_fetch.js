@@ -62,7 +62,7 @@ const { SectionTitle } = require("./component/section_title.js");
 const packages__dio = require("packages/dio/dio.js");
 
 const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
+const network = bridge_netwrok.network_ios;
 const fetch = bridge_netwrok.fetch;
 
 
