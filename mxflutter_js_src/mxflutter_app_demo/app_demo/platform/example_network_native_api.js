@@ -144,9 +144,8 @@ class PageExampleNetworkAPIState extends MXJSWidgetState {
             }),
             onTap: async function () {
 
-              // this.testNetwork(cgi);
-              this.testNetworkDio(cgi);
-
+              this.testNetwork(cgi);
+      
             }.bind(this)
           }),
           new SectionTitle("Response"),

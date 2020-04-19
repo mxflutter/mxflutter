@@ -93,7 +93,6 @@ class PageExampleDioState extends MXJSWidgetState {
     try {
       let response = await packages__dio.Dio().get(url);
       MXJSLog.log("await Dio.get(urlStr):request() :" + response);
-      return "response.data";
       return response.data;
 
     } catch (e$) {
@@ -115,10 +114,13 @@ class PageExampleDioState extends MXJSWidgetState {
       // let options = new packages__dio.Options.new();
       // options.headers = { "a": "b" };
 
-      return await dio.get(url, { onReceiveProgress:function (progress,total){
+      let response =  await dio.get(url, { onReceiveProgress:function (progress,total){
 
         MXJSLog.log("testDio() error: progress: " + progress/total);
       }});
+
+      MXJSLog.log("await Dio.get(urlStr):request() :" + response);
+      return response.data;
 
     } catch (e$) {
       let e = dart.getThrown(e$);
@@ -147,7 +149,7 @@ class PageExampleDioState extends MXJSWidgetState {
 
               this.setState(function () {
 
-                //this.response = JSON.stringify(response);
+                this.response = JSON.stringify(response);
 
               }.bind(this));
 
@@ -167,7 +169,7 @@ class PageExampleDioState extends MXJSWidgetState {
               this.setState(function () {
 
                 //response.data 为json map obj
-                //this.response = "json title:" + response["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify(response);
+                this.response = "json title:" + response["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify(response);
 
               }.bind(this));
 

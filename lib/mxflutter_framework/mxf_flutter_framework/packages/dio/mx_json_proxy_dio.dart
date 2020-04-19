@@ -83,13 +83,9 @@ class MXProxyDio extends MXJsonObjProxy {
   request(String mirrorID, Dio mirrorObj, Map args) async {
     if (args["options"] != null) {
       args["options"]["owner_mirrorID"] = mirrorID;
-      args["options"]["owner_mirrorObj"] = mirrorObj;
     }
-
+    
     var options = mxj2d(null, args["options"]);
-    ResponseType respType =
-        options != null ? options.responseType : ResponseType.plain;
-
     Response response = await mirrorObj.request(args["path"],
         options: options, queryParameters: args["queryParameters"],
         onSendProgress: (int count, int total) {
@@ -104,10 +100,10 @@ class MXProxyDio extends MXJsonObjProxy {
           args: {"count": count, "total": total});
     });
 
-    return ResponseOBJtoJSON(response, respType);
+    return ResponseOBJtoJSON(response);
   }
 
-  String ResponseOBJtoJSON(Response response, ResponseType respType) {
+  String ResponseOBJtoJSON(Response response) {
     //class Response<T> {
     // Response({
     //   this.data,
@@ -121,6 +117,8 @@ class MXProxyDio extends MXJsonObjProxy {
     // });
 
     var data = response.data;
+
+    ResponseType respType = response.request.responseType;
     if (respType == ResponseType.bytes) {
       data = base64Encode(data);
     }

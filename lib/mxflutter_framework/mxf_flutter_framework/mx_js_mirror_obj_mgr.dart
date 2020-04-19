@@ -31,17 +31,24 @@ class MXJSMirrorObjMgr {
 
   dynamic getMirrorObjectFromMap(Map jsonMap) {
     dynamic mirrorID = jsonMap["mirrorID"];
-    if (mirrorID != null) {
-      return g_mirrorObjectMap[mirrorID];
+    if (mirrorID == null) {
+      return null;
     }
-    return null;
+    return g_mirrorObjectMap[mirrorID];
   }
 
   dynamic getMirrorObjectFromID(dynamic mirrorID) {
+    if (mirrorID == null) {
+      return;
+    }
     return g_mirrorObjectMap[mirrorID];
   }
 
   void addMirrorObject(dynamic mirrorID, dynamic mirrorObj) {
+    if (mirrorID == null || mirrorObj == null) {
+      return;
+    }
+
     g_mirrorObjectMap[mirrorID] = mirrorObj;
   }
 

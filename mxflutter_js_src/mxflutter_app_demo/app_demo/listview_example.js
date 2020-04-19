@@ -175,9 +175,11 @@ class ListViewDemoState extends MXJSWidgetState {
         this.loading = false;
 
         if (result) {
+            if(typeof result == "String"){
+                result = JSON.parse(result);
+            }
 
-            let responseMap = JSON.parse(result);
-            let respArray = responseMap["T1348649580692"];
+            let respArray = result["T1348649580692"];
             return respArray;
         } else {
             return [];
@@ -220,7 +222,7 @@ class ListViewDemoState extends MXJSWidgetState {
 
             let response = await this.dio.get(url);
             MXJSLog.debug("await Dio.get(urlStr):request() :" + response);
-            return response;
+            return response.data;
 
         } catch (e$) {
             let e = dart.getThrown(e$);
