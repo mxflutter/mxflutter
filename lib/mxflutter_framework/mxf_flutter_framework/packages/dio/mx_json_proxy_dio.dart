@@ -81,7 +81,7 @@ class MXProxyDio extends MXJsonObjProxy {
   }
 
   request(String mirrorID, Dio mirrorObj, Map args) async {
-    if (args["options"] != null) {
+    if (args["options"] != null && (args["options"] as Map).length > 0) {
       args["options"]["owner_mirrorID"] = mirrorID;
     }
     

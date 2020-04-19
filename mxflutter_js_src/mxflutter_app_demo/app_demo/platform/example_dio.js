@@ -106,6 +106,7 @@ class PageExampleDioState extends MXJSWidgetState {
   //例子2，接口还未完全支持
   async testDio2(url) {
     const packages__dio = require("packages/dio/dio.js");
+    //const packages__dio = require("packages/dio/src/dio_test.js");
     try {
 
       let dio = packages__dio.Dio();
