@@ -59,11 +59,6 @@ const dart = dart_sdk.dart;
 
 const { SectionTitle } = require("./component/section_title.js");
 
-const packages__dio = require("packages/dio/dio.js");
-
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
-const fetch = bridge_netwrok.fetch;
 
 
 let cgiDataUrl = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
@@ -94,10 +89,11 @@ class PageExampleDioState extends MXJSWidgetState {
   
   //例子1，最简单的用法 
   async testDio1(url) {
+    const packages__dio = require("packages/dio/dio.js");
     try {
       let response = await packages__dio.Dio().get(url);
       MXJSLog.log("await Dio.get(urlStr):request() :" + response);
-      return response;
+      return response.data;
 
     } catch (e$) {
       let e = dart.getThrown(e$);
@@ -109,17 +105,23 @@ class PageExampleDioState extends MXJSWidgetState {
 
   //例子2，接口还未完全支持
   async testDio2(url) {
+    const packages__dio = require("packages/dio/dio.js");
+    //const packages__dio = require("packages/dio/src/dio_test.js");
     try {
+
       let dio = packages__dio.Dio();
       // dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
 
       // let options = new packages__dio.Options.new();
       // options.headers = { "a": "b" };
 
-      return await dio.get(url, { onReceiveProgress:function (progress,total){
+      let response =  await dio.get(url, { onReceiveProgress:function (progress,total){
 
         MXJSLog.log("testDio() error: progress: " + progress/total);
       }});
+
+      MXJSLog.log("await Dio.get(urlStr):request() :" + response);
+      return response.data;
 
     } catch (e$) {
       let e = dart.getThrown(e$);

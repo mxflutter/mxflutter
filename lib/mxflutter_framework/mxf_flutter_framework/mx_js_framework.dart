@@ -137,10 +137,11 @@ class MXJSFlutter {
 
   //Mirror Sys 
   invokeJSMirrorObj(
-      {dynamic mirrorID, String functionName, dynamic args}) async {
+      {dynamic mirrorID, String functionName, String callbackID,dynamic args}) async {
     Map callInfo = {
       "mirrorID": mirrorID,
       "funcName": functionName,
+      "callbackID": callbackID,
       "args": args
     };
 

@@ -114,37 +114,54 @@ class MXJsonObjToDartObject {
   dynamic jsonMapObjToDartObject(Map jsonMap,
       {MXJsonBuildOwner buildOwner, BuildContext context}) {
     String className = jsonMap["className"];
-
     if (className == null || className.isEmpty) {
       return null;
     }
 
-    if (buildOwner != null) {
-      dynamic mirrorObject = buildOwner.getMirrorObjectFromMap(jsonMap);
-      if (mirrorObject != null) {
-        return mirrorObject;
-      }
-    } else {
-      dynamic mirrorID = jsonMap["mirrorID"];
-      dynamic mirrorObject =
-          MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
-      if (mirrorObject != null) {
-        return mirrorObject;
-      }
+    var mirrorObject = findMirrorObj(jsonMap, buildOwner);
+    if (mirrorObject != null) {
+      return mirrorObject;
     }
 
     MXJsonObjProxy proxy = getJSObjProxy(className);
-
     dynamic dartObject =
         proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
+
+    setMirrorObj(jsonMap, buildOwner, dartObject);
+
+    return dartObject;
+  }
+
+  dynamic findMirrorObj(Map jsonMap, MXJsonBuildOwner buildOwner) {
+    dynamic mirrorID = jsonMap["mirrorID"];
+    if (mirrorID == null) {
+      return null;
+    }
+
+    //两个分支目前一样
+    var mirrorObject;
+    if (buildOwner != null) {
+      mirrorObject = buildOwner.getMirrorObjectFromID(mirrorID);
+    } else {
+      mirrorObject =
+          MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+    }
+
+    return mirrorObject;
+  }
+
+  void setMirrorObj(
+      Map jsonMap, MXJsonBuildOwner buildOwner, dynamic dartObject) {
+    dynamic mirrorID = jsonMap["mirrorID"];
+    if (mirrorID == null) {
+      return;
+    }
+
     if (buildOwner != null) {
       buildOwner.setMirrorObject(dartObject, jsonMap);
     } else {
-      dynamic mirrorID = jsonMap["mirrorID"];
       MXJSMirrorObjMgr.getInstance().addMirrorObject(mirrorID, dartObject);
     }
-
-    return dartObject;
   }
 
   ///如果Map里没找到Class字段，则转换成对应Dart里的Map对象，并对齐子元素，递归转换
@@ -329,7 +346,7 @@ class MXJsonObjProxy {
   }
 
   ///用于多构造函数分发，一般不用重载，只重载constructor即可
-  Object jsonObjToDartObject(
+  dynamic jsonObjToDartObject(
       MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     if (!check(jsonMap)) {

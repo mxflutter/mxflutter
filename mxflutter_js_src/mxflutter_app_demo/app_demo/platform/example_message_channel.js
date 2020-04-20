@@ -60,15 +60,6 @@ const dart = dart_sdk.dart;
 
 const { SectionTitle } = require("./component/section_title.js");
 
-const packages__dio = require("packages/dio/dio.js");
-
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
-const fetch = bridge_netwrok.fetch;
-
-
-let cgi = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
-
 class PageExampleMessageChannel extends MXJSStatefulWidget {
   constructor() {
     super("PageExampleMessageChannel");

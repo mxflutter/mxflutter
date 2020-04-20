@@ -363,12 +363,10 @@ class MXJsonBuildOwner {
     return mirrorID;
   }
 
-  dynamic getMirrorObjectFromMap(Map jsonMap) {
-    dynamic mirrorID = jsonMap["mirrorID"];
-    return getMirrorObjectFromID(mirrorID);
-  }
-
   dynamic getMirrorObjectFromID(dynamic mirrorID) {
+    if (mirrorID == null) {
+      return null;
+    }
     return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
   }
 
