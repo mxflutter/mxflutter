@@ -83,6 +83,16 @@ public class MXJSFlutterEngine {
         });
 
         jsFlutterCommonBasicChannel =  new BasicMessageChannel<>(mFlutterEngine, FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
+        jsFlutterCommonBasicChannel.setMessageHandler(new BasicMessageChannel.MessageHandler<String>(){
+            @Override
+            public void onMessage(String message, BasicMessageChannel.Reply<String> reply) {
+                //TODO: call js global function
+                // globalThis.mxfJSBridgeInvokeJSCommonChannel = function (messageStr) {
+                //  MXFJSBridge.onFlutterInvokeJSCommonChannel(messageStr);
+                //}
+            }
+
+        });
     }
 
     public void destroy() {
