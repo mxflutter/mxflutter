@@ -83,9 +83,9 @@
             [needDeallocObjMirrorIDArray addObject:mirrorID];
         }
     }
-    
-    MXJSFlutterLog(@"onGCTimer:jsVauleGCManagedMap.count:%lu needDeallocObjMirrorIDArray.count:%lu",
-                   (unsigned long)self.jsVauleMirrorObjGCMap.count,(unsigned long)needDeallocObjMirrorIDArray.count);
+    //TODO: fix bug
+    //MXJSFlutterLog(@"onGCTimer:jsVauleGCManagedMap.count:%lu needDeallocObjMirrorIDArray.count:%lu",
+    //               (unsigned long)self.jsVauleMirrorObjGCMap.count,(unsigned long)needDeallocObjMirrorIDArray.count);
   
     if(needDeallocObjMirrorIDArray.count > 0)
     {
