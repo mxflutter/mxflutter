@@ -82,16 +82,22 @@ public class MXJSFlutterEngine {
             }
         });
 
-        jsFlutterCommonBasicChannel =  new BasicMessageChannel<>(mFlutterEngine, FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
-        jsFlutterCommonBasicChannel.setMessageHandler(new BasicMessageChannel.MessageHandler<String>(){
+        jsFlutterCommonBasicChannel = new BasicMessageChannel<>(mFlutterEngine, FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
+        jsFlutterCommonBasicChannel.setMessageHandler(new BasicMessageChannel.MessageHandler<String>() {
             @Override
             public void onMessage(String message, BasicMessageChannel.Reply<String> reply) {
-                //TODO: call js global function
-                // globalThis.mxfJSBridgeInvokeJSCommonChannel = function (messageStr) {
-                //  MXFJSBridge.onFlutterInvokeJSCommonChannel(messageStr);
-                //}
-            }
+                mJsEngine.jsExecutor.invokeJSValueWithString(MXJSExecutor.runtime, "mxfJSBridgeInvokeJSCommonChannel", message, new MXJSExecutor.InvokeJSValueCallback() {
+                    @Override
+                    public void onSuccess(Object value) {
+                        reply.reply(value.toString());
+                    }
 
+                    @Override
+                    public void onError(Error error) {
+
+                    }
+                });
+            }
         });
     }
 

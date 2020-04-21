@@ -213,6 +213,27 @@ public class MXJSExecutor {
     }
 
     @SuppressWarnings("unchecked")
+    public void invokeJSValueWithString(V8Object jsAppObj, String method, String args, InvokeJSValueCallback callback) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                //获取执行结果
+                if (jsAppObj != null) {
+                    try {
+                        Object result = jsAppObj.executeFunction(method, new V8Array(runtime).push(args));
+                        callback.onSuccess(result);
+                    } catch (Exception e) {
+                        callback.onError(new Error(e.getMessage()));
+                        Log.e(TAG, "", e);
+                    }
+                } else {
+                    callback.onError(new Error("jsObjectNull"));
+                }
+            }
+        });
+    }
+
+    @SuppressWarnings("unchecked")
     public void invokeJsFunction(V8Function v8Function, Map value) {
         executor.execute(new MXJsTask() {
             @Override
