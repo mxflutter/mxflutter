@@ -176,7 +176,7 @@ class PerformanceProfilingWidgetState extends MXJSWidgetState {
                                     MXJSLog.log('数据量少时，点击...');
 
                                 }.bind(this),
-                                child: new Text('请点击，查看耗时...', {
+                                child: new Text('点击查看耗时', {
                                     style: new TextStyle({
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14.0,
