@@ -4,15 +4,15 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter;
+package com.imatrixteam.mxflutter.framework;
 
 import android.text.TextUtils;
 
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.V8ScriptException;
-import com.imatrixteam.jsflutter.utils.ClassUtils;
-import com.imatrixteam.jsflutter.utils.FileUtils;
+import com.imatrixteam.mxflutter.framework.utils.ClassUtils;
+import com.imatrixteam.mxflutter.framework.utils.FileUtils;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -119,7 +119,7 @@ public class JSModule {
         }
 
         int i = pathList.size() - 1;
-        ArrayList<String> dirs = new ArrayList();
+        ArrayList<String> dirs = new ArrayList<String>();
         while (i > rootIndex) {
             String component = pathList.get(i);
             if (component.equals("node_modules")) {
@@ -221,7 +221,7 @@ public class JSModule {
 
         try {
             String exportScript = String.format("(function() { var module = { exports: {}}; var exports = module.exports; \n%s\n; return module.exports; })();", script);
-            V8Object value = (V8Object) context.getRuntime().executeObjectScript(exportScript);
+            V8Object value = context.getRuntime().executeObjectScript(exportScript);
 
             if (value != null) {
                 newModule.mExports = value;

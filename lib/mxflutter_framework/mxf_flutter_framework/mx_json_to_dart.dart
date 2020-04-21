@@ -16,12 +16,16 @@ import 'mx_json_proxy_image.dart';
 import 'mx_json_proxy_cupertino.dart';
 import 'mx_js_flutter_common.dart';
 import 'mx_json_proxy_animation.dart';
+import 'packages/dio/mx_json_proxy_dio.dart';
 import 'packages/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
 import 'packages/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
 import 'mx_json_proxy_widget.dart';
+import 'mx_js_mirror_obj_mgr.dart';
 
 typedef dynamic CreateJsonObjProxyFun();
+
+typedef InvokeCallback = void Function(dynamic params);
 
 typedef StringFunctionGenericCallback<T> = String Function(T value);
 
@@ -48,14 +52,14 @@ class MXJsonObjToDartObject {
     init();
   }
 
-  static dynamic jsonToDartObj(MXJsonBuildOwner buildOwner, dynamic jsonMap,
-      {BuildContext context}) {
+  static dynamic jsonToDartObj(dynamic jsonMap,
+      {MXJsonBuildOwner buildOwner, BuildContext context}) {
     return MXJsonObjToDartObject.getInstance()
-        .jsonObjToDartObject(buildOwner, jsonMap, context: context);
+        .jsonObjToDartObject(jsonMap, buildOwner: buildOwner, context: context);
   }
 
-  dynamic jsonObjToDartObject(MXJsonBuildOwner buildOwner, dynamic jsonObj,
-      {BuildContext context}) {
+  dynamic jsonObjToDartObject(dynamic jsonObj,
+      {MXJsonBuildOwner buildOwner, BuildContext context}) {
     String className;
     try {
       ///map
@@ -84,16 +88,16 @@ class MXJsonObjToDartObject {
 
         ///如果Map里找到了Class字段，则转换成对应Dart对象
         if (className != null) {
-          return jsonMapObjToDartObject(buildOwner, newJsonObj,
-              context: context);
+          return jsonMapObjToDartObject(newJsonObj,
+              buildOwner: buildOwner, context: context);
         } else {
           ///如果Map里没找到Class字段，则转换成对应Dart里的Map对象，并对齐子元素，递归转换
-          return jsonMapObjToDartMapRecursive(buildOwner, newJsonObj,
-              context: context);
+          return jsonMapObjToDartMapRecursive(newJsonObj,
+              buildOwner: buildOwner, context: context);
         }
       } else if (jsonObj is List) {
-        return jsonListObjToDartListRecursive(buildOwner, jsonObj,
-            context: context);
+        return jsonListObjToDartListRecursive(jsonObj,
+            buildOwner: buildOwner, context: context);
       } else {
         return jsonObj;
       }
@@ -107,48 +111,78 @@ class MXJsonObjToDartObject {
   }
 
   ///如果Map里找到了Class字段，则转换成对应Dart对象
-  dynamic jsonMapObjToDartObject(MXJsonBuildOwner buildOwner, Map jsonMap,
-      {BuildContext context}) {
+  dynamic jsonMapObjToDartObject(Map jsonMap,
+      {MXJsonBuildOwner buildOwner, BuildContext context}) {
     String className = jsonMap["className"];
-
     if (className == null || className.isEmpty) {
       return null;
     }
 
-    dynamic mirrorObject = buildOwner.getMirrorObjectFromMap(jsonMap);
+    var mirrorObject = findMirrorObj(jsonMap, buildOwner);
     if (mirrorObject != null) {
       return mirrorObject;
     }
 
     MXJsonObjProxy proxy = getJSObjProxy(className);
-
     dynamic dartObject =
         proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
-    buildOwner.setMirrorObject(dartObject, jsonMap);
+
+    setMirrorObj(jsonMap, buildOwner, dartObject);
 
     return dartObject;
   }
 
+  dynamic findMirrorObj(Map jsonMap, MXJsonBuildOwner buildOwner) {
+    dynamic mirrorID = jsonMap["mirrorID"];
+    if (mirrorID == null) {
+      return null;
+    }
+
+    //两个分支目前一样
+    var mirrorObject;
+    if (buildOwner != null) {
+      mirrorObject = buildOwner.getMirrorObjectFromID(mirrorID);
+    } else {
+      mirrorObject =
+          MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+    }
+
+    return mirrorObject;
+  }
+
+  void setMirrorObj(
+      Map jsonMap, MXJsonBuildOwner buildOwner, dynamic dartObject) {
+    dynamic mirrorID = jsonMap["mirrorID"];
+    if (mirrorID == null) {
+      return;
+    }
+
+    if (buildOwner != null) {
+      buildOwner.setMirrorObject(dartObject, jsonMap);
+    } else {
+      MXJSMirrorObjMgr.getInstance().addMirrorObject(mirrorID, dartObject);
+    }
+  }
+
   ///如果Map里没找到Class字段，则转换成对应Dart里的Map对象，并对齐子元素，递归转换
-  dynamic jsonMapObjToDartMapRecursive(MXJsonBuildOwner buildOwner, Map jsonMap,
-      {BuildContext context}) {
+  dynamic jsonMapObjToDartMapRecursive(Map jsonMap,
+      {MXJsonBuildOwner buildOwner, BuildContext context}) {
     Map map = {};
 
     jsonMap.forEach((k, v) {
-      map[k] = jsonToDartObj(buildOwner, v, context: context);
+      map[k] = jsonToDartObj(v, buildOwner: buildOwner, context: context);
     });
 
     return map;
   }
 
   ///List对象，对子元素，递归转换
-  dynamic jsonListObjToDartListRecursive(
-      MXJsonBuildOwner buildOwner, List jsonList,
-      {BuildContext context}) {
+  dynamic jsonListObjToDartListRecursive(List jsonList,
+      {MXJsonBuildOwner buildOwner, BuildContext context}) {
     List list = [];
 
     jsonList.forEach((v) {
-      var vObj = jsonToDartObj(buildOwner, v, context: context);
+      var vObj = jsonToDartObj(v, buildOwner: buildOwner, context: context);
       list.add(vObj);
     });
 
@@ -197,7 +231,10 @@ class MXJsonObjToDartObject {
     registerProxy(MXProxyRegisterHelperSmartRefresherSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperClassIndicatorSeries.registerProxys());
     // cached_network_image
-    registerProxy(MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
+    registerProxy(
+        MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
+    // dio
+    registerProxy(MXProxyRegisterHelperDioSeries.registerProxys());
   }
 
   void registerProxy(Map<String, CreateJsonObjProxyFun> m) {
@@ -309,7 +346,7 @@ class MXJsonObjProxy {
   }
 
   ///用于多构造函数分发，一般不用重载，只重载constructor即可
-  Object jsonObjToDartObject(
+  dynamic jsonObjToDartObject(
       MXJsonBuildOwner buildOwner, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     if (!check(jsonMap)) {
@@ -402,7 +439,7 @@ class MXJsonObjProxy {
   dynamic mxj2d(MXJsonBuildOwner buildOwner, dynamic jsonObj,
       {dynamic defaultValue, BuildContext context}) {
     var v = MXJsonObjToDartObject.getInstance()
-        .jsonObjToDartObject(buildOwner, jsonObj, context: context);
+        .jsonObjToDartObject(jsonObj, buildOwner: buildOwner, context: context);
 
     v ??= defaultValue;
     return v;
@@ -451,7 +488,8 @@ class MXJsonObjProxy {
   /// subclass override
   /// mirrorObj 为一个类的实例对象，把调用对象方法，路由到代理类
   void jsInvokeMirrorObjFunction(
-      String mirrorID, dynamic mirrorObj, String funcName, Map args) {}
+      String mirrorID, dynamic mirrorObj, String funcName, Map args,
+      {InvokeCallback callback}) {}
 
   ///事件处理------------
 

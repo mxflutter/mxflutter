@@ -155,7 +155,8 @@ class MXProxyAnimationController extends MXJsonObjProxy {
   //mirrorObj 为一个AnimationController类的实例对象，把调用对象方法，路由到代理类
   @override
   void jsInvokeMirrorObjFunction(
-      String mirrorID, dynamic mirrorObj, String funcName, Map args) {
+      String mirrorID, dynamic mirrorObj, String funcName, Map args,
+      {InvokeCallback callback}) {
     if (mirrorObj == null || !(mirrorObj is AnimationController)) {
       return;
     }
@@ -163,7 +164,7 @@ class MXProxyAnimationController extends MXJsonObjProxy {
     invokeFunction(mirrorObj, funcName, args);
   }
 
-  // 先写在一起跑通再说，后面再考虑把代码写得优雅些
+  //TODO:优化分发
   void invokeFunction(
       AnimationController mirrorObj, String funcName, Map args) {
     if (funcName == 'forward') {

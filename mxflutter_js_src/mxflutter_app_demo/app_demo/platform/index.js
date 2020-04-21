@@ -60,9 +60,9 @@ let {
 
 const { SectionTitle } = require("./component/section_title.js");
 
-let { PageExampleDio } = require("platform/example_dio.js");
-let { PageExampleFetch } = require("platform/example_fetch.js");
-let { PageExampleNetworkAPI } = require("platform/example_network_native_api.js");
+
+
+
 let { PageExampleMessageChannel } = require("platform/example_message_channel.js");
 let { PageExampleSharedPreferences } = require("platform/example_shared_preferences.js");
 
@@ -86,6 +86,7 @@ class PlatformExamplesPage extends MXJSStatelessWidget {
 
             new ListTile({
               title: new Text("MessageChannel"),
+              subtitle: new Text("iOS/Android"),
               onTap: function () {
                 Navigator.push(context, new MaterialPageRoute({
                   builder: function (context) {
@@ -98,7 +99,9 @@ class PlatformExamplesPage extends MXJSStatelessWidget {
 
             new ListTile({
               title: new Text("Dio Examples"),
+              subtitle: new Text("iOS/Android"),
               onTap: function () {
+                let { PageExampleDio } = require("platform/example_dio.js");
                 Navigator.push(context, new MaterialPageRoute({
                   builder: function (context) {
                     return new PageExampleDio;
@@ -109,7 +112,9 @@ class PlatformExamplesPage extends MXJSStatelessWidget {
 
             new ListTile({
               title: new Text("Fetch Examples"),
+              subtitle: new Text("仅iOS"),
               onTap: function () {
+                let { PageExampleFetch } = require("platform/example_fetch.js");
                 Navigator.push(context, new MaterialPageRoute({
                   builder: function (context) {
                     return new PageExampleFetch;
@@ -120,7 +125,9 @@ class PlatformExamplesPage extends MXJSStatelessWidget {
 
             new ListTile({
               title: new Text("Network NativeApi"),
+              subtitle: new Text("仅iOS"),
               onTap: function () {
+                let { PageExampleNetworkAPI } = require("platform/example_network_native_api.js");
                 Navigator.push(context, new MaterialPageRoute({
                   builder: function (context) {
                     return new PageExampleNetworkAPI;
@@ -132,6 +139,7 @@ class PlatformExamplesPage extends MXJSStatelessWidget {
 
             new ListTile({
               title: new Text("shared_preferences"),
+              subtitle: new Text("iOS/Android"),
               onTap: function () {
                 Navigator.push(context, new MaterialPageRoute({
                   builder: function (context) {

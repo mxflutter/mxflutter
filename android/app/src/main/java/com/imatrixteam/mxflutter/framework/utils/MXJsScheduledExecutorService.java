@@ -4,10 +4,10 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter.utils;
+package com.imatrixteam.mxflutter.framework.utils;
 
 import com.eclipsesource.v8.V8ScriptException;
-import com.imatrixteam.jsflutter.MXFlutterApplication;
+import com.imatrixteam.mxflutter.framework.MXFlutterApplication;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -46,7 +46,6 @@ public class MXJsScheduledExecutorService {
                                        long delay) {
         if (sRunOnUI) {
             MXFlutterApplication.getApplication().getMainHandler().postDelayed(command, delay);
-            command.run();
             return null;
         } else {
             return executor.schedule(command, delay, TimeUnit.MILLISECONDS);

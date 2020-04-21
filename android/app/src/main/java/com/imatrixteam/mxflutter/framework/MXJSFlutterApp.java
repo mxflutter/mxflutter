@@ -4,19 +4,18 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter;
+package com.imatrixteam.mxflutter.framework;
 
 import android.content.Context;
 
 import com.eclipsesource.v8.V8Object;
-import com.imatrixteam.jsflutter.utils.FileUtils;
-import com.imatrixteam.jsflutter.utils.LogUtilsKt;
-import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
+import com.imatrixteam.mxflutter.framework.utils.FileUtils;
+import com.imatrixteam.mxflutter.framework.utils.LogUtilsKt;
+import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -39,7 +38,7 @@ public class MXJSFlutterApp {
 
     static MXJSFlutterEngine jsFlutterEngineStatic;
 
-    private FlutterActivity mContext;
+    private MXFlutterActivity mContext;
 
     private String appName;
     private String rootPath;
@@ -58,12 +57,12 @@ public class MXJSFlutterApp {
     private static final String MXFLUTTER_METHED_CHANNEL_APP_NAVIGATOR_PUSH = "js_flutter.js_flutter_app_channel.navigator_push";
 
     MethodChannel jsFlutterAppChannel;
-    BasicMessageChannel jsFlutterAppRebuildChannel;
-    BasicMessageChannel jsFlutterAppNavigatorePushChannel;
+    BasicMessageChannel<String> jsFlutterAppRebuildChannel;
+    BasicMessageChannel<String> jsFlutterAppNavigatorePushChannel;
 
     private ArrayList<MethodCall> callJSMethodQueue;
 
-    public MXJSFlutterApp initWithAppName(FlutterActivity context, String appName, String rootPath, MXJSFlutterEngine jsFlutterEngine) {
+    public MXJSFlutterApp initWithAppName(MXFlutterActivity context, String appName, String rootPath, MXJSFlutterEngine jsFlutterEngine) {
         initRuntime(context);
         this.mContext = context;
         this.appName = appName;
@@ -75,7 +74,7 @@ public class MXJSFlutterApp {
         callJSMethodQueue = new ArrayList<>(1);
 
         setupJSEngine(jsFlutterEngine);
-        setUpChannel(context.getFlutterView());
+        setUpChannel(context.getMXFlutterEngine().getDartExecutor().getBinaryMessenger());
 
         currentApp = this;
         return this;
@@ -179,7 +178,7 @@ public class MXJSFlutterApp {
             @Override
             public void excute() {
                 //todo app release
-                JSModule.clearModuleCache(jsExecutor.runtime);
+                JSModule.clearModuleCache(MXJSExecutor.runtime);
 
                 if (jsAppObj != null) {
                     jsAppObj.close();
@@ -201,8 +200,8 @@ public class MXJSFlutterApp {
             @Override
             public void excute() {
                 MXNativeJSFlutterApp MXNativeJSFlutterApp = new MXNativeJSFlutterApp();
-                V8Object v8Object = new V8Object(jsExecutor.runtime);
-                jsExecutor.runtime.add("MXNativeJSFlutterApp", v8Object);
+                V8Object v8Object = new V8Object(MXJSExecutor.runtime);
+                MXJSExecutor.runtime.add("MXNativeJSFlutterApp", v8Object);
                 v8Object.registerJavaMethod(MXNativeJSFlutterApp, "setCurrentJSApp",
                         "setCurrentJSApp", new Class<?>[]{V8Object.class});
                 v8Object.registerJavaMethod(MXNativeJSFlutterApp,

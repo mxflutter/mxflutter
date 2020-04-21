@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter;
+package com.imatrixteam.mxflutter.framework;
 
 import android.os.Handler;
 import android.os.Looper;

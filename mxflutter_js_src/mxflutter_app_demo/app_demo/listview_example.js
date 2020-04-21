@@ -92,8 +92,8 @@ const { SectionTitle } = require("./component/section_title.js");
 const packages__dio = require("packages/dio/dio.js");
 
 const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
-const fetch = bridge_netwrok.fetch;
+const network = bridge_netwrok.network_ios;
+const fetch = bridge_netwrok.fetch_ios;
 
 //用于演示网络请求cgi
 //let cgi = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
@@ -121,14 +121,13 @@ class ListViewDemoState extends MXJSWidgetState {
 
         this.refreshController = new RefreshController();
         this.methodChannel = new MethodChannel("MXFlutter_MethodChannel_Demo");
-
-        this.pageCount = 10;
-        this.pageIndex = 0;
+        this.dio = packages__dio.Dio();
 
         this.newsArray = [];
 
+        this.pageCount = 10;
+        this.pageIndex = 0;
         this.loading = false;
-
         this.buildCount = 1;
     }
 
@@ -176,9 +175,11 @@ class ListViewDemoState extends MXJSWidgetState {
         this.loading = false;
 
         if (result) {
+            if(typeof result == "String"){
+                result = JSON.parse(result);
+            }
 
-            let responseMap = JSON.parse(result);
-            let respArray = responseMap["T1348649580692"];
+            let respArray = result["T1348649580692"];
             return respArray;
         } else {
             return [];
@@ -206,7 +207,7 @@ class ListViewDemoState extends MXJSWidgetState {
 
     }
 
-    ///fetch 示例
+    ///dio 示例
     async requestNews() {
         this.pageIndex = this.pageIndex % 4
         let startIndex = this.pageIndex * this.pageCount;
@@ -215,9 +216,13 @@ class ListViewDemoState extends MXJSWidgetState {
 
         let url = "https://c.m.163.com/nc/article/headline/T1348649580692/" + startIndex + "-" + endIndex + ".html";
         try {
-            let response = await fetch(url);
-            MXJSLog.log("requestNews:resp: " + response.text);
-            return response.text;
+
+            // let response = await fetch(url);
+            // MXJSLog.log("requestNews:resp: " + response.text);
+
+            let response = await this.dio.get(url);
+            MXJSLog.debug("await Dio.get(urlStr):request() :" + response);
+            return response.data;
 
         } catch (e$) {
             let e = dart.getThrown(e$);

@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter;
+package com.imatrixteam.mxflutter.framework;
 
 import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.JavaVoidCallback;
@@ -18,10 +18,11 @@ import android.util.Log;
 
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
-import com.imatrixteam.jsflutter.utils.FileUtils;
-import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService;
-import com.imatrixteam.jsflutter.utils.MXJsScheduledExecutorService.MXJsTask;
+import com.imatrixteam.mxflutter.framework.utils.FileUtils;
+import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService;
+import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService.MXJsTask;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class MXJSExecutor {
@@ -190,6 +191,7 @@ public class MXJSExecutor {
         });
     }
 
+    @SuppressWarnings("unchecked")
     public void invokeJSValue(V8Object jsAppObj, String method, Map args, InvokeJSValueCallback callback) {
         executor.execute(new MXJsTask() {
             @Override
@@ -210,11 +212,46 @@ public class MXJSExecutor {
         });
     }
 
+    @SuppressWarnings("unchecked")
+    public void invokeJSValueWithString(V8Object jsAppObj, String method, String args, InvokeJSValueCallback callback) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                //获取执行结果
+                if (jsAppObj != null) {
+                    try {
+                        Object result = jsAppObj.executeFunction(method, new V8Array(runtime).push(args));
+                        callback.onSuccess(result);
+                    } catch (Exception e) {
+                        callback.onError(new Error(e.getMessage()));
+                        Log.e(TAG, "", e);
+                    }
+                } else {
+                    callback.onError(new Error("jsObjectNull"));
+                }
+            }
+        });
+    }
+
+    @SuppressWarnings("unchecked")
     public void invokeJsFunction(V8Function v8Function, Map value) {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                v8Function.call(runtime, new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, value)));
+                v8Function.call(runtime, value != null
+                        ? new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, value))
+                        : new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, new HashMap<>())));
+            }
+        });
+    }
+
+    public void invokeJsFunctionWithString(V8Function v8Function, String value) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                v8Function.call(runtime, value != null
+                        ? new V8Array(runtime).push(value)
+                        : null);
             }
         });
     }

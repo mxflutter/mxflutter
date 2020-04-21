@@ -60,11 +60,7 @@ const dart = dart_sdk.dart;
 const { SectionTitle } = require("./component/section_title.js");
 
 const packages__dio = require("packages/dio/dio.js");
-
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network;
-const fetch = bridge_netwrok.fetch;
-
+//const packages__dio = require("packages/dio/src/dio_test.js");
 
 let cgiDataUrl = "https://c.m.163.com/nc/article/headline/T1348649580692/0-10.html";
 let cgiJsonUrl = "https://reactnative.dev/movies.json"
@@ -86,6 +82,7 @@ class PageExampleDioState extends MXJSWidgetState {
   constructor() {
     super("PageExampleNetworkState");
     this.response = "点击小人Run上面的代码";
+    this.dio = packages__dio.Dio();
   }
 
   dioCodeText() {
@@ -94,10 +91,11 @@ class PageExampleDioState extends MXJSWidgetState {
   
   //例子1，最简单的用法 
   async testDio1(url) {
+    
     try {
-      let response = await packages__dio.Dio().get(url);
+      let response = await this.dio.get(url);
       MXJSLog.log("await Dio.get(urlStr):request() :" + response);
-      return response;
+      return response.data;
 
     } catch (e$) {
       let e = dart.getThrown(e$);
@@ -109,17 +107,15 @@ class PageExampleDioState extends MXJSWidgetState {
 
   //例子2，接口还未完全支持
   async testDio2(url) {
+    const packages__dio = require("packages/dio/dio.js");
+    
     try {
-      let dio = packages__dio.Dio();
-      dio.options.headers = { "client": 'dio', 'common-header': 'xx' };
-
-      let options = new packages__dio.Options.new();
-      options.headers = { "a": "b" };
-
-      return await dio.get(url, { options,onReceiveProgress:function (progress,total){
-
-        MXJSLog.log("testDio() error: progress: " + progress/total);
+      let response =  await this.dio.get(url, { onReceiveProgress:function (progress,total){
+        MXJSLog.log("testDio(): progress: " + progress/total);
       }});
+
+      MXJSLog.log("await Dio.get(urlStr):request() :" + response);
+      return response.data;
 
     } catch (e$) {
       let e = dart.getThrown(e$);
@@ -148,7 +144,7 @@ class PageExampleDioState extends MXJSWidgetState {
 
               this.setState(function () {
 
-                this.response = JSON.stringify( response.data);
+                this.response = JSON.stringify(response);
 
               }.bind(this));
 
@@ -168,7 +164,7 @@ class PageExampleDioState extends MXJSWidgetState {
               this.setState(function () {
 
                 //response.data 为json map obj
-                this.response = "json title:" + response.data["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify( response.data);
+                this.response = "json title:" + response["title"]  + " \r\n\r\n\r\njson text:" +  JSON.stringify(response);
 
               }.bind(this));
 

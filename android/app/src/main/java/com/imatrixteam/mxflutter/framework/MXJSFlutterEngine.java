@@ -4,21 +4,22 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter;
+package com.imatrixteam.mxflutter.framework;
 
-import com.imatrixteam.jsflutter.utils.FileUtils;
+import com.imatrixteam.mxflutter.framework.utils.FileUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import io.flutter.Log;
-import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
+import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.StringCodec;
 
-import static com.imatrixteam.jsflutter.MXJSFlutterApp.JSFLUTTER_SRC_DIR1;
+import static com.imatrixteam.mxflutter.framework.MXJSFlutterApp.JSFLUTTER_SRC_DIR1;
 
 public class MXJSFlutterEngine {
 
@@ -27,19 +28,21 @@ public class MXJSFlutterEngine {
     private String rootPath;
     private MXJSFlutterApp currentApp;
 
-    private FlutterActivity mContext;
+    private MXFlutterActivity mContext;
     private BinaryMessenger mFlutterEngine;
 
     private MXJSEngine mJsEngine;
 
     //Flutter通道
     private static final String FLUTTER_METHED_CHANNEL_NAME = "js_flutter.flutter_main_channel";
+    private static final String FLUTTER_COMMON_BASIC_CHANNEL_NAME = "mxflutter.mxflutter_common_basic_channel";
     MethodChannel jsFlutterAppChannel;
+    BasicMessageChannel<String> jsFlutterCommonBasicChannel;
 
     private boolean isFlutterEngineIsDidRender;
     private ArrayList<MethodCall> callFlutterQueue;
 
-    public MXJSFlutterEngine(FlutterActivity context, BinaryMessenger flutterEngine) {
+    public MXJSFlutterEngine(MXFlutterActivity context, BinaryMessenger flutterEngine) {
         this.mContext = context;
         this.mFlutterEngine = flutterEngine;
         setup();
@@ -65,17 +68,35 @@ public class MXJSFlutterEngine {
             @Override
             public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
                 if (methodCall.method.equals("callNativeRunJSApp")) {
-                    String jsAppName = methodCall.<String>argument("jsAppName");
+                    String jsAppName = methodCall.argument("jsAppName");
                     runApp(jsAppName);
                     result.success("success");
                 } else if (methodCall.method.equals("callJsCallbackFunction")) {
-                    String jsAppName = methodCall.<String>argument("callbackId");
-                    Map param = methodCall.<Map>argument("param");
+                    String jsAppName = methodCall.argument("callbackId");
+                    Map param = methodCall.argument("param");
                     mJsEngine.callJSCallbackFunction(jsAppName, param);
                     result.success("success");
                 } else if (methodCall.method.equals("mxLog")) {
                     Log.i(TAG, methodCall.arguments.toString());
                 }
+            }
+        });
+
+        jsFlutterCommonBasicChannel = new BasicMessageChannel<>(mFlutterEngine, FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
+        jsFlutterCommonBasicChannel.setMessageHandler(new BasicMessageChannel.MessageHandler<String>() {
+            @Override
+            public void onMessage(String message, BasicMessageChannel.Reply<String> reply) {
+                mJsEngine.jsExecutor.invokeJSValueWithString(MXJSExecutor.runtime, "mxfJSBridgeInvokeJSCommonChannel", message, new MXJSExecutor.InvokeJSValueCallback() {
+                    @Override
+                    public void onSuccess(Object value) {
+                        reply.reply(value.toString());
+                    }
+
+                    @Override
+                    public void onError(Error error) {
+
+                    }
+                });
             }
         });
     }
@@ -105,14 +126,15 @@ public class MXJSFlutterEngine {
         callFlutterReloadAppWithRouteName("MXJSWidget", widgetData);
     }
 
+    @SuppressWarnings("unchecked")
     public void callFlutterReloadAppWithRouteName(String routeName, String widgetData) {
         FileUtils.assertUiThread();
 
         if (routeName == null || widgetData == null) {
             return;
         }
-        Map arg = new HashMap();
 
+        Map arg = new HashMap();
         arg.put("routeName", routeName);
         arg.put("widgetData", widgetData);
         MethodCall call = new MethodCall("reloadApp", arg);
@@ -123,6 +145,14 @@ public class MXJSFlutterEngine {
         jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
     }
 
+    //顶层通用通道
+    @SuppressWarnings("unchecked")
+    public void invokeFlutterCommonChannel(String callJSONStr, BasicMessageChannel.Reply<String> Reply) {
+        FileUtils.assertUiThread();
+        jsFlutterCommonBasicChannel.send(callJSONStr, Reply);
+    }
+
+    @SuppressWarnings("unchecked")
     public void callFlutterMethodChannelInvoke(String channelName, String methodName, Map params, MethodChannel.Result callback) {
         FileUtils.assertUiThread();
 
@@ -135,8 +165,10 @@ public class MXJSFlutterEngine {
         jsFlutterAppChannel.invokeMethod(call.method, call.arguments, callback);
     }
 
+    @SuppressWarnings("unchecked")
     public void callFlutterEventChannelReceiveBroadcastStreamListenInvoke(String channelName, String streamParam, String onDataId, String onErrorId, String onDoneId, boolean cancelOnError) {
         FileUtils.assertUiThread();
+
         Map arg = new HashMap();
         arg.put("channelName", channelName);
         arg.put("streamParam", streamParam);

@@ -4,11 +4,10 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.jsflutter.utils
+package com.imatrixteam.mxflutter.framework.utils
 
 import android.util.Log
-import android.widget.Toast
-import com.imatrixteam.jsflutter.MXFlutterApplication
+import com.imatrixteam.mxflutter.framework.MXFlutterApplication
 
 /**
  * Created by wennliu on 2020-04-02

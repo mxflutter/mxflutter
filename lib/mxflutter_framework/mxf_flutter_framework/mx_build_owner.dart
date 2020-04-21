@@ -4,8 +4,10 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:js_flutter/mxflutter_framework/mxf_flutter_framework/packages/dio/mx_json_proxy_dio.dart';
 import 'mx_json_to_dart.dart';
 import 'dart:convert';
 
@@ -69,13 +71,14 @@ class MXJsonBuildOwner {
   }
 
   dynamic buildRootWidget(Map widgetData) {
-    dynamic w = MXJsonObjToDartObject.jsonToDartObj(this, widgetData);
+    dynamic w =
+        MXJsonObjToDartObject.jsonToDartObj(widgetData, buildOwner: this);
     return w;
   }
 
   Widget build(Map widgetData, BuildContext context) {
-    var w =
-        MXJsonObjToDartObject.jsonToDartObj(this, widgetData, context: context);
+    var w = MXJsonObjToDartObject.jsonToDartObj(widgetData,
+        buildOwner: this, context: context);
 
     if (w == null) {
       w = Center(
@@ -230,7 +233,7 @@ class MXJsonBuildOwner {
 
     //----性能分析代码
     bool enableProfile = widgetMap["enableProfile"];
-    
+
     if (enableProfile == true) {
       jsWidget.enableProfile = enableProfile;
 
@@ -315,9 +318,8 @@ class MXJsonBuildOwner {
         //查找scaffoldState
         final scaffoldState = Scaffold.of(context); //
         //动态构建snackbar
-        var snackBar = MXJsonObjToDartObject.jsonToDartObj(
-            this, args["snackBar"],
-            context: context);
+        var snackBar = MXJsonObjToDartObject.jsonToDartObj(args["snackBar"],
+            buildOwner: this, context: context);
         //设置snackbar
         scaffoldState.showSnackBar(snackBar);
       }
@@ -361,12 +363,10 @@ class MXJsonBuildOwner {
     return mirrorID;
   }
 
-  dynamic getMirrorObjectFromMap(Map jsonMap) {
-    dynamic mirrorID = jsonMap["mirrorID"];
-    return getMirrorObjectFromID(mirrorID);
-  }
-
   dynamic getMirrorObjectFromID(dynamic mirrorID) {
+    if (mirrorID == null) {
+      return null;
+    }
     return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
   }
 
