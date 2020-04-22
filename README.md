@@ -10,6 +10,8 @@
 
       性能和稳定性优化，0.1.2版本已在iOS线上使用，Android平台已支持。
 
+  体验包下载地址 [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk)
+
   *   **对应Flutter (Channel stable tag:v1.12.13+hotfix.9) 和 (Channel master tag:v1.16.2)**
   *   **API变化：区分MXJSStatefulWidget、MXJSStatelessWidget**
   *   **Framework目录整理**
