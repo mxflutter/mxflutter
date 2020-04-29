@@ -1,92 +1,118 @@
 import 'package:flutter/material.dart';
-import 'js_flutter/mx_js_flutter.dart';
-import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
+import 'mxflutter_framework/mxflutter.dart';
+
+
+
+
+import 'test.dart';
+
 void main() {
+  //-------MXFlutter 启动---------
+  //1. Dart侧需要调用WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
-  
-  debugPaintSizeEnabled = false;
-  test();
-  //设置JSFlutter
+
+  //2. 配置JSFlutter
   MXJSFlutter.getInstance().setup();
 
-  //先把JSApp启动起来，不显示任何界面
-  MXJSFlutter.getInstance().runJSApp(jsAppName: "app_test", pageName: null);
+  //3. 启动你的jsAPP，不显示任何界面
+  MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo");
+  //运行mxflutter_app_demo2，就启动mxflutter_app_demo2目录下的JS文件
+  //MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo2");
+
+  debugPaintSizeEnabled = false;
   runApp(MyApp());
+  
 }
-
-void test(){
-
-
-}
-
-class InheritedContext extends InheritedWidget {
-
-  //数据
-  final  int count;
-
-  InheritedContext({
-    Key key,
-    this.count,
-
-    @required Widget child,
-  }) : super(key: key, child: child);
-
-  static InheritedContext of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(InheritedContext);
-  }
-
-  //是否重建widget就取决于数据是否相同
-  @override
-  bool updateShouldNotify(InheritedContext oldWidget) {
-    return count != oldWidget.count;
-  }
-}
-
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MXFlutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: InheritedContext(
-        count:1,
-        child: JSFlutterHomePage(title: "JSFlutter Demo")),
+      // home: Container(
+      //     color: Colors.white,
+      //     child: Center(
+      //       child: Text(''),
+      //     )),
+      //路由表定义
+      onGenerateRoute: (RouteSettings settings) {
+        MXJSLog.log(
+            "'MyApp': onGenerateRoute: (RouteSettings settings): ${settings.name}");
+
+        switch (settings.name) {
+          case '/':
+          case 'FlutterHomePage':
+            {
+              //进入Flutter index页面
+              return MaterialPageRoute(
+                builder: (context) {
+                  return FlutterHomePage(title: "MXFlutter Demo");
+                },
+                settings: settings,
+              );
+            }
+          case 'MXJSPage':
+            {
+              //直接进入MXFlutter的index页面
+              //如果要区分用MXFlutter引擎打开不同页面，可以设计成settings.name 为"MXJSPage:://JSWidgetHomePage" 解析host
+              return MaterialPageRoute(
+                builder: (context) {
+                  //每调用一次 MediaQuery.of(context);在release下会导致 builder: (context) 回调函数执行一次，
+                  var mediaQueryData = MediaQuery.of(context);
+                  var themeData = Theme.of(context);
+                  var iconThemeData = IconTheme.of(context);
+
+                  MXJSLog.log(
+                      "'MXJSPage': MXJSFlutter.getInstance().navigatorPushWithName");
+
+                  //每调用一次 MediaQuery.of(context);在release下会导致 builder: (context) 回调函数执行一次，用RootWidget 用Key("MXFlutterPage")保持生命周期
+                  var mxFlutterPage = MXJSFlutter.getInstance()
+                      .navigatorPushWithName(
+                          "JSWidgetHomePage", Key("JSWidgetHomePage"),
+                          themeData: themeData,
+                          mediaQueryData: mediaQueryData,
+                          iconThemeData: iconThemeData);
+
+                  return mxFlutterPage;
+                },
+                settings: settings,
+              );
+            }
+        }
+
+        return null;
+      },
     );
   }
 }
 
-class JSFlutterHomePage extends StatefulWidget {
-  JSFlutterHomePage({Key key, this.title}) : super(key: key);
+class FlutterHomePage extends StatefulWidget {
+  FlutterHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _JSFlutterHomePageState createState() => _JSFlutterHomePageState();
+  _FlutterHomePageState createState() => _FlutterHomePageState();
 }
 
-class _JSFlutterHomePageState extends State<JSFlutterHomePage> {
+class _FlutterHomePageState extends State<FlutterHomePage> {
   @override
   Widget build(BuildContext context) {
-
     var scaffoldWidget = Scaffold(
-      appBar: AppBar(
-        leading:Image.asset(
-                  "js_flutter_src/app_test/flutter_gallery_assets/logos/flutter_white/logo.png",
-                  fit: BoxFit.contain,
-                ),
-        title: Text(widget.title),
-      ),
-      body: _DemoList(),
-      bottomNavigationBar: _DebugBottomAppBar(),
-    );
+        appBar: AppBar(
+          leading: Image.asset(
+            "mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/flutter_white/logo.png",
+            fit: BoxFit.contain,
+          ),
+          title: Text(widget.title),
+        ),
+        body: _DemoList());
 
     return scaffoldWidget;
   }
@@ -97,25 +123,27 @@ class _DemoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var mediaQueryData = MediaQuery.of(context);
     var themeData = Theme.of(context);
     var iconThemeData = IconTheme.of(context);
-
 
     return ListView(
       children: <Widget>[
         ListTile(
           leading: Icon(Icons.book),
           trailing: Icon(Icons.arrow_right),
-          title: Text('JSFlutter UI Demo'),
-          subtitle: Text('打开JSFlutter UI示例页面'),
+          title: Text('MXFlutter Demo'),
+          subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => MXJSFlutter.getInstance()
-                      .navigatorPushWithPageName("JSWidgetHomePage",themeData:themeData,mediaQueryData:mediaQueryData,iconThemeData:iconThemeData)),
+                      .navigatorPushWithName(
+                          "JSWidgetHomePage", Key("MXFlutterPage"),
+                          themeData: themeData,
+                          mediaQueryData: mediaQueryData,
+                          iconThemeData: iconThemeData)),
             );
           },
         ),
@@ -126,83 +154,33 @@ class _DemoList extends StatelessWidget {
             color: Colors.orange,
           ),
           title: Text('Reload JSApp'),
-          subtitle: Text('点击热重载JSApp，重新进入上面的JSFlutter UI Demo，即可看到界面更新'),
+          subtitle: Text('点击热重载JSApp，重新进入上面的MXFlutter Demo，即可看到界面更新'),
           isThreeLine: true,
           onTap: () {
             //先把JSApp启动起来，不显示任何界面
-            MXJSFlutter.getInstance()
-                .runJSApp(jsAppName: "app_test", pageName: null);
+            MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo");
 
             Scaffold.of(context).showSnackBar(
               const SnackBar(
-                  content: Text('JSApp 重新加载完成，重新进入上面的JSFlutter UI Demo，即可看到界面更新！')),
+                  content:
+                      Text('JSApp 重新加载完成，重新进入上面的MXFlutter Demo，即可看到界面更新！')),
             );
           },
         ),
         ListTile(
-          title: Text('在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击JSFlutter UI Demo，可以在Safari调试JS'),
+          title: Text(
+              '在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击MXFlutter Demo，可以在Safari调试JS'),
         ),
+        ListTile(
+          leading: Icon(Icons.photo),
+          title: Text("实验室"),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return TestPage();
+            }));
+          },
+        )
       ],
     );
   }
 }
-
-class _DebugBottomAppBar extends StatelessWidget {
-  const _DebugBottomAppBar({this.color, this.fabLocation, this.shape});
-
-  final Color color;
-  final FloatingActionButtonLocation fabLocation;
-  final NotchedShape shape;
-
-  static final List<FloatingActionButtonLocation> kCenterLocations =
-      <FloatingActionButtonLocation>[
-    FloatingActionButtonLocation.centerDocked,
-    FloatingActionButtonLocation.centerFloat,
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    final List<Widget> rowContents = <Widget>[
-      IconButton(
-        icon: const Icon(Icons.menu, semanticLabel: 'Show bottom sheet'),
-        onPressed: () {},
-      ),
-    ];
-
-    rowContents.addAll(<Widget>[
-      IconButton(
-        icon: const Icon(
-          Icons.search,
-          semanticLabel: 'show search action',
-        ),
-        onPressed: () {
-          Scaffold.of(context).showSnackBar(
-            const SnackBar(content: Text('This is a dummy search action.')),
-          );
-        },
-      ),
-      IconButton(
-        icon: Icon(
-          Theme.of(context).platform == TargetPlatform.iOS
-              ? Icons.more_horiz
-              : Icons.more_vert,
-          semanticLabel: 'Show menu actions',
-        ),
-        onPressed: () {
-          Scaffold.of(context).showSnackBar(
-            const SnackBar(content: Text('This is a dummy menu action.')),
-          );
-        },
-      ),
-    ]);
-
-    return BottomAppBar(
-      color: color,
-      child: Row(children: rowContents),
-      shape: shape,
-    );
-  }
-}
-
-
-

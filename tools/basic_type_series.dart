@@ -1027,6 +1027,13 @@ enum BorderStyle {
     this.value = 1.0
     ) 
    """,
+   
+    """
+  const FixedColumnWidth(
+    this.value
+    )
+  """,
+
   """
    enum WrapAlignment {
   /// Place the objects as close to the start of the axis as possible.
@@ -1566,6 +1573,8 @@ enum TabBarIndicatorSize {
     Color bottomAppBarColor,
     Color cardColor,
     Color dividerColor,
+    Color focusColor,
+    Color hoverColor,
     Color highlightColor,
     Color splashColor,
     InteractiveInkFeatureFactory splashFactory,
@@ -1574,6 +1583,7 @@ enum TabBarIndicatorSize {
     Color disabledColor,
     Color buttonColor,
     ButtonThemeData buttonTheme,
+    ToggleButtonsThemeData toggleButtonsTheme,
     Color secondaryHeaderColor,
     Color textSelectionColor,
     Color cursorColor,
@@ -1594,13 +1604,26 @@ enum TabBarIndicatorSize {
     IconThemeData accentIconTheme,
     SliderThemeData sliderTheme,
     TabBarTheme tabBarTheme,
+    TooltipThemeData tooltipTheme,
+    CardTheme cardTheme,
     ChipThemeData chipTheme,
     TargetPlatform platform,
     MaterialTapTargetSize materialTapTargetSize,
+    bool applyElevationOverlayColor,
     PageTransitionsTheme pageTransitionsTheme,
+    AppBarTheme appBarTheme,
+    BottomAppBarTheme bottomAppBarTheme,
     ColorScheme colorScheme,
     DialogTheme dialogTheme,
+    FloatingActionButtonThemeData floatingActionButtonTheme,
     Typography typography,
+    CupertinoThemeData cupertinoOverrideTheme,
+    SnackBarThemeData snackBarTheme,
+    BottomSheetThemeData bottomSheetTheme,
+    PopupMenuThemeData popupMenuTheme,
+    MaterialBannerThemeData bannerTheme,
+    DividerThemeData dividerTheme,
+    ButtonBarThemeData buttonBarTheme,
   })
    """,
   """
@@ -1927,13 +1950,205 @@ const Slider({
   })
   """,
 
+  """
+   const GlobalKey({
+    this.debugLabel,
+  })
+  """,
+  
+  """
+  const Positioned({
+    Key key,
+    this.left,
+    this.top,
+    this.right,
+    this.bottom,
+    this.width,
+    this.height,
+    @required Widget child,
+  })
+  """,
+
+  """
+  enum Brightness {
+  /// The color is dark and will require a light text color to achieve readable
+  /// contrast.
+  ///
+  /// For example, the color might be dark grey, requiring white text.
+  dark,
+
+  /// The color is light and will require a dark text color to achieve readable
+  /// contrast.
+  ///
+  /// For example, the color might be bright white, requiring black text.
+  light,
+
+  }
+  """,
+
+  """
+  enum TargetPlatform {
+  /// Android: <https://www.android.com/>
+  android,
+
+  /// Fuchsia: <https://fuchsia.googlesource.com/>
+  fuchsia,
+
+  /// iOS: <http://www.apple.com/ios/>
+  iOS,
+  }
+  """,
+
+  """
+  enum BoxShape {
+  /// An axis-aligned, 2D rectangle. May have rounded corners (described by a
+  /// [BorderRadius]). The edges of the rectangle will match the edges of the box
+  /// into which the [Border] or [BoxDecoration] is painted.
+  ///
+  /// See also:
+  ///
+  ///  * [RoundedRectangleBorder], the equivalent [ShapeBorder].
+  rectangle,
+
+  /// A circle centered in the middle of the box into which the [Border] or
+  /// [BoxDecoration] is painted. The diameter of the circle is the shortest
+  /// dimension of the box, either the width or the height, such that the circle
+  /// touches the edges of the box.
+  ///
+  /// See also:
+  ///
+  ///  * [CircleBorder], the equivalent [ShapeBorder].
+  circle,
+
+  // Don't add more, instead create a new ShapeBorder.
+  }
+  """,
+
+"""
+const Opacity({
+    Key key,
+    @required this.opacity,
+    this.alwaysIncludeSemantics = false,
+    Widget child,
+  })
+  """,
+
+  """
+  const TableColumnWidth(
+  )
+  """,
+
+  """
+  const MaterialAccentColor(
+    int primary, 
+    Map<int, Color> swatch
+    )
+  """,
+
+  """
+  const ColorScheme({
+    @required this.primary,
+    @required this.primaryVariant,
+    @required this.secondary,
+    @required this.secondaryVariant,
+    @required this.surface,
+    @required this.background,
+    @required this.error,
+    @required this.onPrimary,
+    @required this.onSecondary,
+    @required this.onSurface,
+    @required this.onBackground,
+    @required this.onError,
+    @required this.brightness,
+  })
+  """,
+
+"""
+const ButtonThemeData({
+    this.textTheme = ButtonTextTheme.normal,
+    this.minWidth = 88.0,
+    this.height = 36.0,
+    EdgeInsetsGeometry padding,
+    ShapeBorder shape,
+    this.layoutBehavior = ButtonBarLayoutBehavior.padded,
+    this.alignedDropdown = false,
+    Color buttonColor,
+    Color disabledColor,
+    Color focusColor,
+    Color hoverColor,
+    Color highlightColor,
+    Color splashColor,
+    this.colorScheme,
+    MaterialTapTargetSize materialTapTargetSize,
+  })
+  """,
+
+  """
+  enum ButtonBarLayoutBehavior {
+  /// Button bars will be constrained to a minimum height of 52.
+  ///
+  /// This setting is require to create button bars which conform to the
+  /// material specification.
+  constrained,
+
+  /// Button bars will calculate their padding from the button theme padding.
+  padded,
+}
+""",
+
+"""
+const NotificationListener({
+    Key key,
+    @required this.child,
+    this.onNotification,
+  }) : super(key: key);
+""",
+
+"""
+const PreferredSize({
+    Key key,
+    @required this.child,
+    @required this.preferredSize,
+  })
+  """,
+
+  """
+const Notification(
+  
+)
+""",
+
+"""
+const ClipRRect({
+    Key key,
+    this.borderRadius = BorderRadius.zero,
+    this.clipper,
+    this.clipBehavior = Clip.antiAlias,
+    Widget child,
+  })
+  """,
+
+  """
+    const SpringDescription({
+    this.mass,
+    this.stiffness,
+    this.damping,
+  });
+  """,
+
+  """
+  UniqueKey(
+
+  );
+  """,
+  
 ];
 
 void main(List<String> arguments) {
   //打印输出所有
   // list.map(translate).toList().join('\n\n\n');
 
-  //打印输出最后一个
+  // //打印输出最后一个
   translate(list.last);
 }
 

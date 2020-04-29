@@ -497,6 +497,83 @@ const TabBarView({
     this.dragStartBehavior = DragStartBehavior.down,
   })
   """,
+
+  """
+  const ScaffoldState(
+    
+  )
+  """,
+
+  """
+  const Navigator({
+    Key key,
+    this.initialRoute,
+    @required this.onGenerateRoute,
+    this.onUnknownRoute,
+    this.observers = const <NavigatorObserver>[],
+  }) 
+  """,
+
+  """
+  MaterialPageRoute({
+    @required this.builder,
+    RouteSettings settings,
+    this.maintainState = true,
+    bool fullscreenDialog = false,
+  }) 
+  """,
+
+  """
+  const RouteSettings({
+    this.name,
+    this.isInitialRoute = false,
+    this.arguments,
+  })
+  """,
+
+  """
+  enum StretchMode {
+  /// The background widget will expand to fill the extra space.
+  zoomBackground,
+
+  /// The background will blur using a [ImageFilter.blur] effect.
+  blurBackground,
+
+  /// The title will fade away as the user over-scrolls.
+  fadeTitle,
+}
+""",
+
+"""
+enum CollapseMode {
+  /// The background widget will scroll in a parallax fashion.
+  parallax,
+
+  /// The background widget pin in place until it reaches the min extent.
+  pin,
+
+  /// The background widget will act as normal with no collapsing effect.
+  none,
+}
+""",
+
+"""
+const Material({
+    Key key,
+    this.type = MaterialType.canvas,
+    this.elevation = 0.0,
+    this.color,
+    this.shadowColor = const Color(0xFF000000),
+    this.textStyle,
+    this.borderRadius,
+    this.shape,
+    this.borderOnForeground = true,
+    this.clipBehavior = Clip.none,
+    this.animationDuration = kThemeChangeDuration,
+    this.child,
+  }) 
+  """,
+
 ];
 
 void main(List<String> arguments) {

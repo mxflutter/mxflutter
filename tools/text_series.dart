@@ -453,19 +453,67 @@ const TextField({
   })
 """,
 
+"""
+enum TextDecorationStyle {
+  /// Draw a solid line
+  solid,
+
+  /// Draw two lines
+  double,
+
+  /// Draw a dotted line
+  dotted,
+
+  /// Draw a dashed line
+  dashed,
+
+  /// Draw a sinusoidal line
+  wavy
+}
+""",
+
+"""
+enum TextBaseline {
+  /// The horizontal line used to align the bottom of glyphs for alphabetic characters.
+  alphabetic,
+
+  /// The horizontal line used to align ideographic characters.
+  ideographic,
+}
+""",
+
+"""
+enum TextDirection {
+  /// The text flows from right to left (e.g. Arabic, Hebrew).
+  rtl,
+
+  /// The text flows from left to right (e.g., English, French).
+  ltr,
+}
+""",
+
+"""
+enum FontStyle {
+  /// Use the upright glyphs
+  normal,
+
+  /// Use glyphs designed for slanting
+  italic,
+}
+""",
 ];
 
 void main(List<String> arguments) {
 
   //打印输出所有
-  // list.map(translate).toList().join('\n\n\n');
+  list.map(translate).toList().join('\n\n\n');
 
   //打印输出最后一个
-  translate(list.last);
+  // translate(list.first);
 
 }
 
 String translate(String src) {
   print(translateDart(src));
-  print(translateJS(src));
+  // print(translateJS(src));
 }
