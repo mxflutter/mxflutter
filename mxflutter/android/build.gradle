@@ -1,4 +1,4 @@
-group 'com.tmax.mxflutter'
+group 'com.mojitox.mxflutter'
 version '1.0'
 
 buildscript {

@@ -4,10 +4,8 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:js_flutter/mxflutter_framework/mxf_flutter_framework/packages/dio/mx_json_proxy_dio.dart';
 import 'mx_json_to_dart.dart';
 import 'dart:convert';
 

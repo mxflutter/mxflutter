@@ -16,7 +16,7 @@
 
 
 
-#if TARGET_IPHONE_SIMULATOR
+#if TARGET_IPHONE_SIMULATOR && PROJECT_DIR
 
 ///配置PROJECT_DIR
 ///XCode -> Build Settings -> Preprocessor Macros ： Debug下增加 PROJECT_DIR=@\""$PROJECT_DIR\/"\"
