@@ -35,6 +35,7 @@ flutter:
     - mxflutter_js_src/mxflutter_app_demo/app_demo/
     - mxflutter_js_src/mxflutter_app_demo/app_demo/component/
     - mxflutter_js_src/mxflutter_app_demo/app_demo/examples/
+    - mxflutter_js_src/mxflutter_app_demo/app_demo/examples/animation/
     - mxflutter_js_src/mxflutter_app_demo/app_demo/material/
     - mxflutter_js_src/mxflutter_app_demo/app_demo/platform/
     - mxflutter_js_src/mxflutter_app_demo/app_demo/profile/

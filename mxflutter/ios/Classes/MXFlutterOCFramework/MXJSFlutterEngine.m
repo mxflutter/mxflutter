@@ -9,11 +9,10 @@
 //  found in the LICENSE file.
 
 #import "MXJSFlutterEngine.h"
-
 #import "JSModule.h"
 #import "MXJSFlutterDefines.h"
-
 #import "MXJSEngine.h"
+#import "MXFlutterPlugin.h"
 
 @interface MXJSFlutterEngine ()
 {
@@ -47,7 +46,6 @@
 
 - (void)setup
 {    
-    self.rootPath = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_SRC_DIR];
     self.callFlutterQueue = [NSMutableArray arrayWithCapacity:2];
 
     [self setupChannel];
@@ -94,12 +92,6 @@
     
 }
 
-
-- (void)runJSApp:(NSString*)appName
-{
-    [self runApp:appName];
-}
-
 - (void)callJsCallBackFunction:(id)arguments
 {
     NSDictionary *argsMap = arguments;
@@ -115,9 +107,21 @@
 - (void)callNativeRunJSApp:(id)arguments
 {
     NSDictionary *argsMap = arguments;
-    NSString *jsAppName = argsMap[@"jsAppName"];
+    NSString *jsAppPath = argsMap[@"jsAppPath"];
+    NSString *jsAppAssetsKey = argsMap[@"jsAppAssetsKey"];
+    
+    if (jsAppPath.length  == 0 &&  jsAppAssetsKey.length > 0) {
+        NSString *key =  [[MXFlutterPlugin shareInstance].flutterRegistrar lookupKeyForAsset:jsAppAssetsKey];
+        jsAppPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:key];
+    }
+    
+    if(jsAppPath.length == 0){
+        
+        MXJSFlutterLog(@"%@",@"jsAppPath.length == 0");
+        return;
+    }
 
-    [self runApp:jsAppName];
+    [self runAppWithPath:jsAppPath];
 }
 
 //MARK: - native -> flutter
@@ -234,7 +238,7 @@
 }
 
 
-- (void)runApp:(NSString*)appName 
+- (void)runAppWithPath:(NSString *)jsAppPath
 {
     //退出原来的APP
     if (self.currentApp) {
@@ -243,12 +247,28 @@
     }
     
     [JSModule clearModuleCache];
-    NSString *appRootPath = [self.rootPath stringByAppendingPathComponent:appName];
-    self.currentApp  = [[MXJSFlutterApp alloc] initWithAppName:appName engine:self appRootPath:appRootPath];
+    NSString *appRootPath = jsAppPath;
+    self.currentApp  = [[MXJSFlutterApp alloc] initWithAppPath:appRootPath engine:self];
     
     [self.currentApp runApp];
 }
 
 
+
+@end
+
+
+static NSString  *g_jsFrameworkPath = nil;
+@implementation MXJSFlutterEngine (Path)
+
++ (void)setJSFrameworkPath:(NSString*)path
+{
+    g_jsFrameworkPath = path;
+}
+
++ (NSString*)jsFrameworkPath
+{
+    return g_jsFrameworkPath;
+}
 
 @end

@@ -51,7 +51,7 @@ JSExportAs(callFlutterWidgetChannel,
 
 @property (nonatomic, weak) MXJSFlutterEngine * _Nullable jsFlutterEngine;
 
-- (instancetype)initWithAppName:(NSString*)AppName engine:(MXJSFlutterEngine*)jsFlutterEngine appRootPath:(NSString* _Nullable)appRootPath;
+- (instancetype)initWithAppPath:(NSString*)appRootPath engine:(MXJSFlutterEngine*)jsFlutterEngine ;
 
 - (void)runApp;
 - (void)exitApp;

@@ -34,6 +34,7 @@ flutter:
   assets:
     #mxflutter_js_framework
     - js_lib/
+    - js_lib/src/
     - js_lib/src/material/
     - js_lib/src/message_channel/
     - js_lib/src/native_bridge/

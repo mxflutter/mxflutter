@@ -30,12 +30,12 @@
 
 @implementation MXJSFlutterApp
 
-- (instancetype)initWithAppName:(NSString*)appName engine:(MXJSFlutterEngine*)jsFlutterEngine appRootPath:(NSString*)appRootPath
+- (instancetype)initWithAppPath:(NSString*)appRootPath engine:(MXJSFlutterEngine*)jsFlutterEngine
 {
     if (self = [super init])
     {
         self.isJSAPPRun = NO;
-        self.appName = appName;
+        self.appName = appRootPath;
         self.jsFlutterEngine = jsFlutterEngine;
         self.appRootPath = appRootPath;
         
@@ -54,7 +54,7 @@
 
 - (void)setupJSEngine
 {
-    [self unsetup];
+    //#define JSFLUTTER_DART_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework/dart_js_framework"
     
     self.jsEngine = [[MXJSEngine alloc] init];
     self.jsEngine.jsFlutterEngine = self.jsFlutterEngine;
@@ -67,9 +67,11 @@
         jsBasePath = [[NSBundle mainBundle] bundlePath];
     }
     
-    //JSFlutter JS运行库搜索路径
-    NSString *jsFlutterFrameworkDir = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_FRAMEWORK_DIR];
+    //MXFlutter JS运行库搜索路径
+    NSString *jsFlutterFrameworkDir = [MXJSFlutterEngine jsFrameworkPath];
     [self.jsEngine addSearchDir:jsFlutterFrameworkDir];
+    [self.jsEngine addSearchDir:[jsFlutterFrameworkDir stringByAppendingPathComponent:@"src/"]];
+    [self.jsEngine addSearchDir:[jsFlutterFrameworkDir stringByAppendingPathComponent:@"src/dart_js_framework/"]];
     
     //app业务代码搜索路径
     [self.jsEngine addSearchDir:self.appRootPath];
@@ -79,20 +81,12 @@
     [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"app_demo"]];
     [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"dart2js_demo"]];
     
-    //JSFlutter Dart JS运行库搜索路径
-    NSString *dartJsFlutterFrameworkDir = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_DART_FRAMEWORK_DIR];
-    [self.jsEngine addSearchDir:dartJsFlutterFrameworkDir];
-    
     NSString *js_basic_lib_Path = [jsFlutterFrameworkDir stringByAppendingPathComponent:@"js_basic_lib.js"];
     [self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
         
     }];
 }
 
-- (void)unsetup
-{
-    
-}
 
 - (void)setupChannel
 {

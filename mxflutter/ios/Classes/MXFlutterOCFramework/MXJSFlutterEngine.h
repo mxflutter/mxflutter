@@ -25,22 +25,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MXJSFlutterEngine : NSObject <MXFDispose>
 
+@property (nonatomic,strong,readonly) NSString *jsAppName;
 @property (nonatomic, strong) MXJSFlutterApp * _Nullable currentApp;
 
 @property (nonatomic, weak) NSObject<FlutterBinaryMessenger>* binaryMessenger;
 @property (nonatomic, weak) MXJSEngine* jsEngine;
 
-@property (nonatomic,strong,readonly) NSString *jsAppName;
-
-- (void)runApp:(NSString*)appName ;
-
 
 ///初始化MXFlutter主引擎，设置FlutterEngine的binaryMessenger
 - (instancetype)initWithFlutterMessager:(NSObject<FlutterBinaryMessenger>*)binaryMessenger;
 
-///运行JS代码，JS业务代码放置在一个文件夹中，并且有main.js文件，运行创建MXJSFlutterApp
-///FlutterEngine/Native/JSApp 三者结合起来
-- (void)runJSApp:(NSString*)appName;
+///运行JS代码，JS业务代码放置在一个文件夹中，并且有main.js文件，创建MXJSFlutterApp
+- (void)runAppWithPath:(NSString*)jsAppPath ;
 
 //MARK: - native -> flutter
 //--------------------------------------------
@@ -64,6 +60,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)invokeFlutterRemoveMirrorObjsRef:(NSArray*)mirrorIDArray;
 
+
+@end
+
+
+@interface MXJSFlutterEngine (Path)
+
++ (void)setJSFrameworkPath:(NSString*)path;
++ (NSString*)jsFrameworkPath;
 
 @end
 

@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 //mxflutter
 import 'package:mxflutter/mxflutter.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
 
-
-void main() {
+void main() async{
   //-------MXFlutter 启动---------
   //1. Dart侧需要调用WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,9 +16,21 @@ void main() {
   MXJSFlutter.getInstance().setup();
 
   //3. 启动你的jsAPP，不显示任何界面
-  MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo");
-  //运行mxflutter_app_demo2，就启动mxflutter_app_demo2目录下的JS文件
-  //MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo2");
+  // 获取配置在pubspec.yaml中，jsapp代码路径
+  // flutter:
+  //  assets:
+  //    #copy js src ,mxflutter app demo 的js代码
+  //    - mxflutter_js_src/
+  //    - mxflutter_js_src/mxflutter_app_demo/
+
+  ///Entrypoint mxflutter_app_demo/main.js main()
+  String key = "mxflutter_js_src/mxflutter_app_demo/";
+  MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: key);
+
+  ///或者运行你下载到 DocumentsDirectory 里的JS代码
+//  Directory directory = await getApplicationDocumentsDirectory();
+//  var jsAppPath = join(directory.path, "my_js_app");
+//  MXJSFlutter.getInstance().runJSApp(jsAppPath: jsAppPath);
 
   runApp(MyApp());
 
@@ -137,7 +151,7 @@ class _DemoList extends StatelessWidget {
           isThreeLine: true,
           onTap: () {
             //先把JSApp启动起来，不显示任何界面
-            MXJSFlutter.getInstance().runJSApp(jsAppName: "mxflutter_app_demo");
+            MXJSFlutter.getInstance().runJSApp(jsAppPath: "mxflutter_app_demo");
 
             Scaffold.of(context).showSnackBar(
               const SnackBar(
