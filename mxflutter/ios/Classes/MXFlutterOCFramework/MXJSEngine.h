@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "MXJSExecutor.h"
 
-@class FlutterEngine;
+
 @class MXJSFlutterEngine;
 @class MXDispose;
 
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MXJSEngine : NSObject <MXFDispose>
 
-@property (nonatomic, weak) FlutterEngine* flutterEngine;
+
 @property (nonatomic, weak) MXJSFlutterEngine *jsFlutterEngine;
 
 @property (nonatomic, strong) MXJSExecutor *jsExecutor;

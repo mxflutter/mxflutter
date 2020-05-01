@@ -53,7 +53,7 @@ flutter:
   # adding or updating assets for this project.
   plugin:
     androidPackage: com.mojitox.mxflutter
-    pluginClass: MxflutterPlugin
+    pluginClass: MXFlutterPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

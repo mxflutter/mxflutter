@@ -10,21 +10,24 @@
 
 #import <Foundation/Foundation.h>
 #import "MXJSFlutterApp.h"
+#import <Flutter/Flutter.h>
+#import "MXFDispose.h"
 
-@class FlutterEngine;
+@class FlutterBinaryMessenger;
 @class MXJSEngine;
 
 NS_ASSUME_NONNULL_BEGIN
 /*
+ *mxflutter API
  *MXJSFlutterEngine
  *负责Flutter/Native/JS 三方衔接
  *管理FluterJS代码
  */
-@interface MXJSFlutterEngine : NSObject
+@interface MXJSFlutterEngine : NSObject <MXFDispose>
 
 @property (nonatomic, strong) MXJSFlutterApp * _Nullable currentApp;
 
-@property (nonatomic, weak) FlutterEngine* flutterEngine;
+@property (nonatomic, weak) NSObject<FlutterBinaryMessenger>* binaryMessenger;
 @property (nonatomic, weak) MXJSEngine* jsEngine;
 
 @property (nonatomic,strong,readonly) NSString *jsAppName;
@@ -32,8 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)runApp:(NSString*)appName ;
 
 
-///初始化MXFlutter主引擎，指定运行在哪个FlutterEngine之上
-- (instancetype)initWithEngine:(FlutterEngine*)engine;
+///初始化MXFlutter主引擎，设置FlutterEngine的binaryMessenger
+- (instancetype)initWithFlutterMessager:(NSObject<FlutterBinaryMessenger>*)binaryMessenger;
 
 ///运行JS代码，JS业务代码放置在一个文件夹中，并且有main.js文件，运行创建MXJSFlutterApp
 ///FlutterEngine/Native/JSApp 三者结合起来

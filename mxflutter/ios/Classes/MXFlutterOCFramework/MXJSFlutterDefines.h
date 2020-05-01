@@ -14,11 +14,9 @@
 //Flutter的热重载，经常出问题
 //仅支持模拟器环境使用
 
-
-
 #if TARGET_IPHONE_SIMULATOR && PROJECT_DIR
 
-///配置PROJECT_DIR
+///配置PROJECT_DIR，把JS代码路径地址重定向到开发机iMac地址，用来支持模拟器热重载
 ///XCode -> Build Settings -> Preprocessor Macros ： Debug下增加 PROJECT_DIR=@\""$PROJECT_DIR\/"\"
 #define JSFLUTTER_SRC_BASE_DIR ([PROJECT_DIR stringByDeletingLastPathComponent])
 #define JSFLUTTER_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework"

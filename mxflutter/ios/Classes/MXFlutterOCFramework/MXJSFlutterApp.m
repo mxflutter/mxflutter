@@ -57,7 +57,6 @@
     [self unsetup];
     
     self.jsEngine = [[MXJSEngine alloc] init];
-    self.jsEngine.flutterEngine = self.jsFlutterEngine.flutterEngine;
     self.jsEngine.jsFlutterEngine = self.jsFlutterEngine;
     self.jsEngine.jsFlutterEngine.jsEngine = self.jsEngine;
     
@@ -99,16 +98,16 @@
 {
     self.jsFlutterAppChannel = [FlutterMethodChannel
                                 methodChannelWithName:@"js_flutter.js_flutter_app_channel"
-                                binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger];
+                                binaryMessenger:_jsFlutterEngine.binaryMessenger];
     
     // Rebuild方法采用BasicMessageChannel
     self.jsFlutterAppRebuildChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.rebuild"
-                                                                         binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger
+                                                                         binaryMessenger:_jsFlutterEngine.binaryMessenger
                                                                                    codec:[FlutterStringCodec sharedInstance]];
     
     // navigator_push方法采用BasicMessageChannel
     self.jsFlutterAppNavigatorPushChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.navigator_push"
-                                                                               binaryMessenger:_jsFlutterEngine.flutterEngine.binaryMessenger
+                                                                               binaryMessenger:_jsFlutterEngine.binaryMessenger
                                                                                          codec:[FlutterStringCodec sharedInstance]];
     
     

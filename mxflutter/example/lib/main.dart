@@ -53,13 +53,13 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             }
-          case 'MXJSPage':
+          case 'MXFlutterJSHomePage':
             {
               //直接进入MXFlutter的index页面
               //如果要区分用MXFlutter引擎打开不同页面，可以设计成settings.name 为"MXJSPage:://JSWidgetHomePage" 解析host
               return MaterialPageRoute(
                 builder: (context) {
-                  return MXFlutterHomePage();
+                  return MXFlutterJSHomePage();
                 },
                 settings: settings,
               );
@@ -155,7 +155,7 @@ class _DemoList extends StatelessWidget {
   }
 }
 
-class MXFlutterHomePage extends StatelessWidget{
+class MXFlutterJSHomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 

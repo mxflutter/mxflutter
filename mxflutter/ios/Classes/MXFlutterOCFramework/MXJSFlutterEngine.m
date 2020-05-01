@@ -12,7 +12,7 @@
 
 #import "JSModule.h"
 #import "MXJSFlutterDefines.h"
-#import <Flutter/Flutter.h>
+
 #import "MXJSEngine.h"
 
 @interface MXJSFlutterEngine ()
@@ -31,20 +31,22 @@
 
 @implementation MXJSFlutterEngine
 
-- (instancetype)initWithEngine:(FlutterEngine*)engine
+- (instancetype)initWithFlutterMessager:(NSObject<FlutterBinaryMessenger>*)binaryMessenger
 {
     if (self = [super init])
     {
-        self.flutterEngine = engine;
+        self.binaryMessenger = binaryMessenger;
         [self setup];
     }
     return self;
 }
 
-- (void)setup
-{
-    [self unsetup];
+- (void)dispose {
     
+}
+
+- (void)setup
+{    
     self.rootPath = [JSFLUTTER_SRC_BASE_DIR stringByAppendingPathComponent:JSFLUTTER_SRC_DIR];
     self.callFlutterQueue = [NSMutableArray arrayWithCapacity:2];
 
@@ -56,7 +58,7 @@
     
     self.engineMethodChannel = [FlutterMethodChannel
                          methodChannelWithName:@"js_flutter.flutter_main_channel"
-                         binaryMessenger:self.flutterEngine.binaryMessenger];
+                         binaryMessenger:self.binaryMessenger];
     
     __weak MXJSFlutterEngine *weakSelf = self;
     [self.engineMethodChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
@@ -77,7 +79,7 @@
     
     // js <===bridge===> flutter common channel
     self.jsFlutterCommonBasicChannel = [FlutterBasicMessageChannel messageChannelWithName:@"mxflutter.mxflutter_common_basic_channel"
-    binaryMessenger:self.flutterEngine.binaryMessenger
+    binaryMessenger:self.binaryMessenger
               codec:[FlutterStringCodec sharedInstance]];
     
 
@@ -92,9 +94,6 @@
     
 }
 
-- (void)unsetup {
-
-}
 
 - (void)runJSApp:(NSString*)appName
 {
