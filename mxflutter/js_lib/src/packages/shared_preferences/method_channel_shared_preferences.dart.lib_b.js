@@ -2,7 +2,7 @@
 
 'use strict';
 let packages__flutter__src__services__platform_channel = require("packages/flutter/src/services/platform_channel.dart.lib.js");
-
+const dart_sdk = require("dart_sdk");
 const core = dart_sdk.core;
 const _js_helper = dart_sdk._js_helper;
 const async = dart_sdk.async;

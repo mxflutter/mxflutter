@@ -30,7 +30,7 @@ dev_dependencies:
 flutter:
   assets:
     #copy js src ,mxflutter app demo 的js代码
-    #吐槽下，不能包括子文件夹，需要每个子文件夹都导入，真是坑
+    #吐槽下，导入资源不会自动包括子文件夹，需要每个子文件夹都导入，真是坑，所以自己写js app时，不要有太多文件夹深度
     - mxflutter_js_src/
     - mxflutter_js_src/app_demo/
     - mxflutter_js_src/app_demo/component/

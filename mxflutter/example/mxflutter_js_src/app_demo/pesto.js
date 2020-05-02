@@ -41,8 +41,8 @@ let {
 
 //业务代码
 
-let _kSmallLogoImage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/pesto/logo_small.png';
-let _kGalleryAssetsPackage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/';
+let _kSmallLogoImage = 'mxflutter_js_src/flutter_gallery_assets/logos/pesto/logo_small.png';
+let _kGalleryAssetsPackage = 'mxflutter_js_src/flutter_gallery_assets/';
 let _kAppBarHeight = 128.0;
 let _kFabHalfSize = 28.0; // TODO(mpcomplete): needs to adapt to screen size
 let _kRecipePageMaxWidth = 500.0;

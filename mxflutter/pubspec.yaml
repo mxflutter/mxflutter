@@ -37,7 +37,6 @@ flutter:
     - js_lib/src/
     - js_lib/src/material/
     - js_lib/src/message_channel/
-    - js_lib/src/native_bridge/
     - js_lib/src/widgets/
 
     #dart_js_framework

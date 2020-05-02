@@ -7,7 +7,7 @@
 'use strict';
 
 let packages__shared_preferences_platform_interface__method_channel_shared_preferences = require("packages/shared_preferences/method_channel_shared_preferences.dart.lib.js");
-
+const dart_sdk = require("dart_sdk");
 const core = dart_sdk.core;
 const async = dart_sdk.async;
 const collection = dart_sdk.collection;
