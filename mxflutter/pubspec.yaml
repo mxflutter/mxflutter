@@ -39,14 +39,38 @@ flutter:
     - js_lib/src/message_channel/
     - js_lib/src/native_bridge/
     - js_lib/src/widgets/
+
     #dart_js_framework
     - js_lib/src/dart_js_framework/
     - js_lib/src/dart_js_framework/packages/
     - js_lib/src/dart_js_framework/packages/flutter/
     - js_lib/src/dart_js_framework/packages/flutter/src/
+    - js_lib/src/dart_js_framework/packages/flutter/src/animation/
+    - js_lib/src/dart_js_framework/packages/flutter/src/cupertino/
+    - js_lib/src/dart_js_framework/packages/flutter/src/foundation/
+    - js_lib/src/dart_js_framework/packages/flutter/src/gestures/
+    - js_lib/src/dart_js_framework/packages/flutter/src/painting/
+    - js_lib/src/dart_js_framework/packages/flutter/src/rendering/
+    - js_lib/src/dart_js_framework/packages/flutter/src/services/
+    - js_lib/src/dart_js_framework/packages/flutter/src/widgets/
     - js_lib/src/dart_js_framework/packages/vector_math/
-    #packages js
+
+    #packages js ,按需选择
     - js_lib/src/packages/
+
+    #cached_network_image
+    - js_lib/src/packages/cached_network_image/
+    #dio
+    - js_lib/src/packages/dio/
+    - js_lib/src/packages/dio/src/
+    - js_lib/src/packages/dio/src/adapters/
+    - js_lib/src/packages/dio/src/entry/
+    #pull_to_refresh
+    - js_lib/src/packages/pull_to_refresh/
+    - js_lib/src/packages/pull_to_refresh/src/
+    - js_lib/src/packages/pull_to_refresh/src/indicator/
+    #shared_preferences
+    - js_lib/src/packages/shared_preferences/
 
   # This section identifies this Flutter project as a plugin project.
   # The androidPackage and pluginClass identifiers should not ordinarily

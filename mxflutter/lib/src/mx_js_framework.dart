@@ -95,8 +95,9 @@ class MXJSFlutter {
   ///flutter -> js
   ///由Flutter 代码启动JSApp。 可以用在先显示Dart页面，然后路由调转到JS页面
   ///启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
-  ///jsAppAssetsKey ，JS业务代码参考示例，放置在一个文件夹中，并且有main.js文件，创建MXJSFlutterApp
-  runJSApp({String jsAppAssetsKey = "",String jsAppPath = ""}) {
+  ///jsAppAssetsKey ，JS业务代码放置在一个文件夹中，并且有main.js文件，创建MXJSFlutterApp
+  ///jsAppAssetsKey 默认为flutter工程下，与lib，ios同级目录的mxflutter_js_src文件夹下
+  runJSApp({String jsAppAssetsKey = "mxflutter_js_src/",String jsAppPath = ""}) {
     var args = {"jsAppAssetsKey": jsAppAssetsKey,"jsAppPath":jsAppPath};
     _jsFlutterMainChannel.invokeMethod("callNativeRunJSApp", args);
 

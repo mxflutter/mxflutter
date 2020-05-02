@@ -21,11 +21,12 @@ void main() async{
   //  assets:
   //    #copy js src ,mxflutter app demo 的js代码
   //    - mxflutter_js_src/
-  //    - mxflutter_js_src/mxflutter_app_demo/
 
-  ///Entrypoint mxflutter_app_demo/main.js main()
-  String key = "mxflutter_js_src/mxflutter_app_demo/";
-  MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: key);
+  ///Entrypoint mxflutter_js_src/main.js main()
+  ///runJSApp 的jsAppAssetsKey 默认参数即为mxflutter_js_src/， 会默认运行 mxflutter_js_src/main.js
+  ///建议不要修改mxflutter_js_src/目录名，模拟器热重载依据次路径配置
+  ///如果修改请全局搜索mxflutter_js_src/修改模拟器热重载配置，release或真机不受影响
+  MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: "mxflutter_js_src/");
 
   ///或者运行你下载到 DocumentsDirectory 里的JS代码
 //  Directory directory = await getApplicationDocumentsDirectory();
@@ -100,7 +101,7 @@ class _FlutterHomePageState extends State<FlutterHomePage> {
     var scaffoldWidget = Scaffold(
         appBar: AppBar(
           leading: Image.asset(
-            "mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/logos/flutter_white/logo.png",
+            "mxflutter_js_src/flutter_gallery_assets/logos/flutter_white/logo.png",
             fit: BoxFit.contain,
           ),
           title: Text(widget.title),
