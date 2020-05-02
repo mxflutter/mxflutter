@@ -40,7 +40,7 @@ let {
   
 } = require("js_flutter.js");
 
-let _kGalleryAssetsPackage = 'mxflutter_js_src/mxflutter_app_demo/flutter_gallery_assets/';
+let _kGalleryAssetsPackage = 'mxflutter_js_src/flutter_gallery_assets/';
 
 class _Page {
     constructor({label}) {

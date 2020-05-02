@@ -11,32 +11,14 @@
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		3B80C3941E831B6300D905FE /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; };
 		3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44CE0A27B281867C6793DE2E /* libPods-Runner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 544573C010B01AA5F4793124 /* libPods-Runner.a */; };
 		9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; };
 		9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		978B8F6F1D3862AE00F588F7 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFD8EE1D35381100E5BB4D /* AppDelegate.mm */; };
-		97C146F31CF9000F007C117D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97C146F21CF9000F007C117D /* main.mm */; };
+		978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */; };
+		97C146F31CF9000F007C117D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C146F21CF9000F007C117D /* main.m */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		9D1335DF243B28B20059BB92 /* MXJSEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335B6243B28B20059BB92 /* MXJSEngine.m */; };
-		9D1335E0243B28B20059BB92 /* MXJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335BD243B28B20059BB92 /* MXJSBridge.m */; };
-		9D1335E1243B28B20059BB92 /* MXEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335BF243B28B20059BB92 /* MXEventEmitter.m */; };
-		9D1335E2243B28B20059BB92 /* MXFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335C7243B28B20059BB92 /* MXFUtil.m */; };
-		9D1335E3243B28B20059BB92 /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335C8243B28B20059BB92 /* NSData+GZIP.m */; };
-		9D1335E4243B28B20059BB92 /* MXFConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335C9243B28B20059BB92 /* MXFConvert.m */; };
-		9D1335E5243B28B20059BB92 /* MXJSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335CA243B28B20059BB92 /* MXJSExecutor.m */; };
-		9D1335E6243B28B20059BB92 /* MXJSFlutterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335CB243B28B20059BB92 /* MXJSFlutterEngine.m */; };
-		9D1335E7243B28B20059BB92 /* JSModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335CC243B28B20059BB92 /* JSModule.m */; };
-		9D1335E8243B28B20059BB92 /* MXFFileRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335D3243B28B20059BB92 /* MXFFileRequestHandler.m */; };
-		9D1335E9243B28B20059BB92 /* MXFDataRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335D4243B28B20059BB92 /* MXFDataRequestHandler.m */; };
-		9D1335EA243B28B20059BB92 /* MXFHTTPRequestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335D6243B28B20059BB92 /* MXFHTTPRequestHandler.mm */; };
-		9D1335EB243B28B20059BB92 /* MXFNetworking.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335D9243B28B20059BB92 /* MXFNetworking.mm */; };
-		9D1335EC243B28B20059BB92 /* MXFNetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335DB243B28B20059BB92 /* MXFNetInfo.m */; };
-		9D1335ED243B28B20059BB92 /* MXFNetworkTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335DC243B28B20059BB92 /* MXFNetworkTask.m */; };
-		9D1335EE243B28B20059BB92 /* MXJSFlutterApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D1335DE243B28B20059BB92 /* MXJSFlutterApp.mm */; };
-		9DF8348D243B27BB00F0FBC2 /* mxflutter_js_src in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8348C243B27BB00F0FBC2 /* mxflutter_js_src */; };
-		9DF8348F243B27CD00F0FBC2 /* mxf_js_framework in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8348E243B27CD00F0FBC2 /* mxf_js_framework */; };
-		B5B43216596CDFDCEEA7A3F8 /* libPods-Runner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5969F356F6E0A50FB0085049 /* libPods-Runner.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,65 +37,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09E72474F2B04CCDF4FB5CA8 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
-		2B21B23F1F35BFD4574CCAE6 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		3B80C3931E831B6300D905FE /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = Flutter/App.framework; sourceTree = "<group>"; };
-		5969F356F6E0A50FB0085049 /* libPods-Runner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Runner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		544573C010B01AA5F4793124 /* libPods-Runner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Runner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D8E1B6E2AD1EE6D22662E8 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7AFFD8EE1D35381100E5BB4D /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		7BAE66ED9B81BC246648CFB5 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
-		880B1D2D999DD22B404493F9 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8D118066900E0C8D40626521 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
 		9740EEBA1CF902C7004384FC /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = Flutter/Flutter.framework; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		97C146F21CF9000F007C117D /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		97C146F21CF9000F007C117D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D1335B5243B28B20059BB92 /* MXJSExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSExecutor.h; sourceTree = "<group>"; };
-		9D1335B6243B28B20059BB92 /* MXJSEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXJSEngine.m; sourceTree = "<group>"; };
-		9D1335B7243B28B20059BB92 /* MXJSFlutterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterApp.h; sourceTree = "<group>"; };
-		9D1335B8243B28B20059BB92 /* JSModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSModule.h; sourceTree = "<group>"; };
-		9D1335B9243B28B20059BB92 /* MXJSFlutterDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterDefines.h; sourceTree = "<group>"; };
-		9D1335BA243B28B20059BB92 /* MXJSFlutterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSFlutterEngine.h; sourceTree = "<group>"; };
-		9D1335BC243B28B20059BB92 /* MXEventEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXEventEmitter.h; sourceTree = "<group>"; };
-		9D1335BD243B28B20059BB92 /* MXJSBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXJSBridge.m; sourceTree = "<group>"; };
-		9D1335BE243B28B20059BB92 /* MXJSBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSBridge.h; sourceTree = "<group>"; };
-		9D1335BF243B28B20059BB92 /* MXEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEventEmitter.m; sourceTree = "<group>"; };
-		9D1335C0243B28B20059BB92 /* MXBridgeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBridgeModule.h; sourceTree = "<group>"; };
-		9D1335C1243B28B20059BB92 /* MXJSEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXJSEngine.h; sourceTree = "<group>"; };
-		9D1335C3243B28B20059BB92 /* NSData+GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZIP.h"; sourceTree = "<group>"; };
-		9D1335C4243B28B20059BB92 /* MXFUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFUtil.h; sourceTree = "<group>"; };
-		9D1335C5243B28B20059BB92 /* MXFConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFConvert.h; sourceTree = "<group>"; };
-		9D1335C6243B28B20059BB92 /* MXFDispose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFDispose.h; sourceTree = "<group>"; };
-		9D1335C7243B28B20059BB92 /* MXFUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFUtil.m; sourceTree = "<group>"; };
-		9D1335C8243B28B20059BB92 /* NSData+GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZIP.m"; sourceTree = "<group>"; };
-		9D1335C9243B28B20059BB92 /* MXFConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFConvert.m; sourceTree = "<group>"; };
-		9D1335CA243B28B20059BB92 /* MXJSExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXJSExecutor.m; sourceTree = "<group>"; };
-		9D1335CB243B28B20059BB92 /* MXJSFlutterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXJSFlutterEngine.m; sourceTree = "<group>"; };
-		9D1335CC243B28B20059BB92 /* JSModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSModule.m; sourceTree = "<group>"; };
-		9D1335CF243B28B20059BB92 /* MXFNetworkTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetworkTask.h; sourceTree = "<group>"; };
-		9D1335D1243B28B20059BB92 /* MXFHTTPRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFHTTPRequestHandler.h; sourceTree = "<group>"; };
-		9D1335D2243B28B20059BB92 /* MXFURLRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFURLRequestDelegate.h; sourceTree = "<group>"; };
-		9D1335D3243B28B20059BB92 /* MXFFileRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFFileRequestHandler.m; sourceTree = "<group>"; };
-		9D1335D4243B28B20059BB92 /* MXFDataRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFDataRequestHandler.m; sourceTree = "<group>"; };
-		9D1335D5243B28B20059BB92 /* MXFURLRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFURLRequestHandler.h; sourceTree = "<group>"; };
-		9D1335D6243B28B20059BB92 /* MXFHTTPRequestHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXFHTTPRequestHandler.mm; sourceTree = "<group>"; };
-		9D1335D7243B28B20059BB92 /* MXFFileRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFFileRequestHandler.h; sourceTree = "<group>"; };
-		9D1335D8243B28B20059BB92 /* MXFDataRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFDataRequestHandler.h; sourceTree = "<group>"; };
-		9D1335D9243B28B20059BB92 /* MXFNetworking.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXFNetworking.mm; sourceTree = "<group>"; };
-		9D1335DA243B28B20059BB92 /* MXFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetworking.h; sourceTree = "<group>"; };
-		9D1335DB243B28B20059BB92 /* MXFNetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFNetInfo.m; sourceTree = "<group>"; };
-		9D1335DC243B28B20059BB92 /* MXFNetworkTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXFNetworkTask.m; sourceTree = "<group>"; };
-		9D1335DD243B28B20059BB92 /* MXFNetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXFNetInfo.h; sourceTree = "<group>"; };
-		9D1335DE243B28B20059BB92 /* MXJSFlutterApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MXJSFlutterApp.mm; sourceTree = "<group>"; };
-		9DF8348C243B27BB00F0FBC2 /* mxflutter_js_src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mxflutter_js_src; path = ../mxflutter_js_src; sourceTree = "<group>"; };
-		9DF8348E243B27CD00F0FBC2 /* mxf_js_framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mxf_js_framework; path = ../lib/mxflutter_framework/mxf_js_framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,23 +66,13 @@
 			files = (
 				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
 				3B80C3941E831B6300D905FE /* App.framework in Frameworks */,
-				B5B43216596CDFDCEEA7A3F8 /* libPods-Runner.a in Frameworks */,
+				44CE0A27B281867C6793DE2E /* libPods-Runner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8186863D3D3622E71D9CD82A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7BAE66ED9B81BC246648CFB5 /* Pods-Runner.debug.xcconfig */,
-				880B1D2D999DD22B404493F9 /* Pods-Runner.release.xcconfig */,
-				2B21B23F1F35BFD4574CCAE6 /* Pods-Runner.profile.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		9740EEB11CF90186004384FC /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,14 +89,11 @@
 		97C146E51CF9000F007C117D = {
 			isa = PBXGroup;
 			children = (
-				9DF8348E243B27CD00F0FBC2 /* mxf_js_framework */,
-				9DF8348C243B27BB00F0FBC2 /* mxflutter_js_src */,
-				9D1335B4243B28B20059BB92 /* MXFlutterOCFramework */,
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
-				8186863D3D3622E71D9CD82A /* Pods */,
-				E479E59D61B97BA608E13611 /* Frameworks */,
+				FE129AF5CDA3CE27E527E5FE /* Pods */,
+				F4092A95A99B49036E84AABA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */,
-				7AFFD8EE1D35381100E5BB4D /* AppDelegate.mm */,
+				7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -194,101 +124,28 @@
 		97C146F11CF9000F007C117D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				97C146F21CF9000F007C117D /* main.mm */,
+				97C146F21CF9000F007C117D /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9D1335B4243B28B20059BB92 /* MXFlutterOCFramework */ = {
+		F4092A95A99B49036E84AABA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9D1335C2243B28B20059BB92 /* Common */,
-				9D1335BB243B28B20059BB92 /* JSBridge */,
-				9D1335CD243B28B20059BB92 /* Packages */,
-				9D1335B9243B28B20059BB92 /* MXJSFlutterDefines.h */,
-				9D1335C1243B28B20059BB92 /* MXJSEngine.h */,
-				9D1335B6243B28B20059BB92 /* MXJSEngine.m */,
-				9D1335B7243B28B20059BB92 /* MXJSFlutterApp.h */,
-				9D1335DE243B28B20059BB92 /* MXJSFlutterApp.mm */,
-				9D1335B8243B28B20059BB92 /* JSModule.h */,
-				9D1335CC243B28B20059BB92 /* JSModule.m */,
-				9D1335BA243B28B20059BB92 /* MXJSFlutterEngine.h */,
-				9D1335CB243B28B20059BB92 /* MXJSFlutterEngine.m */,
-				9D1335B5243B28B20059BB92 /* MXJSExecutor.h */,
-				9D1335CA243B28B20059BB92 /* MXJSExecutor.m */,
-			);
-			path = MXFlutterOCFramework;
-			sourceTree = "<group>";
-		};
-		9D1335BB243B28B20059BB92 /* JSBridge */ = {
-			isa = PBXGroup;
-			children = (
-				9D1335BC243B28B20059BB92 /* MXEventEmitter.h */,
-				9D1335BD243B28B20059BB92 /* MXJSBridge.m */,
-				9D1335BE243B28B20059BB92 /* MXJSBridge.h */,
-				9D1335BF243B28B20059BB92 /* MXEventEmitter.m */,
-				9D1335C0243B28B20059BB92 /* MXBridgeModule.h */,
-			);
-			path = JSBridge;
-			sourceTree = "<group>";
-		};
-		9D1335C2243B28B20059BB92 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				9D1335C3243B28B20059BB92 /* NSData+GZIP.h */,
-				9D1335C4243B28B20059BB92 /* MXFUtil.h */,
-				9D1335C5243B28B20059BB92 /* MXFConvert.h */,
-				9D1335C6243B28B20059BB92 /* MXFDispose.h */,
-				9D1335C7243B28B20059BB92 /* MXFUtil.m */,
-				9D1335C8243B28B20059BB92 /* NSData+GZIP.m */,
-				9D1335C9243B28B20059BB92 /* MXFConvert.m */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		9D1335CD243B28B20059BB92 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				9D1335CE243B28B20059BB92 /* Network */,
-			);
-			path = Packages;
-			sourceTree = "<group>";
-		};
-		9D1335CE243B28B20059BB92 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				9D1335CF243B28B20059BB92 /* MXFNetworkTask.h */,
-				9D1335D0243B28B20059BB92 /* RequestHandler */,
-				9D1335D9243B28B20059BB92 /* MXFNetworking.mm */,
-				9D1335DA243B28B20059BB92 /* MXFNetworking.h */,
-				9D1335DB243B28B20059BB92 /* MXFNetInfo.m */,
-				9D1335DC243B28B20059BB92 /* MXFNetworkTask.m */,
-				9D1335DD243B28B20059BB92 /* MXFNetInfo.h */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		9D1335D0243B28B20059BB92 /* RequestHandler */ = {
-			isa = PBXGroup;
-			children = (
-				9D1335D1243B28B20059BB92 /* MXFHTTPRequestHandler.h */,
-				9D1335D2243B28B20059BB92 /* MXFURLRequestDelegate.h */,
-				9D1335D3243B28B20059BB92 /* MXFFileRequestHandler.m */,
-				9D1335D4243B28B20059BB92 /* MXFDataRequestHandler.m */,
-				9D1335D5243B28B20059BB92 /* MXFURLRequestHandler.h */,
-				9D1335D6243B28B20059BB92 /* MXFHTTPRequestHandler.mm */,
-				9D1335D7243B28B20059BB92 /* MXFFileRequestHandler.h */,
-				9D1335D8243B28B20059BB92 /* MXFDataRequestHandler.h */,
-			);
-			path = RequestHandler;
-			sourceTree = "<group>";
-		};
-		E479E59D61B97BA608E13611 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5969F356F6E0A50FB0085049 /* libPods-Runner.a */,
+				544573C010B01AA5F4793124 /* libPods-Runner.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE129AF5CDA3CE27E527E5FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09E72474F2B04CCDF4FB5CA8 /* Pods-Runner.debug.xcconfig */,
+				54D8E1B6E2AD1EE6D22662E8 /* Pods-Runner.release.xcconfig */,
+				8D118066900E0C8D40626521 /* Pods-Runner.profile.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,14 +155,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
-				56CB8245DBAF8B94AE1D2463 /* [CP] Check Pods Manifest.lock */,
+				17DF2DCD4BC021BD1F76DF5B /* [CP] Check Pods Manifest.lock */,
 				9740EEB61CF901F6004384FC /* Run Script */,
 				97C146EA1CF9000F007C117D /* Sources */,
 				97C146EB1CF9000F007C117D /* Frameworks */,
 				97C146EC1CF9000F007C117D /* Resources */,
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
-				AC952BB3247EDAA7F9065A13 /* [CP] Embed Pods Frameworks */,
+				F6F8F7E5CC9D5CBC0BBE83AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,10 +211,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
-				9DF8348D243B27BB00F0FBC2 /* mxflutter_js_src in Resources */,
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
-				9DF8348F243B27CD00F0FBC2 /* mxf_js_framework in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,21 +220,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3B06AD1E1E4923F5004D2608 /* Thin Binary */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Thin Binary";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" thin";
-		};
-		56CB8245DBAF8B94AE1D2463 /* [CP] Check Pods Manifest.lock */ = {
+		17DF2DCD4BC021BD1F76DF5B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -401,6 +242,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3B06AD1E1E4923F5004D2608 /* Thin Binary */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Thin Binary";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" thin";
+		};
 		9740EEB61CF901F6004384FC /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,7 +270,7 @@
 			shellPath = /bin/sh;
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
 		};
-		AC952BB3247EDAA7F9065A13 /* [CP] Embed Pods Frameworks */ = {
+		F6F8F7E5CC9D5CBC0BBE83AF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -437,25 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D1335EC243B28B20059BB92 /* MXFNetInfo.m in Sources */,
-				9D1335E5243B28B20059BB92 /* MXJSExecutor.m in Sources */,
-				9D1335E3243B28B20059BB92 /* NSData+GZIP.m in Sources */,
-				978B8F6F1D3862AE00F588F7 /* AppDelegate.mm in Sources */,
-				9D1335E8243B28B20059BB92 /* MXFFileRequestHandler.m in Sources */,
-				9D1335E9243B28B20059BB92 /* MXFDataRequestHandler.m in Sources */,
-				9D1335EA243B28B20059BB92 /* MXFHTTPRequestHandler.mm in Sources */,
-				97C146F31CF9000F007C117D /* main.mm in Sources */,
+				978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */,
+				97C146F31CF9000F007C117D /* main.m in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
-				9D1335E4243B28B20059BB92 /* MXFConvert.m in Sources */,
-				9D1335E0243B28B20059BB92 /* MXJSBridge.m in Sources */,
-				9D1335E6243B28B20059BB92 /* MXJSFlutterEngine.m in Sources */,
-				9D1335EB243B28B20059BB92 /* MXFNetworking.mm in Sources */,
-				9D1335EE243B28B20059BB92 /* MXJSFlutterApp.mm in Sources */,
-				9D1335ED243B28B20059BB92 /* MXFNetworkTask.m in Sources */,
-				9D1335E7243B28B20059BB92 /* JSModule.m in Sources */,
-				9D1335E1243B28B20059BB92 /* MXEventEmitter.m in Sources */,
-				9D1335DF243B28B20059BB92 /* MXJSEngine.m in Sources */,
-				9D1335E2243B28B20059BB92 /* MXFUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +388,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.imatrixteam.mxflutter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imatrixteam.mxflutter2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -673,18 +512,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					"PROJECT_DIR=@\\\"\"$PROJECT_DIR\\/\"\\\"",
-				);
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.imatrixteam.mxflutter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imatrixteam.mxflutter2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -707,7 +541,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.imatrixteam.mxflutter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imatrixteam.mxflutter2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

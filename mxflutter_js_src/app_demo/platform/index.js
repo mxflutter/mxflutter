@@ -110,31 +110,6 @@ class PlatformExamplesPage extends MXJSStatelessWidget {
               }
             }),
 
-            new ListTile({
-              title: new Text("Fetch Examples"),
-              subtitle: new Text("仅iOS"),
-              onTap: function () {
-                let { PageExampleFetch } = require("platform/example_fetch.js");
-                Navigator.push(context, new MaterialPageRoute({
-                  builder: function (context) {
-                    return new PageExampleFetch;
-                  }
-                }))
-              }
-            }),
-
-            new ListTile({
-              title: new Text("Network NativeApi"),
-              subtitle: new Text("仅iOS"),
-              onTap: function () {
-                let { PageExampleNetworkAPI } = require("platform/example_network_native_api.js");
-                Navigator.push(context, new MaterialPageRoute({
-                  builder: function (context) {
-                    return new PageExampleNetworkAPI;
-                  }
-                }))
-              }
-            }),
             new SectionTitle("存储"),
 
             new ListTile({
