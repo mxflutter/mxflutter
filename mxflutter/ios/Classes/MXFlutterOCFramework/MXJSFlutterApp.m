@@ -70,12 +70,12 @@
     }
     
     //MXFlutter JS运行库搜索路径
-    NSString *jsFlutterFrameworkDir = [MXJSFlutterEngine jsFrameworkPath];
+    NSString *jsFlutterFrameworkDir = [self.jsFlutterEngine jsFrameworkPath];
     [self.jsEngine addSearchDir:jsFlutterFrameworkDir];
     [self.jsEngine addSearchDir:[jsFlutterFrameworkDir stringByAppendingPathComponent:@"src/"]];
     [self.jsEngine addSearchDir:[jsFlutterFrameworkDir stringByAppendingPathComponent:@"src/dart_js_framework/"]];
     
-    //app业务代码搜索路径
+    //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js_src
     [self.jsEngine addSearchDir:self.appRootPath];
     //__weak MXJSFlutterEngine *weakSelf = self;
     

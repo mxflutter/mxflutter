@@ -31,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) NSObject<FlutterBinaryMessenger>* binaryMessenger;
 @property (nonatomic, weak) MXJSEngine* jsEngine;
 
+@property (nonatomic,strong) NSString *jsFrameworkPath;
+@property (nonatomic,strong) NSString *currentJSAppPath;
+@property (nonatomic,strong) NSArray *jsAppSearchPathList;
+
 
 ///初始化MXFlutter主引擎，设置FlutterEngine的binaryMessenger
 - (instancetype)initWithFlutterMessager:(NSObject<FlutterBinaryMessenger>*)binaryMessenger;
@@ -64,11 +68,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface MXJSFlutterEngine (Path)
-
-+ (void)setJSFrameworkPath:(NSString*)path;
-+ (NSString*)jsFrameworkPath;
-
-@end
 
 NS_ASSUME_NONNULL_END

@@ -110,34 +110,46 @@
     NSString *jsAppPath = argsMap[@"jsAppPath"];
     NSString *jsAppAssetsKey = argsMap[@"jsAppAssetsKey"];
     
-    if (jsAppPath.length  == 0 &&  jsAppAssetsKey.length > 0) {
-        NSString *key =  [[MXFlutterPlugin shareInstance].flutterRegistrar lookupKeyForAsset:jsAppAssetsKey];
-        jsAppPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:key];
-    }
-    
-    if(jsAppPath.length == 0){
-        
-        MXJSFlutterLog(@"%@",@"jsAppPath.length == 0");
-        return;
-    }
-    
     NSArray* jsAppSearchPathList = argsMap[@"jsAppSearchPathList"];
     NSArray* jsAppSearchPathWithAssetsKeyList = argsMap[@"jsAppSearchPathWithAssetsKeyList"];
     
-    if (jsAppSearchPathWithAssetsKeyList.count > 0) {
+    //如果Native设置过jsAppPath，以Native为准
+    if (self.currentJSAppPath.length > 0) {
+        MXJSFlutterLog(@"MXJSFlutterEngine Native工程，设置了currentJSAppPath，RunJSApp使用Native设置的路径 appPath %@",self.currentJSAppPath);
+        jsAppPath = self.currentJSAppPath;
+        jsAppSearchPathList = self.jsAppSearchPathList;
+    }
+    else
+    {
         
-        NSMutableArray *searchList = [NSMutableArray array];
-        if (jsAppSearchPathList.count > 0) {
-            [searchList addObjectsFromArray:jsAppSearchPathList];
+        if (jsAppPath.length  == 0 &&  jsAppAssetsKey.length > 0) {
+            NSString *key =  [[MXFlutterPlugin shareInstance].flutterRegistrar lookupKeyForAsset:jsAppAssetsKey];
+            jsAppPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:key];
         }
         
-        for (NSString *jsAppPathAssetsKey in jsAppSearchPathWithAssetsKeyList) {
-            NSString *key =  [[MXFlutterPlugin shareInstance].flutterRegistrar lookupKeyForAsset:jsAppPathAssetsKey];
-            NSString*  jsAppSearchPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:key];
-            [searchList addObject:jsAppSearchPath];
+        if(jsAppPath.length == 0){
+            
+            MXJSFlutterLog(@"%@",@"jsAppPath.length == 0");
+            return;
         }
         
-        jsAppSearchPathList = searchList;
+
+        
+        if (jsAppSearchPathWithAssetsKeyList.count > 0) {
+            
+            NSMutableArray *searchList = [NSMutableArray array];
+            if (jsAppSearchPathList.count > 0) {
+                [searchList addObjectsFromArray:jsAppSearchPathList];
+            }
+            
+            for (NSString *jsAppPathAssetsKey in jsAppSearchPathWithAssetsKeyList) {
+                NSString *key =  [[MXFlutterPlugin shareInstance].flutterRegistrar lookupKeyForAsset:jsAppPathAssetsKey];
+                NSString*  jsAppSearchPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:key];
+                [searchList addObject:jsAppSearchPath];
+            }
+            
+            jsAppSearchPathList = searchList;
+        }
     }
     
     [self runAppWithPath:jsAppPath jsAppSearchPathList:jsAppSearchPathList];
@@ -277,17 +289,3 @@
 @end
 
 
-static NSString  *g_jsFrameworkPath = nil;
-@implementation MXJSFlutterEngine (Path)
-
-+ (void)setJSFrameworkPath:(NSString*)path
-{
-    g_jsFrameworkPath = path;
-}
-
-+ (NSString*)jsFrameworkPath
-{
-    return g_jsFrameworkPath;
-}
-
-@end
