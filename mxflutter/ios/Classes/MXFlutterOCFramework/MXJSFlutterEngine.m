@@ -16,7 +16,7 @@
 
 @interface MXJSFlutterEngine ()
 {
-
+    
 }
 
 @property (nonatomic, strong) NSString *rootPath;
@@ -47,7 +47,7 @@
 - (void)setup
 {    
     self.callFlutterQueue = [NSMutableArray arrayWithCapacity:2];
-
+    
     [self setupChannel];
 }
 
@@ -55,8 +55,8 @@
 {
     
     self.engineMethodChannel = [FlutterMethodChannel
-                         methodChannelWithName:@"js_flutter.flutter_main_channel"
-                         binaryMessenger:self.binaryMessenger];
+                                methodChannelWithName:@"js_flutter.flutter_main_channel"
+                                binaryMessenger:self.binaryMessenger];
     
     __weak MXJSFlutterEngine *weakSelf = self;
     [self.engineMethodChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
@@ -77,12 +77,12 @@
     
     // js <===bridge===> flutter common channel
     self.jsFlutterCommonBasicChannel = [FlutterBasicMessageChannel messageChannelWithName:@"mxflutter.mxflutter_common_basic_channel"
-    binaryMessenger:self.binaryMessenger
-              codec:[FlutterStringCodec sharedInstance]];
+                                                                          binaryMessenger:self.binaryMessenger
+                                                                                    codec:[FlutterStringCodec sharedInstance]];
     
-
+    
     [self.jsFlutterCommonBasicChannel setMessageHandler:^(id  _Nullable message, FlutterReply  _Nonnull callback) {
-          __strong MXJSFlutterEngine *strongSelf = weakSelf;
+        __strong MXJSFlutterEngine *strongSelf = weakSelf;
         
         [strongSelf.jsEngine.jsExecutor invokeMethod:@"mxfJSBridgeInvokeJSCommonChannel" args:@[message] callback:^(JSValue *result, NSError *error) {
             callback(result.toString);
@@ -120,8 +120,27 @@
         MXJSFlutterLog(@"%@",@"jsAppPath.length == 0");
         return;
     }
-
-    [self runAppWithPath:jsAppPath];
+    
+    NSArray* jsAppSearchPathList = argsMap[@"jsAppSearchPathList"];
+    NSArray* jsAppSearchPathWithAssetsKeyList = argsMap[@"jsAppSearchPathWithAssetsKeyList"];
+    
+    if (jsAppSearchPathWithAssetsKeyList.count > 0) {
+        
+        NSMutableArray *searchList = [NSMutableArray array];
+        if (jsAppSearchPathList.count > 0) {
+            [searchList addObjectsFromArray:jsAppSearchPathList];
+        }
+        
+        for (NSString *jsAppPathAssetsKey in jsAppSearchPathWithAssetsKeyList) {
+            NSString *key =  [[MXFlutterPlugin shareInstance].flutterRegistrar lookupKeyForAsset:jsAppPathAssetsKey];
+            NSString*  jsAppSearchPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:key];
+            [searchList addObject:jsAppSearchPath];
+        }
+        
+        jsAppSearchPathList = searchList;
+    }
+    
+    [self runAppWithPath:jsAppPath jsAppSearchPathList:jsAppSearchPathList];
 }
 
 //MARK: - native -> flutter
@@ -150,7 +169,7 @@
     }
     FlutterMethodCall* call  = [FlutterMethodCall methodCallWithMethodName:@"reloadApp" arguments:arguments];
     
-
+    
     [self.engineMethodChannel invokeMethod:call.method arguments:call.arguments];
 }
 
@@ -186,7 +205,7 @@
         [arguments setObject:params forKey:@"params"];
     }
     FlutterMethodCall* call = [FlutterMethodCall methodCallWithMethodName:@"mxflutterBridgeMethodChannelInvoke" arguments:arguments];
-
+    
     [self.engineMethodChannel invokeMethod:call.method arguments:call.arguments result:^(id  _Nullable result) {
         if (callback) {
             callback(result);
@@ -200,7 +219,7 @@
                                                         onErrorId:(NSString *)onErrorId
                                                          onDoneId:(NSString *)onDoneId
                                                     cancelOnError:(NSNumber *)cancelOnError
-                            
+
 {
     if ([streamParam isEqualToString:@"null"]) {
         streamParam = nil;
@@ -238,7 +257,7 @@
 }
 
 
-- (void)runAppWithPath:(NSString *)jsAppPath
+- (void)runAppWithPath:(NSString *)jsAppPath jsAppSearchPathList:(NSArray*)pathArray
 {
     //退出原来的APP
     if (self.currentApp) {
@@ -248,7 +267,7 @@
     
     [JSModule clearModuleCache];
     NSString *appRootPath = jsAppPath;
-    self.currentApp  = [[MXJSFlutterApp alloc] initWithAppPath:appRootPath engine:self];
+    self.currentApp  = [[MXJSFlutterApp alloc] initWithAppPath:appRootPath jsAppSearchPathList:pathArray engine:self];
     
     [self.currentApp runApp];
 }

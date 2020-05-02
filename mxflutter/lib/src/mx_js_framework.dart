@@ -95,10 +95,21 @@ class MXJSFlutter {
   ///flutter -> js
   ///由Flutter 代码启动JSApp。 可以用在先显示Dart页面，然后路由调转到JS页面
   ///启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
-  ///jsAppAssetsKey ，JS业务代码放置在一个文件夹中，并且有main.js文件，创建MXJSFlutterApp
-  ///jsAppAssetsKey 默认为flutter工程下，与lib，ios同级目录的mxflutter_js_src文件夹下
-  runJSApp({String jsAppAssetsKey = "mxflutter_js_src/",String jsAppPath = ""}) {
-    var args = {"jsAppAssetsKey": jsAppAssetsKey,"jsAppPath":jsAppPath};
+  ///*jsAppPath ，jsApp root path ，JS业务代码放置在一个文件夹中，并且有main.js文件。jsAppPath和jsAppAssetsKey根据场景选用一个即可
+  ///*jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js_src文件夹下
+  ///*jsAppSearchPathList, js App require 的搜索路径，一般无需设置，默认jsApp root path
+  ///*jsAppSearchPathWithAssetsKeyList, js App require 的搜索路径，使用pubspec.yaml里的AssetsKey配置来设置，一般无需设置，默认jsApp root path
+  runJSApp({String jsAppPath = "",String jsAppAssetsKey = "mxflutter_js_src/",List<String> jsAppSearchPathList,List<String> jsAppSearchPathWithAssetsKeyList}) {
+    Map<String,dynamic> args = {"jsAppAssetsKey": jsAppAssetsKey,"jsAppPath":jsAppPath};
+
+    if(jsAppSearchPathList != null){
+      args["jsAppSearchPathList"] = jsAppSearchPathList ;
+    }
+
+    if(jsAppSearchPathWithAssetsKeyList != null){
+      args["jsAppSearchPathWithAssetsKeyList"] = jsAppSearchPathWithAssetsKeyList ;
+    }
+
     _jsFlutterMainChannel.invokeMethod("callNativeRunJSApp", args);
 
     //暂时只支持一个

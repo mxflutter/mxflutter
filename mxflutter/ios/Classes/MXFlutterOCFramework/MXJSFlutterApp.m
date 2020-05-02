@@ -22,15 +22,16 @@
 @property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterAppRebuildChannel;
 @property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterAppNavigatorPushChannel;
 
-
 @property (nonatomic) BOOL isJSAPPRun;
 @property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callJSMethodQueue;
+
+@property (nonatomic, strong) NSArray* jsAppSearchPathList;
 
 @end
 
 @implementation MXJSFlutterApp
 
-- (instancetype)initWithAppPath:(NSString*)appRootPath engine:(MXJSFlutterEngine*)jsFlutterEngine
+- (instancetype)initWithAppPath:(NSString*)appRootPath jsAppSearchPathList:(NSArray*)pathArray engine:(MXJSFlutterEngine*)jsFlutterEngine
 {
     if (self = [super init])
     {
@@ -38,6 +39,7 @@
         self.appName = appRootPath;
         self.jsFlutterEngine = jsFlutterEngine;
         self.appRootPath = appRootPath;
+        self.jsAppSearchPathList = pathArray;
         
         self.callJSMethodQueue = [[NSMutableArray alloc] initWithCapacity:1];
         
@@ -77,9 +79,9 @@
     [self.jsEngine addSearchDir:self.appRootPath];
     //__weak MXJSFlutterEngine *weakSelf = self;
     
-    //app业务代码搜索路径 TODO:fixme
-    [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"app_demo"]];
-    [self.jsEngine addSearchDir:[self.appRootPath stringByAppendingPathComponent:@"dart2js_demo"]];
+    for (NSString *searchPath in self.jsAppSearchPathList) {
+         [self.jsEngine addSearchDir:searchPath];
+    }
     
     NSString *js_basic_lib_Path = [jsFlutterFrameworkDir stringByAppendingPathComponent:@"js_basic_lib.js"];
     [self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {

@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithFlutterMessager:(NSObject<FlutterBinaryMessenger>*)binaryMessenger;
 
 ///运行JS代码，JS业务代码放置在一个文件夹中，并且有main.js文件，创建MXJSFlutterApp
-- (void)runAppWithPath:(NSString*)jsAppPath ;
+- (void)runAppWithPath:(NSString*)jsAppPath jsAppSearchPathList:(NSArray*)pathArray;
 
 //MARK: - native -> flutter
 //--------------------------------------------
