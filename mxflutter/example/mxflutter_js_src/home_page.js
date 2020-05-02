@@ -217,7 +217,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     }
                 }),
                 
-                this.sectionTitle(context, "Dart2js Demo"),
+                this.sectionTitle(context, "mxjsbuilder build app"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
@@ -225,7 +225,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('简单样例'),
                     onTap: function () {
 
-                        let flutter_demo_ddc = require("./dart2js_demo/flutter_demo.ddc.js");
+                        let flutter_demo_ddc = require("./mxjsbuilder_demo/flutter_demo.ddc.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -242,7 +242,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
                     onTap: function () {
 
-                        let contact_demo_ddc = require("./dart2js_demo/contacts_demo.ddc.js");
+                        let contact_demo_ddc = require("./mxjsbuilder_demo/contacts_demo.ddc.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -258,7 +258,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('菜谱'),
                     onTap: function () {
 
-                        let pesto_demo_ddc = require("./dart2js_demo/pesto_demo.ddc.js");
+                        let pesto_demo_ddc = require("./mxjsbuilder_demo/pesto_demo.ddc.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -275,7 +275,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
                     onTap: function () {
 
-                        const packages__zhihu__index = require('packages/zhihu/index/index');
+                        const packages__zhihu__index = require('./mxjsbuilder_demo/packages/zhihu/index/index');
                         const index_page = packages__zhihu__index.index__index;
 
                         Navigator.push(context, new MaterialPageRoute({
