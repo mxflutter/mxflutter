@@ -144,7 +144,6 @@
 				54D8E1B6E2AD1EE6D22662E8 /* Pods-Runner.release.xcconfig */,
 				8D118066900E0C8D40626521 /* Pods-Runner.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -511,6 +510,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PROJECT_DIR=@\\\"\"$PROJECT_DIR\\/\"\\\"",
 				);
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
