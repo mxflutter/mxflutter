@@ -5,56 +5,75 @@ const _interceptors = dart_sdk._interceptors;
 const ui = dart_sdk.ui;
 const dart = dart_sdk.dart;
 const dartx = dart_sdk.dartx;
-const packages__flutter__src__widgets__actions = require('packages/flutter/src/widgets/actions');
-const framework = packages__flutter__src__widgets__actions.src__widgets__framework;
-const single_child_scroll_view = packages__flutter__src__widgets__actions.src__widgets__single_child_scroll_view;
-const basic = packages__flutter__src__widgets__actions.src__widgets__basic;
-const container = packages__flutter__src__widgets__actions.src__widgets__container;
-const text = packages__flutter__src__widgets__actions.src__widgets__text;
-const icon = packages__flutter__src__widgets__actions.src__widgets__icon;
-const navigator = packages__flutter__src__widgets__actions.src__widgets__navigator;
-const packages__flutter__material = require('packages/flutter/material');
-const app = packages__flutter__material.src__material__app;
-const scaffold = packages__flutter__material.src__material__scaffold;
-const app_bar = packages__flutter__material.src__material__app_bar;
-const flat_button = packages__flutter__material.src__material__flat_button;
-const colors = packages__flutter__material.src__material__colors;
-const icons = packages__flutter__material.src__material__icons;
-const button_theme = packages__flutter__material.src__material__button_theme;
-const popup_menu = packages__flutter__material.src__material__popup_menu;
-const page = packages__flutter__material.src__material__page;
-const circle_avatar = packages__flutter__material.src__material__circle_avatar;
-const text_field = packages__flutter__material.src__material__text_field;
-const input_decorator = packages__flutter__material.src__material__input_decorator;
-const icon_button = packages__flutter__material.src__material__icon_button;
-const list_tile = packages__flutter__material.src__material__list_tile;
-const raised_button = packages__flutter__material.src__material__raised_button;
-const bottom_app_bar = packages__flutter__material.src__material__bottom_app_bar;
-const packages__zhihu__global_config = require('packages/zhihu/global_config');
-const global_config = packages__zhihu__global_config.global_config;
-const packages__flutter__src__painting___network_image_web = require('packages/flutter/src/painting/_network_image_web');
-const edge_insets = packages__flutter__src__painting___network_image_web.src__painting__edge_insets;
-const text_style = packages__flutter__src__painting___network_image_web.src__painting__text_style;
-const alignment = packages__flutter__src__painting___network_image_web.src__painting__alignment;
-const box_decoration = packages__flutter__src__painting___network_image_web.src__painting__box_decoration;
-const box_border = packages__flutter__src__painting___network_image_web.src__painting__box_border;
-const borders = packages__flutter__src__painting___network_image_web.src__painting__borders;
-const _network_image_web = packages__flutter__src__painting___network_image_web.src__painting___network_image_web;
-const border_radius = packages__flutter__src__painting___network_image_web.src__painting__border_radius;
-const packages__flutter__src__rendering__animated_size = require('packages/flutter/src/rendering/animated_size');
-const flex = packages__flutter__src__rendering__animated_size.src__rendering__flex;
-const question_page = Object.create(dart.library);
-const reply_page = Object.create(dart.library);
-let VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
-let JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
-let PopupMenuButtonOfString = () => (PopupMenuButtonOfString = dart.constFn(popup_menu.PopupMenuButton$(core.String)))();
-let PopupMenuItemOfString = () => (PopupMenuItemOfString = dart.constFn(popup_menu.PopupMenuItem$(core.String)))();
-let JSArrayOfPopupMenuItemOfString = () => (JSArrayOfPopupMenuItemOfString = dart.constFn(_interceptors.JSArray$(PopupMenuItemOfString())))();
-let ListOfPopupMenuItemOfString = () => (ListOfPopupMenuItemOfString = dart.constFn(core.List$(PopupMenuItemOfString())))();
-let BuildContextToListOfPopupMenuItemOfString = () => (BuildContextToListOfPopupMenuItemOfString = dart.constFn(dart.fnType(ListOfPopupMenuItemOfString(), [framework.BuildContext])))();
-let BuildContextToReplyPage = () => (BuildContextToReplyPage = dart.constFn(dart.fnType(reply_page.ReplyPage, [framework.BuildContext])))();
-let BuildContextToQuestionPage = () => (BuildContextToQuestionPage = dart.constFn(dart.fnType(question_page.QuestionPage, [framework.BuildContext])))();
+const packages__flutter__src__widgets__widget_span$46dart = require('packages/flutter/src/widgets/widget_span.dart');
+const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+const packages__flutter__src__material__app$46dart = require('packages/flutter/src/material/app.dart');
+const app = packages__flutter__src__material__app$46dart.src__material__app;
+const packages__zhihu__global_config$46dart = require('packages/zhihu/global_config.dart');
+const global_config = packages__zhihu__global_config$46dart.global_config;
+const packages__flutter__src__material__icon_button$46dart = require('packages/flutter/src/material/icon_button.dart');
+const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+const flat_button = packages__flutter__src__material__icon_button$46dart.src__material__flat_button;
+const button_theme = packages__flutter__src__material__icon_button$46dart.src__material__button_theme;
+const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+const raised_button = packages__flutter__src__material__icon_button$46dart.src__material__raised_button;
+const packages__flutter__src__widgets__single_child_scroll_view$46dart = require('packages/flutter/src/widgets/single_child_scroll_view.dart');
+const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
+const packages__flutter__src__painting__edge_insets$46dart = require('packages/flutter/src/painting/edge_insets.dart');
+const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+const packages__flutter__src__painting__strut_style$46dart = require('packages/flutter/src/painting/strut_style.dart');
+const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+const packages__flutter__src__material__colors$46dart = require('packages/flutter/src/material/colors.dart');
+const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+const packages__flutter__src__painting__alignment$46dart = require('packages/flutter/src/painting/alignment.dart');
+const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+const packages__flutter__src__painting__box_decoration$46dart = require('packages/flutter/src/painting/box_decoration.dart');
+const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+const packages__flutter__src__painting__box_border$46dart = require('packages/flutter/src/painting/box_border.dart');
+const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+const packages__flutter__src__painting__borders$46dart = require('packages/flutter/src/painting/borders.dart');
+const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+const packages__flutter__src__widgets__icon$46dart = require('packages/flutter/src/widgets/icon.dart');
+const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+const packages__flutter__src__material__icons$46dart = require('packages/flutter/src/material/icons.dart');
+const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+const packages__flutter__src__material__popup_menu$46dart = require('packages/flutter/src/material/popup_menu.dart');
+const popup_menu = packages__flutter__src__material__popup_menu$46dart.src__material__popup_menu;
+const packages__flutter__src__rendering__flex$46dart = require('packages/flutter/src/rendering/flex.dart');
+const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+const packages__flutter__src__material__page$46dart = require('packages/flutter/src/material/page.dart');
+const page = packages__flutter__src__material__page$46dart.src__material__page;
+const packages__flutter__src__material__circle_avatar$46dart = require('packages/flutter/src/material/circle_avatar.dart');
+const circle_avatar = packages__flutter__src__material__circle_avatar$46dart.src__material__circle_avatar;
+const packages__flutter__src__painting___network_image_web$46dart = require('packages/flutter/src/painting/_network_image_web.dart');
+const _network_image_web = packages__flutter__src__painting___network_image_web$46dart.src__painting___network_image_web;
+const packages__flutter__src__material__text_field$46dart = require('packages/flutter/src/material/text_field.dart');
+const text_field = packages__flutter__src__material__text_field$46dart.src__material__text_field;
+const packages__flutter__src__painting__border_radius$46dart = require('packages/flutter/src/painting/border_radius.dart');
+const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+const packages__flutter__src__material__bottom_app_bar$46dart = require('packages/flutter/src/material/bottom_app_bar.dart');
+const bottom_app_bar = packages__flutter__src__material__bottom_app_bar$46dart.src__material__bottom_app_bar;
+var question_page = Object.create(dart.library);
+var reply_page = Object.create(dart.library);
+var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+var JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
+var PopupMenuButtonOfString = () => (PopupMenuButtonOfString = dart.constFn(popup_menu.PopupMenuButton$(core.String)))();
+var PopupMenuItemOfString = () => (PopupMenuItemOfString = dart.constFn(popup_menu.PopupMenuItem$(core.String)))();
+var JSArrayOfPopupMenuItemOfString = () => (JSArrayOfPopupMenuItemOfString = dart.constFn(_interceptors.JSArray$(PopupMenuItemOfString())))();
+var ListOfPopupMenuItemOfString = () => (ListOfPopupMenuItemOfString = dart.constFn(core.List$(PopupMenuItemOfString())))();
+var BuildContextToListOfPopupMenuItemOfString = () => (BuildContextToListOfPopupMenuItemOfString = dart.constFn(dart.fnType(ListOfPopupMenuItemOfString(), [framework.BuildContext])))();
+var BuildContextToReplyPage = () => (BuildContextToReplyPage = dart.constFn(dart.fnType(reply_page.ReplyPage, [framework.BuildContext])))();
+var BuildContextToQuestionPage = () => (BuildContextToQuestionPage = dart.constFn(dart.fnType(question_page.QuestionPage, [framework.BuildContext])))();
 const CT = Object.create(null);
+var L1 = "package:zhihu/home/reply_page.dart";
+var L0 = "package:zhihu/home/question_page.dart";
 dart.defineLazy(CT, {
   get C0() {
     return C0 = dart.const({
@@ -169,7 +188,7 @@ dart.defineLazy(CT, {
       [BorderRadius_topLeft]: C12 || CT.C12
     });
   }
-});
+}, false);
 question_page.QuestionPage = class QuestionPage extends framework.StatefulWidget {
   createState() {
     return new question_page.QuestionPageState.new();
@@ -177,18 +196,26 @@ question_page.QuestionPage = class QuestionPage extends framework.StatefulWidget
 };
 (question_page.QuestionPage.new = function() {
   question_page.QuestionPage.__proto__.new.call(this);
+  ;
 }).prototype = question_page.QuestionPage.prototype;
-const EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-const EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-const EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-const EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-let C0;
-let C1;
-let C2;
-let C3;
-let C4;
-let C5;
-let C6;
+dart.addTypeTests(question_page.QuestionPage);
+dart.addTypeCaches(question_page.QuestionPage);
+dart.setMethodSignature(question_page.QuestionPage, () => ({
+  __proto__: dart.getMethods(question_page.QuestionPage.__proto__),
+  createState: dart.fnType(question_page.QuestionPageState, [])
+}));
+dart.setLibraryUri(question_page.QuestionPage, L0);
+var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+var C0;
+var C1;
+var C2;
+var C3;
+var C4;
+var C5;
+var C6;
 question_page.QuestionPageState = class QuestionPageState extends framework.State$(question_page.QuestionPage) {
   build(context) {
     return new app.MaterialApp.new({theme: global_config.GlobalConfig.themeData, home: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: reply_page.Common.searchInput(context)}), body: new single_child_scroll_view.SingleChildScrollView.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
@@ -203,16 +230,24 @@ question_page.QuestionPageState = class QuestionPageState extends framework.Stat
 };
 (question_page.QuestionPageState.new = function() {
   question_page.QuestionPageState.__proto__.new.call(this);
+  ;
 }).prototype = question_page.QuestionPageState.prototype;
-let C7;
-const Radius_y = dart.privateName(ui, "Radius.y");
-const Radius_x = dart.privateName(ui, "Radius.x");
-let C9;
-const BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
-const BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
-const BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
-const BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-let C8;
+dart.addTypeTests(question_page.QuestionPageState);
+dart.addTypeCaches(question_page.QuestionPageState);
+dart.setMethodSignature(question_page.QuestionPageState, () => ({
+  __proto__: dart.getMethods(question_page.QuestionPageState.__proto__),
+  build: dart.fnType(framework.Widget, [framework.BuildContext])
+}));
+dart.setLibraryUri(question_page.QuestionPageState, L0);
+var C7;
+var Radius_y = dart.privateName(ui, "Radius.y");
+var Radius_x = dart.privateName(ui, "Radius.x");
+var C9;
+var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+var C8;
 reply_page.Common = class Common extends core.Object {
   static searchInput(context) {
     return new container.Container.new({child: new basic.Row.new({children: JSArrayOfWidget().of([new container.Container.new({child: new flat_button._FlatButtonWithIcon.new({onPressed: dart.fn(() => {
@@ -223,7 +258,11 @@ reply_page.Common = class Common extends core.Object {
   }
 };
 (reply_page.Common.new = function() {
+  ;
 }).prototype = reply_page.Common.prototype;
+dart.addTypeTests(reply_page.Common);
+dart.addTypeCaches(reply_page.Common);
+dart.setLibraryUri(reply_page.Common, L1);
 reply_page.ReplyPage = class ReplyPage extends framework.StatefulWidget {
   createState() {
     return new reply_page.ReplyPageState.new();
@@ -231,10 +270,18 @@ reply_page.ReplyPage = class ReplyPage extends framework.StatefulWidget {
 };
 (reply_page.ReplyPage.new = function() {
   reply_page.ReplyPage.__proto__.new.call(this);
+  ;
 }).prototype = reply_page.ReplyPage.prototype;
-let C10;
-let C12;
-let C11;
+dart.addTypeTests(reply_page.ReplyPage);
+dart.addTypeCaches(reply_page.ReplyPage);
+dart.setMethodSignature(reply_page.ReplyPage, () => ({
+  __proto__: dart.getMethods(reply_page.ReplyPage.__proto__),
+  createState: dart.fnType(reply_page.ReplyPageState, [])
+}));
+dart.setLibraryUri(reply_page.ReplyPage, L1);
+var C10;
+var C12;
+var C11;
 reply_page.ReplyPageState = class ReplyPageState extends framework.State$(reply_page.ReplyPage) {
   build(context) {
     return new app.MaterialApp.new({theme: global_config.GlobalConfig.themeData, home: new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: reply_page.Common.searchInput(context)}), body: new single_child_scroll_view.SingleChildScrollView.new({child: new basic.Column.new({children: JSArrayOfWidget().of([new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
@@ -256,9 +303,17 @@ reply_page.ReplyPageState = class ReplyPageState extends framework.State$(reply_
 };
 (reply_page.ReplyPageState.new = function() {
   reply_page.ReplyPageState.__proto__.new.call(this);
+  ;
 }).prototype = reply_page.ReplyPageState.prototype;
+dart.addTypeTests(reply_page.ReplyPageState);
+dart.addTypeCaches(reply_page.ReplyPageState);
+dart.setMethodSignature(reply_page.ReplyPageState, () => ({
+  __proto__: dart.getMethods(reply_page.ReplyPageState.__proto__),
+  build: dart.fnType(framework.Widget, [framework.BuildContext])
+}));
+dart.setLibraryUri(reply_page.ReplyPageState, L1);
 // Exports:
 exports.home__question_page = question_page;
 exports.home__reply_page = reply_page;
 
-//# sourceMappingURL=question_page.ddc.js.map
+//# sourceMappingURL=question_page.dart.lib.js.map

@@ -5,48 +5,65 @@ const _interceptors = dart_sdk._interceptors;
 const ui = dart_sdk.ui;
 const dart = dart_sdk.dart;
 const dartx = dart_sdk.dartx;
-const packages__flutter__src__widgets__actions = require('packages/flutter/src/widgets/actions');
-const framework = packages__flutter__src__widgets__actions.src__widgets__framework;
-const container = packages__flutter__src__widgets__actions.src__widgets__container;
-const navigator = packages__flutter__src__widgets__actions.src__widgets__navigator;
-const basic = packages__flutter__src__widgets__actions.src__widgets__basic;
-const icon = packages__flutter__src__widgets__actions.src__widgets__icon;
-const text = packages__flutter__src__widgets__actions.src__widgets__text;
-const media_query = packages__flutter__src__widgets__actions.src__widgets__media_query;
-const single_child_scroll_view = packages__flutter__src__widgets__actions.src__widgets__single_child_scroll_view;
-const packages__flutter__material = require('packages/flutter/material');
-const flat_button = packages__flutter__material.src__material__flat_button;
-const page = packages__flutter__material.src__material__page;
-const icons = packages__flutter__material.src__material__icons;
-const colors = packages__flutter__material.src__material__colors;
-const list_tile = packages__flutter__material.src__material__list_tile;
-const circle_avatar = packages__flutter__material.src__material__circle_avatar;
-const theme_data = packages__flutter__material.src__material__theme_data;
-const app = packages__flutter__material.src__material__app;
-const scaffold = packages__flutter__material.src__material__scaffold;
-const app_bar = packages__flutter__material.src__material__app_bar;
-const packages__zhihu__home__search_page = require('packages/zhihu/home/search_page');
-const search_page = packages__zhihu__home__search_page.home__search_page;
-const packages__flutter__src__painting___network_image_web = require('packages/flutter/src/painting/_network_image_web');
-const edge_insets = packages__flutter__src__painting___network_image_web.src__painting__edge_insets;
-const box_decoration = packages__flutter__src__painting___network_image_web.src__painting__box_decoration;
-const border_radius = packages__flutter__src__painting___network_image_web.src__painting__border_radius;
-const _network_image_web = packages__flutter__src__painting___network_image_web.src__painting___network_image_web;
-const text_style = packages__flutter__src__painting___network_image_web.src__painting__text_style;
-const box_border = packages__flutter__src__painting___network_image_web.src__painting__box_border;
-const borders = packages__flutter__src__painting___network_image_web.src__painting__borders;
-const basic_types = packages__flutter__src__painting___network_image_web.src__painting__basic_types;
-const decoration_image = packages__flutter__src__painting___network_image_web.src__painting__decoration_image;
-const alignment = packages__flutter__src__painting___network_image_web.src__painting__alignment;
-const packages__zhihu__global_config = require('packages/zhihu/global_config');
-const global_config = packages__zhihu__global_config.global_config;
-const packages__flutter__src__rendering__animated_size = require('packages/flutter/src/rendering/animated_size');
-const flex = packages__flutter__src__rendering__animated_size.src__rendering__flex;
-const my_page = Object.create(dart.library);
-let BuildContextToSearchPage = () => (BuildContextToSearchPage = dart.constFn(dart.fnType(search_page.SearchPage, [framework.BuildContext])))();
-let VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
-let JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
+const packages__flutter__src__widgets__widget_span$46dart = require('packages/flutter/src/widgets/widget_span.dart');
+const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+const packages__flutter__src__material__icon_button$46dart = require('packages/flutter/src/material/icon_button.dart');
+const flat_button = packages__flutter__src__material__icon_button$46dart.src__material__flat_button;
+const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+const packages__flutter__src__material__page$46dart = require('packages/flutter/src/material/page.dart');
+const page = packages__flutter__src__material__page$46dart.src__material__page;
+const packages__zhihu__home__search_page$46dart = require('packages/zhihu/home/search_page.dart');
+const search_page = packages__zhihu__home__search_page$46dart.home__search_page;
+const packages__flutter__src__widgets__icon$46dart = require('packages/flutter/src/widgets/icon.dart');
+const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+const packages__flutter__src__material__icons$46dart = require('packages/flutter/src/material/icons.dart');
+const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+const packages__flutter__src__painting__edge_insets$46dart = require('packages/flutter/src/painting/edge_insets.dart');
+const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+const packages__flutter__src__painting__box_decoration$46dart = require('packages/flutter/src/painting/box_decoration.dart');
+const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+const packages__flutter__src__painting__border_radius$46dart = require('packages/flutter/src/painting/border_radius.dart');
+const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+const packages__zhihu__global_config$46dart = require('packages/zhihu/global_config.dart');
+const global_config = packages__zhihu__global_config$46dart.global_config;
+const packages__flutter__src__material__colors$46dart = require('packages/flutter/src/material/colors.dart');
+const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+const packages__flutter__src__material__circle_avatar$46dart = require('packages/flutter/src/material/circle_avatar.dart');
+const circle_avatar = packages__flutter__src__material__circle_avatar$46dart.src__material__circle_avatar;
+const packages__flutter__src__painting___network_image_web$46dart = require('packages/flutter/src/painting/_network_image_web.dart');
+const _network_image_web = packages__flutter__src__painting___network_image_web$46dart.src__painting___network_image_web;
+const packages__flutter__src__rendering__flex$46dart = require('packages/flutter/src/rendering/flex.dart');
+const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+const packages__flutter__src__painting__strut_style$46dart = require('packages/flutter/src/painting/strut_style.dart');
+const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+const packages__flutter__src__painting__box_border$46dart = require('packages/flutter/src/painting/box_border.dart');
+const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+const packages__flutter__src__painting__borders$46dart = require('packages/flutter/src/painting/borders.dart');
+const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+const packages__flutter__src__widgets__single_child_scroll_view$46dart = require('packages/flutter/src/widgets/single_child_scroll_view.dart');
+const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
+const packages__flutter__src__painting__basic_types$46dart = require('packages/flutter/src/painting/basic_types.dart');
+const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+const packages__flutter__src__painting__decoration_image$46dart = require('packages/flutter/src/painting/decoration_image.dart');
+const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+const packages__flutter__src__painting__alignment$46dart = require('packages/flutter/src/painting/alignment.dart');
+const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+const packages__flutter__src__material__app$46dart = require('packages/flutter/src/material/app.dart');
+const app = packages__flutter__src__material__app$46dart.src__material__app;
+var my_page = Object.create(dart.library);
+var BuildContextToSearchPage = () => (BuildContextToSearchPage = dart.constFn(dart.fnType(search_page.SearchPage, [framework.BuildContext])))();
+var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+var JSArrayOfWidget = () => (JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))();
 const CT = Object.create(null);
+var L0 = "package:zhihu/my/my_page.dart";
 dart.defineLazy(CT, {
   get C0() {
     return C0 = dart.const({
@@ -224,7 +241,7 @@ dart.defineLazy(CT, {
       [EdgeInsets_left]: 10
     });
   }
-});
+}, false);
 my_page.MyPage = class MyPage extends framework.StatefulWidget {
   createState() {
     return new my_page._MyPageState.new();
@@ -232,37 +249,45 @@ my_page.MyPage = class MyPage extends framework.StatefulWidget {
 };
 (my_page.MyPage.new = function() {
   my_page.MyPage.__proto__.new.call(this);
+  ;
 }).prototype = my_page.MyPage.prototype;
-const EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-const EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-const EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-const EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-let C0;
-const Radius_y = dart.privateName(ui, "Radius.y");
-const Radius_x = dart.privateName(ui, "Radius.x");
-let C2;
-const BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
-const BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
-const BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
-const BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-let C1;
-let C3;
-let C4;
-let C5;
-let C6;
-let C7;
-let C8;
-let C9;
-let C10;
-let C11;
-let C12;
-let C13;
-let C14;
-let C16;
-let C15;
-let C17;
-let C18;
-let C19;
+dart.addTypeTests(my_page.MyPage);
+dart.addTypeCaches(my_page.MyPage);
+dart.setMethodSignature(my_page.MyPage, () => ({
+  __proto__: dart.getMethods(my_page.MyPage.__proto__),
+  createState: dart.fnType(my_page._MyPageState, [])
+}));
+dart.setLibraryUri(my_page.MyPage, L0);
+var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+var C0;
+var Radius_y = dart.privateName(ui, "Radius.y");
+var Radius_x = dart.privateName(ui, "Radius.x");
+var C2;
+var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+var C1;
+var C3;
+var C4;
+var C5;
+var C6;
+var C7;
+var C8;
+var C9;
+var C10;
+var C11;
+var C12;
+var C13;
+var C14;
+var C16;
+var C15;
+var C17;
+var C18;
+var C19;
 my_page._MyPageState = class _MyPageState extends framework.State$(my_page.MyPage) {
   barSearch() {
     return new container.Container.new({child: new flat_button.FlatButton.new({onPressed: dart.fn(() => {
@@ -324,8 +349,22 @@ my_page._MyPageState = class _MyPageState extends framework.State$(my_page.MyPag
 };
 (my_page._MyPageState.new = function() {
   my_page._MyPageState.__proto__.new.call(this);
+  ;
 }).prototype = my_page._MyPageState.prototype;
+dart.addTypeTests(my_page._MyPageState);
+dart.addTypeCaches(my_page._MyPageState);
+dart.setMethodSignature(my_page._MyPageState, () => ({
+  __proto__: dart.getMethods(my_page._MyPageState.__proto__),
+  barSearch: dart.fnType(framework.Widget, []),
+  myInfoCard: dart.fnType(framework.Widget, []),
+  myServiceCard: dart.fnType(framework.Widget, []),
+  settingCard: dart.fnType(framework.Widget, []),
+  videoCard: dart.fnType(framework.Widget, []),
+  ideaCard: dart.fnType(framework.Widget, []),
+  build: dart.fnType(framework.Widget, [framework.BuildContext])
+}));
+dart.setLibraryUri(my_page._MyPageState, L0);
 // Exports:
 exports.my__my_page = my_page;
 
-//# sourceMappingURL=my_page.ddc.js.map
+//# sourceMappingURL=my_page.dart.lib.js.map
