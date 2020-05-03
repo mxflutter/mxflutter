@@ -6,9 +6,9 @@
 
 ## 新版本
 
-### 【*NEW】MXFlutter Beta (0.1.0) Version   2020-03-30 
+### 【*NEW】MXFlutter Beta (0.1.2) Version   2020-04-22 
 
-      性能和稳定性优化，0.1.0版本已在iOS线上使用，Android平台的新功能还不完整，在开发中。
+      性能和稳定性优化，0.1.2版本已在iOS线上使用，Android平台已支持。
 
   *   **对应Flutter (Channel stable tag:v1.12.13+hotfix.9) 和 (Channel master tag:v1.16.2)**
   *   **API变化：区分MXJSStatefulWidget、MXJSStatelessWidget**
@@ -28,6 +28,10 @@
   如果本机是 Flutter Channel master，请更新到 tag:v1.16.2 
   如果遇到其他问题，可在QQ群（747535761）中讨论。
 ```
+
+----
+
+预告：（0.2.0）版本预计5月11日发布
 
 ----
 

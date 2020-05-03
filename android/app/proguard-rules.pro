@@ -19,3 +19,19 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#Flutter Wrapper
+
+#flutter
+-keep class io.flutter.app.** { *; }
+-keep class io.flutter.plugin.**  { *; }
+-keep class io.flutter.util.**  { *; }
+-keep class io.flutter.view.**  { *; }
+-keep class io.flutter.**  { *; }
+-keep class io.flutter.plugins.**  { *; }
+
+#js
+-keep class com.eclipsesource.v8.**  { *; }
+-keep class * implements com.eclipsesource.v8.JavaVoidCallback  { *; }
+-keep class com.imatrixteam.mxflutter.framework.MXJSEngine*  { *; }
+-keep class com.imatrixteam.mxflutter.framework.MXJSFlutterApp$MXNativeJSFlutterApp  { *; }
+-keep class com.imatrixteam.mxflutter.framework.JSModule  { *; }
