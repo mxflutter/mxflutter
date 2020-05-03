@@ -225,7 +225,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('简单样例'),
                     onTap: function () {
 
-                        let flutter_demo_ddc = require("./dart2js_demo/flutter_demo.dart.lib.js");
+                        let flutter_demo_ddc = require("./mxjsbuilder_demo/flutter_demo.dart.lib.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -242,7 +242,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
                     onTap: function () {
 
-                        let contact_demo_ddc = require("./dart2js_demo/contacts_demo.dart.lib.js");
+                        let contact_demo_ddc = require("./mxjsbuilder_demo/contacts_demo.dart.lib.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -258,7 +258,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('菜谱'),
                     onTap: function () {
 
-                        let pesto_demo_ddc = require("./dart2js_demo/pesto_demo.dart.lib.js");
+                        let pesto_demo_ddc = require("./mxjsbuilder_demo/pesto_demo.dart.lib.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
