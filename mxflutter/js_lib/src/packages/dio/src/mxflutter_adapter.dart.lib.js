@@ -15,10 +15,6 @@ const dio_error = packages__dio__src__cancel_token.src__dio_error;
 const options = packages__dio__src__cancel_token.src__options;
 
 ////
-const bridge_netwrok = require("./native_bridge/mxf_bridge_netwrok.js");
-const network = bridge_netwrok.network_ios;
-
-////
 const packages__mxdio = require("packages/dio/src/mxdio.js");
 ////
 
