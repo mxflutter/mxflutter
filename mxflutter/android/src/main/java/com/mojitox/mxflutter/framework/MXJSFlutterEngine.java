@@ -6,11 +6,18 @@
 
 package com.mojitox.mxflutter.framework;
 
+import android.text.TextUtils;
+
+import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import io.flutter.Log;
 import io.flutter.plugin.common.BinaryMessenger;
@@ -19,16 +26,17 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StringCodec;
 
-import static com.mojitox.mxflutter.framework.MXJSFlutterApp.JSFLUTTER_SRC_DIR1;
-
 public class MXJSFlutterEngine {
 
     public static final String TAG = "MXJSFlutterEngine";
 
-    private String rootPath;
+    public String mJsFrameworkPath;
+    public String mCurrentJSAppPath;
+    public ArrayList<String> mJsAppSearchPathList;
+
     private MXJSFlutterApp currentApp;
 
-    private MXFlutterActivity mContext;
+    private MXFlutterPlugin mContext;
     private BinaryMessenger mFlutterEngine;
 
     private MXJSEngine mJsEngine;
@@ -42,7 +50,7 @@ public class MXJSFlutterEngine {
     private boolean isFlutterEngineIsDidRender;
     private ArrayList<MethodCall> callFlutterQueue;
 
-    public MXJSFlutterEngine(MXFlutterActivity context, BinaryMessenger flutterEngine) {
+    public MXJSFlutterEngine(MXFlutterPlugin context, BinaryMessenger flutterEngine) {
         this.mContext = context;
         this.mFlutterEngine = flutterEngine;
         setup();
@@ -53,7 +61,6 @@ public class MXJSFlutterEngine {
     }
 
     public void setup() {
-        rootPath = JSFLUTTER_SRC_DIR1;
         setupChannel();
 //        callFlutterQueue = new ArrayList<>(1);
 //        isFlutterEngineIsDidRender = true;
@@ -68,8 +75,11 @@ public class MXJSFlutterEngine {
             @Override
             public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
                 if (methodCall.method.equals("callNativeRunJSApp")) {
-                    String jsAppName = methodCall.argument("jsAppName");
-                    runApp(jsAppName);
+                    String jsAppPath = methodCall.argument("jsAppPath");
+                    String jsAppAssetsKey = methodCall.argument("jsAppAssetsKey");
+                    List<String> jsAppSearchPathList = (List<String>) methodCall.argument("jsAppSearchPathList");
+                    List<String> jsAppSearchPathWithAssetsKeyList = (List<String>) methodCall.argument("jsAppSearchPathWithAssetsKeyList");
+                    runApp(jsAppPath, jsAppAssetsKey, jsAppSearchPathList, jsAppSearchPathWithAssetsKeyList);
                     result.success("success");
                 } else if (methodCall.method.equals("callJsCallbackFunction")) {
                     String jsAppName = methodCall.argument("callbackId");
@@ -111,14 +121,41 @@ public class MXJSFlutterEngine {
         return true;
     }
 
-    public void runApp(String appName) {
+    public void runApp(String jsAppPath, String jsAppAssetsKey, List<String> jsAppSearchPathList, List<String> jsAppSearchPathWithAssetsKeyList) {
+        Set<String> searchList = new HashSet<String>();
+
+        if (!TextUtils.isEmpty(mCurrentJSAppPath)) {
+            LogUtilsKt.MXJSFlutterLog("MXJSFlutterEngine Native工程，设置了currentJSAppPath，RunJSApp使用Native设置的路径 appPath:%s", mCurrentJSAppPath);
+            jsAppPath = mCurrentJSAppPath;
+            jsAppSearchPathList = mJsAppSearchPathList;
+        } else {
+            if (TextUtils.isEmpty(jsAppPath) && !TextUtils.isEmpty(jsAppAssetsKey)) {
+                jsAppPath = mContext.mFlutterPluginBinding.getFlutterAssets().getAssetFilePathByName(jsAppAssetsKey);
+            }
+            if (TextUtils.isEmpty(jsAppPath)) {
+                LogUtilsKt.MXJSFlutterLog("jsAppPath == null", "");
+                return;
+            }
+            if (jsAppSearchPathList != null && jsAppSearchPathList.size() > 0)
+                searchList.addAll(jsAppSearchPathList);
+            if (jsAppSearchPathWithAssetsKeyList != null && jsAppSearchPathWithAssetsKeyList.size() > 0) {
+                for (String searchPathAssetKey : jsAppSearchPathWithAssetsKeyList) {
+                    String path = mContext.mFlutterPluginBinding.getFlutterAssets().getAssetFilePathByName(searchPathAssetKey);
+                    if (!TextUtils.isEmpty(path)) {
+                        searchList.add(path);
+                    }
+                }
+            }
+            jsAppSearchPathList = new ArrayList<>(searchList);
+        }
+
         if (currentApp != null) {
             currentApp.close();
             currentApp = null;
         }
 
         currentApp = new MXJSFlutterApp();
-        currentApp.initWithAppName(mContext, rootPath + "/" + appName, rootPath, this);
+        currentApp.initWithAppName(mContext, jsAppPath, jsAppPath, jsAppSearchPathList, this);
         currentApp.runAppWithPageName();
     }
 

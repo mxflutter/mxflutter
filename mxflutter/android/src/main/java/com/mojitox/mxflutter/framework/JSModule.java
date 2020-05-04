@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.V8ScriptException;
+import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.ClassUtils;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 
@@ -91,7 +92,7 @@ public class JSModule {
     public static String resolveModuleAsDirectory(String moduleClassName, V8Object runtime) {
         String path = moduleClassName + "/" + "package.json";
         if (new File(path).exists()) {
-            String filecontents = FileUtils.getScriptFromFS(MXFlutterApplication.getApplication(), path);
+            String filecontents = FileUtils.getScriptFromFS(MXFlutterPlugin.getInstance().mFlutterPluginBinding.getApplicationContext(), path);
             String script = String.format("JSON.parse(%s)", filecontents);
             V8Object result = (V8Object) runtime.getRuntime().executeScript(script);
             Object mainObj = result.get("main");
@@ -211,7 +212,7 @@ public class JSModule {
                 new Class[]{String.class, String.class, V8Object.class},
                 new Object[]{fullModulePath, fullModulePath, context});
 
-        String script = FileUtils.getScriptFromPath(MXFlutterApplication.getApplication(), fullModulePath, fromAsset);
+        String script = FileUtils.getScriptFromPath(MXFlutterPlugin.getInstance().mFlutterPluginBinding.getApplicationContext(), fullModulePath, fromAsset);
 
         newModule.didStartLoading();
 

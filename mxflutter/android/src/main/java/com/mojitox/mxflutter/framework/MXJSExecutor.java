@@ -12,12 +12,11 @@ import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
 
-import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
 
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
+import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService.MXJsTask;
@@ -34,9 +33,9 @@ public class MXJSExecutor {
 
     private MXJsScheduledExecutorService executor;
 
-    public Context context;
+    public MXFlutterPlugin context;
 
-    public MXJSExecutor(Context context) {
+    public MXJSExecutor(MXFlutterPlugin context) {
         this.context = context;
         executor = new MXJsScheduledExecutorService();
         setup();
@@ -121,12 +120,12 @@ public class MXJSExecutor {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(MXFlutterApplication.getApplication());
+                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext());
                 String absolutePath = path;
                 if (!fromAsset) {
-                    absolutePath = MXJSFlutterApp.JSFLUTTER_LOCAL_DIR + "/" + path;
+                    absolutePath = MXFlutterPlugin.JSFLUTTER_LOCAL_DIR + "/" + path;
                 }
-                String script = FileUtils.getScriptFromPath(context, absolutePath, fromAsset);
+                String script = FileUtils.getScriptFromPath(context.mFlutterPluginBinding.getApplicationContext(), absolutePath, fromAsset);
                 V8Object result = runtime.executeObjectScript(script);
                 callback.onComplete(result);
             }
@@ -137,12 +136,12 @@ public class MXJSExecutor {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(MXFlutterApplication.getApplication());
+                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext());
                 String absolutePath = path;
                 if (!fromAsset) {
-                    absolutePath = MXJSFlutterApp.JSFLUTTER_LOCAL_DIR + "/" + path;
+                    absolutePath = MXFlutterPlugin.JSFLUTTER_LOCAL_DIR + "/" + path;
                 }
-                String script = FileUtils.getScriptFromPath(context, absolutePath, fromAsset);
+                String script = FileUtils.getScriptFromPath(context.mFlutterPluginBinding.getApplicationContext(), absolutePath, fromAsset);
                 V8Object result = runtime.executeObjectScript(script);
                 callback.onComplete(result);
             }
@@ -155,7 +154,7 @@ public class MXJSExecutor {
             @Override
             public void excute() {
                 Object result = runtime.executeScript(script);
-                ((Activity) context).runOnUiThread(new Runnable() {
+                context.getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         callback.onComplete(result);
@@ -170,7 +169,7 @@ public class MXJSExecutor {
             @Override
             public void excute() {
                 Object result = runtime.executeScript(script);
-                ((Activity) context).runOnUiThread(new Runnable() {
+                context.getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         callback.onComplete(result);

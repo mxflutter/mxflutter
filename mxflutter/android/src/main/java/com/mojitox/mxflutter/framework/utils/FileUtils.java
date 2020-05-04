@@ -10,7 +10,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.mojitox.mxflutter.framework.MXJSFlutterApp;
+import com.mojitox.mxflutter.MXFlutterPlugin;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -181,7 +181,7 @@ public class FileUtils {
 
         for (String dir : searchDirArray) {
             for (String ext : extensions) {
-                String absolutePathTemp = MXJSFlutterApp.JSFLUTTER_LOCAL_DIR + "/" + dir + "/" + filePath;
+                String absolutePathTemp = MXFlutterPlugin.JSFLUTTER_LOCAL_DIR + "/" + dir + "/" + filePath;
                 if (!filePath.endsWith(".js")) {
                     absolutePathTemp = absolutePathTemp + ext;
                 }
@@ -273,7 +273,7 @@ public class FileUtils {
     }
 
     public static boolean isNeedCopyFileFromAssets(Context context) {
-        if (MXJSFlutterApp.sUseAsset) {
+        if (MXFlutterPlugin.sUseAsset) {
             return false;
         }
 
@@ -283,7 +283,7 @@ public class FileUtils {
     private static boolean sCopiedFileFromAssets;
 
     public static boolean isCopiedFileFromAssets(Context context) {
-        if (MXJSFlutterApp.sUseAsset) {
+        if (MXFlutterPlugin.sUseAsset) {
             return false;
         }
         if (!sCopiedFileFromAssets) {
