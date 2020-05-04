@@ -70,10 +70,13 @@
     }
     
     //MXFlutter JS运行库搜索路径
-    NSString *jsFlutterFrameworkDir = [self.jsFlutterEngine jsFrameworkPath];
-    [self.jsEngine addSearchDir:jsFlutterFrameworkDir];
-    [self.jsEngine addSearchDir:[jsFlutterFrameworkDir stringByAppendingPathComponent:@"src/"]];
-    [self.jsEngine addSearchDir:[jsFlutterFrameworkDir stringByAppendingPathComponent:@"src/dart_js_framework/"]];
+    NSString *jsFrameworkPath = [self.jsFlutterEngine jsFrameworkPath];
+    
+    MXFLogInfo(@"JSEngine:jsFrameworkPath:%@",jsFrameworkPath);
+    
+    [self.jsEngine addSearchDir:jsFrameworkPath];
+    [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"src/"]];
+    [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"src/dart_js_framework/"]];
     
     //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js_src
     [self.jsEngine addSearchDir:self.appRootPath];
@@ -83,7 +86,7 @@
          [self.jsEngine addSearchDir:searchPath];
     }
     
-    NSString *js_basic_lib_Path = [jsFlutterFrameworkDir stringByAppendingPathComponent:@"js_basic_lib.js"];
+    NSString *js_basic_lib_Path = [jsFrameworkPath stringByAppendingPathComponent:@"js_basic_lib.js"];
     [self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
         
     }];

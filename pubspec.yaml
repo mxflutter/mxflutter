@@ -65,14 +65,7 @@ flutter:
     - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/index/
 
     #mxflutter app demo 使用到的图片资源
-    - mxflutter_js_src/flutter_gallery_assets/food/
-    - mxflutter_js_src/flutter_gallery_assets/food/icons/
-    - mxflutter_js_src/flutter_gallery_assets/logos/flutter_white/
-    - mxflutter_js_src/flutter_gallery_assets/logos/pesto/
-    - mxflutter_js_src/flutter_gallery_assets/people/
-    - mxflutter_js_src/flutter_gallery_assets/people/square/
-    - mxflutter_js_src/flutter_gallery_assets/products/
-    #-------
+
     - packages/flutter_gallery_assets/people/ali_landscape.png
     - packages/flutter_gallery_assets/logos/flutter_white/logo.png
     - packages/flutter_gallery_assets/logos/fortnightly/fortnightly_logo.png
