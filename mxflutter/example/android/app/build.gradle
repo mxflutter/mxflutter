@@ -49,20 +49,20 @@ android {
         }
     }
 
-    //不引入flutter使用的图片等资源
-    aaptOptions {
-        ignoreAssetsPattern "flutter_gallery_assets"
-    }
-
-    //js资源打包进assets
-    sourceSets{
-        main{
-            assets{
-                srcDirs '../../../js_lib'
-                srcDirs '../../mxflutter_js'
-            }
-        }
-    }
+//    //不引入flutter使用的图片等资源
+//    aaptOptions {
+//        ignoreAssetsPattern "flutter_gallery_assets"
+//    }
+//
+//    //js资源打包进assets
+//    sourceSets{
+//        main{
+//            assets{
+//                srcDirs '../../../js_lib'
+//                srcDirs '../../mxflutter_js'
+//            }
+//        }
+//    }
 }
 
 flutter {
