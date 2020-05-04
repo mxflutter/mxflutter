@@ -43,8 +43,8 @@ android {
     sourceSets{
         main{
             assets{
-                srcDirs '../../lib/mxflutter_framework'
-                srcDirs '../../mxflutter_js_src'
+                srcDirs '../../mxflutter/js_lib'
+                srcDirs '../../mxflutter_js'
             }
         }
     }
@@ -99,6 +99,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-    implementation 'com.eclipsesource.j2v8:j2v8:6.1.0@aar'
 }

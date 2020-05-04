@@ -4,15 +4,15 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
 import android.text.TextUtils;
 
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.V8ScriptException;
-import com.imatrixteam.mxflutter.framework.utils.ClassUtils;
-import com.imatrixteam.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.ClassUtils;
+import com.mojitox.mxflutter.framework.utils.FileUtils;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-
-import io.flutter.Log;
 
 /**
  * Created by wennliu on 2020-03-26
@@ -204,7 +202,7 @@ public class JSModule {
             return null;
 
         if (isCached(fullModulePath)) {
-            Log.i(TAG, "JSModule Use Cache " + moduleClassName);
+            android.util.Log.i(TAG, "JSModule Use Cache " + moduleClassName);
             return getCacheModule(fullModulePath);
         }
 

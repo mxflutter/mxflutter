@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.imatrixteam.mxflutter2">
+    package="com.mojitox.mxflutter_example">
 
     <!-- The INTERNET permission is required for development. Specifically,
      flutter needs it to communicate with the running application
@@ -23,7 +23,6 @@
     <application
         android:name="com.mojitox.mxflutter.framework.MXFlutterApplication"
         android:icon="@mipmap/ic_launcher"
-        android:theme="@style/Theme.AppCompat.NoActionBar"
         android:label="MXFlutter">
         <activity
             android:name="MainActivity"

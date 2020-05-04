@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
 import android.os.Bundle;
 
@@ -18,7 +18,6 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.JSONUtil;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugins.GeneratedPluginRegistrant;
 
 public class MXFlutterActivity extends FlutterActivity {
 
@@ -27,11 +26,6 @@ public class MXFlutterActivity extends FlutterActivity {
     private MethodChannel listViewDemoChannel;
 
     private String jsAppName = "";
-
-    @Override
-    public void configureFlutterEngine(FlutterEngine flutterEngine) {
-        GeneratedPluginRegistrant.registerWith(flutterEngine);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
