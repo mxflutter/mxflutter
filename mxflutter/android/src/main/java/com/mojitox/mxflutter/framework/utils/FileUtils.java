@@ -4,13 +4,13 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework.utils;
+package com.mojitox.mxflutter.framework.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.imatrixteam.mxflutter.framework.MXJSFlutterApp;
+import com.mojitox.mxflutter.framework.MXJSFlutterApp;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

@@ -4,14 +4,14 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
 import android.content.Context;
 
 import com.eclipsesource.v8.V8Object;
-import com.imatrixteam.mxflutter.framework.utils.FileUtils;
-import com.imatrixteam.mxflutter.framework.utils.LogUtilsKt;
-import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService;
+import com.mojitox.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
+import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -32,9 +32,9 @@ public class MXJSFlutterApp {
     //开发环境
     public static boolean sUseAsset = true;
 
-    public static String JSFLUTTER_FRAMEWORK_DIR = "mxf_js_framework";
-    public static String JSFLUTTER_DART_FRAMEWORK_DIR = "mxf_js_framework/dart_js_framework";
-    public static String JSFLUTTER_SRC_DIR1 = "mxflutter_app_demo";
+    public static String JSFLUTTER_FRAMEWORK_DIR = "framework";
+    public static String JSFLUTTER_DART_FRAMEWORK_DIR = "framework/dart_js_framework";
+    public static String JSFLUTTER_SRC_DIR1 = "src";
 
     static MXJSFlutterEngine jsFlutterEngineStatic;
 

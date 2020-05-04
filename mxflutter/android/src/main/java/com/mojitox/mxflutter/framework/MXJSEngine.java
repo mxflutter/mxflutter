@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -17,8 +17,8 @@ import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
-import com.imatrixteam.mxflutter.framework.utils.FileUtils;
-import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService;
+import com.mojitox.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
 import java.util.HashMap;

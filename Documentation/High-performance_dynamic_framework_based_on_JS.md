@@ -147,7 +147,7 @@ class JSPestoPage extends MXJSWidget {
 
 There is a richer example in the source code, using JSFlutter to imitate the page of ZhiHu app.
 
-[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/zhihu/home/home_page.js)
+[https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js/src/mxflutter_app_demo/zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js/src/mxflutter_app_demo/zhihu/home/home_page.js)
 
 This is the corresponding UI, which is very close to the online version.
 
@@ -356,7 +356,7 @@ Let developers write elegant code, we want the code written by developers using 
 
 Reference JS sample source code
 
-[TGIF-iMatrix home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/home_page.js)
+[TGIF-iMatrix home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js/src/mxflutter_app_demo/home_page.js)
 
 ## 0x05 MXFlutter Infrastructure
 

@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
 import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.JavaVoidCallback;
@@ -18,9 +18,9 @@ import android.util.Log;
 
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
-import com.imatrixteam.mxflutter.framework.utils.FileUtils;
-import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService;
-import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService.MXJsTask;
+import com.mojitox.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
+import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService.MXJsTask;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -78,7 +78,7 @@
     [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"src/"]];
     [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"src/dart_js_framework/"]];
     
-    //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js_src
+    //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js/src
     [self.jsEngine addSearchDir:self.appRootPath];
     //__weak MXJSFlutterEngine *weakSelf = self;
     

@@ -274,7 +274,7 @@ class JSPestoPage extends MXJSWidget {
 
 源码中还有更丰满的示例，高仿知乎页面JSFlutter版，可以点此进入查看代码：
 
-[zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/app_demo/zhihu/home/home_page.js)
+[zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js/src/mxflutter_app_demo/app_demo/zhihu/home/home_page.js)
 
 下图是对应的UI，已经接近在线上版直接使用了：
 

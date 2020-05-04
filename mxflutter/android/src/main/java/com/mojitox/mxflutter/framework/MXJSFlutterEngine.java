@@ -4,9 +4,9 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
-import com.imatrixteam.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.FileUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StringCodec;
 
-import static com.imatrixteam.mxflutter.framework.MXJSFlutterApp.JSFLUTTER_SRC_DIR1;
+import static com.mojitox.mxflutter.framework.MXJSFlutterApp.JSFLUTTER_SRC_DIR1;
 
 public class MXJSFlutterEngine {
 

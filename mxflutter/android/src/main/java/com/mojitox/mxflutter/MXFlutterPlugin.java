@@ -8,12 +8,12 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
-/** MxflutterPlugin */
-public class MxflutterPlugin implements FlutterPlugin, MethodCallHandler {
+/** MXFlutterPlugin */
+public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-    final MethodChannel channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "mxflutter");
-    channel.setMethodCallHandler(new MxflutterPlugin());
+    final MethodChannel channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "mxflutter");
+    channel.setMethodCallHandler(new MXFlutterPlugin());
   }
 
   // This static function is optional and equivalent to onAttachedToEngine. It supports the old
@@ -27,7 +27,7 @@ public class MxflutterPlugin implements FlutterPlugin, MethodCallHandler {
   // in the same class.
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "mxflutter");
-    channel.setMethodCallHandler(new MxflutterPlugin());
+    channel.setMethodCallHandler(new MXFlutterPlugin());
   }
 
   @Override
