@@ -21,14 +21,15 @@ class MyApp extends MXJSFlutterApp {
     createJSWidgetWithName(widgetName) {
 
         switch (widgetName) {
-            case "MXJSWidgetHomePage": {
+            case "JSWidgetHomePage": {
                 let homeWidget = require("home_page.js");
-                let widget = new homeWidget.MXJSWidgetHomePage(widgetName);
+                let widget = new homeWidget.JSWidgetHomePage(widgetName);
                 return widget;
             }
             case "XXXYouPage": {
-                let demo = require("./js_dev_demo.js");
-                return new demo.MyPage;
+                let homeWidget = require("home_page.js");
+                let widget = new homeWidget.JSWidgetHomePage(widgetName);
+                return widget;
             }
         }
 

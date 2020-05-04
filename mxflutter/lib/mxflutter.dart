@@ -10,3 +10,13 @@ import 'package:flutter/services.dart';
 export 'src/mx_js_framework.dart';
 export 'src/mx_js_flutter_common.dart';
 
+
+class Mxflutter {
+  static const MethodChannel _channel =
+      const MethodChannel('mxflutter');
+
+  static Future<String> get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
+}
