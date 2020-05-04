@@ -1,8 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+// ignore: deprecated_member_use
 import 'package:test_api/test_api.dart';
-import '../lib/mxflutter_framework/mxf_flutter_framework/mx.dart';
+import 'package:mxflutter/mxflutter_test.dart';
 
 /// consts
 final String kStr = 'kStr';

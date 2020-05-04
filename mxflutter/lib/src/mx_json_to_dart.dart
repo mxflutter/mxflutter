@@ -60,6 +60,9 @@ class MXJsonObjToDartObject {
 
   dynamic jsonObjToDartObject(dynamic jsonObj,
       {MXJsonBuildOwner buildOwner, BuildContext context}) {
+    if (jsonObj == null) {
+      return jsonObj;
+    }
     String className;
     try {
       ///map
@@ -123,6 +126,7 @@ class MXJsonObjToDartObject {
       return mirrorObject;
     }
 
+    //MXJSLog.debug("jsonMap->DartClass: start className: $className ");
     MXJsonObjProxy proxy = getJSObjProxy(className);
     dynamic dartObject =
         proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
