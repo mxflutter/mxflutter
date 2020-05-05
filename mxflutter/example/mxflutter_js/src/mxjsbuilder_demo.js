@@ -70,7 +70,7 @@ main._MyHomePageState = class _MyHomePageState extends framework.State$(main.MyH
     }, VoidToNull()));
   }
   build(context) {
-    return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new(this.widget.title)}), body: new basic.Center.new({child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidget().of([new text.Text.new("You have pushed the button this many times:"), new text.Text.new(dart.str(this[_counter]), {style: theme.Theme.of(context).textTheme.headline4})])})}), floatingActionButton: new floating_action_button.FloatingActionButton.new({onPressed: dart.bind(this, _incrementCounter), tooltip: "Increment", child: new icon.Icon.new(icons.Icons.add)})});
+    return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new(this.widget.title)}), body: new basic.Center.new({child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidget().of([new text.Text.new("This example is compiled using mxjsbuilder."), new text.Text.new("You have pushed the button this many times:"), new text.Text.new(dart.str(this[_counter]), {style: theme.Theme.of(context).textTheme.headline4})])})}), floatingActionButton: new floating_action_button.FloatingActionButton.new({onPressed: dart.bind(this, _incrementCounter), tooltip: "Increment", child: new icon.Icon.new(icons.Icons.add)})});
   }
 };
 (main._MyHomePageState.new = function() {

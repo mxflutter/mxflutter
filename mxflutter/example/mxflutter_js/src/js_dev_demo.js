@@ -22,24 +22,9 @@ let {
 } = require("js_flutter.js");
 
 
-class MyPage extends MXJSStatelessWidget {
-
-    //@override
-    build(context) {
-        return new MaterialApp({
-            title: 'Flutter Demo',
-            theme: new ThemeData({
-
-                primarySwatch: Colors.blue
-            }),
-            home: new MyHomePage( 'MXFlutter JS Demo' ),
-        });
-    }
-}
-
 class MyHomePage extends MXJSStatefulWidget {
-    constructor(title,{ key } = {}) {
-        super(title,{ key});
+    constructor({title}) {
+        super();
         this.title = title;
     }
 
@@ -72,6 +57,9 @@ class _MyHomePageState extends MXJSWidgetState {
                 child: new Column({
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                                     new Text(
+                                                'This example is developed using JS.',
+                                            ),
                         new Text(
                             'You have pushed the button this many times:',
                         ),
@@ -90,4 +78,4 @@ class _MyHomePageState extends MXJSWidgetState {
     }
 }
 
-exports.MyPage = MyPage;
+exports.MyHomePage = MyHomePage;

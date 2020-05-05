@@ -9,13 +9,7 @@ import 'dart:io';
 
 void main() async{
   //-------MXFlutter 启动---------
-  //1. Dart侧需要调用WidgetsFlutterBinding.ensureInitialized();
-  WidgetsFlutterBinding.ensureInitialized();
-
-  //2. 配置JSFlutter
-  MXJSFlutter.getInstance().setup();
-
-  //3. 启动你的jsAPP，不显示任何界面
+  //1. 启动你的jsAPP，不显示任何界面
   // 获取配置在pubspec.yaml中，jsapp代码路径
   // flutter:
   //  assets:
@@ -45,154 +39,62 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MXFlutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      // home: Container(
-      //     color: Colors.white,
-      //     child: Center(
-      //       child: Text(''),
-      //     )),
-      //路由表定义
-      onGenerateRoute: (RouteSettings settings) {
-        MXJSLog.log(
-            "'MyApp': onGenerateRoute: (RouteSettings settings): ${settings.name}");
-
-        switch (settings.name) {
-          case '/':
-          case 'FlutterHomePage':
-            {
-              //进入Flutter index页面
-              return MaterialPageRoute(
-                builder: (context) {
-                  return FlutterHomePage(title: "MXFlutter Demo");
-                },
-                settings: settings,
-              );
-            }
-          case 'MXFlutterJSHomePage':
-            {
-              //直接进入MXFlutter的index页面
-              //如果要区分用MXFlutter引擎打开不同页面，可以设计成settings.name 为"MXJSPage:://JSWidgetHomePage" 解析host
-              return MaterialPageRoute(
-                builder: (context) {
-                  return MXFlutterJSHomePage();
-                },
-                settings: settings,
-              );
-            }
-        }
-
-        return null;
-      },
-    );
+        theme: ThemeData(
+          primarySwatch: Colors.orange,
+        ),
+        home: MXFlutterExampleHome());
   }
 }
 
-class FlutterHomePage extends StatefulWidget {
-  FlutterHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+class MXFlutterExampleHome extends StatelessWidget {
+  MXFlutterExampleHome();
 
-  @override
-  _FlutterHomePageState createState() => _FlutterHomePageState();
-}
-
-class _FlutterHomePageState extends State<FlutterHomePage> {
   @override
   Widget build(BuildContext context) {
-    var scaffoldWidget = Scaffold(
+    return Scaffold(
         appBar: AppBar(
-          leading: Image.asset(
-            "logos/flutter_white/logo.png",
-            fit: BoxFit.contain,
-            package: "flutter_gallery_assets",
-          ),
-          title: Text(widget.title),
-        ),
-        body: _DemoList());
-
-    return scaffoldWidget;
-  }
-}
-
-class _DemoList extends StatelessWidget {
-  const _DemoList();
-
-  @override
-  Widget build(BuildContext context) {
-    var mediaQueryData = MediaQuery.of(context);
-    var themeData = Theme.of(context);
-    var iconThemeData = IconTheme.of(context);
-
-    return ListView(
-      children: <Widget>[
-        ListTile(
-          leading: Icon(Icons.book),
-          trailing: Icon(Icons.arrow_right),
+          leading: FlutterLogo(colors: Colors.blue),
           title: Text('MXFlutter Demo'),
-          subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => MXJSFlutter.getInstance()
-                      .navigatorPushWithName(
-                      "JSWidgetHomePage", Key("MXFlutterPage"),
-                      themeData: themeData,
-                      mediaQueryData: mediaQueryData,
-                      iconThemeData: iconThemeData)),
-            );
-          },
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.refresh,
-            semanticLabel: 'ReloadJSApp',
-            color: Colors.orange,
-          ),
-          title: Text('Reload JSApp'),
-          subtitle: Text('点击热重载JSApp，重新进入上面的MXFlutter Demo，即可看到界面更新'),
-          isThreeLine: true,
-          onTap: () {
-            //先把JSApp启动起来，不显示任何界面
-            MXJSFlutter.getInstance().runJSApp(jsAppPath: "mxflutter_app_demo");
 
-            Scaffold.of(context).showSnackBar(
-              const SnackBar(
-                  content:
-                  Text('JSApp 重新加载完成，重新进入上面的MXFlutter Demo，即可看到界面更新！')),
-            );
-          },
         ),
-        ListTile(
-          title: Text(
-              '在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击MXFlutter Demo，可以在Safari调试JS'),
-        )
-      ],
-    );
+        body: ListView(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.book),
+              trailing: Icon(Icons.arrow_right),
+              title: Text('MXFlutter Demo'),
+              subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
+              onTap: () {
+                //-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
+                //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js/src/main.js  MyApp::createJSWidgetWithName 函数中使用，
+                //创建你需要的MX JS Widget
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MXJSPageWidget(
+                            jsWidgetName: "MXJSWidgetHomePage")));
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.refresh,
+                semanticLabel: 'ReloadJSApp',
+                color: Colors.orange,
+              ),
+              title: Text('Reload JSApp'),
+              subtitle: Text('点击热重载JSApp，重新进入上面的MXFlutter Demo，即可看到界面更新'),
+              isThreeLine: true,
+              onTap: () {
+                MXJSFlutter.getInstance()
+                    .runJSApp(jsAppAssetsKey: "mxflutter_js_src/");
+              },
+            ),
+            ListTile(
+              title: Text(
+                  '在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击MXFlutter Demo，可以在Safari调试JS'),
+            )
+          ],
+        ));
   }
 }
 
-class MXFlutterJSHomePage extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-
-    var mediaQueryData = MediaQuery.of(context);
-    var themeData = Theme.of(context);
-    var iconThemeData = IconTheme.of(context);
-
-    MXJSLog.log(
-        "'MXJSPage': MXJSFlutter.getInstance().navigatorPushWithName");
-
-    //每调用一次 MediaQuery.of(context);在release下会导致 builder: (context) 回调函数执行一次，用RootWidget 用Key("MXFlutterPage")保持生命周期
-    var mxFlutterPage = MXJSFlutter.getInstance()
-        .navigatorPushWithName(
-        "JSWidgetHomePage", Key("JSWidgetHomePage"),
-        themeData: themeData,
-        mediaQueryData: mediaQueryData,
-        iconThemeData: iconThemeData);
-
-    return mxFlutterPage;
-  }
-}

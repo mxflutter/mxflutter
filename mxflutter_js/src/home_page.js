@@ -47,20 +47,20 @@ const async = dart_sdk.async;
 
 
 //业务代码
-class JSWidgetHomePage extends MXJSStatefulWidget {
+class MXJSWidgetHomePage extends MXJSStatefulWidget {
     constructor() {
-        super("JSWidgetHomePage");
+        super("MXJSWidgetHomePage");
 
         this.data = "biz data";
         this.count = 0;
     }
 
     createState() {
-        return new JSWidgetHomePageState(this);
+        return new MXJSWidgetHomePageState(this);
     }
 }
 
-class JSWidgetHomePageState extends MXJSWidgetState {
+class MXJSWidgetHomePageState extends MXJSWidgetState {
 
     build(context) {
 
@@ -304,4 +304,4 @@ class JSWidgetHomePageState extends MXJSWidgetState {
     }
 }
 
-module.exports = { JSWidgetHomePage };
+module.exports = { MXJSWidgetHomePage };

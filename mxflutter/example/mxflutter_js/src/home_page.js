@@ -59,7 +59,7 @@ class MXJSWidgetHomePage extends MXJSStatelessWidget {
 
                             Navigator.push(context, new MaterialPageRoute({
                                 builder: function (context) {
-                                    return new demo.MyPage;
+                                    return new demo.MyHomePage({ title: "JS Page Demo" });
                                 }
                             }))
                         }

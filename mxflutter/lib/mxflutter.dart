@@ -8,5 +8,6 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 export 'src/mx_js_framework.dart';
+export 'src/mx_widgets.dart';
 export 'src/mx_js_flutter_common.dart';
 

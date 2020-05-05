@@ -28,7 +28,7 @@ class MyApp extends MXJSFlutterApp {
             }
             case "XXXYouPage": {
                 let demo = require("./js_dev_demo.js");
-                return new demo.MyPage;
+                return new demo.MyHomePage;
             }
         }
 

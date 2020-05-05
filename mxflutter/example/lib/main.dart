@@ -41,7 +41,7 @@ class MXFlutterExampleHome extends StatelessWidget {
               subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
               onTap: () {
                 //-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
-                //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用，
+                //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js/src/main.js  MyApp::createJSWidgetWithName 函数中使用，
                 //创建你需要的MX JS Widget
                 Navigator.push(
                     context,
@@ -73,34 +73,3 @@ class MXFlutterExampleHome extends StatelessWidget {
   }
 }
 
-class MXJSPageWidget extends StatelessWidget {
-  MXJSPageWidget({this.jsWidgetName, Key key}) {
-    this.key = key??UniqueKey();
-  }
-  String jsWidgetName;
-  Key key;
-
-  Widget _jsWidgetChild;
-  @override
-  Widget build(BuildContext context) {
-
-    if(_jsWidgetChild != null){
-      return _jsWidgetChild;
-    }
-
-    var mediaQueryData = MediaQuery.of(context);
-    var themeData = Theme.of(context);
-    var iconThemeData = IconTheme.of(context);
-
-    MXJSLog.log(
-        "'MXJSPageWidget::build': MXJSFlutter.getInstance().navigatorPushWithName: $jsWidgetName key:$key");
-
-    _jsWidgetChild = MXJSFlutter.getInstance().navigatorPushWithName(
-        jsWidgetName, key,
-        themeData: themeData,
-        mediaQueryData: mediaQueryData,
-        iconThemeData: iconThemeData);
-
-    return _jsWidgetChild;
-  }
-}
