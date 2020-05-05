@@ -45,11 +45,22 @@ class MXJSFlutter {
   //通用js <===bridge===> flutter 通道
   BasicMessageChannel<String> _jsFlutterCommonBasicChannel;
   Map<String, MXChannelFun> _jsFlutterMainChannelFunRegMap = {};
+  bool isSetup = false;
 
-  MXJSFlutter._() {}
+  MXJSFlutter._() {
+    setup();
+  }
 
   setup() {
+    if (isSetup) {
+      return;
+    }
+    //需要WidgetsFlutterBinding已调用
+    WidgetsFlutterBinding.ensureInitialized();
+
     setupChannel();
+
+    isSetup = true;
   }
 
   setupChannel() {
@@ -99,15 +110,23 @@ class MXJSFlutter {
   ///*jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js/src文件夹下
   ///*jsAppSearchPathList, js App require 的搜索路径，一般无需设置，默认jsApp root path
   ///*jsAppSearchPathWithAssetsKeyList, js App require 的搜索路径，使用pubspec.yaml里的AssetsKey配置来设置，一般无需设置，默认jsApp root path
-  runJSApp({String jsAppPath = "",String jsAppAssetsKey = "mxflutter_js/src/",List<String> jsAppSearchPathList,List<String> jsAppSearchPathWithAssetsKeyList}) {
-    Map<String,dynamic> args = {"jsAppAssetsKey": jsAppAssetsKey,"jsAppPath":jsAppPath};
+  runJSApp(
+      {String jsAppPath = "",
+      String jsAppAssetsKey = "mxflutter_js/src/",
+      List<String> jsAppSearchPathList,
+      List<String> jsAppSearchPathWithAssetsKeyList}) {
+    Map<String, dynamic> args = {
+      "jsAppAssetsKey": jsAppAssetsKey,
+      "jsAppPath": jsAppPath
+    };
 
-    if(jsAppSearchPathList != null){
-      args["jsAppSearchPathList"] = jsAppSearchPathList ;
+    if (jsAppSearchPathList != null) {
+      args["jsAppSearchPathList"] = jsAppSearchPathList;
     }
 
-    if(jsAppSearchPathWithAssetsKeyList != null){
-      args["jsAppSearchPathWithAssetsKeyList"] = jsAppSearchPathWithAssetsKeyList ;
+    if (jsAppSearchPathWithAssetsKeyList != null) {
+      args["jsAppSearchPathWithAssetsKeyList"] =
+          jsAppSearchPathWithAssetsKeyList;
     }
 
     _jsFlutterMainChannel.invokeMethod("callNativeRunJSApp", args);
@@ -148,9 +167,12 @@ class MXJSFlutter {
     return _jsFlutterCommonBasicChannel.send(sendStr);
   }
 
-  //Mirror Sys 
+  //Mirror Sys
   invokeJSMirrorObj(
-      {dynamic mirrorID, String functionName, String callbackID,dynamic args}) async {
+      {dynamic mirrorID,
+      String functionName,
+      String callbackID,
+      dynamic args}) async {
     Map callInfo = {
       "mirrorID": mirrorID,
       "funcName": functionName,
@@ -537,10 +559,18 @@ class MXJSWidgetHelper extends Object {
 
   void jsRebuild(String widgetID, Map widgetData, String buildWidgetDataSeq) {
     bool needRebuild = updateWidget(widgetID, widgetData, buildWidgetDataSeq);
+    //TODO:check this.widget.state == null
+    if (this.widget == null || this.widget.state == null) {
+      MXJSLog.error(
+          "MXJSStatefullWidget:jsRebuild: this.widget.state == null; widgetID:$widgetID buildWidgetDataSeq:$buildWidgetDataSeq");
+
+      return;
+    }
 
     if (!this.widget.state.mounted) {
       MXJSLog.error(
           "MXJSStatefullWidget:jsRebuild: !this.widget.state.mounted this.widget.state.setState(() {}); widgetID:$widgetID buildWidgetDataSeq:$buildWidgetDataSeq");
+      return;
     }
 
     if (needRebuild) {

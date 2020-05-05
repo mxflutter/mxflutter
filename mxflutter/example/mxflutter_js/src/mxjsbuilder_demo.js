@@ -32,19 +32,14 @@ const CT = Object.create(null);
 var L0 = "package:jsbuild_test/main.dart";
 main.MyApp = class MyApp extends framework.StatelessWidget {
   build(context) {
-    return new app.MaterialApp.new({title: "Flutter Demo", theme: theme_data.ThemeData.new({primarySwatch: colors.Colors.blue, visualDensity: theme_data.VisualDensity.adaptivePlatformDensity}), home: new main.MyHomePage.new({title: "Flutter Demo Home Page"})});
+    return new app.MaterialApp.new({title: "Flutter Demo", theme: theme_data.ThemeData.new({primarySwatch: colors.Colors.blue, visualDensity: theme_data.VisualDensity.adaptivePlatformDensity}), home: new main.MyHomePage.new({title: "MXJSBuilder JS Page Demo"})});
   }
 };
 (main.MyApp.new = function() {
   main.MyApp.__proto__.new.call(this);
   ;
 }).prototype = main.MyApp.prototype;
-dart.addTypeTests(main.MyApp);
-dart.addTypeCaches(main.MyApp);
-dart.setMethodSignature(main.MyApp, () => ({
-  __proto__: dart.getMethods(main.MyApp.__proto__),
-  build: dart.fnType(framework.Widget, [framework.BuildContext])
-}));
+
 dart.setLibraryUri(main.MyApp, L0);
 var title$ = dart.privateName(main, "MyHomePage.title");
 main.MyHomePage = class MyHomePage extends framework.StatefulWidget {
@@ -65,17 +60,7 @@ main.MyHomePage = class MyHomePage extends framework.StatefulWidget {
   main.MyHomePage.__proto__.new.call(this, {key: key});
   ;
 }).prototype = main.MyHomePage.prototype;
-dart.addTypeTests(main.MyHomePage);
-dart.addTypeCaches(main.MyHomePage);
-dart.setMethodSignature(main.MyHomePage, () => ({
-  __proto__: dart.getMethods(main.MyHomePage.__proto__),
-  createState: dart.fnType(main._MyHomePageState, [])
-}));
-dart.setLibraryUri(main.MyHomePage, L0);
-dart.setFieldSignature(main.MyHomePage, () => ({
-  __proto__: dart.getFields(main.MyHomePage.__proto__),
-  title: dart.finalFieldType(core.String)
-}));
+
 var _counter = dart.privateName(main, "_counter");
 var _incrementCounter = dart.privateName(main, "_incrementCounter");
 main._MyHomePageState = class _MyHomePageState extends framework.State$(main.MyHomePage) {
@@ -93,21 +78,8 @@ main._MyHomePageState = class _MyHomePageState extends framework.State$(main.MyH
   main._MyHomePageState.__proto__.new.call(this);
   ;
 }).prototype = main._MyHomePageState.prototype;
-dart.addTypeTests(main._MyHomePageState);
-dart.addTypeCaches(main._MyHomePageState);
-dart.setMethodSignature(main._MyHomePageState, () => ({
-  __proto__: dart.getMethods(main._MyHomePageState.__proto__),
-  [_incrementCounter]: dart.fnType(dart.void, []),
-  build: dart.fnType(framework.Widget, [framework.BuildContext])
-}));
-dart.setLibraryUri(main._MyHomePageState, L0);
-dart.setFieldSignature(main._MyHomePageState, () => ({
-  __proto__: dart.getFields(main._MyHomePageState.__proto__),
-  [_counter]: dart.fieldType(core.int)
-}));
-main.main = function main$() {
-  binding.runApp(new main.MyApp.new());
-};
+
+
 // Exports:
 exports.main = main;
 
