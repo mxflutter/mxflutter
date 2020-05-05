@@ -542,15 +542,15 @@ class MXProxyCloseButtonSeries extends MXJsonObjProxy {
 }
 
 ///RawMaterialButton
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyRawMaterialButton extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "RawMaterialButton";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyRawMaterialButton();
     p.className = regClassName;
     return p;
@@ -631,15 +631,15 @@ class MXProxyRawMaterialButton extends MXJsonObjProxy {
 }
 
 ///MaterialButton
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyMaterialButton extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "MaterialButton";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyMaterialButton();
     p.className = regClassName;
     return p;
@@ -724,7 +724,7 @@ class MXProxyMaterialButton extends MXJsonObjProxy {
 }
 
 ///常用Button系列类
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyButtonSeries extends MXJsonObjProxy {
   static final String regClassName1 = "FlatButton";
   static final String regClassName2 = "RaisedButton";

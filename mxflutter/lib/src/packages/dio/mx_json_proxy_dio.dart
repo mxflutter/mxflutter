@@ -5,13 +5,14 @@
 //  found in the LICENSE file.
 
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import '../../mx_json_to_dart.dart';
-import '../../mx_build_owner.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/src/adapters/io_adapter.dart';
-import '../../mx_js_framework.dart';
+
+import '../../mx_json_to_dart.dart';
+import '../../mx_build_owner.dart';
+
+import '../../mx_js_flutter.dart';
 
 class MXProxyRegisterHelperDioSeries {
   static Map<String, CreateJsonObjProxyFun> registerProxys() {
@@ -84,17 +85,17 @@ class MXProxyDio extends MXJsonObjProxy {
     if (args["options"] != null && (args["options"] as Map).length > 0) {
       args["options"]["owner_mirrorID"] = mirrorID;
     }
-    
+
     var options = mxj2d(null, args["options"]);
     Response response = await mirrorObj.request(args["path"],
         options: options, queryParameters: args["queryParameters"],
         onSendProgress: (int count, int total) {
-      MXJSFlutter.getInstance().invokeJSMirrorObj(
+      MXJSFlutterLib.getInstance().invokeJSMirrorObj(
           mirrorID: mirrorID,
           callbackID: args["onSendProgress"],
           args: {"count": count, "total": total});
     }, onReceiveProgress: (int count, int total) {
-      MXJSFlutter.getInstance().invokeJSMirrorObj(
+      MXJSFlutterLib.getInstance().invokeJSMirrorObj(
           mirrorID: mirrorID,
           callbackID: args["onReceiveProgress"],
           args: {"count": count, "total": total});
@@ -240,13 +241,13 @@ class MXProxyRequestOptions extends MXJsonObjProxy {
       queryParameters: mxj2d(bo, jsonMap["queryParameters"]),
       baseUrl: mxj2d(bo, jsonMap["baseUrl"]),
       onReceiveProgress: (int count, int total) {
-        MXJSFlutter.getInstance().invokeJSMirrorObj(
+        MXJSFlutterLib.getInstance().invokeJSMirrorObj(
             mirrorID: jsonMap["owner_mirrorID"],
             callbackID: jsonMap["onReceiveProgress"],
             args: {"count": count, "total": total});
       },
       onSendProgress: (int count, int total) {
-        MXJSFlutter.getInstance().invokeJSMirrorObj(
+        MXJSFlutterLib.getInstance().invokeJSMirrorObj(
             mirrorID: jsonMap["owner_mirrorID"],
             callbackID: jsonMap["onSendProgress"],
             args: {"count": count, "total": total});

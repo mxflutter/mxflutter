@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'mx_js_framework.dart';
+import 'mx_js_flutter.dart';
 import 'mx_js_flutter_common.dart';
 
+
+/// MXJSPageWidget包装了JSWidget，用于Flutter push一个使用MXFlutter框架编写的页面
 ///
-/// Flutter push 一个使用MXFlutter框架JS编写的页面时，包装JSWidget。
-///  *jsWidgetName: "jsWidgetName",在mxflutter_js/src/main.js  MyApp::createJSWidgetWithName 函数中使用
-///  MyApp::createJSWidgetWithName 通过jsWidgetName来创建对应的JSWidget
+///@param jsWidgetName: "jsWidgetName",在mxflutter_js/src/main.js  MyApp::createJSWidgetWithName 函数中使用, MyApp::createJSWidgetWithName 通过jsWidgetName来创建对应的JSWidget
 ///
-///  '''
+/// '''dart
+///
 ///      Navigator.push(
 ///          context,
 ///          MaterialPageRoute(
 ///              builder: (context) => MXJSPageWidget(
 ///                  jsWidgetName: "MXJSWidgetHomePage")));
 ///
-///  '''
+/// '''
 ///
 class MXJSPageWidget extends StatelessWidget {
   MXJSPageWidget({this.jsWidgetName, Key key}) {

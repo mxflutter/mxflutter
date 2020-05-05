@@ -103,15 +103,15 @@ class MXProxyRegisterHelperLayoutSeries {
 }
 
 ///Container
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyContainer extends MXJsonObjProxy {
 //  ///Dart类名 用于注册到转换器中
-//  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+//
 //  static String regClassName = "Container";
 //  ///工厂函数 用于延迟加载转换器
 //  static MXJsonObjProxy createProxy(){
 //
-//    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+//
 //    var p = MXProxyContainer();
 //    p.className = regClassName;
 //    return p;
@@ -173,7 +173,7 @@ class MXProxyContainer extends MXJsonObjProxy {
 }
 
 ///Center
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCenter extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -200,7 +200,7 @@ class MXProxyCenter extends MXJsonObjProxy {
 }
 
 ///Padding
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyPadding extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -232,7 +232,7 @@ class MXProxyPadding extends MXJsonObjProxy {
 }
 
 ///Align
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyAlign extends MXJsonObjProxy {
   ///把自己能处理的���注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -267,7 +267,7 @@ class MXProxyAlign extends MXJsonObjProxy {
 }
 
 ///FittedBox
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyFittedBox extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -303,7 +303,7 @@ class MXProxyFittedBox extends MXJsonObjProxy {
 }
 
 ///AspectRatio
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyAspectRatio extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -335,10 +335,10 @@ class MXProxyAspectRatio extends MXJsonObjProxy {
 }
 
 ///ConstrainedBox
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyConstrainedBox extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "ConstrainedBox";
 
   ///把自己能处理的类注册到分发器中
@@ -368,7 +368,7 @@ class MXProxyConstrainedBox extends MXJsonObjProxy {
 }
 
 ///Baseline
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyBaseline extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -402,7 +402,7 @@ class MXProxyBaseline extends MXJsonObjProxy {
 }
 
 ///FractionallySizedBox
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyFractionallySizedBox extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -440,7 +440,7 @@ class MXProxyFractionallySizedBox extends MXJsonObjProxy {
 }
 
 ///IntrinsicHeight
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyIntrinsicHeight extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -468,7 +468,7 @@ class MXProxyIntrinsicHeight extends MXJsonObjProxy {
 }
 
 ///IntrinsicWidth
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyIntrinsicWidth extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -497,7 +497,7 @@ class MXProxyIntrinsicWidth extends MXJsonObjProxy {
 }
 
 ///LimitedBox
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyLimitedBox extends MXJsonObjProxy {
   ///把自己能处���的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -533,7 +533,7 @@ class MXProxyLimitedBox extends MXJsonObjProxy {
 }
 
 ///Offstage
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyOffstage extends MXJsonObjProxy {
   ///把自己能处理的类注���到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -561,7 +561,7 @@ class MXProxyOffstage extends MXJsonObjProxy {
 }
 
 ///OverflowBox
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyOverflowBox extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -602,7 +602,7 @@ class MXProxyOverflowBox extends MXJsonObjProxy {
 }
 
 ///SizedBox
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxySizedBox extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -631,7 +631,7 @@ class MXProxySizedBox extends MXJsonObjProxy {
 }
 
 ///SizedOverflowBox
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxySizedOverflowBox extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -668,10 +668,10 @@ class MXProxySizedOverflowBox extends MXJsonObjProxy {
 }
 
 ///Transform
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyTransform extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Transform";
 
   ///把自己能处理的类注册到分发器中
@@ -708,10 +708,10 @@ class MXProxyTransform extends MXJsonObjProxy {
 }
 
 ///CustomSingleChildLayout
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCustomSingleChildLayout extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "CustomSingleChildLayout";
 
   ///把自己能处理的类注册到分发器中
@@ -744,10 +744,10 @@ class MXProxyCustomSingleChildLayout extends MXJsonObjProxy {
 }
 
 ///Row
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyRow extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Row";
 
   ///把自己能处理的类注册到分发器中
@@ -792,10 +792,10 @@ class MXProxyRow extends MXJsonObjProxy {
 }
 
 ///Column
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyColumn extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Column";
 
   ///把自己能处理的类注册到分发器中
@@ -840,10 +840,10 @@ class MXProxyColumn extends MXJsonObjProxy {
 }
 
 ///Stack
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyStack extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Stack";
 
   ///把自己能处理的类注册到分发器中
@@ -880,10 +880,10 @@ class MXProxyStack extends MXJsonObjProxy {
 }
 
 ///IndexedStack
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyIndexedStack extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "IndexedStack";
 
   ///把自己能处理的类注册到分发器中
@@ -921,10 +921,10 @@ class MXProxyIndexedStack extends MXJsonObjProxy {
 }
 
 ///Flow
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyFlow extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Flow";
 
   ///把自己能处理的类注册到分发器中
@@ -977,10 +977,10 @@ class MXProxyFlow extends MXJsonObjProxy {
 }
 
 ///Table
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyTable extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Table";
 
   ///把自己能处理的类注册到分发器中
@@ -1033,10 +1033,10 @@ class MXProxyTable extends MXJsonObjProxy {
 }
 
 ///Wrap
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyWrap extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Wrap";
 
   ///把自己能处理的类注册到分发器中
@@ -1088,10 +1088,10 @@ class MXProxyWrap extends MXJsonObjProxy {
 }
 
 ///ListBody
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyListBody extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "ListBody";
 
   ///把自己能处理的类注册到分发器中
@@ -1126,10 +1126,10 @@ class MXProxyListBody extends MXJsonObjProxy {
 }
 
 ///CustomMultiChildLayout
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCustomMultiChildLayout extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "CustomMultiChildLayout";
 
   ///把自己能处理的类注册到分发器中
@@ -1164,10 +1164,10 @@ class MXProxyCustomMultiChildLayout extends MXJsonObjProxy {
 }
 
 ///ListView
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyListView extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "ListView";
 
   ///把自己能处理的类注册到分发器中
@@ -1382,10 +1382,10 @@ class MXProxyListView extends MXJsonObjProxy {
 }
 
 ///LayoutBuilder
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyLayoutBuilder extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "LayoutBuilder";
 
   ///把自己能处理的类注册到分发器中

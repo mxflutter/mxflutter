@@ -46,15 +46,15 @@ class MXProxyRegisterHelperAnimationSeries {
 }
 
 ///Animation
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyAnimation extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Animation";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyAnimation();
     p.className = regClassName;
     return p;

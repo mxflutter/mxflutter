@@ -102,15 +102,15 @@ class MXProxyRegisterHelperBasicTypesSeries {
 }
 
 ///Key
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyKey extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Key";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyKey();
     p.className = regClassName;
     return p;
@@ -137,15 +137,15 @@ class MXProxyKey extends MXJsonObjProxy {
 }
 
 ///AlignmentDirectional
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyAlignmentDirectional extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "AlignmentDirectional";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyAlignmentDirectional();
     p.className = regClassName;
     return p;
@@ -311,7 +311,7 @@ class MXProxyEdgeInsetsDirectional extends MXJsonObjProxy {
 }
 
 ///Color
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyColor extends MXJsonObjProxy {
   ///静态接口,子类重写*********************************************
 
@@ -525,7 +525,7 @@ class MXPaintingStyle {
 }
 
 ///Paint
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyPaint extends MXJsonObjProxy {
   ///静态接口,子类重写*********************************************
 
@@ -575,7 +575,7 @@ class MXProxyPaint extends MXJsonObjProxy {
 }
 
 ///ColorFilter
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyFilter extends MXJsonObjProxy {
   ///静态接口,子类�����写*********************************************
 
@@ -648,7 +648,7 @@ class MXTileMode {
 }
 
 ///Shader
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyShader extends MXJsonObjProxy {
   ///静态接口,子类重写*********************************************
 
@@ -774,7 +774,7 @@ class MXProxyBoxDecoration extends MXJsonObjProxy {
 }
 
 ///Locale
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyLocale extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -891,15 +891,15 @@ class MXVerticalDirection {
 }
 
 ///BoxConstraints
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyBoxConstraints extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "BoxConstraints";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyBoxConstraints();
     p.className = regClassName;
     return p;
@@ -927,15 +927,15 @@ class MXProxyBoxConstraints extends MXJsonObjProxy {
 }
 
 ///Size
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxySize extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Size";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxySize();
     p.className = regClassName;
     return p;
@@ -956,15 +956,15 @@ class MXProxySize extends MXJsonObjProxy {
 }
 
 ///Offset
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyOffset extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "Offset";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyOffset();
     p.className = regClassName;
     return p;
@@ -1091,7 +1091,7 @@ class MXTableCellVerticalAlignment {
 }
 
 ///TableBorder
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyTableBorder extends MXJsonObjProxy {
   ///静态接口,子类重写*********************************************
 
@@ -1168,15 +1168,15 @@ class MXProxyTableBorder extends MXJsonObjProxy {
 }
 
 ///BorderSide
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyBorderSide extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "BorderSide";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyBorderSide();
     p.className = regClassName;
     return p;
@@ -1215,15 +1215,15 @@ class MXBorderStyle {
 }
 
 ///FlexColumnWidth
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyFlexColumnWidth extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "FlexColumnWidth";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyFlexColumnWidth();
     p.className = regClassName;
     return p;
@@ -1300,7 +1300,7 @@ class MXWrapCrossAlignment {
 }
 
 ///Matrix4
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyMatrix4 extends MXJsonObjProxy {
   static String regClassName = "Matrix4";
 
@@ -1566,7 +1566,7 @@ class MXProxyMatrix4 extends MXJsonObjProxy {
 }
 
 ///Vector4
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyVector4 extends MXJsonObjProxy {
   static String regClassName = "Vector4";
 
@@ -1655,7 +1655,7 @@ class MXProxyVector4 extends MXJsonObjProxy {
 }
 
 ///Vector3
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyVector3 extends MXJsonObjProxy {
   static String regClassName = "Vector3";
 
@@ -1786,15 +1786,15 @@ class MXProxyScrollPhysics extends MXJsonObjProxy {
 }
 
 ///BouncingScrollPhysics
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyBouncingScrollPhysics extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "BouncingScrollPhysics";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyBouncingScrollPhysics();
     p.className = regClassName;
     return p;
@@ -1905,7 +1905,7 @@ class MXClip {
 }
 
 ///Rect
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyRect extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -1982,7 +1982,7 @@ class MXProxyRect extends MXJsonObjProxy {
 }
 
 ///AssetBundle
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyAssetBundle extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -2029,7 +2029,7 @@ class MXProxyAssetBundle extends MXJsonObjProxy {
 }
 
 ///File
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyFile extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -2082,7 +2082,7 @@ class MXProxyFile extends MXJsonObjProxy {
 }
 
 ///Uint8List
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyUint8List extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -2140,7 +2140,7 @@ class MXProxyUint8List extends MXJsonObjProxy {
 }
 
 ///Radius
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyRadius extends MXJsonObjProxy {
   static String regClassName = "Radius";
 
@@ -2190,7 +2190,7 @@ class MXProxyRadius extends MXJsonObjProxy {
 }
 
 ///BorderRadius
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyBorderRadius extends MXJsonObjProxy {
   static String regClassName = "BorderRadius";
 
@@ -2286,7 +2286,7 @@ class MXProxyBorderRadius extends MXJsonObjProxy {
 }
 
 ///BottomNavigationBarItem
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyBottomNavigationBarItem extends MXJsonObjProxy {
   static String regClassName = "BottomNavigationBarItem";
 

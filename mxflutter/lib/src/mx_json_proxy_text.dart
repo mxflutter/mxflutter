@@ -40,7 +40,7 @@ class MXProxyRegisterHelperTextSeries {
 }
 
 ///Text
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyText extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -170,7 +170,7 @@ class MXProxyRichText extends MXJsonObjProxy {
 }
 
 ///DefaultTextStyle
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyDefaultTextStyle extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
@@ -225,7 +225,7 @@ class MXProxyDefaultTextStyle extends MXJsonObjProxy {
 }
 
 ///TextStyle
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyTextStyle extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
@@ -278,15 +278,15 @@ class MXProxyTextStyle extends MXJsonObjProxy {
 }
 
 ///TextSpan
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyTextSpan extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "TextSpan";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
+
     var p = MXProxyTextSpan();
     p.className = regClassName;
     return p;
@@ -331,7 +331,7 @@ class MXTextDecoration {
 }
 
 ///TextOverflow
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 
 class MXTextOverflow {
   static Map str2VMap = {
@@ -382,7 +382,7 @@ class MXProxyTextTheme extends MXJsonObjProxy {
 }
 
 ///TextAlign
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXTextAlign {
   static Map str2VMap = {
     "TextAlign.left": TextAlign.left,
@@ -402,7 +402,7 @@ class MXTextAlign {
 }
 
 ///TextDecorationStyle
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXTextDecorationStyle {
   static Map str2VMap = {
     "TextDecorationStyle.solid": TextDecorationStyle.solid,

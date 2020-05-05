@@ -1,8 +1,8 @@
 name: mxflutter
-description: JavaScript Flutter Framework
-version: 0.0.1
-author:
-homepage:
+description: JavaScript Flutter Framework,Using mxflutter lib, you can use JavaScript to develop flutter or use Dart to develop and compile to JS.
+version: 0.1.2
+author: MXFlutterTeam<mxflutter@qq.com>
+homepage: mxflutter.com
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

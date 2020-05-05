@@ -49,7 +49,7 @@ class MXProxyRegisterHelperCupertinoSeries {
 }
 
 ///CupertinoActivityIndicator
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoActivityIndicator extends MXJsonObjProxy {
   static String regClassName = "CupertinoActivityIndicator";
 
@@ -83,7 +83,7 @@ class MXProxyCupertinoActivityIndicator extends MXJsonObjProxy {
 }
 
 ///CupertinoAlertDialog
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoAlertDialog extends MXJsonObjProxy {
   static String regClassName = "CupertinoAlertDialog";
 
@@ -124,7 +124,7 @@ class MXProxyCupertinoAlertDialog extends MXJsonObjProxy {
 }
 
 ///CupertinoButton
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoButton extends MXJsonObjProxy {
   static String regClassName = "CupertinoButton";
 
@@ -190,7 +190,7 @@ class MXProxyCupertinoButton extends MXJsonObjProxy {
 }
 
 ///CupertinoDialog
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoDialog extends MXJsonObjProxy {
   static String regClassName = "CupertinoDialog";
 
@@ -221,7 +221,7 @@ class MXProxyCupertinoDialog extends MXJsonObjProxy {
 }
 
 ///CupertinoDialogAction
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoDialogAction extends MXJsonObjProxy {
   static String regClassName = "CupertinoDialogAction";
 
@@ -254,7 +254,7 @@ class MXProxyCupertinoDialogAction extends MXJsonObjProxy {
 }
 
 ///CupertinoSlider
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoSlider extends MXJsonObjProxy {
   static String regClassName = "CupertinoSlider";
 
@@ -300,7 +300,7 @@ class MXProxyCupertinoSlider extends MXJsonObjProxy {
 }
 
 ///CupertinoSwitch
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoSwitch extends MXJsonObjProxy {
   static String regClassName = "CupertinoSwitch";
 
@@ -335,7 +335,7 @@ class MXProxyCupertinoSwitch extends MXJsonObjProxy {
 }
 
 ///CupertinoPageTransition
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoPageTransition extends MXJsonObjProxy {
   static String regClassName = "CupertinoPageTransition";
 
@@ -374,7 +374,7 @@ class MXProxyCupertinoPageTransition extends MXJsonObjProxy {
 }
 
 ///CupertinoFullscreenDialogTransition
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoFullscreenDialogTransition extends MXJsonObjProxy {
   static String regClassName = "CupertinoFullscreenDialogTransition";
 
@@ -409,7 +409,7 @@ class MXProxyCupertinoFullscreenDialogTransition extends MXJsonObjProxy {
 }
 
 ///CupertinoNavigationBar
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoNavigationBar extends MXJsonObjProxy {
   static String regClassName = "CupertinoNavigationBar";
 
@@ -474,7 +474,7 @@ class MXProxyCupertinoNavigationBar extends MXJsonObjProxy {
 }
 
 ///CupertinoTabBar
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoTabBar extends MXJsonObjProxy {
   static String regClassName = "CupertinoTabBar";
 
@@ -516,7 +516,7 @@ class MXProxyCupertinoTabBar extends MXJsonObjProxy {
 }
 
 ///CupertinoPageScaffold
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoPageScaffold extends MXJsonObjProxy {
   static String regClassName = "CupertinoPageScaffold";
 
@@ -548,7 +548,7 @@ class MXProxyCupertinoPageScaffold extends MXJsonObjProxy {
 }
 
 ///CupertinoTabScaffold
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoTabScaffold extends MXJsonObjProxy {
   static String regClassName = "CupertinoTabScaffold";
 
@@ -580,7 +580,7 @@ class MXProxyCupertinoTabScaffold extends MXJsonObjProxy {
 }
 
 ///CupertinoTabView
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyCupertinoTabView extends MXJsonObjProxy {
   static String regClassName = "CupertinoTabView";
 
