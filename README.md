@@ -1,3 +1,4 @@
+![](https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png)
 # MXFlutter Beta
 
 [中文版文档](README.md)|[English Document](Documentation/README-EN.md)
