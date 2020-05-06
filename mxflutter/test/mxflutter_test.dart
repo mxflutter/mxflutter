@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mxflutter/mxflutter.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('mxflutter');
@@ -17,7 +16,4 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await Mxflutter.platformVersion, '42');
-  });
 }

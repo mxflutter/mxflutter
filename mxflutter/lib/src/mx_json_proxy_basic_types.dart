@@ -214,7 +214,7 @@ class MXProxyEdgeInsets extends MXJsonObjProxy {
     return widget;
   }
 
-  @override
+
   EdgeInsets constructorFromLTRB(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
@@ -546,7 +546,6 @@ class MXProxyPaint extends MXJsonObjProxy {
   void init({String className}) {
     super.init(className: className);
 
-    final String regClassName1 = "Paint";
   }
 
   ///
@@ -611,7 +610,7 @@ class MXProxyFilter extends MXJsonObjProxy {
 
   ///
 
-  @override
+
   ColorFilter constructorMode(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     ColorFilter obj = ColorFilter.mode(mxj2d(bo, jsonMap["color"]),
@@ -620,7 +619,7 @@ class MXProxyFilter extends MXJsonObjProxy {
     return obj;
   }
 
-  @override
+
   MaskFilter constructorBlur(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     MaskFilter obj = MaskFilter.blur(
@@ -811,7 +810,7 @@ class MXProxyLocale extends MXJsonObjProxy {
     return obj;
   } //
 
-  @override
+
   Locale constructorFromSubtags(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {

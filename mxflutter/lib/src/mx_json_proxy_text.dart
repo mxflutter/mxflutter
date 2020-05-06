@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
-import 'mx_json_proxy_layout.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui' as ui show Shadow;
 
@@ -116,7 +115,7 @@ class MXProxyText extends MXJsonObjProxy {
 //        data = null,
 //        super(key: key);
 
-  @override
+
   Text constructorRich(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     var widget = Text.rich(
@@ -214,7 +213,6 @@ class MXProxyDefaultTextStyle extends MXJsonObjProxy {
     return widget;
   }
 
-  @override
   DefaultTextStyle constructorFallback(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
@@ -613,6 +611,8 @@ class MXProxyTextFormField extends MXJsonObjProxy {
 
     FormFieldValidator<T> cb = (T b) {
       bo.eventCallback(eventCallbackID, p: b);
+      //TODO:return string
+      return null;
     };
 
     return cb;
@@ -631,6 +631,8 @@ class MXProxyTextFormField extends MXJsonObjProxy {
       @required bool isFocused,
     }) {
       bo.eventCallback(eventCallbackID);
+      //TODO:return widget
+      return null;
     };
 
     return cb;

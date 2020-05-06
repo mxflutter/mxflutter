@@ -463,6 +463,7 @@ class MXJsonObjProxy {
       } else {
         MXJSLog.error(
             "toMapIntT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+        return null;
       }
     });
     return result;
@@ -475,6 +476,7 @@ class MXJsonObjProxy {
       } else {
         MXJSLog.error(
             "toMapStringT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+        return null;
       }
     });
     return result;
@@ -544,6 +546,8 @@ class MXJsonObjProxy {
 
     StringFunctionGenericCallback<T> cb = (T b) {
       bo.eventCallback(eventCallbackID, p: b);
+      //TODO:return String
+      return null;
     };
 
     return cb;
@@ -559,6 +563,8 @@ class MXJsonObjProxy {
 
     WidgetBuilder cb = (BuildContext context) {
       bo.widgetBuilderCallback(eventCallbackID, p: context);
+      //TODO:return widget
+      return null;
     };
 
     return cb;
@@ -574,6 +580,8 @@ class MXJsonObjProxy {
 
     IndexedWidgetBuilder cb = (BuildContext context, int index) {
       bo.widgetBuilderCallback(eventCallbackID, p: [context, index]);
+      //TODO:return widget
+      return null;
     };
 
     return cb;

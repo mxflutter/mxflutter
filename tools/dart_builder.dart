@@ -577,7 +577,6 @@ class Parse2DartFlutter {
     var name =
         match.group(1).trim(); // TODO 这里可能会出错，如果不匹配说明出问题了，不需要特���try catch.
 
-    String staticClassConstructor;
     int staticClassIndex = name.indexOf(".");
     if (staticClassIndex > 0) {
       String orgiName = name;

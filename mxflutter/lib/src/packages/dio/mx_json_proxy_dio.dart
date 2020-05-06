@@ -7,6 +7,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+// ignore: implementation_imports
 import 'package:dio/src/adapters/io_adapter.dart';
 
 import '../../mx_json_to_dart.dart';

@@ -309,7 +309,7 @@ class MXJSBaseWidget extends Object {
 
   // The Widget Pages that pushed this Widget
   // 把当前widget（this） push 出来的widget
-  dynamic navPushingWidget = null;
+  dynamic navPushingWidget ;
 
   //The widget that was pushed by this widget
   //由自己this push的widget page

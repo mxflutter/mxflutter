@@ -20,8 +20,9 @@ class MXJSMirrorObjMgr {
     return MXJSMirrorObjMgr.getInstance();
   }
 
-  MXJSMirrorObjMgr._() {}
+  MXJSMirrorObjMgr._() ;
   //----
+  // ignore: non_constant_identifier_names
   Map<String, dynamic> g_mirrorObjectMap = {};
 
   String getJsonObjMirrorID(Map jsonMap) {
