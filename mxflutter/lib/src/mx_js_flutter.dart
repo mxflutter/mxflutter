@@ -47,7 +47,7 @@ abstract class MXJSFlutter {
   ///启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
   ///
   ///@param jsAppPath jsApp root path ，JS业务代码放置在一个文件夹中，并且有main.js文件。jsAppPath和jsAppAssetsKey根据场景二选一
-  ///@param jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js/src文件夹下
+  ///@param jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js_src/文件夹下
   ///@param jsAppSearchPathList js App require 的搜索路径，一般无需设置，默认jsApp root path
   ///@param jsAppSearchPathWithAssetsKeyList js App require 的搜索路径，使用pubspec.yaml里的AssetsKey配置来设置，一般无需设置，默认jsApp root path
   ///@returns void
@@ -55,13 +55,13 @@ abstract class MXJSFlutter {
   ///
   runJSApp(
       {String jsAppPath = "",
-        String jsAppAssetsKey = "mxflutter_js/src/",
+        String jsAppAssetsKey = "mxflutter_js_src/",
         List<String> jsAppSearchPathList,
         List<String> jsAppSearchPathWithAssetsKeyList}) ;
 
 
   ///从Flutter Push一个 JS写的页面
-  ///@param widgetName: "widgetName",在mxflutter_js/src/main.js  MyApp::createJSWidgetWithName 函数中使用
+  ///@param widgetName: "widgetName",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用
   ///MyApp::createJSWidgetWithName 通过 widgetName 来创建对应的JSWidget
   /// 通常你应该使用更高层的API MXJSPageWidget 包装类来显示JS Widget 请参考 MXJSPageWidget 的用法
   ///
@@ -166,7 +166,7 @@ class MXJSFlutterLib implements MXJSFlutter {
   ///启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
   ///
   /// @param jsAppPath jsApp root path ，JS业务代码放置在一个文件夹中，并且有main.js文件。jsAppPath和jsAppAssetsKey根据场景二选一
-  /// @param jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js/src文件夹下
+  /// @param jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js_src/文件夹下
   /// @param jsAppSearchPathList js App require 的搜索路径，一般无需设置，默认jsApp root path
   /// @param jsAppSearchPathWithAssetsKeyList js App require 的搜索路径，使用pubspec.yaml里的AssetsKey配置来设置，一般无需设置，默认jsApp root path
   /// @returns void
@@ -174,7 +174,7 @@ class MXJSFlutterLib implements MXJSFlutter {
   @override
   runJSApp(
       {String jsAppPath = "",
-        String jsAppAssetsKey = "mxflutter_js/src/",
+        String jsAppAssetsKey = "mxflutter_js_src/",
         List<String> jsAppSearchPathList,
         List<String> jsAppSearchPathWithAssetsKeyList}) {
     Map<String, dynamic> args = {

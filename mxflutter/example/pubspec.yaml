@@ -32,7 +32,7 @@ dev_dependencies:
 flutter:
   assets:
     #copy js src ,mxflutter app demo 的js代码
-    - mxflutter_js/src/
+    - mxflutter_js_src/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

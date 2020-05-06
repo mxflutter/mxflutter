@@ -14,16 +14,16 @@ void main() async{
   // flutter:
   //  assets:
   //    #copy js src ,mxflutter app demo 的js代码
-  //    - mxflutter_js/src/
-  //    - mxflutter_js/src/app_demo/
-  //    - mxflutter_js/src/mxjsbuilder_demo/
+  //    - mxflutter_js_src/
+  //    - mxflutter_js_src/app_demo/
+  //    - mxflutter_js_src/mxjsbuilder_demo/
 
-  ///Entrypoint mxflutter_js/src/main.js main()
-  ///runJSApp 的jsAppAssetsKey 默认参数即为mxflutter_js/src/， 会默认运行 mxflutter_js/src/main.js
-  ///建议不要修改mxflutter_js/src/目录名，模拟器热重载依据此路径配置
-  ///如果修改请全局搜索mxflutter_js/src/修改模拟器热重载配置，release或真机不受影响
+  ///Entrypoint mxflutter_js_src/main.js main()
+  ///runJSApp 的jsAppAssetsKey 默认参数即为mxflutter_js_src/， 会默认运行 mxflutter_js_src/main.js
+  ///建议不要修改mxflutter_js_src/目录名，模拟器热重载依据此路径配置
+  ///如果修改请全局搜索mxflutter_js_src/修改模拟器热重载配置，release或真机不受影响
   ///jsAppSearchPathWithAssetsKeyList 一般无需设置，默认jsApp root path
-  MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: "mxflutter_js/src",jsAppSearchPathWithAssetsKeyList: ["mxflutter_js/src/app_demo","mxflutter_js/src/mxjsbuilder_demo"]);
+  MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: "mxflutter_js_src/",jsAppSearchPathWithAssetsKeyList: ["mxflutter_js_src/app_demo","mxflutter_js_src/mxjsbuilder_demo"]);
 
   ///或者运行你下载到 DocumentsDirectory 里的JS代码
 //  Directory directory = await getApplicationDocumentsDirectory();
@@ -66,7 +66,7 @@ class MXFlutterExampleHome extends StatelessWidget {
               subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
               onTap: () {
                 //-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
-                //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js/src/main.js  MyApp::createJSWidgetWithName 函数中使用，
+                //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用，
                 //创建你需要的MX JS Widget
                 Navigator.push(
                     context,

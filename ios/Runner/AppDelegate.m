@@ -59,8 +59,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
 #ifdef PROJECT_DIR
     
-    //如果定义了PROJECT_DIR，需要根据自己的工程位置调整相对路径../mxflutter_js/src/
-    jsAppPath = [PROJECT_DIR stringByAppendingPathComponent:@"../mxflutter_js/src/"];
+    //如果定义了PROJECT_DIR，需要根据自己的工程位置调整相对路径../mxflutter_js_src/
+    jsAppPath = [PROJECT_DIR stringByAppendingPathComponent:@"../mxflutter_js_src/"];
     
     //
     jsAppSearchPathList = @[

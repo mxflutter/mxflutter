@@ -5,7 +5,7 @@ import 'mx_js_flutter_common.dart';
 
 /// MXJSPageWidget包装了JSWidget，用于Flutter push一个使用MXFlutter框架编写的页面
 ///
-///@param jsWidgetName: "jsWidgetName",在mxflutter_js/src/main.js  MyApp::createJSWidgetWithName 函数中使用, MyApp::createJSWidgetWithName 通过jsWidgetName来创建对应的JSWidget
+///@param jsWidgetName: "jsWidgetName",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用, MyApp::createJSWidgetWithName 通过jsWidgetName来创建对应的JSWidget
 ///
 /// '''dart
 ///
