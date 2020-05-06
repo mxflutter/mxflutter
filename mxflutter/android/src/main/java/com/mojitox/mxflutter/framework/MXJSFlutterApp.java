@@ -28,8 +28,6 @@ public class MXJSFlutterApp {
 
     public static final String TAG = "MXJSFlutterApp";
 
-    public static String JSFLUTTER_SRC_DIR1 = "src";
-
     static MXJSFlutterEngine jsFlutterEngineStatic;
 
     private MXFlutterPlugin mContext;
@@ -209,7 +207,7 @@ public class MXJSFlutterApp {
             }
         });
 
-        jsExecutor.executeScriptPath(JSFLUTTER_SRC_DIR1 + "/main.js", new MXJSExecutor.ExecuteScriptCallback() {
+        jsExecutor.executeScriptPath(rootPath + "/main.js", new MXJSExecutor.ExecuteScriptCallback() {
             @Override
             public void onComplete(Object value) {
                 jsExecutor.executeScript("main()", new MXJSExecutor.ExecuteScriptCallback() {
