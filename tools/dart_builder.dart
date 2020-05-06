@@ -43,7 +43,7 @@
 
 // }
 
-String translate(String src) {
+ translate(String src) {
   print(Parse2Dart.translateDart(src));
   print(translateJS(src));
 }
@@ -577,11 +577,12 @@ class Parse2DartFlutter {
     var name =
         match.group(1).trim(); // TODO 这里可能会出错，如果不匹配说明出问题了，不需要特���try catch.
 
+
     int staticClassIndex = name.indexOf(".");
     if (staticClassIndex > 0) {
       String orgiName = name;
       name = orgiName.substring(0, staticClassIndex);
-      staticClassConstructor = orgiName.substring(staticClassIndex + 1);
+      //String staticClassConstructor = orgiName.substring(staticClassIndex + 1);
     }
 
     var result = "";

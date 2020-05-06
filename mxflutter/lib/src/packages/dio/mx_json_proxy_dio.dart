@@ -105,6 +105,7 @@ class MXProxyDio extends MXJsonObjProxy {
     return ResponseOBJtoJSON(response);
   }
 
+  // ignore: non_constant_identifier_names
   String ResponseOBJtoJSON(Response response) {
     //class Response<T> {
     // Response({

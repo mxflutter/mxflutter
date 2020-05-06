@@ -153,7 +153,7 @@ class MXJsonBuildOwner {
 
   ///动态创建Widget回调，如List
   ///
-  Future<dynamic> widgetBuilderCallback(String callID, {dynamic p}){}
+  Future<dynamic> widgetBuilderCallback(String callID, {dynamic p}){return null;}
 
   //js->flutter
 

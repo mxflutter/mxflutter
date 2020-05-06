@@ -332,6 +332,7 @@ class MXJSBaseWidget extends Object {
 }
 
 ///封装JSWidget
+// ignore: must_be_immutable
 class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
   MXJSWidgetState _state;
 
@@ -439,6 +440,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
 }
 
 ///静态json生成Widget
+// ignore: must_be_immutable
 class MXJSStatelessWidget extends StatelessWidget with MXJSBaseWidget {
   MXJSStatelessWidget(
       {Key key,

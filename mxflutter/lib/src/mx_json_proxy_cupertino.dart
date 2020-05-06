@@ -210,8 +210,10 @@ class MXProxyCupertinoDialog extends MXJsonObjProxy {
   ///    this.child,
   ///  })
   @override
+  // ignore: deprecated_member_use
   CupertinoDialog constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
+    // ignore: deprecated_member_use
     var widget = CupertinoDialog(
       key: mxj2d(bo, jsonMap["key"]),
       child: mxj2d(bo, jsonMap["child"]),
@@ -401,7 +403,7 @@ class MXProxyCupertinoFullscreenDialogTransition extends MXJsonObjProxy {
     var widget = CupertinoFullscreenDialogTransition(
       key: mxj2d(bo, jsonMap["key"]),
       //TODO:animation
-      // animation: null,
+      animation: null,
       child: mxj2d(bo, jsonMap["child"]),
     );
     return widget;
