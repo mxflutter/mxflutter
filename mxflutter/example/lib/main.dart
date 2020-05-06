@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/mxflutter.dart';
 
 
-void main() async {
+void main()  {
   //-------1. MXFlutter 启动---------
   MXJSFlutter.getInstance().runJSApp();
   runApp(MyApp());
