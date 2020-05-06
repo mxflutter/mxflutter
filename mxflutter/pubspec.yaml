@@ -47,6 +47,7 @@ flutter:
     - js_lib/framework/dart_js_framework/packages/flutter/src/cupertino/
     - js_lib/framework/dart_js_framework/packages/flutter/src/foundation/
     - js_lib/framework/dart_js_framework/packages/flutter/src/gestures/
+    - js_lib/framework/dart_js_framework/packages/flutter/src/material/
     - js_lib/framework/dart_js_framework/packages/flutter/src/painting/
     - js_lib/framework/dart_js_framework/packages/flutter/src/rendering/
     - js_lib/framework/dart_js_framework/packages/flutter/src/services/
