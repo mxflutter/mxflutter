@@ -55,7 +55,7 @@ abstract class MXJSFlutter {
   ///
   runJSApp(
       {String jsAppPath = "",
-        String jsAppAssetsKey = "mxflutter_js_src/",
+        String jsAppAssetsKey = "mxflutter_js_src",
         List<String> jsAppSearchPathList,
         List<String> jsAppSearchPathWithAssetsKeyList}) ;
 
@@ -174,7 +174,7 @@ class MXJSFlutterLib implements MXJSFlutter {
   @override
   runJSApp(
       {String jsAppPath = "",
-        String jsAppAssetsKey = "mxflutter_js_src/",
+        String jsAppAssetsKey = "mxflutter_js_src",
         List<String> jsAppSearchPathList,
         List<String> jsAppSearchPathWithAssetsKeyList}) {
     Map<String, dynamic> args = {
