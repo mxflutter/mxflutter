@@ -86,7 +86,7 @@ class MXFlutterExampleHome extends StatelessWidget {
               isThreeLine: true,
               onTap: () {
                 MXJSFlutter.getInstance()
-                    .runJSApp(jsAppAssetsKey: "mxflutter_js_src/");
+                    .runJSApp(jsAppAssetsKey: "mxflutter_js_src");
               },
             ),
             ListTile(

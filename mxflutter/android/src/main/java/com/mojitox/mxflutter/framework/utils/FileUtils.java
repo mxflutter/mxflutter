@@ -120,6 +120,7 @@ public class FileUtils {
         ArrayList<String> extensions = new ArrayList<>();
         extensions.add(".js");
         extensions.add(".ddc.js");
+        extensions.add(".lib.js");
 
         try {
             for (int i = 0; i < searchDirArray.size(); i++) {
@@ -130,16 +131,23 @@ public class FileUtils {
                     boolean isFind = false;
                     for (int k = 0; k < files.length; k++) {
                         if (j == filePathDeep - 1) {
-                            for (String ext : extensions) {
-                                if (!filePathSplitList[j].endsWith(".js")) {
-                                    filePathSplitList[j] += ext;
-                                    filePath += ext;
-                                }
+                            if (filePathSplitList[j].endsWith(".js")) {
                                 if (filePathSplitList[j].equals(files[k])) {
                                     curSearchDir += ("/" + filePathSplitList[j]);
                                     absolutePath = curSearchDir;
                                     isFind = true;
                                     break;
+                                }
+                            } else {
+                                for (String ext : extensions) {
+                                    String tempFile = filePathSplitList[j] + ext;
+
+                                    if (tempFile.equals(files[k])) {
+                                        curSearchDir += ("/" + tempFile);
+                                        absolutePath = curSearchDir;
+                                        isFind = true;
+                                        break;
+                                    }
                                 }
                             }
                         } else if (filePathSplitList[j].equals(files[k])) {

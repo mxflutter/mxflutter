@@ -21,13 +21,14 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <application
-        android:name="com.mojitox.mxflutter.framework.MXFlutterApplication"
+        android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="MXFlutter">
         <activity
             android:name="MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
             android:hardwareAccelerated="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize">
             <!-- This keeps the window background of the activity showing
