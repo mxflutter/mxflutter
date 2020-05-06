@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.imatrixteam.mxflutter">
+    package="com.imatrixteam.mxflutter2">
 
     <!-- The INTERNET permission is required for development. Specifically,
      flutter needs it to communicate with the running application
@@ -21,12 +21,12 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <application
-        android:name="com.imatrixteam.mxflutter.framework.MXFlutterApplication"
+        android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:label="MXFlutter">
         <activity
-            android:name=".framework.MXFlutterActivity"
+            android:name="MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"

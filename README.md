@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png)
+
 # MXFlutter Beta
 
 [中文版文档](README.md)|[English Document](Documentation/README-EN.md)
@@ -334,6 +336,8 @@ MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施�
 对MXFlutter有兴趣的小伙伴，可以加群交流 QQ群:747535761
 
 ![qrcode](https://github.com/langbluesky/Image/blob/master/qrcode.png?raw=true)
+
+
 
 
 
