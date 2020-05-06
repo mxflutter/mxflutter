@@ -85,8 +85,7 @@ class MXFlutterExampleHome extends StatelessWidget {
               subtitle: Text('点击热重载JSApp，重新进入上面的MXFlutter Demo，即可看到界面更新'),
               isThreeLine: true,
               onTap: () {
-                MXJSFlutter.getInstance()
-                    .runJSApp(jsAppAssetsKey: "mxflutter_js_src/");
+                MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: "mxflutter_js_src",jsAppSearchPathWithAssetsKeyList: ["mxflutter_js_src/app_demo","mxflutter_js_src/mxjsbuilder_demo"]);
               },
             ),
             ListTile(
