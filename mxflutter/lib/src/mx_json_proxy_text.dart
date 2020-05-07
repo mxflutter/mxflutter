@@ -115,7 +115,6 @@ class MXProxyText extends MXJsonObjProxy {
 //        data = null,
 //        super(key: key);
 
-
   Text constructorRich(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     var widget = Text.rich(
@@ -284,7 +283,6 @@ class MXProxyTextSpan extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyTextSpan();
     p.className = regClassName;
     return p;

@@ -377,26 +377,31 @@ class MXProxyCupertinoPageTransition extends MXJsonObjProxy {
 
 ///CupertinoFullscreenDialogTransition
 class MXProxyCupertinoFullscreenDialogTransition extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "CupertinoFullscreenDialogTransition";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyCupertinoFullscreenDialogTransition()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "CupertinoFullscreenDialogTransition";
 
-	@override
-	CupertinoFullscreenDialogTransition constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = CupertinoFullscreenDialogTransition(
-			key: mxj2d(bo, jsonMap["key"]),
-			primaryRouteAnimation: mxj2d(bo, jsonMap["primaryRouteAnimation"]),
-			secondaryRouteAnimation: mxj2d(bo, jsonMap["secondaryRouteAnimation"]),
-			child: mxj2d(bo, jsonMap["child"]),
-			linearTransition: mxj2d(bo, jsonMap["linearTransition"]),
-		);
-		return widget;
-	}
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyCupertinoFullscreenDialogTransition()
+        ..init(className: regClassName)
+    };
+  }
+
+  @override
+  CupertinoFullscreenDialogTransition constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = CupertinoFullscreenDialogTransition(
+      key: mxj2d(bo, jsonMap["key"]),
+      primaryRouteAnimation: mxj2d(bo, jsonMap["primaryRouteAnimation"]),
+      secondaryRouteAnimation: mxj2d(bo, jsonMap["secondaryRouteAnimation"]),
+      child: mxj2d(bo, jsonMap["child"]),
+      linearTransition: mxj2d(bo, jsonMap["linearTransition"]),
+    );
+    return widget;
+  }
 }
-
 
 ///CupertinoNavigationBar
 ///

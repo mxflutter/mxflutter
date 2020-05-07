@@ -30,7 +30,6 @@ import 'mx_js_framework.dart';
 /// '''
 ///
 abstract class MXJSFlutter {
-
   static MXJSFlutter _instance;
 
   ///获取MXJSFlutter
@@ -55,10 +54,9 @@ abstract class MXJSFlutter {
   ///
   runJSApp(
       {String jsAppPath = "",
-        String jsAppAssetsKey = "mxflutter_js_src",
-        List<String> jsAppSearchPathList,
-        List<String> jsAppSearchPathWithAssetsKeyList}) ;
-
+      String jsAppAssetsKey = "mxflutter_js_src",
+      List<String> jsAppSearchPathList,
+      List<String> jsAppSearchPathWithAssetsKeyList});
 
   ///从Flutter Push一个 JS写的页面
   ///@param widgetName: "widgetName",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用
@@ -77,13 +75,11 @@ abstract class MXJSFlutter {
   ///
   dynamic navigatorPushWithName(String widgetName, Key widgetKey,
       {ThemeData themeData,
-        MediaQueryData mediaQueryData,
-        IconThemeData iconThemeData}) ;
-
+      MediaQueryData mediaQueryData,
+      IconThemeData iconThemeData});
 
   ///flutter->js  顶层通用调用通道
   dynamic invokeJSCommonChannel(MethodCall jsMethodCall);
-
 }
 
 typedef Future<dynamic> _MXChannelFun(dynamic arguments);
@@ -92,7 +88,6 @@ typedef Future<dynamic> _MXChannelFun(dynamic arguments);
 ///MXJSFlutterLib Native层MXJSFlutterEngine的通讯代理类
 ///负责配置，运行MXJSFlutterApp，衔接Flutter，Native，JS 三方
 class MXJSFlutterLib implements MXJSFlutter {
-
   ///获取MXJSFlutterLib
   ///供mxflutter库内部使用
   static MXJSFlutterLib getInstance() {
@@ -138,8 +133,8 @@ class MXJSFlutterLib implements MXJSFlutter {
         'mxflutter.mxflutter_common_basic_channel', StringCodec());
     _jsFlutterCommonBasicChannel
         .setMessageHandler((String message) => Future<String>(() {
-      return js2flutterSubCallChannel(message);
-    }));
+              return js2flutterSubCallChannel(message);
+            }));
 
     //Method reg
     _jsFlutterMainChannelFunRegMap["reloadApp"] = reloadApp;
@@ -153,7 +148,7 @@ class MXJSFlutterLib implements MXJSFlutter {
     _jsFlutterMainChannelFunRegMap["mxflutterBridgeMethodChannelInvoke"] =
         mxflutterBridgeMethodChannelInvoke;
     _jsFlutterMainChannelFunRegMap[
-    "mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"] =
+            "mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke"] =
         mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke;
 
     _jsFlutterMainChannelFunRegMap["mxfJSBridgeRemoveMirrorObjsRef"] =
@@ -174,9 +169,9 @@ class MXJSFlutterLib implements MXJSFlutter {
   @override
   runJSApp(
       {String jsAppPath = "",
-        String jsAppAssetsKey = "mxflutter_js_src",
-        List<String> jsAppSearchPathList,
-        List<String> jsAppSearchPathWithAssetsKeyList}) {
+      String jsAppAssetsKey = "mxflutter_js_src",
+      List<String> jsAppSearchPathList,
+      List<String> jsAppSearchPathWithAssetsKeyList}) {
     Map<String, dynamic> args = {
       "jsAppAssetsKey": jsAppAssetsKey,
       "jsAppPath": jsAppPath
@@ -232,9 +227,9 @@ class MXJSFlutterLib implements MXJSFlutter {
   //Mirror Sys
   invokeJSMirrorObj(
       {dynamic mirrorID,
-        String functionName,
-        String callbackID,
-        dynamic args}) async {
+      String functionName,
+      String callbackID,
+      dynamic args}) async {
     Map callInfo = {
       "mirrorID": mirrorID,
       "funcName": functionName,
@@ -259,7 +254,7 @@ class MXJSFlutterLib implements MXJSFlutter {
 
     String mirrorID = args["mirrorID"];
     dynamic mirrorObj =
-    MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+        MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
 
     if (mirrorObj != null) {
       String className = args["className"];
@@ -267,20 +262,20 @@ class MXJSFlutterLib implements MXJSFlutter {
       Map funArgs = args["args"];
 
       MXJsonObjProxy proxy =
-      MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
+          MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
 
       if (proxy != null) {
         Completer<String> completer = new Completer<String>();
         proxy.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
             callback: (result) {
-              var returnJSONStr = result;
-              if (result != null && !(result is String)) {
-                returnJSONStr = json.encode(result);
-              }
+          var returnJSONStr = result;
+          if (result != null && !(result is String)) {
+            returnJSONStr = json.encode(result);
+          }
 
-              //callJsCallbackFunction(onResultId, params);
-              completer.complete(returnJSONStr);
-            });
+          //callJsCallbackFunction(onResultId, params);
+          completer.complete(returnJSONStr);
+        });
 
         return completer.future;
       }
@@ -365,8 +360,8 @@ class MXJSFlutterLib implements MXJSFlutter {
   ///先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
   dynamic navigatorPushWithName(String widgetName, Key widgetKey,
       {ThemeData themeData,
-        MediaQueryData mediaQueryData,
-        IconThemeData iconThemeData}) {
+      MediaQueryData mediaQueryData,
+      IconThemeData iconThemeData}) {
     dynamic jsWidget = currentApp?.navigatorPushWithName(widgetName, widgetKey,
         themeData: themeData,
         mediaQueryData: mediaQueryData,

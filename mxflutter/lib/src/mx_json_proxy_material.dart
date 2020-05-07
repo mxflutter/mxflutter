@@ -1,4 +1,3 @@
-
 //  MXFlutterFramework
 //  Copyright 2019 The MXFlutter Authors. All rights reserved.
 //
@@ -550,7 +549,6 @@ class MXProxyRawMaterialButton extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyRawMaterialButton();
     p.className = regClassName;
     return p;
@@ -639,7 +637,6 @@ class MXProxyMaterialButton extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyMaterialButton();
     p.className = regClassName;
     return p;
@@ -1299,8 +1296,7 @@ class MXFloatingActionButtonLocation {
         FloatingActionButtonLocation.startTop,
     "FloatingActionButtonLocation.miniStartTop":
         FloatingActionButtonLocation.miniStartTop,
-    "FloatingActionButtonLocation.endTop":
-        FloatingActionButtonLocation.endTop,
+    "FloatingActionButtonLocation.endTop": FloatingActionButtonLocation.endTop,
   };
 
   static FloatingActionButtonLocation parse(Map valueMap,

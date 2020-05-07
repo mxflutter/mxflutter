@@ -9,7 +9,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 
 class MXJSLog {
-
   static debug(Object object) {
     if (kDebugMode) {
       String log = "MXJSFlutter:[Flutter]-[DEBUG]::";
@@ -17,14 +16,12 @@ class MXJSLog {
     }
   }
 
-
   static log(Object object) {
     if (kDebugMode) {
       String log = "MXJSFlutter:[Flutter]-";
       callNativelog(log, object);
     }
   }
-
 
   static error(Object object) {
     String log = "MXJSFlutter:[Flutter]-[ERR]::";
