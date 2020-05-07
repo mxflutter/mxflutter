@@ -144,12 +144,20 @@ class CupertinoPageTransition extends FlutterWidget {
 }
 
 class CupertinoFullscreenDialogTransition extends FlutterWidget {
-  constructor({ key, animation, child } = {}) {
+  constructor ({
+    key,
+    primaryRouteAnimation,
+    secondaryRouteAnimation,
+    child,
+    linearTransition,
+  } = {}) {
     super();
 
     this.key = key;
-    this.animation = animation;
+    this.primaryRouteAnimation = primaryRouteAnimation;
+    this.secondaryRouteAnimation = secondaryRouteAnimation;
     this.child = child;
+    this.linearTransition = linearTransition;
   }
 }
 

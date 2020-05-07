@@ -2670,6 +2670,7 @@ class MXProxyInputDecorationTheme extends MXJsonObjProxy {
       hintStyle: mxj2d(bo, jsonMap["hintStyle"]),
       errorStyle: mxj2d(bo, jsonMap["errorStyle"]),
       errorMaxLines: mxj2d(bo, jsonMap["errorMaxLines"]),
+      // ignore: deprecated_member_use
       hasFloatingPlaceholder:
           mxj2d(bo, jsonMap["hasFloatingPlaceholder"], defaultValue: true),
       isDense: mxj2d(bo, jsonMap["isDense"], defaultValue: false),

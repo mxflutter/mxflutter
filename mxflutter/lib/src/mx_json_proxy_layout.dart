@@ -1876,6 +1876,7 @@ class MXProxySliverOverlapInjector extends MXJsonObjProxy {
     var widget = SliverOverlapInjector(
       key: mxj2d(bo, jsonMap["key"]),
       handle: mxj2d(bo, jsonMap["handle"], context: context),
+      // ignore: deprecated_member_use
       child: mxj2d(bo, jsonMap["child"]),
     );
     return widget;
@@ -1978,6 +1979,7 @@ class MXProxySliverOverlapAbsorber extends MXJsonObjProxy {
     var widget = SliverOverlapAbsorber(
       key: mxj2d(bo, jsonMap["key"]),
       handle: mxj2d(bo, jsonMap["handle"], context: context),
+      // ignore: deprecated_member_use
       child: mxj2d(bo, jsonMap["child"]),
     );
     return widget;

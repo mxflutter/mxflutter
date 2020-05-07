@@ -177,18 +177,18 @@ class MXUtil {
     }
 
     Map map = {
-      "display4": cTextStyleToJson(data.display4),
-      "display3": cTextStyleToJson(data.display3),
-      "display2": cTextStyleToJson(data.display2),
-      "display1": cTextStyleToJson(data.display1),
-      "headline": cTextStyleToJson(data.headline),
-      "title": cTextStyleToJson(data.title),
-      "subhead": cTextStyleToJson(data.subhead),
-      "body2": cTextStyleToJson(data.body2),
-      "body1": cTextStyleToJson(data.body1),
+//      "display4": cTextStyleToJson(data.display4),
+//      "display3": cTextStyleToJson(data.display3),
+//      "display2": cTextStyleToJson(data.display2),
+//      "display1": cTextStyleToJson(data.display1),
+//      "headline": cTextStyleToJson(data.headline),
+//      "title": cTextStyleToJson(data.title),
+//      "subhead": cTextStyleToJson(data.subhead),
+//      "body2": cTextStyleToJson(data.body2),
+//      "body1": cTextStyleToJson(data.body1),
       "caption": cTextStyleToJson(data.caption),
       "button": cTextStyleToJson(data.button),
-      "subtitle": cTextStyleToJson(data.subtitle),
+      //"subtitle": cTextStyleToJson(data.subtitle),
       "overline": cTextStyleToJson(data.overline),
     };
 
@@ -235,6 +235,7 @@ class MXUtil {
       "hintStyle": data.hintStyle,
       "errorStyle": data.errorStyle,
       "errorMaxLines": data.errorMaxLines,
+      // ignore: deprecated_member_use
       "hasFloatingPlaceholder": data.hasFloatingPlaceholder,
       "isDense": data.isDense,
       "contentPadding": data.contentPadding,
