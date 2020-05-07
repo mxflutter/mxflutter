@@ -1,22 +1,23 @@
 ![](https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png)
+----
+![Pub Version (including pre-releases)](https://img.shields.io/pub/v/mxflutter?include_prereleases) [![GitHub license](https://img.shields.io/github/license/mxflutter/mxflutter)](https://github.com/mxflutter/mxflutter/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/mxflutter/mxflutter?style=social)](https://github.com/mxflutter/mxflutter/stargazers)
+
 
 # MXFlutter Beta
 
 [中文版文档](README.md)|[English Document](Documentation/README-EN.md)
 
-----
-
 
 ## 新版本
 
-### 【*New】0.2.0 Beta   2020-05-6
+### 【*New】0.2.1 Beta   2020-05-07
 
    mxflutter 重构为标准 package，简化接入步骤，三步接入到现有工程运行起JS编写的页面，欢迎大家尝鲜。
 体验包下载地址 [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk)
 
   *   库代码移动到 ./mxflutter ，接入使用 package 的标准方式
   *   接入示例 mxflutter/example，[接入指南文档](https://github.com/mxflutter/mxflutter/tree/master/mxflutter) 
-  *   **对应Flutter (Channel stable tag:v1.12.13+hotfix.9) 和 (Channel master tag:v1.16.2)**
+  *   对应Flutter 1.17.0 (Channel stable tag:v1.17.0) 
   *   支持Packages
       1.   dio
       2.   pull_to_refresh
@@ -28,8 +29,7 @@
  
 ``` 
 运行 MXFlutter
-  如果本机是 Flutter Channel stable，请更新到最新 tag:v1.12.13+hotfix.9
-  如果本机是 Flutter Channel master，请更新到 tag:v1.16.2 
+  如果本机是 Flutter Channel stable，请更新到最新 tag:v1.17.0
   如果遇到其他问题，可在QQ群（747535761）中讨论。
 ```
 

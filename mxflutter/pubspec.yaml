@@ -1,6 +1,6 @@
 name: mxflutter
 description: JavaScript Flutter Framework,Using mxflutter lib, you can use JavaScript to develop flutter or use Dart to develop and compile to JS.
-version: 0.2.0+1
+version: 0.2.1
 homepage: https://github.com/mxflutter/mxflutter
 
 environment:
@@ -43,21 +43,21 @@ flutter:
     - js_lib/framework/dart_js_framework/
 
     #packages js ,按需选择
-    - js_lib/framework/packages/
+    - js_lib/framework/mx_packages/
 
     #cached_network_image
-    - js_lib/framework/packages/cached_network_image/
+    - js_lib/framework/mx_packages/cached_network_image/
     #dio
-    - js_lib/framework/packages/dio/
-    - js_lib/framework/packages/dio/src/
-    - js_lib/framework/packages/dio/src/adapters/
-    - js_lib/framework/packages/dio/src/entry/
+    - js_lib/framework/mx_packages/dio/
+    - js_lib/framework/mx_packages/dio/src/
+    - js_lib/framework/mx_packages/dio/src/adapters/
+    - js_lib/framework/mx_packages/dio/src/entry/
     #pull_to_refresh
-    - js_lib/framework/packages/pull_to_refresh/
-    - js_lib/framework/packages/pull_to_refresh/src/
-    - js_lib/framework/packages/pull_to_refresh/src/indicator/
+    - js_lib/framework/mx_packages/pull_to_refresh/
+    - js_lib/framework/mx_packages/pull_to_refresh/src/
+    - js_lib/framework/mx_packages/pull_to_refresh/src/indicator/
     #shared_preferences
-    - js_lib/framework/packages/shared_preferences/
+    - js_lib/framework/mx_packages/shared_preferences/
 
   # This section identifies this Flutter project as a plugin project.
   # The androidPackage and pluginClass identifiers should not ordinarily

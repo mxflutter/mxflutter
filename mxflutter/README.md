@@ -1,10 +1,15 @@
 ![](https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png)
+----
+![Pub Version (including pre-releases)](https://img.shields.io/pub/v/mxflutter?include_prereleases) [![GitHub license](https://img.shields.io/github/license/mxflutter/mxflutter)](https://github.com/mxflutter/mxflutter/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/mxflutter/mxflutter?style=social)](https://github.com/mxflutter/mxflutter/stargazers)
+
 # MXFlutter
 
 MXFlutter 是一套基于 JavaScript 的 Flutter 框架，它用极类似Dart的开发方式，通过编写JavaScript 代码，来开发 Flutter 应用。clone 代码运行起来感受更直观，代码位置 [MXFlutter Github](https://github.com/mxflutter/mxflutter.git) ，或者安装 Android的包来体验  [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk) ，更多细节在 [基于JavaScript的Flutter框架详细介绍](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
 
 ## MXFlutter 接入指南
 mxflutter 是一个标准的 Dart package，可以按照 Dart 引入 package 的方式接入，步骤非常简单。在开始接入之前，运行体验 mxfltuter 的两个例子，对接入会有帮助，一个是示例丰富但比较复杂的例子，在 https://github.com/mxflutter/mxflutter.git 主库根目录，一个是最简化接入示例，在主库 mxflutter/example/ 目录下 ，推荐第一次接入按照第二个例子来。
+
+`mxflutter v0.2.1 对应Flutter 1.17.0 (Channel stable tag:v1.17.0) `
 
 ### 三步接入MXFlutter
 

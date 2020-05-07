@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 //mxflutter
 import 'package:mxflutter/mxflutter.dart';
 
-
-void main()  {
+void main() {
   //-------MXFlutter 启动---------
   //1. 启动你的jsAPP，不显示任何界面
   // 获取配置在pubspec.yaml中，jsapp代码路径

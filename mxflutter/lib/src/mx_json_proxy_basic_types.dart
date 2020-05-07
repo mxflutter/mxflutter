@@ -110,7 +110,6 @@ class MXProxyKey extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyKey();
     p.className = regClassName;
     return p;
@@ -145,7 +144,6 @@ class MXProxyAlignmentDirectional extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyAlignmentDirectional();
     p.className = regClassName;
     return p;
@@ -213,7 +211,6 @@ class MXProxyEdgeInsets extends MXJsonObjProxy {
     );
     return widget;
   }
-
 
   EdgeInsets constructorFromLTRB(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
@@ -545,7 +542,6 @@ class MXProxyPaint extends MXJsonObjProxy {
   @override
   void init({String className}) {
     super.init(className: className);
-
   }
 
   ///
@@ -610,7 +606,6 @@ class MXProxyFilter extends MXJsonObjProxy {
 
   ///
 
-
   ColorFilter constructorMode(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     ColorFilter obj = ColorFilter.mode(mxj2d(bo, jsonMap["color"]),
@@ -618,7 +613,6 @@ class MXProxyFilter extends MXJsonObjProxy {
 
     return obj;
   }
-
 
   MaskFilter constructorBlur(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
@@ -810,7 +804,6 @@ class MXProxyLocale extends MXJsonObjProxy {
     return obj;
   } //
 
-
   Locale constructorFromSubtags(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
@@ -898,7 +891,6 @@ class MXProxyBoxConstraints extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyBoxConstraints();
     p.className = regClassName;
     return p;
@@ -934,7 +926,6 @@ class MXProxySize extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxySize();
     p.className = regClassName;
     return p;
@@ -963,7 +954,6 @@ class MXProxyOffset extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyOffset();
     p.className = regClassName;
     return p;
@@ -1175,7 +1165,6 @@ class MXProxyBorderSide extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyBorderSide();
     p.className = regClassName;
     return p;
@@ -1222,7 +1211,6 @@ class MXProxyFlexColumnWidth extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyFlexColumnWidth();
     p.className = regClassName;
     return p;
@@ -1793,7 +1781,6 @@ class MXProxyBouncingScrollPhysics extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyBouncingScrollPhysics();
     p.className = regClassName;
     return p;
@@ -2670,6 +2657,7 @@ class MXProxyInputDecorationTheme extends MXJsonObjProxy {
       hintStyle: mxj2d(bo, jsonMap["hintStyle"]),
       errorStyle: mxj2d(bo, jsonMap["errorStyle"]),
       errorMaxLines: mxj2d(bo, jsonMap["errorMaxLines"]),
+      // ignore: deprecated_member_use
       hasFloatingPlaceholder:
           mxj2d(bo, jsonMap["hasFloatingPlaceholder"], defaultValue: true),
       isDense: mxj2d(bo, jsonMap["isDense"], defaultValue: false),
@@ -3390,18 +3378,20 @@ class MXProxySpringDescription extends MXJsonObjProxy {
 }
 
 class MXProxyUniqueKey extends MXJsonObjProxy {
-	static Map<String, CreateJsonObjProxyFun> registerProxy() {
-		///**@@@  2 替换类名字符串
-		final String regClassName = "UniqueKey";
-		///**@@@  3 替换类构造函数
-		return {regClassName: () => MXProxyUniqueKey()..init(className: regClassName)};
-	}
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "UniqueKey";
 
-	@override
-	UniqueKey constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap, {BuildContext context}) {
-		var widget = UniqueKey(
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () => MXProxyUniqueKey()..init(className: regClassName)
+    };
+  }
 
-		);
-		return widget;
-	}
+  @override
+  UniqueKey constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = UniqueKey();
+    return widget;
+  }
 }
