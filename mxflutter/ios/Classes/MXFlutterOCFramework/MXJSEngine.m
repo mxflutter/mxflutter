@@ -109,11 +109,7 @@
 
 - (NSString *)calcRequireJSAbsolutePath:(NSString *)filePath{
     
-    NSString *absolutePath = [self calcRequireJSAbsolutePathExt:filePath];
-    
-    if (absolutePath.length > 0) {
-        return absolutePath;
-    }
+    NSString *absolutePath = @"";
     
     //require 函数已经去掉了./packages的情况
     NSString *prefix = @"packages/";
@@ -121,9 +117,16 @@
     if ([prefixPath hasPrefix:prefix]) {
         prefixPath = [prefixPath substringFromIndex:prefix.length];
         prefixPath = [NSString stringWithFormat:@"mx_packages/%@",prefixPath];
+        
+        absolutePath = [self calcRequireJSAbsolutePathExt:prefixPath];
+         
+         if (absolutePath.length > 0) {
+             return absolutePath;
+         }
+         
     }
     
-    absolutePath = [self calcRequireJSAbsolutePathExt:prefixPath];
+    absolutePath = [self calcRequireJSAbsolutePathExt:filePath];
     
     if (absolutePath.length > 0) {
         return absolutePath;
