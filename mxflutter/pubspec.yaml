@@ -1,7 +1,7 @@
 name: mxflutter
 description: JavaScript Flutter Framework,Using mxflutter lib, you can use JavaScript to develop flutter or use Dart to develop and compile to JS.
 version: 0.2.0
-homepage: http://mxflutter.com
+homepage: https://github.com/mxflutter/mxflutter
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -12,6 +12,7 @@ dependencies:
 
   cupertino_icons: ^0.1.2
   # MXFlutter Framework 必须的库
+  vector_math: ^2.0.8
   expressions: ^0.1.2
 
   # 开发者选用的库

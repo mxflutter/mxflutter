@@ -16,9 +16,9 @@ import 'mx_json_proxy_image.dart';
 import 'mx_json_proxy_cupertino.dart';
 import 'mx_js_flutter_common.dart';
 import 'mx_json_proxy_animation.dart';
-import 'packages/dio/mx_json_proxy_dio.dart';
-import 'packages/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
-import 'packages/cached_network_image/mx_json_proxy_cached_network_image.dart';
+import 'pkg/dio/mx_json_proxy_dio.dart';
+import 'pkg/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
+import 'pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
 import 'mx_json_proxy_widget.dart';
 import 'mx_js_mirror_obj_mgr.dart';
