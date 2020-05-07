@@ -1,6 +1,10 @@
-### 【*New】0.2.0 Beta   2020-05-6
+### 0.2.1 Beta   2020-05-07
 
-   mxflutter 重构为 Flutter 标准 package，大大简化引入流程，三步接入现有工程。
+ 升级适配 Flutter 1.17.0 ，对应Channel stable tag:v1.17.0
+ 
+### 0.2.0+1 Beta   2020-05-07
+
+   mxflutter 重构为 Flutter 标准 package，简化引入流程，三步接入现有工程。
 
   *   库代码移动到 ./mxflutter ，接入使用 package 的标准方式
   *   接入示例 mxflutter/example，[接入指南文档](https://github.com/mxflutter/mxflutter/tree/master/mxflutter) 

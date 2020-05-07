@@ -11,9 +11,6 @@ import 'package:flutter/services.dart';
 import 'mx_build_owner.dart';
 import 'mx_js_flutter_common.dart';
 
-
-
-
 ///负责JSWidget 创建管理，事件分发
 ///管理一个JSAPP 代码文件集合
 class MXJSFlutterApp {
@@ -309,7 +306,7 @@ class MXJSBaseWidget extends Object {
 
   // The Widget Pages that pushed this Widget
   // 把当前widget（this） push 出来的widget
-  dynamic navPushingWidget ;
+  dynamic navPushingWidget;
 
   //The widget that was pushed by this widget
   //由自己this push的widget page

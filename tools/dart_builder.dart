@@ -633,6 +633,9 @@ class Parse2DartFlutter {
       }
     }
 
+    if(props.isEmpty) {
+    }
+
     String thisStr = "this";
 
     //类定义

@@ -69,7 +69,6 @@ class MXProxyClassicHeader extends MXJsonObjProxy {
   }
 }
 
-
 class MXProxyClassicFooter extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
@@ -115,4 +114,3 @@ class MXProxyClassicFooter extends MXJsonObjProxy {
     return widget;
   }
 }
-

@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 
-
 // TODO List
 // 1、默认值是私有类的方法
 

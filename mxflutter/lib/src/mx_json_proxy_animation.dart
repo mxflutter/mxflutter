@@ -11,7 +11,6 @@ import 'mx_json_proxy_basic_types.dart';
 import 'dart:math';
 import 'package:expressions/expressions.dart';
 
-
 ///把Widget按分类注册，方便写代码，
 ///分类：Material/Layout/Text/(Assets.Images.icons)/input...
 ///参照了官网https://flutter.io/docs/development/ui/widgets
@@ -53,7 +52,6 @@ class MXProxyAnimation extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyAnimation();
     p.className = regClassName;
     return p;

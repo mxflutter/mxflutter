@@ -115,7 +115,6 @@ class MXProxyText extends MXJsonObjProxy {
 //        data = null,
 //        super(key: key);
 
-
   Text constructorRich(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     var widget = Text.rich(
@@ -284,7 +283,6 @@ class MXProxyTextSpan extends MXJsonObjProxy {
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-
     var p = MXProxyTextSpan();
     p.className = regClassName;
     return p;
@@ -361,17 +359,27 @@ class MXProxyTextTheme extends MXJsonObjProxy {
   TextTheme constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     var widget = TextTheme(
+      // ignore: deprecated_member_use
       display4: mxj2d(bo, jsonMap["display4"]),
+      // ignore: deprecated_member_use
       display3: mxj2d(bo, jsonMap["display3"]),
+      // ignore: deprecated_member_use
       display2: mxj2d(bo, jsonMap["display2"]),
+      // ignore: deprecated_member_use
       display1: mxj2d(bo, jsonMap["display1"]),
+      // ignore: deprecated_member_use
       headline: mxj2d(bo, jsonMap["headline"]),
+      // ignore: deprecated_member_use
       title: mxj2d(bo, jsonMap["title"]),
+      // ignore: deprecated_member_use
       subhead: mxj2d(bo, jsonMap["subhead"]),
+      // ignore: deprecated_member_use
       body2: mxj2d(bo, jsonMap["body2"]),
+      // ignore: deprecated_member_use
       body1: mxj2d(bo, jsonMap["body1"]),
       caption: mxj2d(bo, jsonMap["caption"]),
       button: mxj2d(bo, jsonMap["button"]),
+      // ignore: deprecated_member_use
       subtitle: mxj2d(bo, jsonMap["subtitle"]),
       overline: mxj2d(bo, jsonMap["overline"]),
     );
@@ -676,6 +684,7 @@ class MXProxyInputDecoration extends MXJsonObjProxy {
       errorText: mxj2d(bo, jsonMap["errorText"]),
       errorStyle: mxj2d(bo, jsonMap["errorStyle"]),
       errorMaxLines: mxj2d(bo, jsonMap["errorMaxLines"]),
+      // ignore: deprecated_member_use
       hasFloatingPlaceholder:
           mxj2d(bo, jsonMap["hasFloatingPlaceholder"], defaultValue: true),
       isDense: mxj2d(bo, jsonMap["isDense"]),
@@ -711,6 +720,7 @@ class MXProxyInputDecoration extends MXJsonObjProxy {
       {BuildContext context}) {
     return InputDecoration.collapsed(
       hintText: mxj2d(bo, jsonMap["hintText"]),
+      // ignore: deprecated_member_use
       hasFloatingPlaceholder:
           mxj2d(bo, jsonMap["hasFloatingPlaceholder"], defaultValue: true),
       hintStyle: mxj2d(bo, jsonMap["hintStyle"]),
