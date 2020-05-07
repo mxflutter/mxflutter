@@ -1,6 +1,7 @@
+![](https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png)
 # MXFlutter
 
-MXFlutter 是一套基于 JavaScript 的 Flutter 框架，它用极类似Dart的开发方式，通过编写JavaScript 代码，来开发 Flutter 应用。更多细节在 [基于JavaScript的Flutter框架详细介绍](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
+MXFlutter 是一套基于 JavaScript 的 Flutter 框架，它用极类似Dart的开发方式，通过编写JavaScript 代码，来开发 Flutter 应用。clone 代码运行起来感受更直观，代码位置 [MXFlutter Github](https://github.com/mxflutter/mxflutter.git) ，或者安装 Android的包来体验  [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk) ，更多细节在 [基于JavaScript的Flutter框架详细介绍](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
 
 ## MXFlutter 接入指南
 mxflutter 是一个标准的 Dart package，可以按照 Dart 引入 package 的方式接入，步骤非常简单。在开始接入之前，运行体验 mxfltuter 的两个例子，对接入会有帮助，一个是示例丰富但比较复杂的例子，在 https://github.com/mxflutter/mxflutter.git 主库根目录，一个是最简化接入示例，在主库 mxflutter/example/ 目录下 ，推荐第一次接入按照第二个例子来。
@@ -9,7 +10,14 @@ mxflutter 是一个标准的 Dart package，可以按照 Dart 引入 package 的
 
 #### 1. 添加依赖
 
-推荐 fork 在 github 的主库 https://github.com/mxflutter/mxflutter.git 来接入，方面自己修改和定期从主库的更新。
+
+```
+dependencies:
+  mxflutter: ^0.2.0+1
+```
+
+
+因为mxflutter在快速迭代，推荐 fork 在 github 的主库 https://github.com/mxflutter/mxflutter.git 来接入，方面自己修改和定期从主库的更新。
 
 ```
   dependencies:
@@ -88,6 +96,7 @@ void main() {
 
 ##### bingo 如果顺利的话，基本得接入工作已经完成，你应该可以打开一个经典的 Flutter 示例页面了。接下来可以尝试修改下 mxflutter_js_src/ 文件夹下的JS文件，可以看到 UI 变化。
 
+![](https://raw.githubusercontent.com/mxflutter/doc_image/master/Getstarted/example2.png)
 
 ### 更多易用的配置
 
@@ -154,5 +163,143 @@ void main() {
 
 
 
+### APP Demo示例截图：
 
+先看看使用效果，以下截图是在MXFlutter框架下用JS开发，可以把上面的源码下载下来，里面有完整的JS代码示例：
+
+> 单页面演示
+
+![](https://github.com/langbluesky/Image/blob/master/pesto_demo.jpeg?raw=true)
+
+下面是UI截图对应的JS代码，没错，你没有眼花，这个是 JavaScript 代码，可以在 MXFlutter 的运行时库上渲染出 Flutter 的UI，（是不是很像Flutter里面的组件代码）！
+
+```javascript
+class JSPestoPage extends MXJSWidget {
+  constructor() {
+    super("JSPestoPage");
+    this.recipes = recipeList;
+
+  }
+
+  build(context) {
+    let statusBarHeight = 24;
+    let mq = MediaQuery.of(context);
+    if (mq) {
+      statusBarHeight = mq.padding.top
+    }
+
+    let w = new Scaffold({
+      appBar: new AppBar({
+        title: new Text("Pesto Demo")
+      }),
+      floatingActionButton: new FloatingActionButton({
+        child: new Icon(new IconData(0xe3c9)),
+        onPressed: function () {
+
+        },
+      }),
+      body: new CustomScrollView({
+        semanticChildCount: this.recipes.length,
+        slivers: [
+          //this.buildAppBar(context, statusBarHeight),
+          this.buildBody(context, statusBarHeight),
+        ],
+      }),
+      //body:this.buildItems()[0]
+    });
+
+    return w;
+  }
+
+  buildAppBar(context, statusBarHeight) {
+    return SliverAppBar({
+      pinned: true,
+      expandedHeight: _kAppBarHeight,
+      actions: [
+        IconButton({
+          icon: new Icon(new IconData(1)),
+          tooltip: 'Search',
+          onPressed: function () {
+
+          },
+        }),
+      ],
+      flexibleSpace: LayoutBuilder({
+        builder: function (context, constraints) {
+          size = constraints.biggest;
+          appBarHeight = size.height - statusBarHeight;
+          t = (appBarHeight - kToolbarHeight) / (_kAppBarHeight - kToolbarHeight);
+          extraPadding = new Tween({ begin: 10.0, end: 24.0 }).transform(t);
+          logoHeight = appBarHeight - 1.5 * extraPadding;
+          return Padding({
+            padding: EdgeInsets.only({
+              top: statusBarHeight + 0.5 * extraPadding,
+              bottom: extraPadding,
+            }),
+            child: Center({
+              child: new Icon(new IconData(1))
+            }),
+          });
+        },
+      }),
+    });
+  }
+
+  buildBody(context, statusBarHeight) {
+
+    let mediaPadding = EdgeInsets.all(0);
+    let mq = MediaQuery.of(context);
+    if (mq) {
+      mediaPadding = MediaQuery.of(context).padding;
+    }
+    let padding = EdgeInsets.only({
+      top: 8.0,
+      left: 8.0 + mediaPadding.left,
+      right: 8.0 + mediaPadding.right,
+      bottom: 8.0
+    });
+
+    return new SliverPadding({
+      padding: padding,
+      sliver: new SliverGrid({
+        gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent({
+          maxCrossAxisExtent: _kRecipePageMaxWidth,
+          crossAxisSpacing: 8.0,
+          mainAxisSpacing: 8.0,
+        }),
+        delegate: new SliverChildBuilderDelegate(
+          function (context, index) {
+            let recipe = this.recipes[index];
+            let w = new RecipeCard({
+              recipe: recipe,
+              onTap: function () { showRecipePage(context, recipe); },
+            });
+
+            return w;
+          },
+          {
+            childCount: this.recipes.length,
+          }),
+      }),
+    });
+  }
+```
+
+> 项目演示
+
+源码中还有更丰满的示例，高仿知乎页面JSFlutter版，可以点此进入查看代码：
+
+[zhihu/home/home_page.js](https://github.com/mxflutter/mxflutter/tree/master/mxflutter_js_src/app_demo/zhihu)
+
+下图是对应的UI，已经接近在线上版直接使用了：
+
+![](https://github.com/langbluesky/Image/blob/master/demo_0.gif?raw=true)
+
+
+
+### 联系我们
+
+使用 MXFlutter 过程中有任何问题，可以加群交流 QQ群:747535761
+
+![qrcode](https://github.com/langbluesky/Image/blob/master/qrcode.png?raw=true)
 

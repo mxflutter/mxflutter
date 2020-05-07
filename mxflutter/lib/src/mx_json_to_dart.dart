@@ -16,9 +16,9 @@ import 'mx_json_proxy_image.dart';
 import 'mx_json_proxy_cupertino.dart';
 import 'mx_js_flutter_common.dart';
 import 'mx_json_proxy_animation.dart';
-import 'packages/dio/mx_json_proxy_dio.dart';
-import 'packages/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
-import 'packages/cached_network_image/mx_json_proxy_cached_network_image.dart';
+import 'pkg/dio/mx_json_proxy_dio.dart';
+import 'pkg/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
+import 'pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
 import 'mx_json_proxy_widget.dart';
 import 'mx_js_mirror_obj_mgr.dart';
@@ -463,6 +463,7 @@ class MXJsonObjProxy {
       } else {
         MXJSLog.error(
             "toMapIntT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+        return null;
       }
     });
     return result;
@@ -475,6 +476,7 @@ class MXJsonObjProxy {
       } else {
         MXJSLog.error(
             "toMapStringT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+        return null;
       }
     });
     return result;
@@ -544,6 +546,8 @@ class MXJsonObjProxy {
 
     StringFunctionGenericCallback<T> cb = (T b) {
       bo.eventCallback(eventCallbackID, p: b);
+      //TODO:return String
+      return null;
     };
 
     return cb;
@@ -559,6 +563,8 @@ class MXJsonObjProxy {
 
     WidgetBuilder cb = (BuildContext context) {
       bo.widgetBuilderCallback(eventCallbackID, p: context);
+      //TODO:return widget
+      return null;
     };
 
     return cb;
@@ -574,6 +580,8 @@ class MXJsonObjProxy {
 
     IndexedWidgetBuilder cb = (BuildContext context, int index) {
       bo.widgetBuilderCallback(eventCallbackID, p: [context, index]);
+      //TODO:return widget
+      return null;
     };
 
     return cb;

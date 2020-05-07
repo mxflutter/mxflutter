@@ -17,6 +17,7 @@ import 'mx_js_flutter_common.dart';
 ///
 /// '''
 ///
+// ignore: must_be_immutable
 class MXJSPageWidget extends StatelessWidget {
   MXJSPageWidget({this.jsWidgetName, Key key}) {
     this.key = key??UniqueKey();

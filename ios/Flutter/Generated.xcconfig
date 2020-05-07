@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Volumes/Data/DevEnvi/flutter
-FLUTTER_APPLICATION_PATH=/Volumes/Data/Work/RWork/MXFlutter2
-FLUTTER_TARGET=/Volumes/Data/Work/RWork/MXFlutter2/lib/main.dart
+FLUTTER_APPLICATION_PATH=/Volumes/Data/Work/RWork/githubMXFlutter
+FLUTTER_TARGET=/Volumes/Data/Work/RWork/githubMXFlutter/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Volumes/Data/DevEnvi/flutter/bin/cache/artifacts/engine/ios
