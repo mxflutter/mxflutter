@@ -309,7 +309,7 @@ class MXJSBaseWidget extends Object {
 
   // The Widget Pages that pushed this Widget
   // 把当前widget（this） push 出来的widget
-  dynamic navPushingWidget = null;
+  dynamic navPushingWidget ;
 
   //The widget that was pushed by this widget
   //由自己this push的widget page
@@ -332,6 +332,7 @@ class MXJSBaseWidget extends Object {
 }
 
 ///封装JSWidget
+// ignore: must_be_immutable
 class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
   MXJSWidgetState _state;
 
@@ -439,6 +440,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
 }
 
 ///静态json生成Widget
+// ignore: must_be_immutable
 class MXJSStatelessWidget extends StatelessWidget with MXJSBaseWidget {
   MXJSStatelessWidget(
       {Key key,

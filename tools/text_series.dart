@@ -513,7 +513,7 @@ void main(List<String> arguments) {
 
 }
 
-String translate(String src) {
+ translate(String src) {
   print(translateDart(src));
   // print(translateJS(src));
 }

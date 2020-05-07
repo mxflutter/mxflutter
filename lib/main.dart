@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:flutter/services.dart';
 //mxflutter
 import 'package:mxflutter/mxflutter.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
-import 'dart:io';
 
-void main() async {
+
+void main()  {
   //-------MXFlutter 启动---------
   //1. 启动你的jsAPP，不显示任何界面
   // 获取配置在pubspec.yaml中，jsapp代码路径
