@@ -1,4 +1,7 @@
 ![](https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png)
+----
+![Pub Version (including pre-releases)](https://img.shields.io/pub/v/mxflutter?include_prereleases) [![GitHub license](https://img.shields.io/github/license/mxflutter/mxflutter)](https://github.com/mxflutter/mxflutter/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/mxflutter/mxflutter?style=social)](https://github.com/mxflutter/mxflutter/stargazers)
+
 # MXFlutter
 
 MXFlutter 是一套基于 JavaScript 的 Flutter 框架，它用极类似Dart的开发方式，通过编写JavaScript 代码，来开发 Flutter 应用。clone 代码运行起来感受更直观，代码位置 [MXFlutter Github](https://github.com/mxflutter/mxflutter.git) ，或者安装 Android的包来体验  [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk) ，更多细节在 [基于JavaScript的Flutter框架详细介绍](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。

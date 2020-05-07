@@ -1,10 +1,11 @@
 ![](https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png)
+----
+![Pub Version (including pre-releases)](https://img.shields.io/pub/v/mxflutter?include_prereleases) [![GitHub license](https://img.shields.io/github/license/mxflutter/mxflutter)](https://github.com/mxflutter/mxflutter/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/mxflutter/mxflutter?style=social)](https://github.com/mxflutter/mxflutter/stargazers)
+
 
 # MXFlutter Beta
 
 [中文版文档](README.md)|[English Document](Documentation/README-EN.md)
-
-----
 
 
 ## 新版本
