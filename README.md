@@ -6,11 +6,13 @@
 
 ----
 
+
 ## 新版本
 
 ### 【*New】0.2.0 Beta   2020-05-6
 
-   mxflutter 重构为 Flutter 标准 package，大大简化引入流程，三步接入现有工程。
+   mxflutter 重构为标准 package，简化接入步骤，三步接入到现有工程。
+体验包下载地址 [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk)
 
   *   库代码移动到 ./mxflutter ，接入使用 package 的标准方式
   *   接入示例 mxflutter/example，[接入指南文档](https://github.com/mxflutter/mxflutter/tree/master/mxflutter) 
@@ -114,7 +116,7 @@ mxflutter 是一个标准的 Dart package，可以按照 Dart 引入 package 的
 
 #### 1. 添加依赖
 
-推荐 fork 在 github 的主库 https://github.com/mxflutter/mxflutter.git 来接入，方面自己修改和定期从主库的更新。
+推荐 fork 在 github 的主库 https://github.com/mxflutter/mxflutter.git 来接入，方便自己修改和定期从主库的更新。
 
 ```
   dependencies:
