@@ -107,6 +107,58 @@
     [self.searchDirArray addObject:dir];
 }
 
+- (NSString *)calcRequireJSAbsolutePath:(NSString *)filePath{
+    
+    NSString *absolutePath = [self calcRequireJSAbsolutePathExt:filePath];
+    
+    if (absolutePath.length > 0) {
+        return absolutePath;
+    }
+    
+    //require 函数已经去掉了./packages的情况
+    NSString *prefix = @"packages/";
+    NSString *prefixPath = filePath;
+    if ([prefixPath hasPrefix:prefix]) {
+        prefixPath = [prefixPath substringFromIndex:prefix.length];
+        prefixPath = [NSString stringWithFormat:@"mx_packages/%@",prefixPath];
+    }
+    
+    absolutePath = [self calcRequireJSAbsolutePathExt:prefixPath];
+    
+    if (absolutePath.length > 0) {
+        return absolutePath;
+    }
+    
+    //replace
+    NSString *replacePath = [filePath stringByReplacingOccurrencesOfString:@"/packages/" withString:@"/mx_packages/"];
+    absolutePath = [self calcRequireJSAbsolutePathExt:replacePath];
+    
+    return absolutePath;
+}
+
+- (NSString *)calcRequireJSAbsolutePathExt:(NSString *)filePath{
+    
+    NSString *absolutePath = @"";
+    NSArray *extensions = @[@".js",@".lib.js",@".ddc.js"];
+    for(NSString *dir in self.searchDirArray) {
+        for (NSString *extension in extensions) {
+            NSString *absolutePathTemp = [dir stringByAppendingPathComponent:filePath];
+            if (![filePath hasSuffix:@".js"]) {
+                absolutePathTemp = [NSString stringWithFormat:@"%@%@",absolutePathTemp,extension];
+            }
+            if ([[NSFileManager defaultManager] fileExistsAtPath:absolutePathTemp]) {
+                absolutePath = absolutePathTemp;
+                break;
+            }
+        }
+        if (absolutePath.length > 0) {
+            break;
+        }
+    }
+    
+    return absolutePath;
+}
+
 - (void)setupBasicJSRuntime:(MXJSEngine* )jsEngine context:(JSContext* )context
 {
     __weak MXJSEngine *weakSelf = jsEngine;
@@ -122,24 +174,8 @@
             filePath = [filePath substringFromIndex:prefix.length];
         }
         
-        NSString *absolutePath = @"";
-        NSArray *extensions = @[@".js",@".lib.js",@".ddc.js"];
-        for(NSString *dir in weakSelf.searchDirArray) {
-            for (NSString *extension in extensions) {
-                NSString *absolutePathTemp = [dir stringByAppendingPathComponent:filePath];
-                if (![filePath hasSuffix:@".js"]) {
-                    absolutePathTemp = [NSString stringWithFormat:@"%@%@",absolutePathTemp,extension];
-                }
-                if ([[NSFileManager defaultManager] fileExistsAtPath:absolutePathTemp]) {
-                    absolutePath = absolutePathTemp;
-                    break;
-                }
-            }
-            if (absolutePath.length > 0) {
-                break;
-            }
-        }
-        
+        NSString *absolutePath = [weakSelf calcRequireJSAbsolutePath:filePath];
+
         JSModule *module = nil;
         if (absolutePath.length != 0) {
             //MXJSFlutterLog(@"require file:%@ found absolutePath=%@",filePath, absolutePath);
@@ -152,6 +188,7 @@
         
         return module.exports;
     };
+    
     
     //------Dart2Js支持------
     context[@"dartPrint"] = ^(NSString *string) {

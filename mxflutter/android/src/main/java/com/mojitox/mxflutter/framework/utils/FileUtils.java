@@ -105,6 +105,35 @@ public class FileUtils {
     }
 
     public static String getFilePathFromAsset(Context context, String filePath, ArrayList<String> searchDirArray) {
+        String prefix = "./";
+        if (filePath.startsWith(prefix)) {
+            filePath = filePath.substring(prefix.length());
+        }
+
+        String absolutePath = getFilePathFromAssetExt(context,filePath,searchDirArray);
+        if (!TextUtils.isEmpty(absolutePath)) {
+           return  absolutePath;
+        }
+
+        String packagePrefix = "packages/";
+        String packagePath = filePath;
+        if (packagePath.startsWith(packagePrefix)) {
+            packagePath = packagePath.substring(packagePrefix.length());
+            packagePath = "mx_packages/" + packagePath;
+        }
+
+        absolutePath = getFilePathFromAssetExt(context,packagePath,searchDirArray);
+        if (!TextUtils.isEmpty(absolutePath)) {
+            return  absolutePath;
+        }
+
+        String replacePath = filePath.replace("/packages/","/mx_packages/");
+        absolutePath = getFilePathFromAssetExt(context,replacePath,searchDirArray);
+        return absolutePath;
+    }
+
+
+    public static String getFilePathFromAssetExt(Context context, String filePath, ArrayList<String> searchDirArray) {
         assertJSThread();
 
         String prefix = "./";
@@ -174,6 +203,36 @@ public class FileUtils {
     }
 
     public static String getFilePathFromFS(Context context, String filePath, ArrayList<String> searchDirArray) {
+
+        String prefix = "./";
+        if (filePath.startsWith(prefix)) {
+            filePath = filePath.substring(prefix.length());
+        }
+
+        String absolutePath = getFilePathFromFSExt(context,filePath,searchDirArray);
+        if (!TextUtils.isEmpty(absolutePath)) {
+            return  absolutePath;
+        }
+
+        String packagePrefix = "packages/";
+        String packagePath = filePath;
+        if (packagePath.startsWith(packagePrefix)) {
+            packagePath = packagePath.substring(packagePrefix.length());
+            packagePath = "mx_packages/" + packagePath;
+        }
+
+        absolutePath = getFilePathFromFSExt(context,packagePath,searchDirArray);
+        if (!TextUtils.isEmpty(absolutePath)) {
+            return  absolutePath;
+        }
+
+        String replacePath = filePath.replace("/packages/","/mx_packages/");
+        absolutePath = getFilePathFromFSExt(context,replacePath,searchDirArray);
+        return absolutePath;
+
+    }
+
+    public static String getFilePathFromFSExt(Context context, String filePath, ArrayList<String> searchDirArray) {
         assertJSThread();
 
         String prefix = "./";
@@ -186,6 +245,7 @@ public class FileUtils {
         ArrayList<String> extensions = new ArrayList<>();
         extensions.add(".js");
         extensions.add(".ddc.js");
+        extensions.add(".lib.js");
 
         for (String dir : searchDirArray) {
             for (String ext : extensions) {

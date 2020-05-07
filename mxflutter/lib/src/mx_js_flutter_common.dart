@@ -267,6 +267,7 @@ class MXUtil {
     Map v;
 
     switch (data) {
+
       case TargetPlatform.android:
         {
           v = {"_name": "TargetPlatform.android", "index": 0};
@@ -300,6 +301,8 @@ class MXUtil {
 //          v = {"_name": "TargetPlatform.windows", "index": 5};
 //          break;
 //        }
+      default:
+        break;
     }
 
     return v;
