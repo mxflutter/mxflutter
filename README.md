@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png)
 ----
-![Pub Version (including pre-releases)](https://img.shields.io/pub/v/mxflutter?include_prereleases) [![GitHub license](https://img.shields.io/github/license/mxflutter/mxflutter)](https://github.com/mxflutter/mxflutter/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/mxflutter/mxflutter?style=social)](https://github.com/mxflutter/mxflutter/stargazers)
+[![Pub Version (including pre-releases)](https://img.shields.io/pub/v/mxflutter?include_prereleases)](https://pub.flutter-io.cn/packages/mxflutter) [![GitHub license](https://img.shields.io/github/license/mxflutter/mxflutter)](https://github.com/mxflutter/mxflutter/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/mxflutter/mxflutter?style=social)](https://github.com/mxflutter/mxflutter/stargazers)
 
 
 # MXFlutter Beta
@@ -10,12 +10,15 @@
 
 ## 新版本
 
-### 【*New】0.2.1 Beta   2020-05-07
+### 【*New】0.2.2 Beta   2020-05-12
 
-   mxflutter 重构为标准 package，简化接入步骤，三步接入到现有工程运行起JS编写的页面，欢迎大家尝鲜。
+   MXFlutter 发布 [mxjsbuilder v0.0.1](https://github.com/mxflutter/mxjsbuilder) 编译器,支持编译 Flutter 工程为 mxflutter 可运行的 JS 代码。
+   
 体验包下载地址 [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk)
 
-  *   库代码移动到 ./mxflutter ，接入使用 package 的标准方式
+  
+  *   发布  [mxjsbuilder](https://github.com/mxflutter/mxjsbuilder) 编译器 v0.0.1
+  *   mxflutter 支持 mxjsbuilder 编译的JS代码
   *   接入示例 mxflutter/example，[接入指南文档](https://github.com/mxflutter/mxflutter/tree/master/mxflutter) 
   *   对应Flutter 1.17.0 (Channel stable tag:v1.17.0) 
   *   支持Packages
@@ -35,7 +38,7 @@
 
 ----
 
-预告：（0.3.0）版本预计5月11日发布
+预告：（0.2.5）版本预计5月18日发布
 
 ----
 
@@ -58,7 +61,7 @@
 
 ##  <a name="title1">一、项目介绍</a>
 
-MXFlutter是一套基于JavaScript的Flutter框架，它用极类似Dart的开发方式，通过编写JavaScript代码，来开发Flutter应用。更多细节在 [基于JavaScript的Flutter框架详细介绍](Documentation/基于JS的高性能动态化框架详细介绍.md)。
+MXFlutter 是一套基于 JavaScript 的 Flutter 框架，可以用极其类似 Dart 的开发方式，通过编写 JavaScript 代码，来开发 Flutter 应用，或者使用 [mxjsbuilder](https://github.com/mxflutter/mxjsbuilder) 编译器，把现有Flutter 工程编译为JS，运行在 mxflutter 之上。代码位置 [MXFlutter Github](https://github.com/mxflutter/mxflutter.git) ，可以安装 Android的包来体验  [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk) ，更多细节在 [基于JavaScript的Flutter框架详细介绍](https://juejin.im/post/5d11a4f06fb9a07ec63b21ea)。
 
 ----
 
