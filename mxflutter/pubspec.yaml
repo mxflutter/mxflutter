@@ -41,6 +41,19 @@ flutter:
 
     #dart_js_framework
     - js_lib/framework/dart_js_framework/
+    - js_lib/framework/dart_js_framework/mx_packages/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/animation/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/cupertino/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/foundation/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/gestures/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/material/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/painting/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/rendering/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/services/
+    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/widgets/
+    - js_lib/framework/dart_js_framework/mx_packages/vector_math/
 
     #packages js ,按需选择
     - js_lib/framework/mx_packages/

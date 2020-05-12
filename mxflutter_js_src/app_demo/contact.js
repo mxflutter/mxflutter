@@ -253,7 +253,7 @@ class JSContactPageState extends MXJSWidgetState {
                     background: new Stack({
                         fit: StackFit.expand,
                         children: [
-                            Image.asset( 'people/ali_landscape.png', {
+                            Image.asset('people/ali_landscape.png', {
                                 package: 'flutter_gallery_assets',
                                 fit: BoxFit.cover,
                                 height: appBarHeight

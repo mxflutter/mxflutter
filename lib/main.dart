@@ -21,7 +21,8 @@ void main() {
   MXJSFlutter.getInstance().runJSApp(
       jsAppAssetsKey: "mxflutter_js_src",
       jsAppSearchPathWithAssetsKeyList: [
-        "mxflutter_js_src/app_demo"
+        "mxflutter_js_src/app_demo",
+        "mxflutter_js_src/mxjsbuilder_demo"
       ]);
 
   ///或者运行你下载到 DocumentsDirectory 里的JS代码
@@ -87,7 +88,8 @@ class MXFlutterExampleHome extends StatelessWidget {
                   MXJSFlutter.getInstance().runJSApp(
                       jsAppAssetsKey: "mxflutter_js_src",
                       jsAppSearchPathWithAssetsKeyList: [
-                        "mxflutter_js_src/app_demo"
+                        "mxflutter_js_src/app_demo",
+                        "mxflutter_js_src/mxjsbuilder_demo"
                       ]);
                 },
               ),

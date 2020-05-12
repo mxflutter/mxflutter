@@ -63,7 +63,21 @@ class MXJSWidgetHomePage extends MXJSStatelessWidget {
                                 }
                             }))
                         }
-                    })
+                    }),
+                    new ListTile({
+                        leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+                        trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                        title: new Text('MXJSBuilder JS Page Demo'),
+                        subtitle: new Text('使用mxjsbuilder编译生成'),
+                        onTap: function () {
+                            let flutter_demo = require("./mxjsbuilder_demo.js");
+                            Navigator.push(context, new MaterialPageRoute({
+                                builder: function (context) {
+                                    return new flutter_demo.main.MyHomePage.new({ title: "Flutter Demo Home Page" });
+                                }
+                            }))
+                        }
+                    }),
 
                 ]
             })

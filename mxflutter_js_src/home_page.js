@@ -204,8 +204,76 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                             }
                         }))
                     }
-                })
+                }),
+                
+                this.sectionTitle(context, "mxjsbuilder build app"),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('FlutterDemo'),
+                    subtitle: new Text('简单样例'),
+                    onTap: function () {
 
+                        let flutter_demo_ddc = require("./mxjsbuilder_demo/flutter_demo.dart.lib.js");
+
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new flutter_demo_ddc.main.MyHomePage.new({title: "Flutter Demo Home Page"});
+                            }
+                        }))
+                    }
+                }),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('ContactDemo'),
+                    subtitle: new Text('联系人'),
+
+                    onTap: function () {
+
+                        let contact_demo_ddc = require("./mxjsbuilder_demo/contacts_demo.dart.lib.js");
+
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new contact_demo_ddc.contacts_demo.ContactsDemo.new;
+                            }
+                        }))
+                    }
+                }),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('PestoDemo'),
+                    subtitle: new Text('菜谱'),
+                    onTap: function () {
+
+                        let pesto_demo_ddc = require("./mxjsbuilder_demo/pesto_demo.dart.lib.js");
+
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new pesto_demo_ddc.pesto_demo.PestoDemo.new;
+                            }
+                        }))
+                    }
+                }),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('ZhiHu'),
+                    subtitle: new Text('知乎-高仿版'),
+
+                    onTap: function () {
+
+                        const packages__zhihu__index = require('./mxjsbuilder_demo/packages/zhihu/index/index.dart.lib.js');
+                        const index_page = packages__zhihu__index.index__index;
+
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new index_page.Index.new;
+                            }
+                        }))
+                    }
+                }),
             ]
         });
 
