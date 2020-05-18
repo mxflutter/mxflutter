@@ -7,6 +7,7 @@
 let frameworkExports = require("./js_flutter_framework.js");
 let basicExports = require("./js_flutter_basic_types.js");
 let materialExports = require("./js_flutter_material.js");
+let cupertinoExports = require("./js_flutter_cupertino.js");
 let layoutExports = require("./js_flutter_layout.js");
 
 let textExports = require("./js_flutter_text.js");
@@ -21,6 +22,7 @@ module.exports = Object.assign(
   frameworkExports,
   basicExports,
   materialExports,
+  cupertinoExports,
   layoutExports,
   textExports,
   imageExports,

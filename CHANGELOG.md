@@ -1,8 +1,12 @@
-### 【*New】0.2.1 Beta   2020-05-07
+### 【*New】0.2.5 Beta   2020-05-18
+
+   MXFlutter 发布 [mxjsbuilder v0.0.2](https://github.com/mxflutter/mxjsbuilder) 编译器,支持编译 Flutter 工程为 mxflutter 可运行的 JS 代码。
+ 
+### 0.2.1 Beta   2020-05-07
 
  升级适配 Flutter 1.17.0 ，对应Channel stable tag:v1.17.0
   
-### 【*New】0.2.0 Beta   2020-05-06
+### 0.2.0 Beta   2020-05-06
 
    mxflutter 重构为 Flutter 标准 package，大大简化引入流程，三步接入现有工程。
 
