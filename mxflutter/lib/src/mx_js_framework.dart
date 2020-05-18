@@ -419,12 +419,10 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
     }
 
     this.widget.context = context;
-
     var w = this.widget.buildOwner.build(widget.widgetData, context);
 
-    //���诉JS层，使用当前JSWidget 序列号的数据构建，callbackID,widgetID  与之对应
-
-    MXJSLog.log(
+    //call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
+    MXJSLog.debug(
         "MXJSStatefulWidget:building: widget:$w callJSOnBuildEnd  widgetID ${widget.widgetID} curBuildWidgetDataSeq:${widget.buildWidgetDataSeq} buildingWidgetDataSeq:${widget.buildingWidgetDataSeq}");
 
     this.widget.buildWidgetDataSeq = this.widget.buildingWidgetDataSeq;

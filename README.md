@@ -10,14 +10,14 @@
 
 ## 新版本
 
-### 【*New】0.2.2 Beta   2020-05-12
+### 【*New】0.2.5 Beta   2020-05-18
 
-   MXFlutter 发布 [mxjsbuilder v0.0.1](https://github.com/mxflutter/mxjsbuilder) 编译器,支持编译 Flutter 工程为 mxflutter 可运行的 JS 代码。
+   MXFlutter 发布 [mxjsbuilder v0.0.2](https://github.com/mxflutter/mxjsbuilder) 编译器,支持编译 Flutter 工程为 mxflutter 可运行的 JS 代码。
    
 体验包下载地址 [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk)
 
   
-  *   发布  [mxjsbuilder](https://github.com/mxflutter/mxjsbuilder) 编译器 v0.0.1
+  *   发布  [mxjsbuilder](https://github.com/mxflutter/mxjsbuilder) 编译器 v0.0.2
   *   mxflutter 支持 mxjsbuilder 编译的JS代码
   *   接入示例 mxflutter/example，[接入指南文档](https://github.com/mxflutter/mxflutter/tree/master/mxflutter) 
   *   对应Flutter 1.17.0 (Channel stable tag:v1.17.0) 
@@ -36,11 +36,7 @@
   如果遇到其他问题，可在QQ群（747535761）中讨论。
 ```
 
-----
-
-预告：（0.2.5）版本预计5月18日发布
-
-----
+---
 
 *  [一、项目介绍](#title1)
 *  [二、项目特性](#title2)
@@ -121,7 +117,7 @@ mxflutter 是一个标准的 Dart package，可以按照 Dart 引入 package 的
 
 ```
 dependencies:
-  mxflutter: ^0.2.0+1
+  mxflutter: ^0.2.5
 ```
 
 因为mxflutter在快速迭代，推荐 fork 在 github 的主库 https://github.com/mxflutter/mxflutter.git 来接入，方面自己修改和定期从主库的更新。
