@@ -12,9 +12,9 @@
 
 ### 【*New】0.2.5 Beta   2020-05-18
 
-   MXFlutter 发布 [mxjsbuilder v0.0.2](https://github.com/mxflutter/mxjsbuilder) 编译器,支持编译 Flutter 工程为 mxflutter 可运行的 JS 代码。
+   MXFlutter v0.2.5 发布配套 [mxjsbuilder v0.0.2](https://github.com/mxflutter/mxjsbuilder) 编译器,支持编译 Flutter 工程为 mxflutter 可运行的 JS 代码。
    
-体验包下载地址 [MXFlutter_v0-1-2.apk](https://github.com/TGIF-iMatrix/MXFlutter/releases/download/v0.1.2-beta/MXFlutter_v0-1-2.apk)
+体验包下载地址 [MXFlutter_v0-2-5.apk](https://github.com/mxflutter/mxflutter/releases/download/v0.2.5-beta/MXFlutter_v0-2-5.apk)
 
   
   *   发布  [mxjsbuilder](https://github.com/mxflutter/mxjsbuilder) 编译器 v0.0.2
