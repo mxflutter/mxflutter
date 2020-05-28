@@ -13,7 +13,9 @@
 
 #define MXJSFlutterLog(fmt, ...) NSLog((@"MXJSFlutter:[Native]-" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
 
-#define MXFLogWarn(fmt, ...) NSLog((@"MXJSFlutter:[Native]-[warm]" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define MXFLogInfo(fmt, ...) NSLog((@"MXJSFlutter:[Native]-[info]" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#define MXFLogWarn(fmt, ...) NSLog((@"MXJSFlutter:[Native]-[warn]" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
 #define MXFLogError(fmt, ...) NSLog((@"MXJSFlutter:[Native]-[err]" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 #ifndef MXF_DEBUG

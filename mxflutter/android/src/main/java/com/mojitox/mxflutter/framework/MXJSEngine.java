@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -17,8 +17,9 @@ import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
-import com.imatrixteam.mxflutter.framework.utils.FileUtils;
-import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService;
+import com.mojitox.mxflutter.MXFlutterPlugin;
+import com.mojitox.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,9 +42,9 @@ public class MXJSEngine {
     private HashMap<String, V8Function> jsCallbackCache;
     private long jsCallbackCount = 0;
 
-    private Context mContext;
+    private MXFlutterPlugin mContext;
 
-    public MXJSEngine(Context context, MXJSFlutterEngine mxjsFlutterEngine) {
+    public MXJSEngine(MXFlutterPlugin context, MXJSFlutterEngine mxjsFlutterEngine) {
         mContext = context;
         this.mMXJSFlutterEngine = mxjsFlutterEngine;
         this.searchDirArray = new ArrayList<>();
@@ -205,11 +206,11 @@ public class MXJSEngine {
 
                 String filePath = args.get(0).toString();
                 String absolutePath = null;
-                boolean isFromAsset = !FileUtils.isCopiedFileFromAssets(mContext);
+                boolean isFromAsset = !FileUtils.isCopiedFileFromAssets(mContext.mFlutterPluginBinding.getApplicationContext());
                 if (isFromAsset) {
-                    absolutePath = FileUtils.getFilePathFromAsset(mContext, filePath, searchDirArray);
+                    absolutePath = FileUtils.getFilePathFromAsset(mContext.mFlutterPluginBinding.getApplicationContext(), filePath, searchDirArray);
                 } else {
-                    absolutePath = FileUtils.getFilePathFromFS(mContext, filePath, searchDirArray);
+                    absolutePath = FileUtils.getFilePathFromFS(mContext.mFlutterPluginBinding.getApplicationContext(), filePath, searchDirArray);
                 }
 
                 V8Object exports = null;

@@ -7,6 +7,7 @@
 let {
     runApp,
     MXJSFlutterApp,
+    MXJSStatelessWidget,
     MXJSStatefulWidget,
     MXJSWidgetState,
     Scaffold,
@@ -31,36 +32,21 @@ let {
     MXJSLog,
 } = require("js_flutter.js");
 
-const { SectionTitle } = require("./component/section_title.js");
-
-let { JSContactPage } = require("./contact.js");
-let { JSAnimationPage } = require("./animation.js");
-let { JSMaterialPage } = require("./material.js");
-
-
-//let { ExamplesPage } = require("./examples/index.js");
-let { JSCupertinoPage } = require("./cupertino.js");
-
-const dart_sdk = require("dart_sdk");
-const dart = dart_sdk.dart;
-const async = dart_sdk.async;
-
-
 //业务代码
-class JSWidgetHomePage extends MXJSStatefulWidget {
+class MXJSWidgetHomePage extends MXJSStatefulWidget {
     constructor() {
-        super("JSWidgetHomePage");
+        super("MXJSWidgetHomePage");
 
         this.data = "biz data";
         this.count = 0;
     }
 
     createState() {
-        return new JSWidgetHomePageState(this);
+        return new MXJSWidgetHomePageState(this);
     }
 }
 
-class JSWidgetHomePageState extends MXJSWidgetState {
+class MXJSWidgetHomePageState extends MXJSWidgetState {
 
     build(context) {
 
@@ -77,7 +63,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     onTap: function () {
 
                         //点击时懒加载页面
-                        let { ExamplesPage } = require("./examples/index.js");
+                        let { ExamplesPage } = require("./app_demo/examples/index.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -94,6 +80,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('Material'),
                     subtitle: new Text('Material UI Demo'),
                     onTap: function () {
+                        let { JSMaterialPage } = require("./app_demo/material.js");
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new JSMaterialPage;
@@ -108,7 +95,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('ZhiHu high copy'),
                     onTap: function () {
 
-                        let { JSZhiHuPage } = require("./zhihu/zhihu.js");
+                        let { JSZhiHuPage } = require("./app_demo/zhihu/zhihu.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -126,7 +113,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
                     onTap: function () {
 
-                        let list_view = require("./listview_example.js");
+                        let list_view = require("./app_demo/listview_example.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -144,7 +131,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
                     onTap: function () {
 
-                        let { PlatformExamplesPage } = require("./platform/index.js");
+                        let { PlatformExamplesPage } = require("./app_demo/platform/index.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -162,7 +149,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
 
                     onTap: function () {
 
-                        let pesto = require("./pesto.js");
+                        let pesto = require("./app_demo/pesto.js");
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
@@ -178,6 +165,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     subtitle: new Text('Address book entry with a flexible appbar'),
 
                     onTap: function () {
+                        let { JSContactPage } = require("./app_demo/contact.js");
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new JSContactPage;
@@ -191,6 +179,7 @@ class JSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('Animation'),
                     subtitle: new Text('Section organizer'),
                     onTap: function () {
+                       let { JSAnimationPage } = require("./app_demo/animation.js");
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new JSAnimationPage;
@@ -300,8 +289,36 @@ class JSWidgetHomePageState extends MXJSWidgetState {
     }
 
     sectionTitle(context, title) {
-        return new SectionTitle(title);
+        return new HomeSectionTitle(title);
     }
 }
 
-module.exports = { JSWidgetHomePage };
+class HomeSectionTitle extends MXJSStatelessWidget {
+  constructor(title,{key}={}){
+    super("HomeSectionTitle",{key:key});
+    this.title = title;
+  }
+
+  build(context){
+    return new Container({
+      padding: EdgeInsets.all(10.0),
+      color: Theme.of(context).primaryColor,
+      child: new Row({
+        children: [
+          new Icon(new IconData(0xe80e, { fontFamily: 'MaterialIcons' }), { size: 20, color: new Color(0xFFFFFFFF) }),
+          new Padding({ padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0) }),
+          new Text(this.title, {
+            textAlign: TextAlign.start,
+            style:new TextStyle({
+              fontSize: 16,
+              fontWeight: Theme.of(context).textTheme.title.fontWeight,
+              color:Colors.white
+            })
+          })
+        ]
+      })
+    });
+  }
+}
+
+module.exports = { MXJSWidgetHomePage };

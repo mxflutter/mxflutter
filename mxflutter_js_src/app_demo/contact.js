@@ -51,7 +51,6 @@ let {
     Colors
   } = require("js_flutter.js");
 
-let _kGalleryAssetsPackage = 'mxflutter_js_src/flutter_gallery_assets/';
 
 class ContactCategory extends MXJSStatelessWidget {
     constructor({icon, children} = {}) {
@@ -254,7 +253,7 @@ class JSContactPageState extends MXJSWidgetState {
                     background: new Stack({
                         fit: StackFit.expand,
                         children: [
-                            Image.asset(_kGalleryAssetsPackage + 'people/ali_landscape.png', {
+                            Image.asset('people/ali_landscape.png', {
                                 package: 'flutter_gallery_assets',
                                 fit: BoxFit.cover,
                                 height: appBarHeight

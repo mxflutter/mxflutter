@@ -25,8 +25,6 @@ class MXJsonBuildOwner {
   List mirrorObjKeyList = [];
 
   dynamic widget;
-  Map<String, dynamic> _widgetMap;
-
   var widgetName;
 
   MXJsonBuildOwner(dynamic jsWidget, MXJsonBuildOwner parentBuildOwner) {
@@ -40,7 +38,7 @@ class MXJsonBuildOwner {
     parentBuildOwner?.addChildBuildOwner(ownerWidgetID, this);
   }
 
-  MXJsonBuildOwner.rootBuildOwner(this.ownerApp) {}
+  MXJsonBuildOwner.rootBuildOwner(this.ownerApp);
 
   void addChildBuildOwner(String widgetID, MXJsonBuildOwner bo) {
     if (widgetID == null || widgetID.isEmpty || bo == null) {
@@ -155,7 +153,9 @@ class MXJsonBuildOwner {
 
   ///动态创建Widget回调，如List
   ///
-  Future<dynamic> widgetBuilderCallback(String callID, {dynamic p}) {}
+  Future<dynamic> widgetBuilderCallback(String callID, {dynamic p}) {
+    return null;
+  }
 
   //js->flutter
 

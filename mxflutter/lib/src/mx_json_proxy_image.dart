@@ -22,7 +22,7 @@ class MXProxyRegisterHelperImageSeries {
 }
 
 ///ImageProvider
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyImageProvider extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {

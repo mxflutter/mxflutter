@@ -2152,7 +2152,7 @@ void main(List<String> arguments) {
   translate(list.last);
 }
 
-String translate(String src) {
+ translate(String src) {
   print(translateDart(src));
   print(translateJS(src, superClass: "DartClass"));
 }

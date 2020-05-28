@@ -4,13 +4,13 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework.utils;
+package com.mojitox.mxflutter.framework.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.imatrixteam.mxflutter.framework.MXJSFlutterApp;
+import com.mojitox.mxflutter.MXFlutterPlugin;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -105,6 +105,40 @@ public class FileUtils {
     }
 
     public static String getFilePathFromAsset(Context context, String filePath, ArrayList<String> searchDirArray) {
+
+        String absolutePath = "";
+
+        String prefix = "./";
+        if (filePath.startsWith(prefix)) {
+            filePath = filePath.substring(prefix.length());
+        }
+
+        //映射package/ 到mx_package/
+        String packagePrefix = "packages/";
+        String packagePath = filePath;
+        if (packagePath.startsWith(packagePrefix)) {
+            packagePath = packagePath.substring(packagePrefix.length());
+            packagePath = "mx_packages/" + packagePath;
+
+            absolutePath = getFilePathFromAssetExt(context,packagePath,searchDirArray);
+            if (!TextUtils.isEmpty(absolutePath)) {
+                return  absolutePath;
+            }
+        }
+
+        //映射xx/package/xx 到xx/mx_package/xx
+        absolutePath = getFilePathFromAssetExt(context,filePath,searchDirArray);
+        if (!TextUtils.isEmpty(absolutePath)) {
+           return  absolutePath;
+        }
+
+        String replacePath = filePath.replace("/packages/","/mx_packages/");
+        absolutePath = getFilePathFromAssetExt(context,replacePath,searchDirArray);
+        return absolutePath;
+    }
+
+
+    public static String getFilePathFromAssetExt(Context context, String filePath, ArrayList<String> searchDirArray) {
         assertJSThread();
 
         String prefix = "./";
@@ -120,6 +154,7 @@ public class FileUtils {
         ArrayList<String> extensions = new ArrayList<>();
         extensions.add(".js");
         extensions.add(".ddc.js");
+        extensions.add(".lib.js");
 
         try {
             for (int i = 0; i < searchDirArray.size(); i++) {
@@ -130,16 +165,23 @@ public class FileUtils {
                     boolean isFind = false;
                     for (int k = 0; k < files.length; k++) {
                         if (j == filePathDeep - 1) {
-                            for (String ext : extensions) {
-                                if (!filePathSplitList[j].endsWith(".js")) {
-                                    filePathSplitList[j] += ext;
-                                    filePath += ext;
-                                }
+                            if (filePathSplitList[j].endsWith(".js")) {
                                 if (filePathSplitList[j].equals(files[k])) {
                                     curSearchDir += ("/" + filePathSplitList[j]);
                                     absolutePath = curSearchDir;
                                     isFind = true;
                                     break;
+                                }
+                            } else {
+                                for (String ext : extensions) {
+                                    String tempFile = filePathSplitList[j] + ext;
+
+                                    if (tempFile.equals(files[k])) {
+                                        curSearchDir += ("/" + tempFile);
+                                        absolutePath = curSearchDir;
+                                        isFind = true;
+                                        break;
+                                    }
                                 }
                             }
                         } else if (filePathSplitList[j].equals(files[k])) {
@@ -166,6 +208,39 @@ public class FileUtils {
     }
 
     public static String getFilePathFromFS(Context context, String filePath, ArrayList<String> searchDirArray) {
+
+        String absolutePath = "";
+
+        String prefix = "./";
+        if (filePath.startsWith(prefix)) {
+            filePath = filePath.substring(prefix.length());
+        }
+
+        //映射package/ 到mx_package/
+        String packagePrefix = "packages/";
+        String packagePath = filePath;
+        if (packagePath.startsWith(packagePrefix)) {
+            packagePath = packagePath.substring(packagePrefix.length());
+            packagePath = "mx_packages/" + packagePath;
+
+            absolutePath = getFilePathFromFSExt(context,packagePath,searchDirArray);
+            if (!TextUtils.isEmpty(absolutePath)) {
+                return  absolutePath;
+            }
+        }
+
+        //映射xx/package/xx 到xx/mx_package/xx
+        absolutePath = getFilePathFromFSExt(context,filePath,searchDirArray);
+        if (!TextUtils.isEmpty(absolutePath)) {
+            return  absolutePath;
+        }
+
+        String replacePath = filePath.replace("/packages/","/mx_packages/");
+        absolutePath = getFilePathFromFSExt(context,replacePath,searchDirArray);
+        return absolutePath;
+    }
+
+    public static String getFilePathFromFSExt(Context context, String filePath, ArrayList<String> searchDirArray) {
         assertJSThread();
 
         String prefix = "./";
@@ -178,10 +253,11 @@ public class FileUtils {
         ArrayList<String> extensions = new ArrayList<>();
         extensions.add(".js");
         extensions.add(".ddc.js");
+        extensions.add(".lib.js");
 
         for (String dir : searchDirArray) {
             for (String ext : extensions) {
-                String absolutePathTemp = MXJSFlutterApp.JSFLUTTER_LOCAL_DIR + "/" + dir + "/" + filePath;
+                String absolutePathTemp = MXFlutterPlugin.JSFLUTTER_LOCAL_DIR + "/" + dir + "/" + filePath;
                 if (!filePath.endsWith(".js")) {
                     absolutePathTemp = absolutePathTemp + ext;
                 }
@@ -273,7 +349,7 @@ public class FileUtils {
     }
 
     public static boolean isNeedCopyFileFromAssets(Context context) {
-        if (MXJSFlutterApp.sUseAsset) {
+        if (MXFlutterPlugin.sUseAsset) {
             return false;
         }
 
@@ -283,7 +359,7 @@ public class FileUtils {
     private static boolean sCopiedFileFromAssets;
 
     public static boolean isCopiedFileFromAssets(Context context) {
-        if (MXJSFlutterApp.sUseAsset) {
+        if (MXFlutterPlugin.sUseAsset) {
             return false;
         }
         if (!sCopiedFileFromAssets) {

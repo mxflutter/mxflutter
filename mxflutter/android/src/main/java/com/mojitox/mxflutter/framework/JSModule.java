@@ -4,15 +4,16 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
 import android.text.TextUtils;
 
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.V8ScriptException;
-import com.imatrixteam.mxflutter.framework.utils.ClassUtils;
-import com.imatrixteam.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.MXFlutterPlugin;
+import com.mojitox.mxflutter.framework.utils.ClassUtils;
+import com.mojitox.mxflutter.framework.utils.FileUtils;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -20,8 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-
-import io.flutter.Log;
 
 /**
  * Created by wennliu on 2020-03-26
@@ -93,7 +92,7 @@ public class JSModule {
     public static String resolveModuleAsDirectory(String moduleClassName, V8Object runtime) {
         String path = moduleClassName + "/" + "package.json";
         if (new File(path).exists()) {
-            String filecontents = FileUtils.getScriptFromFS(MXFlutterApplication.getApplication(), path);
+            String filecontents = FileUtils.getScriptFromFS(MXFlutterPlugin.getInstance().mFlutterPluginBinding.getApplicationContext(), path);
             String script = String.format("JSON.parse(%s)", filecontents);
             V8Object result = (V8Object) runtime.getRuntime().executeScript(script);
             Object mainObj = result.get("main");
@@ -204,7 +203,7 @@ public class JSModule {
             return null;
 
         if (isCached(fullModulePath)) {
-            Log.i(TAG, "JSModule Use Cache " + moduleClassName);
+            android.util.Log.i(TAG, "JSModule Use Cache " + moduleClassName);
             return getCacheModule(fullModulePath);
         }
 
@@ -213,7 +212,7 @@ public class JSModule {
                 new Class[]{String.class, String.class, V8Object.class},
                 new Object[]{fullModulePath, fullModulePath, context});
 
-        String script = FileUtils.getScriptFromPath(MXFlutterApplication.getApplication(), fullModulePath, fromAsset);
+        String script = FileUtils.getScriptFromPath(MXFlutterPlugin.getInstance().mFlutterPluginBinding.getApplicationContext(), fullModulePath, fromAsset);
 
         newModule.didStartLoading();
 

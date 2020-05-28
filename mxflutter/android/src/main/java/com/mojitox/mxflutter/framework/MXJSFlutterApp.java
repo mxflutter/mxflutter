@@ -4,16 +4,18 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.imatrixteam.mxflutter.framework;
+package com.mojitox.mxflutter.framework;
 
 import android.content.Context;
 
 import com.eclipsesource.v8.V8Object;
-import com.imatrixteam.mxflutter.framework.utils.FileUtils;
-import com.imatrixteam.mxflutter.framework.utils.LogUtilsKt;
-import com.imatrixteam.mxflutter.framework.utils.MXJsScheduledExecutorService;
+import com.mojitox.mxflutter.MXFlutterPlugin;
+import com.mojitox.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
+import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import io.flutter.plugin.common.BasicMessageChannel;
@@ -26,22 +28,13 @@ public class MXJSFlutterApp {
 
     public static final String TAG = "MXJSFlutterApp";
 
-    //todo 调试时，指向本地路径，可以热重载
-    public static String JSFLUTTER_LOCAL_DIR;   //本地js路径
-
-    //开发环境
-    public static boolean sUseAsset = true;
-
-    public static String JSFLUTTER_FRAMEWORK_DIR = "mxf_js_framework";
-    public static String JSFLUTTER_DART_FRAMEWORK_DIR = "mxf_js_framework/dart_js_framework";
-    public static String JSFLUTTER_SRC_DIR1 = "mxflutter_app_demo";
-
     static MXJSFlutterEngine jsFlutterEngineStatic;
 
-    private MXFlutterActivity mContext;
+    private MXFlutterPlugin mContext;
 
     private String appName;
     private String rootPath;
+    private List<String> jsAppSearchPathList;
     private MXJSFlutterEngine jsFlutterEngine;
 
     private MXJSEngine jsEngine;
@@ -62,11 +55,12 @@ public class MXJSFlutterApp {
 
     private ArrayList<MethodCall> callJSMethodQueue;
 
-    public MXJSFlutterApp initWithAppName(MXFlutterActivity context, String appName, String rootPath, MXJSFlutterEngine jsFlutterEngine) {
-        initRuntime(context);
+    public MXJSFlutterApp initWithAppName(MXFlutterPlugin context, String appName, String rootPath, List<String> jsAppSearchPathList, MXJSFlutterEngine jsFlutterEngine) {
+        initRuntime(context.mFlutterPluginBinding.getApplicationContext());
         this.mContext = context;
         this.appName = appName;
         this.rootPath = rootPath;
+        this.jsAppSearchPathList = jsAppSearchPathList;
         this.jsFlutterEngine = jsFlutterEngine;
         jsFlutterEngineStatic = jsFlutterEngine;
         isJSAPPRun = false;
@@ -74,14 +68,14 @@ public class MXJSFlutterApp {
         callJSMethodQueue = new ArrayList<>(1);
 
         setupJSEngine(jsFlutterEngine);
-        setUpChannel(context.getMXFlutterEngine().getDartExecutor().getBinaryMessenger());
+        setUpChannel(context.mFlutterPluginBinding.getBinaryMessenger());
 
         currentApp = this;
         return this;
     }
 
     private void initRuntime(Context context) {
-        MXJSFlutterApp.JSFLUTTER_LOCAL_DIR = context.getFilesDir().getAbsolutePath();
+        MXFlutterPlugin.JSFLUTTER_LOCAL_DIR = context.getFilesDir().getAbsolutePath();
 
         initJsFS(context);
     }
@@ -93,9 +87,9 @@ public class MXJSFlutterApp {
                 @Override
                 public void run() {
                     super.run();
-                    FileUtils.copyFilesFromAssetsAsync(context, "", MXJSFlutterApp.JSFLUTTER_LOCAL_DIR, new String[]{
-                            MXJSFlutterApp.JSFLUTTER_FRAMEWORK_DIR,
-                            MXJSFlutterApp.JSFLUTTER_SRC_DIR1,
+                    FileUtils.copyFilesFromAssetsAsync(context, "", MXFlutterPlugin.JSFLUTTER_LOCAL_DIR, new String[]{
+                            jsFlutterEngine.mJsFrameworkPath,
+                            rootPath,
                     });
                 }
             }.start();
@@ -110,17 +104,19 @@ public class MXJSFlutterApp {
         jsExecutor = jsEngine.jsExecutor;
 
         //JSFlutter JS运行库搜索路径
-        jsEngine.addSearchDir(JSFLUTTER_FRAMEWORK_DIR);
-
+        jsEngine.addSearchDir(jsFlutterEngine.mJsFrameworkPath);
+        jsEngine.addSearchDir(jsFlutterEngine.mJsFrameworkPath + "/framework");
         //JSFlutter Dart JS运行库搜索路径
-        jsEngine.addSearchDir(JSFLUTTER_DART_FRAMEWORK_DIR);
+        jsEngine.addSearchDir(jsFlutterEngine.mJsFrameworkPath + "/framework/dart_js_framework");
 
         //app业务代码搜索路径
         jsEngine.addSearchDir(rootPath);
-        jsEngine.addSearchDir(rootPath + "/" + "app_demo");
-        jsEngine.addSearchDir(rootPath + "/" + "dart2js_demo");
 
-        String jsBasicLibPath = JSFLUTTER_FRAMEWORK_DIR + "/" + "js_basic_lib.js";
+        for (String appSearchPath : jsAppSearchPathList) {
+            jsEngine.addSearchDir(appSearchPath);
+        }
+
+        String jsBasicLibPath = jsFlutterEngine.mJsFrameworkPath + "/framework/js_basic_lib.js";
         jsExecutor.executeScriptPath(jsBasicLibPath, new MXJSExecutor.ExecuteScriptCallback() {
             @Override
             public void onComplete(Object value) {
@@ -211,7 +207,7 @@ public class MXJSFlutterApp {
             }
         });
 
-        jsExecutor.executeScriptPath(JSFLUTTER_SRC_DIR1 + "/main.js", new MXJSExecutor.ExecuteScriptCallback() {
+        jsExecutor.executeScriptPath(rootPath + "/main.js", new MXJSExecutor.ExecuteScriptCallback() {
             @Override
             public void onComplete(Object value) {
                 jsExecutor.executeScript("main()", new MXJSExecutor.ExecuteScriptCallback() {
@@ -244,7 +240,7 @@ public class MXJSFlutterApp {
         public void callFlutterReloadApp(V8Object jsApp, String widgetData) {
             jsAppObj = jsApp.twin();
 
-            mContext.runOnUiThread(new Runnable() {
+            mContext.getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
                     jsFlutterEngine.callFlutterReloadAppWithJSWidgetData(widgetData);
@@ -259,7 +255,7 @@ public class MXJSFlutterApp {
 //            for (int i = 0; i < datas.length; i++) {
 //                dataMap.put(datas[i],args.get(datas[i]));
 //            }
-            mContext.runOnUiThread(new Runnable() {
+            mContext.getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
                     if (methodName.equals("rebuild")) {

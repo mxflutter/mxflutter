@@ -50,7 +50,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     ///1. 可以直接修改定位到绝对路径,但多人协作开发时，每个人路径不同需要，需要都配置，推荐第二种方法，配置PROJECT_DIR
     ///jsFramewrokPath = @“/Volumes/Data/Work/mxflutter2/mxflutter/js_lib”;
-    ///jsAppPath =  @"/Volumes/Data/Work/mxflutter2/mxflutter_js_src"
+    ///jsAppPath =  @"/Volumes/Data/Work/mxflutter2/mxflutter_js/src"
     
     ///2. 可以配置PROJECT_DIR，把JS代码路径地址重定向到开发机iMac地址，用来支持模拟器热重载，支持多人协同，配置PROJECT_DIR方法如下。
     ///XCode -> Build Settings -> Preprocessor Macros ： Debug下增加 PROJECT_DIR=@\""$PROJECT_DIR\/"\"

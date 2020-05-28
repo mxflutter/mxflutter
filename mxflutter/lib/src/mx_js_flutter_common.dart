@@ -9,7 +9,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 
 class MXJSLog {
-
   static debug(Object object) {
     if (kDebugMode) {
       String log = "MXJSFlutter:[Flutter]-[DEBUG]::";
@@ -17,14 +16,12 @@ class MXJSLog {
     }
   }
 
-
   static log(Object object) {
     if (kDebugMode) {
       String log = "MXJSFlutter:[Flutter]-";
       callNativelog(log, object);
     }
   }
-
 
   static error(Object object) {
     String log = "MXJSFlutter:[Flutter]-[ERR]::";
@@ -177,17 +174,27 @@ class MXUtil {
     }
 
     Map map = {
+      // ignore: deprecated_member_use
       "display4": cTextStyleToJson(data.display4),
+      // ignore: deprecated_member_use
       "display3": cTextStyleToJson(data.display3),
+      // ignore: deprecated_member_use
       "display2": cTextStyleToJson(data.display2),
+      // ignore: deprecated_member_use
       "display1": cTextStyleToJson(data.display1),
+      // ignore: deprecated_member_use
       "headline": cTextStyleToJson(data.headline),
+      // ignore: deprecated_member_use
       "title": cTextStyleToJson(data.title),
+      // ignore: deprecated_member_use
       "subhead": cTextStyleToJson(data.subhead),
+      // ignore: deprecated_member_use
       "body2": cTextStyleToJson(data.body2),
+      // ignore: deprecated_member_use
       "body1": cTextStyleToJson(data.body1),
       "caption": cTextStyleToJson(data.caption),
       "button": cTextStyleToJson(data.button),
+      // ignore: deprecated_member_use
       "subtitle": cTextStyleToJson(data.subtitle),
       "overline": cTextStyleToJson(data.overline),
     };
@@ -235,6 +242,7 @@ class MXUtil {
       "hintStyle": data.hintStyle,
       "errorStyle": data.errorStyle,
       "errorMaxLines": data.errorMaxLines,
+      // ignore: deprecated_member_use
       "hasFloatingPlaceholder": data.hasFloatingPlaceholder,
       "isDense": data.isDense,
       "contentPadding": data.contentPadding,
@@ -259,6 +267,7 @@ class MXUtil {
     Map v;
 
     switch (data) {
+
       case TargetPlatform.android:
         {
           v = {"_name": "TargetPlatform.android", "index": 0};
@@ -292,6 +301,8 @@ class MXUtil {
 //          v = {"_name": "TargetPlatform.windows", "index": 5};
 //          break;
 //        }
+      default:
+        break;
     }
 
     return v;

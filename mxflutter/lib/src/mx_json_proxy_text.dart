@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
-import 'mx_json_proxy_layout.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui' as ui show Shadow;
 
@@ -40,7 +39,7 @@ class MXProxyRegisterHelperTextSeries {
 }
 
 ///Text
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyText extends MXJsonObjProxy {
   ///把自己能处理的类注册到分发器中
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -116,7 +115,6 @@ class MXProxyText extends MXJsonObjProxy {
 //        data = null,
 //        super(key: key);
 
-  @override
   Text constructorRich(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     var widget = Text.rich(
@@ -170,7 +168,7 @@ class MXProxyRichText extends MXJsonObjProxy {
 }
 
 ///DefaultTextStyle
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyDefaultTextStyle extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
@@ -214,7 +212,6 @@ class MXProxyDefaultTextStyle extends MXJsonObjProxy {
     return widget;
   }
 
-  @override
   DefaultTextStyle constructorFallback(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
@@ -225,7 +222,7 @@ class MXProxyDefaultTextStyle extends MXJsonObjProxy {
 }
 
 ///TextStyle
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyTextStyle extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
@@ -278,15 +275,14 @@ class MXProxyTextStyle extends MXJsonObjProxy {
 }
 
 ///TextSpan
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXProxyTextSpan extends MXJsonObjProxy {
   ///Dart类名 用于注册到转换器中
-  ///**@@@ 拷贝生成其他类  2 替换类名字符串
+
   static String regClassName = "TextSpan";
 
   ///工厂函数 用于延迟加载转换器
   static MXJsonObjProxy createProxy() {
-    ///**@@@@ 拷贝生成其他类  3 替换类构建函数
     var p = MXProxyTextSpan();
     p.className = regClassName;
     return p;
@@ -331,7 +327,7 @@ class MXTextDecoration {
 }
 
 ///TextOverflow
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 
 class MXTextOverflow {
   static Map str2VMap = {
@@ -363,17 +359,27 @@ class MXProxyTextTheme extends MXJsonObjProxy {
   TextTheme constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
     var widget = TextTheme(
+      // ignore: deprecated_member_use
       display4: mxj2d(bo, jsonMap["display4"]),
+      // ignore: deprecated_member_use
       display3: mxj2d(bo, jsonMap["display3"]),
+      // ignore: deprecated_member_use
       display2: mxj2d(bo, jsonMap["display2"]),
+      // ignore: deprecated_member_use
       display1: mxj2d(bo, jsonMap["display1"]),
+      // ignore: deprecated_member_use
       headline: mxj2d(bo, jsonMap["headline"]),
+      // ignore: deprecated_member_use
       title: mxj2d(bo, jsonMap["title"]),
+      // ignore: deprecated_member_use
       subhead: mxj2d(bo, jsonMap["subhead"]),
+      // ignore: deprecated_member_use
       body2: mxj2d(bo, jsonMap["body2"]),
+      // ignore: deprecated_member_use
       body1: mxj2d(bo, jsonMap["body1"]),
       caption: mxj2d(bo, jsonMap["caption"]),
       button: mxj2d(bo, jsonMap["button"]),
+      // ignore: deprecated_member_use
       subtitle: mxj2d(bo, jsonMap["subtitle"]),
       overline: mxj2d(bo, jsonMap["overline"]),
     );
@@ -382,7 +388,7 @@ class MXProxyTextTheme extends MXJsonObjProxy {
 }
 
 ///TextAlign
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXTextAlign {
   static Map str2VMap = {
     "TextAlign.left": TextAlign.left,
@@ -402,7 +408,7 @@ class MXTextAlign {
 }
 
 ///TextDecorationStyle
-///**@@@ 拷贝生成其他类 1 替换类名
+///
 class MXTextDecorationStyle {
   static Map str2VMap = {
     "TextDecorationStyle.solid": TextDecorationStyle.solid,
@@ -613,6 +619,8 @@ class MXProxyTextFormField extends MXJsonObjProxy {
 
     FormFieldValidator<T> cb = (T b) {
       bo.eventCallback(eventCallbackID, p: b);
+      //TODO:return string
+      return null;
     };
 
     return cb;
@@ -631,6 +639,8 @@ class MXProxyTextFormField extends MXJsonObjProxy {
       @required bool isFocused,
     }) {
       bo.eventCallback(eventCallbackID);
+      //TODO:return widget
+      return null;
     };
 
     return cb;
@@ -674,6 +684,7 @@ class MXProxyInputDecoration extends MXJsonObjProxy {
       errorText: mxj2d(bo, jsonMap["errorText"]),
       errorStyle: mxj2d(bo, jsonMap["errorStyle"]),
       errorMaxLines: mxj2d(bo, jsonMap["errorMaxLines"]),
+      // ignore: deprecated_member_use
       hasFloatingPlaceholder:
           mxj2d(bo, jsonMap["hasFloatingPlaceholder"], defaultValue: true),
       isDense: mxj2d(bo, jsonMap["isDense"]),
@@ -709,6 +720,7 @@ class MXProxyInputDecoration extends MXJsonObjProxy {
       {BuildContext context}) {
     return InputDecoration.collapsed(
       hintText: mxj2d(bo, jsonMap["hintText"]),
+      // ignore: deprecated_member_use
       hasFloatingPlaceholder:
           mxj2d(bo, jsonMap["hasFloatingPlaceholder"], defaultValue: true),
       hintStyle: mxj2d(bo, jsonMap["hintStyle"]),
