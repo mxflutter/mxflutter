@@ -43998,10 +43998,12 @@
       return io.Platform._operatingSystem === "windows";
     },
     /*io.Platform.isAndroid*/get isAndroid() {
-      return io.Platform._operatingSystem === "android";
+      // return io.Platform._operatingSystem === "android";
+      return isMXAndroid();
     },
     /*io.Platform.isIOS*/get isIOS() {
-      return io.Platform._operatingSystem === "ios";
+      // return io.Platform._operatingSystem === "ios";
+      return isMXIOS();
     },
     /*io.Platform.isFuchsia*/get isFuchsia() {
       return io.Platform._operatingSystem === "fuchsia";
