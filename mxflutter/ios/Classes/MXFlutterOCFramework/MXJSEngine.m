@@ -207,6 +207,14 @@
             [function callWithArguments:@[]];
         });
     };
+
+    context[@"isMXIOS"] = ^() {
+        return [NSNumber numberWithBool:YES];
+    };
+    context[@"isMXAndroid"] = ^() {
+        return [NSNumber numberWithBool:NO];
+    };
+
     //------Dart2Js支持------
     
     //------Flutter Bridge------
