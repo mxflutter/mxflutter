@@ -17,6 +17,12 @@ const dartx = dart_sdk.dartx;
 const ui = dart_sdk.ui;
 const $clamp = dartx.clamp;
 
+
+var $forEach = dartx.forEach;
+var dynamicAnddynamicToNull = () => (dynamicAnddynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic, dart.dynamic])))();
+var dynamicToNull = () => (dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))();
+
+
 class FlutterWidgetMirrorMgr {
   constructor() {
     this.mirrorIDFeed = 0;
@@ -3097,6 +3103,46 @@ UniqueKey.new = function (arg) {
   return new UniqueKey(arg);
 };
 
+class MXEncodeParam {
+    static encodeParam(param) {
+        if (param === null) {
+            return param;
+        }
+
+        if (param.innerValue) {
+            param = param.innerValue();
+        }
+
+        if (core.Map.is(param)) {
+            param = this.mapToObj(param);
+        }
+        return param;
+    }
+
+    static mapToObj(map) {
+        let obj = Object.create(null);
+        map[$forEach](dart.fn((key, value) => {
+            if(core.Map.is(value)){
+                obj[key] = this.mapToObj(value);
+            } else if(core.List.is(value)){
+                obj[key] = this.arrayMapToObj(value);
+            }else{
+                obj[key] = value;
+            }
+        }, dynamicAnddynamicToNull()));
+        return obj;
+    }
+
+    static arrayMapToObj(list){
+        let array = new Array();
+        list[$forEach](dart.fn(element => {
+            array.push(this.encodeParam(element));
+        }, dynamicToNull()));
+        return array;
+    }
+
+}
+
 module.exports = {
   DartClass,
   FlutterWidget,
@@ -3202,5 +3248,6 @@ module.exports = {
   ClipRRect,
   SpringDescription,
   UniqueKey,
-  assert
+  assert,
+  MXEncodeParam
 };
