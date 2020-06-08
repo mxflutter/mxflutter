@@ -14,30 +14,31 @@ const dartx = dart_sdk.dartx;
 var $cast = dartx.cast;
 const _js_helper = dart_sdk._js_helper;
 
+let{ MXEncodeParam } = require("./js_flutter_basic_types.js");
 
 //Message Channel
-function mapToObj(map) {
-    let obj = Object.create(null);
-    for (let [k, v] of map) {
-        obj[k] = v;
-    }
-    return obj;
-}
-
-function encodeParam(param) {
-    if (param === null) {
-        return param;
-    }
-
-    if (param.innerValue) {
-        param = param.innerValue();
-    }
-
-    if (param instanceof Map) {
-        param = mapToObj(param);
-    }
-    return param;
-}
+//function mapToObj(map) {
+//    let obj = Object.create(null);
+//    for (let [k, v] of map) {
+//        obj[k] = v;
+//    }
+//    return obj;
+//}
+//
+//function encodeParam(param) {
+//    if (param === null) {
+//        return param;
+//    }
+//
+//    if (param.innerValue) {
+//        param = param.innerValue();
+//    }
+//
+//    if (param instanceof Map) {
+//        param = mapToObj(param);
+//    }
+//    return param;
+//}
 
 function castResult(result) {
 
@@ -95,7 +96,7 @@ platform_channel.MethodChannel = class MethodChannel extends core.Object {
                     mx_jsbridge_MethodChannel_invokeMethod(
                         channelName,
                         method,
-                        encodeParam($arguments),
+                        MXEncodeParam.encodeParam($arguments),
                         dart.fn(value => {
                             core.print("mx_jsbridge_MethodChannel_invokeMethod: callback " + value);
                             completer.complete(value);
@@ -243,7 +244,7 @@ mx_platform_channel.MXMethodChannel = class MXMethodChannel extends platform_cha
 
         let promiseResult = new Promise(function (resolve, reject) {
 
-            mx_jsbridge_MethodChannel_invokeMethod(this.name, method, encodeParam($arguments), function (value) {
+            mx_jsbridge_MethodChannel_invokeMethod(this.name, method, MXEncodeParam.encodeParam($arguments), function (value) {
                 if (value != null) {
                     resolve(value);
                 } else {

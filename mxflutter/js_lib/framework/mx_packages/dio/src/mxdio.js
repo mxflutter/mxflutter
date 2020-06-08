@@ -8,7 +8,7 @@ const dart_sdk = require("dart_sdk");
 const convert = dart_sdk.convert;
 
 
-let { DartClass, FlutterCallArgs, FlutterWidget } = require("./js_flutter_basic_types.js");
+let { DartClass, FlutterCallArgs, FlutterWidget, MXEncodeParam } = require("./js_flutter_basic_types.js");
 let { MXFJSBridge, MXJSLog, MXJSCallbackMgr } = require("./js_flutter_framework.js");
 
 MXResponseType = {
@@ -229,7 +229,7 @@ class MXDio extends DartClass {
 
         return this.request(path, {
             options: this.checkOptions("get", options),
-            queryParameters, queryParameters,
+            queryParameters: queryParameters,
             //cancelToken: cancelToken,
             onReceiveProgress: onReceiveProgress
         });
@@ -247,7 +247,7 @@ class MXDio extends DartClass {
         return this.request(path, {
             data: data,
             options: this.checkOptions("post", options),
-            queryParameters, queryParameters,
+            queryParameters: queryParameters,
 
             //cancelToken: cancelToken,
             onSendProgress: onSendProgress,
@@ -274,7 +274,7 @@ class MXDio extends DartClass {
                 path: path,
                 data: data,
                 options: options,
-                queryParameters: queryParameters,
+                queryParameters: MXEncodeParam.encodeParam(queryParameters),
                 onSendProgress: onSendProgressCallbackID,
                 onReceiveProgress: onReceiveProgressCallbackID,
             }
