@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-let { DartClass, FlutterWidget } = require("./js_flutter_basic_types.js");
+let { DartClass, FlutterWidget,FlutterCallArgs } = require("./js_flutter_basic_types.js");
 
 let {
   invokeFlutterFunction,

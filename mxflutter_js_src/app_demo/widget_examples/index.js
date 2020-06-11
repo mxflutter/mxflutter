@@ -59,16 +59,23 @@ let {
   Align,
   Stack,
   Alignment,
-  GestureDetector
+  GestureDetector,
+  ScrollController
 } = require("js_flutter.js");
 
 const { SectionTitle } = require("./component/section_title.js");
+
+let widgetExamples = [
+  "Text",
+]
 
 class WidgetExamplesPage extends MXJSStatelessWidget {
   constructor() {
     super("WidgetExamplesPage");
     this.widgetsArray = widgetsName.split(',');
     this.indexArray = this.calcIndexArray(this.widgetsArray);
+
+    this.scrollController = new ScrollController();
 
   }
 
@@ -91,6 +98,7 @@ class WidgetExamplesPage extends MXJSStatelessWidget {
       body: new Stack({
         children: [new Scrollbar({
           child: ListView.builder({
+            controller: this.scrollController,
             itemCount: this.widgetsArray.length,
             itemBuilder: function (context, index) {
               return new ListViewItem(this.widgetsArray[index]);
@@ -109,7 +117,7 @@ class WidgetExamplesPage extends MXJSStatelessWidget {
                   let t = this.indexArray[index];
                   return new GestureDetector({
                     onTap: function () {
-                      this.onIndexTap(t)
+                      this.onIndexTap(index)
                     }.bind(this),
                     child: new Text(t)
                   });
@@ -124,24 +132,19 @@ class WidgetExamplesPage extends MXJSStatelessWidget {
     return widget;
   }
 
-  onIndexTap(t) {
-    let index = -1;
-    for (; index < this.indexArray.length; ++i) {
-      if (this.indexArray[index] == t) {
+  onIndexTap(index) {
+
+    let prefix = this.indexArray[index];
+    let count = 0;
+    for (; count < this.widgetsArray.length; ++count) {
+
+      if (this.widgetsArray[count].substring(0, 1) == prefix) {
         break;
       }
     }
 
-    if (index == -1) {
-      return;
-    }
-
-    let h = index * 45;
-
-
-
-
-
+    let h = count * 45;
+    this.scrollController.jumpTo(h);
   }
 }
 
@@ -154,20 +157,32 @@ class ListViewItem extends MXJSStatelessWidget {
   }
 
   build(context) {
+
+    let title = this.title;
+    let prefix = title.substring(0, 1);
+    let example = require("./widget_examples/" + prefix + "/" + title + ".js");
+
+    let c = Theme.of(context).primaryColor;
+
+    if(example == undefined){
+      c = Colors.gray;
+      title = this.title + " (未完成示例)"; 
+    }
+
     return new Container({
       height: 45,
       child: new ListTile({
-        title: new Text(this.title),
+        title: new Text(title),
         //subtitle: new Text(this.subtitle),
-        leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+        leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }), { color: c}),
         //trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
         onTap: function () {
           Navigator.push(context, new MaterialPageRoute({
             builder: function (context) {
-              return new PageExampleSharedPreferences;
+              return new example.ExampleWidget ;
             }
           }))
-        }
+        }.bind(this)
       })
     });
   }
