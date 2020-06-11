@@ -3105,7 +3105,7 @@ UniqueKey.new = function (arg) {
 
 class MXEncodeParam {
     static encodeParam(param) {
-        if (param === null) {
+        if (param === null || param == undefined) {
             return param;
         }
 
