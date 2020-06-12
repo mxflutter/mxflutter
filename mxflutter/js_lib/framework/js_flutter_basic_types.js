@@ -1291,137 +1291,7 @@ Vector3.random = function (rng) {
   return v;
 };
 
-class ScrollController extends DartClass {
-  constructor({ initialScrollOffset, keepScrollOffset, debugLabel } = {}) {
-    super();
 
-    this.initialScrollOffset = initialScrollOffset;
-    this.keepScrollOffset = keepScrollOffset;
-    this.debugLabel = debugLabel;
-  }
-}
-
-ScrollController.new = function (args) {
-  return new ScrollController(args);
-};
-
-class ScrollPhysics extends DartClass {
-  constructor({ parent } = {}) {
-    super();
-
-    this.parent = parent;
-  }
-}
-
-ScrollPhysics.new = function (args) {
-  return new ScrollPhysics(args);
-};
-
-class ClampingScrollPhysics extends DartClass {
-  constructor({ parent } = {}) {
-    super();
-
-    this.parent = parent;
-  }
-}
-
-ClampingScrollPhysics.new = function (args) {
-  return new ClampingScrollPhysics(args);
-};
-
-class AlwaysScrollableScrollPhysics extends DartClass {
-  constructor({ parent } = {}) {
-    super();
-
-    this.parent = parent;
-  }
-}
-
-
-AlwaysScrollableScrollPhysics.new = function (args) {
-  return new AlwaysScrollableScrollPhysics(args);
-};
-
-class NeverScrollableScrollPhysics extends DartClass {
-  constructor({ parent } = {}) {
-    super();
-
-    this.parent = parent;
-  }
-}
-
-NeverScrollableScrollPhysics.new = function (args) {
-  return new NeverScrollableScrollPhysics(args);
-};
-
-class SliverChildBuilderDelegate extends FlutterWidget {
-  constructor(
-    builder,
-    {
-      childCount,
-      addAutomaticKeepAlives,
-      addRepaintBoundaries,
-      addSemanticIndexes,
-      semanticIndexCallback,
-      semanticIndexOffset
-    } = {}
-  ) {
-    super();
-
-    this.builder = builder;
-    this.childCount = childCount;
-    this.addAutomaticKeepAlives = addAutomaticKeepAlives;
-    this.addRepaintBoundaries = addRepaintBoundaries;
-    this.addSemanticIndexes = addSemanticIndexes;
-    this.semanticIndexCallback = semanticIndexCallback;
-    this.semanticIndexOffset = semanticIndexOffset;
-
-    // 本地创建的，供flutter使用
-    this.children = [];
-  }
-
-  preBuild(jsWidgetHelper, buildContext) {
-    if (this.builder) {
-      for (let i = 0; i < this.childCount; ++i) {
-        let w = this.builder(buildContext, i);
-        this.children.push(w);
-      }
-      delete this.builder;
-    }
-
-    super.preBuild(jsWidgetHelper, buildContext);
-  }
-}
-
-SliverChildBuilderDelegate.new = function (builder, arg) {
-  return new SliverChildBuilderDelegate(builder, arg);
-};
-
-class SliverChildListDelegate extends DartClass {
-  constructor(
-    children,
-    {
-      addAutomaticKeepAlives,
-      addRepaintBoundaries,
-      addSemanticIndexes,
-      semanticIndexCallback,
-      semanticIndexOffset
-    } = {}
-  ) {
-    super();
-
-    this.children = children;
-    this.addAutomaticKeepAlives = addAutomaticKeepAlives;
-    this.addRepaintBoundaries = addRepaintBoundaries;
-    this.addSemanticIndexes = addSemanticIndexes;
-    this.semanticIndexCallback = semanticIndexCallback;
-    this.semanticIndexOffset = semanticIndexOffset;
-  }
-}
-
-SliverChildListDelegate.new = function (children, args) {
-  return new SliverChildListDelegate(children, args);
-};
 
 // Clip = {
 //   none: "Clip.none",
@@ -3104,42 +2974,42 @@ UniqueKey.new = function (arg) {
 };
 
 class MXEncodeParam {
-    static encodeParam(param) {
-        if (param === null || param == undefined) {
-            return param;
-        }
-
-        if (param.innerValue) {
-            param = param.innerValue();
-        }
-
-        if (core.Map.is(param)) {
-            param = this.mapToObj(param);
-        }
-        return param;
+  static encodeParam(param) {
+    if (param === null || param == undefined) {
+      return param;
     }
 
-    static mapToObj(map) {
-        let obj = Object.create(null);
-        map[$forEach](dart.fn((key, value) => {
-            if(core.Map.is(value)){
-                obj[key] = this.mapToObj(value);
-            } else if(core.List.is(value)){
-                obj[key] = this.arrayMapToObj(value);
-            }else{
-                obj[key] = value;
-            }
-        }, dynamicAnddynamicToNull()));
-        return obj;
+    if (param.innerValue) {
+      param = param.innerValue();
     }
 
-    static arrayMapToObj(list){
-        let array = new Array();
-        list[$forEach](dart.fn(element => {
-            array.push(this.encodeParam(element));
-        }, dynamicToNull()));
-        return array;
+    if (core.Map.is(param)) {
+      param = this.mapToObj(param);
     }
+    return param;
+  }
+
+  static mapToObj(map) {
+    let obj = Object.create(null);
+    map[$forEach](dart.fn((key, value) => {
+      if (core.Map.is(value)) {
+        obj[key] = this.mapToObj(value);
+      } else if (core.List.is(value)) {
+        obj[key] = this.arrayMapToObj(value);
+      } else {
+        obj[key] = value;
+      }
+    }, dynamicAnddynamicToNull()));
+    return obj;
+  }
+
+  static arrayMapToObj(list) {
+    let array = new Array();
+    list[$forEach](dart.fn(element => {
+      array.push(this.encodeParam(element));
+    }, dynamicToNull()));
+    return array;
+  }
 
 }
 
@@ -3191,13 +3061,6 @@ module.exports = {
   Matrix4,
   Vector4,
   Vector3,
-  ScrollController,
-  ScrollPhysics,
-  ClampingScrollPhysics,
-  AlwaysScrollableScrollPhysics,
-  NeverScrollableScrollPhysics,
-  SliverChildBuilderDelegate,
-  SliverChildListDelegate,
   Clip,
   Rect,
   PlatformAssetBundle,

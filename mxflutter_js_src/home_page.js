@@ -59,7 +59,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Examples'),
-                    subtitle: new Text('All examples'),
+                    subtitle: new Text('Common Examples'),
                     onTap: function () {
 
                         //点击时懒加载页面
@@ -75,7 +75,24 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                     }
                 }),
                 new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Widget Examples'),
+                    subtitle: new Text('All Widget Examples'),
+                    onTap: function () {
+
+                        //点击时懒加载页面
+                        let { WidgetExamplesPage } = require("./app_demo/widget_examples/index.js");
+
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new WidgetExamplesPage;
+                            }
+                        }))
+                    }
+                }),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }),{ color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Material'),
                     subtitle: new Text('Material UI Demo'),
@@ -142,7 +159,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                 }),
 
                 new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }),{ color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Pesto'),
                     subtitle: new Text('Simple recipe browser'),
@@ -174,7 +191,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                     }
                 }),
                 new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }),{ color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Animation'),
                     subtitle: new Text('Section organizer'),

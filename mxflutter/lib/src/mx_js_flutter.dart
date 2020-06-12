@@ -186,10 +186,18 @@ class MXJSFlutterLib implements MXJSFlutter {
           jsAppSearchPathWithAssetsKeyList;
     }
 
+    //清理flutter侧的对象映射
+    _clearMX();
+
     _jsFlutterMainChannel.invokeMethod("callNativeRunJSApp", args);
 
     //暂时只支持一个
     currentApp = MXJSFlutterApp(jsAppAssetsKey);
+  }
+
+  ///清理flutter侧的对象映射  
+  _clearMX(){
+     MXJSMirrorObjMgr.getInstance().clearMirrorObjects();
   }
 
   callJsCallbackFunction(String callbackId, param) {

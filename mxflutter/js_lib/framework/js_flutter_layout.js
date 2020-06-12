@@ -4,7 +4,12 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-let { DartClass, FlutterWidget } = require("./js_flutter_basic_types.js");
+let { DartClass, FlutterWidget,FlutterCallArgs } = require("./js_flutter_basic_types.js");
+
+let {
+  invokeFlutterFunction,
+  Alignment,
+} = require("./js_flutter_framework.js");
 
 class Center extends FlutterWidget {
   constructor({ key, widthFactor, heightFactor, child } = {}) {
@@ -1098,6 +1103,173 @@ TableCell.new = function(arg) {
   return new TableCell(arg);
 };
 
+//--
+class ScrollController extends DartClass {
+  constructor({ initialScrollOffset, keepScrollOffset, debugLabel } = {}) {
+    super();
+
+    this.createMirrorObjectID();
+
+    this.initialScrollOffset = initialScrollOffset;
+    this.keepScrollOffset = keepScrollOffset;
+    this.debugLabel = debugLabel;
+  }
+
+  animateTo(
+    offset,
+    {
+      duration,
+      curve,
+    } = {}) {
+      var argument = new FlutterCallArgs({
+        mirrorID: this.mirrorID,
+        className: "ScrollController",
+        funcName: "animateTo",
+        args: {
+          offset: offset,
+          duration: duration,
+          curve,curve
+        }
+      });
+      invokeFlutterFunction(argument);
+  }
+
+  jumpTo(value) {
+
+    var argument = new FlutterCallArgs({
+      mirrorID: this.mirrorID,
+      className: "ScrollController",
+      funcName: "jumpTo",
+      args: {
+        value: value
+      }
+    });
+    invokeFlutterFunction(argument);
+  }
+}
+
+ScrollController.new = function (args) {
+  return new ScrollController(args);
+};
+
+class ScrollPhysics extends DartClass {
+  constructor({ parent } = {}) {
+    super();
+
+    this.parent = parent;
+  }
+}
+
+ScrollPhysics.new = function (args) {
+  return new ScrollPhysics(args);
+};
+
+class ClampingScrollPhysics extends DartClass {
+  constructor({ parent } = {}) {
+    super();
+
+    this.parent = parent;
+  }
+}
+
+ClampingScrollPhysics.new = function (args) {
+  return new ClampingScrollPhysics(args);
+};
+
+class AlwaysScrollableScrollPhysics extends DartClass {
+  constructor({ parent } = {}) {
+    super();
+
+    this.parent = parent;
+  }
+}
+
+
+AlwaysScrollableScrollPhysics.new = function (args) {
+  return new AlwaysScrollableScrollPhysics(args);
+};
+
+class NeverScrollableScrollPhysics extends DartClass {
+  constructor({ parent } = {}) {
+    super();
+
+    this.parent = parent;
+  }
+}
+
+NeverScrollableScrollPhysics.new = function (args) {
+  return new NeverScrollableScrollPhysics(args);
+};
+
+class SliverChildBuilderDelegate extends FlutterWidget {
+  constructor(
+    builder,
+    {
+      childCount,
+      addAutomaticKeepAlives,
+      addRepaintBoundaries,
+      addSemanticIndexes,
+      semanticIndexCallback,
+      semanticIndexOffset
+    } = {}
+  ) {
+    super();
+
+    this.builder = builder;
+    this.childCount = childCount;
+    this.addAutomaticKeepAlives = addAutomaticKeepAlives;
+    this.addRepaintBoundaries = addRepaintBoundaries;
+    this.addSemanticIndexes = addSemanticIndexes;
+    this.semanticIndexCallback = semanticIndexCallback;
+    this.semanticIndexOffset = semanticIndexOffset;
+
+    // 本地创建的，供flutter使用
+    this.children = [];
+  }
+
+  preBuild(jsWidgetHelper, buildContext) {
+    if (this.builder) {
+      for (let i = 0; i < this.childCount; ++i) {
+        let w = this.builder(buildContext, i);
+        this.children.push(w);
+      }
+      delete this.builder;
+    }
+
+    super.preBuild(jsWidgetHelper, buildContext);
+  }
+}
+
+SliverChildBuilderDelegate.new = function (builder, arg) {
+  return new SliverChildBuilderDelegate(builder, arg);
+};
+
+class SliverChildListDelegate extends DartClass {
+  constructor(
+    children,
+    {
+      addAutomaticKeepAlives,
+      addRepaintBoundaries,
+      addSemanticIndexes,
+      semanticIndexCallback,
+      semanticIndexOffset
+    } = {}
+  ) {
+    super();
+
+    this.children = children;
+    this.addAutomaticKeepAlives = addAutomaticKeepAlives;
+    this.addRepaintBoundaries = addRepaintBoundaries;
+    this.addSemanticIndexes = addSemanticIndexes;
+    this.semanticIndexCallback = semanticIndexCallback;
+    this.semanticIndexOffset = semanticIndexOffset;
+  }
+}
+
+SliverChildListDelegate.new = function (children, args) {
+  return new SliverChildListDelegate(children, args);
+};
+
 module.exports = {
   Center,
   Container,
@@ -1148,4 +1320,11 @@ module.exports = {
   SingleChildScrollView,
   SliverToBoxAdapter,
   TableCell,
+  ScrollController,
+  ScrollPhysics,
+  ClampingScrollPhysics,
+  AlwaysScrollableScrollPhysics,
+  NeverScrollableScrollPhysics,
+  SliverChildBuilderDelegate,
+  SliverChildListDelegate,
 };

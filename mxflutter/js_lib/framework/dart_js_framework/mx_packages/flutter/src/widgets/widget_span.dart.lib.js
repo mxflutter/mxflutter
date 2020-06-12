@@ -87,8 +87,8 @@ let src__widgets__sliver = Object.create(null);
 src__widgets__sliver.SliverGrid = layoutExports.SliverGrid;
 src__widgets__sliver.SliverList = layoutExports.SliverList;
 src__widgets__sliver.SliverFixedExtentList = layoutExports.SliverFixedExtentList;
-src__widgets__sliver.SliverChildListDelegate = basicExports.SliverChildListDelegate;
-src__widgets__sliver.SliverChildBuilderDelegate = basicExports.SliverChildBuilderDelegate;
+src__widgets__sliver.SliverChildListDelegate = layoutExports.SliverChildListDelegate;
+src__widgets__sliver.SliverChildBuilderDelegate = layoutExports.SliverChildBuilderDelegate;
 exports.src__widgets__sliver = src__widgets__sliver;
 
 let src__widgets__gesture_detector = Object.create(null);
@@ -110,14 +110,14 @@ src__widgets__media_query.MediaQueryData = frameworkExports.MediaQueryData;
 exports.src__widgets__media_query = src__widgets__media_query;
 
 let src__widgets__scroll_controller = Object.create(null);
-src__widgets__scroll_controller.ScrollController = basicExports.ScrollController;
+src__widgets__scroll_controller.ScrollController = layoutExports.ScrollController;
 exports.src__widgets__scroll_controller = src__widgets__scroll_controller;
 
 let src__widgets__scroll_physics = Object.create(null);
-src__widgets__scroll_physics.ScrollPhysics = basicExports.ScrollPhysics;
-src__widgets__scroll_physics.ClampingScrollPhysics = basicExports.ClampingScrollPhysics;
-src__widgets__scroll_physics.AlwaysScrollableScrollPhysics = basicExports.AlwaysScrollableScrollPhysics;
-src__widgets__scroll_physics.NeverScrollableScrollPhysics = basicExports.NeverScrollableScrollPhysics;
+src__widgets__scroll_physics.ScrollPhysics = layoutExports.ScrollPhysics;
+src__widgets__scroll_physics.ClampingScrollPhysics = layoutExports.ClampingScrollPhysics;
+src__widgets__scroll_physics.AlwaysScrollableScrollPhysics = layoutExports.AlwaysScrollableScrollPhysics;
+src__widgets__scroll_physics.NeverScrollableScrollPhysics = layoutExports.NeverScrollableScrollPhysics;
 exports.src__widgets__scroll_physics = src__widgets__scroll_physics;
 
 let src__widgets__transitions = Object.create(null);

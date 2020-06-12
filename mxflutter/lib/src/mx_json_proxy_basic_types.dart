@@ -1747,6 +1747,33 @@ class MXProxyScrollController extends MXJsonObjProxy {
     );
     return widget;
   }
+
+   //mirrorObj 为一个AnimationController类的实例对象，把调用对象方法，路由到代理类
+  @override
+  void jsInvokeMirrorObjFunction(
+      String mirrorID, dynamic mirrorObj, String funcName, Map args,
+      {InvokeCallback callback}) {
+    if (mirrorObj == null || !(mirrorObj is ScrollController)) {
+      return;
+    }
+
+    invokeFunction(mirrorObj, funcName, args);
+  }
+
+  //TODO:优化分发
+  void invokeFunction(
+      ScrollController mirrorObj, String funcName, Map args) {
+    if (funcName == 'jumpTo') {
+      mirrorObj.jumpTo(args["value"]?.toDouble());
+      return;
+    } else if (funcName == 'animateTo') {
+      mirrorObj.animateTo(args["value"]?.toDouble(),
+        duration:mxj2d(null, args["duration"]),
+        curve:mxj2d(null, args["curve"])
+      );
+      return;
+    } 
+  }
 }
 
 /********************ScrollPhysics*******************/
