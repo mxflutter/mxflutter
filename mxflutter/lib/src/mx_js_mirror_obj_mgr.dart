@@ -62,4 +62,8 @@ class MXJSMirrorObjMgr {
       g_mirrorObjectMap.remove(mirrorID);
     }
   }
+
+  void clearMirrorObjects() {
+    g_mirrorObjectMap.clear();
+  }
 }
