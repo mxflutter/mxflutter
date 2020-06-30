@@ -67,7 +67,6 @@ MXFlutter 是一套基于 JavaScript 的 Flutter 框架，可以用极其类似 
 * 支持定义Flutter中同名Widget类
 * 支持定义相同的Build方式，SetState刷新及事件响应方法
 * 支持js模块化开发
-* 支持VS Code直接调试
 * 支持模拟器页面热更新
 
 ----
@@ -84,7 +83,7 @@ MXFlutter 是一套基于 JavaScript 的 Flutter 框架，可以用极其类似 
 
 MXFlutter，就是用JavaScript，以Flutter的写法开发Flutter。具体的项目结构分为三层，请看下图：
 
-![](https://github.com/TGIF-lucaliu/Image/blob/master/16b8cec2d34ded87.jpeg?raw=true)
+![](https://raw.githubusercontent.com/mxflutter/doc_image/master/Readme/mxflutter.png)
 
 #### <a name="title4_1">1.VM层：</a>
 
@@ -329,7 +328,7 @@ class JSPestoPage extends MXJSWidget {
 
 源码中还有更丰满的示例，高仿知乎页面JSFlutter版，可以点此进入查看代码：
 
-[zhihu/home/home_page.js](https://github.com/TGIF-iMatrix/MXFlutter/blob/master/mxflutter_js_src/mxflutter_app_demo/app_demo/zhihu/home/home_page.js)
+[zhihu/home/home_page.js](https://github.com/mxflutter/mxflutter/blob/master/mxflutter_js_src/app_demo/zhihu/index.js)
 
 下图是对应的UI，已经接近在线上版直接使用了：
 
