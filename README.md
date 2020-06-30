@@ -119,7 +119,7 @@ dependencies:
   mxflutter: ^0.2.5
 ```
 
-因为mxflutter在快速迭代，推荐 fork 在 github 的主库 https://github.com/mxflutter/mxflutter.git 来接入，方面自己修改和定期从主库的更新。
+因为mxflutter在快速迭代，推荐 fork 在 github 的主库 https://github.com/mxflutter/mxflutter.git 来接入，方便自己修改和定期从主库的更新。
 
 ```
   dependencies:
