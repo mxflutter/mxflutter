@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 //mxflutter
 import 'package:mxflutter/mxflutter.dart';
+// ignore: implementation_imports
+import 'package:mxflutter/src/mx_mirror_widget_test.dart';
 
 void main() {
   //-------MXFlutter 启动---------
@@ -32,6 +34,8 @@ void main() {
 
   runApp(MyApp());
 }
+
+Widget mirrorWidgt = convertMirrorWidget();
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -99,11 +103,12 @@ class MXFlutterExampleHome extends StatelessWidget {
               )
             ],
           )),
-          Image.network(
-            'https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png',
-            width: 260,
-            height: 200,
-          )
+          // Image.network(
+          //   'https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png',
+          //   width: 260,
+          //   height: 200,
+          // )
+          mirrorWidgt
         ]));
   }
 
