@@ -5,8 +5,7 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:mxflutter/src/mx_mirror.dart';
-import 'package:mxflutter/src/mx_build_owner.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 var invokeJsonMap = {
   "fun": "Image.network",
@@ -16,22 +15,18 @@ var invokeJsonMap = {
   // "repeat": {"index": 1, "_name": "ImageRepeat.repeatX"},
 };
 
-// MXJsonBuildOwner buildOwner = MXJsonBuildOwner(null, null);
 // var invokeJsonMap = {
 //   "fun": "FlatButton",
 //   "onPressed": "1/1",
 //   "child": Text("hahha"),
-//   "buildOwner": buildOwner,
 // };
 
-// MXJsonBuildOwner buildOwner = MXJsonBuildOwner(null, null);
 // var invokeJsonMap = {
 //   "fun": "Stack",
 //   "children": [
 //     {
 //       "fun": "Image.network",
-//       "src": "http://img.rangaofei.cn/01b18.jpg",
-//       "scale": 2,
+//       "src": "https://pic2.zhimg.com/v2-d69d126ceda551b19daceb351c9afa98_1440w.jpg",
 //       "width": 100,
 //       "height": 200,
 //     },
@@ -39,13 +34,11 @@ var invokeJsonMap = {
 //       "fun": "FlatButton",
 //       "onPressed": "1/2",
 //       "child": Text("button_2"),
-//       "buildOwner": buildOwner,
 //     },
 //   ],
-//   "buildOwner": buildOwner,
 // };
 
 Widget convertMirrorWidget() {
-  Widget widget = MXMirror.getInstance().invoke(invokeJsonMap);
+  Widget widget = MXMirror.getInstance().invokeWidget(invokeJsonMap, null);
   return widget;
 }

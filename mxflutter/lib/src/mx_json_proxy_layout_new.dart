@@ -5,8 +5,8 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:mxflutter/src/mx_function_invoke.dart';
-import 'package:mxflutter/src/mx_common_function.dart';
+import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
+import 'package:mxflutter/src/mirror/mx_common_function.dart';
 import 'package:mxflutter/src/mx_build_owner.dart';
 
 class MXRegisterLayoutSeries {
@@ -46,9 +46,6 @@ var stack = MXFunctionInvoke(
     dynamic fit = StackFit.loose,
     Overflow overflow = Overflow.clip,
     List<dynamic> children = const <dynamic>[],
-
-    // 自定义参数
-    MXJsonBuildOwner buildOwner,
   }) =>
       Stack(
     key: key,

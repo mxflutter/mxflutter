@@ -4,7 +4,8 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mx_mirror.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
+import 'package:mxflutter/src/mx_build_owner.dart';
 
 /// 通过mirror方法，将json转dart对象
 class MXMirrorJ2D {
@@ -23,13 +24,13 @@ class MXMirrorJ2D {
 
   MXMirrorJ2D._();
 
-  jsonToDartObject(dynamic json) {
+  jsonToDartObject(dynamic json, MXJsonBuildOwner buildOwner) {
     if (json is Map && MXMirror.getInstance().canInvoke(json)) {
-      return MXMirror.getInstance().invoke(json);
+      return MXMirror.getInstance().invokeWidget(json, buildOwner);
     } else if (json is List) {
       List list = [];
       json.forEach((element) {
-        var object = jsonToDartObject(element);
+        var object = jsonToDartObject(element, buildOwner);
         list.add(object);
       });
       return list;

@@ -7,6 +7,7 @@
 import 'package:mxflutter/src/mx_json_proxy_image_new.dart';
 import 'package:mxflutter/src/mx_json_proxy_material_new.dart';
 import 'package:mxflutter/src/mx_json_proxy_layout_new.dart';
+import 'package:mxflutter/src/mx_build_owner.dart';
 
 String constFunString = "fun";
 
@@ -67,7 +68,7 @@ class MXMirror {
   }
 
   /// 调用方法
-  invoke(Map jsonMap) {
+  invokeWidget(Map jsonMap, MXJsonBuildOwner buildOwner) {
     /// 判断是否存在fun字段
     if (jsonMap[constFunString] == null) {
       return;
@@ -77,7 +78,9 @@ class MXMirror {
     // 移除fun字段
     jsonMap.remove(constFunString);
     dynamic fi = funName2FunMap[fun];
+    fi.buildOwner = buildOwner;
     var result = fi.apply(jsonMap);
+    fi.buildOwner = null;
     return result;
   }
 

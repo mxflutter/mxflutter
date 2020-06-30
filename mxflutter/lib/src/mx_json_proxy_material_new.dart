@@ -5,9 +5,8 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:mxflutter/src/mx_function_invoke.dart';
-import 'package:mxflutter/src/mx_closure.dart';
-import 'package:mxflutter/src/mx_build_owner.dart';
+import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
+import 'package:mxflutter/src/mirror/mx_closure.dart';
 
 class MXRegisterMeterialSeries {
   static Map<String, MXFunctionInvoke> registerSeries() {
@@ -44,15 +43,12 @@ var flatButton = MXFunctionInvoke(
     bool autofocus = false,
     MaterialTapTargetSize materialTapTargetSize,
     @required Widget child,
-
-    // 自定义参数
-    MXJsonBuildOwner buildOwner,
   }) =>
       FlatButton(
     key: key,
-    onPressed: createVoidCallbackClosure(buildOwner, onPressed),
-    onLongPress: createVoidCallbackClosure(buildOwner, onLongPress),
-    onHighlightChanged: createValueChangedGenericClosure<bool>(buildOwner, onHighlightChanged),
+    onPressed: createVoidCallbackClosure(flatButton.buildOwner, onPressed),
+    onLongPress: createVoidCallbackClosure(flatButton.buildOwner, onLongPress),
+    onHighlightChanged: createValueChangedGenericClosure<bool>(flatButton.buildOwner, onHighlightChanged),
     textTheme: textTheme,
     textColor: textColor,
     disabledColor: disabledColor,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //mxflutter
 import 'package:mxflutter/mxflutter.dart';
 // ignore: implementation_imports
-import 'package:mxflutter/src/mx_mirror_widget_test.dart';
+import 'package:mxflutter/src/mirror/mx_mirror_widget_test.dart';
 
 void main() {
   //-------MXFlutter 启动---------
