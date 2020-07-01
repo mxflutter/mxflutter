@@ -92,7 +92,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                     }
                 }),
                 new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }),{ color: Theme.of(context).primaryColor }),
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Material'),
                     subtitle: new Text('Material UI Demo'),
@@ -159,7 +159,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                 }),
 
                 new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }),{ color: Theme.of(context).primaryColor }),
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Pesto'),
                     subtitle: new Text('Simple recipe browser'),
@@ -191,12 +191,12 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                     }
                 }),
                 new ListTile({
-                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }),{ color: Theme.of(context).primaryColor }),
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('Animation'),
                     subtitle: new Text('Section organizer'),
                     onTap: function () {
-                       let { JSAnimationPage } = require("./app_demo/animation.js");
+                        let { JSAnimationPage } = require("./app_demo/animation.js");
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
                                 return new JSAnimationPage;
@@ -211,7 +211,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                     title: new Text('Profile'),
                     subtitle: new Text('性能测试 performance profiling'),
                     onTap: function () {
-                      
+
 
                         let { ProfileExamplesPage } = require("./profile/index.js");
 
@@ -222,7 +222,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                         }))
                     }
                 }),
-                
+
                 this.sectionTitle(context, "mxjsbuilder build app"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
@@ -235,7 +235,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
 
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
-                                return new flutter_demo_ddc.main.MyHomePage.new({title: "Flutter Demo Home Page"});
+                                return new flutter_demo_ddc.main.MyHomePage.new({ title: "Flutter Demo Home Page" });
                             }
                         }))
                     }
@@ -291,6 +291,22 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                         }))
                     }
                 }),
+                this.sectionTitle(context, "Dart JS Api"),
+                new ListTile({
+                    leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('Dart JS Api'),
+                    subtitle: new Text('JS Call Dart Function'),
+                    onTap: function () {
+
+                        let { PageExampleJSApi } = require("custom_js_api.js");
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new PageExampleJSApi;
+                            }
+                        }))
+                    }
+                })
             ]
         });
 
@@ -311,31 +327,31 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
 }
 
 class HomeSectionTitle extends MXJSStatelessWidget {
-  constructor(title,{key}={}){
-    super("HomeSectionTitle",{key:key});
-    this.title = title;
-  }
+    constructor(title, { key } = {}) {
+        super("HomeSectionTitle", { key: key });
+        this.title = title;
+    }
 
-  build(context){
-    return new Container({
-      padding: EdgeInsets.all(10.0),
-      color: Theme.of(context).primaryColor,
-      child: new Row({
-        children: [
-          new Icon(new IconData(0xe80e, { fontFamily: 'MaterialIcons' }), { size: 20, color: new Color(0xFFFFFFFF) }),
-          new Padding({ padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0) }),
-          new Text(this.title, {
-            textAlign: TextAlign.start,
-            style:new TextStyle({
-              fontSize: 16,
-              fontWeight: Theme.of(context).textTheme.title.fontWeight,
-              color:Colors.white
+    build(context) {
+        return new Container({
+            padding: EdgeInsets.all(10.0),
+            color: Theme.of(context).primaryColor,
+            child: new Row({
+                children: [
+                    new Icon(new IconData(0xe80e, { fontFamily: 'MaterialIcons' }), { size: 20, color: new Color(0xFFFFFFFF) }),
+                    new Padding({ padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0) }),
+                    new Text(this.title, {
+                        textAlign: TextAlign.start,
+                        style: new TextStyle({
+                            fontSize: 16,
+                            fontWeight: Theme.of(context).textTheme.title.fontWeight,
+                            color: Colors.white
+                        })
+                    })
+                ]
             })
-          })
-        ]
-      })
-    });
-  }
+        });
+    }
 }
 
 module.exports = { MXJSWidgetHomePage };
