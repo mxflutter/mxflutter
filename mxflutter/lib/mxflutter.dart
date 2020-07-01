@@ -24,3 +24,4 @@ library mxflutter;
 export 'src/mx_js_flutter.dart';
 export 'src/mx_widgets.dart';
 export 'src/mx_js_flutter_common.dart';
+export 'src/mx_json_to_dart.dart';
