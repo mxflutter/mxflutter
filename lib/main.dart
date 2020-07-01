@@ -4,6 +4,8 @@ import 'package:mxflutter/mxflutter.dart';
 // ignore: implementation_imports
 import 'package:mxflutter/src/mirror/mx_mirror_widget_test.dart';
 
+import 'custom_js_api.dart';
+
 void main() {
   //-------MXFlutter 启动---------
   //1. 启动你的jsAPP，不显示任何界面
@@ -15,11 +17,11 @@ void main() {
   //    - mxflutter_js_src/app_demo/
   //    - mxflutter_js_src/mxjsbuilder_demo/
 
-  ///Entrypoint mxflutter_js_src/main.js main()
-  ///runJSApp 的jsAppAssetsKey 默认参数即为mxflutter_js_src/， 会默认运行 mxflutter_js_src/main.js
-  ///建议不要修改mxflutter_js_src/目录名，模拟器热重载依据此路径配置
-  ///如果修改请全局搜索mxflutter_js_src/修改模拟器热重载配置，release或真机不受影响
-  ///jsAppSearchPathWithAssetsKeyList 一般无需设置，默认从jsApp root path开始查找
+  //Entrypoint mxflutter_js_src/main.js main()
+  //runJSApp 的jsAppAssetsKey 默认参数即为mxflutter_js_src/， 会默认运行 mxflutter_js_src/main.js
+  //建议不要修改mxflutter_js_src/目录名，模拟器热重载依据此路径配置
+  //如果修改请全局搜索mxflutter_js_src/修改模拟器热重载配置，release或真机不受影响
+  //jsAppSearchPathWithAssetsKeyList 一般无需设置，默认从jsApp root path开始查找
   MXJSFlutter.getInstance().runJSApp(
       jsAppAssetsKey: "mxflutter_js_src",
       jsAppSearchPathWithAssetsKeyList: [
@@ -27,10 +29,14 @@ void main() {
         "mxflutter_js_src/mxjsbuilder_demo"
       ]);
 
-  ///或者运行你下载到 DocumentsDirectory 里的JS代码
-//  Directory directory = await getApplicationDocumentsDirectory();
-//  var jsAppPath = join(directory.path, "my_js_app");
-//  MXJSFlutter.getInstance().runJSApp(jsAppPath: jsAppPath);
+  //  或者运行你下载到 DocumentsDirectory 里的JS代码
+  //  Directory directory = await getApplicationDocumentsDirectory();
+  //  var jsAppPath = join(directory.path, "my_js_app");
+  //  MXJSFlutter.getInstance().runJSApp(jsAppPath: jsAppPath);
+
+  //注册自定义JSApi，可以在JS侧调用自定义dart代码，先在MXJsonObjToDartObject这里注册，可以搜索CustomJSApi 看增加过程
+  MXJSFlutter.getInstance()
+      .registerMirrorObjProxy(CustomJSApiProxy.registerProxy());
 
   runApp(MyApp());
 }
