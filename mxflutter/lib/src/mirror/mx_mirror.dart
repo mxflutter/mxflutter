@@ -9,7 +9,7 @@ import 'package:mxflutter/src/mx_json_proxy_material_new.dart';
 import 'package:mxflutter/src/mx_json_proxy_layout_new.dart';
 import 'package:mxflutter/src/mx_build_owner.dart';
 
-String constFunString = "fun";
+String constFunString = "mxFun";
 
 /// MXMirror系统接口类
 class MXMirror {
