@@ -292,38 +292,6 @@ class MXJsonBuildOwner {
     return null;
   }
 
-  void jsCallInvokeCommon(widgetDataStr) {
-    Map argMap = json.decode(widgetDataStr);
-
-    String widgetID = argMap["widgetID"];
-    String className = argMap["className"];
-    String funcName = argMap["funcName"];
-    Map args = argMap["args"];
-    invokeFunctionCommon(widgetID, className, funcName, args);
-  }
-
-  void invokeFunctionCommon(
-      String widgetID, String className, String funcName, Map args) {
-    var bo = findBuildOwner(widgetID);
-    if (bo == null) {
-      MXJSLog.error("jsCallNavigatorPop(bo == null: widgetID:$widgetID");
-      return;
-    }
-
-    final context = bo.widget.buildContext;
-    if (className == 'Scaffold') {
-      if (funcName == 'of') {
-        //查找scaffoldState
-        final scaffoldState = Scaffold.of(context); //
-        //动态构建snackbar
-        var snackBar = MXJsonObjToDartObject.jsonToDartObj(args["snackBar"],
-            buildOwner: this, context: context);
-        //设置snackbar
-        scaffoldState.showSnackBar(snackBar);
-      }
-    }
-  }
-
   void jsCallInvoke(widgetDataStr) {
     Map argMap = json.decode(widgetDataStr);
     String mirrorID = argMap["mirrorID"];

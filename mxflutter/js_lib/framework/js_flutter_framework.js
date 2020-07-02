@@ -180,13 +180,6 @@ function invokeFlutterFunction(flutterCallArgs) {
   MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invoke", arguments);
 }
 
-///TODO: 优化
-///github merge
-function invokeCommonFlutterFunction(flutterCallArgs) {
-  arguments = JSON.stringify(flutterCallArgs);
-  MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invokeCommon", arguments);
-}
-
 ///=====================MXNativeJSFlutterAppProxy==========================
 
 
@@ -1690,7 +1683,6 @@ GlobalKey.new = function (arg) {
 module.exports = {
   runApp,
   invokeFlutterFunction,
-  invokeCommonFlutterFunction,
   mxfJSBridgeInvokeJSCommonChannel,
   //class 定义
   MXFJSBridge,

@@ -6,16 +6,9 @@
 //  found in the LICENSE file.
 
 let {
-  DartClass,
   FlutterWidget,
-  FlutterCallArgs,
   Color,
 } = require("./js_flutter_basic_types.js");
-
-let {
-  invokeFlutterFunction,
-  invokeCommonFlutterFunction,
-} = require("./js_flutter_framework.js");
 
 let {
   Duration,

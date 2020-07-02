@@ -137,32 +137,6 @@ class Scaffold extends FlutterWidget {
     this.resizeToAvoidBottomPadding = resizeToAvoidBottomPadding;
     this.primary = primary;
   }
-
-  //FIXME,github mergegithub merge
-  static of(context) {
-    return {
-      showSnackBar: function (snackBar) {
-        //准备调用Native方法执行真正的 showSnackBar动作
-        //1.把这里的context和snackBar数据传递到native层 ✔️
-        //2.通过context找到Native里的 Scaffold.of(context) ？
-        //3.解析snackBar为真snackBar对象 ✔️
-        //4.执行调用
-        MXJSLog.log("showSnackBar in js call native-->");
-        let argument = new FlutterCallArgs({
-          widgetID: context.widgetID,
-          className: 'Scaffold',
-          funcName: 'of',
-          args: {
-            snackBar: snackBar,
-          },
-        });
-        invokeCommonFlutterFunction(argument);
-      },
-      openDrawer: function () {
-        MXJSLog.log("openDrawer---in js---to call native-->");
-      },
-    };
-  }
 }
 
 Scaffold.new = function (arg) {
