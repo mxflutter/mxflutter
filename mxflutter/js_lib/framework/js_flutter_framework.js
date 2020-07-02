@@ -175,9 +175,8 @@ class MXNativeJSFlutterAppProxy {
 ///TODO: 优化
 ///调用和UI相关的mirrorObj的函数
 ///*重要区分： UIMirrorObj的生命周期和Flutter Widget控制，由Dart侧Dispose时完成释放
-function invokeFlutterFunction(flutterCallArgs) {
-  arguments = JSON.stringify(flutterCallArgs);
-  MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("invoke", arguments);
+function invokeFlutterFunction(arguments) {
+  MXFJSBridge.invokeMirrorObjWithCallback(arguments);
 }
 
 ///=====================MXNativeJSFlutterAppProxy==========================

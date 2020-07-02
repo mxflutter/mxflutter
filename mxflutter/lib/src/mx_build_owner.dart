@@ -292,22 +292,6 @@ class MXJsonBuildOwner {
     return null;
   }
 
-  void jsCallInvoke(widgetDataStr) {
-    Map argMap = json.decode(widgetDataStr);
-    String mirrorID = argMap["mirrorID"];
-    dynamic mirrorObj = getMirrorObjectFromID(mirrorID);
-
-    if (mirrorObj != null) {
-      String className = argMap["className"];
-      String funcName = argMap["funcName"];
-      Map args = argMap["args"];
-
-      MXJsonObjProxy proxy =
-          MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
-      proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, args);
-    }
-  }
-
   //MirrorObj事件回调
   //flutter->JS
   Future<dynamic> mirrorObjEventCallback(dynamic mirrorID, String functionName,
