@@ -157,7 +157,6 @@ class MXJSFlutterApp {
     _jsFlutterAppChannelFunRegMap["rebuild"] = _jsRebuild;
     _jsFlutterAppChannelFunRegMap["navigatorPush"] = _navigatorPush;
     _jsFlutterAppChannelFunRegMap["navigatorPop"] = _navigatorPop;
-    _jsFlutterAppChannelFunRegMap["invoke"] = _jsInvoke;
 
     // 设置Rebuild方法通道
     _jsFlutterAppRebuildChannel = const BasicMessageChannel(
@@ -196,11 +195,6 @@ class MXJSFlutterApp {
   //js层 调用navigatorPop 主动pop页面
   Future<dynamic> _navigatorPop(args) async {
     _rootBuildOwner.jsCallNavigatorPop(args);
-  }
-
-  //js层 调用Dart代码
-  Future<dynamic> _jsInvoke(args) async {
-    _rootBuildOwner.jsCallInvoke(args);
   }
 }
 
