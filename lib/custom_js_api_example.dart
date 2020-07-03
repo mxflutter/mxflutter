@@ -10,7 +10,7 @@ import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
 /// 向JS提供CustomJSApi example,
 class CustomJSApiExample {
   /// 向JS提供getMyAppName
-  static String getMyAppName(String platform, {String v}) {
+  String getMyAppName(String platform, {String v}) {
     return "MyApp_$platform $v";
   }
 
@@ -25,11 +25,11 @@ class CustomJSApiExample {
     var constructor = MXFunctionInvoke("CustomJSApiExample", ({String mirrorID, String className, Map args}) =>
         CustomJSApiExample());
     
-    // 示例方法1
+    // 实例方法
     var getMyAppName = MXFunctionInvoke("getMyAppName", ({CustomJSApiExample mirrorObj, String platform, String v}) =>
-        CustomJSApiExample.getMyAppName(platform, v: v));
+        mirrorObj.getMyAppName(platform, v: v));
 
-    // 示例方法2
+    // 静态方法，可以不管mirrorObj
     var getMyData = MXFunctionInvoke("getMyData", ({CustomJSApiExample mirrorObj, String sameInfo, String v,int v2}) =>
         CustomJSApiExample.getMyData(sameInfo, v: v, v2: v2));
 
