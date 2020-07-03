@@ -13,6 +13,7 @@ import 'mx_js_flutter_common.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_js_mirror_obj_mgr.dart';
 import 'mx_js_framework.dart';
+import 'package:mxflutter/src/mirror/custom_js_api.dart';
 
 ///*MXJSFluttr的对外接口类
 ///简单两步接入MXFlutter，打开JS编写的页面。
@@ -267,32 +268,56 @@ class MXJSFlutterLib implements MXJSFlutter {
     dynamic mirrorObj =
         MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
 
-    if (mirrorObj != null) {
-      String className = args["className"];
-      String funcName = args["funcName"];
-      Map funArgs = args["args"];
+    // 采用Function方式调用
+    if (CustomJSApi.canInvoke(args["funcName"])) {
+      Completer<String> completer = new Completer<String>();
+      Map<String, dynamic> newArgs = new Map<String, dynamic>();
 
-      MXJsonObjProxy proxy =
-          MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
+      // 添加参数
+      newArgs["mirrorObj"] = mirrorObj;
+      newArgs["funcName"] = args["funcName"];
+      newArgs.addAll(args["args"]);
 
-      if (proxy != null) {
-        Completer<String> completer = new Completer<String>();
-        proxy.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
-            callback: (result) {
-          var returnJSONStr = result;
-          if (result != null && !(result is String)) {
-            returnJSONStr = json.encode(result);
-          }
+      CustomJSApi.invoke(newArgs, callback: (result) {
+        var returnJSONStr = result;
+        if (result != null && !(result is String)) {
+          returnJSONStr = json.encode(result);
+        }
 
-          //callJsCallbackFunction(onResultId, params);
-          completer.complete(returnJSONStr);
-        });
+        completer.complete(returnJSONStr);
+      });
 
-        return completer.future;
+      return completer.future;
+    } 
+    //TODO: 原有方法调用，后续要优化掉
+    else {
+      if (mirrorObj != null) {
+        String className = args["className"];
+        String funcName = args["funcName"];
+        Map funArgs = args["args"];
+
+        MXJsonObjProxy proxy =
+            MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
+
+        if (proxy != null) {
+          Completer<String> completer = new Completer<String>();
+          proxy.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
+              callback: (result) {
+            var returnJSONStr = result;
+            if (result != null && !(result is String)) {
+              returnJSONStr = json.encode(result);
+            }
+
+            //callJsCallbackFunction(onResultId, params);
+            completer.complete(returnJSONStr);
+          });
+
+          return completer.future;
+        }
       }
-    }
 
-    return null;
+      return null;
+    }
   }
 
   Future<dynamic> mxfJSBridgeRemoveMirrorObjsRef(dynamic mirrorIDList) {

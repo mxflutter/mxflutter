@@ -24,13 +24,13 @@ class MXMirrorJ2D {
 
   MXMirrorJ2D._();
 
-  jsonToDartObject(dynamic json, MXJsonBuildOwner buildOwner) {
-    if (json is Map && MXMirror.getInstance().canInvoke(json)) {
-      return MXMirror.getInstance().invokeWidget(json, buildOwner);
+  jsonToDartObject(dynamic json, { MXJsonBuildOwner buildOwner }) {
+    if (json is Map && MXMirror.getInstance().canInvoke(json["funcName"])) {
+      return MXMirror.getInstance().invoke(json, buildOwner: buildOwner);
     } else if (json is List) {
       List list = [];
       json.forEach((element) {
-        var object = jsonToDartObject(element, buildOwner);
+        var object = jsonToDartObject(element, buildOwner: buildOwner);
         list.add(object);
       });
       return list;

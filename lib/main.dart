@@ -4,7 +4,7 @@ import 'package:mxflutter/mxflutter.dart';
 // ignore: implementation_imports
 import 'package:mxflutter/src/mirror/mx_mirror_widget_test.dart';
 
-import 'custom_js_api.dart';
+import 'custom_js_api_example.dart';
 
 void main() {
   //-------MXFlutter 启动---------
@@ -34,9 +34,8 @@ void main() {
   //  var jsAppPath = join(directory.path, "my_js_app");
   //  MXJSFlutter.getInstance().runJSApp(jsAppPath: jsAppPath);
 
-  //注册自定义JSApi，可以在JS侧调用自定义dart代码，先在MXJsonObjToDartObject这里注册，可以搜索CustomJSApi 看增加过程
-  MXJSFlutter.getInstance()
-      .registerMirrorObjProxy(CustomJSApiProxy.registerProxy());
+  // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考CustomJSApiExample实现过程
+  CustomJSApiExample.registerFunction();
 
   runApp(MyApp());
 }

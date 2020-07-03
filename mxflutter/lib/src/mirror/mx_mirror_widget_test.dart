@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 var invokeJsonMap = {
-  "mxFun": "Image.network",
+  "funcName": "Image.network",
   "src": "https://pic2.zhimg.com/v2-d69d126ceda551b19daceb351c9afa98_1440w.jpg",
   "width": 320,
   "height": 400,
@@ -32,22 +32,22 @@ var invokeJsonMap = {
 };
 
 // var invokeJsonMap = {
-//   "mxFun": "FlatButton",
+//   "funcName": "FlatButton",
 //   "onPressed": "1/1",
 //   "child": Text("hahha"),
 // };
 
 // var invokeJsonMap = {
-//   "mxFun": "Stack",
+//   "funcName": "Stack",
 //   "children": [
 //     {
-//       "mxFun": "Image.network",
+//       "funcName": "Image.network",
 //       "src": "https://pic2.zhimg.com/v2-d69d126ceda551b19daceb351c9afa98_1440w.jpg",
 //       "width": 100,
 //       "height": 200,
 //     },
 //     {
-//       "mxFun": "FlatButton",
+//       "funcName": "FlatButton",
 //       "onPressed": "1/2",
 //       "child": Text("button_2"),
 //     },
@@ -55,6 +55,6 @@ var invokeJsonMap = {
 // };
 
 Widget convertMirrorWidget() {
-  Widget widget = MXMirror.getInstance().invokeWidget(invokeJsonMap, null);
+  Widget widget = MXMirror.getInstance().invoke(invokeJsonMap);
   return widget;
 }

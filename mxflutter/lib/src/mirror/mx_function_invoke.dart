@@ -15,11 +15,11 @@ class MXFunctionInvoke {
   Function fun;
   MXJsonBuildOwner buildOwner;
 
-  apply(Map<String, dynamic> jsonMap) {
+  apply(Map jsonMap) {
     Map<Symbol, dynamic> namedArguments = {};
     for (String name in jsonMap.keys) {
       namedArguments[Symbol(name)] =
-          MXMirrorJ2D.getInstance().jsonToDartObject(jsonMap[name], buildOwner);
+          MXMirrorJ2D.getInstance().jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
     }
     return Function.apply(this.fun, [], namedArguments);
   }

@@ -9,14 +9,14 @@ import 'package:mxflutter/src/mx_json_proxy_material_new.dart';
 import 'package:mxflutter/src/mx_json_proxy_layout_new.dart';
 import 'package:mxflutter/src/mx_build_owner.dart';
 
-String constFunString = "mxFun";
+String constFunString = "funcName";
 
 /// MXMirror系统接口类
 class MXMirror {
   static MXMirror _instance;
 
   /// String到Dart 函数的映射表
-  var funName2FunMap = {};
+  var _funName2FunMap = {};
 
   static MXMirror getInstance() {
     if (_instance == null) {
@@ -31,20 +31,20 @@ class MXMirror {
 
   MXMirror._() {
     /// 注册方法
-    registerFunctions();
+    _registerFunctions();
   }
 
   /// 注册方法
-  registerFunctions() {
+  _registerFunctions() {
     /// 注册widget方法
-    registerWidgetFunction();
+    _registerWidgetFunction();
 
     /// 注册通用方法
-    registerCommonFunction();
+    _registerCommonFunction();
   }
 
   /// 注册widget方法
-  registerWidgetFunction() {
+  _registerWidgetFunction() {
     /// Image
     addToFunctionMap(MXRegisterImageSeries.registerSeries());
 
@@ -56,7 +56,7 @@ class MXMirror {
   }
 
   /// 注册通用方法
-  registerCommonFunction() {}
+  _registerCommonFunction() {}
 
   /// 添加到方法映射表
   void addToFunctionMap(Map<String, dynamic> functionMap) {
@@ -64,11 +64,11 @@ class MXMirror {
       return;
     }
 
-    funName2FunMap.addAll(functionMap);
+    _funName2FunMap.addAll(functionMap);
   }
 
-  /// 调用方法
-  invokeWidget(Map jsonMap, MXJsonBuildOwner buildOwner) {
+  /// 调用Function.apply方法
+  invoke(Map jsonMap, { MXJsonBuildOwner buildOwner }) {
     /// 判断是否存在fun字段
     if (jsonMap[constFunString] == null) {
       return;
@@ -77,15 +77,14 @@ class MXMirror {
     String fun = jsonMap[constFunString];
     // 移除fun字段
     jsonMap.remove(constFunString);
-    dynamic fi = funName2FunMap[fun];
+    dynamic fi = _funName2FunMap[fun];
     fi.buildOwner = buildOwner;
     var result = fi.apply(jsonMap);
     fi.buildOwner = null;
     return result;
   }
 
-  bool canInvoke(Map jsonMap) {
-    String fun = jsonMap[constFunString];
-    return funName2FunMap[fun] != null;
+  bool canInvoke(String funcName) {
+    return _funName2FunMap[funcName] != null;
   }
 }

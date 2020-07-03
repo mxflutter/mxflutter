@@ -65,17 +65,17 @@ let { MXFJSBridge, MXJSCallbackMgr } = require("./js_flutter_framework.js");
 
 
 
-class CustomJSApi extends DartClass {
+class CustomJSApiExample extends DartClass {
 
     constructor(baseOptions) {
-        super("CustomJSApi");
+        super("CustomJSApiExample");
         //Mirror对象在构造函数创建 MirrorID
         this.createMirrorObjectID();
 
         //创建对应FLutter对象
         var argument = new FlutterCallArgs({
             mirrorID: this.mirrorID,
-            className: "CustomJSApi",
+            className: "CustomJSApiExample",
             args: {
                 "key": 123
             }
@@ -89,7 +89,7 @@ class CustomJSApi extends DartClass {
 
         let argument = new FlutterCallArgs({
             mirrorID: this.mirrorID,
-            className: "CustomJSApi",
+            className: "CustomJSApiExample",
             funcName: "getMyAppName",
             args: {
                 platform: platform,
@@ -119,8 +119,8 @@ class CustomJSApi extends DartClass {
 }
 
 
-//使用CustomJSApi
-let g_jsApi = new CustomJSApi();
+//使用CustomJSApiExample
+let g_jsApi = new CustomJSApiExample();
 
 const { SectionTitle } = require("./component/section_title.js");
 
