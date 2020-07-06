@@ -11,3 +11,40 @@ List<T> toListT<T>(list) {
   }
   return List<T>.from(list);
 }
+
+/// 转Map<int, T>类型
+Map<int, T> toMapIntT<T>(Map map) {
+  Map<int, T> result = map?.map((k, v) {
+    if (v.runtimeType == T) {
+      return MapEntry<int, T>(int.parse(k), v);
+    } else {
+      // MXJSLog.error(
+      //     "toMapIntT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+      return null;
+    }
+  });
+  return result;
+}
+
+/// 转Map<String, T>类型
+Map<String, T> toMapStringT<T>(Map map) {
+  Map<String, T> result = map?.map((k, v) {
+    if (v.runtimeType == T) {
+      return MapEntry<String, T>(k, v);
+    } else {
+      // MXJSLog.error(
+      //     "toMapStringT: value type is different from T type, value type is $v.runtimeType, T type is $T");
+      return null;
+    }
+  });
+  return result;
+}
+
+/// 转Double类型
+double toDouble(obj) {
+  if (obj == null) {
+    return 0.0;
+  }
+
+  return obj.toDouble();
+}

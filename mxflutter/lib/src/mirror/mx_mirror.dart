@@ -79,9 +79,19 @@ class MXMirror {
     jsonMap.remove(constFunString);
     dynamic fi = _funName2FunMap[fun];
     fi.buildOwner = buildOwner;
-    var result = fi.apply(jsonMap);
-    fi.buildOwner = null;
-    return result;
+    
+    try {
+      var result = fi.apply(jsonMap);
+      fi.buildOwner = null;
+
+      return result;
+    } catch (e) {
+      // MXJSLog.error(
+      //     "MXMirror.invoke, error:$e ; jsonMap: $jsonMap ");
+
+      // 打印日志重新抛出
+      rethrow;
+    }
   }
 
   bool canInvoke(String funcName) {
