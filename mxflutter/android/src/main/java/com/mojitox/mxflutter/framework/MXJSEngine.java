@@ -21,6 +21,7 @@ import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +44,7 @@ public class MXJSEngine {
     private long jsCallbackCount = 0;
 
     private MXFlutterPlugin mContext;
-
+    private String appPath;
     public MXJSEngine(MXFlutterPlugin context, MXJSFlutterEngine mxjsFlutterEngine) {
         mContext = context;
         this.mMXJSFlutterEngine = mxjsFlutterEngine;
@@ -221,8 +222,18 @@ public class MXJSEngine {
                 assetJsFunctionArg(args.length(), 1);
 
                 String filePath = args.get(0).toString();
+                String tempFilePath = filePath;
+                if(tempFilePath.startsWith("./")){
+                    tempFilePath = tempFilePath.substring(2);
+                }
+                int i = tempFilePath.lastIndexOf("/");
+                if(i!=-1){
+                    tempFilePath = tempFilePath.substring(0, i);
+                }
                 String absolutePath = null;
-                boolean isFromAsset = !FileUtils.isCopiedFileFromAssets(mContext.mFlutterPluginBinding.getApplicationContext());
+                //指定的路径下包含最后一级文件夹，就说明不是asset
+                boolean isFromAsset = !new File(appPath,tempFilePath).exists();//!FileUtils.isCopiedFileFromAssets(mContext.mFlutterPluginBinding.getApplicationContext());
+                Log.e(TAG,"require invoke filePath = "+filePath+",isFromAsset = "+isFromAsset);
                 if (isFromAsset) {
                     absolutePath = FileUtils.getFilePathFromAsset(mContext.mFlutterPluginBinding.getApplicationContext(), filePath, searchDirArray);
                 } else {
@@ -257,12 +268,21 @@ public class MXJSEngine {
     }
 
     void addSearchDir(String dir) {
+        Log.e(TAG,"addSearchDir dir = "+dir);
         if (TextUtils.isEmpty(dir) || searchDirArray.indexOf(dir) != -1) {
             return;
         }
+        Log.e(TAG,"real addSearchDir dir = "+dir);
         searchDirArray.add(dir);
     }
 
+    /***
+     * 设置App业务逻辑路径
+     * @param dir 路径
+     */
+    void setAppPath(String dir){
+        this.appPath = dir;
+    }
     private String storeJsCallback(V8Function v8Function) {
         String callbackId = "jsCallback_" + jsCallbackCount++;
         jsCallbackCache.put(callbackId, v8Function);

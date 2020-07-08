@@ -3,6 +3,7 @@ package com.mojitox.mxflutter;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.mojitox.mxflutter.framework.MXJSFlutterApp;
 import com.mojitox.mxflutter.framework.MXJSFlutterEngine;

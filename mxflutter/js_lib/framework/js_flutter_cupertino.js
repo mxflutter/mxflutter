@@ -292,7 +292,36 @@ class CupertinoTabView extends FlutterWidget {
     this.navigatorObservers = navigatorObservers;
   }
 }
+class CupertinoPageRoute extends FlutterWidget {
+  constructor({
+    builder,
+    settings,
+    maintainState,
+    fullscreenDialog,
+  } = {}) {
+    super();
 
+    this.builder = builder;
+    this.settings = settings;
+    this.maintainState = maintainState;
+    this.fullscreenDialog = fullscreenDialog;
+
+    this.child = null;
+  }
+
+  preBuild(jsWidgetHelper, buildContext) {
+    if (this.builder) {
+      this.child = this.builder(buildContext);
+      delete this.builder;
+    }
+
+    super.preBuild(jsWidgetHelper, buildContext);
+  }
+}
+
+CupertinoPageRoute.new = function (args) {
+  return new CupertinoPageRoute(args);
+};
 module.exports = {
   CupertinoActivityIndicator,
   CupertinoAlertDialog,
@@ -307,5 +336,6 @@ module.exports = {
   CupertinoTabBar,
   CupertinoPageScaffold,
   CupertinoTabScaffold,
+  CupertinoPageRoute,
   CupertinoTabView
 };

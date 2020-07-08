@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //mxflutter
 import 'package:mxflutter/mxflutter.dart';
@@ -43,7 +44,7 @@ class MXFlutterExampleHome extends StatelessWidget {
                 //创建你需要的MX JS Widget
                 Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    CupertinoPageRoute(
                         builder: (context) => MXJSPageWidget(
                             jsWidgetName: "MXJSWidgetHomePage")));
               },

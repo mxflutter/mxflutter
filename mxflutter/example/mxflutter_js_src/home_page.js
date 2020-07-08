@@ -28,6 +28,7 @@ let {
     Theme,
     Navigator,
     MaterialPageRoute,
+    CupertinoPageRoute,
     Scrollbar,
     MXJSLog,
 } = require("js_flutter.js");
@@ -57,7 +58,7 @@ class MXJSWidgetHomePage extends MXJSStatelessWidget {
 
                             let demo = require("./js_dev_demo.js");
 
-                            Navigator.push(context, new MaterialPageRoute({
+                            Navigator.push(context, new CupertinoPageRoute({
                                 builder: function (context) {
                                     return new demo.MyHomePage({ title: "JS Page Demo" });
                                 }
