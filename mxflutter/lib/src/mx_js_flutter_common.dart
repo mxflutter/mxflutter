@@ -529,4 +529,29 @@ class MXUtil {
 
     return map;
   }
+
+  /// 替换map的值
+  static dynamic replaceMapValue(data,
+      Map<String, Object> repleace) {
+    ///兼容data初始值为String的情况
+    if(data is String){
+      if(repleace.containsKey(data)){
+        return repleace[data];
+      }else{
+        return data;
+      }
+    }
+    if (data is Map && data != null && repleace != null) {
+      data.forEach((key, value) {
+        if (value is Map) {
+          replaceMapValue(value, repleace);
+        } else {
+          if (repleace.containsKey(value)) {
+            data[key] = repleace[value];
+          }
+        }
+      });
+    }
+    return data;
+  }
 }

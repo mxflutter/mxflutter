@@ -22,7 +22,7 @@ import 'pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
 import 'mx_json_proxy_widget.dart';
 import 'mx_js_mirror_obj_mgr.dart';
-
+import 'dart:collection';
 typedef dynamic CreateJsonObjProxyFun();
 
 typedef InvokeCallback = void Function(dynamic params);
@@ -63,6 +63,7 @@ class MXJsonObjToDartObject {
     if (jsonObj == null) {
       return jsonObj;
     }
+
     String className;
     try {
       ///map

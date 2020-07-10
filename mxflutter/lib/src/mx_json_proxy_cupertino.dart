@@ -7,7 +7,7 @@
 import 'package:flutter/cupertino.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
-
+import 'mx_json_proxy_material.dart';
 /******************TODO List****************************/
 /*
     // 1. onpress
@@ -16,10 +16,8 @@ import 'mx_build_owner.dart';
     2. Animation
       CupertinoPageTransition.primaryRouteAnimation
       CupertinoPageTransition.secondaryRouteAnimation
-
     3. BottomNavigationBarItem
       CupertinoTabBar.items
-
     4. ObstructingPreferredSizeWidget
       CupertinoPageScaffold.navigationBar    
 */
@@ -64,7 +62,6 @@ class MXProxyCupertinoActivityIndicator extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoActivityIndicator({
   ///    Key key,
   ///   this.animating = true,
@@ -98,7 +95,6 @@ class MXProxyCupertinoAlertDialog extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoAlertDialog({
   ///    Key key,
   ///    this.title,
@@ -145,9 +141,7 @@ class MXProxyCupertinoButton extends MXJsonObjProxy {
   }
 
   ///
-
   ///*********************************************************************
-
   ///  const CupertinoButton({
   ///    @required this.child,
   ///    this.padding,
@@ -205,7 +199,6 @@ class MXProxyCupertinoDialog extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoDialog({
   ///    Key key,
   ///    this.child,
@@ -238,7 +231,6 @@ class MXProxyCupertinoDialogAction extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoDialogAction constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
@@ -271,7 +263,6 @@ class MXProxyCupertinoSlider extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoSlider({
   ///   Key key,
   ///    @required this.value,
@@ -317,7 +308,6 @@ class MXProxyCupertinoSwitch extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoSwitch({
   ///    Key key,
   ///    @required this.value,
@@ -352,7 +342,6 @@ class MXProxyCupertinoPageTransition extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  CupertinoPageTransition({
   ///    Key key,
   ///    @required Animation<double> primaryRouteAnimation,
@@ -419,7 +408,6 @@ class MXProxyCupertinoNavigationBar extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoNavigationBar({
   ///    Key key,
   ///    this.leading,
@@ -484,7 +472,6 @@ class MXProxyCupertinoTabBar extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoTabBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
@@ -526,7 +513,6 @@ class MXProxyCupertinoPageScaffold extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoPageScaffold constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
@@ -558,7 +544,6 @@ class MXProxyCupertinoTabScaffold extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoTabScaffold constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
@@ -590,7 +575,6 @@ class MXProxyCupertinoTabView extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoTabView constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
@@ -610,6 +594,7 @@ class MXProxyCupertinoTabView extends MXJsonObjProxy {
     return widget;
   }
 }
+
 class MXProxyCupertinoPageRoute extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
     ///**@@@  2 替换类名字符串
@@ -626,15 +611,46 @@ class MXProxyCupertinoPageRoute extends MXJsonObjProxy {
   CupertinoPageRoute constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
-    var widget = CupertinoPageRoute(
-      builder: (BuildContext context) {
-        return (mxj2d(bo, jsonMap["child"], context: context));
-      },
+    var widget = MXCupertinoPageRoute(
       settings: mxj2d(bo, jsonMap["settings"]),
       maintainState: mxj2d(bo, jsonMap["maintainState"], defaultValue: true),
-      fullscreenDialog:
-      mxj2d(bo, jsonMap["fullscreenDialog"], defaultValue: false),
+      title:mxj2d(bo, jsonMap["title"]),
     );
     return widget;
   }
+}
+
+class MXCupertinoPageRoute extends CupertinoPageRoute with MXPageRouteHelper {
+  MXCupertinoPageRoute({
+    RouteSettings settings,
+    maintainState,
+    title,
+  }) : super(
+      builder: (context) => null,
+      settings: settings,
+      maintainState: maintainState,
+      title:title,
+      fullscreenDialog: false);
+
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+    final Widget child = this.pageWidget;
+    final Widget result = Semantics(
+      scopesRoute: true,
+      explicitChildNodes: true,
+      child: child,
+    );
+    assert(() {
+      if (child == null) {
+        throw FlutterError.fromParts(<DiagnosticsNode>[
+          ErrorSummary('The builder for route "${settings.name}" returned null.'),
+          ErrorDescription('Route builders must never return null.'),
+        ]);
+      }
+      return true;
+    }());
+    return result;
+  }
+
 }

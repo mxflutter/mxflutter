@@ -1207,8 +1207,8 @@ class NavigatorState extends FlutterWidget {
     this.context = context;
   }
 
-  push(T, materialPageRoute) {
-    this.context.widget.helper.navigatorPush(materialPageRoute.builder(this.context));
+  push(T, pageRoute) {
+    this.context.widget.helper.navigatorPush(this.context,pageRoute);
   }
   pop(T) {
     this.context.widget.helper.navigatorPop();
@@ -1232,17 +1232,17 @@ class Navigator extends FlutterWidget {
     this.observers = observers;
   }
 
-  static push(context, materialPageRoute) {
+  static push(context, pageRoute) {
 
     let T = null;
     if (arguments.length == 3) {
       T = arguments[0];
       context = arguments[1];
-      materialPageRoute = arguments[2];
+      pageRoute = arguments[2];
     }
 
     var navigatorState = new NavigatorState(context);
-    navigatorState.push(T, materialPageRoute);
+    navigatorState.push(T, pageRoute);
   }
   static pop(context) {
     let T = null;
@@ -1264,30 +1264,50 @@ Navigator.new = function (arg) {
   return new Navigator(arg);
 };
 
-class MaterialPageRoute extends FlutterWidget {
+class ModalRoute extends FlutterWidget{
+  constructor({
+  } = {}) {
+    super();
+  }
+  static of(context){
+    return context.inheritedInfo[ModalRoute.name];
+  }
+}
+class PageRoute extends FlutterWidget {
+  constructor({
+    settings,
+    fullscreenDialog,
+  } = {}) {
+    super();
+    this.settings = settings;
+    this.fullscreenDialog = fullscreenDialog;
+    this.child = null;
+  }
+
+  refreshChild(newChild){
+    this.child = newChild;
+  }
+}
+class MaterialPageRoute extends PageRoute {
   constructor({
     builder,
     settings,
     maintainState,
     fullscreenDialog,
   } = {}) {
-    super();
-
+    if (typeof fullscreenDialog === 'undefined') {
+      fullscreenDialog = true;
+    }
+    super({settings:settings,fullscreenDialog:fullscreenDialog});
     this.builder = builder;
-    this.settings = settings;
     this.maintainState = maintainState;
-    this.fullscreenDialog = fullscreenDialog;
-
-    this.child = null;
   }
 
-  preBuild(jsWidgetHelper, buildContext) {
+  preBuild({jsWidgetHelper, buildContext}) {
     if (this.builder) {
       this.child = this.builder(buildContext);
       delete this.builder;
     }
-
-    super.preBuild(jsWidgetHelper, buildContext);
   }
 }
 
@@ -1295,17 +1315,97 @@ MaterialPageRoute.new = function (args) {
   return new MaterialPageRoute(args);
 };
 
+class PageRouteBuilder extends PageRoute {
+  constructor({
+    pageBuilder, // @required 目前不允许在此方法有两个MXJSState***Widget子类（包含关系的不算）
+    settings,
+    transitionsBuilder,
+    transitionDuration,
+    opaque,
+    barrierDismissible,
+    barrierColor,
+    barrierLabel,
+    maintainState,
+  } = {}) {
+    super({
+      settings: settings,
+      fullscreenDialog: false
+    });
+    if (typeof opaque === 'undefined') {
+      opaque = true;
+    }
+    if (typeof barrierDismissible === 'undefined') {
+      barrierDismissible = false;
+    }
+    if (typeof maintainState === 'undefined') {
+      maintainState = true;
+    }
+    this.pageBuilder = pageBuilder;
+    this.transitionsBuilder = transitionsBuilder;
+    this.transitionDuration = transitionDuration;
+    this.opaque = opaque;
+    this.barrierDismissible = barrierDismissible;
+    this.barrierColor = barrierColor;
+    this.barrierLabel = barrierLabel;
+    this.maintainState = maintainState;
+    //this.child 指的是真正的页面
+    //pageBuilder 指的是在pageBuilder中页面的外层动画
+    this.pageAnim=null;
+    //过度动画
+    this.transWidget=null;
+  }
+
+  preBuild({buildContext}) {
+    if (this.pageBuilder) {
+      this.child = this.pageBuilder(buildContext, "$param_animation", "$param_secondaryAnimation");
+      //当pageRoute是PageRouteBuilder且顶层widget不是标准MXJSState***Widget的时候
+      //需要将child刷新为后者，将外层的动画配置赋值给pageAnim
+      //其实不推荐在pageBuilder中实现过渡动画，推荐在transitionsBuilder中实现过渡动画 -_-
+      if (this.child.className != "MXJSStatefulWidget" && this.child.className != "MXJSStatelessWidget") {
+        this.repleaceChild(this.child);
+      }
+
+      delete this.pageBuilder;
+    }
+    if (this.transitionsBuilder) {
+      this.transWidget = this.transitionsBuilder(buildContext, "$param_animation", "$param_secondaryAnimation", "$param_child");
+      delete this.transitionsBuilder;
+    }
+  }
+
+  repleaceChild(obj) {
+    if (obj && typeof obj === 'object') {
+      var objectSymbols = Object.getOwnPropertyNames(obj);
+      for (var i = 0; i < objectSymbols.length; i++) {
+        var k = objectSymbols[i];
+        var value = obj[objectSymbols[i]];
+        if(value==undefined) continue;
+        if (value.className == "MXJSStatefulWidget" || value.className == "MXJSStatelessWidget") {
+          // let widget=value;
+          obj[objectSymbols[i]]="$param_pageWidget"
+          this.pageAnim=this.child;
+          this.child=value;
+          return;
+        }else{
+          this.repleaceChild(value);
+        }
+      }
+    }
+
+  }
+}
+
 class RouteSettings extends FlutterWidget {
   constructor({
     name,
     isInitialRoute,
-    arg,
+    args,
   } = {}) {
     super();
 
     this.name = name;
     this.isInitialRoute = isInitialRoute;
-    this.arg = arg;
+    this.args = args;
   }
 }
 
@@ -1435,6 +1535,9 @@ module.exports = {
   TabBarView,
   Navigator,
   MaterialPageRoute,
+  PageRoute,
+  ModalRoute,
+  PageRouteBuilder,
   RouteSettings,
   StretchMode,
   CollapseMode,

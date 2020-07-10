@@ -6,7 +6,6 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 import 'mx_build_owner.dart';
@@ -269,12 +268,9 @@ class MXJSWidgetHelper extends Object {
     }
   }
 
-  jsNavigatorPush(dynamic jsWidget, BuildContext context) {
+  jsNavigatorPush(PageRoute pageRoute, BuildContext context) {
     MXJSLog.log("MXJSWidgetState:jsNavigatorPush:");
-    Navigator.push(
-      context,
-      CupertinoPageRoute(builder: (context) => jsWidget),
-    );
+    Navigator.push(context, pageRoute);
   }
 
   jsNavigatorPop(BuildContext context) {

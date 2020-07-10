@@ -14,6 +14,7 @@ import 'mx_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
 import 'mx_json_proxy_text.dart';
 import 'mx_json_proxy_animation.dart';
+import 'mx_js_flutter_common.dart';
 
 // TODO List
 // 1、默认值是私有类的方法
@@ -62,6 +63,7 @@ class MXProxyRegisterHelperMaterialSeries {
 
     m.addAll(MXProxyNavigator.registerProxy());
     m.addAll(MXProxyMaterialPageRoute.registerProxy());
+    m.addAll(MXProxyPageRouteBuilder.registerProxy());
     m.addAll(MXProxyRouteSettings.registerProxy());
 
     m.addAll(MXProxyScrollbar.registerProxy());
@@ -1637,18 +1639,145 @@ class MXProxyMaterialPageRoute extends MXJsonObjProxy {
   MaterialPageRoute constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
-    var widget = MaterialPageRoute(
-      builder: (BuildContext context) {
-        return (mxj2d(bo, jsonMap["child"], context: context));
-      },
+    var widget = MXMaterialPageRoute(
       settings: mxj2d(bo, jsonMap["settings"]),
       maintainState: mxj2d(bo, jsonMap["maintainState"], defaultValue: true),
-      fullscreenDialog:
-          mxj2d(bo, jsonMap["fullscreenDialog"], defaultValue: false),
     );
     return widget;
   }
 }
+
+class MXMaterialPageRoute extends MaterialPageRoute with MXPageRouteHelper {
+  MXMaterialPageRoute({
+    RouteSettings settings,
+    maintainState,
+  }) : super(
+      builder: (context) => null,
+      settings: settings,
+      maintainState: maintainState,
+      fullscreenDialog: false);
+
+  @override
+  Widget buildPage(BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,) {
+    final Widget result = this.pageWidget;
+    assert(() {
+      if (result == null) {
+        throw FlutterError(
+            'The builder for route "${settings.name}" returned null.\n'
+                'Route builders must never return null.'
+        );
+      }
+      return true;
+    }());
+    return Semantics(
+      scopesRoute: true,
+      explicitChildNodes: true,
+      child: result,
+    );
+  }
+}
+
+class MXProxyPageRouteBuilder extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "PageRouteBuilder";
+
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+      MXProxyPageRouteBuilder()..init(className: regClassName)
+    };
+  }
+
+  @override
+  MXPageRouteBuilder constructor(MXJsonBuildOwner bo,
+      Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = MXPageRouteBuilder(
+      settings: mxj2d(bo, jsonMap["settings"]),
+      mxRoutePageBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation,Widget pageWidget) {
+        dynamic data = jsonMap["pageAnim"];
+        if (data is String) {
+          return pageWidget;
+        }
+        if(pageWidget==null){
+          MXJSLog.error(
+              "MXPageRouteBuilder mxRoutePageBuilder error child is null");
+          return null;
+        }
+        Map<String,dynamic> replace = new Map();
+        replace["\$param_pageWidget"]=pageWidget;
+        replace["\$param_animation"]=animation;
+        replace["\$param_secondaryAnimation"]=secondaryAnimation;
+        dynamic replaced = MXUtil.replaceMapValue(data,replace);
+        return (mxj2d(bo, replaced, context: context));
+      },
+      transitionsBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation, Widget child) {
+        dynamic data = jsonMap["transWidget"];
+        if (data is String) {
+          return child;
+        }
+        Map<String, Object> replace = new Map();
+        replace["\$param_animation"] = animation;
+        replace["\$param_secondaryAnimation"] = secondaryAnimation;
+        replace["\$param_child"] = child;
+        dynamic replaced = MXUtil.replaceMapValue(data, replace);
+        return (mxj2d(bo, replaced, context: context));
+      },
+      transitionDuration: mxj2d(bo, jsonMap["transitionDuration"]),
+      opaque: mxj2d(bo, jsonMap["opaque"], defaultValue: true),
+      barrierDismissible: mxj2d(bo, jsonMap["barrierDismissible"], defaultValue: false),
+      barrierColor: mxj2d(bo, jsonMap["barrierColor"]),
+      barrierLabel: mxj2d(bo, jsonMap["barrierLabel"]),
+      maintainState: mxj2d(bo, jsonMap["maintainState"], defaultValue: true),
+    );
+    return widget;
+  }
+}
+
+mixin MXPageRouteHelper{
+  Widget pageWidget;
+  dynamic setPageWidget(Widget page) {
+    this.pageWidget=page;
+    return this;
+  }
+}
+
+class MXPageRouteBuilder extends PageRouteBuilder with MXPageRouteHelper {
+  MXRoutePageBuilder mxRoutePageBuilder;
+  MXPageRouteBuilder({
+    RouteSettings settings,
+    this.mxRoutePageBuilder,
+    RouteTransitionsBuilder transitionsBuilder,
+    transitionDuration,
+    opaque,
+    barrierDismissible,
+    barrierColor,
+    barrierLabel,
+    maintainState,
+  }) : super(
+      settings: settings,
+      pageBuilder:(context,anim,animSecond){return null;},
+      transitionsBuilder: transitionsBuilder,
+      opaque: opaque,
+      transitionDuration:transitionDuration,
+      barrierDismissible: barrierDismissible,
+      barrierColor: barrierColor,
+      barrierLabel: barrierLabel,
+      maintainState: maintainState);
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return this.mxRoutePageBuilder(context,animation,secondaryAnimation,pageWidget);
+  }
+}
+
+typedef MXRoutePageBuilder = Widget Function(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation,Widget child);
 
 class MXProxyRouteSettings extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -1667,7 +1796,7 @@ class MXProxyRouteSettings extends MXJsonObjProxy {
     var widget = RouteSettings(
       name: mxj2d(bo, jsonMap["name"]),
       //isInitialRoute: mxj2d(bo, jsonMap["isInitialRoute"], defaultValue: false), //1.15.21 d
-      arguments: mxj2d(bo, jsonMap["arguments"]),
+      arguments: mxj2d(bo, jsonMap["args"]),
     );
     return widget;
   }

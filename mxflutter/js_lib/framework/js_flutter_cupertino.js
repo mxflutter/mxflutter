@@ -5,6 +5,7 @@
 //  found in the LICENSE file.
 
 let { DartClass, FlutterWidget } = require("./js_flutter_basic_types.js");
+let { PageRoute } = require("./js_flutter_material.js");
 
 class CupertinoActivityIndicator extends FlutterWidget {
   constructor({ key, animating, radius } = {}) {
@@ -292,36 +293,32 @@ class CupertinoTabView extends FlutterWidget {
     this.navigatorObservers = navigatorObservers;
   }
 }
-class CupertinoPageRoute extends FlutterWidget {
+
+class CupertinoPageRoute extends PageRoute {
   constructor({
     builder,
+    title,
     settings,
     maintainState,
     fullscreenDialog,
   } = {}) {
-    super();
-
+    if (typeof fullscreenDialog === 'undefined') {
+      fullscreenDialog = true;
+    }
+    super({settings:settings,fullscreenDialog:fullscreenDialog});
     this.builder = builder;
-    this.settings = settings;
+    this.title=title;
     this.maintainState = maintainState;
-    this.fullscreenDialog = fullscreenDialog;
-
-    this.child = null;
   }
 
-  preBuild(jsWidgetHelper, buildContext) {
+  preBuild({jsWidgetHelper, buildContext}) {
     if (this.builder) {
       this.child = this.builder(buildContext);
       delete this.builder;
     }
-
-    super.preBuild(jsWidgetHelper, buildContext);
   }
 }
 
-CupertinoPageRoute.new = function (args) {
-  return new CupertinoPageRoute(args);
-};
 module.exports = {
   CupertinoActivityIndicator,
   CupertinoAlertDialog,
@@ -336,6 +333,6 @@ module.exports = {
   CupertinoTabBar,
   CupertinoPageScaffold,
   CupertinoTabScaffold,
-  CupertinoPageRoute,
-  CupertinoTabView
+  CupertinoTabView,
+  CupertinoPageRoute
 };
