@@ -6,6 +6,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/cupertino.dart';
 import 'mx_json_to_dart.dart';
 import 'dart:convert';
 
@@ -224,9 +225,16 @@ class MXJsonBuildOwner {
     String widgetDataStr = args["widgetData"];
 
     var startDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
-    Map widgetMap = json.decode(widgetDataStr);
+    Map pageRouteMap = json.decode(widgetDataStr);
     var endDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
+    dynamic pageRoute=buildRootWidget(pageRouteMap);
 
+    if(pageRoute==null||pageRoute is! PageRoute){
+      MXJSLog.error(
+          "pageRoute==null||pageRoute is! PageRoute : name:${pageRoute?.name} widgetData:${pageRoute?.widgetData}");
+      return;
+    }
+    var widgetMap = pageRouteMap['child'];
     dynamic jsWidget = buildRootWidget(widgetMap);
 
     //----性能分析代码
@@ -259,7 +267,8 @@ class MXJsonBuildOwner {
       return;
     }
 
-    bo.widget.helper.jsNavigatorPush(jsWidget, bo.widget.context);
+    bo.widget.helper.jsNavigatorPush(
+        pageRoute.setPageWidget(jsWidget), bo.widget.context);
   }
 
   jsCallNavigatorPop(args) {

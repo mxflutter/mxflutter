@@ -7,7 +7,7 @@
 import 'package:flutter/cupertino.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_build_owner.dart';
-
+import 'mx_json_proxy_material.dart';
 /******************TODO List****************************/
 /*
     // 1. onpress
@@ -44,6 +44,7 @@ class MXProxyRegisterHelperCupertinoSeries {
     m.addAll(MXProxyCupertinoPageScaffold.registerProxy());
     m.addAll(MXProxyCupertinoTabScaffold.registerProxy());
     m.addAll(MXProxyCupertinoTabView.registerProxy());
+    m.addAll(MXProxyCupertinoPageRoute.registerProxy());
     return m;
   }
 }
@@ -608,4 +609,64 @@ class MXProxyCupertinoTabView extends MXJsonObjProxy {
     );
     return widget;
   }
+}
+
+class MXProxyCupertinoPageRoute extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "CupertinoPageRoute";
+
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+      MXProxyCupertinoPageRoute()..init(className: regClassName)
+    };
+  }
+
+  @override
+  CupertinoPageRoute constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = MXCupertinoPageRoute(
+      settings: mxj2d(bo, jsonMap["settings"]),
+      maintainState: mxj2d(bo, jsonMap["maintainState"], defaultValue: true),
+      title:mxj2d(bo, jsonMap["title"]),
+    );
+    return widget;
+  }
+}
+
+class MXCupertinoPageRoute extends CupertinoPageRoute with MXPageRouteHelper {
+  MXCupertinoPageRoute({
+    RouteSettings settings,
+    maintainState,
+    title,
+  }) : super(
+      builder: (context) => null,
+      settings: settings,
+      maintainState: maintainState,
+      title:title,
+      fullscreenDialog: false);
+
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+    final Widget child = this.pageWidget;
+    final Widget result = Semantics(
+      scopesRoute: true,
+      explicitChildNodes: true,
+      child: child,
+    );
+    assert(() {
+      if (child == null) {
+        throw FlutterError.fromParts(<DiagnosticsNode>[
+          ErrorSummary('The builder for route "${settings.name}" returned null.'),
+          ErrorDescription('Route builders must never return null.'),
+        ]);
+      }
+      return true;
+    }());
+    return result;
+  }
+
 }

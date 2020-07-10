@@ -25,6 +25,9 @@ const dart_sdk = require("dart_sdk");
 const core = dart_sdk.core;
 const dart = dart_sdk.dart;
 
+// let { ModalRoute } = require("./js_flutter_material.js");
+
+
 //JSAPP 全局变量
 var currentJSApp = null;
 
@@ -567,29 +570,69 @@ class MXJSWidgetHelper {
         //如果是MXJSWidget类需要调用一下build，返回build内容
         newValue = value.helper.buildWidgetTree();
       }
-
-
       // 遍历处理Symbol的key转成String放入Json中
-      if (newValue && typeof newValue === 'object') {
-        var objectSymbols = Object.getOwnPropertySymbols(newValue);
-        if (objectSymbols.length > 0) {
-          var replacement = {};
-
-          var len = objectSymbols.length;
-          for (var i = 0; i < len; ++i) {
-            var key = objectSymbols[i].description;
-            var value = newValue[objectSymbols[i]];
-            replacement[key] = value;
-          }
-
-          return replacement;
-        }
-      }
-
-      return newValue;
+      return MXJSWidgetHelper.keyToString(newValue);
     });
-
     return widgetDataStr;
+  }
+
+  //构建PageRoute 的 json表达
+  static buildPageRouteData(pageRoute) {
+    let repleaceMap = new Map([
+      ["child", "$child_placeholder"],//页面
+      ["pageAnim", "$pageAnim_placeholder"],//pageBuilder中的页面外层的动画
+      ["transWidget", "$transWidget_placeholder"]//transBuilder过度动画
+    ]);
+    let pageRouteData = MXJSWidgetHelper.toJsonWithReplaceMap(pageRoute, repleaceMap);
+
+    //将child（page Widget）单独处理；原因：page类的widget需要在buildWidgetData中做一些特殊处理
+    let childData = MXJSWidgetHelper.buildWidgetData(pageRoute.child);
+    pageRouteData = pageRouteData.replace("\"$child_placeholder\"", childData);
+   
+    //pageAnim 单独处理； 原因：同上
+    let pageAnim = pageRoute.pageAnim;
+    if (pageAnim != null && pageAnim != undefined) {
+      let pageAnimData = MXJSWidgetHelper.toJsonWithReplaceMap(pageAnim, new Map());
+      pageRouteData = pageRouteData.replace("\"$pageAnim_placeholder\"", pageAnimData);
+    }
+
+    //将transWidget 单独处理； 原因：transWidget也有child属性，和pageRoute的child在替换时冲突
+    //另：一定不要将transWidget通过updatePushingWidgetsData()方法做包裹处理，否则会在动画执行过程中多次build
+    let transWidget = pageRoute.transWidget;
+    if (transWidget != null && transWidget != undefined) {
+      let transWdigetData = MXJSWidgetHelper.toJsonWithReplaceMap(transWidget, new Map());
+      pageRouteData = pageRouteData.replace("\"$transWidget_placeholder\"", transWdigetData);
+    }
+
+    MXJSLog.log("buildPageRouteData ::" + pageRouteData);
+    return pageRouteData;
+  }
+  //obj-->json 用占位符替换指定的key
+  static toJsonWithReplaceMap(obj,map){
+    return JSON.stringify(obj, function (key, value) {
+      if(map.has(key)){
+        return map.get(key);
+      }
+      // 遍历处理Symbol的key转成String放入Json中
+      return MXJSWidgetHelper.keyToString(value);
+    });
+  }
+  //在JSON.stringify中使用
+  static keyToString(newValue){
+    if (newValue && typeof newValue === 'object') {
+      var objectSymbols = Object.getOwnPropertySymbols(newValue);
+      if (objectSymbols.length > 0) {
+        var replacement = {};
+        var len = objectSymbols.length;
+        for (var i = 0; i < len; ++i) {
+          var key = objectSymbols[i].description;
+          var value = newValue[objectSymbols[i]];
+          replacement[key] = value;
+        }
+        return replacement;
+      }
+    }
+    return newValue;
   }
 
   buildWidgetTree() {
@@ -983,7 +1026,9 @@ class MXJSWidgetHelper {
 
   //js->flutter
   //navigator route
-  navigatorPush(jsWidget) {
+  navigatorPush(context,pageRoute) {
+    pageRoute.preBuild({buildContext:context});
+    let jsWidget=pageRoute.child;
     // 清空当前widget的navPushedWidgets数据
     for (let i in this.widget.navPushedWidgets) {
       var obj = this.widget.navPushedWidgets[i];
@@ -999,19 +1044,29 @@ class MXJSWidgetHelper {
     }
 
     let startEncodeData = (new Date()).valueOf();
-    let widgetData = this.updatePushingWidgetsData(jsWidget);
+
+    let newJSWidget = this.updatePushingWidgetsData(jsWidget);
+    pageRoute.refreshChild(newJSWidget);
+    //将pageRoute放入context的继承map
+    //因添加依赖会造成栈溢出，查明原因前，暂时用字符串代替ModalRoute.name
+    newJSWidget.buildContext.inheritedInfo["ModalRoute"] = pageRoute;
+    let routeData = MXJSWidgetHelper.buildPageRouteData(pageRoute);
+    //将child、transWidget置空
+    pageRoute.refreshChild(null);
+    pageRoute.transWidget=null;
+
     let startTransferData = (new Date()).valueOf();
 
     if (jsWidget.enableProfile) {
       let profileInfo = {};
       profileInfo['startEncodeData'] = startEncodeData;
       profileInfo['startTransferData'] = startTransferData;
-      profileInfo['transferDataLen'] = widgetData.length;
-      jsWidget.profileInfo = profileInfo;
+      profileInfo['transferDataLen'] = routeData.length;
+      newJSWidget.profileInfo = profileInfo;
     }
 
     //call flutter navigatorPush
-    MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("navigatorPush", widgetData);
+    MXNativeJSFlutterAppProxy.callFlutterWidgetChannel("navigatorPush", routeData);
   }
 
   navigatorPop() {
@@ -1055,9 +1110,7 @@ class MXJSWidgetHelper {
     newJSWidget.buildContext = MXJSFlutterBuildContext.inheritBuildContext(newJSWidget, this.widget.buildContext);
     newJSWidget.navPushingWidgetID = this.widget.widgetID;
     this.widget.navPushedWidgets[newJSWidget.widgetID] = newJSWidget;
-    let widgetData = MXJSWidgetHelper.buildWidgetData(newJSWidget);
-
-    return widgetData;
+    return newJSWidget;
   }
 
   findTopRootWidget() {

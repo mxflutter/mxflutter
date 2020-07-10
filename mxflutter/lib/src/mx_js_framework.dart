@@ -268,12 +268,9 @@ class MXJSWidgetHelper extends Object {
     }
   }
 
-  jsNavigatorPush(dynamic jsWidget, BuildContext context) {
+  jsNavigatorPush(PageRoute pageRoute, BuildContext context) {
     MXJSLog.log("MXJSWidgetState:jsNavigatorPush:");
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => jsWidget),
-    );
+    Navigator.push(context, pageRoute);
   }
 
   jsNavigatorPop(BuildContext context) {

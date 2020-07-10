@@ -106,6 +106,20 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                     }
                 }),
                 new ListTile({
+                    leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
+                    trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
+                    title: new Text('PageRoute'),
+                    subtitle: new Text('PageRoute Demo'),
+                    onTap: function () {
+                        let { JSPageRoutePage } = require("./app_demo/page_route.js");
+                        Navigator.push(context, new MaterialPageRoute({
+                            builder: function (context) {
+                                return new JSPageRoutePage;
+                            }
+                        }))
+                    }
+                }),
+                new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' }), { color: Theme.of(context).primaryColor }),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
                     title: new Text('ZhiHu'),
@@ -204,6 +218,7 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                         }))
                     }
                 }),
+                
                 this.sectionTitle(context, "性能测试"),
                 new ListTile({
                     leading: new Icon(new IconData(0xe06d, { fontFamily: 'MaterialIcons' })),
