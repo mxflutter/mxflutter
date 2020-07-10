@@ -44,6 +44,7 @@ class MXProxyRegisterHelperCupertinoSeries {
     m.addAll(MXProxyCupertinoPageScaffold.registerProxy());
     m.addAll(MXProxyCupertinoTabScaffold.registerProxy());
     m.addAll(MXProxyCupertinoTabView.registerProxy());
+    m.addAll(MXProxyCupertinoPageRoute.registerProxy());
     return m;
   }
 }
@@ -605,6 +606,37 @@ class MXProxyCupertinoTabView extends MXJsonObjProxy {
       onGenerateRoute: null,
       onUnknownRoute: null,
       navigatorObservers: null,
+    );
+    return widget;
+  }
+}
+
+///CupertinoPageRoute
+///
+class MXProxyCupertinoPageRoute extends MXJsonObjProxy {
+  static Map<String, CreateJsonObjProxyFun> registerProxy() {
+    ///**@@@  2 替换类名字符串
+    final String regClassName = "CupertinoPageRoute";
+
+    ///**@@@  3 替换类构造函数
+    return {
+      regClassName: () =>
+      MXProxyCupertinoPageRoute()..init(className: regClassName)
+    };
+  }
+
+  @override
+  CupertinoPageRoute constructor(
+      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+      {BuildContext context}) {
+    var widget = CupertinoPageRoute(
+      builder: (BuildContext context) {
+        return (mxj2d(bo, jsonMap["child"], context: context));
+      },
+      settings: mxj2d(bo, jsonMap["settings"]),
+      maintainState: mxj2d(bo, jsonMap["maintainState"], defaultValue: true),
+      fullscreenDialog:
+      mxj2d(bo, jsonMap["fullscreenDialog"], defaultValue: false),
     );
     return widget;
   }

@@ -23,7 +23,7 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     //todo 调试时，指向本地路径，可以热重载
     public static String JSFLUTTER_LOCAL_DIR;   //本地js路径
     //todo 开发环境 默认使用asset js
-    public static boolean sUseAsset = false;
+    public static boolean sUseAsset = true;
 
     //mxflutter assets根目录
     public static final String MXFLUTTER_ASSET_APP_ROOT_PATH = "flutter_assets/mxflutter_js_src";
