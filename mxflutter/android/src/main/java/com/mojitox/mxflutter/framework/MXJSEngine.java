@@ -19,6 +19,7 @@ import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
@@ -44,10 +45,14 @@ public class MXJSEngine {
 
     private MXFlutterPlugin mContext;
 
+    //是否已经加载了asset资源，如果已经加载后则后续全走assets
+    private boolean isUsedAssets;
+
     public MXJSEngine(MXFlutterPlugin context, MXJSFlutterEngine mxjsFlutterEngine) {
         mContext = context;
         this.mMXJSFlutterEngine = mxjsFlutterEngine;
         this.searchDirArray = new ArrayList<>();
+        isUsedAssets = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext());
         setup();
     }
 
@@ -222,7 +227,7 @@ public class MXJSEngine {
 
                 String filePath = args.get(0).toString();
                 String absolutePath = null;
-                boolean isFromAsset = !FileUtils.isCopiedFileFromAssets(mContext.mFlutterPluginBinding.getApplicationContext());
+                boolean isFromAsset = !FileUtils.isCopiedFileFromAssets(mContext.mFlutterPluginBinding.getApplicationContext()) || isUsedAssets;
                 if (isFromAsset) {
                     absolutePath = FileUtils.getFilePathFromAsset(mContext.mFlutterPluginBinding.getApplicationContext(), filePath, searchDirArray);
                 } else {
@@ -241,6 +246,8 @@ public class MXJSEngine {
                         });
                         return null;
                     }
+                } else {
+                    LogUtilsKt.MXFLogError("MXJSFlutter : require js file fail, import js file name: %s", filePath);
                 }
                 return exports;
             }

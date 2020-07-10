@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.mojitox.mxflutter.MXFlutterPlugin;
+import com.mojitox.mxflutter.framework.MXJSFlutterApp;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
+import java.util.List;
 
 import static android.os.Looper.getMainLooper;
 import static android.os.Looper.myLooper;
@@ -120,20 +121,20 @@ public class FileUtils {
             packagePath = packagePath.substring(packagePrefix.length());
             packagePath = "mx_packages/" + packagePath;
 
-            absolutePath = getFilePathFromAssetExt(context,packagePath,searchDirArray);
+            absolutePath = getFilePathFromAssetExt(context, packagePath, searchDirArray);
             if (!TextUtils.isEmpty(absolutePath)) {
-                return  absolutePath;
+                return absolutePath;
             }
         }
 
         //映射xx/package/xx 到xx/mx_package/xx
-        absolutePath = getFilePathFromAssetExt(context,filePath,searchDirArray);
+        absolutePath = getFilePathFromAssetExt(context, filePath, searchDirArray);
         if (!TextUtils.isEmpty(absolutePath)) {
-           return  absolutePath;
+            return absolutePath;
         }
 
-        String replacePath = filePath.replace("/packages/","/mx_packages/");
-        absolutePath = getFilePathFromAssetExt(context,replacePath,searchDirArray);
+        String replacePath = filePath.replace("/packages/", "/mx_packages/");
+        absolutePath = getFilePathFromAssetExt(context, replacePath, searchDirArray);
         return absolutePath;
     }
 
@@ -223,20 +224,20 @@ public class FileUtils {
             packagePath = packagePath.substring(packagePrefix.length());
             packagePath = "mx_packages/" + packagePath;
 
-            absolutePath = getFilePathFromFSExt(context,packagePath,searchDirArray);
+            absolutePath = getFilePathFromFSExt(context, packagePath, searchDirArray);
             if (!TextUtils.isEmpty(absolutePath)) {
-                return  absolutePath;
+                return absolutePath;
             }
         }
 
         //映射xx/package/xx 到xx/mx_package/xx
-        absolutePath = getFilePathFromFSExt(context,filePath,searchDirArray);
+        absolutePath = getFilePathFromFSExt(context, filePath, searchDirArray);
         if (!TextUtils.isEmpty(absolutePath)) {
-            return  absolutePath;
+            return absolutePath;
         }
 
-        String replacePath = filePath.replace("/packages/","/mx_packages/");
-        absolutePath = getFilePathFromFSExt(context,replacePath,searchDirArray);
+        String replacePath = filePath.replace("/packages/", "/mx_packages/");
+        absolutePath = getFilePathFromFSExt(context, replacePath, searchDirArray);
         return absolutePath;
     }
 
@@ -274,61 +275,59 @@ public class FileUtils {
         return absolutePath;
     }
 
-    public static void copyFilesFromAssetsAsync(Context context, String assetsPath, String savePath, String[] rootValidPaths) {
-        copyFilesFromAssetsAsync(context, assetsPath, savePath, rootValidPaths, 0);
+    public static void copyFilesFromAssetsAsync(Context context, List<MXJSFlutterApp.MXRoute> routes) {
+        copyFilesFromAssetsAsync(context, routes, 0);
     }
 
-    private static void copyFilesFromAssetsAsync(Context context, String assetsPath, String savePath, String[] rootValidPaths, int deep) {
+    private static void copyFilesFromAssetsAsync(Context context, List<MXJSFlutterApp.MXRoute> routes, int deep) {
         assertNotUiThread();
 
-        ArrayList<String> fileNames = null;
         InputStream input = null;
         FileOutputStream output = null;
         try {
             int i;
-            fileNames = new ArrayList<>(Arrays.asList(context.getAssets().list(assetsPath)));
-            if (rootValidPaths != null && rootValidPaths.length > 0) {
-                Iterator it = fileNames.iterator();
-                while (it.hasNext()) {
-                    String file = (String) it.next();
-                    boolean isNeedFliter = true;
-                    for (String filter : rootValidPaths) {
-                        if (file.equals(filter)) {
-                            isNeedFliter = false;
-                        }
+            for (MXJSFlutterApp.MXRoute route : routes) {
+                ArrayList<String> fileNames = new ArrayList<>();
+
+                List<String> childPaths = Arrays.asList(context.getAssets().list(route.assetsPath));
+                for (int j = 0; j < childPaths.size(); j++) {
+                    childPaths.set(j, route.assetsPath + "/" + childPaths.get(j));
+                }
+                fileNames.addAll(childPaths);
+
+                File file = new File(route.localPath);
+                if (fileNames != null && fileNames.size() > 0) {
+                    if (!file.exists()) {
+                        file.mkdirs();
                     }
-                    if (isNeedFliter) {
-                        it.remove();
+                    for (i = 0; i < fileNames.size(); i++) {
+                        String assetsFileName = fileNames.get(i);
+                        String filePaths[] = assetsFileName.split("/");
+                        copyFilesFromAssetsAsync(context,
+                                Arrays.asList(new MXJSFlutterApp.MXRoute(assetsFileName, route.localPath + "/" + filePaths[filePaths.length - 1])), deep + 1);
                     }
-                }
-            }
-            File file = new File(savePath);
-            if (fileNames != null && fileNames.size() > 0) {
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                for (i = 0; i < fileNames.size(); i++) {
-                    String fileName = fileNames.get(i);
-                    copyFilesFromAssetsAsync(context, TextUtils.isEmpty(assetsPath) ? fileName : assetsPath + "/" + fileName,
-                            savePath + "/" + fileName, null, deep + 1);
-                }
-            } else {
-                if (file.exists()) {
+                } else {
+                    if (file.exists()) {
+                        return;
+                    }
+
+                    input = context.getAssets().open(route.assetsPath);
+                    output = new FileOutputStream(new File(route.localPath));
+                    byte[] buffer = new byte[4096];
+                    int len = 0;
+                    while ((len = input.read(buffer)) != -1) {
+                        output.write(buffer, 0, len);
+                    }
+                    output.flush();
                     return;
                 }
-                input = context.getAssets().open(assetsPath);
-                output = new FileOutputStream(new File(savePath));
-                byte[] buffer = new byte[4096];
-                int len = 0;
-                while ((len = input.read(buffer)) != -1) {
-                    output.write(buffer, 0, len);
-                }
-                output.flush();
-                return;
             }
+
             //拷贝完成
-            if (deep == 0 && i == fileNames.size()) {
+            if (deep == 0) {
                 setCpiedFileFromAssets(context);
+                MXFlutterPlugin.setJSFrameworkPath("mxflutter/js_lib");
+                MXFlutterPlugin.setJSAppPathAndAppSearchPathList("mxflutter_js_src", null);
             }
         } catch (FileNotFoundException e) {
             Log.e(TAG, "", e);

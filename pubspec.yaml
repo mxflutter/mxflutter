@@ -45,6 +45,9 @@ flutter:
     - mxflutter_js_src/app_demo/material/
     - mxflutter_js_src/app_demo/platform/
     - mxflutter_js_src/app_demo/profile/
+    - mxflutter_js_src/app_demo/widget_examples/
+    - mxflutter_js_src/app_demo/widget_examples/A/
+    - mxflutter_js_src/app_demo/widget_examples/T/
     #zhihu deomo
     - mxflutter_js_src/app_demo/zhihu/
     - mxflutter_js_src/app_demo/zhihu/home/
