@@ -81,7 +81,12 @@ class MXMirror {
     fi.buildOwner = buildOwner;
     
     try {
-      var result = fi.apply(jsonMap);
+      Map<Symbol, dynamic> namedArguments = {};
+      for (String name in jsonMap.keys) {
+        namedArguments[Symbol(name)] = _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
+      }
+      // 为方便处理，此处都使用命名参数，不用位置参数
+      var result = fi.apply(namedArguments);
       fi.buildOwner = null;
 
       return result;
@@ -94,7 +99,24 @@ class MXMirror {
     }
   }
 
+  /// 判断是否可以调用方法
   bool canInvoke(String funcName) {
     return _funName2FunMap[funcName] != null;
+  }
+
+  /// 将json装成flutter对象
+  _jsonToDartObject(dynamic json, { MXJsonBuildOwner buildOwner }) {
+    if (json is Map && canInvoke(json["funcName"])) {
+      return invoke(json, buildOwner: buildOwner);
+    } else if (json is List) {
+      List list = [];
+      json.forEach((element) {
+        var object = _jsonToDartObject(element, buildOwner: buildOwner);
+        list.add(object);
+      });
+      return list;
+    } else {
+      return json;
+    }
   }
 }

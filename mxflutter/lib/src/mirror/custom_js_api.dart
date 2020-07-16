@@ -6,14 +6,13 @@
 
 // ignore: implementation_imports
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
 
 typedef InvokeMirrorCallback = void Function(dynamic params);
 
 /// 向JS提供CustomJSApi
 class CustomJSApi {
   /// 注册方法
-  static void registerFunction(Map<String, MXFunctionInvoke> funMap) {
+  static void registerFunction(Map<String, dynamic> funMap) {
     MXMirror.getInstance().addToFunctionMap(funMap);
   }
 
