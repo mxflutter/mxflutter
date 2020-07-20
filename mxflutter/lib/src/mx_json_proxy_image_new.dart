@@ -13,6 +13,7 @@ class MXRegisterImageSeries {
 
     m[image.funName] = image;
     m[imageNetwork.funName] = imageNetwork;
+    m[imageRepeat.funName] = imageRepeat;
 
     return m;
   }
@@ -36,6 +37,13 @@ class MXImageRepeat {
     }
   }
 }
+
+var imageRepeat = MXFunctionInvoke(
+  "ImageRepeat",
+  ({
+    Map args
+  }) => MXImageRepeat.parse(args),
+);
 
 var image = MXFunctionInvoke(
   "Image",
@@ -122,7 +130,7 @@ var imageNetwork = MXFunctionInvoke(
     colorBlendMode: colorBlendMode,
     fit: fit,
     alignment: alignment,
-    repeat: MXImageRepeat.parse(repeat),
+    repeat: repeat,
     centerSlice: centerSlice,
     matchTextDirection: matchTextDirection,
     gaplessPlayback: gaplessPlayback,
