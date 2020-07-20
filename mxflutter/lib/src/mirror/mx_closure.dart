@@ -7,6 +7,8 @@
 import 'package:mxflutter/src/mx_build_owner.dart';
 import 'package:flutter/material.dart';
 
+typedef GenericFunctionGenericCallback<R, T> = R Function(T value);
+
 /// 生成VoidCallback闭包
 VoidCallback createVoidCallbackClosure(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
@@ -40,6 +42,21 @@ ValueChanged<T> createValueChangedGenericClosure<T>(
 
   ValueChanged<T> cb = (T b) {
     bo.eventCallback(eventCallbackID, p: b);
+  };
+
+  return cb;
+}
+
+//生成StringFunctionGenericCallback<T> 闭包
+GenericFunctionGenericCallback<R, T> createGenericValueGenericClosure<R, T>(
+    MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  GenericFunctionGenericCallback<R, T> cb = (T b) {
+    R result = bo.eventCallback(eventCallbackID, p: b);
+    return result;
   };
 
   return cb;
