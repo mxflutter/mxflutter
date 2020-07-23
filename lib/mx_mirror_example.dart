@@ -5,7 +5,7 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
-import 'package:mxflutter/src/mirror/mx_mirror.dart';
+import 'package:mxflutter/src/mirror/mx_mirror_func.dart';
 
 /// 向JS提供MXMirror example,
 class MXMirrorExample {
@@ -39,6 +39,6 @@ class MXMirrorExample {
     funMap[getMyData.funName] = getMyData;
 
     // 注册定义的方法
-    MXMirror.getInstance().registerBizFunction(funMap);
+    MXMirrorFunc.getInstance().registerBizFunction(funMap);
   }
 }

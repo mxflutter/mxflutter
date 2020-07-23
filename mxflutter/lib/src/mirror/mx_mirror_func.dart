@@ -5,84 +5,30 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mx_build_owner.dart';
-import 'mx_mirror_common_register.dart';
-import 'mx_mirror_widget_register.dart';
 
 typedef InvokeMirrorCallback = void Function(dynamic result);
 
 String constFuncStr = "funcName";
 String constClassStr = "className";
 
-class MXMirror {
-  static MXMirror _instance;
+class MXMirrorFunc {
+  static MXMirrorFunc _instance;
 
   // funcName到Fun方法的映射表
   var _funcName2FunMap = {};
-  
-  // mirrorId到Object的映射表
-  var _id2ObjectMap = {};
 
-  static MXMirror getInstance() {
+  static MXMirrorFunc getInstance() {
     if (_instance == null) {
-      _instance = MXMirror._();
+      _instance = MXMirrorFunc._();
     }
     return _instance;
   }
 
-  factory MXMirror() {
-    return MXMirror.getInstance();
+  factory MXMirrorFunc() {
+    return MXMirrorFunc.getInstance();
   }
 
-  MXMirror._();
-
-  /// 获取irrorID
-  String getMirrorID(Map jsonMap) {
-    dynamic mirrorID = jsonMap["mirrorID"];
-    return mirrorID;
-  }
-
-  /// 获取Mirror对象
-  dynamic getMirrorObject(dynamic mirrorID) {
-    if (mirrorID == null) {
-      return;
-    }
-    return _id2ObjectMap[mirrorID];
-  }
-
-  /// 添加Mirror对象
-  void addMirrorObject(dynamic mirrorID, dynamic mirrorObj) {
-    if (mirrorID == null || mirrorObj == null) {
-      return;
-    }
-
-    _id2ObjectMap[mirrorID] = mirrorObj;
-  }
-
-  /// 移除Mirror对象
-  void removeMirrorObject(dynamic mirrorID) {
-    _id2ObjectMap.remove(mirrorID);
-  }
-
-  /// 移除Mirror对象列表
-  void removeMirrorObjectList(List mirrorIDList) {
-    for (var mirrorID in mirrorIDList) {
-      _id2ObjectMap.remove(mirrorID);
-    }
-  }
-
-  /// 移除所有Mirror对象
-  void clearAllMirrorObjects() {
-    _id2ObjectMap.clear();
-  }
-
-  /// 注册框架方法
-  void registerFrameworkFunctions() {
-    // 注册widget方法
-    MXMirrorWidgetRegister.registerWidgetFunc();
-
-    // 注册通用方法
-    MXMirrorCommonRegister.registerCommonFunc();
-  }
+  MXMirrorFunc._();
 
   /// 注册业务方法
   void registerBizFunction(Map<String, dynamic> functionMap) {

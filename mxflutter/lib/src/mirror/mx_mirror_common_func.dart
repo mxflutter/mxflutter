@@ -1,19 +1,19 @@
 import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
-import 'package:mxflutter/src/mirror/mx_mirror.dart';
+import 'package:mxflutter/src/mirror/mx_mirror_func.dart';
+import 'package:mxflutter/src/mirror/mx_mirror_object.dart';
 
-
-class MXMirrorCommonRegister {
+class MXMirrorCommonFunc {
   /// 注册common方法
   static void registerCommonFunc() {
     Map<String, MXFunctionInvoke> funMap = {};
 
     // 移除Mirror对象
     var removeMirrorObject = MXFunctionInvoke("MXMirror_removeMirrorObject", ({String mirrorID}) =>
-        MXMirror.getInstance().removeMirrorObject(mirrorID));
+        MXMirrorObject.getInstance().removeMirrorObject(mirrorID));
     funMap[removeMirrorObject.funName] = removeMirrorObject;
 
     // 其他方法往这里加
 
-    MXMirror.getInstance().registerBizFunction(funMap);
+    MXMirrorFunc.getInstance().registerBizFunction(funMap);
   }
 }

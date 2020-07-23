@@ -22,7 +22,7 @@ import 'pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
 import 'mx_json_proxy_widget.dart';
 import 'mx_js_mirror_obj_mgr.dart';
-import 'mirror/mx_mirror.dart';
+import 'mirror/mx_mirror_func.dart';
 
 typedef dynamic CreateJsonObjProxyFun();
 
@@ -131,10 +131,10 @@ class MXJsonObjToDartObject {
     
     dynamic dartObject;
     //TODO: 测试mirror，这里后续要统一改成Function方法
-    if (MXMirror.getInstance().canInvoke(jsonMap["className"])) {
+    if (MXMirrorFunc.getInstance().canInvoke(jsonMap["className"])) {
       Map<String, dynamic> newJsonMap = Map.from(jsonMap);
       newJsonMap["funcName"] = newJsonMap["className"];
-      dartObject = MXMirror.getInstance().invoke(newJsonMap, buildOwner: buildOwner);
+      dartObject = MXMirrorFunc.getInstance().invoke(newJsonMap, buildOwner: buildOwner);
     } else {
       MXJsonObjProxy proxy = getJSObjProxy(className);
       dartObject =
