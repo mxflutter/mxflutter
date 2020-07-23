@@ -4,19 +4,23 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mx_json_proxy_image_new.dart';
-import 'package:mxflutter/src/mx_json_proxy_material_new.dart';
-import 'package:mxflutter/src/mx_json_proxy_layout_new.dart';
 import 'package:mxflutter/src/mx_build_owner.dart';
+import 'mx_mirror_common_register.dart';
+import 'mx_mirror_widget_register.dart';
 
-String constFunString = "funcName";
+typedef InvokeMirrorCallback = void Function(dynamic result);
 
-/// MXMirror系统接口类
+String constFuncStr = "funcName";
+String constClassStr = "className";
+
 class MXMirror {
   static MXMirror _instance;
 
-  /// String到Dart 函数的映射表
-  var _funName2FunMap = {};
+  // funcName到Fun方法的映射表
+  var _funcName2FunMap = {};
+  
+  // mirrorId到Object的映射表
+  var _id2ObjectMap = {};
 
   static MXMirror getInstance() {
     if (_instance == null) {
@@ -29,55 +33,85 @@ class MXMirror {
     return MXMirror.getInstance();
   }
 
-  MXMirror._() {
-    /// 注册方法
-    _registerFunctions();
+  MXMirror._();
+
+  /// 获取irrorID
+  String getMirrorID(Map jsonMap) {
+    dynamic mirrorID = jsonMap["mirrorID"];
+    return mirrorID;
   }
 
-  /// 注册方法
-  _registerFunctions() {
-    /// 注册widget方法
-    _registerWidgetFunction();
-
-    /// 注册通用方法
-    _registerCommonFunction();
+  /// 获取Mirror对象
+  dynamic getMirrorObject(dynamic mirrorID) {
+    if (mirrorID == null) {
+      return;
+    }
+    return _id2ObjectMap[mirrorID];
   }
 
-  /// 注册widget方法
-  _registerWidgetFunction() {
-    /// Image
-    addToFunctionMap(MXRegisterImageSeries.registerSeries());
+  /// 添加Mirror对象
+  void addMirrorObject(dynamic mirrorID, dynamic mirrorObj) {
+    if (mirrorID == null || mirrorObj == null) {
+      return;
+    }
 
-    /// Meterial
-    addToFunctionMap(MXRegisterMeterialSeries.registerSeries());
-
-    /// Layout
-    addToFunctionMap(MXRegisterLayoutSeries.registerSeries());
+    _id2ObjectMap[mirrorID] = mirrorObj;
   }
 
-  /// 注册通用方法
-  _registerCommonFunction() {}
+  /// 移除Mirror对象
+  void removeMirrorObject(dynamic mirrorID) {
+    _id2ObjectMap.remove(mirrorID);
+  }
 
-  /// 添加到方法映射表
-  void addToFunctionMap(Map<String, dynamic> functionMap) {
+  /// 移除Mirror对象列表
+  void removeMirrorObjectList(List mirrorIDList) {
+    for (var mirrorID in mirrorIDList) {
+      _id2ObjectMap.remove(mirrorID);
+    }
+  }
+
+  /// 移除所有Mirror对象
+  void clearAllMirrorObjects() {
+    _id2ObjectMap.clear();
+  }
+
+  /// 注册框架方法
+  void registerFrameworkFunctions() {
+    // 注册widget方法
+    MXMirrorWidgetRegister.registerWidgetFunc();
+
+    // 注册通用方法
+    MXMirrorCommonRegister.registerCommonFunc();
+  }
+
+  /// 注册业务方法
+  void registerBizFunction(Map<String, dynamic> functionMap) {
     if (functionMap == null || functionMap.isEmpty) {
       return;
     }
 
-    _funName2FunMap.addAll(functionMap);
+    _funcName2FunMap.addAll(functionMap);
   }
 
-  /// 调用Function.apply方法
-  invoke(Map jsonMap, { MXJsonBuildOwner buildOwner }) {
-    /// 判断是否存在fun字段
-    if (jsonMap[constFunString] == null) {
-      return;
+  /// 调用Function.apply方法，通过 callback 返回结果
+  void invokeWithCallback(Map jsonMap, InvokeMirrorCallback callback, { MXJsonBuildOwner buildOwner }) {
+    dynamic result = invoke(jsonMap, buildOwner: buildOwner);
+    if (callback != null) {
+      callback(result);
+    }
+  }
+
+  /// 调用Function.apply方法。直接返回结果
+  dynamic invoke(Map jsonMap, { MXJsonBuildOwner buildOwner }) {
+    // 判断是否存在fun字段
+    if (jsonMap[constFuncStr] == null) {
+      return null;
     }
 
-    String fun = jsonMap[constFunString];
+    String fun = jsonMap[constFuncStr];
     // 移除fun字段
-    jsonMap.remove(constFunString);
-    dynamic fi = _funName2FunMap[fun];
+    jsonMap.remove(constFuncStr);
+    dynamic fi = _funcName2FunMap[fun];
     fi.buildOwner = buildOwner;
     
     try {
@@ -101,11 +135,21 @@ class MXMirror {
 
   /// 判断是否可以调用方法
   bool canInvoke(String funcName) {
-    return _funName2FunMap[funcName] != null;
+    return _funcName2FunMap[funcName] != null;
+  }
+
+  String getObjectFuncName(Map jsonMap) {
+    String className = jsonMap[constClassStr];
+    String funcName = jsonMap[constFuncStr];
+    if (className == null || funcName == null) {
+      return null;
+    }
+
+    return className + "_" + funcName;
   }
 
   /// 将json装成flutter对象
-  _jsonToDartObject(dynamic json, { MXJsonBuildOwner buildOwner }) {
+  dynamic _jsonToDartObject(dynamic json, { MXJsonBuildOwner buildOwner }) {
     if (json is Map && canInvoke(json["funcName"])) {
       return invoke(json, buildOwner: buildOwner);
     } else if (json is List) {

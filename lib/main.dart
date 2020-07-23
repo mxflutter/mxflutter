@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //mxflutter
 import 'package:mxflutter/mxflutter.dart';
 
-import 'custom_js_api_example.dart';
+import 'mx_mirror_example.dart';
 
 void main() {
   //-------MXFlutter 启动---------
@@ -32,8 +32,8 @@ void main() {
   //  var jsAppPath = join(directory.path, "my_js_app");
   //  MXJSFlutter.getInstance().runJSApp(jsAppPath: jsAppPath);
 
-  // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考CustomJSApiExample实现过程
-  CustomJSApiExample.registerFunction();
+  // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考MXMirrorExample实现过程
+  MXMirrorExample.registerFunction();
 
   runApp(MyApp());
 }

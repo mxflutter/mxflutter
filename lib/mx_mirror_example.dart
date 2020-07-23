@@ -1,14 +1,14 @@
-//  CustomJSApiExample.dart
+//  MXMirrorExample.dart
 //  Copyright 2020 The MXFlutter Authors. All rights reserved.
 //
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mirror/custom_js_api.dart';
 import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
-/// 向JS提供CustomJSApi example,
-class CustomJSApiExample {
+/// 向JS提供MXMirror example,
+class MXMirrorExample {
   /// 向JS提供getMyAppName
   String getMyAppName(String platform, {String v}) {
     return "MyApp_$platform $v";
@@ -22,16 +22,16 @@ class CustomJSApiExample {
   /// 被调用的注册方法
   static void registerFunction() {
     // 构造方法
-    var constructor = MXFunctionInvoke("CustomJSApiExample", ({String mirrorID, String className, Map args}) =>
-        CustomJSApiExample());
+    var constructor = MXFunctionInvoke("MXMirrorExample", ({String mirrorID, String className, Map args}) =>
+        MXMirrorExample());
     
     // 实例方法
-    var getMyAppName = MXFunctionInvoke("getMyAppName", ({CustomJSApiExample mirrorObj, String platform, String v}) =>
+    var getMyAppName = MXFunctionInvoke("MXMirrorExample_getMyAppName", ({MXMirrorExample mirrorObj, String platform, String v}) =>
         mirrorObj.getMyAppName(platform, v: v));
 
     // 静态方法，可以不管mirrorObj
-    var getMyData = MXFunctionInvoke("getMyData", ({CustomJSApiExample mirrorObj, String sameInfo, String v,int v2}) =>
-        CustomJSApiExample.getMyData(sameInfo, v: v, v2: v2));
+    var getMyData = MXFunctionInvoke("MXMirrorExample_getMyData", ({MXMirrorExample mirrorObj, String sameInfo, String v,int v2}) =>
+        MXMirrorExample.getMyData(sameInfo, v: v, v2: v2));
 
     Map<String, MXFunctionInvoke> funMap = {};
     funMap[constructor.funName] = constructor;
@@ -39,6 +39,6 @@ class CustomJSApiExample {
     funMap[getMyData.funName] = getMyData;
 
     // 注册定义的方法
-    CustomJSApi.registerFunction(funMap);
+    MXMirror.getInstance().registerBizFunction(funMap);
   }
 }

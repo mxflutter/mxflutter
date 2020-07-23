@@ -295,14 +295,14 @@ class MXJSWidgetHomePageState extends MXJSWidgetState {
                 new ListTile({
                     leading: new Icon(new IconData(0xe39d, { fontFamily: 'MaterialIcons' })),
                     trailing: new Icon(new IconData(0xe5df, { fontFamily: 'MaterialIcons', matchTextDirection: true })),
-                    title: new Text('Dart JS Api'),
-                    subtitle: new Text('JS Call Dart Function'),
+                    title: new Text('MX Mirror'),
+                    subtitle: new Text('MX Mirror Example'),
                     onTap: function () {
 
-                        let { PageExampleJSApi } = require("custom_js_api.js");
+                        let { PageExampleMXMirror } = require("mx_mirror_example.js");
                         Navigator.push(context, new MaterialPageRoute({
                             builder: function (context) {
-                                return new PageExampleJSApi;
+                                return new PageExampleMXMirror;
                             }
                         }))
                     }

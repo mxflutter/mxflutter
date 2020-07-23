@@ -16,7 +16,7 @@ class MXFunctionInvoke {
 
   /// 调用方法
   /// argument: 命名参数
-  apply(Map argment) {
+  void apply(Map argment) {
     return Function.apply(this.fun, [], argment);
   }
 }

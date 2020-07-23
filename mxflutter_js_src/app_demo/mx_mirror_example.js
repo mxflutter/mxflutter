@@ -65,17 +65,17 @@ let { MXFJSBridge, MXJSCallbackMgr } = require("./js_flutter_framework.js");
 
 
 
-class CustomJSApiExample extends DartClass {
+class MXMirrorExample extends DartClass {
 
     constructor(baseOptions) {
-        super("CustomJSApiExample");
+        super("MXMirrorExample");
         //Mirror对象在构造函数创建 MirrorID
         this.createMirrorObjectID();
 
         //创建对应FLutter对象
         var argument = new FlutterCallArgs({
             mirrorID: this.mirrorID,
-            className: "CustomJSApiExample",
+            className: "MXMirrorExample",
             args: {
                 "key": 123
             }
@@ -89,7 +89,7 @@ class CustomJSApiExample extends DartClass {
 
         let argument = new FlutterCallArgs({
             mirrorID: this.mirrorID,
-            className: "CustomJSApiExample",
+            className: "MXMirrorExample",
             funcName: "getMyAppName",
             args: {
                 platform: platform,
@@ -119,40 +119,40 @@ class CustomJSApiExample extends DartClass {
 }
 
 
-//使用CustomJSApiExample
-let g_jsApi = new CustomJSApiExample();
+//使用MXMirrorExample
+let g_MXMirror = new MXMirrorExample();
 
 const { SectionTitle } = require("./component/section_title.js");
 
-class PageExampleJSApi extends MXJSStatefulWidget {
+class PageExampleMXMirror extends MXJSStatefulWidget {
     constructor() {
-        super("PageExampleJSApi");
+        super("PageExampleMXMirror");
 
     }
 
     createState() {
-        return new PageExampleJSApiState(this);
+        return new PageExampleMXMirrorState(this);
     }
 }
 
-class PageExampleJSApiState extends MXJSWidgetState {
+class PageExampleMXMirrorState extends MXJSWidgetState {
     constructor() {
-        super("PageExampleJSApiState");
+        super("PageExampleMXMirrorState");
         this.response = "点击小人Run上面的代码";
     }
 
     codeText() {
-        return "let result = await this.jsApi.getMyAppName('iOS', {v:'1.0'})";
+        return "let result = await this.MXMirror.getMyAppName('iOS', {v:'1.0'})";
     }
 
     build(context) {
         let widget = new Scaffold({
             appBar: new AppBar({
-                title: new Text("CustomJSApi Example"),
+                title: new Text("MXMirror Example"),
             }),
             body: new ListView({
                 children: [
-                    new SectionTitle("Code 调用Dart CustomJSApi.getMyAppName"),
+                    new SectionTitle("Code 调用Dart MXMirror.getMyAppName"),
                     new ListTile({
                         trailing: new Icon(Icons["directions_run"]),
                         title: new Text(this.codeText(), {
@@ -163,7 +163,7 @@ class PageExampleJSApiState extends MXJSWidgetState {
                         onTap: async function () {
 
                             //call js api
-                            let result = await g_jsApi.getMyAppName("iOS", { v: "1.0" });
+                            let result = await g_MXMirror.getMyAppName("iOS", { v: "1.0" });
 
                             this.setState(function () {
 
@@ -173,7 +173,7 @@ class PageExampleJSApiState extends MXJSWidgetState {
 
                         }.bind(this)
                     }),
-                    new SectionTitle("JSApi Result"),
+                    new SectionTitle("MXMirror Result"),
 
                     new Padding({
                         padding: EdgeInsets.all(10),
@@ -192,5 +192,5 @@ class PageExampleJSApiState extends MXJSWidgetState {
 }
 
 module.exports = {
-    PageExampleJSApi,
+    PageExampleMXMirror,
 };

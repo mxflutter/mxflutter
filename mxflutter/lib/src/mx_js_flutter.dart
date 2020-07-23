@@ -13,7 +13,7 @@ import 'mx_js_flutter_common.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_js_mirror_obj_mgr.dart';
 import 'mx_js_framework.dart';
-import 'package:mxflutter/src/mirror/custom_js_api.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 ///*MXJSFluttr的对外接口类
 ///简单两步接入MXFlutter，打开JS编写的页面。
@@ -118,6 +118,9 @@ class MXJSFlutterLib implements MXJSFlutter {
     //需要WidgetsFlutterBinding已调用
     WidgetsFlutterBinding.ensureInitialized();
     setupChannel();
+
+    // 注册MXMirror方法
+    MXMirror.getInstance().registerFrameworkFunctions();
 
     _isSetup = true;
   }
@@ -268,17 +271,18 @@ class MXJSFlutterLib implements MXJSFlutter {
     dynamic mirrorObj =
         MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
 
-    // 采用Function方式调用
-    if (CustomJSApi.canInvoke(args["funcName"])) {
+    // 采用Function方式调用，对象的方法名称，要通过className/funcName拼接
+    String funcName = MXMirror.getInstance().getObjectFuncName(args);
+    if (MXMirror.getInstance().canInvoke(funcName)) {
       Completer<String> completer = new Completer<String>();
       Map<String, dynamic> newArgs = new Map<String, dynamic>();
 
       // 添加参数
       newArgs["mirrorObj"] = mirrorObj;
-      newArgs["funcName"] = args["funcName"];
+      newArgs["funcName"] = funcName;
       newArgs.addAll(args["args"]);
 
-      CustomJSApi.invoke(newArgs, callback: (result) {
+      MXMirror.getInstance().invokeWithCallback(newArgs, (result) {
         var returnJSONStr = result;
         if (result != null && !(result is String)) {
           returnJSONStr = json.encode(result);
