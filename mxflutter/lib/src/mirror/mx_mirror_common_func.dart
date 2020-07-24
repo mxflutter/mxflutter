@@ -8,7 +8,7 @@ class MXMirrorCommonFunc {
     Map<String, MXFunctionInvoke> funMap = {};
 
     // 移除Mirror对象
-    var removeMirrorObject = MXFunctionInvoke("MXMirror_removeMirrorObject", ({String mirrorID}) =>
+    var removeMirrorObject = MXFunctionInvoke("MXMirrorObject_removeMirrorObject", ({String mirrorID}) =>
         MXMirrorObject.getInstance().removeMirrorObject(mirrorID));
     funMap[removeMirrorObject.funName] = removeMirrorObject;
 
