@@ -7,7 +7,6 @@
 import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
 import 'package:mxflutter/src/mirror/mx_common_function.dart';
-import 'package:mxflutter/src/mx_build_owner.dart';
 
 class MXRegisterLayoutSeries {
   static Map<String, MXFunctionInvoke> registerSeries() {

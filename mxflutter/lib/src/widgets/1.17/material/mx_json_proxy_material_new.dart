@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
 import 'package:mxflutter/src/mirror/mx_closure.dart';
 
-class MXRegisterMeterialSeries {
+class MXRegisterMaterialSeries {
   static Map<String, MXFunctionInvoke> registerSeries() {
     Map<String, MXFunctionInvoke> m = {};
 
