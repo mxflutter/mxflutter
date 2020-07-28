@@ -22,7 +22,7 @@ import 'pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
 import 'mx_json_proxy_widget.dart';
 import 'mx_js_mirror_obj_mgr.dart';
-import 'mirror/mx_mirror_func.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 typedef dynamic CreateJsonObjProxyFun();
 

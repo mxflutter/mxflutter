@@ -1,7 +1,5 @@
-import 'package:mxflutter/src/mirror/mx_mirror_func.dart';
-import 'package:mxflutter/src/widgets/image/mx_json_proxy_image_new.dart';
-import 'package:mxflutter/src/widgets/material/mx_json_proxy_material_new.dart';
-import 'package:mxflutter/src/widgets/layout/mx_json_proxy_layout_new.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
+import 'package:mxflutter/src/widgets/mx_widgets.dart';
 
 /// 注册widget方法
 class MXMirrorWidgetFunc {

@@ -1,6 +1,6 @@
-import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
-import 'package:mxflutter/src/mirror/mx_mirror_func.dart';
-import 'package:mxflutter/src/mirror/mx_mirror_object.dart';
+import 'mx_function_invoke.dart';
+import 'mx_mirror_func.dart';
+import 'mx_mirror_object.dart';
 
 class MXMirrorCommonFunc {
   /// 注册common方法

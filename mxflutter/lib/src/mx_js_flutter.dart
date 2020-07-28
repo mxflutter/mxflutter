@@ -13,8 +13,7 @@ import 'mx_js_flutter_common.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_js_mirror_obj_mgr.dart';
 import 'mx_js_framework.dart';
-import 'package:mxflutter/src/mirror/mx_mirror_framework_func.dart';
-import 'package:mxflutter/src/mirror/mx_mirror_func.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 ///*MXJSFluttr的对外接口类
 ///简单两步接入MXFlutter，打开JS编写的页面。

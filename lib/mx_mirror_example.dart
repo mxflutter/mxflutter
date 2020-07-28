@@ -4,8 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mirror/mx_function_invoke.dart';
-import 'package:mxflutter/src/mirror/mx_mirror_func.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 /// 向JS提供MXMirror example,
 class MXMirrorExample {
