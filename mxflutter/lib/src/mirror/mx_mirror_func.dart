@@ -10,6 +10,7 @@ typedef InvokeMirrorCallback = void Function(dynamic result);
 
 String constFuncStr = "funcName";
 String constClassStr = "className";
+String constConstructorStr = "constructorName";
 
 class MXMirrorFunc {
   static MXMirrorFunc _instance;
@@ -55,8 +56,7 @@ class MXMirrorFunc {
     }
 
     String fun = jsonMap[constFuncStr];
-    // 移除fun字段
-    jsonMap.remove(constFuncStr);
+    _removeHelpProperty(jsonMap);
     dynamic fi = _funcName2FunMap[fun];
     fi.buildOwner = buildOwner;
     
@@ -83,7 +83,8 @@ class MXMirrorFunc {
   bool canInvoke(String funcName) {
     return _funcName2FunMap[funcName] != null;
   }
-
+  
+  /// 获取对象方法名称 
   String getObjectFuncName(Map jsonMap) {
     String className = jsonMap[constClassStr];
     String funcName = jsonMap[constFuncStr];
@@ -92,6 +93,28 @@ class MXMirrorFunc {
     }
 
     return className + "_" + funcName;
+  }
+  
+  /// 获取构造方法名称
+  String getConstructorFuncName(Map jsonMap) {
+    String className = jsonMap[constClassStr];
+    String constructorName = jsonMap[constConstructorStr];
+    if (className == null) {
+      return null;
+    }
+
+    // 若 constructorName 不为空，则为静态方法。例如：Image.network
+    if (constructorName != null) {
+      return className + '.' + constructorName;
+    }
+    return className;
+  }
+  
+  /// 移除func、className、constructorName等辅助字段
+  void _removeHelpProperty(Map jsonMap) {
+    jsonMap.remove(constFuncStr);
+    jsonMap.remove(constClassStr);
+    jsonMap.remove(constConstructorStr);
   }
 
   /// 将json装成flutter对象

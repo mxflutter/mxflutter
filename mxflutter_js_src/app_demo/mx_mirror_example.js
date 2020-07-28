@@ -57,7 +57,8 @@ let {
     TextOverflow,
     Padding,
     Icons,
-    MethodChannel
+    MethodChannel,
+    Image
   } = require("js_flutter.js");
 
 let { DartClass, FlutterCallArgs, FlutterWidget, MXEncodeParam } = require("./js_flutter_basic_types.js");
@@ -182,6 +183,12 @@ class PageExampleMXMirrorState extends MXJSWidgetState {
                                 color: Colors.gray,
                             })
                         }),
+                    }),
+
+                    Image.network(
+                        'https://raw.githubusercontent.com/mxflutter/mxflutter/master/mxflutter/mxflutterlogo.png',{
+                        width: 260,
+                        height: 200,
                     })
 
                 ],
