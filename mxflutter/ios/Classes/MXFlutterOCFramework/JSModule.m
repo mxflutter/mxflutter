@@ -220,7 +220,7 @@ static JSModule *currentLoadingModule = nil;
     context[@"platform"] = [newModule platformObjectInContext:context];
     
     JSValue *exports = [JSValue new];
-    NSString *exportScript = [NSString stringWithFormat:@"(function() { var module = { exports: {}}; var exports = module.exports; %@; return module.exports; })();", script];
+    NSString *exportScript = [NSString stringWithFormat:@"(function() { var module = { exports: {}}; var exports = module.exports; \r\n %@ \r\n; return module.exports; })();", script];
 
     if ([context respondsToSelector:@selector(evaluateScript:withSourceURL:)]) {
         NSString *jsFilePathPrefix = [fullModulePath stringByDeletingLastPathComponent];
