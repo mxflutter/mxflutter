@@ -24,13 +24,13 @@ class MXMirrorObject {
   MXMirrorObject._();
 
   /// 获取irrorID
-  String getMirrorID(Map jsonMap) {
-    dynamic mirrorID = jsonMap["mirrorID"];
+  String mirrorID(Map jsonMap) {
+    var mirrorID = jsonMap["mirrorID"];
     return mirrorID;
   }
 
   /// 获取Mirror对象
-  dynamic getMirrorObject(dynamic mirrorID) {
+  dynamic mirrorObject(dynamic mirrorID) {
     if (mirrorID == null) {
       return;
     }

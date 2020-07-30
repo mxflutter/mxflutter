@@ -131,7 +131,7 @@ class MXJsonObjToDartObject {
     
     dynamic dartObject;
     //TODO: 测试mirror，这里后续要统一改成Function方法
-    String funcName = MXMirrorFunc.getInstance().getConstructorFuncName(jsonMap);
+    String funcName = MXMirrorFunc.getInstance().constructorFuncName(jsonMap);
     if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
       Map<String, dynamic> newJsonMap = Map.from(jsonMap);
       newJsonMap["funcName"] = funcName;

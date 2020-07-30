@@ -6,17 +6,15 @@
 
 import 'package:mxflutter/src/mx_build_owner.dart';
 
-typedef InvokeMirrorCallback = void Function(dynamic result);
-
-String constFuncStr = "funcName";
-String constClassStr = "className";
-String constConstructorStr = "constructorName";
-
 class MXMirrorFunc {
   static MXMirrorFunc _instance;
 
+  final constFuncStr = "funcName";
+  final constClassStr = "className";
+  final constConstructorStr = "constructorName";
+
   // funcName到Fun方法的映射表
-  var _funcName2FunMap = {};
+  var _funcName2FunMap = <String, dynamic>{};
 
   static MXMirrorFunc getInstance() {
     if (_instance == null) {
@@ -41,8 +39,8 @@ class MXMirrorFunc {
   }
 
   /// 调用Function.apply方法，通过 callback 返回结果
-  void invokeWithCallback(Map jsonMap, InvokeMirrorCallback callback, { MXJsonBuildOwner buildOwner }) {
-    dynamic result = invoke(jsonMap, buildOwner: buildOwner);
+  void invokeWithCallback(Map jsonMap, void Function(dynamic result) callback, { MXJsonBuildOwner buildOwner }) {
+    var result = invoke(jsonMap, buildOwner: buildOwner);
     if (callback != null) {
       callback(result);
     }
@@ -57,12 +55,12 @@ class MXMirrorFunc {
 
     String fun = jsonMap[constFuncStr];
     _removeHelpProperty(jsonMap);
-    dynamic fi = _funcName2FunMap[fun];
+    var fi = _funcName2FunMap[fun];
     fi.buildOwner = buildOwner;
     
     try {
-      Map<Symbol, dynamic> namedArguments = {};
-      for (String name in jsonMap.keys) {
+      var namedArguments = <Symbol, dynamic>{};
+      for (var name in jsonMap.keys) {
         namedArguments[Symbol(name)] = _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
       }
       // 为方便处理，此处都使用命名参数，不用位置参数
@@ -85,9 +83,9 @@ class MXMirrorFunc {
   }
   
   /// 获取对象方法名称 
-  String getObjectFuncName(Map jsonMap) {
-    String className = jsonMap[constClassStr];
-    String funcName = jsonMap[constFuncStr];
+  String objectFuncName(Map jsonMap) {
+    var className = jsonMap[constClassStr];
+    var funcName = jsonMap[constFuncStr];
     if (className == null || funcName == null) {
       return null;
     }
@@ -96,9 +94,9 @@ class MXMirrorFunc {
   }
   
   /// 获取构造方法名称
-  String getConstructorFuncName(Map jsonMap) {
-    String className = jsonMap[constClassStr];
-    String constructorName = jsonMap[constConstructorStr];
+  String constructorFuncName(Map jsonMap) {
+    var className = jsonMap[constClassStr];
+    var constructorName = jsonMap[constConstructorStr];
     if (className == null) {
       return null;
     }
@@ -123,10 +121,10 @@ class MXMirrorFunc {
       return invoke(json, buildOwner: buildOwner);
     } else if (json is List) {
       List list = [];
-      json.forEach((element) {
+      for (var element in json) {
         var object = _jsonToDartObject(element, buildOwner: buildOwner);
         list.add(object);
-      });
+      }
       return list;
     } else {
       return json;

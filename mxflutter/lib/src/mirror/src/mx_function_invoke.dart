@@ -8,11 +8,11 @@ import 'package:mxflutter/src/mx_build_owner.dart';
 
 /// Dart函数的映射定义
 class MXFunctionInvoke {
-  MXFunctionInvoke(this.funName, this.fun);
-
   String funName;
   Function fun;
   MXJsonBuildOwner buildOwner;
+
+  MXFunctionInvoke(this.funName, this.fun);
 
   /// 调用方法
   /// argument: 命名参数

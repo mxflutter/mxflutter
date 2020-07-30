@@ -7,16 +7,14 @@
 import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
-class MXRegisterImageSeries {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
+Map<String, MXFunctionInvoke> registerImageSeries() {
+  var m = <String, MXFunctionInvoke>{};
 
-    m[image.funName] = image;
-    m[imageNetwork.funName] = imageNetwork;
-    m[imageRepeat.funName] = imageRepeat;
+  m[image.funName] = image;
+  m[imageNetwork.funName] = imageNetwork;
+  m[imageRepeat.funName] = imageRepeat;
 
-    return m;
-  }
+  return m;
 }
 
 class MXImageRepeat {
@@ -40,9 +38,7 @@ class MXImageRepeat {
 
 var imageRepeat = MXFunctionInvoke(
   "ImageRepeat",
-  ({
-    Map args
-  }) => MXImageRepeat.parse(args),
+  ({Map args}) => MXImageRepeat.parse(args),
 );
 
 var image = MXFunctionInvoke(

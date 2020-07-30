@@ -7,14 +7,12 @@
 import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
-class MXRegisterMaterialSeries {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
+Map<String, MXFunctionInvoke> registerMaterialSeries() {
+  var m = <String, MXFunctionInvoke>{};
 
-    m[flatButton.funName] = flatButton;
+  m[flatButton.funName] = flatButton;
 
-    return m;
-  }
+  return m;
 }
 
 var flatButton = MXFunctionInvoke(
@@ -47,7 +45,8 @@ var flatButton = MXFunctionInvoke(
     key: key,
     onPressed: createVoidCallbackClosure(flatButton.buildOwner, onPressed),
     onLongPress: createVoidCallbackClosure(flatButton.buildOwner, onLongPress),
-    onHighlightChanged: createValueChangedGenericClosure<bool>(flatButton.buildOwner, onHighlightChanged),
+    onHighlightChanged: createValueChangedGenericClosure<bool>(
+        flatButton.buildOwner, onHighlightChanged),
     textTheme: textTheme,
     textColor: textColor,
     disabledColor: disabledColor,

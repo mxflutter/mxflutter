@@ -2,16 +2,16 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:mxflutter/src/widgets/mx_widgets.dart';
 
 /// 注册widget方法
-class MXMirrorWidgetFunc {
-  // 注册widget方法
-  static void registerWidgetFunc() {
-    // Image
-    MXMirrorFunc.getInstance().registerBizFunction(MXRegisterImageSeries.registerSeries());
+void registerMirrorWidgetFunc() {
+  // Image
+  MXMirrorFunc.getInstance()
+      .registerBizFunction(registerImageSeries());
 
-    // Meterial
-    MXMirrorFunc.getInstance().registerBizFunction(MXRegisterMaterialSeries.registerSeries());
+  // Meterial
+  MXMirrorFunc.getInstance()
+      .registerBizFunction(registerMaterialSeries());
 
-    // Layout
-    MXMirrorFunc.getInstance().registerBizFunction(MXRegisterLayoutSeries.registerSeries());
-  }
+  // Layout
+  MXMirrorFunc.getInstance()
+      .registerBizFunction(registerLayoutSeries());
 }

@@ -7,13 +7,11 @@
 import 'mx_mirror_common_func.dart';
 import 'mx_mirror_widget_func.dart';
 
-class MXMirrorFrameworkFunc {
-  /// 注册框架方法
-  static void registerFunction() {
-    // 注册widget方法
-    MXMirrorWidgetFunc.registerWidgetFunc();
+/// 注册框架方法
+void registerMirrorFrameworkFunc() {
+  // 注册widget方法
+  registerMirrorWidgetFunc();
 
-    // 注册通用方法
-    MXMirrorCommonFunc.registerCommonFunc();
-  }
+  // 注册通用方法
+  registerMirrorCommonFunc();
 }

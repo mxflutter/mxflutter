@@ -7,14 +7,12 @@
 import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
-class MXRegisterLayoutSeries {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
+Map<String, MXFunctionInvoke> registerLayoutSeries() {
+  var m = <String, MXFunctionInvoke>{};
 
-    m[stack.funName] = stack;
+  m[stack.funName] = stack;
 
-    return m;
-  }
+  return m;
 }
 
 class MXStackFit {

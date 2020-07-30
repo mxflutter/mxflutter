@@ -120,7 +120,7 @@ class MXJSFlutterLib implements MXJSFlutter {
     setupChannel();
 
     // 注册MXMirrorFrameworkFunc方法
-    MXMirrorFrameworkFunc.registerFunction();
+    registerMirrorFrameworkFunc();
 
     _isSetup = true;
   }
@@ -272,7 +272,7 @@ class MXJSFlutterLib implements MXJSFlutter {
         MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
 
     // 采用Function方式调用，对象的方法名称，要通过className/funcName拼接
-    String funcName = MXMirrorFunc.getInstance().getObjectFuncName(args);
+    String funcName = MXMirrorFunc.getInstance().objectFuncName(args);
     if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
       Completer<String> completer = new Completer<String>();
       Map<String, dynamic> newArgs = new Map<String, dynamic>();
