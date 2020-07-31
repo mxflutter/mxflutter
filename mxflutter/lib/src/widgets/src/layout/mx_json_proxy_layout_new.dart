@@ -11,6 +11,7 @@ Map<String, MXFunctionInvoke> registerLayoutSeries() {
   var m = <String, MXFunctionInvoke>{};
 
   m[stack.funName] = stack;
+  m[stackFit.funName] = stackFit;
 
   return m;
 }
@@ -32,6 +33,11 @@ class MXStackFit {
     }
   } 
 }
+
+var stackFit = MXFunctionInvoke(
+  "StackFit",
+  ({Map args}) => MXStackFit.parse(args),
+);
 
 var stack = MXFunctionInvoke(
   "Stack",
