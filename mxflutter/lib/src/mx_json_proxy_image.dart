@@ -6,7 +6,7 @@
 
 import 'package:flutter/material.dart';
 import 'mx_json_to_dart.dart';
-import 'mx_build_owner.dart';
+import 'mx_json_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
 
 class MXProxyRegisterHelperImageSeries {

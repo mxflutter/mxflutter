@@ -6,7 +6,7 @@
 
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'mx_build_owner.dart';
+import 'mx_json_build_owner.dart';
 
 import 'mx_json_proxy_material.dart';
 import 'mx_json_proxy_layout.dart';
@@ -20,9 +20,9 @@ import 'pkg/dio/mx_json_proxy_dio.dart';
 import 'pkg/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
 import 'pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
-import 'mx_json_proxy_widget.dart';
 import 'mx_js_mirror_obj_mgr.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
+import 'mx_json_proxy_state_widget.dart';
 
 typedef dynamic CreateJsonObjProxyFun();
 
@@ -236,9 +236,6 @@ class MXJsonObjToDartObject {
     registerProxy(MXProxyRegisterHelperImageSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperCupertinoSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperAnimationSeries.registerProxys());
-
-    //helper widget
-    registerProxy(MXProxyRegisterHelperWidgetSeries.registerProxys());
 
     // 第三方库
     // pull_to_refresh

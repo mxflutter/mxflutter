@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
 import 'mx_json_to_dart.dart';
-import 'mx_build_owner.dart';
+import 'mx_json_build_owner.dart';
 import 'mx_json_proxy_basic_types.dart';
 import 'mx_json_proxy_text.dart';
 import 'mx_json_proxy_animation.dart';

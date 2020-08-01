@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mx_build_owner.dart';
+import 'package:mxflutter/src/mx_json_build_owner.dart';
 
 class MXMirrorFunc {
   static MXMirrorFunc _instance;

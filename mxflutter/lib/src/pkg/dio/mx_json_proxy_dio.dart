@@ -11,9 +11,9 @@ import 'package:dio/dio.dart';
 import 'package:dio/src/adapters/io_adapter.dart';
 
 import '../../mx_json_to_dart.dart';
-import '../../mx_build_owner.dart';
+import '../../mx_json_build_owner.dart';
 
-import '../../mx_js_flutter.dart';
+import '../../mx_js_flutter_lib.dart';
 
 class MXProxyRegisterHelperDioSeries {
   static Map<String, CreateJsonObjProxyFun> registerProxys() {
