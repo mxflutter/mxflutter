@@ -78,7 +78,7 @@ class MXFlutterExampleHome extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => MXJSPageWidget(
-                              jsWidgetName: "MXJSWidgetHomePage")));
+                              jsWidgetName: "mxflutter-js-demo")));
                 },
               ),
               ListTile(
