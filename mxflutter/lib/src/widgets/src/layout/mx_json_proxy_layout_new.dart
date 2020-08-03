@@ -45,7 +45,7 @@ var stack = MXFunctionInvoke(
     Key key,
     AlignmentDirectional alignment = AlignmentDirectional.topStart,
     textDirection,
-    dynamic fit = StackFit.loose,
+    StackFit fit = StackFit.loose,
     Overflow overflow = Overflow.clip,
     List<dynamic> children = const <dynamic>[],
   }) =>
