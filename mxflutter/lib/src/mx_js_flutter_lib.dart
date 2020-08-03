@@ -157,6 +157,7 @@ class MXJSFlutterLib implements MXJSFlutter {
   }
 
   ///flutter->js  顶层通用调用通道
+  @override
   dynamic invokeJSCommonChannel(MethodCall jsMethodCall) async {
     MXJSLog.log("invokeJSCommonChannel:${jsMethodCall.method}");
 
@@ -328,6 +329,7 @@ class MXJSFlutterLib implements MXJSFlutter {
   ///从Flutter Dart代码 Push一个 JS写的页面
   ///*重要：此API是从Dart侧打开一个JS页面的入口函数，将创建一个RootWidget，MXFlutter 的RootWidget对外只显示一个
   ///先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
+  @override
   dynamic navigatorPushWithName(String widgetName, Key widgetKey,
       {ThemeData themeData,
       MediaQueryData mediaQueryData,
@@ -352,6 +354,7 @@ class MXJSFlutterLib implements MXJSFlutter {
     _jsFlutterMainChannel?.invokeMethod("mxLog", log);
   }
 
+  @override
   void registerMirrorObjProxy(Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap) {
     MXJsonObjToDartObject.getInstance()
         .registerProxy(string2CreateJsonObjProxyFunMap);
