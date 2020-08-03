@@ -102,7 +102,7 @@ var imageNetwork = MXFunctionInvoke(
     BlendMode colorBlendMode,
     BoxFit fit,
     Alignment alignment = Alignment.center,
-    dynamic repeat = ImageRepeat.noRepeat,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
     Rect centerSlice,
     bool matchTextDirection = false,
     bool gaplessPlayback = false,
