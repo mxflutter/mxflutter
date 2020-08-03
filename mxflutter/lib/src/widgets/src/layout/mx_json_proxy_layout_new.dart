@@ -53,7 +53,7 @@ var stack = MXFunctionInvoke(
     key: key,
     alignment: alignment,
     textDirection: textDirection,
-    fit: MXStackFit.parse(fit),
+    fit: fit,
     overflow: overflow,
     children: toListT<Widget>(children),
   ),
