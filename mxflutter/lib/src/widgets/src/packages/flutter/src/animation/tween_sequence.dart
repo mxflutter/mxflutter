@@ -5,46 +5,46 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/animation/tween_sequence.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/animation/animation.dart';
+import 'package:flutter/src/animation/tween.dart';
 
 
-class MXProxyTweenSequence {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[tweenSequence.funName] = tweenSequence;
-    m[flippedTweenSequence.funName] = flippedTweenSequence;
-    m[tweenSequenceItem.funName] = tweenSequenceItem;
-    return m;
-  }
-  static var tweenSequence = MXFunctionInvoke(
-      "TweenSequence",
-      ({
-        List<TweenSequenceItem<TweenSequence::T>> items,
-      }) =>
-        TweenSequence(
-        items,
-      ),
-    );
-  static var flippedTweenSequence = MXFunctionInvoke(
-      "FlippedTweenSequence",
-      ({
-        List<TweenSequenceItem<double>> items,
-      }) =>
-        FlippedTweenSequence(
-        items,
-      ),
-    );
-  static var tweenSequenceItem = MXFunctionInvoke(
-      "TweenSequenceItem",
-      ({
-        Animatable<TweenSequenceItem::T> tween,
-        dynamic weight,
-      }) =>
-        TweenSequenceItem(
-        tween: tween,
-        weight: weight?.toDouble(),
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerTweenSequenceSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[tweenSequence.funName] = tweenSequence;
+  m[flippedTweenSequence.funName] = flippedTweenSequence;
+  m[tweenSequenceItem.funName] = tweenSequenceItem;
+  return m;
 }
+var tweenSequence = MXFunctionInvoke(
+    "TweenSequence",
+    ({
+      dynamic items,
+    }) =>
+      TweenSequence(
+      items,
+    ),
+);
+var flippedTweenSequence = MXFunctionInvoke(
+    "FlippedTweenSequence",
+    ({
+      List<TweenSequenceItem<double>> items,
+    }) =>
+      FlippedTweenSequence(
+      items,
+    ),
+);
+var tweenSequenceItem = MXFunctionInvoke(
+    "TweenSequenceItem",
+    ({
+      dynamic tween,
+      dynamic weight,
+    }) =>
+      TweenSequenceItem(
+      tween: tween,
+      weight: weight,
+    ),
+);

@@ -5,68 +5,77 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/bottom_navigation_bar.dart';
+import 'dart:collection';
+import 'dart:math';
+import 'package:flutter/widgets.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/material/colors.dart';
+import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/text_theme.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
-class MXProxyBottomNavigationBar {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[bottomNavigationBarType.funName] = bottomNavigationBarType;
-    m[bottomNavigationBar.funName] = bottomNavigationBar;
-    return m;
-  }
-  static var bottomNavigationBarType = MXFunctionInvoke(
-      "BottomNavigationBarType",
-      ({Map args}) => MXBottomNavigationBarType.parse(args),
-  );
-  static var bottomNavigationBar = MXFunctionInvoke(
-      "BottomNavigationBar",
-      ({
-        Key key,
-        List<BottomNavigationBarItem> items,
-        dynamic onTap,
-        int currentIndex = 0,
-        dynamic elevation = 8.0,
-        BottomNavigationBarType type,
-        Color fixedColor,
-        Color backgroundColor,
-        dynamic iconSize = 24.0,
-        Color selectedItemColor,
-        Color unselectedItemColor,
-        IconThemeData selectedIconTheme,
-        IconThemeData unselectedIconTheme,
-        dynamic selectedFontSize = 14.0,
-        dynamic unselectedFontSize = 12.0,
-        TextStyle selectedLabelStyle,
-        TextStyle unselectedLabelStyle,
-        bool showSelectedLabels = true,
-        bool showUnselectedLabels,
-      }) =>
-        BottomNavigationBar(
-        key: key,
-        items: items,
-        onTap: createValueChangedGenericClosure<int>(bottomNavigationBar.buildOwner, onTap),
-        currentIndex: currentIndex,
-        elevation: elevation?.toDouble(),
-        type: type,
-        fixedColor: fixedColor,
-        backgroundColor: backgroundColor,
-        iconSize: iconSize?.toDouble(),
-        selectedItemColor: selectedItemColor,
-        unselectedItemColor: unselectedItemColor,
-        selectedIconTheme: selectedIconTheme,
-        unselectedIconTheme: unselectedIconTheme,
-        selectedFontSize: selectedFontSize?.toDouble(),
-        unselectedFontSize: unselectedFontSize?.toDouble(),
-        selectedLabelStyle: selectedLabelStyle,
-        unselectedLabelStyle: unselectedLabelStyle,
-        showSelectedLabels: showSelectedLabels,
-        showUnselectedLabels: showUnselectedLabels,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerBottomNavigationBarSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[bottomNavigationBarType.funName] = bottomNavigationBarType;
+  m[bottomNavigationBar.funName] = bottomNavigationBar;
+  return m;
 }
+var bottomNavigationBarType = MXFunctionInvoke(
+    "BottomNavigationBarType",
+    ({Map args}) => MXBottomNavigationBarType.parse(args),
+  );
+var bottomNavigationBar = MXFunctionInvoke(
+    "BottomNavigationBar",
+    ({
+      Key key,
+      List<BottomNavigationBarItem> items,
+      dynamic onTap,
+      int currentIndex = 0,
+      dynamic elevation = 8.0,
+      BottomNavigationBarType type,
+      Color fixedColor,
+      Color backgroundColor,
+      dynamic iconSize = 24.0,
+      Color selectedItemColor,
+      Color unselectedItemColor,
+      IconThemeData selectedIconTheme,
+      IconThemeData unselectedIconTheme,
+      dynamic selectedFontSize = 14.0,
+      dynamic unselectedFontSize = 12.0,
+      TextStyle selectedLabelStyle,
+      TextStyle unselectedLabelStyle,
+      bool showSelectedLabels = true,
+      bool showUnselectedLabels,
+    }) =>
+      BottomNavigationBar(
+      key: key,
+      items: items,
+      onTap: createValueChangedGenericClosure<int>(bottomNavigationBar.buildOwner, onTap),
+      currentIndex: currentIndex,
+      elevation: elevation,
+      type: type,
+      fixedColor: fixedColor,
+      backgroundColor: backgroundColor,
+      iconSize: iconSize,
+      selectedItemColor: selectedItemColor,
+      unselectedItemColor: unselectedItemColor,
+      selectedIconTheme: selectedIconTheme,
+      unselectedIconTheme: unselectedIconTheme,
+      selectedFontSize: selectedFontSize,
+      unselectedFontSize: unselectedFontSize,
+      selectedLabelStyle: selectedLabelStyle,
+      unselectedLabelStyle: unselectedLabelStyle,
+      showSelectedLabels: showSelectedLabels,
+      showUnselectedLabels: showUnselectedLabels,
+    ),
+);
 class MXBottomNavigationBarType {
   static Map str2VMap = {
     'BottomNavigationBarType.fixed': BottomNavigationBarType.fixed,

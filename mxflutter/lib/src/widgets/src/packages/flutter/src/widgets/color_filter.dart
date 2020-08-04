@@ -5,28 +5,29 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/color_filter.dart';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 
-class MXProxyColorFilter {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[colorFiltered.funName] = colorFiltered;
-    return m;
-  }
-  static var colorFiltered = MXFunctionInvoke(
-      "ColorFiltered",
-      ({
-        ColorFilter colorFilter,
-        Widget child,
-        Key key,
-      }) =>
-        ColorFiltered(
-        colorFilter: colorFilter,
-        child: child,
-        key: key,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerColorFilterSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[colorFiltered.funName] = colorFiltered;
+  return m;
 }
+var colorFiltered = MXFunctionInvoke(
+    "ColorFiltered",
+    ({
+      ColorFilter colorFilter,
+      Widget child,
+      Key key,
+    }) =>
+      ColorFiltered(
+      colorFilter: colorFilter,
+      child: child,
+      key: key,
+    ),
+);

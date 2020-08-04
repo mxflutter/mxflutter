@@ -5,30 +5,28 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/grid_tile.dart';
+import 'package:flutter/widgets.dart';
 
 
-class MXProxyGridTile {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[gridTile.funName] = gridTile;
-    return m;
-  }
-  static var gridTile = MXFunctionInvoke(
-      "GridTile",
-      ({
-        Key key,
-        Widget header,
-        Widget footer,
-        Widget child,
-      }) =>
-        GridTile(
-        key: key,
-        header: header,
-        footer: footer,
-        child: child,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerGridTileSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[gridTile.funName] = gridTile;
+  return m;
 }
+var gridTile = MXFunctionInvoke(
+    "GridTile",
+    ({
+      Key key,
+      Widget header,
+      Widget footer,
+      Widget child,
+    }) =>
+      GridTile(
+      key: key,
+      header: header,
+      footer: footer,
+      child: child,
+    ),
+);

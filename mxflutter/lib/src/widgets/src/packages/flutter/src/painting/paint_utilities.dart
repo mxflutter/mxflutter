@@ -5,14 +5,13 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/painting/paint_utilities.dart';
+import 'dart:math';
+import 'package:flutter/src/painting/basic_types.dart';
 
 
-class MXProxyPaintUtilities {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    return m;
-  }
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerPaintUtilitiesSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }

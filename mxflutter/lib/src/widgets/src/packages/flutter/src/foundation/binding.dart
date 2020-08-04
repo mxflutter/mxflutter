@@ -5,14 +5,24 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/binding.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
+import 'dart:ui';
+import 'package:meta/meta.dart';
+import 'package:flutter/src/foundation/assertions.dart';
+import 'package:flutter/src/foundation/basic_types.dart';
+import 'package:flutter/src/foundation/constants.dart';
+import 'package:flutter/src/foundation/debug.dart';
+import 'package:flutter/src/foundation/object.dart';
+import 'package:flutter/src/foundation/platform.dart';
+import 'package:flutter/src/foundation/print.dart';
 
 
-class MXProxyBinding {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    return m;
-  }
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerBindingSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }

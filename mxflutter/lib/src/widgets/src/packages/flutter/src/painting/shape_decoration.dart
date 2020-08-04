@@ -5,42 +5,53 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/painting/shape_decoration.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/painting/basic_types.dart';
+import 'package:flutter/src/painting/borders.dart';
+import 'package:flutter/src/painting/box_border.dart';
+import 'package:flutter/src/painting/box_decoration.dart';
+import 'package:flutter/src/painting/box_shadow.dart';
+import 'package:flutter/src/painting/circle_border.dart';
+import 'package:flutter/src/painting/colors.dart';
+import 'package:flutter/src/painting/decoration.dart';
+import 'package:flutter/src/painting/decoration_image.dart';
+import 'package:flutter/src/painting/edge_insets.dart';
+import 'package:flutter/src/painting/gradient.dart';
+import 'package:flutter/src/painting/image_provider.dart';
+import 'package:flutter/src/painting/rounded_rectangle_border.dart';
 
 
-class MXProxyShapeDecoration {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[shapeDecoration.funName] = shapeDecoration;
-    m[shapeDecoration_fromBoxDecoration.funName] = shapeDecoration_fromBoxDecoration;
-    return m;
-  }
-  static var shapeDecoration = MXFunctionInvoke(
-      "ShapeDecoration",
-      ({
-        Color color,
-        DecorationImage image,
-        Gradient gradient,
-        List<BoxShadow> shadows,
-        ShapeBorder shape,
-      }) =>
-        ShapeDecoration(
-        color: color,
-        image: image,
-        gradient: gradient,
-        shadows: shadows,
-        shape: shape,
-      ),
-    );
-  static var shapeDecoration_fromBoxDecoration = MXFunctionInvoke(
-    "shapeDecoration.fromBoxDecoration",
-      ({
-        BoxDecoration source,
-      }) =>
-        ShapeDecoration.fromBoxDecoration(
-        source,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerShapeDecorationSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[shapeDecoration.funName] = shapeDecoration;
+  m[shapeDecoration_fromBoxDecoration.funName] = shapeDecoration_fromBoxDecoration;
+  return m;
 }
+var shapeDecoration = MXFunctionInvoke(
+    "ShapeDecoration",
+    ({
+      Color color,
+      DecorationImage image,
+      Gradient gradient,
+      List<BoxShadow> shadows,
+      ShapeBorder shape,
+    }) =>
+      ShapeDecoration(
+      color: color,
+      image: image,
+      gradient: gradient,
+      shadows: shadows,
+      shape: shape,
+    ),
+);
+var shapeDecoration_fromBoxDecoration = MXFunctionInvoke(
+  "shapeDecoration.fromBoxDecoration",
+    ({
+      BoxDecoration source,
+    }) =>
+      ShapeDecoration.fromBoxDecoration(
+      source,
+    ),
+);

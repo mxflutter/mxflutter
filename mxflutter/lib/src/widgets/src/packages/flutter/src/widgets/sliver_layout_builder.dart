@@ -5,26 +5,27 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/sliver_layout_builder.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/layout_builder.dart';
 
 
-class MXProxySliverLayoutBuilder {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[sliverLayoutBuilder.funName] = sliverLayoutBuilder;
-    return m;
-  }
-  static var sliverLayoutBuilder = MXFunctionInvoke(
-      "SliverLayoutBuilder",
-      ({
-        Key key,
-        dynamic builder,
-      }) =>
-        SliverLayoutBuilder(
-        key: key,
-        builder: builder,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSliverLayoutBuilderSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[sliverLayoutBuilder.funName] = sliverLayoutBuilder;
+  return m;
 }
+var sliverLayoutBuilder = MXFunctionInvoke(
+    "SliverLayoutBuilder",
+    ({
+      Key key,
+      dynamic builder,
+    }) =>
+      SliverLayoutBuilder(
+      key: key,
+      builder: builder,
+    ),
+);

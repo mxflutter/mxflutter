@@ -5,24 +5,25 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/services/font_loader.dart';
+import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
 
 
-class MXProxyFontLoader {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[fontLoader.funName] = fontLoader;
-    return m;
-  }
-  static var fontLoader = MXFunctionInvoke(
-      "FontLoader",
-      ({
-        String family,
-      }) =>
-        FontLoader(
-        family,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerFontLoaderSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[fontLoader.funName] = fontLoader;
+  return m;
 }
+var fontLoader = MXFunctionInvoke(
+    "FontLoader",
+    ({
+      String family,
+    }) =>
+      FontLoader(
+      family,
+    ),
+);

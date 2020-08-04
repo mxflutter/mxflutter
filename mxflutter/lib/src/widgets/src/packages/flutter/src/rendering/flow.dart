@@ -5,34 +5,36 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/flow.dart';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/object.dart';
 
 
-class MXProxyFlow {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[flowParentData.funName] = flowParentData;
-    m[renderFlow.funName] = renderFlow;
-    return m;
-  }
-  static var flowParentData = MXFunctionInvoke(
-      "FlowParentData",
-      ({
-      }) =>
-        FlowParentData(
-      ),
-    );
-  static var renderFlow = MXFunctionInvoke(
-      "RenderFlow",
-      ({
-        List<RenderBox> children,
-        FlowDelegate delegate,
-      }) =>
-        RenderFlow(
-        children: children,
-        delegate: delegate,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerFlowSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[flowParentData.funName] = flowParentData;
+  m[renderFlow.funName] = renderFlow;
+  return m;
 }
+var flowParentData = MXFunctionInvoke(
+    "FlowParentData",
+    ({
+    }) =>
+      FlowParentData(
+    ),
+);
+var renderFlow = MXFunctionInvoke(
+    "RenderFlow",
+    ({
+      List<RenderBox> children,
+      FlowDelegate delegate,
+    }) =>
+      RenderFlow(
+      children: children,
+      delegate: delegate,
+    ),
+);

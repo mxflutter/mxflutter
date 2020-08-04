@@ -5,28 +5,32 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/painting/image_resolution.dart';
+import 'dart:async';
+import 'dart:collection';
+import 'dart:convert';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/src/painting/image_provider.dart';
 
 
-class MXProxyImageResolution {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[assetImage.funName] = assetImage;
-    return m;
-  }
-  static var assetImage = MXFunctionInvoke(
-      "AssetImage",
-      ({
-        String assetName,
-        AssetBundle bundle,
-        String package,
-      }) =>
-        AssetImage(
-        assetName,
-        bundle: bundle,
-        package: package,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerImageResolutionSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[assetImage.funName] = assetImage;
+  return m;
 }
+var assetImage = MXFunctionInvoke(
+    "AssetImage",
+    ({
+      String assetName,
+      AssetBundle bundle,
+      String package,
+    }) =>
+      AssetImage(
+      assetName,
+      bundle: bundle,
+      package: package,
+    ),
+);

@@ -5,146 +5,126 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/services/text_input.dart';
+import 'dart:async';
+import 'dart:io';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/services/message_codec.dart';
+import 'package:flutter/src/services/platform_channel.dart';
+import 'package:flutter/src/services/system_channels.dart';
+import 'package:flutter/src/services/system_chrome.dart';
+import 'package:flutter/src/services/text_editing.dart';
+import 'dart:ui';
 
 
-class MXProxyTextInput {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[smartDashesType.funName] = smartDashesType;
-    m[smartQuotesType.funName] = smartQuotesType;
-    m[textInputType_.funName] = textInputType_;
-    m[textInputType_numberWithOptions.funName] = textInputType_numberWithOptions;
-    m[textInputAction.funName] = textInputAction;
-    m[textCapitalization.funName] = textCapitalization;
-    m[textInputConfiguration.funName] = textInputConfiguration;
-    m[floatingCursorDragState.funName] = floatingCursorDragState;
-    m[rawFloatingCursorPoint.funName] = rawFloatingCursorPoint;
-    m[textEditingValue.funName] = textEditingValue;
-    m[textEditingValue_fromJSON.funName] = textEditingValue_fromJSON;
-    m[textInputConnection_.funName] = textInputConnection_;
-    m[textInput_.funName] = textInput_;
-    return m;
-  }
-  static var smartDashesType = MXFunctionInvoke(
-      "SmartDashesType",
-      ({Map args}) => MXSmartDashesType.parse(args),
-  );
-  static var smartQuotesType = MXFunctionInvoke(
-      "SmartQuotesType",
-      ({Map args}) => MXSmartQuotesType.parse(args),
-  );
-  static var textInputType_ = MXFunctionInvoke(
-    "textInputType.",
-      ({
-        int index,
-      }) =>
-        TextInputType.(
-        index,
-      ),
-    );
-  static var textInputType_numberWithOptions = MXFunctionInvoke(
-    "textInputType.numberWithOptions",
-      ({
-        bool signed = false,
-        bool decimal = false,
-      }) =>
-        TextInputType.numberWithOptions(
-        signed: signed,
-        decimal: decimal,
-      ),
-    );
-  static var textInputAction = MXFunctionInvoke(
-      "TextInputAction",
-      ({Map args}) => MXTextInputAction.parse(args),
-  );
-  static var textCapitalization = MXFunctionInvoke(
-      "TextCapitalization",
-      ({Map args}) => MXTextCapitalization.parse(args),
-  );
-  static var textInputConfiguration = MXFunctionInvoke(
-      "TextInputConfiguration",
-      ({
-        TextInputType inputType,
-        bool obscureText = false,
-        bool autocorrect = true,
-        SmartDashesType smartDashesType,
-        SmartQuotesType smartQuotesType,
-        bool enableSuggestions = true,
-        String actionLabel,
-        TextInputAction inputAction = TextInputAction.done,
-        Brightness keyboardAppearance = Brightness.light,
-        TextCapitalization textCapitalization = TextCapitalization.none,
-      }) =>
-        TextInputConfiguration(
-        inputType: inputType,
-        obscureText: obscureText,
-        autocorrect: autocorrect,
-        smartDashesType: smartDashesType,
-        smartQuotesType: smartQuotesType,
-        enableSuggestions: enableSuggestions,
-        actionLabel: actionLabel,
-        inputAction: inputAction,
-        keyboardAppearance: keyboardAppearance,
-        textCapitalization: textCapitalization,
-      ),
-    );
-  static var floatingCursorDragState = MXFunctionInvoke(
-      "FloatingCursorDragState",
-      ({Map args}) => MXFloatingCursorDragState.parse(args),
-  );
-  static var rawFloatingCursorPoint = MXFunctionInvoke(
-      "RawFloatingCursorPoint",
-      ({
-        Offset offset,
-        FloatingCursorDragState state,
-      }) =>
-        RawFloatingCursorPoint(
-        offset: offset,
-        state: state,
-      ),
-    );
-  static var textEditingValue = MXFunctionInvoke(
-      "TextEditingValue",
-      ({
-        String text = ,
-        TextSelection selection,
-        TextRange composing,
-      }) =>
-        TextEditingValue(
-        text: text,
-        selection: selection,
-        composing: composing,
-      ),
-    );
-  static var textEditingValue_fromJSON = MXFunctionInvoke(
-    "textEditingValue.fromJSON",
-      ({
-        Map<String*, dynamic> encoded,
-      }) =>
-        TextEditingValue.fromJSON(
-        encoded,
-      ),
-    );
-  static var textInputConnection_ = MXFunctionInvoke(
-    "textInputConnection.",
-      ({
-        TextInputClient _client,
-      }) =>
-        TextInputConnection.(
-        _client,
-      ),
-    );
-  static var textInput_ = MXFunctionInvoke(
-    "textInput.",
-      ({
-      }) =>
-        TextInput.(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerTextInputSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[smartDashesType.funName] = smartDashesType;
+  m[smartQuotesType.funName] = smartQuotesType;
+  m[textInputType_numberWithOptions.funName] = textInputType_numberWithOptions;
+  m[textInputAction.funName] = textInputAction;
+  m[textCapitalization.funName] = textCapitalization;
+  m[textInputConfiguration.funName] = textInputConfiguration;
+  m[floatingCursorDragState.funName] = floatingCursorDragState;
+  m[rawFloatingCursorPoint.funName] = rawFloatingCursorPoint;
+  m[textEditingValue.funName] = textEditingValue;
+  m[textEditingValue_fromJSON.funName] = textEditingValue_fromJSON;
+  return m;
 }
+var smartDashesType = MXFunctionInvoke(
+    "SmartDashesType",
+    ({Map args}) => MXSmartDashesType.parse(args),
+  );
+var smartQuotesType = MXFunctionInvoke(
+    "SmartQuotesType",
+    ({Map args}) => MXSmartQuotesType.parse(args),
+  );
+var textInputType_numberWithOptions = MXFunctionInvoke(
+  "textInputType.numberWithOptions",
+    ({
+      bool signed = false,
+      bool decimal = false,
+    }) =>
+      TextInputType.numberWithOptions(
+      signed: signed,
+      decimal: decimal,
+    ),
+);
+var textInputAction = MXFunctionInvoke(
+    "TextInputAction",
+    ({Map args}) => MXTextInputAction.parse(args),
+  );
+var textCapitalization = MXFunctionInvoke(
+    "TextCapitalization",
+    ({Map args}) => MXTextCapitalization.parse(args),
+  );
+var textInputConfiguration = MXFunctionInvoke(
+    "TextInputConfiguration",
+    ({
+      TextInputType inputType,
+      bool obscureText = false,
+      bool autocorrect = true,
+      SmartDashesType smartDashesType,
+      SmartQuotesType smartQuotesType,
+      bool enableSuggestions = true,
+      String actionLabel,
+      TextInputAction inputAction = TextInputAction.done,
+      Brightness keyboardAppearance = Brightness.light,
+      TextCapitalization textCapitalization = TextCapitalization.none,
+    }) =>
+      TextInputConfiguration(
+      inputType: inputType,
+      obscureText: obscureText,
+      autocorrect: autocorrect,
+      smartDashesType: smartDashesType,
+      smartQuotesType: smartQuotesType,
+      enableSuggestions: enableSuggestions,
+      actionLabel: actionLabel,
+      inputAction: inputAction,
+      keyboardAppearance: keyboardAppearance,
+      textCapitalization: textCapitalization,
+    ),
+);
+var floatingCursorDragState = MXFunctionInvoke(
+    "FloatingCursorDragState",
+    ({Map args}) => MXFloatingCursorDragState.parse(args),
+  );
+var rawFloatingCursorPoint = MXFunctionInvoke(
+    "RawFloatingCursorPoint",
+    ({
+      Offset offset,
+      FloatingCursorDragState state,
+    }) =>
+      RawFloatingCursorPoint(
+      offset: offset,
+      state: state,
+    ),
+);
+var textEditingValue = MXFunctionInvoke(
+    "TextEditingValue",
+    ({
+      String text = '',
+      TextSelection selection,
+      TextRange composing,
+    }) =>
+      TextEditingValue(
+      text: text,
+      selection: selection,
+      composing: composing,
+    ),
+);
+var textEditingValue_fromJSON = MXFunctionInvoke(
+  "textEditingValue.fromJSON",
+    ({
+      Map<String, dynamic> encoded,
+    }) =>
+      TextEditingValue.fromJSON(
+      encoded,
+    ),
+);
 class MXSmartDashesType {
   static Map str2VMap = {
     'SmartDashesType.disabled': SmartDashesType.disabled,

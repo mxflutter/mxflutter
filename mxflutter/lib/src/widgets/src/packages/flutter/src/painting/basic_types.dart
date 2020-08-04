@@ -5,37 +5,37 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/painting/basic_types.dart';
+import 'dart:ui';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
 
 
-class MXProxyBasicTypes {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[renderComparison.funName] = renderComparison;
-    m[axis.funName] = axis;
-    m[verticalDirection.funName] = verticalDirection;
-    m[axisDirection.funName] = axisDirection;
-    return m;
-  }
-  static var renderComparison = MXFunctionInvoke(
-      "RenderComparison",
-      ({Map args}) => MXRenderComparison.parse(args),
-  );
-  static var axis = MXFunctionInvoke(
-      "Axis",
-      ({Map args}) => MXAxis.parse(args),
-  );
-  static var verticalDirection = MXFunctionInvoke(
-      "VerticalDirection",
-      ({Map args}) => MXVerticalDirection.parse(args),
-  );
-  static var axisDirection = MXFunctionInvoke(
-      "AxisDirection",
-      ({Map args}) => MXAxisDirection.parse(args),
-  );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[renderComparison.funName] = renderComparison;
+  m[axis.funName] = axis;
+  m[verticalDirection.funName] = verticalDirection;
+  m[axisDirection.funName] = axisDirection;
+  return m;
 }
+var renderComparison = MXFunctionInvoke(
+    "RenderComparison",
+    ({Map args}) => MXRenderComparison.parse(args),
+  );
+var axis = MXFunctionInvoke(
+    "Axis",
+    ({Map args}) => MXAxis.parse(args),
+  );
+var verticalDirection = MXFunctionInvoke(
+    "VerticalDirection",
+    ({Map args}) => MXVerticalDirection.parse(args),
+  );
+var axisDirection = MXFunctionInvoke(
+    "AxisDirection",
+    ({Map args}) => MXAxisDirection.parse(args),
+  );
 class MXRenderComparison {
   static Map str2VMap = {
     'RenderComparison.identical': RenderComparison.identical,

@@ -5,26 +5,25 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/tab_indicator.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/colors.dart';
 
 
-class MXProxyTabIndicator {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[underlineTabIndicator.funName] = underlineTabIndicator;
-    return m;
-  }
-  static var underlineTabIndicator = MXFunctionInvoke(
-      "UnderlineTabIndicator",
-      ({
-        BorderSide borderSide,
-        EdgeInsetsGeometry insets,
-      }) =>
-        UnderlineTabIndicator(
-        borderSide: borderSide,
-        insets: insets,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerTabIndicatorSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[underlineTabIndicator.funName] = underlineTabIndicator;
+  return m;
 }
+var underlineTabIndicator = MXFunctionInvoke(
+    "UnderlineTabIndicator",
+    ({
+      BorderSide borderSide,
+      EdgeInsetsGeometry insets,
+    }) =>
+      UnderlineTabIndicator(
+      borderSide: borderSide,
+      insets: insets,
+    ),
+);

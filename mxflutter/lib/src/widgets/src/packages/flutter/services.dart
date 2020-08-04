@@ -5,7 +5,6 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'src/services/platform_channel.dart';
 import 'src/services/clipboard.dart';
 import 'src/services/font_loader.dart';
@@ -23,24 +22,22 @@ import 'src/services/text_formatter.dart';
 import 'src/services/text_input.dart';
 
 
-class MXProxyServices {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
-    m.addAll(MXProxyPlatformChannel.registerSeries());
-    m.addAll(MXProxyClipboard.registerSeries());
-    m.addAll(MXProxyFontLoader.registerSeries());
-    m.addAll(MXProxyHapticFeedback.registerSeries());
-    m.addAll(MXProxyKeyboardKey.registerSeries());
-    m.addAll(MXProxyKeyboardMaps.registerSeries());
-    m.addAll(MXProxyPlatformMessages.registerSeries());
-    m.addAll(MXProxyPlatformViews.registerSeries());
-    m.addAll(MXProxyRawKeyboardWeb.registerSeries());
-    m.addAll(MXProxySystemChrome.registerSeries());
-    m.addAll(MXProxySystemNavigator.registerSeries());
-    m.addAll(MXProxySystemSound.registerSeries());
-    m.addAll(MXProxyTextEditing.registerSeries());
-    m.addAll(MXProxyTextFormatter.registerSeries());
-    m.addAll(MXProxyTextInput.registerSeries());
-    return m;
-  }
+Map<String, MXFunctionInvoke> registerServicesSeries() {
+  Map<String, MXFunctionInvoke> m = {};
+  m.addAll(registerPlatformChannelSeries());
+  m.addAll(registerClipboardSeries());
+  m.addAll(registerFontLoaderSeries());
+  m.addAll(registerHapticFeedbackSeries());
+  m.addAll(registerKeyboardKeySeries());
+  m.addAll(registerKeyboardMapsSeries());
+  m.addAll(registerPlatformMessagesSeries());
+  m.addAll(registerPlatformViewsSeries());
+  m.addAll(registerRawKeyboardWebSeries());
+  m.addAll(registerSystemChromeSeries());
+  m.addAll(registerSystemNavigatorSeries());
+  m.addAll(registerSystemSoundSeries());
+  m.addAll(registerTextEditingSeries());
+  m.addAll(registerTextFormatterSeries());
+  m.addAll(registerTextInputSeries());
+  return m;
 }

@@ -5,22 +5,13 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/services/haptic_feedback.dart';
+import 'dart:async';
+import 'package:flutter/src/services/system_channels.dart';
 
 
-class MXProxyHapticFeedback {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[hapticFeedback_.funName] = hapticFeedback_;
-    return m;
-  }
-  static var hapticFeedback_ = MXFunctionInvoke(
-    "hapticFeedback.",
-      ({
-      }) =>
-        HapticFeedback.(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerHapticFeedbackSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }

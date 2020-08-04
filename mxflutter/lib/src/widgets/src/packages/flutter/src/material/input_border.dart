@@ -5,40 +5,40 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/input_border.dart';
+import 'dart:math';
+import 'dart:ui';
+import 'package:flutter/widgets.dart';
 
 
-class MXProxyInputBorder {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[underlineInputBorder.funName] = underlineInputBorder;
-    m[outlineInputBorder.funName] = outlineInputBorder;
-    return m;
-  }
-  static var underlineInputBorder = MXFunctionInvoke(
-      "UnderlineInputBorder",
-      ({
-        BorderSide borderSide,
-        BorderRadius borderRadius,
-      }) =>
-        UnderlineInputBorder(
-        borderSide: borderSide,
-        borderRadius: borderRadius,
-      ),
-    );
-  static var outlineInputBorder = MXFunctionInvoke(
-      "OutlineInputBorder",
-      ({
-        BorderSide borderSide,
-        BorderRadius borderRadius,
-        dynamic gapPadding = 4.0,
-      }) =>
-        OutlineInputBorder(
-        borderSide: borderSide,
-        borderRadius: borderRadius,
-        gapPadding: gapPadding?.toDouble(),
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerInputBorderSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[underlineInputBorder.funName] = underlineInputBorder;
+  m[outlineInputBorder.funName] = outlineInputBorder;
+  return m;
 }
+var underlineInputBorder = MXFunctionInvoke(
+    "UnderlineInputBorder",
+    ({
+      BorderSide borderSide,
+      BorderRadius borderRadius,
+    }) =>
+      UnderlineInputBorder(
+      borderSide: borderSide,
+      borderRadius: borderRadius,
+    ),
+);
+var outlineInputBorder = MXFunctionInvoke(
+    "OutlineInputBorder",
+    ({
+      BorderSide borderSide,
+      BorderRadius borderRadius,
+      dynamic gapPadding = 4.0,
+    }) =>
+      OutlineInputBorder(
+      borderSide: borderSide,
+      borderRadius: borderRadius,
+      gapPadding: gapPadding,
+    ),
+);

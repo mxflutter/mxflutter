@@ -5,34 +5,34 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/size_changed_layout_notifier.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/notification_listener.dart';
 
 
-class MXProxySizeChangedLayoutNotifier {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[sizeChangedLayoutNotification.funName] = sizeChangedLayoutNotification;
-    m[sizeChangedLayoutNotifier.funName] = sizeChangedLayoutNotifier;
-    return m;
-  }
-  static var sizeChangedLayoutNotification = MXFunctionInvoke(
-      "SizeChangedLayoutNotification",
-      ({
-      }) =>
-        SizeChangedLayoutNotification(
-      ),
-    );
-  static var sizeChangedLayoutNotifier = MXFunctionInvoke(
-      "SizeChangedLayoutNotifier",
-      ({
-        Key key,
-        Widget child,
-      }) =>
-        SizeChangedLayoutNotifier(
-        key: key,
-        child: child,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSizeChangedLayoutNotifierSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[sizeChangedLayoutNotification.funName] = sizeChangedLayoutNotification;
+  m[sizeChangedLayoutNotifier.funName] = sizeChangedLayoutNotifier;
+  return m;
 }
+var sizeChangedLayoutNotification = MXFunctionInvoke(
+    "SizeChangedLayoutNotification",
+    ({
+    }) =>
+      SizeChangedLayoutNotification(
+    ),
+);
+var sizeChangedLayoutNotifier = MXFunctionInvoke(
+    "SizeChangedLayoutNotifier",
+    ({
+      Key key,
+      Widget child,
+    }) =>
+      SizeChangedLayoutNotifier(
+      key: key,
+      child: child,
+    ),
+);

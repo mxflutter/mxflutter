@@ -5,7 +5,6 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'src/gestures/arena.dart';
 import 'src/gestures/binding.dart';
 import 'src/gestures/constants.dart';
@@ -31,32 +30,30 @@ import 'src/gestures/team.dart';
 import 'src/gestures/velocity_tracker.dart';
 
 
-class MXProxyGestures {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
-    m.addAll(MXProxyArena.registerSeries());
-    m.addAll(MXProxyBinding.registerSeries());
-    m.addAll(MXProxyConstants.registerSeries());
-    m.addAll(MXProxyConverter.registerSeries());
-    m.addAll(MXProxyDebug.registerSeries());
-    m.addAll(MXProxyDrag.registerSeries());
-    m.addAll(MXProxyDragDetails.registerSeries());
-    m.addAll(MXProxyEager.registerSeries());
-    m.addAll(MXProxyEvents.registerSeries());
-    m.addAll(MXProxyForcePress.registerSeries());
-    m.addAll(MXProxyHitTest.registerSeries());
-    m.addAll(MXProxyLongPress.registerSeries());
-    m.addAll(MXProxyLsqSolver.registerSeries());
-    m.addAll(MXProxyMonodrag.registerSeries());
-    m.addAll(MXProxyMultidrag.registerSeries());
-    m.addAll(MXProxyMultitap.registerSeries());
-    m.addAll(MXProxyPointerRouter.registerSeries());
-    m.addAll(MXProxyPointerSignalResolver.registerSeries());
-    m.addAll(MXProxyRecognizer.registerSeries());
-    m.addAll(MXProxyScale.registerSeries());
-    m.addAll(MXProxyTap.registerSeries());
-    m.addAll(MXProxyTeam.registerSeries());
-    m.addAll(MXProxyVelocityTracker.registerSeries());
-    return m;
-  }
+Map<String, MXFunctionInvoke> registerGesturesSeries() {
+  Map<String, MXFunctionInvoke> m = {};
+  m.addAll(registerArenaSeries());
+  m.addAll(registerBindingSeries());
+  m.addAll(registerConstantsSeries());
+  m.addAll(registerConverterSeries());
+  m.addAll(registerDebugSeries());
+  m.addAll(registerDragSeries());
+  m.addAll(registerDragDetailsSeries());
+  m.addAll(registerEagerSeries());
+  m.addAll(registerEventsSeries());
+  m.addAll(registerForcePressSeries());
+  m.addAll(registerHitTestSeries());
+  m.addAll(registerLongPressSeries());
+  m.addAll(registerLsqSolverSeries());
+  m.addAll(registerMonodragSeries());
+  m.addAll(registerMultidragSeries());
+  m.addAll(registerMultitapSeries());
+  m.addAll(registerPointerRouterSeries());
+  m.addAll(registerPointerSignalResolverSeries());
+  m.addAll(registerRecognizerSeries());
+  m.addAll(registerScaleSeries());
+  m.addAll(registerTapSeries());
+  m.addAll(registerTeamSeries());
+  m.addAll(registerVelocityTrackerSeries());
+  return m;
 }

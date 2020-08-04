@@ -5,30 +5,31 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/scrollbar.dart';
+import 'dart:async';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
-class MXProxyScrollbar {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[scrollbar.funName] = scrollbar;
-    return m;
-  }
-  static var scrollbar = MXFunctionInvoke(
-      "Scrollbar",
-      ({
-        Key key,
-        Widget child,
-        ScrollController controller,
-        bool isAlwaysShown = false,
-      }) =>
-        Scrollbar(
-        key: key,
-        child: child,
-        controller: controller,
-        isAlwaysShown: isAlwaysShown,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerScrollbarSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[scrollbar.funName] = scrollbar;
+  return m;
 }
+var scrollbar = MXFunctionInvoke(
+    "Scrollbar",
+    ({
+      Key key,
+      Widget child,
+      ScrollController controller,
+      bool isAlwaysShown = false,
+    }) =>
+      Scrollbar(
+      key: key,
+      child: child,
+      controller: controller,
+      isAlwaysShown: isAlwaysShown,
+    ),
+);

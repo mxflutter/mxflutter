@@ -5,38 +5,50 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/pickers/calendar_date_picker.dart';
+import 'dart:math';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/color_scheme.dart';
+import 'package:flutter/src/material/divider.dart';
+import 'package:flutter/src/material/icon_button.dart';
+import 'package:flutter/src/material/icons.dart';
+import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/text_theme.dart';
+import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/src/material/pickers/date_picker_common.dart';
+import 'package:flutter/src/material/pickers/date_utils.dart';
 
 
-class MXProxyCalendarDatePicker {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[calendarDatePicker.funName] = calendarDatePicker;
-    return m;
-  }
-  static var calendarDatePicker = MXFunctionInvoke(
-      "CalendarDatePicker",
-      ({
-        Key key,
-        DateTime initialDate,
-        DateTime firstDate,
-        DateTime lastDate,
-        dynamic onDateChanged,
-        dynamic onDisplayedMonthChanged,
-        DatePickerMode initialCalendarMode = DatePickerMode.day,
-        dynamic selectableDayPredicate,
-      }) =>
-        CalendarDatePicker(
-        key: key,
-        initialDate: initialDate,
-        firstDate: firstDate,
-        lastDate: lastDate,
-        onDateChanged: createValueChangedGenericClosure<DateTime>(calendarDatePicker.buildOwner, onDateChanged),
-        onDisplayedMonthChanged: createValueChangedGenericClosure<DateTime>(calendarDatePicker.buildOwner, onDisplayedMonthChanged),
-        initialCalendarMode: initialCalendarMode,
-        selectableDayPredicate: createGenericValueGenericClosure<bool, DateTime>(calendarDatePicker.buildOwner, selectableDayPredicate),
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerCalendarDatePickerSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[calendarDatePicker.funName] = calendarDatePicker;
+  return m;
 }
+var calendarDatePicker = MXFunctionInvoke(
+    "CalendarDatePicker",
+    ({
+      Key key,
+      DateTime initialDate,
+      DateTime firstDate,
+      DateTime lastDate,
+      dynamic onDateChanged,
+      dynamic onDisplayedMonthChanged,
+      DatePickerMode initialCalendarMode = DatePickerMode.day,
+      dynamic selectableDayPredicate,
+    }) =>
+      CalendarDatePicker(
+      key: key,
+      initialDate: initialDate,
+      firstDate: firstDate,
+      lastDate: lastDate,
+      onDateChanged: createValueChangedGenericClosure<DateTime>(calendarDatePicker.buildOwner, onDateChanged),
+      onDisplayedMonthChanged: createValueChangedGenericClosure<DateTime>(calendarDatePicker.buildOwner, onDisplayedMonthChanged),
+      initialCalendarMode: initialCalendarMode,
+      selectableDayPredicate: createGenericValueGenericClosure<bool, DateTime>(calendarDatePicker.buildOwner, selectableDayPredicate),
+    ),
+);

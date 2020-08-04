@@ -5,32 +5,36 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/raw_keyboard_listener.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/focus_manager.dart';
+import 'package:flutter/src/widgets/focus_scope.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/services.dart';
 
 
-class MXProxyRawKeyboardListener {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[rawKeyboardListener.funName] = rawKeyboardListener;
-    return m;
-  }
-  static var rawKeyboardListener = MXFunctionInvoke(
-      "RawKeyboardListener",
-      ({
-        Key key,
-        FocusNode focusNode,
-        bool autofocus = false,
-        dynamic onKey,
-        Widget child,
-      }) =>
-        RawKeyboardListener(
-        key: key,
-        focusNode: focusNode,
-        autofocus: autofocus,
-        onKey: createValueChangedGenericClosure<RawKeyEvent>(rawKeyboardListener.buildOwner, onKey),
-        child: child,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerRawKeyboardListenerSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[rawKeyboardListener.funName] = rawKeyboardListener;
+  return m;
 }
+var rawKeyboardListener = MXFunctionInvoke(
+    "RawKeyboardListener",
+    ({
+      Key key,
+      FocusNode focusNode,
+      bool autofocus = false,
+      dynamic onKey,
+      Widget child,
+    }) =>
+      RawKeyboardListener(
+      key: key,
+      focusNode: focusNode,
+      autofocus: autofocus,
+      onKey: createValueChangedGenericClosure<RawKeyEvent>(rawKeyboardListener.buildOwner, onKey),
+      child: child,
+    ),
+);

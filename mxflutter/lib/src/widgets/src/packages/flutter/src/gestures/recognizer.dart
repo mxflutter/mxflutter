@@ -5,59 +5,69 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
+import 'dart:async';
+import 'dart:collection';
+import 'dart:ui';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/gestures/arena.dart';
+import 'package:flutter/src/gestures/binding.dart';
+import 'package:flutter/src/gestures/constants.dart';
+import 'package:flutter/src/gestures/debug.dart';
+import 'package:flutter/src/gestures/events.dart';
+import 'package:flutter/src/gestures/pointer_router.dart';
+import 'package:flutter/src/gestures/team.dart';
+import 'package:flutter/src/gestures/pointer_router.dart';
 
 
-class MXProxyRecognizer {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[dragStartBehavior.funName] = dragStartBehavior;
-    m[gestureRecognizerState.funName] = gestureRecognizerState;
-    m[offsetPair.funName] = offsetPair;
-    m[offsetPair_fromEventPosition.funName] = offsetPair_fromEventPosition;
-    m[offsetPair_fromEventDelta.funName] = offsetPair_fromEventDelta;
-    return m;
-  }
-  static var dragStartBehavior = MXFunctionInvoke(
-      "DragStartBehavior",
-      ({Map args}) => MXDragStartBehavior.parse(args),
-  );
-  static var gestureRecognizerState = MXFunctionInvoke(
-      "GestureRecognizerState",
-      ({Map args}) => MXGestureRecognizerState.parse(args),
-  );
-  static var offsetPair = MXFunctionInvoke(
-      "OffsetPair",
-      ({
-        Offset local,
-        Offset global,
-      }) =>
-        OffsetPair(
-        local: local,
-        global: global,
-      ),
-    );
-  static var offsetPair_fromEventPosition = MXFunctionInvoke(
-    "offsetPair.fromEventPosition",
-      ({
-        PointerEvent event,
-      }) =>
-        OffsetPair.fromEventPosition(
-        event,
-      ),
-    );
-  static var offsetPair_fromEventDelta = MXFunctionInvoke(
-    "offsetPair.fromEventDelta",
-      ({
-        PointerEvent event,
-      }) =>
-        OffsetPair.fromEventDelta(
-        event,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerRecognizerSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[dragStartBehavior.funName] = dragStartBehavior;
+  m[gestureRecognizerState.funName] = gestureRecognizerState;
+  m[offsetPair.funName] = offsetPair;
+  m[offsetPair_fromEventPosition.funName] = offsetPair_fromEventPosition;
+  m[offsetPair_fromEventDelta.funName] = offsetPair_fromEventDelta;
+  return m;
 }
+var dragStartBehavior = MXFunctionInvoke(
+    "DragStartBehavior",
+    ({Map args}) => MXDragStartBehavior.parse(args),
+  );
+var gestureRecognizerState = MXFunctionInvoke(
+    "GestureRecognizerState",
+    ({Map args}) => MXGestureRecognizerState.parse(args),
+  );
+var offsetPair = MXFunctionInvoke(
+    "OffsetPair",
+    ({
+      Offset local,
+      Offset global,
+    }) =>
+      OffsetPair(
+      local: local,
+      global: global,
+    ),
+);
+var offsetPair_fromEventPosition = MXFunctionInvoke(
+  "offsetPair.fromEventPosition",
+    ({
+      PointerEvent event,
+    }) =>
+      OffsetPair.fromEventPosition(
+      event,
+    ),
+);
+var offsetPair_fromEventDelta = MXFunctionInvoke(
+  "offsetPair.fromEventDelta",
+    ({
+      PointerEvent event,
+    }) =>
+      OffsetPair.fromEventDelta(
+      event,
+    ),
+);
 class MXDragStartBehavior {
   static Map str2VMap = {
     'DragStartBehavior.down': DragStartBehavior.down,

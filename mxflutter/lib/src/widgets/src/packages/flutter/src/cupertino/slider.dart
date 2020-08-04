@@ -5,42 +5,47 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/cupertino/slider.dart';
+import 'dart:math';
+import 'dart:ui';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/cupertino/colors.dart';
+import 'package:flutter/src/cupertino/theme.dart';
+import 'package:flutter/src/cupertino/thumb_painter.dart';
 
 
-class MXProxySlider {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[cupertinoSlider.funName] = cupertinoSlider;
-    return m;
-  }
-  static var cupertinoSlider = MXFunctionInvoke(
-      "CupertinoSlider",
-      ({
-        Key key,
-        dynamic value,
-        dynamic onChanged,
-        dynamic onChangeStart,
-        dynamic onChangeEnd,
-        dynamic min = 0.0,
-        dynamic max = 1.0,
-        int divisions,
-        Color activeColor,
-        Color thumbColor,
-      }) =>
-        CupertinoSlider(
-        key: key,
-        value: value?.toDouble(),
-        onChanged: createValueChangedGenericClosure<double>(cupertinoSlider.buildOwner, onChanged),
-        onChangeStart: createValueChangedGenericClosure<double>(cupertinoSlider.buildOwner, onChangeStart),
-        onChangeEnd: createValueChangedGenericClosure<double>(cupertinoSlider.buildOwner, onChangeEnd),
-        min: min?.toDouble(),
-        max: max?.toDouble(),
-        divisions: divisions,
-        activeColor: activeColor,
-        thumbColor: thumbColor,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSliderSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[cupertinoSlider.funName] = cupertinoSlider;
+  return m;
 }
+var cupertinoSlider = MXFunctionInvoke(
+    "CupertinoSlider",
+    ({
+      Key key,
+      dynamic value,
+      dynamic onChanged,
+      dynamic onChangeStart,
+      dynamic onChangeEnd,
+      dynamic min = 0.0,
+      dynamic max = 1.0,
+      int divisions,
+      Color activeColor,
+      Color thumbColor,
+    }) =>
+      CupertinoSlider(
+      key: key,
+      value: value,
+      onChanged: createValueChangedGenericClosure<dynamic>(cupertinoSlider.buildOwner, onChanged),
+      onChangeStart: createValueChangedGenericClosure<dynamic>(cupertinoSlider.buildOwner, onChangeStart),
+      onChangeEnd: createValueChangedGenericClosure<dynamic>(cupertinoSlider.buildOwner, onChangeEnd),
+      min: min,
+      max: max,
+      divisions: divisions,
+      activeColor: activeColor,
+      thumbColor: thumbColor,
+    ),
+);

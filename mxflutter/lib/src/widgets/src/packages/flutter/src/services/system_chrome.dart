@@ -5,67 +5,61 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/services/system_chrome.dart';
+import 'dart:async';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/services/system_channels.dart';
+import 'dart:ui';
 
 
-class MXProxySystemChrome {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[deviceOrientation.funName] = deviceOrientation;
-    m[applicationSwitcherDescription.funName] = applicationSwitcherDescription;
-    m[systemUiOverlay.funName] = systemUiOverlay;
-    m[systemUiOverlayStyle.funName] = systemUiOverlayStyle;
-    m[systemChrome_.funName] = systemChrome_;
-    return m;
-  }
-  static var deviceOrientation = MXFunctionInvoke(
-      "DeviceOrientation",
-      ({Map args}) => MXDeviceOrientation.parse(args),
-  );
-  static var applicationSwitcherDescription = MXFunctionInvoke(
-      "ApplicationSwitcherDescription",
-      ({
-        String label,
-        int primaryColor,
-      }) =>
-        ApplicationSwitcherDescription(
-        label: label,
-        primaryColor: primaryColor,
-      ),
-    );
-  static var systemUiOverlay = MXFunctionInvoke(
-      "SystemUiOverlay",
-      ({Map args}) => MXSystemUiOverlay.parse(args),
-  );
-  static var systemUiOverlayStyle = MXFunctionInvoke(
-      "SystemUiOverlayStyle",
-      ({
-        Color systemNavigationBarColor,
-        Color systemNavigationBarDividerColor,
-        Brightness systemNavigationBarIconBrightness,
-        Color statusBarColor,
-        Brightness statusBarBrightness,
-        Brightness statusBarIconBrightness,
-      }) =>
-        SystemUiOverlayStyle(
-        systemNavigationBarColor: systemNavigationBarColor,
-        systemNavigationBarDividerColor: systemNavigationBarDividerColor,
-        systemNavigationBarIconBrightness: systemNavigationBarIconBrightness,
-        statusBarColor: statusBarColor,
-        statusBarBrightness: statusBarBrightness,
-        statusBarIconBrightness: statusBarIconBrightness,
-      ),
-    );
-  static var systemChrome_ = MXFunctionInvoke(
-    "systemChrome.",
-      ({
-      }) =>
-        SystemChrome.(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSystemChromeSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[deviceOrientation.funName] = deviceOrientation;
+  m[applicationSwitcherDescription.funName] = applicationSwitcherDescription;
+  m[systemUiOverlay.funName] = systemUiOverlay;
+  m[systemUiOverlayStyle.funName] = systemUiOverlayStyle;
+  return m;
 }
+var deviceOrientation = MXFunctionInvoke(
+    "DeviceOrientation",
+    ({Map args}) => MXDeviceOrientation.parse(args),
+  );
+var applicationSwitcherDescription = MXFunctionInvoke(
+    "ApplicationSwitcherDescription",
+    ({
+      String label,
+      int primaryColor,
+    }) =>
+      ApplicationSwitcherDescription(
+      label: label,
+      primaryColor: primaryColor,
+    ),
+);
+var systemUiOverlay = MXFunctionInvoke(
+    "SystemUiOverlay",
+    ({Map args}) => MXSystemUiOverlay.parse(args),
+  );
+var systemUiOverlayStyle = MXFunctionInvoke(
+    "SystemUiOverlayStyle",
+    ({
+      Color systemNavigationBarColor,
+      Color systemNavigationBarDividerColor,
+      Brightness systemNavigationBarIconBrightness,
+      Color statusBarColor,
+      Brightness statusBarBrightness,
+      Brightness statusBarIconBrightness,
+    }) =>
+      SystemUiOverlayStyle(
+      systemNavigationBarColor: systemNavigationBarColor,
+      systemNavigationBarDividerColor: systemNavigationBarDividerColor,
+      systemNavigationBarIconBrightness: systemNavigationBarIconBrightness,
+      statusBarColor: statusBarColor,
+      statusBarBrightness: statusBarBrightness,
+      statusBarIconBrightness: statusBarIconBrightness,
+    ),
+);
 class MXDeviceOrientation {
   static Map str2VMap = {
     'DeviceOrientation.portraitUp': DeviceOrientation.portraitUp,

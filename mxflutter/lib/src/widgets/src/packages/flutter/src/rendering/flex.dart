@@ -5,69 +5,71 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/flex.dart';
+import 'dart:math';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/debug_overflow_indicator.dart';
+import 'package:flutter/src/rendering/object.dart';
 
 
-class MXProxyFlex {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[flexFit.funName] = flexFit;
-    m[flexParentData.funName] = flexParentData;
-    m[mainAxisSize.funName] = mainAxisSize;
-    m[mainAxisAlignment.funName] = mainAxisAlignment;
-    m[crossAxisAlignment.funName] = crossAxisAlignment;
-    m[renderFlex.funName] = renderFlex;
-    return m;
-  }
-  static var flexFit = MXFunctionInvoke(
-      "FlexFit",
-      ({Map args}) => MXFlexFit.parse(args),
-  );
-  static var flexParentData = MXFunctionInvoke(
-      "FlexParentData",
-      ({
-      }) =>
-        FlexParentData(
-      ),
-    );
-  static var mainAxisSize = MXFunctionInvoke(
-      "MainAxisSize",
-      ({Map args}) => MXMainAxisSize.parse(args),
-  );
-  static var mainAxisAlignment = MXFunctionInvoke(
-      "MainAxisAlignment",
-      ({Map args}) => MXMainAxisAlignment.parse(args),
-  );
-  static var crossAxisAlignment = MXFunctionInvoke(
-      "CrossAxisAlignment",
-      ({Map args}) => MXCrossAxisAlignment.parse(args),
-  );
-  static var renderFlex = MXFunctionInvoke(
-      "RenderFlex",
-      ({
-        List<RenderBox> children,
-        Axis direction = Axis.horizontal,
-        MainAxisSize mainAxisSize = MainAxisSize.max,
-        MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-        CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-        TextDirection textDirection,
-        VerticalDirection verticalDirection = VerticalDirection.down,
-        TextBaseline textBaseline,
-      }) =>
-        RenderFlex(
-        children: children,
-        direction: direction,
-        mainAxisSize: mainAxisSize,
-        mainAxisAlignment: mainAxisAlignment,
-        crossAxisAlignment: crossAxisAlignment,
-        textDirection: textDirection,
-        verticalDirection: verticalDirection,
-        textBaseline: textBaseline,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerFlexSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[flexFit.funName] = flexFit;
+  m[flexParentData.funName] = flexParentData;
+  m[mainAxisSize.funName] = mainAxisSize;
+  m[mainAxisAlignment.funName] = mainAxisAlignment;
+  m[crossAxisAlignment.funName] = crossAxisAlignment;
+  m[renderFlex.funName] = renderFlex;
+  return m;
 }
+var flexFit = MXFunctionInvoke(
+    "FlexFit",
+    ({Map args}) => MXFlexFit.parse(args),
+  );
+var flexParentData = MXFunctionInvoke(
+    "FlexParentData",
+    ({
+    }) =>
+      FlexParentData(
+    ),
+);
+var mainAxisSize = MXFunctionInvoke(
+    "MainAxisSize",
+    ({Map args}) => MXMainAxisSize.parse(args),
+  );
+var mainAxisAlignment = MXFunctionInvoke(
+    "MainAxisAlignment",
+    ({Map args}) => MXMainAxisAlignment.parse(args),
+  );
+var crossAxisAlignment = MXFunctionInvoke(
+    "CrossAxisAlignment",
+    ({Map args}) => MXCrossAxisAlignment.parse(args),
+  );
+var renderFlex = MXFunctionInvoke(
+    "RenderFlex",
+    ({
+      List<RenderBox> children,
+      Axis direction = Axis.horizontal,
+      MainAxisSize mainAxisSize = MainAxisSize.max,
+      MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+      CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+      TextDirection textDirection,
+      VerticalDirection verticalDirection = VerticalDirection.down,
+      TextBaseline textBaseline,
+    }) =>
+      RenderFlex(
+      children: children,
+      direction: direction,
+      mainAxisSize: mainAxisSize,
+      mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: crossAxisAlignment,
+      textDirection: textDirection,
+      verticalDirection: verticalDirection,
+      textBaseline: textBaseline,
+    ),
+);
 class MXFlexFit {
   static Map str2VMap = {
     'FlexFit.tight': FlexFit.tight,

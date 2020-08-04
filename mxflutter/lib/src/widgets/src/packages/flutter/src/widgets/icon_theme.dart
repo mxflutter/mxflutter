@@ -5,28 +5,30 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/icon_theme.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/icon_theme_data.dart';
+import 'package:flutter/src/widgets/inherited_theme.dart';
 
 
-class MXProxyIconTheme {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[iconTheme.funName] = iconTheme;
-    return m;
-  }
-  static var iconTheme = MXFunctionInvoke(
-      "IconTheme",
-      ({
-        Key key,
-        IconThemeData data,
-        Widget child,
-      }) =>
-        IconTheme(
-        key: key,
-        data: data,
-        child: child,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerIconThemeSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[iconTheme.funName] = iconTheme;
+  return m;
 }
+var iconTheme = MXFunctionInvoke(
+    "IconTheme",
+    ({
+      Key key,
+      IconThemeData data,
+      Widget child,
+    }) =>
+      IconTheme(
+      key: key,
+      data: data,
+      child: child,
+    ),
+);

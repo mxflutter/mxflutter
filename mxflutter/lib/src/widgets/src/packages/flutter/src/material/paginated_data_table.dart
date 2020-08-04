@@ -5,68 +5,82 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/paginated_data_table.dart';
+import 'dart:math';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/src/material/button_bar.dart';
+import 'package:flutter/src/material/card.dart';
+import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/data_table.dart';
+import 'package:flutter/src/material/data_table_source.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/dropdown.dart';
+import 'package:flutter/src/material/icon_button.dart';
+import 'package:flutter/src/material/icons.dart';
+import 'package:flutter/src/material/ink_decoration.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/progress_indicator.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
-class MXProxyPaginatedDataTable {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[paginatedDataTable.funName] = paginatedDataTable;
-    m[paginatedDataTableState.funName] = paginatedDataTableState;
-    return m;
-  }
-  static var paginatedDataTable = MXFunctionInvoke(
-      "PaginatedDataTable",
-      ({
-        Key key,
-        Widget header,
-        List<Widget> actions,
-        List<DataColumn> columns,
-        int sortColumnIndex,
-        bool sortAscending = true,
-        dynamic onSelectAll,
-        dynamic dataRowHeight = 48.0,
-        dynamic headingRowHeight = 56.0,
-        dynamic horizontalMargin = 24.0,
-        dynamic columnSpacing = 56.0,
-        bool showCheckboxColumn = true,
-        int initialFirstRowIndex = 0,
-        dynamic onPageChanged,
-        int rowsPerPage = 10,
-        List<int> availableRowsPerPage,
-        dynamic onRowsPerPageChanged,
-        DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-        DataTableSource source,
-      }) =>
-        PaginatedDataTable(
-        key: key,
-        header: header,
-        actions: actions,
-        columns: columns,
-        sortColumnIndex: sortColumnIndex,
-        sortAscending: sortAscending,
-        onSelectAll: createValueChangedGenericClosure<bool>(paginatedDataTable.buildOwner, onSelectAll),
-        dataRowHeight: dataRowHeight?.toDouble(),
-        headingRowHeight: headingRowHeight?.toDouble(),
-        horizontalMargin: horizontalMargin?.toDouble(),
-        columnSpacing: columnSpacing?.toDouble(),
-        showCheckboxColumn: showCheckboxColumn,
-        initialFirstRowIndex: initialFirstRowIndex,
-        onPageChanged: createValueChangedGenericClosure<int>(paginatedDataTable.buildOwner, onPageChanged),
-        rowsPerPage: rowsPerPage,
-        availableRowsPerPage: availableRowsPerPage,
-        onRowsPerPageChanged: createValueChangedGenericClosure<int>(paginatedDataTable.buildOwner, onRowsPerPageChanged),
-        dragStartBehavior: dragStartBehavior,
-        source: source,
-      ),
-    );
-  static var paginatedDataTableState = MXFunctionInvoke(
-      "PaginatedDataTableState",
-      ({
-      }) =>
-        PaginatedDataTableState(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerPaginatedDataTableSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[paginatedDataTable.funName] = paginatedDataTable;
+  m[paginatedDataTableState.funName] = paginatedDataTableState;
+  return m;
 }
+var paginatedDataTable = MXFunctionInvoke(
+    "PaginatedDataTable",
+    ({
+      Key key,
+      Widget header,
+      List<Widget> actions,
+      List<DataColumn> columns,
+      int sortColumnIndex,
+      bool sortAscending = true,
+      dynamic onSelectAll,
+      dynamic dataRowHeight = 48.0,
+      dynamic headingRowHeight = 56.0,
+      dynamic horizontalMargin = 24.0,
+      dynamic columnSpacing = 56.0,
+      bool showCheckboxColumn = true,
+      int initialFirstRowIndex = 0,
+      dynamic onPageChanged,
+      int rowsPerPage = 10,
+      List<int> availableRowsPerPage,
+      dynamic onRowsPerPageChanged,
+      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DataTableSource source,
+    }) =>
+      PaginatedDataTable(
+      key: key,
+      header: header,
+      actions: actions,
+      columns: columns,
+      sortColumnIndex: sortColumnIndex,
+      sortAscending: sortAscending,
+      onSelectAll: createValueChangedGenericClosure<bool>(paginatedDataTable.buildOwner, onSelectAll),
+      dataRowHeight: dataRowHeight,
+      headingRowHeight: headingRowHeight,
+      horizontalMargin: horizontalMargin,
+      columnSpacing: columnSpacing,
+      showCheckboxColumn: showCheckboxColumn,
+      initialFirstRowIndex: initialFirstRowIndex,
+      onPageChanged: createValueChangedGenericClosure<int>(paginatedDataTable.buildOwner, onPageChanged),
+      rowsPerPage: rowsPerPage,
+      availableRowsPerPage: availableRowsPerPage,
+      onRowsPerPageChanged: createValueChangedGenericClosure<int>(paginatedDataTable.buildOwner, onRowsPerPageChanged),
+      dragStartBehavior: dragStartBehavior,
+      source: source,
+    ),
+);
+var paginatedDataTableState = MXFunctionInvoke(
+    "PaginatedDataTableState",
+    ({
+    }) =>
+      PaginatedDataTableState(
+    ),
+);

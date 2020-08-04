@@ -5,86 +5,88 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/physics/spring_simulation.dart';
+import 'dart:math';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/physics/simulation.dart';
+import 'package:flutter/src/physics/tolerance.dart';
+import 'package:flutter/src/physics/utils.dart';
 
 
-class MXProxySpringSimulation {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[springDescription.funName] = springDescription;
-    m[springDescription_withDampingRatio.funName] = springDescription_withDampingRatio;
-    m[springType.funName] = springType;
-    m[springSimulation.funName] = springSimulation;
-    m[scrollSpringSimulation.funName] = scrollSpringSimulation;
-    return m;
-  }
-  static var springDescription = MXFunctionInvoke(
-      "SpringDescription",
-      ({
-        dynamic mass,
-        dynamic stiffness,
-        dynamic damping,
-      }) =>
-        SpringDescription(
-        mass: mass?.toDouble(),
-        stiffness: stiffness?.toDouble(),
-        damping: damping?.toDouble(),
-      ),
-    );
-  static var springDescription_withDampingRatio = MXFunctionInvoke(
-    "springDescription.withDampingRatio",
-      ({
-        dynamic mass,
-        dynamic stiffness,
-        dynamic ratio = 1.0,
-      }) =>
-        SpringDescription.withDampingRatio(
-        mass: mass?.toDouble(),
-        stiffness: stiffness?.toDouble(),
-        ratio: ratio?.toDouble(),
-      ),
-    );
-  static var springType = MXFunctionInvoke(
-      "SpringType",
-      ({Map args}) => MXSpringType.parse(args),
-  );
-  static var springSimulation = MXFunctionInvoke(
-      "SpringSimulation",
-      ({
-        SpringDescription spring,
-        double start,
-        double end,
-        double velocity,
-        Tolerance tolerance,
-      }) =>
-        SpringSimulation(
-        spring,
-        start,
-        end,
-        velocity,
-        tolerance: tolerance,
-      ),
-    );
-  static var scrollSpringSimulation = MXFunctionInvoke(
-      "ScrollSpringSimulation",
-      ({
-        SpringDescription spring,
-        double start,
-        double end,
-        double velocity,
-        Tolerance tolerance,
-      }) =>
-        ScrollSpringSimulation(
-        spring,
-        start,
-        end,
-        velocity,
-        tolerance: tolerance,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSpringSimulationSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[springDescription.funName] = springDescription;
+  m[springDescription_withDampingRatio.funName] = springDescription_withDampingRatio;
+  m[springType.funName] = springType;
+  m[springSimulation.funName] = springSimulation;
+  m[scrollSpringSimulation.funName] = scrollSpringSimulation;
+  return m;
 }
+var springDescription = MXFunctionInvoke(
+    "SpringDescription",
+    ({
+      dynamic mass,
+      dynamic stiffness,
+      dynamic damping,
+    }) =>
+      SpringDescription(
+      mass: mass,
+      stiffness: stiffness,
+      damping: damping,
+    ),
+);
+var springDescription_withDampingRatio = MXFunctionInvoke(
+  "springDescription.withDampingRatio",
+    ({
+      dynamic mass,
+      dynamic stiffness,
+      dynamic ratio = 1.0,
+    }) =>
+      SpringDescription.withDampingRatio(
+      mass: mass,
+      stiffness: stiffness,
+      ratio: ratio,
+    ),
+);
+var springType = MXFunctionInvoke(
+    "SpringType",
+    ({Map args}) => MXSpringType.parse(args),
+  );
+var springSimulation = MXFunctionInvoke(
+    "SpringSimulation",
+    ({
+      SpringDescription spring,
+      dynamic start,
+      dynamic end,
+      dynamic velocity,
+      Tolerance tolerance,
+    }) =>
+      SpringSimulation(
+      spring,
+      start,
+      end,
+      velocity,
+      tolerance: tolerance,
+    ),
+);
+var scrollSpringSimulation = MXFunctionInvoke(
+    "ScrollSpringSimulation",
+    ({
+      SpringDescription spring,
+      dynamic start,
+      dynamic end,
+      dynamic velocity,
+      Tolerance tolerance,
+    }) =>
+      ScrollSpringSimulation(
+      spring,
+      start,
+      end,
+      velocity,
+      tolerance: tolerance,
+    ),
+);
 class MXSpringType {
   static Map str2VMap = {
     'SpringType.criticallyDamped': SpringType.criticallyDamped,

@@ -5,38 +5,38 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/performance_overlay.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/layer.dart';
+import 'package:flutter/src/rendering/object.dart';
 
 
-class MXProxyPerformanceOverlay {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[performanceOverlayOption.funName] = performanceOverlayOption;
-    m[renderPerformanceOverlay.funName] = renderPerformanceOverlay;
-    return m;
-  }
-  static var performanceOverlayOption = MXFunctionInvoke(
-      "PerformanceOverlayOption",
-      ({Map args}) => MXPerformanceOverlayOption.parse(args),
-  );
-  static var renderPerformanceOverlay = MXFunctionInvoke(
-      "RenderPerformanceOverlay",
-      ({
-        int optionsMask = 0,
-        int rasterizerThreshold = 0,
-        bool checkerboardRasterCacheImages = false,
-        bool checkerboardOffscreenLayers = false,
-      }) =>
-        RenderPerformanceOverlay(
-        optionsMask: optionsMask,
-        rasterizerThreshold: rasterizerThreshold,
-        checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-        checkerboardOffscreenLayers: checkerboardOffscreenLayers,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerPerformanceOverlaySeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[performanceOverlayOption.funName] = performanceOverlayOption;
+  m[renderPerformanceOverlay.funName] = renderPerformanceOverlay;
+  return m;
 }
+var performanceOverlayOption = MXFunctionInvoke(
+    "PerformanceOverlayOption",
+    ({Map args}) => MXPerformanceOverlayOption.parse(args),
+  );
+var renderPerformanceOverlay = MXFunctionInvoke(
+    "RenderPerformanceOverlay",
+    ({
+      int optionsMask = 0,
+      int rasterizerThreshold = 0,
+      bool checkerboardRasterCacheImages = false,
+      bool checkerboardOffscreenLayers = false,
+    }) =>
+      RenderPerformanceOverlay(
+      optionsMask: optionsMask,
+      rasterizerThreshold: rasterizerThreshold,
+      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+    ),
+);
 class MXPerformanceOverlayOption {
   static Map str2VMap = {
     'PerformanceOverlayOption.displayRasterizerStatistics': PerformanceOverlayOption.displayRasterizerStatistics,

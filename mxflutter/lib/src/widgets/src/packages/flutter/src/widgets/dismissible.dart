@@ -5,56 +5,61 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/dismissible.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/src/widgets/automatic_keep_alive.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/debug.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/gesture_detector.dart';
+import 'package:flutter/src/widgets/ticker_provider.dart';
+import 'package:flutter/src/widgets/transitions.dart';
 
 
-class MXProxyDismissible {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[dismissDirection.funName] = dismissDirection;
-    m[dismissible.funName] = dismissible;
-    return m;
-  }
-  static var dismissDirection = MXFunctionInvoke(
-      "DismissDirection",
-      ({Map args}) => MXDismissDirection.parse(args),
-  );
-  static var dismissible = MXFunctionInvoke(
-      "Dismissible",
-      ({
-        Key key,
-        Widget child,
-        Widget background,
-        Widget secondaryBackground,
-        dynamic confirmDismiss,
-        dynamic onResize,
-        dynamic onDismissed,
-        DismissDirection direction = DismissDirection.horizontal,
-        Duration resizeDuration,
-        Map<DismissDirection*, double> dismissThresholds,
-        Duration movementDuration,
-        dynamic crossAxisEndOffset = 0.0,
-        DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      }) =>
-        Dismissible(
-        key: key,
-        child: child,
-        background: background,
-        secondaryBackground: secondaryBackground,
-        confirmDismiss: createGenericValueGenericClosure<Future<bool>, DismissDirection>(dismissible.buildOwner, confirmDismiss),
-        onResize: createVoidCallbackClosure(dismissible.buildOwner, onResize),
-        onDismissed: createValueChangedGenericClosure<DismissDirection>(dismissible.buildOwner, onDismissed),
-        direction: direction,
-        resizeDuration: resizeDuration,
-        dismissThresholds: dismissThresholds,
-        movementDuration: movementDuration,
-        crossAxisEndOffset: crossAxisEndOffset?.toDouble(),
-        dragStartBehavior: dragStartBehavior,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerDismissibleSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[dismissDirection.funName] = dismissDirection;
+  m[dismissible.funName] = dismissible;
+  return m;
 }
+var dismissDirection = MXFunctionInvoke(
+    "DismissDirection",
+    ({Map args}) => MXDismissDirection.parse(args),
+  );
+var dismissible = MXFunctionInvoke(
+    "Dismissible",
+    ({
+      Key key,
+      Widget child,
+      Widget background,
+      Widget secondaryBackground,
+      dynamic confirmDismiss,
+      dynamic onResize,
+      dynamic onDismissed,
+      DismissDirection direction = DismissDirection.horizontal,
+      Duration resizeDuration,
+      Map<DismissDirection, double> dismissThresholds,
+      Duration movementDuration,
+      dynamic crossAxisEndOffset = 0.0,
+      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    }) =>
+      Dismissible(
+      key: key,
+      child: child,
+      background: background,
+      secondaryBackground: secondaryBackground,
+      confirmDismiss: createGenericValueGenericClosure<Future<bool>, DismissDirection>(dismissible.buildOwner, confirmDismiss),
+      onResize: createVoidCallbackClosure(dismissible.buildOwner, onResize),
+      onDismissed: createValueChangedGenericClosure<DismissDirection>(dismissible.buildOwner, onDismissed),
+      direction: direction,
+      resizeDuration: resizeDuration,
+      dismissThresholds: dismissThresholds,
+      movementDuration: movementDuration,
+      crossAxisEndOffset: crossAxisEndOffset,
+      dragStartBehavior: dragStartBehavior,
+    ),
+);
 class MXDismissDirection {
   static Map str2VMap = {
     'DismissDirection.vertical': DismissDirection.vertical,

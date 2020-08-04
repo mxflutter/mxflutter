@@ -5,59 +5,47 @@ import 'package:mxflutter/src/widgets/mx_widgets.dart';
 void registerMirrorWidgetFunc() {
   //TODO: 待删除
   // Image
-  MXMirrorFunc.getInstance().registerBizFunction(registerImageSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerImageSeriesOld());
 
   // Meterial
-  MXMirrorFunc.getInstance().registerBizFunction(registerMaterialSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerMaterialSeriesOld());
 
   // Layout
-  MXMirrorFunc.getInstance().registerBizFunction(registerLayoutSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerLayoutSeriesOld());
 
   // flutter/animation
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyAnimation.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerAnimationSeries());
 
   // flutter/cupertino
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyCupertino.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerCupertinoSeries());
 
   // flutter/foundation
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyFoundation.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerFoundationSeries());
 
   // flutter/gestures
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyGestures.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerGesturesSeries());
 
   // flutter/material
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyMaterial.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerMaterialSeries());
 
   // flutter/painting
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyPainting.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerPaintingSeries());
 
   // flutter/physics
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyPhysics.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerPhysicsSeries());
 
   // flutter/rendering
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyRendering.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerRenderingSeries());
 
   // flutter/scheduler
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyScheduler.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerSchedulerSeries());
 
   // flutter/semantics
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxySemantics.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerSemanticsSeries());
 
   // flutter/services
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyServices.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerServicesSeries());
 
   // flutter/widgets
-  MXMirrorFunc.getInstance()
-      .registerBizFunction(MXProxyWidgets.registerSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerWidgetsSeries());
 }

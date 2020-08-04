@@ -5,32 +5,36 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/image_icon.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/icon.dart';
+import 'package:flutter/src/widgets/icon_theme.dart';
+import 'package:flutter/src/widgets/icon_theme_data.dart';
+import 'package:flutter/src/widgets/image.dart';
 
 
-class MXProxyImageIcon {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[imageIcon.funName] = imageIcon;
-    return m;
-  }
-  static var imageIcon = MXFunctionInvoke(
-      "ImageIcon",
-      ({
-        ImageProvider<dynamic> image,
-        Key key,
-        dynamic size,
-        Color color,
-        String semanticLabel,
-      }) =>
-        ImageIcon(
-        image,
-        key: key,
-        size: size?.toDouble(),
-        color: color,
-        semanticLabel: semanticLabel,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerImageIconSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[imageIcon.funName] = imageIcon;
+  return m;
 }
+var imageIcon = MXFunctionInvoke(
+    "ImageIcon",
+    ({
+      ImageProvider<dynamic> image,
+      Key key,
+      dynamic size,
+      Color color,
+      String semanticLabel,
+    }) =>
+      ImageIcon(
+      image,
+      key: key,
+      size: size,
+      color: color,
+      semanticLabel: semanticLabel,
+    ),
+);

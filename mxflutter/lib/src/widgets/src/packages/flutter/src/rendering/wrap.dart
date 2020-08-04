@@ -5,61 +5,61 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/wrap.dart';
+import 'dart:math';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/object.dart';
 
 
-class MXProxyWrap {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[wrapAlignment.funName] = wrapAlignment;
-    m[wrapCrossAlignment.funName] = wrapCrossAlignment;
-    m[wrapParentData.funName] = wrapParentData;
-    m[renderWrap.funName] = renderWrap;
-    return m;
-  }
-  static var wrapAlignment = MXFunctionInvoke(
-      "WrapAlignment",
-      ({Map args}) => MXWrapAlignment.parse(args),
-  );
-  static var wrapCrossAlignment = MXFunctionInvoke(
-      "WrapCrossAlignment",
-      ({Map args}) => MXWrapCrossAlignment.parse(args),
-  );
-  static var wrapParentData = MXFunctionInvoke(
-      "WrapParentData",
-      ({
-      }) =>
-        WrapParentData(
-      ),
-    );
-  static var renderWrap = MXFunctionInvoke(
-      "RenderWrap",
-      ({
-        List<RenderBox> children,
-        Axis direction = Axis.horizontal,
-        WrapAlignment alignment = WrapAlignment.start,
-        dynamic spacing = 0.0,
-        WrapAlignment runAlignment = WrapAlignment.start,
-        dynamic runSpacing = 0.0,
-        WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
-        TextDirection textDirection,
-        VerticalDirection verticalDirection = VerticalDirection.down,
-      }) =>
-        RenderWrap(
-        children: children,
-        direction: direction,
-        alignment: alignment,
-        spacing: spacing?.toDouble(),
-        runAlignment: runAlignment,
-        runSpacing: runSpacing?.toDouble(),
-        crossAxisAlignment: crossAxisAlignment,
-        textDirection: textDirection,
-        verticalDirection: verticalDirection,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerWrapSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[wrapAlignment.funName] = wrapAlignment;
+  m[wrapCrossAlignment.funName] = wrapCrossAlignment;
+  m[wrapParentData.funName] = wrapParentData;
+  m[renderWrap.funName] = renderWrap;
+  return m;
 }
+var wrapAlignment = MXFunctionInvoke(
+    "WrapAlignment",
+    ({Map args}) => MXWrapAlignment.parse(args),
+  );
+var wrapCrossAlignment = MXFunctionInvoke(
+    "WrapCrossAlignment",
+    ({Map args}) => MXWrapCrossAlignment.parse(args),
+  );
+var wrapParentData = MXFunctionInvoke(
+    "WrapParentData",
+    ({
+    }) =>
+      WrapParentData(
+    ),
+);
+var renderWrap = MXFunctionInvoke(
+    "RenderWrap",
+    ({
+      List<RenderBox> children,
+      Axis direction = Axis.horizontal,
+      WrapAlignment alignment = WrapAlignment.start,
+      dynamic spacing = 0.0,
+      WrapAlignment runAlignment = WrapAlignment.start,
+      dynamic runSpacing = 0.0,
+      WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
+      TextDirection textDirection,
+      VerticalDirection verticalDirection = VerticalDirection.down,
+    }) =>
+      RenderWrap(
+      children: children,
+      direction: direction,
+      alignment: alignment,
+      spacing: spacing,
+      runAlignment: runAlignment,
+      runSpacing: runSpacing,
+      crossAxisAlignment: crossAxisAlignment,
+      textDirection: textDirection,
+      verticalDirection: verticalDirection,
+    ),
+);
 class MXWrapAlignment {
   static Map str2VMap = {
     'WrapAlignment.start': WrapAlignment.start,

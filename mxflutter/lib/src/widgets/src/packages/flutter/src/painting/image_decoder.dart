@@ -5,14 +5,15 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/painting/image_decoder.dart';
+import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui';
+import 'package:flutter/src/painting/binding.dart';
 
 
-class MXProxyImageDecoder {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    return m;
-  }
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerImageDecoderSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }

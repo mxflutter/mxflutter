@@ -5,40 +5,46 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/cupertino/refresh.dart';
+import 'dart:async';
+import 'dart:math';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/cupertino/activity_indicator.dart';
+import 'package:flutter/src/cupertino/colors.dart';
+import 'package:flutter/src/cupertino/icons.dart';
 
 
-class MXProxyRefresh {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[refreshIndicatorMode.funName] = refreshIndicatorMode;
-    m[cupertinoSliverRefreshControl.funName] = cupertinoSliverRefreshControl;
-    return m;
-  }
-  static var refreshIndicatorMode = MXFunctionInvoke(
-      "RefreshIndicatorMode",
-      ({Map args}) => MXRefreshIndicatorMode.parse(args),
-  );
-  static var cupertinoSliverRefreshControl = MXFunctionInvoke(
-      "CupertinoSliverRefreshControl",
-      ({
-        Key key,
-        dynamic refreshTriggerPullDistance = 100.0,
-        dynamic refreshIndicatorExtent = 60.0,
-        dynamic builder,
-        dynamic onRefresh,
-      }) =>
-        CupertinoSliverRefreshControl(
-        key: key,
-        refreshTriggerPullDistance: refreshTriggerPullDistance?.toDouble(),
-        refreshIndicatorExtent: refreshIndicatorExtent?.toDouble(),
-        builder: builder,
-        onRefresh: onRefresh,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerRefreshSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[refreshIndicatorMode.funName] = refreshIndicatorMode;
+  m[cupertinoSliverRefreshControl.funName] = cupertinoSliverRefreshControl;
+  return m;
 }
+var refreshIndicatorMode = MXFunctionInvoke(
+    "RefreshIndicatorMode",
+    ({Map args}) => MXRefreshIndicatorMode.parse(args),
+  );
+var cupertinoSliverRefreshControl = MXFunctionInvoke(
+    "CupertinoSliverRefreshControl",
+    ({
+      Key key,
+      dynamic refreshTriggerPullDistance = 100.0,
+      dynamic refreshIndicatorExtent = 60.0,
+      dynamic builder,
+      dynamic onRefresh,
+    }) =>
+      CupertinoSliverRefreshControl(
+      key: key,
+      refreshTriggerPullDistance: refreshTriggerPullDistance,
+      refreshIndicatorExtent: refreshIndicatorExtent,
+      builder: builder,
+      onRefresh: onRefresh,
+    ),
+);
 class MXRefreshIndicatorMode {
   static Map str2VMap = {
     'RefreshIndicatorMode.inactive': RefreshIndicatorMode.inactive,

@@ -5,46 +5,37 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/colors.dart';
+import 'dart:ui';
+import 'package:flutter/painting.dart';
 
 
-class MXProxyColors {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[materialColor.funName] = materialColor;
-    m[materialAccentColor.funName] = materialAccentColor;
-    m[colors_.funName] = colors_;
-    return m;
-  }
-  static var materialColor = MXFunctionInvoke(
-      "MaterialColor",
-      ({
-        int primary,
-        Map<int*, Color> swatch,
-      }) =>
-        MaterialColor(
-        primary,
-        swatch,
-      ),
-    );
-  static var materialAccentColor = MXFunctionInvoke(
-      "MaterialAccentColor",
-      ({
-        int primary,
-        Map<int*, Color> swatch,
-      }) =>
-        MaterialAccentColor(
-        primary,
-        swatch,
-      ),
-    );
-  static var colors_ = MXFunctionInvoke(
-    "colors.",
-      ({
-      }) =>
-        Colors.(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerColorsSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[materialColor.funName] = materialColor;
+  m[materialAccentColor.funName] = materialAccentColor;
+  return m;
 }
+var materialColor = MXFunctionInvoke(
+    "MaterialColor",
+    ({
+      int primary,
+      Map<int, Color> swatch,
+    }) =>
+      MaterialColor(
+      primary,
+      swatch,
+    ),
+);
+var materialAccentColor = MXFunctionInvoke(
+    "MaterialAccentColor",
+    ({
+      int primary,
+      Map<int, Color> swatch,
+    }) =>
+      MaterialAccentColor(
+      primary,
+      swatch,
+    ),
+);

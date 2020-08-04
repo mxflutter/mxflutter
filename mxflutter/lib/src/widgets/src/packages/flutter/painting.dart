@@ -5,7 +5,6 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'src/painting/alignment.dart';
 import 'src/painting/basic_types.dart';
 import 'src/painting/beveled_rectangle_border.dart';
@@ -44,45 +43,43 @@ import 'src/painting/stadium_border.dart';
 import 'src/painting/strut_style.dart';
 
 
-class MXProxyPainting {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
-    m.addAll(MXProxyAlignment.registerSeries());
-    m.addAll(MXProxyBasicTypes.registerSeries());
-    m.addAll(MXProxyBeveledRectangleBorder.registerSeries());
-    m.addAll(MXProxyBinding.registerSeries());
-    m.addAll(MXProxyBorderRadius.registerSeries());
-    m.addAll(MXProxyBorders.registerSeries());
-    m.addAll(MXProxyBoxBorder.registerSeries());
-    m.addAll(MXProxyBoxDecoration.registerSeries());
-    m.addAll(MXProxyBoxFit.registerSeries());
-    m.addAll(MXProxyBoxShadow.registerSeries());
-    m.addAll(MXProxyCircleBorder.registerSeries());
-    m.addAll(MXProxyClip.registerSeries());
-    m.addAll(MXProxyColors.registerSeries());
-    m.addAll(MXProxyContinuousRectangleBorder.registerSeries());
-    m.addAll(MXProxyDebug.registerSeries());
-    m.addAll(MXProxyDecoration.registerSeries());
-    m.addAll(MXProxyDecorationImage.registerSeries());
-    m.addAll(MXProxyEdgeInsets.registerSeries());
-    m.addAll(MXProxyFlutterLogo.registerSeries());
-    m.addAll(MXProxyFractionalOffset.registerSeries());
-    m.addAll(MXProxyGeometry.registerSeries());
-    m.addAll(MXProxyGradient.registerSeries());
-    m.addAll(MXProxyImageCache.registerSeries());
-    m.addAll(MXProxyImageDecoder.registerSeries());
-    m.addAll(MXProxyNetworkImageWeb.registerSeries());
-    m.addAll(MXProxyImageResolution.registerSeries());
-    m.addAll(MXProxyImageStream.registerSeries());
-    m.addAll(MXProxyPlaceholderSpan.registerSeries());
-    m.addAll(MXProxyMatrixUtils.registerSeries());
-    m.addAll(MXProxyNotchedShapes.registerSeries());
-    m.addAll(MXProxyPaintUtilities.registerSeries());
-    m.addAll(MXProxyRoundedRectangleBorder.registerSeries());
-    m.addAll(MXProxyShaderWarmUp.registerSeries());
-    m.addAll(MXProxyShapeDecoration.registerSeries());
-    m.addAll(MXProxyStadiumBorder.registerSeries());
-    m.addAll(MXProxyStrutStyle.registerSeries());
-    return m;
-  }
+Map<String, MXFunctionInvoke> registerPaintingSeries() {
+  Map<String, MXFunctionInvoke> m = {};
+  m.addAll(registerAlignmentSeries());
+  m.addAll(registerBasicTypesSeries());
+  m.addAll(registerBeveledRectangleBorderSeries());
+  m.addAll(registerBindingSeries());
+  m.addAll(registerBorderRadiusSeries());
+  m.addAll(registerBordersSeries());
+  m.addAll(registerBoxBorderSeries());
+  m.addAll(registerBoxDecorationSeries());
+  m.addAll(registerBoxFitSeries());
+  m.addAll(registerBoxShadowSeries());
+  m.addAll(registerCircleBorderSeries());
+  m.addAll(registerClipSeries());
+  m.addAll(registerColorsSeries());
+  m.addAll(registerContinuousRectangleBorderSeries());
+  m.addAll(registerDebugSeries());
+  m.addAll(registerDecorationSeries());
+  m.addAll(registerDecorationImageSeries());
+  m.addAll(registerEdgeInsetsSeries());
+  m.addAll(registerFlutterLogoSeries());
+  m.addAll(registerFractionalOffsetSeries());
+  m.addAll(registerGeometrySeries());
+  m.addAll(registerGradientSeries());
+  m.addAll(registerImageCacheSeries());
+  m.addAll(registerImageDecoderSeries());
+  m.addAll(registerNetworkImageWebSeries());
+  m.addAll(registerImageResolutionSeries());
+  m.addAll(registerImageStreamSeries());
+  m.addAll(registerPlaceholderSpanSeries());
+  m.addAll(registerMatrixUtilsSeries());
+  m.addAll(registerNotchedShapesSeries());
+  m.addAll(registerPaintUtilitiesSeries());
+  m.addAll(registerRoundedRectangleBorderSeries());
+  m.addAll(registerShaderWarmUpSeries());
+  m.addAll(registerShapeDecorationSeries());
+  m.addAll(registerStadiumBorderSeries());
+  m.addAll(registerStrutStyleSeries());
+  return m;
 }

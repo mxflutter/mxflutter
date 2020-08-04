@@ -5,7 +5,6 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'src/foundation/annotations.dart';
 import 'src/foundation/debug.dart';
 import 'src/foundation/basic_types.dart';
@@ -30,31 +29,29 @@ import 'src/foundation/synchronous_future.dart';
 import 'src/foundation/unicode.dart';
 
 
-class MXProxyFoundation {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
-    m.addAll(MXProxyAnnotations.registerSeries());
-    m.addAll(MXProxyDebug.registerSeries());
-    m.addAll(MXProxyBasicTypes.registerSeries());
-    m.addAll(MXProxyBinding.registerSeries());
-    m.addAll(MXProxyBitfieldWeb.registerSeries());
-    m.addAll(MXProxyChangeNotifier.registerSeries());
-    m.addAll(MXProxyCollections.registerSeries());
-    m.addAll(MXProxyConsolidateResponse.registerSeries());
-    m.addAll(MXProxyConstants.registerSeries());
-    m.addAll(MXProxyIsolatesWeb.registerSeries());
-    m.addAll(MXProxyKey.registerSeries());
-    m.addAll(MXProxyLicenses.registerSeries());
-    m.addAll(MXProxyNode.registerSeries());
-    m.addAll(MXProxyObject.registerSeries());
-    m.addAll(MXProxyObserverList.registerSeries());
-    m.addAll(MXProxyPlatformWeb.registerSeries());
-    m.addAll(MXProxyPrint.registerSeries());
-    m.addAll(MXProxyProfile.registerSeries());
-    m.addAll(MXProxySerialization.registerSeries());
-    m.addAll(MXProxyStackFrame.registerSeries());
-    m.addAll(MXProxySynchronousFuture.registerSeries());
-    m.addAll(MXProxyUnicode.registerSeries());
-    return m;
-  }
+Map<String, MXFunctionInvoke> registerFoundationSeries() {
+  Map<String, MXFunctionInvoke> m = {};
+  m.addAll(registerAnnotationsSeries());
+  m.addAll(registerDebugSeries());
+  m.addAll(registerBasicTypesSeries());
+  m.addAll(registerBindingSeries());
+  m.addAll(registerBitfieldWebSeries());
+  m.addAll(registerChangeNotifierSeries());
+  m.addAll(registerCollectionsSeries());
+  m.addAll(registerConsolidateResponseSeries());
+  m.addAll(registerConstantsSeries());
+  m.addAll(registerIsolatesWebSeries());
+  m.addAll(registerKeySeries());
+  m.addAll(registerLicensesSeries());
+  m.addAll(registerNodeSeries());
+  m.addAll(registerObjectSeries());
+  m.addAll(registerObserverListSeries());
+  m.addAll(registerPlatformWebSeries());
+  m.addAll(registerPrintSeries());
+  m.addAll(registerProfileSeries());
+  m.addAll(registerSerializationSeries());
+  m.addAll(registerStackFrameSeries());
+  m.addAll(registerSynchronousFutureSeries());
+  m.addAll(registerUnicodeSeries());
+  return m;
 }

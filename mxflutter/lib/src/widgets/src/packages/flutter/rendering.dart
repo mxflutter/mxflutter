@@ -5,7 +5,6 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'src/rendering/animated_size.dart';
 import 'src/rendering/layer.dart';
 import 'src/rendering/custom_layout.dart';
@@ -43,44 +42,42 @@ import 'src/rendering/viewport_offset.dart';
 import 'src/rendering/wrap.dart';
 
 
-class MXProxyRendering {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
-    m.addAll(MXProxyAnimatedSize.registerSeries());
-    m.addAll(MXProxyLayer.registerSeries());
-    m.addAll(MXProxyCustomLayout.registerSeries());
-    m.addAll(MXProxyCustomPaint.registerSeries());
-    m.addAll(MXProxyDebugOverflowIndicator.registerSeries());
-    m.addAll(MXProxyEditable.registerSeries());
-    m.addAll(MXProxyError.registerSeries());
-    m.addAll(MXProxyFlex.registerSeries());
-    m.addAll(MXProxyFlow.registerSeries());
-    m.addAll(MXProxyImage.registerSeries());
-    m.addAll(MXProxyListBody.registerSeries());
-    m.addAll(MXProxyListWheelViewport.registerSeries());
-    m.addAll(MXProxyMouseTracking.registerSeries());
-    m.addAll(MXProxyParagraph.registerSeries());
-    m.addAll(MXProxyPerformanceOverlay.registerSeries());
-    m.addAll(MXProxyPlatformView.registerSeries());
-    m.addAll(MXProxyProxyBox.registerSeries());
-    m.addAll(MXProxyProxySliver.registerSeries());
-    m.addAll(MXProxyRotatedBox.registerSeries());
-    m.addAll(MXProxyShiftedBox.registerSeries());
-    m.addAll(MXProxySliver.registerSeries());
-    m.addAll(MXProxySliverFill.registerSeries());
-    m.addAll(MXProxySliverFixedExtentList.registerSeries());
-    m.addAll(MXProxySliverGrid.registerSeries());
-    m.addAll(MXProxySliverList.registerSeries());
-    m.addAll(MXProxySliverMultiBoxAdaptor.registerSeries());
-    m.addAll(MXProxySliverPadding.registerSeries());
-    m.addAll(MXProxySliverPersistentHeader.registerSeries());
-    m.addAll(MXProxyStack.registerSeries());
-    m.addAll(MXProxyTable.registerSeries());
-    m.addAll(MXProxyTableBorder.registerSeries());
-    m.addAll(MXProxyTexture.registerSeries());
-    m.addAll(MXProxyTweens.registerSeries());
-    m.addAll(MXProxyViewportOffset.registerSeries());
-    m.addAll(MXProxyWrap.registerSeries());
-    return m;
-  }
+Map<String, MXFunctionInvoke> registerRenderingSeries() {
+  Map<String, MXFunctionInvoke> m = {};
+  m.addAll(registerAnimatedSizeSeries());
+  m.addAll(registerLayerSeries());
+  m.addAll(registerCustomLayoutSeries());
+  m.addAll(registerCustomPaintSeries());
+  m.addAll(registerDebugOverflowIndicatorSeries());
+  m.addAll(registerEditableSeries());
+  m.addAll(registerErrorSeries());
+  m.addAll(registerFlexSeries());
+  m.addAll(registerFlowSeries());
+  m.addAll(registerImageSeries());
+  m.addAll(registerListBodySeries());
+  m.addAll(registerListWheelViewportSeries());
+  m.addAll(registerMouseTrackingSeries());
+  m.addAll(registerParagraphSeries());
+  m.addAll(registerPerformanceOverlaySeries());
+  m.addAll(registerPlatformViewSeries());
+  m.addAll(registerProxyBoxSeries());
+  m.addAll(registerProxySliverSeries());
+  m.addAll(registerRotatedBoxSeries());
+  m.addAll(registerShiftedBoxSeries());
+  m.addAll(registerSliverSeries());
+  m.addAll(registerSliverFillSeries());
+  m.addAll(registerSliverFixedExtentListSeries());
+  m.addAll(registerSliverGridSeries());
+  m.addAll(registerSliverListSeries());
+  m.addAll(registerSliverMultiBoxAdaptorSeries());
+  m.addAll(registerSliverPaddingSeries());
+  m.addAll(registerSliverPersistentHeaderSeries());
+  m.addAll(registerStackSeries());
+  m.addAll(registerTableSeries());
+  m.addAll(registerTableBorderSeries());
+  m.addAll(registerTextureSeries());
+  m.addAll(registerTweensSeries());
+  m.addAll(registerViewportOffsetSeries());
+  m.addAll(registerWrapSeries());
+  return m;
 }

@@ -5,24 +5,22 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:collection/src/iterable_zip.dart';
+import 'dart:collection';
 
 
-class MXProxyIterableZip {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[iterableZip.funName] = iterableZip;
-    return m;
-  }
-  static var iterableZip = MXFunctionInvoke(
-      "IterableZip",
-      ({
-        Iterable<Iterable<IterableZip::T>> iterables,
-      }) =>
-        IterableZip(
-        iterables,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerIterableZipSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[iterableZip.funName] = iterableZip;
+  return m;
 }
+var iterableZip = MXFunctionInvoke(
+    "IterableZip",
+    ({
+      dynamic iterables,
+    }) =>
+      IterableZip(
+      iterables,
+    ),
+);

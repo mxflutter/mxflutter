@@ -5,27 +5,24 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/pickers/date_picker_common.dart';
 
 
-class MXProxyDatePickerCommon {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[datePickerEntryMode.funName] = datePickerEntryMode;
-    m[datePickerMode.funName] = datePickerMode;
-    return m;
-  }
-  static var datePickerEntryMode = MXFunctionInvoke(
-      "DatePickerEntryMode",
-      ({Map args}) => MXDatePickerEntryMode.parse(args),
-  );
-  static var datePickerMode = MXFunctionInvoke(
-      "DatePickerMode",
-      ({Map args}) => MXDatePickerMode.parse(args),
-  );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerDatePickerCommonSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[datePickerEntryMode.funName] = datePickerEntryMode;
+  m[datePickerMode.funName] = datePickerMode;
+  return m;
 }
+var datePickerEntryMode = MXFunctionInvoke(
+    "DatePickerEntryMode",
+    ({Map args}) => MXDatePickerEntryMode.parse(args),
+  );
+var datePickerMode = MXFunctionInvoke(
+    "DatePickerMode",
+    ({Map args}) => MXDatePickerMode.parse(args),
+  );
 class MXDatePickerEntryMode {
   static Map str2VMap = {
     'DatePickerEntryMode.calendar': DatePickerEntryMode.calendar,

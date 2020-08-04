@@ -5,20 +5,17 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'src/scheduler/binding.dart';
 import 'src/scheduler/debug.dart';
 import 'src/scheduler/priority.dart';
 import 'src/scheduler/ticker.dart';
 
 
-class MXProxyScheduler {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
-    m.addAll(MXProxyBinding.registerSeries());
-    m.addAll(MXProxyDebug.registerSeries());
-    m.addAll(MXProxyPriority.registerSeries());
-    m.addAll(MXProxyTicker.registerSeries());
-    return m;
-  }
+Map<String, MXFunctionInvoke> registerSchedulerSeries() {
+  Map<String, MXFunctionInvoke> m = {};
+  m.addAll(registerBindingSeries());
+  m.addAll(registerDebugSeries());
+  m.addAll(registerPrioritySeries());
+  m.addAll(registerTickerSeries());
+  return m;
 }

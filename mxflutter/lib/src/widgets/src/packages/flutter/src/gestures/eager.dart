@@ -5,24 +5,24 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/gestures/eager.dart';
+import 'package:flutter/src/gestures/arena.dart';
+import 'package:flutter/src/gestures/events.dart';
+import 'package:flutter/src/gestures/recognizer.dart';
 
 
-class MXProxyEager {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[eagerGestureRecognizer.funName] = eagerGestureRecognizer;
-    return m;
-  }
-  static var eagerGestureRecognizer = MXFunctionInvoke(
-      "EagerGestureRecognizer",
-      ({
-        PointerDeviceKind kind,
-      }) =>
-        EagerGestureRecognizer(
-        kind: kind,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerEagerSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[eagerGestureRecognizer.funName] = eagerGestureRecognizer;
+  return m;
 }
+var eagerGestureRecognizer = MXFunctionInvoke(
+    "EagerGestureRecognizer",
+    ({
+      PointerDeviceKind kind,
+    }) =>
+      EagerGestureRecognizer(
+      kind: kind,
+    ),
+);

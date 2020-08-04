@@ -5,8 +5,5 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 
 
-class MXProxyCollection {
-}

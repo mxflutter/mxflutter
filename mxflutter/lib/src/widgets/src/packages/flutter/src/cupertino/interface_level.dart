@@ -5,36 +5,35 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/cupertino/interface_level.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 
-class MXProxyInterfaceLevel {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[cupertinoUserInterfaceLevelData.funName] = cupertinoUserInterfaceLevelData;
-    m[cupertinoUserInterfaceLevel.funName] = cupertinoUserInterfaceLevel;
-    return m;
-  }
-  static var cupertinoUserInterfaceLevelData = MXFunctionInvoke(
-      "CupertinoUserInterfaceLevelData",
-      ({Map args}) => MXCupertinoUserInterfaceLevelData.parse(args),
-  );
-  static var cupertinoUserInterfaceLevel = MXFunctionInvoke(
-      "CupertinoUserInterfaceLevel",
-      ({
-        Key key,
-        CupertinoUserInterfaceLevelData data,
-        Widget child,
-      }) =>
-        CupertinoUserInterfaceLevel(
-        key: key,
-        data: data,
-        child: child,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerInterfaceLevelSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[cupertinoUserInterfaceLevelData.funName] = cupertinoUserInterfaceLevelData;
+  m[cupertinoUserInterfaceLevel.funName] = cupertinoUserInterfaceLevel;
+  return m;
 }
+var cupertinoUserInterfaceLevelData = MXFunctionInvoke(
+    "CupertinoUserInterfaceLevelData",
+    ({Map args}) => MXCupertinoUserInterfaceLevelData.parse(args),
+  );
+var cupertinoUserInterfaceLevel = MXFunctionInvoke(
+    "CupertinoUserInterfaceLevel",
+    ({
+      Key key,
+      CupertinoUserInterfaceLevelData data,
+      Widget child,
+    }) =>
+      CupertinoUserInterfaceLevel(
+      key: key,
+      data: data,
+      child: child,
+    ),
+);
 class MXCupertinoUserInterfaceLevelData {
   static Map str2VMap = {
     'CupertinoUserInterfaceLevelData.base': CupertinoUserInterfaceLevelData.base,

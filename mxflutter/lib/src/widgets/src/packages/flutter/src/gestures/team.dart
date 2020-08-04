@@ -5,22 +5,21 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/gestures/team.dart';
+import 'package:flutter/src/gestures/arena.dart';
+import 'package:flutter/src/gestures/binding.dart';
 
 
-class MXProxyTeam {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[gestureArenaTeam.funName] = gestureArenaTeam;
-    return m;
-  }
-  static var gestureArenaTeam = MXFunctionInvoke(
-      "GestureArenaTeam",
-      ({
-      }) =>
-        GestureArenaTeam(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerTeamSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[gestureArenaTeam.funName] = gestureArenaTeam;
+  return m;
 }
+var gestureArenaTeam = MXFunctionInvoke(
+    "GestureArenaTeam",
+    ({
+    }) =>
+      GestureArenaTeam(
+    ),
+);

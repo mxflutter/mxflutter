@@ -5,14 +5,12 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/services/keyboard_maps.dart';
+import 'package:flutter/src/services/keyboard_key.dart';
 
 
-class MXProxyKeyboardMaps {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    return m;
-  }
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerKeyboardMapsSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }

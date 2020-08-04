@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 //TODO: 待删除
-Map<String, MXFunctionInvoke> registerImageSeries() {
+Map<String, MXFunctionInvoke> registerImageSeriesOld() {
   var m = <String, MXFunctionInvoke>{};
 
   m[image.funName] = image;

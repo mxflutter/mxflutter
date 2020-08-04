@@ -5,48 +5,48 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/gestures/pointer_router.dart';
+import 'package:flutter/foundation.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/gestures/events.dart';
 
 
-class MXProxyPointerRouter {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[pointerRouter.funName] = pointerRouter;
-    m[flutterErrorDetailsForPointerRouter.funName] = flutterErrorDetailsForPointerRouter;
-    return m;
-  }
-  static var pointerRouter = MXFunctionInvoke(
-      "PointerRouter",
-      ({
-      }) =>
-        PointerRouter(
-      ),
-    );
-  static var flutterErrorDetailsForPointerRouter = MXFunctionInvoke(
-      "FlutterErrorDetailsForPointerRouter",
-      ({
-        dynamic exception,
-        StackTrace stack,
-        String library,
-        DiagnosticsNode context,
-        PointerRouter router,
-        dynamic route,
-        PointerEvent event,
-        dynamic informationCollector,
-        bool silent = false,
-      }) =>
-        FlutterErrorDetailsForPointerRouter(
-        exception: exception,
-        stack: stack,
-        library: library,
-        context: context,
-        router: router,
-        route: createValueChangedGenericClosure<PointerEvent>(flutterErrorDetailsForPointerRouter.buildOwner, route),
-        event: event,
-        informationCollector: informationCollector,
-        silent: silent,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerPointerRouterSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[pointerRouter.funName] = pointerRouter;
+  m[flutterErrorDetailsForPointerRouter.funName] = flutterErrorDetailsForPointerRouter;
+  return m;
 }
+var pointerRouter = MXFunctionInvoke(
+    "PointerRouter",
+    ({
+    }) =>
+      PointerRouter(
+    ),
+);
+var flutterErrorDetailsForPointerRouter = MXFunctionInvoke(
+    "FlutterErrorDetailsForPointerRouter",
+    ({
+      dynamic exception,
+      StackTrace stack,
+      String library,
+      DiagnosticsNode context,
+      PointerRouter router,
+      dynamic route,
+      PointerEvent event,
+      dynamic informationCollector,
+      bool silent = false,
+    }) =>
+      FlutterErrorDetailsForPointerRouter(
+      exception: exception,
+      stack: stack,
+      library: library,
+      context: context,
+      router: router,
+      route: createValueChangedGenericClosure<PointerEvent>(flutterErrorDetailsForPointerRouter.buildOwner, route),
+      event: event,
+      informationCollector: informationCollector,
+      silent: silent,
+    ),
+);

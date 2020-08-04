@@ -5,24 +5,24 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/error.dart';
+import 'dart:ui';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/object.dart';
 
 
-class MXProxyError {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[renderErrorBox.funName] = renderErrorBox;
-    return m;
-  }
-  static var renderErrorBox = MXFunctionInvoke(
-      "RenderErrorBox",
-      ({
-        String message,
-      }) =>
-        RenderErrorBox(
-        message,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerErrorSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[renderErrorBox.funName] = renderErrorBox;
+  return m;
 }
+var renderErrorBox = MXFunctionInvoke(
+    "RenderErrorBox",
+    ({
+      String message,
+    }) =>
+      RenderErrorBox(
+      message,
+    ),
+);

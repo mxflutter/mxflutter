@@ -5,14 +5,11 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/semantics/debug.dart';
 
 
-class MXProxyDebug {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    return m;
-  }
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerDebugSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }

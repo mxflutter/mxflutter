@@ -5,26 +5,28 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/sliver_fixed_extent_list.dart';
+import 'dart:math';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/sliver.dart';
+import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
 
 
-class MXProxySliverFixedExtentList {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[renderSliverFixedExtentList.funName] = renderSliverFixedExtentList;
-    return m;
-  }
-  static var renderSliverFixedExtentList = MXFunctionInvoke(
-      "RenderSliverFixedExtentList",
-      ({
-        RenderSliverBoxChildManager childManager,
-        dynamic itemExtent,
-      }) =>
-        RenderSliverFixedExtentList(
-        childManager: childManager,
-        itemExtent: itemExtent?.toDouble(),
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSliverFixedExtentListSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[renderSliverFixedExtentList.funName] = renderSliverFixedExtentList;
+  return m;
 }
+var renderSliverFixedExtentList = MXFunctionInvoke(
+    "RenderSliverFixedExtentList",
+    ({
+      RenderSliverBoxChildManager childManager,
+      dynamic itemExtent,
+    }) =>
+      RenderSliverFixedExtentList(
+      childManager: childManager,
+      itemExtent: itemExtent,
+    ),
+);

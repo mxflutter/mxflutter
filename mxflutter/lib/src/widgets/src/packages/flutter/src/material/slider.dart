@@ -5,78 +5,89 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/slider.dart';
+import 'dart:async';
+import 'dart:math';
+import 'dart:math';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/slider_theme.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
-class MXProxySlider {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[slider.funName] = slider;
-    m[slider_adaptive.funName] = slider_adaptive;
-    return m;
-  }
-  static var slider = MXFunctionInvoke(
-      "Slider",
-      ({
-        Key key,
-        dynamic value,
-        dynamic onChanged,
-        dynamic onChangeStart,
-        dynamic onChangeEnd,
-        dynamic min = 0.0,
-        dynamic max = 1.0,
-        int divisions,
-        String label,
-        Color activeColor,
-        Color inactiveColor,
-        dynamic semanticFormatterCallback,
-      }) =>
-        Slider(
-        key: key,
-        value: value?.toDouble(),
-        onChanged: createValueChangedGenericClosure<double>(slider.buildOwner, onChanged),
-        onChangeStart: createValueChangedGenericClosure<double>(slider.buildOwner, onChangeStart),
-        onChangeEnd: createValueChangedGenericClosure<double>(slider.buildOwner, onChangeEnd),
-        min: min?.toDouble(),
-        max: max?.toDouble(),
-        divisions: divisions,
-        label: label,
-        activeColor: activeColor,
-        inactiveColor: inactiveColor,
-        semanticFormatterCallback: createGenericValueGenericClosure<String, double>(slider.buildOwner, semanticFormatterCallback),
-      ),
-    );
-  static var slider_adaptive = MXFunctionInvoke(
-    "slider.adaptive",
-      ({
-        Key key,
-        dynamic value,
-        dynamic onChanged,
-        dynamic onChangeStart,
-        dynamic onChangeEnd,
-        dynamic min = 0.0,
-        dynamic max = 1.0,
-        int divisions,
-        String label,
-        Color activeColor,
-        Color inactiveColor,
-        dynamic semanticFormatterCallback,
-      }) =>
-        Slider.adaptive(
-        key: key,
-        value: value?.toDouble(),
-        onChanged: createValueChangedGenericClosure<double>(slider_adaptive.buildOwner, onChanged),
-        onChangeStart: createValueChangedGenericClosure<double>(slider_adaptive.buildOwner, onChangeStart),
-        onChangeEnd: createValueChangedGenericClosure<double>(slider_adaptive.buildOwner, onChangeEnd),
-        min: min?.toDouble(),
-        max: max?.toDouble(),
-        divisions: divisions,
-        label: label,
-        activeColor: activeColor,
-        inactiveColor: inactiveColor,
-        semanticFormatterCallback: createGenericValueGenericClosure<String, double>(slider_adaptive.buildOwner, semanticFormatterCallback),
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSliderSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[slider.funName] = slider;
+  m[slider_adaptive.funName] = slider_adaptive;
+  return m;
 }
+var slider = MXFunctionInvoke(
+    "Slider",
+    ({
+      Key key,
+      dynamic value,
+      dynamic onChanged,
+      dynamic onChangeStart,
+      dynamic onChangeEnd,
+      dynamic min = 0.0,
+      dynamic max = 1.0,
+      int divisions,
+      String label,
+      Color activeColor,
+      Color inactiveColor,
+      dynamic semanticFormatterCallback,
+    }) =>
+      Slider(
+      key: key,
+      value: value,
+      onChanged: createValueChangedGenericClosure<dynamic>(slider.buildOwner, onChanged),
+      onChangeStart: createValueChangedGenericClosure<dynamic>(slider.buildOwner, onChangeStart),
+      onChangeEnd: createValueChangedGenericClosure<dynamic>(slider.buildOwner, onChangeEnd),
+      min: min,
+      max: max,
+      divisions: divisions,
+      label: label,
+      activeColor: activeColor,
+      inactiveColor: inactiveColor,
+      semanticFormatterCallback: createGenericValueGenericClosure<String, dynamic>(slider.buildOwner, semanticFormatterCallback),
+    ),
+);
+var slider_adaptive = MXFunctionInvoke(
+  "slider.adaptive",
+    ({
+      Key key,
+      dynamic value,
+      dynamic onChanged,
+      dynamic onChangeStart,
+      dynamic onChangeEnd,
+      dynamic min = 0.0,
+      dynamic max = 1.0,
+      int divisions,
+      String label,
+      Color activeColor,
+      Color inactiveColor,
+      dynamic semanticFormatterCallback,
+    }) =>
+      Slider.adaptive(
+      key: key,
+      value: value,
+      onChanged: createValueChangedGenericClosure<dynamic>(slider_adaptive.buildOwner, onChanged),
+      onChangeStart: createValueChangedGenericClosure<dynamic>(slider_adaptive.buildOwner, onChangeStart),
+      onChangeEnd: createValueChangedGenericClosure<dynamic>(slider_adaptive.buildOwner, onChangeEnd),
+      min: min,
+      max: max,
+      divisions: divisions,
+      label: label,
+      activeColor: activeColor,
+      inactiveColor: inactiveColor,
+      semanticFormatterCallback: createGenericValueGenericClosure<String, dynamic>(slider_adaptive.buildOwner, semanticFormatterCallback),
+    ),
+);

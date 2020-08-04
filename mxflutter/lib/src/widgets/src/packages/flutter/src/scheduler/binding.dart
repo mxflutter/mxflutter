@@ -5,22 +5,29 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/scheduler/binding.dart';
+import 'dart:async';
+import 'dart:collection';
+import 'dart:developer';
+import 'dart:ui';
+import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/src/scheduler/debug.dart';
+import 'package:flutter/src/scheduler/priority.dart';
+import 'dart:ui';
 
 
-class MXProxyBinding {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[schedulerPhase.funName] = schedulerPhase;
-    return m;
-  }
-  static var schedulerPhase = MXFunctionInvoke(
-      "SchedulerPhase",
-      ({Map args}) => MXSchedulerPhase.parse(args),
-  );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerBindingSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[schedulerPhase.funName] = schedulerPhase;
+  return m;
 }
+var schedulerPhase = MXFunctionInvoke(
+    "SchedulerPhase",
+    ({Map args}) => MXSchedulerPhase.parse(args),
+  );
 class MXSchedulerPhase {
   static Map str2VMap = {
     'SchedulerPhase.idle': SchedulerPhase.idle,

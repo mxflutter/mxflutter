@@ -5,38 +5,43 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/expand_icon.dart';
+import 'dart:math';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/colors.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/icon_button.dart';
+import 'package:flutter/src/material/icons.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
-class MXProxyExpandIcon {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[expandIcon.funName] = expandIcon;
-    return m;
-  }
-  static var expandIcon = MXFunctionInvoke(
-      "ExpandIcon",
-      ({
-        Key key,
-        bool isExpanded = false,
-        dynamic size = 24.0,
-        dynamic onPressed,
-        EdgeInsetsGeometry padding,
-        Color color,
-        Color disabledColor,
-        Color expandedColor,
-      }) =>
-        ExpandIcon(
-        key: key,
-        isExpanded: isExpanded,
-        size: size?.toDouble(),
-        onPressed: createValueChangedGenericClosure<bool>(expandIcon.buildOwner, onPressed),
-        padding: padding,
-        color: color,
-        disabledColor: disabledColor,
-        expandedColor: expandedColor,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerExpandIconSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[expandIcon.funName] = expandIcon;
+  return m;
 }
+var expandIcon = MXFunctionInvoke(
+    "ExpandIcon",
+    ({
+      Key key,
+      bool isExpanded = false,
+      dynamic size = 24.0,
+      dynamic onPressed,
+      EdgeInsetsGeometry padding,
+      Color color,
+      Color disabledColor,
+      Color expandedColor,
+    }) =>
+      ExpandIcon(
+      key: key,
+      isExpanded: isExpanded,
+      size: size,
+      onPressed: createValueChangedGenericClosure<bool>(expandIcon.buildOwner, onPressed),
+      padding: padding,
+      color: color,
+      disabledColor: disabledColor,
+      expandedColor: expandedColor,
+    ),
+);

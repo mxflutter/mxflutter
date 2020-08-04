@@ -5,28 +5,29 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/sliver_prototype_extent_list.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/sliver.dart';
 
 
-class MXProxySliverPrototypeExtentList {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[sliverPrototypeExtentList.funName] = sliverPrototypeExtentList;
-    return m;
-  }
-  static var sliverPrototypeExtentList = MXFunctionInvoke(
-      "SliverPrototypeExtentList",
-      ({
-        Key key,
-        SliverChildDelegate delegate,
-        Widget prototypeItem,
-      }) =>
-        SliverPrototypeExtentList(
-        key: key,
-        delegate: delegate,
-        prototypeItem: prototypeItem,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSliverPrototypeExtentListSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[sliverPrototypeExtentList.funName] = sliverPrototypeExtentList;
+  return m;
 }
+var sliverPrototypeExtentList = MXFunctionInvoke(
+    "SliverPrototypeExtentList",
+    ({
+      Key key,
+      SliverChildDelegate delegate,
+      Widget prototypeItem,
+    }) =>
+      SliverPrototypeExtentList(
+      key: key,
+      delegate: delegate,
+      prototypeItem: prototypeItem,
+    ),
+);

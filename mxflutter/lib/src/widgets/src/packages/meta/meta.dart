@@ -5,34 +5,31 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 
-class MXProxyMeta {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[immutable.funName] = immutable;
-    m[required.funName] = required;
-    return m;
-  }
-  static var immutable = MXFunctionInvoke(
-      "Immutable",
-      ({
-        String reason,
-      }) =>
-        Immutable(
-        reason,
-      ),
-    );
-  static var required = MXFunctionInvoke(
-      "Required",
-      ({
-        String reason,
-      }) =>
-        Required(
-        reason,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerMetaSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[immutable.funName] = immutable;
+  m[required.funName] = required;
+  return m;
 }
+var immutable = MXFunctionInvoke(
+    "Immutable",
+    ({
+      String reason,
+    }) =>
+      Immutable(
+      reason,
+    ),
+);
+var required = MXFunctionInvoke(
+    "Required",
+    ({
+      String reason,
+    }) =>
+      Required(
+      reason,
+    ),
+);

@@ -5,46 +5,55 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/material/range_slider.dart';
+import 'dart:async';
+import 'dart:math';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/slider_theme.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
-class MXProxyRangeSlider {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[rangeSlider.funName] = rangeSlider;
-    return m;
-  }
-  static var rangeSlider = MXFunctionInvoke(
-      "RangeSlider",
-      ({
-        Key key,
-        RangeValues values,
-        dynamic onChanged,
-        dynamic onChangeStart,
-        dynamic onChangeEnd,
-        dynamic min = 0.0,
-        dynamic max = 1.0,
-        int divisions,
-        RangeLabels labels,
-        Color activeColor,
-        Color inactiveColor,
-        dynamic semanticFormatterCallback,
-      }) =>
-        RangeSlider(
-        key: key,
-        values: values,
-        onChanged: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChanged),
-        onChangeStart: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChangeStart),
-        onChangeEnd: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChangeEnd),
-        min: min?.toDouble(),
-        max: max?.toDouble(),
-        divisions: divisions,
-        labels: labels,
-        activeColor: activeColor,
-        inactiveColor: inactiveColor,
-        semanticFormatterCallback: createGenericValueGenericClosure<String, RangeValues>(rangeSlider.buildOwner, semanticFormatterCallback),
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerRangeSliderSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[rangeSlider.funName] = rangeSlider;
+  return m;
 }
+var rangeSlider = MXFunctionInvoke(
+    "RangeSlider",
+    ({
+      Key key,
+      RangeValues values,
+      dynamic onChanged,
+      dynamic onChangeStart,
+      dynamic onChangeEnd,
+      dynamic min = 0.0,
+      dynamic max = 1.0,
+      int divisions,
+      RangeLabels labels,
+      Color activeColor,
+      Color inactiveColor,
+      dynamic semanticFormatterCallback,
+    }) =>
+      RangeSlider(
+      key: key,
+      values: values,
+      onChanged: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChanged),
+      onChangeStart: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChangeStart),
+      onChangeEnd: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChangeEnd),
+      min: min,
+      max: max,
+      divisions: divisions,
+      labels: labels,
+      activeColor: activeColor,
+      inactiveColor: inactiveColor,
+      semanticFormatterCallback: createGenericValueGenericClosure<String, RangeValues>(rangeSlider.buildOwner, semanticFormatterCallback),
+    ),
+);

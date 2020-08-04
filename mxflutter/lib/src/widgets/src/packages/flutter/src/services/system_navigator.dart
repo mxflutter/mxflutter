@@ -5,22 +5,13 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/services/system_navigator.dart';
+import 'dart:async';
+import 'package:flutter/src/services/system_channels.dart';
 
 
-class MXProxySystemNavigator {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[systemNavigator_.funName] = systemNavigator_;
-    return m;
-  }
-  static var systemNavigator_ = MXFunctionInvoke(
-    "systemNavigator.",
-      ({
-      }) =>
-        SystemNavigator.(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSystemNavigatorSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }

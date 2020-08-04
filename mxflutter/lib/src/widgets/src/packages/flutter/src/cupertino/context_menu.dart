@@ -5,30 +5,35 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/cupertino/context_menu.dart';
+import 'dart:math';
+import 'dart:ui';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 
-class MXProxyContextMenu {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[cupertinoContextMenu.funName] = cupertinoContextMenu;
-    return m;
-  }
-  static var cupertinoContextMenu = MXFunctionInvoke(
-      "CupertinoContextMenu",
-      ({
-        Key key,
-        List<Widget> actions,
-        Widget child,
-        dynamic previewBuilder,
-      }) =>
-        CupertinoContextMenu(
-        key: key,
-        actions: actions,
-        child: child,
-        previewBuilder: previewBuilder,
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerContextMenuSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[cupertinoContextMenu.funName] = cupertinoContextMenu;
+  return m;
 }
+var cupertinoContextMenu = MXFunctionInvoke(
+    "CupertinoContextMenu",
+    ({
+      Key key,
+      List<Widget> actions,
+      Widget child,
+      dynamic previewBuilder,
+    }) =>
+      CupertinoContextMenu(
+      key: key,
+      actions: actions,
+      child: child,
+      previewBuilder: previewBuilder,
+    ),
+);

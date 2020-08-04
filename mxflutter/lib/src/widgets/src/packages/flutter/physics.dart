@@ -5,7 +5,6 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'src/physics/clamped_simulation.dart';
 import 'src/physics/friction_simulation.dart';
 import 'src/physics/gravity_simulation.dart';
@@ -15,16 +14,14 @@ import 'src/physics/tolerance.dart';
 import 'src/physics/utils.dart';
 
 
-class MXProxyPhysics {
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    Map<String, MXFunctionInvoke> m = {};
-    m.addAll(MXProxyClampedSimulation.registerSeries());
-    m.addAll(MXProxyFrictionSimulation.registerSeries());
-    m.addAll(MXProxyGravitySimulation.registerSeries());
-    m.addAll(MXProxySimulation.registerSeries());
-    m.addAll(MXProxySpringSimulation.registerSeries());
-    m.addAll(MXProxyTolerance.registerSeries());
-    m.addAll(MXProxyUtils.registerSeries());
-    return m;
-  }
+Map<String, MXFunctionInvoke> registerPhysicsSeries() {
+  Map<String, MXFunctionInvoke> m = {};
+  m.addAll(registerClampedSimulationSeries());
+  m.addAll(registerFrictionSimulationSeries());
+  m.addAll(registerGravitySimulationSeries());
+  m.addAll(registerSimulationSeries());
+  m.addAll(registerSpringSimulationSeries());
+  m.addAll(registerToleranceSeries());
+  m.addAll(registerUtilsSeries());
+  return m;
 }

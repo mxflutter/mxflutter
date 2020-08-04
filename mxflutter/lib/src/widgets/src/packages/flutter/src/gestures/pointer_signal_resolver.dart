@@ -5,22 +5,21 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/gestures/pointer_signal_resolver.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/gestures/events.dart';
 
 
-class MXProxyPointerSignalResolver {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[pointerSignalResolver.funName] = pointerSignalResolver;
-    return m;
-  }
-  static var pointerSignalResolver = MXFunctionInvoke(
-      "PointerSignalResolver",
-      ({
-      }) =>
-        PointerSignalResolver(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerPointerSignalResolverSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[pointerSignalResolver.funName] = pointerSignalResolver;
+  return m;
 }
+var pointerSignalResolver = MXFunctionInvoke(
+    "PointerSignalResolver",
+    ({
+    }) =>
+      PointerSignalResolver(
+    ),
+);

@@ -5,22 +5,13 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/route_notification_messages.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 
-class MXProxyRouteNotificationMessages {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[routeNotificationMessages_.funName] = routeNotificationMessages_;
-    return m;
-  }
-  static var routeNotificationMessages_ = MXFunctionInvoke(
-    "routeNotificationMessages.",
-      ({
-      }) =>
-        RouteNotificationMessages.(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerRouteNotificationMessagesSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }

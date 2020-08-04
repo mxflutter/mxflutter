@@ -5,30 +5,21 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/services/system_sound.dart';
+import 'dart:async';
+import 'package:flutter/src/services/system_channels.dart';
 
 
-class MXProxySystemSound {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    m[systemSoundType.funName] = systemSoundType;
-    m[systemSound_.funName] = systemSound_;
-    return m;
-  }
-  static var systemSoundType = MXFunctionInvoke(
-      "SystemSoundType",
-      ({Map args}) => MXSystemSoundType.parse(args),
-  );
-  static var systemSound_ = MXFunctionInvoke(
-    "systemSound.",
-      ({
-      }) =>
-        SystemSound.(
-      ),
-    );
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerSystemSoundSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[systemSoundType.funName] = systemSoundType;
+  return m;
 }
+var systemSoundType = MXFunctionInvoke(
+    "SystemSoundType",
+    ({Map args}) => MXSystemSoundType.parse(args),
+  );
 class MXSystemSoundType {
   static Map str2VMap = {
     'SystemSoundType.click': SystemSoundType.click,

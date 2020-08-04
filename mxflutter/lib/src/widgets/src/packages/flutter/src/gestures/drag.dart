@@ -5,14 +5,12 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/gestures/drag.dart';
+import 'package:flutter/src/gestures/drag_details.dart';
 
 
-class MXProxyDrag {
-  ///把自己能处理的类注册到分发器中
-  static Map<String, MXFunctionInvoke> registerSeries() {
-    var m = <String, MXFunctionInvoke>{};
-    return m;
-  }
+///把自己能处理的类注册到分发器中
+Map<String, MXFunctionInvoke> registerDragSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  return m;
 }
