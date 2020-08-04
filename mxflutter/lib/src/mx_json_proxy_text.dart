@@ -663,10 +663,10 @@ class MXProxyInputDecoration extends MXJsonObjProxy {
   void init({String className}) {
     super.init(className: className);
 
-    registerStaticFunction(
+    registerConstructor(
         className: className,
-        staticFunctionName: "collapsed",
-        staticFunction: functionCollapsed);
+        constructorName: "collapsed",
+        constructor: functionCollapsed);
   }
 
   @override

@@ -263,7 +263,7 @@ FlatButton.icon = function ({
   label
 }) {
   let v = new FlatButton();
-  v.staticFunctionName = "icon";
+  v.constructorName = "icon";
 
   v.key = key;
   v.onPressed = onPressed;
@@ -309,7 +309,7 @@ class FlatButtonWithIcon extends FlatButton {
     super();
 
     this.className = "FlatButton";
-    this.staticFunctionName = "icon";
+    this.constructorName = "icon";
 
     this.key = key;
     this.onPressed = onPressed;
@@ -409,7 +409,7 @@ RaisedButton.icon = function ({
   label
 }) {
   let v = new RaisedButton();
-  v.staticFunctionName = "icon";
+  v.constructorName = "icon";
 
   v.key = key;
   v.onPressed = onPressed;
@@ -461,7 +461,7 @@ class RaisedButtonWithIcon extends FlatButton {
     super();
 
     this.className = "RaisedButton";
-    this.staticFunctionName = "icon";
+    this.constructorName = "icon";
 
     this.key = key;
     this.onPressed = onPressed;

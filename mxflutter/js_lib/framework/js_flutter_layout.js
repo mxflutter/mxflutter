@@ -1019,7 +1019,7 @@ NestedScrollView.new = function(arg) {
 
 NestedScrollView.sliverOverlapAbsorberHandleFor = function(context) {
   let v = new NestedScrollView();
-  v.staticFunctionName = "sliverOverlapAbsorberHandleFor";
+  v.constructorName = "sliverOverlapAbsorberHandleFor";
 
   return v;
 };

@@ -696,7 +696,7 @@ InputDecoration.collapsed = function({
   enabled
 }) {
   let v = new InputDecoration();
-  v.staticFunctionName = "collapsed";
+  v.constructorName = "collapsed";
 
   v.hintText = hintText;
   v.hasFloatingPlaceholder = hasFloatingPlaceholder;
