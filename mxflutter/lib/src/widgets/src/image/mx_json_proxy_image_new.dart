@@ -7,6 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
+//TODO: 待删除
 Map<String, MXFunctionInvoke> registerImageSeries() {
   var m = <String, MXFunctionInvoke>{};
 

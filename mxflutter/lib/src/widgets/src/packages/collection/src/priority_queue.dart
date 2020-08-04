@@ -1,0 +1,28 @@
+//  MXFlutterFramework
+//  Copyright 2019 The MXFlutter Authors. All rights reserved.
+//
+//  Use of this source code is governed by a MIT-style license that can be
+//  found in the LICENSE file.
+
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
+import 'package:flutter/material.dart';
+import 'package:collection/src/priority_queue.dart';
+
+
+class MXProxyPriorityQueue {
+  ///把自己能处理的类注册到分发器中
+  static Map<String, MXFunctionInvoke> registerSeries() {
+    var m = <String, MXFunctionInvoke>{};
+    m[heapPriorityQueue.funName] = heapPriorityQueue;
+    return m;
+  }
+  static var heapPriorityQueue = MXFunctionInvoke(
+      "HeapPriorityQueue",
+      ({
+        dynamic comparison,
+      }) =>
+        HeapPriorityQueue(
+        comparison,
+      ),
+    );
+}

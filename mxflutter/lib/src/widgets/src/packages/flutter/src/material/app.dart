@@ -1,0 +1,105 @@
+//  MXFlutterFramework
+//  Copyright 2019 The MXFlutter Authors. All rights reserved.
+//
+//  Use of this source code is governed by a MIT-style license that can be
+//  found in the LICENSE file.
+
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/material/app.dart';
+
+
+class MXProxyApp {
+  ///把自己能处理的类注册到分发器中
+  static Map<String, MXFunctionInvoke> registerSeries() {
+    var m = <String, MXFunctionInvoke>{};
+    m[themeMode.funName] = themeMode;
+    m[materialApp.funName] = materialApp;
+    return m;
+  }
+  static var themeMode = MXFunctionInvoke(
+      "ThemeMode",
+      ({Map args}) => MXThemeMode.parse(args),
+  );
+  static var materialApp = MXFunctionInvoke(
+      "MaterialApp",
+      ({
+        Key key,
+        GlobalKey<NavigatorState> navigatorKey,
+        Widget home,
+        Map<String*, Widget* Function(BuildContext> routes,
+        String initialRoute,
+        dynamic onGenerateRoute,
+        dynamic onGenerateInitialRoutes,
+        dynamic onUnknownRoute,
+        List<NavigatorObserver> navigatorObservers,
+        dynamic builder,
+        String title = ,
+        dynamic onGenerateTitle,
+        Color color,
+        ThemeData theme,
+        ThemeData darkTheme,
+        ThemeMode themeMode = ThemeMode.system,
+        Locale locale,
+        Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates,
+        dynamic localeListResolutionCallback,
+        dynamic localeResolutionCallback,
+        Iterable<Locale> supportedLocales,
+        bool debugShowMaterialGrid = false,
+        bool showPerformanceOverlay = false,
+        bool checkerboardRasterCacheImages = false,
+        bool checkerboardOffscreenLayers = false,
+        bool showSemanticsDebugger = false,
+        bool debugShowCheckedModeBanner = true,
+        Map<LogicalKeySet*, Intent> shortcuts,
+        Map<LocalKey*, Action* Function()> actions,
+      }) =>
+        MaterialApp(
+        key: key,
+        navigatorKey: navigatorKey,
+        home: home,
+        routes: routes,
+        initialRoute: initialRoute,
+        onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(materialApp.buildOwner, onGenerateRoute),
+        onGenerateInitialRoutes: createGenericValueGenericClosure<List<Route<dynamic>>, String>(materialApp.buildOwner, onGenerateInitialRoutes),
+        onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(materialApp.buildOwner, onUnknownRoute),
+        navigatorObservers: navigatorObservers,
+        builder: builder,
+        title: title,
+        onGenerateTitle: createGenericValueGenericClosure<String, BuildContext>(materialApp.buildOwner, onGenerateTitle),
+        color: color,
+        theme: theme,
+        darkTheme: darkTheme,
+        themeMode: themeMode,
+        locale: locale,
+        localizationsDelegates: localizationsDelegates,
+        localeListResolutionCallback: localeListResolutionCallback,
+        localeResolutionCallback: localeResolutionCallback,
+        supportedLocales: supportedLocales,
+        debugShowMaterialGrid: debugShowMaterialGrid,
+        showPerformanceOverlay: showPerformanceOverlay,
+        checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+        checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+        showSemanticsDebugger: showSemanticsDebugger,
+        debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+        shortcuts: shortcuts,
+        actions: actions,
+      ),
+    );
+}
+class MXThemeMode {
+  static Map str2VMap = {
+    'ThemeMode.system': ThemeMode.system,
+    'ThemeMode.light': ThemeMode.light,
+    'ThemeMode.dark': ThemeMode.dark,
+  };
+  static ThemeMode parse(dynamic value) {
+    if (value is Map) {
+      var valueStr = value["_name"].trim();
+      var v = str2VMap[valueStr];
+      return v;
+    } else {
+      return value;
+    }
+  }
+}
