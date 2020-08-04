@@ -117,8 +117,18 @@ class MXMirrorFunc {
 
   /// 将json装成flutter对象
   dynamic _jsonToDartObject(dynamic json, { MXJsonBuildOwner buildOwner }) {
-    if (json is Map && canInvoke(json["funcName"])) {
-      return invoke(json, buildOwner: buildOwner);
+    if (json is Map) {
+      String funcName = json[constFuncStr];
+      Map<String, dynamic> newJsonMap = Map.from(json);
+      if (funcName == null) {
+        funcName = constructorFuncName(json);
+        newJsonMap[constFuncStr] = funcName;
+      }
+      
+      if (!canInvoke(funcName)) {
+        return json;
+      }
+      return invoke(newJsonMap, buildOwner: buildOwner);
     } else if (json is List) {
       List list = [];
       for (var element in json) {

@@ -3033,10 +3033,10 @@ class MXProxyInputBorder extends MXJsonObjProxy {
 
     final String regClassName = "InputBorder";
 
-    registerStaticFunction(
+    registerConstructor(
         className: regClassName,
-        staticFunctionName: "none",
-        staticFunction: functionNone);
+        constructorName: "none",
+        constructor: functionNone);
   }
 
   @override

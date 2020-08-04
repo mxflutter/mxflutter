@@ -2694,7 +2694,7 @@ InputBorder.new = function (args) {
 
 InputBorder.none = function () {
   let v = new InputBorder();
-  v.staticFunctionName = "none";
+  v.constructorName = "none";
 
   return v;
 };

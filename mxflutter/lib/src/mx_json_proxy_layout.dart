@@ -1926,10 +1926,10 @@ class MXProxyNestedScrollView extends MXJsonObjProxy {
 
     final String regClassName = "NestedScrollView";
 
-    registerStaticFunction(
+    registerConstructor(
         className: regClassName,
-        staticFunctionName: "sliverOverlapAbsorberHandleFor",
-        staticFunction: functionSliverOverlapAbsorberHandleFor);
+        constructorName: "sliverOverlapAbsorberHandleFor",
+        constructor: functionSliverOverlapAbsorberHandleFor);
   }
 
   @override

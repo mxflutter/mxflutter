@@ -770,15 +770,15 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
     registerConstructor(
         className: regClassName7, constructor: constructorButtonBar);
 
-    registerStaticFunction(
+    registerConstructor(
         className: regClassName1,
-        staticFunctionName: "icon",
-        staticFunction: functionFlatButtonIcon);
-
-    registerStaticFunction(
+        constructorName: "icon",
+        constructor: functionFlatButtonIcon);
+    
+    registerConstructor(
         className: regClassName2,
-        staticFunctionName: "icon",
-        staticFunction: functionRaisedButtonIcon);
+        constructorName: "icon",
+        constructor: functionRaisedButtonIcon);
   }
 
   Widget constructorFlatButton(
