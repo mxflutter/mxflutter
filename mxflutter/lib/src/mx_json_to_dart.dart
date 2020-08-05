@@ -527,7 +527,7 @@ class MXJsonObjProxy {
     }
 
     ValueChanged<dynamic> cb = (dynamic b) {
-      bo.eventCallback(eventCallbackID, p: b);
+      bo.eventCallback(eventCallbackID, b);
     };
 
     return cb;
@@ -541,7 +541,7 @@ class MXJsonObjProxy {
     }
 
     ValueChanged<T> cb = (T b) {
-      bo.eventCallback(eventCallbackID, p: b);
+      bo.eventCallback(eventCallbackID, b);
     };
 
     return cb;
@@ -555,7 +555,7 @@ class MXJsonObjProxy {
     }
 
     StringFunctionGenericCallback<T> cb = (T b) {
-      bo.eventCallback(eventCallbackID, p: b);
+      bo.eventCallback(eventCallbackID, b);
       //TODO:return String
       return null;
     };
@@ -603,7 +603,7 @@ class MXJsonObjProxy {
       return null;
     }
 
-    var cb = await bo.eventCallback(eventCallbackID, p: {
+    var cb = await bo.eventCallback(eventCallbackID, {
       "widgetName": "LayoutBuilder",
       "functionName": "builder",
       "constraints": MXUtil.cBoxConstraintsToJson(constraints)

@@ -27,7 +27,7 @@ ValueChanged<dynamic> createValueChangedDynamicClosure(
   }
 
   ValueChanged<dynamic> cb = (dynamic b) {
-    bo.eventCallback(eventCallbackID, p: b);
+    bo.eventCallback(eventCallbackID, b);
   };
 
   return cb;
@@ -41,7 +41,7 @@ ValueChanged<T> createValueChangedGenericClosure<T>(
   }
 
   ValueChanged<T> cb = (T b) {
-    bo.eventCallback(eventCallbackID, p: b);
+    bo.eventCallback(eventCallbackID, b);
   };
 
   return cb;
@@ -55,7 +55,7 @@ GenericFunctionGenericCallback<R, T> createGenericValueGenericClosure<R, T>(
   }
 
   GenericFunctionGenericCallback<R, T> cb = (T b) {
-    R result = bo.eventCallback(eventCallbackID, p: b);
+    R result = bo.eventCallback(eventCallbackID, b);
     return result;
   };
 

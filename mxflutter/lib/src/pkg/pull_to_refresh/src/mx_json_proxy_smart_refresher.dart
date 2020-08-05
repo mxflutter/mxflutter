@@ -18,7 +18,7 @@ ShouldFollowContent createShouldFollowContentHandle(
   }
 
   ShouldFollowContent cb = (LoadStatus status) {
-    return bo.eventCallback(eventCallbackID, p: status);
+    return bo.eventCallback(eventCallbackID, status);
   };
 
   return cb;
@@ -31,8 +31,7 @@ OnOffsetChange createOffsetChangeDynamicHandle(
   }
 
   OnOffsetChange cb = (bool up, double offset) {
-    //TODO: 此处有问题，只传了一个参数
-    bo.eventCallback(eventCallbackID, p: up);
+    bo.eventCallback(eventCallbackID, up, offset);
   };
 
   return cb;
