@@ -208,7 +208,7 @@ class MXProxyAnimatedBuilder extends MXJsonObjProxy {
           //todo...
           print("调用JS的builder生成数据，返回");
           final builderCallbackID = jsonMap["builder"];
-          final widgetMap = bo.eventCallback(builderCallbackID, p: []);
+          final widgetMap = bo.eventCallback(builderCallbackID, []);
           return mxj2d(bo, widgetMap);
         } else {
           String targetString = '\$value';

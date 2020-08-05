@@ -88,12 +88,17 @@ class MXJsonBuildOwner {
 
   //事件回调
   //flutter->JS
-  dynamic eventCallback(String callID, {dynamic p}) async {
+  dynamic eventCallback(String callID, [dynamic arg1, dynamic arg2, dynamic arg3, dynamic arg4, dynamic arg5]) async {
     var ownerWidgetID = this.widget?.widgetID;
     String buildSeq = this.widget?.buildWidgetDataSeq;
-
+    List args = [];
+    args.add(arg1);
+    args.add(arg2);
+    args.add(arg3);
+    args.add(arg4);
+    args.add(arg5);
     return await callJSWidgetOnEventCallback(
-        widgetID: ownerWidgetID, buildSeq: buildSeq, callID: callID, args: p);
+        widgetID: ownerWidgetID, buildSeq: buildSeq, callID: callID, args: args);
   }
 
   dynamic callJSWidgetOnEventCallback(

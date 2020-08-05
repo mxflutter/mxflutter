@@ -618,7 +618,7 @@ class MXProxyTextFormField extends MXJsonObjProxy {
     }
 
     FormFieldValidator<T> cb = (T b) {
-      bo.eventCallback(eventCallbackID, p: b);
+      bo.eventCallback(eventCallbackID, b);
       //TODO:return string
       return null;
     };
