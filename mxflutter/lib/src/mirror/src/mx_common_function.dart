@@ -39,12 +39,3 @@ Map<String, T> toMapStringT<T>(Map map) {
   });
   return result;
 }
-
-/// 转Double类型
-double toDouble(obj) {
-  if (obj == null) {
-    return 0.0;
-  }
-
-  return obj.toDouble();
-}
