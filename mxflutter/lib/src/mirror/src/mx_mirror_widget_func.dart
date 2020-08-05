@@ -5,13 +5,13 @@ import 'package:mxflutter/src/widgets/mx_widgets.dart';
 void registerMirrorWidgetFunc() {
   //TODO: 待删除
   // Image
-  MXMirrorFunc.getInstance().registerBizFunction(registerImageSeriesOld());
-
-  // Meterial
-  MXMirrorFunc.getInstance().registerBizFunction(registerMaterialSeriesOld());
-
-  // Layout
-  MXMirrorFunc.getInstance().registerBizFunction(registerLayoutSeriesOld());
+//  MXMirrorFunc.getInstance().registerBizFunction(registerImageSeriesOld());
+//
+//  // Meterial
+//  MXMirrorFunc.getInstance().registerBizFunction(registerMaterialSeriesOld());
+//
+//  // Layout
+//  MXMirrorFunc.getInstance().registerBizFunction(registerLayoutSeriesOld());
 
   // flutter/animation
   MXMirrorFunc.getInstance().registerBizFunction(registerAnimationSeries());
