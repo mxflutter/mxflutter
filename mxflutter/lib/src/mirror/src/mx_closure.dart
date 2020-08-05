@@ -41,20 +41,6 @@ VoidCallback createVoidCallbackClosure(
   return cb;
 }
 
-/// 生成ValueChanged<dynamic>闭包
-ValueChanged<dynamic> createValueChangedDynamicClosure(
-    MXJsonBuildOwner bo, dynamic eventCallbackID) {
-  if (eventCallbackID == null) {
-    return null;
-  }
-
-  ValueChanged<dynamic> cb = (dynamic b) {
-    bo.eventCallback(eventCallbackID, b);
-  };
-
-  return cb;
-}
-
 /// 生成ValueChanged<T>闭包
 ValueChanged<T> createValueChangedGenericClosure<T>(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
@@ -69,7 +55,7 @@ ValueChanged<T> createValueChangedGenericClosure<T>(
   return cb;
 }
 
-//生成StringFunctionGenericCallback<T> 闭包
+//GenericFunctionGenericCallback<R, T> 闭包
 GenericFunctionGenericCallback<R, T> createGenericValueGenericClosure<R, T>(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
   if (eventCallbackID == null) {
