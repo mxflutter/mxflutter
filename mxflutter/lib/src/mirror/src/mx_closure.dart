@@ -4,10 +4,32 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mx_build_owner.dart';
 import 'package:flutter/material.dart';
+import 'package:mxflutter/src/mx_build_owner.dart';
 
 typedef GenericFunctionGenericCallback<R, T> = R Function(T value);
+
+typedef VoidTwoGenericParamsCallback<T, S> = Function(T arg1, S arg2);
+
+typedef GenericTwoGenericParamsCallback<R, T, S> = R Function(T arg1, S arg2);
+
+typedef VoidThreeGenericParamsCallback<T, S, W> = Function(
+    T arg1, S arg2, W arg3);
+
+typedef GenericThreeGenericParamsCallback<R, T, S, W> = R Function(
+    T arg1, S arg2, W arg3);
+
+typedef VoidFourGenericParamsCallback<T, S, W, V> = Function(
+    T arg1, S arg2, W arg3, V arg4);
+
+typedef GenericFourGenericParamsCallback<R, T, S, W, V> = R Function(
+    T arg1, S arg2, W arg3, V arg4);
+
+typedef VoidFiveGenericParamsCallback<T, S, W, V, U> = Function(
+    T arg1, S arg2, W arg3, V arg4, U arg5);
+
+typedef GenericFiveGenericParamsCallback<R, T, S, W, V, U> = R Function(
+    T arg1, S arg2, W arg3, V arg4, U arg5);
 
 /// 生成VoidCallback闭包
 VoidCallback createVoidCallbackClosure(
@@ -56,6 +78,132 @@ GenericFunctionGenericCallback<R, T> createGenericValueGenericClosure<R, T>(
 
   GenericFunctionGenericCallback<R, T> cb = (T b) {
     R result = bo.eventCallback(eventCallbackID, b);
+    return result;
+  };
+
+  return cb;
+}
+
+/// VoidTwoGenericParamsCallback<T, S>闭包
+VoidTwoGenericParamsCallback<T, S> createVoidTwoParamsClosure<T, S>(
+    MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  VoidTwoGenericParamsCallback<T, S> cb = (T arg1, S arg2) {
+    bo.eventCallback(eventCallbackID, arg1, arg2);
+  };
+
+  return cb;
+}
+
+/// GenericTwoGenericParamsCallback<R, T, S>闭包
+GenericTwoGenericParamsCallback<R, T, S>
+    createGenericTwoParamsClosure<R, T, S>(
+        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  GenericTwoGenericParamsCallback<R, T, S> cb = (T arg1, S arg2) {
+    R result = bo.eventCallback(eventCallbackID, arg1, arg2);
+    return result;
+  };
+
+  return cb;
+}
+
+/// VoidThreeGenericParamsCallback<T, S, W>闭包
+VoidThreeGenericParamsCallback<T, S, W> createVoidThreeParamsClosure<T, S, W>(
+    MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  VoidThreeGenericParamsCallback<T, S, W> cb = (T arg1, S arg2, W arg3) {
+    bo.eventCallback(eventCallbackID, arg1, arg2, arg3);
+  };
+
+  return cb;
+}
+
+/// GenericThreeGenericParamsCallback<R, T, S, W>闭包
+GenericThreeGenericParamsCallback<R, T, S, W>
+    createGenericThreeParamsClosure<R, T, S, W>(
+        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  GenericThreeGenericParamsCallback<R, T, S, W> cb = (T arg1, S arg2, W arg3) {
+    R result = bo.eventCallback(eventCallbackID, arg1, arg2, arg3);
+    return result;
+  };
+
+  return cb;
+}
+
+/// VoidFourGenericParamsCallback<T, U>闭包
+VoidFourGenericParamsCallback<T, S, W, V>
+    createVoidFourParamsClosure<T, S, W, V>(
+        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  VoidFourGenericParamsCallback<T, S, W, V> cb =
+      (T arg1, S arg2, W arg3, V arg4) {
+    bo.eventCallback(eventCallbackID, arg1, arg2, arg3, arg4);
+  };
+
+  return cb;
+}
+
+/// GenericFourGenericParamsCallback<R, T, S, W, V>闭包
+GenericFourGenericParamsCallback<R, T, S, W, V>
+    createGenericFourParamsClosure<R, T, S, W, V>(
+        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  GenericFourGenericParamsCallback<R, T, S, W, V> cb =
+      (T arg1, S arg2, W arg3, V arg4) {
+    R result = bo.eventCallback(eventCallbackID, arg1, arg2, arg3, arg4);
+    return result;
+  };
+
+  return cb;
+}
+
+/// VoidFiveGenericParamsCallback<T, U>闭包
+VoidFiveGenericParamsCallback<T, S, W, V, U>
+    createVoidFiveParamsClosure<T, S, W, V, U>(
+        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  VoidFiveGenericParamsCallback<T, S, W, V, U> cb =
+      (T arg1, S arg2, W arg3, V arg4, U arg5) {
+    bo.eventCallback(eventCallbackID, arg1, arg2, arg3, arg4, arg5);
+  };
+
+  return cb;
+}
+
+/// GenericFiveGenericParamsCallback<R, T, S, W, V, U>闭包
+GenericFiveGenericParamsCallback<R, T, S, W, V, U>
+    createGenericFiveParamsClosure<R, T, S, W, V, U>(
+        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  GenericFiveGenericParamsCallback<R, T, S, W, V, U> cb =
+      (T arg1, S arg2, W arg3, V arg4, U arg5) {
+    R result = bo.eventCallback(eventCallbackID, arg1, arg2, arg3, arg4, arg5);
     return result;
   };
 
