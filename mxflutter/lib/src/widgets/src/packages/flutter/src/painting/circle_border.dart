@@ -16,14 +16,16 @@ import 'package:flutter/src/painting/edge_insets.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCircleBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[circleBorder.funName] = circleBorder;
+  m[_circleBorder.funName] = _circleBorder;
   return m;
 }
-var circleBorder = MXFunctionInvoke(
+var _circleBorder = MXFunctionInvoke(
     "CircleBorder",
-    ({
+    (
+      {
       BorderSide side,
-    }) =>
+      }
+    ) =>
       CircleBorder(
       side: side,
     ),

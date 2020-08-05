@@ -15,17 +15,19 @@ import 'package:flutter/src/widgets/media_query.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerOrientationBuilderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[orientationBuilder.funName] = orientationBuilder;
+  m[_orientationBuilder.funName] = _orientationBuilder;
   return m;
 }
-var orientationBuilder = MXFunctionInvoke(
+var _orientationBuilder = MXFunctionInvoke(
     "OrientationBuilder",
-    ({
+    (
+      {
       Key key,
       dynamic builder,
-    }) =>
+      }
+    ) =>
       OrientationBuilder(
       key: key,
-      builder: builder,
+      builder: null,
     ),
 );

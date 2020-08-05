@@ -20,15 +20,16 @@ import 'package:flutter/src/widgets/ticker_provider.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedListSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[animatedList.funName] = animatedList;
-  m[animatedListState.funName] = animatedListState;
-  m[sliverAnimatedList.funName] = sliverAnimatedList;
-  m[sliverAnimatedListState.funName] = sliverAnimatedListState;
+  m[_animatedList.funName] = _animatedList;
+  m[_animatedListState.funName] = _animatedListState;
+  m[_sliverAnimatedList.funName] = _sliverAnimatedList;
+  m[_sliverAnimatedListState.funName] = _sliverAnimatedListState;
   return m;
 }
-var animatedList = MXFunctionInvoke(
+var _animatedList = MXFunctionInvoke(
     "AnimatedList",
-    ({
+    (
+      {
       Key key,
       dynamic itemBuilder,
       int initialItemCount = 0,
@@ -39,10 +40,11 @@ var animatedList = MXFunctionInvoke(
       ScrollPhysics physics,
       bool shrinkWrap = false,
       EdgeInsetsGeometry padding,
-    }) =>
+      }
+    ) =>
       AnimatedList(
       key: key,
-      itemBuilder: itemBuilder,
+      itemBuilder: null,
       initialItemCount: initialItemCount,
       scrollDirection: scrollDirection,
       reverse: reverse,
@@ -53,30 +55,32 @@ var animatedList = MXFunctionInvoke(
       padding: padding,
     ),
 );
-var animatedListState = MXFunctionInvoke(
+var _animatedListState = MXFunctionInvoke(
     "AnimatedListState",
-    ({
-    }) =>
+    (
+    ) =>
       AnimatedListState(
     ),
 );
-var sliverAnimatedList = MXFunctionInvoke(
+var _sliverAnimatedList = MXFunctionInvoke(
     "SliverAnimatedList",
-    ({
+    (
+      {
       Key key,
       dynamic itemBuilder,
       int initialItemCount = 0,
-    }) =>
+      }
+    ) =>
       SliverAnimatedList(
       key: key,
-      itemBuilder: itemBuilder,
+      itemBuilder: null,
       initialItemCount: initialItemCount,
     ),
 );
-var sliverAnimatedListState = MXFunctionInvoke(
+var _sliverAnimatedListState = MXFunctionInvoke(
     "SliverAnimatedListState",
-    ({
-    }) =>
+    (
+    ) =>
       SliverAnimatedListState(
     ),
 );

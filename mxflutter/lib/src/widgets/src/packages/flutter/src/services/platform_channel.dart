@@ -13,203 +13,191 @@ import 'package:flutter/src/services/binary_messenger.dart';
 import 'package:flutter/src/services/binding.dart';
 import 'package:flutter/src/services/message_codec.dart';
 import 'package:flutter/src/services/message_codecs.dart';
-import 'package:flutter/src/services/message_codec.dart';
-import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/platform_channel.dart';
-import 'dart:typed_data';
-import 'package:flutter/src/services/message_codecs.dart';
 import 'dart:convert';
-import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/message_codec.dart';
 import 'package:flutter/src/services/system_channels.dart';
 import 'dart:ui';
-import 'package:flutter/src/services/message_codecs.dart';
-import 'package:flutter/src/services/platform_channel.dart';
-import 'package:flutter/src/services/binding.dart';
-import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/asset_bundle.dart';
-import 'package:flutter/src/services/binary_messenger.dart';
-import 'package:flutter/src/services/system_channels.dart';
-import 'package:flutter/src/services/binary_messenger.dart';
-import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/binding.dart';
-import 'package:flutter/src/services/asset_bundle.dart';
-import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/binary_messenger.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformChannelSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[basicMessageChannel.funName] = basicMessageChannel;
-  m[methodChannel.funName] = methodChannel;
-  m[optionalMethodChannel.funName] = optionalMethodChannel;
-  m[eventChannel.funName] = eventChannel;
-  m[methodCall.funName] = methodCall;
-  m[platformException.funName] = platformException;
-  m[missingPluginException.funName] = missingPluginException;
-  m[binaryCodec.funName] = binaryCodec;
-  m[stringCodec.funName] = stringCodec;
-  m[jSONMessageCodec.funName] = jSONMessageCodec;
-  m[jSONMethodCodec.funName] = jSONMethodCodec;
-  m[standardMessageCodec.funName] = standardMessageCodec;
-  m[standardMethodCodec.funName] = standardMethodCodec;
-  m[networkAssetBundle.funName] = networkAssetBundle;
-  m[platformAssetBundle.funName] = platformAssetBundle;
+  m[_basicMessageChannel.funName] = _basicMessageChannel;
+  m[_methodChannel.funName] = _methodChannel;
+  m[_optionalMethodChannel.funName] = _optionalMethodChannel;
+  m[_eventChannel.funName] = _eventChannel;
+  m[_methodCall.funName] = _methodCall;
+  m[_platformException.funName] = _platformException;
+  m[_missingPluginException.funName] = _missingPluginException;
+  m[_binaryCodec.funName] = _binaryCodec;
+  m[_stringCodec.funName] = _stringCodec;
+  m[_jSONMessageCodec.funName] = _jSONMessageCodec;
+  m[_jSONMethodCodec.funName] = _jSONMethodCodec;
+  m[_standardMessageCodec.funName] = _standardMessageCodec;
+  m[_standardMethodCodec.funName] = _standardMethodCodec;
+  m[_networkAssetBundle.funName] = _networkAssetBundle;
+  m[_platformAssetBundle.funName] = _platformAssetBundle;
   return m;
 }
-var basicMessageChannel = MXFunctionInvoke(
+var _basicMessageChannel = MXFunctionInvoke(
     "BasicMessageChannel",
-    ({
+    (
+      {
       String name,
-      dynamic codec,
+      MessageCodec<dynamic> codec,
       BinaryMessenger binaryMessenger,
-    }) =>
+      }
+    ) =>
       BasicMessageChannel(
       name,
       codec,
       binaryMessenger: binaryMessenger,
     ),
 );
-var methodChannel = MXFunctionInvoke(
+var _methodChannel = MXFunctionInvoke(
     "MethodChannel",
-    ({
+    (
+      {
       String name,
       MethodCodec codec,
       BinaryMessenger binaryMessenger,
-    }) =>
+      }
+    ) =>
       MethodChannel(
       name,
       codec,
       binaryMessenger,
     ),
 );
-var optionalMethodChannel = MXFunctionInvoke(
+var _optionalMethodChannel = MXFunctionInvoke(
     "OptionalMethodChannel",
-    ({
+    (
+      {
       String name,
       MethodCodec codec,
-    }) =>
+      }
+    ) =>
       OptionalMethodChannel(
       name,
       codec,
     ),
 );
-var eventChannel = MXFunctionInvoke(
+var _eventChannel = MXFunctionInvoke(
     "EventChannel",
-    ({
+    (
+      {
       String name,
       MethodCodec codec,
       BinaryMessenger binaryMessenger,
-    }) =>
+      }
+    ) =>
       EventChannel(
       name,
       codec,
       binaryMessenger,
     ),
 );
-var methodCall = MXFunctionInvoke(
+var _methodCall = MXFunctionInvoke(
     "MethodCall",
-    ({
+    (
+      {
       String method,
       dynamic arguments,
-    }) =>
+      }
+    ) =>
       MethodCall(
       method,
       arguments,
     ),
 );
-var platformException = MXFunctionInvoke(
+var _platformException = MXFunctionInvoke(
     "PlatformException",
-    ({
+    (
+      {
       String code,
       String message,
       dynamic details,
-    }) =>
+      }
+    ) =>
       PlatformException(
       code: code,
       message: message,
       details: details,
     ),
 );
-var missingPluginException = MXFunctionInvoke(
+var _missingPluginException = MXFunctionInvoke(
     "MissingPluginException",
-    ({
+    (
+      {
       String message,
-    }) =>
+      }
+    ) =>
       MissingPluginException(
       message,
     ),
 );
-var binaryCodec = MXFunctionInvoke(
+var _binaryCodec = MXFunctionInvoke(
     "BinaryCodec",
-    ({
-    }) =>
+    (
+    ) =>
       BinaryCodec(
     ),
 );
-var stringCodec = MXFunctionInvoke(
+var _stringCodec = MXFunctionInvoke(
     "StringCodec",
-    ({
-    }) =>
+    (
+    ) =>
       StringCodec(
     ),
 );
-var jSONMessageCodec = MXFunctionInvoke(
+var _jSONMessageCodec = MXFunctionInvoke(
     "JSONMessageCodec",
-    ({
-    }) =>
+    (
+    ) =>
       JSONMessageCodec(
     ),
 );
-var jSONMethodCodec = MXFunctionInvoke(
+var _jSONMethodCodec = MXFunctionInvoke(
     "JSONMethodCodec",
-    ({
-    }) =>
+    (
+    ) =>
       JSONMethodCodec(
     ),
 );
-var standardMessageCodec = MXFunctionInvoke(
+var _standardMessageCodec = MXFunctionInvoke(
     "StandardMessageCodec",
-    ({
-    }) =>
+    (
+    ) =>
       StandardMessageCodec(
     ),
 );
-var standardMethodCodec = MXFunctionInvoke(
+var _standardMethodCodec = MXFunctionInvoke(
     "StandardMethodCodec",
-    ({
+    (
+      {
       StandardMessageCodec messageCodec,
-    }) =>
+      }
+    ) =>
       StandardMethodCodec(
       messageCodec,
     ),
 );
-var networkAssetBundle = MXFunctionInvoke(
+var _networkAssetBundle = MXFunctionInvoke(
     "NetworkAssetBundle",
-    ({
+    (
+      {
       Uri baseUrl,
-    }) =>
+      }
+    ) =>
       NetworkAssetBundle(
       baseUrl,
     ),
 );
-var platformAssetBundle = MXFunctionInvoke(
+var _platformAssetBundle = MXFunctionInvoke(
     "PlatformAssetBundle",
-    ({
-    }) =>
+    (
+    ) =>
       PlatformAssetBundle(
     ),
 );

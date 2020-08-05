@@ -17,91 +17,101 @@ import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverGridSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[sliverGridGeometry.funName] = sliverGridGeometry;
-  m[sliverGridRegularTileLayout.funName] = sliverGridRegularTileLayout;
-  m[sliverGridDelegateWithFixedCrossAxisCount.funName] = sliverGridDelegateWithFixedCrossAxisCount;
-  m[sliverGridDelegateWithMaxCrossAxisExtent.funName] = sliverGridDelegateWithMaxCrossAxisExtent;
-  m[sliverGridParentData.funName] = sliverGridParentData;
-  m[renderSliverGrid.funName] = renderSliverGrid;
+  m[_sliverGridGeometry.funName] = _sliverGridGeometry;
+  m[_sliverGridRegularTileLayout.funName] = _sliverGridRegularTileLayout;
+  m[_sliverGridDelegateWithFixedCrossAxisCount.funName] = _sliverGridDelegateWithFixedCrossAxisCount;
+  m[_sliverGridDelegateWithMaxCrossAxisExtent.funName] = _sliverGridDelegateWithMaxCrossAxisExtent;
+  m[_sliverGridParentData.funName] = _sliverGridParentData;
+  m[_renderSliverGrid.funName] = _renderSliverGrid;
   return m;
 }
-var sliverGridGeometry = MXFunctionInvoke(
+var _sliverGridGeometry = MXFunctionInvoke(
     "SliverGridGeometry",
-    ({
-      dynamic scrollOffset,
-      dynamic crossAxisOffset,
-      dynamic mainAxisExtent,
-      dynamic crossAxisExtent,
-    }) =>
+    (
+      {
+      double scrollOffset,
+      double crossAxisOffset,
+      double mainAxisExtent,
+      double crossAxisExtent,
+      }
+    ) =>
       SliverGridGeometry(
-      scrollOffset: scrollOffset,
-      crossAxisOffset: crossAxisOffset,
-      mainAxisExtent: mainAxisExtent,
-      crossAxisExtent: crossAxisExtent,
+      scrollOffset: scrollOffset?.toDouble(),
+      crossAxisOffset: crossAxisOffset?.toDouble(),
+      mainAxisExtent: mainAxisExtent?.toDouble(),
+      crossAxisExtent: crossAxisExtent?.toDouble(),
     ),
 );
-var sliverGridRegularTileLayout = MXFunctionInvoke(
+var _sliverGridRegularTileLayout = MXFunctionInvoke(
     "SliverGridRegularTileLayout",
-    ({
+    (
+      {
       int crossAxisCount,
-      dynamic mainAxisStride,
-      dynamic crossAxisStride,
-      dynamic childMainAxisExtent,
-      dynamic childCrossAxisExtent,
+      double mainAxisStride,
+      double crossAxisStride,
+      double childMainAxisExtent,
+      double childCrossAxisExtent,
       bool reverseCrossAxis,
-    }) =>
+      }
+    ) =>
       SliverGridRegularTileLayout(
       crossAxisCount: crossAxisCount,
-      mainAxisStride: mainAxisStride,
-      crossAxisStride: crossAxisStride,
-      childMainAxisExtent: childMainAxisExtent,
-      childCrossAxisExtent: childCrossAxisExtent,
+      mainAxisStride: mainAxisStride?.toDouble(),
+      crossAxisStride: crossAxisStride?.toDouble(),
+      childMainAxisExtent: childMainAxisExtent?.toDouble(),
+      childCrossAxisExtent: childCrossAxisExtent?.toDouble(),
       reverseCrossAxis: reverseCrossAxis,
     ),
 );
-var sliverGridDelegateWithFixedCrossAxisCount = MXFunctionInvoke(
+var _sliverGridDelegateWithFixedCrossAxisCount = MXFunctionInvoke(
     "SliverGridDelegateWithFixedCrossAxisCount",
-    ({
+    (
+      {
       int crossAxisCount,
-      dynamic mainAxisSpacing = 0.0,
-      dynamic crossAxisSpacing = 0.0,
-      dynamic childAspectRatio = 1.0,
-    }) =>
+      double mainAxisSpacing = 0.0,
+      double crossAxisSpacing = 0.0,
+      double childAspectRatio = 1.0,
+      }
+    ) =>
       SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: crossAxisCount,
-      mainAxisSpacing: mainAxisSpacing,
-      crossAxisSpacing: crossAxisSpacing,
-      childAspectRatio: childAspectRatio,
+      mainAxisSpacing: mainAxisSpacing?.toDouble(),
+      crossAxisSpacing: crossAxisSpacing?.toDouble(),
+      childAspectRatio: childAspectRatio?.toDouble(),
     ),
 );
-var sliverGridDelegateWithMaxCrossAxisExtent = MXFunctionInvoke(
+var _sliverGridDelegateWithMaxCrossAxisExtent = MXFunctionInvoke(
     "SliverGridDelegateWithMaxCrossAxisExtent",
-    ({
-      dynamic maxCrossAxisExtent,
-      dynamic mainAxisSpacing = 0.0,
-      dynamic crossAxisSpacing = 0.0,
-      dynamic childAspectRatio = 1.0,
-    }) =>
+    (
+      {
+      double maxCrossAxisExtent,
+      double mainAxisSpacing = 0.0,
+      double crossAxisSpacing = 0.0,
+      double childAspectRatio = 1.0,
+      }
+    ) =>
       SliverGridDelegateWithMaxCrossAxisExtent(
-      maxCrossAxisExtent: maxCrossAxisExtent,
-      mainAxisSpacing: mainAxisSpacing,
-      crossAxisSpacing: crossAxisSpacing,
-      childAspectRatio: childAspectRatio,
+      maxCrossAxisExtent: maxCrossAxisExtent?.toDouble(),
+      mainAxisSpacing: mainAxisSpacing?.toDouble(),
+      crossAxisSpacing: crossAxisSpacing?.toDouble(),
+      childAspectRatio: childAspectRatio?.toDouble(),
     ),
 );
-var sliverGridParentData = MXFunctionInvoke(
+var _sliverGridParentData = MXFunctionInvoke(
     "SliverGridParentData",
-    ({
-    }) =>
+    (
+    ) =>
       SliverGridParentData(
     ),
 );
-var renderSliverGrid = MXFunctionInvoke(
+var _renderSliverGrid = MXFunctionInvoke(
     "RenderSliverGrid",
-    ({
+    (
+      {
       RenderSliverBoxChildManager childManager,
       SliverGridDelegate gridDelegate,
-    }) =>
+      }
+    ) =>
       RenderSliverGrid(
       childManager: childManager,
       gridDelegate: gridDelegate,

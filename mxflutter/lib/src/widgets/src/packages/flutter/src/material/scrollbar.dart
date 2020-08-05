@@ -15,17 +15,19 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollbarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[scrollbar.funName] = scrollbar;
+  m[_scrollbar.funName] = _scrollbar;
   return m;
 }
-var scrollbar = MXFunctionInvoke(
+var _scrollbar = MXFunctionInvoke(
     "Scrollbar",
-    ({
+    (
+      {
       Key key,
       Widget child,
       ScrollController controller,
       bool isAlwaysShown = false,
-    }) =>
+      }
+    ) =>
       Scrollbar(
       key: key,
       child: child,

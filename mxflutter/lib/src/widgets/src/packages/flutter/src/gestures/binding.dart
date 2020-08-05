@@ -22,12 +22,13 @@ import 'package:flutter/src/gestures/pointer_signal_resolver.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[flutterErrorDetailsForPointerEventDispatcher.funName] = flutterErrorDetailsForPointerEventDispatcher;
+  m[_flutterErrorDetailsForPointerEventDispatcher.funName] = _flutterErrorDetailsForPointerEventDispatcher;
   return m;
 }
-var flutterErrorDetailsForPointerEventDispatcher = MXFunctionInvoke(
+var _flutterErrorDetailsForPointerEventDispatcher = MXFunctionInvoke(
     "FlutterErrorDetailsForPointerEventDispatcher",
-    ({
+    (
+      {
       dynamic exception,
       StackTrace stack,
       String library,
@@ -36,7 +37,8 @@ var flutterErrorDetailsForPointerEventDispatcher = MXFunctionInvoke(
       HitTestEntry hitTestEntry,
       dynamic informationCollector,
       bool silent = false,
-    }) =>
+      }
+    ) =>
       FlutterErrorDetailsForPointerEventDispatcher(
       exception: exception,
       stack: stack,

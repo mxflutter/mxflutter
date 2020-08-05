@@ -14,47 +14,49 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerWrapSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[wrapAlignment.funName] = wrapAlignment;
-  m[wrapCrossAlignment.funName] = wrapCrossAlignment;
-  m[wrapParentData.funName] = wrapParentData;
-  m[renderWrap.funName] = renderWrap;
+  m[_wrapAlignment.funName] = _wrapAlignment;
+  m[_wrapCrossAlignment.funName] = _wrapCrossAlignment;
+  m[_wrapParentData.funName] = _wrapParentData;
+  m[_renderWrap.funName] = _renderWrap;
   return m;
 }
-var wrapAlignment = MXFunctionInvoke(
+var _wrapAlignment = MXFunctionInvoke(
     "WrapAlignment",
     ({Map args}) => MXWrapAlignment.parse(args),
   );
-var wrapCrossAlignment = MXFunctionInvoke(
+var _wrapCrossAlignment = MXFunctionInvoke(
     "WrapCrossAlignment",
     ({Map args}) => MXWrapCrossAlignment.parse(args),
   );
-var wrapParentData = MXFunctionInvoke(
+var _wrapParentData = MXFunctionInvoke(
     "WrapParentData",
-    ({
-    }) =>
+    (
+    ) =>
       WrapParentData(
     ),
 );
-var renderWrap = MXFunctionInvoke(
+var _renderWrap = MXFunctionInvoke(
     "RenderWrap",
-    ({
+    (
+      {
       List<RenderBox> children,
       Axis direction = Axis.horizontal,
       WrapAlignment alignment = WrapAlignment.start,
-      dynamic spacing = 0.0,
+      double spacing = 0.0,
       WrapAlignment runAlignment = WrapAlignment.start,
-      dynamic runSpacing = 0.0,
+      double runSpacing = 0.0,
       WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
       TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
-    }) =>
+      }
+    ) =>
       RenderWrap(
       children: children,
       direction: direction,
       alignment: alignment,
-      spacing: spacing,
+      spacing: spacing?.toDouble(),
       runAlignment: runAlignment,
-      runSpacing: runSpacing,
+      runSpacing: runSpacing?.toDouble(),
       crossAxisAlignment: crossAxisAlignment,
       textDirection: textDirection,
       verticalDirection: verticalDirection,

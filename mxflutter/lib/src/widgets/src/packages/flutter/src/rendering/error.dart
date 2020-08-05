@@ -14,14 +14,16 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerErrorSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[renderErrorBox.funName] = renderErrorBox;
+  m[_renderErrorBox.funName] = _renderErrorBox;
   return m;
 }
-var renderErrorBox = MXFunctionInvoke(
+var _renderErrorBox = MXFunctionInvoke(
     "RenderErrorBox",
-    ({
+    (
+      {
       String message,
-    }) =>
+      }
+    ) =>
       RenderErrorBox(
       message,
     ),

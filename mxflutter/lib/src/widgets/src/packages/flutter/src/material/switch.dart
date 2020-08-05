@@ -23,13 +23,14 @@ import 'package:flutter/src/material/toggleable.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSwitchSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[switch.funName] = switch;
-  m[switch_adaptive.funName] = switch_adaptive;
+  m[_switch.funName] = _switch;
+  m[_switch_adaptive.funName] = _switch_adaptive;
   return m;
 }
-var switch = MXFunctionInvoke(
+var _switch = MXFunctionInvoke(
     "Switch",
-    ({
+    (
+      {
       Key key,
       bool value,
       dynamic onChanged,
@@ -47,19 +48,20 @@ var switch = MXFunctionInvoke(
       Color hoverColor,
       FocusNode focusNode,
       bool autofocus = false,
-    }) =>
+      }
+    ) =>
       Switch(
       key: key,
       value: value,
-      onChanged: createValueChangedGenericClosure<bool>(switch.buildOwner, onChanged),
+      onChanged: createValueChangedGenericClosure<bool>(_switch.buildOwner, onChanged),
       activeColor: activeColor,
       activeTrackColor: activeTrackColor,
       inactiveThumbColor: inactiveThumbColor,
       inactiveTrackColor: inactiveTrackColor,
       activeThumbImage: activeThumbImage,
-      onActiveThumbImageError: createVoidCallbackClosure(switch.buildOwner, onActiveThumbImageError),
+      onActiveThumbImageError: null,
       inactiveThumbImage: inactiveThumbImage,
-      onInactiveThumbImageError: createVoidCallbackClosure(switch.buildOwner, onInactiveThumbImageError),
+      onInactiveThumbImageError: null,
       materialTapTargetSize: materialTapTargetSize,
       dragStartBehavior: dragStartBehavior,
       focusColor: focusColor,
@@ -68,9 +70,10 @@ var switch = MXFunctionInvoke(
       autofocus: autofocus,
     ),
 );
-var switch_adaptive = MXFunctionInvoke(
+var _switch_adaptive = MXFunctionInvoke(
   "switch.adaptive",
-    ({
+    (
+      {
       Key key,
       bool value,
       dynamic onChanged,
@@ -88,19 +91,20 @@ var switch_adaptive = MXFunctionInvoke(
       Color hoverColor,
       FocusNode focusNode,
       bool autofocus = false,
-    }) =>
+      }
+    ) =>
       Switch.adaptive(
       key: key,
       value: value,
-      onChanged: createValueChangedGenericClosure<bool>(switch_adaptive.buildOwner, onChanged),
+      onChanged: createValueChangedGenericClosure<bool>(_switch_adaptive.buildOwner, onChanged),
       activeColor: activeColor,
       activeTrackColor: activeTrackColor,
       inactiveThumbColor: inactiveThumbColor,
       inactiveTrackColor: inactiveTrackColor,
       activeThumbImage: activeThumbImage,
-      onActiveThumbImageError: createVoidCallbackClosure(switch_adaptive.buildOwner, onActiveThumbImageError),
+      onActiveThumbImageError: null,
       inactiveThumbImage: inactiveThumbImage,
-      onInactiveThumbImageError: createVoidCallbackClosure(switch_adaptive.buildOwner, onInactiveThumbImageError),
+      onInactiveThumbImageError: null,
       materialTapTargetSize: materialTapTargetSize,
       dragStartBehavior: dragStartBehavior,
       focusColor: focusColor,

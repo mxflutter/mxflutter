@@ -15,27 +15,29 @@ import 'package:flutter/src/widgets/value_listenable_builder.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTweenAnimationBuilderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[tweenAnimationBuilder.funName] = tweenAnimationBuilder;
+  m[_tweenAnimationBuilder.funName] = _tweenAnimationBuilder;
   return m;
 }
-var tweenAnimationBuilder = MXFunctionInvoke(
+var _tweenAnimationBuilder = MXFunctionInvoke(
     "TweenAnimationBuilder",
-    ({
+    (
+      {
       Key key,
-      dynamic tween,
+      Tween<dynamic> tween,
       Duration duration,
       Curve curve,
       dynamic builder,
       dynamic onEnd,
       Widget child,
-    }) =>
+      }
+    ) =>
       TweenAnimationBuilder(
       key: key,
       tween: tween,
       duration: duration,
       curve: curve,
-      builder: builder,
-      onEnd: createVoidCallbackClosure(tweenAnimationBuilder.buildOwner, onEnd),
+      builder: null,
+      onEnd: createVoidCallbackClosure(_tweenAnimationBuilder.buildOwner, onEnd),
       child: child,
     ),
 );

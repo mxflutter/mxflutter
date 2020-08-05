@@ -19,21 +19,23 @@ import 'package:flutter/widgets.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerContextMenuSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoContextMenu.funName] = cupertinoContextMenu;
+  m[_cupertinoContextMenu.funName] = _cupertinoContextMenu;
   return m;
 }
-var cupertinoContextMenu = MXFunctionInvoke(
+var _cupertinoContextMenu = MXFunctionInvoke(
     "CupertinoContextMenu",
-    ({
+    (
+      {
       Key key,
       List<Widget> actions,
       Widget child,
       dynamic previewBuilder,
-    }) =>
+      }
+    ) =>
       CupertinoContextMenu(
       key: key,
       actions: actions,
       child: child,
-      previewBuilder: previewBuilder,
+      previewBuilder: null,
     ),
 );

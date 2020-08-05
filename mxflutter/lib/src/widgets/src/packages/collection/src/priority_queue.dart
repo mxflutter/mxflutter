@@ -13,14 +13,16 @@ import 'package:collection/src/utils.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPriorityQueueSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[heapPriorityQueue.funName] = heapPriorityQueue;
+  m[_heapPriorityQueue.funName] = _heapPriorityQueue;
   return m;
 }
-var heapPriorityQueue = MXFunctionInvoke(
+var _heapPriorityQueue = MXFunctionInvoke(
     "HeapPriorityQueue",
-    ({
+    (
+      {
       dynamic comparison,
-    }) =>
+      }
+    ) =>
       HeapPriorityQueue(
       comparison,
     ),

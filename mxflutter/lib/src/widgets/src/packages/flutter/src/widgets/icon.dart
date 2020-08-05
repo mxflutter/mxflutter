@@ -18,23 +18,25 @@ import 'package:flutter/src/widgets/icon_theme_data.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIconSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[icon.funName] = icon;
+  m[_icon.funName] = _icon;
   return m;
 }
-var icon = MXFunctionInvoke(
+var _icon = MXFunctionInvoke(
     "Icon",
-    ({
+    (
+      {
       IconData icon,
       Key key,
-      dynamic size,
+      double size,
       Color color,
       String semanticLabel,
       TextDirection textDirection,
-    }) =>
+      }
+    ) =>
       Icon(
       icon,
       key: key,
-      size: size,
+      size: size?.toDouble(),
       color: color,
       semanticLabel: semanticLabel,
       textDirection: textDirection,

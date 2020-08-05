@@ -13,13 +13,13 @@ import 'package:flutter/src/gestures/events.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPointerSignalResolverSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[pointerSignalResolver.funName] = pointerSignalResolver;
+  m[_pointerSignalResolver.funName] = _pointerSignalResolver;
   return m;
 }
-var pointerSignalResolver = MXFunctionInvoke(
+var _pointerSignalResolver = MXFunctionInvoke(
     "PointerSignalResolver",
-    ({
-    }) =>
+    (
+    ) =>
       PointerSignalResolver(
     ),
 );

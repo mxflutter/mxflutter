@@ -14,14 +14,16 @@ import 'package:flutter/src/services/system_channels.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerClipboardSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[clipboardData.funName] = clipboardData;
+  m[_clipboardData.funName] = _clipboardData;
   return m;
 }
-var clipboardData = MXFunctionInvoke(
+var _clipboardData = MXFunctionInvoke(
     "ClipboardData",
-    ({
+    (
+      {
       String text,
-    }) =>
+      }
+    ) =>
       ClipboardData(
       text: text,
     ),

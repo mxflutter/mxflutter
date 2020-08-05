@@ -24,15 +24,15 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNavBarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoNavigationBar.funName] = cupertinoNavigationBar;
-  m[cupertinoSliverNavigationBar.funName] = cupertinoSliverNavigationBar;
-  m[cupertinoNavigationBarBackButton.funName] = cupertinoNavigationBarBackButton;
-  m[cupertinoNavigationBarBackButton_assemble.funName] = cupertinoNavigationBarBackButton_assemble;
+  m[_cupertinoNavigationBar.funName] = _cupertinoNavigationBar;
+  m[_cupertinoSliverNavigationBar.funName] = _cupertinoSliverNavigationBar;
+  m[_cupertinoNavigationBarBackButton.funName] = _cupertinoNavigationBarBackButton;
   return m;
 }
-var cupertinoNavigationBar = MXFunctionInvoke(
+var _cupertinoNavigationBar = MXFunctionInvoke(
     "CupertinoNavigationBar",
-    ({
+    (
+      {
       Key key,
       Widget leading,
       bool automaticallyImplyLeading = true,
@@ -47,7 +47,8 @@ var cupertinoNavigationBar = MXFunctionInvoke(
       Color actionsForegroundColor,
       bool transitionBetweenRoutes = true,
       Object heroTag,
-    }) =>
+      }
+    ) =>
       CupertinoNavigationBar(
       key: key,
       leading: leading,
@@ -65,9 +66,10 @@ var cupertinoNavigationBar = MXFunctionInvoke(
       heroTag: heroTag,
     ),
 );
-var cupertinoSliverNavigationBar = MXFunctionInvoke(
+var _cupertinoSliverNavigationBar = MXFunctionInvoke(
     "CupertinoSliverNavigationBar",
-    ({
+    (
+      {
       Key key,
       Widget largeTitle,
       Widget leading,
@@ -83,7 +85,8 @@ var cupertinoSliverNavigationBar = MXFunctionInvoke(
       Color actionsForegroundColor,
       bool transitionBetweenRoutes = true,
       Object heroTag,
-    }) =>
+      }
+    ) =>
       CupertinoSliverNavigationBar(
       key: key,
       largeTitle: largeTitle,
@@ -102,29 +105,20 @@ var cupertinoSliverNavigationBar = MXFunctionInvoke(
       heroTag: heroTag,
     ),
 );
-var cupertinoNavigationBarBackButton = MXFunctionInvoke(
+var _cupertinoNavigationBarBackButton = MXFunctionInvoke(
     "CupertinoNavigationBarBackButton",
-    ({
+    (
+      {
       Key key,
       Color color,
       String previousPageTitle,
       dynamic onPressed,
-    }) =>
+      }
+    ) =>
       CupertinoNavigationBarBackButton(
       key: key,
       color: color,
       previousPageTitle: previousPageTitle,
-      onPressed: createVoidCallbackClosure(cupertinoNavigationBarBackButton.buildOwner, onPressed),
-    ),
-);
-var cupertinoNavigationBarBackButton_assemble = MXFunctionInvoke(
-  "cupertinoNavigationBarBackButton.assemble",
-    ({
-      Widget _backChevron,
-      Widget _backLabel,
-    }) =>
-      CupertinoNavigationBarBackButton.assemble(
-      _backChevron,
-      _backLabel,
+      onPressed: createVoidCallbackClosure(_cupertinoNavigationBarBackButton.buildOwner, onPressed),
     ),
 );

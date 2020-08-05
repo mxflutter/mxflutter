@@ -16,25 +16,27 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNavigationToolbarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[navigationToolbar.funName] = navigationToolbar;
+  m[_navigationToolbar.funName] = _navigationToolbar;
   return m;
 }
-var navigationToolbar = MXFunctionInvoke(
+var _navigationToolbar = MXFunctionInvoke(
     "NavigationToolbar",
-    ({
+    (
+      {
       Key key,
       Widget leading,
       Widget middle,
       Widget trailing,
       bool centerMiddle = true,
-      dynamic middleSpacing = 16.0,
-    }) =>
+      double middleSpacing = 16.0,
+      }
+    ) =>
       NavigationToolbar(
       key: key,
       leading: leading,
       middle: middle,
       trailing: trailing,
       centerMiddle: centerMiddle,
-      middleSpacing: middleSpacing,
+      middleSpacing: middleSpacing?.toDouble(),
     ),
 );

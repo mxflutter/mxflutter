@@ -18,168 +18,134 @@ import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/view.dart';
 import 'dart:developer';
 import 'dart:io';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/rendering/binding.dart';
 import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/layer.dart';
-import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/binding.dart';
-import 'dart:async';
-import 'dart:developer';
 import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/semantics.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/mouse_tracking.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/view.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'dart:developer';
-import 'dart:ui';
 import 'package:flutter/animation.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/semantics.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/rendering/binding.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/layer.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/rendering/box.dart';
 import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/object.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerLayerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[annotationEntry.funName] = annotationEntry;
-  m[annotationResult.funName] = annotationResult;
-  m[pictureLayer.funName] = pictureLayer;
-  m[textureLayer.funName] = textureLayer;
-  m[platformViewLayer.funName] = platformViewLayer;
-  m[performanceOverlayLayer.funName] = performanceOverlayLayer;
-  m[containerLayer.funName] = containerLayer;
-  m[offsetLayer.funName] = offsetLayer;
-  m[clipRectLayer.funName] = clipRectLayer;
-  m[clipRRectLayer.funName] = clipRRectLayer;
-  m[clipPathLayer.funName] = clipPathLayer;
-  m[colorFilterLayer.funName] = colorFilterLayer;
-  m[imageFilterLayer.funName] = imageFilterLayer;
-  m[transformLayer.funName] = transformLayer;
-  m[opacityLayer.funName] = opacityLayer;
-  m[shaderMaskLayer.funName] = shaderMaskLayer;
-  m[backdropFilterLayer.funName] = backdropFilterLayer;
-  m[physicalModelLayer.funName] = physicalModelLayer;
-  m[layerLink.funName] = layerLink;
-  m[leaderLayer.funName] = leaderLayer;
-  m[followerLayer.funName] = followerLayer;
-  m[annotatedRegionLayer.funName] = annotatedRegionLayer;
-  m[viewConfiguration.funName] = viewConfiguration;
-  m[renderView.funName] = renderView;
-  m[renderingFlutterBinding.funName] = renderingFlutterBinding;
-  m[parentData.funName] = parentData;
-  m[paintingContext.funName] = paintingContext;
-  m[pipelineOwner.funName] = pipelineOwner;
-  m[flutterErrorDetailsForRendering.funName] = flutterErrorDetailsForRendering;
-  m[diagnosticsDebugCreator.funName] = diagnosticsDebugCreator;
-  m[boxConstraints.funName] = boxConstraints;
-  m[boxConstraints_tight.funName] = boxConstraints_tight;
-  m[boxConstraints_tightFor.funName] = boxConstraints_tightFor;
-  m[boxConstraints_tightForFinite.funName] = boxConstraints_tightForFinite;
-  m[boxConstraints_loose.funName] = boxConstraints_loose;
-  m[boxConstraints_expand.funName] = boxConstraints_expand;
-  m[boxHitTestResult.funName] = boxHitTestResult;
-  m[boxHitTestResult_wrap.funName] = boxHitTestResult_wrap;
-  m[boxHitTestEntry.funName] = boxHitTestEntry;
-  m[boxParentData.funName] = boxParentData;
+  m[_annotationEntry.funName] = _annotationEntry;
+  m[_annotationResult.funName] = _annotationResult;
+  m[_pictureLayer.funName] = _pictureLayer;
+  m[_textureLayer.funName] = _textureLayer;
+  m[_platformViewLayer.funName] = _platformViewLayer;
+  m[_performanceOverlayLayer.funName] = _performanceOverlayLayer;
+  m[_containerLayer.funName] = _containerLayer;
+  m[_offsetLayer.funName] = _offsetLayer;
+  m[_clipRectLayer.funName] = _clipRectLayer;
+  m[_clipRRectLayer.funName] = _clipRRectLayer;
+  m[_clipPathLayer.funName] = _clipPathLayer;
+  m[_colorFilterLayer.funName] = _colorFilterLayer;
+  m[_imageFilterLayer.funName] = _imageFilterLayer;
+  m[_transformLayer.funName] = _transformLayer;
+  m[_opacityLayer.funName] = _opacityLayer;
+  m[_shaderMaskLayer.funName] = _shaderMaskLayer;
+  m[_backdropFilterLayer.funName] = _backdropFilterLayer;
+  m[_physicalModelLayer.funName] = _physicalModelLayer;
+  m[_layerLink.funName] = _layerLink;
+  m[_leaderLayer.funName] = _leaderLayer;
+  m[_followerLayer.funName] = _followerLayer;
+  m[_annotatedRegionLayer.funName] = _annotatedRegionLayer;
+  m[_viewConfiguration.funName] = _viewConfiguration;
+  m[_renderView.funName] = _renderView;
+  m[_renderingFlutterBinding.funName] = _renderingFlutterBinding;
+  m[_parentData.funName] = _parentData;
+  m[_paintingContext.funName] = _paintingContext;
+  m[_pipelineOwner.funName] = _pipelineOwner;
+  m[_flutterErrorDetailsForRendering.funName] = _flutterErrorDetailsForRendering;
+  m[_diagnosticsDebugCreator.funName] = _diagnosticsDebugCreator;
+  m[_boxConstraints.funName] = _boxConstraints;
+  m[_boxConstraints_tight.funName] = _boxConstraints_tight;
+  m[_boxConstraints_tightFor.funName] = _boxConstraints_tightFor;
+  m[_boxConstraints_tightForFinite.funName] = _boxConstraints_tightForFinite;
+  m[_boxConstraints_loose.funName] = _boxConstraints_loose;
+  m[_boxConstraints_expand.funName] = _boxConstraints_expand;
+  m[_boxHitTestResult.funName] = _boxHitTestResult;
+  m[_boxHitTestResult_wrap.funName] = _boxHitTestResult_wrap;
+  m[_boxHitTestEntry.funName] = _boxHitTestEntry;
+  m[_boxParentData.funName] = _boxParentData;
   return m;
 }
-var annotationEntry = MXFunctionInvoke(
+var _annotationEntry = MXFunctionInvoke(
     "AnnotationEntry",
-    ({
+    (
+      {
       dynamic annotation,
       Offset localPosition,
-    }) =>
+      }
+    ) =>
       AnnotationEntry(
       annotation: annotation,
       localPosition: localPosition,
     ),
 );
-var annotationResult = MXFunctionInvoke(
+var _annotationResult = MXFunctionInvoke(
     "AnnotationResult",
-    ({
-    }) =>
+    (
+    ) =>
       AnnotationResult(
     ),
 );
-var pictureLayer = MXFunctionInvoke(
+var _pictureLayer = MXFunctionInvoke(
     "PictureLayer",
-    ({
+    (
+      {
       Rect canvasBounds,
-    }) =>
+      }
+    ) =>
       PictureLayer(
       canvasBounds,
     ),
 );
-var textureLayer = MXFunctionInvoke(
+var _textureLayer = MXFunctionInvoke(
     "TextureLayer",
-    ({
+    (
+      {
       Rect rect,
       int textureId,
       bool freeze = false,
-    }) =>
+      }
+    ) =>
       TextureLayer(
       rect: rect,
       textureId: textureId,
       freeze: freeze,
     ),
 );
-var platformViewLayer = MXFunctionInvoke(
+var _platformViewLayer = MXFunctionInvoke(
     "PlatformViewLayer",
-    ({
+    (
+      {
       Rect rect,
       int viewId,
       MouseTrackerAnnotation hoverAnnotation,
-    }) =>
+      }
+    ) =>
       PlatformViewLayer(
       rect: rect,
       viewId: viewId,
       hoverAnnotation: hoverAnnotation,
     ),
 );
-var performanceOverlayLayer = MXFunctionInvoke(
+var _performanceOverlayLayer = MXFunctionInvoke(
     "PerformanceOverlayLayer",
-    ({
+    (
+      {
       Rect overlayRect,
       int optionsMask,
       int rasterizerThreshold,
       bool checkerboardRasterCacheImages,
       bool checkerboardOffscreenLayers,
-    }) =>
+      }
+    ) =>
       PerformanceOverlayLayer(
       overlayRect: overlayRect,
       optionsMask: optionsMask,
@@ -188,160 +154,186 @@ var performanceOverlayLayer = MXFunctionInvoke(
       checkerboardOffscreenLayers: checkerboardOffscreenLayers,
     ),
 );
-var containerLayer = MXFunctionInvoke(
+var _containerLayer = MXFunctionInvoke(
     "ContainerLayer",
-    ({
-    }) =>
+    (
+    ) =>
       ContainerLayer(
     ),
 );
-var offsetLayer = MXFunctionInvoke(
+var _offsetLayer = MXFunctionInvoke(
     "OffsetLayer",
-    ({
+    (
+      {
       Offset offset,
-    }) =>
+      }
+    ) =>
       OffsetLayer(
       offset: offset,
     ),
 );
-var clipRectLayer = MXFunctionInvoke(
+var _clipRectLayer = MXFunctionInvoke(
     "ClipRectLayer",
-    ({
+    (
+      {
       Rect clipRect,
       Clip clipBehavior = Clip.hardEdge,
-    }) =>
+      }
+    ) =>
       ClipRectLayer(
       clipRect: clipRect,
       clipBehavior: clipBehavior,
     ),
 );
-var clipRRectLayer = MXFunctionInvoke(
+var _clipRRectLayer = MXFunctionInvoke(
     "ClipRRectLayer",
-    ({
+    (
+      {
       RRect clipRRect,
       Clip clipBehavior = Clip.antiAlias,
-    }) =>
+      }
+    ) =>
       ClipRRectLayer(
       clipRRect: clipRRect,
       clipBehavior: clipBehavior,
     ),
 );
-var clipPathLayer = MXFunctionInvoke(
+var _clipPathLayer = MXFunctionInvoke(
     "ClipPathLayer",
-    ({
+    (
+      {
       Path clipPath,
       Clip clipBehavior = Clip.antiAlias,
-    }) =>
+      }
+    ) =>
       ClipPathLayer(
       clipPath: clipPath,
       clipBehavior: clipBehavior,
     ),
 );
-var colorFilterLayer = MXFunctionInvoke(
+var _colorFilterLayer = MXFunctionInvoke(
     "ColorFilterLayer",
-    ({
+    (
+      {
       ColorFilter colorFilter,
-    }) =>
+      }
+    ) =>
       ColorFilterLayer(
       colorFilter: colorFilter,
     ),
 );
-var imageFilterLayer = MXFunctionInvoke(
+var _imageFilterLayer = MXFunctionInvoke(
     "ImageFilterLayer",
-    ({
+    (
+      {
       ImageFilter imageFilter,
-    }) =>
+      }
+    ) =>
       ImageFilterLayer(
       imageFilter: imageFilter,
     ),
 );
-var transformLayer = MXFunctionInvoke(
+var _transformLayer = MXFunctionInvoke(
     "TransformLayer",
-    ({
+    (
+      {
       Matrix4 transform,
       Offset offset,
-    }) =>
+      }
+    ) =>
       TransformLayer(
       transform: transform,
       offset: offset,
     ),
 );
-var opacityLayer = MXFunctionInvoke(
+var _opacityLayer = MXFunctionInvoke(
     "OpacityLayer",
-    ({
+    (
+      {
       int alpha,
       Offset offset,
-    }) =>
+      }
+    ) =>
       OpacityLayer(
       alpha: alpha,
       offset: offset,
     ),
 );
-var shaderMaskLayer = MXFunctionInvoke(
+var _shaderMaskLayer = MXFunctionInvoke(
     "ShaderMaskLayer",
-    ({
+    (
+      {
       Shader shader,
       Rect maskRect,
       BlendMode blendMode,
-    }) =>
+      }
+    ) =>
       ShaderMaskLayer(
       shader: shader,
       maskRect: maskRect,
       blendMode: blendMode,
     ),
 );
-var backdropFilterLayer = MXFunctionInvoke(
+var _backdropFilterLayer = MXFunctionInvoke(
     "BackdropFilterLayer",
-    ({
+    (
+      {
       ImageFilter filter,
-    }) =>
+      }
+    ) =>
       BackdropFilterLayer(
       filter: filter,
     ),
 );
-var physicalModelLayer = MXFunctionInvoke(
+var _physicalModelLayer = MXFunctionInvoke(
     "PhysicalModelLayer",
-    ({
+    (
+      {
       Path clipPath,
       Clip clipBehavior = Clip.none,
-      dynamic elevation,
+      double elevation,
       Color color,
       Color shadowColor,
-    }) =>
+      }
+    ) =>
       PhysicalModelLayer(
       clipPath: clipPath,
       clipBehavior: clipBehavior,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       color: color,
       shadowColor: shadowColor,
     ),
 );
-var layerLink = MXFunctionInvoke(
+var _layerLink = MXFunctionInvoke(
     "LayerLink",
-    ({
-    }) =>
+    (
+    ) =>
       LayerLink(
     ),
 );
-var leaderLayer = MXFunctionInvoke(
+var _leaderLayer = MXFunctionInvoke(
     "LeaderLayer",
-    ({
+    (
+      {
       LayerLink link,
       Offset offset,
-    }) =>
+      }
+    ) =>
       LeaderLayer(
       link: link,
       offset: offset,
     ),
 );
-var followerLayer = MXFunctionInvoke(
+var _followerLayer = MXFunctionInvoke(
     "FollowerLayer",
-    ({
+    (
+      {
       LayerLink link,
       bool showWhenUnlinked = true,
       Offset unlinkedOffset,
       Offset linkedOffset,
-    }) =>
+      }
+    ) =>
       FollowerLayer(
       link: link,
       showWhenUnlinked: showWhenUnlinked,
@@ -349,14 +341,16 @@ var followerLayer = MXFunctionInvoke(
       linkedOffset: linkedOffset,
     ),
 );
-var annotatedRegionLayer = MXFunctionInvoke(
+var _annotatedRegionLayer = MXFunctionInvoke(
     "AnnotatedRegionLayer",
-    ({
+    (
+      {
       dynamic value,
       Size size,
       Offset offset,
       bool opaque = false,
-    }) =>
+      }
+    ) =>
       AnnotatedRegionLayer(
       value,
       size: size,
@@ -364,73 +358,84 @@ var annotatedRegionLayer = MXFunctionInvoke(
       opaque: opaque,
     ),
 );
-var viewConfiguration = MXFunctionInvoke(
+var _viewConfiguration = MXFunctionInvoke(
     "ViewConfiguration",
-    ({
+    (
+      {
       Size size,
-      dynamic devicePixelRatio = 1.0,
-    }) =>
+      double devicePixelRatio = 1.0,
+      }
+    ) =>
       ViewConfiguration(
       size: size,
-      devicePixelRatio: devicePixelRatio,
+      devicePixelRatio: devicePixelRatio?.toDouble(),
     ),
 );
-var renderView = MXFunctionInvoke(
+var _renderView = MXFunctionInvoke(
     "RenderView",
-    ({
+    (
+      {
       RenderBox child,
       ViewConfiguration configuration,
       Window window,
-    }) =>
+      }
+    ) =>
       RenderView(
       child: child,
       configuration: configuration,
       window: window,
     ),
 );
-var renderingFlutterBinding = MXFunctionInvoke(
+var _renderingFlutterBinding = MXFunctionInvoke(
     "RenderingFlutterBinding",
-    ({
+    (
+      {
       RenderBox root,
-    }) =>
+      }
+    ) =>
       RenderingFlutterBinding(
       root: root,
     ),
 );
-var parentData = MXFunctionInvoke(
+var _parentData = MXFunctionInvoke(
     "ParentData",
-    ({
-    }) =>
+    (
+    ) =>
       ParentData(
     ),
 );
-var paintingContext = MXFunctionInvoke(
+var _paintingContext = MXFunctionInvoke(
     "PaintingContext",
-    ({
-      ContainerLayer _containerLayer,
+    (
+      {
+      ContainerLayer containerLayer,
       Rect estimatedBounds,
-    }) =>
+      }
+    ) =>
       PaintingContext(
-      _containerLayer,
+      containerLayer,
       estimatedBounds,
     ),
 );
-var pipelineOwner = MXFunctionInvoke(
+var _pipelineOwner = MXFunctionInvoke(
     "PipelineOwner",
-    ({
+    (
+      {
       dynamic onNeedVisualUpdate,
       dynamic onSemanticsOwnerCreated,
       dynamic onSemanticsOwnerDisposed,
-    }) =>
+      }
+    ) =>
       PipelineOwner(
-      onNeedVisualUpdate: createVoidCallbackClosure(pipelineOwner.buildOwner, onNeedVisualUpdate),
-      onSemanticsOwnerCreated: createVoidCallbackClosure(pipelineOwner.buildOwner, onSemanticsOwnerCreated),
-      onSemanticsOwnerDisposed: createVoidCallbackClosure(pipelineOwner.buildOwner, onSemanticsOwnerDisposed),
+      onNeedVisualUpdate: createVoidCallbackClosure(_pipelineOwner.buildOwner, onNeedVisualUpdate),
+      onSemanticsOwnerCreated: createVoidCallbackClosure(_pipelineOwner.buildOwner, onSemanticsOwnerCreated),
+      onSemanticsOwnerDisposed: createVoidCallbackClosure(_pipelineOwner.buildOwner, onSemanticsOwnerDisposed),
     ),
 );
-var flutterErrorDetailsForRendering = MXFunctionInvoke(
+var _flutterErrorDetailsForRendering = MXFunctionInvoke(
     "FlutterErrorDetailsForRendering",
-    ({
+    (
+      {
       dynamic exception,
       StackTrace stack,
       String library,
@@ -438,7 +443,8 @@ var flutterErrorDetailsForRendering = MXFunctionInvoke(
       RenderObject renderObject,
       dynamic informationCollector,
       bool silent = false,
-    }) =>
+      }
+    ) =>
       FlutterErrorDetailsForRendering(
       exception: exception,
       stack: stack,
@@ -449,112 +455,130 @@ var flutterErrorDetailsForRendering = MXFunctionInvoke(
       silent: silent,
     ),
 );
-var diagnosticsDebugCreator = MXFunctionInvoke(
+var _diagnosticsDebugCreator = MXFunctionInvoke(
     "DiagnosticsDebugCreator",
-    ({
+    (
+      {
       Object value,
-    }) =>
+      }
+    ) =>
       DiagnosticsDebugCreator(
       value,
     ),
 );
-var boxConstraints = MXFunctionInvoke(
+var _boxConstraints = MXFunctionInvoke(
     "BoxConstraints",
-    ({
-      dynamic minWidth = 0.0,
-      dynamic maxWidth = Infinity,
-      dynamic minHeight = 0.0,
-      dynamic maxHeight = Infinity,
-    }) =>
+    (
+      {
+      double minWidth = 0.0,
+      double maxWidth = double.infinity,
+      double minHeight = 0.0,
+      double maxHeight = double.infinity,
+      }
+    ) =>
       BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+      minWidth: minWidth?.toDouble(),
+      maxWidth: maxWidth?.toDouble(),
+      minHeight: minHeight?.toDouble(),
+      maxHeight: maxHeight?.toDouble(),
     ),
 );
-var boxConstraints_tight = MXFunctionInvoke(
+var _boxConstraints_tight = MXFunctionInvoke(
   "boxConstraints.tight",
-    ({
+    (
+      {
       Size size,
-    }) =>
+      }
+    ) =>
       BoxConstraints.tight(
       size,
     ),
 );
-var boxConstraints_tightFor = MXFunctionInvoke(
+var _boxConstraints_tightFor = MXFunctionInvoke(
   "boxConstraints.tightFor",
-    ({
-      dynamic width,
-      dynamic height,
-    }) =>
+    (
+      {
+      double width,
+      double height,
+      }
+    ) =>
       BoxConstraints.tightFor(
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
     ),
 );
-var boxConstraints_tightForFinite = MXFunctionInvoke(
+var _boxConstraints_tightForFinite = MXFunctionInvoke(
   "boxConstraints.tightForFinite",
-    ({
-      dynamic width = Infinity,
-      dynamic height = Infinity,
-    }) =>
+    (
+      {
+      double width = double.infinity,
+      double height = double.infinity,
+      }
+    ) =>
       BoxConstraints.tightForFinite(
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
     ),
 );
-var boxConstraints_loose = MXFunctionInvoke(
+var _boxConstraints_loose = MXFunctionInvoke(
   "boxConstraints.loose",
-    ({
+    (
+      {
       Size size,
-    }) =>
+      }
+    ) =>
       BoxConstraints.loose(
       size,
     ),
 );
-var boxConstraints_expand = MXFunctionInvoke(
+var _boxConstraints_expand = MXFunctionInvoke(
   "boxConstraints.expand",
-    ({
-      dynamic width,
-      dynamic height,
-    }) =>
+    (
+      {
+      double width,
+      double height,
+      }
+    ) =>
       BoxConstraints.expand(
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
     ),
 );
-var boxHitTestResult = MXFunctionInvoke(
+var _boxHitTestResult = MXFunctionInvoke(
     "BoxHitTestResult",
-    ({
-    }) =>
+    (
+    ) =>
       BoxHitTestResult(
     ),
 );
-var boxHitTestResult_wrap = MXFunctionInvoke(
+var _boxHitTestResult_wrap = MXFunctionInvoke(
   "boxHitTestResult.wrap",
-    ({
+    (
+      {
       HitTestResult result,
-    }) =>
+      }
+    ) =>
       BoxHitTestResult.wrap(
       result,
     ),
 );
-var boxHitTestEntry = MXFunctionInvoke(
+var _boxHitTestEntry = MXFunctionInvoke(
     "BoxHitTestEntry",
-    ({
+    (
+      {
       RenderBox target,
       Offset localPosition,
-    }) =>
+      }
+    ) =>
       BoxHitTestEntry(
       target,
       localPosition,
     ),
 );
-var boxParentData = MXFunctionInvoke(
+var _boxParentData = MXFunctionInvoke(
     "BoxParentData",
-    ({
-    }) =>
+    (
+    ) =>
       BoxParentData(
     ),
 );

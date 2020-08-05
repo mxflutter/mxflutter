@@ -15,16 +15,18 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerImageFilterSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[imageFiltered.funName] = imageFiltered;
+  m[_imageFiltered.funName] = _imageFiltered;
   return m;
 }
-var imageFiltered = MXFunctionInvoke(
+var _imageFiltered = MXFunctionInvoke(
     "ImageFiltered",
-    ({
+    (
+      {
       Key key,
       ImageFilter imageFilter,
       Widget child,
-    }) =>
+      }
+    ) =>
       ImageFiltered(
       key: key,
       imageFilter: imageFilter,

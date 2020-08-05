@@ -34,58 +34,65 @@ import 'package:flutter/src/widgets/viewport.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPageViewSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[pageController.funName] = pageController;
-  m[pageMetrics.funName] = pageMetrics;
-  m[pageScrollPhysics.funName] = pageScrollPhysics;
-  m[pageView.funName] = pageView;
-  m[pageView_builder.funName] = pageView_builder;
-  m[pageView_custom.funName] = pageView_custom;
+  m[_pageController.funName] = _pageController;
+  m[_pageMetrics.funName] = _pageMetrics;
+  m[_pageScrollPhysics.funName] = _pageScrollPhysics;
+  m[_pageView.funName] = _pageView;
+  m[_pageView_builder.funName] = _pageView_builder;
+  m[_pageView_custom.funName] = _pageView_custom;
   return m;
 }
-var pageController = MXFunctionInvoke(
+var _pageController = MXFunctionInvoke(
     "PageController",
-    ({
+    (
+      {
       int initialPage = 0,
       bool keepPage = true,
-      dynamic viewportFraction = 1.0,
-    }) =>
+      double viewportFraction = 1.0,
+      }
+    ) =>
       PageController(
       initialPage: initialPage,
       keepPage: keepPage,
-      viewportFraction: viewportFraction,
+      viewportFraction: viewportFraction?.toDouble(),
     ),
 );
-var pageMetrics = MXFunctionInvoke(
+var _pageMetrics = MXFunctionInvoke(
     "PageMetrics",
-    ({
-      dynamic minScrollExtent,
-      dynamic maxScrollExtent,
-      dynamic pixels,
-      dynamic viewportDimension,
+    (
+      {
+      double minScrollExtent,
+      double maxScrollExtent,
+      double pixels,
+      double viewportDimension,
       AxisDirection axisDirection,
-      dynamic viewportFraction,
-    }) =>
+      double viewportFraction,
+      }
+    ) =>
       PageMetrics(
-      minScrollExtent: minScrollExtent,
-      maxScrollExtent: maxScrollExtent,
-      pixels: pixels,
-      viewportDimension: viewportDimension,
+      minScrollExtent: minScrollExtent?.toDouble(),
+      maxScrollExtent: maxScrollExtent?.toDouble(),
+      pixels: pixels?.toDouble(),
+      viewportDimension: viewportDimension?.toDouble(),
       axisDirection: axisDirection,
-      viewportFraction: viewportFraction,
+      viewportFraction: viewportFraction?.toDouble(),
     ),
 );
-var pageScrollPhysics = MXFunctionInvoke(
+var _pageScrollPhysics = MXFunctionInvoke(
     "PageScrollPhysics",
-    ({
+    (
+      {
       ScrollPhysics parent,
-    }) =>
+      }
+    ) =>
       PageScrollPhysics(
       parent: parent,
     ),
 );
-var pageView = MXFunctionInvoke(
+var _pageView = MXFunctionInvoke(
     "PageView",
-    ({
+    (
+      {
       Key key,
       Axis scrollDirection = Axis.horizontal,
       bool reverse = false,
@@ -96,7 +103,8 @@ var pageView = MXFunctionInvoke(
       List<Widget> children,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       bool allowImplicitScrolling = false,
-    }) =>
+      }
+    ) =>
       PageView(
       key: key,
       scrollDirection: scrollDirection,
@@ -104,15 +112,16 @@ var pageView = MXFunctionInvoke(
       controller: controller,
       physics: physics,
       pageSnapping: pageSnapping,
-      onPageChanged: createValueChangedGenericClosure<int>(pageView.buildOwner, onPageChanged),
+      onPageChanged: createValueChangedGenericClosure<int>(_pageView.buildOwner, onPageChanged),
       children: children,
       dragStartBehavior: dragStartBehavior,
       allowImplicitScrolling: allowImplicitScrolling,
     ),
 );
-var pageView_builder = MXFunctionInvoke(
+var _pageView_builder = MXFunctionInvoke(
   "pageView.builder",
-    ({
+    (
+      {
       Key key,
       Axis scrollDirection = Axis.horizontal,
       bool reverse = false,
@@ -124,7 +133,8 @@ var pageView_builder = MXFunctionInvoke(
       int itemCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       bool allowImplicitScrolling = false,
-    }) =>
+      }
+    ) =>
       PageView.builder(
       key: key,
       scrollDirection: scrollDirection,
@@ -132,16 +142,17 @@ var pageView_builder = MXFunctionInvoke(
       controller: controller,
       physics: physics,
       pageSnapping: pageSnapping,
-      onPageChanged: createValueChangedGenericClosure<int>(pageView_builder.buildOwner, onPageChanged),
-      itemBuilder: itemBuilder,
+      onPageChanged: createValueChangedGenericClosure<int>(_pageView_builder.buildOwner, onPageChanged),
+      itemBuilder: null,
       itemCount: itemCount,
       dragStartBehavior: dragStartBehavior,
       allowImplicitScrolling: allowImplicitScrolling,
     ),
 );
-var pageView_custom = MXFunctionInvoke(
+var _pageView_custom = MXFunctionInvoke(
   "pageView.custom",
-    ({
+    (
+      {
       Key key,
       Axis scrollDirection = Axis.horizontal,
       bool reverse = false,
@@ -152,7 +163,8 @@ var pageView_custom = MXFunctionInvoke(
       SliverChildDelegate childrenDelegate,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       bool allowImplicitScrolling = false,
-    }) =>
+      }
+    ) =>
       PageView.custom(
       key: key,
       scrollDirection: scrollDirection,
@@ -160,7 +172,7 @@ var pageView_custom = MXFunctionInvoke(
       controller: controller,
       physics: physics,
       pageSnapping: pageSnapping,
-      onPageChanged: createValueChangedGenericClosure<int>(pageView_custom.buildOwner, onPageChanged),
+      onPageChanged: createValueChangedGenericClosure<int>(_pageView_custom.buildOwner, onPageChanged),
       childrenDelegate: childrenDelegate,
       dragStartBehavior: dragStartBehavior,
       allowImplicitScrolling: allowImplicitScrolling,

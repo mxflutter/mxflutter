@@ -9,66 +9,70 @@ import 'package:flutter/src/semantics/semantics.dart';
 import 'dart:math';
 import 'dart:typed_data';
 import 'dart:ui';
-import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/semantics/binding.dart';
 import 'package:flutter/src/semantics/semantics_event.dart';
-import 'dart:ui';
-import 'package:flutter/src/semantics/semantics_event.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSemanticsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[semanticsTag.funName] = semanticsTag;
-  m[customSemanticsAction.funName] = customSemanticsAction;
-  m[customSemanticsAction_overridingAction.funName] = customSemanticsAction_overridingAction;
-  m[semanticsData.funName] = semanticsData;
-  m[semanticsHintOverrides.funName] = semanticsHintOverrides;
-  m[semanticsProperties.funName] = semanticsProperties;
-  m[semanticsNode.funName] = semanticsNode;
-  m[semanticsNode_root.funName] = semanticsNode_root;
-  m[semanticsOwner.funName] = semanticsOwner;
-  m[semanticsConfiguration.funName] = semanticsConfiguration;
-  m[debugSemanticsDumpOrder.funName] = debugSemanticsDumpOrder;
-  m[ordinalSortKey.funName] = ordinalSortKey;
+  m[_semanticsTag.funName] = _semanticsTag;
+  m[_customSemanticsAction.funName] = _customSemanticsAction;
+  m[_customSemanticsAction_overridingAction.funName] = _customSemanticsAction_overridingAction;
+  m[_semanticsData.funName] = _semanticsData;
+  m[_semanticsHintOverrides.funName] = _semanticsHintOverrides;
+  m[_semanticsProperties.funName] = _semanticsProperties;
+  m[_semanticsNode.funName] = _semanticsNode;
+  m[_semanticsNode_root.funName] = _semanticsNode_root;
+  m[_semanticsOwner.funName] = _semanticsOwner;
+  m[_semanticsConfiguration.funName] = _semanticsConfiguration;
+  m[_debugSemanticsDumpOrder.funName] = _debugSemanticsDumpOrder;
+  m[_ordinalSortKey.funName] = _ordinalSortKey;
   return m;
 }
-var semanticsTag = MXFunctionInvoke(
+var _semanticsTag = MXFunctionInvoke(
     "SemanticsTag",
-    ({
+    (
+      {
       String name,
-    }) =>
+      }
+    ) =>
       SemanticsTag(
       name,
     ),
 );
-var customSemanticsAction = MXFunctionInvoke(
+var _customSemanticsAction = MXFunctionInvoke(
     "CustomSemanticsAction",
-    ({
+    (
+      {
       String label,
-    }) =>
+      }
+    ) =>
       CustomSemanticsAction(
       label: label,
     ),
 );
-var customSemanticsAction_overridingAction = MXFunctionInvoke(
+var _customSemanticsAction_overridingAction = MXFunctionInvoke(
   "customSemanticsAction.overridingAction",
-    ({
+    (
+      {
       String hint,
       SemanticsAction action,
-    }) =>
+      }
+    ) =>
       CustomSemanticsAction.overridingAction(
       hint: hint,
       action: action,
     ),
 );
-var semanticsData = MXFunctionInvoke(
+var _semanticsData = MXFunctionInvoke(
     "SemanticsData",
-    ({
+    (
+      {
       int flags,
       int actions,
       String label,
@@ -78,21 +82,22 @@ var semanticsData = MXFunctionInvoke(
       String hint,
       TextDirection textDirection,
       Rect rect,
-      dynamic elevation,
-      dynamic thickness,
+      double elevation,
+      double thickness,
       TextSelection textSelection,
       int scrollIndex,
       int scrollChildCount,
-      dynamic scrollPosition,
-      dynamic scrollExtentMax,
-      dynamic scrollExtentMin,
+      double scrollPosition,
+      double scrollExtentMax,
+      double scrollExtentMin,
       int platformViewId,
       int maxValueLength,
       int currentValueLength,
       Set<SemanticsTag> tags,
       Matrix4 transform,
       List<int> customSemanticsActionIds,
-    }) =>
+      }
+    ) =>
       SemanticsData(
       flags: flags,
       actions: actions,
@@ -103,14 +108,14 @@ var semanticsData = MXFunctionInvoke(
       hint: hint,
       textDirection: textDirection,
       rect: rect,
-      elevation: elevation,
-      thickness: thickness,
+      elevation: elevation?.toDouble(),
+      thickness: thickness?.toDouble(),
       textSelection: textSelection,
       scrollIndex: scrollIndex,
       scrollChildCount: scrollChildCount,
-      scrollPosition: scrollPosition,
-      scrollExtentMax: scrollExtentMax,
-      scrollExtentMin: scrollExtentMin,
+      scrollPosition: scrollPosition?.toDouble(),
+      scrollExtentMax: scrollExtentMax?.toDouble(),
+      scrollExtentMin: scrollExtentMin?.toDouble(),
       platformViewId: platformViewId,
       maxValueLength: maxValueLength,
       currentValueLength: currentValueLength,
@@ -119,20 +124,23 @@ var semanticsData = MXFunctionInvoke(
       customSemanticsActionIds: customSemanticsActionIds,
     ),
 );
-var semanticsHintOverrides = MXFunctionInvoke(
+var _semanticsHintOverrides = MXFunctionInvoke(
     "SemanticsHintOverrides",
-    ({
+    (
+      {
       String onTapHint,
       String onLongPressHint,
-    }) =>
+      }
+    ) =>
       SemanticsHintOverrides(
       onTapHint: onTapHint,
       onLongPressHint: onLongPressHint,
     ),
 );
-var semanticsProperties = MXFunctionInvoke(
+var _semanticsProperties = MXFunctionInvoke(
     "SemanticsProperties",
-    ({
+    (
+      {
       bool enabled,
       bool checked,
       bool selected,
@@ -182,7 +190,8 @@ var semanticsProperties = MXFunctionInvoke(
       dynamic onDidLoseAccessibilityFocus,
       dynamic onDismiss,
       Map<CustomSemanticsAction, void Function()> customSemanticsActions,
-    }) =>
+      }
+    ) =>
       SemanticsProperties(
       enabled: enabled,
       checked: checked,
@@ -213,76 +222,82 @@ var semanticsProperties = MXFunctionInvoke(
       hintOverrides: hintOverrides,
       textDirection: textDirection,
       sortKey: sortKey,
-      onTap: createVoidCallbackClosure(semanticsProperties.buildOwner, onTap),
-      onLongPress: createVoidCallbackClosure(semanticsProperties.buildOwner, onLongPress),
-      onScrollLeft: createVoidCallbackClosure(semanticsProperties.buildOwner, onScrollLeft),
-      onScrollRight: createVoidCallbackClosure(semanticsProperties.buildOwner, onScrollRight),
-      onScrollUp: createVoidCallbackClosure(semanticsProperties.buildOwner, onScrollUp),
-      onScrollDown: createVoidCallbackClosure(semanticsProperties.buildOwner, onScrollDown),
-      onIncrease: createVoidCallbackClosure(semanticsProperties.buildOwner, onIncrease),
-      onDecrease: createVoidCallbackClosure(semanticsProperties.buildOwner, onDecrease),
-      onCopy: createVoidCallbackClosure(semanticsProperties.buildOwner, onCopy),
-      onCut: createVoidCallbackClosure(semanticsProperties.buildOwner, onCut),
-      onPaste: createVoidCallbackClosure(semanticsProperties.buildOwner, onPaste),
-      onMoveCursorForwardByCharacter: createValueChangedGenericClosure<bool>(semanticsProperties.buildOwner, onMoveCursorForwardByCharacter),
-      onMoveCursorBackwardByCharacter: createValueChangedGenericClosure<bool>(semanticsProperties.buildOwner, onMoveCursorBackwardByCharacter),
-      onMoveCursorForwardByWord: createValueChangedGenericClosure<bool>(semanticsProperties.buildOwner, onMoveCursorForwardByWord),
-      onMoveCursorBackwardByWord: createValueChangedGenericClosure<bool>(semanticsProperties.buildOwner, onMoveCursorBackwardByWord),
-      onSetSelection: createValueChangedGenericClosure<TextSelection>(semanticsProperties.buildOwner, onSetSelection),
-      onDidGainAccessibilityFocus: createVoidCallbackClosure(semanticsProperties.buildOwner, onDidGainAccessibilityFocus),
-      onDidLoseAccessibilityFocus: createVoidCallbackClosure(semanticsProperties.buildOwner, onDidLoseAccessibilityFocus),
-      onDismiss: createVoidCallbackClosure(semanticsProperties.buildOwner, onDismiss),
+      onTap: createVoidCallbackClosure(_semanticsProperties.buildOwner, onTap),
+      onLongPress: createVoidCallbackClosure(_semanticsProperties.buildOwner, onLongPress),
+      onScrollLeft: createVoidCallbackClosure(_semanticsProperties.buildOwner, onScrollLeft),
+      onScrollRight: createVoidCallbackClosure(_semanticsProperties.buildOwner, onScrollRight),
+      onScrollUp: createVoidCallbackClosure(_semanticsProperties.buildOwner, onScrollUp),
+      onScrollDown: createVoidCallbackClosure(_semanticsProperties.buildOwner, onScrollDown),
+      onIncrease: createVoidCallbackClosure(_semanticsProperties.buildOwner, onIncrease),
+      onDecrease: createVoidCallbackClosure(_semanticsProperties.buildOwner, onDecrease),
+      onCopy: createVoidCallbackClosure(_semanticsProperties.buildOwner, onCopy),
+      onCut: createVoidCallbackClosure(_semanticsProperties.buildOwner, onCut),
+      onPaste: createVoidCallbackClosure(_semanticsProperties.buildOwner, onPaste),
+      onMoveCursorForwardByCharacter: createValueChangedGenericClosure<bool>(_semanticsProperties.buildOwner, onMoveCursorForwardByCharacter),
+      onMoveCursorBackwardByCharacter: createValueChangedGenericClosure<bool>(_semanticsProperties.buildOwner, onMoveCursorBackwardByCharacter),
+      onMoveCursorForwardByWord: createValueChangedGenericClosure<bool>(_semanticsProperties.buildOwner, onMoveCursorForwardByWord),
+      onMoveCursorBackwardByWord: createValueChangedGenericClosure<bool>(_semanticsProperties.buildOwner, onMoveCursorBackwardByWord),
+      onSetSelection: createValueChangedGenericClosure<TextSelection>(_semanticsProperties.buildOwner, onSetSelection),
+      onDidGainAccessibilityFocus: createVoidCallbackClosure(_semanticsProperties.buildOwner, onDidGainAccessibilityFocus),
+      onDidLoseAccessibilityFocus: createVoidCallbackClosure(_semanticsProperties.buildOwner, onDidLoseAccessibilityFocus),
+      onDismiss: createVoidCallbackClosure(_semanticsProperties.buildOwner, onDismiss),
       customSemanticsActions: customSemanticsActions,
     ),
 );
-var semanticsNode = MXFunctionInvoke(
+var _semanticsNode = MXFunctionInvoke(
     "SemanticsNode",
-    ({
+    (
+      {
       Key key,
       dynamic showOnScreen,
-    }) =>
+      }
+    ) =>
       SemanticsNode(
       key: key,
-      showOnScreen: createVoidCallbackClosure(semanticsNode.buildOwner, showOnScreen),
+      showOnScreen: createVoidCallbackClosure(_semanticsNode.buildOwner, showOnScreen),
     ),
 );
-var semanticsNode_root = MXFunctionInvoke(
+var _semanticsNode_root = MXFunctionInvoke(
   "semanticsNode.root",
-    ({
+    (
+      {
       Key key,
       dynamic showOnScreen,
       SemanticsOwner owner,
-    }) =>
+      }
+    ) =>
       SemanticsNode.root(
       key: key,
-      showOnScreen: createVoidCallbackClosure(semanticsNode_root.buildOwner, showOnScreen),
+      showOnScreen: createVoidCallbackClosure(_semanticsNode_root.buildOwner, showOnScreen),
       owner: owner,
     ),
 );
-var semanticsOwner = MXFunctionInvoke(
+var _semanticsOwner = MXFunctionInvoke(
     "SemanticsOwner",
-    ({
-    }) =>
+    (
+    ) =>
       SemanticsOwner(
     ),
 );
-var semanticsConfiguration = MXFunctionInvoke(
+var _semanticsConfiguration = MXFunctionInvoke(
     "SemanticsConfiguration",
-    ({
-    }) =>
+    (
+    ) =>
       SemanticsConfiguration(
     ),
 );
-var debugSemanticsDumpOrder = MXFunctionInvoke(
+var _debugSemanticsDumpOrder = MXFunctionInvoke(
     "DebugSemanticsDumpOrder",
     ({Map args}) => MXDebugSemanticsDumpOrder.parse(args),
   );
-var ordinalSortKey = MXFunctionInvoke(
+var _ordinalSortKey = MXFunctionInvoke(
     "OrdinalSortKey",
-    ({
-      dynamic order,
+    (
+      {
+      double order,
       String name,
-    }) =>
+      }
+    ) =>
       OrdinalSortKey(
       order,
       name: name,

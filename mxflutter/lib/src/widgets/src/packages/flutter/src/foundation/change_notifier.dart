@@ -16,23 +16,25 @@ import 'package:flutter/src/foundation/observer_list.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerChangeNotifierSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[changeNotifier.funName] = changeNotifier;
-  m[valueNotifier.funName] = valueNotifier;
+  m[_changeNotifier.funName] = _changeNotifier;
+  m[_valueNotifier.funName] = _valueNotifier;
   return m;
 }
-var changeNotifier = MXFunctionInvoke(
+var _changeNotifier = MXFunctionInvoke(
     "ChangeNotifier",
-    ({
-    }) =>
+    (
+    ) =>
       ChangeNotifier(
     ),
 );
-var valueNotifier = MXFunctionInvoke(
+var _valueNotifier = MXFunctionInvoke(
     "ValueNotifier",
-    ({
-      dynamic _value,
-    }) =>
+    (
+      {
+      dynamic value,
+      }
+    ) =>
       ValueNotifier(
-      _value,
+      value,
     ),
 );

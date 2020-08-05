@@ -14,35 +14,37 @@ import 'package:flutter/rendering.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFloatingActionButtonThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[floatingActionButtonThemeData.funName] = floatingActionButtonThemeData;
+  m[_floatingActionButtonThemeData.funName] = _floatingActionButtonThemeData;
   return m;
 }
-var floatingActionButtonThemeData = MXFunctionInvoke(
+var _floatingActionButtonThemeData = MXFunctionInvoke(
     "FloatingActionButtonThemeData",
-    ({
+    (
+      {
       Color foregroundColor,
       Color backgroundColor,
       Color focusColor,
       Color hoverColor,
       Color splashColor,
-      dynamic elevation,
-      dynamic focusElevation,
-      dynamic hoverElevation,
-      dynamic disabledElevation,
-      dynamic highlightElevation,
+      double elevation,
+      double focusElevation,
+      double hoverElevation,
+      double disabledElevation,
+      double highlightElevation,
       ShapeBorder shape,
-    }) =>
+      }
+    ) =>
       FloatingActionButtonThemeData(
       foregroundColor: foregroundColor,
       backgroundColor: backgroundColor,
       focusColor: focusColor,
       hoverColor: hoverColor,
       splashColor: splashColor,
-      elevation: elevation,
-      focusElevation: focusElevation,
-      hoverElevation: hoverElevation,
-      disabledElevation: disabledElevation,
-      highlightElevation: highlightElevation,
+      elevation: elevation?.toDouble(),
+      focusElevation: focusElevation?.toDouble(),
+      hoverElevation: hoverElevation?.toDouble(),
+      disabledElevation: disabledElevation?.toDouble(),
+      highlightElevation: highlightElevation?.toDouble(),
       shape: shape,
     ),
 );

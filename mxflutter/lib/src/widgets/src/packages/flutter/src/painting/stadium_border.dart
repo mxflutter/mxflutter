@@ -19,14 +19,16 @@ import 'package:flutter/src/painting/rounded_rectangle_border.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStadiumBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[stadiumBorder.funName] = stadiumBorder;
+  m[_stadiumBorder.funName] = _stadiumBorder;
   return m;
 }
-var stadiumBorder = MXFunctionInvoke(
+var _stadiumBorder = MXFunctionInvoke(
     "StadiumBorder",
-    ({
+    (
+      {
       BorderSide side,
-    }) =>
+      }
+    ) =>
       StadiumBorder(
       side: side,
     ),

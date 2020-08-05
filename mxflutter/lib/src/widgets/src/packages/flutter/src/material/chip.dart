@@ -29,17 +29,18 @@ import 'package:flutter/src/material/tooltip.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerChipSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[chip.funName] = chip;
-  m[inputChip.funName] = inputChip;
-  m[choiceChip.funName] = choiceChip;
-  m[filterChip.funName] = filterChip;
-  m[actionChip.funName] = actionChip;
-  m[rawChip.funName] = rawChip;
+  m[_chip.funName] = _chip;
+  m[_inputChip.funName] = _inputChip;
+  m[_choiceChip.funName] = _choiceChip;
+  m[_filterChip.funName] = _filterChip;
+  m[_actionChip.funName] = _actionChip;
+  m[_rawChip.funName] = _rawChip;
   return m;
 }
-var chip = MXFunctionInvoke(
+var _chip = MXFunctionInvoke(
     "Chip",
-    ({
+    (
+      {
       Key key,
       Widget avatar,
       Widget label,
@@ -57,9 +58,10 @@ var chip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      dynamic elevation,
+      double elevation,
       Color shadowColor,
-    }) =>
+      }
+    ) =>
       Chip(
       key: key,
       avatar: avatar,
@@ -67,7 +69,7 @@ var chip = MXFunctionInvoke(
       labelStyle: labelStyle,
       labelPadding: labelPadding,
       deleteIcon: deleteIcon,
-      onDeleted: createVoidCallbackClosure(chip.buildOwner, onDeleted),
+      onDeleted: createVoidCallbackClosure(_chip.buildOwner, onDeleted),
       deleteIconColor: deleteIconColor,
       deleteButtonTooltipMessage: deleteButtonTooltipMessage,
       shape: shape,
@@ -78,13 +80,14 @@ var chip = MXFunctionInvoke(
       padding: padding,
       visualDensity: visualDensity,
       materialTapTargetSize: materialTapTargetSize,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shadowColor: shadowColor,
     ),
 );
-var inputChip = MXFunctionInvoke(
+var _inputChip = MXFunctionInvoke(
     "InputChip",
-    ({
+    (
+      {
       Key key,
       Widget avatar,
       Widget label,
@@ -98,7 +101,7 @@ var inputChip = MXFunctionInvoke(
       Color deleteIconColor,
       String deleteButtonTooltipMessage,
       dynamic onPressed,
-      dynamic pressElevation,
+      double pressElevation,
       Color disabledColor,
       Color selectedColor,
       String tooltip,
@@ -110,13 +113,14 @@ var inputChip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      dynamic elevation,
+      double elevation,
       Color shadowColor,
       Color selectedShadowColor,
       bool showCheckmark,
       Color checkmarkColor,
       ShapeBorder avatarBorder,
-    }) =>
+      }
+    ) =>
       InputChip(
       key: key,
       avatar: avatar,
@@ -125,13 +129,13 @@ var inputChip = MXFunctionInvoke(
       labelPadding: labelPadding,
       selected: selected,
       isEnabled: isEnabled,
-      onSelected: createValueChangedGenericClosure<bool>(inputChip.buildOwner, onSelected),
+      onSelected: createValueChangedGenericClosure<bool>(_inputChip.buildOwner, onSelected),
       deleteIcon: deleteIcon,
-      onDeleted: createVoidCallbackClosure(inputChip.buildOwner, onDeleted),
+      onDeleted: createVoidCallbackClosure(_inputChip.buildOwner, onDeleted),
       deleteIconColor: deleteIconColor,
       deleteButtonTooltipMessage: deleteButtonTooltipMessage,
-      onPressed: createVoidCallbackClosure(inputChip.buildOwner, onPressed),
-      pressElevation: pressElevation,
+      onPressed: createVoidCallbackClosure(_inputChip.buildOwner, onPressed),
+      pressElevation: pressElevation?.toDouble(),
       disabledColor: disabledColor,
       selectedColor: selectedColor,
       tooltip: tooltip,
@@ -143,7 +147,7 @@ var inputChip = MXFunctionInvoke(
       padding: padding,
       visualDensity: visualDensity,
       materialTapTargetSize: materialTapTargetSize,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shadowColor: shadowColor,
       selectedShadowColor: selectedShadowColor,
       showCheckmark: showCheckmark,
@@ -151,16 +155,17 @@ var inputChip = MXFunctionInvoke(
       avatarBorder: avatarBorder,
     ),
 );
-var choiceChip = MXFunctionInvoke(
+var _choiceChip = MXFunctionInvoke(
     "ChoiceChip",
-    ({
+    (
+      {
       Key key,
       Widget avatar,
       Widget label,
       TextStyle labelStyle,
       EdgeInsetsGeometry labelPadding,
       dynamic onSelected,
-      dynamic pressElevation,
+      double pressElevation,
       bool selected,
       Color selectedColor,
       Color disabledColor,
@@ -173,19 +178,20 @@ var choiceChip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      dynamic elevation,
+      double elevation,
       Color shadowColor,
       Color selectedShadowColor,
       ShapeBorder avatarBorder,
-    }) =>
+      }
+    ) =>
       ChoiceChip(
       key: key,
       avatar: avatar,
       label: label,
       labelStyle: labelStyle,
       labelPadding: labelPadding,
-      onSelected: createValueChangedGenericClosure<bool>(choiceChip.buildOwner, onSelected),
-      pressElevation: pressElevation,
+      onSelected: createValueChangedGenericClosure<bool>(_choiceChip.buildOwner, onSelected),
+      pressElevation: pressElevation?.toDouble(),
       selected: selected,
       selectedColor: selectedColor,
       disabledColor: disabledColor,
@@ -198,15 +204,16 @@ var choiceChip = MXFunctionInvoke(
       padding: padding,
       visualDensity: visualDensity,
       materialTapTargetSize: materialTapTargetSize,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shadowColor: shadowColor,
       selectedShadowColor: selectedShadowColor,
       avatarBorder: avatarBorder,
     ),
 );
-var filterChip = MXFunctionInvoke(
+var _filterChip = MXFunctionInvoke(
     "FilterChip",
-    ({
+    (
+      {
       Key key,
       Widget avatar,
       Widget label,
@@ -214,7 +221,7 @@ var filterChip = MXFunctionInvoke(
       EdgeInsetsGeometry labelPadding,
       bool selected = false,
       dynamic onSelected,
-      dynamic pressElevation,
+      double pressElevation,
       Color disabledColor,
       Color selectedColor,
       String tooltip,
@@ -226,13 +233,14 @@ var filterChip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      dynamic elevation,
+      double elevation,
       Color shadowColor,
       Color selectedShadowColor,
       bool showCheckmark,
       Color checkmarkColor,
       ShapeBorder avatarBorder,
-    }) =>
+      }
+    ) =>
       FilterChip(
       key: key,
       avatar: avatar,
@@ -240,8 +248,8 @@ var filterChip = MXFunctionInvoke(
       labelStyle: labelStyle,
       labelPadding: labelPadding,
       selected: selected,
-      onSelected: createValueChangedGenericClosure<bool>(filterChip.buildOwner, onSelected),
-      pressElevation: pressElevation,
+      onSelected: createValueChangedGenericClosure<bool>(_filterChip.buildOwner, onSelected),
+      pressElevation: pressElevation?.toDouble(),
       disabledColor: disabledColor,
       selectedColor: selectedColor,
       tooltip: tooltip,
@@ -253,7 +261,7 @@ var filterChip = MXFunctionInvoke(
       padding: padding,
       visualDensity: visualDensity,
       materialTapTargetSize: materialTapTargetSize,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shadowColor: shadowColor,
       selectedShadowColor: selectedShadowColor,
       showCheckmark: showCheckmark,
@@ -261,16 +269,17 @@ var filterChip = MXFunctionInvoke(
       avatarBorder: avatarBorder,
     ),
 );
-var actionChip = MXFunctionInvoke(
+var _actionChip = MXFunctionInvoke(
     "ActionChip",
-    ({
+    (
+      {
       Key key,
       Widget avatar,
       Widget label,
       TextStyle labelStyle,
       EdgeInsetsGeometry labelPadding,
       dynamic onPressed,
-      dynamic pressElevation,
+      double pressElevation,
       String tooltip,
       ShapeBorder shape,
       Clip clipBehavior = Clip.none,
@@ -280,17 +289,18 @@ var actionChip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      dynamic elevation,
+      double elevation,
       Color shadowColor,
-    }) =>
+      }
+    ) =>
       ActionChip(
       key: key,
       avatar: avatar,
       label: label,
       labelStyle: labelStyle,
       labelPadding: labelPadding,
-      onPressed: createVoidCallbackClosure(actionChip.buildOwner, onPressed),
-      pressElevation: pressElevation,
+      onPressed: createVoidCallbackClosure(_actionChip.buildOwner, onPressed),
+      pressElevation: pressElevation?.toDouble(),
       tooltip: tooltip,
       shape: shape,
       clipBehavior: clipBehavior,
@@ -300,13 +310,14 @@ var actionChip = MXFunctionInvoke(
       padding: padding,
       visualDensity: visualDensity,
       materialTapTargetSize: materialTapTargetSize,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shadowColor: shadowColor,
     ),
 );
-var rawChip = MXFunctionInvoke(
+var _rawChip = MXFunctionInvoke(
     "RawChip",
-    ({
+    (
+      {
       Key key,
       Widget avatar,
       Widget label,
@@ -320,7 +331,7 @@ var rawChip = MXFunctionInvoke(
       String deleteButtonTooltipMessage,
       dynamic onPressed,
       dynamic onSelected,
-      dynamic pressElevation,
+      double pressElevation,
       bool tapEnabled = true,
       bool selected = false,
       bool isEnabled = true,
@@ -333,13 +344,14 @@ var rawChip = MXFunctionInvoke(
       bool autofocus = false,
       Color backgroundColor,
       MaterialTapTargetSize materialTapTargetSize,
-      dynamic elevation,
+      double elevation,
       Color shadowColor,
       Color selectedShadowColor,
       bool showCheckmark = true,
       Color checkmarkColor,
       ShapeBorder avatarBorder,
-    }) =>
+      }
+    ) =>
       RawChip(
       key: key,
       avatar: avatar,
@@ -349,12 +361,12 @@ var rawChip = MXFunctionInvoke(
       visualDensity: visualDensity,
       labelPadding: labelPadding,
       deleteIcon: deleteIcon,
-      onDeleted: createVoidCallbackClosure(rawChip.buildOwner, onDeleted),
+      onDeleted: createVoidCallbackClosure(_rawChip.buildOwner, onDeleted),
       deleteIconColor: deleteIconColor,
       deleteButtonTooltipMessage: deleteButtonTooltipMessage,
-      onPressed: createVoidCallbackClosure(rawChip.buildOwner, onPressed),
-      onSelected: createValueChangedGenericClosure<bool>(rawChip.buildOwner, onSelected),
-      pressElevation: pressElevation,
+      onPressed: createVoidCallbackClosure(_rawChip.buildOwner, onPressed),
+      onSelected: createValueChangedGenericClosure<bool>(_rawChip.buildOwner, onSelected),
+      pressElevation: pressElevation?.toDouble(),
       tapEnabled: tapEnabled,
       selected: selected,
       isEnabled: isEnabled,
@@ -367,7 +379,7 @@ var rawChip = MXFunctionInvoke(
       autofocus: autofocus,
       backgroundColor: backgroundColor,
       materialTapTargetSize: materialTapTargetSize,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shadowColor: shadowColor,
       selectedShadowColor: selectedShadowColor,
       showCheckmark: showCheckmark,

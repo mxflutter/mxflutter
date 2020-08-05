@@ -18,16 +18,18 @@ import 'package:flutter/src/painting/image_provider.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerImageResolutionSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[assetImage.funName] = assetImage;
+  m[_assetImage.funName] = _assetImage;
   return m;
 }
-var assetImage = MXFunctionInvoke(
+var _assetImage = MXFunctionInvoke(
     "AssetImage",
-    ({
+    (
+      {
       String assetName,
       AssetBundle bundle,
       String package,
-    }) =>
+      }
+    ) =>
       AssetImage(
       assetName,
       bundle: bundle,

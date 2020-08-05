@@ -16,31 +16,35 @@ import 'package:flutter/src/gestures/velocity_tracker.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerLongPressSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[longPressStartDetails.funName] = longPressStartDetails;
-  m[longPressMoveUpdateDetails.funName] = longPressMoveUpdateDetails;
-  m[longPressEndDetails.funName] = longPressEndDetails;
-  m[longPressGestureRecognizer.funName] = longPressGestureRecognizer;
+  m[_longPressStartDetails.funName] = _longPressStartDetails;
+  m[_longPressMoveUpdateDetails.funName] = _longPressMoveUpdateDetails;
+  m[_longPressEndDetails.funName] = _longPressEndDetails;
+  m[_longPressGestureRecognizer.funName] = _longPressGestureRecognizer;
   return m;
 }
-var longPressStartDetails = MXFunctionInvoke(
+var _longPressStartDetails = MXFunctionInvoke(
     "LongPressStartDetails",
-    ({
+    (
+      {
       Offset globalPosition,
       Offset localPosition,
-    }) =>
+      }
+    ) =>
       LongPressStartDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
     ),
 );
-var longPressMoveUpdateDetails = MXFunctionInvoke(
+var _longPressMoveUpdateDetails = MXFunctionInvoke(
     "LongPressMoveUpdateDetails",
-    ({
+    (
+      {
       Offset globalPosition,
       Offset localPosition,
       Offset offsetFromOrigin,
       Offset localOffsetFromOrigin,
-    }) =>
+      }
+    ) =>
       LongPressMoveUpdateDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
@@ -48,30 +52,34 @@ var longPressMoveUpdateDetails = MXFunctionInvoke(
       localOffsetFromOrigin: localOffsetFromOrigin,
     ),
 );
-var longPressEndDetails = MXFunctionInvoke(
+var _longPressEndDetails = MXFunctionInvoke(
     "LongPressEndDetails",
-    ({
+    (
+      {
       Offset globalPosition,
       Offset localPosition,
       Velocity velocity,
-    }) =>
+      }
+    ) =>
       LongPressEndDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
       velocity: velocity,
     ),
 );
-var longPressGestureRecognizer = MXFunctionInvoke(
+var _longPressGestureRecognizer = MXFunctionInvoke(
     "LongPressGestureRecognizer",
-    ({
+    (
+      {
       Duration duration,
-      dynamic postAcceptSlopTolerance,
+      double postAcceptSlopTolerance,
       PointerDeviceKind kind,
       Object debugOwner,
-    }) =>
+      }
+    ) =>
       LongPressGestureRecognizer(
       duration: duration,
-      postAcceptSlopTolerance: postAcceptSlopTolerance,
+      postAcceptSlopTolerance: postAcceptSlopTolerance?.toDouble(),
       kind: kind,
       debugOwner: debugOwner,
     ),

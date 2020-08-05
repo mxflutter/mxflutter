@@ -19,13 +19,14 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerActionSheetSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoActionSheet.funName] = cupertinoActionSheet;
-  m[cupertinoActionSheetAction.funName] = cupertinoActionSheetAction;
+  m[_cupertinoActionSheet.funName] = _cupertinoActionSheet;
+  m[_cupertinoActionSheetAction.funName] = _cupertinoActionSheetAction;
   return m;
 }
-var cupertinoActionSheet = MXFunctionInvoke(
+var _cupertinoActionSheet = MXFunctionInvoke(
     "CupertinoActionSheet",
-    ({
+    (
+      {
       Key key,
       Widget title,
       Widget message,
@@ -33,7 +34,8 @@ var cupertinoActionSheet = MXFunctionInvoke(
       ScrollController messageScrollController,
       ScrollController actionScrollController,
       Widget cancelButton,
-    }) =>
+      }
+    ) =>
       CupertinoActionSheet(
       key: key,
       title: title,
@@ -44,18 +46,20 @@ var cupertinoActionSheet = MXFunctionInvoke(
       cancelButton: cancelButton,
     ),
 );
-var cupertinoActionSheetAction = MXFunctionInvoke(
+var _cupertinoActionSheetAction = MXFunctionInvoke(
     "CupertinoActionSheetAction",
-    ({
+    (
+      {
       Key key,
       dynamic onPressed,
       bool isDefaultAction = false,
       bool isDestructiveAction = false,
       Widget child,
-    }) =>
+      }
+    ) =>
       CupertinoActionSheetAction(
       key: key,
-      onPressed: createVoidCallbackClosure(cupertinoActionSheetAction.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_cupertinoActionSheetAction.buildOwner, onPressed),
       isDefaultAction: isDefaultAction,
       isDestructiveAction: isDestructiveAction,
       child: child,

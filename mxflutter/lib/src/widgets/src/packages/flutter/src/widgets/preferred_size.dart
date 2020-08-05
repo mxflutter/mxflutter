@@ -14,16 +14,18 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPreferredSizeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[preferredSize.funName] = preferredSize;
+  m[_preferredSize.funName] = _preferredSize;
   return m;
 }
-var preferredSize = MXFunctionInvoke(
+var _preferredSize = MXFunctionInvoke(
     "PreferredSize",
-    ({
+    (
+      {
       Key key,
       Widget child,
       Size preferredSize,
-    }) =>
+      }
+    ) =>
       PreferredSize(
       key: key,
       child: child,

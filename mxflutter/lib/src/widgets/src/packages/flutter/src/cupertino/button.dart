@@ -16,55 +16,59 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoButton.funName] = cupertinoButton;
-  m[cupertinoButton_filled.funName] = cupertinoButton_filled;
+  m[_cupertinoButton.funName] = _cupertinoButton;
+  m[_cupertinoButton_filled.funName] = _cupertinoButton_filled;
   return m;
 }
-var cupertinoButton = MXFunctionInvoke(
+var _cupertinoButton = MXFunctionInvoke(
     "CupertinoButton",
-    ({
+    (
+      {
       Key key,
       Widget child,
       EdgeInsetsGeometry padding,
       Color color,
       Color disabledColor,
-      dynamic minSize = 44.0,
-      dynamic pressedOpacity = 0.4,
+      double minSize = 44.0,
+      double pressedOpacity = 0.4,
       BorderRadius borderRadius,
       dynamic onPressed,
-    }) =>
+      }
+    ) =>
       CupertinoButton(
       key: key,
       child: child,
       padding: padding,
       color: color,
       disabledColor: disabledColor,
-      minSize: minSize,
-      pressedOpacity: pressedOpacity,
+      minSize: minSize?.toDouble(),
+      pressedOpacity: pressedOpacity?.toDouble(),
       borderRadius: borderRadius,
-      onPressed: createVoidCallbackClosure(cupertinoButton.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_cupertinoButton.buildOwner, onPressed),
     ),
 );
-var cupertinoButton_filled = MXFunctionInvoke(
+var _cupertinoButton_filled = MXFunctionInvoke(
   "cupertinoButton.filled",
-    ({
+    (
+      {
       Key key,
       Widget child,
       EdgeInsetsGeometry padding,
       Color disabledColor,
-      dynamic minSize = 44.0,
-      dynamic pressedOpacity = 0.4,
+      double minSize = 44.0,
+      double pressedOpacity = 0.4,
       BorderRadius borderRadius,
       dynamic onPressed,
-    }) =>
+      }
+    ) =>
       CupertinoButton.filled(
       key: key,
       child: child,
       padding: padding,
       disabledColor: disabledColor,
-      minSize: minSize,
-      pressedOpacity: pressedOpacity,
+      minSize: minSize?.toDouble(),
+      pressedOpacity: pressedOpacity?.toDouble(),
       borderRadius: borderRadius,
-      onPressed: createVoidCallbackClosure(cupertinoButton_filled.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_cupertinoButton_filled.buildOwner, onPressed),
     ),
 );

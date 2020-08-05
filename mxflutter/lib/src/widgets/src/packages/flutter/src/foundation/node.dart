@@ -12,13 +12,13 @@ import 'package:meta/meta.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNodeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[abstractNode.funName] = abstractNode;
+  m[_abstractNode.funName] = _abstractNode;
   return m;
 }
-var abstractNode = MXFunctionInvoke(
+var _abstractNode = MXFunctionInvoke(
     "AbstractNode",
-    ({
-    }) =>
+    (
+    ) =>
       AbstractNode(
     ),
 );

@@ -16,21 +16,23 @@ import 'package:flutter/src/painting/debug.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxShadowSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[boxShadow.funName] = boxShadow;
+  m[_boxShadow.funName] = _boxShadow;
   return m;
 }
-var boxShadow = MXFunctionInvoke(
+var _boxShadow = MXFunctionInvoke(
     "BoxShadow",
-    ({
+    (
+      {
       Color color,
       Offset offset,
-      dynamic blurRadius = 0.0,
-      dynamic spreadRadius = 0.0,
-    }) =>
+      double blurRadius = 0.0,
+      double spreadRadius = 0.0,
+      }
+    ) =>
       BoxShadow(
       color: color,
       offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
+      blurRadius: blurRadius?.toDouble(),
+      spreadRadius: spreadRadius?.toDouble(),
     ),
 );

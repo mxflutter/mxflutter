@@ -13,15 +13,17 @@ import 'package:flutter/src/material/colors.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTabIndicatorSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[underlineTabIndicator.funName] = underlineTabIndicator;
+  m[_underlineTabIndicator.funName] = _underlineTabIndicator;
   return m;
 }
-var underlineTabIndicator = MXFunctionInvoke(
+var _underlineTabIndicator = MXFunctionInvoke(
     "UnderlineTabIndicator",
-    ({
+    (
+      {
       BorderSide borderSide,
       EdgeInsetsGeometry insets,
-    }) =>
+      }
+    ) =>
       UnderlineTabIndicator(
       borderSide: borderSide,
       insets: insets,

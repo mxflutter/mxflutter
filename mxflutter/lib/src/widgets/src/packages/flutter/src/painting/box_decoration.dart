@@ -23,12 +23,13 @@ import 'package:flutter/src/painting/image_provider.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[boxDecoration.funName] = boxDecoration;
+  m[_boxDecoration.funName] = _boxDecoration;
   return m;
 }
-var boxDecoration = MXFunctionInvoke(
+var _boxDecoration = MXFunctionInvoke(
     "BoxDecoration",
-    ({
+    (
+      {
       Color color,
       DecorationImage image,
       BoxBorder border,
@@ -37,7 +38,8 @@ var boxDecoration = MXFunctionInvoke(
       Gradient gradient,
       BlendMode backgroundBlendMode,
       BoxShape shape = BoxShape.rectangle,
-    }) =>
+      }
+    ) =>
       BoxDecoration(
       color: color,
       image: image,

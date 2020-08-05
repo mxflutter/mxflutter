@@ -28,13 +28,14 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPaginatedDataTableSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[paginatedDataTable.funName] = paginatedDataTable;
-  m[paginatedDataTableState.funName] = paginatedDataTableState;
+  m[_paginatedDataTable.funName] = _paginatedDataTable;
+  m[_paginatedDataTableState.funName] = _paginatedDataTableState;
   return m;
 }
-var paginatedDataTable = MXFunctionInvoke(
+var _paginatedDataTable = MXFunctionInvoke(
     "PaginatedDataTable",
-    ({
+    (
+      {
       Key key,
       Widget header,
       List<Widget> actions,
@@ -42,10 +43,10 @@ var paginatedDataTable = MXFunctionInvoke(
       int sortColumnIndex,
       bool sortAscending = true,
       dynamic onSelectAll,
-      dynamic dataRowHeight = 48.0,
-      dynamic headingRowHeight = 56.0,
-      dynamic horizontalMargin = 24.0,
-      dynamic columnSpacing = 56.0,
+      double dataRowHeight = 48.0,
+      double headingRowHeight = 56.0,
+      double horizontalMargin = 24.0,
+      double columnSpacing = 56.0,
       bool showCheckboxColumn = true,
       int initialFirstRowIndex = 0,
       dynamic onPageChanged,
@@ -54,7 +55,8 @@ var paginatedDataTable = MXFunctionInvoke(
       dynamic onRowsPerPageChanged,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       DataTableSource source,
-    }) =>
+      }
+    ) =>
       PaginatedDataTable(
       key: key,
       header: header,
@@ -62,25 +64,25 @@ var paginatedDataTable = MXFunctionInvoke(
       columns: columns,
       sortColumnIndex: sortColumnIndex,
       sortAscending: sortAscending,
-      onSelectAll: createValueChangedGenericClosure<bool>(paginatedDataTable.buildOwner, onSelectAll),
-      dataRowHeight: dataRowHeight,
-      headingRowHeight: headingRowHeight,
-      horizontalMargin: horizontalMargin,
-      columnSpacing: columnSpacing,
+      onSelectAll: createValueChangedGenericClosure<bool>(_paginatedDataTable.buildOwner, onSelectAll),
+      dataRowHeight: dataRowHeight?.toDouble(),
+      headingRowHeight: headingRowHeight?.toDouble(),
+      horizontalMargin: horizontalMargin?.toDouble(),
+      columnSpacing: columnSpacing?.toDouble(),
       showCheckboxColumn: showCheckboxColumn,
       initialFirstRowIndex: initialFirstRowIndex,
-      onPageChanged: createValueChangedGenericClosure<int>(paginatedDataTable.buildOwner, onPageChanged),
+      onPageChanged: createValueChangedGenericClosure<int>(_paginatedDataTable.buildOwner, onPageChanged),
       rowsPerPage: rowsPerPage,
       availableRowsPerPage: availableRowsPerPage,
-      onRowsPerPageChanged: createValueChangedGenericClosure<int>(paginatedDataTable.buildOwner, onRowsPerPageChanged),
+      onRowsPerPageChanged: createValueChangedGenericClosure<int>(_paginatedDataTable.buildOwner, onRowsPerPageChanged),
       dragStartBehavior: dragStartBehavior,
       source: source,
     ),
 );
-var paginatedDataTableState = MXFunctionInvoke(
+var _paginatedDataTableState = MXFunctionInvoke(
     "PaginatedDataTableState",
-    ({
-    }) =>
+    (
+    ) =>
       PaginatedDataTableState(
     ),
 );

@@ -16,46 +16,52 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStackSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[relativeRect_fromSize.funName] = relativeRect_fromSize;
-  m[relativeRect_fromRect.funName] = relativeRect_fromRect;
-  m[relativeRect_fromLTRB.funName] = relativeRect_fromLTRB;
-  m[stackParentData.funName] = stackParentData;
-  m[stackFit.funName] = stackFit;
-  m[overflow.funName] = overflow;
-  m[renderStack.funName] = renderStack;
-  m[renderIndexedStack.funName] = renderIndexedStack;
+  m[_relativeRect_fromSize.funName] = _relativeRect_fromSize;
+  m[_relativeRect_fromRect.funName] = _relativeRect_fromRect;
+  m[_relativeRect_fromLTRB.funName] = _relativeRect_fromLTRB;
+  m[_stackParentData.funName] = _stackParentData;
+  m[_stackFit.funName] = _stackFit;
+  m[_overflow.funName] = _overflow;
+  m[_renderStack.funName] = _renderStack;
+  m[_renderIndexedStack.funName] = _renderIndexedStack;
   return m;
 }
-var relativeRect_fromSize = MXFunctionInvoke(
+var _relativeRect_fromSize = MXFunctionInvoke(
   "relativeRect.fromSize",
-    ({
+    (
+      {
       Rect rect,
       Size container,
-    }) =>
+      }
+    ) =>
       RelativeRect.fromSize(
       rect,
       container,
     ),
 );
-var relativeRect_fromRect = MXFunctionInvoke(
+var _relativeRect_fromRect = MXFunctionInvoke(
   "relativeRect.fromRect",
-    ({
+    (
+      {
       Rect rect,
       Rect container,
-    }) =>
+      }
+    ) =>
       RelativeRect.fromRect(
       rect,
       container,
     ),
 );
-var relativeRect_fromLTRB = MXFunctionInvoke(
+var _relativeRect_fromLTRB = MXFunctionInvoke(
   "relativeRect.fromLTRB",
-    ({
-      dynamic left,
-      dynamic top,
-      dynamic right,
-      dynamic bottom,
-    }) =>
+    (
+      {
+      double left,
+      double top,
+      double right,
+      double bottom,
+      }
+    ) =>
       RelativeRect.fromLTRB(
       left,
       top,
@@ -63,30 +69,32 @@ var relativeRect_fromLTRB = MXFunctionInvoke(
       bottom,
     ),
 );
-var stackParentData = MXFunctionInvoke(
+var _stackParentData = MXFunctionInvoke(
     "StackParentData",
-    ({
-    }) =>
+    (
+    ) =>
       StackParentData(
     ),
 );
-var stackFit = MXFunctionInvoke(
+var _stackFit = MXFunctionInvoke(
     "StackFit",
     ({Map args}) => MXStackFit.parse(args),
   );
-var overflow = MXFunctionInvoke(
+var _overflow = MXFunctionInvoke(
     "Overflow",
     ({Map args}) => MXOverflow.parse(args),
   );
-var renderStack = MXFunctionInvoke(
+var _renderStack = MXFunctionInvoke(
     "RenderStack",
-    ({
+    (
+      {
       List<RenderBox> children,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       StackFit fit = StackFit.loose,
       Overflow overflow = Overflow.clip,
-    }) =>
+      }
+    ) =>
       RenderStack(
       children: children,
       alignment: alignment,
@@ -95,14 +103,16 @@ var renderStack = MXFunctionInvoke(
       overflow: overflow,
     ),
 );
-var renderIndexedStack = MXFunctionInvoke(
+var _renderIndexedStack = MXFunctionInvoke(
     "RenderIndexedStack",
-    ({
+    (
+      {
       List<RenderBox> children,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       int index = 0,
-    }) =>
+      }
+    ) =>
       RenderIndexedStack(
       children: children,
       alignment: alignment,

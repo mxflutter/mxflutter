@@ -27,60 +27,66 @@ import 'package:flutter/src/material/tooltip.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPopupMenuSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[popupMenuDivider.funName] = popupMenuDivider;
-  m[popupMenuItem.funName] = popupMenuItem;
-  m[popupMenuItemState.funName] = popupMenuItemState;
-  m[checkedPopupMenuItem.funName] = checkedPopupMenuItem;
-  m[popupMenuButton.funName] = popupMenuButton;
-  m[popupMenuButtonState.funName] = popupMenuButtonState;
+  m[_popupMenuDivider.funName] = _popupMenuDivider;
+  m[_popupMenuItem.funName] = _popupMenuItem;
+  m[_popupMenuItemState.funName] = _popupMenuItemState;
+  m[_checkedPopupMenuItem.funName] = _checkedPopupMenuItem;
+  m[_popupMenuButton.funName] = _popupMenuButton;
+  m[_popupMenuButtonState.funName] = _popupMenuButtonState;
   return m;
 }
-var popupMenuDivider = MXFunctionInvoke(
+var _popupMenuDivider = MXFunctionInvoke(
     "PopupMenuDivider",
-    ({
+    (
+      {
       Key key,
-      dynamic height = 16.0,
-    }) =>
+      double height = 16.0,
+      }
+    ) =>
       PopupMenuDivider(
       key: key,
-      height: height,
+      height: height?.toDouble(),
     ),
 );
-var popupMenuItem = MXFunctionInvoke(
+var _popupMenuItem = MXFunctionInvoke(
     "PopupMenuItem",
-    ({
+    (
+      {
       Key key,
       dynamic value,
       bool enabled = true,
-      dynamic height = 48.0,
+      double height = 48.0,
       TextStyle textStyle,
       Widget child,
-    }) =>
+      }
+    ) =>
       PopupMenuItem(
       key: key,
       value: value,
       enabled: enabled,
-      height: height,
+      height: height?.toDouble(),
       textStyle: textStyle,
       child: child,
     ),
 );
-var popupMenuItemState = MXFunctionInvoke(
+var _popupMenuItemState = MXFunctionInvoke(
     "PopupMenuItemState",
-    ({
-    }) =>
+    (
+    ) =>
       PopupMenuItemState(
     ),
 );
-var checkedPopupMenuItem = MXFunctionInvoke(
+var _checkedPopupMenuItem = MXFunctionInvoke(
     "CheckedPopupMenuItem",
-    ({
+    (
+      {
       Key key,
       dynamic value,
       bool checked = false,
       bool enabled = true,
       Widget child,
-    }) =>
+      }
+    ) =>
       CheckedPopupMenuItem(
       key: key,
       value: value,
@@ -89,16 +95,17 @@ var checkedPopupMenuItem = MXFunctionInvoke(
       child: child,
     ),
 );
-var popupMenuButton = MXFunctionInvoke(
+var _popupMenuButton = MXFunctionInvoke(
     "PopupMenuButton",
-    ({
+    (
+      {
       Key key,
       dynamic itemBuilder,
       dynamic initialValue,
       dynamic onSelected,
       dynamic onCanceled,
       String tooltip,
-      dynamic elevation,
+      double elevation,
       EdgeInsetsGeometry padding,
       Widget child,
       Widget icon,
@@ -107,15 +114,16 @@ var popupMenuButton = MXFunctionInvoke(
       ShapeBorder shape,
       Color color,
       bool captureInheritedThemes = true,
-    }) =>
+      }
+    ) =>
       PopupMenuButton(
       key: key,
-      itemBuilder: createGenericValueGenericClosure<dynamic, BuildContext>(popupMenuButton.buildOwner, itemBuilder),
+      itemBuilder: createGenericValueGenericClosure<List<PopupMenuEntry<dynamic>>, BuildContext>(_popupMenuButton.buildOwner, itemBuilder),
       initialValue: initialValue,
-      onSelected: createValueChangedGenericClosure<dynamic>(popupMenuButton.buildOwner, onSelected),
-      onCanceled: createVoidCallbackClosure(popupMenuButton.buildOwner, onCanceled),
+      onSelected: createValueChangedGenericClosure<dynamic>(_popupMenuButton.buildOwner, onSelected),
+      onCanceled: createVoidCallbackClosure(_popupMenuButton.buildOwner, onCanceled),
       tooltip: tooltip,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       padding: padding,
       child: child,
       icon: icon,
@@ -126,10 +134,10 @@ var popupMenuButton = MXFunctionInvoke(
       captureInheritedThemes: captureInheritedThemes,
     ),
 );
-var popupMenuButtonState = MXFunctionInvoke(
+var _popupMenuButtonState = MXFunctionInvoke(
     "PopupMenuButtonState",
-    ({
-    }) =>
+    (
+    ) =>
       PopupMenuButtonState(
     ),
 );

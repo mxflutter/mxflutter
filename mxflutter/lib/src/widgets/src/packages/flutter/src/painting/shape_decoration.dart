@@ -25,19 +25,21 @@ import 'package:flutter/src/painting/rounded_rectangle_border.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerShapeDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[shapeDecoration.funName] = shapeDecoration;
-  m[shapeDecoration_fromBoxDecoration.funName] = shapeDecoration_fromBoxDecoration;
+  m[_shapeDecoration.funName] = _shapeDecoration;
+  m[_shapeDecoration_fromBoxDecoration.funName] = _shapeDecoration_fromBoxDecoration;
   return m;
 }
-var shapeDecoration = MXFunctionInvoke(
+var _shapeDecoration = MXFunctionInvoke(
     "ShapeDecoration",
-    ({
+    (
+      {
       Color color,
       DecorationImage image,
       Gradient gradient,
       List<BoxShadow> shadows,
       ShapeBorder shape,
-    }) =>
+      }
+    ) =>
       ShapeDecoration(
       color: color,
       image: image,
@@ -46,11 +48,13 @@ var shapeDecoration = MXFunctionInvoke(
       shape: shape,
     ),
 );
-var shapeDecoration_fromBoxDecoration = MXFunctionInvoke(
+var _shapeDecoration_fromBoxDecoration = MXFunctionInvoke(
   "shapeDecoration.fromBoxDecoration",
-    ({
+    (
+      {
       BoxDecoration source,
-    }) =>
+      }
+    ) =>
       ShapeDecoration.fromBoxDecoration(
       source,
     ),

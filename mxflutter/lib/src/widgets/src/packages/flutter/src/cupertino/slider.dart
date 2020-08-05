@@ -19,31 +19,33 @@ import 'package:flutter/src/cupertino/thumb_painter.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoSlider.funName] = cupertinoSlider;
+  m[_cupertinoSlider.funName] = _cupertinoSlider;
   return m;
 }
-var cupertinoSlider = MXFunctionInvoke(
+var _cupertinoSlider = MXFunctionInvoke(
     "CupertinoSlider",
-    ({
+    (
+      {
       Key key,
-      dynamic value,
+      double value,
       dynamic onChanged,
       dynamic onChangeStart,
       dynamic onChangeEnd,
-      dynamic min = 0.0,
-      dynamic max = 1.0,
+      double min = 0.0,
+      double max = 1.0,
       int divisions,
       Color activeColor,
       Color thumbColor,
-    }) =>
+      }
+    ) =>
       CupertinoSlider(
       key: key,
-      value: value,
-      onChanged: createValueChangedGenericClosure<dynamic>(cupertinoSlider.buildOwner, onChanged),
-      onChangeStart: createValueChangedGenericClosure<dynamic>(cupertinoSlider.buildOwner, onChangeStart),
-      onChangeEnd: createValueChangedGenericClosure<dynamic>(cupertinoSlider.buildOwner, onChangeEnd),
-      min: min,
-      max: max,
+      value: value?.toDouble(),
+      onChanged: createValueChangedGenericClosure<double>(_cupertinoSlider.buildOwner, onChanged),
+      onChangeStart: createValueChangedGenericClosure<double>(_cupertinoSlider.buildOwner, onChangeStart),
+      onChangeEnd: createValueChangedGenericClosure<double>(_cupertinoSlider.buildOwner, onChangeEnd),
+      min: min?.toDouble(),
+      max: max?.toDouble(),
       divisions: divisions,
       activeColor: activeColor,
       thumbColor: thumbColor,

@@ -18,624 +18,223 @@ import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/tooltip.dart';
 import 'package:flutter/src/material/back_button.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/icon_button.dart';
-import 'package:flutter/src/material/icons.dart';
 import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/time.dart';
 import 'dart:ui';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/snack_bar.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/button_theme.dart';
 import 'package:flutter/src/material/color_scheme.dart';
 import 'package:flutter/src/material/flat_button.dart';
-import 'package:flutter/src/material/material.dart';
 import 'package:flutter/src/material/scaffold.dart';
 import 'package:flutter/src/material/snack_bar_theme.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/floating_action_button_location.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/scaffold.dart';
-import 'package:flutter/src/material/tooltip.dart';
 import 'dart:async';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/colors.dart';
 import 'package:flutter/src/material/feedback.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/tooltip_theme.dart';
 import 'package:flutter/src/material/floating_action_button.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/button.dart';
-import 'package:flutter/src/material/colors.dart';
 import 'package:flutter/src/material/floating_action_button_theme.dart';
-import 'package:flutter/src/material/scaffold.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/tooltip.dart';
 import 'package:flutter/src/material/flexible_space_bar.dart';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/list_tile.dart';
-import 'dart:math';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/debug.dart';
 import 'package:flutter/src/material/divider.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/drawer.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/list_tile.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/divider.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter/src/material/divider_theme.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/dialog.dart';
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/button_bar.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/debug.dart';
 import 'package:flutter/src/material/dialog_theme.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/raised_button.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/button.dart';
-import 'package:flutter/src/material/button_theme.dart';
 import 'package:flutter/src/material/material_button.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/outline_button.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/material_button.dart';
 import 'package:flutter/src/material/material_state.dart';
-import 'package:flutter/src/material/raised_button.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/material_button.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/button.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/button.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_state.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/flat_button.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/button.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/src/material/material_button.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/tooltip_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/toggle_buttons_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/tabs.dart';
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/src/material/app_bar.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/tab_bar_theme.dart';
 import 'package:flutter/src/material/tab_controller.dart';
 import 'package:flutter/src/material/tab_indicator.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/tab_bar_theme.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/tabs.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/snack_bar_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/slider_theme.dart';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/popup_menu_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/page_transitions_theme.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/navigation_rail.dart';
-import 'dart:ui';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/src/material/color_scheme.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/navigation_rail_theme.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/navigation_rail_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/navigation_rail.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/input_decorator.dart';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/constants.dart';
 import 'package:flutter/src/material/input_border.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/ink_highlight.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/feedback.dart';
-import 'dart:async';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/ink_well.dart';
 import 'dart:collection';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/feedback.dart';
-import 'package:flutter/src/material/ink_highlight.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/ink_splash.dart';
-import 'dart:math';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/divider_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/dialog_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/chip_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/card_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/bottom_app_bar_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/banner_theme.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/app_bar_theme.dart';
-import 'package:flutter/src/material/banner_theme.dart';
-import 'package:flutter/src/material/bottom_app_bar_theme.dart';
 import 'package:flutter/src/material/bottom_sheet_theme.dart';
 import 'package:flutter/src/material/button_bar_theme.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/src/material/card_theme.dart';
-import 'package:flutter/src/material/chip_theme.dart';
-import 'package:flutter/src/material/color_scheme.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/dialog_theme.dart';
-import 'package:flutter/src/material/divider_theme.dart';
-import 'package:flutter/src/material/floating_action_button_theme.dart';
-import 'package:flutter/src/material/ink_splash.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/input_decorator.dart';
-import 'package:flutter/src/material/navigation_rail_theme.dart';
-import 'package:flutter/src/material/page_transitions_theme.dart';
-import 'package:flutter/src/material/popup_menu_theme.dart';
-import 'package:flutter/src/material/slider_theme.dart';
-import 'package:flutter/src/material/snack_bar_theme.dart';
-import 'package:flutter/src/material/tab_bar_theme.dart';
 import 'package:flutter/src/material/text_theme.dart';
-import 'package:flutter/src/material/toggle_buttons_theme.dart';
-import 'package:flutter/src/material/tooltip_theme.dart';
 import 'package:flutter/src/material/typography.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/material/color_scheme.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/color_scheme.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/flat_button.dart';
-import 'package:flutter/src/material/material_button.dart';
-import 'package:flutter/src/material/material_state.dart';
-import 'package:flutter/src/material/outline_button.dart';
-import 'package:flutter/src/material/raised_button.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/button_bar_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/button_bar.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/material/button_bar_theme.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/src/material/dialog.dart';
-import 'package:flutter/src/material/flat_button.dart';
-import 'package:flutter/src/material/raised_button.dart';
 import 'package:flutter/src/material/bottom_sheet.dart';
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/bottom_sheet_theme.dart';
-import 'package:flutter/src/material/colors.dart';
 import 'package:flutter/src/material/curves.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/scaffold.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/scaffold.dart';
-import 'dart:async';
-import 'dart:collection';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/material/app_bar.dart';
-import 'package:flutter/src/material/bottom_sheet.dart';
-import 'package:flutter/src/material/button_bar.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/curves.dart';
-import 'package:flutter/src/material/divider.dart';
-import 'package:flutter/src/material/drawer.dart';
-import 'package:flutter/src/material/flexible_space_bar.dart';
-import 'package:flutter/src/material/floating_action_button.dart';
-import 'package:flutter/src/material/floating_action_button_location.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/snack_bar.dart';
-import 'package:flutter/src/material/snack_bar_theme.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/elevation_overlay.dart';
-import 'dart:math';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/elevation_overlay.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/scaffold.dart';
 import 'package:flutter/src/material/reorderable_list.dart';
-import 'dart:math';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/reorderable_list.dart';
-import 'package:flutter/src/material/text_theme.dart';
-import 'package:flutter/src/material/time.dart';
-import 'package:flutter/src/material/typography.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/typography.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/app_bar_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/text_theme.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/app_bar.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/app_bar_theme.dart';
-import 'package:flutter/src/material/back_button.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/flexible_space_bar.dart';
-import 'package:flutter/src/material/icon_button.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/scaffold.dart';
-import 'package:flutter/src/material/tabs.dart';
-import 'package:flutter/src/material/text_theme.dart';
-import 'package:flutter/src/material/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIconButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[iconButton.funName] = iconButton;
-  m[backButtonIcon.funName] = backButtonIcon;
-  m[backButton.funName] = backButton;
-  m[closeButton.funName] = closeButton;
-  m[dayPeriod.funName] = dayPeriod;
-  m[timeOfDay.funName] = timeOfDay;
-  m[timeOfDay_now.funName] = timeOfDay_now;
-  m[timeOfDay_fromDateTime.funName] = timeOfDay_fromDateTime;
-  m[timeOfDayFormat.funName] = timeOfDayFormat;
-  m[hourFormat.funName] = hourFormat;
-  m[snackBarClosedReason.funName] = snackBarClosedReason;
-  m[snackBarAction.funName] = snackBarAction;
-  m[snackBar.funName] = snackBar;
-  m[tooltip.funName] = tooltip;
-  m[floatingActionButton.funName] = floatingActionButton;
-  m[floatingActionButton_extended.funName] = floatingActionButton_extended;
-  m[collapseMode.funName] = collapseMode;
-  m[stretchMode.funName] = stretchMode;
-  m[flexibleSpaceBar.funName] = flexibleSpaceBar;
-  m[flexibleSpaceBarSettings.funName] = flexibleSpaceBarSettings;
-  m[listTileStyle.funName] = listTileStyle;
-  m[listTileTheme.funName] = listTileTheme;
-  m[listTileControlAffinity.funName] = listTileControlAffinity;
-  m[listTile.funName] = listTile;
-  m[drawerAlignment.funName] = drawerAlignment;
-  m[drawer.funName] = drawer;
-  m[drawerController.funName] = drawerController;
-  m[drawerControllerState.funName] = drawerControllerState;
-  m[divider.funName] = divider;
-  m[verticalDivider.funName] = verticalDivider;
-  m[dialog.funName] = dialog;
-  m[alertDialog.funName] = alertDialog;
-  m[simpleDialogOption.funName] = simpleDialogOption;
-  m[simpleDialog.funName] = simpleDialog;
-  m[materialButton.funName] = materialButton;
-  m[raisedButton.funName] = raisedButton;
-  m[outlineButton.funName] = outlineButton;
-  m[rawMaterialButton.funName] = rawMaterialButton;
-  m[flatButton.funName] = flatButton;
-  m[tooltipThemeData.funName] = tooltipThemeData;
-  m[tooltipTheme.funName] = tooltipTheme;
-  m[toggleButtonsThemeData.funName] = toggleButtonsThemeData;
-  m[toggleButtonsTheme.funName] = toggleButtonsTheme;
-  m[tabBarIndicatorSize.funName] = tabBarIndicatorSize;
-  m[tab.funName] = tab;
-  m[tabBar.funName] = tabBar;
-  m[tabBarView.funName] = tabBarView;
-  m[tabPageSelectorIndicator.funName] = tabPageSelectorIndicator;
-  m[tabPageSelector.funName] = tabPageSelector;
-  m[tabBarTheme.funName] = tabBarTheme;
-  m[snackBarBehavior.funName] = snackBarBehavior;
-  m[snackBarThemeData.funName] = snackBarThemeData;
-  m[sliderTheme.funName] = sliderTheme;
-  m[showValueIndicator.funName] = showValueIndicator;
-  m[thumb.funName] = thumb;
-  m[sliderThemeData.funName] = sliderThemeData;
-  m[sliderThemeData_fromPrimaryColors.funName] = sliderThemeData_fromPrimaryColors;
-  m[rectangularSliderTrackShape.funName] = rectangularSliderTrackShape;
-  m[roundedRectSliderTrackShape.funName] = roundedRectSliderTrackShape;
-  m[rectangularRangeSliderTrackShape.funName] = rectangularRangeSliderTrackShape;
-  m[roundedRectRangeSliderTrackShape.funName] = roundedRectRangeSliderTrackShape;
-  m[roundSliderTickMarkShape.funName] = roundSliderTickMarkShape;
-  m[roundRangeSliderTickMarkShape.funName] = roundRangeSliderTickMarkShape;
-  m[roundSliderThumbShape.funName] = roundSliderThumbShape;
-  m[roundRangeSliderThumbShape.funName] = roundRangeSliderThumbShape;
-  m[roundSliderOverlayShape.funName] = roundSliderOverlayShape;
-  m[paddleSliderValueIndicatorShape.funName] = paddleSliderValueIndicatorShape;
-  m[paddleRangeSliderValueIndicatorShape.funName] = paddleRangeSliderValueIndicatorShape;
-  m[rangeValues.funName] = rangeValues;
-  m[rangeLabels.funName] = rangeLabels;
-  m[popupMenuThemeData.funName] = popupMenuThemeData;
-  m[popupMenuTheme.funName] = popupMenuTheme;
-  m[fadeUpwardsPageTransitionsBuilder.funName] = fadeUpwardsPageTransitionsBuilder;
-  m[openUpwardsPageTransitionsBuilder.funName] = openUpwardsPageTransitionsBuilder;
-  m[zoomPageTransitionsBuilder.funName] = zoomPageTransitionsBuilder;
-  m[cupertinoPageTransitionsBuilder.funName] = cupertinoPageTransitionsBuilder;
-  m[pageTransitionsTheme.funName] = pageTransitionsTheme;
-  m[navigationRail.funName] = navigationRail;
-  m[navigationRailLabelType.funName] = navigationRailLabelType;
-  m[navigationRailDestination.funName] = navigationRailDestination;
-  m[navigationRailThemeData.funName] = navigationRailThemeData;
-  m[navigationRailTheme.funName] = navigationRailTheme;
-  m[floatingLabelBehavior.funName] = floatingLabelBehavior;
-  m[inputDecorator.funName] = inputDecorator;
-  m[inputDecoration.funName] = inputDecoration;
-  m[inputDecoration_collapsed.funName] = inputDecoration_collapsed;
-  m[inputDecorationTheme.funName] = inputDecorationTheme;
-  m[inkHighlight.funName] = inkHighlight;
-  m[inkResponse.funName] = inkResponse;
-  m[inkWell.funName] = inkWell;
-  m[inkSplash.funName] = inkSplash;
-  m[dividerThemeData.funName] = dividerThemeData;
-  m[dividerTheme.funName] = dividerTheme;
-  m[dialogTheme.funName] = dialogTheme;
-  m[chipTheme.funName] = chipTheme;
-  m[chipThemeData.funName] = chipThemeData;
-  m[chipThemeData_fromDefaults.funName] = chipThemeData_fromDefaults;
-  m[cardTheme.funName] = cardTheme;
-  m[bottomAppBarTheme.funName] = bottomAppBarTheme;
-  m[materialBannerThemeData.funName] = materialBannerThemeData;
-  m[materialBannerTheme.funName] = materialBannerTheme;
-  m[materialTapTargetSize.funName] = materialTapTargetSize;
-  m[themeData.funName] = themeData;
-  m[themeData_from.funName] = themeData_from;
-  m[themeData_light.funName] = themeData_light;
-  m[themeData_dark.funName] = themeData_dark;
-  m[themeData_fallback.funName] = themeData_fallback;
-  m[themeData_raw.funName] = themeData_raw;
-  m[materialBasedCupertinoThemeData.funName] = materialBasedCupertinoThemeData;
-  m[visualDensity.funName] = visualDensity;
-  m[colorScheme.funName] = colorScheme;
-  m[colorScheme_fromSwatch.funName] = colorScheme_fromSwatch;
-  m[colorScheme_light.funName] = colorScheme_light;
-  m[colorScheme_dark.funName] = colorScheme_dark;
-  m[buttonTextTheme.funName] = buttonTextTheme;
-  m[buttonBarLayoutBehavior.funName] = buttonBarLayoutBehavior;
-  m[buttonTheme.funName] = buttonTheme;
-  m[buttonTheme_fromButtonThemeData.funName] = buttonTheme_fromButtonThemeData;
-  m[buttonTheme_bar.funName] = buttonTheme_bar;
-  m[buttonThemeData.funName] = buttonThemeData;
-  m[buttonBarThemeData.funName] = buttonBarThemeData;
-  m[buttonBarTheme.funName] = buttonBarTheme;
-  m[buttonBar.funName] = buttonBar;
-  m[bottomSheet.funName] = bottomSheet;
-  m[scaffoldPrelayoutGeometry.funName] = scaffoldPrelayoutGeometry;
-  m[scaffoldGeometry.funName] = scaffoldGeometry;
-  m[scaffold.funName] = scaffold;
-  m[scaffoldState.funName] = scaffoldState;
-  m[materialType.funName] = materialType;
-  m[material.funName] = material;
-  m[shapeBorderTween.funName] = shapeBorderTween;
-  m[reorderableListView.funName] = reorderableListView;
-  m[defaultMaterialLocalizations.funName] = defaultMaterialLocalizations;
-  m[theme.funName] = theme;
-  m[themeDataTween.funName] = themeDataTween;
-  m[animatedTheme.funName] = animatedTheme;
-  m[appBarTheme.funName] = appBarTheme;
-  m[appBar.funName] = appBar;
-  m[sliverAppBar.funName] = sliverAppBar;
+  m[_iconButton.funName] = _iconButton;
+  m[_backButtonIcon.funName] = _backButtonIcon;
+  m[_backButton.funName] = _backButton;
+  m[_closeButton.funName] = _closeButton;
+  m[_dayPeriod.funName] = _dayPeriod;
+  m[_timeOfDay.funName] = _timeOfDay;
+  m[_timeOfDay_now.funName] = _timeOfDay_now;
+  m[_timeOfDay_fromDateTime.funName] = _timeOfDay_fromDateTime;
+  m[_timeOfDayFormat.funName] = _timeOfDayFormat;
+  m[_hourFormat.funName] = _hourFormat;
+  m[_snackBarClosedReason.funName] = _snackBarClosedReason;
+  m[_snackBarAction.funName] = _snackBarAction;
+  m[_snackBar.funName] = _snackBar;
+  m[_tooltip.funName] = _tooltip;
+  m[_floatingActionButton.funName] = _floatingActionButton;
+  m[_floatingActionButton_extended.funName] = _floatingActionButton_extended;
+  m[_collapseMode.funName] = _collapseMode;
+  m[_stretchMode.funName] = _stretchMode;
+  m[_flexibleSpaceBar.funName] = _flexibleSpaceBar;
+  m[_flexibleSpaceBarSettings.funName] = _flexibleSpaceBarSettings;
+  m[_listTileStyle.funName] = _listTileStyle;
+  m[_listTileTheme.funName] = _listTileTheme;
+  m[_listTileControlAffinity.funName] = _listTileControlAffinity;
+  m[_listTile.funName] = _listTile;
+  m[_drawerAlignment.funName] = _drawerAlignment;
+  m[_drawer.funName] = _drawer;
+  m[_drawerController.funName] = _drawerController;
+  m[_drawerControllerState.funName] = _drawerControllerState;
+  m[_divider.funName] = _divider;
+  m[_verticalDivider.funName] = _verticalDivider;
+  m[_dialog.funName] = _dialog;
+  m[_alertDialog.funName] = _alertDialog;
+  m[_simpleDialogOption.funName] = _simpleDialogOption;
+  m[_simpleDialog.funName] = _simpleDialog;
+  m[_materialButton.funName] = _materialButton;
+  m[_raisedButton.funName] = _raisedButton;
+  m[_outlineButton.funName] = _outlineButton;
+  m[_rawMaterialButton.funName] = _rawMaterialButton;
+  m[_flatButton.funName] = _flatButton;
+  m[_tooltipThemeData.funName] = _tooltipThemeData;
+  m[_tooltipTheme.funName] = _tooltipTheme;
+  m[_toggleButtonsThemeData.funName] = _toggleButtonsThemeData;
+  m[_toggleButtonsTheme.funName] = _toggleButtonsTheme;
+  m[_tabBarIndicatorSize.funName] = _tabBarIndicatorSize;
+  m[_tab.funName] = _tab;
+  m[_tabBar.funName] = _tabBar;
+  m[_tabBarView.funName] = _tabBarView;
+  m[_tabPageSelectorIndicator.funName] = _tabPageSelectorIndicator;
+  m[_tabPageSelector.funName] = _tabPageSelector;
+  m[_tabBarTheme.funName] = _tabBarTheme;
+  m[_snackBarBehavior.funName] = _snackBarBehavior;
+  m[_snackBarThemeData.funName] = _snackBarThemeData;
+  m[_sliderTheme.funName] = _sliderTheme;
+  m[_showValueIndicator.funName] = _showValueIndicator;
+  m[_thumb.funName] = _thumb;
+  m[_sliderThemeData.funName] = _sliderThemeData;
+  m[_sliderThemeData_fromPrimaryColors.funName] = _sliderThemeData_fromPrimaryColors;
+  m[_rectangularSliderTrackShape.funName] = _rectangularSliderTrackShape;
+  m[_roundedRectSliderTrackShape.funName] = _roundedRectSliderTrackShape;
+  m[_rectangularRangeSliderTrackShape.funName] = _rectangularRangeSliderTrackShape;
+  m[_roundedRectRangeSliderTrackShape.funName] = _roundedRectRangeSliderTrackShape;
+  m[_roundSliderTickMarkShape.funName] = _roundSliderTickMarkShape;
+  m[_roundRangeSliderTickMarkShape.funName] = _roundRangeSliderTickMarkShape;
+  m[_roundSliderThumbShape.funName] = _roundSliderThumbShape;
+  m[_roundRangeSliderThumbShape.funName] = _roundRangeSliderThumbShape;
+  m[_roundSliderOverlayShape.funName] = _roundSliderOverlayShape;
+  m[_paddleSliderValueIndicatorShape.funName] = _paddleSliderValueIndicatorShape;
+  m[_paddleRangeSliderValueIndicatorShape.funName] = _paddleRangeSliderValueIndicatorShape;
+  m[_rangeValues.funName] = _rangeValues;
+  m[_rangeLabels.funName] = _rangeLabels;
+  m[_popupMenuThemeData.funName] = _popupMenuThemeData;
+  m[_popupMenuTheme.funName] = _popupMenuTheme;
+  m[_fadeUpwardsPageTransitionsBuilder.funName] = _fadeUpwardsPageTransitionsBuilder;
+  m[_openUpwardsPageTransitionsBuilder.funName] = _openUpwardsPageTransitionsBuilder;
+  m[_zoomPageTransitionsBuilder.funName] = _zoomPageTransitionsBuilder;
+  m[_cupertinoPageTransitionsBuilder.funName] = _cupertinoPageTransitionsBuilder;
+  m[_pageTransitionsTheme.funName] = _pageTransitionsTheme;
+  m[_navigationRail.funName] = _navigationRail;
+  m[_navigationRailLabelType.funName] = _navigationRailLabelType;
+  m[_navigationRailDestination.funName] = _navigationRailDestination;
+  m[_navigationRailThemeData.funName] = _navigationRailThemeData;
+  m[_navigationRailTheme.funName] = _navigationRailTheme;
+  m[_floatingLabelBehavior.funName] = _floatingLabelBehavior;
+  m[_inputDecorator.funName] = _inputDecorator;
+  m[_inputDecoration.funName] = _inputDecoration;
+  m[_inputDecoration_collapsed.funName] = _inputDecoration_collapsed;
+  m[_inputDecorationTheme.funName] = _inputDecorationTheme;
+  m[_inkHighlight.funName] = _inkHighlight;
+  m[_inkResponse.funName] = _inkResponse;
+  m[_inkWell.funName] = _inkWell;
+  m[_inkSplash.funName] = _inkSplash;
+  m[_dividerThemeData.funName] = _dividerThemeData;
+  m[_dividerTheme.funName] = _dividerTheme;
+  m[_dialogTheme.funName] = _dialogTheme;
+  m[_chipTheme.funName] = _chipTheme;
+  m[_chipThemeData.funName] = _chipThemeData;
+  m[_chipThemeData_fromDefaults.funName] = _chipThemeData_fromDefaults;
+  m[_cardTheme.funName] = _cardTheme;
+  m[_bottomAppBarTheme.funName] = _bottomAppBarTheme;
+  m[_materialBannerThemeData.funName] = _materialBannerThemeData;
+  m[_materialBannerTheme.funName] = _materialBannerTheme;
+  m[_materialTapTargetSize.funName] = _materialTapTargetSize;
+  m[_themeData.funName] = _themeData;
+  m[_themeData_from.funName] = _themeData_from;
+  m[_themeData_light.funName] = _themeData_light;
+  m[_themeData_dark.funName] = _themeData_dark;
+  m[_themeData_fallback.funName] = _themeData_fallback;
+  m[_themeData_raw.funName] = _themeData_raw;
+  m[_materialBasedCupertinoThemeData.funName] = _materialBasedCupertinoThemeData;
+  m[_visualDensity.funName] = _visualDensity;
+  m[_colorScheme.funName] = _colorScheme;
+  m[_colorScheme_fromSwatch.funName] = _colorScheme_fromSwatch;
+  m[_colorScheme_light.funName] = _colorScheme_light;
+  m[_colorScheme_dark.funName] = _colorScheme_dark;
+  m[_buttonTextTheme.funName] = _buttonTextTheme;
+  m[_buttonBarLayoutBehavior.funName] = _buttonBarLayoutBehavior;
+  m[_buttonTheme.funName] = _buttonTheme;
+  m[_buttonTheme_fromButtonThemeData.funName] = _buttonTheme_fromButtonThemeData;
+  m[_buttonTheme_bar.funName] = _buttonTheme_bar;
+  m[_buttonThemeData.funName] = _buttonThemeData;
+  m[_buttonBarThemeData.funName] = _buttonBarThemeData;
+  m[_buttonBarTheme.funName] = _buttonBarTheme;
+  m[_buttonBar.funName] = _buttonBar;
+  m[_bottomSheet.funName] = _bottomSheet;
+  m[_scaffoldPrelayoutGeometry.funName] = _scaffoldPrelayoutGeometry;
+  m[_scaffoldGeometry.funName] = _scaffoldGeometry;
+  m[_scaffold.funName] = _scaffold;
+  m[_scaffoldState.funName] = _scaffoldState;
+  m[_materialType.funName] = _materialType;
+  m[_material.funName] = _material;
+  m[_shapeBorderTween.funName] = _shapeBorderTween;
+  m[_reorderableListView.funName] = _reorderableListView;
+  m[_defaultMaterialLocalizations.funName] = _defaultMaterialLocalizations;
+  m[_theme.funName] = _theme;
+  m[_themeDataTween.funName] = _themeDataTween;
+  m[_animatedTheme.funName] = _animatedTheme;
+  m[_appBarTheme.funName] = _appBarTheme;
+  m[_appBar.funName] = _appBar;
+  m[_sliverAppBar.funName] = _sliverAppBar;
   return m;
 }
-var iconButton = MXFunctionInvoke(
+var _iconButton = MXFunctionInvoke(
     "IconButton",
-    ({
+    (
+      {
       Key key,
-      dynamic iconSize = 24.0,
+      double iconSize = 24.0,
       VisualDensity visualDensity,
       EdgeInsetsGeometry padding,
       AlignmentGeometry alignment,
@@ -652,10 +251,11 @@ var iconButton = MXFunctionInvoke(
       String tooltip,
       bool enableFeedback = true,
       BoxConstraints constraints,
-    }) =>
+      }
+    ) =>
       IconButton(
       key: key,
-      iconSize: iconSize,
+      iconSize: iconSize?.toDouble(),
       visualDensity: visualDensity,
       padding: padding,
       alignment: alignment,
@@ -666,7 +266,7 @@ var iconButton = MXFunctionInvoke(
       highlightColor: highlightColor,
       splashColor: splashColor,
       disabledColor: disabledColor,
-      onPressed: createVoidCallbackClosure(iconButton.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_iconButton.buildOwner, onPressed),
       focusNode: focusNode,
       autofocus: autofocus,
       tooltip: tooltip,
@@ -674,137 +274,152 @@ var iconButton = MXFunctionInvoke(
       constraints: constraints,
     ),
 );
-var backButtonIcon = MXFunctionInvoke(
+var _backButtonIcon = MXFunctionInvoke(
     "BackButtonIcon",
-    ({
+    (
+      {
       Key key,
-    }) =>
+      }
+    ) =>
       BackButtonIcon(
       key: key,
     ),
 );
-var backButton = MXFunctionInvoke(
+var _backButton = MXFunctionInvoke(
     "BackButton",
-    ({
+    (
+      {
       Key key,
       Color color,
       dynamic onPressed,
-    }) =>
+      }
+    ) =>
       BackButton(
       key: key,
       color: color,
-      onPressed: createVoidCallbackClosure(backButton.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_backButton.buildOwner, onPressed),
     ),
 );
-var closeButton = MXFunctionInvoke(
+var _closeButton = MXFunctionInvoke(
     "CloseButton",
-    ({
+    (
+      {
       Key key,
       Color color,
       dynamic onPressed,
-    }) =>
+      }
+    ) =>
       CloseButton(
       key: key,
       color: color,
-      onPressed: createVoidCallbackClosure(closeButton.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_closeButton.buildOwner, onPressed),
     ),
 );
-var dayPeriod = MXFunctionInvoke(
+var _dayPeriod = MXFunctionInvoke(
     "DayPeriod",
     ({Map args}) => MXDayPeriod.parse(args),
   );
-var timeOfDay = MXFunctionInvoke(
+var _timeOfDay = MXFunctionInvoke(
     "TimeOfDay",
-    ({
+    (
+      {
       int hour,
       int minute,
-    }) =>
+      }
+    ) =>
       TimeOfDay(
       hour: hour,
       minute: minute,
     ),
 );
-var timeOfDay_now = MXFunctionInvoke(
+var _timeOfDay_now = MXFunctionInvoke(
   "timeOfDay.now",
-    ({
-    }) =>
+    (
+    ) =>
       TimeOfDay.now(
     ),
 );
-var timeOfDay_fromDateTime = MXFunctionInvoke(
+var _timeOfDay_fromDateTime = MXFunctionInvoke(
   "timeOfDay.fromDateTime",
-    ({
+    (
+      {
       DateTime time,
-    }) =>
+      }
+    ) =>
       TimeOfDay.fromDateTime(
       time,
     ),
 );
-var timeOfDayFormat = MXFunctionInvoke(
+var _timeOfDayFormat = MXFunctionInvoke(
     "TimeOfDayFormat",
     ({Map args}) => MXTimeOfDayFormat.parse(args),
   );
-var hourFormat = MXFunctionInvoke(
+var _hourFormat = MXFunctionInvoke(
     "HourFormat",
     ({Map args}) => MXHourFormat.parse(args),
   );
-var snackBarClosedReason = MXFunctionInvoke(
+var _snackBarClosedReason = MXFunctionInvoke(
     "SnackBarClosedReason",
     ({Map args}) => MXSnackBarClosedReason.parse(args),
   );
-var snackBarAction = MXFunctionInvoke(
+var _snackBarAction = MXFunctionInvoke(
     "SnackBarAction",
-    ({
+    (
+      {
       Key key,
       Color textColor,
       Color disabledTextColor,
       String label,
       dynamic onPressed,
-    }) =>
+      }
+    ) =>
       SnackBarAction(
       key: key,
       textColor: textColor,
       disabledTextColor: disabledTextColor,
       label: label,
-      onPressed: createVoidCallbackClosure(snackBarAction.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_snackBarAction.buildOwner, onPressed),
     ),
 );
-var snackBar = MXFunctionInvoke(
+var _snackBar = MXFunctionInvoke(
     "SnackBar",
-    ({
+    (
+      {
       Key key,
       Widget content,
       Color backgroundColor,
-      dynamic elevation,
+      double elevation,
       ShapeBorder shape,
       SnackBarBehavior behavior,
       SnackBarAction action,
       Duration duration,
       Animation<double> animation,
       dynamic onVisible,
-    }) =>
+      }
+    ) =>
       SnackBar(
       key: key,
       content: content,
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shape: shape,
       behavior: behavior,
       action: action,
       duration: duration,
       animation: animation,
-      onVisible: createVoidCallbackClosure(snackBar.buildOwner, onVisible),
+      onVisible: createVoidCallbackClosure(_snackBar.buildOwner, onVisible),
     ),
 );
-var tooltip = MXFunctionInvoke(
+var _tooltip = MXFunctionInvoke(
     "Tooltip",
-    ({
+    (
+      {
       Key key,
       String message,
-      dynamic height,
+      double height,
       EdgeInsetsGeometry padding,
       EdgeInsetsGeometry margin,
-      dynamic verticalOffset,
+      double verticalOffset,
       bool preferBelow,
       bool excludeFromSemantics,
       Decoration decoration,
@@ -812,14 +427,15 @@ var tooltip = MXFunctionInvoke(
       Duration waitDuration,
       Duration showDuration,
       Widget child,
-    }) =>
+      }
+    ) =>
       Tooltip(
       key: key,
       message: message,
-      height: height,
+      height: height?.toDouble(),
       padding: padding,
       margin: margin,
-      verticalOffset: verticalOffset,
+      verticalOffset: verticalOffset?.toDouble(),
       preferBelow: preferBelow,
       excludeFromSemantics: excludeFromSemantics,
       decoration: decoration,
@@ -829,9 +445,10 @@ var tooltip = MXFunctionInvoke(
       child: child,
     ),
 );
-var floatingActionButton = MXFunctionInvoke(
+var _floatingActionButton = MXFunctionInvoke(
     "FloatingActionButton",
-    ({
+    (
+      {
       Key key,
       Widget child,
       String tooltip,
@@ -841,11 +458,11 @@ var floatingActionButton = MXFunctionInvoke(
       Color hoverColor,
       Color splashColor,
       Object heroTag,
-      dynamic elevation,
-      dynamic focusElevation,
-      dynamic hoverElevation,
-      dynamic highlightElevation,
-      dynamic disabledElevation,
+      double elevation,
+      double focusElevation,
+      double hoverElevation,
+      double highlightElevation,
+      double disabledElevation,
       dynamic onPressed,
       bool mini = false,
       ShapeBorder shape,
@@ -854,7 +471,8 @@ var floatingActionButton = MXFunctionInvoke(
       bool autofocus = false,
       MaterialTapTargetSize materialTapTargetSize,
       bool isExtended = false,
-    }) =>
+      }
+    ) =>
       FloatingActionButton(
       key: key,
       child: child,
@@ -865,12 +483,12 @@ var floatingActionButton = MXFunctionInvoke(
       hoverColor: hoverColor,
       splashColor: splashColor,
       heroTag: heroTag,
-      elevation: elevation,
-      focusElevation: focusElevation,
-      hoverElevation: hoverElevation,
-      highlightElevation: highlightElevation,
-      disabledElevation: disabledElevation,
-      onPressed: createVoidCallbackClosure(floatingActionButton.buildOwner, onPressed),
+      elevation: elevation?.toDouble(),
+      focusElevation: focusElevation?.toDouble(),
+      hoverElevation: hoverElevation?.toDouble(),
+      highlightElevation: highlightElevation?.toDouble(),
+      disabledElevation: disabledElevation?.toDouble(),
+      onPressed: createVoidCallbackClosure(_floatingActionButton.buildOwner, onPressed),
       mini: mini,
       shape: shape,
       clipBehavior: clipBehavior,
@@ -880,9 +498,10 @@ var floatingActionButton = MXFunctionInvoke(
       isExtended: isExtended,
     ),
 );
-var floatingActionButton_extended = MXFunctionInvoke(
+var _floatingActionButton_extended = MXFunctionInvoke(
   "floatingActionButton.extended",
-    ({
+    (
+      {
       Key key,
       String tooltip,
       Color foregroundColor,
@@ -890,12 +509,12 @@ var floatingActionButton_extended = MXFunctionInvoke(
       Color focusColor,
       Color hoverColor,
       Object heroTag,
-      dynamic elevation,
-      dynamic focusElevation,
-      dynamic hoverElevation,
+      double elevation,
+      double focusElevation,
+      double hoverElevation,
       Color splashColor,
-      dynamic highlightElevation,
-      dynamic disabledElevation,
+      double highlightElevation,
+      double disabledElevation,
       dynamic onPressed,
       ShapeBorder shape,
       bool isExtended = true,
@@ -905,7 +524,8 @@ var floatingActionButton_extended = MXFunctionInvoke(
       bool autofocus = false,
       Widget icon,
       Widget label,
-    }) =>
+      }
+    ) =>
       FloatingActionButton.extended(
       key: key,
       tooltip: tooltip,
@@ -914,13 +534,13 @@ var floatingActionButton_extended = MXFunctionInvoke(
       focusColor: focusColor,
       hoverColor: hoverColor,
       heroTag: heroTag,
-      elevation: elevation,
-      focusElevation: focusElevation,
-      hoverElevation: hoverElevation,
+      elevation: elevation?.toDouble(),
+      focusElevation: focusElevation?.toDouble(),
+      hoverElevation: hoverElevation?.toDouble(),
       splashColor: splashColor,
-      highlightElevation: highlightElevation,
-      disabledElevation: disabledElevation,
-      onPressed: createVoidCallbackClosure(floatingActionButton_extended.buildOwner, onPressed),
+      highlightElevation: highlightElevation?.toDouble(),
+      disabledElevation: disabledElevation?.toDouble(),
+      onPressed: createVoidCallbackClosure(_floatingActionButton_extended.buildOwner, onPressed),
       shape: shape,
       isExtended: isExtended,
       materialTapTargetSize: materialTapTargetSize,
@@ -931,17 +551,18 @@ var floatingActionButton_extended = MXFunctionInvoke(
       label: label,
     ),
 );
-var collapseMode = MXFunctionInvoke(
+var _collapseMode = MXFunctionInvoke(
     "CollapseMode",
     ({Map args}) => MXCollapseMode.parse(args),
   );
-var stretchMode = MXFunctionInvoke(
+var _stretchMode = MXFunctionInvoke(
     "StretchMode",
     ({Map args}) => MXStretchMode.parse(args),
   );
-var flexibleSpaceBar = MXFunctionInvoke(
+var _flexibleSpaceBar = MXFunctionInvoke(
     "FlexibleSpaceBar",
-    ({
+    (
+      {
       Key key,
       Widget title,
       Widget background,
@@ -949,7 +570,8 @@ var flexibleSpaceBar = MXFunctionInvoke(
       EdgeInsetsGeometry titlePadding,
       CollapseMode collapseMode = CollapseMode.parallax,
       List<StretchMode> stretchModes,
-    }) =>
+      }
+    ) =>
       FlexibleSpaceBar(
       key: key,
       title: title,
@@ -960,32 +582,35 @@ var flexibleSpaceBar = MXFunctionInvoke(
       stretchModes: stretchModes,
     ),
 );
-var flexibleSpaceBarSettings = MXFunctionInvoke(
+var _flexibleSpaceBarSettings = MXFunctionInvoke(
     "FlexibleSpaceBarSettings",
-    ({
+    (
+      {
       Key key,
-      dynamic toolbarOpacity,
-      dynamic minExtent,
-      dynamic maxExtent,
-      dynamic currentExtent,
+      double toolbarOpacity,
+      double minExtent,
+      double maxExtent,
+      double currentExtent,
       Widget child,
-    }) =>
+      }
+    ) =>
       FlexibleSpaceBarSettings(
       key: key,
-      toolbarOpacity: toolbarOpacity,
-      minExtent: minExtent,
-      maxExtent: maxExtent,
-      currentExtent: currentExtent,
+      toolbarOpacity: toolbarOpacity?.toDouble(),
+      minExtent: minExtent?.toDouble(),
+      maxExtent: maxExtent?.toDouble(),
+      currentExtent: currentExtent?.toDouble(),
       child: child,
     ),
 );
-var listTileStyle = MXFunctionInvoke(
+var _listTileStyle = MXFunctionInvoke(
     "ListTileStyle",
     ({Map args}) => MXListTileStyle.parse(args),
   );
-var listTileTheme = MXFunctionInvoke(
+var _listTileTheme = MXFunctionInvoke(
     "ListTileTheme",
-    ({
+    (
+      {
       Key key,
       bool dense = false,
       ListTileStyle style = ListTileStyle.list,
@@ -994,7 +619,8 @@ var listTileTheme = MXFunctionInvoke(
       Color textColor,
       EdgeInsetsGeometry contentPadding,
       Widget child,
-    }) =>
+      }
+    ) =>
       ListTileTheme(
       key: key,
       dense: dense,
@@ -1006,13 +632,14 @@ var listTileTheme = MXFunctionInvoke(
       child: child,
     ),
 );
-var listTileControlAffinity = MXFunctionInvoke(
+var _listTileControlAffinity = MXFunctionInvoke(
     "ListTileControlAffinity",
     ({Map args}) => MXListTileControlAffinity.parse(args),
   );
-var listTile = MXFunctionInvoke(
+var _listTile = MXFunctionInvoke(
     "ListTile",
-    ({
+    (
+      {
       Key key,
       Widget leading,
       Widget title,
@@ -1025,7 +652,8 @@ var listTile = MXFunctionInvoke(
       dynamic onTap,
       dynamic onLongPress,
       bool selected = false,
-    }) =>
+      }
+    ) =>
       ListTile(
       key: key,
       leading: leading,
@@ -1036,115 +664,125 @@ var listTile = MXFunctionInvoke(
       dense: dense,
       contentPadding: contentPadding,
       enabled: enabled,
-      onTap: createVoidCallbackClosure(listTile.buildOwner, onTap),
-      onLongPress: createVoidCallbackClosure(listTile.buildOwner, onLongPress),
+      onTap: createVoidCallbackClosure(_listTile.buildOwner, onTap),
+      onLongPress: createVoidCallbackClosure(_listTile.buildOwner, onLongPress),
       selected: selected,
     ),
 );
-var drawerAlignment = MXFunctionInvoke(
+var _drawerAlignment = MXFunctionInvoke(
     "DrawerAlignment",
     ({Map args}) => MXDrawerAlignment.parse(args),
   );
-var drawer = MXFunctionInvoke(
+var _drawer = MXFunctionInvoke(
     "Drawer",
-    ({
+    (
+      {
       Key key,
-      dynamic elevation = 16.0,
+      double elevation = 16.0,
       Widget child,
       String semanticLabel,
-    }) =>
+      }
+    ) =>
       Drawer(
       key: key,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       child: child,
       semanticLabel: semanticLabel,
     ),
 );
-var drawerController = MXFunctionInvoke(
+var _drawerController = MXFunctionInvoke(
     "DrawerController",
-    ({
+    (
+      {
       GlobalKey<State<StatefulWidget>> key,
       Widget child,
       DrawerAlignment alignment,
       dynamic drawerCallback,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       Color scrimColor,
-      dynamic edgeDragWidth,
+      double edgeDragWidth,
       bool enableOpenDragGesture = true,
-    }) =>
+      }
+    ) =>
       DrawerController(
       key: key,
       child: child,
       alignment: alignment,
-      drawerCallback: createValueChangedGenericClosure<bool>(drawerController.buildOwner, drawerCallback),
+      drawerCallback: createValueChangedGenericClosure<bool>(_drawerController.buildOwner, drawerCallback),
       dragStartBehavior: dragStartBehavior,
       scrimColor: scrimColor,
-      edgeDragWidth: edgeDragWidth,
+      edgeDragWidth: edgeDragWidth?.toDouble(),
       enableOpenDragGesture: enableOpenDragGesture,
     ),
 );
-var drawerControllerState = MXFunctionInvoke(
+var _drawerControllerState = MXFunctionInvoke(
     "DrawerControllerState",
-    ({
-    }) =>
+    (
+    ) =>
       DrawerControllerState(
     ),
 );
-var divider = MXFunctionInvoke(
+var _divider = MXFunctionInvoke(
     "Divider",
-    ({
+    (
+      {
       Key key,
-      dynamic height,
-      dynamic thickness,
-      dynamic indent,
-      dynamic endIndent,
+      double height,
+      double thickness,
+      double indent,
+      double endIndent,
       Color color,
-    }) =>
+      }
+    ) =>
       Divider(
       key: key,
-      height: height,
-      thickness: thickness,
-      indent: indent,
-      endIndent: endIndent,
+      height: height?.toDouble(),
+      thickness: thickness?.toDouble(),
+      indent: indent?.toDouble(),
+      endIndent: endIndent?.toDouble(),
       color: color,
     ),
 );
-var verticalDivider = MXFunctionInvoke(
+var _verticalDivider = MXFunctionInvoke(
     "VerticalDivider",
-    ({
+    (
+      {
       Key key,
-      dynamic width,
-      dynamic thickness,
-      dynamic indent,
-      dynamic endIndent,
+      double width,
+      double thickness,
+      double indent,
+      double endIndent,
       Color color,
-    }) =>
+      }
+    ) =>
       VerticalDivider(
       key: key,
-      width: width,
-      thickness: thickness,
-      indent: indent,
-      endIndent: endIndent,
+      width: width?.toDouble(),
+      thickness: thickness?.toDouble(),
+      indent: indent?.toDouble(),
+      endIndent: endIndent?.toDouble(),
       color: color,
     ),
 );
-var dialog = MXFunctionInvoke(
+var _dialog = MXFunctionInvoke(
     "Dialog",
-    ({
+    (
+      {
       Key key,
       Color backgroundColor,
-      dynamic elevation,
+      double elevation,
       Duration insetAnimationDuration,
       Curve insetAnimationCurve,
       EdgeInsets insetPadding,
       Clip clipBehavior = Clip.none,
       ShapeBorder shape,
       Widget child,
-    }) =>
+      }
+    ) =>
       Dialog(
       key: key,
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       insetAnimationDuration: insetAnimationDuration,
       insetAnimationCurve: insetAnimationCurve,
       insetPadding: insetPadding,
@@ -1153,9 +791,10 @@ var dialog = MXFunctionInvoke(
       child: child,
     ),
 );
-var alertDialog = MXFunctionInvoke(
+var _alertDialog = MXFunctionInvoke(
     "AlertDialog",
-    ({
+    (
+      {
       Key key,
       Widget title,
       EdgeInsetsGeometry titlePadding,
@@ -1166,16 +805,17 @@ var alertDialog = MXFunctionInvoke(
       List<Widget> actions,
       EdgeInsetsGeometry actionsPadding,
       VerticalDirection actionsOverflowDirection,
-      dynamic actionsOverflowButtonSpacing,
+      double actionsOverflowButtonSpacing,
       EdgeInsetsGeometry buttonPadding,
       Color backgroundColor,
-      dynamic elevation,
+      double elevation,
       String semanticLabel,
       EdgeInsets insetPadding,
       Clip clipBehavior = Clip.none,
       ShapeBorder shape,
       bool scrollable = false,
-    }) =>
+      }
+    ) =>
       AlertDialog(
       key: key,
       title: title,
@@ -1187,10 +827,10 @@ var alertDialog = MXFunctionInvoke(
       actions: actions,
       actionsPadding: actionsPadding,
       actionsOverflowDirection: actionsOverflowDirection,
-      actionsOverflowButtonSpacing: actionsOverflowButtonSpacing,
+      actionsOverflowButtonSpacing: actionsOverflowButtonSpacing?.toDouble(),
       buttonPadding: buttonPadding,
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       semanticLabel: semanticLabel,
       insetPadding: insetPadding,
       clipBehavior: clipBehavior,
@@ -1198,34 +838,38 @@ var alertDialog = MXFunctionInvoke(
       scrollable: scrollable,
     ),
 );
-var simpleDialogOption = MXFunctionInvoke(
+var _simpleDialogOption = MXFunctionInvoke(
     "SimpleDialogOption",
-    ({
+    (
+      {
       Key key,
       dynamic onPressed,
       EdgeInsets padding,
       Widget child,
-    }) =>
+      }
+    ) =>
       SimpleDialogOption(
       key: key,
-      onPressed: createVoidCallbackClosure(simpleDialogOption.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_simpleDialogOption.buildOwner, onPressed),
       padding: padding,
       child: child,
     ),
 );
-var simpleDialog = MXFunctionInvoke(
+var _simpleDialog = MXFunctionInvoke(
     "SimpleDialog",
-    ({
+    (
+      {
       Key key,
       Widget title,
       EdgeInsetsGeometry titlePadding,
       List<Widget> children,
       EdgeInsetsGeometry contentPadding,
       Color backgroundColor,
-      dynamic elevation,
+      double elevation,
       String semanticLabel,
       ShapeBorder shape,
-    }) =>
+      }
+    ) =>
       SimpleDialog(
       key: key,
       title: title,
@@ -1233,14 +877,15 @@ var simpleDialog = MXFunctionInvoke(
       children: children,
       contentPadding: contentPadding,
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       semanticLabel: semanticLabel,
       shape: shape,
     ),
 );
-var materialButton = MXFunctionInvoke(
+var _materialButton = MXFunctionInvoke(
     "MaterialButton",
-    ({
+    (
+      {
       Key key,
       dynamic onPressed,
       dynamic onLongPress,
@@ -1255,11 +900,11 @@ var materialButton = MXFunctionInvoke(
       Color highlightColor,
       Color splashColor,
       Brightness colorBrightness,
-      dynamic elevation,
-      dynamic focusElevation,
-      dynamic hoverElevation,
-      dynamic highlightElevation,
-      dynamic disabledElevation,
+      double elevation,
+      double focusElevation,
+      double hoverElevation,
+      double highlightElevation,
+      double disabledElevation,
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       ShapeBorder shape,
@@ -1268,16 +913,17 @@ var materialButton = MXFunctionInvoke(
       bool autofocus = false,
       MaterialTapTargetSize materialTapTargetSize,
       Duration animationDuration,
-      dynamic minWidth,
-      dynamic height,
+      double minWidth,
+      double height,
       bool enableFeedback = true,
       Widget child,
-    }) =>
+      }
+    ) =>
       MaterialButton(
       key: key,
-      onPressed: createVoidCallbackClosure(materialButton.buildOwner, onPressed),
-      onLongPress: createVoidCallbackClosure(materialButton.buildOwner, onLongPress),
-      onHighlightChanged: createValueChangedGenericClosure<bool>(materialButton.buildOwner, onHighlightChanged),
+      onPressed: createVoidCallbackClosure(_materialButton.buildOwner, onPressed),
+      onLongPress: createVoidCallbackClosure(_materialButton.buildOwner, onLongPress),
+      onHighlightChanged: createValueChangedGenericClosure<bool>(_materialButton.buildOwner, onHighlightChanged),
       textTheme: textTheme,
       textColor: textColor,
       disabledTextColor: disabledTextColor,
@@ -1288,11 +934,11 @@ var materialButton = MXFunctionInvoke(
       highlightColor: highlightColor,
       splashColor: splashColor,
       colorBrightness: colorBrightness,
-      elevation: elevation,
-      focusElevation: focusElevation,
-      hoverElevation: hoverElevation,
-      highlightElevation: highlightElevation,
-      disabledElevation: disabledElevation,
+      elevation: elevation?.toDouble(),
+      focusElevation: focusElevation?.toDouble(),
+      hoverElevation: hoverElevation?.toDouble(),
+      highlightElevation: highlightElevation?.toDouble(),
+      disabledElevation: disabledElevation?.toDouble(),
       padding: padding,
       visualDensity: visualDensity,
       shape: shape,
@@ -1301,15 +947,16 @@ var materialButton = MXFunctionInvoke(
       autofocus: autofocus,
       materialTapTargetSize: materialTapTargetSize,
       animationDuration: animationDuration,
-      minWidth: minWidth,
-      height: height,
+      minWidth: minWidth?.toDouble(),
+      height: height?.toDouble(),
       enableFeedback: enableFeedback,
       child: child,
     ),
 );
-var raisedButton = MXFunctionInvoke(
+var _raisedButton = MXFunctionInvoke(
     "RaisedButton",
-    ({
+    (
+      {
       Key key,
       dynamic onPressed,
       dynamic onLongPress,
@@ -1324,11 +971,11 @@ var raisedButton = MXFunctionInvoke(
       Color highlightColor,
       Color splashColor,
       Brightness colorBrightness,
-      dynamic elevation,
-      dynamic focusElevation,
-      dynamic hoverElevation,
-      dynamic highlightElevation,
-      dynamic disabledElevation,
+      double elevation,
+      double focusElevation,
+      double hoverElevation,
+      double highlightElevation,
+      double disabledElevation,
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       ShapeBorder shape,
@@ -1338,12 +985,13 @@ var raisedButton = MXFunctionInvoke(
       MaterialTapTargetSize materialTapTargetSize,
       Duration animationDuration,
       Widget child,
-    }) =>
+      }
+    ) =>
       RaisedButton(
       key: key,
-      onPressed: createVoidCallbackClosure(raisedButton.buildOwner, onPressed),
-      onLongPress: createVoidCallbackClosure(raisedButton.buildOwner, onLongPress),
-      onHighlightChanged: createValueChangedGenericClosure<bool>(raisedButton.buildOwner, onHighlightChanged),
+      onPressed: createVoidCallbackClosure(_raisedButton.buildOwner, onPressed),
+      onLongPress: createVoidCallbackClosure(_raisedButton.buildOwner, onLongPress),
+      onHighlightChanged: createValueChangedGenericClosure<bool>(_raisedButton.buildOwner, onHighlightChanged),
       textTheme: textTheme,
       textColor: textColor,
       disabledTextColor: disabledTextColor,
@@ -1354,11 +1002,11 @@ var raisedButton = MXFunctionInvoke(
       highlightColor: highlightColor,
       splashColor: splashColor,
       colorBrightness: colorBrightness,
-      elevation: elevation,
-      focusElevation: focusElevation,
-      hoverElevation: hoverElevation,
-      highlightElevation: highlightElevation,
-      disabledElevation: disabledElevation,
+      elevation: elevation?.toDouble(),
+      focusElevation: focusElevation?.toDouble(),
+      hoverElevation: hoverElevation?.toDouble(),
+      highlightElevation: highlightElevation?.toDouble(),
+      disabledElevation: disabledElevation?.toDouble(),
       padding: padding,
       visualDensity: visualDensity,
       shape: shape,
@@ -1370,9 +1018,10 @@ var raisedButton = MXFunctionInvoke(
       child: child,
     ),
 );
-var outlineButton = MXFunctionInvoke(
+var _outlineButton = MXFunctionInvoke(
     "OutlineButton",
-    ({
+    (
+      {
       Key key,
       dynamic onPressed,
       dynamic onLongPress,
@@ -1384,7 +1033,7 @@ var outlineButton = MXFunctionInvoke(
       Color hoverColor,
       Color highlightColor,
       Color splashColor,
-      dynamic highlightElevation,
+      double highlightElevation,
       BorderSide borderSide,
       Color disabledBorderColor,
       Color highlightedBorderColor,
@@ -1395,11 +1044,12 @@ var outlineButton = MXFunctionInvoke(
       FocusNode focusNode,
       bool autofocus = false,
       Widget child,
-    }) =>
+      }
+    ) =>
       OutlineButton(
       key: key,
-      onPressed: createVoidCallbackClosure(outlineButton.buildOwner, onPressed),
-      onLongPress: createVoidCallbackClosure(outlineButton.buildOwner, onLongPress),
+      onPressed: createVoidCallbackClosure(_outlineButton.buildOwner, onPressed),
+      onLongPress: createVoidCallbackClosure(_outlineButton.buildOwner, onLongPress),
       textTheme: textTheme,
       textColor: textColor,
       disabledTextColor: disabledTextColor,
@@ -1408,7 +1058,7 @@ var outlineButton = MXFunctionInvoke(
       hoverColor: hoverColor,
       highlightColor: highlightColor,
       splashColor: splashColor,
-      highlightElevation: highlightElevation,
+      highlightElevation: highlightElevation?.toDouble(),
       borderSide: borderSide,
       disabledBorderColor: disabledBorderColor,
       highlightedBorderColor: highlightedBorderColor,
@@ -1421,9 +1071,10 @@ var outlineButton = MXFunctionInvoke(
       child: child,
     ),
 );
-var rawMaterialButton = MXFunctionInvoke(
+var _rawMaterialButton = MXFunctionInvoke(
     "RawMaterialButton",
-    ({
+    (
+      {
       Key key,
       dynamic onPressed,
       dynamic onLongPress,
@@ -1434,11 +1085,11 @@ var rawMaterialButton = MXFunctionInvoke(
       Color hoverColor,
       Color highlightColor,
       Color splashColor,
-      dynamic elevation = 2.0,
-      dynamic focusElevation = 4.0,
-      dynamic hoverElevation = 4.0,
-      dynamic highlightElevation = 8.0,
-      dynamic disabledElevation = 0.0,
+      double elevation = 2.0,
+      double focusElevation = 4.0,
+      double hoverElevation = 4.0,
+      double highlightElevation = 8.0,
+      double disabledElevation = 0.0,
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       BoxConstraints constraints,
@@ -1450,23 +1101,24 @@ var rawMaterialButton = MXFunctionInvoke(
       MaterialTapTargetSize materialTapTargetSize,
       Widget child,
       bool enableFeedback = true,
-    }) =>
+      }
+    ) =>
       RawMaterialButton(
       key: key,
-      onPressed: createVoidCallbackClosure(rawMaterialButton.buildOwner, onPressed),
-      onLongPress: createVoidCallbackClosure(rawMaterialButton.buildOwner, onLongPress),
-      onHighlightChanged: createValueChangedGenericClosure<bool>(rawMaterialButton.buildOwner, onHighlightChanged),
+      onPressed: createVoidCallbackClosure(_rawMaterialButton.buildOwner, onPressed),
+      onLongPress: createVoidCallbackClosure(_rawMaterialButton.buildOwner, onLongPress),
+      onHighlightChanged: createValueChangedGenericClosure<bool>(_rawMaterialButton.buildOwner, onHighlightChanged),
       textStyle: textStyle,
       fillColor: fillColor,
       focusColor: focusColor,
       hoverColor: hoverColor,
       highlightColor: highlightColor,
       splashColor: splashColor,
-      elevation: elevation,
-      focusElevation: focusElevation,
-      hoverElevation: hoverElevation,
-      highlightElevation: highlightElevation,
-      disabledElevation: disabledElevation,
+      elevation: elevation?.toDouble(),
+      focusElevation: focusElevation?.toDouble(),
+      hoverElevation: hoverElevation?.toDouble(),
+      highlightElevation: highlightElevation?.toDouble(),
+      disabledElevation: disabledElevation?.toDouble(),
       padding: padding,
       visualDensity: visualDensity,
       constraints: constraints,
@@ -1480,9 +1132,10 @@ var rawMaterialButton = MXFunctionInvoke(
       enableFeedback: enableFeedback,
     ),
 );
-var flatButton = MXFunctionInvoke(
+var _flatButton = MXFunctionInvoke(
     "FlatButton",
-    ({
+    (
+      {
       Key key,
       dynamic onPressed,
       dynamic onLongPress,
@@ -1505,12 +1158,13 @@ var flatButton = MXFunctionInvoke(
       bool autofocus = false,
       MaterialTapTargetSize materialTapTargetSize,
       Widget child,
-    }) =>
+      }
+    ) =>
       FlatButton(
       key: key,
-      onPressed: createVoidCallbackClosure(flatButton.buildOwner, onPressed),
-      onLongPress: createVoidCallbackClosure(flatButton.buildOwner, onLongPress),
-      onHighlightChanged: createValueChangedGenericClosure<bool>(flatButton.buildOwner, onHighlightChanged),
+      onPressed: createVoidCallbackClosure(_flatButton.buildOwner, onPressed),
+      onLongPress: createVoidCallbackClosure(_flatButton.buildOwner, onLongPress),
+      onHighlightChanged: createValueChangedGenericClosure<bool>(_flatButton.buildOwner, onHighlightChanged),
       textTheme: textTheme,
       textColor: textColor,
       disabledTextColor: disabledTextColor,
@@ -1531,25 +1185,27 @@ var flatButton = MXFunctionInvoke(
       child: child,
     ),
 );
-var tooltipThemeData = MXFunctionInvoke(
+var _tooltipThemeData = MXFunctionInvoke(
     "TooltipThemeData",
-    ({
-      dynamic height,
+    (
+      {
+      double height,
       EdgeInsetsGeometry padding,
       EdgeInsetsGeometry margin,
-      dynamic verticalOffset,
+      double verticalOffset,
       bool preferBelow,
       bool excludeFromSemantics,
       Decoration decoration,
       TextStyle textStyle,
       Duration waitDuration,
       Duration showDuration,
-    }) =>
+      }
+    ) =>
       TooltipThemeData(
-      height: height,
+      height: height?.toDouble(),
       padding: padding,
       margin: margin,
-      verticalOffset: verticalOffset,
+      verticalOffset: verticalOffset?.toDouble(),
       preferBelow: preferBelow,
       excludeFromSemantics: excludeFromSemantics,
       decoration: decoration,
@@ -1558,22 +1214,25 @@ var tooltipThemeData = MXFunctionInvoke(
       showDuration: showDuration,
     ),
 );
-var tooltipTheme = MXFunctionInvoke(
+var _tooltipTheme = MXFunctionInvoke(
     "TooltipTheme",
-    ({
+    (
+      {
       Key key,
       TooltipThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       TooltipTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var toggleButtonsThemeData = MXFunctionInvoke(
+var _toggleButtonsThemeData = MXFunctionInvoke(
     "ToggleButtonsThemeData",
-    ({
+    (
+      {
       TextStyle textStyle,
       BoxConstraints constraints,
       Color color,
@@ -1588,8 +1247,9 @@ var toggleButtonsThemeData = MXFunctionInvoke(
       Color selectedBorderColor,
       Color disabledBorderColor,
       BorderRadius borderRadius,
-      dynamic borderWidth,
-    }) =>
+      double borderWidth,
+      }
+    ) =>
       ToggleButtonsThemeData(
       textStyle: textStyle,
       constraints: constraints,
@@ -1605,35 +1265,39 @@ var toggleButtonsThemeData = MXFunctionInvoke(
       selectedBorderColor: selectedBorderColor,
       disabledBorderColor: disabledBorderColor,
       borderRadius: borderRadius,
-      borderWidth: borderWidth,
+      borderWidth: borderWidth?.toDouble(),
     ),
 );
-var toggleButtonsTheme = MXFunctionInvoke(
+var _toggleButtonsTheme = MXFunctionInvoke(
     "ToggleButtonsTheme",
-    ({
+    (
+      {
       Key key,
       ToggleButtonsThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       ToggleButtonsTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var tabBarIndicatorSize = MXFunctionInvoke(
+var _tabBarIndicatorSize = MXFunctionInvoke(
     "TabBarIndicatorSize",
     ({Map args}) => MXTabBarIndicatorSize.parse(args),
   );
-var tab = MXFunctionInvoke(
+var _tab = MXFunctionInvoke(
     "Tab",
-    ({
+    (
+      {
       Key key,
       String text,
       Widget icon,
       EdgeInsetsGeometry iconMargin,
       Widget child,
-    }) =>
+      }
+    ) =>
       Tab(
       key: key,
       text: text,
@@ -1642,15 +1306,16 @@ var tab = MXFunctionInvoke(
       child: child,
     ),
 );
-var tabBar = MXFunctionInvoke(
+var _tabBar = MXFunctionInvoke(
     "TabBar",
-    ({
+    (
+      {
       Key key,
       List<Widget> tabs,
       TabController controller,
       bool isScrollable = false,
       Color indicatorColor,
-      dynamic indicatorWeight = 2.0,
+      double indicatorWeight = 2.0,
       EdgeInsetsGeometry indicatorPadding,
       Decoration indicator,
       TabBarIndicatorSize indicatorSize,
@@ -1661,14 +1326,15 @@ var tabBar = MXFunctionInvoke(
       TextStyle unselectedLabelStyle,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       dynamic onTap,
-    }) =>
+      }
+    ) =>
       TabBar(
       key: key,
       tabs: tabs,
       controller: controller,
       isScrollable: isScrollable,
       indicatorColor: indicatorColor,
-      indicatorWeight: indicatorWeight,
+      indicatorWeight: indicatorWeight?.toDouble(),
       indicatorPadding: indicatorPadding,
       indicator: indicator,
       indicatorSize: indicatorSize,
@@ -1678,18 +1344,20 @@ var tabBar = MXFunctionInvoke(
       unselectedLabelColor: unselectedLabelColor,
       unselectedLabelStyle: unselectedLabelStyle,
       dragStartBehavior: dragStartBehavior,
-      onTap: createValueChangedGenericClosure<int>(tabBar.buildOwner, onTap),
+      onTap: createValueChangedGenericClosure<int>(_tabBar.buildOwner, onTap),
     ),
 );
-var tabBarView = MXFunctionInvoke(
+var _tabBarView = MXFunctionInvoke(
     "TabBarView",
-    ({
+    (
+      {
       Key key,
       List<Widget> children,
       TabController controller,
       ScrollPhysics physics,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-    }) =>
+      }
+    ) =>
       TabBarView(
       key: key,
       children: children,
@@ -1698,41 +1366,46 @@ var tabBarView = MXFunctionInvoke(
       dragStartBehavior: dragStartBehavior,
     ),
 );
-var tabPageSelectorIndicator = MXFunctionInvoke(
+var _tabPageSelectorIndicator = MXFunctionInvoke(
     "TabPageSelectorIndicator",
-    ({
+    (
+      {
       Key key,
       Color backgroundColor,
       Color borderColor,
-      dynamic size,
-    }) =>
+      double size,
+      }
+    ) =>
       TabPageSelectorIndicator(
       key: key,
       backgroundColor: backgroundColor,
       borderColor: borderColor,
-      size: size,
+      size: size?.toDouble(),
     ),
 );
-var tabPageSelector = MXFunctionInvoke(
+var _tabPageSelector = MXFunctionInvoke(
     "TabPageSelector",
-    ({
+    (
+      {
       Key key,
       TabController controller,
-      dynamic indicatorSize = 12.0,
+      double indicatorSize = 12.0,
       Color color,
       Color selectedColor,
-    }) =>
+      }
+    ) =>
       TabPageSelector(
       key: key,
       controller: controller,
-      indicatorSize: indicatorSize,
+      indicatorSize: indicatorSize?.toDouble(),
       color: color,
       selectedColor: selectedColor,
     ),
 );
-var tabBarTheme = MXFunctionInvoke(
+var _tabBarTheme = MXFunctionInvoke(
     "TabBarTheme",
-    ({
+    (
+      {
       Decoration indicator,
       TabBarIndicatorSize indicatorSize,
       Color labelColor,
@@ -1740,7 +1413,8 @@ var tabBarTheme = MXFunctionInvoke(
       TextStyle labelStyle,
       Color unselectedLabelColor,
       TextStyle unselectedLabelStyle,
-    }) =>
+      }
+    ) =>
       TabBarTheme(
       indicator: indicator,
       indicatorSize: indicatorSize,
@@ -1751,56 +1425,61 @@ var tabBarTheme = MXFunctionInvoke(
       unselectedLabelStyle: unselectedLabelStyle,
     ),
 );
-var snackBarBehavior = MXFunctionInvoke(
+var _snackBarBehavior = MXFunctionInvoke(
     "SnackBarBehavior",
     ({Map args}) => MXSnackBarBehavior.parse(args),
   );
-var snackBarThemeData = MXFunctionInvoke(
+var _snackBarThemeData = MXFunctionInvoke(
     "SnackBarThemeData",
-    ({
+    (
+      {
       Color backgroundColor,
       Color actionTextColor,
       Color disabledActionTextColor,
       TextStyle contentTextStyle,
-      dynamic elevation,
+      double elevation,
       ShapeBorder shape,
       SnackBarBehavior behavior,
-    }) =>
+      }
+    ) =>
       SnackBarThemeData(
       backgroundColor: backgroundColor,
       actionTextColor: actionTextColor,
       disabledActionTextColor: disabledActionTextColor,
       contentTextStyle: contentTextStyle,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shape: shape,
       behavior: behavior,
     ),
 );
-var sliderTheme = MXFunctionInvoke(
+var _sliderTheme = MXFunctionInvoke(
     "SliderTheme",
-    ({
+    (
+      {
       Key key,
       SliderThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       SliderTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var showValueIndicator = MXFunctionInvoke(
+var _showValueIndicator = MXFunctionInvoke(
     "ShowValueIndicator",
     ({Map args}) => MXShowValueIndicator.parse(args),
   );
-var thumb = MXFunctionInvoke(
+var _thumb = MXFunctionInvoke(
     "Thumb",
     ({Map args}) => MXThumb.parse(args),
   );
-var sliderThemeData = MXFunctionInvoke(
+var _sliderThemeData = MXFunctionInvoke(
     "SliderThemeData",
-    ({
-      dynamic trackHeight,
+    (
+      {
+      double trackHeight,
       Color activeTrackColor,
       Color inactiveTrackColor,
       Color disabledActiveTrackColor,
@@ -1825,11 +1504,12 @@ var sliderThemeData = MXFunctionInvoke(
       RangeSliderValueIndicatorShape rangeValueIndicatorShape,
       ShowValueIndicator showValueIndicator,
       TextStyle valueIndicatorTextStyle,
-      dynamic minThumbSeparation,
+      double minThumbSeparation,
       dynamic thumbSelector,
-    }) =>
+      }
+    ) =>
       SliderThemeData(
-      trackHeight: trackHeight,
+      trackHeight: trackHeight?.toDouble(),
       activeTrackColor: activeTrackColor,
       inactiveTrackColor: inactiveTrackColor,
       disabledActiveTrackColor: disabledActiveTrackColor,
@@ -1854,18 +1534,20 @@ var sliderThemeData = MXFunctionInvoke(
       rangeValueIndicatorShape: rangeValueIndicatorShape,
       showValueIndicator: showValueIndicator,
       valueIndicatorTextStyle: valueIndicatorTextStyle,
-      minThumbSeparation: minThumbSeparation,
-      thumbSelector: thumbSelector,
+      minThumbSeparation: minThumbSeparation?.toDouble(),
+      thumbSelector: null,
     ),
 );
-var sliderThemeData_fromPrimaryColors = MXFunctionInvoke(
+var _sliderThemeData_fromPrimaryColors = MXFunctionInvoke(
   "sliderThemeData.fromPrimaryColors",
-    ({
+    (
+      {
       Color primaryColor,
       Color primaryColorDark,
       Color primaryColorLight,
       TextStyle valueIndicatorTextStyle,
-    }) =>
+      }
+    ) =>
       SliderThemeData.fromPrimaryColors(
       primaryColor: primaryColor,
       primaryColorDark: primaryColorDark,
@@ -1873,189 +1555,212 @@ var sliderThemeData_fromPrimaryColors = MXFunctionInvoke(
       valueIndicatorTextStyle: valueIndicatorTextStyle,
     ),
 );
-var rectangularSliderTrackShape = MXFunctionInvoke(
+var _rectangularSliderTrackShape = MXFunctionInvoke(
     "RectangularSliderTrackShape",
-    ({
-      dynamic disabledThumbGapWidth = 2.0,
-    }) =>
+    (
+      {
+      double disabledThumbGapWidth = 2.0,
+      }
+    ) =>
       RectangularSliderTrackShape(
-      disabledThumbGapWidth: disabledThumbGapWidth,
+      disabledThumbGapWidth: disabledThumbGapWidth?.toDouble(),
     ),
 );
-var roundedRectSliderTrackShape = MXFunctionInvoke(
+var _roundedRectSliderTrackShape = MXFunctionInvoke(
     "RoundedRectSliderTrackShape",
-    ({
-    }) =>
+    (
+    ) =>
       RoundedRectSliderTrackShape(
     ),
 );
-var rectangularRangeSliderTrackShape = MXFunctionInvoke(
+var _rectangularRangeSliderTrackShape = MXFunctionInvoke(
     "RectangularRangeSliderTrackShape",
-    ({
-    }) =>
+    (
+    ) =>
       RectangularRangeSliderTrackShape(
     ),
 );
-var roundedRectRangeSliderTrackShape = MXFunctionInvoke(
+var _roundedRectRangeSliderTrackShape = MXFunctionInvoke(
     "RoundedRectRangeSliderTrackShape",
-    ({
-    }) =>
+    (
+    ) =>
       RoundedRectRangeSliderTrackShape(
     ),
 );
-var roundSliderTickMarkShape = MXFunctionInvoke(
+var _roundSliderTickMarkShape = MXFunctionInvoke(
     "RoundSliderTickMarkShape",
-    ({
-      dynamic tickMarkRadius,
-    }) =>
+    (
+      {
+      double tickMarkRadius,
+      }
+    ) =>
       RoundSliderTickMarkShape(
-      tickMarkRadius: tickMarkRadius,
+      tickMarkRadius: tickMarkRadius?.toDouble(),
     ),
 );
-var roundRangeSliderTickMarkShape = MXFunctionInvoke(
+var _roundRangeSliderTickMarkShape = MXFunctionInvoke(
     "RoundRangeSliderTickMarkShape",
-    ({
-      dynamic tickMarkRadius,
-    }) =>
+    (
+      {
+      double tickMarkRadius,
+      }
+    ) =>
       RoundRangeSliderTickMarkShape(
-      tickMarkRadius: tickMarkRadius,
+      tickMarkRadius: tickMarkRadius?.toDouble(),
     ),
 );
-var roundSliderThumbShape = MXFunctionInvoke(
+var _roundSliderThumbShape = MXFunctionInvoke(
     "RoundSliderThumbShape",
-    ({
-      dynamic enabledThumbRadius = 10.0,
-      dynamic disabledThumbRadius,
-    }) =>
+    (
+      {
+      double enabledThumbRadius = 10.0,
+      double disabledThumbRadius,
+      }
+    ) =>
       RoundSliderThumbShape(
-      enabledThumbRadius: enabledThumbRadius,
-      disabledThumbRadius: disabledThumbRadius,
+      enabledThumbRadius: enabledThumbRadius?.toDouble(),
+      disabledThumbRadius: disabledThumbRadius?.toDouble(),
     ),
 );
-var roundRangeSliderThumbShape = MXFunctionInvoke(
+var _roundRangeSliderThumbShape = MXFunctionInvoke(
     "RoundRangeSliderThumbShape",
-    ({
-      dynamic enabledThumbRadius = 10.0,
-      dynamic disabledThumbRadius,
-    }) =>
+    (
+      {
+      double enabledThumbRadius = 10.0,
+      double disabledThumbRadius,
+      }
+    ) =>
       RoundRangeSliderThumbShape(
-      enabledThumbRadius: enabledThumbRadius,
-      disabledThumbRadius: disabledThumbRadius,
+      enabledThumbRadius: enabledThumbRadius?.toDouble(),
+      disabledThumbRadius: disabledThumbRadius?.toDouble(),
     ),
 );
-var roundSliderOverlayShape = MXFunctionInvoke(
+var _roundSliderOverlayShape = MXFunctionInvoke(
     "RoundSliderOverlayShape",
-    ({
-      dynamic overlayRadius = 24.0,
-    }) =>
+    (
+      {
+      double overlayRadius = 24.0,
+      }
+    ) =>
       RoundSliderOverlayShape(
-      overlayRadius: overlayRadius,
+      overlayRadius: overlayRadius?.toDouble(),
     ),
 );
-var paddleSliderValueIndicatorShape = MXFunctionInvoke(
+var _paddleSliderValueIndicatorShape = MXFunctionInvoke(
     "PaddleSliderValueIndicatorShape",
-    ({
-    }) =>
+    (
+    ) =>
       PaddleSliderValueIndicatorShape(
     ),
 );
-var paddleRangeSliderValueIndicatorShape = MXFunctionInvoke(
+var _paddleRangeSliderValueIndicatorShape = MXFunctionInvoke(
     "PaddleRangeSliderValueIndicatorShape",
-    ({
-    }) =>
+    (
+    ) =>
       PaddleRangeSliderValueIndicatorShape(
     ),
 );
-var rangeValues = MXFunctionInvoke(
+var _rangeValues = MXFunctionInvoke(
     "RangeValues",
-    ({
-      dynamic start,
-      dynamic end,
-    }) =>
+    (
+      {
+      double start,
+      double end,
+      }
+    ) =>
       RangeValues(
       start,
       end,
     ),
 );
-var rangeLabels = MXFunctionInvoke(
+var _rangeLabels = MXFunctionInvoke(
     "RangeLabels",
-    ({
+    (
+      {
       String start,
       String end,
-    }) =>
+      }
+    ) =>
       RangeLabels(
       start,
       end,
     ),
 );
-var popupMenuThemeData = MXFunctionInvoke(
+var _popupMenuThemeData = MXFunctionInvoke(
     "PopupMenuThemeData",
-    ({
+    (
+      {
       Color color,
       ShapeBorder shape,
-      dynamic elevation,
+      double elevation,
       TextStyle textStyle,
-    }) =>
+      }
+    ) =>
       PopupMenuThemeData(
       color: color,
       shape: shape,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       textStyle: textStyle,
     ),
 );
-var popupMenuTheme = MXFunctionInvoke(
+var _popupMenuTheme = MXFunctionInvoke(
     "PopupMenuTheme",
-    ({
+    (
+      {
       Key key,
       PopupMenuThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       PopupMenuTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var fadeUpwardsPageTransitionsBuilder = MXFunctionInvoke(
+var _fadeUpwardsPageTransitionsBuilder = MXFunctionInvoke(
     "FadeUpwardsPageTransitionsBuilder",
-    ({
-    }) =>
+    (
+    ) =>
       FadeUpwardsPageTransitionsBuilder(
     ),
 );
-var openUpwardsPageTransitionsBuilder = MXFunctionInvoke(
+var _openUpwardsPageTransitionsBuilder = MXFunctionInvoke(
     "OpenUpwardsPageTransitionsBuilder",
-    ({
-    }) =>
+    (
+    ) =>
       OpenUpwardsPageTransitionsBuilder(
     ),
 );
-var zoomPageTransitionsBuilder = MXFunctionInvoke(
+var _zoomPageTransitionsBuilder = MXFunctionInvoke(
     "ZoomPageTransitionsBuilder",
-    ({
-    }) =>
+    (
+    ) =>
       ZoomPageTransitionsBuilder(
     ),
 );
-var cupertinoPageTransitionsBuilder = MXFunctionInvoke(
+var _cupertinoPageTransitionsBuilder = MXFunctionInvoke(
     "CupertinoPageTransitionsBuilder",
-    ({
-    }) =>
+    (
+    ) =>
       CupertinoPageTransitionsBuilder(
     ),
 );
-var pageTransitionsTheme = MXFunctionInvoke(
+var _pageTransitionsTheme = MXFunctionInvoke(
     "PageTransitionsTheme",
-    ({
+    (
+      {
       Map<TargetPlatform, PageTransitionsBuilder> builders,
-    }) =>
+      }
+    ) =>
       PageTransitionsTheme(
       builders: builders,
     ),
 );
-var navigationRail = MXFunctionInvoke(
+var _navigationRail = MXFunctionInvoke(
     "NavigationRail",
-    ({
+    (
+      {
       Color backgroundColor,
       bool extended = false,
       Widget leading,
@@ -2063,16 +1768,17 @@ var navigationRail = MXFunctionInvoke(
       List<NavigationRailDestination> destinations,
       int selectedIndex,
       dynamic onDestinationSelected,
-      dynamic elevation,
-      dynamic groupAlignment,
+      double elevation,
+      double groupAlignment,
       NavigationRailLabelType labelType,
       TextStyle unselectedLabelTextStyle,
       TextStyle selectedLabelTextStyle,
       IconThemeData unselectedIconTheme,
       IconThemeData selectedIconTheme,
-      dynamic minWidth,
-      dynamic minExtendedWidth,
-    }) =>
+      double minWidth,
+      double minExtendedWidth,
+      }
+    ) =>
       NavigationRail(
       backgroundColor: backgroundColor,
       extended: extended,
@@ -2080,78 +1786,85 @@ var navigationRail = MXFunctionInvoke(
       trailing: trailing,
       destinations: destinations,
       selectedIndex: selectedIndex,
-      onDestinationSelected: createValueChangedGenericClosure<int>(navigationRail.buildOwner, onDestinationSelected),
-      elevation: elevation,
-      groupAlignment: groupAlignment,
+      onDestinationSelected: createValueChangedGenericClosure<int>(_navigationRail.buildOwner, onDestinationSelected),
+      elevation: elevation?.toDouble(),
+      groupAlignment: groupAlignment?.toDouble(),
       labelType: labelType,
       unselectedLabelTextStyle: unselectedLabelTextStyle,
       selectedLabelTextStyle: selectedLabelTextStyle,
       unselectedIconTheme: unselectedIconTheme,
       selectedIconTheme: selectedIconTheme,
-      minWidth: minWidth,
-      minExtendedWidth: minExtendedWidth,
+      minWidth: minWidth?.toDouble(),
+      minExtendedWidth: minExtendedWidth?.toDouble(),
     ),
 );
-var navigationRailLabelType = MXFunctionInvoke(
+var _navigationRailLabelType = MXFunctionInvoke(
     "NavigationRailLabelType",
     ({Map args}) => MXNavigationRailLabelType.parse(args),
   );
-var navigationRailDestination = MXFunctionInvoke(
+var _navigationRailDestination = MXFunctionInvoke(
     "NavigationRailDestination",
-    ({
+    (
+      {
       Widget icon,
       Widget selectedIcon,
       Widget label,
-    }) =>
+      }
+    ) =>
       NavigationRailDestination(
       icon: icon,
       selectedIcon: selectedIcon,
       label: label,
     ),
 );
-var navigationRailThemeData = MXFunctionInvoke(
+var _navigationRailThemeData = MXFunctionInvoke(
     "NavigationRailThemeData",
-    ({
+    (
+      {
       Color backgroundColor,
-      dynamic elevation,
+      double elevation,
       TextStyle unselectedLabelTextStyle,
       TextStyle selectedLabelTextStyle,
       IconThemeData unselectedIconTheme,
       IconThemeData selectedIconTheme,
-      dynamic groupAlignment,
+      double groupAlignment,
       NavigationRailLabelType labelType,
-    }) =>
+      }
+    ) =>
       NavigationRailThemeData(
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       unselectedLabelTextStyle: unselectedLabelTextStyle,
       selectedLabelTextStyle: selectedLabelTextStyle,
       unselectedIconTheme: unselectedIconTheme,
       selectedIconTheme: selectedIconTheme,
-      groupAlignment: groupAlignment,
+      groupAlignment: groupAlignment?.toDouble(),
       labelType: labelType,
     ),
 );
-var navigationRailTheme = MXFunctionInvoke(
+var _navigationRailTheme = MXFunctionInvoke(
     "NavigationRailTheme",
-    ({
+    (
+      {
       Key key,
       NavigationRailThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       NavigationRailTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var floatingLabelBehavior = MXFunctionInvoke(
+var _floatingLabelBehavior = MXFunctionInvoke(
     "FloatingLabelBehavior",
     ({Map args}) => MXFloatingLabelBehavior.parse(args),
   );
-var inputDecorator = MXFunctionInvoke(
+var _inputDecorator = MXFunctionInvoke(
     "InputDecorator",
-    ({
+    (
+      {
       Key key,
       InputDecoration decoration,
       TextStyle baseStyle,
@@ -2162,7 +1875,8 @@ var inputDecorator = MXFunctionInvoke(
       bool expands = false,
       bool isEmpty = false,
       Widget child,
-    }) =>
+      }
+    ) =>
       InputDecorator(
       key: key,
       decoration: decoration,
@@ -2176,9 +1890,10 @@ var inputDecorator = MXFunctionInvoke(
       child: child,
     ),
 );
-var inputDecoration = MXFunctionInvoke(
+var _inputDecoration = MXFunctionInvoke(
     "InputDecoration",
-    ({
+    (
+      {
       Widget icon,
       String labelText,
       TextStyle labelStyle,
@@ -2221,7 +1936,8 @@ var inputDecoration = MXFunctionInvoke(
       bool enabled = true,
       String semanticCounterText,
       bool alignLabelWithHint,
-    }) =>
+      }
+    ) =>
       InputDecoration(
       icon: icon,
       labelText: labelText,
@@ -2267,9 +1983,10 @@ var inputDecoration = MXFunctionInvoke(
       alignLabelWithHint: alignLabelWithHint,
     ),
 );
-var inputDecoration_collapsed = MXFunctionInvoke(
+var _inputDecoration_collapsed = MXFunctionInvoke(
   "inputDecoration.collapsed",
-    ({
+    (
+      {
       String hintText,
       bool hasFloatingPlaceholder = true,
       FloatingLabelBehavior floatingLabelBehavior = FloatingLabelBehavior.auto,
@@ -2280,7 +1997,8 @@ var inputDecoration_collapsed = MXFunctionInvoke(
       Color hoverColor,
       InputBorder border,
       bool enabled = true,
-    }) =>
+      }
+    ) =>
       InputDecoration.collapsed(
       hintText: hintText,
       hasFloatingPlaceholder: hasFloatingPlaceholder,
@@ -2294,9 +2012,10 @@ var inputDecoration_collapsed = MXFunctionInvoke(
       enabled: enabled,
     ),
 );
-var inputDecorationTheme = MXFunctionInvoke(
+var _inputDecorationTheme = MXFunctionInvoke(
     "InputDecorationTheme",
-    ({
+    (
+      {
       TextStyle labelStyle,
       TextStyle helperStyle,
       int helperMaxLines,
@@ -2322,7 +2041,8 @@ var inputDecorationTheme = MXFunctionInvoke(
       InputBorder enabledBorder,
       InputBorder border,
       bool alignLabelWithHint = false,
-    }) =>
+      }
+    ) =>
       InputDecorationTheme(
       labelStyle: labelStyle,
       helperStyle: helperStyle,
@@ -2351,9 +2071,10 @@ var inputDecorationTheme = MXFunctionInvoke(
       alignLabelWithHint: alignLabelWithHint,
     ),
 );
-var inkHighlight = MXFunctionInvoke(
+var _inkHighlight = MXFunctionInvoke(
     "InkHighlight",
-    ({
+    (
+      {
       MaterialInkController controller,
       RenderBox referenceBox,
       Color color,
@@ -2364,7 +2085,8 @@ var inkHighlight = MXFunctionInvoke(
       dynamic rectCallback,
       dynamic onRemoved,
       Duration fadeDuration,
-    }) =>
+      }
+    ) =>
       InkHighlight(
       controller: controller,
       referenceBox: referenceBox,
@@ -2374,13 +2096,14 @@ var inkHighlight = MXFunctionInvoke(
       borderRadius: borderRadius,
       customBorder: customBorder,
       rectCallback: rectCallback,
-      onRemoved: createVoidCallbackClosure(inkHighlight.buildOwner, onRemoved),
+      onRemoved: createVoidCallbackClosure(_inkHighlight.buildOwner, onRemoved),
       fadeDuration: fadeDuration,
     ),
 );
-var inkResponse = MXFunctionInvoke(
+var _inkResponse = MXFunctionInvoke(
     "InkResponse",
-    ({
+    (
+      {
       Key key,
       Widget child,
       dynamic onTap,
@@ -2392,7 +2115,7 @@ var inkResponse = MXFunctionInvoke(
       dynamic onHover,
       bool containedInkWell = false,
       BoxShape highlightShape = BoxShape.circle,
-      dynamic radius,
+      double radius,
       BorderRadius borderRadius,
       ShapeBorder customBorder,
       Color focusColor,
@@ -2406,20 +2129,21 @@ var inkResponse = MXFunctionInvoke(
       bool canRequestFocus = true,
       dynamic onFocusChange,
       bool autofocus = false,
-    }) =>
+      }
+    ) =>
       InkResponse(
       key: key,
       child: child,
-      onTap: createVoidCallbackClosure(inkResponse.buildOwner, onTap),
-      onTapDown: createValueChangedGenericClosure<TapDownDetails>(inkResponse.buildOwner, onTapDown),
-      onTapCancel: createVoidCallbackClosure(inkResponse.buildOwner, onTapCancel),
-      onDoubleTap: createVoidCallbackClosure(inkResponse.buildOwner, onDoubleTap),
-      onLongPress: createVoidCallbackClosure(inkResponse.buildOwner, onLongPress),
-      onHighlightChanged: createValueChangedGenericClosure<bool>(inkResponse.buildOwner, onHighlightChanged),
-      onHover: createValueChangedGenericClosure<bool>(inkResponse.buildOwner, onHover),
+      onTap: createVoidCallbackClosure(_inkResponse.buildOwner, onTap),
+      onTapDown: createValueChangedGenericClosure<TapDownDetails>(_inkResponse.buildOwner, onTapDown),
+      onTapCancel: createVoidCallbackClosure(_inkResponse.buildOwner, onTapCancel),
+      onDoubleTap: createVoidCallbackClosure(_inkResponse.buildOwner, onDoubleTap),
+      onLongPress: createVoidCallbackClosure(_inkResponse.buildOwner, onLongPress),
+      onHighlightChanged: createValueChangedGenericClosure<bool>(_inkResponse.buildOwner, onHighlightChanged),
+      onHover: createValueChangedGenericClosure<bool>(_inkResponse.buildOwner, onHover),
       containedInkWell: containedInkWell,
       highlightShape: highlightShape,
-      radius: radius,
+      radius: radius?.toDouble(),
       borderRadius: borderRadius,
       customBorder: customBorder,
       focusColor: focusColor,
@@ -2431,13 +2155,14 @@ var inkResponse = MXFunctionInvoke(
       excludeFromSemantics: excludeFromSemantics,
       focusNode: focusNode,
       canRequestFocus: canRequestFocus,
-      onFocusChange: createValueChangedGenericClosure<bool>(inkResponse.buildOwner, onFocusChange),
+      onFocusChange: createValueChangedGenericClosure<bool>(_inkResponse.buildOwner, onFocusChange),
       autofocus: autofocus,
     ),
 );
-var inkWell = MXFunctionInvoke(
+var _inkWell = MXFunctionInvoke(
     "InkWell",
-    ({
+    (
+      {
       Key key,
       Widget child,
       dynamic onTap,
@@ -2452,7 +2177,7 @@ var inkWell = MXFunctionInvoke(
       Color highlightColor,
       Color splashColor,
       InteractiveInkFeatureFactory splashFactory,
-      dynamic radius,
+      double radius,
       BorderRadius borderRadius,
       ShapeBorder customBorder,
       bool enableFeedback = true,
@@ -2461,36 +2186,38 @@ var inkWell = MXFunctionInvoke(
       bool canRequestFocus = true,
       dynamic onFocusChange,
       bool autofocus = false,
-    }) =>
+      }
+    ) =>
       InkWell(
       key: key,
       child: child,
-      onTap: createVoidCallbackClosure(inkWell.buildOwner, onTap),
-      onDoubleTap: createVoidCallbackClosure(inkWell.buildOwner, onDoubleTap),
-      onLongPress: createVoidCallbackClosure(inkWell.buildOwner, onLongPress),
-      onTapDown: createValueChangedGenericClosure<TapDownDetails>(inkWell.buildOwner, onTapDown),
-      onTapCancel: createVoidCallbackClosure(inkWell.buildOwner, onTapCancel),
-      onHighlightChanged: createValueChangedGenericClosure<bool>(inkWell.buildOwner, onHighlightChanged),
-      onHover: createValueChangedGenericClosure<bool>(inkWell.buildOwner, onHover),
+      onTap: createVoidCallbackClosure(_inkWell.buildOwner, onTap),
+      onDoubleTap: createVoidCallbackClosure(_inkWell.buildOwner, onDoubleTap),
+      onLongPress: createVoidCallbackClosure(_inkWell.buildOwner, onLongPress),
+      onTapDown: createValueChangedGenericClosure<TapDownDetails>(_inkWell.buildOwner, onTapDown),
+      onTapCancel: createVoidCallbackClosure(_inkWell.buildOwner, onTapCancel),
+      onHighlightChanged: createValueChangedGenericClosure<bool>(_inkWell.buildOwner, onHighlightChanged),
+      onHover: createValueChangedGenericClosure<bool>(_inkWell.buildOwner, onHover),
       focusColor: focusColor,
       hoverColor: hoverColor,
       highlightColor: highlightColor,
       splashColor: splashColor,
       splashFactory: splashFactory,
-      radius: radius,
+      radius: radius?.toDouble(),
       borderRadius: borderRadius,
       customBorder: customBorder,
       enableFeedback: enableFeedback,
       excludeFromSemantics: excludeFromSemantics,
       focusNode: focusNode,
       canRequestFocus: canRequestFocus,
-      onFocusChange: createValueChangedGenericClosure<bool>(inkWell.buildOwner, onFocusChange),
+      onFocusChange: createValueChangedGenericClosure<bool>(_inkWell.buildOwner, onFocusChange),
       autofocus: autofocus,
     ),
 );
-var inkSplash = MXFunctionInvoke(
+var _inkSplash = MXFunctionInvoke(
     "InkSplash",
-    ({
+    (
+      {
       MaterialInkController controller,
       RenderBox referenceBox,
       TextDirection textDirection,
@@ -2500,9 +2227,10 @@ var inkSplash = MXFunctionInvoke(
       dynamic rectCallback,
       BorderRadius borderRadius,
       ShapeBorder customBorder,
-      dynamic radius,
+      double radius,
       dynamic onRemoved,
-    }) =>
+      }
+    ) =>
       InkSplash(
       controller: controller,
       referenceBox: referenceBox,
@@ -2513,73 +2241,82 @@ var inkSplash = MXFunctionInvoke(
       rectCallback: rectCallback,
       borderRadius: borderRadius,
       customBorder: customBorder,
-      radius: radius,
-      onRemoved: createVoidCallbackClosure(inkSplash.buildOwner, onRemoved),
+      radius: radius?.toDouble(),
+      onRemoved: createVoidCallbackClosure(_inkSplash.buildOwner, onRemoved),
     ),
 );
-var dividerThemeData = MXFunctionInvoke(
+var _dividerThemeData = MXFunctionInvoke(
     "DividerThemeData",
-    ({
+    (
+      {
       Color color,
-      dynamic space,
-      dynamic thickness,
-      dynamic indent,
-      dynamic endIndent,
-    }) =>
+      double space,
+      double thickness,
+      double indent,
+      double endIndent,
+      }
+    ) =>
       DividerThemeData(
       color: color,
-      space: space,
-      thickness: thickness,
-      indent: indent,
-      endIndent: endIndent,
+      space: space?.toDouble(),
+      thickness: thickness?.toDouble(),
+      indent: indent?.toDouble(),
+      endIndent: endIndent?.toDouble(),
     ),
 );
-var dividerTheme = MXFunctionInvoke(
+var _dividerTheme = MXFunctionInvoke(
     "DividerTheme",
-    ({
+    (
+      {
       Key key,
       DividerThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       DividerTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var dialogTheme = MXFunctionInvoke(
+var _dialogTheme = MXFunctionInvoke(
     "DialogTheme",
-    ({
+    (
+      {
       Color backgroundColor,
-      dynamic elevation,
+      double elevation,
       ShapeBorder shape,
       TextStyle titleTextStyle,
       TextStyle contentTextStyle,
-    }) =>
+      }
+    ) =>
       DialogTheme(
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shape: shape,
       titleTextStyle: titleTextStyle,
       contentTextStyle: contentTextStyle,
     ),
 );
-var chipTheme = MXFunctionInvoke(
+var _chipTheme = MXFunctionInvoke(
     "ChipTheme",
-    ({
+    (
+      {
       Key key,
       ChipThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       ChipTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var chipThemeData = MXFunctionInvoke(
+var _chipThemeData = MXFunctionInvoke(
     "ChipThemeData",
-    ({
+    (
+      {
       Color backgroundColor,
       Color deleteIconColor,
       Color disabledColor,
@@ -2595,9 +2332,10 @@ var chipThemeData = MXFunctionInvoke(
       TextStyle labelStyle,
       TextStyle secondaryLabelStyle,
       Brightness brightness,
-      dynamic elevation,
-      dynamic pressElevation,
-    }) =>
+      double elevation,
+      double pressElevation,
+      }
+    ) =>
       ChipThemeData(
       backgroundColor: backgroundColor,
       deleteIconColor: deleteIconColor,
@@ -2614,18 +2352,20 @@ var chipThemeData = MXFunctionInvoke(
       labelStyle: labelStyle,
       secondaryLabelStyle: secondaryLabelStyle,
       brightness: brightness,
-      elevation: elevation,
-      pressElevation: pressElevation,
+      elevation: elevation?.toDouble(),
+      pressElevation: pressElevation?.toDouble(),
     ),
 );
-var chipThemeData_fromDefaults = MXFunctionInvoke(
+var _chipThemeData_fromDefaults = MXFunctionInvoke(
   "chipThemeData.fromDefaults",
-    ({
+    (
+      {
       Brightness brightness,
       Color primaryColor,
       Color secondaryColor,
       TextStyle labelStyle,
-    }) =>
+      }
+    ) =>
       ChipThemeData.fromDefaults(
       brightness: brightness,
       primaryColor: primaryColor,
@@ -2633,46 +2373,52 @@ var chipThemeData_fromDefaults = MXFunctionInvoke(
       labelStyle: labelStyle,
     ),
 );
-var cardTheme = MXFunctionInvoke(
+var _cardTheme = MXFunctionInvoke(
     "CardTheme",
-    ({
+    (
+      {
       Clip clipBehavior,
       Color color,
       Color shadowColor,
-      dynamic elevation,
+      double elevation,
       EdgeInsetsGeometry margin,
       ShapeBorder shape,
-    }) =>
+      }
+    ) =>
       CardTheme(
       clipBehavior: clipBehavior,
       color: color,
       shadowColor: shadowColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       margin: margin,
       shape: shape,
     ),
 );
-var bottomAppBarTheme = MXFunctionInvoke(
+var _bottomAppBarTheme = MXFunctionInvoke(
     "BottomAppBarTheme",
-    ({
+    (
+      {
       Color color,
-      dynamic elevation,
+      double elevation,
       NotchedShape shape,
-    }) =>
+      }
+    ) =>
       BottomAppBarTheme(
       color: color,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shape: shape,
     ),
 );
-var materialBannerThemeData = MXFunctionInvoke(
+var _materialBannerThemeData = MXFunctionInvoke(
     "MaterialBannerThemeData",
-    ({
+    (
+      {
       Color backgroundColor,
       TextStyle contentTextStyle,
       EdgeInsetsGeometry padding,
       EdgeInsetsGeometry leadingPadding,
-    }) =>
+      }
+    ) =>
       MaterialBannerThemeData(
       backgroundColor: backgroundColor,
       contentTextStyle: contentTextStyle,
@@ -2680,26 +2426,29 @@ var materialBannerThemeData = MXFunctionInvoke(
       leadingPadding: leadingPadding,
     ),
 );
-var materialBannerTheme = MXFunctionInvoke(
+var _materialBannerTheme = MXFunctionInvoke(
     "MaterialBannerTheme",
-    ({
+    (
+      {
       Key key,
       MaterialBannerThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       MaterialBannerTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var materialTapTargetSize = MXFunctionInvoke(
+var _materialTapTargetSize = MXFunctionInvoke(
     "MaterialTapTargetSize",
     ({Map args}) => MXMaterialTapTargetSize.parse(args),
   );
-var themeData = MXFunctionInvoke(
+var _themeData = MXFunctionInvoke(
     "ThemeData",
-    ({
+    (
+      {
       Brightness brightness,
       VisualDensity visualDensity,
       MaterialColor primarySwatch,
@@ -2766,7 +2515,8 @@ var themeData = MXFunctionInvoke(
       MaterialBannerThemeData bannerTheme,
       DividerThemeData dividerTheme,
       ButtonBarThemeData buttonBarTheme,
-    }) =>
+      }
+    ) =>
       ThemeData(
       brightness: brightness,
       visualDensity: visualDensity,
@@ -2836,41 +2586,44 @@ var themeData = MXFunctionInvoke(
       buttonBarTheme: buttonBarTheme,
     ),
 );
-var themeData_from = MXFunctionInvoke(
+var _themeData_from = MXFunctionInvoke(
   "themeData.from",
-    ({
+    (
+      {
       ColorScheme colorScheme,
       TextTheme textTheme,
-    }) =>
+      }
+    ) =>
       ThemeData.from(
       colorScheme: colorScheme,
       textTheme: textTheme,
     ),
 );
-var themeData_light = MXFunctionInvoke(
+var _themeData_light = MXFunctionInvoke(
   "themeData.light",
-    ({
-    }) =>
+    (
+    ) =>
       ThemeData.light(
     ),
 );
-var themeData_dark = MXFunctionInvoke(
+var _themeData_dark = MXFunctionInvoke(
   "themeData.dark",
-    ({
-    }) =>
+    (
+    ) =>
       ThemeData.dark(
     ),
 );
-var themeData_fallback = MXFunctionInvoke(
+var _themeData_fallback = MXFunctionInvoke(
   "themeData.fallback",
-    ({
-    }) =>
+    (
+    ) =>
       ThemeData.fallback(
     ),
 );
-var themeData_raw = MXFunctionInvoke(
+var _themeData_raw = MXFunctionInvoke(
   "themeData.raw",
-    ({
+    (
+      {
       Brightness brightness,
       VisualDensity visualDensity,
       Color primaryColor,
@@ -2935,7 +2688,8 @@ var themeData_raw = MXFunctionInvoke(
       MaterialBannerThemeData bannerTheme,
       DividerThemeData dividerTheme,
       ButtonBarThemeData buttonBarTheme,
-    }) =>
+      }
+    ) =>
       ThemeData.raw(
       brightness: brightness,
       visualDensity: visualDensity,
@@ -3003,29 +2757,34 @@ var themeData_raw = MXFunctionInvoke(
       buttonBarTheme: buttonBarTheme,
     ),
 );
-var materialBasedCupertinoThemeData = MXFunctionInvoke(
+var _materialBasedCupertinoThemeData = MXFunctionInvoke(
     "MaterialBasedCupertinoThemeData",
-    ({
+    (
+      {
       ThemeData materialTheme,
-    }) =>
+      }
+    ) =>
       MaterialBasedCupertinoThemeData(
       materialTheme: materialTheme,
     ),
 );
-var visualDensity = MXFunctionInvoke(
+var _visualDensity = MXFunctionInvoke(
     "VisualDensity",
-    ({
-      dynamic horizontal = 0.0,
-      dynamic vertical = 0.0,
-    }) =>
+    (
+      {
+      double horizontal = 0.0,
+      double vertical = 0.0,
+      }
+    ) =>
       VisualDensity(
-      horizontal: horizontal,
-      vertical: vertical,
+      horizontal: horizontal?.toDouble(),
+      vertical: vertical?.toDouble(),
     ),
 );
-var colorScheme = MXFunctionInvoke(
+var _colorScheme = MXFunctionInvoke(
     "ColorScheme",
-    ({
+    (
+      {
       Color primary,
       Color primaryVariant,
       Color secondary,
@@ -3039,7 +2798,8 @@ var colorScheme = MXFunctionInvoke(
       Color onBackground,
       Color onError,
       Brightness brightness,
-    }) =>
+      }
+    ) =>
       ColorScheme(
       primary: primary,
       primaryVariant: primaryVariant,
@@ -3056,9 +2816,10 @@ var colorScheme = MXFunctionInvoke(
       brightness: brightness,
     ),
 );
-var colorScheme_fromSwatch = MXFunctionInvoke(
+var _colorScheme_fromSwatch = MXFunctionInvoke(
   "colorScheme.fromSwatch",
-    ({
+    (
+      {
       MaterialColor primarySwatch,
       Color primaryColorDark,
       Color accentColor,
@@ -3066,7 +2827,8 @@ var colorScheme_fromSwatch = MXFunctionInvoke(
       Color backgroundColor,
       Color errorColor,
       Brightness brightness = Brightness.light,
-    }) =>
+      }
+    ) =>
       ColorScheme.fromSwatch(
       primarySwatch: primarySwatch,
       primaryColorDark: primaryColorDark,
@@ -3077,9 +2839,10 @@ var colorScheme_fromSwatch = MXFunctionInvoke(
       brightness: brightness,
     ),
 );
-var colorScheme_light = MXFunctionInvoke(
+var _colorScheme_light = MXFunctionInvoke(
   "colorScheme.light",
-    ({
+    (
+      {
       Color primary,
       Color primaryVariant,
       Color secondary,
@@ -3093,7 +2856,8 @@ var colorScheme_light = MXFunctionInvoke(
       Color onBackground,
       Color onError,
       Brightness brightness = Brightness.light,
-    }) =>
+      }
+    ) =>
       ColorScheme.light(
       primary: primary,
       primaryVariant: primaryVariant,
@@ -3110,9 +2874,10 @@ var colorScheme_light = MXFunctionInvoke(
       brightness: brightness,
     ),
 );
-var colorScheme_dark = MXFunctionInvoke(
+var _colorScheme_dark = MXFunctionInvoke(
   "colorScheme.dark",
-    ({
+    (
+      {
       Color primary,
       Color primaryVariant,
       Color secondary,
@@ -3126,7 +2891,8 @@ var colorScheme_dark = MXFunctionInvoke(
       Color onBackground,
       Color onError,
       Brightness brightness = Brightness.dark,
-    }) =>
+      }
+    ) =>
       ColorScheme.dark(
       primary: primary,
       primaryVariant: primaryVariant,
@@ -3143,22 +2909,23 @@ var colorScheme_dark = MXFunctionInvoke(
       brightness: brightness,
     ),
 );
-var buttonTextTheme = MXFunctionInvoke(
+var _buttonTextTheme = MXFunctionInvoke(
     "ButtonTextTheme",
     ({Map args}) => MXButtonTextTheme.parse(args),
   );
-var buttonBarLayoutBehavior = MXFunctionInvoke(
+var _buttonBarLayoutBehavior = MXFunctionInvoke(
     "ButtonBarLayoutBehavior",
     ({Map args}) => MXButtonBarLayoutBehavior.parse(args),
   );
-var buttonTheme = MXFunctionInvoke(
+var _buttonTheme = MXFunctionInvoke(
     "ButtonTheme",
-    ({
+    (
+      {
       Key key,
       ButtonTextTheme textTheme = ButtonTextTheme.normal,
       ButtonBarLayoutBehavior layoutBehavior = ButtonBarLayoutBehavior.padded,
-      dynamic minWidth = 88.0,
-      dynamic height = 36.0,
+      double minWidth = 88.0,
+      double height = 36.0,
       EdgeInsetsGeometry padding,
       ShapeBorder shape,
       bool alignedDropdown = false,
@@ -3171,13 +2938,14 @@ var buttonTheme = MXFunctionInvoke(
       ColorScheme colorScheme,
       MaterialTapTargetSize materialTapTargetSize,
       Widget child,
-    }) =>
+      }
+    ) =>
       ButtonTheme(
       key: key,
       textTheme: textTheme,
       layoutBehavior: layoutBehavior,
-      minWidth: minWidth,
-      height: height,
+      minWidth: minWidth?.toDouble(),
+      height: height?.toDouble(),
       padding: padding,
       shape: shape,
       alignedDropdown: alignedDropdown,
@@ -3192,26 +2960,29 @@ var buttonTheme = MXFunctionInvoke(
       child: child,
     ),
 );
-var buttonTheme_fromButtonThemeData = MXFunctionInvoke(
+var _buttonTheme_fromButtonThemeData = MXFunctionInvoke(
   "buttonTheme.fromButtonThemeData",
-    ({
+    (
+      {
       Key key,
       ButtonThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       ButtonTheme.fromButtonThemeData(
       key: key,
       data: data,
       child: child,
     ),
 );
-var buttonTheme_bar = MXFunctionInvoke(
+var _buttonTheme_bar = MXFunctionInvoke(
   "buttonTheme.bar",
-    ({
+    (
+      {
       Key key,
       ButtonTextTheme textTheme = ButtonTextTheme.accent,
-      dynamic minWidth = 64.0,
-      dynamic height = 36.0,
+      double minWidth = 64.0,
+      double height = 36.0,
       EdgeInsetsGeometry padding,
       ShapeBorder shape,
       bool alignedDropdown = false,
@@ -3224,12 +2995,13 @@ var buttonTheme_bar = MXFunctionInvoke(
       ColorScheme colorScheme,
       Widget child,
       ButtonBarLayoutBehavior layoutBehavior = ButtonBarLayoutBehavior.padded,
-    }) =>
+      }
+    ) =>
       ButtonTheme.bar(
       key: key,
       textTheme: textTheme,
-      minWidth: minWidth,
-      height: height,
+      minWidth: minWidth?.toDouble(),
+      height: height?.toDouble(),
       padding: padding,
       shape: shape,
       alignedDropdown: alignedDropdown,
@@ -3244,12 +3016,13 @@ var buttonTheme_bar = MXFunctionInvoke(
       layoutBehavior: layoutBehavior,
     ),
 );
-var buttonThemeData = MXFunctionInvoke(
+var _buttonThemeData = MXFunctionInvoke(
     "ButtonThemeData",
-    ({
+    (
+      {
       ButtonTextTheme textTheme = ButtonTextTheme.normal,
-      dynamic minWidth = 88.0,
-      dynamic height = 36.0,
+      double minWidth = 88.0,
+      double height = 36.0,
       EdgeInsetsGeometry padding,
       ShapeBorder shape,
       ButtonBarLayoutBehavior layoutBehavior = ButtonBarLayoutBehavior.padded,
@@ -3262,11 +3035,12 @@ var buttonThemeData = MXFunctionInvoke(
       Color splashColor,
       ColorScheme colorScheme,
       MaterialTapTargetSize materialTapTargetSize,
-    }) =>
+      }
+    ) =>
       ButtonThemeData(
       textTheme: textTheme,
-      minWidth: minWidth,
-      height: height,
+      minWidth: minWidth?.toDouble(),
+      height: height?.toDouble(),
       padding: padding,
       shape: shape,
       layoutBehavior: layoutBehavior,
@@ -3281,120 +3055,130 @@ var buttonThemeData = MXFunctionInvoke(
       materialTapTargetSize: materialTapTargetSize,
     ),
 );
-var buttonBarThemeData = MXFunctionInvoke(
+var _buttonBarThemeData = MXFunctionInvoke(
     "ButtonBarThemeData",
-    ({
+    (
+      {
       MainAxisAlignment alignment,
       MainAxisSize mainAxisSize,
       ButtonTextTheme buttonTextTheme,
-      dynamic buttonMinWidth,
-      dynamic buttonHeight,
+      double buttonMinWidth,
+      double buttonHeight,
       EdgeInsetsGeometry buttonPadding,
       bool buttonAlignedDropdown,
       ButtonBarLayoutBehavior layoutBehavior,
       VerticalDirection overflowDirection,
-    }) =>
+      }
+    ) =>
       ButtonBarThemeData(
       alignment: alignment,
       mainAxisSize: mainAxisSize,
       buttonTextTheme: buttonTextTheme,
-      buttonMinWidth: buttonMinWidth,
-      buttonHeight: buttonHeight,
+      buttonMinWidth: buttonMinWidth?.toDouble(),
+      buttonHeight: buttonHeight?.toDouble(),
       buttonPadding: buttonPadding,
       buttonAlignedDropdown: buttonAlignedDropdown,
       layoutBehavior: layoutBehavior,
       overflowDirection: overflowDirection,
     ),
 );
-var buttonBarTheme = MXFunctionInvoke(
+var _buttonBarTheme = MXFunctionInvoke(
     "ButtonBarTheme",
-    ({
+    (
+      {
       Key key,
       ButtonBarThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       ButtonBarTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var buttonBar = MXFunctionInvoke(
+var _buttonBar = MXFunctionInvoke(
     "ButtonBar",
-    ({
+    (
+      {
       Key key,
       MainAxisAlignment alignment,
       MainAxisSize mainAxisSize,
       ButtonTextTheme buttonTextTheme,
-      dynamic buttonMinWidth,
-      dynamic buttonHeight,
+      double buttonMinWidth,
+      double buttonHeight,
       EdgeInsetsGeometry buttonPadding,
       bool buttonAlignedDropdown,
       ButtonBarLayoutBehavior layoutBehavior,
       VerticalDirection overflowDirection,
-      dynamic overflowButtonSpacing,
+      double overflowButtonSpacing,
       List<Widget> children,
-    }) =>
+      }
+    ) =>
       ButtonBar(
       key: key,
       alignment: alignment,
       mainAxisSize: mainAxisSize,
       buttonTextTheme: buttonTextTheme,
-      buttonMinWidth: buttonMinWidth,
-      buttonHeight: buttonHeight,
+      buttonMinWidth: buttonMinWidth?.toDouble(),
+      buttonHeight: buttonHeight?.toDouble(),
       buttonPadding: buttonPadding,
       buttonAlignedDropdown: buttonAlignedDropdown,
       layoutBehavior: layoutBehavior,
       overflowDirection: overflowDirection,
-      overflowButtonSpacing: overflowButtonSpacing,
+      overflowButtonSpacing: overflowButtonSpacing?.toDouble(),
       children: children,
     ),
 );
-var bottomSheet = MXFunctionInvoke(
+var _bottomSheet = MXFunctionInvoke(
     "BottomSheet",
-    ({
+    (
+      {
       Key key,
       AnimationController animationController,
       bool enableDrag = true,
       dynamic onDragStart,
       dynamic onDragEnd,
       Color backgroundColor,
-      dynamic elevation,
+      double elevation,
       ShapeBorder shape,
       Clip clipBehavior,
       dynamic onClosing,
       dynamic builder,
-    }) =>
+      }
+    ) =>
       BottomSheet(
       key: key,
       animationController: animationController,
       enableDrag: enableDrag,
-      onDragStart: createValueChangedGenericClosure<DragStartDetails>(bottomSheet.buildOwner, onDragStart),
-      onDragEnd: createValueChangedGenericClosure<DragEndDetails>(bottomSheet.buildOwner, onDragEnd),
+      onDragStart: createValueChangedGenericClosure<DragStartDetails>(_bottomSheet.buildOwner, onDragStart),
+      onDragEnd: createValueChangedGenericClosure<DragEndDetails>(_bottomSheet.buildOwner, onDragEnd),
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shape: shape,
       clipBehavior: clipBehavior,
-      onClosing: createVoidCallbackClosure(bottomSheet.buildOwner, onClosing),
-      builder: createGenericValueGenericClosure<Widget, BuildContext>(bottomSheet.buildOwner, builder),
+      onClosing: createVoidCallbackClosure(_bottomSheet.buildOwner, onClosing),
+      builder: createGenericValueGenericClosure<Widget, BuildContext>(_bottomSheet.buildOwner, builder),
     ),
 );
-var scaffoldPrelayoutGeometry = MXFunctionInvoke(
+var _scaffoldPrelayoutGeometry = MXFunctionInvoke(
     "ScaffoldPrelayoutGeometry",
-    ({
+    (
+      {
       Size bottomSheetSize,
-      dynamic contentBottom,
-      dynamic contentTop,
+      double contentBottom,
+      double contentTop,
       Size floatingActionButtonSize,
       EdgeInsets minInsets,
       Size scaffoldSize,
       Size snackBarSize,
       TextDirection textDirection,
-    }) =>
+      }
+    ) =>
       ScaffoldPrelayoutGeometry(
       bottomSheetSize: bottomSheetSize,
-      contentBottom: contentBottom,
-      contentTop: contentTop,
+      contentBottom: contentBottom?.toDouble(),
+      contentTop: contentTop?.toDouble(),
       floatingActionButtonSize: floatingActionButtonSize,
       minInsets: minInsets,
       scaffoldSize: scaffoldSize,
@@ -3402,20 +3186,23 @@ var scaffoldPrelayoutGeometry = MXFunctionInvoke(
       textDirection: textDirection,
     ),
 );
-var scaffoldGeometry = MXFunctionInvoke(
+var _scaffoldGeometry = MXFunctionInvoke(
     "ScaffoldGeometry",
-    ({
-      dynamic bottomNavigationBarTop,
+    (
+      {
+      double bottomNavigationBarTop,
       Rect floatingActionButtonArea,
-    }) =>
+      }
+    ) =>
       ScaffoldGeometry(
-      bottomNavigationBarTop: bottomNavigationBarTop,
+      bottomNavigationBarTop: bottomNavigationBarTop?.toDouble(),
       floatingActionButtonArea: floatingActionButtonArea,
     ),
 );
-var scaffold = MXFunctionInvoke(
+var _scaffold = MXFunctionInvoke(
     "Scaffold",
-    ({
+    (
+      {
       Key key,
       PreferredSizeWidget appBar,
       Widget body,
@@ -3435,10 +3222,11 @@ var scaffold = MXFunctionInvoke(
       bool extendBody = false,
       bool extendBodyBehindAppBar = false,
       Color drawerScrimColor,
-      dynamic drawerEdgeDragWidth,
+      double drawerEdgeDragWidth,
       bool drawerEnableOpenDragGesture = true,
       bool endDrawerEnableOpenDragGesture = true,
-    }) =>
+      }
+    ) =>
       Scaffold(
       key: key,
       appBar: appBar,
@@ -3459,28 +3247,29 @@ var scaffold = MXFunctionInvoke(
       extendBody: extendBody,
       extendBodyBehindAppBar: extendBodyBehindAppBar,
       drawerScrimColor: drawerScrimColor,
-      drawerEdgeDragWidth: drawerEdgeDragWidth,
+      drawerEdgeDragWidth: drawerEdgeDragWidth?.toDouble(),
       drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
       endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
     ),
 );
-var scaffoldState = MXFunctionInvoke(
+var _scaffoldState = MXFunctionInvoke(
     "ScaffoldState",
-    ({
-    }) =>
+    (
+    ) =>
       ScaffoldState(
     ),
 );
-var materialType = MXFunctionInvoke(
+var _materialType = MXFunctionInvoke(
     "MaterialType",
     ({Map args}) => MXMaterialType.parse(args),
   );
-var material = MXFunctionInvoke(
+var _material = MXFunctionInvoke(
     "Material",
-    ({
+    (
+      {
       Key key,
       MaterialType type = MaterialType.canvas,
-      dynamic elevation = 0.0,
+      double elevation = 0.0,
       Color color,
       Color shadowColor,
       TextStyle textStyle,
@@ -3490,11 +3279,12 @@ var material = MXFunctionInvoke(
       Clip clipBehavior = Clip.none,
       Duration animationDuration,
       Widget child,
-    }) =>
+      }
+    ) =>
       Material(
       key: key,
       type: type,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       color: color,
       shadowColor: shadowColor,
       textStyle: textStyle,
@@ -3506,20 +3296,23 @@ var material = MXFunctionInvoke(
       child: child,
     ),
 );
-var shapeBorderTween = MXFunctionInvoke(
+var _shapeBorderTween = MXFunctionInvoke(
     "ShapeBorderTween",
-    ({
+    (
+      {
       ShapeBorder begin,
       ShapeBorder end,
-    }) =>
+      }
+    ) =>
       ShapeBorderTween(
       begin: begin,
       end: end,
     ),
 );
-var reorderableListView = MXFunctionInvoke(
+var _reorderableListView = MXFunctionInvoke(
     "ReorderableListView",
-    ({
+    (
+      {
       Key key,
       Widget header,
       List<Widget> children,
@@ -3528,33 +3321,36 @@ var reorderableListView = MXFunctionInvoke(
       Axis scrollDirection = Axis.vertical,
       EdgeInsets padding,
       bool reverse = false,
-    }) =>
+      }
+    ) =>
       ReorderableListView(
       key: key,
       header: header,
       children: children,
-      onReorder: createVoidCallbackClosure(reorderableListView.buildOwner, onReorder),
+      onReorder: null,
       scrollController: scrollController,
       scrollDirection: scrollDirection,
       padding: padding,
       reverse: reverse,
     ),
 );
-var defaultMaterialLocalizations = MXFunctionInvoke(
+var _defaultMaterialLocalizations = MXFunctionInvoke(
     "DefaultMaterialLocalizations",
-    ({
-    }) =>
+    (
+    ) =>
       DefaultMaterialLocalizations(
     ),
 );
-var theme = MXFunctionInvoke(
+var _theme = MXFunctionInvoke(
     "Theme",
-    ({
+    (
+      {
       Key key,
       ThemeData data,
       bool isMaterialAppTheme = false,
       Widget child,
-    }) =>
+      }
+    ) =>
       Theme(
       key: key,
       data: data,
@@ -3562,20 +3358,23 @@ var theme = MXFunctionInvoke(
       child: child,
     ),
 );
-var themeDataTween = MXFunctionInvoke(
+var _themeDataTween = MXFunctionInvoke(
     "ThemeDataTween",
-    ({
+    (
+      {
       ThemeData begin,
       ThemeData end,
-    }) =>
+      }
+    ) =>
       ThemeDataTween(
       begin: begin,
       end: end,
     ),
 );
-var animatedTheme = MXFunctionInvoke(
+var _animatedTheme = MXFunctionInvoke(
     "AnimatedTheme",
-    ({
+    (
+      {
       Key key,
       ThemeData data,
       bool isMaterialAppTheme = false,
@@ -3583,39 +3382,43 @@ var animatedTheme = MXFunctionInvoke(
       Duration duration,
       dynamic onEnd,
       Widget child,
-    }) =>
+      }
+    ) =>
       AnimatedTheme(
       key: key,
       data: data,
       isMaterialAppTheme: isMaterialAppTheme,
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedTheme.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedTheme.buildOwner, onEnd),
       child: child,
     ),
 );
-var appBarTheme = MXFunctionInvoke(
+var _appBarTheme = MXFunctionInvoke(
     "AppBarTheme",
-    ({
+    (
+      {
       Brightness brightness,
       Color color,
-      dynamic elevation,
+      double elevation,
       IconThemeData iconTheme,
       IconThemeData actionsIconTheme,
       TextTheme textTheme,
-    }) =>
+      }
+    ) =>
       AppBarTheme(
       brightness: brightness,
       color: color,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       iconTheme: iconTheme,
       actionsIconTheme: actionsIconTheme,
       textTheme: textTheme,
     ),
 );
-var appBar = MXFunctionInvoke(
+var _appBar = MXFunctionInvoke(
     "AppBar",
-    ({
+    (
+      {
       Key key,
       Widget leading,
       bool automaticallyImplyLeading = true,
@@ -3623,7 +3426,7 @@ var appBar = MXFunctionInvoke(
       List<Widget> actions,
       Widget flexibleSpace,
       PreferredSizeWidget bottom,
-      dynamic elevation,
+      double elevation,
       ShapeBorder shape,
       Color backgroundColor,
       Brightness brightness,
@@ -3633,10 +3436,11 @@ var appBar = MXFunctionInvoke(
       bool primary = true,
       bool centerTitle,
       bool excludeHeaderSemantics = false,
-      dynamic titleSpacing = 16.0,
-      dynamic toolbarOpacity = 1.0,
-      dynamic bottomOpacity = 1.0,
-    }) =>
+      double titleSpacing = 16.0,
+      double toolbarOpacity = 1.0,
+      double bottomOpacity = 1.0,
+      }
+    ) =>
       AppBar(
       key: key,
       leading: leading,
@@ -3645,7 +3449,7 @@ var appBar = MXFunctionInvoke(
       actions: actions,
       flexibleSpace: flexibleSpace,
       bottom: bottom,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shape: shape,
       backgroundColor: backgroundColor,
       brightness: brightness,
@@ -3655,14 +3459,15 @@ var appBar = MXFunctionInvoke(
       primary: primary,
       centerTitle: centerTitle,
       excludeHeaderSemantics: excludeHeaderSemantics,
-      titleSpacing: titleSpacing,
-      toolbarOpacity: toolbarOpacity,
-      bottomOpacity: bottomOpacity,
+      titleSpacing: titleSpacing?.toDouble(),
+      toolbarOpacity: toolbarOpacity?.toDouble(),
+      bottomOpacity: bottomOpacity?.toDouble(),
     ),
 );
-var sliverAppBar = MXFunctionInvoke(
+var _sliverAppBar = MXFunctionInvoke(
     "SliverAppBar",
-    ({
+    (
+      {
       Key key,
       Widget leading,
       bool automaticallyImplyLeading = true,
@@ -3670,7 +3475,7 @@ var sliverAppBar = MXFunctionInvoke(
       List<Widget> actions,
       Widget flexibleSpace,
       PreferredSizeWidget bottom,
-      dynamic elevation,
+      double elevation,
       bool forceElevated = false,
       Color backgroundColor,
       Brightness brightness,
@@ -3680,16 +3485,17 @@ var sliverAppBar = MXFunctionInvoke(
       bool primary = true,
       bool centerTitle,
       bool excludeHeaderSemantics = false,
-      dynamic titleSpacing = 16.0,
-      dynamic expandedHeight,
+      double titleSpacing = 16.0,
+      double expandedHeight,
       bool floating = false,
       bool pinned = false,
       bool snap = false,
       bool stretch = false,
-      dynamic stretchTriggerOffset = 100.0,
+      double stretchTriggerOffset = 100.0,
       dynamic onStretchTrigger,
       ShapeBorder shape,
-    }) =>
+      }
+    ) =>
       SliverAppBar(
       key: key,
       leading: leading,
@@ -3698,7 +3504,7 @@ var sliverAppBar = MXFunctionInvoke(
       actions: actions,
       flexibleSpace: flexibleSpace,
       bottom: bottom,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       forceElevated: forceElevated,
       backgroundColor: backgroundColor,
       brightness: brightness,
@@ -3708,13 +3514,13 @@ var sliverAppBar = MXFunctionInvoke(
       primary: primary,
       centerTitle: centerTitle,
       excludeHeaderSemantics: excludeHeaderSemantics,
-      titleSpacing: titleSpacing,
-      expandedHeight: expandedHeight,
+      titleSpacing: titleSpacing?.toDouble(),
+      expandedHeight: expandedHeight?.toDouble(),
       floating: floating,
       pinned: pinned,
       snap: snap,
       stretch: stretch,
-      stretchTriggerOffset: stretchTriggerOffset,
+      stretchTriggerOffset: stretchTriggerOffset?.toDouble(),
       onStretchTrigger: onStretchTrigger,
       shape: shape,
     ),

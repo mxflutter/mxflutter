@@ -15,14 +15,16 @@ import 'package:flutter/foundation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFontLoaderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[fontLoader.funName] = fontLoader;
+  m[_fontLoader.funName] = _fontLoader;
   return m;
 }
-var fontLoader = MXFunctionInvoke(
+var _fontLoader = MXFunctionInvoke(
     "FontLoader",
-    ({
+    (
+      {
       String family,
-    }) =>
+      }
+    ) =>
       FontLoader(
       family,
     ),

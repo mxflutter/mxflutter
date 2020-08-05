@@ -13,39 +13,45 @@ import 'package:flutter/painting.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTweensSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[fractionalOffsetTween.funName] = fractionalOffsetTween;
-  m[alignmentTween.funName] = alignmentTween;
-  m[alignmentGeometryTween.funName] = alignmentGeometryTween;
+  m[_fractionalOffsetTween.funName] = _fractionalOffsetTween;
+  m[_alignmentTween.funName] = _alignmentTween;
+  m[_alignmentGeometryTween.funName] = _alignmentGeometryTween;
   return m;
 }
-var fractionalOffsetTween = MXFunctionInvoke(
+var _fractionalOffsetTween = MXFunctionInvoke(
     "FractionalOffsetTween",
-    ({
+    (
+      {
       FractionalOffset begin,
       FractionalOffset end,
-    }) =>
+      }
+    ) =>
       FractionalOffsetTween(
       begin: begin,
       end: end,
     ),
 );
-var alignmentTween = MXFunctionInvoke(
+var _alignmentTween = MXFunctionInvoke(
     "AlignmentTween",
-    ({
+    (
+      {
       Alignment begin,
       Alignment end,
-    }) =>
+      }
+    ) =>
       AlignmentTween(
       begin: begin,
       end: end,
     ),
 );
-var alignmentGeometryTween = MXFunctionInvoke(
+var _alignmentGeometryTween = MXFunctionInvoke(
     "AlignmentGeometryTween",
-    ({
+    (
+      {
       AlignmentGeometry begin,
       AlignmentGeometry end,
-    }) =>
+      }
+    ) =>
       AlignmentGeometryTween(
       begin: begin,
       end: end,

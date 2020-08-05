@@ -14,24 +14,26 @@ import 'package:flutter/rendering.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBottomSheetThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[bottomSheetThemeData.funName] = bottomSheetThemeData;
+  m[_bottomSheetThemeData.funName] = _bottomSheetThemeData;
   return m;
 }
-var bottomSheetThemeData = MXFunctionInvoke(
+var _bottomSheetThemeData = MXFunctionInvoke(
     "BottomSheetThemeData",
-    ({
+    (
+      {
       Color backgroundColor,
-      dynamic elevation,
+      double elevation,
       Color modalBackgroundColor,
-      dynamic modalElevation,
+      double modalElevation,
       ShapeBorder shape,
       Clip clipBehavior,
-    }) =>
+      }
+    ) =>
       BottomSheetThemeData(
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       modalBackgroundColor: modalBackgroundColor,
-      modalElevation: modalElevation,
+      modalElevation: modalElevation?.toDouble(),
       shape: shape,
       clipBehavior: clipBehavior,
     ),

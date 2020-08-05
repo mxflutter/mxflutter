@@ -15,23 +15,23 @@ import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/icons.dart';
 import 'package:flutter/src/cupertino/text_selection.dart';
 import 'package:flutter/src/cupertino/theme.dart';
-import 'package:flutter/services.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextFieldSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[overlayVisibilityMode.funName] = overlayVisibilityMode;
-  m[cupertinoTextField.funName] = cupertinoTextField;
+  m[_overlayVisibilityMode.funName] = _overlayVisibilityMode;
+  m[_cupertinoTextField.funName] = _cupertinoTextField;
   return m;
 }
-var overlayVisibilityMode = MXFunctionInvoke(
+var _overlayVisibilityMode = MXFunctionInvoke(
     "OverlayVisibilityMode",
     ({Map args}) => MXOverlayVisibilityMode.parse(args),
   );
-var cupertinoTextField = MXFunctionInvoke(
+var _cupertinoTextField = MXFunctionInvoke(
     "CupertinoTextField",
-    ({
+    (
+      {
       Key key,
       TextEditingController controller,
       FocusNode focusNode,
@@ -70,7 +70,7 @@ var cupertinoTextField = MXFunctionInvoke(
       dynamic onSubmitted,
       List<TextInputFormatter> inputFormatters,
       bool enabled,
-      dynamic cursorWidth = 2.0,
+      double cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
       BoxHeightStyle selectionHeightStyle = BoxHeightStyle.tight,
@@ -82,7 +82,8 @@ var cupertinoTextField = MXFunctionInvoke(
       dynamic onTap,
       ScrollController scrollController,
       ScrollPhysics scrollPhysics,
-    }) =>
+      }
+    ) =>
       CupertinoTextField(
       key: key,
       controller: controller,
@@ -117,12 +118,12 @@ var cupertinoTextField = MXFunctionInvoke(
       expands: expands,
       maxLength: maxLength,
       maxLengthEnforced: maxLengthEnforced,
-      onChanged: createValueChangedGenericClosure<String>(cupertinoTextField.buildOwner, onChanged),
-      onEditingComplete: createVoidCallbackClosure(cupertinoTextField.buildOwner, onEditingComplete),
-      onSubmitted: createValueChangedGenericClosure<String>(cupertinoTextField.buildOwner, onSubmitted),
+      onChanged: createValueChangedGenericClosure<String>(_cupertinoTextField.buildOwner, onChanged),
+      onEditingComplete: createVoidCallbackClosure(_cupertinoTextField.buildOwner, onEditingComplete),
+      onSubmitted: createValueChangedGenericClosure<String>(_cupertinoTextField.buildOwner, onSubmitted),
       inputFormatters: inputFormatters,
       enabled: enabled,
-      cursorWidth: cursorWidth,
+      cursorWidth: cursorWidth?.toDouble(),
       cursorRadius: cursorRadius,
       cursorColor: cursorColor,
       selectionHeightStyle: selectionHeightStyle,
@@ -131,7 +132,7 @@ var cupertinoTextField = MXFunctionInvoke(
       scrollPadding: scrollPadding,
       dragStartBehavior: dragStartBehavior,
       enableInteractiveSelection: enableInteractiveSelection,
-      onTap: createVoidCallbackClosure(cupertinoTextField.buildOwner, onTap),
+      onTap: createVoidCallbackClosure(_cupertinoTextField.buildOwner, onTap),
       scrollController: scrollController,
       scrollPhysics: scrollPhysics,
     ),

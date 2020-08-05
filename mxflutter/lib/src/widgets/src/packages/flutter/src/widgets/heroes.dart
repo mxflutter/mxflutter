@@ -21,18 +21,19 @@ import 'package:flutter/src/widgets/transitions.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerHeroesSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[heroFlightDirection.funName] = heroFlightDirection;
-  m[hero.funName] = hero;
-  m[heroController.funName] = heroController;
+  m[_heroFlightDirection.funName] = _heroFlightDirection;
+  m[_hero.funName] = _hero;
+  m[_heroController.funName] = _heroController;
   return m;
 }
-var heroFlightDirection = MXFunctionInvoke(
+var _heroFlightDirection = MXFunctionInvoke(
     "HeroFlightDirection",
     ({Map args}) => MXHeroFlightDirection.parse(args),
   );
-var hero = MXFunctionInvoke(
+var _hero = MXFunctionInvoke(
     "Hero",
-    ({
+    (
+      {
       Key key,
       Object tag,
       dynamic createRectTween,
@@ -40,24 +41,27 @@ var hero = MXFunctionInvoke(
       dynamic placeholderBuilder,
       bool transitionOnUserGestures = false,
       Widget child,
-    }) =>
+      }
+    ) =>
       Hero(
       key: key,
       tag: tag,
-      createRectTween: createRectTween,
-      flightShuttleBuilder: flightShuttleBuilder,
-      placeholderBuilder: placeholderBuilder,
+      createRectTween: null,
+      flightShuttleBuilder: null,
+      placeholderBuilder: null,
       transitionOnUserGestures: transitionOnUserGestures,
       child: child,
     ),
 );
-var heroController = MXFunctionInvoke(
+var _heroController = MXFunctionInvoke(
     "HeroController",
-    ({
+    (
+      {
       dynamic createRectTween,
-    }) =>
+      }
+    ) =>
       HeroController(
-      createRectTween: createRectTween,
+      createRectTween: null,
     ),
 );
 class MXHeroFlightDirection {

@@ -16,33 +16,37 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTabScaffoldSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoTabController.funName] = cupertinoTabController;
-  m[cupertinoTabScaffold.funName] = cupertinoTabScaffold;
+  m[_cupertinoTabController.funName] = _cupertinoTabController;
+  m[_cupertinoTabScaffold.funName] = _cupertinoTabScaffold;
   return m;
 }
-var cupertinoTabController = MXFunctionInvoke(
+var _cupertinoTabController = MXFunctionInvoke(
     "CupertinoTabController",
-    ({
+    (
+      {
       int initialIndex = 0,
-    }) =>
+      }
+    ) =>
       CupertinoTabController(
       initialIndex: initialIndex,
     ),
 );
-var cupertinoTabScaffold = MXFunctionInvoke(
+var _cupertinoTabScaffold = MXFunctionInvoke(
     "CupertinoTabScaffold",
-    ({
+    (
+      {
       Key key,
       CupertinoTabBar tabBar,
       dynamic tabBuilder,
       CupertinoTabController controller,
       Color backgroundColor,
       bool resizeToAvoidBottomInset = true,
-    }) =>
+      }
+    ) =>
       CupertinoTabScaffold(
       key: key,
       tabBar: tabBar,
-      tabBuilder: tabBuilder,
+      tabBuilder: null,
       controller: controller,
       backgroundColor: backgroundColor,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,

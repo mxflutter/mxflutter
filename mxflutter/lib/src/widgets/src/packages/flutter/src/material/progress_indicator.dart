@@ -16,68 +16,74 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerProgressIndicatorSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[linearProgressIndicator.funName] = linearProgressIndicator;
-  m[circularProgressIndicator.funName] = circularProgressIndicator;
-  m[refreshProgressIndicator.funName] = refreshProgressIndicator;
+  m[_linearProgressIndicator.funName] = _linearProgressIndicator;
+  m[_circularProgressIndicator.funName] = _circularProgressIndicator;
+  m[_refreshProgressIndicator.funName] = _refreshProgressIndicator;
   return m;
 }
-var linearProgressIndicator = MXFunctionInvoke(
+var _linearProgressIndicator = MXFunctionInvoke(
     "LinearProgressIndicator",
-    ({
+    (
+      {
       Key key,
-      dynamic value,
+      double value,
       Color backgroundColor,
       Animation<Color> valueColor,
       String semanticsLabel,
       String semanticsValue,
-    }) =>
+      }
+    ) =>
       LinearProgressIndicator(
       key: key,
-      value: value,
+      value: value?.toDouble(),
       backgroundColor: backgroundColor,
       valueColor: valueColor,
       semanticsLabel: semanticsLabel,
       semanticsValue: semanticsValue,
     ),
 );
-var circularProgressIndicator = MXFunctionInvoke(
+var _circularProgressIndicator = MXFunctionInvoke(
     "CircularProgressIndicator",
-    ({
+    (
+      {
       Key key,
-      dynamic value,
+      double value,
       Color backgroundColor,
       Animation<Color> valueColor,
-      dynamic strokeWidth = 4.0,
+      double strokeWidth = 4.0,
       String semanticsLabel,
       String semanticsValue,
-    }) =>
+      }
+    ) =>
       CircularProgressIndicator(
       key: key,
-      value: value,
+      value: value?.toDouble(),
       backgroundColor: backgroundColor,
       valueColor: valueColor,
-      strokeWidth: strokeWidth,
+      strokeWidth: strokeWidth?.toDouble(),
       semanticsLabel: semanticsLabel,
       semanticsValue: semanticsValue,
     ),
 );
-var refreshProgressIndicator = MXFunctionInvoke(
+var _refreshProgressIndicator = MXFunctionInvoke(
     "RefreshProgressIndicator",
-    ({
+    (
+      {
       Key key,
-      dynamic value,
+      double value,
       Color backgroundColor,
       Animation<Color> valueColor,
-      dynamic strokeWidth = 2.0,
+      double strokeWidth = 2.0,
       String semanticsLabel,
       String semanticsValue,
-    }) =>
+      }
+    ) =>
       RefreshProgressIndicator(
       key: key,
-      value: value,
+      value: value?.toDouble(),
       backgroundColor: backgroundColor,
       valueColor: valueColor,
-      strokeWidth: strokeWidth,
+      strokeWidth: strokeWidth?.toDouble(),
       semanticsLabel: semanticsLabel,
       semanticsValue: semanticsValue,
     ),

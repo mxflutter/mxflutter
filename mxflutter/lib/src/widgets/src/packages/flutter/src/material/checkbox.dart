@@ -21,12 +21,13 @@ import 'package:flutter/src/material/toggleable.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCheckboxSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[checkbox.funName] = checkbox;
+  m[_checkbox.funName] = _checkbox;
   return m;
 }
-var checkbox = MXFunctionInvoke(
+var _checkbox = MXFunctionInvoke(
     "Checkbox",
-    ({
+    (
+      {
       Key key,
       bool value,
       bool tristate = false,
@@ -39,12 +40,13 @@ var checkbox = MXFunctionInvoke(
       VisualDensity visualDensity,
       FocusNode focusNode,
       bool autofocus = false,
-    }) =>
+      }
+    ) =>
       Checkbox(
       key: key,
       value: value,
       tristate: tristate,
-      onChanged: createValueChangedGenericClosure<bool>(checkbox.buildOwner, onChanged),
+      onChanged: createValueChangedGenericClosure<bool>(_checkbox.buildOwner, onChanged),
       activeColor: activeColor,
       checkColor: checkColor,
       focusColor: focusColor,

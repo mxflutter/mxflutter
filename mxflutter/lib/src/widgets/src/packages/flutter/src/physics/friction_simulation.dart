@@ -14,19 +14,21 @@ import 'package:flutter/src/physics/tolerance.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFrictionSimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[frictionSimulation.funName] = frictionSimulation;
-  m[frictionSimulation_through.funName] = frictionSimulation_through;
-  m[boundedFrictionSimulation.funName] = boundedFrictionSimulation;
+  m[_frictionSimulation.funName] = _frictionSimulation;
+  m[_frictionSimulation_through.funName] = _frictionSimulation_through;
+  m[_boundedFrictionSimulation.funName] = _boundedFrictionSimulation;
   return m;
 }
-var frictionSimulation = MXFunctionInvoke(
+var _frictionSimulation = MXFunctionInvoke(
     "FrictionSimulation",
-    ({
-      dynamic drag,
-      dynamic position,
-      dynamic velocity,
+    (
+      {
+      double drag,
+      double position,
+      double velocity,
       Tolerance tolerance,
-    }) =>
+      }
+    ) =>
       FrictionSimulation(
       drag,
       position,
@@ -34,14 +36,16 @@ var frictionSimulation = MXFunctionInvoke(
       tolerance: tolerance,
     ),
 );
-var frictionSimulation_through = MXFunctionInvoke(
+var _frictionSimulation_through = MXFunctionInvoke(
   "frictionSimulation.through",
-    ({
-      dynamic startPosition,
-      dynamic endPosition,
-      dynamic startVelocity,
-      dynamic endVelocity,
-    }) =>
+    (
+      {
+      double startPosition,
+      double endPosition,
+      double startVelocity,
+      double endVelocity,
+      }
+    ) =>
       FrictionSimulation.through(
       startPosition,
       endPosition,
@@ -49,20 +53,22 @@ var frictionSimulation_through = MXFunctionInvoke(
       endVelocity,
     ),
 );
-var boundedFrictionSimulation = MXFunctionInvoke(
+var _boundedFrictionSimulation = MXFunctionInvoke(
     "BoundedFrictionSimulation",
-    ({
-      dynamic drag,
-      dynamic position,
-      dynamic velocity,
-      dynamic _minX,
-      dynamic _maxX,
-    }) =>
+    (
+      {
+      double drag,
+      double position,
+      double velocity,
+      double minX,
+      double maxX,
+      }
+    ) =>
       BoundedFrictionSimulation(
       drag,
       position,
       velocity,
-      _minX,
-      _maxX,
+      minX,
+      maxX,
     ),
 );

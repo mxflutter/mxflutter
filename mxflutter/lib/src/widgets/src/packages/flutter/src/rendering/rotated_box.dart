@@ -18,15 +18,17 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRotatedBoxSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[renderRotatedBox.funName] = renderRotatedBox;
+  m[_renderRotatedBox.funName] = _renderRotatedBox;
   return m;
 }
-var renderRotatedBox = MXFunctionInvoke(
+var _renderRotatedBox = MXFunctionInvoke(
     "RenderRotatedBox",
-    ({
+    (
+      {
       int quarterTurns,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderRotatedBox(
       quarterTurns: quarterTurns,
       child: child,

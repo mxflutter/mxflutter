@@ -14,15 +14,17 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSpacerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[spacer.funName] = spacer;
+  m[_spacer.funName] = _spacer;
   return m;
 }
-var spacer = MXFunctionInvoke(
+var _spacer = MXFunctionInvoke(
     "Spacer",
-    ({
+    (
+      {
       Key key,
       int flex = 1,
-    }) =>
+      }
+    ) =>
       Spacer(
       key: key,
       flex: flex,

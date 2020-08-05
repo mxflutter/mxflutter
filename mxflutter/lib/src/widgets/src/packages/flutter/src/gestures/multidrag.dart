@@ -22,52 +22,60 @@ import 'package:flutter/src/gestures/velocity_tracker.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMultidragSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[immediateMultiDragGestureRecognizer.funName] = immediateMultiDragGestureRecognizer;
-  m[horizontalMultiDragGestureRecognizer.funName] = horizontalMultiDragGestureRecognizer;
-  m[verticalMultiDragGestureRecognizer.funName] = verticalMultiDragGestureRecognizer;
-  m[delayedMultiDragGestureRecognizer.funName] = delayedMultiDragGestureRecognizer;
+  m[_immediateMultiDragGestureRecognizer.funName] = _immediateMultiDragGestureRecognizer;
+  m[_horizontalMultiDragGestureRecognizer.funName] = _horizontalMultiDragGestureRecognizer;
+  m[_verticalMultiDragGestureRecognizer.funName] = _verticalMultiDragGestureRecognizer;
+  m[_delayedMultiDragGestureRecognizer.funName] = _delayedMultiDragGestureRecognizer;
   return m;
 }
-var immediateMultiDragGestureRecognizer = MXFunctionInvoke(
+var _immediateMultiDragGestureRecognizer = MXFunctionInvoke(
     "ImmediateMultiDragGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       ImmediateMultiDragGestureRecognizer(
       debugOwner: debugOwner,
       kind: kind,
     ),
 );
-var horizontalMultiDragGestureRecognizer = MXFunctionInvoke(
+var _horizontalMultiDragGestureRecognizer = MXFunctionInvoke(
     "HorizontalMultiDragGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       HorizontalMultiDragGestureRecognizer(
       debugOwner: debugOwner,
       kind: kind,
     ),
 );
-var verticalMultiDragGestureRecognizer = MXFunctionInvoke(
+var _verticalMultiDragGestureRecognizer = MXFunctionInvoke(
     "VerticalMultiDragGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       VerticalMultiDragGestureRecognizer(
       debugOwner: debugOwner,
       kind: kind,
     ),
 );
-var delayedMultiDragGestureRecognizer = MXFunctionInvoke(
+var _delayedMultiDragGestureRecognizer = MXFunctionInvoke(
     "DelayedMultiDragGestureRecognizer",
-    ({
+    (
+      {
       Duration delay,
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       DelayedMultiDragGestureRecognizer(
       delay: delay,
       debugOwner: debugOwner,

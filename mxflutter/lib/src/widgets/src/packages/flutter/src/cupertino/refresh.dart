@@ -20,28 +20,30 @@ import 'package:flutter/src/cupertino/icons.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRefreshSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[refreshIndicatorMode.funName] = refreshIndicatorMode;
-  m[cupertinoSliverRefreshControl.funName] = cupertinoSliverRefreshControl;
+  m[_refreshIndicatorMode.funName] = _refreshIndicatorMode;
+  m[_cupertinoSliverRefreshControl.funName] = _cupertinoSliverRefreshControl;
   return m;
 }
-var refreshIndicatorMode = MXFunctionInvoke(
+var _refreshIndicatorMode = MXFunctionInvoke(
     "RefreshIndicatorMode",
     ({Map args}) => MXRefreshIndicatorMode.parse(args),
   );
-var cupertinoSliverRefreshControl = MXFunctionInvoke(
+var _cupertinoSliverRefreshControl = MXFunctionInvoke(
     "CupertinoSliverRefreshControl",
-    ({
+    (
+      {
       Key key,
-      dynamic refreshTriggerPullDistance = 100.0,
-      dynamic refreshIndicatorExtent = 60.0,
+      double refreshTriggerPullDistance = 100.0,
+      double refreshIndicatorExtent = 60.0,
       dynamic builder,
       dynamic onRefresh,
-    }) =>
+      }
+    ) =>
       CupertinoSliverRefreshControl(
       key: key,
-      refreshTriggerPullDistance: refreshTriggerPullDistance,
-      refreshIndicatorExtent: refreshIndicatorExtent,
-      builder: builder,
+      refreshTriggerPullDistance: refreshTriggerPullDistance?.toDouble(),
+      refreshIndicatorExtent: refreshIndicatorExtent?.toDouble(),
+      builder: null,
       onRefresh: onRefresh,
     ),
 );

@@ -16,16 +16,18 @@ import 'package:flutter/src/widgets/inherited_theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIconThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[iconTheme.funName] = iconTheme;
+  m[_iconTheme.funName] = _iconTheme;
   return m;
 }
-var iconTheme = MXFunctionInvoke(
+var _iconTheme = MXFunctionInvoke(
     "IconTheme",
-    ({
+    (
+      {
       Key key,
       IconThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       IconTheme(
       key: key,
       data: data,

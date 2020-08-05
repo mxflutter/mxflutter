@@ -13,17 +13,19 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBottomNavigationBarItemSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[bottomNavigationBarItem.funName] = bottomNavigationBarItem;
+  m[_bottomNavigationBarItem.funName] = _bottomNavigationBarItem;
   return m;
 }
-var bottomNavigationBarItem = MXFunctionInvoke(
+var _bottomNavigationBarItem = MXFunctionInvoke(
     "BottomNavigationBarItem",
-    ({
+    (
+      {
       Widget icon,
       Widget title,
       Widget activeIcon,
       Color backgroundColor,
-    }) =>
+      }
+    ) =>
       BottomNavigationBarItem(
       icon: icon,
       title: title,

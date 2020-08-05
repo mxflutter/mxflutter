@@ -13,51 +13,55 @@ import 'package:flutter/painting.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSemanticsEventSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[announceSemanticsEvent.funName] = announceSemanticsEvent;
-  m[tooltipSemanticsEvent.funName] = tooltipSemanticsEvent;
-  m[longPressSemanticsEvent.funName] = longPressSemanticsEvent;
-  m[tapSemanticEvent.funName] = tapSemanticEvent;
-  m[updateLiveRegionEvent.funName] = updateLiveRegionEvent;
+  m[_announceSemanticsEvent.funName] = _announceSemanticsEvent;
+  m[_tooltipSemanticsEvent.funName] = _tooltipSemanticsEvent;
+  m[_longPressSemanticsEvent.funName] = _longPressSemanticsEvent;
+  m[_tapSemanticEvent.funName] = _tapSemanticEvent;
+  m[_updateLiveRegionEvent.funName] = _updateLiveRegionEvent;
   return m;
 }
-var announceSemanticsEvent = MXFunctionInvoke(
+var _announceSemanticsEvent = MXFunctionInvoke(
     "AnnounceSemanticsEvent",
-    ({
+    (
+      {
       String message,
       TextDirection textDirection,
-    }) =>
+      }
+    ) =>
       AnnounceSemanticsEvent(
       message,
       textDirection,
     ),
 );
-var tooltipSemanticsEvent = MXFunctionInvoke(
+var _tooltipSemanticsEvent = MXFunctionInvoke(
     "TooltipSemanticsEvent",
-    ({
+    (
+      {
       String message,
-    }) =>
+      }
+    ) =>
       TooltipSemanticsEvent(
       message,
     ),
 );
-var longPressSemanticsEvent = MXFunctionInvoke(
+var _longPressSemanticsEvent = MXFunctionInvoke(
     "LongPressSemanticsEvent",
-    ({
-    }) =>
+    (
+    ) =>
       LongPressSemanticsEvent(
     ),
 );
-var tapSemanticEvent = MXFunctionInvoke(
+var _tapSemanticEvent = MXFunctionInvoke(
     "TapSemanticEvent",
-    ({
-    }) =>
+    (
+    ) =>
       TapSemanticEvent(
     ),
 );
-var updateLiveRegionEvent = MXFunctionInvoke(
+var _updateLiveRegionEvent = MXFunctionInvoke(
     "UpdateLiveRegionEvent",
-    ({
-    }) =>
+    (
+    ) =>
       UpdateLiveRegionEvent(
     ),
 );

@@ -11,75 +11,55 @@ import 'package:flutter/src/services/keyboard_key.dart';
 import 'package:flutter/src/services/keyboard_maps.dart';
 import 'package:flutter/src/services/raw_keyboard.dart';
 import 'package:flutter/src/services/raw_keyboard_macos.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/keyboard_key.dart';
-import 'package:flutter/src/services/keyboard_maps.dart';
-import 'package:flutter/src/services/raw_keyboard.dart';
 import 'package:flutter/src/services/raw_keyboard_linux.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/keyboard_key.dart';
-import 'package:flutter/src/services/keyboard_maps.dart';
-import 'package:flutter/src/services/raw_keyboard.dart';
 import 'package:flutter/src/services/raw_keyboard_fuchsia.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/keyboard_key.dart';
-import 'package:flutter/src/services/keyboard_maps.dart';
-import 'package:flutter/src/services/raw_keyboard.dart';
 import 'package:flutter/src/services/raw_keyboard_android.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/keyboard_key.dart';
-import 'package:flutter/src/services/keyboard_maps.dart';
-import 'package:flutter/src/services/raw_keyboard.dart';
-import 'package:flutter/src/services/raw_keyboard.dart';
 import 'dart:async';
 import 'dart:io';
 import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/keyboard_key.dart';
-import 'package:flutter/src/services/raw_keyboard_android.dart';
-import 'package:flutter/src/services/raw_keyboard_fuchsia.dart';
-import 'package:flutter/src/services/raw_keyboard_linux.dart';
-import 'package:flutter/src/services/raw_keyboard_macos.dart';
-import 'package:flutter/src/services/raw_keyboard_web.dart';
 import 'package:flutter/src/services/system_channels.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRawKeyboardWebSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[rawKeyEventDataWeb.funName] = rawKeyEventDataWeb;
-  m[rawKeyEventDataMacOs.funName] = rawKeyEventDataMacOs;
-  m[rawKeyEventDataLinux.funName] = rawKeyEventDataLinux;
-  m[gLFWKeyHelper.funName] = gLFWKeyHelper;
-  m[rawKeyEventDataFuchsia.funName] = rawKeyEventDataFuchsia;
-  m[rawKeyEventDataAndroid.funName] = rawKeyEventDataAndroid;
-  m[keyboardSide.funName] = keyboardSide;
-  m[modifierKey.funName] = modifierKey;
-  m[rawKeyDownEvent.funName] = rawKeyDownEvent;
-  m[rawKeyUpEvent.funName] = rawKeyUpEvent;
+  m[_rawKeyEventDataWeb.funName] = _rawKeyEventDataWeb;
+  m[_rawKeyEventDataMacOs.funName] = _rawKeyEventDataMacOs;
+  m[_rawKeyEventDataLinux.funName] = _rawKeyEventDataLinux;
+  m[_gLFWKeyHelper.funName] = _gLFWKeyHelper;
+  m[_rawKeyEventDataFuchsia.funName] = _rawKeyEventDataFuchsia;
+  m[_rawKeyEventDataAndroid.funName] = _rawKeyEventDataAndroid;
+  m[_keyboardSide.funName] = _keyboardSide;
+  m[_modifierKey.funName] = _modifierKey;
+  m[_rawKeyDownEvent.funName] = _rawKeyDownEvent;
+  m[_rawKeyUpEvent.funName] = _rawKeyUpEvent;
   return m;
 }
-var rawKeyEventDataWeb = MXFunctionInvoke(
+var _rawKeyEventDataWeb = MXFunctionInvoke(
     "RawKeyEventDataWeb",
-    ({
+    (
+      {
       String code,
       String key,
       int metaState = 0,
-    }) =>
+      }
+    ) =>
       RawKeyEventDataWeb(
       code: code,
       key: key,
       metaState: metaState,
     ),
 );
-var rawKeyEventDataMacOs = MXFunctionInvoke(
+var _rawKeyEventDataMacOs = MXFunctionInvoke(
     "RawKeyEventDataMacOs",
-    ({
+    (
+      {
       String characters = '',
       String charactersIgnoringModifiers = '',
       int keyCode = 0,
       int modifiers = 0,
-    }) =>
+      }
+    ) =>
       RawKeyEventDataMacOs(
       characters: characters,
       charactersIgnoringModifiers: charactersIgnoringModifiers,
@@ -87,16 +67,18 @@ var rawKeyEventDataMacOs = MXFunctionInvoke(
       modifiers: modifiers,
     ),
 );
-var rawKeyEventDataLinux = MXFunctionInvoke(
+var _rawKeyEventDataLinux = MXFunctionInvoke(
     "RawKeyEventDataLinux",
-    ({
+    (
+      {
       KeyHelper keyHelper,
       int unicodeScalarValues = 0,
       int scanCode = 0,
       int keyCode = 0,
       int modifiers = 0,
       bool isDown,
-    }) =>
+      }
+    ) =>
       RawKeyEventDataLinux(
       keyHelper: keyHelper,
       unicodeScalarValues: unicodeScalarValues,
@@ -106,29 +88,32 @@ var rawKeyEventDataLinux = MXFunctionInvoke(
       isDown: isDown,
     ),
 );
-var gLFWKeyHelper = MXFunctionInvoke(
+var _gLFWKeyHelper = MXFunctionInvoke(
     "GLFWKeyHelper",
-    ({
-    }) =>
+    (
+    ) =>
       GLFWKeyHelper(
     ),
 );
-var rawKeyEventDataFuchsia = MXFunctionInvoke(
+var _rawKeyEventDataFuchsia = MXFunctionInvoke(
     "RawKeyEventDataFuchsia",
-    ({
+    (
+      {
       int hidUsage = 0,
       int codePoint = 0,
       int modifiers = 0,
-    }) =>
+      }
+    ) =>
       RawKeyEventDataFuchsia(
       hidUsage: hidUsage,
       codePoint: codePoint,
       modifiers: modifiers,
     ),
 );
-var rawKeyEventDataAndroid = MXFunctionInvoke(
+var _rawKeyEventDataAndroid = MXFunctionInvoke(
     "RawKeyEventDataAndroid",
-    ({
+    (
+      {
       int flags = 0,
       int codePoint = 0,
       int plainCodePoint = 0,
@@ -140,7 +125,8 @@ var rawKeyEventDataAndroid = MXFunctionInvoke(
       int productId = 0,
       int deviceId = 0,
       int repeatCount = 0,
-    }) =>
+      }
+    ) =>
       RawKeyEventDataAndroid(
       flags: flags,
       codePoint: codePoint,
@@ -155,31 +141,35 @@ var rawKeyEventDataAndroid = MXFunctionInvoke(
       repeatCount: repeatCount,
     ),
 );
-var keyboardSide = MXFunctionInvoke(
+var _keyboardSide = MXFunctionInvoke(
     "KeyboardSide",
     ({Map args}) => MXKeyboardSide.parse(args),
   );
-var modifierKey = MXFunctionInvoke(
+var _modifierKey = MXFunctionInvoke(
     "ModifierKey",
     ({Map args}) => MXModifierKey.parse(args),
   );
-var rawKeyDownEvent = MXFunctionInvoke(
+var _rawKeyDownEvent = MXFunctionInvoke(
     "RawKeyDownEvent",
-    ({
+    (
+      {
       RawKeyEventData data,
       String character,
-    }) =>
+      }
+    ) =>
       RawKeyDownEvent(
       data: data,
       character: character,
     ),
 );
-var rawKeyUpEvent = MXFunctionInvoke(
+var _rawKeyUpEvent = MXFunctionInvoke(
     "RawKeyUpEvent",
-    ({
+    (
+      {
       RawKeyEventData data,
       String character,
-    }) =>
+      }
+    ) =>
       RawKeyUpEvent(
       data: data,
       character: character,

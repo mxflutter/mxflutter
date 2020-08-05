@@ -12,21 +12,21 @@ import 'dart:collection';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerObserverListSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[observerList.funName] = observerList;
-  m[hashedObserverList.funName] = hashedObserverList;
+  m[_observerList.funName] = _observerList;
+  m[_hashedObserverList.funName] = _hashedObserverList;
   return m;
 }
-var observerList = MXFunctionInvoke(
+var _observerList = MXFunctionInvoke(
     "ObserverList",
-    ({
-    }) =>
+    (
+    ) =>
       ObserverList(
     ),
 );
-var hashedObserverList = MXFunctionInvoke(
+var _hashedObserverList = MXFunctionInvoke(
     "HashedObserverList",
-    ({
-    }) =>
+    (
+    ) =>
       HashedObserverList(
     ),
 );

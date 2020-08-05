@@ -23,37 +23,39 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRangeSliderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[rangeSlider.funName] = rangeSlider;
+  m[_rangeSlider.funName] = _rangeSlider;
   return m;
 }
-var rangeSlider = MXFunctionInvoke(
+var _rangeSlider = MXFunctionInvoke(
     "RangeSlider",
-    ({
+    (
+      {
       Key key,
       RangeValues values,
       dynamic onChanged,
       dynamic onChangeStart,
       dynamic onChangeEnd,
-      dynamic min = 0.0,
-      dynamic max = 1.0,
+      double min = 0.0,
+      double max = 1.0,
       int divisions,
       RangeLabels labels,
       Color activeColor,
       Color inactiveColor,
       dynamic semanticFormatterCallback,
-    }) =>
+      }
+    ) =>
       RangeSlider(
       key: key,
       values: values,
-      onChanged: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChanged),
-      onChangeStart: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChangeStart),
-      onChangeEnd: createValueChangedGenericClosure<RangeValues>(rangeSlider.buildOwner, onChangeEnd),
-      min: min,
-      max: max,
+      onChanged: createValueChangedGenericClosure<RangeValues>(_rangeSlider.buildOwner, onChanged),
+      onChangeStart: createValueChangedGenericClosure<RangeValues>(_rangeSlider.buildOwner, onChangeStart),
+      onChangeEnd: createValueChangedGenericClosure<RangeValues>(_rangeSlider.buildOwner, onChangeEnd),
+      min: min?.toDouble(),
+      max: max?.toDouble(),
       divisions: divisions,
       labels: labels,
       activeColor: activeColor,
       inactiveColor: inactiveColor,
-      semanticFormatterCallback: createGenericValueGenericClosure<String, RangeValues>(rangeSlider.buildOwner, semanticFormatterCallback),
+      semanticFormatterCallback: createGenericValueGenericClosure<String, RangeValues>(_rangeSlider.buildOwner, semanticFormatterCallback),
     ),
 );

@@ -10,224 +10,248 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/animations.dart';
 import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/curves.dart';
-import 'package:flutter/src/animation/listener_helpers.dart';
 import 'package:flutter/src/animation/tween.dart';
 import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/animation/animation.dart';
-import 'package:flutter/src/animation/animations.dart';
-import 'package:flutter/src/animation/curves.dart';
-import 'package:flutter/src/animation/animation.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/animation/tween.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListenerHelpersSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[alwaysStoppedAnimation.funName] = alwaysStoppedAnimation;
-  m[proxyAnimation.funName] = proxyAnimation;
-  m[reverseAnimation.funName] = reverseAnimation;
-  m[curvedAnimation.funName] = curvedAnimation;
-  m[trainHoppingAnimation.funName] = trainHoppingAnimation;
-  m[animationMean.funName] = animationMean;
-  m[animationMax.funName] = animationMax;
-  m[animationMin.funName] = animationMin;
-  m[tween.funName] = tween;
-  m[reverseTween.funName] = reverseTween;
-  m[colorTween.funName] = colorTween;
-  m[sizeTween.funName] = sizeTween;
-  m[rectTween.funName] = rectTween;
-  m[intTween.funName] = intTween;
-  m[stepTween.funName] = stepTween;
-  m[constantTween.funName] = constantTween;
-  m[curveTween.funName] = curveTween;
-  m[animationStatus.funName] = animationStatus;
+  m[_alwaysStoppedAnimation.funName] = _alwaysStoppedAnimation;
+  m[_proxyAnimation.funName] = _proxyAnimation;
+  m[_reverseAnimation.funName] = _reverseAnimation;
+  m[_curvedAnimation.funName] = _curvedAnimation;
+  m[_trainHoppingAnimation.funName] = _trainHoppingAnimation;
+  m[_animationMean.funName] = _animationMean;
+  m[_animationMax.funName] = _animationMax;
+  m[_animationMin.funName] = _animationMin;
+  m[_tween.funName] = _tween;
+  m[_reverseTween.funName] = _reverseTween;
+  m[_colorTween.funName] = _colorTween;
+  m[_sizeTween.funName] = _sizeTween;
+  m[_rectTween.funName] = _rectTween;
+  m[_intTween.funName] = _intTween;
+  m[_stepTween.funName] = _stepTween;
+  m[_constantTween.funName] = _constantTween;
+  m[_curveTween.funName] = _curveTween;
+  m[_animationStatus.funName] = _animationStatus;
   return m;
 }
-var alwaysStoppedAnimation = MXFunctionInvoke(
+var _alwaysStoppedAnimation = MXFunctionInvoke(
     "AlwaysStoppedAnimation",
-    ({
+    (
+      {
       dynamic value,
-    }) =>
+      }
+    ) =>
       AlwaysStoppedAnimation(
       value,
     ),
 );
-var proxyAnimation = MXFunctionInvoke(
+var _proxyAnimation = MXFunctionInvoke(
     "ProxyAnimation",
-    ({
+    (
+      {
       Animation<double> animation,
-    }) =>
+      }
+    ) =>
       ProxyAnimation(
       animation,
     ),
 );
-var reverseAnimation = MXFunctionInvoke(
+var _reverseAnimation = MXFunctionInvoke(
     "ReverseAnimation",
-    ({
+    (
+      {
       Animation<double> parent,
-    }) =>
+      }
+    ) =>
       ReverseAnimation(
       parent,
     ),
 );
-var curvedAnimation = MXFunctionInvoke(
+var _curvedAnimation = MXFunctionInvoke(
     "CurvedAnimation",
-    ({
+    (
+      {
       Animation<double> parent,
       Curve curve,
       Curve reverseCurve,
-    }) =>
+      }
+    ) =>
       CurvedAnimation(
       parent: parent,
       curve: curve,
       reverseCurve: reverseCurve,
     ),
 );
-var trainHoppingAnimation = MXFunctionInvoke(
+var _trainHoppingAnimation = MXFunctionInvoke(
     "TrainHoppingAnimation",
-    ({
-      Animation<double> _currentTrain,
-      Animation<double> _nextTrain,
+    (
+      {
+      Animation<double> currentTrain,
+      Animation<double> nextTrain,
       dynamic onSwitchedTrain,
-    }) =>
+      }
+    ) =>
       TrainHoppingAnimation(
-      _currentTrain,
-      _nextTrain,
-      onSwitchedTrain: createVoidCallbackClosure(trainHoppingAnimation.buildOwner, onSwitchedTrain),
+      currentTrain,
+      nextTrain,
+      onSwitchedTrain: createVoidCallbackClosure(_trainHoppingAnimation.buildOwner, onSwitchedTrain),
     ),
 );
-var animationMean = MXFunctionInvoke(
+var _animationMean = MXFunctionInvoke(
     "AnimationMean",
-    ({
+    (
+      {
       Animation<double> left,
       Animation<double> right,
-    }) =>
+      }
+    ) =>
       AnimationMean(
       left: left,
       right: right,
     ),
 );
-var animationMax = MXFunctionInvoke(
+var _animationMax = MXFunctionInvoke(
     "AnimationMax",
-    ({
-      dynamic first,
-      dynamic next,
-    }) =>
+    (
+      {
+      Animation<num> first,
+      Animation<num> next,
+      }
+    ) =>
       AnimationMax(
       first,
       next,
     ),
 );
-var animationMin = MXFunctionInvoke(
+var _animationMin = MXFunctionInvoke(
     "AnimationMin",
-    ({
-      dynamic first,
-      dynamic next,
-    }) =>
+    (
+      {
+      Animation<num> first,
+      Animation<num> next,
+      }
+    ) =>
       AnimationMin(
       first,
       next,
     ),
 );
-var tween = MXFunctionInvoke(
+var _tween = MXFunctionInvoke(
     "Tween",
-    ({
+    (
+      {
       dynamic begin,
       dynamic end,
-    }) =>
+      }
+    ) =>
       Tween(
       begin: begin,
       end: end,
     ),
 );
-var reverseTween = MXFunctionInvoke(
+var _reverseTween = MXFunctionInvoke(
     "ReverseTween",
-    ({
-      dynamic parent,
-    }) =>
+    (
+      {
+      Tween<dynamic> parent,
+      }
+    ) =>
       ReverseTween(
       parent,
     ),
 );
-var colorTween = MXFunctionInvoke(
+var _colorTween = MXFunctionInvoke(
     "ColorTween",
-    ({
+    (
+      {
       Color begin,
       Color end,
-    }) =>
+      }
+    ) =>
       ColorTween(
       begin: begin,
       end: end,
     ),
 );
-var sizeTween = MXFunctionInvoke(
+var _sizeTween = MXFunctionInvoke(
     "SizeTween",
-    ({
+    (
+      {
       Size begin,
       Size end,
-    }) =>
+      }
+    ) =>
       SizeTween(
       begin: begin,
       end: end,
     ),
 );
-var rectTween = MXFunctionInvoke(
+var _rectTween = MXFunctionInvoke(
     "RectTween",
-    ({
+    (
+      {
       Rect begin,
       Rect end,
-    }) =>
+      }
+    ) =>
       RectTween(
       begin: begin,
       end: end,
     ),
 );
-var intTween = MXFunctionInvoke(
+var _intTween = MXFunctionInvoke(
     "IntTween",
-    ({
+    (
+      {
       int begin,
       int end,
-    }) =>
+      }
+    ) =>
       IntTween(
       begin: begin,
       end: end,
     ),
 );
-var stepTween = MXFunctionInvoke(
+var _stepTween = MXFunctionInvoke(
     "StepTween",
-    ({
+    (
+      {
       int begin,
       int end,
-    }) =>
+      }
+    ) =>
       StepTween(
       begin: begin,
       end: end,
     ),
 );
-var constantTween = MXFunctionInvoke(
+var _constantTween = MXFunctionInvoke(
     "ConstantTween",
-    ({
+    (
+      {
       dynamic value,
-    }) =>
+      }
+    ) =>
       ConstantTween(
       value,
     ),
 );
-var curveTween = MXFunctionInvoke(
+var _curveTween = MXFunctionInvoke(
     "CurveTween",
-    ({
+    (
+      {
       Curve curve,
-    }) =>
+      }
+    ) =>
       CurveTween(
       curve: curve,
     ),
 );
-var animationStatus = MXFunctionInvoke(
+var _animationStatus = MXFunctionInvoke(
     "AnimationStatus",
     ({Map args}) => MXAnimationStatus.parse(args),
   );

@@ -14,23 +14,25 @@ import 'package:flutter/src/painting/basic_types.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEdgeInsetsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[edgeInsets_fromLTRB.funName] = edgeInsets_fromLTRB;
-  m[edgeInsets_all.funName] = edgeInsets_all;
-  m[edgeInsets_only.funName] = edgeInsets_only;
-  m[edgeInsets_symmetric.funName] = edgeInsets_symmetric;
-  m[edgeInsets_fromWindowPadding.funName] = edgeInsets_fromWindowPadding;
-  m[edgeInsetsDirectional_fromSTEB.funName] = edgeInsetsDirectional_fromSTEB;
-  m[edgeInsetsDirectional_only.funName] = edgeInsetsDirectional_only;
+  m[_edgeInsets_fromLTRB.funName] = _edgeInsets_fromLTRB;
+  m[_edgeInsets_all.funName] = _edgeInsets_all;
+  m[_edgeInsets_only.funName] = _edgeInsets_only;
+  m[_edgeInsets_symmetric.funName] = _edgeInsets_symmetric;
+  m[_edgeInsets_fromWindowPadding.funName] = _edgeInsets_fromWindowPadding;
+  m[_edgeInsetsDirectional_fromSTEB.funName] = _edgeInsetsDirectional_fromSTEB;
+  m[_edgeInsetsDirectional_only.funName] = _edgeInsetsDirectional_only;
   return m;
 }
-var edgeInsets_fromLTRB = MXFunctionInvoke(
+var _edgeInsets_fromLTRB = MXFunctionInvoke(
   "edgeInsets.fromLTRB",
-    ({
-      dynamic left,
-      dynamic top,
-      dynamic right,
-      dynamic bottom,
-    }) =>
+    (
+      {
+      double left,
+      double top,
+      double right,
+      double bottom,
+      }
+    ) =>
       EdgeInsets.fromLTRB(
       left,
       top,
@@ -38,60 +40,70 @@ var edgeInsets_fromLTRB = MXFunctionInvoke(
       bottom,
     ),
 );
-var edgeInsets_all = MXFunctionInvoke(
+var _edgeInsets_all = MXFunctionInvoke(
   "edgeInsets.all",
-    ({
-      dynamic value,
-    }) =>
+    (
+      {
+      double value,
+      }
+    ) =>
       EdgeInsets.all(
       value,
     ),
 );
-var edgeInsets_only = MXFunctionInvoke(
+var _edgeInsets_only = MXFunctionInvoke(
   "edgeInsets.only",
-    ({
-      dynamic left = 0.0,
-      dynamic top = 0.0,
-      dynamic right = 0.0,
-      dynamic bottom = 0.0,
-    }) =>
+    (
+      {
+      double left = 0.0,
+      double top = 0.0,
+      double right = 0.0,
+      double bottom = 0.0,
+      }
+    ) =>
       EdgeInsets.only(
-      left: left,
-      top: top,
-      right: right,
-      bottom: bottom,
+      left: left?.toDouble(),
+      top: top?.toDouble(),
+      right: right?.toDouble(),
+      bottom: bottom?.toDouble(),
     ),
 );
-var edgeInsets_symmetric = MXFunctionInvoke(
+var _edgeInsets_symmetric = MXFunctionInvoke(
   "edgeInsets.symmetric",
-    ({
-      dynamic vertical = 0.0,
-      dynamic horizontal = 0.0,
-    }) =>
+    (
+      {
+      double vertical = 0.0,
+      double horizontal = 0.0,
+      }
+    ) =>
       EdgeInsets.symmetric(
-      vertical: vertical,
-      horizontal: horizontal,
+      vertical: vertical?.toDouble(),
+      horizontal: horizontal?.toDouble(),
     ),
 );
-var edgeInsets_fromWindowPadding = MXFunctionInvoke(
+var _edgeInsets_fromWindowPadding = MXFunctionInvoke(
   "edgeInsets.fromWindowPadding",
-    ({
+    (
+      {
       WindowPadding padding,
-      dynamic devicePixelRatio,
-    }) =>
+      double devicePixelRatio,
+      }
+    ) =>
       EdgeInsets.fromWindowPadding(
       padding,
       devicePixelRatio,
     ),
 );
-var edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
+var _edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
   "edgeInsetsDirectional.fromSTEB",
-    ({
-      dynamic start,
-      dynamic top,
-      dynamic end,
-      dynamic bottom,
-    }) =>
+    (
+      {
+      double start,
+      double top,
+      double end,
+      double bottom,
+      }
+    ) =>
       EdgeInsetsDirectional.fromSTEB(
       start,
       top,
@@ -99,18 +111,20 @@ var edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
       bottom,
     ),
 );
-var edgeInsetsDirectional_only = MXFunctionInvoke(
+var _edgeInsetsDirectional_only = MXFunctionInvoke(
   "edgeInsetsDirectional.only",
-    ({
-      dynamic start = 0.0,
-      dynamic top = 0.0,
-      dynamic end = 0.0,
-      dynamic bottom = 0.0,
-    }) =>
+    (
+      {
+      double start = 0.0,
+      double top = 0.0,
+      double end = 0.0,
+      double bottom = 0.0,
+      }
+    ) =>
       EdgeInsetsDirectional.only(
-      start: start,
-      top: top,
-      end: end,
-      bottom: bottom,
+      start: start?.toDouble(),
+      top: top?.toDouble(),
+      end: end?.toDouble(),
+      bottom: bottom?.toDouble(),
     ),
 );

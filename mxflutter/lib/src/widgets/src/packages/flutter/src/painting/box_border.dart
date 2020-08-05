@@ -16,26 +16,28 @@ import 'package:flutter/src/painting/edge_insets.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[boxShape.funName] = boxShape;
-  m[border.funName] = border;
-  m[border_all.funName] = border_all;
-  m[border_fromBorderSide.funName] = border_fromBorderSide;
-  m[border_symmetric.funName] = border_symmetric;
-  m[borderDirectional.funName] = borderDirectional;
+  m[_boxShape.funName] = _boxShape;
+  m[_border.funName] = _border;
+  m[_border_all.funName] = _border_all;
+  m[_border_fromBorderSide.funName] = _border_fromBorderSide;
+  m[_border_symmetric.funName] = _border_symmetric;
+  m[_borderDirectional.funName] = _borderDirectional;
   return m;
 }
-var boxShape = MXFunctionInvoke(
+var _boxShape = MXFunctionInvoke(
     "BoxShape",
     ({Map args}) => MXBoxShape.parse(args),
   );
-var border = MXFunctionInvoke(
+var _border = MXFunctionInvoke(
     "Border",
-    ({
+    (
+      {
       BorderSide top,
       BorderSide right,
       BorderSide bottom,
       BorderSide left,
-    }) =>
+      }
+    ) =>
       Border(
       top: top,
       right: right,
@@ -43,47 +45,55 @@ var border = MXFunctionInvoke(
       left: left,
     ),
 );
-var border_all = MXFunctionInvoke(
+var _border_all = MXFunctionInvoke(
   "border.all",
-    ({
+    (
+      {
       Color color,
-      dynamic width = 1.0,
+      double width = 1.0,
       BorderStyle style = BorderStyle.solid,
-    }) =>
+      }
+    ) =>
       Border.all(
       color: color,
-      width: width,
+      width: width?.toDouble(),
       style: style,
     ),
 );
-var border_fromBorderSide = MXFunctionInvoke(
+var _border_fromBorderSide = MXFunctionInvoke(
   "border.fromBorderSide",
-    ({
+    (
+      {
       BorderSide side,
-    }) =>
+      }
+    ) =>
       Border.fromBorderSide(
       side,
     ),
 );
-var border_symmetric = MXFunctionInvoke(
+var _border_symmetric = MXFunctionInvoke(
   "border.symmetric",
-    ({
+    (
+      {
       BorderSide vertical,
       BorderSide horizontal,
-    }) =>
+      }
+    ) =>
       Border.symmetric(
       vertical: vertical,
       horizontal: horizontal,
     ),
 );
-var borderDirectional = MXFunctionInvoke(
+var _borderDirectional = MXFunctionInvoke(
     "BorderDirectional",
-    ({
+    (
+      {
       BorderSide top,
       BorderSide start,
       BorderSide end,
       BorderSide bottom,
-    }) =>
+      }
+    ) =>
       BorderDirectional(
       top: top,
       start: start,

@@ -15,12 +15,13 @@ import 'package:flutter/src/foundation/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStackFrameSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[stackFrame.funName] = stackFrame;
+  m[_stackFrame.funName] = _stackFrame;
   return m;
 }
-var stackFrame = MXFunctionInvoke(
+var _stackFrame = MXFunctionInvoke(
     "StackFrame",
-    ({
+    (
+      {
       int number,
       int column,
       int line,
@@ -31,7 +32,8 @@ var stackFrame = MXFunctionInvoke(
       String method,
       bool isConstructor = false,
       String source,
-    }) =>
+      }
+    ) =>
       StackFrame(
       number: number,
       column: column,

@@ -13,23 +13,25 @@ import 'package:flutter/src/material/colors.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFlutterLogoSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[flutterLogo.funName] = flutterLogo;
+  m[_flutterLogo.funName] = _flutterLogo;
   return m;
 }
-var flutterLogo = MXFunctionInvoke(
+var _flutterLogo = MXFunctionInvoke(
     "FlutterLogo",
-    ({
+    (
+      {
       Key key,
-      dynamic size,
+      double size,
       MaterialColor colors,
       Color textColor,
       FlutterLogoStyle style = FlutterLogoStyle.markOnly,
       Duration duration,
       Curve curve,
-    }) =>
+      }
+    ) =>
       FlutterLogo(
       key: key,
-      size: size,
+      size: size?.toDouble(),
       colors: colors,
       textColor: textColor,
       style: style,

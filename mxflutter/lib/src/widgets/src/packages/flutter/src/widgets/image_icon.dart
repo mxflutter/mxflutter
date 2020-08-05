@@ -18,22 +18,24 @@ import 'package:flutter/src/widgets/image.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerImageIconSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[imageIcon.funName] = imageIcon;
+  m[_imageIcon.funName] = _imageIcon;
   return m;
 }
-var imageIcon = MXFunctionInvoke(
+var _imageIcon = MXFunctionInvoke(
     "ImageIcon",
-    ({
+    (
+      {
       ImageProvider<dynamic> image,
       Key key,
-      dynamic size,
+      double size,
       Color color,
       String semanticLabel,
-    }) =>
+      }
+    ) =>
       ImageIcon(
       image,
       key: key,
-      size: size,
+      size: size?.toDouble(),
       color: color,
       semanticLabel: semanticLabel,
     ),

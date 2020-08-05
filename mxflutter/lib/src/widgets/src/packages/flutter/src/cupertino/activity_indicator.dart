@@ -14,19 +14,21 @@ import 'package:flutter/src/cupertino/colors.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerActivityIndicatorSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoActivityIndicator.funName] = cupertinoActivityIndicator;
+  m[_cupertinoActivityIndicator.funName] = _cupertinoActivityIndicator;
   return m;
 }
-var cupertinoActivityIndicator = MXFunctionInvoke(
+var _cupertinoActivityIndicator = MXFunctionInvoke(
     "CupertinoActivityIndicator",
-    ({
+    (
+      {
       Key key,
       bool animating = true,
-      dynamic radius = 10.0,
-    }) =>
+      double radius = 10.0,
+      }
+    ) =>
       CupertinoActivityIndicator(
       key: key,
       animating: animating,
-      radius: radius,
+      radius: radius?.toDouble(),
     ),
 );

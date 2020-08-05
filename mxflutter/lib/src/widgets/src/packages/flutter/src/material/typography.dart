@@ -10,36 +10,33 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/src/material/colors.dart';
 import 'package:flutter/src/material/text_theme.dart';
-import 'package:flutter/src/material/text_theme.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/src/material/typography.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTypographySeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[scriptCategory.funName] = scriptCategory;
-  m[typography_material2014.funName] = typography_material2014;
-  m[typography_material2018.funName] = typography_material2018;
-  m[typography_withPlatform.funName] = typography_withPlatform;
-  m[textTheme.funName] = textTheme;
+  m[_scriptCategory.funName] = _scriptCategory;
+  m[_typography_material2014.funName] = _typography_material2014;
+  m[_typography_material2018.funName] = _typography_material2018;
+  m[_textTheme.funName] = _textTheme;
   return m;
 }
-var scriptCategory = MXFunctionInvoke(
+var _scriptCategory = MXFunctionInvoke(
     "ScriptCategory",
     ({Map args}) => MXScriptCategory.parse(args),
   );
-var typography_material2014 = MXFunctionInvoke(
+var _typography_material2014 = MXFunctionInvoke(
   "typography.material2014",
-    ({
+    (
+      {
       TargetPlatform platform = TargetPlatform.android,
       TextTheme black,
       TextTheme white,
       TextTheme englishLike,
       TextTheme dense,
       TextTheme tall,
-    }) =>
+      }
+    ) =>
       Typography.material2014(
       platform: platform,
       black: black,
@@ -49,16 +46,18 @@ var typography_material2014 = MXFunctionInvoke(
       tall: tall,
     ),
 );
-var typography_material2018 = MXFunctionInvoke(
+var _typography_material2018 = MXFunctionInvoke(
   "typography.material2018",
-    ({
+    (
+      {
       TargetPlatform platform = TargetPlatform.android,
       TextTheme black,
       TextTheme white,
       TextTheme englishLike,
       TextTheme dense,
       TextTheme tall,
-    }) =>
+      }
+    ) =>
       Typography.material2018(
       platform: platform,
       black: black,
@@ -68,28 +67,10 @@ var typography_material2018 = MXFunctionInvoke(
       tall: tall,
     ),
 );
-var typography_withPlatform = MXFunctionInvoke(
-  "typography.withPlatform",
-    ({
-      TargetPlatform platform,
-      TextTheme black,
-      TextTheme white,
-      TextTheme englishLike,
-      TextTheme dense,
-      TextTheme tall,
-    }) =>
-      Typography.withPlatform(
-      platform,
-      black,
-      white,
-      englishLike,
-      dense,
-      tall,
-    ),
-);
-var textTheme = MXFunctionInvoke(
+var _textTheme = MXFunctionInvoke(
     "TextTheme",
-    ({
+    (
+      {
       TextStyle headline1,
       TextStyle headline2,
       TextStyle headline3,
@@ -113,7 +94,8 @@ var textTheme = MXFunctionInvoke(
       TextStyle subtitle,
       TextStyle body2,
       TextStyle body1,
-    }) =>
+      }
+    ) =>
       TextTheme(
       headline1: headline1,
       headline2: headline2,

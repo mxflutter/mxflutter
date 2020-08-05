@@ -15,32 +15,36 @@ import 'package:flutter/src/gestures/events.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerHitTestSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[hitTestEntry.funName] = hitTestEntry;
-  m[hitTestResult.funName] = hitTestResult;
-  m[hitTestResult_wrap.funName] = hitTestResult_wrap;
+  m[_hitTestEntry.funName] = _hitTestEntry;
+  m[_hitTestResult.funName] = _hitTestResult;
+  m[_hitTestResult_wrap.funName] = _hitTestResult_wrap;
   return m;
 }
-var hitTestEntry = MXFunctionInvoke(
+var _hitTestEntry = MXFunctionInvoke(
     "HitTestEntry",
-    ({
+    (
+      {
       HitTestTarget target,
-    }) =>
+      }
+    ) =>
       HitTestEntry(
       target,
     ),
 );
-var hitTestResult = MXFunctionInvoke(
+var _hitTestResult = MXFunctionInvoke(
     "HitTestResult",
-    ({
-    }) =>
+    (
+    ) =>
       HitTestResult(
     ),
 );
-var hitTestResult_wrap = MXFunctionInvoke(
+var _hitTestResult_wrap = MXFunctionInvoke(
   "hitTestResult.wrap",
-    ({
+    (
+      {
       HitTestResult result,
-    }) =>
+      }
+    ) =>
       HitTestResult.wrap(
       result,
     ),

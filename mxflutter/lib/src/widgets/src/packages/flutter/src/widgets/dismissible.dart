@@ -19,17 +19,18 @@ import 'package:flutter/src/widgets/transitions.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDismissibleSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[dismissDirection.funName] = dismissDirection;
-  m[dismissible.funName] = dismissible;
+  m[_dismissDirection.funName] = _dismissDirection;
+  m[_dismissible.funName] = _dismissible;
   return m;
 }
-var dismissDirection = MXFunctionInvoke(
+var _dismissDirection = MXFunctionInvoke(
     "DismissDirection",
     ({Map args}) => MXDismissDirection.parse(args),
   );
-var dismissible = MXFunctionInvoke(
+var _dismissible = MXFunctionInvoke(
     "Dismissible",
-    ({
+    (
+      {
       Key key,
       Widget child,
       Widget background,
@@ -41,22 +42,23 @@ var dismissible = MXFunctionInvoke(
       Duration resizeDuration,
       Map<DismissDirection, double> dismissThresholds,
       Duration movementDuration,
-      dynamic crossAxisEndOffset = 0.0,
+      double crossAxisEndOffset = 0.0,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-    }) =>
+      }
+    ) =>
       Dismissible(
       key: key,
       child: child,
       background: background,
       secondaryBackground: secondaryBackground,
-      confirmDismiss: createGenericValueGenericClosure<Future<bool>, DismissDirection>(dismissible.buildOwner, confirmDismiss),
-      onResize: createVoidCallbackClosure(dismissible.buildOwner, onResize),
-      onDismissed: createValueChangedGenericClosure<DismissDirection>(dismissible.buildOwner, onDismissed),
+      confirmDismiss: createGenericValueGenericClosure<Future<bool>, DismissDirection>(_dismissible.buildOwner, confirmDismiss),
+      onResize: createVoidCallbackClosure(_dismissible.buildOwner, onResize),
+      onDismissed: createValueChangedGenericClosure<DismissDirection>(_dismissible.buildOwner, onDismissed),
       direction: direction,
       resizeDuration: resizeDuration,
       dismissThresholds: dismissThresholds,
       movementDuration: movementDuration,
-      crossAxisEndOffset: crossAxisEndOffset,
+      crossAxisEndOffset: crossAxisEndOffset?.toDouble(),
       dragStartBehavior: dragStartBehavior,
     ),
 );

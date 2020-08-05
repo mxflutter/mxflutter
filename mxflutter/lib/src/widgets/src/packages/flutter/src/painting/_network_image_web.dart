@@ -11,134 +11,143 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/painting/image_provider.dart';
 import 'package:flutter/src/painting/image_stream.dart';
-import 'package:flutter/src/painting/image_provider.dart';
-import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/_network_image_web.dart';
 import 'package:flutter/src/painting/binding.dart';
 import 'package:flutter/src/painting/image_cache.dart';
-import 'package:flutter/src/painting/image_stream.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNetworkImageWebSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[networkImage.funName] = networkImage;
-  m[imageConfiguration.funName] = imageConfiguration;
-  m[assetBundleImageKey.funName] = assetBundleImageKey;
-  m[resizeImage.funName] = resizeImage;
-  m[fileImage.funName] = fileImage;
-  m[memoryImage.funName] = memoryImage;
-  m[exactAssetImage.funName] = exactAssetImage;
-  m[networkImageLoadException.funName] = networkImageLoadException;
+  m[_networkImage.funName] = _networkImage;
+  m[_imageConfiguration.funName] = _imageConfiguration;
+  m[_assetBundleImageKey.funName] = _assetBundleImageKey;
+  m[_resizeImage.funName] = _resizeImage;
+  m[_fileImage.funName] = _fileImage;
+  m[_memoryImage.funName] = _memoryImage;
+  m[_exactAssetImage.funName] = _exactAssetImage;
+  m[_networkImageLoadException.funName] = _networkImageLoadException;
   return m;
 }
-var networkImage = MXFunctionInvoke(
+var _networkImage = MXFunctionInvoke(
     "NetworkImage",
-    ({
+    (
+      {
       String url,
-      dynamic scale = 1.0,
+      double scale = 1.0,
       Map<String, String> headers,
-    }) =>
+      }
+    ) =>
       NetworkImage(
       url,
-      scale: scale,
+      scale: scale?.toDouble(),
       headers: headers,
     ),
 );
-var imageConfiguration = MXFunctionInvoke(
+var _imageConfiguration = MXFunctionInvoke(
     "ImageConfiguration",
-    ({
+    (
+      {
       AssetBundle bundle,
-      dynamic devicePixelRatio,
+      double devicePixelRatio,
       Locale locale,
       TextDirection textDirection,
       Size size,
       TargetPlatform platform,
-    }) =>
+      }
+    ) =>
       ImageConfiguration(
       bundle: bundle,
-      devicePixelRatio: devicePixelRatio,
+      devicePixelRatio: devicePixelRatio?.toDouble(),
       locale: locale,
       textDirection: textDirection,
       size: size,
       platform: platform,
     ),
 );
-var assetBundleImageKey = MXFunctionInvoke(
+var _assetBundleImageKey = MXFunctionInvoke(
     "AssetBundleImageKey",
-    ({
+    (
+      {
       AssetBundle bundle,
       String name,
-      dynamic scale,
-    }) =>
+      double scale,
+      }
+    ) =>
       AssetBundleImageKey(
       bundle: bundle,
       name: name,
-      scale: scale,
+      scale: scale?.toDouble(),
     ),
 );
-var resizeImage = MXFunctionInvoke(
+var _resizeImage = MXFunctionInvoke(
     "ResizeImage",
-    ({
+    (
+      {
       ImageProvider<dynamic> imageProvider,
       int width,
       int height,
-    }) =>
+      }
+    ) =>
       ResizeImage(
       imageProvider,
       width: width,
       height: height,
     ),
 );
-var fileImage = MXFunctionInvoke(
+var _fileImage = MXFunctionInvoke(
     "FileImage",
-    ({
+    (
+      {
       File file,
-      dynamic scale = 1.0,
-    }) =>
+      double scale = 1.0,
+      }
+    ) =>
       FileImage(
       file,
-      scale: scale,
+      scale: scale?.toDouble(),
     ),
 );
-var memoryImage = MXFunctionInvoke(
+var _memoryImage = MXFunctionInvoke(
     "MemoryImage",
-    ({
+    (
+      {
       Uint8List bytes,
-      dynamic scale = 1.0,
-    }) =>
+      double scale = 1.0,
+      }
+    ) =>
       MemoryImage(
       bytes,
-      scale: scale,
+      scale: scale?.toDouble(),
     ),
 );
-var exactAssetImage = MXFunctionInvoke(
+var _exactAssetImage = MXFunctionInvoke(
     "ExactAssetImage",
-    ({
+    (
+      {
       String assetName,
-      dynamic scale = 1.0,
+      double scale = 1.0,
       AssetBundle bundle,
       String package,
-    }) =>
+      }
+    ) =>
       ExactAssetImage(
       assetName,
-      scale: scale,
+      scale: scale?.toDouble(),
       bundle: bundle,
       package: package,
     ),
 );
-var networkImageLoadException = MXFunctionInvoke(
+var _networkImageLoadException = MXFunctionInvoke(
     "NetworkImageLoadException",
-    ({
+    (
+      {
       int statusCode,
       Uri uri,
-    }) =>
+      }
+    ) =>
       NetworkImageLoadException(
       statusCode: statusCode,
       uri: uri,

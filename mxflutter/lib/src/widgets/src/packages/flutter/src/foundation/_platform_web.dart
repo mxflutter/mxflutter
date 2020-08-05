@@ -7,17 +7,15 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/_platform_web.dart';
 import 'package:flutter/src/foundation/platform.dart';
-import 'package:flutter/src/foundation/platform.dart';
-import 'package:flutter/src/foundation/_platform_web.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformWebSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[targetPlatform.funName] = targetPlatform;
+  m[_targetPlatform.funName] = _targetPlatform;
   return m;
 }
-var targetPlatform = MXFunctionInvoke(
+var _targetPlatform = MXFunctionInvoke(
     "TargetPlatform",
     ({Map args}) => MXTargetPlatform.parse(args),
   );

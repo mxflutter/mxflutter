@@ -17,14 +17,15 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSegmentedControlSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoSegmentedControl.funName] = cupertinoSegmentedControl;
+  m[_cupertinoSegmentedControl.funName] = _cupertinoSegmentedControl;
   return m;
 }
-var cupertinoSegmentedControl = MXFunctionInvoke(
+var _cupertinoSegmentedControl = MXFunctionInvoke(
     "CupertinoSegmentedControl",
-    ({
+    (
+      {
       Key key,
-      dynamic children,
+      Map<dynamic, Widget> children,
       dynamic onValueChanged,
       dynamic groupValue,
       Color unselectedColor,
@@ -32,11 +33,12 @@ var cupertinoSegmentedControl = MXFunctionInvoke(
       Color borderColor,
       Color pressedColor,
       EdgeInsetsGeometry padding,
-    }) =>
+      }
+    ) =>
       CupertinoSegmentedControl(
       key: key,
       children: children,
-      onValueChanged: createValueChangedGenericClosure<dynamic>(cupertinoSegmentedControl.buildOwner, onValueChanged),
+      onValueChanged: createValueChangedGenericClosure<dynamic>(_cupertinoSegmentedControl.buildOwner, onValueChanged),
       groupValue: groupValue,
       unselectedColor: unselectedColor,
       selectedColor: selectedColor,

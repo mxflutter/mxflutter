@@ -14,75 +14,83 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAsyncSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[connectionState.funName] = connectionState;
-  m[asyncSnapshot_nothing.funName] = asyncSnapshot_nothing;
-  m[asyncSnapshot_withData.funName] = asyncSnapshot_withData;
-  m[asyncSnapshot_withError.funName] = asyncSnapshot_withError;
-  m[streamBuilder.funName] = streamBuilder;
-  m[futureBuilder.funName] = futureBuilder;
+  m[_connectionState.funName] = _connectionState;
+  m[_asyncSnapshot_nothing.funName] = _asyncSnapshot_nothing;
+  m[_asyncSnapshot_withData.funName] = _asyncSnapshot_withData;
+  m[_asyncSnapshot_withError.funName] = _asyncSnapshot_withError;
+  m[_streamBuilder.funName] = _streamBuilder;
+  m[_futureBuilder.funName] = _futureBuilder;
   return m;
 }
-var connectionState = MXFunctionInvoke(
+var _connectionState = MXFunctionInvoke(
     "ConnectionState",
     ({Map args}) => MXConnectionState.parse(args),
   );
-var asyncSnapshot_nothing = MXFunctionInvoke(
+var _asyncSnapshot_nothing = MXFunctionInvoke(
   "asyncSnapshot.nothing",
-    ({
-    }) =>
+    (
+    ) =>
       AsyncSnapshot.nothing(
     ),
 );
-var asyncSnapshot_withData = MXFunctionInvoke(
+var _asyncSnapshot_withData = MXFunctionInvoke(
   "asyncSnapshot.withData",
-    ({
+    (
+      {
       ConnectionState state,
       dynamic data,
-    }) =>
+      }
+    ) =>
       AsyncSnapshot.withData(
       state,
       data,
     ),
 );
-var asyncSnapshot_withError = MXFunctionInvoke(
+var _asyncSnapshot_withError = MXFunctionInvoke(
   "asyncSnapshot.withError",
-    ({
+    (
+      {
       ConnectionState state,
       Object error,
-    }) =>
+      }
+    ) =>
       AsyncSnapshot.withError(
       state,
       error,
     ),
 );
-var streamBuilder = MXFunctionInvoke(
+var _streamBuilder = MXFunctionInvoke(
     "StreamBuilder",
-    ({
+    (
+      {
       Key key,
       dynamic initialData,
-      dynamic stream,
+      Stream<dynamic> stream,
       dynamic builder,
-    }) =>
+      }
+    ) =>
       StreamBuilder(
       key: key,
       initialData: initialData,
       stream: stream,
-      builder: builder,
+      builder: null,
     ),
 );
-var futureBuilder = MXFunctionInvoke(
+var _futureBuilder = MXFunctionInvoke(
     "FutureBuilder",
-    ({
+    (
+      {
       Key key,
-      dynamic future,
+      Future<dynamic> future,
       dynamic initialData,
       dynamic builder,
-    }) =>
+      }
+    ) =>
       FutureBuilder(
       key: key,
       future: future,
       initialData: initialData,
-      builder: builder,
+      builder: null,
     ),
 );
 class MXConnectionState {

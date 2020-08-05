@@ -15,19 +15,21 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPageSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[materialPageRoute.funName] = materialPageRoute;
+  m[_materialPageRoute.funName] = _materialPageRoute;
   return m;
 }
-var materialPageRoute = MXFunctionInvoke(
+var _materialPageRoute = MXFunctionInvoke(
     "MaterialPageRoute",
-    ({
+    (
+      {
       dynamic builder,
       RouteSettings settings,
       bool maintainState = true,
       bool fullscreenDialog = false,
-    }) =>
+      }
+    ) =>
       MaterialPageRoute(
-      builder: createGenericValueGenericClosure<Widget, BuildContext>(materialPageRoute.buildOwner, builder),
+      builder: createGenericValueGenericClosure<Widget, BuildContext>(_materialPageRoute.buildOwner, builder),
       settings: settings,
       maintainState: maintainState,
       fullscreenDialog: fullscreenDialog,

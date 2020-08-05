@@ -15,36 +15,42 @@ import 'package:flutter/src/services/text_input.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextFormatterSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[blacklistingTextInputFormatter.funName] = blacklistingTextInputFormatter;
-  m[lengthLimitingTextInputFormatter.funName] = lengthLimitingTextInputFormatter;
-  m[whitelistingTextInputFormatter.funName] = whitelistingTextInputFormatter;
+  m[_blacklistingTextInputFormatter.funName] = _blacklistingTextInputFormatter;
+  m[_lengthLimitingTextInputFormatter.funName] = _lengthLimitingTextInputFormatter;
+  m[_whitelistingTextInputFormatter.funName] = _whitelistingTextInputFormatter;
   return m;
 }
-var blacklistingTextInputFormatter = MXFunctionInvoke(
+var _blacklistingTextInputFormatter = MXFunctionInvoke(
     "BlacklistingTextInputFormatter",
-    ({
+    (
+      {
       Pattern blacklistedPattern,
       String replacementString = '',
-    }) =>
+      }
+    ) =>
       BlacklistingTextInputFormatter(
       blacklistedPattern,
       replacementString: replacementString,
     ),
 );
-var lengthLimitingTextInputFormatter = MXFunctionInvoke(
+var _lengthLimitingTextInputFormatter = MXFunctionInvoke(
     "LengthLimitingTextInputFormatter",
-    ({
+    (
+      {
       int maxLength,
-    }) =>
+      }
+    ) =>
       LengthLimitingTextInputFormatter(
       maxLength,
     ),
 );
-var whitelistingTextInputFormatter = MXFunctionInvoke(
+var _whitelistingTextInputFormatter = MXFunctionInvoke(
     "WhitelistingTextInputFormatter",
-    ({
+    (
+      {
       Pattern whitelistedPattern,
-    }) =>
+      }
+    ) =>
       WhitelistingTextInputFormatter(
       whitelistedPattern,
     ),

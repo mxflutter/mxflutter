@@ -16,33 +16,35 @@ import 'package:flutter/src/widgets/scroll_metrics.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollbarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[scrollbarPainter.funName] = scrollbarPainter;
+  m[_scrollbarPainter.funName] = _scrollbarPainter;
   return m;
 }
-var scrollbarPainter = MXFunctionInvoke(
+var _scrollbarPainter = MXFunctionInvoke(
     "ScrollbarPainter",
-    ({
+    (
+      {
       Color color,
       TextDirection textDirection,
-      dynamic thickness,
+      double thickness,
       Animation<double> fadeoutOpacityAnimation,
       EdgeInsets padding,
-      dynamic mainAxisMargin = 0.0,
-      dynamic crossAxisMargin = 0.0,
+      double mainAxisMargin = 0.0,
+      double crossAxisMargin = 0.0,
       Radius radius,
-      dynamic minLength = 18.0,
-      dynamic minOverscrollLength,
-    }) =>
+      double minLength = 18.0,
+      double minOverscrollLength,
+      }
+    ) =>
       ScrollbarPainter(
       color: color,
       textDirection: textDirection,
-      thickness: thickness,
+      thickness: thickness?.toDouble(),
       fadeoutOpacityAnimation: fadeoutOpacityAnimation,
       padding: padding,
-      mainAxisMargin: mainAxisMargin,
-      crossAxisMargin: crossAxisMargin,
+      mainAxisMargin: mainAxisMargin?.toDouble(),
+      crossAxisMargin: crossAxisMargin?.toDouble(),
       radius: radius,
-      minLength: minLength,
-      minOverscrollLength: minOverscrollLength,
+      minLength: minLength?.toDouble(),
+      minOverscrollLength: minOverscrollLength?.toDouble(),
     ),
 );

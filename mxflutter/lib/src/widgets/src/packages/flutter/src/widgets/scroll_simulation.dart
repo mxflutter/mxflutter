@@ -14,41 +14,45 @@ import 'package:flutter/physics.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollSimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[bouncingScrollSimulation.funName] = bouncingScrollSimulation;
-  m[clampingScrollSimulation.funName] = clampingScrollSimulation;
+  m[_bouncingScrollSimulation.funName] = _bouncingScrollSimulation;
+  m[_clampingScrollSimulation.funName] = _clampingScrollSimulation;
   return m;
 }
-var bouncingScrollSimulation = MXFunctionInvoke(
+var _bouncingScrollSimulation = MXFunctionInvoke(
     "BouncingScrollSimulation",
-    ({
-      dynamic position,
-      dynamic velocity,
-      dynamic leadingExtent,
-      dynamic trailingExtent,
+    (
+      {
+      double position,
+      double velocity,
+      double leadingExtent,
+      double trailingExtent,
       SpringDescription spring,
       Tolerance tolerance,
-    }) =>
+      }
+    ) =>
       BouncingScrollSimulation(
-      position: position,
-      velocity: velocity,
-      leadingExtent: leadingExtent,
-      trailingExtent: trailingExtent,
+      position: position?.toDouble(),
+      velocity: velocity?.toDouble(),
+      leadingExtent: leadingExtent?.toDouble(),
+      trailingExtent: trailingExtent?.toDouble(),
       spring: spring,
       tolerance: tolerance,
     ),
 );
-var clampingScrollSimulation = MXFunctionInvoke(
+var _clampingScrollSimulation = MXFunctionInvoke(
     "ClampingScrollSimulation",
-    ({
-      dynamic position,
-      dynamic velocity,
-      dynamic friction = 0.015,
+    (
+      {
+      double position,
+      double velocity,
+      double friction = 0.015,
       Tolerance tolerance,
-    }) =>
+      }
+    ) =>
       ClampingScrollSimulation(
-      position: position,
-      velocity: velocity,
-      friction: friction,
+      position: position?.toDouble(),
+      velocity: velocity?.toDouble(),
+      friction: friction?.toDouble(),
       tolerance: tolerance,
     ),
 );

@@ -12,29 +12,33 @@ import 'package:flutter/foundation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerKeyboardKeySeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[logicalKeyboardKey.funName] = logicalKeyboardKey;
-  m[physicalKeyboardKey.funName] = physicalKeyboardKey;
+  m[_logicalKeyboardKey.funName] = _logicalKeyboardKey;
+  m[_physicalKeyboardKey.funName] = _physicalKeyboardKey;
   return m;
 }
-var logicalKeyboardKey = MXFunctionInvoke(
+var _logicalKeyboardKey = MXFunctionInvoke(
     "LogicalKeyboardKey",
-    ({
+    (
+      {
       int keyId,
       String debugName,
       String keyLabel,
-    }) =>
+      }
+    ) =>
       LogicalKeyboardKey(
       keyId,
       debugName: debugName,
       keyLabel: keyLabel,
     ),
 );
-var physicalKeyboardKey = MXFunctionInvoke(
+var _physicalKeyboardKey = MXFunctionInvoke(
     "PhysicalKeyboardKey",
-    ({
+    (
+      {
       int usbHidUsage,
       String debugName,
-    }) =>
+      }
+    ) =>
       PhysicalKeyboardKey(
       usbHidUsage,
       debugName: debugName,

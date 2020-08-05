@@ -14,61 +14,69 @@ import 'package:flutter/src/gestures/velocity_tracker.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDragDetailsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[dragDownDetails.funName] = dragDownDetails;
-  m[dragStartDetails.funName] = dragStartDetails;
-  m[dragUpdateDetails.funName] = dragUpdateDetails;
-  m[dragEndDetails.funName] = dragEndDetails;
+  m[_dragDownDetails.funName] = _dragDownDetails;
+  m[_dragStartDetails.funName] = _dragStartDetails;
+  m[_dragUpdateDetails.funName] = _dragUpdateDetails;
+  m[_dragEndDetails.funName] = _dragEndDetails;
   return m;
 }
-var dragDownDetails = MXFunctionInvoke(
+var _dragDownDetails = MXFunctionInvoke(
     "DragDownDetails",
-    ({
+    (
+      {
       Offset globalPosition,
       Offset localPosition,
-    }) =>
+      }
+    ) =>
       DragDownDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
     ),
 );
-var dragStartDetails = MXFunctionInvoke(
+var _dragStartDetails = MXFunctionInvoke(
     "DragStartDetails",
-    ({
+    (
+      {
       Duration sourceTimeStamp,
       Offset globalPosition,
       Offset localPosition,
-    }) =>
+      }
+    ) =>
       DragStartDetails(
       sourceTimeStamp: sourceTimeStamp,
       globalPosition: globalPosition,
       localPosition: localPosition,
     ),
 );
-var dragUpdateDetails = MXFunctionInvoke(
+var _dragUpdateDetails = MXFunctionInvoke(
     "DragUpdateDetails",
-    ({
+    (
+      {
       Duration sourceTimeStamp,
       Offset delta,
-      dynamic primaryDelta,
+      double primaryDelta,
       Offset globalPosition,
       Offset localPosition,
-    }) =>
+      }
+    ) =>
       DragUpdateDetails(
       sourceTimeStamp: sourceTimeStamp,
       delta: delta,
-      primaryDelta: primaryDelta,
+      primaryDelta: primaryDelta?.toDouble(),
       globalPosition: globalPosition,
       localPosition: localPosition,
     ),
 );
-var dragEndDetails = MXFunctionInvoke(
+var _dragEndDetails = MXFunctionInvoke(
     "DragEndDetails",
-    ({
+    (
+      {
       Velocity velocity,
-      dynamic primaryVelocity,
-    }) =>
+      double primaryVelocity,
+      }
+    ) =>
       DragEndDetails(
       velocity: velocity,
-      primaryVelocity: primaryVelocity,
+      primaryVelocity: primaryVelocity?.toDouble(),
     ),
 );

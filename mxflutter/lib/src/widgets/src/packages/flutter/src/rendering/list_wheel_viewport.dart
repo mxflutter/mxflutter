@@ -19,45 +19,47 @@ import 'package:flutter/src/rendering/viewport_offset.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListWheelViewportSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[listWheelParentData.funName] = listWheelParentData;
-  m[renderListWheelViewport.funName] = renderListWheelViewport;
+  m[_listWheelParentData.funName] = _listWheelParentData;
+  m[_renderListWheelViewport.funName] = _renderListWheelViewport;
   return m;
 }
-var listWheelParentData = MXFunctionInvoke(
+var _listWheelParentData = MXFunctionInvoke(
     "ListWheelParentData",
-    ({
-    }) =>
+    (
+    ) =>
       ListWheelParentData(
     ),
 );
-var renderListWheelViewport = MXFunctionInvoke(
+var _renderListWheelViewport = MXFunctionInvoke(
     "RenderListWheelViewport",
-    ({
+    (
+      {
       ListWheelChildManager childManager,
       ViewportOffset offset,
-      dynamic diameterRatio = 2.0,
-      dynamic perspective = 0.003,
-      dynamic offAxisFraction = 0.0,
+      double diameterRatio = 2.0,
+      double perspective = 0.003,
+      double offAxisFraction = 0.0,
       bool useMagnifier = false,
-      dynamic magnification = 1.0,
-      dynamic overAndUnderCenterOpacity = 1.0,
-      dynamic itemExtent,
-      dynamic squeeze = 1.0,
+      double magnification = 1.0,
+      double overAndUnderCenterOpacity = 1.0,
+      double itemExtent,
+      double squeeze = 1.0,
       bool clipToSize = true,
       bool renderChildrenOutsideViewport = false,
       List<RenderBox> children,
-    }) =>
+      }
+    ) =>
       RenderListWheelViewport(
       childManager: childManager,
       offset: offset,
-      diameterRatio: diameterRatio,
-      perspective: perspective,
-      offAxisFraction: offAxisFraction,
+      diameterRatio: diameterRatio?.toDouble(),
+      perspective: perspective?.toDouble(),
+      offAxisFraction: offAxisFraction?.toDouble(),
       useMagnifier: useMagnifier,
-      magnification: magnification,
-      overAndUnderCenterOpacity: overAndUnderCenterOpacity,
-      itemExtent: itemExtent,
-      squeeze: squeeze,
+      magnification: magnification?.toDouble(),
+      overAndUnderCenterOpacity: overAndUnderCenterOpacity?.toDouble(),
+      itemExtent: itemExtent?.toDouble(),
+      squeeze: squeeze?.toDouble(),
       clipToSize: clipToSize,
       renderChildrenOutsideViewport: renderChildrenOutsideViewport,
       children: children,

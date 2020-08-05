@@ -14,18 +14,18 @@ import 'package:flutter/src/gestures/debug.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerArenaSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[gestureDisposition.funName] = gestureDisposition;
-  m[gestureArenaManager.funName] = gestureArenaManager;
+  m[_gestureDisposition.funName] = _gestureDisposition;
+  m[_gestureArenaManager.funName] = _gestureArenaManager;
   return m;
 }
-var gestureDisposition = MXFunctionInvoke(
+var _gestureDisposition = MXFunctionInvoke(
     "GestureDisposition",
     ({Map args}) => MXGestureDisposition.parse(args),
   );
-var gestureArenaManager = MXFunctionInvoke(
+var _gestureArenaManager = MXFunctionInvoke(
     "GestureArenaManager",
-    ({
-    }) =>
+    (
+    ) =>
       GestureArenaManager(
     ),
 );

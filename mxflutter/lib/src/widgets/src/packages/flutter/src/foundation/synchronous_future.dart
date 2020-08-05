@@ -12,15 +12,17 @@ import 'dart:async';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSynchronousFutureSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[synchronousFuture.funName] = synchronousFuture;
+  m[_synchronousFuture.funName] = _synchronousFuture;
   return m;
 }
-var synchronousFuture = MXFunctionInvoke(
+var _synchronousFuture = MXFunctionInvoke(
     "SynchronousFuture",
-    ({
-      dynamic _value,
-    }) =>
+    (
+      {
+      dynamic value,
+      }
+    ) =>
       SynchronousFuture(
-      _value,
+      value,
     ),
 );

@@ -11,34 +11,40 @@ import 'package:flutter/src/foundation/annotations.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnnotationsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[category.funName] = category;
-  m[documentationIcon.funName] = documentationIcon;
-  m[summary.funName] = summary;
+  m[_category.funName] = _category;
+  m[_documentationIcon.funName] = _documentationIcon;
+  m[_summary.funName] = _summary;
   return m;
 }
-var category = MXFunctionInvoke(
+var _category = MXFunctionInvoke(
     "Category",
-    ({
+    (
+      {
       List<String> sections,
-    }) =>
+      }
+    ) =>
       Category(
       sections,
     ),
 );
-var documentationIcon = MXFunctionInvoke(
+var _documentationIcon = MXFunctionInvoke(
     "DocumentationIcon",
-    ({
+    (
+      {
       String url,
-    }) =>
+      }
+    ) =>
       DocumentationIcon(
       url,
     ),
 );
-var summary = MXFunctionInvoke(
+var _summary = MXFunctionInvoke(
     "Summary",
-    ({
+    (
+      {
       String text,
-    }) =>
+      }
+    ) =>
       Summary(
       text,
     ),

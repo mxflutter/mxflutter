@@ -14,24 +14,28 @@ import 'dart:ui';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cachingIterable.funName] = cachingIterable;
-  m[factory.funName] = factory;
+  m[_cachingIterable.funName] = _cachingIterable;
+  m[_factory.funName] = _factory;
   return m;
 }
-var cachingIterable = MXFunctionInvoke(
+var _cachingIterable = MXFunctionInvoke(
     "CachingIterable",
-    ({
-      Iterator<CachingIterable::E> _prefillIterator,
-    }) =>
+    (
+      {
+      Iterator<dynamic> prefillIterator,
+      }
+    ) =>
       CachingIterable(
-      _prefillIterator,
+      prefillIterator,
     ),
 );
-var factory = MXFunctionInvoke(
+var _factory = MXFunctionInvoke(
     "Factory",
-    ({
+    (
+      {
       dynamic constructor,
-    }) =>
+      }
+    ) =>
       Factory(
       constructor,
     ),

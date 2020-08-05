@@ -23,28 +23,32 @@ import 'package:flutter/src/rendering/viewport_offset.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverPersistentHeaderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[overScrollHeaderStretchConfiguration.funName] = overScrollHeaderStretchConfiguration;
-  m[floatingHeaderSnapConfiguration.funName] = floatingHeaderSnapConfiguration;
+  m[_overScrollHeaderStretchConfiguration.funName] = _overScrollHeaderStretchConfiguration;
+  m[_floatingHeaderSnapConfiguration.funName] = _floatingHeaderSnapConfiguration;
   return m;
 }
-var overScrollHeaderStretchConfiguration = MXFunctionInvoke(
+var _overScrollHeaderStretchConfiguration = MXFunctionInvoke(
     "OverScrollHeaderStretchConfiguration",
-    ({
-      dynamic stretchTriggerOffset = 100.0,
+    (
+      {
+      double stretchTriggerOffset = 100.0,
       dynamic onStretchTrigger,
-    }) =>
+      }
+    ) =>
       OverScrollHeaderStretchConfiguration(
-      stretchTriggerOffset: stretchTriggerOffset,
+      stretchTriggerOffset: stretchTriggerOffset?.toDouble(),
       onStretchTrigger: onStretchTrigger,
     ),
 );
-var floatingHeaderSnapConfiguration = MXFunctionInvoke(
+var _floatingHeaderSnapConfiguration = MXFunctionInvoke(
     "FloatingHeaderSnapConfiguration",
-    ({
+    (
+      {
       TickerProvider vsync,
       Curve curve,
       Duration duration,
-    }) =>
+      }
+    ) =>
       FloatingHeaderSnapConfiguration(
       vsync: vsync,
       curve: curve,

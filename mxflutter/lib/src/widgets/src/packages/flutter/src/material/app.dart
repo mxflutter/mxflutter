@@ -22,17 +22,18 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAppSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[themeMode.funName] = themeMode;
-  m[materialApp.funName] = materialApp;
+  m[_themeMode.funName] = _themeMode;
+  m[_materialApp.funName] = _materialApp;
   return m;
 }
-var themeMode = MXFunctionInvoke(
+var _themeMode = MXFunctionInvoke(
     "ThemeMode",
     ({Map args}) => MXThemeMode.parse(args),
   );
-var materialApp = MXFunctionInvoke(
+var _materialApp = MXFunctionInvoke(
     "MaterialApp",
-    ({
+    (
+      {
       Key key,
       GlobalKey<NavigatorState> navigatorKey,
       Widget home,
@@ -62,28 +63,29 @@ var materialApp = MXFunctionInvoke(
       bool debugShowCheckedModeBanner = true,
       Map<LogicalKeySet, Intent> shortcuts,
       Map<LocalKey, Action Function()> actions,
-    }) =>
+      }
+    ) =>
       MaterialApp(
       key: key,
       navigatorKey: navigatorKey,
       home: home,
       routes: routes,
       initialRoute: initialRoute,
-      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(materialApp.buildOwner, onGenerateRoute),
-      onGenerateInitialRoutes: createGenericValueGenericClosure<List<Route<dynamic>>, String>(materialApp.buildOwner, onGenerateInitialRoutes),
-      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(materialApp.buildOwner, onUnknownRoute),
+      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_materialApp.buildOwner, onGenerateRoute),
+      onGenerateInitialRoutes: createGenericValueGenericClosure<List<Route<dynamic>>, String>(_materialApp.buildOwner, onGenerateInitialRoutes),
+      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_materialApp.buildOwner, onUnknownRoute),
       navigatorObservers: navigatorObservers,
-      builder: builder,
+      builder: null,
       title: title,
-      onGenerateTitle: createGenericValueGenericClosure<String, BuildContext>(materialApp.buildOwner, onGenerateTitle),
+      onGenerateTitle: createGenericValueGenericClosure<String, BuildContext>(_materialApp.buildOwner, onGenerateTitle),
       color: color,
       theme: theme,
       darkTheme: darkTheme,
       themeMode: themeMode,
       locale: locale,
       localizationsDelegates: localizationsDelegates,
-      localeListResolutionCallback: localeListResolutionCallback,
-      localeResolutionCallback: localeResolutionCallback,
+      localeListResolutionCallback: null,
+      localeResolutionCallback: null,
       supportedLocales: supportedLocales,
       debugShowMaterialGrid: debugShowMaterialGrid,
       showPerformanceOverlay: showPerformanceOverlay,

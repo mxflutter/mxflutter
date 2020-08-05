@@ -23,45 +23,47 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerParagraphSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[textOverflow.funName] = textOverflow;
-  m[textParentData.funName] = textParentData;
-  m[renderParagraph.funName] = renderParagraph;
+  m[_textOverflow.funName] = _textOverflow;
+  m[_textParentData.funName] = _textParentData;
+  m[_renderParagraph.funName] = _renderParagraph;
   return m;
 }
-var textOverflow = MXFunctionInvoke(
+var _textOverflow = MXFunctionInvoke(
     "TextOverflow",
     ({Map args}) => MXTextOverflow.parse(args),
   );
-var textParentData = MXFunctionInvoke(
+var _textParentData = MXFunctionInvoke(
     "TextParentData",
-    ({
-    }) =>
+    (
+    ) =>
       TextParentData(
     ),
 );
-var renderParagraph = MXFunctionInvoke(
+var _renderParagraph = MXFunctionInvoke(
     "RenderParagraph",
-    ({
+    (
+      {
       InlineSpan text,
       TextAlign textAlign = TextAlign.start,
       TextDirection textDirection,
       bool softWrap = true,
       TextOverflow overflow = TextOverflow.clip,
-      dynamic textScaleFactor = 1.0,
+      double textScaleFactor = 1.0,
       int maxLines,
       Locale locale,
       StrutStyle strutStyle,
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
       TextHeightBehavior textHeightBehavior,
       List<RenderBox> children,
-    }) =>
+      }
+    ) =>
       RenderParagraph(
       text,
       textAlign: textAlign,
       textDirection: textDirection,
       softWrap: softWrap,
       overflow: overflow,
-      textScaleFactor: textScaleFactor,
+      textScaleFactor: textScaleFactor?.toDouble(),
       maxLines: maxLines,
       locale: locale,
       strutStyle: strutStyle,

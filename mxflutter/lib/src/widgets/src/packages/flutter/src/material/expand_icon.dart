@@ -19,26 +19,28 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerExpandIconSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[expandIcon.funName] = expandIcon;
+  m[_expandIcon.funName] = _expandIcon;
   return m;
 }
-var expandIcon = MXFunctionInvoke(
+var _expandIcon = MXFunctionInvoke(
     "ExpandIcon",
-    ({
+    (
+      {
       Key key,
       bool isExpanded = false,
-      dynamic size = 24.0,
+      double size = 24.0,
       dynamic onPressed,
       EdgeInsetsGeometry padding,
       Color color,
       Color disabledColor,
       Color expandedColor,
-    }) =>
+      }
+    ) =>
       ExpandIcon(
       key: key,
       isExpanded: isExpanded,
-      size: size,
-      onPressed: createValueChangedGenericClosure<bool>(expandIcon.buildOwner, onPressed),
+      size: size?.toDouble(),
+      onPressed: createValueChangedGenericClosure<bool>(_expandIcon.buildOwner, onPressed),
       padding: padding,
       color: color,
       disabledColor: disabledColor,

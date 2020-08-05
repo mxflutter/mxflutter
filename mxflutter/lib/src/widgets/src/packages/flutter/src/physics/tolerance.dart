@@ -11,19 +11,21 @@ import 'package:flutter/src/physics/tolerance.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerToleranceSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[tolerance.funName] = tolerance;
+  m[_tolerance.funName] = _tolerance;
   return m;
 }
-var tolerance = MXFunctionInvoke(
+var _tolerance = MXFunctionInvoke(
     "Tolerance",
-    ({
-      dynamic distance = 0.001,
-      dynamic time = 0.001,
-      dynamic velocity = 0.001,
-    }) =>
+    (
+      {
+      double distance = 0.001,
+      double time = 0.001,
+      double velocity = 0.001,
+      }
+    ) =>
       Tolerance(
-      distance: distance,
-      time: time,
-      velocity: velocity,
+      distance: distance?.toDouble(),
+      time: time?.toDouble(),
+      velocity: velocity?.toDouble(),
     ),
 );

@@ -20,12 +20,13 @@ import 'package:flutter/src/material/toggleable.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRadioSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[radio.funName] = radio;
+  m[_radio.funName] = _radio;
   return m;
 }
-var radio = MXFunctionInvoke(
+var _radio = MXFunctionInvoke(
     "Radio",
-    ({
+    (
+      {
       Key key,
       dynamic value,
       dynamic groupValue,
@@ -37,12 +38,13 @@ var radio = MXFunctionInvoke(
       VisualDensity visualDensity,
       FocusNode focusNode,
       bool autofocus = false,
-    }) =>
+      }
+    ) =>
       Radio(
       key: key,
       value: value,
       groupValue: groupValue,
-      onChanged: createValueChangedGenericClosure<dynamic>(radio.buildOwner, onChanged),
+      onChanged: createValueChangedGenericClosure<dynamic>(_radio.buildOwner, onChanged),
       activeColor: activeColor,
       focusColor: focusColor,
       hoverColor: hoverColor,

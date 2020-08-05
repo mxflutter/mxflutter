@@ -29,43 +29,48 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDropdownSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[dropdownMenuItem.funName] = dropdownMenuItem;
-  m[dropdownButtonHideUnderline.funName] = dropdownButtonHideUnderline;
-  m[dropdownButton.funName] = dropdownButton;
-  m[dropdownButtonFormField.funName] = dropdownButtonFormField;
+  m[_dropdownMenuItem.funName] = _dropdownMenuItem;
+  m[_dropdownButtonHideUnderline.funName] = _dropdownButtonHideUnderline;
+  m[_dropdownButton.funName] = _dropdownButton;
+  m[_dropdownButtonFormField.funName] = _dropdownButtonFormField;
   return m;
 }
-var dropdownMenuItem = MXFunctionInvoke(
+var _dropdownMenuItem = MXFunctionInvoke(
     "DropdownMenuItem",
-    ({
+    (
+      {
       Key key,
       dynamic onTap,
       dynamic value,
       Widget child,
-    }) =>
+      }
+    ) =>
       DropdownMenuItem(
       key: key,
-      onTap: createVoidCallbackClosure(dropdownMenuItem.buildOwner, onTap),
+      onTap: createVoidCallbackClosure(_dropdownMenuItem.buildOwner, onTap),
       value: value,
       child: child,
     ),
 );
-var dropdownButtonHideUnderline = MXFunctionInvoke(
+var _dropdownButtonHideUnderline = MXFunctionInvoke(
     "DropdownButtonHideUnderline",
-    ({
+    (
+      {
       Key key,
       Widget child,
-    }) =>
+      }
+    ) =>
       DropdownButtonHideUnderline(
       key: key,
       child: child,
     ),
 );
-var dropdownButton = MXFunctionInvoke(
+var _dropdownButton = MXFunctionInvoke(
     "DropdownButton",
-    ({
+    (
+      {
       Key key,
-      dynamic items,
+      List<DropdownMenuItem<dynamic>> items,
       dynamic selectedItemBuilder,
       dynamic value,
       Widget hint,
@@ -78,46 +83,48 @@ var dropdownButton = MXFunctionInvoke(
       Widget icon,
       Color iconDisabledColor,
       Color iconEnabledColor,
-      dynamic iconSize = 24.0,
+      double iconSize = 24.0,
       bool isDense = false,
       bool isExpanded = false,
-      dynamic itemHeight = 48.0,
+      double itemHeight = 48.0,
       Color focusColor,
       FocusNode focusNode,
       bool autofocus = false,
       Color dropdownColor,
-    }) =>
+      }
+    ) =>
       DropdownButton(
       key: key,
       items: items,
-      selectedItemBuilder: createGenericValueGenericClosure<List<Widget>, BuildContext>(dropdownButton.buildOwner, selectedItemBuilder),
+      selectedItemBuilder: createGenericValueGenericClosure<List<Widget>, BuildContext>(_dropdownButton.buildOwner, selectedItemBuilder),
       value: value,
       hint: hint,
       disabledHint: disabledHint,
-      onChanged: createValueChangedGenericClosure<dynamic>(dropdownButton.buildOwner, onChanged),
-      onTap: createVoidCallbackClosure(dropdownButton.buildOwner, onTap),
+      onChanged: createValueChangedGenericClosure<dynamic>(_dropdownButton.buildOwner, onChanged),
+      onTap: createVoidCallbackClosure(_dropdownButton.buildOwner, onTap),
       elevation: elevation,
       style: style,
       underline: underline,
       icon: icon,
       iconDisabledColor: iconDisabledColor,
       iconEnabledColor: iconEnabledColor,
-      iconSize: iconSize,
+      iconSize: iconSize?.toDouble(),
       isDense: isDense,
       isExpanded: isExpanded,
-      itemHeight: itemHeight,
+      itemHeight: itemHeight?.toDouble(),
       focusColor: focusColor,
       focusNode: focusNode,
       autofocus: autofocus,
       dropdownColor: dropdownColor,
     ),
 );
-var dropdownButtonFormField = MXFunctionInvoke(
+var _dropdownButtonFormField = MXFunctionInvoke(
     "DropdownButtonFormField",
-    ({
+    (
+      {
       Key key,
       dynamic value,
-      dynamic items,
+      List<DropdownMenuItem<dynamic>> items,
       dynamic selectedItemBuilder,
       Widget hint,
       dynamic onChanged,
@@ -132,22 +139,23 @@ var dropdownButtonFormField = MXFunctionInvoke(
       Widget icon,
       Color iconDisabledColor,
       Color iconEnabledColor,
-      dynamic iconSize = 24.0,
+      double iconSize = 24.0,
       bool isDense = true,
       bool isExpanded = false,
-      dynamic itemHeight,
-    }) =>
+      double itemHeight,
+      }
+    ) =>
       DropdownButtonFormField(
       key: key,
       value: value,
       items: items,
-      selectedItemBuilder: createGenericValueGenericClosure<List<Widget>, BuildContext>(dropdownButtonFormField.buildOwner, selectedItemBuilder),
+      selectedItemBuilder: createGenericValueGenericClosure<List<Widget>, BuildContext>(_dropdownButtonFormField.buildOwner, selectedItemBuilder),
       hint: hint,
-      onChanged: createValueChangedGenericClosure<dynamic>(dropdownButtonFormField.buildOwner, onChanged),
-      onTap: createVoidCallbackClosure(dropdownButtonFormField.buildOwner, onTap),
+      onChanged: createValueChangedGenericClosure<dynamic>(_dropdownButtonFormField.buildOwner, onChanged),
+      onTap: createVoidCallbackClosure(_dropdownButtonFormField.buildOwner, onTap),
       decoration: decoration,
-      onSaved: createValueChangedGenericClosure<dynamic>(dropdownButtonFormField.buildOwner, onSaved),
-      validator: createGenericValueGenericClosure<String, dynamic>(dropdownButtonFormField.buildOwner, validator),
+      onSaved: createValueChangedGenericClosure<dynamic>(_dropdownButtonFormField.buildOwner, onSaved),
+      validator: createGenericValueGenericClosure<String, dynamic>(_dropdownButtonFormField.buildOwner, validator),
       autovalidate: autovalidate,
       disabledHint: disabledHint,
       elevation: elevation,
@@ -155,9 +163,9 @@ var dropdownButtonFormField = MXFunctionInvoke(
       icon: icon,
       iconDisabledColor: iconDisabledColor,
       iconEnabledColor: iconEnabledColor,
-      iconSize: iconSize,
+      iconSize: iconSize?.toDouble(),
       isDense: isDense,
       isExpanded: isExpanded,
-      itemHeight: itemHeight,
+      itemHeight: itemHeight?.toDouble(),
     ),
 );

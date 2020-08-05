@@ -16,24 +16,26 @@ import 'package:flutter/src/painting/edge_insets.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBordersSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[borderStyle.funName] = borderStyle;
-  m[borderSide.funName] = borderSide;
+  m[_borderStyle.funName] = _borderStyle;
+  m[_borderSide.funName] = _borderSide;
   return m;
 }
-var borderStyle = MXFunctionInvoke(
+var _borderStyle = MXFunctionInvoke(
     "BorderStyle",
     ({Map args}) => MXBorderStyle.parse(args),
   );
-var borderSide = MXFunctionInvoke(
+var _borderSide = MXFunctionInvoke(
     "BorderSide",
-    ({
+    (
+      {
       Color color,
-      dynamic width = 1.0,
+      double width = 1.0,
       BorderStyle style = BorderStyle.solid,
-    }) =>
+      }
+    ) =>
       BorderSide(
       color: color,
-      width: width,
+      width: width?.toDouble(),
       style: style,
     ),
 );

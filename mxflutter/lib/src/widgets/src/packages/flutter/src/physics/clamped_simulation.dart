@@ -12,23 +12,25 @@ import 'package:flutter/src/physics/simulation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerClampedSimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[clampedSimulation.funName] = clampedSimulation;
+  m[_clampedSimulation.funName] = _clampedSimulation;
   return m;
 }
-var clampedSimulation = MXFunctionInvoke(
+var _clampedSimulation = MXFunctionInvoke(
     "ClampedSimulation",
-    ({
+    (
+      {
       Simulation simulation,
-      dynamic xMin = -Infinity,
-      dynamic xMax = Infinity,
-      dynamic dxMin = -Infinity,
-      dynamic dxMax = Infinity,
-    }) =>
+      double xMin = double.negativeInfinity,
+      double xMax = double.infinity,
+      double dxMin = double.negativeInfinity,
+      double dxMax = double.infinity,
+      }
+    ) =>
       ClampedSimulation(
       simulation,
-      xMin: xMin,
-      xMax: xMax,
-      dxMin: dxMin,
-      dxMax: dxMax,
+      xMin: xMin?.toDouble(),
+      xMax: xMax?.toDouble(),
+      dxMin: dxMin?.toDouble(),
+      dxMax: dxMax?.toDouble(),
     ),
 );

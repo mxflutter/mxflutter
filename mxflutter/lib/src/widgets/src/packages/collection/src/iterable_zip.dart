@@ -12,14 +12,16 @@ import 'dart:collection';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIterableZipSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[iterableZip.funName] = iterableZip;
+  m[_iterableZip.funName] = _iterableZip;
   return m;
 }
-var iterableZip = MXFunctionInvoke(
+var _iterableZip = MXFunctionInvoke(
     "IterableZip",
-    ({
-      dynamic iterables,
-    }) =>
+    (
+      {
+      Iterable<Iterable<dynamic>> iterables,
+      }
+    ) =>
       IterableZip(
       iterables,
     ),

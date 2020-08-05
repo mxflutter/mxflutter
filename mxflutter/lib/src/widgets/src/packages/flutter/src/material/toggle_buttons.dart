@@ -21,12 +21,13 @@ import 'package:flutter/src/material/toggle_buttons_theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerToggleButtonsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[toggleButtons.funName] = toggleButtons;
+  m[_toggleButtons.funName] = _toggleButtons;
   return m;
 }
-var toggleButtons = MXFunctionInvoke(
+var _toggleButtons = MXFunctionInvoke(
     "ToggleButtons",
-    ({
+    (
+      {
       Key key,
       List<Widget> children,
       List<bool> isSelected,
@@ -47,13 +48,14 @@ var toggleButtons = MXFunctionInvoke(
       Color selectedBorderColor,
       Color disabledBorderColor,
       BorderRadius borderRadius,
-      dynamic borderWidth,
-    }) =>
+      double borderWidth,
+      }
+    ) =>
       ToggleButtons(
       key: key,
       children: children,
       isSelected: isSelected,
-      onPressed: createValueChangedGenericClosure<int>(toggleButtons.buildOwner, onPressed),
+      onPressed: createValueChangedGenericClosure<int>(_toggleButtons.buildOwner, onPressed),
       textStyle: textStyle,
       constraints: constraints,
       color: color,
@@ -70,6 +72,6 @@ var toggleButtons = MXFunctionInvoke(
       selectedBorderColor: selectedBorderColor,
       disabledBorderColor: disabledBorderColor,
       borderRadius: borderRadius,
-      borderWidth: borderWidth,
+      borderWidth: borderWidth?.toDouble(),
     ),
 );

@@ -20,12 +20,13 @@ import 'package:flutter/src/material/pickers/date_utils.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInputDatePickerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[inputDatePickerFormField.funName] = inputDatePickerFormField;
+  m[_inputDatePickerFormField.funName] = _inputDatePickerFormField;
   return m;
 }
-var inputDatePickerFormField = MXFunctionInvoke(
+var _inputDatePickerFormField = MXFunctionInvoke(
     "InputDatePickerFormField",
-    ({
+    (
+      {
       Key key,
       DateTime initialDate,
       DateTime firstDate,
@@ -38,15 +39,16 @@ var inputDatePickerFormField = MXFunctionInvoke(
       String fieldHintText,
       String fieldLabelText,
       bool autofocus = false,
-    }) =>
+      }
+    ) =>
       InputDatePickerFormField(
       key: key,
       initialDate: initialDate,
       firstDate: firstDate,
       lastDate: lastDate,
-      onDateSubmitted: createValueChangedGenericClosure<DateTime>(inputDatePickerFormField.buildOwner, onDateSubmitted),
-      onDateSaved: createValueChangedGenericClosure<DateTime>(inputDatePickerFormField.buildOwner, onDateSaved),
-      selectableDayPredicate: createGenericValueGenericClosure<bool, DateTime>(inputDatePickerFormField.buildOwner, selectableDayPredicate),
+      onDateSubmitted: createValueChangedGenericClosure<DateTime>(_inputDatePickerFormField.buildOwner, onDateSubmitted),
+      onDateSaved: createValueChangedGenericClosure<DateTime>(_inputDatePickerFormField.buildOwner, onDateSaved),
+      selectableDayPredicate: createGenericValueGenericClosure<bool, DateTime>(_inputDatePickerFormField.buildOwner, selectableDayPredicate),
       errorFormatText: errorFormatText,
       errorInvalidText: errorInvalidText,
       fieldHintText: fieldHintText,

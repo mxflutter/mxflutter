@@ -15,35 +15,38 @@ import 'package:flutter/src/material/material.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInkDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[ink.funName] = ink;
-  m[ink_image.funName] = ink_image;
-  m[inkDecoration.funName] = inkDecoration;
+  m[_ink.funName] = _ink;
+  m[_ink_image.funName] = _ink_image;
+  m[_inkDecoration.funName] = _inkDecoration;
   return m;
 }
-var ink = MXFunctionInvoke(
+var _ink = MXFunctionInvoke(
     "Ink",
-    ({
+    (
+      {
       Key key,
       EdgeInsetsGeometry padding,
       Color color,
       Decoration decoration,
-      dynamic width,
-      dynamic height,
+      double width,
+      double height,
       Widget child,
-    }) =>
+      }
+    ) =>
       Ink(
       key: key,
       padding: padding,
       color: color,
       decoration: decoration,
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
       child: child,
     ),
 );
-var ink_image = MXFunctionInvoke(
+var _ink_image = MXFunctionInvoke(
   "ink.image",
-    ({
+    (
+      {
       Key key,
       EdgeInsetsGeometry padding,
       ImageProvider<dynamic> image,
@@ -54,40 +57,43 @@ var ink_image = MXFunctionInvoke(
       Rect centerSlice,
       ImageRepeat repeat = ImageRepeat.noRepeat,
       bool matchTextDirection = false,
-      dynamic width,
-      dynamic height,
+      double width,
+      double height,
       Widget child,
-    }) =>
+      }
+    ) =>
       Ink.image(
       key: key,
       padding: padding,
       image: image,
-      onImageError: createVoidCallbackClosure(ink_image.buildOwner, onImageError),
+      onImageError: null,
       colorFilter: colorFilter,
       fit: fit,
       alignment: alignment,
       centerSlice: centerSlice,
       repeat: repeat,
       matchTextDirection: matchTextDirection,
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
       child: child,
     ),
 );
-var inkDecoration = MXFunctionInvoke(
+var _inkDecoration = MXFunctionInvoke(
     "InkDecoration",
-    ({
+    (
+      {
       Decoration decoration,
       ImageConfiguration configuration,
       MaterialInkController controller,
       RenderBox referenceBox,
       dynamic onRemoved,
-    }) =>
+      }
+    ) =>
       InkDecoration(
       decoration: decoration,
       configuration: configuration,
       controller: controller,
       referenceBox: referenceBox,
-      onRemoved: createVoidCallbackClosure(inkDecoration.buildOwner, onRemoved),
+      onRemoved: createVoidCallbackClosure(_inkDecoration.buildOwner, onRemoved),
     ),
 );

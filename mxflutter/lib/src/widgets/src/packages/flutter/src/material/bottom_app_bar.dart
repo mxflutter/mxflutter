@@ -19,27 +19,29 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBottomAppBarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[bottomAppBar.funName] = bottomAppBar;
+  m[_bottomAppBar.funName] = _bottomAppBar;
   return m;
 }
-var bottomAppBar = MXFunctionInvoke(
+var _bottomAppBar = MXFunctionInvoke(
     "BottomAppBar",
-    ({
+    (
+      {
       Key key,
       Color color,
-      dynamic elevation,
+      double elevation,
       NotchedShape shape,
       Clip clipBehavior = Clip.none,
-      dynamic notchMargin = 4.0,
+      double notchMargin = 4.0,
       Widget child,
-    }) =>
+      }
+    ) =>
       BottomAppBar(
       key: key,
       color: color,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shape: shape,
       clipBehavior: clipBehavior,
-      notchMargin: notchMargin,
+      notchMargin: notchMargin?.toDouble(),
       child: child,
     ),
 );

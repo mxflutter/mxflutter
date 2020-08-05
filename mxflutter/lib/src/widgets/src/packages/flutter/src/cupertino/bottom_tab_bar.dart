@@ -15,12 +15,13 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBottomTabBarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoTabBar.funName] = cupertinoTabBar;
+  m[_cupertinoTabBar.funName] = _cupertinoTabBar;
   return m;
 }
-var cupertinoTabBar = MXFunctionInvoke(
+var _cupertinoTabBar = MXFunctionInvoke(
     "CupertinoTabBar",
-    ({
+    (
+      {
       Key key,
       List<BottomNavigationBarItem> items,
       dynamic onTap,
@@ -28,18 +29,19 @@ var cupertinoTabBar = MXFunctionInvoke(
       Color backgroundColor,
       Color activeColor,
       Color inactiveColor,
-      dynamic iconSize = 30.0,
+      double iconSize = 30.0,
       Border border,
-    }) =>
+      }
+    ) =>
       CupertinoTabBar(
       key: key,
       items: items,
-      onTap: createValueChangedGenericClosure<int>(cupertinoTabBar.buildOwner, onTap),
+      onTap: createValueChangedGenericClosure<int>(_cupertinoTabBar.buildOwner, onTap),
       currentIndex: currentIndex,
       backgroundColor: backgroundColor,
       activeColor: activeColor,
       inactiveColor: inactiveColor,
-      iconSize: iconSize,
+      iconSize: iconSize?.toDouble(),
       border: border,
     ),
 );

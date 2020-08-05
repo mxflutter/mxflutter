@@ -23,53 +23,55 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBottomNavigationBarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[bottomNavigationBarType.funName] = bottomNavigationBarType;
-  m[bottomNavigationBar.funName] = bottomNavigationBar;
+  m[_bottomNavigationBarType.funName] = _bottomNavigationBarType;
+  m[_bottomNavigationBar.funName] = _bottomNavigationBar;
   return m;
 }
-var bottomNavigationBarType = MXFunctionInvoke(
+var _bottomNavigationBarType = MXFunctionInvoke(
     "BottomNavigationBarType",
     ({Map args}) => MXBottomNavigationBarType.parse(args),
   );
-var bottomNavigationBar = MXFunctionInvoke(
+var _bottomNavigationBar = MXFunctionInvoke(
     "BottomNavigationBar",
-    ({
+    (
+      {
       Key key,
       List<BottomNavigationBarItem> items,
       dynamic onTap,
       int currentIndex = 0,
-      dynamic elevation = 8.0,
+      double elevation = 8.0,
       BottomNavigationBarType type,
       Color fixedColor,
       Color backgroundColor,
-      dynamic iconSize = 24.0,
+      double iconSize = 24.0,
       Color selectedItemColor,
       Color unselectedItemColor,
       IconThemeData selectedIconTheme,
       IconThemeData unselectedIconTheme,
-      dynamic selectedFontSize = 14.0,
-      dynamic unselectedFontSize = 12.0,
+      double selectedFontSize = 14.0,
+      double unselectedFontSize = 12.0,
       TextStyle selectedLabelStyle,
       TextStyle unselectedLabelStyle,
       bool showSelectedLabels = true,
       bool showUnselectedLabels,
-    }) =>
+      }
+    ) =>
       BottomNavigationBar(
       key: key,
       items: items,
-      onTap: createValueChangedGenericClosure<int>(bottomNavigationBar.buildOwner, onTap),
+      onTap: createValueChangedGenericClosure<int>(_bottomNavigationBar.buildOwner, onTap),
       currentIndex: currentIndex,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       type: type,
       fixedColor: fixedColor,
       backgroundColor: backgroundColor,
-      iconSize: iconSize,
+      iconSize: iconSize?.toDouble(),
       selectedItemColor: selectedItemColor,
       unselectedItemColor: unselectedItemColor,
       selectedIconTheme: selectedIconTheme,
       unselectedIconTheme: unselectedIconTheme,
-      selectedFontSize: selectedFontSize,
-      unselectedFontSize: unselectedFontSize,
+      selectedFontSize: selectedFontSize?.toDouble(),
+      unselectedFontSize: unselectedFontSize?.toDouble(),
       selectedLabelStyle: selectedLabelStyle,
       unselectedLabelStyle: unselectedLabelStyle,
       showSelectedLabels: showSelectedLabels,

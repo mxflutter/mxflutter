@@ -19,17 +19,18 @@ import 'package:flutter/src/painting/image_stream.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDecorationImageSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[imageRepeat.funName] = imageRepeat;
-  m[decorationImage.funName] = decorationImage;
+  m[_imageRepeat.funName] = _imageRepeat;
+  m[_decorationImage.funName] = _decorationImage;
   return m;
 }
-var imageRepeat = MXFunctionInvoke(
+var _imageRepeat = MXFunctionInvoke(
     "ImageRepeat",
     ({Map args}) => MXImageRepeat.parse(args),
   );
-var decorationImage = MXFunctionInvoke(
+var _decorationImage = MXFunctionInvoke(
     "DecorationImage",
-    ({
+    (
+      {
       ImageProvider<dynamic> image,
       dynamic onError,
       ColorFilter colorFilter,
@@ -38,10 +39,11 @@ var decorationImage = MXFunctionInvoke(
       Rect centerSlice,
       ImageRepeat repeat = ImageRepeat.noRepeat,
       bool matchTextDirection = false,
-    }) =>
+      }
+    ) =>
       DecorationImage(
       image: image,
-      onError: createVoidCallbackClosure(decorationImage.buildOwner, onError),
+      onError: null,
       colorFilter: colorFilter,
       fit: fit,
       alignment: alignment,

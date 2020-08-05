@@ -18,58 +18,55 @@ import 'package:flutter/src/services/system_channels.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformViewsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[platformViewsRegistry_instance.funName] = platformViewsRegistry_instance;
-  m[androidPointerProperties.funName] = androidPointerProperties;
-  m[androidPointerCoords.funName] = androidPointerCoords;
-  m[androidMotionEvent.funName] = androidMotionEvent;
+  m[_androidPointerProperties.funName] = _androidPointerProperties;
+  m[_androidPointerCoords.funName] = _androidPointerCoords;
+  m[_androidMotionEvent.funName] = _androidMotionEvent;
   return m;
 }
-var platformViewsRegistry_instance = MXFunctionInvoke(
-  "platformViewsRegistry.instance",
-    ({
-    }) =>
-      PlatformViewsRegistry.instance(
-    ),
-);
-var androidPointerProperties = MXFunctionInvoke(
+var _androidPointerProperties = MXFunctionInvoke(
     "AndroidPointerProperties",
-    ({
+    (
+      {
       int id,
       int toolType,
-    }) =>
+      }
+    ) =>
       AndroidPointerProperties(
       id: id,
       toolType: toolType,
     ),
 );
-var androidPointerCoords = MXFunctionInvoke(
+var _androidPointerCoords = MXFunctionInvoke(
     "AndroidPointerCoords",
-    ({
-      dynamic orientation,
-      dynamic pressure,
-      dynamic size,
-      dynamic toolMajor,
-      dynamic toolMinor,
-      dynamic touchMajor,
-      dynamic touchMinor,
-      dynamic x,
-      dynamic y,
-    }) =>
+    (
+      {
+      double orientation,
+      double pressure,
+      double size,
+      double toolMajor,
+      double toolMinor,
+      double touchMajor,
+      double touchMinor,
+      double x,
+      double y,
+      }
+    ) =>
       AndroidPointerCoords(
-      orientation: orientation,
-      pressure: pressure,
-      size: size,
-      toolMajor: toolMajor,
-      toolMinor: toolMinor,
-      touchMajor: touchMajor,
-      touchMinor: touchMinor,
-      x: x,
-      y: y,
+      orientation: orientation?.toDouble(),
+      pressure: pressure?.toDouble(),
+      size: size?.toDouble(),
+      toolMajor: toolMajor?.toDouble(),
+      toolMinor: toolMinor?.toDouble(),
+      touchMajor: touchMajor?.toDouble(),
+      touchMinor: touchMinor?.toDouble(),
+      x: x?.toDouble(),
+      y: y?.toDouble(),
     ),
 );
-var androidMotionEvent = MXFunctionInvoke(
+var _androidMotionEvent = MXFunctionInvoke(
     "AndroidMotionEvent",
-    ({
+    (
+      {
       int downTime,
       int eventTime,
       int action,
@@ -78,13 +75,14 @@ var androidMotionEvent = MXFunctionInvoke(
       List<AndroidPointerCoords> pointerCoords,
       int metaState,
       int buttonState,
-      dynamic xPrecision,
-      dynamic yPrecision,
+      double xPrecision,
+      double yPrecision,
       int deviceId,
       int edgeFlags,
       int source,
       int flags,
-    }) =>
+      }
+    ) =>
       AndroidMotionEvent(
       downTime: downTime,
       eventTime: eventTime,
@@ -94,8 +92,8 @@ var androidMotionEvent = MXFunctionInvoke(
       pointerCoords: pointerCoords,
       metaState: metaState,
       buttonState: buttonState,
-      xPrecision: xPrecision,
-      yPrecision: yPrecision,
+      xPrecision: xPrecision?.toDouble(),
+      yPrecision: yPrecision?.toDouble(),
       deviceId: deviceId,
       edgeFlags: edgeFlags,
       source: source,

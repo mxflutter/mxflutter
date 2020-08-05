@@ -15,16 +15,17 @@ import 'package:flutter/painting.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerImageSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[renderImage.funName] = renderImage;
+  m[_renderImage.funName] = _renderImage;
   return m;
 }
-var renderImage = MXFunctionInvoke(
+var _renderImage = MXFunctionInvoke(
     "RenderImage",
-    ({
+    (
+      {
       Image image,
-      dynamic width,
-      dynamic height,
-      dynamic scale = 1.0,
+      double width,
+      double height,
+      double scale = 1.0,
       Color color,
       BlendMode colorBlendMode,
       BoxFit fit,
@@ -35,12 +36,13 @@ var renderImage = MXFunctionInvoke(
       TextDirection textDirection,
       bool invertColors = false,
       FilterQuality filterQuality = FilterQuality.low,
-    }) =>
+      }
+    ) =>
       RenderImage(
       image: image,
-      width: width,
-      height: height,
-      scale: scale,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
+      scale: scale?.toDouble(),
       color: color,
       colorBlendMode: colorBlendMode,
       fit: fit,

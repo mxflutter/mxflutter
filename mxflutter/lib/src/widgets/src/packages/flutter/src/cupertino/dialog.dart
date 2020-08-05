@@ -20,15 +20,16 @@ import 'package:flutter/src/cupertino/scrollbar.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDialogSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoAlertDialog.funName] = cupertinoAlertDialog;
-  m[cupertinoDialog.funName] = cupertinoDialog;
-  m[cupertinoPopupSurface.funName] = cupertinoPopupSurface;
-  m[cupertinoDialogAction.funName] = cupertinoDialogAction;
+  m[_cupertinoAlertDialog.funName] = _cupertinoAlertDialog;
+  m[_cupertinoDialog.funName] = _cupertinoDialog;
+  m[_cupertinoPopupSurface.funName] = _cupertinoPopupSurface;
+  m[_cupertinoDialogAction.funName] = _cupertinoDialogAction;
   return m;
 }
-var cupertinoAlertDialog = MXFunctionInvoke(
+var _cupertinoAlertDialog = MXFunctionInvoke(
     "CupertinoAlertDialog",
-    ({
+    (
+      {
       Key key,
       Widget title,
       Widget content,
@@ -37,7 +38,8 @@ var cupertinoAlertDialog = MXFunctionInvoke(
       ScrollController actionScrollController,
       Duration insetAnimationDuration,
       Curve insetAnimationCurve,
-    }) =>
+      }
+    ) =>
       CupertinoAlertDialog(
       key: key,
       title: title,
@@ -49,43 +51,49 @@ var cupertinoAlertDialog = MXFunctionInvoke(
       insetAnimationCurve: insetAnimationCurve,
     ),
 );
-var cupertinoDialog = MXFunctionInvoke(
+var _cupertinoDialog = MXFunctionInvoke(
     "CupertinoDialog",
-    ({
+    (
+      {
       Key key,
       Widget child,
-    }) =>
+      }
+    ) =>
       CupertinoDialog(
       key: key,
       child: child,
     ),
 );
-var cupertinoPopupSurface = MXFunctionInvoke(
+var _cupertinoPopupSurface = MXFunctionInvoke(
     "CupertinoPopupSurface",
-    ({
+    (
+      {
       Key key,
       bool isSurfacePainted = true,
       Widget child,
-    }) =>
+      }
+    ) =>
       CupertinoPopupSurface(
       key: key,
       isSurfacePainted: isSurfacePainted,
       child: child,
     ),
 );
-var cupertinoDialogAction = MXFunctionInvoke(
+var _cupertinoDialogAction = MXFunctionInvoke(
     "CupertinoDialogAction",
-    ({
+    (
+      {
       Key key,
       dynamic onPressed,
       bool isDefaultAction = false,
       bool isDestructiveAction = false,
       TextStyle textStyle,
       Widget child,
-    }) =>
+      }
+    ) =>
       CupertinoDialogAction(
       key: key,
-      onPressed: createVoidCallbackClosure(cupertinoDialogAction.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_cupertinoDialogAction.buildOwner, onPressed),
       isDefaultAction: isDefaultAction,
       isDestructiveAction: isDestructiveAction,
       textStyle: textStyle,

@@ -13,18 +13,20 @@ import 'package:flutter/foundation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIconDataSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[iconData.funName] = iconData;
-  m[iconDataProperty.funName] = iconDataProperty;
+  m[_iconData.funName] = _iconData;
+  m[_iconDataProperty.funName] = _iconDataProperty;
   return m;
 }
-var iconData = MXFunctionInvoke(
+var _iconData = MXFunctionInvoke(
     "IconData",
-    ({
+    (
+      {
       int codePoint,
       String fontFamily,
       String fontPackage,
       bool matchTextDirection = false,
-    }) =>
+      }
+    ) =>
       IconData(
       codePoint,
       fontFamily: fontFamily,
@@ -32,16 +34,18 @@ var iconData = MXFunctionInvoke(
       matchTextDirection: matchTextDirection,
     ),
 );
-var iconDataProperty = MXFunctionInvoke(
+var _iconDataProperty = MXFunctionInvoke(
     "IconDataProperty",
-    ({
+    (
+      {
       String name,
       IconData value,
       String ifNull,
       bool showName = true,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       IconDataProperty(
       name,
       value,

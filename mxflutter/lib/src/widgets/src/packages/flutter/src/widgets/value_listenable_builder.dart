@@ -13,21 +13,23 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerValueListenableBuilderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[valueListenableBuilder.funName] = valueListenableBuilder;
+  m[_valueListenableBuilder.funName] = _valueListenableBuilder;
   return m;
 }
-var valueListenableBuilder = MXFunctionInvoke(
+var _valueListenableBuilder = MXFunctionInvoke(
     "ValueListenableBuilder",
-    ({
+    (
+      {
       Key key,
-      dynamic valueListenable,
+      ValueListenable<dynamic> valueListenable,
       dynamic builder,
       Widget child,
-    }) =>
+      }
+    ) =>
       ValueListenableBuilder(
       key: key,
       valueListenable: valueListenable,
-      builder: builder,
+      builder: null,
       child: child,
     ),
 );

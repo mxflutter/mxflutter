@@ -13,21 +13,23 @@ import 'package:flutter/painting.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTableBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[tableBorder.funName] = tableBorder;
-  m[tableBorder_all.funName] = tableBorder_all;
-  m[tableBorder_symmetric.funName] = tableBorder_symmetric;
+  m[_tableBorder.funName] = _tableBorder;
+  m[_tableBorder_all.funName] = _tableBorder_all;
+  m[_tableBorder_symmetric.funName] = _tableBorder_symmetric;
   return m;
 }
-var tableBorder = MXFunctionInvoke(
+var _tableBorder = MXFunctionInvoke(
     "TableBorder",
-    ({
+    (
+      {
       BorderSide top,
       BorderSide right,
       BorderSide bottom,
       BorderSide left,
       BorderSide horizontalInside,
       BorderSide verticalInside,
-    }) =>
+      }
+    ) =>
       TableBorder(
       top: top,
       right: right,
@@ -37,25 +39,29 @@ var tableBorder = MXFunctionInvoke(
       verticalInside: verticalInside,
     ),
 );
-var tableBorder_all = MXFunctionInvoke(
+var _tableBorder_all = MXFunctionInvoke(
   "tableBorder.all",
-    ({
+    (
+      {
       Color color,
-      dynamic width = 1.0,
+      double width = 1.0,
       BorderStyle style = BorderStyle.solid,
-    }) =>
+      }
+    ) =>
       TableBorder.all(
       color: color,
-      width: width,
+      width: width?.toDouble(),
       style: style,
     ),
 );
-var tableBorder_symmetric = MXFunctionInvoke(
+var _tableBorder_symmetric = MXFunctionInvoke(
   "tableBorder.symmetric",
-    ({
+    (
+      {
       BorderSide inside,
       BorderSide outside,
-    }) =>
+      }
+    ) =>
       TableBorder.symmetric(
       inside: inside,
       outside: outside,

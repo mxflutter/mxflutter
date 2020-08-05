@@ -28,14 +28,15 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAboutSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[aboutListTile.funName] = aboutListTile;
-  m[aboutDialog.funName] = aboutDialog;
-  m[licensePage.funName] = licensePage;
+  m[_aboutListTile.funName] = _aboutListTile;
+  m[_aboutDialog.funName] = _aboutDialog;
+  m[_licensePage.funName] = _licensePage;
   return m;
 }
-var aboutListTile = MXFunctionInvoke(
+var _aboutListTile = MXFunctionInvoke(
     "AboutListTile",
-    ({
+    (
+      {
       Key key,
       Widget icon,
       Widget child,
@@ -45,7 +46,8 @@ var aboutListTile = MXFunctionInvoke(
       String applicationLegalese,
       List<Widget> aboutBoxChildren,
       bool dense,
-    }) =>
+      }
+    ) =>
       AboutListTile(
       key: key,
       icon: icon,
@@ -58,16 +60,18 @@ var aboutListTile = MXFunctionInvoke(
       dense: dense,
     ),
 );
-var aboutDialog = MXFunctionInvoke(
+var _aboutDialog = MXFunctionInvoke(
     "AboutDialog",
-    ({
+    (
+      {
       Key key,
       String applicationName,
       String applicationVersion,
       Widget applicationIcon,
       String applicationLegalese,
       List<Widget> children,
-    }) =>
+      }
+    ) =>
       AboutDialog(
       key: key,
       applicationName: applicationName,
@@ -77,15 +81,17 @@ var aboutDialog = MXFunctionInvoke(
       children: children,
     ),
 );
-var licensePage = MXFunctionInvoke(
+var _licensePage = MXFunctionInvoke(
     "LicensePage",
-    ({
+    (
+      {
       Key key,
       String applicationName,
       String applicationVersion,
       Widget applicationIcon,
       String applicationLegalese,
-    }) =>
+      }
+    ) =>
       LicensePage(
       key: key,
       applicationName: applicationName,

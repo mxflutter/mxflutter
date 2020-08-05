@@ -20,12 +20,13 @@ import 'package:flutter/src/widgets/scrollable.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSingleChildScrollViewSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[singleChildScrollView.funName] = singleChildScrollView;
+  m[_singleChildScrollView.funName] = _singleChildScrollView;
   return m;
 }
-var singleChildScrollView = MXFunctionInvoke(
+var _singleChildScrollView = MXFunctionInvoke(
     "SingleChildScrollView",
-    ({
+    (
+      {
       Key key,
       Axis scrollDirection = Axis.vertical,
       bool reverse = false,
@@ -35,7 +36,8 @@ var singleChildScrollView = MXFunctionInvoke(
       ScrollController controller,
       Widget child,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-    }) =>
+      }
+    ) =>
       SingleChildScrollView(
       key: key,
       scrollDirection: scrollDirection,

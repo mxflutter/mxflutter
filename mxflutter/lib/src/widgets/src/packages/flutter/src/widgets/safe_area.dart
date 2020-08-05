@@ -17,13 +17,14 @@ import 'package:flutter/src/widgets/media_query.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSafeAreaSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[safeArea.funName] = safeArea;
-  m[sliverSafeArea.funName] = sliverSafeArea;
+  m[_safeArea.funName] = _safeArea;
+  m[_sliverSafeArea.funName] = _sliverSafeArea;
   return m;
 }
-var safeArea = MXFunctionInvoke(
+var _safeArea = MXFunctionInvoke(
     "SafeArea",
-    ({
+    (
+      {
       Key key,
       bool left = true,
       bool top = true,
@@ -32,7 +33,8 @@ var safeArea = MXFunctionInvoke(
       EdgeInsets minimum,
       bool maintainBottomViewPadding = false,
       Widget child,
-    }) =>
+      }
+    ) =>
       SafeArea(
       key: key,
       left: left,
@@ -44,9 +46,10 @@ var safeArea = MXFunctionInvoke(
       child: child,
     ),
 );
-var sliverSafeArea = MXFunctionInvoke(
+var _sliverSafeArea = MXFunctionInvoke(
     "SliverSafeArea",
-    ({
+    (
+      {
       Key key,
       bool left = true,
       bool top = true,
@@ -54,7 +57,8 @@ var sliverSafeArea = MXFunctionInvoke(
       bool bottom = true,
       EdgeInsets minimum,
       Widget sliver,
-    }) =>
+      }
+    ) =>
       SliverSafeArea(
       key: key,
       left: left,

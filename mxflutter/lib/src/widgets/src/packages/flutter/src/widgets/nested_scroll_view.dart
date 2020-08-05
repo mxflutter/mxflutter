@@ -14,7 +14,6 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/primary_scroll_controller.dart';
@@ -33,20 +32,21 @@ import 'package:flutter/src/widgets/viewport.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNestedScrollViewSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[nestedScrollView.funName] = nestedScrollView;
-  m[nestedScrollViewState.funName] = nestedScrollViewState;
-  m[sliverOverlapAbsorberHandle.funName] = sliverOverlapAbsorberHandle;
-  m[sliverOverlapAbsorber.funName] = sliverOverlapAbsorber;
-  m[renderSliverOverlapAbsorber.funName] = renderSliverOverlapAbsorber;
-  m[sliverOverlapInjector.funName] = sliverOverlapInjector;
-  m[renderSliverOverlapInjector.funName] = renderSliverOverlapInjector;
-  m[nestedScrollViewViewport.funName] = nestedScrollViewViewport;
-  m[renderNestedScrollViewViewport.funName] = renderNestedScrollViewViewport;
+  m[_nestedScrollView.funName] = _nestedScrollView;
+  m[_nestedScrollViewState.funName] = _nestedScrollViewState;
+  m[_sliverOverlapAbsorberHandle.funName] = _sliverOverlapAbsorberHandle;
+  m[_sliverOverlapAbsorber.funName] = _sliverOverlapAbsorber;
+  m[_renderSliverOverlapAbsorber.funName] = _renderSliverOverlapAbsorber;
+  m[_sliverOverlapInjector.funName] = _sliverOverlapInjector;
+  m[_renderSliverOverlapInjector.funName] = _renderSliverOverlapInjector;
+  m[_nestedScrollViewViewport.funName] = _nestedScrollViewViewport;
+  m[_renderNestedScrollViewViewport.funName] = _renderNestedScrollViewViewport;
   return m;
 }
-var nestedScrollView = MXFunctionInvoke(
+var _nestedScrollView = MXFunctionInvoke(
     "NestedScrollView",
-    ({
+    (
+      {
       Key key,
       ScrollController controller,
       Axis scrollDirection = Axis.vertical,
@@ -55,40 +55,43 @@ var nestedScrollView = MXFunctionInvoke(
       dynamic headerSliverBuilder,
       Widget body,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-    }) =>
+      }
+    ) =>
       NestedScrollView(
       key: key,
       controller: controller,
       scrollDirection: scrollDirection,
       reverse: reverse,
       physics: physics,
-      headerSliverBuilder: headerSliverBuilder,
+      headerSliverBuilder: null,
       body: body,
       dragStartBehavior: dragStartBehavior,
     ),
 );
-var nestedScrollViewState = MXFunctionInvoke(
+var _nestedScrollViewState = MXFunctionInvoke(
     "NestedScrollViewState",
-    ({
-    }) =>
+    (
+    ) =>
       NestedScrollViewState(
     ),
 );
-var sliverOverlapAbsorberHandle = MXFunctionInvoke(
+var _sliverOverlapAbsorberHandle = MXFunctionInvoke(
     "SliverOverlapAbsorberHandle",
-    ({
-    }) =>
+    (
+    ) =>
       SliverOverlapAbsorberHandle(
     ),
 );
-var sliverOverlapAbsorber = MXFunctionInvoke(
+var _sliverOverlapAbsorber = MXFunctionInvoke(
     "SliverOverlapAbsorber",
-    ({
+    (
+      {
       Key key,
       SliverOverlapAbsorberHandle handle,
       Widget child,
       Widget sliver,
-    }) =>
+      }
+    ) =>
       SliverOverlapAbsorber(
       key: key,
       handle: handle,
@@ -96,27 +99,31 @@ var sliverOverlapAbsorber = MXFunctionInvoke(
       sliver: sliver,
     ),
 );
-var renderSliverOverlapAbsorber = MXFunctionInvoke(
+var _renderSliverOverlapAbsorber = MXFunctionInvoke(
     "RenderSliverOverlapAbsorber",
-    ({
+    (
+      {
       SliverOverlapAbsorberHandle handle,
       RenderSliver child,
       RenderSliver sliver,
-    }) =>
+      }
+    ) =>
       RenderSliverOverlapAbsorber(
       handle: handle,
       child: child,
       sliver: sliver,
     ),
 );
-var sliverOverlapInjector = MXFunctionInvoke(
+var _sliverOverlapInjector = MXFunctionInvoke(
     "SliverOverlapInjector",
-    ({
+    (
+      {
       Key key,
       SliverOverlapAbsorberHandle handle,
       Widget child,
       Widget sliver,
-    }) =>
+      }
+    ) =>
       SliverOverlapInjector(
       key: key,
       handle: handle,
@@ -124,54 +131,60 @@ var sliverOverlapInjector = MXFunctionInvoke(
       sliver: sliver,
     ),
 );
-var renderSliverOverlapInjector = MXFunctionInvoke(
+var _renderSliverOverlapInjector = MXFunctionInvoke(
     "RenderSliverOverlapInjector",
-    ({
+    (
+      {
       SliverOverlapAbsorberHandle handle,
-    }) =>
+      }
+    ) =>
       RenderSliverOverlapInjector(
       handle: handle,
     ),
 );
-var nestedScrollViewViewport = MXFunctionInvoke(
+var _nestedScrollViewViewport = MXFunctionInvoke(
     "NestedScrollViewViewport",
-    ({
+    (
+      {
       Key key,
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
-      dynamic anchor = 0.0,
+      double anchor = 0.0,
       ViewportOffset offset,
       Key center,
       List<Widget> slivers,
       SliverOverlapAbsorberHandle handle,
-    }) =>
+      }
+    ) =>
       NestedScrollViewViewport(
       key: key,
       axisDirection: axisDirection,
       crossAxisDirection: crossAxisDirection,
-      anchor: anchor,
+      anchor: anchor?.toDouble(),
       offset: offset,
       center: center,
       slivers: slivers,
       handle: handle,
     ),
 );
-var renderNestedScrollViewViewport = MXFunctionInvoke(
+var _renderNestedScrollViewViewport = MXFunctionInvoke(
     "RenderNestedScrollViewViewport",
-    ({
+    (
+      {
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
-      dynamic anchor = 0.0,
+      double anchor = 0.0,
       List<RenderSliver> children,
       RenderSliver center,
       SliverOverlapAbsorberHandle handle,
-    }) =>
+      }
+    ) =>
       RenderNestedScrollViewViewport(
       axisDirection: axisDirection,
       crossAxisDirection: crossAxisDirection,
       offset: offset,
-      anchor: anchor,
+      anchor: anchor?.toDouble(),
       children: children,
       center: center,
       handle: handle,

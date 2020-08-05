@@ -14,23 +14,25 @@ import 'package:flutter/src/painting/borders.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNotchedShapesSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[circularNotchedRectangle.funName] = circularNotchedRectangle;
-  m[automaticNotchedShape.funName] = automaticNotchedShape;
+  m[_circularNotchedRectangle.funName] = _circularNotchedRectangle;
+  m[_automaticNotchedShape.funName] = _automaticNotchedShape;
   return m;
 }
-var circularNotchedRectangle = MXFunctionInvoke(
+var _circularNotchedRectangle = MXFunctionInvoke(
     "CircularNotchedRectangle",
-    ({
-    }) =>
+    (
+    ) =>
       CircularNotchedRectangle(
     ),
 );
-var automaticNotchedShape = MXFunctionInvoke(
+var _automaticNotchedShape = MXFunctionInvoke(
     "AutomaticNotchedShape",
-    ({
+    (
+      {
       ShapeBorder host,
       ShapeBorder guest,
-    }) =>
+      }
+    ) =>
       AutomaticNotchedShape(
       host,
       guest,

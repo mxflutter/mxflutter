@@ -13,21 +13,23 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInterfaceLevelSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoUserInterfaceLevelData.funName] = cupertinoUserInterfaceLevelData;
-  m[cupertinoUserInterfaceLevel.funName] = cupertinoUserInterfaceLevel;
+  m[_cupertinoUserInterfaceLevelData.funName] = _cupertinoUserInterfaceLevelData;
+  m[_cupertinoUserInterfaceLevel.funName] = _cupertinoUserInterfaceLevel;
   return m;
 }
-var cupertinoUserInterfaceLevelData = MXFunctionInvoke(
+var _cupertinoUserInterfaceLevelData = MXFunctionInvoke(
     "CupertinoUserInterfaceLevelData",
     ({Map args}) => MXCupertinoUserInterfaceLevelData.parse(args),
   );
-var cupertinoUserInterfaceLevel = MXFunctionInvoke(
+var _cupertinoUserInterfaceLevel = MXFunctionInvoke(
     "CupertinoUserInterfaceLevel",
-    ({
+    (
+      {
       Key key,
       CupertinoUserInterfaceLevelData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       CupertinoUserInterfaceLevel(
       key: key,
       data: data,

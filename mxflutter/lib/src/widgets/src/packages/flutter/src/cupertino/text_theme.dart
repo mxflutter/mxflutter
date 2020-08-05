@@ -11,45 +11,31 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/icon_theme_data.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/theme.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/colors.dart';
-import 'package:flutter/src/cupertino/icon_theme_data.dart';
-import 'package:flutter/src/cupertino/text_theme.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/cupertino/colors.dart';
 import 'dart:ui';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/media_query.dart';
 import 'package:flutter/src/cupertino/interface_level.dart';
-import 'package:flutter/src/cupertino/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoTextThemeData.funName] = cupertinoTextThemeData;
-  m[cupertinoTextThemeData_raw.funName] = cupertinoTextThemeData_raw;
-  m[cupertinoIconThemeData.funName] = cupertinoIconThemeData;
-  m[cupertinoTheme.funName] = cupertinoTheme;
-  m[cupertinoThemeData.funName] = cupertinoThemeData;
-  m[cupertinoThemeData_raw.funName] = cupertinoThemeData_raw;
-  m[cupertinoThemeData_rawWithDefaults.funName] = cupertinoThemeData_rawWithDefaults;
-  m[cupertinoDynamicColor.funName] = cupertinoDynamicColor;
-  m[cupertinoDynamicColor_withBrightnessAndContrast.funName] = cupertinoDynamicColor_withBrightnessAndContrast;
-  m[cupertinoDynamicColor_withBrightness.funName] = cupertinoDynamicColor_withBrightness;
+  m[_cupertinoTextThemeData.funName] = _cupertinoTextThemeData;
+  m[_cupertinoIconThemeData.funName] = _cupertinoIconThemeData;
+  m[_cupertinoTheme.funName] = _cupertinoTheme;
+  m[_cupertinoThemeData.funName] = _cupertinoThemeData;
+  m[_cupertinoThemeData_raw.funName] = _cupertinoThemeData_raw;
+  m[_cupertinoDynamicColor.funName] = _cupertinoDynamicColor;
+  m[_cupertinoDynamicColor_withBrightnessAndContrast.funName] = _cupertinoDynamicColor_withBrightnessAndContrast;
+  m[_cupertinoDynamicColor_withBrightness.funName] = _cupertinoDynamicColor_withBrightness;
   return m;
 }
-var cupertinoTextThemeData = MXFunctionInvoke(
+var _cupertinoTextThemeData = MXFunctionInvoke(
     "CupertinoTextThemeData",
-    ({
+    (
+      {
       Color primaryColor,
       Brightness brightness,
       TextStyle textStyle,
@@ -60,7 +46,8 @@ var cupertinoTextThemeData = MXFunctionInvoke(
       TextStyle navActionTextStyle,
       TextStyle pickerTextStyle,
       TextStyle dateTimePickerTextStyle,
-    }) =>
+      }
+    ) =>
       CupertinoTextThemeData(
       primaryColor: primaryColor,
       brightness: brightness,
@@ -74,69 +61,48 @@ var cupertinoTextThemeData = MXFunctionInvoke(
       dateTimePickerTextStyle: dateTimePickerTextStyle,
     ),
 );
-var cupertinoTextThemeData_raw = MXFunctionInvoke(
-  "cupertinoTextThemeData.raw",
-    ({
-      _TextThemeDefaultsBuilder _defaults,
-      Color _primaryColor,
-      TextStyle _textStyle,
-      TextStyle _actionTextStyle,
-      TextStyle _tabLabelTextStyle,
-      TextStyle _navTitleTextStyle,
-      TextStyle _navLargeTitleTextStyle,
-      TextStyle _navActionTextStyle,
-      TextStyle _pickerTextStyle,
-      TextStyle _dateTimePickerTextStyle,
-    }) =>
-      CupertinoTextThemeData.raw(
-      _defaults,
-      _primaryColor,
-      _textStyle,
-      _actionTextStyle,
-      _tabLabelTextStyle,
-      _navTitleTextStyle,
-      _navLargeTitleTextStyle,
-      _navActionTextStyle,
-      _pickerTextStyle,
-      _dateTimePickerTextStyle,
-    ),
-);
-var cupertinoIconThemeData = MXFunctionInvoke(
+var _cupertinoIconThemeData = MXFunctionInvoke(
     "CupertinoIconThemeData",
-    ({
+    (
+      {
       Color color,
-      dynamic opacity,
-      dynamic size,
-    }) =>
+      double opacity,
+      double size,
+      }
+    ) =>
       CupertinoIconThemeData(
       color: color,
-      opacity: opacity,
-      size: size,
+      opacity: opacity?.toDouble(),
+      size: size?.toDouble(),
     ),
 );
-var cupertinoTheme = MXFunctionInvoke(
+var _cupertinoTheme = MXFunctionInvoke(
     "CupertinoTheme",
-    ({
+    (
+      {
       Key key,
       CupertinoThemeData data,
       Widget child,
-    }) =>
+      }
+    ) =>
       CupertinoTheme(
       key: key,
       data: data,
       child: child,
     ),
 );
-var cupertinoThemeData = MXFunctionInvoke(
+var _cupertinoThemeData = MXFunctionInvoke(
     "CupertinoThemeData",
-    ({
+    (
+      {
       Brightness brightness,
       Color primaryColor,
       Color primaryContrastingColor,
       CupertinoTextThemeData textTheme,
       Color barBackgroundColor,
       Color scaffoldBackgroundColor,
-    }) =>
+      }
+    ) =>
       CupertinoThemeData(
       brightness: brightness,
       primaryColor: primaryColor,
@@ -146,16 +112,18 @@ var cupertinoThemeData = MXFunctionInvoke(
       scaffoldBackgroundColor: scaffoldBackgroundColor,
     ),
 );
-var cupertinoThemeData_raw = MXFunctionInvoke(
+var _cupertinoThemeData_raw = MXFunctionInvoke(
   "cupertinoThemeData.raw",
-    ({
+    (
+      {
       Brightness brightness,
       Color primaryColor,
       Color primaryContrastingColor,
       CupertinoTextThemeData textTheme,
       Color barBackgroundColor,
       Color scaffoldBackgroundColor,
-    }) =>
+      }
+    ) =>
       CupertinoThemeData.raw(
       brightness,
       primaryColor,
@@ -165,30 +133,10 @@ var cupertinoThemeData_raw = MXFunctionInvoke(
       scaffoldBackgroundColor,
     ),
 );
-var cupertinoThemeData_rawWithDefaults = MXFunctionInvoke(
-  "cupertinoThemeData.rawWithDefaults",
-    ({
-      Brightness brightness,
-      Color _primaryColor,
-      Color _primaryContrastingColor,
-      CupertinoTextThemeData _textTheme,
-      Color _barBackgroundColor,
-      Color _scaffoldBackgroundColor,
-      _CupertinoThemeDefaults _defaults,
-    }) =>
-      CupertinoThemeData.rawWithDefaults(
-      brightness,
-      _primaryColor,
-      _primaryContrastingColor,
-      _textTheme,
-      _barBackgroundColor,
-      _scaffoldBackgroundColor,
-      _defaults,
-    ),
-);
-var cupertinoDynamicColor = MXFunctionInvoke(
+var _cupertinoDynamicColor = MXFunctionInvoke(
     "CupertinoDynamicColor",
-    ({
+    (
+      {
       String debugLabel,
       Color color,
       Color darkColor,
@@ -198,7 +146,8 @@ var cupertinoDynamicColor = MXFunctionInvoke(
       Color darkElevatedColor,
       Color highContrastElevatedColor,
       Color darkHighContrastElevatedColor,
-    }) =>
+      }
+    ) =>
       CupertinoDynamicColor(
       debugLabel: debugLabel,
       color: color,
@@ -211,15 +160,17 @@ var cupertinoDynamicColor = MXFunctionInvoke(
       darkHighContrastElevatedColor: darkHighContrastElevatedColor,
     ),
 );
-var cupertinoDynamicColor_withBrightnessAndContrast = MXFunctionInvoke(
+var _cupertinoDynamicColor_withBrightnessAndContrast = MXFunctionInvoke(
   "cupertinoDynamicColor.withBrightnessAndContrast",
-    ({
+    (
+      {
       String debugLabel,
       Color color,
       Color darkColor,
       Color highContrastColor,
       Color darkHighContrastColor,
-    }) =>
+      }
+    ) =>
       CupertinoDynamicColor.withBrightnessAndContrast(
       debugLabel: debugLabel,
       color: color,
@@ -228,13 +179,15 @@ var cupertinoDynamicColor_withBrightnessAndContrast = MXFunctionInvoke(
       darkHighContrastColor: darkHighContrastColor,
     ),
 );
-var cupertinoDynamicColor_withBrightness = MXFunctionInvoke(
+var _cupertinoDynamicColor_withBrightness = MXFunctionInvoke(
   "cupertinoDynamicColor.withBrightness",
-    ({
+    (
+      {
       String debugLabel,
       Color color,
       Color darkColor,
-    }) =>
+      }
+    ) =>
       CupertinoDynamicColor.withBrightness(
       debugLabel: debugLabel,
       color: color,

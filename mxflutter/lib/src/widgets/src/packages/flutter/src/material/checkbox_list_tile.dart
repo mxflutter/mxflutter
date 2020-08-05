@@ -16,12 +16,13 @@ import 'package:flutter/src/material/theme_data.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCheckboxListTileSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[checkboxListTile.funName] = checkboxListTile;
+  m[_checkboxListTile.funName] = _checkboxListTile;
   return m;
 }
-var checkboxListTile = MXFunctionInvoke(
+var _checkboxListTile = MXFunctionInvoke(
     "CheckboxListTile",
-    ({
+    (
+      {
       Key key,
       bool value,
       dynamic onChanged,
@@ -34,11 +35,12 @@ var checkboxListTile = MXFunctionInvoke(
       Widget secondary,
       bool selected = false,
       ListTileControlAffinity controlAffinity = ListTileControlAffinity.platform,
-    }) =>
+      }
+    ) =>
       CheckboxListTile(
       key: key,
       value: value,
-      onChanged: createValueChangedGenericClosure<bool>(checkboxListTile.buildOwner, onChanged),
+      onChanged: createValueChangedGenericClosure<bool>(_checkboxListTile.buildOwner, onChanged),
       activeColor: activeColor,
       checkColor: checkColor,
       title: title,

@@ -11,18 +11,18 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/input_decorator.dart';
 import 'package:flutter/src/material/text_field.dart';
 import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/services.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextFormFieldSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[textFormField.funName] = textFormField;
+  m[_textFormField.funName] = _textFormField;
   return m;
 }
-var textFormField = MXFunctionInvoke(
+var _textFormField = MXFunctionInvoke(
     "TextFormField",
-    ({
+    (
+      {
       Key key,
       TextEditingController controller,
       String initialValue,
@@ -59,7 +59,7 @@ var textFormField = MXFunctionInvoke(
       dynamic validator,
       List<TextInputFormatter> inputFormatters,
       bool enabled = true,
-      dynamic cursorWidth = 2.0,
+      double cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
       Brightness keyboardAppearance,
@@ -67,7 +67,8 @@ var textFormField = MXFunctionInvoke(
       bool enableInteractiveSelection = true,
       dynamic buildCounter,
       ScrollPhysics scrollPhysics,
-    }) =>
+      }
+    ) =>
       TextFormField(
       key: key,
       controller: controller,
@@ -97,21 +98,21 @@ var textFormField = MXFunctionInvoke(
       minLines: minLines,
       expands: expands,
       maxLength: maxLength,
-      onChanged: createValueChangedGenericClosure<String>(textFormField.buildOwner, onChanged),
-      onTap: createVoidCallbackClosure(textFormField.buildOwner, onTap),
-      onEditingComplete: createVoidCallbackClosure(textFormField.buildOwner, onEditingComplete),
-      onFieldSubmitted: createValueChangedGenericClosure<String>(textFormField.buildOwner, onFieldSubmitted),
-      onSaved: createValueChangedGenericClosure<String>(textFormField.buildOwner, onSaved),
-      validator: createGenericValueGenericClosure<String, String>(textFormField.buildOwner, validator),
+      onChanged: createValueChangedGenericClosure<String>(_textFormField.buildOwner, onChanged),
+      onTap: createVoidCallbackClosure(_textFormField.buildOwner, onTap),
+      onEditingComplete: createVoidCallbackClosure(_textFormField.buildOwner, onEditingComplete),
+      onFieldSubmitted: createValueChangedGenericClosure<String>(_textFormField.buildOwner, onFieldSubmitted),
+      onSaved: createValueChangedGenericClosure<String>(_textFormField.buildOwner, onSaved),
+      validator: createGenericValueGenericClosure<String, String>(_textFormField.buildOwner, validator),
       inputFormatters: inputFormatters,
       enabled: enabled,
-      cursorWidth: cursorWidth,
+      cursorWidth: cursorWidth?.toDouble(),
       cursorRadius: cursorRadius,
       cursorColor: cursorColor,
       keyboardAppearance: keyboardAppearance,
       scrollPadding: scrollPadding,
       enableInteractiveSelection: enableInteractiveSelection,
-      buildCounter: createGenericValueGenericClosure<Widget, BuildContext>(textFormField.buildOwner, buildCounter),
+      buildCounter: createGenericValueGenericClosure<Widget, BuildContext>(_textFormField.buildOwner, buildCounter),
       scrollPhysics: scrollPhysics,
     ),
 );

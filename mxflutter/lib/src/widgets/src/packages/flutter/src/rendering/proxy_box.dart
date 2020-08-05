@@ -19,205 +19,230 @@ import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/layer.dart';
 import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/gestures.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerProxyBoxSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[renderProxyBox.funName] = renderProxyBox;
-  m[hitTestBehavior.funName] = hitTestBehavior;
-  m[renderConstrainedBox.funName] = renderConstrainedBox;
-  m[renderLimitedBox.funName] = renderLimitedBox;
-  m[renderAspectRatio.funName] = renderAspectRatio;
-  m[renderIntrinsicWidth.funName] = renderIntrinsicWidth;
-  m[renderIntrinsicHeight.funName] = renderIntrinsicHeight;
-  m[renderOpacity.funName] = renderOpacity;
-  m[renderAnimatedOpacity.funName] = renderAnimatedOpacity;
-  m[renderShaderMask.funName] = renderShaderMask;
-  m[renderBackdropFilter.funName] = renderBackdropFilter;
-  m[shapeBorderClipper.funName] = shapeBorderClipper;
-  m[renderClipRect.funName] = renderClipRect;
-  m[renderClipRRect.funName] = renderClipRRect;
-  m[renderClipOval.funName] = renderClipOval;
-  m[renderClipPath.funName] = renderClipPath;
-  m[renderPhysicalModel.funName] = renderPhysicalModel;
-  m[renderPhysicalShape.funName] = renderPhysicalShape;
-  m[decorationPosition.funName] = decorationPosition;
-  m[renderDecoratedBox.funName] = renderDecoratedBox;
-  m[renderTransform.funName] = renderTransform;
-  m[renderFittedBox.funName] = renderFittedBox;
-  m[renderFractionalTranslation.funName] = renderFractionalTranslation;
-  m[renderPointerListener.funName] = renderPointerListener;
-  m[renderMouseRegion.funName] = renderMouseRegion;
-  m[renderRepaintBoundary.funName] = renderRepaintBoundary;
-  m[renderIgnorePointer.funName] = renderIgnorePointer;
-  m[renderOffstage.funName] = renderOffstage;
-  m[renderAbsorbPointer.funName] = renderAbsorbPointer;
-  m[renderMetaData.funName] = renderMetaData;
-  m[renderSemanticsGestureHandler.funName] = renderSemanticsGestureHandler;
-  m[renderSemanticsAnnotations.funName] = renderSemanticsAnnotations;
-  m[renderBlockSemantics.funName] = renderBlockSemantics;
-  m[renderMergeSemantics.funName] = renderMergeSemantics;
-  m[renderExcludeSemantics.funName] = renderExcludeSemantics;
-  m[renderIndexedSemantics.funName] = renderIndexedSemantics;
-  m[renderLeaderLayer.funName] = renderLeaderLayer;
-  m[renderFollowerLayer.funName] = renderFollowerLayer;
-  m[renderAnnotatedRegion.funName] = renderAnnotatedRegion;
+  m[_renderProxyBox.funName] = _renderProxyBox;
+  m[_hitTestBehavior.funName] = _hitTestBehavior;
+  m[_renderConstrainedBox.funName] = _renderConstrainedBox;
+  m[_renderLimitedBox.funName] = _renderLimitedBox;
+  m[_renderAspectRatio.funName] = _renderAspectRatio;
+  m[_renderIntrinsicWidth.funName] = _renderIntrinsicWidth;
+  m[_renderIntrinsicHeight.funName] = _renderIntrinsicHeight;
+  m[_renderOpacity.funName] = _renderOpacity;
+  m[_renderAnimatedOpacity.funName] = _renderAnimatedOpacity;
+  m[_renderShaderMask.funName] = _renderShaderMask;
+  m[_renderBackdropFilter.funName] = _renderBackdropFilter;
+  m[_shapeBorderClipper.funName] = _shapeBorderClipper;
+  m[_renderClipRect.funName] = _renderClipRect;
+  m[_renderClipRRect.funName] = _renderClipRRect;
+  m[_renderClipOval.funName] = _renderClipOval;
+  m[_renderClipPath.funName] = _renderClipPath;
+  m[_renderPhysicalModel.funName] = _renderPhysicalModel;
+  m[_renderPhysicalShape.funName] = _renderPhysicalShape;
+  m[_decorationPosition.funName] = _decorationPosition;
+  m[_renderDecoratedBox.funName] = _renderDecoratedBox;
+  m[_renderTransform.funName] = _renderTransform;
+  m[_renderFittedBox.funName] = _renderFittedBox;
+  m[_renderFractionalTranslation.funName] = _renderFractionalTranslation;
+  m[_renderPointerListener.funName] = _renderPointerListener;
+  m[_renderMouseRegion.funName] = _renderMouseRegion;
+  m[_renderRepaintBoundary.funName] = _renderRepaintBoundary;
+  m[_renderIgnorePointer.funName] = _renderIgnorePointer;
+  m[_renderOffstage.funName] = _renderOffstage;
+  m[_renderAbsorbPointer.funName] = _renderAbsorbPointer;
+  m[_renderMetaData.funName] = _renderMetaData;
+  m[_renderSemanticsGestureHandler.funName] = _renderSemanticsGestureHandler;
+  m[_renderSemanticsAnnotations.funName] = _renderSemanticsAnnotations;
+  m[_renderBlockSemantics.funName] = _renderBlockSemantics;
+  m[_renderMergeSemantics.funName] = _renderMergeSemantics;
+  m[_renderExcludeSemantics.funName] = _renderExcludeSemantics;
+  m[_renderIndexedSemantics.funName] = _renderIndexedSemantics;
+  m[_renderLeaderLayer.funName] = _renderLeaderLayer;
+  m[_renderFollowerLayer.funName] = _renderFollowerLayer;
+  m[_renderAnnotatedRegion.funName] = _renderAnnotatedRegion;
   return m;
 }
-var renderProxyBox = MXFunctionInvoke(
+var _renderProxyBox = MXFunctionInvoke(
     "RenderProxyBox",
-    ({
+    (
+      {
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderProxyBox(
       child,
     ),
 );
-var hitTestBehavior = MXFunctionInvoke(
+var _hitTestBehavior = MXFunctionInvoke(
     "HitTestBehavior",
     ({Map args}) => MXHitTestBehavior.parse(args),
   );
-var renderConstrainedBox = MXFunctionInvoke(
+var _renderConstrainedBox = MXFunctionInvoke(
     "RenderConstrainedBox",
-    ({
+    (
+      {
       RenderBox child,
       BoxConstraints additionalConstraints,
-    }) =>
+      }
+    ) =>
       RenderConstrainedBox(
       child: child,
       additionalConstraints: additionalConstraints,
     ),
 );
-var renderLimitedBox = MXFunctionInvoke(
+var _renderLimitedBox = MXFunctionInvoke(
     "RenderLimitedBox",
-    ({
+    (
+      {
       RenderBox child,
-      dynamic maxWidth = Infinity,
-      dynamic maxHeight = Infinity,
-    }) =>
+      double maxWidth = double.infinity,
+      double maxHeight = double.infinity,
+      }
+    ) =>
       RenderLimitedBox(
       child: child,
-      maxWidth: maxWidth,
-      maxHeight: maxHeight,
+      maxWidth: maxWidth?.toDouble(),
+      maxHeight: maxHeight?.toDouble(),
     ),
 );
-var renderAspectRatio = MXFunctionInvoke(
+var _renderAspectRatio = MXFunctionInvoke(
     "RenderAspectRatio",
-    ({
+    (
+      {
       RenderBox child,
-      dynamic aspectRatio,
-    }) =>
+      double aspectRatio,
+      }
+    ) =>
       RenderAspectRatio(
       child: child,
-      aspectRatio: aspectRatio,
+      aspectRatio: aspectRatio?.toDouble(),
     ),
 );
-var renderIntrinsicWidth = MXFunctionInvoke(
+var _renderIntrinsicWidth = MXFunctionInvoke(
     "RenderIntrinsicWidth",
-    ({
-      dynamic stepWidth,
-      dynamic stepHeight,
+    (
+      {
+      double stepWidth,
+      double stepHeight,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderIntrinsicWidth(
-      stepWidth: stepWidth,
-      stepHeight: stepHeight,
+      stepWidth: stepWidth?.toDouble(),
+      stepHeight: stepHeight?.toDouble(),
       child: child,
     ),
 );
-var renderIntrinsicHeight = MXFunctionInvoke(
+var _renderIntrinsicHeight = MXFunctionInvoke(
     "RenderIntrinsicHeight",
-    ({
+    (
+      {
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderIntrinsicHeight(
       child: child,
     ),
 );
-var renderOpacity = MXFunctionInvoke(
+var _renderOpacity = MXFunctionInvoke(
     "RenderOpacity",
-    ({
-      dynamic opacity = 1.0,
+    (
+      {
+      double opacity = 1.0,
       bool alwaysIncludeSemantics = false,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderOpacity(
-      opacity: opacity,
+      opacity: opacity?.toDouble(),
       alwaysIncludeSemantics: alwaysIncludeSemantics,
       child: child,
     ),
 );
-var renderAnimatedOpacity = MXFunctionInvoke(
+var _renderAnimatedOpacity = MXFunctionInvoke(
     "RenderAnimatedOpacity",
-    ({
+    (
+      {
       Animation<double> opacity,
       bool alwaysIncludeSemantics = false,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderAnimatedOpacity(
       opacity: opacity,
       alwaysIncludeSemantics: alwaysIncludeSemantics,
       child: child,
     ),
 );
-var renderShaderMask = MXFunctionInvoke(
+var _renderShaderMask = MXFunctionInvoke(
     "RenderShaderMask",
-    ({
+    (
+      {
       RenderBox child,
       dynamic shaderCallback,
       BlendMode blendMode = BlendMode.modulate,
-    }) =>
+      }
+    ) =>
       RenderShaderMask(
       child: child,
-      shaderCallback: createGenericValueGenericClosure<Shader, Rect>(renderShaderMask.buildOwner, shaderCallback),
+      shaderCallback: createGenericValueGenericClosure<Shader, Rect>(_renderShaderMask.buildOwner, shaderCallback),
       blendMode: blendMode,
     ),
 );
-var renderBackdropFilter = MXFunctionInvoke(
+var _renderBackdropFilter = MXFunctionInvoke(
     "RenderBackdropFilter",
-    ({
+    (
+      {
       RenderBox child,
       ImageFilter filter,
-    }) =>
+      }
+    ) =>
       RenderBackdropFilter(
       child: child,
       filter: filter,
     ),
 );
-var shapeBorderClipper = MXFunctionInvoke(
+var _shapeBorderClipper = MXFunctionInvoke(
     "ShapeBorderClipper",
-    ({
+    (
+      {
       ShapeBorder shape,
       TextDirection textDirection,
-    }) =>
+      }
+    ) =>
       ShapeBorderClipper(
       shape: shape,
       textDirection: textDirection,
     ),
 );
-var renderClipRect = MXFunctionInvoke(
+var _renderClipRect = MXFunctionInvoke(
     "RenderClipRect",
-    ({
+    (
+      {
       RenderBox child,
       CustomClipper<Rect> clipper,
       Clip clipBehavior = Clip.antiAlias,
-    }) =>
+      }
+    ) =>
       RenderClipRect(
       child: child,
       clipper: clipper,
       clipBehavior: clipBehavior,
     ),
 );
-var renderClipRRect = MXFunctionInvoke(
+var _renderClipRRect = MXFunctionInvoke(
     "RenderClipRRect",
-    ({
+    (
+      {
       RenderBox child,
       BorderRadius borderRadius,
       CustomClipper<RRect> clipper,
       Clip clipBehavior = Clip.antiAlias,
-    }) =>
+      }
+    ) =>
       RenderClipRRect(
       child: child,
       borderRadius: borderRadius,
@@ -225,84 +250,94 @@ var renderClipRRect = MXFunctionInvoke(
       clipBehavior: clipBehavior,
     ),
 );
-var renderClipOval = MXFunctionInvoke(
+var _renderClipOval = MXFunctionInvoke(
     "RenderClipOval",
-    ({
+    (
+      {
       RenderBox child,
       CustomClipper<Rect> clipper,
       Clip clipBehavior = Clip.antiAlias,
-    }) =>
+      }
+    ) =>
       RenderClipOval(
       child: child,
       clipper: clipper,
       clipBehavior: clipBehavior,
     ),
 );
-var renderClipPath = MXFunctionInvoke(
+var _renderClipPath = MXFunctionInvoke(
     "RenderClipPath",
-    ({
+    (
+      {
       RenderBox child,
       CustomClipper<Path> clipper,
       Clip clipBehavior = Clip.antiAlias,
-    }) =>
+      }
+    ) =>
       RenderClipPath(
       child: child,
       clipper: clipper,
       clipBehavior: clipBehavior,
     ),
 );
-var renderPhysicalModel = MXFunctionInvoke(
+var _renderPhysicalModel = MXFunctionInvoke(
     "RenderPhysicalModel",
-    ({
+    (
+      {
       RenderBox child,
       BoxShape shape = BoxShape.rectangle,
       Clip clipBehavior = Clip.none,
       BorderRadius borderRadius,
-      dynamic elevation = 0.0,
+      double elevation = 0.0,
       Color color,
       Color shadowColor,
-    }) =>
+      }
+    ) =>
       RenderPhysicalModel(
       child: child,
       shape: shape,
       clipBehavior: clipBehavior,
       borderRadius: borderRadius,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       color: color,
       shadowColor: shadowColor,
     ),
 );
-var renderPhysicalShape = MXFunctionInvoke(
+var _renderPhysicalShape = MXFunctionInvoke(
     "RenderPhysicalShape",
-    ({
+    (
+      {
       RenderBox child,
       CustomClipper<Path> clipper,
       Clip clipBehavior = Clip.none,
-      dynamic elevation = 0.0,
+      double elevation = 0.0,
       Color color,
       Color shadowColor,
-    }) =>
+      }
+    ) =>
       RenderPhysicalShape(
       child: child,
       clipper: clipper,
       clipBehavior: clipBehavior,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       color: color,
       shadowColor: shadowColor,
     ),
 );
-var decorationPosition = MXFunctionInvoke(
+var _decorationPosition = MXFunctionInvoke(
     "DecorationPosition",
     ({Map args}) => MXDecorationPosition.parse(args),
   );
-var renderDecoratedBox = MXFunctionInvoke(
+var _renderDecoratedBox = MXFunctionInvoke(
     "RenderDecoratedBox",
-    ({
+    (
+      {
       Decoration decoration,
       DecorationPosition position = DecorationPosition.background,
       ImageConfiguration configuration,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderDecoratedBox(
       decoration: decoration,
       position: position,
@@ -310,16 +345,18 @@ var renderDecoratedBox = MXFunctionInvoke(
       child: child,
     ),
 );
-var renderTransform = MXFunctionInvoke(
+var _renderTransform = MXFunctionInvoke(
     "RenderTransform",
-    ({
+    (
+      {
       Matrix4 transform,
       Offset origin,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       bool transformHitTests = true,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderTransform(
       transform: transform,
       origin: origin,
@@ -329,14 +366,16 @@ var renderTransform = MXFunctionInvoke(
       child: child,
     ),
 );
-var renderFittedBox = MXFunctionInvoke(
+var _renderFittedBox = MXFunctionInvoke(
     "RenderFittedBox",
-    ({
+    (
+      {
       BoxFit fit = BoxFit.contain,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderFittedBox(
       fit: fit,
       alignment: alignment,
@@ -344,22 +383,25 @@ var renderFittedBox = MXFunctionInvoke(
       child: child,
     ),
 );
-var renderFractionalTranslation = MXFunctionInvoke(
+var _renderFractionalTranslation = MXFunctionInvoke(
     "RenderFractionalTranslation",
-    ({
+    (
+      {
       Offset translation,
       bool transformHitTests = true,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderFractionalTranslation(
       translation: translation,
       transformHitTests: transformHitTests,
       child: child,
     ),
 );
-var renderPointerListener = MXFunctionInvoke(
+var _renderPointerListener = MXFunctionInvoke(
     "RenderPointerListener",
-    ({
+    (
+      {
       dynamic onPointerDown,
       dynamic onPointerMove,
       dynamic onPointerUp,
@@ -367,115 +409,131 @@ var renderPointerListener = MXFunctionInvoke(
       dynamic onPointerSignal,
       HitTestBehavior behavior = HitTestBehavior.deferToChild,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderPointerListener(
-      onPointerDown: createValueChangedGenericClosure<PointerDownEvent>(renderPointerListener.buildOwner, onPointerDown),
-      onPointerMove: createValueChangedGenericClosure<PointerMoveEvent>(renderPointerListener.buildOwner, onPointerMove),
-      onPointerUp: createValueChangedGenericClosure<PointerUpEvent>(renderPointerListener.buildOwner, onPointerUp),
-      onPointerCancel: createValueChangedGenericClosure<PointerCancelEvent>(renderPointerListener.buildOwner, onPointerCancel),
-      onPointerSignal: createValueChangedGenericClosure<PointerSignalEvent>(renderPointerListener.buildOwner, onPointerSignal),
+      onPointerDown: createValueChangedGenericClosure<PointerDownEvent>(_renderPointerListener.buildOwner, onPointerDown),
+      onPointerMove: createValueChangedGenericClosure<PointerMoveEvent>(_renderPointerListener.buildOwner, onPointerMove),
+      onPointerUp: createValueChangedGenericClosure<PointerUpEvent>(_renderPointerListener.buildOwner, onPointerUp),
+      onPointerCancel: createValueChangedGenericClosure<PointerCancelEvent>(_renderPointerListener.buildOwner, onPointerCancel),
+      onPointerSignal: createValueChangedGenericClosure<PointerSignalEvent>(_renderPointerListener.buildOwner, onPointerSignal),
       behavior: behavior,
       child: child,
     ),
 );
-var renderMouseRegion = MXFunctionInvoke(
+var _renderMouseRegion = MXFunctionInvoke(
     "RenderMouseRegion",
-    ({
+    (
+      {
       dynamic onEnter,
       dynamic onHover,
       dynamic onExit,
       bool opaque = true,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderMouseRegion(
-      onEnter: createValueChangedGenericClosure<PointerEnterEvent>(renderMouseRegion.buildOwner, onEnter),
-      onHover: createValueChangedGenericClosure<PointerHoverEvent>(renderMouseRegion.buildOwner, onHover),
-      onExit: createValueChangedGenericClosure<PointerExitEvent>(renderMouseRegion.buildOwner, onExit),
+      onEnter: createValueChangedGenericClosure<PointerEnterEvent>(_renderMouseRegion.buildOwner, onEnter),
+      onHover: createValueChangedGenericClosure<PointerHoverEvent>(_renderMouseRegion.buildOwner, onHover),
+      onExit: createValueChangedGenericClosure<PointerExitEvent>(_renderMouseRegion.buildOwner, onExit),
       opaque: opaque,
       child: child,
     ),
 );
-var renderRepaintBoundary = MXFunctionInvoke(
+var _renderRepaintBoundary = MXFunctionInvoke(
     "RenderRepaintBoundary",
-    ({
+    (
+      {
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderRepaintBoundary(
       child: child,
     ),
 );
-var renderIgnorePointer = MXFunctionInvoke(
+var _renderIgnorePointer = MXFunctionInvoke(
     "RenderIgnorePointer",
-    ({
+    (
+      {
       RenderBox child,
       bool ignoring = true,
       bool ignoringSemantics,
-    }) =>
+      }
+    ) =>
       RenderIgnorePointer(
       child: child,
       ignoring: ignoring,
       ignoringSemantics: ignoringSemantics,
     ),
 );
-var renderOffstage = MXFunctionInvoke(
+var _renderOffstage = MXFunctionInvoke(
     "RenderOffstage",
-    ({
+    (
+      {
       bool offstage = true,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderOffstage(
       offstage: offstage,
       child: child,
     ),
 );
-var renderAbsorbPointer = MXFunctionInvoke(
+var _renderAbsorbPointer = MXFunctionInvoke(
     "RenderAbsorbPointer",
-    ({
+    (
+      {
       RenderBox child,
       bool absorbing = true,
       bool ignoringSemantics,
-    }) =>
+      }
+    ) =>
       RenderAbsorbPointer(
       child: child,
       absorbing: absorbing,
       ignoringSemantics: ignoringSemantics,
     ),
 );
-var renderMetaData = MXFunctionInvoke(
+var _renderMetaData = MXFunctionInvoke(
     "RenderMetaData",
-    ({
+    (
+      {
       dynamic metaData,
       HitTestBehavior behavior = HitTestBehavior.deferToChild,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderMetaData(
       metaData: metaData,
       behavior: behavior,
       child: child,
     ),
 );
-var renderSemanticsGestureHandler = MXFunctionInvoke(
+var _renderSemanticsGestureHandler = MXFunctionInvoke(
     "RenderSemanticsGestureHandler",
-    ({
+    (
+      {
       RenderBox child,
       dynamic onTap,
       dynamic onLongPress,
       dynamic onHorizontalDragUpdate,
       dynamic onVerticalDragUpdate,
-      dynamic scrollFactor = 0.8,
-    }) =>
+      double scrollFactor = 0.8,
+      }
+    ) =>
       RenderSemanticsGestureHandler(
       child: child,
-      onTap: createVoidCallbackClosure(renderSemanticsGestureHandler.buildOwner, onTap),
-      onLongPress: createVoidCallbackClosure(renderSemanticsGestureHandler.buildOwner, onLongPress),
-      onHorizontalDragUpdate: createValueChangedGenericClosure<DragUpdateDetails>(renderSemanticsGestureHandler.buildOwner, onHorizontalDragUpdate),
-      onVerticalDragUpdate: createValueChangedGenericClosure<DragUpdateDetails>(renderSemanticsGestureHandler.buildOwner, onVerticalDragUpdate),
-      scrollFactor: scrollFactor,
+      onTap: createVoidCallbackClosure(_renderSemanticsGestureHandler.buildOwner, onTap),
+      onLongPress: createVoidCallbackClosure(_renderSemanticsGestureHandler.buildOwner, onLongPress),
+      onHorizontalDragUpdate: createValueChangedGenericClosure<DragUpdateDetails>(_renderSemanticsGestureHandler.buildOwner, onHorizontalDragUpdate),
+      onVerticalDragUpdate: createValueChangedGenericClosure<DragUpdateDetails>(_renderSemanticsGestureHandler.buildOwner, onVerticalDragUpdate),
+      scrollFactor: scrollFactor?.toDouble(),
     ),
 );
-var renderSemanticsAnnotations = MXFunctionInvoke(
+var _renderSemanticsAnnotations = MXFunctionInvoke(
     "RenderSemanticsAnnotations",
-    ({
+    (
+      {
       RenderBox child,
       bool container = false,
       bool explicitChildNodes,
@@ -529,7 +587,8 @@ var renderSemanticsAnnotations = MXFunctionInvoke(
       dynamic onDidGainAccessibilityFocus,
       dynamic onDidLoseAccessibilityFocus,
       Map<CustomSemanticsAction, void Function()> customSemanticsActions,
-    }) =>
+      }
+    ) =>
       RenderSemanticsAnnotations(
       child: child,
       container: container,
@@ -564,89 +623,101 @@ var renderSemanticsAnnotations = MXFunctionInvoke(
       hintOverrides: hintOverrides,
       textDirection: textDirection,
       sortKey: sortKey,
-      onTap: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onTap),
-      onDismiss: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onDismiss),
-      onLongPress: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onLongPress),
-      onScrollLeft: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onScrollLeft),
-      onScrollRight: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onScrollRight),
-      onScrollUp: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onScrollUp),
-      onScrollDown: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onScrollDown),
-      onIncrease: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onIncrease),
-      onDecrease: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onDecrease),
-      onCopy: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onCopy),
-      onCut: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onCut),
-      onPaste: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onPaste),
-      onMoveCursorForwardByCharacter: createValueChangedGenericClosure<bool>(renderSemanticsAnnotations.buildOwner, onMoveCursorForwardByCharacter),
-      onMoveCursorBackwardByCharacter: createValueChangedGenericClosure<bool>(renderSemanticsAnnotations.buildOwner, onMoveCursorBackwardByCharacter),
-      onMoveCursorForwardByWord: createValueChangedGenericClosure<bool>(renderSemanticsAnnotations.buildOwner, onMoveCursorForwardByWord),
-      onMoveCursorBackwardByWord: createValueChangedGenericClosure<bool>(renderSemanticsAnnotations.buildOwner, onMoveCursorBackwardByWord),
-      onSetSelection: createValueChangedGenericClosure<TextSelection>(renderSemanticsAnnotations.buildOwner, onSetSelection),
-      onDidGainAccessibilityFocus: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onDidGainAccessibilityFocus),
-      onDidLoseAccessibilityFocus: createVoidCallbackClosure(renderSemanticsAnnotations.buildOwner, onDidLoseAccessibilityFocus),
+      onTap: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onTap),
+      onDismiss: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onDismiss),
+      onLongPress: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onLongPress),
+      onScrollLeft: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onScrollLeft),
+      onScrollRight: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onScrollRight),
+      onScrollUp: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onScrollUp),
+      onScrollDown: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onScrollDown),
+      onIncrease: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onIncrease),
+      onDecrease: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onDecrease),
+      onCopy: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onCopy),
+      onCut: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onCut),
+      onPaste: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onPaste),
+      onMoveCursorForwardByCharacter: createValueChangedGenericClosure<bool>(_renderSemanticsAnnotations.buildOwner, onMoveCursorForwardByCharacter),
+      onMoveCursorBackwardByCharacter: createValueChangedGenericClosure<bool>(_renderSemanticsAnnotations.buildOwner, onMoveCursorBackwardByCharacter),
+      onMoveCursorForwardByWord: createValueChangedGenericClosure<bool>(_renderSemanticsAnnotations.buildOwner, onMoveCursorForwardByWord),
+      onMoveCursorBackwardByWord: createValueChangedGenericClosure<bool>(_renderSemanticsAnnotations.buildOwner, onMoveCursorBackwardByWord),
+      onSetSelection: createValueChangedGenericClosure<TextSelection>(_renderSemanticsAnnotations.buildOwner, onSetSelection),
+      onDidGainAccessibilityFocus: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onDidGainAccessibilityFocus),
+      onDidLoseAccessibilityFocus: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onDidLoseAccessibilityFocus),
       customSemanticsActions: customSemanticsActions,
     ),
 );
-var renderBlockSemantics = MXFunctionInvoke(
+var _renderBlockSemantics = MXFunctionInvoke(
     "RenderBlockSemantics",
-    ({
+    (
+      {
       RenderBox child,
       bool blocking = true,
-    }) =>
+      }
+    ) =>
       RenderBlockSemantics(
       child: child,
       blocking: blocking,
     ),
 );
-var renderMergeSemantics = MXFunctionInvoke(
+var _renderMergeSemantics = MXFunctionInvoke(
     "RenderMergeSemantics",
-    ({
+    (
+      {
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderMergeSemantics(
       child: child,
     ),
 );
-var renderExcludeSemantics = MXFunctionInvoke(
+var _renderExcludeSemantics = MXFunctionInvoke(
     "RenderExcludeSemantics",
-    ({
+    (
+      {
       RenderBox child,
       bool excluding = true,
-    }) =>
+      }
+    ) =>
       RenderExcludeSemantics(
       child: child,
       excluding: excluding,
     ),
 );
-var renderIndexedSemantics = MXFunctionInvoke(
+var _renderIndexedSemantics = MXFunctionInvoke(
     "RenderIndexedSemantics",
-    ({
+    (
+      {
       RenderBox child,
       int index,
-    }) =>
+      }
+    ) =>
       RenderIndexedSemantics(
       child: child,
       index: index,
     ),
 );
-var renderLeaderLayer = MXFunctionInvoke(
+var _renderLeaderLayer = MXFunctionInvoke(
     "RenderLeaderLayer",
-    ({
+    (
+      {
       LayerLink link,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderLeaderLayer(
       link: link,
       child: child,
     ),
 );
-var renderFollowerLayer = MXFunctionInvoke(
+var _renderFollowerLayer = MXFunctionInvoke(
     "RenderFollowerLayer",
-    ({
+    (
+      {
       LayerLink link,
       bool showWhenUnlinked = true,
       Offset offset,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderFollowerLayer(
       link: link,
       showWhenUnlinked: showWhenUnlinked,
@@ -654,13 +725,15 @@ var renderFollowerLayer = MXFunctionInvoke(
       child: child,
     ),
 );
-var renderAnnotatedRegion = MXFunctionInvoke(
+var _renderAnnotatedRegion = MXFunctionInvoke(
     "RenderAnnotatedRegion",
-    ({
+    (
+      {
       dynamic value,
       bool sized,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderAnnotatedRegion(
       value: value,
       sized: sized,

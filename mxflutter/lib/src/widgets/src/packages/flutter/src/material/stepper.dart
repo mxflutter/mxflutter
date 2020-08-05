@@ -22,29 +22,31 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStepperSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[stepState.funName] = stepState;
-  m[stepperType.funName] = stepperType;
-  m[step.funName] = step;
-  m[stepper.funName] = stepper;
+  m[_stepState.funName] = _stepState;
+  m[_stepperType.funName] = _stepperType;
+  m[_step.funName] = _step;
+  m[_stepper.funName] = _stepper;
   return m;
 }
-var stepState = MXFunctionInvoke(
+var _stepState = MXFunctionInvoke(
     "StepState",
     ({Map args}) => MXStepState.parse(args),
   );
-var stepperType = MXFunctionInvoke(
+var _stepperType = MXFunctionInvoke(
     "StepperType",
     ({Map args}) => MXStepperType.parse(args),
   );
-var step = MXFunctionInvoke(
+var _step = MXFunctionInvoke(
     "Step",
-    ({
+    (
+      {
       Widget title,
       Widget subtitle,
       Widget content,
       StepState state = StepState.indexed,
       bool isActive = false,
-    }) =>
+      }
+    ) =>
       Step(
       title: title,
       subtitle: subtitle,
@@ -53,9 +55,10 @@ var step = MXFunctionInvoke(
       isActive: isActive,
     ),
 );
-var stepper = MXFunctionInvoke(
+var _stepper = MXFunctionInvoke(
     "Stepper",
-    ({
+    (
+      {
       Key key,
       List<Step> steps,
       ScrollPhysics physics,
@@ -65,17 +68,18 @@ var stepper = MXFunctionInvoke(
       dynamic onStepContinue,
       dynamic onStepCancel,
       dynamic controlsBuilder,
-    }) =>
+      }
+    ) =>
       Stepper(
       key: key,
       steps: steps,
       physics: physics,
       type: type,
       currentStep: currentStep,
-      onStepTapped: createValueChangedGenericClosure<int>(stepper.buildOwner, onStepTapped),
-      onStepContinue: createVoidCallbackClosure(stepper.buildOwner, onStepContinue),
-      onStepCancel: createVoidCallbackClosure(stepper.buildOwner, onStepCancel),
-      controlsBuilder: createGenericValueGenericClosure<Widget, BuildContext>(stepper.buildOwner, controlsBuilder),
+      onStepTapped: createValueChangedGenericClosure<int>(_stepper.buildOwner, onStepTapped),
+      onStepContinue: createVoidCallbackClosure(_stepper.buildOwner, onStepContinue),
+      onStepCancel: createVoidCallbackClosure(_stepper.buildOwner, onStepCancel),
+      controlsBuilder: createGenericValueGenericClosure<Widget, BuildContext>(_stepper.buildOwner, controlsBuilder),
     ),
 );
 class MXStepState {

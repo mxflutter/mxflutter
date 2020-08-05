@@ -15,18 +15,20 @@ import 'package:flutter/src/painting/basic_types.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMatrixUtilsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[transformProperty.funName] = transformProperty;
+  m[_transformProperty.funName] = _transformProperty;
   return m;
 }
-var transformProperty = MXFunctionInvoke(
+var _transformProperty = MXFunctionInvoke(
     "TransformProperty",
-    ({
+    (
+      {
       String name,
       Matrix4 value,
       bool showName = true,
       Object defaultValue,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       TransformProperty(
       name,
       value,

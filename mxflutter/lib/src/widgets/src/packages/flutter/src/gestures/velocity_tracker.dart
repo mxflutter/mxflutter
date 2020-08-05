@@ -9,45 +9,48 @@ import 'package:flutter/src/gestures/velocity_tracker.dart';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/gestures/lsq_solver.dart';
-import 'dart:ui';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerVelocityTrackerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[velocity.funName] = velocity;
-  m[velocityEstimate.funName] = velocityEstimate;
-  m[velocityTracker.funName] = velocityTracker;
+  m[_velocity.funName] = _velocity;
+  m[_velocityEstimate.funName] = _velocityEstimate;
+  m[_velocityTracker.funName] = _velocityTracker;
   return m;
 }
-var velocity = MXFunctionInvoke(
+var _velocity = MXFunctionInvoke(
     "Velocity",
-    ({
+    (
+      {
       Offset pixelsPerSecond,
-    }) =>
+      }
+    ) =>
       Velocity(
       pixelsPerSecond: pixelsPerSecond,
     ),
 );
-var velocityEstimate = MXFunctionInvoke(
+var _velocityEstimate = MXFunctionInvoke(
     "VelocityEstimate",
-    ({
+    (
+      {
       Offset pixelsPerSecond,
-      dynamic confidence,
+      double confidence,
       Duration duration,
       Offset offset,
-    }) =>
+      }
+    ) =>
       VelocityEstimate(
       pixelsPerSecond: pixelsPerSecond,
-      confidence: confidence,
+      confidence: confidence?.toDouble(),
       duration: duration,
       offset: offset,
     ),
 );
-var velocityTracker = MXFunctionInvoke(
+var _velocityTracker = MXFunctionInvoke(
     "VelocityTracker",
-    ({
-    }) =>
+    (
+    ) =>
       VelocityTracker(
     ),
 );

@@ -21,29 +21,32 @@ import 'package:flutter/src/rendering/viewport_offset.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEditableSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[selectionChangedCause.funName] = selectionChangedCause;
-  m[textSelectionPoint.funName] = textSelectionPoint;
-  m[renderEditable.funName] = renderEditable;
+  m[_selectionChangedCause.funName] = _selectionChangedCause;
+  m[_textSelectionPoint.funName] = _textSelectionPoint;
+  m[_renderEditable.funName] = _renderEditable;
   return m;
 }
-var selectionChangedCause = MXFunctionInvoke(
+var _selectionChangedCause = MXFunctionInvoke(
     "SelectionChangedCause",
     ({Map args}) => MXSelectionChangedCause.parse(args),
   );
-var textSelectionPoint = MXFunctionInvoke(
+var _textSelectionPoint = MXFunctionInvoke(
     "TextSelectionPoint",
-    ({
+    (
+      {
       Offset point,
       TextDirection direction,
-    }) =>
+      }
+    ) =>
       TextSelectionPoint(
       point,
       direction,
     ),
 );
-var renderEditable = MXFunctionInvoke(
+var _renderEditable = MXFunctionInvoke(
     "RenderEditable",
-    ({
+    (
+      {
       TextSpan text,
       TextDirection textDirection,
       TextAlign textAlign = TextAlign.start,
@@ -58,7 +61,7 @@ var renderEditable = MXFunctionInvoke(
       bool expands = false,
       StrutStyle strutStyle,
       Color selectionColor,
-      dynamic textScaleFactor = 1.0,
+      double textScaleFactor = 1.0,
       TextSelection selection,
       ViewportOffset offset,
       dynamic onSelectionChanged,
@@ -69,17 +72,18 @@ var renderEditable = MXFunctionInvoke(
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
       bool obscureText = false,
       Locale locale,
-      dynamic cursorWidth = 1.0,
+      double cursorWidth = 1.0,
       Radius cursorRadius,
       bool paintCursorAboveText = false,
       Offset cursorOffset,
-      dynamic devicePixelRatio = 1.0,
+      double devicePixelRatio = 1.0,
       BoxHeightStyle selectionHeightStyle = BoxHeightStyle.tight,
       BoxWidthStyle selectionWidthStyle = BoxWidthStyle.tight,
       bool enableInteractiveSelection,
       EdgeInsets floatingCursorAddedMargin,
       TextSelectionDelegate textSelectionDelegate,
-    }) =>
+      }
+    ) =>
       RenderEditable(
       text: text,
       textDirection: textDirection,
@@ -95,22 +99,22 @@ var renderEditable = MXFunctionInvoke(
       expands: expands,
       strutStyle: strutStyle,
       selectionColor: selectionColor,
-      textScaleFactor: textScaleFactor,
+      textScaleFactor: textScaleFactor?.toDouble(),
       selection: selection,
       offset: offset,
-      onSelectionChanged: createVoidCallbackClosure(renderEditable.buildOwner, onSelectionChanged),
-      onCaretChanged: createValueChangedGenericClosure<Rect>(renderEditable.buildOwner, onCaretChanged),
+      onSelectionChanged: null,
+      onCaretChanged: createValueChangedGenericClosure<Rect>(_renderEditable.buildOwner, onCaretChanged),
       ignorePointer: ignorePointer,
       readOnly: readOnly,
       forceLine: forceLine,
       textWidthBasis: textWidthBasis,
       obscureText: obscureText,
       locale: locale,
-      cursorWidth: cursorWidth,
+      cursorWidth: cursorWidth?.toDouble(),
       cursorRadius: cursorRadius,
       paintCursorAboveText: paintCursorAboveText,
       cursorOffset: cursorOffset,
-      devicePixelRatio: devicePixelRatio,
+      devicePixelRatio: devicePixelRatio?.toDouble(),
       selectionHeightStyle: selectionHeightStyle,
       selectionWidthStyle: selectionWidthStyle,
       enableInteractiveSelection: enableInteractiveSelection,

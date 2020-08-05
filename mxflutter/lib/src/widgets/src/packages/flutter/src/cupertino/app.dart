@@ -20,12 +20,13 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAppSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoApp.funName] = cupertinoApp;
+  m[_cupertinoApp.funName] = _cupertinoApp;
   return m;
 }
-var cupertinoApp = MXFunctionInvoke(
+var _cupertinoApp = MXFunctionInvoke(
     "CupertinoApp",
-    ({
+    (
+      {
       Key key,
       GlobalKey<NavigatorState> navigatorKey,
       Widget home,
@@ -52,7 +53,8 @@ var cupertinoApp = MXFunctionInvoke(
       bool debugShowCheckedModeBanner = true,
       Map<LogicalKeySet, Intent> shortcuts,
       Map<LocalKey, Action Function()> actions,
-    }) =>
+      }
+    ) =>
       CupertinoApp(
       key: key,
       navigatorKey: navigatorKey,
@@ -60,18 +62,18 @@ var cupertinoApp = MXFunctionInvoke(
       theme: theme,
       routes: routes,
       initialRoute: initialRoute,
-      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(cupertinoApp.buildOwner, onGenerateRoute),
-      onGenerateInitialRoutes: createGenericValueGenericClosure<List<Route<dynamic>>, String>(cupertinoApp.buildOwner, onGenerateInitialRoutes),
-      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(cupertinoApp.buildOwner, onUnknownRoute),
+      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_cupertinoApp.buildOwner, onGenerateRoute),
+      onGenerateInitialRoutes: createGenericValueGenericClosure<List<Route<dynamic>>, String>(_cupertinoApp.buildOwner, onGenerateInitialRoutes),
+      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_cupertinoApp.buildOwner, onUnknownRoute),
       navigatorObservers: navigatorObservers,
-      builder: builder,
+      builder: null,
       title: title,
-      onGenerateTitle: createGenericValueGenericClosure<String, BuildContext>(cupertinoApp.buildOwner, onGenerateTitle),
+      onGenerateTitle: createGenericValueGenericClosure<String, BuildContext>(_cupertinoApp.buildOwner, onGenerateTitle),
       color: color,
       locale: locale,
       localizationsDelegates: localizationsDelegates,
-      localeListResolutionCallback: localeListResolutionCallback,
-      localeResolutionCallback: localeResolutionCallback,
+      localeListResolutionCallback: null,
+      localeResolutionCallback: null,
       supportedLocales: supportedLocales,
       showPerformanceOverlay: showPerformanceOverlay,
       checkerboardRasterCacheImages: checkerboardRasterCacheImages,

@@ -13,123 +13,141 @@ import 'package:collection/src/comparators.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEqualitySeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[equalityBy.funName] = equalityBy;
-  m[defaultEquality.funName] = defaultEquality;
-  m[identityEquality.funName] = identityEquality;
-  m[iterableEquality.funName] = iterableEquality;
-  m[listEquality.funName] = listEquality;
-  m[unorderedIterableEquality.funName] = unorderedIterableEquality;
-  m[setEquality.funName] = setEquality;
-  m[mapEquality.funName] = mapEquality;
-  m[multiEquality.funName] = multiEquality;
-  m[deepCollectionEquality.funName] = deepCollectionEquality;
-  m[deepCollectionEquality_unordered.funName] = deepCollectionEquality_unordered;
-  m[caseInsensitiveEquality.funName] = caseInsensitiveEquality;
+  m[_equalityBy.funName] = _equalityBy;
+  m[_defaultEquality.funName] = _defaultEquality;
+  m[_identityEquality.funName] = _identityEquality;
+  m[_iterableEquality.funName] = _iterableEquality;
+  m[_listEquality.funName] = _listEquality;
+  m[_unorderedIterableEquality.funName] = _unorderedIterableEquality;
+  m[_setEquality.funName] = _setEquality;
+  m[_mapEquality.funName] = _mapEquality;
+  m[_multiEquality.funName] = _multiEquality;
+  m[_deepCollectionEquality.funName] = _deepCollectionEquality;
+  m[_deepCollectionEquality_unordered.funName] = _deepCollectionEquality_unordered;
+  m[_caseInsensitiveEquality.funName] = _caseInsensitiveEquality;
   return m;
 }
-var equalityBy = MXFunctionInvoke(
+var _equalityBy = MXFunctionInvoke(
     "EqualityBy",
-    ({
+    (
+      {
       dynamic getKey,
-      Equality<EqualityBy::F> inner,
-    }) =>
+      Equality<dynamic> inner,
+      }
+    ) =>
       EqualityBy(
       getKey,
       inner,
     ),
 );
-var defaultEquality = MXFunctionInvoke(
+var _defaultEquality = MXFunctionInvoke(
     "DefaultEquality",
-    ({
-    }) =>
+    (
+    ) =>
       DefaultEquality(
     ),
 );
-var identityEquality = MXFunctionInvoke(
+var _identityEquality = MXFunctionInvoke(
     "IdentityEquality",
-    ({
-    }) =>
+    (
+    ) =>
       IdentityEquality(
     ),
 );
-var iterableEquality = MXFunctionInvoke(
+var _iterableEquality = MXFunctionInvoke(
     "IterableEquality",
-    ({
-      Equality<IterableEquality::E> elementEquality,
-    }) =>
+    (
+      {
+      Equality<dynamic> elementEquality,
+      }
+    ) =>
       IterableEquality(
       elementEquality,
     ),
 );
-var listEquality = MXFunctionInvoke(
+var _listEquality = MXFunctionInvoke(
     "ListEquality",
-    ({
-      Equality<ListEquality::E> elementEquality,
-    }) =>
+    (
+      {
+      Equality<dynamic> elementEquality,
+      }
+    ) =>
       ListEquality(
       elementEquality,
     ),
 );
-var unorderedIterableEquality = MXFunctionInvoke(
+var _unorderedIterableEquality = MXFunctionInvoke(
     "UnorderedIterableEquality",
-    ({
-      Equality<UnorderedIterableEquality::E> elementEquality,
-    }) =>
+    (
+      {
+      Equality<dynamic> elementEquality,
+      }
+    ) =>
       UnorderedIterableEquality(
       elementEquality,
     ),
 );
-var setEquality = MXFunctionInvoke(
+var _setEquality = MXFunctionInvoke(
     "SetEquality",
-    ({
-      Equality<SetEquality::E> elementEquality,
-    }) =>
+    (
+      {
+      Equality<dynamic> elementEquality,
+      }
+    ) =>
       SetEquality(
       elementEquality,
     ),
 );
-var mapEquality = MXFunctionInvoke(
+var _mapEquality = MXFunctionInvoke(
     "MapEquality",
-    ({
-      Equality<MapEquality::K> keys,
-      Equality<MapEquality::V> values,
-    }) =>
+    (
+      {
+      Equality<dynamic> keys,
+      Equality<dynamic> values,
+      }
+    ) =>
       MapEquality(
       keys: keys,
       values: values,
     ),
 );
-var multiEquality = MXFunctionInvoke(
+var _multiEquality = MXFunctionInvoke(
     "MultiEquality",
-    ({
-      Iterable<Equality<MultiEquality::E>> equalities,
-    }) =>
+    (
+      {
+      Iterable<Equality<dynamic>> equalities,
+      }
+    ) =>
       MultiEquality(
       equalities,
     ),
 );
-var deepCollectionEquality = MXFunctionInvoke(
+var _deepCollectionEquality = MXFunctionInvoke(
     "DeepCollectionEquality",
-    ({
+    (
+      {
       Equality<dynamic> base,
-    }) =>
+      }
+    ) =>
       DeepCollectionEquality(
       base,
     ),
 );
-var deepCollectionEquality_unordered = MXFunctionInvoke(
+var _deepCollectionEquality_unordered = MXFunctionInvoke(
   "deepCollectionEquality.unordered",
-    ({
+    (
+      {
       Equality<dynamic> base,
-    }) =>
+      }
+    ) =>
       DeepCollectionEquality.unordered(
       base,
     ),
 );
-var caseInsensitiveEquality = MXFunctionInvoke(
+var _caseInsensitiveEquality = MXFunctionInvoke(
     "CaseInsensitiveEquality",
-    ({
-    }) =>
+    (
+    ) =>
       CaseInsensitiveEquality(
     ),
 );

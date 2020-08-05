@@ -12,29 +12,30 @@ import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/focus_scope.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/services.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRawKeyboardListenerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[rawKeyboardListener.funName] = rawKeyboardListener;
+  m[_rawKeyboardListener.funName] = _rawKeyboardListener;
   return m;
 }
-var rawKeyboardListener = MXFunctionInvoke(
+var _rawKeyboardListener = MXFunctionInvoke(
     "RawKeyboardListener",
-    ({
+    (
+      {
       Key key,
       FocusNode focusNode,
       bool autofocus = false,
       dynamic onKey,
       Widget child,
-    }) =>
+      }
+    ) =>
       RawKeyboardListener(
       key: key,
       focusNode: focusNode,
       autofocus: autofocus,
-      onKey: createValueChangedGenericClosure<RawKeyEvent>(rawKeyboardListener.buildOwner, onKey),
+      onKey: createValueChangedGenericClosure<RawKeyEvent>(_rawKeyboardListener.buildOwner, onKey),
       child: child,
     ),
 );

@@ -7,32 +7,31 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/basic_types.dart';
 import 'dart:ui';
-import 'dart:ui';
 import 'package:flutter/foundation.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[renderComparison.funName] = renderComparison;
-  m[axis.funName] = axis;
-  m[verticalDirection.funName] = verticalDirection;
-  m[axisDirection.funName] = axisDirection;
+  m[_renderComparison.funName] = _renderComparison;
+  m[_axis.funName] = _axis;
+  m[_verticalDirection.funName] = _verticalDirection;
+  m[_axisDirection.funName] = _axisDirection;
   return m;
 }
-var renderComparison = MXFunctionInvoke(
+var _renderComparison = MXFunctionInvoke(
     "RenderComparison",
     ({Map args}) => MXRenderComparison.parse(args),
   );
-var axis = MXFunctionInvoke(
+var _axis = MXFunctionInvoke(
     "Axis",
     ({Map args}) => MXAxis.parse(args),
   );
-var verticalDirection = MXFunctionInvoke(
+var _verticalDirection = MXFunctionInvoke(
     "VerticalDirection",
     ({Map args}) => MXVerticalDirection.parse(args),
   );
-var axisDirection = MXFunctionInvoke(
+var _axisDirection = MXFunctionInvoke(
     "AxisDirection",
     ({Map args}) => MXAxisDirection.parse(args),
   );

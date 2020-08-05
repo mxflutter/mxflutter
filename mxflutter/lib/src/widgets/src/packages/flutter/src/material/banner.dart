@@ -17,12 +17,13 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBannerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[materialBanner.funName] = materialBanner;
+  m[_materialBanner.funName] = _materialBanner;
   return m;
 }
-var materialBanner = MXFunctionInvoke(
+var _materialBanner = MXFunctionInvoke(
     "MaterialBanner",
-    ({
+    (
+      {
       Key key,
       Widget content,
       TextStyle contentTextStyle,
@@ -32,7 +33,8 @@ var materialBanner = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       EdgeInsetsGeometry leadingPadding,
       bool forceActionsBelow = false,
-    }) =>
+      }
+    ) =>
       MaterialBanner(
       key: key,
       content: content,

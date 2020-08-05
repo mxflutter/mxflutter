@@ -9,48 +9,49 @@ import 'package:flutter/src/gestures/events.dart';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:vector_math/vector_math_64.dart';
-import 'dart:ui';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEventsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[pointerAddedEvent.funName] = pointerAddedEvent;
-  m[pointerRemovedEvent.funName] = pointerRemovedEvent;
-  m[pointerHoverEvent.funName] = pointerHoverEvent;
-  m[pointerEnterEvent.funName] = pointerEnterEvent;
-  m[pointerEnterEvent_fromHoverEvent.funName] = pointerEnterEvent_fromHoverEvent;
-  m[pointerEnterEvent_fromMouseEvent.funName] = pointerEnterEvent_fromMouseEvent;
-  m[pointerExitEvent.funName] = pointerExitEvent;
-  m[pointerExitEvent_fromHoverEvent.funName] = pointerExitEvent_fromHoverEvent;
-  m[pointerExitEvent_fromMouseEvent.funName] = pointerExitEvent_fromMouseEvent;
-  m[pointerDownEvent.funName] = pointerDownEvent;
-  m[pointerMoveEvent.funName] = pointerMoveEvent;
-  m[pointerUpEvent.funName] = pointerUpEvent;
-  m[pointerScrollEvent.funName] = pointerScrollEvent;
-  m[pointerCancelEvent.funName] = pointerCancelEvent;
+  m[_pointerAddedEvent.funName] = _pointerAddedEvent;
+  m[_pointerRemovedEvent.funName] = _pointerRemovedEvent;
+  m[_pointerHoverEvent.funName] = _pointerHoverEvent;
+  m[_pointerEnterEvent.funName] = _pointerEnterEvent;
+  m[_pointerEnterEvent_fromHoverEvent.funName] = _pointerEnterEvent_fromHoverEvent;
+  m[_pointerEnterEvent_fromMouseEvent.funName] = _pointerEnterEvent_fromMouseEvent;
+  m[_pointerExitEvent.funName] = _pointerExitEvent;
+  m[_pointerExitEvent_fromHoverEvent.funName] = _pointerExitEvent_fromHoverEvent;
+  m[_pointerExitEvent_fromMouseEvent.funName] = _pointerExitEvent_fromMouseEvent;
+  m[_pointerDownEvent.funName] = _pointerDownEvent;
+  m[_pointerMoveEvent.funName] = _pointerMoveEvent;
+  m[_pointerUpEvent.funName] = _pointerUpEvent;
+  m[_pointerScrollEvent.funName] = _pointerScrollEvent;
+  m[_pointerCancelEvent.funName] = _pointerCancelEvent;
   return m;
 }
-var pointerAddedEvent = MXFunctionInvoke(
+var _pointerAddedEvent = MXFunctionInvoke(
     "PointerAddedEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       PointerDeviceKind kind = PointerDeviceKind.touch,
       int device = 0,
       Offset position,
       Offset localPosition,
       bool obscured = false,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distance = 0.0,
-      dynamic distanceMax = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
-      dynamic orientation = 0.0,
-      dynamic tilt = 0.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distance = 0.0,
+      double distanceMax = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
+      double orientation = 0.0,
+      double tilt = 0.0,
       Matrix4 transform,
       PointerAddedEvent original,
-    }) =>
+      }
+    ) =>
       PointerAddedEvent(
       timeStamp: timeStamp,
       kind: kind,
@@ -58,35 +59,37 @@ var pointerAddedEvent = MXFunctionInvoke(
       position: position,
       localPosition: localPosition,
       obscured: obscured,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distance: distance,
-      distanceMax: distanceMax,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
-      orientation: orientation,
-      tilt: tilt,
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distance: distance?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
       transform: transform,
       original: original,
     ),
 );
-var pointerRemovedEvent = MXFunctionInvoke(
+var _pointerRemovedEvent = MXFunctionInvoke(
     "PointerRemovedEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       PointerDeviceKind kind = PointerDeviceKind.touch,
       int device = 0,
       Offset position,
       Offset localPosition,
       bool obscured = false,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distanceMax = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distanceMax = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
       Matrix4 transform,
       PointerRemovedEvent original,
-    }) =>
+      }
+    ) =>
       PointerRemovedEvent(
       timeStamp: timeStamp,
       kind: kind,
@@ -94,18 +97,19 @@ var pointerRemovedEvent = MXFunctionInvoke(
       position: position,
       localPosition: localPosition,
       obscured: obscured,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distanceMax: distanceMax,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
       transform: transform,
       original: original,
     ),
 );
-var pointerHoverEvent = MXFunctionInvoke(
+var _pointerHoverEvent = MXFunctionInvoke(
     "PointerHoverEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       PointerDeviceKind kind = PointerDeviceKind.touch,
       int device = 0,
@@ -115,21 +119,22 @@ var pointerHoverEvent = MXFunctionInvoke(
       Offset localDelta,
       int buttons = 0,
       bool obscured = false,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distance = 0.0,
-      dynamic distanceMax = 0.0,
-      dynamic size = 0.0,
-      dynamic radiusMajor = 0.0,
-      dynamic radiusMinor = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
-      dynamic orientation = 0.0,
-      dynamic tilt = 0.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distance = 0.0,
+      double distanceMax = 0.0,
+      double size = 0.0,
+      double radiusMajor = 0.0,
+      double radiusMinor = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
+      double orientation = 0.0,
+      double tilt = 0.0,
       bool synthesized = false,
       Matrix4 transform,
       PointerHoverEvent original,
-    }) =>
+      }
+    ) =>
       PointerHoverEvent(
       timeStamp: timeStamp,
       kind: kind,
@@ -140,25 +145,26 @@ var pointerHoverEvent = MXFunctionInvoke(
       localDelta: localDelta,
       buttons: buttons,
       obscured: obscured,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distance: distance,
-      distanceMax: distanceMax,
-      size: size,
-      radiusMajor: radiusMajor,
-      radiusMinor: radiusMinor,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
-      orientation: orientation,
-      tilt: tilt,
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distance: distance?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      size: size?.toDouble(),
+      radiusMajor: radiusMajor?.toDouble(),
+      radiusMinor: radiusMinor?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
       synthesized: synthesized,
       transform: transform,
       original: original,
     ),
 );
-var pointerEnterEvent = MXFunctionInvoke(
+var _pointerEnterEvent = MXFunctionInvoke(
     "PointerEnterEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       PointerDeviceKind kind = PointerDeviceKind.touch,
       int device = 0,
@@ -168,22 +174,23 @@ var pointerEnterEvent = MXFunctionInvoke(
       Offset localDelta,
       int buttons = 0,
       bool obscured = false,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distance = 0.0,
-      dynamic distanceMax = 0.0,
-      dynamic size = 0.0,
-      dynamic radiusMajor = 0.0,
-      dynamic radiusMinor = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
-      dynamic orientation = 0.0,
-      dynamic tilt = 0.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distance = 0.0,
+      double distanceMax = 0.0,
+      double size = 0.0,
+      double radiusMajor = 0.0,
+      double radiusMinor = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
+      double orientation = 0.0,
+      double tilt = 0.0,
       bool down = false,
       bool synthesized = false,
       Matrix4 transform,
       PointerEnterEvent original,
-    }) =>
+      }
+    ) =>
       PointerEnterEvent(
       timeStamp: timeStamp,
       kind: kind,
@@ -194,44 +201,49 @@ var pointerEnterEvent = MXFunctionInvoke(
       localDelta: localDelta,
       buttons: buttons,
       obscured: obscured,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distance: distance,
-      distanceMax: distanceMax,
-      size: size,
-      radiusMajor: radiusMajor,
-      radiusMinor: radiusMinor,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
-      orientation: orientation,
-      tilt: tilt,
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distance: distance?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      size: size?.toDouble(),
+      radiusMajor: radiusMajor?.toDouble(),
+      radiusMinor: radiusMinor?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
       down: down,
       synthesized: synthesized,
       transform: transform,
       original: original,
     ),
 );
-var pointerEnterEvent_fromHoverEvent = MXFunctionInvoke(
+var _pointerEnterEvent_fromHoverEvent = MXFunctionInvoke(
   "pointerEnterEvent.fromHoverEvent",
-    ({
+    (
+      {
       PointerHoverEvent event,
-    }) =>
+      }
+    ) =>
       PointerEnterEvent.fromHoverEvent(
       event,
     ),
 );
-var pointerEnterEvent_fromMouseEvent = MXFunctionInvoke(
+var _pointerEnterEvent_fromMouseEvent = MXFunctionInvoke(
   "pointerEnterEvent.fromMouseEvent",
-    ({
+    (
+      {
       PointerEvent event,
-    }) =>
+      }
+    ) =>
       PointerEnterEvent.fromMouseEvent(
       event,
     ),
 );
-var pointerExitEvent = MXFunctionInvoke(
+var _pointerExitEvent = MXFunctionInvoke(
     "PointerExitEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       PointerDeviceKind kind = PointerDeviceKind.touch,
       int device = 0,
@@ -241,22 +253,23 @@ var pointerExitEvent = MXFunctionInvoke(
       Offset localDelta,
       int buttons = 0,
       bool obscured = false,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distance = 0.0,
-      dynamic distanceMax = 0.0,
-      dynamic size = 0.0,
-      dynamic radiusMajor = 0.0,
-      dynamic radiusMinor = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
-      dynamic orientation = 0.0,
-      dynamic tilt = 0.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distance = 0.0,
+      double distanceMax = 0.0,
+      double size = 0.0,
+      double radiusMajor = 0.0,
+      double radiusMinor = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
+      double orientation = 0.0,
+      double tilt = 0.0,
       bool down = false,
       bool synthesized = false,
       Matrix4 transform,
       PointerExitEvent original,
-    }) =>
+      }
+    ) =>
       PointerExitEvent(
       timeStamp: timeStamp,
       kind: kind,
@@ -267,44 +280,49 @@ var pointerExitEvent = MXFunctionInvoke(
       localDelta: localDelta,
       buttons: buttons,
       obscured: obscured,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distance: distance,
-      distanceMax: distanceMax,
-      size: size,
-      radiusMajor: radiusMajor,
-      radiusMinor: radiusMinor,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
-      orientation: orientation,
-      tilt: tilt,
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distance: distance?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      size: size?.toDouble(),
+      radiusMajor: radiusMajor?.toDouble(),
+      radiusMinor: radiusMinor?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
       down: down,
       synthesized: synthesized,
       transform: transform,
       original: original,
     ),
 );
-var pointerExitEvent_fromHoverEvent = MXFunctionInvoke(
+var _pointerExitEvent_fromHoverEvent = MXFunctionInvoke(
   "pointerExitEvent.fromHoverEvent",
-    ({
+    (
+      {
       PointerHoverEvent event,
-    }) =>
+      }
+    ) =>
       PointerExitEvent.fromHoverEvent(
       event,
     ),
 );
-var pointerExitEvent_fromMouseEvent = MXFunctionInvoke(
+var _pointerExitEvent_fromMouseEvent = MXFunctionInvoke(
   "pointerExitEvent.fromMouseEvent",
-    ({
+    (
+      {
       PointerEvent event,
-    }) =>
+      }
+    ) =>
       PointerExitEvent.fromMouseEvent(
       event,
     ),
 );
-var pointerDownEvent = MXFunctionInvoke(
+var _pointerDownEvent = MXFunctionInvoke(
     "PointerDownEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       int pointer = 0,
       PointerDeviceKind kind = PointerDeviceKind.touch,
@@ -313,20 +331,21 @@ var pointerDownEvent = MXFunctionInvoke(
       Offset localPosition,
       int buttons = 1,
       bool obscured = false,
-      dynamic pressure = 1.0,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distanceMax = 0.0,
-      dynamic size = 0.0,
-      dynamic radiusMajor = 0.0,
-      dynamic radiusMinor = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
-      dynamic orientation = 0.0,
-      dynamic tilt = 0.0,
+      double pressure = 1.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distanceMax = 0.0,
+      double size = 0.0,
+      double radiusMajor = 0.0,
+      double radiusMinor = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
+      double orientation = 0.0,
+      double tilt = 0.0,
       Matrix4 transform,
       PointerDownEvent original,
-    }) =>
+      }
+    ) =>
       PointerDownEvent(
       timeStamp: timeStamp,
       pointer: pointer,
@@ -336,24 +355,25 @@ var pointerDownEvent = MXFunctionInvoke(
       localPosition: localPosition,
       buttons: buttons,
       obscured: obscured,
-      pressure: pressure,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distanceMax: distanceMax,
-      size: size,
-      radiusMajor: radiusMajor,
-      radiusMinor: radiusMinor,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
-      orientation: orientation,
-      tilt: tilt,
+      pressure: pressure?.toDouble(),
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      size: size?.toDouble(),
+      radiusMajor: radiusMajor?.toDouble(),
+      radiusMinor: radiusMinor?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
       transform: transform,
       original: original,
     ),
 );
-var pointerMoveEvent = MXFunctionInvoke(
+var _pointerMoveEvent = MXFunctionInvoke(
     "PointerMoveEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       int pointer = 0,
       PointerDeviceKind kind = PointerDeviceKind.touch,
@@ -364,22 +384,23 @@ var pointerMoveEvent = MXFunctionInvoke(
       Offset localDelta,
       int buttons = 1,
       bool obscured = false,
-      dynamic pressure = 1.0,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distanceMax = 0.0,
-      dynamic size = 0.0,
-      dynamic radiusMajor = 0.0,
-      dynamic radiusMinor = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
-      dynamic orientation = 0.0,
-      dynamic tilt = 0.0,
+      double pressure = 1.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distanceMax = 0.0,
+      double size = 0.0,
+      double radiusMajor = 0.0,
+      double radiusMinor = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
+      double orientation = 0.0,
+      double tilt = 0.0,
       int platformData = 0,
       bool synthesized = false,
       Matrix4 transform,
       PointerMoveEvent original,
-    }) =>
+      }
+    ) =>
       PointerMoveEvent(
       timeStamp: timeStamp,
       pointer: pointer,
@@ -391,26 +412,27 @@ var pointerMoveEvent = MXFunctionInvoke(
       localDelta: localDelta,
       buttons: buttons,
       obscured: obscured,
-      pressure: pressure,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distanceMax: distanceMax,
-      size: size,
-      radiusMajor: radiusMajor,
-      radiusMinor: radiusMinor,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
-      orientation: orientation,
-      tilt: tilt,
+      pressure: pressure?.toDouble(),
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      size: size?.toDouble(),
+      radiusMajor: radiusMajor?.toDouble(),
+      radiusMinor: radiusMinor?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
       platformData: platformData,
       synthesized: synthesized,
       transform: transform,
       original: original,
     ),
 );
-var pointerUpEvent = MXFunctionInvoke(
+var _pointerUpEvent = MXFunctionInvoke(
     "PointerUpEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       int pointer = 0,
       PointerDeviceKind kind = PointerDeviceKind.touch,
@@ -419,21 +441,22 @@ var pointerUpEvent = MXFunctionInvoke(
       Offset localPosition,
       int buttons = 0,
       bool obscured = false,
-      dynamic pressure = 0.0,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distance = 0.0,
-      dynamic distanceMax = 0.0,
-      dynamic size = 0.0,
-      dynamic radiusMajor = 0.0,
-      dynamic radiusMinor = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
-      dynamic orientation = 0.0,
-      dynamic tilt = 0.0,
+      double pressure = 0.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distance = 0.0,
+      double distanceMax = 0.0,
+      double size = 0.0,
+      double radiusMajor = 0.0,
+      double radiusMinor = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
+      double orientation = 0.0,
+      double tilt = 0.0,
       Matrix4 transform,
       PointerUpEvent original,
-    }) =>
+      }
+    ) =>
       PointerUpEvent(
       timeStamp: timeStamp,
       pointer: pointer,
@@ -443,25 +466,26 @@ var pointerUpEvent = MXFunctionInvoke(
       localPosition: localPosition,
       buttons: buttons,
       obscured: obscured,
-      pressure: pressure,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distance: distance,
-      distanceMax: distanceMax,
-      size: size,
-      radiusMajor: radiusMajor,
-      radiusMinor: radiusMinor,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
-      orientation: orientation,
-      tilt: tilt,
+      pressure: pressure?.toDouble(),
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distance: distance?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      size: size?.toDouble(),
+      radiusMajor: radiusMajor?.toDouble(),
+      radiusMinor: radiusMinor?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
       transform: transform,
       original: original,
     ),
 );
-var pointerScrollEvent = MXFunctionInvoke(
+var _pointerScrollEvent = MXFunctionInvoke(
     "PointerScrollEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       PointerDeviceKind kind = PointerDeviceKind.mouse,
       int device = 0,
@@ -470,7 +494,8 @@ var pointerScrollEvent = MXFunctionInvoke(
       Offset scrollDelta,
       Matrix4 transform,
       PointerScrollEvent original,
-    }) =>
+      }
+    ) =>
       PointerScrollEvent(
       timeStamp: timeStamp,
       kind: kind,
@@ -482,9 +507,10 @@ var pointerScrollEvent = MXFunctionInvoke(
       original: original,
     ),
 );
-var pointerCancelEvent = MXFunctionInvoke(
+var _pointerCancelEvent = MXFunctionInvoke(
     "PointerCancelEvent",
-    ({
+    (
+      {
       Duration timeStamp,
       int pointer = 0,
       PointerDeviceKind kind = PointerDeviceKind.touch,
@@ -493,20 +519,21 @@ var pointerCancelEvent = MXFunctionInvoke(
       Offset localPosition,
       int buttons = 0,
       bool obscured = false,
-      dynamic pressureMin = 1.0,
-      dynamic pressureMax = 1.0,
-      dynamic distance = 0.0,
-      dynamic distanceMax = 0.0,
-      dynamic size = 0.0,
-      dynamic radiusMajor = 0.0,
-      dynamic radiusMinor = 0.0,
-      dynamic radiusMin = 0.0,
-      dynamic radiusMax = 0.0,
-      dynamic orientation = 0.0,
-      dynamic tilt = 0.0,
+      double pressureMin = 1.0,
+      double pressureMax = 1.0,
+      double distance = 0.0,
+      double distanceMax = 0.0,
+      double size = 0.0,
+      double radiusMajor = 0.0,
+      double radiusMinor = 0.0,
+      double radiusMin = 0.0,
+      double radiusMax = 0.0,
+      double orientation = 0.0,
+      double tilt = 0.0,
       Matrix4 transform,
       PointerCancelEvent original,
-    }) =>
+      }
+    ) =>
       PointerCancelEvent(
       timeStamp: timeStamp,
       pointer: pointer,
@@ -516,17 +543,17 @@ var pointerCancelEvent = MXFunctionInvoke(
       localPosition: localPosition,
       buttons: buttons,
       obscured: obscured,
-      pressureMin: pressureMin,
-      pressureMax: pressureMax,
-      distance: distance,
-      distanceMax: distanceMax,
-      size: size,
-      radiusMajor: radiusMajor,
-      radiusMinor: radiusMinor,
-      radiusMin: radiusMin,
-      radiusMax: radiusMax,
-      orientation: orientation,
-      tilt: tilt,
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distance: distance?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      size: size?.toDouble(),
+      radiusMajor: radiusMajor?.toDouble(),
+      radiusMinor: radiusMinor?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
       transform: transform,
       original: original,
     ),

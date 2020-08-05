@@ -17,40 +17,46 @@ import 'package:flutter/src/gestures/recognizer.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTapSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[tapDownDetails.funName] = tapDownDetails;
-  m[tapUpDetails.funName] = tapUpDetails;
-  m[tapGestureRecognizer.funName] = tapGestureRecognizer;
+  m[_tapDownDetails.funName] = _tapDownDetails;
+  m[_tapUpDetails.funName] = _tapUpDetails;
+  m[_tapGestureRecognizer.funName] = _tapGestureRecognizer;
   return m;
 }
-var tapDownDetails = MXFunctionInvoke(
+var _tapDownDetails = MXFunctionInvoke(
     "TapDownDetails",
-    ({
+    (
+      {
       Offset globalPosition,
       Offset localPosition,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       TapDownDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
       kind: kind,
     ),
 );
-var tapUpDetails = MXFunctionInvoke(
+var _tapUpDetails = MXFunctionInvoke(
     "TapUpDetails",
-    ({
+    (
+      {
       Offset globalPosition,
       Offset localPosition,
-    }) =>
+      }
+    ) =>
       TapUpDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
     ),
 );
-var tapGestureRecognizer = MXFunctionInvoke(
+var _tapGestureRecognizer = MXFunctionInvoke(
     "TapGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
-    }) =>
+      }
+    ) =>
       TapGestureRecognizer(
       debugOwner: debugOwner,
     ),

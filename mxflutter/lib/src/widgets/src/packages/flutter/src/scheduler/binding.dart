@@ -15,16 +15,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/debug.dart';
 import 'package:flutter/src/scheduler/priority.dart';
-import 'dart:ui';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[schedulerPhase.funName] = schedulerPhase;
+  m[_schedulerPhase.funName] = _schedulerPhase;
   return m;
 }
-var schedulerPhase = MXFunctionInvoke(
+var _schedulerPhase = MXFunctionInvoke(
     "SchedulerPhase",
     ({Map args}) => MXSchedulerPhase.parse(args),
   );

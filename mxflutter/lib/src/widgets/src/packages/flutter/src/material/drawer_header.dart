@@ -15,12 +15,13 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDrawerHeaderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[drawerHeader.funName] = drawerHeader;
+  m[_drawerHeader.funName] = _drawerHeader;
   return m;
 }
-var drawerHeader = MXFunctionInvoke(
+var _drawerHeader = MXFunctionInvoke(
     "DrawerHeader",
-    ({
+    (
+      {
       Key key,
       Decoration decoration,
       EdgeInsetsGeometry margin,
@@ -28,7 +29,8 @@ var drawerHeader = MXFunctionInvoke(
       Duration duration,
       Curve curve,
       Widget child,
-    }) =>
+      }
+    ) =>
       DrawerHeader(
       key: key,
       decoration: decoration,

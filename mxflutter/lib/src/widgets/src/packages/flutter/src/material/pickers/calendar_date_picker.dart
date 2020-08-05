@@ -26,12 +26,13 @@ import 'package:flutter/src/material/pickers/date_utils.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCalendarDatePickerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[calendarDatePicker.funName] = calendarDatePicker;
+  m[_calendarDatePicker.funName] = _calendarDatePicker;
   return m;
 }
-var calendarDatePicker = MXFunctionInvoke(
+var _calendarDatePicker = MXFunctionInvoke(
     "CalendarDatePicker",
-    ({
+    (
+      {
       Key key,
       DateTime initialDate,
       DateTime firstDate,
@@ -40,15 +41,16 @@ var calendarDatePicker = MXFunctionInvoke(
       dynamic onDisplayedMonthChanged,
       DatePickerMode initialCalendarMode = DatePickerMode.day,
       dynamic selectableDayPredicate,
-    }) =>
+      }
+    ) =>
       CalendarDatePicker(
       key: key,
       initialDate: initialDate,
       firstDate: firstDate,
       lastDate: lastDate,
-      onDateChanged: createValueChangedGenericClosure<DateTime>(calendarDatePicker.buildOwner, onDateChanged),
-      onDisplayedMonthChanged: createValueChangedGenericClosure<DateTime>(calendarDatePicker.buildOwner, onDisplayedMonthChanged),
+      onDateChanged: createValueChangedGenericClosure<DateTime>(_calendarDatePicker.buildOwner, onDateChanged),
+      onDisplayedMonthChanged: createValueChangedGenericClosure<DateTime>(_calendarDatePicker.buildOwner, onDisplayedMonthChanged),
       initialCalendarMode: initialCalendarMode,
-      selectableDayPredicate: createGenericValueGenericClosure<bool, DateTime>(calendarDatePicker.buildOwner, selectableDayPredicate),
+      selectableDayPredicate: createGenericValueGenericClosure<bool, DateTime>(_calendarDatePicker.buildOwner, selectableDayPredicate),
     ),
 );

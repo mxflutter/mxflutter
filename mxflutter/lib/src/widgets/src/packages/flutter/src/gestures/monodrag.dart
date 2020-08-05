@@ -19,38 +19,44 @@ import 'package:flutter/src/gestures/velocity_tracker.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMonodragSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[verticalDragGestureRecognizer.funName] = verticalDragGestureRecognizer;
-  m[horizontalDragGestureRecognizer.funName] = horizontalDragGestureRecognizer;
-  m[panGestureRecognizer.funName] = panGestureRecognizer;
+  m[_verticalDragGestureRecognizer.funName] = _verticalDragGestureRecognizer;
+  m[_horizontalDragGestureRecognizer.funName] = _horizontalDragGestureRecognizer;
+  m[_panGestureRecognizer.funName] = _panGestureRecognizer;
   return m;
 }
-var verticalDragGestureRecognizer = MXFunctionInvoke(
+var _verticalDragGestureRecognizer = MXFunctionInvoke(
     "VerticalDragGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       VerticalDragGestureRecognizer(
       debugOwner: debugOwner,
       kind: kind,
     ),
 );
-var horizontalDragGestureRecognizer = MXFunctionInvoke(
+var _horizontalDragGestureRecognizer = MXFunctionInvoke(
     "HorizontalDragGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       HorizontalDragGestureRecognizer(
       debugOwner: debugOwner,
       kind: kind,
     ),
 );
-var panGestureRecognizer = MXFunctionInvoke(
+var _panGestureRecognizer = MXFunctionInvoke(
     "PanGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
-    }) =>
+      }
+    ) =>
       PanGestureRecognizer(
       debugOwner: debugOwner,
     ),

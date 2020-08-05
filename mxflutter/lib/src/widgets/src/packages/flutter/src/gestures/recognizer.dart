@@ -18,52 +18,57 @@ import 'package:flutter/src/gestures/debug.dart';
 import 'package:flutter/src/gestures/events.dart';
 import 'package:flutter/src/gestures/pointer_router.dart';
 import 'package:flutter/src/gestures/team.dart';
-import 'package:flutter/src/gestures/pointer_router.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRecognizerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[dragStartBehavior.funName] = dragStartBehavior;
-  m[gestureRecognizerState.funName] = gestureRecognizerState;
-  m[offsetPair.funName] = offsetPair;
-  m[offsetPair_fromEventPosition.funName] = offsetPair_fromEventPosition;
-  m[offsetPair_fromEventDelta.funName] = offsetPair_fromEventDelta;
+  m[_dragStartBehavior.funName] = _dragStartBehavior;
+  m[_gestureRecognizerState.funName] = _gestureRecognizerState;
+  m[_offsetPair.funName] = _offsetPair;
+  m[_offsetPair_fromEventPosition.funName] = _offsetPair_fromEventPosition;
+  m[_offsetPair_fromEventDelta.funName] = _offsetPair_fromEventDelta;
   return m;
 }
-var dragStartBehavior = MXFunctionInvoke(
+var _dragStartBehavior = MXFunctionInvoke(
     "DragStartBehavior",
     ({Map args}) => MXDragStartBehavior.parse(args),
   );
-var gestureRecognizerState = MXFunctionInvoke(
+var _gestureRecognizerState = MXFunctionInvoke(
     "GestureRecognizerState",
     ({Map args}) => MXGestureRecognizerState.parse(args),
   );
-var offsetPair = MXFunctionInvoke(
+var _offsetPair = MXFunctionInvoke(
     "OffsetPair",
-    ({
+    (
+      {
       Offset local,
       Offset global,
-    }) =>
+      }
+    ) =>
       OffsetPair(
       local: local,
       global: global,
     ),
 );
-var offsetPair_fromEventPosition = MXFunctionInvoke(
+var _offsetPair_fromEventPosition = MXFunctionInvoke(
   "offsetPair.fromEventPosition",
-    ({
+    (
+      {
       PointerEvent event,
-    }) =>
+      }
+    ) =>
       OffsetPair.fromEventPosition(
       event,
     ),
 );
-var offsetPair_fromEventDelta = MXFunctionInvoke(
+var _offsetPair_fromEventDelta = MXFunctionInvoke(
   "offsetPair.fromEventDelta",
-    ({
+    (
+      {
       PointerEvent event,
-    }) =>
+      }
+    ) =>
       OffsetPair.fromEventDelta(
       event,
     ),

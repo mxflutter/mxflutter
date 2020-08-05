@@ -15,17 +15,19 @@ import 'package:flutter/src/widgets/layout_builder.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverLayoutBuilderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[sliverLayoutBuilder.funName] = sliverLayoutBuilder;
+  m[_sliverLayoutBuilder.funName] = _sliverLayoutBuilder;
   return m;
 }
-var sliverLayoutBuilder = MXFunctionInvoke(
+var _sliverLayoutBuilder = MXFunctionInvoke(
     "SliverLayoutBuilder",
-    ({
+    (
+      {
       Key key,
       dynamic builder,
-    }) =>
+      }
+    ) =>
       SliverLayoutBuilder(
       key: key,
-      builder: builder,
+      builder: null,
     ),
 );

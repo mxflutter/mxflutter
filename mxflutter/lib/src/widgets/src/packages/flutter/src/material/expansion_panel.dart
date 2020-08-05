@@ -19,73 +19,81 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerExpansionPanelSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[expansionPanel.funName] = expansionPanel;
-  m[expansionPanelRadio.funName] = expansionPanelRadio;
-  m[expansionPanelList.funName] = expansionPanelList;
-  m[expansionPanelList_radio.funName] = expansionPanelList_radio;
+  m[_expansionPanel.funName] = _expansionPanel;
+  m[_expansionPanelRadio.funName] = _expansionPanelRadio;
+  m[_expansionPanelList.funName] = _expansionPanelList;
+  m[_expansionPanelList_radio.funName] = _expansionPanelList_radio;
   return m;
 }
-var expansionPanel = MXFunctionInvoke(
+var _expansionPanel = MXFunctionInvoke(
     "ExpansionPanel",
-    ({
+    (
+      {
       dynamic headerBuilder,
       Widget body,
       bool isExpanded = false,
       bool canTapOnHeader = false,
-    }) =>
+      }
+    ) =>
       ExpansionPanel(
-      headerBuilder: headerBuilder,
+      headerBuilder: null,
       body: body,
       isExpanded: isExpanded,
       canTapOnHeader: canTapOnHeader,
     ),
 );
-var expansionPanelRadio = MXFunctionInvoke(
+var _expansionPanelRadio = MXFunctionInvoke(
     "ExpansionPanelRadio",
-    ({
+    (
+      {
       Object value,
       dynamic headerBuilder,
       Widget body,
       bool canTapOnHeader = false,
-    }) =>
+      }
+    ) =>
       ExpansionPanelRadio(
       value: value,
-      headerBuilder: headerBuilder,
+      headerBuilder: null,
       body: body,
       canTapOnHeader: canTapOnHeader,
     ),
 );
-var expansionPanelList = MXFunctionInvoke(
+var _expansionPanelList = MXFunctionInvoke(
     "ExpansionPanelList",
-    ({
+    (
+      {
       Key key,
       List<ExpansionPanel> children,
       dynamic expansionCallback,
       Duration animationDuration,
       EdgeInsets expandedHeaderPadding,
-    }) =>
+      }
+    ) =>
       ExpansionPanelList(
       key: key,
       children: children,
-      expansionCallback: createVoidCallbackClosure(expansionPanelList.buildOwner, expansionCallback),
+      expansionCallback: null,
       animationDuration: animationDuration,
       expandedHeaderPadding: expandedHeaderPadding,
     ),
 );
-var expansionPanelList_radio = MXFunctionInvoke(
+var _expansionPanelList_radio = MXFunctionInvoke(
   "expansionPanelList.radio",
-    ({
+    (
+      {
       Key key,
       List<ExpansionPanel> children,
       dynamic expansionCallback,
       Duration animationDuration,
       Object initialOpenPanelValue,
       EdgeInsets expandedHeaderPadding,
-    }) =>
+      }
+    ) =>
       ExpansionPanelList.radio(
       key: key,
       children: children,
-      expansionCallback: createVoidCallbackClosure(expansionPanelList_radio.buildOwner, expansionCallback),
+      expansionCallback: null,
       animationDuration: animationDuration,
       initialOpenPanelValue: initialOpenPanelValue,
       expandedHeaderPadding: expandedHeaderPadding,

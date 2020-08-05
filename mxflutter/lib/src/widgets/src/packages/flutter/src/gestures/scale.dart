@@ -18,57 +18,65 @@ import 'package:flutter/src/gestures/velocity_tracker.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScaleSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[scaleStartDetails.funName] = scaleStartDetails;
-  m[scaleUpdateDetails.funName] = scaleUpdateDetails;
-  m[scaleEndDetails.funName] = scaleEndDetails;
-  m[scaleGestureRecognizer.funName] = scaleGestureRecognizer;
+  m[_scaleStartDetails.funName] = _scaleStartDetails;
+  m[_scaleUpdateDetails.funName] = _scaleUpdateDetails;
+  m[_scaleEndDetails.funName] = _scaleEndDetails;
+  m[_scaleGestureRecognizer.funName] = _scaleGestureRecognizer;
   return m;
 }
-var scaleStartDetails = MXFunctionInvoke(
+var _scaleStartDetails = MXFunctionInvoke(
     "ScaleStartDetails",
-    ({
+    (
+      {
       Offset focalPoint,
       Offset localFocalPoint,
-    }) =>
+      }
+    ) =>
       ScaleStartDetails(
       focalPoint: focalPoint,
       localFocalPoint: localFocalPoint,
     ),
 );
-var scaleUpdateDetails = MXFunctionInvoke(
+var _scaleUpdateDetails = MXFunctionInvoke(
     "ScaleUpdateDetails",
-    ({
+    (
+      {
       Offset focalPoint,
       Offset localFocalPoint,
-      dynamic scale = 1.0,
-      dynamic horizontalScale = 1.0,
-      dynamic verticalScale = 1.0,
-      dynamic rotation = 0.0,
-    }) =>
+      double scale = 1.0,
+      double horizontalScale = 1.0,
+      double verticalScale = 1.0,
+      double rotation = 0.0,
+      }
+    ) =>
       ScaleUpdateDetails(
       focalPoint: focalPoint,
       localFocalPoint: localFocalPoint,
-      scale: scale,
-      horizontalScale: horizontalScale,
-      verticalScale: verticalScale,
-      rotation: rotation,
+      scale: scale?.toDouble(),
+      horizontalScale: horizontalScale?.toDouble(),
+      verticalScale: verticalScale?.toDouble(),
+      rotation: rotation?.toDouble(),
     ),
 );
-var scaleEndDetails = MXFunctionInvoke(
+var _scaleEndDetails = MXFunctionInvoke(
     "ScaleEndDetails",
-    ({
+    (
+      {
       Velocity velocity,
-    }) =>
+      }
+    ) =>
       ScaleEndDetails(
       velocity: velocity,
     ),
 );
-var scaleGestureRecognizer = MXFunctionInvoke(
+var _scaleGestureRecognizer = MXFunctionInvoke(
     "ScaleGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       ScaleGestureRecognizer(
       debugOwner: debugOwner,
       kind: kind,

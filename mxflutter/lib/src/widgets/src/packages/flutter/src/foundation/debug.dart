@@ -13,72 +13,63 @@ import 'package:flutter/src/foundation/print.dart';
 import 'package:flutter/src/foundation/diagnostics.dart';
 import 'dart:math';
 import 'package:meta/meta.dart';
-import 'package:flutter/src/foundation/assertions.dart';
 import 'package:flutter/src/foundation/constants.dart';
-import 'package:flutter/src/foundation/debug.dart';
 import 'package:flutter/src/foundation/object.dart';
-import 'package:flutter/src/foundation/assertions.dart';
-import 'package:meta/meta.dart';
 import 'package:flutter/src/foundation/basic_types.dart';
-import 'package:flutter/src/foundation/constants.dart';
-import 'package:flutter/src/foundation/diagnostics.dart';
-import 'package:flutter/src/foundation/print.dart';
 import 'package:flutter/src/foundation/stack_frame.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDebugSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[diagnosticLevel.funName] = diagnosticLevel;
-  m[diagnosticsTreeStyle.funName] = diagnosticsTreeStyle;
-  m[textTreeConfiguration.funName] = textTreeConfiguration;
-  m[textTreeRenderer.funName] = textTreeRenderer;
-  m[diagnosticsProperty.funName] = diagnosticsProperty;
-  m[diagnosticsProperty_lazy.funName] = diagnosticsProperty_lazy;
-  m[messageProperty.funName] = messageProperty;
-  m[stringProperty.funName] = stringProperty;
-  m[doubleProperty.funName] = doubleProperty;
-  m[doubleProperty_lazy.funName] = doubleProperty_lazy;
-  m[intProperty.funName] = intProperty;
-  m[percentProperty.funName] = percentProperty;
-  m[flagProperty.funName] = flagProperty;
-  m[iterableProperty.funName] = iterableProperty;
-  m[enumProperty.funName] = enumProperty;
-  m[objectFlagProperty.funName] = objectFlagProperty;
-  m[objectFlagProperty_has.funName] = objectFlagProperty_has;
-  m[flagsSummary.funName] = flagsSummary;
-  m[diagnosticableNode.funName] = diagnosticableNode;
-  m[diagnosticableTreeNode.funName] = diagnosticableTreeNode;
-  m[diagnosticPropertiesBuilder.funName] = diagnosticPropertiesBuilder;
-  m[diagnosticPropertiesBuilder_fromProperties.funName] = diagnosticPropertiesBuilder_fromProperties;
-  m[diagnosticsBlock.funName] = diagnosticsBlock;
-  m[partialStackFrame.funName] = partialStackFrame;
-  m[repetitiveStackFrameFilter.funName] = repetitiveStackFrameFilter;
-  m[errorDescription.funName] = errorDescription;
-  m[errorDescription_fromParts.funName] = errorDescription_fromParts;
-  m[errorSummary.funName] = errorSummary;
-  m[errorSummary_fromParts.funName] = errorSummary_fromParts;
-  m[errorHint.funName] = errorHint;
-  m[errorHint_fromParts.funName] = errorHint_fromParts;
-  m[errorSpacer.funName] = errorSpacer;
-  m[flutterErrorDetails.funName] = flutterErrorDetails;
-  m[flutterError.funName] = flutterError;
-  m[flutterError_fromParts.funName] = flutterError_fromParts;
-  m[diagnosticsStackTrace.funName] = diagnosticsStackTrace;
-  m[diagnosticsStackTrace_singleFrame.funName] = diagnosticsStackTrace_singleFrame;
+  m[_diagnosticLevel.funName] = _diagnosticLevel;
+  m[_diagnosticsTreeStyle.funName] = _diagnosticsTreeStyle;
+  m[_textTreeConfiguration.funName] = _textTreeConfiguration;
+  m[_textTreeRenderer.funName] = _textTreeRenderer;
+  m[_diagnosticsProperty.funName] = _diagnosticsProperty;
+  m[_diagnosticsProperty_lazy.funName] = _diagnosticsProperty_lazy;
+  m[_messageProperty.funName] = _messageProperty;
+  m[_stringProperty.funName] = _stringProperty;
+  m[_doubleProperty.funName] = _doubleProperty;
+  m[_doubleProperty_lazy.funName] = _doubleProperty_lazy;
+  m[_intProperty.funName] = _intProperty;
+  m[_percentProperty.funName] = _percentProperty;
+  m[_flagProperty.funName] = _flagProperty;
+  m[_iterableProperty.funName] = _iterableProperty;
+  m[_enumProperty.funName] = _enumProperty;
+  m[_objectFlagProperty.funName] = _objectFlagProperty;
+  m[_objectFlagProperty_has.funName] = _objectFlagProperty_has;
+  m[_flagsSummary.funName] = _flagsSummary;
+  m[_diagnosticableNode.funName] = _diagnosticableNode;
+  m[_diagnosticableTreeNode.funName] = _diagnosticableTreeNode;
+  m[_diagnosticPropertiesBuilder.funName] = _diagnosticPropertiesBuilder;
+  m[_diagnosticPropertiesBuilder_fromProperties.funName] = _diagnosticPropertiesBuilder_fromProperties;
+  m[_diagnosticsBlock.funName] = _diagnosticsBlock;
+  m[_partialStackFrame.funName] = _partialStackFrame;
+  m[_repetitiveStackFrameFilter.funName] = _repetitiveStackFrameFilter;
+  m[_errorDescription.funName] = _errorDescription;
+  m[_errorSummary.funName] = _errorSummary;
+  m[_errorHint.funName] = _errorHint;
+  m[_errorSpacer.funName] = _errorSpacer;
+  m[_flutterErrorDetails.funName] = _flutterErrorDetails;
+  m[_flutterError.funName] = _flutterError;
+  m[_flutterError_fromParts.funName] = _flutterError_fromParts;
+  m[_diagnosticsStackTrace.funName] = _diagnosticsStackTrace;
+  m[_diagnosticsStackTrace_singleFrame.funName] = _diagnosticsStackTrace_singleFrame;
   return m;
 }
-var diagnosticLevel = MXFunctionInvoke(
+var _diagnosticLevel = MXFunctionInvoke(
     "DiagnosticLevel",
     ({Map args}) => MXDiagnosticLevel.parse(args),
   );
-var diagnosticsTreeStyle = MXFunctionInvoke(
+var _diagnosticsTreeStyle = MXFunctionInvoke(
     "DiagnosticsTreeStyle",
     ({Map args}) => MXDiagnosticsTreeStyle.parse(args),
   );
-var textTreeConfiguration = MXFunctionInvoke(
+var _textTreeConfiguration = MXFunctionInvoke(
     "TextTreeConfiguration",
-    ({
+    (
+      {
       String prefixLineOne,
       String prefixOtherLines,
       String prefixLastChildLineOne,
@@ -86,10 +77,9 @@ var textTreeConfiguration = MXFunctionInvoke(
       String linkCharacter,
       String propertyPrefixIfChildren,
       String propertyPrefixNoChildren,
-      String lineBreak = 
-,
+      String lineBreak = '\n',
       bool lineBreakProperties = true,
-      String afterName = :,
+      String afterName = ':',
       String afterDescriptionIfBody = '',
       String afterDescription = '',
       String beforeProperties = '',
@@ -105,7 +95,8 @@ var textTreeConfiguration = MXFunctionInvoke(
       String beforeName = '',
       String suffixLineOne = '',
       String mandatoryFooter = '',
-    }) =>
+      }
+    ) =>
       TextTreeConfiguration(
       prefixLineOne: prefixLineOne,
       prefixOtherLines: prefixOtherLines,
@@ -134,14 +125,16 @@ var textTreeConfiguration = MXFunctionInvoke(
       mandatoryFooter: mandatoryFooter,
     ),
 );
-var textTreeRenderer = MXFunctionInvoke(
+var _textTreeRenderer = MXFunctionInvoke(
     "TextTreeRenderer",
-    ({
+    (
+      {
       DiagnosticLevel minLevel = DiagnosticLevel.debug,
       int wrapWidth = 100,
       int wrapWidthProperties = 65,
       int maxDescendentsTruncatableNode = -1,
-    }) =>
+      }
+    ) =>
       TextTreeRenderer(
       minLevel: minLevel,
       wrapWidth: wrapWidth,
@@ -149,9 +142,10 @@ var textTreeRenderer = MXFunctionInvoke(
       maxDescendentsTruncatableNode: maxDescendentsTruncatableNode,
     ),
 );
-var diagnosticsProperty = MXFunctionInvoke(
+var _diagnosticsProperty = MXFunctionInvoke(
     "DiagnosticsProperty",
-    ({
+    (
+      {
       String name,
       dynamic value,
       String description,
@@ -168,7 +162,8 @@ var diagnosticsProperty = MXFunctionInvoke(
       bool allowNameWrap = true,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       DiagnosticsProperty(
       name,
       value,
@@ -188,9 +183,10 @@ var diagnosticsProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var diagnosticsProperty_lazy = MXFunctionInvoke(
+var _diagnosticsProperty_lazy = MXFunctionInvoke(
   "diagnosticsProperty.lazy",
-    ({
+    (
+      {
       String name,
       dynamic computeValue,
       String description,
@@ -206,7 +202,8 @@ var diagnosticsProperty_lazy = MXFunctionInvoke(
       bool allowNameWrap = true,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       DiagnosticsProperty.lazy(
       name,
       computeValue,
@@ -225,14 +222,16 @@ var diagnosticsProperty_lazy = MXFunctionInvoke(
       level: level,
     ),
 );
-var messageProperty = MXFunctionInvoke(
+var _messageProperty = MXFunctionInvoke(
     "MessageProperty",
-    ({
+    (
+      {
       String name,
       String message,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       MessageProperty(
       name,
       message,
@@ -240,9 +239,10 @@ var messageProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var stringProperty = MXFunctionInvoke(
+var _stringProperty = MXFunctionInvoke(
     "StringProperty",
-    ({
+    (
+      {
       String name,
       String value,
       String description,
@@ -253,7 +253,8 @@ var stringProperty = MXFunctionInvoke(
       String ifEmpty,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       StringProperty(
       name,
       value,
@@ -267,11 +268,12 @@ var stringProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var doubleProperty = MXFunctionInvoke(
+var _doubleProperty = MXFunctionInvoke(
     "DoubleProperty",
-    ({
+    (
+      {
       String name,
-      dynamic value,
+      double value,
       String ifNull,
       String unit,
       String tooltip,
@@ -279,7 +281,8 @@ var doubleProperty = MXFunctionInvoke(
       bool showName = true,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       DoubleProperty(
       name,
       value,
@@ -292,9 +295,10 @@ var doubleProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var doubleProperty_lazy = MXFunctionInvoke(
+var _doubleProperty_lazy = MXFunctionInvoke(
   "doubleProperty.lazy",
-    ({
+    (
+      {
       String name,
       dynamic computeValue,
       String ifNull,
@@ -303,7 +307,8 @@ var doubleProperty_lazy = MXFunctionInvoke(
       String tooltip,
       Object defaultValue,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       DoubleProperty.lazy(
       name,
       computeValue,
@@ -315,9 +320,10 @@ var doubleProperty_lazy = MXFunctionInvoke(
       level: level,
     ),
 );
-var intProperty = MXFunctionInvoke(
+var _intProperty = MXFunctionInvoke(
     "IntProperty",
-    ({
+    (
+      {
       String name,
       int value,
       String ifNull,
@@ -326,7 +332,8 @@ var intProperty = MXFunctionInvoke(
       Object defaultValue,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       IntProperty(
       name,
       value,
@@ -338,17 +345,19 @@ var intProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var percentProperty = MXFunctionInvoke(
+var _percentProperty = MXFunctionInvoke(
     "PercentProperty",
-    ({
+    (
+      {
       String name,
-      dynamic fraction,
+      double fraction,
       String ifNull,
       bool showName = true,
       String tooltip,
       String unit,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       PercentProperty(
       name,
       fraction,
@@ -359,9 +368,10 @@ var percentProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var flagProperty = MXFunctionInvoke(
+var _flagProperty = MXFunctionInvoke(
     "FlagProperty",
-    ({
+    (
+      {
       String name,
       bool value,
       String ifTrue,
@@ -369,7 +379,8 @@ var flagProperty = MXFunctionInvoke(
       bool showName = false,
       Object defaultValue,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       FlagProperty(
       name,
       value: value,
@@ -380,19 +391,21 @@ var flagProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var iterableProperty = MXFunctionInvoke(
+var _iterableProperty = MXFunctionInvoke(
     "IterableProperty",
-    ({
+    (
+      {
       String name,
-      dynamic value,
+      Iterable<dynamic> value,
       Object defaultValue,
       String ifNull,
-      String ifEmpty = [],
+      String ifEmpty = '[]',
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
       bool showName = true,
       bool showSeparator = true,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       IterableProperty(
       name,
       value,
@@ -405,14 +418,16 @@ var iterableProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var enumProperty = MXFunctionInvoke(
+var _enumProperty = MXFunctionInvoke(
     "EnumProperty",
-    ({
+    (
+      {
       String name,
       dynamic value,
       Object defaultValue,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       EnumProperty(
       name,
       value,
@@ -420,16 +435,18 @@ var enumProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var objectFlagProperty = MXFunctionInvoke(
+var _objectFlagProperty = MXFunctionInvoke(
     "ObjectFlagProperty",
-    ({
+    (
+      {
       String name,
       dynamic value,
       String ifPresent,
       String ifNull,
       bool showName = false,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       ObjectFlagProperty(
       name,
       value,
@@ -439,29 +456,33 @@ var objectFlagProperty = MXFunctionInvoke(
       level: level,
     ),
 );
-var objectFlagProperty_has = MXFunctionInvoke(
+var _objectFlagProperty_has = MXFunctionInvoke(
   "objectFlagProperty.has",
-    ({
+    (
+      {
       String name,
       dynamic value,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       ObjectFlagProperty.has(
       name,
       value,
       level: level,
     ),
 );
-var flagsSummary = MXFunctionInvoke(
+var _flagsSummary = MXFunctionInvoke(
     "FlagsSummary",
-    ({
+    (
+      {
       String name,
-      dynamic value,
+      Map<String, dynamic> value,
       String ifEmpty,
       bool showName = true,
       bool showSeparator = true,
       DiagnosticLevel level = DiagnosticLevel.info,
-    }) =>
+      }
+    ) =>
       FlagsSummary(
       name,
       value,
@@ -471,51 +492,58 @@ var flagsSummary = MXFunctionInvoke(
       level: level,
     ),
 );
-var diagnosticableNode = MXFunctionInvoke(
+var _diagnosticableNode = MXFunctionInvoke(
     "DiagnosticableNode",
-    ({
+    (
+      {
       String name,
-      dynamic value,
+      Diagnosticable value,
       DiagnosticsTreeStyle style,
-    }) =>
+      }
+    ) =>
       DiagnosticableNode(
       name: name,
       value: value,
       style: style,
     ),
 );
-var diagnosticableTreeNode = MXFunctionInvoke(
+var _diagnosticableTreeNode = MXFunctionInvoke(
     "DiagnosticableTreeNode",
-    ({
+    (
+      {
       String name,
       DiagnosticableTree value,
       DiagnosticsTreeStyle style,
-    }) =>
+      }
+    ) =>
       DiagnosticableTreeNode(
       name: name,
       value: value,
       style: style,
     ),
 );
-var diagnosticPropertiesBuilder = MXFunctionInvoke(
+var _diagnosticPropertiesBuilder = MXFunctionInvoke(
     "DiagnosticPropertiesBuilder",
-    ({
-    }) =>
+    (
+    ) =>
       DiagnosticPropertiesBuilder(
     ),
 );
-var diagnosticPropertiesBuilder_fromProperties = MXFunctionInvoke(
+var _diagnosticPropertiesBuilder_fromProperties = MXFunctionInvoke(
   "diagnosticPropertiesBuilder.fromProperties",
-    ({
+    (
+      {
       List<DiagnosticsNode> properties,
-    }) =>
+      }
+    ) =>
       DiagnosticPropertiesBuilder.fromProperties(
       properties,
     ),
 );
-var diagnosticsBlock = MXFunctionInvoke(
+var _diagnosticsBlock = MXFunctionInvoke(
     "DiagnosticsBlock",
-    ({
+    (
+      {
       String name,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.whitespace,
       bool showName = true,
@@ -527,7 +555,8 @@ var diagnosticsBlock = MXFunctionInvoke(
       bool allowTruncate = false,
       List<DiagnosticsNode> children,
       List<DiagnosticsNode> properties,
-    }) =>
+      }
+    ) =>
       DiagnosticsBlock(
       name: name,
       style: style,
@@ -542,152 +571,145 @@ var diagnosticsBlock = MXFunctionInvoke(
       properties: properties,
     ),
 );
-var partialStackFrame = MXFunctionInvoke(
+var _partialStackFrame = MXFunctionInvoke(
     "PartialStackFrame",
-    ({
+    (
+      {
       Pattern package,
       String className,
       String method,
-    }) =>
+      }
+    ) =>
       PartialStackFrame(
       package: package,
       className: className,
       method: method,
     ),
 );
-var repetitiveStackFrameFilter = MXFunctionInvoke(
+var _repetitiveStackFrameFilter = MXFunctionInvoke(
     "RepetitiveStackFrameFilter",
-    ({
+    (
+      {
       List<PartialStackFrame> frames,
       String replacement,
-    }) =>
+      }
+    ) =>
       RepetitiveStackFrameFilter(
       frames: frames,
       replacement: replacement,
     ),
 );
-var errorDescription = MXFunctionInvoke(
+var _errorDescription = MXFunctionInvoke(
     "ErrorDescription",
-    ({
+    (
+      {
       String message,
-    }) =>
+      }
+    ) =>
       ErrorDescription(
       message,
     ),
 );
-var errorDescription_fromParts = MXFunctionInvoke(
-  "errorDescription.fromParts",
-    ({
-      List<Object> messageParts,
-    }) =>
-      ErrorDescription.fromParts(
-      messageParts,
-    ),
-);
-var errorSummary = MXFunctionInvoke(
+var _errorSummary = MXFunctionInvoke(
     "ErrorSummary",
-    ({
+    (
+      {
       String message,
-    }) =>
+      }
+    ) =>
       ErrorSummary(
       message,
     ),
 );
-var errorSummary_fromParts = MXFunctionInvoke(
-  "errorSummary.fromParts",
-    ({
-      List<Object> messageParts,
-    }) =>
-      ErrorSummary.fromParts(
-      messageParts,
-    ),
-);
-var errorHint = MXFunctionInvoke(
+var _errorHint = MXFunctionInvoke(
     "ErrorHint",
-    ({
+    (
+      {
       String message,
-    }) =>
+      }
+    ) =>
       ErrorHint(
       message,
     ),
 );
-var errorHint_fromParts = MXFunctionInvoke(
-  "errorHint.fromParts",
-    ({
-      List<Object> messageParts,
-    }) =>
-      ErrorHint.fromParts(
-      messageParts,
-    ),
-);
-var errorSpacer = MXFunctionInvoke(
+var _errorSpacer = MXFunctionInvoke(
     "ErrorSpacer",
-    ({
-    }) =>
+    (
+    ) =>
       ErrorSpacer(
     ),
 );
-var flutterErrorDetails = MXFunctionInvoke(
+var _flutterErrorDetails = MXFunctionInvoke(
     "FlutterErrorDetails",
-    ({
+    (
+      {
       dynamic exception,
       StackTrace stack,
-      String library = Flutter framework,
+      String library = 'Flutter framework',
       DiagnosticsNode context,
       dynamic stackFilter,
       dynamic informationCollector,
       bool silent = false,
-    }) =>
+      }
+    ) =>
       FlutterErrorDetails(
       exception: exception,
       stack: stack,
       library: library,
       context: context,
-      stackFilter: createGenericValueGenericClosure<Iterable<String>, Iterable<String>>(flutterErrorDetails.buildOwner, stackFilter),
+      stackFilter: createGenericValueGenericClosure<Iterable<String>, Iterable<String>>(_flutterErrorDetails.buildOwner, stackFilter),
       informationCollector: informationCollector,
       silent: silent,
     ),
 );
-var flutterError = MXFunctionInvoke(
+var _flutterError = MXFunctionInvoke(
     "FlutterError",
-    ({
+    (
+      {
       String message,
-    }) =>
+      }
+    ) =>
       FlutterError(
       message,
     ),
 );
-var flutterError_fromParts = MXFunctionInvoke(
+var _flutterError_fromParts = MXFunctionInvoke(
   "flutterError.fromParts",
-    ({
+    (
+      {
       List<DiagnosticsNode> diagnostics,
-    }) =>
+      }
+    ) =>
       FlutterError.fromParts(
       diagnostics,
     ),
 );
-var diagnosticsStackTrace = MXFunctionInvoke(
+var _diagnosticsStackTrace = MXFunctionInvoke(
     "DiagnosticsStackTrace",
-    ({
+    (
+      {
       String name,
       StackTrace stack,
       dynamic stackFilter,
       bool showSeparator = true,
-    }) =>
+      }
+    ) =>
       DiagnosticsStackTrace(
       name,
       stack,
-      stackFilter: createGenericValueGenericClosure<Iterable<String>, Iterable<String>>(diagnosticsStackTrace.buildOwner, stackFilter),
+      stackFilter: createGenericValueGenericClosure<Iterable<String>, Iterable<String>>(_diagnosticsStackTrace.buildOwner, stackFilter),
       showSeparator: showSeparator,
     ),
 );
-var diagnosticsStackTrace_singleFrame = MXFunctionInvoke(
+var _diagnosticsStackTrace_singleFrame = MXFunctionInvoke(
   "diagnosticsStackTrace.singleFrame",
-    ({
+    (
+      {
       String name,
       String frame,
       bool showSeparator = true,
-    }) =>
+      }
+    ) =>
       DiagnosticsStackTrace.singleFrame(
       name,
       frame: frame,

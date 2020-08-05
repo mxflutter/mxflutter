@@ -11,24 +11,28 @@ import 'package:meta/meta.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMetaSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[immutable.funName] = immutable;
-  m[required.funName] = required;
+  m[_immutable.funName] = _immutable;
+  m[_required.funName] = _required;
   return m;
 }
-var immutable = MXFunctionInvoke(
+var _immutable = MXFunctionInvoke(
     "Immutable",
-    ({
+    (
+      {
       String reason,
-    }) =>
+      }
+    ) =>
       Immutable(
       reason,
     ),
 );
-var required = MXFunctionInvoke(
+var _required = MXFunctionInvoke(
     "Required",
-    ({
+    (
+      {
       String reason,
-    }) =>
+      }
+    ) =>
       Required(
       reason,
     ),

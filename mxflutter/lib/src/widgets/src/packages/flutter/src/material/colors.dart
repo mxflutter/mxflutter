@@ -13,27 +13,31 @@ import 'package:flutter/painting.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerColorsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[materialColor.funName] = materialColor;
-  m[materialAccentColor.funName] = materialAccentColor;
+  m[_materialColor.funName] = _materialColor;
+  m[_materialAccentColor.funName] = _materialAccentColor;
   return m;
 }
-var materialColor = MXFunctionInvoke(
+var _materialColor = MXFunctionInvoke(
     "MaterialColor",
-    ({
+    (
+      {
       int primary,
       Map<int, Color> swatch,
-    }) =>
+      }
+    ) =>
       MaterialColor(
       primary,
       swatch,
     ),
 );
-var materialAccentColor = MXFunctionInvoke(
+var _materialAccentColor = MXFunctionInvoke(
     "MaterialAccentColor",
-    ({
+    (
+      {
       int primary,
       Map<int, Color> swatch,
-    }) =>
+      }
+    ) =>
       MaterialAccentColor(
       primary,
       swatch,

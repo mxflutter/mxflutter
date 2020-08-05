@@ -14,14 +14,16 @@ import 'package:flutter/src/gestures/recognizer.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEagerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[eagerGestureRecognizer.funName] = eagerGestureRecognizer;
+  m[_eagerGestureRecognizer.funName] = _eagerGestureRecognizer;
   return m;
 }
-var eagerGestureRecognizer = MXFunctionInvoke(
+var _eagerGestureRecognizer = MXFunctionInvoke(
     "EagerGestureRecognizer",
-    ({
+    (
+      {
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       EagerGestureRecognizer(
       kind: kind,
     ),

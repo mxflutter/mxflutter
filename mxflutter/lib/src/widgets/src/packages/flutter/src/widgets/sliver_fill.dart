@@ -16,33 +16,37 @@ import 'package:flutter/src/widgets/sliver.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverFillSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[sliverFillViewport.funName] = sliverFillViewport;
-  m[sliverFillRemaining.funName] = sliverFillRemaining;
+  m[_sliverFillViewport.funName] = _sliverFillViewport;
+  m[_sliverFillRemaining.funName] = _sliverFillRemaining;
   return m;
 }
-var sliverFillViewport = MXFunctionInvoke(
+var _sliverFillViewport = MXFunctionInvoke(
     "SliverFillViewport",
-    ({
+    (
+      {
       Key key,
       SliverChildDelegate delegate,
-      dynamic viewportFraction = 1.0,
+      double viewportFraction = 1.0,
       bool padEnds = true,
-    }) =>
+      }
+    ) =>
       SliverFillViewport(
       key: key,
       delegate: delegate,
-      viewportFraction: viewportFraction,
+      viewportFraction: viewportFraction?.toDouble(),
       padEnds: padEnds,
     ),
 );
-var sliverFillRemaining = MXFunctionInvoke(
+var _sliverFillRemaining = MXFunctionInvoke(
     "SliverFillRemaining",
-    ({
+    (
+      {
       Key key,
       Widget child,
       bool hasScrollBody = true,
       bool fillOverscroll = false,
-    }) =>
+      }
+    ) =>
       SliverFillRemaining(
       key: key,
       child: child,

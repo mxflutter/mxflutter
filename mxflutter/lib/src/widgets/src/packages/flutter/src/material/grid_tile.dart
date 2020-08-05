@@ -12,17 +12,19 @@ import 'package:flutter/widgets.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerGridTileSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[gridTile.funName] = gridTile;
+  m[_gridTile.funName] = _gridTile;
   return m;
 }
-var gridTile = MXFunctionInvoke(
+var _gridTile = MXFunctionInvoke(
     "GridTile",
-    ({
+    (
+      {
       Key key,
       Widget header,
       Widget footer,
       Widget child,
-    }) =>
+      }
+    ) =>
       GridTile(
       key: key,
       header: header,

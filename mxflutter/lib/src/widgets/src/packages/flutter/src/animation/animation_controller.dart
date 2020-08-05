@@ -15,56 +15,59 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/curves.dart';
 import 'package:flutter/src/animation/listener_helpers.dart';
-import 'package:flutter/scheduler.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[animationBehavior.funName] = animationBehavior;
-  m[animationController.funName] = animationController;
-  m[animationController_unbounded.funName] = animationController_unbounded;
+  m[_animationBehavior.funName] = _animationBehavior;
+  m[_animationController.funName] = _animationController;
+  m[_animationController_unbounded.funName] = _animationController_unbounded;
   return m;
 }
-var animationBehavior = MXFunctionInvoke(
+var _animationBehavior = MXFunctionInvoke(
     "AnimationBehavior",
     ({Map args}) => MXAnimationBehavior.parse(args),
   );
-var animationController = MXFunctionInvoke(
+var _animationController = MXFunctionInvoke(
     "AnimationController",
-    ({
-      dynamic value,
+    (
+      {
+      double value,
       Duration duration,
       Duration reverseDuration,
       String debugLabel,
-      dynamic lowerBound = 0.0,
-      dynamic upperBound = 1.0,
+      double lowerBound = 0.0,
+      double upperBound = 1.0,
       AnimationBehavior animationBehavior = AnimationBehavior.normal,
       TickerProvider vsync,
-    }) =>
+      }
+    ) =>
       AnimationController(
-      value: value,
+      value: value?.toDouble(),
       duration: duration,
       reverseDuration: reverseDuration,
       debugLabel: debugLabel,
-      lowerBound: lowerBound,
-      upperBound: upperBound,
+      lowerBound: lowerBound?.toDouble(),
+      upperBound: upperBound?.toDouble(),
       animationBehavior: animationBehavior,
       vsync: vsync,
     ),
 );
-var animationController_unbounded = MXFunctionInvoke(
+var _animationController_unbounded = MXFunctionInvoke(
   "animationController.unbounded",
-    ({
-      dynamic value = 0.0,
+    (
+      {
+      double value = 0.0,
       Duration duration,
       Duration reverseDuration,
       String debugLabel,
       TickerProvider vsync,
       AnimationBehavior animationBehavior = AnimationBehavior.preserve,
-    }) =>
+      }
+    ) =>
       AnimationController.unbounded(
-      value: value,
+      value: value?.toDouble(),
       duration: duration,
       reverseDuration: reverseDuration,
       debugLabel: debugLabel,

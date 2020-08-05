@@ -18,16 +18,18 @@ import 'package:flutter/src/rendering/sliver.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverPaddingSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[renderSliverPadding.funName] = renderSliverPadding;
+  m[_renderSliverPadding.funName] = _renderSliverPadding;
   return m;
 }
-var renderSliverPadding = MXFunctionInvoke(
+var _renderSliverPadding = MXFunctionInvoke(
     "RenderSliverPadding",
-    ({
+    (
+      {
       EdgeInsetsGeometry padding,
       TextDirection textDirection,
       RenderSliver child,
-    }) =>
+      }
+    ) =>
       RenderSliverPadding(
       padding: padding,
       textDirection: textDirection,

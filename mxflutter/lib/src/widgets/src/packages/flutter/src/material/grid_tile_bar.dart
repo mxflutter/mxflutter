@@ -14,19 +14,21 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerGridTileBarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[gridTileBar.funName] = gridTileBar;
+  m[_gridTileBar.funName] = _gridTileBar;
   return m;
 }
-var gridTileBar = MXFunctionInvoke(
+var _gridTileBar = MXFunctionInvoke(
     "GridTileBar",
-    ({
+    (
+      {
       Key key,
       Color backgroundColor,
       Widget leading,
       Widget title,
       Widget subtitle,
       Widget trailing,
-    }) =>
+      }
+    ) =>
       GridTileBar(
       key: key,
       backgroundColor: backgroundColor,

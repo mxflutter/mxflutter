@@ -21,12 +21,13 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerUserAccountsDrawerHeaderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[userAccountsDrawerHeader.funName] = userAccountsDrawerHeader;
+  m[_userAccountsDrawerHeader.funName] = _userAccountsDrawerHeader;
   return m;
 }
-var userAccountsDrawerHeader = MXFunctionInvoke(
+var _userAccountsDrawerHeader = MXFunctionInvoke(
     "UserAccountsDrawerHeader",
-    ({
+    (
+      {
       Key key,
       Decoration decoration,
       EdgeInsetsGeometry margin,
@@ -36,7 +37,8 @@ var userAccountsDrawerHeader = MXFunctionInvoke(
       Widget accountEmail,
       dynamic onDetailsPressed,
       Color arrowColor,
-    }) =>
+      }
+    ) =>
       UserAccountsDrawerHeader(
       key: key,
       decoration: decoration,
@@ -45,7 +47,7 @@ var userAccountsDrawerHeader = MXFunctionInvoke(
       otherAccountsPictures: otherAccountsPictures,
       accountName: accountName,
       accountEmail: accountEmail,
-      onDetailsPressed: createVoidCallbackClosure(userAccountsDrawerHeader.buildOwner, onDetailsPressed),
+      onDetailsPressed: createVoidCallbackClosure(_userAccountsDrawerHeader.buildOwner, onDetailsPressed),
       arrowColor: arrowColor,
     ),
 );

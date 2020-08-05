@@ -18,20 +18,21 @@ import 'package:flutter/src/widgets/overlay.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDragTargetSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[dragAnchor.funName] = dragAnchor;
-  m[draggable.funName] = draggable;
-  m[longPressDraggable.funName] = longPressDraggable;
-  m[draggableDetails.funName] = draggableDetails;
-  m[dragTarget.funName] = dragTarget;
+  m[_dragAnchor.funName] = _dragAnchor;
+  m[_draggable.funName] = _draggable;
+  m[_longPressDraggable.funName] = _longPressDraggable;
+  m[_draggableDetails.funName] = _draggableDetails;
+  m[_dragTarget.funName] = _dragTarget;
   return m;
 }
-var dragAnchor = MXFunctionInvoke(
+var _dragAnchor = MXFunctionInvoke(
     "DragAnchor",
     ({Map args}) => MXDragAnchor.parse(args),
   );
-var draggable = MXFunctionInvoke(
+var _draggable = MXFunctionInvoke(
     "Draggable",
-    ({
+    (
+      {
       Key key,
       Widget child,
       Widget feedback,
@@ -47,7 +48,8 @@ var draggable = MXFunctionInvoke(
       dynamic onDragEnd,
       dynamic onDragCompleted,
       bool ignoringFeedbackSemantics = true,
-    }) =>
+      }
+    ) =>
       Draggable(
       key: key,
       child: child,
@@ -59,16 +61,17 @@ var draggable = MXFunctionInvoke(
       dragAnchor: dragAnchor,
       affinity: affinity,
       maxSimultaneousDrags: maxSimultaneousDrags,
-      onDragStarted: createVoidCallbackClosure(draggable.buildOwner, onDragStarted),
-      onDraggableCanceled: createVoidCallbackClosure(draggable.buildOwner, onDraggableCanceled),
-      onDragEnd: createValueChangedGenericClosure<DraggableDetails>(draggable.buildOwner, onDragEnd),
-      onDragCompleted: createVoidCallbackClosure(draggable.buildOwner, onDragCompleted),
+      onDragStarted: createVoidCallbackClosure(_draggable.buildOwner, onDragStarted),
+      onDraggableCanceled: null,
+      onDragEnd: createValueChangedGenericClosure<DraggableDetails>(_draggable.buildOwner, onDragEnd),
+      onDragCompleted: createVoidCallbackClosure(_draggable.buildOwner, onDragCompleted),
       ignoringFeedbackSemantics: ignoringFeedbackSemantics,
     ),
 );
-var longPressDraggable = MXFunctionInvoke(
+var _longPressDraggable = MXFunctionInvoke(
     "LongPressDraggable",
-    ({
+    (
+      {
       Key key,
       Widget child,
       Widget feedback,
@@ -84,7 +87,8 @@ var longPressDraggable = MXFunctionInvoke(
       dynamic onDragCompleted,
       bool hapticFeedbackOnStart = true,
       bool ignoringFeedbackSemantics = true,
-    }) =>
+      }
+    ) =>
       LongPressDraggable(
       key: key,
       child: child,
@@ -95,42 +99,46 @@ var longPressDraggable = MXFunctionInvoke(
       feedbackOffset: feedbackOffset,
       dragAnchor: dragAnchor,
       maxSimultaneousDrags: maxSimultaneousDrags,
-      onDragStarted: createVoidCallbackClosure(longPressDraggable.buildOwner, onDragStarted),
-      onDraggableCanceled: createVoidCallbackClosure(longPressDraggable.buildOwner, onDraggableCanceled),
-      onDragEnd: createValueChangedGenericClosure<DraggableDetails>(longPressDraggable.buildOwner, onDragEnd),
-      onDragCompleted: createVoidCallbackClosure(longPressDraggable.buildOwner, onDragCompleted),
+      onDragStarted: createVoidCallbackClosure(_longPressDraggable.buildOwner, onDragStarted),
+      onDraggableCanceled: null,
+      onDragEnd: createValueChangedGenericClosure<DraggableDetails>(_longPressDraggable.buildOwner, onDragEnd),
+      onDragCompleted: createVoidCallbackClosure(_longPressDraggable.buildOwner, onDragCompleted),
       hapticFeedbackOnStart: hapticFeedbackOnStart,
       ignoringFeedbackSemantics: ignoringFeedbackSemantics,
     ),
 );
-var draggableDetails = MXFunctionInvoke(
+var _draggableDetails = MXFunctionInvoke(
     "DraggableDetails",
-    ({
+    (
+      {
       bool wasAccepted = false,
       Velocity velocity,
       Offset offset,
-    }) =>
+      }
+    ) =>
       DraggableDetails(
       wasAccepted: wasAccepted,
       velocity: velocity,
       offset: offset,
     ),
 );
-var dragTarget = MXFunctionInvoke(
+var _dragTarget = MXFunctionInvoke(
     "DragTarget",
-    ({
+    (
+      {
       Key key,
       dynamic builder,
       dynamic onWillAccept,
       dynamic onAccept,
       dynamic onLeave,
-    }) =>
+      }
+    ) =>
       DragTarget(
       key: key,
-      builder: builder,
-      onWillAccept: createGenericValueGenericClosure<bool, dynamic>(dragTarget.buildOwner, onWillAccept),
-      onAccept: createValueChangedGenericClosure<dynamic>(dragTarget.buildOwner, onAccept),
-      onLeave: createValueChangedGenericClosure<Object>(dragTarget.buildOwner, onLeave),
+      builder: null,
+      onWillAccept: createGenericValueGenericClosure<bool, dynamic>(_dragTarget.buildOwner, onWillAccept),
+      onAccept: createValueChangedGenericClosure<dynamic>(_dragTarget.buildOwner, onAccept),
+      onLeave: createValueChangedGenericClosure<Object>(_dragTarget.buildOwner, onLeave),
     ),
 );
 class MXDragAnchor {

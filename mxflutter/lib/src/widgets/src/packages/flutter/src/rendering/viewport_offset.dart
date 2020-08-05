@@ -14,10 +14,10 @@ import 'package:flutter/foundation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerViewportOffsetSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[scrollDirection.funName] = scrollDirection;
+  m[_scrollDirection.funName] = _scrollDirection;
   return m;
 }
-var scrollDirection = MXFunctionInvoke(
+var _scrollDirection = MXFunctionInvoke(
     "ScrollDirection",
     ({Map args}) => MXScrollDirection.parse(args),
   );

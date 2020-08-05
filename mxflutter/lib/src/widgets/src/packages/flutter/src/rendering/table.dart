@@ -17,89 +17,102 @@ import 'package:flutter/src/rendering/table_border.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTableSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[tableCellParentData.funName] = tableCellParentData;
-  m[intrinsicColumnWidth.funName] = intrinsicColumnWidth;
-  m[fixedColumnWidth.funName] = fixedColumnWidth;
-  m[fractionColumnWidth.funName] = fractionColumnWidth;
-  m[flexColumnWidth.funName] = flexColumnWidth;
-  m[maxColumnWidth.funName] = maxColumnWidth;
-  m[minColumnWidth.funName] = minColumnWidth;
-  m[tableCellVerticalAlignment.funName] = tableCellVerticalAlignment;
-  m[renderTable.funName] = renderTable;
+  m[_tableCellParentData.funName] = _tableCellParentData;
+  m[_intrinsicColumnWidth.funName] = _intrinsicColumnWidth;
+  m[_fixedColumnWidth.funName] = _fixedColumnWidth;
+  m[_fractionColumnWidth.funName] = _fractionColumnWidth;
+  m[_flexColumnWidth.funName] = _flexColumnWidth;
+  m[_maxColumnWidth.funName] = _maxColumnWidth;
+  m[_minColumnWidth.funName] = _minColumnWidth;
+  m[_tableCellVerticalAlignment.funName] = _tableCellVerticalAlignment;
+  m[_renderTable.funName] = _renderTable;
   return m;
 }
-var tableCellParentData = MXFunctionInvoke(
+var _tableCellParentData = MXFunctionInvoke(
     "TableCellParentData",
-    ({
-    }) =>
+    (
+    ) =>
       TableCellParentData(
     ),
 );
-var intrinsicColumnWidth = MXFunctionInvoke(
+var _intrinsicColumnWidth = MXFunctionInvoke(
     "IntrinsicColumnWidth",
-    ({
-      dynamic flex,
-    }) =>
+    (
+      {
+      double flex,
+      }
+    ) =>
       IntrinsicColumnWidth(
-      flex: flex,
+      flex: flex?.toDouble(),
     ),
 );
-var fixedColumnWidth = MXFunctionInvoke(
+var _fixedColumnWidth = MXFunctionInvoke(
     "FixedColumnWidth",
-    ({
-      dynamic value,
-    }) =>
+    (
+      {
+      double value,
+      }
+    ) =>
       FixedColumnWidth(
       value,
     ),
 );
-var fractionColumnWidth = MXFunctionInvoke(
+var _fractionColumnWidth = MXFunctionInvoke(
     "FractionColumnWidth",
-    ({
-      dynamic value,
-    }) =>
+    (
+      {
+      double value,
+      }
+    ) =>
       FractionColumnWidth(
       value,
     ),
 );
-var flexColumnWidth = MXFunctionInvoke(
+var _flexColumnWidth = MXFunctionInvoke(
     "FlexColumnWidth",
-    ({
-      dynamic value,
-    }) =>
+    (
+      {
+      double value,
+      }
+    ) =>
       FlexColumnWidth(
       value,
     ),
 );
-var maxColumnWidth = MXFunctionInvoke(
+var _maxColumnWidth = MXFunctionInvoke(
     "MaxColumnWidth",
-    ({
+    (
+      {
       TableColumnWidth a,
       TableColumnWidth b,
-    }) =>
+      }
+    ) =>
       MaxColumnWidth(
       a,
       b,
     ),
 );
-var minColumnWidth = MXFunctionInvoke(
+var _minColumnWidth = MXFunctionInvoke(
     "MinColumnWidth",
-    ({
+    (
+      {
       TableColumnWidth a,
       TableColumnWidth b,
-    }) =>
+      }
+    ) =>
       MinColumnWidth(
       a,
       b,
     ),
 );
-var tableCellVerticalAlignment = MXFunctionInvoke(
+var _tableCellVerticalAlignment = MXFunctionInvoke(
     "TableCellVerticalAlignment",
     ({Map args}) => MXTableCellVerticalAlignment.parse(args),
   );
-var renderTable = MXFunctionInvoke(
+var _renderTable = MXFunctionInvoke(
     "RenderTable",
-    ({
+    (
+      {
       int columns,
       int rows,
       Map<int, TableColumnWidth> columnWidths,
@@ -111,7 +124,8 @@ var renderTable = MXFunctionInvoke(
       TableCellVerticalAlignment defaultVerticalAlignment = TableCellVerticalAlignment.top,
       TextBaseline textBaseline,
       List<List<RenderBox>> children,
-    }) =>
+      }
+    ) =>
       RenderTable(
       columns: columns,
       rows: rows,

@@ -17,12 +17,13 @@ import 'package:flutter/src/material/theme_data.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerExpansionTileSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[expansionTile.funName] = expansionTile;
+  m[_expansionTile.funName] = _expansionTile;
   return m;
 }
-var expansionTile = MXFunctionInvoke(
+var _expansionTile = MXFunctionInvoke(
     "ExpansionTile",
-    ({
+    (
+      {
       Key key,
       Widget leading,
       Widget title,
@@ -32,14 +33,15 @@ var expansionTile = MXFunctionInvoke(
       List<Widget> children,
       Widget trailing,
       bool initiallyExpanded = false,
-    }) =>
+      }
+    ) =>
       ExpansionTile(
       key: key,
       leading: leading,
       title: title,
       subtitle: subtitle,
       backgroundColor: backgroundColor,
-      onExpansionChanged: createValueChangedGenericClosure<bool>(expansionTile.buildOwner, onExpansionChanged),
+      onExpansionChanged: createValueChangedGenericClosure<bool>(_expansionTile.buildOwner, onExpansionChanged),
       children: children,
       trailing: trailing,
       initiallyExpanded: initiallyExpanded,

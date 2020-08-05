@@ -15,12 +15,13 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[animatedSize.funName] = animatedSize;
+  m[_animatedSize.funName] = _animatedSize;
   return m;
 }
-var animatedSize = MXFunctionInvoke(
+var _animatedSize = MXFunctionInvoke(
     "AnimatedSize",
-    ({
+    (
+      {
       Key key,
       Widget child,
       AlignmentGeometry alignment,
@@ -28,7 +29,8 @@ var animatedSize = MXFunctionInvoke(
       Duration duration,
       Duration reverseDuration,
       TickerProvider vsync,
-    }) =>
+      }
+    ) =>
       AnimatedSize(
       key: key,
       child: child,

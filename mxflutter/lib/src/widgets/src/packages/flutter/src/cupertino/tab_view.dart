@@ -14,12 +14,13 @@ import 'package:flutter/src/cupertino/route.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTabViewSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoTabView.funName] = cupertinoTabView;
+  m[_cupertinoTabView.funName] = _cupertinoTabView;
   return m;
 }
-var cupertinoTabView = MXFunctionInvoke(
+var _cupertinoTabView = MXFunctionInvoke(
     "CupertinoTabView",
-    ({
+    (
+      {
       Key key,
       dynamic builder,
       GlobalKey<NavigatorState> navigatorKey,
@@ -28,15 +29,16 @@ var cupertinoTabView = MXFunctionInvoke(
       dynamic onGenerateRoute,
       dynamic onUnknownRoute,
       List<NavigatorObserver> navigatorObservers,
-    }) =>
+      }
+    ) =>
       CupertinoTabView(
       key: key,
-      builder: createGenericValueGenericClosure<Widget, BuildContext>(cupertinoTabView.buildOwner, builder),
+      builder: createGenericValueGenericClosure<Widget, BuildContext>(_cupertinoTabView.buildOwner, builder),
       navigatorKey: navigatorKey,
       defaultTitle: defaultTitle,
       routes: routes,
-      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(cupertinoTabView.buildOwner, onGenerateRoute),
-      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(cupertinoTabView.buildOwner, onUnknownRoute),
+      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_cupertinoTabView.buildOwner, onGenerateRoute),
+      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_cupertinoTabView.buildOwner, onUnknownRoute),
       navigatorObservers: navigatorObservers,
     ),
 );

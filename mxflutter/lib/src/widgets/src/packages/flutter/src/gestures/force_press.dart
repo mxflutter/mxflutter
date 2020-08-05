@@ -17,36 +17,40 @@ import 'package:flutter/src/gestures/recognizer.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerForcePressSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[forcePressDetails.funName] = forcePressDetails;
-  m[forcePressGestureRecognizer.funName] = forcePressGestureRecognizer;
+  m[_forcePressDetails.funName] = _forcePressDetails;
+  m[_forcePressGestureRecognizer.funName] = _forcePressGestureRecognizer;
   return m;
 }
-var forcePressDetails = MXFunctionInvoke(
+var _forcePressDetails = MXFunctionInvoke(
     "ForcePressDetails",
-    ({
+    (
+      {
       Offset globalPosition,
       Offset localPosition,
-      dynamic pressure,
-    }) =>
+      double pressure,
+      }
+    ) =>
       ForcePressDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
-      pressure: pressure,
+      pressure: pressure?.toDouble(),
     ),
 );
-var forcePressGestureRecognizer = MXFunctionInvoke(
+var _forcePressGestureRecognizer = MXFunctionInvoke(
     "ForcePressGestureRecognizer",
-    ({
-      dynamic startPressure = 0.4,
-      dynamic peakPressure = 0.85,
+    (
+      {
+      double startPressure = 0.4,
+      double peakPressure = 0.85,
       dynamic interpolation,
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       ForcePressGestureRecognizer(
-      startPressure: startPressure,
-      peakPressure: peakPressure,
-      interpolation: interpolation,
+      startPressure: startPressure?.toDouble(),
+      peakPressure: peakPressure?.toDouble(),
+      interpolation: null,
       debugOwner: debugOwner,
       kind: kind,
     ),

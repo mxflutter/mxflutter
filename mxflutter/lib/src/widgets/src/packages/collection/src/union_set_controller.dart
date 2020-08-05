@@ -12,14 +12,16 @@ import 'package:collection/src/union_set.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerUnionSetControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[unionSetController.funName] = unionSetController;
+  m[_unionSetController.funName] = _unionSetController;
   return m;
 }
-var unionSetController = MXFunctionInvoke(
+var _unionSetController = MXFunctionInvoke(
     "UnionSetController",
-    ({
+    (
+      {
       bool disjoint = false,
-    }) =>
+      }
+    ) =>
       UnionSetController(
       disjoint: disjoint,
     ),

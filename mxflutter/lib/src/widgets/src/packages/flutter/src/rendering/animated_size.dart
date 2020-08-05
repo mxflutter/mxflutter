@@ -17,17 +17,18 @@ import 'package:flutter/src/rendering/shifted_box.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[renderAnimatedSizeState.funName] = renderAnimatedSizeState;
-  m[renderAnimatedSize.funName] = renderAnimatedSize;
+  m[_renderAnimatedSizeState.funName] = _renderAnimatedSizeState;
+  m[_renderAnimatedSize.funName] = _renderAnimatedSize;
   return m;
 }
-var renderAnimatedSizeState = MXFunctionInvoke(
+var _renderAnimatedSizeState = MXFunctionInvoke(
     "RenderAnimatedSizeState",
     ({Map args}) => MXRenderAnimatedSizeState.parse(args),
   );
-var renderAnimatedSize = MXFunctionInvoke(
+var _renderAnimatedSize = MXFunctionInvoke(
     "RenderAnimatedSize",
-    ({
+    (
+      {
       TickerProvider vsync,
       Duration duration,
       Duration reverseDuration,
@@ -35,7 +36,8 @@ var renderAnimatedSize = MXFunctionInvoke(
       AlignmentGeometry alignment,
       TextDirection textDirection,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderAnimatedSize(
       vsync: vsync,
       duration: duration,

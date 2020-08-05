@@ -22,28 +22,32 @@ import 'package:flutter/src/gestures/tap.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMultitapSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[doubleTapGestureRecognizer.funName] = doubleTapGestureRecognizer;
-  m[multiTapGestureRecognizer.funName] = multiTapGestureRecognizer;
+  m[_doubleTapGestureRecognizer.funName] = _doubleTapGestureRecognizer;
+  m[_multiTapGestureRecognizer.funName] = _multiTapGestureRecognizer;
   return m;
 }
-var doubleTapGestureRecognizer = MXFunctionInvoke(
+var _doubleTapGestureRecognizer = MXFunctionInvoke(
     "DoubleTapGestureRecognizer",
-    ({
+    (
+      {
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       DoubleTapGestureRecognizer(
       debugOwner: debugOwner,
       kind: kind,
     ),
 );
-var multiTapGestureRecognizer = MXFunctionInvoke(
+var _multiTapGestureRecognizer = MXFunctionInvoke(
     "MultiTapGestureRecognizer",
-    ({
+    (
+      {
       Duration longTapDelay,
       Object debugOwner,
       PointerDeviceKind kind,
-    }) =>
+      }
+    ) =>
       MultiTapGestureRecognizer(
       longTapDelay: longTapDelay,
       debugOwner: debugOwner,

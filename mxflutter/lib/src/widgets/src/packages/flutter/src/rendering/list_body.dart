@@ -14,23 +14,25 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListBodySeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[listBodyParentData.funName] = listBodyParentData;
-  m[renderListBody.funName] = renderListBody;
+  m[_listBodyParentData.funName] = _listBodyParentData;
+  m[_renderListBody.funName] = _renderListBody;
   return m;
 }
-var listBodyParentData = MXFunctionInvoke(
+var _listBodyParentData = MXFunctionInvoke(
     "ListBodyParentData",
-    ({
-    }) =>
+    (
+    ) =>
       ListBodyParentData(
     ),
 );
-var renderListBody = MXFunctionInvoke(
+var _renderListBody = MXFunctionInvoke(
     "RenderListBody",
-    ({
+    (
+      {
       List<RenderBox> children,
       AxisDirection axisDirection = AxisDirection.down,
-    }) =>
+      }
+    ) =>
       RenderListBody(
       children: children,
       axisDirection: axisDirection,

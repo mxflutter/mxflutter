@@ -16,12 +16,13 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDatePickerHeaderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[datePickerHeader.funName] = datePickerHeader;
+  m[_datePickerHeader.funName] = _datePickerHeader;
   return m;
 }
-var datePickerHeader = MXFunctionInvoke(
+var _datePickerHeader = MXFunctionInvoke(
     "DatePickerHeader",
-    ({
+    (
+      {
       Key key,
       String helpText,
       String titleText,
@@ -32,7 +33,8 @@ var datePickerHeader = MXFunctionInvoke(
       IconData icon,
       String iconTooltip,
       dynamic onIconPressed,
-    }) =>
+      }
+    ) =>
       DatePickerHeader(
       key: key,
       helpText: helpText,
@@ -43,6 +45,6 @@ var datePickerHeader = MXFunctionInvoke(
       isShort: isShort,
       icon: icon,
       iconTooltip: iconTooltip,
-      onIconPressed: createVoidCallbackClosure(datePickerHeader.buildOwner, onIconPressed),
+      onIconPressed: createVoidCallbackClosure(_datePickerHeader.buildOwner, onIconPressed),
     ),
 );

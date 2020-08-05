@@ -19,56 +19,64 @@ import 'package:flutter/src/rendering/sliver.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerProxySliverSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[renderSliverOpacity.funName] = renderSliverOpacity;
-  m[renderSliverIgnorePointer.funName] = renderSliverIgnorePointer;
-  m[renderSliverOffstage.funName] = renderSliverOffstage;
-  m[renderSliverAnimatedOpacity.funName] = renderSliverAnimatedOpacity;
+  m[_renderSliverOpacity.funName] = _renderSliverOpacity;
+  m[_renderSliverIgnorePointer.funName] = _renderSliverIgnorePointer;
+  m[_renderSliverOffstage.funName] = _renderSliverOffstage;
+  m[_renderSliverAnimatedOpacity.funName] = _renderSliverAnimatedOpacity;
   return m;
 }
-var renderSliverOpacity = MXFunctionInvoke(
+var _renderSliverOpacity = MXFunctionInvoke(
     "RenderSliverOpacity",
-    ({
-      dynamic opacity = 1.0,
+    (
+      {
+      double opacity = 1.0,
       bool alwaysIncludeSemantics = false,
       RenderSliver sliver,
-    }) =>
+      }
+    ) =>
       RenderSliverOpacity(
-      opacity: opacity,
+      opacity: opacity?.toDouble(),
       alwaysIncludeSemantics: alwaysIncludeSemantics,
       sliver: sliver,
     ),
 );
-var renderSliverIgnorePointer = MXFunctionInvoke(
+var _renderSliverIgnorePointer = MXFunctionInvoke(
     "RenderSliverIgnorePointer",
-    ({
+    (
+      {
       RenderSliver sliver,
       bool ignoring = true,
       bool ignoringSemantics,
-    }) =>
+      }
+    ) =>
       RenderSliverIgnorePointer(
       sliver: sliver,
       ignoring: ignoring,
       ignoringSemantics: ignoringSemantics,
     ),
 );
-var renderSliverOffstage = MXFunctionInvoke(
+var _renderSliverOffstage = MXFunctionInvoke(
     "RenderSliverOffstage",
-    ({
+    (
+      {
       bool offstage = true,
       RenderSliver sliver,
-    }) =>
+      }
+    ) =>
       RenderSliverOffstage(
       offstage: offstage,
       sliver: sliver,
     ),
 );
-var renderSliverAnimatedOpacity = MXFunctionInvoke(
+var _renderSliverAnimatedOpacity = MXFunctionInvoke(
     "RenderSliverAnimatedOpacity",
-    ({
+    (
+      {
       Animation<double> opacity,
       bool alwaysIncludeSemantics = false,
       RenderSliver sliver,
-    }) =>
+      }
+    ) =>
       RenderSliverAnimatedOpacity(
       opacity: opacity,
       alwaysIncludeSemantics: alwaysIncludeSemantics,

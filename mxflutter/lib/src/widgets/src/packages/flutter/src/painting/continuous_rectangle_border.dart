@@ -17,15 +17,17 @@ import 'package:flutter/src/painting/edge_insets.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerContinuousRectangleBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[continuousRectangleBorder.funName] = continuousRectangleBorder;
+  m[_continuousRectangleBorder.funName] = _continuousRectangleBorder;
   return m;
 }
-var continuousRectangleBorder = MXFunctionInvoke(
+var _continuousRectangleBorder = MXFunctionInvoke(
     "ContinuousRectangleBorder",
-    ({
+    (
+      {
       BorderSide side,
       BorderRadiusGeometry borderRadius,
-    }) =>
+      }
+    ) =>
       ContinuousRectangleBorder(
       side: side,
       borderRadius: borderRadius,

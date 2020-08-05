@@ -21,18 +21,18 @@ import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/selectable_text.dart';
 import 'package:flutter/src/material/text_selection.dart';
 import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/services.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextFieldSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[textField.funName] = textField;
+  m[_textField.funName] = _textField;
   return m;
 }
-var textField = MXFunctionInvoke(
+var _textField = MXFunctionInvoke(
     "TextField",
-    ({
+    (
+      {
       Key key,
       TextEditingController controller,
       FocusNode focusNode,
@@ -64,7 +64,7 @@ var textField = MXFunctionInvoke(
       dynamic onSubmitted,
       List<TextInputFormatter> inputFormatters,
       bool enabled,
-      dynamic cursorWidth = 2.0,
+      double cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
       BoxHeightStyle selectionHeightStyle = BoxHeightStyle.tight,
@@ -77,7 +77,8 @@ var textField = MXFunctionInvoke(
       dynamic buildCounter,
       ScrollController scrollController,
       ScrollPhysics scrollPhysics,
-    }) =>
+      }
+    ) =>
       TextField(
       key: key,
       controller: controller,
@@ -105,12 +106,12 @@ var textField = MXFunctionInvoke(
       expands: expands,
       maxLength: maxLength,
       maxLengthEnforced: maxLengthEnforced,
-      onChanged: createValueChangedGenericClosure<String>(textField.buildOwner, onChanged),
-      onEditingComplete: createVoidCallbackClosure(textField.buildOwner, onEditingComplete),
-      onSubmitted: createValueChangedGenericClosure<String>(textField.buildOwner, onSubmitted),
+      onChanged: createValueChangedGenericClosure<String>(_textField.buildOwner, onChanged),
+      onEditingComplete: createVoidCallbackClosure(_textField.buildOwner, onEditingComplete),
+      onSubmitted: createValueChangedGenericClosure<String>(_textField.buildOwner, onSubmitted),
       inputFormatters: inputFormatters,
       enabled: enabled,
-      cursorWidth: cursorWidth,
+      cursorWidth: cursorWidth?.toDouble(),
       cursorRadius: cursorRadius,
       cursorColor: cursorColor,
       selectionHeightStyle: selectionHeightStyle,
@@ -119,8 +120,8 @@ var textField = MXFunctionInvoke(
       scrollPadding: scrollPadding,
       dragStartBehavior: dragStartBehavior,
       enableInteractiveSelection: enableInteractiveSelection,
-      onTap: createVoidCallbackClosure(textField.buildOwner, onTap),
-      buildCounter: createGenericValueGenericClosure<Widget, BuildContext>(textField.buildOwner, buildCounter),
+      onTap: createVoidCallbackClosure(_textField.buildOwner, onTap),
+      buildCounter: createGenericValueGenericClosure<Widget, BuildContext>(_textField.buildOwner, buildCounter),
       scrollController: scrollController,
       scrollPhysics: scrollPhysics,
     ),

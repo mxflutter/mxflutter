@@ -24,125 +24,142 @@ import 'package:flutter/src/widgets/transitions.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerImplicitAnimationsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[boxConstraintsTween.funName] = boxConstraintsTween;
-  m[decorationTween.funName] = decorationTween;
-  m[edgeInsetsTween.funName] = edgeInsetsTween;
-  m[edgeInsetsGeometryTween.funName] = edgeInsetsGeometryTween;
-  m[borderRadiusTween.funName] = borderRadiusTween;
-  m[borderTween.funName] = borderTween;
-  m[matrix4Tween.funName] = matrix4Tween;
-  m[textStyleTween.funName] = textStyleTween;
-  m[animatedContainer.funName] = animatedContainer;
-  m[animatedPadding.funName] = animatedPadding;
-  m[animatedAlign.funName] = animatedAlign;
-  m[animatedPositioned.funName] = animatedPositioned;
-  m[animatedPositioned_fromRect.funName] = animatedPositioned_fromRect;
-  m[animatedPositionedDirectional.funName] = animatedPositionedDirectional;
-  m[animatedOpacity.funName] = animatedOpacity;
-  m[sliverAnimatedOpacity.funName] = sliverAnimatedOpacity;
-  m[animatedDefaultTextStyle.funName] = animatedDefaultTextStyle;
-  m[animatedPhysicalModel.funName] = animatedPhysicalModel;
+  m[_boxConstraintsTween.funName] = _boxConstraintsTween;
+  m[_decorationTween.funName] = _decorationTween;
+  m[_edgeInsetsTween.funName] = _edgeInsetsTween;
+  m[_edgeInsetsGeometryTween.funName] = _edgeInsetsGeometryTween;
+  m[_borderRadiusTween.funName] = _borderRadiusTween;
+  m[_borderTween.funName] = _borderTween;
+  m[_matrix4Tween.funName] = _matrix4Tween;
+  m[_textStyleTween.funName] = _textStyleTween;
+  m[_animatedContainer.funName] = _animatedContainer;
+  m[_animatedPadding.funName] = _animatedPadding;
+  m[_animatedAlign.funName] = _animatedAlign;
+  m[_animatedPositioned.funName] = _animatedPositioned;
+  m[_animatedPositioned_fromRect.funName] = _animatedPositioned_fromRect;
+  m[_animatedPositionedDirectional.funName] = _animatedPositionedDirectional;
+  m[_animatedOpacity.funName] = _animatedOpacity;
+  m[_sliverAnimatedOpacity.funName] = _sliverAnimatedOpacity;
+  m[_animatedDefaultTextStyle.funName] = _animatedDefaultTextStyle;
+  m[_animatedPhysicalModel.funName] = _animatedPhysicalModel;
   return m;
 }
-var boxConstraintsTween = MXFunctionInvoke(
+var _boxConstraintsTween = MXFunctionInvoke(
     "BoxConstraintsTween",
-    ({
+    (
+      {
       BoxConstraints begin,
       BoxConstraints end,
-    }) =>
+      }
+    ) =>
       BoxConstraintsTween(
       begin: begin,
       end: end,
     ),
 );
-var decorationTween = MXFunctionInvoke(
+var _decorationTween = MXFunctionInvoke(
     "DecorationTween",
-    ({
+    (
+      {
       Decoration begin,
       Decoration end,
-    }) =>
+      }
+    ) =>
       DecorationTween(
       begin: begin,
       end: end,
     ),
 );
-var edgeInsetsTween = MXFunctionInvoke(
+var _edgeInsetsTween = MXFunctionInvoke(
     "EdgeInsetsTween",
-    ({
+    (
+      {
       EdgeInsets begin,
       EdgeInsets end,
-    }) =>
+      }
+    ) =>
       EdgeInsetsTween(
       begin: begin,
       end: end,
     ),
 );
-var edgeInsetsGeometryTween = MXFunctionInvoke(
+var _edgeInsetsGeometryTween = MXFunctionInvoke(
     "EdgeInsetsGeometryTween",
-    ({
+    (
+      {
       EdgeInsetsGeometry begin,
       EdgeInsetsGeometry end,
-    }) =>
+      }
+    ) =>
       EdgeInsetsGeometryTween(
       begin: begin,
       end: end,
     ),
 );
-var borderRadiusTween = MXFunctionInvoke(
+var _borderRadiusTween = MXFunctionInvoke(
     "BorderRadiusTween",
-    ({
+    (
+      {
       BorderRadius begin,
       BorderRadius end,
-    }) =>
+      }
+    ) =>
       BorderRadiusTween(
       begin: begin,
       end: end,
     ),
 );
-var borderTween = MXFunctionInvoke(
+var _borderTween = MXFunctionInvoke(
     "BorderTween",
-    ({
+    (
+      {
       Border begin,
       Border end,
-    }) =>
+      }
+    ) =>
       BorderTween(
       begin: begin,
       end: end,
     ),
 );
-var matrix4Tween = MXFunctionInvoke(
+var _matrix4Tween = MXFunctionInvoke(
     "Matrix4Tween",
-    ({
+    (
+      {
       Matrix4 begin,
       Matrix4 end,
-    }) =>
+      }
+    ) =>
       Matrix4Tween(
       begin: begin,
       end: end,
     ),
 );
-var textStyleTween = MXFunctionInvoke(
+var _textStyleTween = MXFunctionInvoke(
     "TextStyleTween",
-    ({
+    (
+      {
       TextStyle begin,
       TextStyle end,
-    }) =>
+      }
+    ) =>
       TextStyleTween(
       begin: begin,
       end: end,
     ),
 );
-var animatedContainer = MXFunctionInvoke(
+var _animatedContainer = MXFunctionInvoke(
     "AnimatedContainer",
-    ({
+    (
+      {
       Key key,
       AlignmentGeometry alignment,
       EdgeInsetsGeometry padding,
       Color color,
       Decoration decoration,
       Decoration foregroundDecoration,
-      dynamic width,
-      dynamic height,
+      double width,
+      double height,
       BoxConstraints constraints,
       EdgeInsetsGeometry margin,
       Matrix4 transform,
@@ -150,7 +167,8 @@ var animatedContainer = MXFunctionInvoke(
       Curve curve,
       Duration duration,
       dynamic onEnd,
-    }) =>
+      }
+    ) =>
       AnimatedContainer(
       key: key,
       alignment: alignment,
@@ -158,177 +176,192 @@ var animatedContainer = MXFunctionInvoke(
       color: color,
       decoration: decoration,
       foregroundDecoration: foregroundDecoration,
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
       constraints: constraints,
       margin: margin,
       transform: transform,
       child: child,
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedContainer.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedContainer.buildOwner, onEnd),
     ),
 );
-var animatedPadding = MXFunctionInvoke(
+var _animatedPadding = MXFunctionInvoke(
     "AnimatedPadding",
-    ({
+    (
+      {
       Key key,
       EdgeInsetsGeometry padding,
       Widget child,
       Curve curve,
       Duration duration,
       dynamic onEnd,
-    }) =>
+      }
+    ) =>
       AnimatedPadding(
       key: key,
       padding: padding,
       child: child,
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedPadding.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedPadding.buildOwner, onEnd),
     ),
 );
-var animatedAlign = MXFunctionInvoke(
+var _animatedAlign = MXFunctionInvoke(
     "AnimatedAlign",
-    ({
+    (
+      {
       Key key,
       AlignmentGeometry alignment,
       Widget child,
       Curve curve,
       Duration duration,
       dynamic onEnd,
-    }) =>
+      }
+    ) =>
       AnimatedAlign(
       key: key,
       alignment: alignment,
       child: child,
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedAlign.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedAlign.buildOwner, onEnd),
     ),
 );
-var animatedPositioned = MXFunctionInvoke(
+var _animatedPositioned = MXFunctionInvoke(
     "AnimatedPositioned",
-    ({
+    (
+      {
       Key key,
       Widget child,
-      dynamic left,
-      dynamic top,
-      dynamic right,
-      dynamic bottom,
-      dynamic width,
-      dynamic height,
+      double left,
+      double top,
+      double right,
+      double bottom,
+      double width,
+      double height,
       Curve curve,
       Duration duration,
       dynamic onEnd,
-    }) =>
+      }
+    ) =>
       AnimatedPositioned(
       key: key,
       child: child,
-      left: left,
-      top: top,
-      right: right,
-      bottom: bottom,
-      width: width,
-      height: height,
+      left: left?.toDouble(),
+      top: top?.toDouble(),
+      right: right?.toDouble(),
+      bottom: bottom?.toDouble(),
+      width: width?.toDouble(),
+      height: height?.toDouble(),
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedPositioned.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedPositioned.buildOwner, onEnd),
     ),
 );
-var animatedPositioned_fromRect = MXFunctionInvoke(
+var _animatedPositioned_fromRect = MXFunctionInvoke(
   "animatedPositioned.fromRect",
-    ({
+    (
+      {
       Key key,
       Widget child,
       Rect rect,
       Curve curve,
       Duration duration,
       dynamic onEnd,
-    }) =>
+      }
+    ) =>
       AnimatedPositioned.fromRect(
       key: key,
       child: child,
       rect: rect,
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedPositioned_fromRect.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedPositioned_fromRect.buildOwner, onEnd),
     ),
 );
-var animatedPositionedDirectional = MXFunctionInvoke(
+var _animatedPositionedDirectional = MXFunctionInvoke(
     "AnimatedPositionedDirectional",
-    ({
+    (
+      {
       Key key,
       Widget child,
-      dynamic start,
-      dynamic top,
-      dynamic end,
-      dynamic bottom,
-      dynamic width,
-      dynamic height,
+      double start,
+      double top,
+      double end,
+      double bottom,
+      double width,
+      double height,
       Curve curve,
       Duration duration,
       dynamic onEnd,
-    }) =>
+      }
+    ) =>
       AnimatedPositionedDirectional(
       key: key,
       child: child,
-      start: start,
-      top: top,
-      end: end,
-      bottom: bottom,
-      width: width,
-      height: height,
+      start: start?.toDouble(),
+      top: top?.toDouble(),
+      end: end?.toDouble(),
+      bottom: bottom?.toDouble(),
+      width: width?.toDouble(),
+      height: height?.toDouble(),
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedPositionedDirectional.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedPositionedDirectional.buildOwner, onEnd),
     ),
 );
-var animatedOpacity = MXFunctionInvoke(
+var _animatedOpacity = MXFunctionInvoke(
     "AnimatedOpacity",
-    ({
+    (
+      {
       Key key,
       Widget child,
-      dynamic opacity,
+      double opacity,
       Curve curve,
       Duration duration,
       dynamic onEnd,
       bool alwaysIncludeSemantics = false,
-    }) =>
+      }
+    ) =>
       AnimatedOpacity(
       key: key,
       child: child,
-      opacity: opacity,
+      opacity: opacity?.toDouble(),
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedOpacity.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedOpacity.buildOwner, onEnd),
       alwaysIncludeSemantics: alwaysIncludeSemantics,
     ),
 );
-var sliverAnimatedOpacity = MXFunctionInvoke(
+var _sliverAnimatedOpacity = MXFunctionInvoke(
     "SliverAnimatedOpacity",
-    ({
+    (
+      {
       Key key,
       Widget sliver,
-      dynamic opacity,
+      double opacity,
       Curve curve,
       Duration duration,
       dynamic onEnd,
       bool alwaysIncludeSemantics = false,
-    }) =>
+      }
+    ) =>
       SliverAnimatedOpacity(
       key: key,
       sliver: sliver,
-      opacity: opacity,
+      opacity: opacity?.toDouble(),
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(sliverAnimatedOpacity.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_sliverAnimatedOpacity.buildOwner, onEnd),
       alwaysIncludeSemantics: alwaysIncludeSemantics,
     ),
 );
-var animatedDefaultTextStyle = MXFunctionInvoke(
+var _animatedDefaultTextStyle = MXFunctionInvoke(
     "AnimatedDefaultTextStyle",
-    ({
+    (
+      {
       Key key,
       Widget child,
       TextStyle style,
@@ -341,7 +374,8 @@ var animatedDefaultTextStyle = MXFunctionInvoke(
       Curve curve,
       Duration duration,
       dynamic onEnd,
-    }) =>
+      }
+    ) =>
       AnimatedDefaultTextStyle(
       key: key,
       child: child,
@@ -354,18 +388,19 @@ var animatedDefaultTextStyle = MXFunctionInvoke(
       textHeightBehavior: textHeightBehavior,
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedDefaultTextStyle.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedDefaultTextStyle.buildOwner, onEnd),
     ),
 );
-var animatedPhysicalModel = MXFunctionInvoke(
+var _animatedPhysicalModel = MXFunctionInvoke(
     "AnimatedPhysicalModel",
-    ({
+    (
+      {
       Key key,
       Widget child,
       BoxShape shape,
       Clip clipBehavior = Clip.none,
       BorderRadius borderRadius,
-      dynamic elevation,
+      double elevation,
       Color color,
       bool animateColor = true,
       Color shadowColor,
@@ -373,20 +408,21 @@ var animatedPhysicalModel = MXFunctionInvoke(
       Curve curve,
       Duration duration,
       dynamic onEnd,
-    }) =>
+      }
+    ) =>
       AnimatedPhysicalModel(
       key: key,
       child: child,
       shape: shape,
       clipBehavior: clipBehavior,
       borderRadius: borderRadius,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       color: color,
       animateColor: animateColor,
       shadowColor: shadowColor,
       animateShadowColor: animateShadowColor,
       curve: curve,
       duration: duration,
-      onEnd: createVoidCallbackClosure(animatedPhysicalModel.buildOwner, onEnd),
+      onEnd: createVoidCallbackClosure(_animatedPhysicalModel.buildOwner, onEnd),
     ),
 );

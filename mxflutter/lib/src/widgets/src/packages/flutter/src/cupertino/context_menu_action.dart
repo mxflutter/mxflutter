@@ -14,25 +14,27 @@ import 'package:flutter/src/cupertino/colors.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerContextMenuActionSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoContextMenuAction.funName] = cupertinoContextMenuAction;
+  m[_cupertinoContextMenuAction.funName] = _cupertinoContextMenuAction;
   return m;
 }
-var cupertinoContextMenuAction = MXFunctionInvoke(
+var _cupertinoContextMenuAction = MXFunctionInvoke(
     "CupertinoContextMenuAction",
-    ({
+    (
+      {
       Key key,
       Widget child,
       bool isDefaultAction = false,
       bool isDestructiveAction = false,
       dynamic onPressed,
       IconData trailingIcon,
-    }) =>
+      }
+    ) =>
       CupertinoContextMenuAction(
       key: key,
       child: child,
       isDefaultAction: isDefaultAction,
       isDestructiveAction: isDestructiveAction,
-      onPressed: createVoidCallbackClosure(cupertinoContextMenuAction.buildOwner, onPressed),
+      onPressed: createVoidCallbackClosure(_cupertinoContextMenuAction.buildOwner, onPressed),
       trailingIcon: trailingIcon,
     ),
 );

@@ -21,37 +21,41 @@ import 'package:flutter/src/cupertino/interface_level.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRouteSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoPageRoute.funName] = cupertinoPageRoute;
-  m[cupertinoPageTransition.funName] = cupertinoPageTransition;
-  m[cupertinoFullscreenDialogTransition.funName] = cupertinoFullscreenDialogTransition;
+  m[_cupertinoPageRoute.funName] = _cupertinoPageRoute;
+  m[_cupertinoPageTransition.funName] = _cupertinoPageTransition;
+  m[_cupertinoFullscreenDialogTransition.funName] = _cupertinoFullscreenDialogTransition;
   return m;
 }
-var cupertinoPageRoute = MXFunctionInvoke(
+var _cupertinoPageRoute = MXFunctionInvoke(
     "CupertinoPageRoute",
-    ({
+    (
+      {
       dynamic builder,
       String title,
       RouteSettings settings,
       bool maintainState = true,
       bool fullscreenDialog = false,
-    }) =>
+      }
+    ) =>
       CupertinoPageRoute(
-      builder: createGenericValueGenericClosure<Widget, BuildContext>(cupertinoPageRoute.buildOwner, builder),
+      builder: createGenericValueGenericClosure<Widget, BuildContext>(_cupertinoPageRoute.buildOwner, builder),
       title: title,
       settings: settings,
       maintainState: maintainState,
       fullscreenDialog: fullscreenDialog,
     ),
 );
-var cupertinoPageTransition = MXFunctionInvoke(
+var _cupertinoPageTransition = MXFunctionInvoke(
     "CupertinoPageTransition",
-    ({
+    (
+      {
       Key key,
       Animation<double> primaryRouteAnimation,
       Animation<double> secondaryRouteAnimation,
       Widget child,
       bool linearTransition,
-    }) =>
+      }
+    ) =>
       CupertinoPageTransition(
       key: key,
       primaryRouteAnimation: primaryRouteAnimation,
@@ -60,15 +64,17 @@ var cupertinoPageTransition = MXFunctionInvoke(
       linearTransition: linearTransition,
     ),
 );
-var cupertinoFullscreenDialogTransition = MXFunctionInvoke(
+var _cupertinoFullscreenDialogTransition = MXFunctionInvoke(
     "CupertinoFullscreenDialogTransition",
-    ({
+    (
+      {
       Key key,
       Animation<double> primaryRouteAnimation,
       Animation<double> secondaryRouteAnimation,
       Widget child,
       bool linearTransition,
-    }) =>
+      }
+    ) =>
       CupertinoFullscreenDialogTransition(
       key: key,
       primaryRouteAnimation: primaryRouteAnimation,

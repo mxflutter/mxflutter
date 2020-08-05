@@ -10,47 +10,50 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/system_channels.dart';
-import 'dart:ui';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSystemChromeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[deviceOrientation.funName] = deviceOrientation;
-  m[applicationSwitcherDescription.funName] = applicationSwitcherDescription;
-  m[systemUiOverlay.funName] = systemUiOverlay;
-  m[systemUiOverlayStyle.funName] = systemUiOverlayStyle;
+  m[_deviceOrientation.funName] = _deviceOrientation;
+  m[_applicationSwitcherDescription.funName] = _applicationSwitcherDescription;
+  m[_systemUiOverlay.funName] = _systemUiOverlay;
+  m[_systemUiOverlayStyle.funName] = _systemUiOverlayStyle;
   return m;
 }
-var deviceOrientation = MXFunctionInvoke(
+var _deviceOrientation = MXFunctionInvoke(
     "DeviceOrientation",
     ({Map args}) => MXDeviceOrientation.parse(args),
   );
-var applicationSwitcherDescription = MXFunctionInvoke(
+var _applicationSwitcherDescription = MXFunctionInvoke(
     "ApplicationSwitcherDescription",
-    ({
+    (
+      {
       String label,
       int primaryColor,
-    }) =>
+      }
+    ) =>
       ApplicationSwitcherDescription(
       label: label,
       primaryColor: primaryColor,
     ),
 );
-var systemUiOverlay = MXFunctionInvoke(
+var _systemUiOverlay = MXFunctionInvoke(
     "SystemUiOverlay",
     ({Map args}) => MXSystemUiOverlay.parse(args),
   );
-var systemUiOverlayStyle = MXFunctionInvoke(
+var _systemUiOverlayStyle = MXFunctionInvoke(
     "SystemUiOverlayStyle",
-    ({
+    (
+      {
       Color systemNavigationBarColor,
       Color systemNavigationBarDividerColor,
       Brightness systemNavigationBarIconBrightness,
       Color statusBarColor,
       Brightness statusBarBrightness,
       Brightness statusBarIconBrightness,
-    }) =>
+      }
+    ) =>
       SystemUiOverlayStyle(
       systemNavigationBarColor: systemNavigationBarColor,
       systemNavigationBarDividerColor: systemNavigationBarDividerColor,

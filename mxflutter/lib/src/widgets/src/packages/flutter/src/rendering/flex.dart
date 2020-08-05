@@ -16,40 +16,41 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFlexSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[flexFit.funName] = flexFit;
-  m[flexParentData.funName] = flexParentData;
-  m[mainAxisSize.funName] = mainAxisSize;
-  m[mainAxisAlignment.funName] = mainAxisAlignment;
-  m[crossAxisAlignment.funName] = crossAxisAlignment;
-  m[renderFlex.funName] = renderFlex;
+  m[_flexFit.funName] = _flexFit;
+  m[_flexParentData.funName] = _flexParentData;
+  m[_mainAxisSize.funName] = _mainAxisSize;
+  m[_mainAxisAlignment.funName] = _mainAxisAlignment;
+  m[_crossAxisAlignment.funName] = _crossAxisAlignment;
+  m[_renderFlex.funName] = _renderFlex;
   return m;
 }
-var flexFit = MXFunctionInvoke(
+var _flexFit = MXFunctionInvoke(
     "FlexFit",
     ({Map args}) => MXFlexFit.parse(args),
   );
-var flexParentData = MXFunctionInvoke(
+var _flexParentData = MXFunctionInvoke(
     "FlexParentData",
-    ({
-    }) =>
+    (
+    ) =>
       FlexParentData(
     ),
 );
-var mainAxisSize = MXFunctionInvoke(
+var _mainAxisSize = MXFunctionInvoke(
     "MainAxisSize",
     ({Map args}) => MXMainAxisSize.parse(args),
   );
-var mainAxisAlignment = MXFunctionInvoke(
+var _mainAxisAlignment = MXFunctionInvoke(
     "MainAxisAlignment",
     ({Map args}) => MXMainAxisAlignment.parse(args),
   );
-var crossAxisAlignment = MXFunctionInvoke(
+var _crossAxisAlignment = MXFunctionInvoke(
     "CrossAxisAlignment",
     ({Map args}) => MXCrossAxisAlignment.parse(args),
   );
-var renderFlex = MXFunctionInvoke(
+var _renderFlex = MXFunctionInvoke(
     "RenderFlex",
-    ({
+    (
+      {
       List<RenderBox> children,
       Axis direction = Axis.horizontal,
       MainAxisSize mainAxisSize = MainAxisSize.max,
@@ -58,7 +59,8 @@ var renderFlex = MXFunctionInvoke(
       TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
       TextBaseline textBaseline,
-    }) =>
+      }
+    ) =>
       RenderFlex(
       children: children,
       direction: direction,

@@ -16,13 +16,14 @@ import 'package:flutter/src/material/theme_data.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSwitchListTileSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[switchListTile.funName] = switchListTile;
-  m[switchListTile_adaptive.funName] = switchListTile_adaptive;
+  m[_switchListTile.funName] = _switchListTile;
+  m[_switchListTile_adaptive.funName] = _switchListTile_adaptive;
   return m;
 }
-var switchListTile = MXFunctionInvoke(
+var _switchListTile = MXFunctionInvoke(
     "SwitchListTile",
-    ({
+    (
+      {
       Key key,
       bool value,
       dynamic onChanged,
@@ -39,11 +40,12 @@ var switchListTile = MXFunctionInvoke(
       EdgeInsetsGeometry contentPadding,
       Widget secondary,
       bool selected = false,
-    }) =>
+      }
+    ) =>
       SwitchListTile(
       key: key,
       value: value,
-      onChanged: createValueChangedGenericClosure<bool>(switchListTile.buildOwner, onChanged),
+      onChanged: createValueChangedGenericClosure<bool>(_switchListTile.buildOwner, onChanged),
       activeColor: activeColor,
       activeTrackColor: activeTrackColor,
       inactiveThumbColor: inactiveThumbColor,
@@ -59,9 +61,10 @@ var switchListTile = MXFunctionInvoke(
       selected: selected,
     ),
 );
-var switchListTile_adaptive = MXFunctionInvoke(
+var _switchListTile_adaptive = MXFunctionInvoke(
   "switchListTile.adaptive",
-    ({
+    (
+      {
       Key key,
       bool value,
       dynamic onChanged,
@@ -78,11 +81,12 @@ var switchListTile_adaptive = MXFunctionInvoke(
       EdgeInsetsGeometry contentPadding,
       Widget secondary,
       bool selected = false,
-    }) =>
+      }
+    ) =>
       SwitchListTile.adaptive(
       key: key,
       value: value,
-      onChanged: createValueChangedGenericClosure<bool>(switchListTile_adaptive.buildOwner, onChanged),
+      onChanged: createValueChangedGenericClosure<bool>(_switchListTile_adaptive.buildOwner, onChanged),
       activeColor: activeColor,
       activeTrackColor: activeTrackColor,
       inactiveThumbColor: inactiveThumbColor,

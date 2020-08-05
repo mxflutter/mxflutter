@@ -16,54 +16,56 @@ import 'package:flutter/src/services/platform_channel.dart';
 import 'package:flutter/src/services/system_channels.dart';
 import 'package:flutter/src/services/system_chrome.dart';
 import 'package:flutter/src/services/text_editing.dart';
-import 'dart:ui';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextInputSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[smartDashesType.funName] = smartDashesType;
-  m[smartQuotesType.funName] = smartQuotesType;
-  m[textInputType_numberWithOptions.funName] = textInputType_numberWithOptions;
-  m[textInputAction.funName] = textInputAction;
-  m[textCapitalization.funName] = textCapitalization;
-  m[textInputConfiguration.funName] = textInputConfiguration;
-  m[floatingCursorDragState.funName] = floatingCursorDragState;
-  m[rawFloatingCursorPoint.funName] = rawFloatingCursorPoint;
-  m[textEditingValue.funName] = textEditingValue;
-  m[textEditingValue_fromJSON.funName] = textEditingValue_fromJSON;
+  m[_smartDashesType.funName] = _smartDashesType;
+  m[_smartQuotesType.funName] = _smartQuotesType;
+  m[_textInputType_numberWithOptions.funName] = _textInputType_numberWithOptions;
+  m[_textInputAction.funName] = _textInputAction;
+  m[_textCapitalization.funName] = _textCapitalization;
+  m[_textInputConfiguration.funName] = _textInputConfiguration;
+  m[_floatingCursorDragState.funName] = _floatingCursorDragState;
+  m[_rawFloatingCursorPoint.funName] = _rawFloatingCursorPoint;
+  m[_textEditingValue.funName] = _textEditingValue;
+  m[_textEditingValue_fromJSON.funName] = _textEditingValue_fromJSON;
   return m;
 }
-var smartDashesType = MXFunctionInvoke(
+var _smartDashesType = MXFunctionInvoke(
     "SmartDashesType",
     ({Map args}) => MXSmartDashesType.parse(args),
   );
-var smartQuotesType = MXFunctionInvoke(
+var _smartQuotesType = MXFunctionInvoke(
     "SmartQuotesType",
     ({Map args}) => MXSmartQuotesType.parse(args),
   );
-var textInputType_numberWithOptions = MXFunctionInvoke(
+var _textInputType_numberWithOptions = MXFunctionInvoke(
   "textInputType.numberWithOptions",
-    ({
+    (
+      {
       bool signed = false,
       bool decimal = false,
-    }) =>
+      }
+    ) =>
       TextInputType.numberWithOptions(
       signed: signed,
       decimal: decimal,
     ),
 );
-var textInputAction = MXFunctionInvoke(
+var _textInputAction = MXFunctionInvoke(
     "TextInputAction",
     ({Map args}) => MXTextInputAction.parse(args),
   );
-var textCapitalization = MXFunctionInvoke(
+var _textCapitalization = MXFunctionInvoke(
     "TextCapitalization",
     ({Map args}) => MXTextCapitalization.parse(args),
   );
-var textInputConfiguration = MXFunctionInvoke(
+var _textInputConfiguration = MXFunctionInvoke(
     "TextInputConfiguration",
-    ({
+    (
+      {
       TextInputType inputType,
       bool obscureText = false,
       bool autocorrect = true,
@@ -74,7 +76,8 @@ var textInputConfiguration = MXFunctionInvoke(
       TextInputAction inputAction = TextInputAction.done,
       Brightness keyboardAppearance = Brightness.light,
       TextCapitalization textCapitalization = TextCapitalization.none,
-    }) =>
+      }
+    ) =>
       TextInputConfiguration(
       inputType: inputType,
       obscureText: obscureText,
@@ -88,39 +91,45 @@ var textInputConfiguration = MXFunctionInvoke(
       textCapitalization: textCapitalization,
     ),
 );
-var floatingCursorDragState = MXFunctionInvoke(
+var _floatingCursorDragState = MXFunctionInvoke(
     "FloatingCursorDragState",
     ({Map args}) => MXFloatingCursorDragState.parse(args),
   );
-var rawFloatingCursorPoint = MXFunctionInvoke(
+var _rawFloatingCursorPoint = MXFunctionInvoke(
     "RawFloatingCursorPoint",
-    ({
+    (
+      {
       Offset offset,
       FloatingCursorDragState state,
-    }) =>
+      }
+    ) =>
       RawFloatingCursorPoint(
       offset: offset,
       state: state,
     ),
 );
-var textEditingValue = MXFunctionInvoke(
+var _textEditingValue = MXFunctionInvoke(
     "TextEditingValue",
-    ({
+    (
+      {
       String text = '',
       TextSelection selection,
       TextRange composing,
-    }) =>
+      }
+    ) =>
       TextEditingValue(
       text: text,
       selection: selection,
       composing: composing,
     ),
 );
-var textEditingValue_fromJSON = MXFunctionInvoke(
+var _textEditingValue_fromJSON = MXFunctionInvoke(
   "textEditingValue.fromJSON",
-    ({
+    (
+      {
       Map<String, dynamic> encoded,
-    }) =>
+      }
+    ) =>
       TextEditingValue.fromJSON(
       encoded,
     ),

@@ -18,19 +18,21 @@ import 'package:flutter/src/rendering/proxy_box.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCustomPaintSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[customPainterSemantics.funName] = customPainterSemantics;
-  m[renderCustomPaint.funName] = renderCustomPaint;
+  m[_customPainterSemantics.funName] = _customPainterSemantics;
+  m[_renderCustomPaint.funName] = _renderCustomPaint;
   return m;
 }
-var customPainterSemantics = MXFunctionInvoke(
+var _customPainterSemantics = MXFunctionInvoke(
     "CustomPainterSemantics",
-    ({
+    (
+      {
       Key key,
       Rect rect,
       SemanticsProperties properties,
       Matrix4 transform,
       Set<SemanticsTag> tags,
-    }) =>
+      }
+    ) =>
       CustomPainterSemantics(
       key: key,
       rect: rect,
@@ -39,16 +41,18 @@ var customPainterSemantics = MXFunctionInvoke(
       tags: tags,
     ),
 );
-var renderCustomPaint = MXFunctionInvoke(
+var _renderCustomPaint = MXFunctionInvoke(
     "RenderCustomPaint",
-    ({
+    (
+      {
       CustomPainter painter,
       CustomPainter foregroundPainter,
       Size preferredSize,
       bool isComplex = false,
       bool willChange = false,
       RenderBox child,
-    }) =>
+      }
+    ) =>
       RenderCustomPaint(
       painter: painter,
       foregroundPainter: foregroundPainter,

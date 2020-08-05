@@ -14,25 +14,29 @@ import 'package:collection/src/wrappers.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEqualitySetSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[equalitySet.funName] = equalitySet;
-  m[equalitySet_from.funName] = equalitySet_from;
+  m[_equalitySet.funName] = _equalitySet;
+  m[_equalitySet_from.funName] = _equalitySet_from;
   return m;
 }
-var equalitySet = MXFunctionInvoke(
+var _equalitySet = MXFunctionInvoke(
     "EqualitySet",
-    ({
-      Equality<EqualitySet::E> equality,
-    }) =>
+    (
+      {
+      Equality<dynamic> equality,
+      }
+    ) =>
       EqualitySet(
       equality,
     ),
 );
-var equalitySet_from = MXFunctionInvoke(
+var _equalitySet_from = MXFunctionInvoke(
   "equalitySet.from",
-    ({
-      Equality<EqualitySet::E> equality,
-      Iterable<EqualitySet::E> other,
-    }) =>
+    (
+      {
+      Equality<dynamic> equality,
+      Iterable<dynamic> other,
+      }
+    ) =>
       EqualitySet.from(
       equality,
       other,

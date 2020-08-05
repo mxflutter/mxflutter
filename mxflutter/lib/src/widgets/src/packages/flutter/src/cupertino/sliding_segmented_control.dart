@@ -18,24 +18,26 @@ import 'package:flutter/src/cupertino/colors.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSlidingSegmentedControlSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoSlidingSegmentedControl.funName] = cupertinoSlidingSegmentedControl;
+  m[_cupertinoSlidingSegmentedControl.funName] = _cupertinoSlidingSegmentedControl;
   return m;
 }
-var cupertinoSlidingSegmentedControl = MXFunctionInvoke(
+var _cupertinoSlidingSegmentedControl = MXFunctionInvoke(
     "CupertinoSlidingSegmentedControl",
-    ({
+    (
+      {
       Key key,
-      dynamic children,
+      Map<dynamic, Widget> children,
       dynamic onValueChanged,
       dynamic groupValue,
       Color thumbColor,
       EdgeInsetsGeometry padding,
       Color backgroundColor,
-    }) =>
+      }
+    ) =>
       CupertinoSlidingSegmentedControl(
       key: key,
       children: children,
-      onValueChanged: createValueChangedGenericClosure<dynamic>(cupertinoSlidingSegmentedControl.buildOwner, onValueChanged),
+      onValueChanged: createValueChangedGenericClosure<dynamic>(_cupertinoSlidingSegmentedControl.buildOwner, onValueChanged),
       groupValue: groupValue,
       thumbColor: thumbColor,
       padding: padding,

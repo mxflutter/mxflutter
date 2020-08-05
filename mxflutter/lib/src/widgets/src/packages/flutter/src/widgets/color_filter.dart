@@ -15,16 +15,18 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerColorFilterSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[colorFiltered.funName] = colorFiltered;
+  m[_colorFiltered.funName] = _colorFiltered;
   return m;
 }
-var colorFiltered = MXFunctionInvoke(
+var _colorFiltered = MXFunctionInvoke(
     "ColorFiltered",
-    ({
+    (
+      {
       ColorFilter colorFilter,
       Widget child,
       Key key,
-    }) =>
+      }
+    ) =>
       ColorFiltered(
       colorFilter: colorFilter,
       child: child,

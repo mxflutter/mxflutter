@@ -14,60 +14,68 @@ import 'package:flutter/foundation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCurvesSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[sawTooth.funName] = sawTooth;
-  m[interval.funName] = interval;
-  m[threshold.funName] = threshold;
-  m[cubic.funName] = cubic;
-  m[curve2DSample.funName] = curve2DSample;
-  m[catmullRomSpline.funName] = catmullRomSpline;
-  m[catmullRomSpline_precompute.funName] = catmullRomSpline_precompute;
-  m[catmullRomCurve.funName] = catmullRomCurve;
-  m[catmullRomCurve_precompute.funName] = catmullRomCurve_precompute;
-  m[flippedCurve.funName] = flippedCurve;
-  m[elasticInCurve.funName] = elasticInCurve;
-  m[elasticOutCurve.funName] = elasticOutCurve;
-  m[elasticInOutCurve.funName] = elasticInOutCurve;
+  m[_sawTooth.funName] = _sawTooth;
+  m[_interval.funName] = _interval;
+  m[_threshold.funName] = _threshold;
+  m[_cubic.funName] = _cubic;
+  m[_curve2DSample.funName] = _curve2DSample;
+  m[_catmullRomSpline.funName] = _catmullRomSpline;
+  m[_catmullRomSpline_precompute.funName] = _catmullRomSpline_precompute;
+  m[_catmullRomCurve.funName] = _catmullRomCurve;
+  m[_catmullRomCurve_precompute.funName] = _catmullRomCurve_precompute;
+  m[_flippedCurve.funName] = _flippedCurve;
+  m[_elasticInCurve.funName] = _elasticInCurve;
+  m[_elasticOutCurve.funName] = _elasticOutCurve;
+  m[_elasticInOutCurve.funName] = _elasticInOutCurve;
   return m;
 }
-var sawTooth = MXFunctionInvoke(
+var _sawTooth = MXFunctionInvoke(
     "SawTooth",
-    ({
+    (
+      {
       int count,
-    }) =>
+      }
+    ) =>
       SawTooth(
       count,
     ),
 );
-var interval = MXFunctionInvoke(
+var _interval = MXFunctionInvoke(
     "Interval",
-    ({
-      dynamic begin,
-      dynamic end,
+    (
+      {
+      double begin,
+      double end,
       Curve curve,
-    }) =>
+      }
+    ) =>
       Interval(
       begin,
       end,
       curve: curve,
     ),
 );
-var threshold = MXFunctionInvoke(
+var _threshold = MXFunctionInvoke(
     "Threshold",
-    ({
-      dynamic threshold,
-    }) =>
+    (
+      {
+      double threshold,
+      }
+    ) =>
       Threshold(
       threshold,
     ),
 );
-var cubic = MXFunctionInvoke(
+var _cubic = MXFunctionInvoke(
     "Cubic",
-    ({
-      dynamic a,
-      dynamic b,
-      dynamic c,
-      dynamic d,
-    }) =>
+    (
+      {
+      double a,
+      double b,
+      double c,
+      double d,
+      }
+    ) =>
       Cubic(
       a,
       b,
@@ -75,101 +83,119 @@ var cubic = MXFunctionInvoke(
       d,
     ),
 );
-var curve2DSample = MXFunctionInvoke(
+var _curve2DSample = MXFunctionInvoke(
     "Curve2DSample",
-    ({
-      dynamic t,
+    (
+      {
+      double t,
       Offset value,
-    }) =>
+      }
+    ) =>
       Curve2DSample(
       t,
       value,
     ),
 );
-var catmullRomSpline = MXFunctionInvoke(
+var _catmullRomSpline = MXFunctionInvoke(
     "CatmullRomSpline",
-    ({
+    (
+      {
       List<Offset> controlPoints,
-      dynamic tension = 0.0,
+      double tension = 0.0,
       Offset startHandle,
       Offset endHandle,
-    }) =>
+      }
+    ) =>
       CatmullRomSpline(
       controlPoints,
-      tension: tension,
+      tension: tension?.toDouble(),
       startHandle: startHandle,
       endHandle: endHandle,
     ),
 );
-var catmullRomSpline_precompute = MXFunctionInvoke(
+var _catmullRomSpline_precompute = MXFunctionInvoke(
   "catmullRomSpline.precompute",
-    ({
+    (
+      {
       List<Offset> controlPoints,
-      dynamic tension = 0.0,
+      double tension = 0.0,
       Offset startHandle,
       Offset endHandle,
-    }) =>
+      }
+    ) =>
       CatmullRomSpline.precompute(
       controlPoints,
-      tension: tension,
+      tension: tension?.toDouble(),
       startHandle: startHandle,
       endHandle: endHandle,
     ),
 );
-var catmullRomCurve = MXFunctionInvoke(
+var _catmullRomCurve = MXFunctionInvoke(
     "CatmullRomCurve",
-    ({
+    (
+      {
       List<Offset> controlPoints,
-      dynamic tension = 0.0,
-    }) =>
+      double tension = 0.0,
+      }
+    ) =>
       CatmullRomCurve(
       controlPoints,
-      tension: tension,
+      tension: tension?.toDouble(),
     ),
 );
-var catmullRomCurve_precompute = MXFunctionInvoke(
+var _catmullRomCurve_precompute = MXFunctionInvoke(
   "catmullRomCurve.precompute",
-    ({
+    (
+      {
       List<Offset> controlPoints,
-      dynamic tension = 0.0,
-    }) =>
+      double tension = 0.0,
+      }
+    ) =>
       CatmullRomCurve.precompute(
       controlPoints,
-      tension: tension,
+      tension: tension?.toDouble(),
     ),
 );
-var flippedCurve = MXFunctionInvoke(
+var _flippedCurve = MXFunctionInvoke(
     "FlippedCurve",
-    ({
+    (
+      {
       Curve curve,
-    }) =>
+      }
+    ) =>
       FlippedCurve(
       curve,
     ),
 );
-var elasticInCurve = MXFunctionInvoke(
+var _elasticInCurve = MXFunctionInvoke(
     "ElasticInCurve",
-    ({
-      dynamic period,
-    }) =>
+    (
+      {
+      double period,
+      }
+    ) =>
       ElasticInCurve(
       period,
     ),
 );
-var elasticOutCurve = MXFunctionInvoke(
+var _elasticOutCurve = MXFunctionInvoke(
     "ElasticOutCurve",
-    ({
-      dynamic period,
-    }) =>
+    (
+      {
+      double period,
+      }
+    ) =>
       ElasticOutCurve(
       period,
     ),
 );
-var elasticInOutCurve = MXFunctionInvoke(
+var _elasticInOutCurve = MXFunctionInvoke(
     "ElasticInOutCurve",
-    ({
-      dynamic period,
-    }) =>
+    (
+      {
+      double period,
+      }
+    ) =>
       ElasticInOutCurve(
       period,
     ),

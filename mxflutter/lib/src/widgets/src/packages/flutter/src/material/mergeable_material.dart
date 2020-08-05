@@ -18,42 +18,48 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMergeableMaterialSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[materialSlice.funName] = materialSlice;
-  m[materialGap.funName] = materialGap;
-  m[mergeableMaterial.funName] = mergeableMaterial;
+  m[_materialSlice.funName] = _materialSlice;
+  m[_materialGap.funName] = _materialGap;
+  m[_mergeableMaterial.funName] = _mergeableMaterial;
   return m;
 }
-var materialSlice = MXFunctionInvoke(
+var _materialSlice = MXFunctionInvoke(
     "MaterialSlice",
-    ({
+    (
+      {
       LocalKey key,
       Widget child,
-    }) =>
+      }
+    ) =>
       MaterialSlice(
       key: key,
       child: child,
     ),
 );
-var materialGap = MXFunctionInvoke(
+var _materialGap = MXFunctionInvoke(
     "MaterialGap",
-    ({
+    (
+      {
       LocalKey key,
-      dynamic size = 16.0,
-    }) =>
+      double size = 16.0,
+      }
+    ) =>
       MaterialGap(
       key: key,
-      size: size,
+      size: size?.toDouble(),
     ),
 );
-var mergeableMaterial = MXFunctionInvoke(
+var _mergeableMaterial = MXFunctionInvoke(
     "MergeableMaterial",
-    ({
+    (
+      {
       Key key,
       Axis mainAxis = Axis.vertical,
       int elevation = 2,
       bool hasDividers = false,
       List<MergeableMaterialItem> children,
-    }) =>
+      }
+    ) =>
       MergeableMaterial(
       key: key,
       mainAxis: mainAxis,

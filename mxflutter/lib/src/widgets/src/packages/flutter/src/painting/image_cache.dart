@@ -15,13 +15,13 @@ import 'package:flutter/src/painting/image_stream.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerImageCacheSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[imageCache.funName] = imageCache;
+  m[_imageCache.funName] = _imageCache;
   return m;
 }
-var imageCache = MXFunctionInvoke(
+var _imageCache = MXFunctionInvoke(
     "ImageCache",
-    ({
-    }) =>
+    (
+    ) =>
       ImageCache(
     ),
 );

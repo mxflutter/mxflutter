@@ -7,9 +7,7 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/_isolates_web.dart';
 import 'package:flutter/src/foundation/isolates.dart';
-import 'package:flutter/src/foundation/isolates.dart';
 import 'dart:async';
-import 'package:flutter/src/foundation/_isolates_web.dart';
 
 
 ///把自己能处理的类注册到分发器中

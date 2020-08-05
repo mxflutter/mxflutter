@@ -13,15 +13,17 @@ import 'package:collection/src/combined_wrappers/combined_iterable.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCombinedMapSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[combinedMapView.funName] = combinedMapView;
+  m[_combinedMapView.funName] = _combinedMapView;
   return m;
 }
-var combinedMapView = MXFunctionInvoke(
+var _combinedMapView = MXFunctionInvoke(
     "CombinedMapView",
-    ({
-      Iterable<Map<CombinedMapView::K, CombinedMapView::V>> _maps,
-    }) =>
+    (
+      {
+      Iterable<Map<dynamic, dynamic>> maps,
+      }
+    ) =>
       CombinedMapView(
-      _maps,
+      maps,
     ),
 );

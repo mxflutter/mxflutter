@@ -16,28 +16,30 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCardSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[card.funName] = card;
+  m[_card.funName] = _card;
   return m;
 }
-var card = MXFunctionInvoke(
+var _card = MXFunctionInvoke(
     "Card",
-    ({
+    (
+      {
       Key key,
       Color color,
       Color shadowColor,
-      dynamic elevation,
+      double elevation,
       ShapeBorder shape,
       bool borderOnForeground = true,
       EdgeInsetsGeometry margin,
       Clip clipBehavior,
       Widget child,
       bool semanticContainer = true,
-    }) =>
+      }
+    ) =>
       Card(
       key: key,
       color: color,
       shadowColor: shadowColor,
-      elevation: elevation,
+      elevation: elevation?.toDouble(),
       shape: shape,
       borderOnForeground: borderOnForeground,
       margin: margin,

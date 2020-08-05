@@ -14,20 +14,22 @@ import 'package:flutter/src/painting/basic_types.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxFitSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[boxFit.funName] = boxFit;
-  m[fittedSizes.funName] = fittedSizes;
+  m[_boxFit.funName] = _boxFit;
+  m[_fittedSizes.funName] = _fittedSizes;
   return m;
 }
-var boxFit = MXFunctionInvoke(
+var _boxFit = MXFunctionInvoke(
     "BoxFit",
     ({Map args}) => MXBoxFit.parse(args),
   );
-var fittedSizes = MXFunctionInvoke(
+var _fittedSizes = MXFunctionInvoke(
     "FittedSizes",
-    ({
+    (
+      {
       Size source,
       Size destination,
-    }) =>
+      }
+    ) =>
       FittedSizes(
       source,
       destination,

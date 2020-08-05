@@ -11,15 +11,15 @@ import 'package:flutter/src/material/pickers/date_picker_common.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDatePickerCommonSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[datePickerEntryMode.funName] = datePickerEntryMode;
-  m[datePickerMode.funName] = datePickerMode;
+  m[_datePickerEntryMode.funName] = _datePickerEntryMode;
+  m[_datePickerMode.funName] = _datePickerMode;
   return m;
 }
-var datePickerEntryMode = MXFunctionInvoke(
+var _datePickerEntryMode = MXFunctionInvoke(
     "DatePickerEntryMode",
     ({Map args}) => MXDatePickerEntryMode.parse(args),
   );
-var datePickerMode = MXFunctionInvoke(
+var _datePickerMode = MXFunctionInvoke(
     "DatePickerMode",
     ({Map args}) => MXDatePickerMode.parse(args),
   );

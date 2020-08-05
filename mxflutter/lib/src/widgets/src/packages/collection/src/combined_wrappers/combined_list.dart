@@ -12,15 +12,17 @@ import 'dart:collection';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCombinedListSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[combinedListView.funName] = combinedListView;
+  m[_combinedListView.funName] = _combinedListView;
   return m;
 }
-var combinedListView = MXFunctionInvoke(
+var _combinedListView = MXFunctionInvoke(
     "CombinedListView",
-    ({
-      dynamic _lists,
-    }) =>
+    (
+      {
+      List<List<dynamic>> lists,
+      }
+    ) =>
       CombinedListView(
-      _lists,
+      lists,
     ),
 );

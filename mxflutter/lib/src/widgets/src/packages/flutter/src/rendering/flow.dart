@@ -16,23 +16,25 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFlowSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[flowParentData.funName] = flowParentData;
-  m[renderFlow.funName] = renderFlow;
+  m[_flowParentData.funName] = _flowParentData;
+  m[_renderFlow.funName] = _renderFlow;
   return m;
 }
-var flowParentData = MXFunctionInvoke(
+var _flowParentData = MXFunctionInvoke(
     "FlowParentData",
-    ({
-    }) =>
+    (
+    ) =>
       FlowParentData(
     ),
 );
-var renderFlow = MXFunctionInvoke(
+var _renderFlow = MXFunctionInvoke(
     "RenderFlow",
-    ({
+    (
+      {
       List<RenderBox> children,
       FlowDelegate delegate,
-    }) =>
+      }
+    ) =>
       RenderFlow(
       children: children,
       delegate: delegate,

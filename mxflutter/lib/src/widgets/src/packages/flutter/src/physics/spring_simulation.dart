@@ -16,52 +16,58 @@ import 'package:flutter/src/physics/utils.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSpringSimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[springDescription.funName] = springDescription;
-  m[springDescription_withDampingRatio.funName] = springDescription_withDampingRatio;
-  m[springType.funName] = springType;
-  m[springSimulation.funName] = springSimulation;
-  m[scrollSpringSimulation.funName] = scrollSpringSimulation;
+  m[_springDescription.funName] = _springDescription;
+  m[_springDescription_withDampingRatio.funName] = _springDescription_withDampingRatio;
+  m[_springType.funName] = _springType;
+  m[_springSimulation.funName] = _springSimulation;
+  m[_scrollSpringSimulation.funName] = _scrollSpringSimulation;
   return m;
 }
-var springDescription = MXFunctionInvoke(
+var _springDescription = MXFunctionInvoke(
     "SpringDescription",
-    ({
-      dynamic mass,
-      dynamic stiffness,
-      dynamic damping,
-    }) =>
+    (
+      {
+      double mass,
+      double stiffness,
+      double damping,
+      }
+    ) =>
       SpringDescription(
-      mass: mass,
-      stiffness: stiffness,
-      damping: damping,
+      mass: mass?.toDouble(),
+      stiffness: stiffness?.toDouble(),
+      damping: damping?.toDouble(),
     ),
 );
-var springDescription_withDampingRatio = MXFunctionInvoke(
+var _springDescription_withDampingRatio = MXFunctionInvoke(
   "springDescription.withDampingRatio",
-    ({
-      dynamic mass,
-      dynamic stiffness,
-      dynamic ratio = 1.0,
-    }) =>
+    (
+      {
+      double mass,
+      double stiffness,
+      double ratio = 1.0,
+      }
+    ) =>
       SpringDescription.withDampingRatio(
-      mass: mass,
-      stiffness: stiffness,
-      ratio: ratio,
+      mass: mass?.toDouble(),
+      stiffness: stiffness?.toDouble(),
+      ratio: ratio?.toDouble(),
     ),
 );
-var springType = MXFunctionInvoke(
+var _springType = MXFunctionInvoke(
     "SpringType",
     ({Map args}) => MXSpringType.parse(args),
   );
-var springSimulation = MXFunctionInvoke(
+var _springSimulation = MXFunctionInvoke(
     "SpringSimulation",
-    ({
+    (
+      {
       SpringDescription spring,
-      dynamic start,
-      dynamic end,
-      dynamic velocity,
+      double start,
+      double end,
+      double velocity,
       Tolerance tolerance,
-    }) =>
+      }
+    ) =>
       SpringSimulation(
       spring,
       start,
@@ -70,15 +76,17 @@ var springSimulation = MXFunctionInvoke(
       tolerance: tolerance,
     ),
 );
-var scrollSpringSimulation = MXFunctionInvoke(
+var _scrollSpringSimulation = MXFunctionInvoke(
     "ScrollSpringSimulation",
-    ({
+    (
+      {
       SpringDescription spring,
-      dynamic start,
-      dynamic end,
-      dynamic velocity,
+      double start,
+      double end,
+      double velocity,
       Tolerance tolerance,
-    }) =>
+      }
+    ) =>
       ScrollSpringSimulation(
       spring,
       start,

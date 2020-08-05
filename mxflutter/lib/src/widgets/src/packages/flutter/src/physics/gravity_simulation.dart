@@ -12,17 +12,19 @@ import 'package:flutter/src/physics/simulation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerGravitySimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[gravitySimulation.funName] = gravitySimulation;
+  m[_gravitySimulation.funName] = _gravitySimulation;
   return m;
 }
-var gravitySimulation = MXFunctionInvoke(
+var _gravitySimulation = MXFunctionInvoke(
     "GravitySimulation",
-    ({
-      dynamic acceleration,
-      dynamic distance,
-      dynamic endDistance,
-      dynamic velocity,
-    }) =>
+    (
+      {
+      double acceleration,
+      double distance,
+      double endDistance,
+      double velocity,
+      }
+    ) =>
       GravitySimulation(
       acceleration,
       distance,

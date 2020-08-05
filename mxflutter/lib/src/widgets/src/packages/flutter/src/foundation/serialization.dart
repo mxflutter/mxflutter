@@ -13,22 +13,24 @@ import 'package:typed_data/typed_buffers.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSerializationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[writeBuffer.funName] = writeBuffer;
-  m[readBuffer.funName] = readBuffer;
+  m[_writeBuffer.funName] = _writeBuffer;
+  m[_readBuffer.funName] = _readBuffer;
   return m;
 }
-var writeBuffer = MXFunctionInvoke(
+var _writeBuffer = MXFunctionInvoke(
     "WriteBuffer",
-    ({
-    }) =>
+    (
+    ) =>
       WriteBuffer(
     ),
 );
-var readBuffer = MXFunctionInvoke(
+var _readBuffer = MXFunctionInvoke(
     "ReadBuffer",
-    ({
+    (
+      {
       ByteData data,
-    }) =>
+      }
+    ) =>
       ReadBuffer(
       data,
     ),

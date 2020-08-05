@@ -13,56 +13,34 @@ import 'package:flutter/src/painting/inline_span.dart';
 import 'package:flutter/src/painting/text_painter.dart';
 import 'package:flutter/src/painting/text_span.dart';
 import 'package:flutter/src/painting/text_style.dart';
-import 'package:flutter/src/painting/text_span.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/basic_types.dart';
-import 'package:flutter/src/painting/inline_span.dart';
-import 'package:flutter/src/painting/text_painter.dart';
-import 'package:flutter/src/painting/text_style.dart';
-import 'package:flutter/src/painting/inline_span.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/painting/basic_types.dart';
-import 'package:flutter/src/painting/text_painter.dart';
-import 'package:flutter/src/painting/text_span.dart';
-import 'package:flutter/src/painting/text_style.dart';
-import 'package:flutter/src/painting/text_painter.dart';
 import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/basic_types.dart';
-import 'package:flutter/src/painting/inline_span.dart';
-import 'package:flutter/src/painting/placeholder_span.dart';
 import 'package:flutter/src/painting/strut_style.dart';
-import 'package:flutter/src/painting/text_span.dart';
-import 'package:flutter/services.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlaceholderSpanSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[textSpan.funName] = textSpan;
-  m[accumulator.funName] = accumulator;
-  m[inlineSpanSemanticsInformation.funName] = inlineSpanSemanticsInformation;
-  m[placeholderDimensions.funName] = placeholderDimensions;
-  m[textWidthBasis.funName] = textWidthBasis;
-  m[textPainter.funName] = textPainter;
+  m[_textSpan.funName] = _textSpan;
+  m[_accumulator.funName] = _accumulator;
+  m[_inlineSpanSemanticsInformation.funName] = _inlineSpanSemanticsInformation;
+  m[_placeholderDimensions.funName] = _placeholderDimensions;
+  m[_textWidthBasis.funName] = _textWidthBasis;
+  m[_textPainter.funName] = _textPainter;
   return m;
 }
-var textSpan = MXFunctionInvoke(
+var _textSpan = MXFunctionInvoke(
     "TextSpan",
-    ({
+    (
+      {
       String text,
       List<InlineSpan> children,
       TextStyle style,
       GestureRecognizer recognizer,
       String semanticsLabel,
-    }) =>
+      }
+    ) =>
       TextSpan(
       text: text,
       children: children,
@@ -71,23 +49,27 @@ var textSpan = MXFunctionInvoke(
       semanticsLabel: semanticsLabel,
     ),
 );
-var accumulator = MXFunctionInvoke(
+var _accumulator = MXFunctionInvoke(
     "Accumulator",
-    ({
-      int _value,
-    }) =>
+    (
+      {
+      int value,
+      }
+    ) =>
       Accumulator(
-      _value,
+      value,
     ),
 );
-var inlineSpanSemanticsInformation = MXFunctionInvoke(
+var _inlineSpanSemanticsInformation = MXFunctionInvoke(
     "InlineSpanSemanticsInformation",
-    ({
+    (
+      {
       String text,
       bool isPlaceholder = false,
       String semanticsLabel,
       GestureRecognizer recognizer,
-    }) =>
+      }
+    ) =>
       InlineSpanSemanticsInformation(
       text,
       isPlaceholder: isPlaceholder,
@@ -95,44 +77,48 @@ var inlineSpanSemanticsInformation = MXFunctionInvoke(
       recognizer: recognizer,
     ),
 );
-var placeholderDimensions = MXFunctionInvoke(
+var _placeholderDimensions = MXFunctionInvoke(
     "PlaceholderDimensions",
-    ({
+    (
+      {
       Size size,
       PlaceholderAlignment alignment,
       TextBaseline baseline,
-      dynamic baselineOffset,
-    }) =>
+      double baselineOffset,
+      }
+    ) =>
       PlaceholderDimensions(
       size: size,
       alignment: alignment,
       baseline: baseline,
-      baselineOffset: baselineOffset,
+      baselineOffset: baselineOffset?.toDouble(),
     ),
 );
-var textWidthBasis = MXFunctionInvoke(
+var _textWidthBasis = MXFunctionInvoke(
     "TextWidthBasis",
     ({Map args}) => MXTextWidthBasis.parse(args),
   );
-var textPainter = MXFunctionInvoke(
+var _textPainter = MXFunctionInvoke(
     "TextPainter",
-    ({
+    (
+      {
       InlineSpan text,
       TextAlign textAlign = TextAlign.start,
       TextDirection textDirection,
-      dynamic textScaleFactor = 1.0,
+      double textScaleFactor = 1.0,
       int maxLines,
       String ellipsis,
       Locale locale,
       StrutStyle strutStyle,
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
       TextHeightBehavior textHeightBehavior,
-    }) =>
+      }
+    ) =>
       TextPainter(
       text: text,
       textAlign: textAlign,
       textDirection: textDirection,
-      textScaleFactor: textScaleFactor,
+      textScaleFactor: textScaleFactor?.toDouble(),
       maxLines: maxLines,
       ellipsis: ellipsis,
       locale: locale,

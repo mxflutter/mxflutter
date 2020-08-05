@@ -12,10 +12,10 @@ import 'dart:ui';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMaterialStateSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[materialState.funName] = materialState;
+  m[_materialState.funName] = _materialState;
   return m;
 }
-var materialState = MXFunctionInvoke(
+var _materialState = MXFunctionInvoke(
     "MaterialState",
     ({Map args}) => MXMaterialState.parse(args),
   );

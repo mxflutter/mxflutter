@@ -13,15 +13,17 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextureSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[texture.funName] = texture;
+  m[_texture.funName] = _texture;
   return m;
 }
-var texture = MXFunctionInvoke(
+var _texture = MXFunctionInvoke(
     "Texture",
-    ({
+    (
+      {
       Key key,
       int textureId,
-    }) =>
+      }
+    ) =>
       Texture(
       key: key,
       textureId: textureId,

@@ -14,17 +14,19 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnnotatedRegionSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[annotatedRegion.funName] = annotatedRegion;
+  m[_annotatedRegion.funName] = _annotatedRegion;
   return m;
 }
-var annotatedRegion = MXFunctionInvoke(
+var _annotatedRegion = MXFunctionInvoke(
     "AnnotatedRegion",
-    ({
+    (
+      {
       Key key,
       Widget child,
       dynamic value,
       bool sized = true,
-    }) =>
+      }
+    ) =>
       AnnotatedRegion(
       key: key,
       child: child,

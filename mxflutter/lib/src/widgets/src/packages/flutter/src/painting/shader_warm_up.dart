@@ -15,17 +15,19 @@ import 'package:flutter/foundation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerShaderWarmUpSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[defaultShaderWarmUp.funName] = defaultShaderWarmUp;
+  m[_defaultShaderWarmUp.funName] = _defaultShaderWarmUp;
   return m;
 }
-var defaultShaderWarmUp = MXFunctionInvoke(
+var _defaultShaderWarmUp = MXFunctionInvoke(
     "DefaultShaderWarmUp",
-    ({
-      dynamic drawCallSpacing = 0.0,
+    (
+      {
+      double drawCallSpacing = 0.0,
       Size canvasSize,
-    }) =>
+      }
+    ) =>
       DefaultShaderWarmUp(
-      drawCallSpacing: drawCallSpacing,
+      drawCallSpacing: drawCallSpacing?.toDouble(),
       canvasSize: canvasSize,
     ),
 );

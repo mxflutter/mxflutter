@@ -14,39 +14,45 @@ import 'package:flutter/src/painting/basic_types.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAlignmentSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[alignment.funName] = alignment;
-  m[alignmentDirectional.funName] = alignmentDirectional;
-  m[textAlignVertical.funName] = textAlignVertical;
+  m[_alignment.funName] = _alignment;
+  m[_alignmentDirectional.funName] = _alignmentDirectional;
+  m[_textAlignVertical.funName] = _textAlignVertical;
   return m;
 }
-var alignment = MXFunctionInvoke(
+var _alignment = MXFunctionInvoke(
     "Alignment",
-    ({
-      dynamic x,
-      dynamic y,
-    }) =>
+    (
+      {
+      double x,
+      double y,
+      }
+    ) =>
       Alignment(
       x,
       y,
     ),
 );
-var alignmentDirectional = MXFunctionInvoke(
+var _alignmentDirectional = MXFunctionInvoke(
     "AlignmentDirectional",
-    ({
-      dynamic start,
-      dynamic y,
-    }) =>
+    (
+      {
+      double start,
+      double y,
+      }
+    ) =>
       AlignmentDirectional(
       start,
       y,
     ),
 );
-var textAlignVertical = MXFunctionInvoke(
+var _textAlignVertical = MXFunctionInvoke(
     "TextAlignVertical",
-    ({
-      dynamic y,
-    }) =>
+    (
+      {
+      double y,
+      }
+    ) =>
       TextAlignVertical(
-      y: y,
+      y: y?.toDouble(),
     ),
 );

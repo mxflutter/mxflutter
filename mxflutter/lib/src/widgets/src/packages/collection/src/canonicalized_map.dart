@@ -13,31 +13,35 @@ import 'package:collection/src/utils.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCanonicalizedMapSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[canonicalizedMap.funName] = canonicalizedMap;
-  m[canonicalizedMap_from.funName] = canonicalizedMap_from;
+  m[_canonicalizedMap.funName] = _canonicalizedMap;
+  m[_canonicalizedMap_from.funName] = _canonicalizedMap_from;
   return m;
 }
-var canonicalizedMap = MXFunctionInvoke(
+var _canonicalizedMap = MXFunctionInvoke(
     "CanonicalizedMap",
-    ({
+    (
+      {
       dynamic canonicalize,
       dynamic isValidKey,
-    }) =>
+      }
+    ) =>
       CanonicalizedMap(
       canonicalize,
-      isValidKey: createGenericValueGenericClosure<bool, Object>(canonicalizedMap.buildOwner, isValidKey),
+      isValidKey: createGenericValueGenericClosure<bool, Object>(_canonicalizedMap.buildOwner, isValidKey),
     ),
 );
-var canonicalizedMap_from = MXFunctionInvoke(
+var _canonicalizedMap_from = MXFunctionInvoke(
   "canonicalizedMap.from",
-    ({
-      Map<CanonicalizedMap::K, CanonicalizedMap::V> other,
+    (
+      {
+      Map<dynamic, dynamic> other,
       dynamic canonicalize,
       dynamic isValidKey,
-    }) =>
+      }
+    ) =>
       CanonicalizedMap.from(
       other,
       canonicalize,
-      isValidKey: createGenericValueGenericClosure<bool, Object>(canonicalizedMap_from.buildOwner, isValidKey),
+      isValidKey: createGenericValueGenericClosure<bool, Object>(_canonicalizedMap_from.buildOwner, isValidKey),
     ),
 );

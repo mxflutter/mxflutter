@@ -16,39 +16,45 @@ import 'package:flutter/painting.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerArcSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[materialPointArcTween.funName] = materialPointArcTween;
-  m[materialRectArcTween.funName] = materialRectArcTween;
-  m[materialRectCenterArcTween.funName] = materialRectCenterArcTween;
+  m[_materialPointArcTween.funName] = _materialPointArcTween;
+  m[_materialRectArcTween.funName] = _materialRectArcTween;
+  m[_materialRectCenterArcTween.funName] = _materialRectCenterArcTween;
   return m;
 }
-var materialPointArcTween = MXFunctionInvoke(
+var _materialPointArcTween = MXFunctionInvoke(
     "MaterialPointArcTween",
-    ({
+    (
+      {
       Offset begin,
       Offset end,
-    }) =>
+      }
+    ) =>
       MaterialPointArcTween(
       begin: begin,
       end: end,
     ),
 );
-var materialRectArcTween = MXFunctionInvoke(
+var _materialRectArcTween = MXFunctionInvoke(
     "MaterialRectArcTween",
-    ({
+    (
+      {
       Rect begin,
       Rect end,
-    }) =>
+      }
+    ) =>
       MaterialRectArcTween(
       begin: begin,
       end: end,
     ),
 );
-var materialRectCenterArcTween = MXFunctionInvoke(
+var _materialRectCenterArcTween = MXFunctionInvoke(
     "MaterialRectCenterArcTween",
-    ({
+    (
+      {
       Rect begin,
       Rect end,
-    }) =>
+      }
+    ) =>
       MaterialRectCenterArcTween(
       begin: begin,
       end: end,

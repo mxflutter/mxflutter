@@ -8,116 +8,128 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/empty_unmodifiable_set.dart';
 import 'dart:collection';
 import 'package:collection/src/unmodifiable_wrappers.dart';
-import 'package:collection/src/unmodifiable_wrappers.dart';
-import 'package:collection/src/empty_unmodifiable_set.dart';
 import 'package:collection/src/wrappers.dart';
-import 'dart:collection';
-import 'package:collection/src/wrappers.dart';
-import 'dart:collection';
 import 'dart:math';
-import 'package:collection/src/unmodifiable_wrappers.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEmptyUnmodifiableSetSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[emptyUnmodifiableSet.funName] = emptyUnmodifiableSet;
-  m[delegatingIterable.funName] = delegatingIterable;
-  m[delegatingList.funName] = delegatingList;
-  m[nonGrowableListView.funName] = nonGrowableListView;
-  m[delegatingSet.funName] = delegatingSet;
-  m[unmodifiableSetView.funName] = unmodifiableSetView;
-  m[delegatingQueue.funName] = delegatingQueue;
-  m[delegatingMap.funName] = delegatingMap;
-  m[mapKeySet.funName] = mapKeySet;
-  m[mapValueSet.funName] = mapValueSet;
+  m[_emptyUnmodifiableSet.funName] = _emptyUnmodifiableSet;
+  m[_delegatingIterable.funName] = _delegatingIterable;
+  m[_delegatingList.funName] = _delegatingList;
+  m[_nonGrowableListView.funName] = _nonGrowableListView;
+  m[_delegatingSet.funName] = _delegatingSet;
+  m[_unmodifiableSetView.funName] = _unmodifiableSetView;
+  m[_delegatingQueue.funName] = _delegatingQueue;
+  m[_delegatingMap.funName] = _delegatingMap;
+  m[_mapKeySet.funName] = _mapKeySet;
+  m[_mapValueSet.funName] = _mapValueSet;
   return m;
 }
-var emptyUnmodifiableSet = MXFunctionInvoke(
+var _emptyUnmodifiableSet = MXFunctionInvoke(
     "EmptyUnmodifiableSet",
-    ({
-    }) =>
+    (
+    ) =>
       EmptyUnmodifiableSet(
     ),
 );
-var delegatingIterable = MXFunctionInvoke(
+var _delegatingIterable = MXFunctionInvoke(
     "DelegatingIterable",
-    ({
-      Iterable<DelegatingIterable::E> base,
-    }) =>
+    (
+      {
+      Iterable<dynamic> base,
+      }
+    ) =>
       DelegatingIterable(
       base,
     ),
 );
-var delegatingList = MXFunctionInvoke(
+var _delegatingList = MXFunctionInvoke(
     "DelegatingList",
-    ({
-      List<DelegatingList::E> base,
-    }) =>
+    (
+      {
+      List<dynamic> base,
+      }
+    ) =>
       DelegatingList(
       base,
     ),
 );
-var nonGrowableListView = MXFunctionInvoke(
+var _nonGrowableListView = MXFunctionInvoke(
     "NonGrowableListView",
-    ({
-      List<NonGrowableListView::E> listBase,
-    }) =>
+    (
+      {
+      List<dynamic> listBase,
+      }
+    ) =>
       NonGrowableListView(
       listBase,
     ),
 );
-var delegatingSet = MXFunctionInvoke(
+var _delegatingSet = MXFunctionInvoke(
     "DelegatingSet",
-    ({
-      Set<DelegatingSet::E> base,
-    }) =>
+    (
+      {
+      Set<dynamic> base,
+      }
+    ) =>
       DelegatingSet(
       base,
     ),
 );
-var unmodifiableSetView = MXFunctionInvoke(
+var _unmodifiableSetView = MXFunctionInvoke(
     "UnmodifiableSetView",
-    ({
-      Set<UnmodifiableSetView::E> setBase,
-    }) =>
+    (
+      {
+      Set<dynamic> setBase,
+      }
+    ) =>
       UnmodifiableSetView(
       setBase,
     ),
 );
-var delegatingQueue = MXFunctionInvoke(
+var _delegatingQueue = MXFunctionInvoke(
     "DelegatingQueue",
-    ({
-      Queue<DelegatingQueue::E> queue,
-    }) =>
+    (
+      {
+      Queue<dynamic> queue,
+      }
+    ) =>
       DelegatingQueue(
       queue,
     ),
 );
-var delegatingMap = MXFunctionInvoke(
+var _delegatingMap = MXFunctionInvoke(
     "DelegatingMap",
-    ({
-      Map<DelegatingMap::K, DelegatingMap::V> base,
-    }) =>
+    (
+      {
+      Map<dynamic, dynamic> base,
+      }
+    ) =>
       DelegatingMap(
       base,
     ),
 );
-var mapKeySet = MXFunctionInvoke(
+var _mapKeySet = MXFunctionInvoke(
     "MapKeySet",
-    ({
-      Map<MapKeySet::E, dynamic> base,
-    }) =>
+    (
+      {
+      Map<dynamic, dynamic> base,
+      }
+    ) =>
       MapKeySet(
       base,
     ),
 );
-var mapValueSet = MXFunctionInvoke(
+var _mapValueSet = MXFunctionInvoke(
     "MapValueSet",
-    ({
-      Map<MapValueSet::K, MapValueSet::V> base,
+    (
+      {
+      Map<dynamic, dynamic> base,
       dynamic keyForValue,
-    }) =>
+      }
+    ) =>
       MapValueSet(
       base,
       keyForValue,

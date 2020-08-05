@@ -17,69 +17,73 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPickerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoPicker.funName] = cupertinoPicker;
-  m[cupertinoPicker_builder.funName] = cupertinoPicker_builder;
+  m[_cupertinoPicker.funName] = _cupertinoPicker;
+  m[_cupertinoPicker_builder.funName] = _cupertinoPicker_builder;
   return m;
 }
-var cupertinoPicker = MXFunctionInvoke(
+var _cupertinoPicker = MXFunctionInvoke(
     "CupertinoPicker",
-    ({
+    (
+      {
       Key key,
-      dynamic diameterRatio = 1.07,
+      double diameterRatio = 1.07,
       Color backgroundColor,
-      dynamic offAxisFraction = 0.0,
+      double offAxisFraction = 0.0,
       bool useMagnifier = false,
-      dynamic magnification = 1.0,
+      double magnification = 1.0,
       FixedExtentScrollController scrollController,
-      dynamic squeeze = 1.45,
-      dynamic itemExtent,
+      double squeeze = 1.45,
+      double itemExtent,
       dynamic onSelectedItemChanged,
       List<Widget> children,
       bool looping = false,
-    }) =>
+      }
+    ) =>
       CupertinoPicker(
       key: key,
-      diameterRatio: diameterRatio,
+      diameterRatio: diameterRatio?.toDouble(),
       backgroundColor: backgroundColor,
-      offAxisFraction: offAxisFraction,
+      offAxisFraction: offAxisFraction?.toDouble(),
       useMagnifier: useMagnifier,
-      magnification: magnification,
+      magnification: magnification?.toDouble(),
       scrollController: scrollController,
-      squeeze: squeeze,
-      itemExtent: itemExtent,
-      onSelectedItemChanged: createValueChangedGenericClosure<int>(cupertinoPicker.buildOwner, onSelectedItemChanged),
+      squeeze: squeeze?.toDouble(),
+      itemExtent: itemExtent?.toDouble(),
+      onSelectedItemChanged: createValueChangedGenericClosure<int>(_cupertinoPicker.buildOwner, onSelectedItemChanged),
       children: children,
       looping: looping,
     ),
 );
-var cupertinoPicker_builder = MXFunctionInvoke(
+var _cupertinoPicker_builder = MXFunctionInvoke(
   "cupertinoPicker.builder",
-    ({
+    (
+      {
       Key key,
-      dynamic diameterRatio = 1.07,
+      double diameterRatio = 1.07,
       Color backgroundColor,
-      dynamic offAxisFraction = 0.0,
+      double offAxisFraction = 0.0,
       bool useMagnifier = false,
-      dynamic magnification = 1.0,
+      double magnification = 1.0,
       FixedExtentScrollController scrollController,
-      dynamic squeeze = 1.45,
-      dynamic itemExtent,
+      double squeeze = 1.45,
+      double itemExtent,
       dynamic onSelectedItemChanged,
       dynamic itemBuilder,
       int childCount,
-    }) =>
+      }
+    ) =>
       CupertinoPicker.builder(
       key: key,
-      diameterRatio: diameterRatio,
+      diameterRatio: diameterRatio?.toDouble(),
       backgroundColor: backgroundColor,
-      offAxisFraction: offAxisFraction,
+      offAxisFraction: offAxisFraction?.toDouble(),
       useMagnifier: useMagnifier,
-      magnification: magnification,
+      magnification: magnification?.toDouble(),
       scrollController: scrollController,
-      squeeze: squeeze,
-      itemExtent: itemExtent,
-      onSelectedItemChanged: createValueChangedGenericClosure<int>(cupertinoPicker_builder.buildOwner, onSelectedItemChanged),
-      itemBuilder: itemBuilder,
+      squeeze: squeeze?.toDouble(),
+      itemExtent: itemExtent?.toDouble(),
+      onSelectedItemChanged: createValueChangedGenericClosure<int>(_cupertinoPicker_builder.buildOwner, onSelectedItemChanged),
+      itemBuilder: null,
       childCount: childCount,
     ),
 );

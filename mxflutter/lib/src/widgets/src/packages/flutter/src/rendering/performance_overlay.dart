@@ -14,22 +14,24 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPerformanceOverlaySeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[performanceOverlayOption.funName] = performanceOverlayOption;
-  m[renderPerformanceOverlay.funName] = renderPerformanceOverlay;
+  m[_performanceOverlayOption.funName] = _performanceOverlayOption;
+  m[_renderPerformanceOverlay.funName] = _renderPerformanceOverlay;
   return m;
 }
-var performanceOverlayOption = MXFunctionInvoke(
+var _performanceOverlayOption = MXFunctionInvoke(
     "PerformanceOverlayOption",
     ({Map args}) => MXPerformanceOverlayOption.parse(args),
   );
-var renderPerformanceOverlay = MXFunctionInvoke(
+var _renderPerformanceOverlay = MXFunctionInvoke(
     "RenderPerformanceOverlay",
-    ({
+    (
+      {
       int optionsMask = 0,
       int rasterizerThreshold = 0,
       bool checkerboardRasterCacheImages = false,
       bool checkerboardOffscreenLayers = false,
-    }) =>
+      }
+    ) =>
       RenderPerformanceOverlay(
       optionsMask: optionsMask,
       rasterizerThreshold: rasterizerThreshold,

@@ -13,14 +13,16 @@ import 'package:meta/meta.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerKeySeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[valueKey.funName] = valueKey;
+  m[_valueKey.funName] = _valueKey;
   return m;
 }
-var valueKey = MXFunctionInvoke(
+var _valueKey = MXFunctionInvoke(
     "ValueKey",
-    ({
+    (
+      {
       dynamic value,
-    }) =>
+      }
+    ) =>
       ValueKey(
       value,
     ),

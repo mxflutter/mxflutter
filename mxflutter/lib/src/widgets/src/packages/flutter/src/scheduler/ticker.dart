@@ -14,34 +14,38 @@ import 'package:flutter/src/scheduler/binding.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTickerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[ticker.funName] = ticker;
-  m[tickerFuture_complete.funName] = tickerFuture_complete;
-  m[tickerCanceled.funName] = tickerCanceled;
+  m[_ticker.funName] = _ticker;
+  m[_tickerFuture_complete.funName] = _tickerFuture_complete;
+  m[_tickerCanceled.funName] = _tickerCanceled;
   return m;
 }
-var ticker = MXFunctionInvoke(
+var _ticker = MXFunctionInvoke(
     "Ticker",
-    ({
-      dynamic _onTick,
+    (
+      {
+      dynamic onTick,
       String debugLabel,
-    }) =>
+      }
+    ) =>
       Ticker(
-      _onTick,
+      onTick,
       debugLabel: debugLabel,
     ),
 );
-var tickerFuture_complete = MXFunctionInvoke(
+var _tickerFuture_complete = MXFunctionInvoke(
   "tickerFuture.complete",
-    ({
-    }) =>
+    (
+    ) =>
       TickerFuture.complete(
     ),
 );
-var tickerCanceled = MXFunctionInvoke(
+var _tickerCanceled = MXFunctionInvoke(
     "TickerCanceled",
-    ({
+    (
+      {
       Ticker ticker,
-    }) =>
+      }
+    ) =>
       TickerCanceled(
       ticker,
     ),

@@ -16,12 +16,13 @@ import 'package:flutter/src/material/material.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInkRippleSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[inkRipple.funName] = inkRipple;
+  m[_inkRipple.funName] = _inkRipple;
   return m;
 }
-var inkRipple = MXFunctionInvoke(
+var _inkRipple = MXFunctionInvoke(
     "InkRipple",
-    ({
+    (
+      {
       MaterialInkController controller,
       RenderBox referenceBox,
       Offset position,
@@ -31,9 +32,10 @@ var inkRipple = MXFunctionInvoke(
       dynamic rectCallback,
       BorderRadius borderRadius,
       ShapeBorder customBorder,
-      dynamic radius,
+      double radius,
       dynamic onRemoved,
-    }) =>
+      }
+    ) =>
       InkRipple(
       controller: controller,
       referenceBox: referenceBox,
@@ -44,7 +46,7 @@ var inkRipple = MXFunctionInvoke(
       rectCallback: rectCallback,
       borderRadius: borderRadius,
       customBorder: customBorder,
-      radius: radius,
-      onRemoved: createVoidCallbackClosure(inkRipple.buildOwner, onRemoved),
+      radius: radius?.toDouble(),
+      onRemoved: createVoidCallbackClosure(_inkRipple.buildOwner, onRemoved),
     ),
 );

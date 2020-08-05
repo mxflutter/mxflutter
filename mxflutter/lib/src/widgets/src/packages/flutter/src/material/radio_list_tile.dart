@@ -16,12 +16,13 @@ import 'package:flutter/src/material/theme_data.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRadioListTileSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[radioListTile.funName] = radioListTile;
+  m[_radioListTile.funName] = _radioListTile;
   return m;
 }
-var radioListTile = MXFunctionInvoke(
+var _radioListTile = MXFunctionInvoke(
     "RadioListTile",
-    ({
+    (
+      {
       Key key,
       dynamic value,
       dynamic groupValue,
@@ -34,12 +35,13 @@ var radioListTile = MXFunctionInvoke(
       Widget secondary,
       bool selected = false,
       ListTileControlAffinity controlAffinity = ListTileControlAffinity.platform,
-    }) =>
+      }
+    ) =>
       RadioListTile(
       key: key,
       value: value,
       groupValue: groupValue,
-      onChanged: createValueChangedGenericClosure<dynamic>(radioListTile.buildOwner, onChanged),
+      onChanged: createValueChangedGenericClosure<dynamic>(_radioListTile.buildOwner, onChanged),
       activeColor: activeColor,
       title: title,
       subtitle: subtitle,

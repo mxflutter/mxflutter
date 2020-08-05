@@ -13,27 +13,31 @@ import 'package:flutter/src/cupertino/colors.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerThumbPainterSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoThumbPainter.funName] = cupertinoThumbPainter;
-  m[cupertinoThumbPainter_switchThumb.funName] = cupertinoThumbPainter_switchThumb;
+  m[_cupertinoThumbPainter.funName] = _cupertinoThumbPainter;
+  m[_cupertinoThumbPainter_switchThumb.funName] = _cupertinoThumbPainter_switchThumb;
   return m;
 }
-var cupertinoThumbPainter = MXFunctionInvoke(
+var _cupertinoThumbPainter = MXFunctionInvoke(
     "CupertinoThumbPainter",
-    ({
+    (
+      {
       Color color,
       List<BoxShadow> shadows,
-    }) =>
+      }
+    ) =>
       CupertinoThumbPainter(
       color: color,
       shadows: shadows,
     ),
 );
-var cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
+var _cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
   "cupertinoThumbPainter.switchThumb",
-    ({
+    (
+      {
       Color color,
       List<BoxShadow> shadows,
-    }) =>
+      }
+    ) =>
       CupertinoThumbPainter.switchThumb(
       color: color,
       shadows: shadows,

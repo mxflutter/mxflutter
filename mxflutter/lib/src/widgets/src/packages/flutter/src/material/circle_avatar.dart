@@ -15,31 +15,33 @@ import 'package:flutter/src/material/theme_data.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCircleAvatarSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[circleAvatar.funName] = circleAvatar;
+  m[_circleAvatar.funName] = _circleAvatar;
   return m;
 }
-var circleAvatar = MXFunctionInvoke(
+var _circleAvatar = MXFunctionInvoke(
     "CircleAvatar",
-    ({
+    (
+      {
       Key key,
       Widget child,
       Color backgroundColor,
       ImageProvider<dynamic> backgroundImage,
       dynamic onBackgroundImageError,
       Color foregroundColor,
-      dynamic radius,
-      dynamic minRadius,
-      dynamic maxRadius,
-    }) =>
+      double radius,
+      double minRadius,
+      double maxRadius,
+      }
+    ) =>
       CircleAvatar(
       key: key,
       child: child,
       backgroundColor: backgroundColor,
       backgroundImage: backgroundImage,
-      onBackgroundImageError: createVoidCallbackClosure(circleAvatar.buildOwner, onBackgroundImageError),
+      onBackgroundImageError: null,
       foregroundColor: foregroundColor,
-      radius: radius,
-      minRadius: minRadius,
-      maxRadius: maxRadius,
+      radius: radius?.toDouble(),
+      minRadius: minRadius?.toDouble(),
+      maxRadius: maxRadius?.toDouble(),
     ),
 );

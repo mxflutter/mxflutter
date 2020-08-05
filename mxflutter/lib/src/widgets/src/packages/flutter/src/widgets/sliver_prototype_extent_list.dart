@@ -15,16 +15,18 @@ import 'package:flutter/src/widgets/sliver.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverPrototypeExtentListSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[sliverPrototypeExtentList.funName] = sliverPrototypeExtentList;
+  m[_sliverPrototypeExtentList.funName] = _sliverPrototypeExtentList;
   return m;
 }
-var sliverPrototypeExtentList = MXFunctionInvoke(
+var _sliverPrototypeExtentList = MXFunctionInvoke(
     "SliverPrototypeExtentList",
-    ({
+    (
+      {
       Key key,
       SliverChildDelegate delegate,
       Widget prototypeItem,
-    }) =>
+      }
+    ) =>
       SliverPrototypeExtentList(
       key: key,
       delegate: delegate,

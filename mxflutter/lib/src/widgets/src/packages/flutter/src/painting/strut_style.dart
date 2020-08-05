@@ -9,42 +9,40 @@ import 'package:flutter/src/painting/strut_style.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/painting/basic_types.dart';
 import 'package:flutter/src/painting/text_style.dart';
-import 'package:flutter/src/painting/text_style.dart';
 import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/basic_types.dart';
 import 'package:flutter/src/painting/colors.dart';
-import 'package:flutter/src/painting/strut_style.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStrutStyleSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[strutStyle.funName] = strutStyle;
-  m[strutStyle_fromTextStyle.funName] = strutStyle_fromTextStyle;
-  m[textStyle.funName] = textStyle;
+  m[_strutStyle.funName] = _strutStyle;
+  m[_strutStyle_fromTextStyle.funName] = _strutStyle_fromTextStyle;
+  m[_textStyle.funName] = _textStyle;
   return m;
 }
-var strutStyle = MXFunctionInvoke(
+var _strutStyle = MXFunctionInvoke(
     "StrutStyle",
-    ({
+    (
+      {
       String fontFamily,
       List<String> fontFamilyFallback,
-      dynamic fontSize,
-      dynamic height,
-      dynamic leading,
+      double fontSize,
+      double height,
+      double leading,
       FontWeight fontWeight,
       FontStyle fontStyle,
       bool forceStrutHeight,
       String debugLabel,
       String package,
-    }) =>
+      }
+    ) =>
       StrutStyle(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
-      fontSize: fontSize,
-      height: height,
-      leading: leading,
+      fontSize: fontSize?.toDouble(),
+      height: height?.toDouble(),
+      leading: leading?.toDouble(),
       fontWeight: fontWeight,
       fontStyle: fontStyle,
       forceStrutHeight: forceStrutHeight,
@@ -52,28 +50,30 @@ var strutStyle = MXFunctionInvoke(
       package: package,
     ),
 );
-var strutStyle_fromTextStyle = MXFunctionInvoke(
+var _strutStyle_fromTextStyle = MXFunctionInvoke(
   "strutStyle.fromTextStyle",
-    ({
+    (
+      {
       TextStyle textStyle,
       String fontFamily,
       List<String> fontFamilyFallback,
-      dynamic fontSize,
-      dynamic height,
-      dynamic leading,
+      double fontSize,
+      double height,
+      double leading,
       FontWeight fontWeight,
       FontStyle fontStyle,
       bool forceStrutHeight,
       String debugLabel,
       String package,
-    }) =>
+      }
+    ) =>
       StrutStyle.fromTextStyle(
       textStyle,
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
-      fontSize: fontSize,
-      height: height,
-      leading: leading,
+      fontSize: fontSize?.toDouble(),
+      height: height?.toDouble(),
+      leading: leading?.toDouble(),
       fontWeight: fontWeight,
       fontStyle: fontStyle,
       forceStrutHeight: forceStrutHeight,
@@ -81,19 +81,20 @@ var strutStyle_fromTextStyle = MXFunctionInvoke(
       package: package,
     ),
 );
-var textStyle = MXFunctionInvoke(
+var _textStyle = MXFunctionInvoke(
     "TextStyle",
-    ({
+    (
+      {
       bool inherit = true,
       Color color,
       Color backgroundColor,
-      dynamic fontSize,
+      double fontSize,
       FontWeight fontWeight,
       FontStyle fontStyle,
-      dynamic letterSpacing,
-      dynamic wordSpacing,
+      double letterSpacing,
+      double wordSpacing,
       TextBaseline textBaseline,
-      dynamic height,
+      double height,
       Locale locale,
       Paint foreground,
       Paint background,
@@ -102,23 +103,24 @@ var textStyle = MXFunctionInvoke(
       TextDecoration decoration,
       Color decorationColor,
       TextDecorationStyle decorationStyle,
-      dynamic decorationThickness,
+      double decorationThickness,
       String debugLabel,
       String fontFamily,
       List<String> fontFamilyFallback,
       String package,
-    }) =>
+      }
+    ) =>
       TextStyle(
       inherit: inherit,
       color: color,
       backgroundColor: backgroundColor,
-      fontSize: fontSize,
+      fontSize: fontSize?.toDouble(),
       fontWeight: fontWeight,
       fontStyle: fontStyle,
-      letterSpacing: letterSpacing,
-      wordSpacing: wordSpacing,
+      letterSpacing: letterSpacing?.toDouble(),
+      wordSpacing: wordSpacing?.toDouble(),
       textBaseline: textBaseline,
-      height: height,
+      height: height?.toDouble(),
       locale: locale,
       foreground: foreground,
       background: background,
@@ -127,7 +129,7 @@ var textStyle = MXFunctionInvoke(
       decoration: decoration,
       decorationColor: decorationColor,
       decorationStyle: decorationStyle,
-      decorationThickness: decorationThickness,
+      decorationThickness: decorationThickness?.toDouble(),
       debugLabel: debugLabel,
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,

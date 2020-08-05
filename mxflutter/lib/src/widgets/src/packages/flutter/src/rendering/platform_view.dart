@@ -21,49 +21,55 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformViewSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[platformViewHitTestBehavior.funName] = platformViewHitTestBehavior;
-  m[renderAndroidView.funName] = renderAndroidView;
-  m[renderUiKitView.funName] = renderUiKitView;
-  m[platformViewRenderBox.funName] = platformViewRenderBox;
+  m[_platformViewHitTestBehavior.funName] = _platformViewHitTestBehavior;
+  m[_renderAndroidView.funName] = _renderAndroidView;
+  m[_renderUiKitView.funName] = _renderUiKitView;
+  m[_platformViewRenderBox.funName] = _platformViewRenderBox;
   return m;
 }
-var platformViewHitTestBehavior = MXFunctionInvoke(
+var _platformViewHitTestBehavior = MXFunctionInvoke(
     "PlatformViewHitTestBehavior",
     ({Map args}) => MXPlatformViewHitTestBehavior.parse(args),
   );
-var renderAndroidView = MXFunctionInvoke(
+var _renderAndroidView = MXFunctionInvoke(
     "RenderAndroidView",
-    ({
+    (
+      {
       AndroidViewController viewController,
       PlatformViewHitTestBehavior hitTestBehavior,
       Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-    }) =>
+      }
+    ) =>
       RenderAndroidView(
       viewController: viewController,
       hitTestBehavior: hitTestBehavior,
       gestureRecognizers: gestureRecognizers,
     ),
 );
-var renderUiKitView = MXFunctionInvoke(
+var _renderUiKitView = MXFunctionInvoke(
     "RenderUiKitView",
-    ({
+    (
+      {
       UiKitViewController viewController,
       PlatformViewHitTestBehavior hitTestBehavior,
       Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-    }) =>
+      }
+    ) =>
       RenderUiKitView(
       viewController: viewController,
       hitTestBehavior: hitTestBehavior,
       gestureRecognizers: gestureRecognizers,
     ),
 );
-var platformViewRenderBox = MXFunctionInvoke(
+var _platformViewRenderBox = MXFunctionInvoke(
     "PlatformViewRenderBox",
-    ({
+    (
+      {
       PlatformViewController controller,
       PlatformViewHitTestBehavior hitTestBehavior,
       Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-    }) =>
+      }
+    ) =>
       PlatformViewRenderBox(
       controller: controller,
       hitTestBehavior: hitTestBehavior,

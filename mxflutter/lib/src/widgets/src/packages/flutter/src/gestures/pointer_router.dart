@@ -14,20 +14,21 @@ import 'package:flutter/src/gestures/events.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPointerRouterSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[pointerRouter.funName] = pointerRouter;
-  m[flutterErrorDetailsForPointerRouter.funName] = flutterErrorDetailsForPointerRouter;
+  m[_pointerRouter.funName] = _pointerRouter;
+  m[_flutterErrorDetailsForPointerRouter.funName] = _flutterErrorDetailsForPointerRouter;
   return m;
 }
-var pointerRouter = MXFunctionInvoke(
+var _pointerRouter = MXFunctionInvoke(
     "PointerRouter",
-    ({
-    }) =>
+    (
+    ) =>
       PointerRouter(
     ),
 );
-var flutterErrorDetailsForPointerRouter = MXFunctionInvoke(
+var _flutterErrorDetailsForPointerRouter = MXFunctionInvoke(
     "FlutterErrorDetailsForPointerRouter",
-    ({
+    (
+      {
       dynamic exception,
       StackTrace stack,
       String library,
@@ -37,14 +38,15 @@ var flutterErrorDetailsForPointerRouter = MXFunctionInvoke(
       PointerEvent event,
       dynamic informationCollector,
       bool silent = false,
-    }) =>
+      }
+    ) =>
       FlutterErrorDetailsForPointerRouter(
       exception: exception,
       stack: stack,
       library: library,
       context: context,
       router: router,
-      route: createValueChangedGenericClosure<PointerEvent>(flutterErrorDetailsForPointerRouter.buildOwner, route),
+      route: createValueChangedGenericClosure<PointerEvent>(_flutterErrorDetailsForPointerRouter.buildOwner, route),
       event: event,
       informationCollector: informationCollector,
       silent: silent,

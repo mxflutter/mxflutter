@@ -13,134 +13,160 @@ import 'dart:typed_data';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTypedBuffersSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[uint8Buffer.funName] = uint8Buffer;
-  m[int8Buffer.funName] = int8Buffer;
-  m[uint8ClampedBuffer.funName] = uint8ClampedBuffer;
-  m[uint16Buffer.funName] = uint16Buffer;
-  m[int16Buffer.funName] = int16Buffer;
-  m[uint32Buffer.funName] = uint32Buffer;
-  m[int32Buffer.funName] = int32Buffer;
-  m[uint64Buffer.funName] = uint64Buffer;
-  m[int64Buffer.funName] = int64Buffer;
-  m[float32Buffer.funName] = float32Buffer;
-  m[float64Buffer.funName] = float64Buffer;
-  m[int32x4Buffer.funName] = int32x4Buffer;
-  m[float32x4Buffer.funName] = float32x4Buffer;
+  m[_uint8Buffer.funName] = _uint8Buffer;
+  m[_int8Buffer.funName] = _int8Buffer;
+  m[_uint8ClampedBuffer.funName] = _uint8ClampedBuffer;
+  m[_uint16Buffer.funName] = _uint16Buffer;
+  m[_int16Buffer.funName] = _int16Buffer;
+  m[_uint32Buffer.funName] = _uint32Buffer;
+  m[_int32Buffer.funName] = _int32Buffer;
+  m[_uint64Buffer.funName] = _uint64Buffer;
+  m[_int64Buffer.funName] = _int64Buffer;
+  m[_float32Buffer.funName] = _float32Buffer;
+  m[_float64Buffer.funName] = _float64Buffer;
+  m[_int32x4Buffer.funName] = _int32x4Buffer;
+  m[_float32x4Buffer.funName] = _float32x4Buffer;
   return m;
 }
-var uint8Buffer = MXFunctionInvoke(
+var _uint8Buffer = MXFunctionInvoke(
     "Uint8Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Uint8Buffer(
       initialLength,
     ),
 );
-var int8Buffer = MXFunctionInvoke(
+var _int8Buffer = MXFunctionInvoke(
     "Int8Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Int8Buffer(
       initialLength,
     ),
 );
-var uint8ClampedBuffer = MXFunctionInvoke(
+var _uint8ClampedBuffer = MXFunctionInvoke(
     "Uint8ClampedBuffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Uint8ClampedBuffer(
       initialLength,
     ),
 );
-var uint16Buffer = MXFunctionInvoke(
+var _uint16Buffer = MXFunctionInvoke(
     "Uint16Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Uint16Buffer(
       initialLength,
     ),
 );
-var int16Buffer = MXFunctionInvoke(
+var _int16Buffer = MXFunctionInvoke(
     "Int16Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Int16Buffer(
       initialLength,
     ),
 );
-var uint32Buffer = MXFunctionInvoke(
+var _uint32Buffer = MXFunctionInvoke(
     "Uint32Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Uint32Buffer(
       initialLength,
     ),
 );
-var int32Buffer = MXFunctionInvoke(
+var _int32Buffer = MXFunctionInvoke(
     "Int32Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Int32Buffer(
       initialLength,
     ),
 );
-var uint64Buffer = MXFunctionInvoke(
+var _uint64Buffer = MXFunctionInvoke(
     "Uint64Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Uint64Buffer(
       initialLength,
     ),
 );
-var int64Buffer = MXFunctionInvoke(
+var _int64Buffer = MXFunctionInvoke(
     "Int64Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Int64Buffer(
       initialLength,
     ),
 );
-var float32Buffer = MXFunctionInvoke(
+var _float32Buffer = MXFunctionInvoke(
     "Float32Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Float32Buffer(
       initialLength,
     ),
 );
-var float64Buffer = MXFunctionInvoke(
+var _float64Buffer = MXFunctionInvoke(
     "Float64Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Float64Buffer(
       initialLength,
     ),
 );
-var int32x4Buffer = MXFunctionInvoke(
+var _int32x4Buffer = MXFunctionInvoke(
     "Int32x4Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Int32x4Buffer(
       initialLength,
     ),
 );
-var float32x4Buffer = MXFunctionInvoke(
+var _float32x4Buffer = MXFunctionInvoke(
     "Float32x4Buffer",
-    ({
+    (
+      {
       int initialLength,
-    }) =>
+      }
+    ) =>
       Float32x4Buffer(
       initialLength,
     ),

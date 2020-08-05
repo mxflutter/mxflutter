@@ -24,23 +24,25 @@ import 'package:flutter/src/painting/text_style.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFlutterLogoSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[flutterLogoStyle.funName] = flutterLogoStyle;
-  m[flutterLogoDecoration.funName] = flutterLogoDecoration;
+  m[_flutterLogoStyle.funName] = _flutterLogoStyle;
+  m[_flutterLogoDecoration.funName] = _flutterLogoDecoration;
   return m;
 }
-var flutterLogoStyle = MXFunctionInvoke(
+var _flutterLogoStyle = MXFunctionInvoke(
     "FlutterLogoStyle",
     ({Map args}) => MXFlutterLogoStyle.parse(args),
   );
-var flutterLogoDecoration = MXFunctionInvoke(
+var _flutterLogoDecoration = MXFunctionInvoke(
     "FlutterLogoDecoration",
-    ({
+    (
+      {
       Color lightColor,
       Color darkColor,
       Color textColor,
       FlutterLogoStyle style = FlutterLogoStyle.markOnly,
       EdgeInsets margin,
-    }) =>
+      }
+    ) =>
       FlutterLogoDecoration(
       lightColor: lightColor,
       darkColor: darkColor,

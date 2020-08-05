@@ -12,24 +12,28 @@ import 'dart:collection';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerQueueListSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[queueList.funName] = queueList;
-  m[queueList_from.funName] = queueList_from;
+  m[_queueList.funName] = _queueList;
+  m[_queueList_from.funName] = _queueList_from;
   return m;
 }
-var queueList = MXFunctionInvoke(
+var _queueList = MXFunctionInvoke(
     "QueueList",
-    ({
+    (
+      {
       int initialCapacity,
-    }) =>
+      }
+    ) =>
       QueueList(
       initialCapacity,
     ),
 );
-var queueList_from = MXFunctionInvoke(
+var _queueList_from = MXFunctionInvoke(
   "queueList.from",
-    ({
-      Iterable<E> source,
-    }) =>
+    (
+      {
+      Iterable<dynamic> source,
+      }
+    ) =>
       QueueList.from(
       source,
     ),

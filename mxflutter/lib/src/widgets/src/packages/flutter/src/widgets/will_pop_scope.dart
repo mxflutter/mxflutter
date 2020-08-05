@@ -14,16 +14,18 @@ import 'package:flutter/src/widgets/routes.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerWillPopScopeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[willPopScope.funName] = willPopScope;
+  m[_willPopScope.funName] = _willPopScope;
   return m;
 }
-var willPopScope = MXFunctionInvoke(
+var _willPopScope = MXFunctionInvoke(
     "WillPopScope",
-    ({
+    (
+      {
       Key key,
       Widget child,
       dynamic onWillPop,
-    }) =>
+      }
+    ) =>
       WillPopScope(
       key: key,
       child: child,

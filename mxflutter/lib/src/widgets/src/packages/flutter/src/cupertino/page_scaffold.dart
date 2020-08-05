@@ -14,18 +14,20 @@ import 'package:flutter/src/cupertino/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPageScaffoldSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoPageScaffold.funName] = cupertinoPageScaffold;
+  m[_cupertinoPageScaffold.funName] = _cupertinoPageScaffold;
   return m;
 }
-var cupertinoPageScaffold = MXFunctionInvoke(
+var _cupertinoPageScaffold = MXFunctionInvoke(
     "CupertinoPageScaffold",
-    ({
+    (
+      {
       Key key,
       ObstructingPreferredSizeWidget navigationBar,
       Color backgroundColor,
       bool resizeToAvoidBottomInset = true,
       Widget child,
-    }) =>
+      }
+    ) =>
       CupertinoPageScaffold(
       key: key,
       navigationBar: navigationBar,

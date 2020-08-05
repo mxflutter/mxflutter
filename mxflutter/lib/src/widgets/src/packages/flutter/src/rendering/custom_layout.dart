@@ -14,23 +14,25 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCustomLayoutSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[multiChildLayoutParentData.funName] = multiChildLayoutParentData;
-  m[renderCustomMultiChildLayoutBox.funName] = renderCustomMultiChildLayoutBox;
+  m[_multiChildLayoutParentData.funName] = _multiChildLayoutParentData;
+  m[_renderCustomMultiChildLayoutBox.funName] = _renderCustomMultiChildLayoutBox;
   return m;
 }
-var multiChildLayoutParentData = MXFunctionInvoke(
+var _multiChildLayoutParentData = MXFunctionInvoke(
     "MultiChildLayoutParentData",
-    ({
-    }) =>
+    (
+    ) =>
       MultiChildLayoutParentData(
     ),
 );
-var renderCustomMultiChildLayoutBox = MXFunctionInvoke(
+var _renderCustomMultiChildLayoutBox = MXFunctionInvoke(
     "RenderCustomMultiChildLayoutBox",
-    ({
+    (
+      {
       List<RenderBox> children,
       MultiChildLayoutDelegate delegate,
-    }) =>
+      }
+    ) =>
       RenderCustomMultiChildLayoutBox(
       children: children,
       delegate: delegate,

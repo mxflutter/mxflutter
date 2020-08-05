@@ -17,12 +17,13 @@ import 'package:flutter/src/widgets/transitions.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedSwitcherSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[animatedSwitcher.funName] = animatedSwitcher;
+  m[_animatedSwitcher.funName] = _animatedSwitcher;
   return m;
 }
-var animatedSwitcher = MXFunctionInvoke(
+var _animatedSwitcher = MXFunctionInvoke(
     "AnimatedSwitcher",
-    ({
+    (
+      {
       Key key,
       Widget child,
       Duration duration,
@@ -31,7 +32,8 @@ var animatedSwitcher = MXFunctionInvoke(
       Curve switchOutCurve,
       dynamic transitionBuilder,
       dynamic layoutBuilder,
-    }) =>
+      }
+    ) =>
       AnimatedSwitcher(
       key: key,
       child: child,
@@ -39,7 +41,7 @@ var animatedSwitcher = MXFunctionInvoke(
       reverseDuration: reverseDuration,
       switchInCurve: switchInCurve,
       switchOutCurve: switchOutCurve,
-      transitionBuilder: transitionBuilder,
-      layoutBuilder: layoutBuilder,
+      transitionBuilder: null,
+      layoutBuilder: null,
     ),
 );

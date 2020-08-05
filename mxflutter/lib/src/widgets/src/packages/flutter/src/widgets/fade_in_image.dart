@@ -19,14 +19,15 @@ import 'package:flutter/src/widgets/transitions.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFadeInImageSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[fadeInImage.funName] = fadeInImage;
-  m[fadeInImage_memoryNetwork.funName] = fadeInImage_memoryNetwork;
-  m[fadeInImage_assetNetwork.funName] = fadeInImage_assetNetwork;
+  m[_fadeInImage.funName] = _fadeInImage;
+  m[_fadeInImage_memoryNetwork.funName] = _fadeInImage_memoryNetwork;
+  m[_fadeInImage_assetNetwork.funName] = _fadeInImage_assetNetwork;
   return m;
 }
-var fadeInImage = MXFunctionInvoke(
+var _fadeInImage = MXFunctionInvoke(
     "FadeInImage",
-    ({
+    (
+      {
       Key key,
       ImageProvider<dynamic> placeholder,
       dynamic placeholderErrorBuilder,
@@ -38,51 +39,53 @@ var fadeInImage = MXFunctionInvoke(
       Curve fadeOutCurve,
       Duration fadeInDuration,
       Curve fadeInCurve,
-      dynamic width,
-      dynamic height,
+      double width,
+      double height,
       BoxFit fit,
       AlignmentGeometry alignment,
       ImageRepeat repeat = ImageRepeat.noRepeat,
       bool matchTextDirection = false,
-    }) =>
+      }
+    ) =>
       FadeInImage(
       key: key,
       placeholder: placeholder,
-      placeholderErrorBuilder: placeholderErrorBuilder,
+      placeholderErrorBuilder: null,
       image: image,
-      imageErrorBuilder: imageErrorBuilder,
+      imageErrorBuilder: null,
       excludeFromSemantics: excludeFromSemantics,
       imageSemanticLabel: imageSemanticLabel,
       fadeOutDuration: fadeOutDuration,
       fadeOutCurve: fadeOutCurve,
       fadeInDuration: fadeInDuration,
       fadeInCurve: fadeInCurve,
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
       fit: fit,
       alignment: alignment,
       repeat: repeat,
       matchTextDirection: matchTextDirection,
     ),
 );
-var fadeInImage_memoryNetwork = MXFunctionInvoke(
+var _fadeInImage_memoryNetwork = MXFunctionInvoke(
   "fadeInImage.memoryNetwork",
-    ({
+    (
+      {
       Key key,
       Uint8List placeholder,
       dynamic placeholderErrorBuilder,
       String image,
       dynamic imageErrorBuilder,
-      dynamic placeholderScale = 1.0,
-      dynamic imageScale = 1.0,
+      double placeholderScale = 1.0,
+      double imageScale = 1.0,
       bool excludeFromSemantics = false,
       String imageSemanticLabel,
       Duration fadeOutDuration,
       Curve fadeOutCurve,
       Duration fadeInDuration,
       Curve fadeInCurve,
-      dynamic width,
-      dynamic height,
+      double width,
+      double height,
       BoxFit fit,
       AlignmentGeometry alignment,
       ImageRepeat repeat = ImageRepeat.noRepeat,
@@ -91,23 +94,24 @@ var fadeInImage_memoryNetwork = MXFunctionInvoke(
       int placeholderCacheHeight,
       int imageCacheWidth,
       int imageCacheHeight,
-    }) =>
+      }
+    ) =>
       FadeInImage.memoryNetwork(
       key: key,
       placeholder: placeholder,
-      placeholderErrorBuilder: placeholderErrorBuilder,
+      placeholderErrorBuilder: null,
       image: image,
-      imageErrorBuilder: imageErrorBuilder,
-      placeholderScale: placeholderScale,
-      imageScale: imageScale,
+      imageErrorBuilder: null,
+      placeholderScale: placeholderScale?.toDouble(),
+      imageScale: imageScale?.toDouble(),
       excludeFromSemantics: excludeFromSemantics,
       imageSemanticLabel: imageSemanticLabel,
       fadeOutDuration: fadeOutDuration,
       fadeOutCurve: fadeOutCurve,
       fadeInDuration: fadeInDuration,
       fadeInCurve: fadeInCurve,
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
       fit: fit,
       alignment: alignment,
       repeat: repeat,
@@ -118,25 +122,26 @@ var fadeInImage_memoryNetwork = MXFunctionInvoke(
       imageCacheHeight: imageCacheHeight,
     ),
 );
-var fadeInImage_assetNetwork = MXFunctionInvoke(
+var _fadeInImage_assetNetwork = MXFunctionInvoke(
   "fadeInImage.assetNetwork",
-    ({
+    (
+      {
       Key key,
       String placeholder,
       dynamic placeholderErrorBuilder,
       String image,
       dynamic imageErrorBuilder,
       AssetBundle bundle,
-      dynamic placeholderScale,
-      dynamic imageScale = 1.0,
+      double placeholderScale,
+      double imageScale = 1.0,
       bool excludeFromSemantics = false,
       String imageSemanticLabel,
       Duration fadeOutDuration,
       Curve fadeOutCurve,
       Duration fadeInDuration,
       Curve fadeInCurve,
-      dynamic width,
-      dynamic height,
+      double width,
+      double height,
       BoxFit fit,
       AlignmentGeometry alignment,
       ImageRepeat repeat = ImageRepeat.noRepeat,
@@ -145,24 +150,25 @@ var fadeInImage_assetNetwork = MXFunctionInvoke(
       int placeholderCacheHeight,
       int imageCacheWidth,
       int imageCacheHeight,
-    }) =>
+      }
+    ) =>
       FadeInImage.assetNetwork(
       key: key,
       placeholder: placeholder,
-      placeholderErrorBuilder: placeholderErrorBuilder,
+      placeholderErrorBuilder: null,
       image: image,
-      imageErrorBuilder: imageErrorBuilder,
+      imageErrorBuilder: null,
       bundle: bundle,
-      placeholderScale: placeholderScale,
-      imageScale: imageScale,
+      placeholderScale: placeholderScale?.toDouble(),
+      imageScale: imageScale?.toDouble(),
       excludeFromSemantics: excludeFromSemantics,
       imageSemanticLabel: imageSemanticLabel,
       fadeOutDuration: fadeOutDuration,
       fadeOutCurve: fadeOutCurve,
       fadeInDuration: fadeInDuration,
       fadeInCurve: fadeInCurve,
-      width: width,
-      height: height,
+      width: width?.toDouble(),
+      height: height?.toDouble(),
       fit: fit,
       alignment: alignment,
       repeat: repeat,

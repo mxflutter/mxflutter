@@ -14,31 +14,35 @@ import 'package:flutter/widgets.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInputBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[underlineInputBorder.funName] = underlineInputBorder;
-  m[outlineInputBorder.funName] = outlineInputBorder;
+  m[_underlineInputBorder.funName] = _underlineInputBorder;
+  m[_outlineInputBorder.funName] = _outlineInputBorder;
   return m;
 }
-var underlineInputBorder = MXFunctionInvoke(
+var _underlineInputBorder = MXFunctionInvoke(
     "UnderlineInputBorder",
-    ({
+    (
+      {
       BorderSide borderSide,
       BorderRadius borderRadius,
-    }) =>
+      }
+    ) =>
       UnderlineInputBorder(
       borderSide: borderSide,
       borderRadius: borderRadius,
     ),
 );
-var outlineInputBorder = MXFunctionInvoke(
+var _outlineInputBorder = MXFunctionInvoke(
     "OutlineInputBorder",
-    ({
+    (
+      {
       BorderSide borderSide,
       BorderRadius borderRadius,
-      dynamic gapPadding = 4.0,
-    }) =>
+      double gapPadding = 4.0,
+      }
+    ) =>
       OutlineInputBorder(
       borderSide: borderSide,
       borderRadius: borderRadius,
-      gapPadding: gapPadding,
+      gapPadding: gapPadding?.toDouble(),
     ),
 );

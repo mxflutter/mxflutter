@@ -14,23 +14,25 @@ import 'package:flutter/src/widgets/framework.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlaceholderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[placeholder.funName] = placeholder;
+  m[_placeholder.funName] = _placeholder;
   return m;
 }
-var placeholder = MXFunctionInvoke(
+var _placeholder = MXFunctionInvoke(
     "Placeholder",
-    ({
+    (
+      {
       Key key,
       Color color,
-      dynamic strokeWidth = 2.0,
-      dynamic fallbackWidth = 400.0,
-      dynamic fallbackHeight = 400.0,
-    }) =>
+      double strokeWidth = 2.0,
+      double fallbackWidth = 400.0,
+      double fallbackHeight = 400.0,
+      }
+    ) =>
       Placeholder(
       key: key,
       color: color,
-      strokeWidth: strokeWidth,
-      fallbackWidth: fallbackWidth,
-      fallbackHeight: fallbackHeight,
+      strokeWidth: strokeWidth?.toDouble(),
+      fallbackWidth: fallbackWidth?.toDouble(),
+      fallbackHeight: fallbackHeight?.toDouble(),
     ),
 );

@@ -20,13 +20,14 @@ import 'package:flutter/src/material/theme.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSelectableTextSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[selectableText.funName] = selectableText;
-  m[selectableText_rich.funName] = selectableText_rich;
+  m[_selectableText.funName] = _selectableText;
+  m[_selectableText_rich.funName] = _selectableText_rich;
   return m;
 }
-var selectableText = MXFunctionInvoke(
+var _selectableText = MXFunctionInvoke(
     "SelectableText",
-    ({
+    (
+      {
       String data,
       Key key,
       FocusNode focusNode,
@@ -34,13 +35,13 @@ var selectableText = MXFunctionInvoke(
       StrutStyle strutStyle,
       TextAlign textAlign,
       TextDirection textDirection,
-      dynamic textScaleFactor,
+      double textScaleFactor,
       bool showCursor = false,
       bool autofocus = false,
       ToolbarOptions toolbarOptions,
       int minLines,
       int maxLines,
-      dynamic cursorWidth = 2.0,
+      double cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
@@ -48,7 +49,8 @@ var selectableText = MXFunctionInvoke(
       dynamic onTap,
       ScrollPhysics scrollPhysics,
       TextWidthBasis textWidthBasis,
-    }) =>
+      }
+    ) =>
       SelectableText(
       data,
       key: key,
@@ -57,25 +59,26 @@ var selectableText = MXFunctionInvoke(
       strutStyle: strutStyle,
       textAlign: textAlign,
       textDirection: textDirection,
-      textScaleFactor: textScaleFactor,
+      textScaleFactor: textScaleFactor?.toDouble(),
       showCursor: showCursor,
       autofocus: autofocus,
       toolbarOptions: toolbarOptions,
       minLines: minLines,
       maxLines: maxLines,
-      cursorWidth: cursorWidth,
+      cursorWidth: cursorWidth?.toDouble(),
       cursorRadius: cursorRadius,
       cursorColor: cursorColor,
       dragStartBehavior: dragStartBehavior,
       enableInteractiveSelection: enableInteractiveSelection,
-      onTap: createVoidCallbackClosure(selectableText.buildOwner, onTap),
+      onTap: createVoidCallbackClosure(_selectableText.buildOwner, onTap),
       scrollPhysics: scrollPhysics,
       textWidthBasis: textWidthBasis,
     ),
 );
-var selectableText_rich = MXFunctionInvoke(
+var _selectableText_rich = MXFunctionInvoke(
   "selectableText.rich",
-    ({
+    (
+      {
       TextSpan textSpan,
       Key key,
       FocusNode focusNode,
@@ -83,13 +86,13 @@ var selectableText_rich = MXFunctionInvoke(
       StrutStyle strutStyle,
       TextAlign textAlign,
       TextDirection textDirection,
-      dynamic textScaleFactor,
+      double textScaleFactor,
       bool showCursor = false,
       bool autofocus = false,
       ToolbarOptions toolbarOptions,
       int minLines,
       int maxLines,
-      dynamic cursorWidth = 2.0,
+      double cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
@@ -97,7 +100,8 @@ var selectableText_rich = MXFunctionInvoke(
       dynamic onTap,
       ScrollPhysics scrollPhysics,
       TextWidthBasis textWidthBasis,
-    }) =>
+      }
+    ) =>
       SelectableText.rich(
       textSpan,
       key: key,
@@ -106,18 +110,18 @@ var selectableText_rich = MXFunctionInvoke(
       strutStyle: strutStyle,
       textAlign: textAlign,
       textDirection: textDirection,
-      textScaleFactor: textScaleFactor,
+      textScaleFactor: textScaleFactor?.toDouble(),
       showCursor: showCursor,
       autofocus: autofocus,
       toolbarOptions: toolbarOptions,
       minLines: minLines,
       maxLines: maxLines,
-      cursorWidth: cursorWidth,
+      cursorWidth: cursorWidth?.toDouble(),
       cursorRadius: cursorRadius,
       cursorColor: cursorColor,
       dragStartBehavior: dragStartBehavior,
       enableInteractiveSelection: enableInteractiveSelection,
-      onTap: createVoidCallbackClosure(selectableText_rich.buildOwner, onTap),
+      onTap: createVoidCallbackClosure(_selectableText_rich.buildOwner, onTap),
       scrollPhysics: scrollPhysics,
       textWidthBasis: textWidthBasis,
     ),

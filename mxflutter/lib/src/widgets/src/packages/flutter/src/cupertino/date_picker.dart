@@ -13,32 +13,30 @@ import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/localizations.dart';
 import 'package:flutter/src/cupertino/picker.dart';
 import 'package:flutter/src/cupertino/theme.dart';
-import 'package:flutter/src/cupertino/localizations.dart';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/date_picker.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDatePickerSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[cupertinoDatePickerMode.funName] = cupertinoDatePickerMode;
-  m[cupertinoDatePicker.funName] = cupertinoDatePicker;
-  m[cupertinoTimerPickerMode.funName] = cupertinoTimerPickerMode;
-  m[cupertinoTimerPicker.funName] = cupertinoTimerPicker;
-  m[datePickerDateTimeOrder.funName] = datePickerDateTimeOrder;
-  m[datePickerDateOrder.funName] = datePickerDateOrder;
-  m[defaultCupertinoLocalizations.funName] = defaultCupertinoLocalizations;
+  m[_cupertinoDatePickerMode.funName] = _cupertinoDatePickerMode;
+  m[_cupertinoDatePicker.funName] = _cupertinoDatePicker;
+  m[_cupertinoTimerPickerMode.funName] = _cupertinoTimerPickerMode;
+  m[_cupertinoTimerPicker.funName] = _cupertinoTimerPicker;
+  m[_datePickerDateTimeOrder.funName] = _datePickerDateTimeOrder;
+  m[_datePickerDateOrder.funName] = _datePickerDateOrder;
+  m[_defaultCupertinoLocalizations.funName] = _defaultCupertinoLocalizations;
   return m;
 }
-var cupertinoDatePickerMode = MXFunctionInvoke(
+var _cupertinoDatePickerMode = MXFunctionInvoke(
     "CupertinoDatePickerMode",
     ({Map args}) => MXCupertinoDatePickerMode.parse(args),
   );
-var cupertinoDatePicker = MXFunctionInvoke(
+var _cupertinoDatePicker = MXFunctionInvoke(
     "CupertinoDatePicker",
-    ({
+    (
+      {
       Key key,
       CupertinoDatePickerMode mode = CupertinoDatePickerMode.dateAndTime,
       dynamic onDateTimeChanged,
@@ -50,11 +48,12 @@ var cupertinoDatePicker = MXFunctionInvoke(
       int minuteInterval = 1,
       bool use24hFormat = false,
       Color backgroundColor,
-    }) =>
+      }
+    ) =>
       CupertinoDatePicker(
       key: key,
       mode: mode,
-      onDateTimeChanged: createValueChangedGenericClosure<DateTime>(cupertinoDatePicker.buildOwner, onDateTimeChanged),
+      onDateTimeChanged: createValueChangedGenericClosure<DateTime>(_cupertinoDatePicker.buildOwner, onDateTimeChanged),
       initialDateTime: initialDateTime,
       minimumDate: minimumDate,
       maximumDate: maximumDate,
@@ -65,13 +64,14 @@ var cupertinoDatePicker = MXFunctionInvoke(
       backgroundColor: backgroundColor,
     ),
 );
-var cupertinoTimerPickerMode = MXFunctionInvoke(
+var _cupertinoTimerPickerMode = MXFunctionInvoke(
     "CupertinoTimerPickerMode",
     ({Map args}) => MXCupertinoTimerPickerMode.parse(args),
   );
-var cupertinoTimerPicker = MXFunctionInvoke(
+var _cupertinoTimerPicker = MXFunctionInvoke(
     "CupertinoTimerPicker",
-    ({
+    (
+      {
       Key key,
       CupertinoTimerPickerMode mode = CupertinoTimerPickerMode.hms,
       Duration initialTimerDuration,
@@ -80,7 +80,8 @@ var cupertinoTimerPicker = MXFunctionInvoke(
       AlignmentGeometry alignment,
       Color backgroundColor,
       dynamic onTimerDurationChanged,
-    }) =>
+      }
+    ) =>
       CupertinoTimerPicker(
       key: key,
       mode: mode,
@@ -89,21 +90,21 @@ var cupertinoTimerPicker = MXFunctionInvoke(
       secondInterval: secondInterval,
       alignment: alignment,
       backgroundColor: backgroundColor,
-      onTimerDurationChanged: createValueChangedGenericClosure<Duration>(cupertinoTimerPicker.buildOwner, onTimerDurationChanged),
+      onTimerDurationChanged: createValueChangedGenericClosure<Duration>(_cupertinoTimerPicker.buildOwner, onTimerDurationChanged),
     ),
 );
-var datePickerDateTimeOrder = MXFunctionInvoke(
+var _datePickerDateTimeOrder = MXFunctionInvoke(
     "DatePickerDateTimeOrder",
     ({Map args}) => MXDatePickerDateTimeOrder.parse(args),
   );
-var datePickerDateOrder = MXFunctionInvoke(
+var _datePickerDateOrder = MXFunctionInvoke(
     "DatePickerDateOrder",
     ({Map args}) => MXDatePickerDateOrder.parse(args),
   );
-var defaultCupertinoLocalizations = MXFunctionInvoke(
+var _defaultCupertinoLocalizations = MXFunctionInvoke(
     "DefaultCupertinoLocalizations",
-    ({
-    }) =>
+    (
+    ) =>
       DefaultCupertinoLocalizations(
     ),
 );

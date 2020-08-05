@@ -19,31 +19,35 @@ import 'package:flutter/src/painting/basic_types.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerGradientSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[gradientRotation.funName] = gradientRotation;
-  m[linearGradient.funName] = linearGradient;
-  m[radialGradient.funName] = radialGradient;
-  m[sweepGradient.funName] = sweepGradient;
+  m[_gradientRotation.funName] = _gradientRotation;
+  m[_linearGradient.funName] = _linearGradient;
+  m[_radialGradient.funName] = _radialGradient;
+  m[_sweepGradient.funName] = _sweepGradient;
   return m;
 }
-var gradientRotation = MXFunctionInvoke(
+var _gradientRotation = MXFunctionInvoke(
     "GradientRotation",
-    ({
-      dynamic radians,
-    }) =>
+    (
+      {
+      double radians,
+      }
+    ) =>
       GradientRotation(
       radians,
     ),
 );
-var linearGradient = MXFunctionInvoke(
+var _linearGradient = MXFunctionInvoke(
     "LinearGradient",
-    ({
+    (
+      {
       AlignmentGeometry begin,
       AlignmentGeometry end,
       List<Color> colors,
       List<double> stops,
       TileMode tileMode = TileMode.clamp,
       GradientTransform transform,
-    }) =>
+      }
+    ) =>
       LinearGradient(
       begin: begin,
       end: end,
@@ -53,44 +57,48 @@ var linearGradient = MXFunctionInvoke(
       transform: transform,
     ),
 );
-var radialGradient = MXFunctionInvoke(
+var _radialGradient = MXFunctionInvoke(
     "RadialGradient",
-    ({
+    (
+      {
       AlignmentGeometry center,
-      dynamic radius = 0.5,
+      double radius = 0.5,
       List<Color> colors,
       List<double> stops,
       TileMode tileMode = TileMode.clamp,
       AlignmentGeometry focal,
-      dynamic focalRadius = 0.0,
+      double focalRadius = 0.0,
       GradientTransform transform,
-    }) =>
+      }
+    ) =>
       RadialGradient(
       center: center,
-      radius: radius,
+      radius: radius?.toDouble(),
       colors: colors,
       stops: stops,
       tileMode: tileMode,
       focal: focal,
-      focalRadius: focalRadius,
+      focalRadius: focalRadius?.toDouble(),
       transform: transform,
     ),
 );
-var sweepGradient = MXFunctionInvoke(
+var _sweepGradient = MXFunctionInvoke(
     "SweepGradient",
-    ({
+    (
+      {
       AlignmentGeometry center,
-      dynamic startAngle = 0.0,
-      dynamic endAngle = 6.283185307179586,
+      double startAngle = 0.0,
+      double endAngle = 6.283185307179586,
       List<Color> colors,
       List<double> stops,
       TileMode tileMode = TileMode.clamp,
       GradientTransform transform,
-    }) =>
+      }
+    ) =>
       SweepGradient(
       center: center,
-      startAngle: startAngle,
-      endAngle: endAngle,
+      startAngle: startAngle?.toDouble(),
+      endAngle: endAngle?.toDouble(),
       colors: colors,
       stops: stops,
       tileMode: tileMode,

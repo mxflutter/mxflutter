@@ -17,17 +17,18 @@ import 'package:flutter/src/widgets/transitions.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedCrossFadeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[crossFadeState.funName] = crossFadeState;
-  m[animatedCrossFade.funName] = animatedCrossFade;
+  m[_crossFadeState.funName] = _crossFadeState;
+  m[_animatedCrossFade.funName] = _animatedCrossFade;
   return m;
 }
-var crossFadeState = MXFunctionInvoke(
+var _crossFadeState = MXFunctionInvoke(
     "CrossFadeState",
     ({Map args}) => MXCrossFadeState.parse(args),
   );
-var animatedCrossFade = MXFunctionInvoke(
+var _animatedCrossFade = MXFunctionInvoke(
     "AnimatedCrossFade",
-    ({
+    (
+      {
       Key key,
       Widget firstChild,
       Widget secondChild,
@@ -39,7 +40,8 @@ var animatedCrossFade = MXFunctionInvoke(
       Duration duration,
       Duration reverseDuration,
       dynamic layoutBuilder,
-    }) =>
+      }
+    ) =>
       AnimatedCrossFade(
       key: key,
       firstChild: firstChild,
@@ -51,7 +53,7 @@ var animatedCrossFade = MXFunctionInvoke(
       crossFadeState: crossFadeState,
       duration: duration,
       reverseDuration: reverseDuration,
-      layoutBuilder: layoutBuilder,
+      layoutBuilder: null,
     ),
 );
 class MXCrossFadeState {
