@@ -7,6 +7,8 @@
 import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mx_json_build_owner.dart';
 
+typedef GenericNoneParamsCallback<R> = R Function();
+
 typedef GenericFunctionGenericCallback<R, T> = R Function(T value);
 
 typedef VoidTwoGenericParamsCallback<T, S> = Function(T arg1, S arg2);
@@ -31,7 +33,7 @@ typedef VoidFiveGenericParamsCallback<T, S, W, V, U> = Function(
 typedef GenericFiveGenericParamsCallback<R, T, S, W, V, U> = R Function(
     T arg1, S arg2, W arg3, V arg4, U arg5);
 
-/// 生成VoidCallback闭包
+/// VoidCallback闭包
 VoidCallback createVoidCallbackClosure(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
   VoidCallback cb = () {
@@ -41,7 +43,23 @@ VoidCallback createVoidCallbackClosure(
   return cb;
 }
 
-/// 生成ValueChanged<T>闭包
+/// GenericNoneParamsCallback<R>闭包
+GenericNoneParamsCallback<R>
+    createGenericNoneParamsClosure<R>(
+        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  GenericNoneParamsCallback<R> cb = () {
+    R result = bo.eventCallback(eventCallbackID);
+    return result;
+  };
+
+  return cb;
+}
+
+/// ValueChanged<T>闭包
 ValueChanged<T> createValueChangedGenericClosure<T>(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
   if (eventCallbackID == null) {
@@ -55,7 +73,7 @@ ValueChanged<T> createValueChangedGenericClosure<T>(
   return cb;
 }
 
-//GenericFunctionGenericCallback<R, T> 闭包
+/// GenericFunctionGenericCallback<R, T>闭包
 GenericFunctionGenericCallback<R, T> createGenericValueGenericClosure<R, T>(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
   if (eventCallbackID == null) {
