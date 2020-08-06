@@ -250,12 +250,12 @@ class MXJsonBuildOwner {
     }
 
     //谁push jsWidget，找到对应的build owner
-    String navPushingWidgetID = jsWidget.navPushingWidgetID;
-    MXJsonBuildOwner bo = findBuildOwner(navPushingWidgetID);
+    String navPushingWidgetElementID = jsWidget.navPushingWidgetElementID;
+    MXJsonBuildOwner bo = findBuildOwner(navPushingWidgetElementID);
 
     if (bo == null) {
       MXJSLog.error(
-          "jsCallNavigatorPush(bo == null: name:${jsWidget.name} navPushingWidgetID:$navPushingWidgetID");
+          "jsCallNavigatorPush(bo == null: name:${jsWidget.name} navPushingWidgetElementID:$navPushingWidgetElementID");
       return;
     }
 
@@ -388,7 +388,7 @@ class MXProxyMXJSStatefulWidget extends MXJsonObjProxy {
         widgetID: mxj2d(bo, jsonMap["widgetID"]),
         widgetData: jsonMap["widgetData"],
         buildingWidgetDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
-        navPushingWidgetID: jsonMap["navPushingWidgetID"],
+        navPushingWidgetElementID: jsonMap["navPushingWidgetElementID"],
         parentBuildOwner: bo);
     return widget;
   }
@@ -416,7 +416,7 @@ class MXProxyMXJSStatelessWidget extends MXJsonObjProxy {
         widgetID: mxj2d(bo, jsonMap["widgetID"]),
         widgetData: jsonMap["widgetData"],
         buildingWidgetDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
-        navPushingWidgetID: jsonMap["navPushingWidgetID"],
+        navPushingWidgetElementID: jsonMap["navPushingWidgetElementID"],
         parentBuildOwner: bo);
     return widget;
   }
