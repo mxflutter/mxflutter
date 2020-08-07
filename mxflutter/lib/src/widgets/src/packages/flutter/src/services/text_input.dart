@@ -6,16 +6,16 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/text_input.dart';
-import 'dart:async';
-import 'dart:io';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/services/message_codec.dart';
-import 'package:flutter/src/services/platform_channel.dart';
-import 'package:flutter/src/services/system_channels.dart';
-import 'package:flutter/src/services/system_chrome.dart';
-import 'package:flutter/src/services/text_editing.dart';
+import 'dart:async' ;
+import 'dart:io' ;
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/services/message_codec.dart' ;
+import 'package:flutter/src/services/platform_channel.dart' ;
+import 'package:flutter/src/services/system_channels.dart' ;
+import 'package:flutter/src/services/system_chrome.dart' ;
+import 'package:flutter/src/services/text_editing.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -42,7 +42,7 @@ var _smartQuotesType = MXFunctionInvoke(
     ({Map args}) => MXSmartQuotesType.parse(args),
   );
 var _textInputType_numberWithOptions = MXFunctionInvoke(
-  "textInputType.numberWithOptions",
+  "TextInputType.numberWithOptions",
     (
       {
       bool signed = false,
@@ -124,7 +124,7 @@ var _textEditingValue = MXFunctionInvoke(
     ),
 );
 var _textEditingValue_fromJSON = MXFunctionInvoke(
-  "textEditingValue.fromJSON",
+  "TextEditingValue.fromJSON",
     (
       {
       Map<String, dynamic> encoded,

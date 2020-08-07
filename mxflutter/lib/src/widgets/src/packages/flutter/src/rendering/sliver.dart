@@ -6,18 +6,20 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/sliver.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/rendering/binding.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/object.dart';
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/rendering/binding.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/debug.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/src/rendering/viewport.dart' ;
+import 'package:flutter/src/rendering/viewport_offset.dart' ;
 import 'package:flutter/src/rendering/viewport.dart';
-import 'package:flutter/src/rendering/viewport_offset.dart';
-import 'package:flutter/animation.dart';
-import 'package:flutter/semantics.dart';
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:flutter/src/rendering/sliver.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -51,15 +53,15 @@ var _sliverConstraints = MXFunctionInvoke(
       AxisDirection axisDirection,
       GrowthDirection growthDirection,
       ScrollDirection userScrollDirection,
-      double scrollOffset,
-      double precedingScrollExtent,
-      double overlap,
-      double remainingPaintExtent,
-      double crossAxisExtent,
+      dynamic scrollOffset,
+      dynamic precedingScrollExtent,
+      dynamic overlap,
+      dynamic remainingPaintExtent,
+      dynamic crossAxisExtent,
       AxisDirection crossAxisDirection,
-      double viewportMainAxisExtent,
-      double remainingCacheExtent,
-      double cacheOrigin,
+      dynamic viewportMainAxisExtent,
+      dynamic remainingCacheExtent,
+      dynamic cacheOrigin,
       }
     ) =>
       SliverConstraints(
@@ -81,17 +83,17 @@ var _sliverGeometry = MXFunctionInvoke(
     "SliverGeometry",
     (
       {
-      double scrollExtent = 0.0,
-      double paintExtent = 0.0,
-      double paintOrigin = 0.0,
-      double layoutExtent,
-      double maxPaintExtent = 0.0,
-      double maxScrollObstructionExtent = 0.0,
-      double hitTestExtent,
+      dynamic scrollExtent = 0.0,
+      dynamic paintExtent = 0.0,
+      dynamic paintOrigin = 0.0,
+      dynamic layoutExtent,
+      dynamic maxPaintExtent = 0.0,
+      dynamic maxScrollObstructionExtent = 0.0,
+      dynamic hitTestExtent,
       bool visible,
       bool hasVisualOverflow = false,
-      double scrollOffsetCorrection,
-      double cacheExtent,
+      dynamic scrollOffsetCorrection,
+      dynamic cacheExtent,
       }
     ) =>
       SliverGeometry(
@@ -116,7 +118,7 @@ var _sliverHitTestResult = MXFunctionInvoke(
     ),
 );
 var _sliverHitTestResult_wrap = MXFunctionInvoke(
-  "sliverHitTestResult.wrap",
+  "SliverHitTestResult.wrap",
     (
       {
       HitTestResult result,
@@ -131,8 +133,8 @@ var _sliverHitTestEntry = MXFunctionInvoke(
     (
       {
       RenderSliver target,
-      double mainAxisPosition,
-      double crossAxisPosition,
+      dynamic mainAxisPosition,
+      dynamic crossAxisPosition,
       }
     ) =>
       SliverHitTestEntry(
@@ -188,7 +190,7 @@ var _revealedOffset = MXFunctionInvoke(
     "RevealedOffset",
     (
       {
-      double offset,
+      dynamic offset,
       Rect rect,
       }
     ) =>
@@ -204,10 +206,10 @@ var _renderViewport = MXFunctionInvoke(
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
-      double anchor = 0.0,
+      dynamic anchor = 0.0,
       List<RenderSliver> children,
       RenderSliver center,
-      double cacheExtent,
+      dynamic cacheExtent,
       CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
       }
     ) =>

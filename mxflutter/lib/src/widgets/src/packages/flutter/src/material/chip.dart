@@ -6,24 +6,24 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/chip.dart';
-import 'dart:math';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/chip_theme.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/feedback.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/material_state.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/tooltip.dart';
+import 'dart:math' as math;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/chip_theme.dart' ;
+import 'package:flutter/src/material/colors.dart' ;
+import 'package:flutter/src/material/constants.dart' ;
+import 'package:flutter/src/material/debug.dart' ;
+import 'package:flutter/src/material/feedback.dart' ;
+import 'package:flutter/src/material/icons.dart' ;
+import 'package:flutter/src/material/ink_well.dart' ;
+import 'package:flutter/src/material/material.dart' ;
+import 'package:flutter/src/material/material_localizations.dart' ;
+import 'package:flutter/src/material/material_state.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/src/material/theme_data.dart' ;
+import 'package:flutter/src/material/tooltip.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -58,7 +58,7 @@ var _chip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      double elevation,
+      dynamic elevation,
       Color shadowColor,
       }
     ) =>
@@ -101,7 +101,7 @@ var _inputChip = MXFunctionInvoke(
       Color deleteIconColor,
       String deleteButtonTooltipMessage,
       dynamic onPressed,
-      double pressElevation,
+      dynamic pressElevation,
       Color disabledColor,
       Color selectedColor,
       String tooltip,
@@ -113,7 +113,7 @@ var _inputChip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      double elevation,
+      dynamic elevation,
       Color shadowColor,
       Color selectedShadowColor,
       bool showCheckmark,
@@ -165,7 +165,7 @@ var _choiceChip = MXFunctionInvoke(
       TextStyle labelStyle,
       EdgeInsetsGeometry labelPadding,
       dynamic onSelected,
-      double pressElevation,
+      dynamic pressElevation,
       bool selected,
       Color selectedColor,
       Color disabledColor,
@@ -178,7 +178,7 @@ var _choiceChip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      double elevation,
+      dynamic elevation,
       Color shadowColor,
       Color selectedShadowColor,
       ShapeBorder avatarBorder,
@@ -221,7 +221,7 @@ var _filterChip = MXFunctionInvoke(
       EdgeInsetsGeometry labelPadding,
       bool selected = false,
       dynamic onSelected,
-      double pressElevation,
+      dynamic pressElevation,
       Color disabledColor,
       Color selectedColor,
       String tooltip,
@@ -233,7 +233,7 @@ var _filterChip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      double elevation,
+      dynamic elevation,
       Color shadowColor,
       Color selectedShadowColor,
       bool showCheckmark,
@@ -279,7 +279,7 @@ var _actionChip = MXFunctionInvoke(
       TextStyle labelStyle,
       EdgeInsetsGeometry labelPadding,
       dynamic onPressed,
-      double pressElevation,
+      dynamic pressElevation,
       String tooltip,
       ShapeBorder shape,
       Clip clipBehavior = Clip.none,
@@ -289,7 +289,7 @@ var _actionChip = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       MaterialTapTargetSize materialTapTargetSize,
-      double elevation,
+      dynamic elevation,
       Color shadowColor,
       }
     ) =>
@@ -331,7 +331,7 @@ var _rawChip = MXFunctionInvoke(
       String deleteButtonTooltipMessage,
       dynamic onPressed,
       dynamic onSelected,
-      double pressElevation,
+      dynamic pressElevation,
       bool tapEnabled = true,
       bool selected = false,
       bool isEnabled = true,
@@ -344,7 +344,7 @@ var _rawChip = MXFunctionInvoke(
       bool autofocus = false,
       Color backgroundColor,
       MaterialTapTargetSize materialTapTargetSize,
-      double elevation,
+      dynamic elevation,
       Color shadowColor,
       Color selectedShadowColor,
       bool showCheckmark = true,

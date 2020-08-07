@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/form.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/navigator.dart';
-import 'package:flutter/src/widgets/will_pop_scope.dart';
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/navigator.dart' ;
+import 'package:flutter/src/widgets/will_pop_scope.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -35,7 +35,7 @@ var _form = MXFunctionInvoke(
       key: key,
       child: child,
       autovalidate: autovalidate,
-      onWillPop: onWillPop,
+      onWillPop: null,
       onChanged: createVoidCallbackClosure(_form.buildOwner, onChanged),
     ),
 );
@@ -61,9 +61,9 @@ var _formField = MXFunctionInvoke(
     ) =>
       FormField(
       key: key,
-      builder: createGenericValueGenericClosure<Widget, FormFieldState<dynamic>>(_formField.buildOwner, builder),
+      builder: null,
       onSaved: createValueChangedGenericClosure<dynamic>(_formField.buildOwner, onSaved),
-      validator: createGenericValueGenericClosure<String, dynamic>(_formField.buildOwner, validator),
+      validator: null,
       initialValue: initialValue,
       autovalidate: autovalidate,
       enabled: enabled,

@@ -6,13 +6,17 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/animation/listener_helpers.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/animation/animation.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/animation/animation.dart' ;
 import 'package:flutter/src/animation/animations.dart';
-import 'dart:math';
-import 'package:flutter/src/animation/curves.dart';
+import 'dart:math' as math;
+import 'package:flutter/src/animation/curves.dart' ;
+import 'package:flutter/src/animation/listener_helpers.dart' ;
 import 'package:flutter/src/animation/tween.dart';
-import 'dart:ui';
+import 'dart:ui' ;
+import 'package:flutter/src/animation/animations.dart' ;
+import 'package:flutter/src/animation/animation.dart';
+import 'package:flutter/src/animation/tween.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

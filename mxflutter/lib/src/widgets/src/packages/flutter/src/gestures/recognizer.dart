@@ -6,18 +6,18 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
-import 'dart:async';
-import 'dart:collection';
-import 'dart:ui';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/gestures/arena.dart';
-import 'package:flutter/src/gestures/binding.dart';
-import 'package:flutter/src/gestures/constants.dart';
-import 'package:flutter/src/gestures/debug.dart';
-import 'package:flutter/src/gestures/events.dart';
-import 'package:flutter/src/gestures/pointer_router.dart';
-import 'package:flutter/src/gestures/team.dart';
+import 'dart:async' ;
+import 'dart:collection' ;
+import 'dart:ui' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/gestures/arena.dart' ;
+import 'package:flutter/src/gestures/binding.dart' ;
+import 'package:flutter/src/gestures/constants.dart' ;
+import 'package:flutter/src/gestures/debug.dart' ;
+import 'package:flutter/src/gestures/events.dart' ;
+import 'package:flutter/src/gestures/pointer_router.dart' ;
+import 'package:flutter/src/gestures/team.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -52,7 +52,7 @@ var _offsetPair = MXFunctionInvoke(
     ),
 );
 var _offsetPair_fromEventPosition = MXFunctionInvoke(
-  "offsetPair.fromEventPosition",
+  "OffsetPair.fromEventPosition",
     (
       {
       PointerEvent event,
@@ -63,7 +63,7 @@ var _offsetPair_fromEventPosition = MXFunctionInvoke(
     ),
 );
 var _offsetPair_fromEventDelta = MXFunctionInvoke(
-  "offsetPair.fromEventDelta",
+  "OffsetPair.fromEventDelta",
     (
       {
       PointerEvent event,

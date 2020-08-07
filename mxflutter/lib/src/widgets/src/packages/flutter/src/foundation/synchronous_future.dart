@@ -6,7 +6,7 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/synchronous_future.dart';
-import 'dart:async';
+import 'dart:async' ;
 
 
 ///把自己能处理的类注册到分发器中

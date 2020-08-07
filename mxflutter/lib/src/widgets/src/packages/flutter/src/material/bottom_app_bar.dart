@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/bottom_app_bar.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/bottom_app_bar_theme.dart';
-import 'package:flutter/src/material/elevation_overlay.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/scaffold.dart';
-import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/bottom_app_bar_theme.dart' ;
+import 'package:flutter/src/material/elevation_overlay.dart' ;
+import 'package:flutter/src/material/material.dart' ;
+import 'package:flutter/src/material/scaffold.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -28,10 +28,10 @@ var _bottomAppBar = MXFunctionInvoke(
       {
       Key key,
       Color color,
-      double elevation,
+      dynamic elevation,
       NotchedShape shape,
       Clip clipBehavior = Clip.none,
-      double notchMargin = 4.0,
+      dynamic notchMargin = 4.0,
       Widget child,
       }
     ) =>

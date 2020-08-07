@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/equality.dart';
-import 'dart:collection';
-import 'package:collection/src/comparators.dart';
+import 'dart:collection' ;
+import 'package:collection/src/comparators.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -134,7 +134,7 @@ var _deepCollectionEquality = MXFunctionInvoke(
     ),
 );
 var _deepCollectionEquality_unordered = MXFunctionInvoke(
-  "deepCollectionEquality.unordered",
+  "DeepCollectionEquality.unordered",
     (
       {
       Equality<dynamic> base,

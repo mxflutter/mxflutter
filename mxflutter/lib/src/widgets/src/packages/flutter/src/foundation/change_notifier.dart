@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/change_notifier.dart';
-import 'package:meta/meta.dart';
-import 'package:flutter/src/foundation/assertions.dart';
-import 'package:flutter/src/foundation/basic_types.dart';
-import 'package:flutter/src/foundation/diagnostics.dart';
-import 'package:flutter/src/foundation/observer_list.dart';
+import 'package:meta/meta.dart' ;
+import 'package:flutter/src/foundation/assertions.dart' ;
+import 'package:flutter/src/foundation/basic_types.dart' ;
+import 'package:flutter/src/foundation/diagnostics.dart' ;
+import 'package:flutter/src/foundation/observer_list.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

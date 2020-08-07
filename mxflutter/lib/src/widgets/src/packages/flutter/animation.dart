@@ -11,7 +11,7 @@ import 'src/animation/curves.dart';
 import 'src/animation/tween_sequence.dart';
 
 
-Map<String, MXFunctionInvoke> registerAnimationSeries() {
+Map<String, MXFunctionInvoke> registerAnimationLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerListenerHelpersSeries());
   m.addAll(registerAnimationControllerSeries());

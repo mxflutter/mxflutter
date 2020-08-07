@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/size_changed_layout_notifier.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/notification_listener.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/notification_listener.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

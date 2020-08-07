@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/animation/tween_sequence.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/animation/animation.dart';
-import 'package:flutter/src/animation/tween.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/animation/animation.dart' ;
+import 'package:flutter/src/animation/tween.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -46,7 +46,7 @@ var _tweenSequenceItem = MXFunctionInvoke(
     (
       {
       Animatable<dynamic> tween,
-      double weight,
+      dynamic weight,
       }
     ) =>
       TweenSequenceItem(

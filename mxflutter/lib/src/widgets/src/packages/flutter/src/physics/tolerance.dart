@@ -18,9 +18,9 @@ var _tolerance = MXFunctionInvoke(
     "Tolerance",
     (
       {
-      double distance = 0.001,
-      double time = 0.001,
-      double velocity = 0.001,
+      dynamic distance = 0.001,
+      dynamic time = 0.001,
+      dynamic velocity = 0.001,
       }
     ) =>
       Tolerance(

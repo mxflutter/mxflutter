@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/basic_types.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -24,13 +24,13 @@ Map<String, MXFunctionInvoke> registerEdgeInsetsSeries() {
   return m;
 }
 var _edgeInsets_fromLTRB = MXFunctionInvoke(
-  "edgeInsets.fromLTRB",
+  "EdgeInsets.fromLTRB",
     (
       {
-      double left,
-      double top,
-      double right,
-      double bottom,
+      dynamic left,
+      dynamic top,
+      dynamic right,
+      dynamic bottom,
       }
     ) =>
       EdgeInsets.fromLTRB(
@@ -41,10 +41,10 @@ var _edgeInsets_fromLTRB = MXFunctionInvoke(
     ),
 );
 var _edgeInsets_all = MXFunctionInvoke(
-  "edgeInsets.all",
+  "EdgeInsets.all",
     (
       {
-      double value,
+      dynamic value,
       }
     ) =>
       EdgeInsets.all(
@@ -52,13 +52,13 @@ var _edgeInsets_all = MXFunctionInvoke(
     ),
 );
 var _edgeInsets_only = MXFunctionInvoke(
-  "edgeInsets.only",
+  "EdgeInsets.only",
     (
       {
-      double left = 0.0,
-      double top = 0.0,
-      double right = 0.0,
-      double bottom = 0.0,
+      dynamic left = 0.0,
+      dynamic top = 0.0,
+      dynamic right = 0.0,
+      dynamic bottom = 0.0,
       }
     ) =>
       EdgeInsets.only(
@@ -69,11 +69,11 @@ var _edgeInsets_only = MXFunctionInvoke(
     ),
 );
 var _edgeInsets_symmetric = MXFunctionInvoke(
-  "edgeInsets.symmetric",
+  "EdgeInsets.symmetric",
     (
       {
-      double vertical = 0.0,
-      double horizontal = 0.0,
+      dynamic vertical = 0.0,
+      dynamic horizontal = 0.0,
       }
     ) =>
       EdgeInsets.symmetric(
@@ -82,11 +82,11 @@ var _edgeInsets_symmetric = MXFunctionInvoke(
     ),
 );
 var _edgeInsets_fromWindowPadding = MXFunctionInvoke(
-  "edgeInsets.fromWindowPadding",
+  "EdgeInsets.fromWindowPadding",
     (
       {
       WindowPadding padding,
-      double devicePixelRatio,
+      dynamic devicePixelRatio,
       }
     ) =>
       EdgeInsets.fromWindowPadding(
@@ -95,13 +95,13 @@ var _edgeInsets_fromWindowPadding = MXFunctionInvoke(
     ),
 );
 var _edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
-  "edgeInsetsDirectional.fromSTEB",
+  "EdgeInsetsDirectional.fromSTEB",
     (
       {
-      double start,
-      double top,
-      double end,
-      double bottom,
+      dynamic start,
+      dynamic top,
+      dynamic end,
+      dynamic bottom,
       }
     ) =>
       EdgeInsetsDirectional.fromSTEB(
@@ -112,13 +112,13 @@ var _edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
     ),
 );
 var _edgeInsetsDirectional_only = MXFunctionInvoke(
-  "edgeInsetsDirectional.only",
+  "EdgeInsetsDirectional.only",
     (
       {
-      double start = 0.0,
-      double top = 0.0,
-      double end = 0.0,
-      double bottom = 0.0,
+      dynamic start = 0.0,
+      dynamic top = 0.0,
+      dynamic end = 0.0,
+      dynamic bottom = 0.0,
       }
     ) =>
       EdgeInsetsDirectional.only(

@@ -6,7 +6,7 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/union_set_controller.dart';
-import 'package:collection/src/union_set.dart';
+import 'package:collection/src/union_set.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

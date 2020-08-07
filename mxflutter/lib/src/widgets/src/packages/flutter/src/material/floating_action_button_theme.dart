@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/floating_action_button_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/rendering.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -26,11 +26,11 @@ var _floatingActionButtonThemeData = MXFunctionInvoke(
       Color focusColor,
       Color hoverColor,
       Color splashColor,
-      double elevation,
-      double focusElevation,
-      double hoverElevation,
-      double disabledElevation,
-      double highlightElevation,
+      dynamic elevation,
+      dynamic focusElevation,
+      dynamic hoverElevation,
+      dynamic disabledElevation,
+      dynamic highlightElevation,
       ShapeBorder shape,
       }
     ) =>

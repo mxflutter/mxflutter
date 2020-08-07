@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/custom_paint.dart';
-import 'dart:collection';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/semantics.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/proxy_box.dart';
+import 'dart:collection' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/src/rendering/proxy_box.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

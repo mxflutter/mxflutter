@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/alignment.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/basic_types.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -23,8 +23,8 @@ var _alignment = MXFunctionInvoke(
     "Alignment",
     (
       {
-      double x,
-      double y,
+      dynamic x,
+      dynamic y,
       }
     ) =>
       Alignment(
@@ -36,8 +36,8 @@ var _alignmentDirectional = MXFunctionInvoke(
     "AlignmentDirectional",
     (
       {
-      double start,
-      double y,
+      dynamic start,
+      dynamic y,
       }
     ) =>
       AlignmentDirectional(
@@ -49,7 +49,7 @@ var _textAlignVertical = MXFunctionInvoke(
     "TextAlignVertical",
     (
       {
-      double y,
+      dynamic y,
       }
     ) =>
       TextAlignVertical(

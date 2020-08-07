@@ -6,10 +6,12 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/typography.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/src/material/colors.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/src/material/colors.dart' ;
+import 'package:flutter/src/material/text_theme.dart' ;
 import 'package:flutter/src/material/text_theme.dart';
+import 'package:flutter/src/material/typography.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -26,7 +28,7 @@ var _scriptCategory = MXFunctionInvoke(
     ({Map args}) => MXScriptCategory.parse(args),
   );
 var _typography_material2014 = MXFunctionInvoke(
-  "typography.material2014",
+  "Typography.material2014",
     (
       {
       TargetPlatform platform = TargetPlatform.android,
@@ -47,7 +49,7 @@ var _typography_material2014 = MXFunctionInvoke(
     ),
 );
 var _typography_material2018 = MXFunctionInvoke(
-  "typography.material2018",
+  "Typography.material2018",
     (
       {
       TargetPlatform platform = TargetPlatform.android,

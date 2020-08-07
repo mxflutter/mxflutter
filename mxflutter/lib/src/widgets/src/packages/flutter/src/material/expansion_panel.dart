@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/expansion_panel.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/expand_icon.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/mergeable_material.dart';
-import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/constants.dart' ;
+import 'package:flutter/src/material/expand_icon.dart' ;
+import 'package:flutter/src/material/ink_well.dart' ;
+import 'package:flutter/src/material/material_localizations.dart' ;
+import 'package:flutter/src/material/mergeable_material.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -73,13 +73,13 @@ var _expansionPanelList = MXFunctionInvoke(
       ExpansionPanelList(
       key: key,
       children: children,
-      expansionCallback: null,
+      expansionCallback: createVoidTwoParamsClosure<int, bool>(_expansionPanelList.buildOwner, expansionCallback),
       animationDuration: animationDuration,
       expandedHeaderPadding: expandedHeaderPadding,
     ),
 );
 var _expansionPanelList_radio = MXFunctionInvoke(
-  "expansionPanelList.radio",
+  "ExpansionPanelList.radio",
     (
       {
       Key key,
@@ -93,7 +93,7 @@ var _expansionPanelList_radio = MXFunctionInvoke(
       ExpansionPanelList.radio(
       key: key,
       children: children,
-      expansionCallback: null,
+      expansionCallback: createVoidTwoParamsClosure<int, bool>(_expansionPanelList_radio.buildOwner, expansionCallback),
       animationDuration: animationDuration,
       initialOpenPanelValue: initialOpenPanelValue,
       expandedHeaderPadding: expandedHeaderPadding,

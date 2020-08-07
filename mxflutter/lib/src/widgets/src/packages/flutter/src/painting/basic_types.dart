@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/basic_types.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

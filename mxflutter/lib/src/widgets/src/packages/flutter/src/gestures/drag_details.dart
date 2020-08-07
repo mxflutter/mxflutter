@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/drag_details.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/gestures/velocity_tracker.dart';
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/gestures/velocity_tracker.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -54,7 +54,7 @@ var _dragUpdateDetails = MXFunctionInvoke(
       {
       Duration sourceTimeStamp,
       Offset delta,
-      double primaryDelta,
+      dynamic primaryDelta,
       Offset globalPosition,
       Offset localPosition,
       }
@@ -72,7 +72,7 @@ var _dragEndDetails = MXFunctionInvoke(
     (
       {
       Velocity velocity,
-      double primaryVelocity,
+      dynamic primaryVelocity,
       }
     ) =>
       DragEndDetails(

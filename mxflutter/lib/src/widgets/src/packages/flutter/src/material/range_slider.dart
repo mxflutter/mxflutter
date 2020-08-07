@@ -6,18 +6,18 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/range_slider.dart';
-import 'dart:async';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/slider_theme.dart';
-import 'package:flutter/src/material/theme.dart';
+import 'dart:async' ;
+import 'dart:math' as math;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/scheduler.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/constants.dart' ;
+import 'package:flutter/src/material/debug.dart' ;
+import 'package:flutter/src/material/slider_theme.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -35,8 +35,8 @@ var _rangeSlider = MXFunctionInvoke(
       dynamic onChanged,
       dynamic onChangeStart,
       dynamic onChangeEnd,
-      double min = 0.0,
-      double max = 1.0,
+      dynamic min = 0.0,
+      dynamic max = 1.0,
       int divisions,
       RangeLabels labels,
       Color activeColor,
@@ -56,6 +56,6 @@ var _rangeSlider = MXFunctionInvoke(
       labels: labels,
       activeColor: activeColor,
       inactiveColor: inactiveColor,
-      semanticFormatterCallback: createGenericValueGenericClosure<String, RangeValues>(_rangeSlider.buildOwner, semanticFormatterCallback),
+      semanticFormatterCallback: null,
     ),
 );

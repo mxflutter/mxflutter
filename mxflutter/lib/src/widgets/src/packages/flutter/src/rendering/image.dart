@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/image.dart';
-import 'dart:ui';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/painting.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/painting.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -23,9 +23,9 @@ var _renderImage = MXFunctionInvoke(
     (
       {
       Image image,
-      double width,
-      double height,
-      double scale = 1.0,
+      dynamic width,
+      dynamic height,
+      dynamic scale = 1.0,
       Color color,
       BlendMode colorBlendMode,
       BoxFit fit,

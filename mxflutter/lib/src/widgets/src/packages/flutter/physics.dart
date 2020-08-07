@@ -14,7 +14,7 @@ import 'src/physics/tolerance.dart';
 import 'src/physics/utils.dart';
 
 
-Map<String, MXFunctionInvoke> registerPhysicsSeries() {
+Map<String, MXFunctionInvoke> registerPhysicsLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerClampedSimulationSeries());
   m.addAll(registerFrictionSimulationSeries());

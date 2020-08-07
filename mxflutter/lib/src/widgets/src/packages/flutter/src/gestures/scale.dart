@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/scale.dart';
-import 'dart:math';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/gestures/arena.dart';
-import 'package:flutter/src/gestures/constants.dart';
-import 'package:flutter/src/gestures/events.dart';
-import 'package:flutter/src/gestures/recognizer.dart';
-import 'package:flutter/src/gestures/velocity_tracker.dart';
+import 'dart:math' as math;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/gestures/arena.dart' ;
+import 'package:flutter/src/gestures/constants.dart' ;
+import 'package:flutter/src/gestures/events.dart' ;
+import 'package:flutter/src/gestures/recognizer.dart' ;
+import 'package:flutter/src/gestures/velocity_tracker.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -43,10 +43,10 @@ var _scaleUpdateDetails = MXFunctionInvoke(
       {
       Offset focalPoint,
       Offset localFocalPoint,
-      double scale = 1.0,
-      double horizontalScale = 1.0,
-      double verticalScale = 1.0,
-      double rotation = 0.0,
+      dynamic scale = 1.0,
+      dynamic horizontalScale = 1.0,
+      dynamic verticalScale = 1.0,
+      dynamic rotation = 0.0,
       }
     ) =>
       ScaleUpdateDetails(

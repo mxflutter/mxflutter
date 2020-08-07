@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/ink_ripple.dart';
-import 'dart:math';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
+import 'dart:math' as math;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/ink_well.dart' ;
+import 'package:flutter/src/material/material.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -32,7 +32,7 @@ var _inkRipple = MXFunctionInvoke(
       dynamic rectCallback,
       BorderRadius borderRadius,
       ShapeBorder customBorder,
-      double radius,
+      dynamic radius,
       dynamic onRemoved,
       }
     ) =>
@@ -43,7 +43,7 @@ var _inkRipple = MXFunctionInvoke(
       color: color,
       textDirection: textDirection,
       containedInkWell: containedInkWell,
-      rectCallback: rectCallback,
+      rectCallback: null,
       borderRadius: borderRadius,
       customBorder: customBorder,
       radius: radius?.toDouble(),

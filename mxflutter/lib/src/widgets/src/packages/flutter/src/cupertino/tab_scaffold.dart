@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/tab_scaffold.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/bottom_tab_bar.dart';
-import 'package:flutter/src/cupertino/colors.dart';
-import 'package:flutter/src/cupertino/theme.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/cupertino/bottom_tab_bar.dart' ;
+import 'package:flutter/src/cupertino/colors.dart' ;
+import 'package:flutter/src/cupertino/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

@@ -6,17 +6,21 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/text_theme.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/colors.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/cupertino/colors.dart' ;
 import 'package:flutter/src/cupertino/icon_theme_data.dart';
 import 'package:flutter/src/cupertino/theme.dart';
-import 'dart:ui';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/media_query.dart';
-import 'package:flutter/src/cupertino/interface_level.dart';
+import 'package:flutter/src/cupertino/icon_theme_data.dart' ;
+import 'package:flutter/src/cupertino/text_theme.dart' ;
+import 'package:flutter/src/cupertino/colors.dart';
+import 'dart:ui' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/media_query.dart' ;
+import 'package:flutter/src/cupertino/interface_level.dart' ;
+import 'package:flutter/src/cupertino/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -66,8 +70,8 @@ var _cupertinoIconThemeData = MXFunctionInvoke(
     (
       {
       Color color,
-      double opacity,
-      double size,
+      dynamic opacity,
+      dynamic size,
       }
     ) =>
       CupertinoIconThemeData(
@@ -113,7 +117,7 @@ var _cupertinoThemeData = MXFunctionInvoke(
     ),
 );
 var _cupertinoThemeData_raw = MXFunctionInvoke(
-  "cupertinoThemeData.raw",
+  "CupertinoThemeData.raw",
     (
       {
       Brightness brightness,
@@ -161,7 +165,7 @@ var _cupertinoDynamicColor = MXFunctionInvoke(
     ),
 );
 var _cupertinoDynamicColor_withBrightnessAndContrast = MXFunctionInvoke(
-  "cupertinoDynamicColor.withBrightnessAndContrast",
+  "CupertinoDynamicColor.withBrightnessAndContrast",
     (
       {
       String debugLabel,
@@ -180,7 +184,7 @@ var _cupertinoDynamicColor_withBrightnessAndContrast = MXFunctionInvoke(
     ),
 );
 var _cupertinoDynamicColor_withBrightness = MXFunctionInvoke(
-  "cupertinoDynamicColor.withBrightness",
+  "CupertinoDynamicColor.withBrightness",
     (
       {
       String debugLabel,

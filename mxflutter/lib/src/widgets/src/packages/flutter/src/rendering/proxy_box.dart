@@ -6,19 +6,19 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/proxy_box.dart';
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/animation.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/semantics.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/rendering/binding.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/layer.dart';
-import 'package:flutter/src/rendering/mouse_tracking.dart';
-import 'package:flutter/src/rendering/object.dart';
+import 'dart:async' ;
+import 'dart:ui' as ui;
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/rendering/binding.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/layer.dart' ;
+import 'package:flutter/src/rendering/mouse_tracking.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -98,8 +98,8 @@ var _renderLimitedBox = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      double maxWidth = double.infinity,
-      double maxHeight = double.infinity,
+      dynamic maxWidth = double.infinity,
+      dynamic maxHeight = double.infinity,
       }
     ) =>
       RenderLimitedBox(
@@ -113,7 +113,7 @@ var _renderAspectRatio = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      double aspectRatio,
+      dynamic aspectRatio,
       }
     ) =>
       RenderAspectRatio(
@@ -125,8 +125,8 @@ var _renderIntrinsicWidth = MXFunctionInvoke(
     "RenderIntrinsicWidth",
     (
       {
-      double stepWidth,
-      double stepHeight,
+      dynamic stepWidth,
+      dynamic stepHeight,
       RenderBox child,
       }
     ) =>
@@ -151,7 +151,7 @@ var _renderOpacity = MXFunctionInvoke(
     "RenderOpacity",
     (
       {
-      double opacity = 1.0,
+      dynamic opacity = 1.0,
       bool alwaysIncludeSemantics = false,
       RenderBox child,
       }
@@ -188,7 +188,7 @@ var _renderShaderMask = MXFunctionInvoke(
     ) =>
       RenderShaderMask(
       child: child,
-      shaderCallback: createGenericValueGenericClosure<Shader, Rect>(_renderShaderMask.buildOwner, shaderCallback),
+      shaderCallback: null,
       blendMode: blendMode,
     ),
 );
@@ -288,7 +288,7 @@ var _renderPhysicalModel = MXFunctionInvoke(
       BoxShape shape = BoxShape.rectangle,
       Clip clipBehavior = Clip.none,
       BorderRadius borderRadius,
-      double elevation = 0.0,
+      dynamic elevation = 0.0,
       Color color,
       Color shadowColor,
       }
@@ -310,7 +310,7 @@ var _renderPhysicalShape = MXFunctionInvoke(
       RenderBox child,
       CustomClipper<Path> clipper,
       Clip clipBehavior = Clip.none,
-      double elevation = 0.0,
+      dynamic elevation = 0.0,
       Color color,
       Color shadowColor,
       }
@@ -518,7 +518,7 @@ var _renderSemanticsGestureHandler = MXFunctionInvoke(
       dynamic onLongPress,
       dynamic onHorizontalDragUpdate,
       dynamic onVerticalDragUpdate,
-      double scrollFactor = 0.8,
+      dynamic scrollFactor = 0.8,
       }
     ) =>
       RenderSemanticsGestureHandler(

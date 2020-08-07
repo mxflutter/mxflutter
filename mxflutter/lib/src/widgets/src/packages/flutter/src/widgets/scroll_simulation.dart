@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/scroll_simulation.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/physics.dart';
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/physics.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -22,10 +22,10 @@ var _bouncingScrollSimulation = MXFunctionInvoke(
     "BouncingScrollSimulation",
     (
       {
-      double position,
-      double velocity,
-      double leadingExtent,
-      double trailingExtent,
+      dynamic position,
+      dynamic velocity,
+      dynamic leadingExtent,
+      dynamic trailingExtent,
       SpringDescription spring,
       Tolerance tolerance,
       }
@@ -43,9 +43,9 @@ var _clampingScrollSimulation = MXFunctionInvoke(
     "ClampingScrollSimulation",
     (
       {
-      double position,
-      double velocity,
-      double friction = 0.015,
+      dynamic position,
+      dynamic velocity,
+      dynamic friction = 0.015,
       Tolerance tolerance,
       }
     ) =>

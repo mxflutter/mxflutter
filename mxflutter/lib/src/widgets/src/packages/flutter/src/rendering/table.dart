@@ -6,12 +6,12 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/table.dart';
-import 'dart:collection';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/table_border.dart';
+import 'dart:collection' ;
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/src/rendering/table_border.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -39,7 +39,7 @@ var _intrinsicColumnWidth = MXFunctionInvoke(
     "IntrinsicColumnWidth",
     (
       {
-      double flex,
+      dynamic flex,
       }
     ) =>
       IntrinsicColumnWidth(
@@ -50,7 +50,7 @@ var _fixedColumnWidth = MXFunctionInvoke(
     "FixedColumnWidth",
     (
       {
-      double value,
+      dynamic value,
       }
     ) =>
       FixedColumnWidth(
@@ -61,7 +61,7 @@ var _fractionColumnWidth = MXFunctionInvoke(
     "FractionColumnWidth",
     (
       {
-      double value,
+      dynamic value,
       }
     ) =>
       FractionColumnWidth(
@@ -72,7 +72,7 @@ var _flexColumnWidth = MXFunctionInvoke(
     "FlexColumnWidth",
     (
       {
-      double value,
+      dynamic value,
       }
     ) =>
       FlexColumnWidth(

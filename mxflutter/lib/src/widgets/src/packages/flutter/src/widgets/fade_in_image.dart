@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/fade_in_image.dart';
-import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/image.dart';
-import 'package:flutter/src/widgets/implicit_animations.dart';
-import 'package:flutter/src/widgets/transitions.dart';
+import 'dart:typed_data' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/image.dart' ;
+import 'package:flutter/src/widgets/implicit_animations.dart' ;
+import 'package:flutter/src/widgets/transitions.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -39,8 +39,8 @@ var _fadeInImage = MXFunctionInvoke(
       Curve fadeOutCurve,
       Duration fadeInDuration,
       Curve fadeInCurve,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       BoxFit fit,
       AlignmentGeometry alignment,
       ImageRepeat repeat = ImageRepeat.noRepeat,
@@ -68,7 +68,7 @@ var _fadeInImage = MXFunctionInvoke(
     ),
 );
 var _fadeInImage_memoryNetwork = MXFunctionInvoke(
-  "fadeInImage.memoryNetwork",
+  "FadeInImage.memoryNetwork",
     (
       {
       Key key,
@@ -76,16 +76,16 @@ var _fadeInImage_memoryNetwork = MXFunctionInvoke(
       dynamic placeholderErrorBuilder,
       String image,
       dynamic imageErrorBuilder,
-      double placeholderScale = 1.0,
-      double imageScale = 1.0,
+      dynamic placeholderScale = 1.0,
+      dynamic imageScale = 1.0,
       bool excludeFromSemantics = false,
       String imageSemanticLabel,
       Duration fadeOutDuration,
       Curve fadeOutCurve,
       Duration fadeInDuration,
       Curve fadeInCurve,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       BoxFit fit,
       AlignmentGeometry alignment,
       ImageRepeat repeat = ImageRepeat.noRepeat,
@@ -123,7 +123,7 @@ var _fadeInImage_memoryNetwork = MXFunctionInvoke(
     ),
 );
 var _fadeInImage_assetNetwork = MXFunctionInvoke(
-  "fadeInImage.assetNetwork",
+  "FadeInImage.assetNetwork",
     (
       {
       Key key,
@@ -132,16 +132,16 @@ var _fadeInImage_assetNetwork = MXFunctionInvoke(
       String image,
       dynamic imageErrorBuilder,
       AssetBundle bundle,
-      double placeholderScale,
-      double imageScale = 1.0,
+      dynamic placeholderScale,
+      dynamic imageScale = 1.0,
       bool excludeFromSemantics = false,
       String imageSemanticLabel,
       Duration fadeOutDuration,
       Curve fadeOutCurve,
       Duration fadeInDuration,
       Curve fadeInCurve,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       BoxFit fit,
       AlignmentGeometry alignment,
       ImageRepeat repeat = ImageRepeat.noRepeat,

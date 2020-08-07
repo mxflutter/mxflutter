@@ -6,12 +6,12 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/binding.dart';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/image_cache.dart';
-import 'package:flutter/src/painting/shader_warm_up.dart';
+import 'dart:typed_data' ;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/src/painting/image_cache.dart' ;
+import 'package:flutter/src/painting/shader_warm_up.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

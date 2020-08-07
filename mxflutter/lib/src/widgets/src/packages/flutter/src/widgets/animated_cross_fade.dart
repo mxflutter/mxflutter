@@ -6,12 +6,12 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/animated_cross_fade.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/animated_size.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/ticker_provider.dart';
-import 'package:flutter/src/widgets/transitions.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/src/widgets/animated_size.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/ticker_provider.dart' ;
+import 'package:flutter/src/widgets/transitions.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

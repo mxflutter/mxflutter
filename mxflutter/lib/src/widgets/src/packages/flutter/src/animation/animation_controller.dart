@@ -6,15 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/animation/animation_controller.dart';
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/physics.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/semantics.dart';
-import 'package:flutter/src/animation/animation.dart';
-import 'package:flutter/src/animation/curves.dart';
-import 'package:flutter/src/animation/listener_helpers.dart';
+import 'dart:async' ;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/physics.dart' ;
+import 'package:flutter/scheduler.dart' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:flutter/src/animation/animation.dart' ;
+import 'package:flutter/src/animation/curves.dart' ;
+import 'package:flutter/src/animation/listener_helpers.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -33,12 +33,12 @@ var _animationController = MXFunctionInvoke(
     "AnimationController",
     (
       {
-      double value,
+      dynamic value,
       Duration duration,
       Duration reverseDuration,
       String debugLabel,
-      double lowerBound = 0.0,
-      double upperBound = 1.0,
+      dynamic lowerBound = 0.0,
+      dynamic upperBound = 1.0,
       AnimationBehavior animationBehavior = AnimationBehavior.normal,
       TickerProvider vsync,
       }
@@ -55,10 +55,10 @@ var _animationController = MXFunctionInvoke(
     ),
 );
 var _animationController_unbounded = MXFunctionInvoke(
-  "animationController.unbounded",
+  "AnimationController.unbounded",
     (
       {
-      double value = 0.0,
+      dynamic value = 0.0,
       Duration duration,
       Duration reverseDuration,
       String debugLabel,

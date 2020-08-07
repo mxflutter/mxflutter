@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/box_border.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/basic_types.dart';
-import 'package:flutter/src/painting/border_radius.dart';
-import 'package:flutter/src/painting/borders.dart';
-import 'package:flutter/src/painting/edge_insets.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
+import 'package:flutter/src/painting/border_radius.dart' ;
+import 'package:flutter/src/painting/borders.dart' ;
+import 'package:flutter/src/painting/edge_insets.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -46,11 +46,11 @@ var _border = MXFunctionInvoke(
     ),
 );
 var _border_all = MXFunctionInvoke(
-  "border.all",
+  "Border.all",
     (
       {
       Color color,
-      double width = 1.0,
+      dynamic width = 1.0,
       BorderStyle style = BorderStyle.solid,
       }
     ) =>
@@ -61,7 +61,7 @@ var _border_all = MXFunctionInvoke(
     ),
 );
 var _border_fromBorderSide = MXFunctionInvoke(
-  "border.fromBorderSide",
+  "Border.fromBorderSide",
     (
       {
       BorderSide side,
@@ -72,7 +72,7 @@ var _border_fromBorderSide = MXFunctionInvoke(
     ),
 );
 var _border_symmetric = MXFunctionInvoke(
-  "border.symmetric",
+  "Border.symmetric",
     (
       {
       BorderSide vertical,

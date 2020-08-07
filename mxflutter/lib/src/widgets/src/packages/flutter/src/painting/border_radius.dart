@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/border_radius.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/basic_types.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -26,7 +26,7 @@ Map<String, MXFunctionInvoke> registerBorderRadiusSeries() {
   return m;
 }
 var _borderRadius_all = MXFunctionInvoke(
-  "borderRadius.all",
+  "BorderRadius.all",
     (
       {
       Radius radius,
@@ -37,10 +37,10 @@ var _borderRadius_all = MXFunctionInvoke(
     ),
 );
 var _borderRadius_circular = MXFunctionInvoke(
-  "borderRadius.circular",
+  "BorderRadius.circular",
     (
       {
-      double radius,
+      dynamic radius,
       }
     ) =>
       BorderRadius.circular(
@@ -48,7 +48,7 @@ var _borderRadius_circular = MXFunctionInvoke(
     ),
 );
 var _borderRadius_vertical = MXFunctionInvoke(
-  "borderRadius.vertical",
+  "BorderRadius.vertical",
     (
       {
       Radius top,
@@ -61,7 +61,7 @@ var _borderRadius_vertical = MXFunctionInvoke(
     ),
 );
 var _borderRadius_horizontal = MXFunctionInvoke(
-  "borderRadius.horizontal",
+  "BorderRadius.horizontal",
     (
       {
       Radius left,
@@ -74,7 +74,7 @@ var _borderRadius_horizontal = MXFunctionInvoke(
     ),
 );
 var _borderRadius_only = MXFunctionInvoke(
-  "borderRadius.only",
+  "BorderRadius.only",
     (
       {
       Radius topLeft,
@@ -91,7 +91,7 @@ var _borderRadius_only = MXFunctionInvoke(
     ),
 );
 var _borderRadiusDirectional_all = MXFunctionInvoke(
-  "borderRadiusDirectional.all",
+  "BorderRadiusDirectional.all",
     (
       {
       Radius radius,
@@ -102,10 +102,10 @@ var _borderRadiusDirectional_all = MXFunctionInvoke(
     ),
 );
 var _borderRadiusDirectional_circular = MXFunctionInvoke(
-  "borderRadiusDirectional.circular",
+  "BorderRadiusDirectional.circular",
     (
       {
-      double radius,
+      dynamic radius,
       }
     ) =>
       BorderRadiusDirectional.circular(
@@ -113,7 +113,7 @@ var _borderRadiusDirectional_circular = MXFunctionInvoke(
     ),
 );
 var _borderRadiusDirectional_vertical = MXFunctionInvoke(
-  "borderRadiusDirectional.vertical",
+  "BorderRadiusDirectional.vertical",
     (
       {
       Radius top,
@@ -126,7 +126,7 @@ var _borderRadiusDirectional_vertical = MXFunctionInvoke(
     ),
 );
 var _borderRadiusDirectional_horizontal = MXFunctionInvoke(
-  "borderRadiusDirectional.horizontal",
+  "BorderRadiusDirectional.horizontal",
     (
       {
       Radius start,
@@ -139,7 +139,7 @@ var _borderRadiusDirectional_horizontal = MXFunctionInvoke(
     ),
 );
 var _borderRadiusDirectional_only = MXFunctionInvoke(
-  "borderRadiusDirectional.only",
+  "BorderRadiusDirectional.only",
     (
       {
       Radius topStart,

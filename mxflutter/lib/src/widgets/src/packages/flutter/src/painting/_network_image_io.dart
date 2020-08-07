@@ -5,21 +5,25 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/src/painting/_network_image_web.dart';
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/src/painting/_network_image_io.dart';
+import 'dart:async' ;
+import 'dart:io' ;
+import 'dart:typed_data' ;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/binding.dart' ;
+import 'package:flutter/src/painting/debug.dart' ;
+import 'package:flutter/src/painting/image_provider.dart' as image_provider;
+import 'package:flutter/src/painting/image_stream.dart' ;
 import 'package:flutter/src/painting/image_provider.dart';
-import 'package:flutter/src/painting/image_stream.dart';
-import 'dart:io';
-import 'dart:typed_data';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/binding.dart';
-import 'package:flutter/src/painting/image_cache.dart';
+import 'dart:ui' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/src/painting/_network_image_io.dart' as network_image;
+import 'package:flutter/src/painting/image_cache.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
-Map<String, MXFunctionInvoke> registerNetworkImageWebSeries() {
+Map<String, MXFunctionInvoke> registerNetworkImageIoSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_networkImage.funName] = _networkImage;
   m[_imageConfiguration.funName] = _imageConfiguration;
@@ -36,7 +40,7 @@ var _networkImage = MXFunctionInvoke(
     (
       {
       String url,
-      double scale = 1.0,
+      dynamic scale = 1.0,
       Map<String, String> headers,
       }
     ) =>
@@ -51,7 +55,7 @@ var _imageConfiguration = MXFunctionInvoke(
     (
       {
       AssetBundle bundle,
-      double devicePixelRatio,
+      dynamic devicePixelRatio,
       Locale locale,
       TextDirection textDirection,
       Size size,
@@ -73,7 +77,7 @@ var _assetBundleImageKey = MXFunctionInvoke(
       {
       AssetBundle bundle,
       String name,
-      double scale,
+      dynamic scale,
       }
     ) =>
       AssetBundleImageKey(
@@ -102,7 +106,7 @@ var _fileImage = MXFunctionInvoke(
     (
       {
       File file,
-      double scale = 1.0,
+      dynamic scale = 1.0,
       }
     ) =>
       FileImage(
@@ -115,7 +119,7 @@ var _memoryImage = MXFunctionInvoke(
     (
       {
       Uint8List bytes,
-      double scale = 1.0,
+      dynamic scale = 1.0,
       }
     ) =>
       MemoryImage(
@@ -128,7 +132,7 @@ var _exactAssetImage = MXFunctionInvoke(
     (
       {
       String assetName,
-      double scale = 1.0,
+      dynamic scale = 1.0,
       AssetBundle bundle,
       String package,
       }

@@ -11,7 +11,7 @@ import 'src/scheduler/priority.dart';
 import 'src/scheduler/ticker.dart';
 
 
-Map<String, MXFunctionInvoke> registerSchedulerSeries() {
+Map<String, MXFunctionInvoke> registerSchedulerLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerBindingSeries());
   m.addAll(registerDebugSeries());

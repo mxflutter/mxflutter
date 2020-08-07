@@ -6,18 +6,18 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
-import 'dart:math';
-import 'package:flutter/animation.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/semantics.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/sliver.dart';
-import 'package:flutter/src/rendering/viewport.dart';
-import 'package:flutter/src/rendering/viewport_offset.dart';
+import 'dart:math' as math;
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/scheduler.dart' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/src/rendering/sliver.dart' ;
+import 'package:flutter/src/rendering/viewport.dart' ;
+import 'package:flutter/src/rendering/viewport_offset.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -31,13 +31,13 @@ var _overScrollHeaderStretchConfiguration = MXFunctionInvoke(
     "OverScrollHeaderStretchConfiguration",
     (
       {
-      double stretchTriggerOffset = 100.0,
+      dynamic stretchTriggerOffset = 100.0,
       dynamic onStretchTrigger,
       }
     ) =>
       OverScrollHeaderStretchConfiguration(
       stretchTriggerOffset: stretchTriggerOffset?.toDouble(),
-      onStretchTrigger: onStretchTrigger,
+      onStretchTrigger: null,
     ),
 );
 var _floatingHeaderSnapConfiguration = MXFunctionInvoke(

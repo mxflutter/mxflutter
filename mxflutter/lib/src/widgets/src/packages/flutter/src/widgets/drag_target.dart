@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/drag_target.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/binding.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/overlay.dart';
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/binding.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/overlay.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -62,7 +62,7 @@ var _draggable = MXFunctionInvoke(
       affinity: affinity,
       maxSimultaneousDrags: maxSimultaneousDrags,
       onDragStarted: createVoidCallbackClosure(_draggable.buildOwner, onDragStarted),
-      onDraggableCanceled: null,
+      onDraggableCanceled: createVoidTwoParamsClosure<Velocity, Offset>(_draggable.buildOwner, onDraggableCanceled),
       onDragEnd: createValueChangedGenericClosure<DraggableDetails>(_draggable.buildOwner, onDragEnd),
       onDragCompleted: createVoidCallbackClosure(_draggable.buildOwner, onDragCompleted),
       ignoringFeedbackSemantics: ignoringFeedbackSemantics,
@@ -100,7 +100,7 @@ var _longPressDraggable = MXFunctionInvoke(
       dragAnchor: dragAnchor,
       maxSimultaneousDrags: maxSimultaneousDrags,
       onDragStarted: createVoidCallbackClosure(_longPressDraggable.buildOwner, onDragStarted),
-      onDraggableCanceled: null,
+      onDraggableCanceled: createVoidTwoParamsClosure<Velocity, Offset>(_longPressDraggable.buildOwner, onDraggableCanceled),
       onDragEnd: createValueChangedGenericClosure<DraggableDetails>(_longPressDraggable.buildOwner, onDragEnd),
       onDragCompleted: createVoidCallbackClosure(_longPressDraggable.buildOwner, onDragCompleted),
       hapticFeedbackOnStart: hapticFeedbackOnStart,
@@ -136,7 +136,7 @@ var _dragTarget = MXFunctionInvoke(
       DragTarget(
       key: key,
       builder: null,
-      onWillAccept: createGenericValueGenericClosure<bool, dynamic>(_dragTarget.buildOwner, onWillAccept),
+      onWillAccept: null,
       onAccept: createValueChangedGenericClosure<dynamic>(_dragTarget.buildOwner, onAccept),
       onLeave: createValueChangedGenericClosure<Object>(_dragTarget.buildOwner, onLeave),
     ),

@@ -6,19 +6,19 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/implicit_animations.dart';
-import 'dart:ui';
-import 'package:flutter/animation.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/debug.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/text.dart';
-import 'package:flutter/src/widgets/ticker_provider.dart';
-import 'package:flutter/src/widgets/transitions.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/container.dart' ;
+import 'package:flutter/src/widgets/debug.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/text.dart' ;
+import 'package:flutter/src/widgets/ticker_provider.dart' ;
+import 'package:flutter/src/widgets/transitions.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -158,8 +158,8 @@ var _animatedContainer = MXFunctionInvoke(
       Color color,
       Decoration decoration,
       Decoration foregroundDecoration,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       BoxConstraints constraints,
       EdgeInsetsGeometry margin,
       Matrix4 transform,
@@ -235,12 +235,12 @@ var _animatedPositioned = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      double left,
-      double top,
-      double right,
-      double bottom,
-      double width,
-      double height,
+      dynamic left,
+      dynamic top,
+      dynamic right,
+      dynamic bottom,
+      dynamic width,
+      dynamic height,
       Curve curve,
       Duration duration,
       dynamic onEnd,
@@ -261,7 +261,7 @@ var _animatedPositioned = MXFunctionInvoke(
     ),
 );
 var _animatedPositioned_fromRect = MXFunctionInvoke(
-  "animatedPositioned.fromRect",
+  "AnimatedPositioned.fromRect",
     (
       {
       Key key,
@@ -287,12 +287,12 @@ var _animatedPositionedDirectional = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      double start,
-      double top,
-      double end,
-      double bottom,
-      double width,
-      double height,
+      dynamic start,
+      dynamic top,
+      dynamic end,
+      dynamic bottom,
+      dynamic width,
+      dynamic height,
       Curve curve,
       Duration duration,
       dynamic onEnd,
@@ -318,7 +318,7 @@ var _animatedOpacity = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      double opacity,
+      dynamic opacity,
       Curve curve,
       Duration duration,
       dynamic onEnd,
@@ -341,7 +341,7 @@ var _sliverAnimatedOpacity = MXFunctionInvoke(
       {
       Key key,
       Widget sliver,
-      double opacity,
+      dynamic opacity,
       Curve curve,
       Duration duration,
       dynamic onEnd,
@@ -400,7 +400,7 @@ var _animatedPhysicalModel = MXFunctionInvoke(
       BoxShape shape,
       Clip clipBehavior = Clip.none,
       BorderRadius borderRadius,
-      double elevation,
+      dynamic elevation,
       Color color,
       bool animateColor = true,
       Color shadowColor,

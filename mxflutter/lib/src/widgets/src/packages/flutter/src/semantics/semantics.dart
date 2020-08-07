@@ -6,15 +6,16 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/semantics/semantics.dart';
-import 'dart:math';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/semantics/binding.dart';
-import 'package:flutter/src/semantics/semantics_event.dart';
+import 'dart:math' as math;
+import 'dart:typed_data' ;
+import 'dart:ui' as ui;
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/semantics/binding.dart' ;
+import 'package:flutter/src/semantics/semantics_event.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -57,7 +58,7 @@ var _customSemanticsAction = MXFunctionInvoke(
     ),
 );
 var _customSemanticsAction_overridingAction = MXFunctionInvoke(
-  "customSemanticsAction.overridingAction",
+  "CustomSemanticsAction.overridingAction",
     (
       {
       String hint,
@@ -82,14 +83,14 @@ var _semanticsData = MXFunctionInvoke(
       String hint,
       TextDirection textDirection,
       Rect rect,
-      double elevation,
-      double thickness,
+      dynamic elevation,
+      dynamic thickness,
       TextSelection textSelection,
       int scrollIndex,
       int scrollChildCount,
-      double scrollPosition,
-      double scrollExtentMax,
-      double scrollExtentMin,
+      dynamic scrollPosition,
+      dynamic scrollExtentMax,
+      dynamic scrollExtentMin,
       int platformViewId,
       int maxValueLength,
       int currentValueLength,
@@ -258,7 +259,7 @@ var _semanticsNode = MXFunctionInvoke(
     ),
 );
 var _semanticsNode_root = MXFunctionInvoke(
-  "semanticsNode.root",
+  "SemanticsNode.root",
     (
       {
       Key key,
@@ -294,7 +295,7 @@ var _ordinalSortKey = MXFunctionInvoke(
     "OrdinalSortKey",
     (
       {
-      double order,
+      dynamic order,
       String name,
       }
     ) =>

@@ -6,10 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/image_stream.dart';
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/scheduler.dart';
+import 'dart:async' ;
+import 'dart:ui' as ui;
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/scheduler.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -28,7 +29,7 @@ var _imageInfo = MXFunctionInvoke(
     (
       {
       Image image,
-      double scale = 1.0,
+      dynamic scale = 1.0,
       }
     ) =>
       ImageInfo(
@@ -48,7 +49,7 @@ var _imageStreamListener = MXFunctionInvoke(
       ImageStreamListener(
       onImage,
       onChunk: createValueChangedGenericClosure<ImageChunkEvent>(_imageStreamListener.buildOwner, onChunk),
-      onError: null,
+      onError: createVoidTwoParamsClosure<dynamic, StackTrace>(_imageStreamListener.buildOwner, onError),
     ),
 );
 var _imageChunkEvent = MXFunctionInvoke(
@@ -81,7 +82,7 @@ var _oneFrameImageStreamCompleter = MXFunctionInvoke(
     ) =>
       OneFrameImageStreamCompleter(
       image,
-      informationCollector: informationCollector,
+      informationCollector: null,
     ),
 );
 var _multiFrameImageStreamCompleter = MXFunctionInvoke(
@@ -89,7 +90,7 @@ var _multiFrameImageStreamCompleter = MXFunctionInvoke(
     (
       {
       Future<Codec> codec,
-      double scale,
+      dynamic scale,
       Stream<ImageChunkEvent> chunkEvents,
       dynamic informationCollector,
       }
@@ -98,6 +99,6 @@ var _multiFrameImageStreamCompleter = MXFunctionInvoke(
       codec: codec,
       scale: scale?.toDouble(),
       chunkEvents: chunkEvents,
-      informationCollector: informationCollector,
+      informationCollector: null,
     ),
 );

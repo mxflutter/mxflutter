@@ -6,15 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/refresh.dart';
-import 'dart:async';
-import 'dart:math';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/activity_indicator.dart';
-import 'package:flutter/src/cupertino/colors.dart';
-import 'package:flutter/src/cupertino/icons.dart';
+import 'dart:async' ;
+import 'dart:math' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/scheduler.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/cupertino/activity_indicator.dart' ;
+import 'package:flutter/src/cupertino/colors.dart' ;
+import 'package:flutter/src/cupertino/icons.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -33,8 +33,8 @@ var _cupertinoSliverRefreshControl = MXFunctionInvoke(
     (
       {
       Key key,
-      double refreshTriggerPullDistance = 100.0,
-      double refreshIndicatorExtent = 60.0,
+      dynamic refreshTriggerPullDistance = 100.0,
+      dynamic refreshIndicatorExtent = 60.0,
       dynamic builder,
       dynamic onRefresh,
       }
@@ -44,7 +44,7 @@ var _cupertinoSliverRefreshControl = MXFunctionInvoke(
       refreshTriggerPullDistance: refreshTriggerPullDistance?.toDouble(),
       refreshIndicatorExtent: refreshIndicatorExtent?.toDouble(),
       builder: null,
-      onRefresh: onRefresh,
+      onRefresh: null,
     ),
 );
 class MXRefreshIndicatorMode {

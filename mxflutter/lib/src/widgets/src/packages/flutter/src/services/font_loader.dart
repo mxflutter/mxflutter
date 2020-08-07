@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/font_loader.dart';
-import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
+import 'dart:async' ;
+import 'dart:typed_data' ;
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

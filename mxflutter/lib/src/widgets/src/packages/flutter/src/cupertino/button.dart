@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/button.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/colors.dart';
-import 'package:flutter/src/cupertino/constants.dart';
-import 'package:flutter/src/cupertino/theme.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/cupertino/colors.dart' ;
+import 'package:flutter/src/cupertino/constants.dart' ;
+import 'package:flutter/src/cupertino/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -29,8 +29,8 @@ var _cupertinoButton = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       Color color,
       Color disabledColor,
-      double minSize = 44.0,
-      double pressedOpacity = 0.4,
+      dynamic minSize = 44.0,
+      dynamic pressedOpacity = 0.4,
       BorderRadius borderRadius,
       dynamic onPressed,
       }
@@ -48,15 +48,15 @@ var _cupertinoButton = MXFunctionInvoke(
     ),
 );
 var _cupertinoButton_filled = MXFunctionInvoke(
-  "cupertinoButton.filled",
+  "CupertinoButton.filled",
     (
       {
       Key key,
       Widget child,
       EdgeInsetsGeometry padding,
       Color disabledColor,
-      double minSize = 44.0,
-      double pressedOpacity = 0.4,
+      dynamic minSize = 44.0,
+      dynamic pressedOpacity = 0.4,
       BorderRadius borderRadius,
       dynamic onPressed,
       }

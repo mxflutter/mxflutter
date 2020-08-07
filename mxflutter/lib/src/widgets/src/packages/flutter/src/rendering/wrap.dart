@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/wrap.dart';
-import 'dart:math';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/object.dart';
+import 'dart:math' as math;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -42,9 +42,9 @@ var _renderWrap = MXFunctionInvoke(
       List<RenderBox> children,
       Axis direction = Axis.horizontal,
       WrapAlignment alignment = WrapAlignment.start,
-      double spacing = 0.0,
+      dynamic spacing = 0.0,
       WrapAlignment runAlignment = WrapAlignment.start,
-      double runSpacing = 0.0,
+      dynamic runSpacing = 0.0,
       WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
       TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,

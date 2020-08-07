@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/scrollbar.dart';
-import 'dart:math';
-import 'package:flutter/animation.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/scroll_metrics.dart';
+import 'dart:math' as math;
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/src/widgets/scroll_metrics.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -25,14 +25,14 @@ var _scrollbarPainter = MXFunctionInvoke(
       {
       Color color,
       TextDirection textDirection,
-      double thickness,
+      dynamic thickness,
       Animation<double> fadeoutOpacityAnimation,
       EdgeInsets padding,
-      double mainAxisMargin = 0.0,
-      double crossAxisMargin = 0.0,
+      dynamic mainAxisMargin = 0.0,
+      dynamic crossAxisMargin = 0.0,
       Radius radius,
-      double minLength = 18.0,
-      double minOverscrollLength,
+      dynamic minLength = 18.0,
+      dynamic minOverscrollLength,
       }
     ) =>
       ScrollbarPainter(

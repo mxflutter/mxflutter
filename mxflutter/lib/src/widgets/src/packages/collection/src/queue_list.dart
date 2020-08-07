@@ -6,7 +6,7 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/queue_list.dart';
-import 'dart:collection';
+import 'dart:collection' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -28,7 +28,7 @@ var _queueList = MXFunctionInvoke(
     ),
 );
 var _queueList_from = MXFunctionInvoke(
-  "queueList.from",
+  "QueueList.from",
     (
       {
       Iterable<dynamic> source,

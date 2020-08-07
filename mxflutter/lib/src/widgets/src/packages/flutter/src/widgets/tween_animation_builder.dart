@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/tween_animation_builder.dart';
-import 'package:flutter/animation.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/implicit_animations.dart';
-import 'package:flutter/src/widgets/value_listenable_builder.dart';
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/implicit_animations.dart' ;
+import 'package:flutter/src/widgets/value_listenable_builder.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

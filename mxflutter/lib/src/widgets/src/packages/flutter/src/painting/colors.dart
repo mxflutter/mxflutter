@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/colors.dart';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
+import 'dart:math' as math;
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -23,7 +23,7 @@ Map<String, MXFunctionInvoke> registerColorsSeries() {
   return m;
 }
 var _hSVColor_fromColor = MXFunctionInvoke(
-  "hSVColor.fromColor",
+  "HSVColor.fromColor",
     (
       {
       Color color,
@@ -34,13 +34,13 @@ var _hSVColor_fromColor = MXFunctionInvoke(
     ),
 );
 var _hSVColor_fromAHSV = MXFunctionInvoke(
-  "hSVColor.fromAHSV",
+  "HSVColor.fromAHSV",
     (
       {
-      double alpha,
-      double hue,
-      double saturation,
-      double value,
+      dynamic alpha,
+      dynamic hue,
+      dynamic saturation,
+      dynamic value,
       }
     ) =>
       HSVColor.fromAHSV(
@@ -51,7 +51,7 @@ var _hSVColor_fromAHSV = MXFunctionInvoke(
     ),
 );
 var _hSLColor_fromColor = MXFunctionInvoke(
-  "hSLColor.fromColor",
+  "HSLColor.fromColor",
     (
       {
       Color color,
@@ -62,13 +62,13 @@ var _hSLColor_fromColor = MXFunctionInvoke(
     ),
 );
 var _hSLColor_fromAHSL = MXFunctionInvoke(
-  "hSLColor.fromAHSL",
+  "HSLColor.fromAHSL",
     (
       {
-      double alpha,
-      double hue,
-      double saturation,
-      double lightness,
+      dynamic alpha,
+      dynamic hue,
+      dynamic saturation,
+      dynamic lightness,
       }
     ) =>
       HSLColor.fromAHSL(

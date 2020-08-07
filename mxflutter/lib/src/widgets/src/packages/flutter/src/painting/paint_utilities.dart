@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/paint_utilities.dart';
-import 'dart:math';
-import 'package:flutter/src/painting/basic_types.dart';
+import 'dart:math' as math;
+import 'package:flutter/src/painting/basic_types.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

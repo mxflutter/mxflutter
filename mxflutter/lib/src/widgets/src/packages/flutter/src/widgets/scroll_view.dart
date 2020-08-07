@@ -6,22 +6,22 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/scroll_view.dart';
-import 'dart:math';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/focus_manager.dart';
-import 'package:flutter/src/widgets/focus_scope.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/media_query.dart';
-import 'package:flutter/src/widgets/notification_listener.dart';
-import 'package:flutter/src/widgets/primary_scroll_controller.dart';
-import 'package:flutter/src/widgets/scroll_controller.dart';
-import 'package:flutter/src/widgets/scroll_notification.dart';
-import 'package:flutter/src/widgets/scroll_physics.dart';
-import 'package:flutter/src/widgets/scrollable.dart';
-import 'package:flutter/src/widgets/sliver.dart';
-import 'package:flutter/src/widgets/viewport.dart';
+import 'dart:math' as math;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/focus_manager.dart' ;
+import 'package:flutter/src/widgets/focus_scope.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/media_query.dart' ;
+import 'package:flutter/src/widgets/notification_listener.dart' ;
+import 'package:flutter/src/widgets/primary_scroll_controller.dart' ;
+import 'package:flutter/src/widgets/scroll_controller.dart' ;
+import 'package:flutter/src/widgets/scroll_notification.dart' ;
+import 'package:flutter/src/widgets/scroll_physics.dart' ;
+import 'package:flutter/src/widgets/scrollable.dart' ;
+import 'package:flutter/src/widgets/sliver.dart' ;
+import 'package:flutter/src/widgets/viewport.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -56,8 +56,8 @@ var _customScrollView = MXFunctionInvoke(
       ScrollPhysics physics,
       bool shrinkWrap = false,
       Key center,
-      double anchor = 0.0,
-      double cacheExtent,
+      dynamic anchor = 0.0,
+      dynamic cacheExtent,
       List<Widget> slivers,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
@@ -91,11 +91,11 @@ var _listView = MXFunctionInvoke(
       ScrollPhysics physics,
       bool shrinkWrap = false,
       EdgeInsetsGeometry padding,
-      double itemExtent,
+      dynamic itemExtent,
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      double cacheExtent,
+      dynamic cacheExtent,
       List<Widget> children,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
@@ -123,7 +123,7 @@ var _listView = MXFunctionInvoke(
     ),
 );
 var _listView_builder = MXFunctionInvoke(
-  "listView.builder",
+  "ListView.builder",
     (
       {
       Key key,
@@ -134,13 +134,13 @@ var _listView_builder = MXFunctionInvoke(
       ScrollPhysics physics,
       bool shrinkWrap = false,
       EdgeInsetsGeometry padding,
-      double itemExtent,
+      dynamic itemExtent,
       dynamic itemBuilder,
       int itemCount,
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      double cacheExtent,
+      dynamic cacheExtent,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }
@@ -166,7 +166,7 @@ var _listView_builder = MXFunctionInvoke(
     ),
 );
 var _listView_separated = MXFunctionInvoke(
-  "listView.separated",
+  "ListView.separated",
     (
       {
       Key key,
@@ -183,7 +183,7 @@ var _listView_separated = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      double cacheExtent,
+      dynamic cacheExtent,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
       }
     ) =>
@@ -207,7 +207,7 @@ var _listView_separated = MXFunctionInvoke(
     ),
 );
 var _listView_custom = MXFunctionInvoke(
-  "listView.custom",
+  "ListView.custom",
     (
       {
       Key key,
@@ -218,9 +218,9 @@ var _listView_custom = MXFunctionInvoke(
       ScrollPhysics physics,
       bool shrinkWrap = false,
       EdgeInsetsGeometry padding,
-      double itemExtent,
+      dynamic itemExtent,
       SliverChildDelegate childrenDelegate,
-      double cacheExtent,
+      dynamic cacheExtent,
       int semanticChildCount,
       }
     ) =>
@@ -255,7 +255,7 @@ var _gridView = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      double cacheExtent,
+      dynamic cacheExtent,
       List<Widget> children,
       int semanticChildCount,
       }
@@ -279,7 +279,7 @@ var _gridView = MXFunctionInvoke(
     ),
 );
 var _gridView_builder = MXFunctionInvoke(
-  "gridView.builder",
+  "GridView.builder",
     (
       {
       Key key,
@@ -296,7 +296,7 @@ var _gridView_builder = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      double cacheExtent,
+      dynamic cacheExtent,
       int semanticChildCount,
       }
     ) =>
@@ -320,7 +320,7 @@ var _gridView_builder = MXFunctionInvoke(
     ),
 );
 var _gridView_custom = MXFunctionInvoke(
-  "gridView.custom",
+  "GridView.custom",
     (
       {
       Key key,
@@ -333,7 +333,7 @@ var _gridView_custom = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       SliverGridDelegate gridDelegate,
       SliverChildDelegate childrenDelegate,
-      double cacheExtent,
+      dynamic cacheExtent,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }
@@ -355,7 +355,7 @@ var _gridView_custom = MXFunctionInvoke(
     ),
 );
 var _gridView_count = MXFunctionInvoke(
-  "gridView.count",
+  "GridView.count",
     (
       {
       Key key,
@@ -367,13 +367,13 @@ var _gridView_count = MXFunctionInvoke(
       bool shrinkWrap = false,
       EdgeInsetsGeometry padding,
       int crossAxisCount,
-      double mainAxisSpacing = 0.0,
-      double crossAxisSpacing = 0.0,
-      double childAspectRatio = 1.0,
+      dynamic mainAxisSpacing = 0.0,
+      dynamic crossAxisSpacing = 0.0,
+      dynamic childAspectRatio = 1.0,
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      double cacheExtent,
+      dynamic cacheExtent,
       List<Widget> children,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
@@ -402,7 +402,7 @@ var _gridView_count = MXFunctionInvoke(
     ),
 );
 var _gridView_extent = MXFunctionInvoke(
-  "gridView.extent",
+  "GridView.extent",
     (
       {
       Key key,
@@ -413,10 +413,10 @@ var _gridView_extent = MXFunctionInvoke(
       ScrollPhysics physics,
       bool shrinkWrap = false,
       EdgeInsetsGeometry padding,
-      double maxCrossAxisExtent,
-      double mainAxisSpacing = 0.0,
-      double crossAxisSpacing = 0.0,
-      double childAspectRatio = 1.0,
+      dynamic maxCrossAxisExtent,
+      dynamic mainAxisSpacing = 0.0,
+      dynamic crossAxisSpacing = 0.0,
+      dynamic childAspectRatio = 1.0,
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,

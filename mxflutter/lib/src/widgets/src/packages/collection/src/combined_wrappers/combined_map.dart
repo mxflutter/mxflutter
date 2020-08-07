@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/combined_wrappers/combined_map.dart';
-import 'dart:collection';
-import 'package:collection/src/combined_wrappers/combined_iterable.dart';
+import 'dart:collection' ;
+import 'package:collection/src/combined_wrappers/combined_iterable.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

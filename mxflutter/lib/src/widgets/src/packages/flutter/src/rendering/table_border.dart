@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/table_border.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/painting.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/painting.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -40,11 +40,11 @@ var _tableBorder = MXFunctionInvoke(
     ),
 );
 var _tableBorder_all = MXFunctionInvoke(
-  "tableBorder.all",
+  "TableBorder.all",
     (
       {
       Color color,
-      double width = 1.0,
+      dynamic width = 1.0,
       BorderStyle style = BorderStyle.solid,
       }
     ) =>
@@ -55,7 +55,7 @@ var _tableBorder_all = MXFunctionInvoke(
     ),
 );
 var _tableBorder_symmetric = MXFunctionInvoke(
-  "tableBorder.symmetric",
+  "TableBorder.symmetric",
     (
       {
       BorderSide inside,

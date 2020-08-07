@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/ink_decoration.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/material.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/debug.dart' ;
+import 'package:flutter/src/material/material.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -28,8 +28,8 @@ var _ink = MXFunctionInvoke(
       EdgeInsetsGeometry padding,
       Color color,
       Decoration decoration,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       Widget child,
       }
     ) =>
@@ -44,7 +44,7 @@ var _ink = MXFunctionInvoke(
     ),
 );
 var _ink_image = MXFunctionInvoke(
-  "ink.image",
+  "Ink.image",
     (
       {
       Key key,
@@ -57,8 +57,8 @@ var _ink_image = MXFunctionInvoke(
       Rect centerSlice,
       ImageRepeat repeat = ImageRepeat.noRepeat,
       bool matchTextDirection = false,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       Widget child,
       }
     ) =>
@@ -66,7 +66,7 @@ var _ink_image = MXFunctionInvoke(
       key: key,
       padding: padding,
       image: image,
-      onImageError: null,
+      onImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(_ink_image.buildOwner, onImageError),
       colorFilter: colorFilter,
       fit: fit,
       alignment: alignment,

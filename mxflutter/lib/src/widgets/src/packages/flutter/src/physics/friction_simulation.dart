@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/physics/friction_simulation.dart';
-import 'dart:math';
-import 'package:flutter/src/physics/simulation.dart';
-import 'package:flutter/src/physics/tolerance.dart';
+import 'dart:math' as math;
+import 'package:flutter/src/physics/simulation.dart' ;
+import 'package:flutter/src/physics/tolerance.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -23,9 +23,9 @@ var _frictionSimulation = MXFunctionInvoke(
     "FrictionSimulation",
     (
       {
-      double drag,
-      double position,
-      double velocity,
+      dynamic drag,
+      dynamic position,
+      dynamic velocity,
       Tolerance tolerance,
       }
     ) =>
@@ -37,13 +37,13 @@ var _frictionSimulation = MXFunctionInvoke(
     ),
 );
 var _frictionSimulation_through = MXFunctionInvoke(
-  "frictionSimulation.through",
+  "FrictionSimulation.through",
     (
       {
-      double startPosition,
-      double endPosition,
-      double startVelocity,
-      double endVelocity,
+      dynamic startPosition,
+      dynamic endPosition,
+      dynamic startVelocity,
+      dynamic endVelocity,
       }
     ) =>
       FrictionSimulation.through(
@@ -57,11 +57,11 @@ var _boundedFrictionSimulation = MXFunctionInvoke(
     "BoundedFrictionSimulation",
     (
       {
-      double drag,
-      double position,
-      double velocity,
-      double minX,
-      double maxX,
+      dynamic drag,
+      dynamic position,
+      dynamic velocity,
+      dynamic minX,
+      dynamic maxX,
       }
     ) =>
       BoundedFrictionSimulation(

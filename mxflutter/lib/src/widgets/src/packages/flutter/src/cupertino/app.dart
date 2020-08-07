@@ -6,15 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/app.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/button.dart';
-import 'package:flutter/src/cupertino/colors.dart';
-import 'package:flutter/src/cupertino/icons.dart';
-import 'package:flutter/src/cupertino/interface_level.dart';
-import 'package:flutter/src/cupertino/localizations.dart';
-import 'package:flutter/src/cupertino/route.dart';
-import 'package:flutter/src/cupertino/theme.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/cupertino/button.dart' ;
+import 'package:flutter/src/cupertino/colors.dart' ;
+import 'package:flutter/src/cupertino/icons.dart' ;
+import 'package:flutter/src/cupertino/interface_level.dart' ;
+import 'package:flutter/src/cupertino/localizations.dart' ;
+import 'package:flutter/src/cupertino/route.dart' ;
+import 'package:flutter/src/cupertino/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -62,13 +62,13 @@ var _cupertinoApp = MXFunctionInvoke(
       theme: theme,
       routes: routes,
       initialRoute: initialRoute,
-      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_cupertinoApp.buildOwner, onGenerateRoute),
-      onGenerateInitialRoutes: createGenericValueGenericClosure<List<Route<dynamic>>, String>(_cupertinoApp.buildOwner, onGenerateInitialRoutes),
-      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_cupertinoApp.buildOwner, onUnknownRoute),
+      onGenerateRoute: null,
+      onGenerateInitialRoutes: null,
+      onUnknownRoute: null,
       navigatorObservers: navigatorObservers,
       builder: null,
       title: title,
-      onGenerateTitle: createGenericValueGenericClosure<String, BuildContext>(_cupertinoApp.buildOwner, onGenerateTitle),
+      onGenerateTitle: null,
       color: color,
       locale: locale,
       localizationsDelegates: localizationsDelegates,

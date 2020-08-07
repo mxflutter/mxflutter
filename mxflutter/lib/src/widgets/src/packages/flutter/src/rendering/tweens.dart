@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/tweens.dart';
-import 'package:flutter/animation.dart';
-import 'package:flutter/painting.dart';
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/painting.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
