@@ -36,7 +36,7 @@ var _ticker = MXFunctionInvoke(
       }
     ) =>
       Ticker(
-      onTick,
+      onTick: createValueChangedGenericClosure<Duration>(_ticker.buildOwner, onTick),
       debugLabel: debugLabel,
     ),
 );

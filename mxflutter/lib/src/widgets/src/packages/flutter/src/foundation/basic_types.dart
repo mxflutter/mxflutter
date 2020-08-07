@@ -37,6 +37,6 @@ var _factory = MXFunctionInvoke(
       }
     ) =>
       Factory(
-      constructor,
+      constructor: null,
     ),
 );

@@ -48,7 +48,7 @@ var _imageStreamListener = MXFunctionInvoke(
       }
     ) =>
       ImageStreamListener(
-      onImage,
+      onImage: createVoidTwoParamsClosure<ImageInfo, bool>(_imageStreamListener.buildOwner, onImage),
       onChunk: createValueChangedGenericClosure<ImageChunkEvent>(_imageStreamListener.buildOwner, onChunk),
       onError: createVoidTwoParamsClosure<dynamic, StackTrace>(_imageStreamListener.buildOwner, onError),
     ),

@@ -29,8 +29,8 @@ var _fractionalOffset = MXFunctionInvoke(
       }
     ) =>
       FractionalOffset(
-      dx,
-      dy,
+      dx?.toDouble(),
+      dy?.toDouble(),
     ),
 );
 var _fractionalOffset_fromOffsetAndSize = MXFunctionInvoke(

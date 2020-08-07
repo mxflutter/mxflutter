@@ -26,9 +26,9 @@ var _gravitySimulation = MXFunctionInvoke(
       }
     ) =>
       GravitySimulation(
-      acceleration,
-      distance,
-      endDistance,
-      velocity,
+      acceleration?.toDouble(),
+      distance?.toDouble(),
+      endDistance?.toDouble(),
+      velocity?.toDouble(),
     ),
 );

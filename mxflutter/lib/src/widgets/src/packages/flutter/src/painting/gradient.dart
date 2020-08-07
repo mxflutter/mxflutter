@@ -42,7 +42,7 @@ var _gradientRotation = MXFunctionInvoke(
       }
     ) =>
       GradientRotation(
-      radians,
+      radians?.toDouble(),
     ),
 );
 var _gradient = MXFunctionInvoke(

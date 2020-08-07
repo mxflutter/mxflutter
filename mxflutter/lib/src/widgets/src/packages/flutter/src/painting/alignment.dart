@@ -36,8 +36,8 @@ var _alignment = MXFunctionInvoke(
       }
     ) =>
       Alignment(
-      x,
-      y,
+      x?.toDouble(),
+      y?.toDouble(),
     ),
 );
 var _alignmentDirectional = MXFunctionInvoke(
@@ -49,8 +49,8 @@ var _alignmentDirectional = MXFunctionInvoke(
       }
     ) =>
       AlignmentDirectional(
-      start,
-      y,
+      start?.toDouble(),
+      y?.toDouble(),
     ),
 );
 var _textAlignVertical = MXFunctionInvoke(

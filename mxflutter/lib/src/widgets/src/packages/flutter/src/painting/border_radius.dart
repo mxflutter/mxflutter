@@ -52,7 +52,7 @@ var _borderRadius_circular = MXFunctionInvoke(
       }
     ) =>
       BorderRadius.circular(
-      radius,
+      radius?.toDouble(),
     ),
 );
 var _borderRadius_vertical = MXFunctionInvoke(
@@ -117,7 +117,7 @@ var _borderRadiusDirectional_circular = MXFunctionInvoke(
       }
     ) =>
       BorderRadiusDirectional.circular(
-      radius,
+      radius?.toDouble(),
     ),
 );
 var _borderRadiusDirectional_vertical = MXFunctionInvoke(

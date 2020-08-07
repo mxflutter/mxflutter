@@ -45,6 +45,6 @@ var _mouseTracker = MXFunctionInvoke(
     ) =>
       MouseTracker(
       router,
-      annotationFinder,
+      annotationFinder: null,
     ),
 );

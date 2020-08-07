@@ -44,10 +44,10 @@ var _hSVColor_fromAHSV = MXFunctionInvoke(
       }
     ) =>
       HSVColor.fromAHSV(
-      alpha,
-      hue,
-      saturation,
-      value,
+      alpha?.toDouble(),
+      hue?.toDouble(),
+      saturation?.toDouble(),
+      value?.toDouble(),
     ),
 );
 var _hSLColor_fromColor = MXFunctionInvoke(
@@ -72,10 +72,10 @@ var _hSLColor_fromAHSL = MXFunctionInvoke(
       }
     ) =>
       HSLColor.fromAHSL(
-      alpha,
-      hue,
-      saturation,
-      lightness,
+      alpha?.toDouble(),
+      hue?.toDouble(),
+      saturation?.toDouble(),
+      lightness?.toDouble(),
     ),
 );
 var _colorSwatch = MXFunctionInvoke(

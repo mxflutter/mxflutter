@@ -30,7 +30,7 @@ var _binaryMessages_setMessageHandler = MXFunctionInvoke(
     ) =>
       BinaryMessages.setMessageHandler(
       channel,
-      handler,
+      handler: null,
     ),
 );
 var _binaryMessages_setMockMessageHandler = MXFunctionInvoke(
@@ -43,6 +43,6 @@ var _binaryMessages_setMockMessageHandler = MXFunctionInvoke(
     ) =>
       BinaryMessages.setMockMessageHandler(
       channel,
-      handler,
+      handler: null,
     ),
 );

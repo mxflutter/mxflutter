@@ -63,10 +63,10 @@ var _relativeRect_fromLTRB = MXFunctionInvoke(
       }
     ) =>
       RelativeRect.fromLTRB(
-      left,
-      top,
-      right,
-      bottom,
+      left?.toDouble(),
+      top?.toDouble(),
+      right?.toDouble(),
+      bottom?.toDouble(),
     ),
 );
 var _stackParentData = MXFunctionInvoke(

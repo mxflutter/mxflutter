@@ -312,7 +312,7 @@ var _ordinalSortKey = MXFunctionInvoke(
       }
     ) =>
       OrdinalSortKey(
-      order,
+      order?.toDouble(),
       name: name,
     ),
 );

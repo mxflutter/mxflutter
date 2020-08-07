@@ -26,7 +26,7 @@ var _canonicalizedMap = MXFunctionInvoke(
       }
     ) =>
       CanonicalizedMap(
-      canonicalize,
+      canonicalize: null,
       isValidKey: null,
     ),
 );
@@ -41,7 +41,7 @@ var _canonicalizedMap_from = MXFunctionInvoke(
     ) =>
       CanonicalizedMap.from(
       other,
-      canonicalize,
+      canonicalize: null,
       isValidKey: null,
     ),
 );

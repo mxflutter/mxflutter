@@ -276,8 +276,8 @@ var _aabb3_fromRay = MXFunctionInvoke(
     ) =>
       Aabb3.fromRay(
       ray,
-      limitMin,
-      limitMax,
+      limitMin?.toDouble(),
+      limitMax?.toDouble(),
     ),
 );
 var _aabb3_centerAndHalfExtents = MXFunctionInvoke(
@@ -402,7 +402,7 @@ var _colors_linearToGamma = MXFunctionInvoke(
       Colors.linearToGamma(
       linearColor,
       gammaColor,
-      gamma,
+      gamma?.toDouble(),
     ),
 );
 var _colors_gammaToLinear = MXFunctionInvoke(
@@ -417,7 +417,7 @@ var _colors_gammaToLinear = MXFunctionInvoke(
       Colors.gammaToLinear(
       gammaColor,
       linearColor,
-      gamma,
+      gamma?.toDouble(),
     ),
 );
 var _colors_rgbToHsv = MXFunctionInvoke(
@@ -534,10 +534,10 @@ var _matrix2 = MXFunctionInvoke(
       }
     ) =>
       Matrix2(
-      arg0,
-      arg1,
-      arg2,
-      arg3,
+      arg0?.toDouble(),
+      arg1?.toDouble(),
+      arg2?.toDouble(),
+      arg3?.toDouble(),
     ),
 );
 var _matrix2_fromList = MXFunctionInvoke(
@@ -603,7 +603,7 @@ var _matrix2_rotation = MXFunctionInvoke(
       }
     ) =>
       Matrix2.rotation(
-      radians,
+      radians?.toDouble(),
     ),
 );
 var _matrix2_zero = MXFunctionInvoke(
@@ -659,15 +659,15 @@ var _matrix3 = MXFunctionInvoke(
       }
     ) =>
       Matrix3(
-      arg0,
-      arg1,
-      arg2,
-      arg3,
-      arg4,
-      arg5,
-      arg6,
-      arg7,
-      arg8,
+      arg0?.toDouble(),
+      arg1?.toDouble(),
+      arg2?.toDouble(),
+      arg3?.toDouble(),
+      arg4?.toDouble(),
+      arg5?.toDouble(),
+      arg6?.toDouble(),
+      arg7?.toDouble(),
+      arg8?.toDouble(),
     ),
 );
 var _matrix3_fromList = MXFunctionInvoke(
@@ -735,7 +735,7 @@ var _matrix3_rotationX = MXFunctionInvoke(
       }
     ) =>
       Matrix3.rotationX(
-      radians,
+      radians?.toDouble(),
     ),
 );
 var _matrix3_rotationY = MXFunctionInvoke(
@@ -746,7 +746,7 @@ var _matrix3_rotationY = MXFunctionInvoke(
       }
     ) =>
       Matrix3.rotationY(
-      radians,
+      radians?.toDouble(),
     ),
 );
 var _matrix3_rotationZ = MXFunctionInvoke(
@@ -757,7 +757,7 @@ var _matrix3_rotationZ = MXFunctionInvoke(
       }
     ) =>
       Matrix3.rotationZ(
-      radians,
+      radians?.toDouble(),
     ),
 );
 var _matrix3_zero = MXFunctionInvoke(
@@ -835,22 +835,22 @@ var _matrix4 = MXFunctionInvoke(
       }
     ) =>
       Matrix4(
-      arg0,
-      arg1,
-      arg2,
-      arg3,
-      arg4,
-      arg5,
-      arg6,
-      arg7,
-      arg8,
-      arg9,
-      arg10,
-      arg11,
-      arg12,
-      arg13,
-      arg14,
-      arg15,
+      arg0?.toDouble(),
+      arg1?.toDouble(),
+      arg2?.toDouble(),
+      arg3?.toDouble(),
+      arg4?.toDouble(),
+      arg5?.toDouble(),
+      arg6?.toDouble(),
+      arg7?.toDouble(),
+      arg8?.toDouble(),
+      arg9?.toDouble(),
+      arg10?.toDouble(),
+      arg11?.toDouble(),
+      arg12?.toDouble(),
+      arg13?.toDouble(),
+      arg14?.toDouble(),
+      arg15?.toDouble(),
     ),
 );
 var _matrix4_fromList = MXFunctionInvoke(
@@ -931,7 +931,7 @@ var _matrix4_rotationX = MXFunctionInvoke(
       }
     ) =>
       Matrix4.rotationX(
-      radians,
+      radians?.toDouble(),
     ),
 );
 var _matrix4_rotationY = MXFunctionInvoke(
@@ -942,7 +942,7 @@ var _matrix4_rotationY = MXFunctionInvoke(
       }
     ) =>
       Matrix4.rotationY(
-      radians,
+      radians?.toDouble(),
     ),
 );
 var _matrix4_rotationZ = MXFunctionInvoke(
@@ -953,7 +953,7 @@ var _matrix4_rotationZ = MXFunctionInvoke(
       }
     ) =>
       Matrix4.rotationZ(
-      radians,
+      radians?.toDouble(),
     ),
 );
 var _matrix4_translation = MXFunctionInvoke(
@@ -977,9 +977,9 @@ var _matrix4_translationValues = MXFunctionInvoke(
       }
     ) =>
       Matrix4.translationValues(
-      x,
-      y,
-      z,
+      x?.toDouble(),
+      y?.toDouble(),
+      z?.toDouble(),
     ),
 );
 var _matrix4_diagonal3 = MXFunctionInvoke(
@@ -1003,9 +1003,9 @@ var _matrix4_diagonal3Values = MXFunctionInvoke(
       }
     ) =>
       Matrix4.diagonal3Values(
-      x,
-      y,
-      z,
+      x?.toDouble(),
+      y?.toDouble(),
+      z?.toDouble(),
     ),
 );
 var _matrix4_skewX = MXFunctionInvoke(
@@ -1016,7 +1016,7 @@ var _matrix4_skewX = MXFunctionInvoke(
       }
     ) =>
       Matrix4.skewX(
-      alpha,
+      alpha?.toDouble(),
     ),
 );
 var _matrix4_skewY = MXFunctionInvoke(
@@ -1027,7 +1027,7 @@ var _matrix4_skewY = MXFunctionInvoke(
       }
     ) =>
       Matrix4.skewY(
-      beta,
+      beta?.toDouble(),
     ),
 );
 var _matrix4_skew = MXFunctionInvoke(
@@ -1039,8 +1039,8 @@ var _matrix4_skew = MXFunctionInvoke(
       }
     ) =>
       Matrix4.skew(
-      alpha,
-      beta,
+      alpha?.toDouble(),
+      beta?.toDouble(),
     ),
 );
 var _matrix4_compose = MXFunctionInvoke(
@@ -1172,10 +1172,10 @@ var _plane_components = MXFunctionInvoke(
       }
     ) =>
       Plane.components(
-      x,
-      y,
-      z,
-      w,
+      x?.toDouble(),
+      y?.toDouble(),
+      z?.toDouble(),
+      w?.toDouble(),
     ),
 );
 var _plane_normalconstant = MXFunctionInvoke(
@@ -1188,7 +1188,7 @@ var _plane_normalconstant = MXFunctionInvoke(
     ) =>
       Plane.normalconstant(
       normal_,
-      constant_,
+      constant_?.toDouble(),
     ),
 );
 var _quad = MXFunctionInvoke(
@@ -1237,10 +1237,10 @@ var _quaternion = MXFunctionInvoke(
       }
     ) =>
       Quaternion(
-      x,
-      y,
-      z,
-      w,
+      x?.toDouble(),
+      y?.toDouble(),
+      z?.toDouble(),
+      w?.toDouble(),
     ),
 );
 var _quaternion_fromRotation = MXFunctionInvoke(
@@ -1264,7 +1264,7 @@ var _quaternion_axisAngle = MXFunctionInvoke(
     ) =>
       Quaternion.axisAngle(
       axis,
-      angle,
+      angle?.toDouble(),
     ),
 );
 var _quaternion_fromTwoVectors = MXFunctionInvoke(
@@ -1332,9 +1332,9 @@ var _quaternion_euler = MXFunctionInvoke(
       }
     ) =>
       Quaternion.euler(
-      yaw,
-      pitch,
-      roll,
+      yaw?.toDouble(),
+      pitch?.toDouble(),
+      roll?.toDouble(),
     ),
 );
 var _quaternion_fromFloat64List = MXFunctionInvoke(
@@ -1420,7 +1420,7 @@ var _sphere_centerRadius = MXFunctionInvoke(
     ) =>
       Sphere.centerRadius(
       center,
-      radius,
+      radius?.toDouble(),
     ),
 );
 var _simplexNoise = MXFunctionInvoke(
@@ -1517,7 +1517,7 @@ var _vector2_mix = MXFunctionInvoke(
       Vector2.mix(
       min,
       max,
-      a,
+      a?.toDouble(),
       result,
     ),
 );
@@ -1530,8 +1530,8 @@ var _vector2 = MXFunctionInvoke(
       }
     ) =>
       Vector2(
-      x,
-      y,
+      x?.toDouble(),
+      y?.toDouble(),
     ),
 );
 var _vector2_array = MXFunctionInvoke(
@@ -1555,7 +1555,7 @@ var _vector2_all = MXFunctionInvoke(
       }
     ) =>
       Vector2.all(
-      value,
+      value?.toDouble(),
     ),
 );
 var _vector2_copy = MXFunctionInvoke(
@@ -1654,7 +1654,7 @@ var _vector3_mix = MXFunctionInvoke(
       Vector3.mix(
       min,
       max,
-      a,
+      a?.toDouble(),
       result,
     ),
 );
@@ -1668,9 +1668,9 @@ var _vector3 = MXFunctionInvoke(
       }
     ) =>
       Vector3(
-      x,
-      y,
-      z,
+      x?.toDouble(),
+      y?.toDouble(),
+      z?.toDouble(),
     ),
 );
 var _vector3_array = MXFunctionInvoke(
@@ -1694,7 +1694,7 @@ var _vector3_all = MXFunctionInvoke(
       }
     ) =>
       Vector3.all(
-      value,
+      value?.toDouble(),
     ),
 );
 var _vector3_copy = MXFunctionInvoke(
@@ -1793,7 +1793,7 @@ var _vector4_mix = MXFunctionInvoke(
       Vector4.mix(
       min,
       max,
-      a,
+      a?.toDouble(),
       result,
     ),
 );
@@ -1808,10 +1808,10 @@ var _vector4 = MXFunctionInvoke(
       }
     ) =>
       Vector4(
-      x,
-      y,
-      z,
-      w,
+      x?.toDouble(),
+      y?.toDouble(),
+      z?.toDouble(),
+      w?.toDouble(),
     ),
 );
 var _vector4_array = MXFunctionInvoke(
@@ -1842,7 +1842,7 @@ var _vector4_all = MXFunctionInvoke(
       }
     ) =>
       Vector4.all(
-      value,
+      value?.toDouble(),
     ),
 );
 var _vector4_copy = MXFunctionInvoke(
