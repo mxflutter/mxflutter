@@ -6,16 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/viewport_offset.dart';
-import 'dart:async' ;
-import 'package:flutter/animation.dart' ;
-import 'package:flutter/foundation.dart' ;
+import 'dart:async';
+import 'package:flutter/animation.dart';
+import 'package:flutter/foundation.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerViewportOffsetSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scrollDirection.funName] = _scrollDirection;
-  m[_viewportOffset.funName] = _viewportOffset;
   m[_viewportOffset_fixed.funName] = _viewportOffset_fixed;
   m[_viewportOffset_zero.funName] = _viewportOffset_zero;
   return m;
@@ -24,13 +23,6 @@ var _scrollDirection = MXFunctionInvoke(
     "ScrollDirection",
     ({Map args}) => MXScrollDirection.parse(args),
   );
-var _viewportOffset = MXFunctionInvoke(
-    "ViewportOffset",
-    (
-    ) =>
-      ViewportOffset(
-    ),
-);
 var _viewportOffset_fixed = MXFunctionInvoke(
   "ViewportOffset.fixed",
     (

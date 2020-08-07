@@ -6,18 +6,17 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/box_border.dart';
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/painting/basic_types.dart' ;
-import 'package:flutter/src/painting/border_radius.dart' ;
-import 'package:flutter/src/painting/borders.dart' ;
-import 'package:flutter/src/painting/edge_insets.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/painting/basic_types.dart';
+import 'package:flutter/src/painting/border_radius.dart';
+import 'package:flutter/src/painting/borders.dart';
+import 'package:flutter/src/painting/edge_insets.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_boxShape.funName] = _boxShape;
-  m[_boxBorder.funName] = _boxBorder;
   m[_border.funName] = _border;
   m[_border_all.funName] = _border_all;
   m[_border_fromBorderSide.funName] = _border_fromBorderSide;
@@ -29,13 +28,6 @@ var _boxShape = MXFunctionInvoke(
     "BoxShape",
     ({Map args}) => MXBoxShape.parse(args),
   );
-var _boxBorder = MXFunctionInvoke(
-    "BoxBorder",
-    (
-    ) =>
-      BoxBorder(
-    ),
-);
 var _border = MXFunctionInvoke(
     "Border",
     (

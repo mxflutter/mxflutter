@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/platform_views.dart';
-import 'dart:async' ;
-import 'dart:typed_data' ;
-import 'dart:ui' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/src/services/message_codec.dart' ;
-import 'package:flutter/src/services/system_channels.dart' ;
+import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/src/services/message_codec.dart';
+import 'package:flutter/src/services/system_channels.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -21,7 +21,6 @@ Map<String, MXFunctionInvoke> registerPlatformViewsSeries() {
   m[_androidPointerProperties.funName] = _androidPointerProperties;
   m[_androidPointerCoords.funName] = _androidPointerCoords;
   m[_androidMotionEvent.funName] = _androidMotionEvent;
-  m[_platformViewController.funName] = _platformViewController;
   return m;
 }
 var _androidPointerProperties = MXFunctionInvoke(
@@ -99,12 +98,5 @@ var _androidMotionEvent = MXFunctionInvoke(
       edgeFlags: edgeFlags,
       source: source,
       flags: flags,
-    ),
-);
-var _platformViewController = MXFunctionInvoke(
-    "PlatformViewController",
-    (
-    ) =>
-      PlatformViewController(
     ),
 );

@@ -29,10 +29,13 @@ import 'src/painting/geometry.dart';
 import 'src/painting/gradient.dart';
 import 'src/painting/image_cache.dart';
 import 'src/painting/image_decoder.dart';
-import 'src/painting/_network_image_io.dart';
+import 'src/painting/image_provider.dart';
 import 'src/painting/image_resolution.dart';
 import 'src/painting/image_stream.dart';
 import 'src/painting/placeholder_span.dart';
+import 'src/painting/text_span.dart';
+import 'src/painting/inline_span.dart';
+import 'src/painting/text_painter.dart';
 import 'src/painting/matrix_utils.dart';
 import 'src/painting/notched_shapes.dart';
 import 'src/painting/paint_utilities.dart';
@@ -41,6 +44,7 @@ import 'src/painting/shader_warm_up.dart';
 import 'src/painting/shape_decoration.dart';
 import 'src/painting/stadium_border.dart';
 import 'src/painting/strut_style.dart';
+import 'src/painting/text_style.dart';
 
 
 Map<String, MXFunctionInvoke> registerPaintingLibrarySeries() {
@@ -69,10 +73,13 @@ Map<String, MXFunctionInvoke> registerPaintingLibrarySeries() {
   m.addAll(registerGradientSeries());
   m.addAll(registerImageCacheSeries());
   m.addAll(registerImageDecoderSeries());
-  m.addAll(registerNetworkImageIoSeries());
+  m.addAll(registerImageProviderSeries());
   m.addAll(registerImageResolutionSeries());
   m.addAll(registerImageStreamSeries());
   m.addAll(registerPlaceholderSpanSeries());
+  m.addAll(registerTextSpanSeries());
+  m.addAll(registerInlineSpanSeries());
+  m.addAll(registerTextPainterSeries());
   m.addAll(registerMatrixUtilsSeries());
   m.addAll(registerNotchedShapesSeries());
   m.addAll(registerPaintUtilitiesSeries());
@@ -81,5 +88,6 @@ Map<String, MXFunctionInvoke> registerPaintingLibrarySeries() {
   m.addAll(registerShapeDecorationSeries());
   m.addAll(registerStadiumBorderSeries());
   m.addAll(registerStrutStyleSeries());
+  m.addAll(registerTextStyleSeries());
   return m;
 }

@@ -6,28 +6,25 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
-import 'dart:async' ;
-import 'dart:collection' ;
-import 'dart:ui' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/gestures/arena.dart' ;
-import 'package:flutter/src/gestures/binding.dart' ;
-import 'package:flutter/src/gestures/constants.dart' ;
-import 'package:flutter/src/gestures/debug.dart' ;
-import 'package:flutter/src/gestures/events.dart' ;
-import 'package:flutter/src/gestures/pointer_router.dart' ;
-import 'package:flutter/src/gestures/team.dart' ;
+import 'dart:async';
+import 'dart:collection';
+import 'dart:ui';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/gestures/arena.dart';
+import 'package:flutter/src/gestures/binding.dart';
+import 'package:flutter/src/gestures/constants.dart';
+import 'package:flutter/src/gestures/debug.dart';
+import 'package:flutter/src/gestures/events.dart';
+import 'package:flutter/src/gestures/pointer_router.dart';
+import 'package:flutter/src/gestures/team.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRecognizerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_dragStartBehavior.funName] = _dragStartBehavior;
-  m[_gestureRecognizer.funName] = _gestureRecognizer;
-  m[_oneSequenceGestureRecognizer.funName] = _oneSequenceGestureRecognizer;
   m[_gestureRecognizerState.funName] = _gestureRecognizerState;
-  m[_primaryPointerGestureRecognizer.funName] = _primaryPointerGestureRecognizer;
   m[_offsetPair.funName] = _offsetPair;
   m[_offsetPair_fromEventPosition.funName] = _offsetPair_fromEventPosition;
   m[_offsetPair_fromEventDelta.funName] = _offsetPair_fromEventDelta;
@@ -37,55 +34,10 @@ var _dragStartBehavior = MXFunctionInvoke(
     "DragStartBehavior",
     ({Map args}) => MXDragStartBehavior.parse(args),
   );
-var _gestureRecognizer = MXFunctionInvoke(
-    "GestureRecognizer",
-    (
-      {
-      Object debugOwner,
-      PointerDeviceKind kind,
-      }
-    ) =>
-      GestureRecognizer(
-      debugOwner: debugOwner,
-      kind: kind,
-    ),
-);
-var _oneSequenceGestureRecognizer = MXFunctionInvoke(
-    "OneSequenceGestureRecognizer",
-    (
-      {
-      Object debugOwner,
-      PointerDeviceKind kind,
-      }
-    ) =>
-      OneSequenceGestureRecognizer(
-      debugOwner: debugOwner,
-      kind: kind,
-    ),
-);
 var _gestureRecognizerState = MXFunctionInvoke(
     "GestureRecognizerState",
     ({Map args}) => MXGestureRecognizerState.parse(args),
   );
-var _primaryPointerGestureRecognizer = MXFunctionInvoke(
-    "PrimaryPointerGestureRecognizer",
-    (
-      {
-      Duration deadline,
-      dynamic preAcceptSlopTolerance = 18.0,
-      dynamic postAcceptSlopTolerance = 18.0,
-      Object debugOwner,
-      PointerDeviceKind kind,
-      }
-    ) =>
-      PrimaryPointerGestureRecognizer(
-      deadline: deadline,
-      preAcceptSlopTolerance: preAcceptSlopTolerance?.toDouble(),
-      postAcceptSlopTolerance: postAcceptSlopTolerance?.toDouble(),
-      debugOwner: debugOwner,
-      kind: kind,
-    ),
-);
 var _offsetPair = MXFunctionInvoke(
     "OffsetPair",
     (

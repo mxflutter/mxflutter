@@ -7,13 +7,13 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/slider.dart';
 import 'dart:math' as math;
-import 'dart:ui' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/cupertino/colors.dart' ;
-import 'package:flutter/src/cupertino/theme.dart' ;
-import 'package:flutter/src/cupertino/thumb_painter.dart' ;
+import 'dart:ui';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/cupertino/colors.dart';
+import 'package:flutter/src/cupertino/theme.dart';
+import 'package:flutter/src/cupertino/thumb_painter.dart';
 
 
 ///把自己能处理的类注册到分发器中

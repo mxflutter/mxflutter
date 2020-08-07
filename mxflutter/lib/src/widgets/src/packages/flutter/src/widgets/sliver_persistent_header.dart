@@ -6,25 +6,17 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/sliver_persistent_header.dart';
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverPersistentHeaderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_sliverPersistentHeaderDelegate.funName] = _sliverPersistentHeaderDelegate;
   m[_sliverPersistentHeader.funName] = _sliverPersistentHeader;
   return m;
 }
-var _sliverPersistentHeaderDelegate = MXFunctionInvoke(
-    "SliverPersistentHeaderDelegate",
-    (
-    ) =>
-      SliverPersistentHeaderDelegate(
-    ),
-);
 var _sliverPersistentHeader = MXFunctionInvoke(
     "SliverPersistentHeader",
     (

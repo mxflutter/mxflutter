@@ -6,25 +6,25 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'dart:ui';
-import 'dart:async' ;
+import 'dart:async';
 import 'dart:collection' as collection;
-import 'dart:convert' ;
+import 'dart:convert';
 import 'dart:html' as html;
 import 'dart:math' as math;
-import 'dart:typed_data' ;
+import 'dart:typed_data';
 import 'dart:_engine' as engine;
-import 'dart:_engine' ;
+import 'dart:_engine';
 import 'dart:core';
 import 'dart:_internal' as _symbol_dev;
-import 'dart:_interceptors' ;
-import 'dart:_js_helper' ;
+import 'dart:_interceptors';
+import 'dart:_js_helper';
 import 'dart:_runtime' as dart;
-import 'dart:_foreign_helper' ;
-import 'dart:_native_typed_data' ;
-import 'dart:collection' ;
-import 'dart:_internal' ;
+import 'dart:_foreign_helper';
+import 'dart:_native_typed_data';
+import 'dart:collection';
+import 'dart:_internal';
 import 'dart:_internal' as internal;
-import 'dart:math' ;
+import 'dart:math';
 
 
 ///把自己能处理的类注册到分发器中
@@ -37,27 +37,13 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_vertices_raw.funName] = _vertices_raw;
   m[_pictureRecorder.funName] = _pictureRecorder;
   m[_canvas.funName] = _canvas;
-  m[_picture.funName] = _picture;
   m[_pathFillType.funName] = _pathFillType;
   m[_pathOperation.funName] = _pathOperation;
   m[_rawRecordingCanvas.funName] = _rawRecordingCanvas;
   m[_channelBuffers.funName] = _channelBuffers;
-  m[_scene.funName] = _scene;
-  m[_transformEngineLayer.funName] = _transformEngineLayer;
-  m[_offsetEngineLayer.funName] = _offsetEngineLayer;
-  m[_clipRectEngineLayer.funName] = _clipRectEngineLayer;
-  m[_clipRRectEngineLayer.funName] = _clipRRectEngineLayer;
-  m[_clipPathEngineLayer.funName] = _clipPathEngineLayer;
-  m[_opacityEngineLayer.funName] = _opacityEngineLayer;
-  m[_colorFilterEngineLayer.funName] = _colorFilterEngineLayer;
-  m[_imageFilterEngineLayer.funName] = _imageFilterEngineLayer;
-  m[_backdropFilterEngineLayer.funName] = _backdropFilterEngineLayer;
-  m[_shaderMaskEngineLayer.funName] = _shaderMaskEngineLayer;
-  m[_physicalShapeEngineLayer.funName] = _physicalShapeEngineLayer;
   m[_sceneBuilder.funName] = _sceneBuilder;
   m[_engineLayer.funName] = _engineLayer;
   m[_sceneHost.funName] = _sceneHost;
-  m[_offsetBase.funName] = _offsetBase;
   m[_offset.funName] = _offset;
   m[_offset_fromDirection.funName] = _offset_fromDirection;
   m[_size.funName] = _size;
@@ -94,7 +80,6 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_gradient_linear.funName] = _gradient_linear;
   m[_gradient_radial.funName] = _gradient_radial;
   m[_gradient_sweep.funName] = _gradient_sweep;
-  m[_image.funName] = _image;
   m[_colorFilter_mode.funName] = _colorFilter_mode;
   m[_colorFilter_matrix.funName] = _colorFilter_matrix;
   m[_colorFilter_linearToSrgbGamma.funName] = _colorFilter_linearToSrgbGamma;
@@ -109,9 +94,6 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_shadow.funName] = _shadow;
   m[_path.funName] = _path;
   m[_path_from.funName] = _path_from;
-  m[_pathMetrics.funName] = _pathMetrics;
-  m[_pathMetricIterator.funName] = _pathMetricIterator;
-  m[_pathMetric.funName] = _pathMetric;
   m[_tangent.funName] = _tangent;
   m[_tangent_fromAngle.funName] = _tangent_fromAngle;
   m[_pointerChange.funName] = _pointerChange;
@@ -150,13 +132,11 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_boxHeightStyle.funName] = _boxHeightStyle;
   m[_boxWidthStyle.funName] = _boxWidthStyle;
   m[_lineMetrics.funName] = _lineMetrics;
-  m[_paragraph.funName] = _paragraph;
   m[_paragraphBuilder.funName] = _paragraphBuilder;
   m[_tileMode.funName] = _tileMode;
   m[_appLifecycleState.funName] = _appLifecycleState;
   m[_locale.funName] = _locale;
   m[_locale_fromSubtags.funName] = _locale_fromSubtags;
-  m[_window.funName] = _window;
   m[_brightness.funName] = _brightness;
   m[_callbackHandle_fromRawHandle.funName] = _callbackHandle_fromRawHandle;
   m[_pluginUtilities.funName] = _pluginUtilities;
@@ -170,14 +150,11 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_bigInt_from.funName] = _bigInt_from;
   m[_bool_fromEnvironment.funName] = _bool_fromEnvironment;
   m[_bool_hasEnvironment.funName] = _bool_hasEnvironment;
-  m[_comparable.funName] = _comparable;
   m[_dateTime.funName] = _dateTime;
   m[_dateTime_utc.funName] = _dateTime_utc;
   m[_dateTime_now.funName] = _dateTime_now;
   m[_dateTime_fromMillisecondsSinceEpoch.funName] = _dateTime_fromMillisecondsSinceEpoch;
   m[_dateTime_fromMicrosecondsSinceEpoch.funName] = _dateTime_fromMicrosecondsSinceEpoch;
-  m[_num.funName] = _num;
-  m[_double.funName] = _double;
   m[_duration.funName] = _duration;
   m[_error.funName] = _error;
   m[_assertionError.funName] = _assertionError;
@@ -207,18 +184,13 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_formatException.funName] = _formatException;
   m[_integerDivisionByZeroException.funName] = _integerDivisionByZeroException;
   m[_expando.funName] = _expando;
-  m[_function.funName] = _function;
   m[_int_fromEnvironment.funName] = _int_fromEnvironment;
-  m[_invocation.funName] = _invocation;
   m[_invocation_method.funName] = _invocation_method;
   m[_invocation_genericMethod.funName] = _invocation_genericMethod;
   m[_invocation_getter.funName] = _invocation_getter;
   m[_invocation_setter.funName] = _invocation_setter;
-  m[_iterable.funName] = _iterable;
   m[_iterable_generate.funName] = _iterable_generate;
   m[_iterable_empty.funName] = _iterable_empty;
-  m[_bidirectionalIterator.funName] = _bidirectionalIterator;
-  m[_iterator.funName] = _iterator;
   m[_list.funName] = _list;
   m[_list_filled.funName] = _list_filled;
   m[_list_from.funName] = _list_from;
@@ -236,16 +208,11 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_map_fromIterables.funName] = _map_fromIterables;
   m[_map_fromEntries.funName] = _map_fromEntries;
   m[_mapEntry.funName] = _mapEntry;
-  m[_pattern.funName] = _pattern;
-  m[_match.funName] = _match;
   m[_regExp.funName] = _regExp;
-  m[_regExpMatch.funName] = _regExpMatch;
   m[_set.funName] = _set;
   m[_set_identity.funName] = _set_identity;
   m[_set_from.funName] = _set_from;
   m[_set_of.funName] = _set_of;
-  m[_sink.funName] = _sink;
-  m[_stackTrace.funName] = _stackTrace;
   m[_stackTrace_fromString.funName] = _stackTrace_fromString;
   m[_stopwatch.funName] = _stopwatch;
   m[_string_fromCharCodes.funName] = _string_fromCharCodes;
@@ -255,9 +222,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_runeIterator.funName] = _runeIterator;
   m[_runeIterator_at.funName] = _runeIterator_at;
   m[_stringBuffer.funName] = _stringBuffer;
-  m[_stringSink.funName] = _stringSink;
   m[_symbol.funName] = _symbol;
-  m[_type.funName] = _type;
   m[_uri.funName] = _uri;
   m[_uri_http.funName] = _uri_http;
   m[_uri_https.funName] = _uri_https;
@@ -340,13 +305,6 @@ var _canvas = MXFunctionInvoke(
       cullRect,
     ),
 );
-var _picture = MXFunctionInvoke(
-    "Picture",
-    (
-    ) =>
-      Picture(
-    ),
-);
 var _pathFillType = MXFunctionInvoke(
     "PathFillType",
     ({Map args}) => MXPathFillType.parse(args),
@@ -371,90 +329,6 @@ var _channelBuffers = MXFunctionInvoke(
     (
     ) =>
       ChannelBuffers(
-    ),
-);
-var _scene = MXFunctionInvoke(
-    "Scene",
-    (
-    ) =>
-      Scene(
-    ),
-);
-var _transformEngineLayer = MXFunctionInvoke(
-    "TransformEngineLayer",
-    (
-    ) =>
-      TransformEngineLayer(
-    ),
-);
-var _offsetEngineLayer = MXFunctionInvoke(
-    "OffsetEngineLayer",
-    (
-    ) =>
-      OffsetEngineLayer(
-    ),
-);
-var _clipRectEngineLayer = MXFunctionInvoke(
-    "ClipRectEngineLayer",
-    (
-    ) =>
-      ClipRectEngineLayer(
-    ),
-);
-var _clipRRectEngineLayer = MXFunctionInvoke(
-    "ClipRRectEngineLayer",
-    (
-    ) =>
-      ClipRRectEngineLayer(
-    ),
-);
-var _clipPathEngineLayer = MXFunctionInvoke(
-    "ClipPathEngineLayer",
-    (
-    ) =>
-      ClipPathEngineLayer(
-    ),
-);
-var _opacityEngineLayer = MXFunctionInvoke(
-    "OpacityEngineLayer",
-    (
-    ) =>
-      OpacityEngineLayer(
-    ),
-);
-var _colorFilterEngineLayer = MXFunctionInvoke(
-    "ColorFilterEngineLayer",
-    (
-    ) =>
-      ColorFilterEngineLayer(
-    ),
-);
-var _imageFilterEngineLayer = MXFunctionInvoke(
-    "ImageFilterEngineLayer",
-    (
-    ) =>
-      ImageFilterEngineLayer(
-    ),
-);
-var _backdropFilterEngineLayer = MXFunctionInvoke(
-    "BackdropFilterEngineLayer",
-    (
-    ) =>
-      BackdropFilterEngineLayer(
-    ),
-);
-var _shaderMaskEngineLayer = MXFunctionInvoke(
-    "ShaderMaskEngineLayer",
-    (
-    ) =>
-      ShaderMaskEngineLayer(
-    ),
-);
-var _physicalShapeEngineLayer = MXFunctionInvoke(
-    "PhysicalShapeEngineLayer",
-    (
-    ) =>
-      PhysicalShapeEngineLayer(
     ),
 );
 var _sceneBuilder = MXFunctionInvoke(
@@ -483,22 +357,9 @@ var _sceneHost = MXFunctionInvoke(
     ) =>
       SceneHost(
       viewHolderToken,
-      viewConnectedCallback,
-      viewDisconnectedCallback,
-      viewStateChangedCallback,
-    ),
-);
-var _offsetBase = MXFunctionInvoke(
-    "OffsetBase",
-    (
-      {
-      dynamic dx,
-      dynamic dy,
-      }
-    ) =>
-      OffsetBase(
-      dx,
-      dy,
+      createVoidCallbackClosure(_sceneHost.buildOwner, viewConnectedCallback),
+      createVoidCallbackClosure(_sceneHost.buildOwner, viewDisconnectedCallback),
+      createValueChangedGenericClosure<bool>(_sceneHost.buildOwner, viewStateChangedCallback),
     ),
 );
 var _offset = MXFunctionInvoke(
@@ -510,8 +371,8 @@ var _offset = MXFunctionInvoke(
       }
     ) =>
       Offset(
-      dx,
-      dy,
+      dx?.toDouble(),
+      dy?.toDouble(),
     ),
 );
 var _offset_fromDirection = MXFunctionInvoke(
@@ -523,8 +384,8 @@ var _offset_fromDirection = MXFunctionInvoke(
       }
     ) =>
       Offset.fromDirection(
-      direction,
-      distance,
+      direction?.toDouble(),
+      distance?.toDouble(),
     ),
 );
 var _size = MXFunctionInvoke(
@@ -536,8 +397,8 @@ var _size = MXFunctionInvoke(
       }
     ) =>
       Size(
-      width,
-      height,
+      width?.toDouble(),
+      height?.toDouble(),
     ),
 );
 var _size_copy = MXFunctionInvoke(
@@ -559,7 +420,7 @@ var _size_square = MXFunctionInvoke(
       }
     ) =>
       Size.square(
-      dimension,
+      dimension?.toDouble(),
     ),
 );
 var _size_fromWidth = MXFunctionInvoke(
@@ -570,7 +431,7 @@ var _size_fromWidth = MXFunctionInvoke(
       }
     ) =>
       Size.fromWidth(
-      width,
+      width?.toDouble(),
     ),
 );
 var _size_fromHeight = MXFunctionInvoke(
@@ -581,7 +442,7 @@ var _size_fromHeight = MXFunctionInvoke(
       }
     ) =>
       Size.fromHeight(
-      height,
+      height?.toDouble(),
     ),
 );
 var _size_fromRadius = MXFunctionInvoke(
@@ -592,7 +453,7 @@ var _size_fromRadius = MXFunctionInvoke(
       }
     ) =>
       Size.fromRadius(
-      radius,
+      radius?.toDouble(),
     ),
 );
 var _rect_fromLTRB = MXFunctionInvoke(
@@ -606,10 +467,10 @@ var _rect_fromLTRB = MXFunctionInvoke(
       }
     ) =>
       Rect.fromLTRB(
-      left,
-      top,
-      right,
-      bottom,
+      left?.toDouble(),
+      top?.toDouble(),
+      right?.toDouble(),
+      bottom?.toDouble(),
     ),
 );
 var _rect_fromLTWH = MXFunctionInvoke(
@@ -623,10 +484,10 @@ var _rect_fromLTWH = MXFunctionInvoke(
       }
     ) =>
       Rect.fromLTWH(
-      left,
-      top,
-      width,
-      height,
+      left?.toDouble(),
+      top?.toDouble(),
+      width?.toDouble(),
+      height?.toDouble(),
     ),
 );
 var _rect_fromCircle = MXFunctionInvoke(
@@ -678,7 +539,7 @@ var _radius_circular = MXFunctionInvoke(
       }
     ) =>
       Radius.circular(
-      radius,
+      radius?.toDouble(),
     ),
 );
 var _radius_elliptical = MXFunctionInvoke(
@@ -690,8 +551,8 @@ var _radius_elliptical = MXFunctionInvoke(
       }
     ) =>
       Radius.elliptical(
-      x,
-      y,
+      x?.toDouble(),
+      y?.toDouble(),
     ),
 );
 var _rRect_fromLTRBXY = MXFunctionInvoke(
@@ -707,12 +568,12 @@ var _rRect_fromLTRBXY = MXFunctionInvoke(
       }
     ) =>
       RRect.fromLTRBXY(
-      left,
-      top,
-      right,
-      bottom,
-      radiusX,
-      radiusY,
+      left?.toDouble(),
+      top?.toDouble(),
+      right?.toDouble(),
+      bottom?.toDouble(),
+      radiusX?.toDouble(),
+      radiusY?.toDouble(),
     ),
 );
 var _rRect_fromLTRBR = MXFunctionInvoke(
@@ -727,10 +588,10 @@ var _rRect_fromLTRBR = MXFunctionInvoke(
       }
     ) =>
       RRect.fromLTRBR(
-      left,
-      top,
-      right,
-      bottom,
+      left?.toDouble(),
+      top?.toDouble(),
+      right?.toDouble(),
+      bottom?.toDouble(),
       radius,
     ),
 );
@@ -745,8 +606,8 @@ var _rRect_fromRectXY = MXFunctionInvoke(
     ) =>
       RRect.fromRectXY(
       rect,
-      radiusX,
-      radiusY,
+      radiusX?.toDouble(),
+      radiusY?.toDouble(),
     ),
 );
 var _rRect_fromRectAndRadius = MXFunctionInvoke(
@@ -777,10 +638,10 @@ var _rRect_fromLTRBAndCorners = MXFunctionInvoke(
       }
     ) =>
       RRect.fromLTRBAndCorners(
-      left,
-      top,
-      right,
-      bottom,
+      left?.toDouble(),
+      top?.toDouble(),
+      right?.toDouble(),
+      bottom?.toDouble(),
       topLeft: topLeft,
       topRight: topRight,
       bottomRight: bottomRight,
@@ -817,10 +678,10 @@ var _rSTransform = MXFunctionInvoke(
       }
     ) =>
       RSTransform(
-      scos,
-      ssin,
-      tx,
-      ty,
+      scos?.toDouble(),
+      ssin?.toDouble(),
+      tx?.toDouble(),
+      ty?.toDouble(),
     ),
 );
 var _rSTransform_fromComponents = MXFunctionInvoke(
@@ -853,8 +714,8 @@ var _point = MXFunctionInvoke(
       }
     ) =>
       Point(
-      x,
-      y,
+      x?.toDouble(),
+      y?.toDouble(),
     ),
 );
 var _color = MXFunctionInvoke(
@@ -899,7 +760,7 @@ var _color_fromRGBO = MXFunctionInvoke(
       r,
       g,
       b,
-      opacity,
+      opacity?.toDouble(),
     ),
 );
 var _strokeCap = MXFunctionInvoke(
@@ -966,13 +827,13 @@ var _gradient_radial = MXFunctionInvoke(
     ) =>
       Gradient.radial(
       center,
-      radius,
+      radius?.toDouble(),
       colors,
       colorStops,
       tileMode,
       matrix4,
       focal,
-      focalRadius,
+      focalRadius?.toDouble(),
     ),
 );
 var _gradient_sweep = MXFunctionInvoke(
@@ -993,16 +854,9 @@ var _gradient_sweep = MXFunctionInvoke(
       colors,
       colorStops,
       tileMode,
-      startAngle,
-      endAngle,
+      startAngle?.toDouble(),
+      endAngle?.toDouble(),
       matrix4,
-    ),
-);
-var _image = MXFunctionInvoke(
-    "Image",
-    (
-    ) =>
-      Image(
     ),
 );
 var _colorFilter_mode = MXFunctionInvoke(
@@ -1057,7 +911,7 @@ var _maskFilter_blur = MXFunctionInvoke(
     ) =>
       MaskFilter.blur(
       style,
-      sigma,
+      sigma?.toDouble(),
     ),
 );
 var _filterQuality = MXFunctionInvoke(
@@ -1131,27 +985,6 @@ var _path_from = MXFunctionInvoke(
       source,
     ),
 );
-var _pathMetrics = MXFunctionInvoke(
-    "PathMetrics",
-    (
-    ) =>
-      PathMetrics(
-    ),
-);
-var _pathMetricIterator = MXFunctionInvoke(
-    "PathMetricIterator",
-    (
-    ) =>
-      PathMetricIterator(
-    ),
-);
-var _pathMetric = MXFunctionInvoke(
-    "PathMetric",
-    (
-    ) =>
-      PathMetric(
-    ),
-);
 var _tangent = MXFunctionInvoke(
     "Tangent",
     (
@@ -1175,7 +1008,7 @@ var _tangent_fromAngle = MXFunctionInvoke(
     ) =>
       Tangent.fromAngle(
       position,
-      angle,
+      angle?.toDouble(),
     ),
 );
 var _pointerChange = MXFunctionInvoke(
@@ -1530,10 +1363,10 @@ var _textBox_fromLTRBD = MXFunctionInvoke(
       }
     ) =>
       TextBox.fromLTRBD(
-      left,
-      top,
-      right,
-      bottom,
+      left?.toDouble(),
+      top?.toDouble(),
+      right?.toDouble(),
+      bottom?.toDouble(),
       direction,
     ),
 );
@@ -1624,13 +1457,6 @@ var _lineMetrics = MXFunctionInvoke(
       lineNumber: lineNumber,
     ),
 );
-var _paragraph = MXFunctionInvoke(
-    "Paragraph",
-    (
-    ) =>
-      Paragraph(
-    ),
-);
 var _paragraphBuilder = MXFunctionInvoke(
     "ParagraphBuilder",
     (
@@ -1676,13 +1502,6 @@ var _locale_fromSubtags = MXFunctionInvoke(
       languageCode: languageCode,
       scriptCode: scriptCode,
       countryCode: countryCode,
-    ),
-);
-var _window = MXFunctionInvoke(
-    "Window",
-    (
-    ) =>
-      Window(
     ),
 );
 var _brightness = MXFunctionInvoke(
@@ -1816,13 +1635,6 @@ var _bool_hasEnvironment = MXFunctionInvoke(
       name,
     ),
 );
-var _comparable = MXFunctionInvoke(
-    "Comparable",
-    (
-    ) =>
-      Comparable(
-    ),
-);
 var _dateTime = MXFunctionInvoke(
     "DateTime",
     (
@@ -1904,20 +1716,6 @@ var _dateTime_fromMicrosecondsSinceEpoch = MXFunctionInvoke(
       DateTime.fromMicrosecondsSinceEpoch(
       microsecondsSinceEpoch,
       isUtc: isUtc,
-    ),
-);
-var _num = MXFunctionInvoke(
-    "num",
-    (
-    ) =>
-      num(
-    ),
-);
-var _double = MXFunctionInvoke(
-    "double",
-    (
-    ) =>
-      double(
     ),
 );
 var _duration = MXFunctionInvoke(
@@ -2263,13 +2061,6 @@ var _expando = MXFunctionInvoke(
       name,
     ),
 );
-var _function = MXFunctionInvoke(
-    "Function",
-    (
-    ) =>
-      Function(
-    ),
-);
 var _int_fromEnvironment = MXFunctionInvoke(
   "int.fromEnvironment",
     (
@@ -2281,13 +2072,6 @@ var _int_fromEnvironment = MXFunctionInvoke(
       int.fromEnvironment(
       name,
       defaultValue: defaultValue,
-    ),
-);
-var _invocation = MXFunctionInvoke(
-    "Invocation",
-    (
-    ) =>
-      Invocation(
     ),
 );
 var _invocation_method = MXFunctionInvoke(
@@ -2346,13 +2130,6 @@ var _invocation_setter = MXFunctionInvoke(
       argument,
     ),
 );
-var _iterable = MXFunctionInvoke(
-    "Iterable",
-    (
-    ) =>
-      Iterable(
-    ),
-);
 var _iterable_generate = MXFunctionInvoke(
   "Iterable.generate",
     (
@@ -2363,7 +2140,7 @@ var _iterable_generate = MXFunctionInvoke(
     ) =>
       Iterable.generate(
       count,
-      generator,
+      null,
     ),
 );
 var _iterable_empty = MXFunctionInvoke(
@@ -2371,20 +2148,6 @@ var _iterable_empty = MXFunctionInvoke(
     (
     ) =>
       Iterable.empty(
-    ),
-);
-var _bidirectionalIterator = MXFunctionInvoke(
-    "BidirectionalIterator",
-    (
-    ) =>
-      BidirectionalIterator(
-    ),
-);
-var _iterator = MXFunctionInvoke(
-    "Iterator",
-    (
-    ) =>
-      Iterator(
     ),
 );
 var _list = MXFunctionInvoke(
@@ -2450,7 +2213,7 @@ var _list_generate = MXFunctionInvoke(
     ) =>
       List.generate(
       length,
-      generator,
+      null,
       growable: growable,
     ),
 );
@@ -2598,20 +2361,6 @@ var _mapEntry = MXFunctionInvoke(
       value,
     ),
 );
-var _pattern = MXFunctionInvoke(
-    "Pattern",
-    (
-    ) =>
-      Pattern(
-    ),
-);
-var _match = MXFunctionInvoke(
-    "Match",
-    (
-    ) =>
-      Match(
-    ),
-);
 var _regExp = MXFunctionInvoke(
     "RegExp",
     (
@@ -2629,13 +2378,6 @@ var _regExp = MXFunctionInvoke(
       caseSensitive: caseSensitive,
       unicode: unicode,
       dotAll: dotAll,
-    ),
-);
-var _regExpMatch = MXFunctionInvoke(
-    "RegExpMatch",
-    (
-    ) =>
-      RegExpMatch(
     ),
 );
 var _set = MXFunctionInvoke(
@@ -2672,20 +2414,6 @@ var _set_of = MXFunctionInvoke(
     ) =>
       Set.of(
       elements,
-    ),
-);
-var _sink = MXFunctionInvoke(
-    "Sink",
-    (
-    ) =>
-      Sink(
-    ),
-);
-var _stackTrace = MXFunctionInvoke(
-    "StackTrace",
-    (
-    ) =>
-      StackTrace(
     ),
 );
 var _stackTrace_fromString = MXFunctionInvoke(
@@ -2791,13 +2519,6 @@ var _stringBuffer = MXFunctionInvoke(
       content,
     ),
 );
-var _stringSink = MXFunctionInvoke(
-    "StringSink",
-    (
-    ) =>
-      StringSink(
-    ),
-);
 var _symbol = MXFunctionInvoke(
     "Symbol",
     (
@@ -2807,13 +2528,6 @@ var _symbol = MXFunctionInvoke(
     ) =>
       Symbol(
       name,
-    ),
-);
-var _type = MXFunctionInvoke(
-    "Type",
-    (
-    ) =>
-      Type(
     ),
 );
 var _uri = MXFunctionInvoke(

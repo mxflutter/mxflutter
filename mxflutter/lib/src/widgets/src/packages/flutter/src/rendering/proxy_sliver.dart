@@ -7,36 +7,24 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/proxy_sliver.dart';
 import 'dart:ui' as ui;
-import 'package:flutter/animation.dart' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/rendering/layer.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
-import 'package:flutter/src/rendering/proxy_box.dart' ;
-import 'package:flutter/src/rendering/sliver.dart' ;
+import 'package:flutter/animation.dart';
+import 'package:flutter/foundation.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/rendering/layer.dart';
+import 'package:flutter/src/rendering/object.dart';
+import 'package:flutter/src/rendering/proxy_box.dart';
+import 'package:flutter/src/rendering/sliver.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerProxySliverSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_renderProxySliver.funName] = _renderProxySliver;
   m[_renderSliverOpacity.funName] = _renderSliverOpacity;
   m[_renderSliverIgnorePointer.funName] = _renderSliverIgnorePointer;
   m[_renderSliverOffstage.funName] = _renderSliverOffstage;
   m[_renderSliverAnimatedOpacity.funName] = _renderSliverAnimatedOpacity;
   return m;
 }
-var _renderProxySliver = MXFunctionInvoke(
-    "RenderProxySliver",
-    (
-      {
-      RenderSliver child,
-      }
-    ) =>
-      RenderProxySliver(
-      child,
-    ),
-);
 var _renderSliverOpacity = MXFunctionInvoke(
     "RenderSliverOpacity",
     (

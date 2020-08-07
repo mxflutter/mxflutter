@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/profile.dart';
-import 'package:flutter/src/foundation/basic_types.dart' ;
-import 'package:flutter/src/foundation/constants.dart' ;
+import 'package:flutter/src/foundation/basic_types.dart';
+import 'package:flutter/src/foundation/constants.dart';
 
 
 ///把自己能处理的类注册到分发器中

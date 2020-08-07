@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/sliver_fill.dart';
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/src/widgets/basic.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
-import 'package:flutter/src/widgets/sliver.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/sliver.dart';
 
 
 ///把自己能处理的类注册到分发器中

@@ -6,16 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/page_scaffold.dart';
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/cupertino/colors.dart' ;
-import 'package:flutter/src/cupertino/theme.dart' ;
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/cupertino/colors.dart';
+import 'package:flutter/src/cupertino/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPageScaffoldSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoPageScaffold.funName] = _cupertinoPageScaffold;
-  m[_obstructingPreferredSizeWidget.funName] = _obstructingPreferredSizeWidget;
   return m;
 }
 var _cupertinoPageScaffold = MXFunctionInvoke(
@@ -35,12 +34,5 @@ var _cupertinoPageScaffold = MXFunctionInvoke(
       backgroundColor: backgroundColor,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       child: child,
-    ),
-);
-var _obstructingPreferredSizeWidget = MXFunctionInvoke(
-    "ObstructingPreferredSizeWidget",
-    (
-    ) =>
-      ObstructingPreferredSizeWidget(
     ),
 );

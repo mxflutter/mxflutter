@@ -7,29 +7,17 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/input_border.dart';
 import 'dart:math' as math;
-import 'dart:ui' ;
-import 'package:flutter/widgets.dart' ;
+import 'dart:ui';
+import 'package:flutter/widgets.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInputBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_inputBorder.funName] = _inputBorder;
   m[_underlineInputBorder.funName] = _underlineInputBorder;
   m[_outlineInputBorder.funName] = _outlineInputBorder;
   return m;
 }
-var _inputBorder = MXFunctionInvoke(
-    "InputBorder",
-    (
-      {
-      BorderSide borderSide,
-      }
-    ) =>
-      InputBorder(
-      borderSide: borderSide,
-    ),
-);
 var _underlineInputBorder = MXFunctionInvoke(
     "UnderlineInputBorder",
     (

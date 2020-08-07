@@ -7,15 +7,15 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/toggle_buttons.dart';
 import 'dart:math' as math;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/button.dart' ;
-import 'package:flutter/src/material/constants.dart' ;
-import 'package:flutter/src/material/debug.dart' ;
-import 'package:flutter/src/material/theme.dart' ;
-import 'package:flutter/src/material/theme_data.dart' ;
-import 'package:flutter/src/material/toggle_buttons_theme.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/button.dart';
+import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/src/material/theme_data.dart';
+import 'package:flutter/src/material/toggle_buttons_theme.dart';
 
 
 ///把自己能处理的类注册到分发器中

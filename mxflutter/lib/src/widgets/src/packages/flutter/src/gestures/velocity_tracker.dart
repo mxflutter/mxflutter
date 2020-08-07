@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/velocity_tracker.dart';
-import 'dart:ui' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/gestures/lsq_solver.dart' ;
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/gestures/lsq_solver.dart';
 
 
 ///把自己能处理的类注册到分发器中

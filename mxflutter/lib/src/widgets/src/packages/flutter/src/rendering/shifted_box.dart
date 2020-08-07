@@ -7,42 +7,27 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/shifted_box.dart';
 import 'dart:math' as math;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/debug.dart' ;
-import 'package:flutter/src/rendering/debug_overflow_indicator.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
-import 'package:flutter/src/rendering/stack.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/debug.dart';
+import 'package:flutter/src/rendering/debug_overflow_indicator.dart';
+import 'package:flutter/src/rendering/object.dart';
+import 'package:flutter/src/rendering/stack.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerShiftedBoxSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_renderShiftedBox.funName] = _renderShiftedBox;
   m[_renderPadding.funName] = _renderPadding;
-  m[_renderAligningShiftedBox.funName] = _renderAligningShiftedBox;
-  m[_renderAligningShiftedBox_mixin.funName] = _renderAligningShiftedBox_mixin;
   m[_renderPositionedBox.funName] = _renderPositionedBox;
   m[_renderConstrainedOverflowBox.funName] = _renderConstrainedOverflowBox;
   m[_renderUnconstrainedBox.funName] = _renderUnconstrainedBox;
   m[_renderSizedOverflowBox.funName] = _renderSizedOverflowBox;
   m[_renderFractionallySizedOverflowBox.funName] = _renderFractionallySizedOverflowBox;
-  m[_singleChildLayoutDelegate.funName] = _singleChildLayoutDelegate;
   m[_renderCustomSingleChildLayoutBox.funName] = _renderCustomSingleChildLayoutBox;
   m[_renderBaseline.funName] = _renderBaseline;
   return m;
 }
-var _renderShiftedBox = MXFunctionInvoke(
-    "RenderShiftedBox",
-    (
-      {
-      RenderBox child,
-      }
-    ) =>
-      RenderShiftedBox(
-      child,
-    ),
-);
 var _renderPadding = MXFunctionInvoke(
     "RenderPadding",
     (
@@ -56,36 +41,6 @@ var _renderPadding = MXFunctionInvoke(
       padding: padding,
       textDirection: textDirection,
       child: child,
-    ),
-);
-var _renderAligningShiftedBox = MXFunctionInvoke(
-    "RenderAligningShiftedBox",
-    (
-      {
-      AlignmentGeometry alignment,
-      TextDirection textDirection,
-      RenderBox child,
-      }
-    ) =>
-      RenderAligningShiftedBox(
-      alignment: alignment,
-      textDirection: textDirection,
-      child: child,
-    ),
-);
-var _renderAligningShiftedBox_mixin = MXFunctionInvoke(
-  "RenderAligningShiftedBox.mixin",
-    (
-      {
-      AlignmentGeometry alignment,
-      TextDirection textDirection,
-      RenderBox child,
-      }
-    ) =>
-      RenderAligningShiftedBox.mixin(
-      alignment,
-      textDirection,
-      child,
     ),
 );
 var _renderPositionedBox = MXFunctionInvoke(
@@ -181,17 +136,6 @@ var _renderFractionallySizedOverflowBox = MXFunctionInvoke(
       heightFactor: heightFactor?.toDouble(),
       alignment: alignment,
       textDirection: textDirection,
-    ),
-);
-var _singleChildLayoutDelegate = MXFunctionInvoke(
-    "SingleChildLayoutDelegate",
-    (
-      {
-      Listenable relayout,
-      }
-    ) =>
-      SingleChildLayoutDelegate(
-      relayout: relayout,
     ),
 );
 var _renderCustomSingleChildLayoutBox = MXFunctionInvoke(

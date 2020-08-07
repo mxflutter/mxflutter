@@ -7,7 +7,7 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:vector_math/vector_math_64.dart';
 import 'dart:math' as math;
-import 'dart:typed_data' ;
+import 'dart:typed_data';
 import 'package:vector_math/hash.dart' as quiver;
 
 
@@ -120,7 +120,6 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_triangle.funName] = _triangle;
   m[_triangle_copy.funName] = _triangle_copy;
   m[_triangle_points.funName] = _triangle_points;
-  m[_vector.funName] = _vector;
   m[_vector2_min.funName] = _vector2_min;
   m[_vector2_max.funName] = _vector2_max;
   m[_vector2_mix.funName] = _vector2_mix;
@@ -1465,13 +1464,6 @@ var _triangle_points = MXFunctionInvoke(
       point0,
       point1,
       point2,
-    ),
-);
-var _vector = MXFunctionInvoke(
-    "Vector",
-    (
-    ) =>
-      Vector(
     ),
 );
 var _vector2_min = MXFunctionInvoke(

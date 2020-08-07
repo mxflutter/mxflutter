@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/flutter_logo.dart';
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/colors.dart' ;
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/colors.dart';
 
 
 ///把自己能处理的类注册到分发器中

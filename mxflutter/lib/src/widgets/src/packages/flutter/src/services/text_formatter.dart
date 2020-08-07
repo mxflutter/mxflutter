@@ -7,27 +7,19 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/text_formatter.dart';
 import 'dart:math' as math;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/services/text_editing.dart' ;
-import 'package:flutter/src/services/text_input.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/services/text_editing.dart';
+import 'package:flutter/src/services/text_input.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextFormatterSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_textInputFormatter.funName] = _textInputFormatter;
   m[_blacklistingTextInputFormatter.funName] = _blacklistingTextInputFormatter;
   m[_lengthLimitingTextInputFormatter.funName] = _lengthLimitingTextInputFormatter;
   m[_whitelistingTextInputFormatter.funName] = _whitelistingTextInputFormatter;
   return m;
 }
-var _textInputFormatter = MXFunctionInvoke(
-    "TextInputFormatter",
-    (
-    ) =>
-      TextInputFormatter(
-    ),
-);
 var _blacklistingTextInputFormatter = MXFunctionInvoke(
     "BlacklistingTextInputFormatter",
     (

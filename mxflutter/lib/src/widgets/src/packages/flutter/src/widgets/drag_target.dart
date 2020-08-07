@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/drag_target.dart';
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/services.dart' ;
-import 'package:flutter/src/widgets/basic.dart' ;
-import 'package:flutter/src/widgets/binding.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
-import 'package:flutter/src/widgets/overlay.dart' ;
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/binding.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/overlay.dart';
 
 
 ///把自己能处理的类注册到分发器中

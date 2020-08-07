@@ -6,12 +6,12 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/tap.dart';
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/gestures/arena.dart' ;
-import 'package:flutter/src/gestures/constants.dart' ;
-import 'package:flutter/src/gestures/events.dart' ;
-import 'package:flutter/src/gestures/recognizer.dart' ;
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/gestures/arena.dart';
+import 'package:flutter/src/gestures/constants.dart';
+import 'package:flutter/src/gestures/events.dart';
+import 'package:flutter/src/gestures/recognizer.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -19,7 +19,6 @@ Map<String, MXFunctionInvoke> registerTapSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_tapDownDetails.funName] = _tapDownDetails;
   m[_tapUpDetails.funName] = _tapUpDetails;
-  m[_baseTapGestureRecognizer.funName] = _baseTapGestureRecognizer;
   m[_tapGestureRecognizer.funName] = _tapGestureRecognizer;
   return m;
 }
@@ -49,17 +48,6 @@ var _tapUpDetails = MXFunctionInvoke(
       TapUpDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
-    ),
-);
-var _baseTapGestureRecognizer = MXFunctionInvoke(
-    "BaseTapGestureRecognizer",
-    (
-      {
-      Object debugOwner,
-      }
-    ) =>
-      BaseTapGestureRecognizer(
-      debugOwner: debugOwner,
     ),
 );
 var _tapGestureRecognizer = MXFunctionInvoke(

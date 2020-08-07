@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/texture.dart';
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/layer.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/layer.dart';
+import 'package:flutter/src/rendering/object.dart';
 
 
 ///把自己能处理的类注册到分发器中

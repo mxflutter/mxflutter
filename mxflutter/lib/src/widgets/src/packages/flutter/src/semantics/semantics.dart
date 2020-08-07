@@ -7,15 +7,15 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/semantics/semantics.dart';
 import 'dart:math' as math;
-import 'dart:typed_data' ;
+import 'dart:typed_data';
 import 'dart:ui' as ui;
-import 'dart:ui' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/painting.dart' ;
-import 'package:flutter/services.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/semantics/binding.dart' ;
-import 'package:flutter/src/semantics/semantics_event.dart' ;
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/services.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/semantics/binding.dart';
+import 'package:flutter/src/semantics/semantics_event.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -32,7 +32,6 @@ Map<String, MXFunctionInvoke> registerSemanticsSeries() {
   m[_semanticsOwner.funName] = _semanticsOwner;
   m[_semanticsConfiguration.funName] = _semanticsConfiguration;
   m[_debugSemanticsDumpOrder.funName] = _debugSemanticsDumpOrder;
-  m[_semanticsSortKey.funName] = _semanticsSortKey;
   m[_ordinalSortKey.funName] = _ordinalSortKey;
   return m;
 }
@@ -292,17 +291,6 @@ var _debugSemanticsDumpOrder = MXFunctionInvoke(
     "DebugSemanticsDumpOrder",
     ({Map args}) => MXDebugSemanticsDumpOrder.parse(args),
   );
-var _semanticsSortKey = MXFunctionInvoke(
-    "SemanticsSortKey",
-    (
-      {
-      String name,
-      }
-    ) =>
-      SemanticsSortKey(
-      name: name,
-    ),
-);
 var _ordinalSortKey = MXFunctionInvoke(
     "OrdinalSortKey",
     (

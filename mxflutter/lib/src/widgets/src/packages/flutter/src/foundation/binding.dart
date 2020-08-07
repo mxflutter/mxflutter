@@ -6,31 +6,23 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/binding.dart';
-import 'dart:async' ;
-import 'dart:convert' ;
+import 'dart:async';
+import 'dart:convert';
 import 'dart:developer' as developer;
-import 'dart:io' ;
+import 'dart:io';
 import 'dart:ui' as ui;
-import 'package:meta/meta.dart' ;
-import 'package:flutter/src/foundation/assertions.dart' ;
-import 'package:flutter/src/foundation/basic_types.dart' ;
-import 'package:flutter/src/foundation/constants.dart' ;
-import 'package:flutter/src/foundation/debug.dart' ;
-import 'package:flutter/src/foundation/object.dart' ;
-import 'package:flutter/src/foundation/platform.dart' ;
-import 'package:flutter/src/foundation/print.dart' ;
+import 'package:meta/meta.dart';
+import 'package:flutter/src/foundation/assertions.dart';
+import 'package:flutter/src/foundation/basic_types.dart';
+import 'package:flutter/src/foundation/constants.dart';
+import 'package:flutter/src/foundation/debug.dart';
+import 'package:flutter/src/foundation/object.dart';
+import 'package:flutter/src/foundation/platform.dart';
+import 'package:flutter/src/foundation/print.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_bindingBase.funName] = _bindingBase;
   return m;
 }
-var _bindingBase = MXFunctionInvoke(
-    "BindingBase",
-    (
-    ) =>
-      BindingBase(
-    ),
-);

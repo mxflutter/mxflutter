@@ -7,8 +7,8 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/lsq_solver.dart';
 import 'dart:math' as math;
-import 'dart:typed_data' ;
-import 'package:flutter/foundation.dart' ;
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
 
 
 ///把自己能处理的类注册到分发器中

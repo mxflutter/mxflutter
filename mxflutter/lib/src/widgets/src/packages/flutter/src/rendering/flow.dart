@@ -7,39 +7,19 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/flow.dart';
 import 'dart:ui' as ui;
-import 'package:flutter/foundation.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/object.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFlowSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_flowPaintingContext.funName] = _flowPaintingContext;
-  m[_flowDelegate.funName] = _flowDelegate;
   m[_flowParentData.funName] = _flowParentData;
   m[_renderFlow.funName] = _renderFlow;
   return m;
 }
-var _flowPaintingContext = MXFunctionInvoke(
-    "FlowPaintingContext",
-    (
-    ) =>
-      FlowPaintingContext(
-    ),
-);
-var _flowDelegate = MXFunctionInvoke(
-    "FlowDelegate",
-    (
-      {
-      Listenable repaint,
-      }
-    ) =>
-      FlowDelegate(
-      repaint: repaint,
-    ),
-);
 var _flowParentData = MXFunctionInvoke(
     "FlowParentData",
     (

@@ -6,39 +6,19 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/material_state.dart';
-import 'dart:ui' ;
+import 'dart:ui';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMaterialStateSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_materialState.funName] = _materialState;
-  m[_materialStateColor.funName] = _materialStateColor;
-  m[_materialStateProperty.funName] = _materialStateProperty;
   return m;
 }
 var _materialState = MXFunctionInvoke(
     "MaterialState",
     ({Map args}) => MXMaterialState.parse(args),
   );
-var _materialStateColor = MXFunctionInvoke(
-    "MaterialStateColor",
-    (
-      {
-      int defaultValue,
-      }
-    ) =>
-      MaterialStateColor(
-      defaultValue,
-    ),
-);
-var _materialStateProperty = MXFunctionInvoke(
-    "MaterialStateProperty",
-    (
-    ) =>
-      MaterialStateProperty(
-    ),
-);
 class MXMaterialState {
   static Map str2VMap = {
     'MaterialState.hovered': MaterialState.hovered,

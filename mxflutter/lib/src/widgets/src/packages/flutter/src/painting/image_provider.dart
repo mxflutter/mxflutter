@@ -5,51 +5,32 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/src/painting/_network_image_io.dart';
-import 'dart:async' ;
-import 'dart:io' ;
-import 'dart:typed_data' ;
-import 'dart:ui' as ui;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/painting/binding.dart' ;
-import 'package:flutter/src/painting/debug.dart' ;
-import 'package:flutter/src/painting/image_provider.dart' as image_provider;
-import 'package:flutter/src/painting/image_stream.dart' ;
 import 'package:flutter/src/painting/image_provider.dart';
-import 'dart:ui' ;
-import 'package:flutter/services.dart' ;
-import 'package:flutter/src/painting/_network_image_io.dart' as network_image;
-import 'package:flutter/src/painting/image_cache.dart' ;
+import 'dart:async';
+import 'dart:io';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/src/painting/binding.dart';
+import 'package:flutter/src/painting/image_cache.dart';
+import 'package:flutter/src/painting/image_stream.dart';
 
 
 ///把自己能处理的类注册到分发器中
-Map<String, MXFunctionInvoke> registerNetworkImageIoSeries() {
+Map<String, MXFunctionInvoke> registerImageProviderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_networkImage.funName] = _networkImage;
   m[_imageConfiguration.funName] = _imageConfiguration;
   m[_assetBundleImageKey.funName] = _assetBundleImageKey;
   m[_resizeImage.funName] = _resizeImage;
+  m[_networkImage.funName] = _networkImage;
   m[_fileImage.funName] = _fileImage;
   m[_memoryImage.funName] = _memoryImage;
   m[_exactAssetImage.funName] = _exactAssetImage;
   m[_networkImageLoadException.funName] = _networkImageLoadException;
   return m;
 }
-var _networkImage = MXFunctionInvoke(
-    "NetworkImage",
-    (
-      {
-      String url,
-      dynamic scale = 1.0,
-      Map<String, String> headers,
-      }
-    ) =>
-      NetworkImage(
-      url,
-      scale: scale?.toDouble(),
-      headers: headers,
-    ),
-);
 var _imageConfiguration = MXFunctionInvoke(
     "ImageConfiguration",
     (
@@ -99,6 +80,21 @@ var _resizeImage = MXFunctionInvoke(
       imageProvider,
       width: width,
       height: height,
+    ),
+);
+var _networkImage = MXFunctionInvoke(
+    "NetworkImage",
+    (
+      {
+      String url,
+      dynamic scale,
+      Map<String, String> headers,
+      }
+    ) =>
+      NetworkImage(
+      url,
+      scale: scale?.toDouble(),
+      headers: headers,
     ),
 );
 var _fileImage = MXFunctionInvoke(

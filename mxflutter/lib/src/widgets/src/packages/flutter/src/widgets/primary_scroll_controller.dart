@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/primary_scroll_controller.dart';
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
-import 'package:flutter/src/widgets/scroll_controller.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/scroll_controller.dart';
 
 
 ///把自己能处理的类注册到分发器中

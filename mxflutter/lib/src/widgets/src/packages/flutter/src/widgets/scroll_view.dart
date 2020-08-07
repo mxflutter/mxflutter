@@ -7,30 +7,28 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/scroll_view.dart';
 import 'dart:math' as math;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/src/widgets/basic.dart' ;
-import 'package:flutter/src/widgets/focus_manager.dart' ;
-import 'package:flutter/src/widgets/focus_scope.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
-import 'package:flutter/src/widgets/media_query.dart' ;
-import 'package:flutter/src/widgets/notification_listener.dart' ;
-import 'package:flutter/src/widgets/primary_scroll_controller.dart' ;
-import 'package:flutter/src/widgets/scroll_controller.dart' ;
-import 'package:flutter/src/widgets/scroll_notification.dart' ;
-import 'package:flutter/src/widgets/scroll_physics.dart' ;
-import 'package:flutter/src/widgets/scrollable.dart' ;
-import 'package:flutter/src/widgets/sliver.dart' ;
-import 'package:flutter/src/widgets/viewport.dart' ;
+import 'package:flutter/rendering.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/focus_manager.dart';
+import 'package:flutter/src/widgets/focus_scope.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/media_query.dart';
+import 'package:flutter/src/widgets/notification_listener.dart';
+import 'package:flutter/src/widgets/primary_scroll_controller.dart';
+import 'package:flutter/src/widgets/scroll_controller.dart';
+import 'package:flutter/src/widgets/scroll_notification.dart';
+import 'package:flutter/src/widgets/scroll_physics.dart';
+import 'package:flutter/src/widgets/scrollable.dart';
+import 'package:flutter/src/widgets/sliver.dart';
+import 'package:flutter/src/widgets/viewport.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollViewSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scrollViewKeyboardDismissBehavior.funName] = _scrollViewKeyboardDismissBehavior;
-  m[_scrollView.funName] = _scrollView;
   m[_customScrollView.funName] = _customScrollView;
-  m[_boxScrollView.funName] = _boxScrollView;
   m[_listView.funName] = _listView;
   m[_listView_builder.funName] = _listView_builder;
   m[_listView_separated.funName] = _listView_separated;
@@ -46,41 +44,6 @@ var _scrollViewKeyboardDismissBehavior = MXFunctionInvoke(
     "ScrollViewKeyboardDismissBehavior",
     ({Map args}) => MXScrollViewKeyboardDismissBehavior.parse(args),
   );
-var _scrollView = MXFunctionInvoke(
-    "ScrollView",
-    (
-      {
-      Key key,
-      Axis scrollDirection = Axis.vertical,
-      bool reverse = false,
-      ScrollController controller,
-      bool primary,
-      ScrollPhysics physics,
-      bool shrinkWrap = false,
-      Key center,
-      dynamic anchor = 0.0,
-      dynamic cacheExtent,
-      int semanticChildCount,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
-      }
-    ) =>
-      ScrollView(
-      key: key,
-      scrollDirection: scrollDirection,
-      reverse: reverse,
-      controller: controller,
-      primary: primary,
-      physics: physics,
-      shrinkWrap: shrinkWrap,
-      center: center,
-      anchor: anchor?.toDouble(),
-      cacheExtent: cacheExtent?.toDouble(),
-      semanticChildCount: semanticChildCount,
-      dragStartBehavior: dragStartBehavior,
-      keyboardDismissBehavior: keyboardDismissBehavior,
-    ),
-);
 var _customScrollView = MXFunctionInvoke(
     "CustomScrollView",
     (
@@ -114,39 +77,6 @@ var _customScrollView = MXFunctionInvoke(
       slivers: slivers,
       semanticChildCount: semanticChildCount,
       dragStartBehavior: dragStartBehavior,
-    ),
-);
-var _boxScrollView = MXFunctionInvoke(
-    "BoxScrollView",
-    (
-      {
-      Key key,
-      Axis scrollDirection = Axis.vertical,
-      bool reverse = false,
-      ScrollController controller,
-      bool primary,
-      ScrollPhysics physics,
-      bool shrinkWrap = false,
-      EdgeInsetsGeometry padding,
-      dynamic cacheExtent,
-      int semanticChildCount,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
-      }
-    ) =>
-      BoxScrollView(
-      key: key,
-      scrollDirection: scrollDirection,
-      reverse: reverse,
-      controller: controller,
-      primary: primary,
-      physics: physics,
-      shrinkWrap: shrinkWrap,
-      padding: padding,
-      cacheExtent: cacheExtent?.toDouble(),
-      semanticChildCount: semanticChildCount,
-      dragStartBehavior: dragStartBehavior,
-      keyboardDismissBehavior: keyboardDismissBehavior,
     ),
 );
 var _listView = MXFunctionInvoke(

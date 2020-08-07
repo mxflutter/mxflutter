@@ -7,8 +7,8 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/error.dart';
 import 'dart:ui' as ui;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/object.dart';
 
 
 ///把自己能处理的类注册到分发器中

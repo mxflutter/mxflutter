@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/image_decoder.dart';
-import 'dart:async' ;
-import 'dart:typed_data' ;
+import 'dart:async';
+import 'dart:typed_data';
 import 'dart:ui' as ui;
-import 'package:flutter/src/painting/binding.dart' ;
+import 'package:flutter/src/painting/binding.dart';
 
 
 ///把自己能处理的类注册到分发器中

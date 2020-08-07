@@ -7,16 +7,12 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/date_picker.dart';
 import 'dart:math' as math;
-import 'package:flutter/scheduler.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/cupertino/colors.dart' ;
-import 'package:flutter/src/cupertino/localizations.dart' ;
-import 'package:flutter/src/cupertino/picker.dart' ;
-import 'package:flutter/src/cupertino/theme.dart' ;
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/localizations.dart';
-import 'dart:async' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/cupertino/date_picker.dart' ;
+import 'package:flutter/src/cupertino/picker.dart';
+import 'package:flutter/src/cupertino/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -26,10 +22,6 @@ Map<String, MXFunctionInvoke> registerDatePickerSeries() {
   m[_cupertinoDatePicker.funName] = _cupertinoDatePicker;
   m[_cupertinoTimerPickerMode.funName] = _cupertinoTimerPickerMode;
   m[_cupertinoTimerPicker.funName] = _cupertinoTimerPicker;
-  m[_datePickerDateTimeOrder.funName] = _datePickerDateTimeOrder;
-  m[_datePickerDateOrder.funName] = _datePickerDateOrder;
-  m[_cupertinoLocalizations.funName] = _cupertinoLocalizations;
-  m[_defaultCupertinoLocalizations.funName] = _defaultCupertinoLocalizations;
   return m;
 }
 var _cupertinoDatePickerMode = MXFunctionInvoke(
@@ -96,28 +88,6 @@ var _cupertinoTimerPicker = MXFunctionInvoke(
       onTimerDurationChanged: createValueChangedGenericClosure<Duration>(_cupertinoTimerPicker.buildOwner, onTimerDurationChanged),
     ),
 );
-var _datePickerDateTimeOrder = MXFunctionInvoke(
-    "DatePickerDateTimeOrder",
-    ({Map args}) => MXDatePickerDateTimeOrder.parse(args),
-  );
-var _datePickerDateOrder = MXFunctionInvoke(
-    "DatePickerDateOrder",
-    ({Map args}) => MXDatePickerDateOrder.parse(args),
-  );
-var _cupertinoLocalizations = MXFunctionInvoke(
-    "CupertinoLocalizations",
-    (
-    ) =>
-      CupertinoLocalizations(
-    ),
-);
-var _defaultCupertinoLocalizations = MXFunctionInvoke(
-    "DefaultCupertinoLocalizations",
-    (
-    ) =>
-      DefaultCupertinoLocalizations(
-    ),
-);
 class MXCupertinoDatePickerMode {
   static Map str2VMap = {
     'CupertinoDatePickerMode.time': CupertinoDatePickerMode.time,
@@ -141,40 +111,6 @@ class MXCupertinoTimerPickerMode {
     'CupertinoTimerPickerMode.hms': CupertinoTimerPickerMode.hms,
   };
   static CupertinoTimerPickerMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
-    }
-  }
-}
-class MXDatePickerDateTimeOrder {
-  static Map str2VMap = {
-    'DatePickerDateTimeOrder.date_time_dayPeriod': DatePickerDateTimeOrder.date_time_dayPeriod,
-    'DatePickerDateTimeOrder.date_dayPeriod_time': DatePickerDateTimeOrder.date_dayPeriod_time,
-    'DatePickerDateTimeOrder.time_dayPeriod_date': DatePickerDateTimeOrder.time_dayPeriod_date,
-    'DatePickerDateTimeOrder.dayPeriod_time_date': DatePickerDateTimeOrder.dayPeriod_time_date,
-  };
-  static DatePickerDateTimeOrder parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
-    }
-  }
-}
-class MXDatePickerDateOrder {
-  static Map str2VMap = {
-    'DatePickerDateOrder.dmy': DatePickerDateOrder.dmy,
-    'DatePickerDateOrder.mdy': DatePickerDateOrder.mdy,
-    'DatePickerDateOrder.ymd': DatePickerDateOrder.ymd,
-    'DatePickerDateOrder.ydm': DatePickerDateOrder.ydm,
-  };
-  static DatePickerDateOrder parse(dynamic value) {
     if (value is Map) {
       var valueStr = value["_name"].trim();
       var v = str2VMap[valueStr];

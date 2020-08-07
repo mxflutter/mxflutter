@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/consolidate_response.dart';
-import 'dart:async' ;
-import 'dart:convert' ;
-import 'dart:io' ;
-import 'dart:typed_data' ;
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
 
 
 ///把自己能处理的类注册到分发器中

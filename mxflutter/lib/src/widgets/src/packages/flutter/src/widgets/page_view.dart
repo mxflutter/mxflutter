@@ -6,29 +6,29 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/page_view.dart';
-import 'dart:async' ;
+import 'dart:async';
 import 'dart:math' as math;
-import 'package:flutter/physics.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/widgets/basic.dart' ;
-import 'package:flutter/src/widgets/debug.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
-import 'package:flutter/src/widgets/notification_listener.dart' ;
-import 'package:flutter/src/widgets/page_storage.dart' ;
-import 'package:flutter/src/widgets/scroll_context.dart' ;
-import 'package:flutter/src/widgets/scroll_controller.dart' ;
-import 'package:flutter/src/widgets/scroll_metrics.dart' ;
-import 'package:flutter/src/widgets/scroll_notification.dart' ;
-import 'package:flutter/src/widgets/scroll_physics.dart' ;
-import 'package:flutter/src/widgets/scroll_position.dart' ;
-import 'package:flutter/src/widgets/scroll_position_with_single_context.dart' ;
-import 'package:flutter/src/widgets/scroll_view.dart' ;
-import 'package:flutter/src/widgets/scrollable.dart' ;
-import 'package:flutter/src/widgets/sliver.dart' ;
-import 'package:flutter/src/widgets/sliver_fill.dart' ;
-import 'package:flutter/src/widgets/viewport.dart' ;
+import 'package:flutter/physics.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/debug.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/notification_listener.dart';
+import 'package:flutter/src/widgets/page_storage.dart';
+import 'package:flutter/src/widgets/scroll_context.dart';
+import 'package:flutter/src/widgets/scroll_controller.dart';
+import 'package:flutter/src/widgets/scroll_metrics.dart';
+import 'package:flutter/src/widgets/scroll_notification.dart';
+import 'package:flutter/src/widgets/scroll_physics.dart';
+import 'package:flutter/src/widgets/scroll_position.dart';
+import 'package:flutter/src/widgets/scroll_position_with_single_context.dart';
+import 'package:flutter/src/widgets/scroll_view.dart';
+import 'package:flutter/src/widgets/scrollable.dart';
+import 'package:flutter/src/widgets/sliver.dart';
+import 'package:flutter/src/widgets/sliver_fill.dart';
+import 'package:flutter/src/widgets/viewport.dart';
 
 
 ///把自己能处理的类注册到分发器中

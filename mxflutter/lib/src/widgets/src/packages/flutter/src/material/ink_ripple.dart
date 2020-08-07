@@ -7,10 +7,10 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/ink_ripple.dart';
 import 'dart:math' as math;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/ink_well.dart' ;
-import 'package:flutter/src/material/material.dart' ;
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/material.dart';
 
 
 ///把自己能处理的类注册到分发器中
