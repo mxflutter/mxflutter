@@ -29,10 +29,21 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_aabb3_copy.funName] = _aabb3_copy;
   m[_aabb3_minMax.funName] = _aabb3_minMax;
   m[_aabb3_fromBuffer.funName] = _aabb3_fromBuffer;
+  m[_colors_fromRgba.funName] = _colors_fromRgba;
+  m[_colors_fromHexString.funName] = _colors_fromHexString;
+  m[_colors_alphaBlend.funName] = _colors_alphaBlend;
+  m[_colors_toGrayscale.funName] = _colors_toGrayscale;
+  m[_colors_linearToGamma.funName] = _colors_linearToGamma;
+  m[_colors_gammaToLinear.funName] = _colors_gammaToLinear;
+  m[_colors_rgbToHsv.funName] = _colors_rgbToHsv;
+  m[_colors_hsvToRgb.funName] = _colors_hsvToRgb;
+  m[_colors_rgbToHsl.funName] = _colors_rgbToHsl;
+  m[_colors_hslToRgb.funName] = _colors_hslToRgb;
   m[_frustum.funName] = _frustum;
   m[_frustum_copy.funName] = _frustum_copy;
   m[_frustum_matrix.funName] = _frustum_matrix;
   m[_intersectionResult.funName] = _intersectionResult;
+  m[_matrix2_solve.funName] = _matrix2_solve;
   m[_matrix2.funName] = _matrix2;
   m[_matrix2_fromList.funName] = _matrix2_fromList;
   m[_matrix2_identity.funName] = _matrix2_identity;
@@ -41,6 +52,8 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_matrix2_outer.funName] = _matrix2_outer;
   m[_matrix2_rotation.funName] = _matrix2_rotation;
   m[_matrix2_zero.funName] = _matrix2_zero;
+  m[_matrix3_solve2.funName] = _matrix3_solve2;
+  m[_matrix3_solve.funName] = _matrix3_solve;
   m[_matrix3.funName] = _matrix3;
   m[_matrix3_fromList.funName] = _matrix3_fromList;
   m[_matrix3_identity.funName] = _matrix3_identity;
@@ -51,6 +64,9 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_matrix3_rotationY.funName] = _matrix3_rotationY;
   m[_matrix3_rotationZ.funName] = _matrix3_rotationZ;
   m[_matrix3_zero.funName] = _matrix3_zero;
+  m[_matrix4_solve2.funName] = _matrix4_solve2;
+  m[_matrix4_solve3.funName] = _matrix4_solve3;
+  m[_matrix4_solve.funName] = _matrix4_solve;
   m[_matrix4.funName] = _matrix4;
   m[_matrix4_fromList.funName] = _matrix4_fromList;
   m[_matrix4_identity.funName] = _matrix4_identity;
@@ -76,6 +92,7 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_obb3_copy.funName] = _obb3_copy;
   m[_obb3_centerExtentsAxes.funName] = _obb3_centerExtentsAxes;
   m[_plane.funName] = _plane;
+  m[_plane_intersection.funName] = _plane_intersection;
   m[_plane_copy.funName] = _plane_copy;
   m[_plane_components.funName] = _plane_components;
   m[_plane_normalconstant.funName] = _plane_normalconstant;
@@ -103,6 +120,10 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_triangle.funName] = _triangle;
   m[_triangle_copy.funName] = _triangle_copy;
   m[_triangle_points.funName] = _triangle_points;
+  m[_vector.funName] = _vector;
+  m[_vector2_min.funName] = _vector2_min;
+  m[_vector2_max.funName] = _vector2_max;
+  m[_vector2_mix.funName] = _vector2_mix;
   m[_vector2.funName] = _vector2;
   m[_vector2_array.funName] = _vector2_array;
   m[_vector2_all.funName] = _vector2_all;
@@ -111,6 +132,9 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_vector2_zero.funName] = _vector2_zero;
   m[_vector2_fromFloat64List.funName] = _vector2_fromFloat64List;
   m[_vector2_fromBuffer.funName] = _vector2_fromBuffer;
+  m[_vector3_min.funName] = _vector3_min;
+  m[_vector3_max.funName] = _vector3_max;
+  m[_vector3_mix.funName] = _vector3_mix;
   m[_vector3.funName] = _vector3;
   m[_vector3_array.funName] = _vector3_array;
   m[_vector3_all.funName] = _vector3_all;
@@ -119,6 +143,9 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_vector3_zero.funName] = _vector3_zero;
   m[_vector3_fromFloat64List.funName] = _vector3_fromFloat64List;
   m[_vector3_fromBuffer.funName] = _vector3_fromBuffer;
+  m[_vector4_min.funName] = _vector4_min;
+  m[_vector4_max.funName] = _vector4_max;
+  m[_vector4_mix.funName] = _vector4_mix;
   m[_vector4.funName] = _vector4;
   m[_vector4_array.funName] = _vector4_array;
   m[_vector4_identity.funName] = _vector4_identity;
@@ -303,6 +330,148 @@ var _aabb3_fromBuffer = MXFunctionInvoke(
       offset,
     ),
 );
+var _colors_fromRgba = MXFunctionInvoke(
+  "Colors.fromRgba",
+    (
+      {
+      int r,
+      int g,
+      int b,
+      int a,
+      Vector4 result,
+      }
+    ) =>
+      Colors.fromRgba(
+      r,
+      g,
+      b,
+      a,
+      result,
+    ),
+);
+var _colors_fromHexString = MXFunctionInvoke(
+  "Colors.fromHexString",
+    (
+      {
+      String value,
+      Vector4 result,
+      }
+    ) =>
+      Colors.fromHexString(
+      value,
+      result,
+    ),
+);
+var _colors_alphaBlend = MXFunctionInvoke(
+  "Colors.alphaBlend",
+    (
+      {
+      Vector4 foreground,
+      Vector4 background,
+      Vector4 result,
+      }
+    ) =>
+      Colors.alphaBlend(
+      foreground,
+      background,
+      result,
+    ),
+);
+var _colors_toGrayscale = MXFunctionInvoke(
+  "Colors.toGrayscale",
+    (
+      {
+      Vector4 input,
+      Vector4 result,
+      }
+    ) =>
+      Colors.toGrayscale(
+      input,
+      result,
+    ),
+);
+var _colors_linearToGamma = MXFunctionInvoke(
+  "Colors.linearToGamma",
+    (
+      {
+      Vector4 linearColor,
+      Vector4 gammaColor,
+      dynamic gamma,
+      }
+    ) =>
+      Colors.linearToGamma(
+      linearColor,
+      gammaColor,
+      gamma,
+    ),
+);
+var _colors_gammaToLinear = MXFunctionInvoke(
+  "Colors.gammaToLinear",
+    (
+      {
+      Vector4 gammaColor,
+      Vector4 linearColor,
+      dynamic gamma,
+      }
+    ) =>
+      Colors.gammaToLinear(
+      gammaColor,
+      linearColor,
+      gamma,
+    ),
+);
+var _colors_rgbToHsv = MXFunctionInvoke(
+  "Colors.rgbToHsv",
+    (
+      {
+      Vector4 rgbColor,
+      Vector4 hsvColor,
+      }
+    ) =>
+      Colors.rgbToHsv(
+      rgbColor,
+      hsvColor,
+    ),
+);
+var _colors_hsvToRgb = MXFunctionInvoke(
+  "Colors.hsvToRgb",
+    (
+      {
+      Vector4 hsvColor,
+      Vector4 rgbColor,
+      }
+    ) =>
+      Colors.hsvToRgb(
+      hsvColor,
+      rgbColor,
+    ),
+);
+var _colors_rgbToHsl = MXFunctionInvoke(
+  "Colors.rgbToHsl",
+    (
+      {
+      Vector4 rgbColor,
+      Vector4 hslColor,
+      }
+    ) =>
+      Colors.rgbToHsl(
+      rgbColor,
+      hslColor,
+    ),
+);
+var _colors_hslToRgb = MXFunctionInvoke(
+  "Colors.hslToRgb",
+    (
+      {
+      Vector4 hslColor,
+      Vector4 rgbColor,
+      }
+    ) =>
+      Colors.hslToRgb(
+      hslColor,
+      rgbColor,
+    ),
+);
 var _frustum = MXFunctionInvoke(
     "Frustum",
     (
@@ -337,6 +506,21 @@ var _intersectionResult = MXFunctionInvoke(
     (
     ) =>
       IntersectionResult(
+    ),
+);
+var _matrix2_solve = MXFunctionInvoke(
+  "Matrix2.solve",
+    (
+      {
+      Matrix2 A,
+      Vector2 x,
+      Vector2 b,
+      }
+    ) =>
+      Matrix2.solve(
+      A,
+      x,
+      b,
     ),
 );
 var _matrix2 = MXFunctionInvoke(
@@ -427,6 +611,36 @@ var _matrix2_zero = MXFunctionInvoke(
     (
     ) =>
       Matrix2.zero(
+    ),
+);
+var _matrix3_solve2 = MXFunctionInvoke(
+  "Matrix3.solve2",
+    (
+      {
+      Matrix3 A,
+      Vector2 x,
+      Vector2 b,
+      }
+    ) =>
+      Matrix3.solve2(
+      A,
+      x,
+      b,
+    ),
+);
+var _matrix3_solve = MXFunctionInvoke(
+  "Matrix3.solve",
+    (
+      {
+      Matrix3 A,
+      Vector3 x,
+      Vector3 b,
+      }
+    ) =>
+      Matrix3.solve(
+      A,
+      x,
+      b,
     ),
 );
 var _matrix3 = MXFunctionInvoke(
@@ -551,6 +765,51 @@ var _matrix3_zero = MXFunctionInvoke(
     (
     ) =>
       Matrix3.zero(
+    ),
+);
+var _matrix4_solve2 = MXFunctionInvoke(
+  "Matrix4.solve2",
+    (
+      {
+      Matrix4 A,
+      Vector2 x,
+      Vector2 b,
+      }
+    ) =>
+      Matrix4.solve2(
+      A,
+      x,
+      b,
+    ),
+);
+var _matrix4_solve3 = MXFunctionInvoke(
+  "Matrix4.solve3",
+    (
+      {
+      Matrix4 A,
+      Vector3 x,
+      Vector3 b,
+      }
+    ) =>
+      Matrix4.solve3(
+      A,
+      x,
+      b,
+    ),
+);
+var _matrix4_solve = MXFunctionInvoke(
+  "Matrix4.solve",
+    (
+      {
+      Matrix4 A,
+      Vector4 x,
+      Vector4 b,
+      }
+    ) =>
+      Matrix4.solve(
+      A,
+      x,
+      b,
     ),
 );
 var _matrix4 = MXFunctionInvoke(
@@ -874,6 +1133,23 @@ var _plane = MXFunctionInvoke(
       Plane(
     ),
 );
+var _plane_intersection = MXFunctionInvoke(
+  "Plane.intersection",
+    (
+      {
+      Plane a,
+      Plane b,
+      Plane c,
+      Vector3 result,
+      }
+    ) =>
+      Plane.intersection(
+      a,
+      b,
+      c,
+      result,
+    ),
+);
 var _plane_copy = MXFunctionInvoke(
   "Plane.copy",
     (
@@ -1191,6 +1467,60 @@ var _triangle_points = MXFunctionInvoke(
       point2,
     ),
 );
+var _vector = MXFunctionInvoke(
+    "Vector",
+    (
+    ) =>
+      Vector(
+    ),
+);
+var _vector2_min = MXFunctionInvoke(
+  "Vector2.min",
+    (
+      {
+      Vector2 a,
+      Vector2 b,
+      Vector2 result,
+      }
+    ) =>
+      Vector2.min(
+      a,
+      b,
+      result,
+    ),
+);
+var _vector2_max = MXFunctionInvoke(
+  "Vector2.max",
+    (
+      {
+      Vector2 a,
+      Vector2 b,
+      Vector2 result,
+      }
+    ) =>
+      Vector2.max(
+      a,
+      b,
+      result,
+    ),
+);
+var _vector2_mix = MXFunctionInvoke(
+  "Vector2.mix",
+    (
+      {
+      Vector2 min,
+      Vector2 max,
+      dynamic a,
+      Vector2 result,
+      }
+    ) =>
+      Vector2.mix(
+      min,
+      max,
+      a,
+      result,
+    ),
+);
 var _vector2 = MXFunctionInvoke(
     "Vector2",
     (
@@ -1279,6 +1609,53 @@ var _vector2_fromBuffer = MXFunctionInvoke(
       Vector2.fromBuffer(
       buffer,
       offset,
+    ),
+);
+var _vector3_min = MXFunctionInvoke(
+  "Vector3.min",
+    (
+      {
+      Vector3 a,
+      Vector3 b,
+      Vector3 result,
+      }
+    ) =>
+      Vector3.min(
+      a,
+      b,
+      result,
+    ),
+);
+var _vector3_max = MXFunctionInvoke(
+  "Vector3.max",
+    (
+      {
+      Vector3 a,
+      Vector3 b,
+      Vector3 result,
+      }
+    ) =>
+      Vector3.max(
+      a,
+      b,
+      result,
+    ),
+);
+var _vector3_mix = MXFunctionInvoke(
+  "Vector3.mix",
+    (
+      {
+      Vector3 min,
+      Vector3 max,
+      dynamic a,
+      Vector3 result,
+      }
+    ) =>
+      Vector3.mix(
+      min,
+      max,
+      a,
+      result,
     ),
 );
 var _vector3 = MXFunctionInvoke(
@@ -1371,6 +1748,53 @@ var _vector3_fromBuffer = MXFunctionInvoke(
       Vector3.fromBuffer(
       buffer,
       offset,
+    ),
+);
+var _vector4_min = MXFunctionInvoke(
+  "Vector4.min",
+    (
+      {
+      Vector4 a,
+      Vector4 b,
+      Vector4 result,
+      }
+    ) =>
+      Vector4.min(
+      a,
+      b,
+      result,
+    ),
+);
+var _vector4_max = MXFunctionInvoke(
+  "Vector4.max",
+    (
+      {
+      Vector4 a,
+      Vector4 b,
+      Vector4 result,
+      }
+    ) =>
+      Vector4.max(
+      a,
+      b,
+      result,
+    ),
+);
+var _vector4_mix = MXFunctionInvoke(
+  "Vector4.mix",
+    (
+      {
+      Vector4 min,
+      Vector4 max,
+      dynamic a,
+      Vector4 result,
+      }
+    ) =>
+      Vector4.mix(
+      min,
+      max,
+      a,
+      result,
     ),
 );
 var _vector4 = MXFunctionInvoke(

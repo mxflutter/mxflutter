@@ -19,10 +19,18 @@ import 'package:flutter/src/rendering/viewport_offset.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListWheelViewportSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_listWheelChildManager.funName] = _listWheelChildManager;
   m[_listWheelParentData.funName] = _listWheelParentData;
   m[_renderListWheelViewport.funName] = _renderListWheelViewport;
   return m;
 }
+var _listWheelChildManager = MXFunctionInvoke(
+    "ListWheelChildManager",
+    (
+    ) =>
+      ListWheelChildManager(
+    ),
+);
 var _listWheelParentData = MXFunctionInvoke(
     "ListWheelParentData",
     (

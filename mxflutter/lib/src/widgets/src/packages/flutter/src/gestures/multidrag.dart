@@ -22,12 +22,38 @@ import 'package:flutter/src/gestures/velocity_tracker.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMultidragSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_multiDragPointerState.funName] = _multiDragPointerState;
+  m[_multiDragGestureRecognizer.funName] = _multiDragGestureRecognizer;
   m[_immediateMultiDragGestureRecognizer.funName] = _immediateMultiDragGestureRecognizer;
   m[_horizontalMultiDragGestureRecognizer.funName] = _horizontalMultiDragGestureRecognizer;
   m[_verticalMultiDragGestureRecognizer.funName] = _verticalMultiDragGestureRecognizer;
   m[_delayedMultiDragGestureRecognizer.funName] = _delayedMultiDragGestureRecognizer;
   return m;
 }
+var _multiDragPointerState = MXFunctionInvoke(
+    "MultiDragPointerState",
+    (
+      {
+      Offset initialPosition,
+      }
+    ) =>
+      MultiDragPointerState(
+      initialPosition,
+    ),
+);
+var _multiDragGestureRecognizer = MXFunctionInvoke(
+    "MultiDragGestureRecognizer",
+    (
+      {
+      Object debugOwner,
+      PointerDeviceKind kind,
+      }
+    ) =>
+      MultiDragGestureRecognizer(
+      debugOwner: debugOwner,
+      kind: kind,
+    ),
+);
 var _immediateMultiDragGestureRecognizer = MXFunctionInvoke(
     "ImmediateMultiDragGestureRecognizer",
     (

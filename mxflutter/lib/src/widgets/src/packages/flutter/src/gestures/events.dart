@@ -14,6 +14,7 @@ import 'package:vector_math/vector_math_64.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEventsSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_pointerEvent.funName] = _pointerEvent;
   m[_pointerAddedEvent.funName] = _pointerAddedEvent;
   m[_pointerRemovedEvent.funName] = _pointerRemovedEvent;
   m[_pointerHoverEvent.funName] = _pointerHoverEvent;
@@ -26,10 +27,74 @@ Map<String, MXFunctionInvoke> registerEventsSeries() {
   m[_pointerDownEvent.funName] = _pointerDownEvent;
   m[_pointerMoveEvent.funName] = _pointerMoveEvent;
   m[_pointerUpEvent.funName] = _pointerUpEvent;
+  m[_pointerSignalEvent.funName] = _pointerSignalEvent;
   m[_pointerScrollEvent.funName] = _pointerScrollEvent;
   m[_pointerCancelEvent.funName] = _pointerCancelEvent;
   return m;
 }
+var _pointerEvent = MXFunctionInvoke(
+    "PointerEvent",
+    (
+      {
+      Duration timeStamp,
+      int pointer = 0,
+      PointerDeviceKind kind = PointerDeviceKind.touch,
+      int device = 0,
+      Offset position,
+      Offset localPosition,
+      Offset delta,
+      Offset localDelta,
+      int buttons = 0,
+      bool down = false,
+      bool obscured = false,
+      dynamic pressure = 1.0,
+      dynamic pressureMin = 1.0,
+      dynamic pressureMax = 1.0,
+      dynamic distance = 0.0,
+      dynamic distanceMax = 0.0,
+      dynamic size = 0.0,
+      dynamic radiusMajor = 0.0,
+      dynamic radiusMinor = 0.0,
+      dynamic radiusMin = 0.0,
+      dynamic radiusMax = 0.0,
+      dynamic orientation = 0.0,
+      dynamic tilt = 0.0,
+      int platformData = 0,
+      bool synthesized = false,
+      Matrix4 transform,
+      PointerEvent original,
+      }
+    ) =>
+      PointerEvent(
+      timeStamp: timeStamp,
+      pointer: pointer,
+      kind: kind,
+      device: device,
+      position: position,
+      localPosition: localPosition,
+      delta: delta,
+      localDelta: localDelta,
+      buttons: buttons,
+      down: down,
+      obscured: obscured,
+      pressure: pressure?.toDouble(),
+      pressureMin: pressureMin?.toDouble(),
+      pressureMax: pressureMax?.toDouble(),
+      distance: distance?.toDouble(),
+      distanceMax: distanceMax?.toDouble(),
+      size: size?.toDouble(),
+      radiusMajor: radiusMajor?.toDouble(),
+      radiusMinor: radiusMinor?.toDouble(),
+      radiusMin: radiusMin?.toDouble(),
+      radiusMax: radiusMax?.toDouble(),
+      orientation: orientation?.toDouble(),
+      tilt: tilt?.toDouble(),
+      platformData: platformData,
+      synthesized: synthesized,
+      transform: transform,
+      original: original,
+    ),
+);
 var _pointerAddedEvent = MXFunctionInvoke(
     "PointerAddedEvent",
     (
@@ -478,6 +543,31 @@ var _pointerUpEvent = MXFunctionInvoke(
       radiusMax: radiusMax?.toDouble(),
       orientation: orientation?.toDouble(),
       tilt: tilt?.toDouble(),
+      transform: transform,
+      original: original,
+    ),
+);
+var _pointerSignalEvent = MXFunctionInvoke(
+    "PointerSignalEvent",
+    (
+      {
+      Duration timeStamp,
+      int pointer = 0,
+      PointerDeviceKind kind = PointerDeviceKind.mouse,
+      int device = 0,
+      Offset position,
+      Offset localPosition,
+      Matrix4 transform,
+      PointerSignalEvent original,
+      }
+    ) =>
+      PointerSignalEvent(
+      timeStamp: timeStamp,
+      pointer: pointer,
+      kind: kind,
+      device: device,
+      position: position,
+      localPosition: localPosition,
       transform: transform,
       original: original,
     ),

@@ -23,5 +23,21 @@ import 'package:flutter/src/material/theme.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSearchSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_searchDelegate.funName] = _searchDelegate;
   return m;
 }
+var _searchDelegate = MXFunctionInvoke(
+    "SearchDelegate",
+    (
+      {
+      String searchFieldLabel,
+      TextInputType keyboardType,
+      TextInputAction textInputAction = TextInputAction.search,
+      }
+    ) =>
+      SearchDelegate(
+      searchFieldLabel: searchFieldLabel,
+      keyboardType: keyboardType,
+      textInputAction: textInputAction,
+    ),
+);

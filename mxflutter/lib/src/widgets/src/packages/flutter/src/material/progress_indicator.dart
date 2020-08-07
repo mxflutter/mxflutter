@@ -16,11 +16,33 @@ import 'package:flutter/src/material/theme.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerProgressIndicatorSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_progressIndicator.funName] = _progressIndicator;
   m[_linearProgressIndicator.funName] = _linearProgressIndicator;
   m[_circularProgressIndicator.funName] = _circularProgressIndicator;
   m[_refreshProgressIndicator.funName] = _refreshProgressIndicator;
   return m;
 }
+var _progressIndicator = MXFunctionInvoke(
+    "ProgressIndicator",
+    (
+      {
+      Key key,
+      dynamic value,
+      Color backgroundColor,
+      Animation<Color> valueColor,
+      String semanticsLabel,
+      String semanticsValue,
+      }
+    ) =>
+      ProgressIndicator(
+      key: key,
+      value: value?.toDouble(),
+      backgroundColor: backgroundColor,
+      valueColor: valueColor,
+      semanticsLabel: semanticsLabel,
+      semanticsValue: semanticsValue,
+    ),
+);
 var _linearProgressIndicator = MXFunctionInvoke(
     "LinearProgressIndicator",
     (

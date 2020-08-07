@@ -13,5 +13,19 @@ import 'package:flutter/src/widgets/framework.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStatusTransitionsSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_statusTransitionWidget.funName] = _statusTransitionWidget;
   return m;
 }
+var _statusTransitionWidget = MXFunctionInvoke(
+    "StatusTransitionWidget",
+    (
+      {
+      Key key,
+      Animation<double> animation,
+      }
+    ) =>
+      StatusTransitionWidget(
+      key: key,
+      animation: animation,
+    ),
+);

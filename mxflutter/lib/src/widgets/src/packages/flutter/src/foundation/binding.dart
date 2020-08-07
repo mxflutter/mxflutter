@@ -24,5 +24,13 @@ import 'package:flutter/src/foundation/print.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_bindingBase.funName] = _bindingBase;
   return m;
 }
+var _bindingBase = MXFunctionInvoke(
+    "BindingBase",
+    (
+    ) =>
+      BindingBase(
+    ),
+);

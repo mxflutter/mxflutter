@@ -12,5 +12,13 @@ import 'dart:ui' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerClipSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_clipContext.funName] = _clipContext;
   return m;
 }
+var _clipContext = MXFunctionInvoke(
+    "ClipContext",
+    (
+    ) =>
+      ClipContext(
+    ),
+);

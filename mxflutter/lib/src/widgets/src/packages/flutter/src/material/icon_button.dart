@@ -156,6 +156,8 @@ Map<String, MXFunctionInvoke> registerIconButtonSeries() {
   m[_snackBarClosedReason.funName] = _snackBarClosedReason;
   m[_snackBarAction.funName] = _snackBarAction;
   m[_snackBar.funName] = _snackBar;
+  m[_floatingActionButtonLocation.funName] = _floatingActionButtonLocation;
+  m[_floatingActionButtonAnimator.funName] = _floatingActionButtonAnimator;
   m[_tooltip.funName] = _tooltip;
   m[_floatingActionButton.funName] = _floatingActionButton;
   m[_floatingActionButton_extended.funName] = _floatingActionButton_extended;
@@ -179,9 +181,12 @@ Map<String, MXFunctionInvoke> registerIconButtonSeries() {
   m[_simpleDialog.funName] = _simpleDialog;
   m[_materialButton.funName] = _materialButton;
   m[_raisedButton.funName] = _raisedButton;
+  m[_raisedButton_icon.funName] = _raisedButton_icon;
   m[_outlineButton.funName] = _outlineButton;
+  m[_outlineButton_icon.funName] = _outlineButton_icon;
   m[_rawMaterialButton.funName] = _rawMaterialButton;
   m[_flatButton.funName] = _flatButton;
+  m[_flatButton_icon.funName] = _flatButton_icon;
   m[_tooltipThemeData.funName] = _tooltipThemeData;
   m[_tooltipTheme.funName] = _tooltipTheme;
   m[_toggleButtonsThemeData.funName] = _toggleButtonsThemeData;
@@ -200,6 +205,14 @@ Map<String, MXFunctionInvoke> registerIconButtonSeries() {
   m[_thumb.funName] = _thumb;
   m[_sliderThemeData.funName] = _sliderThemeData;
   m[_sliderThemeData_fromPrimaryColors.funName] = _sliderThemeData_fromPrimaryColors;
+  m[_sliderComponentShape.funName] = _sliderComponentShape;
+  m[_sliderTickMarkShape.funName] = _sliderTickMarkShape;
+  m[_sliderTrackShape.funName] = _sliderTrackShape;
+  m[_rangeSliderThumbShape.funName] = _rangeSliderThumbShape;
+  m[_rangeSliderValueIndicatorShape.funName] = _rangeSliderValueIndicatorShape;
+  m[_rangeSliderTickMarkShape.funName] = _rangeSliderTickMarkShape;
+  m[_rangeSliderTrackShape.funName] = _rangeSliderTrackShape;
+  m[_baseSliderTrackShape.funName] = _baseSliderTrackShape;
   m[_rectangularSliderTrackShape.funName] = _rectangularSliderTrackShape;
   m[_roundedRectSliderTrackShape.funName] = _roundedRectSliderTrackShape;
   m[_rectangularRangeSliderTrackShape.funName] = _rectangularRangeSliderTrackShape;
@@ -215,6 +228,7 @@ Map<String, MXFunctionInvoke> registerIconButtonSeries() {
   m[_rangeLabels.funName] = _rangeLabels;
   m[_popupMenuThemeData.funName] = _popupMenuThemeData;
   m[_popupMenuTheme.funName] = _popupMenuTheme;
+  m[_pageTransitionsBuilder.funName] = _pageTransitionsBuilder;
   m[_fadeUpwardsPageTransitionsBuilder.funName] = _fadeUpwardsPageTransitionsBuilder;
   m[_openUpwardsPageTransitionsBuilder.funName] = _openUpwardsPageTransitionsBuilder;
   m[_zoomPageTransitionsBuilder.funName] = _zoomPageTransitionsBuilder;
@@ -230,7 +244,10 @@ Map<String, MXFunctionInvoke> registerIconButtonSeries() {
   m[_inputDecoration.funName] = _inputDecoration;
   m[_inputDecoration_collapsed.funName] = _inputDecoration_collapsed;
   m[_inputDecorationTheme.funName] = _inputDecorationTheme;
+  m[_inkFeature.funName] = _inkFeature;
+  m[_interactiveInkFeature.funName] = _interactiveInkFeature;
   m[_inkHighlight.funName] = _inkHighlight;
+  m[_interactiveInkFeatureFactory.funName] = _interactiveInkFeatureFactory;
   m[_inkResponse.funName] = _inkResponse;
   m[_inkWell.funName] = _inkWell;
   m[_inkSplash.funName] = _inkSplash;
@@ -272,9 +289,11 @@ Map<String, MXFunctionInvoke> registerIconButtonSeries() {
   m[_scaffold.funName] = _scaffold;
   m[_scaffoldState.funName] = _scaffoldState;
   m[_materialType.funName] = _materialType;
+  m[_materialInkController.funName] = _materialInkController;
   m[_material.funName] = _material;
   m[_shapeBorderTween.funName] = _shapeBorderTween;
   m[_reorderableListView.funName] = _reorderableListView;
+  m[_materialLocalizations.funName] = _materialLocalizations;
   m[_defaultMaterialLocalizations.funName] = _defaultMaterialLocalizations;
   m[_theme.funName] = _theme;
   m[_themeDataTween.funName] = _themeDataTween;
@@ -463,6 +482,20 @@ var _snackBar = MXFunctionInvoke(
       duration: duration,
       animation: animation,
       onVisible: createVoidCallbackClosure(_snackBar.buildOwner, onVisible),
+    ),
+);
+var _floatingActionButtonLocation = MXFunctionInvoke(
+    "FloatingActionButtonLocation",
+    (
+    ) =>
+      FloatingActionButtonLocation(
+    ),
+);
+var _floatingActionButtonAnimator = MXFunctionInvoke(
+    "FloatingActionButtonAnimator",
+    (
+    ) =>
+      FloatingActionButtonAnimator(
     ),
 );
 var _tooltip = MXFunctionInvoke(
@@ -1073,6 +1106,67 @@ var _raisedButton = MXFunctionInvoke(
       child: child,
     ),
 );
+var _raisedButton_icon = MXFunctionInvoke(
+  "RaisedButton.icon",
+    (
+      {
+      Key key,
+      dynamic onPressed,
+      dynamic onLongPress,
+      dynamic onHighlightChanged,
+      ButtonTextTheme textTheme,
+      Color textColor,
+      Color disabledTextColor,
+      Color color,
+      Color disabledColor,
+      Color focusColor,
+      Color hoverColor,
+      Color highlightColor,
+      Color splashColor,
+      Brightness colorBrightness,
+      dynamic elevation,
+      dynamic highlightElevation,
+      dynamic disabledElevation,
+      ShapeBorder shape,
+      Clip clipBehavior,
+      FocusNode focusNode,
+      bool autofocus,
+      EdgeInsetsGeometry padding,
+      MaterialTapTargetSize materialTapTargetSize,
+      Duration animationDuration,
+      Widget icon,
+      Widget label,
+      }
+    ) =>
+      RaisedButton.icon(
+      key: key,
+      onPressed: createVoidCallbackClosure(_raisedButton_icon.buildOwner, onPressed),
+      onLongPress: createVoidCallbackClosure(_raisedButton_icon.buildOwner, onLongPress),
+      onHighlightChanged: createValueChangedGenericClosure<bool>(_raisedButton_icon.buildOwner, onHighlightChanged),
+      textTheme: textTheme,
+      textColor: textColor,
+      disabledTextColor: disabledTextColor,
+      color: color,
+      disabledColor: disabledColor,
+      focusColor: focusColor,
+      hoverColor: hoverColor,
+      highlightColor: highlightColor,
+      splashColor: splashColor,
+      colorBrightness: colorBrightness,
+      elevation: elevation?.toDouble(),
+      highlightElevation: highlightElevation?.toDouble(),
+      disabledElevation: disabledElevation?.toDouble(),
+      shape: shape,
+      clipBehavior: clipBehavior,
+      focusNode: focusNode,
+      autofocus: autofocus,
+      padding: padding,
+      materialTapTargetSize: materialTapTargetSize,
+      animationDuration: animationDuration,
+      icon: icon,
+      label: label,
+    ),
+);
 var _outlineButton = MXFunctionInvoke(
     "OutlineButton",
     (
@@ -1124,6 +1218,61 @@ var _outlineButton = MXFunctionInvoke(
       focusNode: focusNode,
       autofocus: autofocus,
       child: child,
+    ),
+);
+var _outlineButton_icon = MXFunctionInvoke(
+  "OutlineButton.icon",
+    (
+      {
+      Key key,
+      dynamic onPressed,
+      dynamic onLongPress,
+      ButtonTextTheme textTheme,
+      Color textColor,
+      Color disabledTextColor,
+      Color color,
+      Color focusColor,
+      Color hoverColor,
+      Color highlightColor,
+      Color splashColor,
+      dynamic highlightElevation,
+      Color highlightedBorderColor,
+      Color disabledBorderColor,
+      BorderSide borderSide,
+      EdgeInsetsGeometry padding,
+      VisualDensity visualDensity,
+      ShapeBorder shape,
+      Clip clipBehavior,
+      FocusNode focusNode,
+      bool autofocus,
+      Widget icon,
+      Widget label,
+      }
+    ) =>
+      OutlineButton.icon(
+      key: key,
+      onPressed: createVoidCallbackClosure(_outlineButton_icon.buildOwner, onPressed),
+      onLongPress: createVoidCallbackClosure(_outlineButton_icon.buildOwner, onLongPress),
+      textTheme: textTheme,
+      textColor: textColor,
+      disabledTextColor: disabledTextColor,
+      color: color,
+      focusColor: focusColor,
+      hoverColor: hoverColor,
+      highlightColor: highlightColor,
+      splashColor: splashColor,
+      highlightElevation: highlightElevation?.toDouble(),
+      highlightedBorderColor: highlightedBorderColor,
+      disabledBorderColor: disabledBorderColor,
+      borderSide: borderSide,
+      padding: padding,
+      visualDensity: visualDensity,
+      shape: shape,
+      clipBehavior: clipBehavior,
+      focusNode: focusNode,
+      autofocus: autofocus,
+      icon: icon,
+      label: label,
     ),
 );
 var _rawMaterialButton = MXFunctionInvoke(
@@ -1238,6 +1387,59 @@ var _flatButton = MXFunctionInvoke(
       autofocus: autofocus,
       materialTapTargetSize: materialTapTargetSize,
       child: child,
+    ),
+);
+var _flatButton_icon = MXFunctionInvoke(
+  "FlatButton.icon",
+    (
+      {
+      Key key,
+      dynamic onPressed,
+      dynamic onLongPress,
+      dynamic onHighlightChanged,
+      ButtonTextTheme textTheme,
+      Color textColor,
+      Color disabledTextColor,
+      Color color,
+      Color disabledColor,
+      Color focusColor,
+      Color hoverColor,
+      Color highlightColor,
+      Color splashColor,
+      Brightness colorBrightness,
+      EdgeInsetsGeometry padding,
+      ShapeBorder shape,
+      Clip clipBehavior,
+      FocusNode focusNode,
+      bool autofocus,
+      MaterialTapTargetSize materialTapTargetSize,
+      Widget icon,
+      Widget label,
+      }
+    ) =>
+      FlatButton.icon(
+      key: key,
+      onPressed: createVoidCallbackClosure(_flatButton_icon.buildOwner, onPressed),
+      onLongPress: createVoidCallbackClosure(_flatButton_icon.buildOwner, onLongPress),
+      onHighlightChanged: createValueChangedGenericClosure<bool>(_flatButton_icon.buildOwner, onHighlightChanged),
+      textTheme: textTheme,
+      textColor: textColor,
+      disabledTextColor: disabledTextColor,
+      color: color,
+      disabledColor: disabledColor,
+      focusColor: focusColor,
+      hoverColor: hoverColor,
+      highlightColor: highlightColor,
+      splashColor: splashColor,
+      colorBrightness: colorBrightness,
+      padding: padding,
+      shape: shape,
+      clipBehavior: clipBehavior,
+      focusNode: focusNode,
+      autofocus: autofocus,
+      materialTapTargetSize: materialTapTargetSize,
+      icon: icon,
+      label: label,
     ),
 );
 var _tooltipThemeData = MXFunctionInvoke(
@@ -1610,6 +1812,62 @@ var _sliderThemeData_fromPrimaryColors = MXFunctionInvoke(
       valueIndicatorTextStyle: valueIndicatorTextStyle,
     ),
 );
+var _sliderComponentShape = MXFunctionInvoke(
+    "SliderComponentShape",
+    (
+    ) =>
+      SliderComponentShape(
+    ),
+);
+var _sliderTickMarkShape = MXFunctionInvoke(
+    "SliderTickMarkShape",
+    (
+    ) =>
+      SliderTickMarkShape(
+    ),
+);
+var _sliderTrackShape = MXFunctionInvoke(
+    "SliderTrackShape",
+    (
+    ) =>
+      SliderTrackShape(
+    ),
+);
+var _rangeSliderThumbShape = MXFunctionInvoke(
+    "RangeSliderThumbShape",
+    (
+    ) =>
+      RangeSliderThumbShape(
+    ),
+);
+var _rangeSliderValueIndicatorShape = MXFunctionInvoke(
+    "RangeSliderValueIndicatorShape",
+    (
+    ) =>
+      RangeSliderValueIndicatorShape(
+    ),
+);
+var _rangeSliderTickMarkShape = MXFunctionInvoke(
+    "RangeSliderTickMarkShape",
+    (
+    ) =>
+      RangeSliderTickMarkShape(
+    ),
+);
+var _rangeSliderTrackShape = MXFunctionInvoke(
+    "RangeSliderTrackShape",
+    (
+    ) =>
+      RangeSliderTrackShape(
+    ),
+);
+var _baseSliderTrackShape = MXFunctionInvoke(
+    "BaseSliderTrackShape",
+    (
+    ) =>
+      BaseSliderTrackShape(
+    ),
+);
 var _rectangularSliderTrackShape = MXFunctionInvoke(
     "RectangularSliderTrackShape",
     (
@@ -1771,6 +2029,13 @@ var _popupMenuTheme = MXFunctionInvoke(
       key: key,
       data: data,
       child: child,
+    ),
+);
+var _pageTransitionsBuilder = MXFunctionInvoke(
+    "PageTransitionsBuilder",
+    (
+    ) =>
+      PageTransitionsBuilder(
     ),
 );
 var _fadeUpwardsPageTransitionsBuilder = MXFunctionInvoke(
@@ -2126,6 +2391,38 @@ var _inputDecorationTheme = MXFunctionInvoke(
       alignLabelWithHint: alignLabelWithHint,
     ),
 );
+var _inkFeature = MXFunctionInvoke(
+    "InkFeature",
+    (
+      {
+      MaterialInkController controller,
+      RenderBox referenceBox,
+      dynamic onRemoved,
+      }
+    ) =>
+      InkFeature(
+      controller: controller,
+      referenceBox: referenceBox,
+      onRemoved: createVoidCallbackClosure(_inkFeature.buildOwner, onRemoved),
+    ),
+);
+var _interactiveInkFeature = MXFunctionInvoke(
+    "InteractiveInkFeature",
+    (
+      {
+      MaterialInkController controller,
+      RenderBox referenceBox,
+      Color color,
+      dynamic onRemoved,
+      }
+    ) =>
+      InteractiveInkFeature(
+      controller: controller,
+      referenceBox: referenceBox,
+      color: color,
+      onRemoved: createVoidCallbackClosure(_interactiveInkFeature.buildOwner, onRemoved),
+    ),
+);
 var _inkHighlight = MXFunctionInvoke(
     "InkHighlight",
     (
@@ -2153,6 +2450,13 @@ var _inkHighlight = MXFunctionInvoke(
       rectCallback: null,
       onRemoved: createVoidCallbackClosure(_inkHighlight.buildOwner, onRemoved),
       fadeDuration: fadeDuration,
+    ),
+);
+var _interactiveInkFeatureFactory = MXFunctionInvoke(
+    "InteractiveInkFeatureFactory",
+    (
+    ) =>
+      InteractiveInkFeatureFactory(
     ),
 );
 var _inkResponse = MXFunctionInvoke(
@@ -3318,6 +3622,13 @@ var _materialType = MXFunctionInvoke(
     "MaterialType",
     ({Map args}) => MXMaterialType.parse(args),
   );
+var _materialInkController = MXFunctionInvoke(
+    "MaterialInkController",
+    (
+    ) =>
+      MaterialInkController(
+    ),
+);
 var _material = MXFunctionInvoke(
     "Material",
     (
@@ -3387,6 +3698,13 @@ var _reorderableListView = MXFunctionInvoke(
       scrollDirection: scrollDirection,
       padding: padding,
       reverse: reverse,
+    ),
+);
+var _materialLocalizations = MXFunctionInvoke(
+    "MaterialLocalizations",
+    (
+    ) =>
+      MaterialLocalizations(
     ),
 );
 var _defaultMaterialLocalizations = MXFunctionInvoke(

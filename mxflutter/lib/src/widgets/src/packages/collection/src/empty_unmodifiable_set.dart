@@ -22,8 +22,12 @@ Map<String, MXFunctionInvoke> registerEmptyUnmodifiableSetSeries() {
   m[_delegatingIterable.funName] = _delegatingIterable;
   m[_delegatingList.funName] = _delegatingList;
   m[_nonGrowableListView.funName] = _nonGrowableListView;
+  m[_nonGrowableListMixin.funName] = _nonGrowableListMixin;
   m[_delegatingSet.funName] = _delegatingSet;
   m[_unmodifiableSetView.funName] = _unmodifiableSetView;
+  m[_unmodifiableSetView_empty.funName] = _unmodifiableSetView_empty;
+  m[_unmodifiableSetMixin.funName] = _unmodifiableSetMixin;
+  m[_unmodifiableMapMixin.funName] = _unmodifiableMapMixin;
   m[_delegatingQueue.funName] = _delegatingQueue;
   m[_delegatingMap.funName] = _delegatingMap;
   m[_mapKeySet.funName] = _mapKeySet;
@@ -70,6 +74,13 @@ var _nonGrowableListView = MXFunctionInvoke(
       listBase,
     ),
 );
+var _nonGrowableListMixin = MXFunctionInvoke(
+    "NonGrowableListMixin",
+    (
+    ) =>
+      NonGrowableListMixin(
+    ),
+);
 var _delegatingSet = MXFunctionInvoke(
     "DelegatingSet",
     (
@@ -90,6 +101,27 @@ var _unmodifiableSetView = MXFunctionInvoke(
     ) =>
       UnmodifiableSetView(
       setBase,
+    ),
+);
+var _unmodifiableSetView_empty = MXFunctionInvoke(
+  "UnmodifiableSetView.empty",
+    (
+    ) =>
+      UnmodifiableSetView.empty(
+    ),
+);
+var _unmodifiableSetMixin = MXFunctionInvoke(
+    "UnmodifiableSetMixin",
+    (
+    ) =>
+      UnmodifiableSetMixin(
+    ),
+);
+var _unmodifiableMapMixin = MXFunctionInvoke(
+    "UnmodifiableMapMixin",
+    (
+    ) =>
+      UnmodifiableMapMixin(
     ),
 );
 var _delegatingQueue = MXFunctionInvoke(

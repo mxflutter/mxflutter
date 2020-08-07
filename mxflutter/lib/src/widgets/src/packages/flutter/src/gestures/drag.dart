@@ -12,5 +12,13 @@ import 'package:flutter/src/gestures/drag_details.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDragSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_drag.funName] = _drag;
   return m;
 }
+var _drag = MXFunctionInvoke(
+    "Drag",
+    (
+    ) =>
+      Drag(
+    ),
+);

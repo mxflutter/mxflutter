@@ -16,6 +16,8 @@ import 'package:flutter/widgets.dart' ;
 Map<String, MXFunctionInvoke> registerAnimatedIconsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_animatedIcon.funName] = _animatedIcon;
+  m[_animatedIcons.funName] = _animatedIcons;
+  m[_animatedIconData.funName] = _animatedIconData;
   return m;
 }
 var _animatedIcon = MXFunctionInvoke(
@@ -39,5 +41,19 @@ var _animatedIcon = MXFunctionInvoke(
       size: size?.toDouble(),
       semanticLabel: semanticLabel,
       textDirection: textDirection,
+    ),
+);
+var _animatedIcons = MXFunctionInvoke(
+    "AnimatedIcons",
+    (
+    ) =>
+      AnimatedIcons(
+    ),
+);
+var _animatedIconData = MXFunctionInvoke(
+    "AnimatedIconData",
+    (
+    ) =>
+      AnimatedIconData(
     ),
 );

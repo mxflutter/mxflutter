@@ -18,10 +18,22 @@ import 'package:flutter/src/rendering/proxy_box.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCustomPaintSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_customPainter.funName] = _customPainter;
   m[_customPainterSemantics.funName] = _customPainterSemantics;
   m[_renderCustomPaint.funName] = _renderCustomPaint;
   return m;
 }
+var _customPainter = MXFunctionInvoke(
+    "CustomPainter",
+    (
+      {
+      Listenable repaint,
+      }
+    ) =>
+      CustomPainter(
+      repaint: repaint,
+    ),
+);
 var _customPainterSemantics = MXFunctionInvoke(
     "CustomPainterSemantics",
     (

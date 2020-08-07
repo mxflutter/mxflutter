@@ -17,6 +17,7 @@ import 'package:flutter/src/painting/edge_insets.dart' ;
 Map<String, MXFunctionInvoke> registerBoxBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_boxShape.funName] = _boxShape;
+  m[_boxBorder.funName] = _boxBorder;
   m[_border.funName] = _border;
   m[_border_all.funName] = _border_all;
   m[_border_fromBorderSide.funName] = _border_fromBorderSide;
@@ -28,6 +29,13 @@ var _boxShape = MXFunctionInvoke(
     "BoxShape",
     ({Map args}) => MXBoxShape.parse(args),
   );
+var _boxBorder = MXFunctionInvoke(
+    "BoxBorder",
+    (
+    ) =>
+      BoxBorder(
+    ),
+);
 var _border = MXFunctionInvoke(
     "Border",
     (

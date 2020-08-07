@@ -31,6 +31,10 @@ Map<String, MXFunctionInvoke> registerTextInputSeries() {
   m[_rawFloatingCursorPoint.funName] = _rawFloatingCursorPoint;
   m[_textEditingValue.funName] = _textEditingValue;
   m[_textEditingValue_fromJSON.funName] = _textEditingValue_fromJSON;
+  m[_textSelectionDelegate.funName] = _textSelectionDelegate;
+  m[_textInputClient.funName] = _textInputClient;
+  m[_textInputConnection_debugResetId.funName] = _textInputConnection_debugResetId;
+  m[_textInput_setChannel.funName] = _textInput_setChannel;
   return m;
 }
 var _smartDashesType = MXFunctionInvoke(
@@ -132,6 +136,42 @@ var _textEditingValue_fromJSON = MXFunctionInvoke(
     ) =>
       TextEditingValue.fromJSON(
       encoded,
+    ),
+);
+var _textSelectionDelegate = MXFunctionInvoke(
+    "TextSelectionDelegate",
+    (
+    ) =>
+      TextSelectionDelegate(
+    ),
+);
+var _textInputClient = MXFunctionInvoke(
+    "TextInputClient",
+    (
+    ) =>
+      TextInputClient(
+    ),
+);
+var _textInputConnection_debugResetId = MXFunctionInvoke(
+  "TextInputConnection.debugResetId",
+    (
+      {
+      int to = 1,
+      }
+    ) =>
+      TextInputConnection.debugResetId(
+      to: to,
+    ),
+);
+var _textInput_setChannel = MXFunctionInvoke(
+  "TextInput.setChannel",
+    (
+      {
+      MethodChannel newChannel,
+      }
+    ) =>
+      TextInput.setChannel(
+      newChannel,
     ),
 );
 class MXSmartDashesType {

@@ -21,6 +21,7 @@ Map<String, MXFunctionInvoke> registerPlatformViewsSeries() {
   m[_androidPointerProperties.funName] = _androidPointerProperties;
   m[_androidPointerCoords.funName] = _androidPointerCoords;
   m[_androidMotionEvent.funName] = _androidMotionEvent;
+  m[_platformViewController.funName] = _platformViewController;
   return m;
 }
 var _androidPointerProperties = MXFunctionInvoke(
@@ -98,5 +99,12 @@ var _androidMotionEvent = MXFunctionInvoke(
       edgeFlags: edgeFlags,
       source: source,
       flags: flags,
+    ),
+);
+var _platformViewController = MXFunctionInvoke(
+    "PlatformViewController",
+    (
+    ) =>
+      PlatformViewController(
     ),
 );

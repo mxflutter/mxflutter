@@ -14,6 +14,7 @@ import 'package:flutter/src/widgets/framework.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAsyncSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_streamBuilderBase.funName] = _streamBuilderBase;
   m[_connectionState.funName] = _connectionState;
   m[_asyncSnapshot_nothing.funName] = _asyncSnapshot_nothing;
   m[_asyncSnapshot_withData.funName] = _asyncSnapshot_withData;
@@ -22,6 +23,19 @@ Map<String, MXFunctionInvoke> registerAsyncSeries() {
   m[_futureBuilder.funName] = _futureBuilder;
   return m;
 }
+var _streamBuilderBase = MXFunctionInvoke(
+    "StreamBuilderBase",
+    (
+      {
+      Key key,
+      Stream<dynamic> stream,
+      }
+    ) =>
+      StreamBuilderBase(
+      key: key,
+      stream: stream,
+    ),
+);
 var _connectionState = MXFunctionInvoke(
     "ConnectionState",
     ({Map args}) => MXConnectionState.parse(args),

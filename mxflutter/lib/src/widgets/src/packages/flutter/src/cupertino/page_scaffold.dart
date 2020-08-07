@@ -15,6 +15,7 @@ import 'package:flutter/src/cupertino/theme.dart' ;
 Map<String, MXFunctionInvoke> registerPageScaffoldSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoPageScaffold.funName] = _cupertinoPageScaffold;
+  m[_obstructingPreferredSizeWidget.funName] = _obstructingPreferredSizeWidget;
   return m;
 }
 var _cupertinoPageScaffold = MXFunctionInvoke(
@@ -34,5 +35,12 @@ var _cupertinoPageScaffold = MXFunctionInvoke(
       backgroundColor: backgroundColor,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       child: child,
+    ),
+);
+var _obstructingPreferredSizeWidget = MXFunctionInvoke(
+    "ObstructingPreferredSizeWidget",
+    (
+    ) =>
+      ObstructingPreferredSizeWidget(
     ),
 );

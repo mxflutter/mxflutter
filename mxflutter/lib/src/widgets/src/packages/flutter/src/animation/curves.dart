@@ -14,10 +14,13 @@ import 'package:flutter/foundation.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCurvesSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_parametricCurve.funName] = _parametricCurve;
+  m[_curve.funName] = _curve;
   m[_sawTooth.funName] = _sawTooth;
   m[_interval.funName] = _interval;
   m[_threshold.funName] = _threshold;
   m[_cubic.funName] = _cubic;
+  m[_curve2D.funName] = _curve2D;
   m[_curve2DSample.funName] = _curve2DSample;
   m[_catmullRomSpline.funName] = _catmullRomSpline;
   m[_catmullRomSpline_precompute.funName] = _catmullRomSpline_precompute;
@@ -29,6 +32,20 @@ Map<String, MXFunctionInvoke> registerCurvesSeries() {
   m[_elasticInOutCurve.funName] = _elasticInOutCurve;
   return m;
 }
+var _parametricCurve = MXFunctionInvoke(
+    "ParametricCurve",
+    (
+    ) =>
+      ParametricCurve(
+    ),
+);
+var _curve = MXFunctionInvoke(
+    "Curve",
+    (
+    ) =>
+      Curve(
+    ),
+);
 var _sawTooth = MXFunctionInvoke(
     "SawTooth",
     (
@@ -81,6 +98,13 @@ var _cubic = MXFunctionInvoke(
       b,
       c,
       d,
+    ),
+);
+var _curve2D = MXFunctionInvoke(
+    "Curve2D",
+    (
+    ) =>
+      Curve2D(
     ),
 );
 var _curve2DSample = MXFunctionInvoke(

@@ -35,9 +35,13 @@ Map<String, MXFunctionInvoke> registerSliverSeries() {
   m[_sliverLogicalContainerParentData.funName] = _sliverLogicalContainerParentData;
   m[_sliverPhysicalParentData.funName] = _sliverPhysicalParentData;
   m[_sliverPhysicalContainerParentData.funName] = _sliverPhysicalContainerParentData;
+  m[_renderSliver.funName] = _renderSliver;
+  m[_renderSliverHelpers.funName] = _renderSliverHelpers;
+  m[_renderSliverSingleBoxAdapter.funName] = _renderSliverSingleBoxAdapter;
   m[_renderSliverToBoxAdapter.funName] = _renderSliverToBoxAdapter;
   m[_cacheExtentStyle.funName] = _cacheExtentStyle;
   m[_revealedOffset.funName] = _revealedOffset;
+  m[_renderViewportBase.funName] = _renderViewportBase;
   m[_renderViewport.funName] = _renderViewport;
   m[_renderShrinkWrappingViewport.funName] = _renderShrinkWrappingViewport;
   return m;
@@ -171,6 +175,31 @@ var _sliverPhysicalContainerParentData = MXFunctionInvoke(
       SliverPhysicalContainerParentData(
     ),
 );
+var _renderSliver = MXFunctionInvoke(
+    "RenderSliver",
+    (
+    ) =>
+      RenderSliver(
+    ),
+);
+var _renderSliverHelpers = MXFunctionInvoke(
+    "RenderSliverHelpers",
+    (
+    ) =>
+      RenderSliverHelpers(
+    ),
+);
+var _renderSliverSingleBoxAdapter = MXFunctionInvoke(
+    "RenderSliverSingleBoxAdapter",
+    (
+      {
+      RenderBox child,
+      }
+    ) =>
+      RenderSliverSingleBoxAdapter(
+      child: child,
+    ),
+);
 var _renderSliverToBoxAdapter = MXFunctionInvoke(
     "RenderSliverToBoxAdapter",
     (
@@ -197,6 +226,25 @@ var _revealedOffset = MXFunctionInvoke(
       RevealedOffset(
       offset: offset?.toDouble(),
       rect: rect,
+    ),
+);
+var _renderViewportBase = MXFunctionInvoke(
+    "RenderViewportBase",
+    (
+      {
+      AxisDirection axisDirection = AxisDirection.down,
+      AxisDirection crossAxisDirection,
+      ViewportOffset offset,
+      dynamic cacheExtent,
+      CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
+      }
+    ) =>
+      RenderViewportBase(
+      axisDirection: axisDirection,
+      crossAxisDirection: crossAxisDirection,
+      offset: offset,
+      cacheExtent: cacheExtent?.toDouble(),
+      cacheExtentStyle: cacheExtentStyle,
     ),
 );
 var _renderViewport = MXFunctionInvoke(
