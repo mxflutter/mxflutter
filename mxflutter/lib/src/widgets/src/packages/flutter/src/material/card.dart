@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/card.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/card_theme.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/card_theme.dart' ;
+import 'package:flutter/src/material/colors.dart' ;
+import 'package:flutter/src/material/material.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -26,7 +26,7 @@ var _card = MXFunctionInvoke(
       Key key,
       Color color,
       Color shadowColor,
-      double elevation,
+      dynamic elevation,
       ShapeBorder shape,
       bool borderOnForeground = true,
       EdgeInsetsGeometry margin,

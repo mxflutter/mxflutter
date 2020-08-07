@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/tab_controller.dart';
-import 'dart:math';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/constants.dart';
+import 'dart:math' as math;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/constants.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

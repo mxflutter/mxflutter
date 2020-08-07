@@ -6,15 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/selectable_text.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/material/feedback.dart';
-import 'package:flutter/src/material/text_selection.dart';
-import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/cupertino.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/src/material/feedback.dart' ;
+import 'package:flutter/src/material/text_selection.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -35,13 +35,13 @@ var _selectableText = MXFunctionInvoke(
       StrutStyle strutStyle,
       TextAlign textAlign,
       TextDirection textDirection,
-      double textScaleFactor,
+      dynamic textScaleFactor,
       bool showCursor = false,
       bool autofocus = false,
       ToolbarOptions toolbarOptions,
       int minLines,
       int maxLines,
-      double cursorWidth = 2.0,
+      dynamic cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
@@ -76,7 +76,7 @@ var _selectableText = MXFunctionInvoke(
     ),
 );
 var _selectableText_rich = MXFunctionInvoke(
-  "selectableText.rich",
+  "SelectableText.rich",
     (
       {
       TextSpan textSpan,
@@ -86,13 +86,13 @@ var _selectableText_rich = MXFunctionInvoke(
       StrutStyle strutStyle,
       TextAlign textAlign,
       TextDirection textDirection,
-      double textScaleFactor,
+      dynamic textScaleFactor,
       bool showCursor = false,
       bool autofocus = false,
       ToolbarOptions toolbarOptions,
       int minLines,
       int maxLines,
-      double cursorWidth = 2.0,
+      dynamic cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,

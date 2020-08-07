@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/dismissible.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/widgets/automatic_keep_alive.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/debug.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/gesture_detector.dart';
-import 'package:flutter/src/widgets/ticker_provider.dart';
-import 'package:flutter/src/widgets/transitions.dart';
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/src/widgets/automatic_keep_alive.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/debug.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/gesture_detector.dart' ;
+import 'package:flutter/src/widgets/ticker_provider.dart' ;
+import 'package:flutter/src/widgets/transitions.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -42,7 +42,7 @@ var _dismissible = MXFunctionInvoke(
       Duration resizeDuration,
       Map<DismissDirection, double> dismissThresholds,
       Duration movementDuration,
-      double crossAxisEndOffset = 0.0,
+      dynamic crossAxisEndOffset = 0.0,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }
     ) =>
@@ -51,7 +51,7 @@ var _dismissible = MXFunctionInvoke(
       child: child,
       background: background,
       secondaryBackground: secondaryBackground,
-      confirmDismiss: createGenericValueGenericClosure<Future<bool>, DismissDirection>(_dismissible.buildOwner, confirmDismiss),
+      confirmDismiss: null,
       onResize: createVoidCallbackClosure(_dismissible.buildOwner, onResize),
       onDismissed: createValueChangedGenericClosure<DismissDirection>(_dismissible.buildOwner, onDismissed),
       direction: direction,

@@ -6,11 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/strut_style.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/basic_types.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
+import 'package:flutter/src/painting/text_style.dart' ;
 import 'package:flutter/src/painting/text_style.dart';
-import 'dart:ui';
-import 'package:flutter/src/painting/colors.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/src/painting/colors.dart' ;
+import 'package:flutter/src/painting/strut_style.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -27,9 +29,9 @@ var _strutStyle = MXFunctionInvoke(
       {
       String fontFamily,
       List<String> fontFamilyFallback,
-      double fontSize,
-      double height,
-      double leading,
+      dynamic fontSize,
+      dynamic height,
+      dynamic leading,
       FontWeight fontWeight,
       FontStyle fontStyle,
       bool forceStrutHeight,
@@ -51,15 +53,15 @@ var _strutStyle = MXFunctionInvoke(
     ),
 );
 var _strutStyle_fromTextStyle = MXFunctionInvoke(
-  "strutStyle.fromTextStyle",
+  "StrutStyle.fromTextStyle",
     (
       {
       TextStyle textStyle,
       String fontFamily,
       List<String> fontFamilyFallback,
-      double fontSize,
-      double height,
-      double leading,
+      dynamic fontSize,
+      dynamic height,
+      dynamic leading,
       FontWeight fontWeight,
       FontStyle fontStyle,
       bool forceStrutHeight,
@@ -88,13 +90,13 @@ var _textStyle = MXFunctionInvoke(
       bool inherit = true,
       Color color,
       Color backgroundColor,
-      double fontSize,
+      dynamic fontSize,
       FontWeight fontWeight,
       FontStyle fontStyle,
-      double letterSpacing,
-      double wordSpacing,
+      dynamic letterSpacing,
+      dynamic wordSpacing,
       TextBaseline textBaseline,
-      double height,
+      dynamic height,
       Locale locale,
       Paint foreground,
       Paint background,
@@ -103,7 +105,7 @@ var _textStyle = MXFunctionInvoke(
       TextDecoration decoration,
       Color decorationColor,
       TextDecorationStyle decorationStyle,
-      double decorationThickness,
+      dynamic decorationThickness,
       String debugLabel,
       String fontFamily,
       List<String> fontFamilyFallback,

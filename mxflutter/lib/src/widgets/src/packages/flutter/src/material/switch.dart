@@ -6,18 +6,18 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/switch.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/shadows.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/toggleable.dart';
+import 'package:flutter/cupertino.dart' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/colors.dart' ;
+import 'package:flutter/src/material/constants.dart' ;
+import 'package:flutter/src/material/debug.dart' ;
+import 'package:flutter/src/material/shadows.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/src/material/theme_data.dart' ;
+import 'package:flutter/src/material/toggleable.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -59,9 +59,9 @@ var _switch = MXFunctionInvoke(
       inactiveThumbColor: inactiveThumbColor,
       inactiveTrackColor: inactiveTrackColor,
       activeThumbImage: activeThumbImage,
-      onActiveThumbImageError: null,
+      onActiveThumbImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(_switch.buildOwner, onActiveThumbImageError),
       inactiveThumbImage: inactiveThumbImage,
-      onInactiveThumbImageError: null,
+      onInactiveThumbImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(_switch.buildOwner, onInactiveThumbImageError),
       materialTapTargetSize: materialTapTargetSize,
       dragStartBehavior: dragStartBehavior,
       focusColor: focusColor,
@@ -71,7 +71,7 @@ var _switch = MXFunctionInvoke(
     ),
 );
 var _switch_adaptive = MXFunctionInvoke(
-  "switch.adaptive",
+  "Switch.adaptive",
     (
       {
       Key key,
@@ -102,9 +102,9 @@ var _switch_adaptive = MXFunctionInvoke(
       inactiveThumbColor: inactiveThumbColor,
       inactiveTrackColor: inactiveTrackColor,
       activeThumbImage: activeThumbImage,
-      onActiveThumbImageError: null,
+      onActiveThumbImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(_switch_adaptive.buildOwner, onActiveThumbImageError),
       inactiveThumbImage: inactiveThumbImage,
-      onInactiveThumbImageError: null,
+      onInactiveThumbImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(_switch_adaptive.buildOwner, onInactiveThumbImageError),
       materialTapTargetSize: materialTapTargetSize,
       dragStartBehavior: dragStartBehavior,
       focusColor: focusColor,

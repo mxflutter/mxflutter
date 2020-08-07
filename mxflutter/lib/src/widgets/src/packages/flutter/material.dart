@@ -75,7 +75,7 @@ import 'src/material/pickers/date_utils.dart';
 import 'src/material/pickers/date_picker_header.dart';
 
 
-Map<String, MXFunctionInvoke> registerMaterialSeries() {
+Map<String, MXFunctionInvoke> registerMaterialLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerAboutSeries());
   m.addAll(registerAnimatedIconsSeries());

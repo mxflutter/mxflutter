@@ -6,18 +6,18 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/paragraph.dart';
-import 'dart:collection';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/semantics.dart';
-import 'package:flutter/services.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/object.dart';
+import 'dart:collection' ;
+import 'dart:math' as math;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/debug.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -48,7 +48,7 @@ var _renderParagraph = MXFunctionInvoke(
       TextDirection textDirection,
       bool softWrap = true,
       TextOverflow overflow = TextOverflow.clip,
-      double textScaleFactor = 1.0,
+      dynamic textScaleFactor = 1.0,
       int maxLines,
       Locale locale,
       StrutStyle strutStyle,

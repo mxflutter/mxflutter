@@ -6,7 +6,7 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/physics/clamped_simulation.dart';
-import 'package:flutter/src/physics/simulation.dart';
+import 'package:flutter/src/physics/simulation.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -20,10 +20,10 @@ var _clampedSimulation = MXFunctionInvoke(
     (
       {
       Simulation simulation,
-      double xMin = double.negativeInfinity,
-      double xMax = double.infinity,
-      double dxMin = double.negativeInfinity,
-      double dxMax = double.infinity,
+      dynamic xMin = double.negativeInfinity,
+      dynamic xMax = double.infinity,
+      dynamic dxMin = double.negativeInfinity,
+      dynamic dxMax = double.infinity,
       }
     ) =>
       ClampedSimulation(

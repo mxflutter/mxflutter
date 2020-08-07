@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/fractional_offset.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/alignment.dart';
-import 'package:flutter/src/painting/basic_types.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/alignment.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -24,8 +24,8 @@ var _fractionalOffset = MXFunctionInvoke(
     "FractionalOffset",
     (
       {
-      double dx,
-      double dy,
+      dynamic dx,
+      dynamic dy,
       }
     ) =>
       FractionalOffset(
@@ -34,7 +34,7 @@ var _fractionalOffset = MXFunctionInvoke(
     ),
 );
 var _fractionalOffset_fromOffsetAndSize = MXFunctionInvoke(
-  "fractionalOffset.fromOffsetAndSize",
+  "FractionalOffset.fromOffsetAndSize",
     (
       {
       Offset offset,
@@ -47,7 +47,7 @@ var _fractionalOffset_fromOffsetAndSize = MXFunctionInvoke(
     ),
 );
 var _fractionalOffset_fromOffsetAndRect = MXFunctionInvoke(
-  "fractionalOffset.fromOffsetAndRect",
+  "FractionalOffset.fromOffsetAndRect",
     (
       {
       Offset offset,

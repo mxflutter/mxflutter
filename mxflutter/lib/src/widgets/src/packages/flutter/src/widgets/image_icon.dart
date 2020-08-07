@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/image_icon.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/icon.dart';
-import 'package:flutter/src/widgets/icon_theme.dart';
-import 'package:flutter/src/widgets/icon_theme_data.dart';
-import 'package:flutter/src/widgets/image.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/icon.dart' ;
+import 'package:flutter/src/widgets/icon_theme.dart' ;
+import 'package:flutter/src/widgets/icon_theme_data.dart' ;
+import 'package:flutter/src/widgets/image.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -27,7 +27,7 @@ var _imageIcon = MXFunctionInvoke(
       {
       ImageProvider<dynamic> image,
       Key key,
-      double size,
+      dynamic size,
       Color color,
       String semanticLabel,
       }

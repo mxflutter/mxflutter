@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/canonicalized_map.dart';
-import 'dart:collection';
-import 'package:collection/src/utils.dart';
+import 'dart:collection' ;
+import 'package:collection/src/utils.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -27,11 +27,11 @@ var _canonicalizedMap = MXFunctionInvoke(
     ) =>
       CanonicalizedMap(
       canonicalize,
-      isValidKey: createGenericValueGenericClosure<bool, Object>(_canonicalizedMap.buildOwner, isValidKey),
+      isValidKey: null,
     ),
 );
 var _canonicalizedMap_from = MXFunctionInvoke(
-  "canonicalizedMap.from",
+  "CanonicalizedMap.from",
     (
       {
       Map<dynamic, dynamic> other,
@@ -42,6 +42,6 @@ var _canonicalizedMap_from = MXFunctionInvoke(
       CanonicalizedMap.from(
       other,
       canonicalize,
-      isValidKey: createGenericValueGenericClosure<bool, Object>(_canonicalizedMap_from.buildOwner, isValidKey),
+      isValidKey: null,
     ),
 );

@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/thumb_painter.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/src/cupertino/colors.dart';
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/src/cupertino/colors.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -31,7 +31,7 @@ var _cupertinoThumbPainter = MXFunctionInvoke(
     ),
 );
 var _cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
-  "cupertinoThumbPainter.switchThumb",
+  "CupertinoThumbPainter.switchThumb",
     (
       {
       Color color,

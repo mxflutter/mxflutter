@@ -6,83 +6,138 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/icon_button.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
-import 'package:flutter/src/material/tooltip.dart';
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/constants.dart' ;
+import 'package:flutter/src/material/debug.dart' ;
+import 'package:flutter/src/material/icons.dart' ;
+import 'package:flutter/src/material/ink_well.dart' ;
+import 'package:flutter/src/material/material.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/src/material/theme_data.dart' ;
+import 'package:flutter/src/material/tooltip.dart' ;
 import 'package:flutter/src/material/back_button.dart';
-import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/icon_button.dart' ;
+import 'package:flutter/src/material/material_localizations.dart' ;
 import 'package:flutter/src/material/time.dart';
-import 'dart:ui';
+import 'dart:ui' ;
 import 'package:flutter/src/material/snack_bar.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/material/button_theme.dart';
-import 'package:flutter/src/material/color_scheme.dart';
-import 'package:flutter/src/material/flat_button.dart';
-import 'package:flutter/src/material/scaffold.dart';
-import 'package:flutter/src/material/snack_bar_theme.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/src/material/button_theme.dart' ;
+import 'package:flutter/src/material/color_scheme.dart' ;
+import 'package:flutter/src/material/flat_button.dart' ;
+import 'package:flutter/src/material/scaffold.dart' ;
+import 'package:flutter/src/material/snack_bar_theme.dart' ;
 import 'package:flutter/src/material/floating_action_button_location.dart';
-import 'dart:async';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/feedback.dart';
-import 'package:flutter/src/material/tooltip_theme.dart';
+import 'package:flutter/src/material/tooltip.dart';
+import 'dart:async' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/src/material/colors.dart' ;
+import 'package:flutter/src/material/feedback.dart' ;
+import 'package:flutter/src/material/tooltip_theme.dart' ;
 import 'package:flutter/src/material/floating_action_button.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/src/material/button.dart';
-import 'package:flutter/src/material/floating_action_button_theme.dart';
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/src/material/button.dart' ;
+import 'package:flutter/src/material/floating_action_button_theme.dart' ;
 import 'package:flutter/src/material/flexible_space_bar.dart';
+import 'dart:ui' as ui;
 import 'package:flutter/src/material/list_tile.dart';
-import 'package:flutter/src/material/divider.dart';
+import 'package:flutter/src/material/divider.dart' ;
 import 'package:flutter/src/material/drawer.dart';
-import 'package:flutter/src/material/divider_theme.dart';
+import 'package:flutter/src/material/list_tile.dart' ;
+import 'package:flutter/src/material/divider.dart';
+import 'package:flutter/src/material/divider_theme.dart' ;
 import 'package:flutter/src/material/dialog.dart';
-import 'package:flutter/src/material/button_bar.dart';
-import 'package:flutter/src/material/dialog_theme.dart';
+import 'package:flutter/src/material/button_bar.dart' ;
+import 'package:flutter/src/material/dialog_theme.dart' ;
 import 'package:flutter/src/material/raised_button.dart';
-import 'package:flutter/src/material/material_button.dart';
+import 'package:flutter/src/material/material_button.dart' ;
 import 'package:flutter/src/material/outline_button.dart';
-import 'package:flutter/src/material/material_state.dart';
+import 'package:flutter/src/material/material_state.dart' ;
+import 'package:flutter/src/material/raised_button.dart' ;
+import 'package:flutter/src/material/material_button.dart';
+import 'package:flutter/src/material/button.dart';
+import 'package:flutter/src/material/flat_button.dart';
+import 'package:flutter/src/material/tooltip_theme.dart';
 import 'package:flutter/src/material/toggle_buttons_theme.dart';
 import 'package:flutter/src/material/tabs.dart';
-import 'package:flutter/src/material/app_bar.dart';
+import 'package:flutter/src/material/app_bar.dart' ;
+import 'package:flutter/src/material/tab_bar_theme.dart' ;
+import 'package:flutter/src/material/tab_controller.dart' ;
+import 'package:flutter/src/material/tab_indicator.dart' ;
 import 'package:flutter/src/material/tab_bar_theme.dart';
-import 'package:flutter/src/material/tab_controller.dart';
-import 'package:flutter/src/material/tab_indicator.dart';
+import 'package:flutter/src/material/tabs.dart' ;
+import 'package:flutter/src/material/snack_bar_theme.dart';
 import 'package:flutter/src/material/slider_theme.dart';
 import 'package:flutter/src/material/popup_menu_theme.dart';
 import 'package:flutter/src/material/page_transitions_theme.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart' ;
 import 'package:flutter/src/material/navigation_rail.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:flutter/scheduler.dart' ;
+import 'package:flutter/src/material/navigation_rail_theme.dart' ;
 import 'package:flutter/src/material/navigation_rail_theme.dart';
+import 'package:flutter/src/material/navigation_rail.dart' ;
 import 'package:flutter/src/material/input_decorator.dart';
-import 'package:flutter/src/material/input_border.dart';
+import 'package:flutter/src/material/input_border.dart' ;
 import 'package:flutter/src/material/ink_highlight.dart';
-import 'package:flutter/semantics.dart';
-import 'package:flutter/services.dart';
-import 'dart:collection';
+import 'package:flutter/src/material/feedback.dart';
+import 'package:flutter/semantics.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/src/material/ink_well.dart';
+import 'dart:collection' ;
+import 'package:flutter/src/material/ink_highlight.dart' ;
 import 'package:flutter/src/material/ink_splash.dart';
+import 'package:flutter/src/material/divider_theme.dart';
+import 'package:flutter/src/material/dialog_theme.dart';
 import 'package:flutter/src/material/chip_theme.dart';
 import 'package:flutter/src/material/card_theme.dart';
 import 'package:flutter/src/material/bottom_app_bar_theme.dart';
 import 'package:flutter/src/material/banner_theme.dart';
-import 'package:flutter/src/material/app_bar_theme.dart';
-import 'package:flutter/src/material/bottom_sheet_theme.dart';
+import 'package:flutter/src/material/theme_data.dart';
+import 'package:flutter/src/material/app_bar_theme.dart' ;
+import 'package:flutter/src/material/banner_theme.dart' ;
+import 'package:flutter/src/material/bottom_app_bar_theme.dart' ;
+import 'package:flutter/src/material/bottom_sheet_theme.dart' ;
+import 'package:flutter/src/material/button_bar_theme.dart' ;
+import 'package:flutter/src/material/card_theme.dart' ;
+import 'package:flutter/src/material/chip_theme.dart' ;
+import 'package:flutter/src/material/ink_splash.dart' ;
+import 'package:flutter/src/material/input_decorator.dart' ;
+import 'package:flutter/src/material/page_transitions_theme.dart' ;
+import 'package:flutter/src/material/popup_menu_theme.dart' ;
+import 'package:flutter/src/material/slider_theme.dart' ;
+import 'package:flutter/src/material/text_theme.dart' ;
+import 'package:flutter/src/material/toggle_buttons_theme.dart' ;
+import 'package:flutter/src/material/typography.dart' ;
+import 'package:flutter/src/material/color_scheme.dart';
+import 'package:flutter/src/material/button_theme.dart';
+import 'package:flutter/src/material/outline_button.dart' ;
 import 'package:flutter/src/material/button_bar_theme.dart';
-import 'package:flutter/src/material/text_theme.dart';
-import 'package:flutter/src/material/typography.dart';
+import 'package:flutter/src/material/button_bar.dart';
+import 'package:flutter/src/material/dialog.dart' ;
 import 'package:flutter/src/material/bottom_sheet.dart';
-import 'package:flutter/src/material/curves.dart';
+import 'package:flutter/src/material/curves.dart' ;
+import 'package:flutter/src/material/scaffold.dart';
+import 'package:flutter/src/material/bottom_sheet.dart' ;
+import 'package:flutter/src/material/drawer.dart' ;
+import 'package:flutter/src/material/flexible_space_bar.dart' ;
+import 'package:flutter/src/material/floating_action_button.dart' ;
+import 'package:flutter/src/material/floating_action_button_location.dart' ;
+import 'package:flutter/src/material/snack_bar.dart' ;
 import 'package:flutter/src/material/elevation_overlay.dart';
+import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/elevation_overlay.dart' ;
+import 'package:flutter/src/material/debug.dart';
 import 'package:flutter/src/material/reorderable_list.dart';
+import 'dart:math' ;
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/reorderable_list.dart' ;
+import 'package:flutter/src/material/time.dart' ;
+import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/src/material/app_bar_theme.dart';
+import 'package:flutter/src/material/app_bar.dart';
+import 'package:flutter/src/material/back_button.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -234,7 +289,7 @@ var _iconButton = MXFunctionInvoke(
     (
       {
       Key key,
-      double iconSize = 24.0,
+      dynamic iconSize = 24.0,
       VisualDensity visualDensity,
       EdgeInsetsGeometry padding,
       AlignmentGeometry alignment,
@@ -333,14 +388,14 @@ var _timeOfDay = MXFunctionInvoke(
     ),
 );
 var _timeOfDay_now = MXFunctionInvoke(
-  "timeOfDay.now",
+  "TimeOfDay.now",
     (
     ) =>
       TimeOfDay.now(
     ),
 );
 var _timeOfDay_fromDateTime = MXFunctionInvoke(
-  "timeOfDay.fromDateTime",
+  "TimeOfDay.fromDateTime",
     (
       {
       DateTime time,
@@ -388,7 +443,7 @@ var _snackBar = MXFunctionInvoke(
       Key key,
       Widget content,
       Color backgroundColor,
-      double elevation,
+      dynamic elevation,
       ShapeBorder shape,
       SnackBarBehavior behavior,
       SnackBarAction action,
@@ -416,10 +471,10 @@ var _tooltip = MXFunctionInvoke(
       {
       Key key,
       String message,
-      double height,
+      dynamic height,
       EdgeInsetsGeometry padding,
       EdgeInsetsGeometry margin,
-      double verticalOffset,
+      dynamic verticalOffset,
       bool preferBelow,
       bool excludeFromSemantics,
       Decoration decoration,
@@ -458,11 +513,11 @@ var _floatingActionButton = MXFunctionInvoke(
       Color hoverColor,
       Color splashColor,
       Object heroTag,
-      double elevation,
-      double focusElevation,
-      double hoverElevation,
-      double highlightElevation,
-      double disabledElevation,
+      dynamic elevation,
+      dynamic focusElevation,
+      dynamic hoverElevation,
+      dynamic highlightElevation,
+      dynamic disabledElevation,
       dynamic onPressed,
       bool mini = false,
       ShapeBorder shape,
@@ -499,7 +554,7 @@ var _floatingActionButton = MXFunctionInvoke(
     ),
 );
 var _floatingActionButton_extended = MXFunctionInvoke(
-  "floatingActionButton.extended",
+  "FloatingActionButton.extended",
     (
       {
       Key key,
@@ -509,12 +564,12 @@ var _floatingActionButton_extended = MXFunctionInvoke(
       Color focusColor,
       Color hoverColor,
       Object heroTag,
-      double elevation,
-      double focusElevation,
-      double hoverElevation,
+      dynamic elevation,
+      dynamic focusElevation,
+      dynamic hoverElevation,
       Color splashColor,
-      double highlightElevation,
-      double disabledElevation,
+      dynamic highlightElevation,
+      dynamic disabledElevation,
       dynamic onPressed,
       ShapeBorder shape,
       bool isExtended = true,
@@ -587,10 +642,10 @@ var _flexibleSpaceBarSettings = MXFunctionInvoke(
     (
       {
       Key key,
-      double toolbarOpacity,
-      double minExtent,
-      double maxExtent,
-      double currentExtent,
+      dynamic toolbarOpacity,
+      dynamic minExtent,
+      dynamic maxExtent,
+      dynamic currentExtent,
       Widget child,
       }
     ) =>
@@ -678,7 +733,7 @@ var _drawer = MXFunctionInvoke(
     (
       {
       Key key,
-      double elevation = 16.0,
+      dynamic elevation = 16.0,
       Widget child,
       String semanticLabel,
       }
@@ -700,7 +755,7 @@ var _drawerController = MXFunctionInvoke(
       dynamic drawerCallback,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       Color scrimColor,
-      double edgeDragWidth,
+      dynamic edgeDragWidth,
       bool enableOpenDragGesture = true,
       }
     ) =>
@@ -727,10 +782,10 @@ var _divider = MXFunctionInvoke(
     (
       {
       Key key,
-      double height,
-      double thickness,
-      double indent,
-      double endIndent,
+      dynamic height,
+      dynamic thickness,
+      dynamic indent,
+      dynamic endIndent,
       Color color,
       }
     ) =>
@@ -748,10 +803,10 @@ var _verticalDivider = MXFunctionInvoke(
     (
       {
       Key key,
-      double width,
-      double thickness,
-      double indent,
-      double endIndent,
+      dynamic width,
+      dynamic thickness,
+      dynamic indent,
+      dynamic endIndent,
       Color color,
       }
     ) =>
@@ -770,7 +825,7 @@ var _dialog = MXFunctionInvoke(
       {
       Key key,
       Color backgroundColor,
-      double elevation,
+      dynamic elevation,
       Duration insetAnimationDuration,
       Curve insetAnimationCurve,
       EdgeInsets insetPadding,
@@ -805,10 +860,10 @@ var _alertDialog = MXFunctionInvoke(
       List<Widget> actions,
       EdgeInsetsGeometry actionsPadding,
       VerticalDirection actionsOverflowDirection,
-      double actionsOverflowButtonSpacing,
+      dynamic actionsOverflowButtonSpacing,
       EdgeInsetsGeometry buttonPadding,
       Color backgroundColor,
-      double elevation,
+      dynamic elevation,
       String semanticLabel,
       EdgeInsets insetPadding,
       Clip clipBehavior = Clip.none,
@@ -865,7 +920,7 @@ var _simpleDialog = MXFunctionInvoke(
       List<Widget> children,
       EdgeInsetsGeometry contentPadding,
       Color backgroundColor,
-      double elevation,
+      dynamic elevation,
       String semanticLabel,
       ShapeBorder shape,
       }
@@ -900,11 +955,11 @@ var _materialButton = MXFunctionInvoke(
       Color highlightColor,
       Color splashColor,
       Brightness colorBrightness,
-      double elevation,
-      double focusElevation,
-      double hoverElevation,
-      double highlightElevation,
-      double disabledElevation,
+      dynamic elevation,
+      dynamic focusElevation,
+      dynamic hoverElevation,
+      dynamic highlightElevation,
+      dynamic disabledElevation,
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       ShapeBorder shape,
@@ -913,8 +968,8 @@ var _materialButton = MXFunctionInvoke(
       bool autofocus = false,
       MaterialTapTargetSize materialTapTargetSize,
       Duration animationDuration,
-      double minWidth,
-      double height,
+      dynamic minWidth,
+      dynamic height,
       bool enableFeedback = true,
       Widget child,
       }
@@ -971,11 +1026,11 @@ var _raisedButton = MXFunctionInvoke(
       Color highlightColor,
       Color splashColor,
       Brightness colorBrightness,
-      double elevation,
-      double focusElevation,
-      double hoverElevation,
-      double highlightElevation,
-      double disabledElevation,
+      dynamic elevation,
+      dynamic focusElevation,
+      dynamic hoverElevation,
+      dynamic highlightElevation,
+      dynamic disabledElevation,
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       ShapeBorder shape,
@@ -1033,7 +1088,7 @@ var _outlineButton = MXFunctionInvoke(
       Color hoverColor,
       Color highlightColor,
       Color splashColor,
-      double highlightElevation,
+      dynamic highlightElevation,
       BorderSide borderSide,
       Color disabledBorderColor,
       Color highlightedBorderColor,
@@ -1085,11 +1140,11 @@ var _rawMaterialButton = MXFunctionInvoke(
       Color hoverColor,
       Color highlightColor,
       Color splashColor,
-      double elevation = 2.0,
-      double focusElevation = 4.0,
-      double hoverElevation = 4.0,
-      double highlightElevation = 8.0,
-      double disabledElevation = 0.0,
+      dynamic elevation = 2.0,
+      dynamic focusElevation = 4.0,
+      dynamic hoverElevation = 4.0,
+      dynamic highlightElevation = 8.0,
+      dynamic disabledElevation = 0.0,
       EdgeInsetsGeometry padding,
       VisualDensity visualDensity,
       BoxConstraints constraints,
@@ -1189,10 +1244,10 @@ var _tooltipThemeData = MXFunctionInvoke(
     "TooltipThemeData",
     (
       {
-      double height,
+      dynamic height,
       EdgeInsetsGeometry padding,
       EdgeInsetsGeometry margin,
-      double verticalOffset,
+      dynamic verticalOffset,
       bool preferBelow,
       bool excludeFromSemantics,
       Decoration decoration,
@@ -1247,7 +1302,7 @@ var _toggleButtonsThemeData = MXFunctionInvoke(
       Color selectedBorderColor,
       Color disabledBorderColor,
       BorderRadius borderRadius,
-      double borderWidth,
+      dynamic borderWidth,
       }
     ) =>
       ToggleButtonsThemeData(
@@ -1315,7 +1370,7 @@ var _tabBar = MXFunctionInvoke(
       TabController controller,
       bool isScrollable = false,
       Color indicatorColor,
-      double indicatorWeight = 2.0,
+      dynamic indicatorWeight = 2.0,
       EdgeInsetsGeometry indicatorPadding,
       Decoration indicator,
       TabBarIndicatorSize indicatorSize,
@@ -1373,7 +1428,7 @@ var _tabPageSelectorIndicator = MXFunctionInvoke(
       Key key,
       Color backgroundColor,
       Color borderColor,
-      double size,
+      dynamic size,
       }
     ) =>
       TabPageSelectorIndicator(
@@ -1389,7 +1444,7 @@ var _tabPageSelector = MXFunctionInvoke(
       {
       Key key,
       TabController controller,
-      double indicatorSize = 12.0,
+      dynamic indicatorSize = 12.0,
       Color color,
       Color selectedColor,
       }
@@ -1437,7 +1492,7 @@ var _snackBarThemeData = MXFunctionInvoke(
       Color actionTextColor,
       Color disabledActionTextColor,
       TextStyle contentTextStyle,
-      double elevation,
+      dynamic elevation,
       ShapeBorder shape,
       SnackBarBehavior behavior,
       }
@@ -1479,7 +1534,7 @@ var _sliderThemeData = MXFunctionInvoke(
     "SliderThemeData",
     (
       {
-      double trackHeight,
+      dynamic trackHeight,
       Color activeTrackColor,
       Color inactiveTrackColor,
       Color disabledActiveTrackColor,
@@ -1504,7 +1559,7 @@ var _sliderThemeData = MXFunctionInvoke(
       RangeSliderValueIndicatorShape rangeValueIndicatorShape,
       ShowValueIndicator showValueIndicator,
       TextStyle valueIndicatorTextStyle,
-      double minThumbSeparation,
+      dynamic minThumbSeparation,
       dynamic thumbSelector,
       }
     ) =>
@@ -1539,7 +1594,7 @@ var _sliderThemeData = MXFunctionInvoke(
     ),
 );
 var _sliderThemeData_fromPrimaryColors = MXFunctionInvoke(
-  "sliderThemeData.fromPrimaryColors",
+  "SliderThemeData.fromPrimaryColors",
     (
       {
       Color primaryColor,
@@ -1559,7 +1614,7 @@ var _rectangularSliderTrackShape = MXFunctionInvoke(
     "RectangularSliderTrackShape",
     (
       {
-      double disabledThumbGapWidth = 2.0,
+      dynamic disabledThumbGapWidth = 2.0,
       }
     ) =>
       RectangularSliderTrackShape(
@@ -1591,7 +1646,7 @@ var _roundSliderTickMarkShape = MXFunctionInvoke(
     "RoundSliderTickMarkShape",
     (
       {
-      double tickMarkRadius,
+      dynamic tickMarkRadius,
       }
     ) =>
       RoundSliderTickMarkShape(
@@ -1602,7 +1657,7 @@ var _roundRangeSliderTickMarkShape = MXFunctionInvoke(
     "RoundRangeSliderTickMarkShape",
     (
       {
-      double tickMarkRadius,
+      dynamic tickMarkRadius,
       }
     ) =>
       RoundRangeSliderTickMarkShape(
@@ -1613,8 +1668,8 @@ var _roundSliderThumbShape = MXFunctionInvoke(
     "RoundSliderThumbShape",
     (
       {
-      double enabledThumbRadius = 10.0,
-      double disabledThumbRadius,
+      dynamic enabledThumbRadius = 10.0,
+      dynamic disabledThumbRadius,
       }
     ) =>
       RoundSliderThumbShape(
@@ -1626,8 +1681,8 @@ var _roundRangeSliderThumbShape = MXFunctionInvoke(
     "RoundRangeSliderThumbShape",
     (
       {
-      double enabledThumbRadius = 10.0,
-      double disabledThumbRadius,
+      dynamic enabledThumbRadius = 10.0,
+      dynamic disabledThumbRadius,
       }
     ) =>
       RoundRangeSliderThumbShape(
@@ -1639,7 +1694,7 @@ var _roundSliderOverlayShape = MXFunctionInvoke(
     "RoundSliderOverlayShape",
     (
       {
-      double overlayRadius = 24.0,
+      dynamic overlayRadius = 24.0,
       }
     ) =>
       RoundSliderOverlayShape(
@@ -1664,8 +1719,8 @@ var _rangeValues = MXFunctionInvoke(
     "RangeValues",
     (
       {
-      double start,
-      double end,
+      dynamic start,
+      dynamic end,
       }
     ) =>
       RangeValues(
@@ -1692,7 +1747,7 @@ var _popupMenuThemeData = MXFunctionInvoke(
       {
       Color color,
       ShapeBorder shape,
-      double elevation,
+      dynamic elevation,
       TextStyle textStyle,
       }
     ) =>
@@ -1768,15 +1823,15 @@ var _navigationRail = MXFunctionInvoke(
       List<NavigationRailDestination> destinations,
       int selectedIndex,
       dynamic onDestinationSelected,
-      double elevation,
-      double groupAlignment,
+      dynamic elevation,
+      dynamic groupAlignment,
       NavigationRailLabelType labelType,
       TextStyle unselectedLabelTextStyle,
       TextStyle selectedLabelTextStyle,
       IconThemeData unselectedIconTheme,
       IconThemeData selectedIconTheme,
-      double minWidth,
-      double minExtendedWidth,
+      dynamic minWidth,
+      dynamic minExtendedWidth,
       }
     ) =>
       NavigationRail(
@@ -1822,12 +1877,12 @@ var _navigationRailThemeData = MXFunctionInvoke(
     (
       {
       Color backgroundColor,
-      double elevation,
+      dynamic elevation,
       TextStyle unselectedLabelTextStyle,
       TextStyle selectedLabelTextStyle,
       IconThemeData unselectedIconTheme,
       IconThemeData selectedIconTheme,
-      double groupAlignment,
+      dynamic groupAlignment,
       NavigationRailLabelType labelType,
       }
     ) =>
@@ -1984,7 +2039,7 @@ var _inputDecoration = MXFunctionInvoke(
     ),
 );
 var _inputDecoration_collapsed = MXFunctionInvoke(
-  "inputDecoration.collapsed",
+  "InputDecoration.collapsed",
     (
       {
       String hintText,
@@ -2095,7 +2150,7 @@ var _inkHighlight = MXFunctionInvoke(
       shape: shape,
       borderRadius: borderRadius,
       customBorder: customBorder,
-      rectCallback: rectCallback,
+      rectCallback: null,
       onRemoved: createVoidCallbackClosure(_inkHighlight.buildOwner, onRemoved),
       fadeDuration: fadeDuration,
     ),
@@ -2115,7 +2170,7 @@ var _inkResponse = MXFunctionInvoke(
       dynamic onHover,
       bool containedInkWell = false,
       BoxShape highlightShape = BoxShape.circle,
-      double radius,
+      dynamic radius,
       BorderRadius borderRadius,
       ShapeBorder customBorder,
       Color focusColor,
@@ -2177,7 +2232,7 @@ var _inkWell = MXFunctionInvoke(
       Color highlightColor,
       Color splashColor,
       InteractiveInkFeatureFactory splashFactory,
-      double radius,
+      dynamic radius,
       BorderRadius borderRadius,
       ShapeBorder customBorder,
       bool enableFeedback = true,
@@ -2227,7 +2282,7 @@ var _inkSplash = MXFunctionInvoke(
       dynamic rectCallback,
       BorderRadius borderRadius,
       ShapeBorder customBorder,
-      double radius,
+      dynamic radius,
       dynamic onRemoved,
       }
     ) =>
@@ -2238,7 +2293,7 @@ var _inkSplash = MXFunctionInvoke(
       position: position,
       color: color,
       containedInkWell: containedInkWell,
-      rectCallback: rectCallback,
+      rectCallback: null,
       borderRadius: borderRadius,
       customBorder: customBorder,
       radius: radius?.toDouble(),
@@ -2250,10 +2305,10 @@ var _dividerThemeData = MXFunctionInvoke(
     (
       {
       Color color,
-      double space,
-      double thickness,
-      double indent,
-      double endIndent,
+      dynamic space,
+      dynamic thickness,
+      dynamic indent,
+      dynamic endIndent,
       }
     ) =>
       DividerThemeData(
@@ -2284,7 +2339,7 @@ var _dialogTheme = MXFunctionInvoke(
     (
       {
       Color backgroundColor,
-      double elevation,
+      dynamic elevation,
       ShapeBorder shape,
       TextStyle titleTextStyle,
       TextStyle contentTextStyle,
@@ -2332,8 +2387,8 @@ var _chipThemeData = MXFunctionInvoke(
       TextStyle labelStyle,
       TextStyle secondaryLabelStyle,
       Brightness brightness,
-      double elevation,
-      double pressElevation,
+      dynamic elevation,
+      dynamic pressElevation,
       }
     ) =>
       ChipThemeData(
@@ -2357,7 +2412,7 @@ var _chipThemeData = MXFunctionInvoke(
     ),
 );
 var _chipThemeData_fromDefaults = MXFunctionInvoke(
-  "chipThemeData.fromDefaults",
+  "ChipThemeData.fromDefaults",
     (
       {
       Brightness brightness,
@@ -2380,7 +2435,7 @@ var _cardTheme = MXFunctionInvoke(
       Clip clipBehavior,
       Color color,
       Color shadowColor,
-      double elevation,
+      dynamic elevation,
       EdgeInsetsGeometry margin,
       ShapeBorder shape,
       }
@@ -2399,7 +2454,7 @@ var _bottomAppBarTheme = MXFunctionInvoke(
     (
       {
       Color color,
-      double elevation,
+      dynamic elevation,
       NotchedShape shape,
       }
     ) =>
@@ -2587,7 +2642,7 @@ var _themeData = MXFunctionInvoke(
     ),
 );
 var _themeData_from = MXFunctionInvoke(
-  "themeData.from",
+  "ThemeData.from",
     (
       {
       ColorScheme colorScheme,
@@ -2600,28 +2655,28 @@ var _themeData_from = MXFunctionInvoke(
     ),
 );
 var _themeData_light = MXFunctionInvoke(
-  "themeData.light",
+  "ThemeData.light",
     (
     ) =>
       ThemeData.light(
     ),
 );
 var _themeData_dark = MXFunctionInvoke(
-  "themeData.dark",
+  "ThemeData.dark",
     (
     ) =>
       ThemeData.dark(
     ),
 );
 var _themeData_fallback = MXFunctionInvoke(
-  "themeData.fallback",
+  "ThemeData.fallback",
     (
     ) =>
       ThemeData.fallback(
     ),
 );
 var _themeData_raw = MXFunctionInvoke(
-  "themeData.raw",
+  "ThemeData.raw",
     (
       {
       Brightness brightness,
@@ -2772,8 +2827,8 @@ var _visualDensity = MXFunctionInvoke(
     "VisualDensity",
     (
       {
-      double horizontal = 0.0,
-      double vertical = 0.0,
+      dynamic horizontal = 0.0,
+      dynamic vertical = 0.0,
       }
     ) =>
       VisualDensity(
@@ -2817,7 +2872,7 @@ var _colorScheme = MXFunctionInvoke(
     ),
 );
 var _colorScheme_fromSwatch = MXFunctionInvoke(
-  "colorScheme.fromSwatch",
+  "ColorScheme.fromSwatch",
     (
       {
       MaterialColor primarySwatch,
@@ -2840,7 +2895,7 @@ var _colorScheme_fromSwatch = MXFunctionInvoke(
     ),
 );
 var _colorScheme_light = MXFunctionInvoke(
-  "colorScheme.light",
+  "ColorScheme.light",
     (
       {
       Color primary,
@@ -2875,7 +2930,7 @@ var _colorScheme_light = MXFunctionInvoke(
     ),
 );
 var _colorScheme_dark = MXFunctionInvoke(
-  "colorScheme.dark",
+  "ColorScheme.dark",
     (
       {
       Color primary,
@@ -2924,8 +2979,8 @@ var _buttonTheme = MXFunctionInvoke(
       Key key,
       ButtonTextTheme textTheme = ButtonTextTheme.normal,
       ButtonBarLayoutBehavior layoutBehavior = ButtonBarLayoutBehavior.padded,
-      double minWidth = 88.0,
-      double height = 36.0,
+      dynamic minWidth = 88.0,
+      dynamic height = 36.0,
       EdgeInsetsGeometry padding,
       ShapeBorder shape,
       bool alignedDropdown = false,
@@ -2961,7 +3016,7 @@ var _buttonTheme = MXFunctionInvoke(
     ),
 );
 var _buttonTheme_fromButtonThemeData = MXFunctionInvoke(
-  "buttonTheme.fromButtonThemeData",
+  "ButtonTheme.fromButtonThemeData",
     (
       {
       Key key,
@@ -2976,13 +3031,13 @@ var _buttonTheme_fromButtonThemeData = MXFunctionInvoke(
     ),
 );
 var _buttonTheme_bar = MXFunctionInvoke(
-  "buttonTheme.bar",
+  "ButtonTheme.bar",
     (
       {
       Key key,
       ButtonTextTheme textTheme = ButtonTextTheme.accent,
-      double minWidth = 64.0,
-      double height = 36.0,
+      dynamic minWidth = 64.0,
+      dynamic height = 36.0,
       EdgeInsetsGeometry padding,
       ShapeBorder shape,
       bool alignedDropdown = false,
@@ -3021,8 +3076,8 @@ var _buttonThemeData = MXFunctionInvoke(
     (
       {
       ButtonTextTheme textTheme = ButtonTextTheme.normal,
-      double minWidth = 88.0,
-      double height = 36.0,
+      dynamic minWidth = 88.0,
+      dynamic height = 36.0,
       EdgeInsetsGeometry padding,
       ShapeBorder shape,
       ButtonBarLayoutBehavior layoutBehavior = ButtonBarLayoutBehavior.padded,
@@ -3062,8 +3117,8 @@ var _buttonBarThemeData = MXFunctionInvoke(
       MainAxisAlignment alignment,
       MainAxisSize mainAxisSize,
       ButtonTextTheme buttonTextTheme,
-      double buttonMinWidth,
-      double buttonHeight,
+      dynamic buttonMinWidth,
+      dynamic buttonHeight,
       EdgeInsetsGeometry buttonPadding,
       bool buttonAlignedDropdown,
       ButtonBarLayoutBehavior layoutBehavior,
@@ -3105,13 +3160,13 @@ var _buttonBar = MXFunctionInvoke(
       MainAxisAlignment alignment,
       MainAxisSize mainAxisSize,
       ButtonTextTheme buttonTextTheme,
-      double buttonMinWidth,
-      double buttonHeight,
+      dynamic buttonMinWidth,
+      dynamic buttonHeight,
       EdgeInsetsGeometry buttonPadding,
       bool buttonAlignedDropdown,
       ButtonBarLayoutBehavior layoutBehavior,
       VerticalDirection overflowDirection,
-      double overflowButtonSpacing,
+      dynamic overflowButtonSpacing,
       List<Widget> children,
       }
     ) =>
@@ -3140,7 +3195,7 @@ var _bottomSheet = MXFunctionInvoke(
       dynamic onDragStart,
       dynamic onDragEnd,
       Color backgroundColor,
-      double elevation,
+      dynamic elevation,
       ShapeBorder shape,
       Clip clipBehavior,
       dynamic onClosing,
@@ -3158,7 +3213,7 @@ var _bottomSheet = MXFunctionInvoke(
       shape: shape,
       clipBehavior: clipBehavior,
       onClosing: createVoidCallbackClosure(_bottomSheet.buildOwner, onClosing),
-      builder: createGenericValueGenericClosure<Widget, BuildContext>(_bottomSheet.buildOwner, builder),
+      builder: null,
     ),
 );
 var _scaffoldPrelayoutGeometry = MXFunctionInvoke(
@@ -3166,8 +3221,8 @@ var _scaffoldPrelayoutGeometry = MXFunctionInvoke(
     (
       {
       Size bottomSheetSize,
-      double contentBottom,
-      double contentTop,
+      dynamic contentBottom,
+      dynamic contentTop,
       Size floatingActionButtonSize,
       EdgeInsets minInsets,
       Size scaffoldSize,
@@ -3190,7 +3245,7 @@ var _scaffoldGeometry = MXFunctionInvoke(
     "ScaffoldGeometry",
     (
       {
-      double bottomNavigationBarTop,
+      dynamic bottomNavigationBarTop,
       Rect floatingActionButtonArea,
       }
     ) =>
@@ -3222,7 +3277,7 @@ var _scaffold = MXFunctionInvoke(
       bool extendBody = false,
       bool extendBodyBehindAppBar = false,
       Color drawerScrimColor,
-      double drawerEdgeDragWidth,
+      dynamic drawerEdgeDragWidth,
       bool drawerEnableOpenDragGesture = true,
       bool endDrawerEnableOpenDragGesture = true,
       }
@@ -3269,7 +3324,7 @@ var _material = MXFunctionInvoke(
       {
       Key key,
       MaterialType type = MaterialType.canvas,
-      double elevation = 0.0,
+      dynamic elevation = 0.0,
       Color color,
       Color shadowColor,
       TextStyle textStyle,
@@ -3327,7 +3382,7 @@ var _reorderableListView = MXFunctionInvoke(
       key: key,
       header: header,
       children: children,
-      onReorder: null,
+      onReorder: createVoidTwoParamsClosure<int, int>(_reorderableListView.buildOwner, onReorder),
       scrollController: scrollController,
       scrollDirection: scrollDirection,
       padding: padding,
@@ -3400,7 +3455,7 @@ var _appBarTheme = MXFunctionInvoke(
       {
       Brightness brightness,
       Color color,
-      double elevation,
+      dynamic elevation,
       IconThemeData iconTheme,
       IconThemeData actionsIconTheme,
       TextTheme textTheme,
@@ -3426,7 +3481,7 @@ var _appBar = MXFunctionInvoke(
       List<Widget> actions,
       Widget flexibleSpace,
       PreferredSizeWidget bottom,
-      double elevation,
+      dynamic elevation,
       ShapeBorder shape,
       Color backgroundColor,
       Brightness brightness,
@@ -3436,9 +3491,9 @@ var _appBar = MXFunctionInvoke(
       bool primary = true,
       bool centerTitle,
       bool excludeHeaderSemantics = false,
-      double titleSpacing = 16.0,
-      double toolbarOpacity = 1.0,
-      double bottomOpacity = 1.0,
+      dynamic titleSpacing = 16.0,
+      dynamic toolbarOpacity = 1.0,
+      dynamic bottomOpacity = 1.0,
       }
     ) =>
       AppBar(
@@ -3475,7 +3530,7 @@ var _sliverAppBar = MXFunctionInvoke(
       List<Widget> actions,
       Widget flexibleSpace,
       PreferredSizeWidget bottom,
-      double elevation,
+      dynamic elevation,
       bool forceElevated = false,
       Color backgroundColor,
       Brightness brightness,
@@ -3485,13 +3540,13 @@ var _sliverAppBar = MXFunctionInvoke(
       bool primary = true,
       bool centerTitle,
       bool excludeHeaderSemantics = false,
-      double titleSpacing = 16.0,
-      double expandedHeight,
+      dynamic titleSpacing = 16.0,
+      dynamic expandedHeight,
       bool floating = false,
       bool pinned = false,
       bool snap = false,
       bool stretch = false,
-      double stretchTriggerOffset = 100.0,
+      dynamic stretchTriggerOffset = 100.0,
       dynamic onStretchTrigger,
       ShapeBorder shape,
       }
@@ -3521,7 +3576,7 @@ var _sliverAppBar = MXFunctionInvoke(
       snap: snap,
       stretch: stretch,
       stretchTriggerOffset: stretchTriggerOffset?.toDouble(),
-      onStretchTrigger: onStretchTrigger,
+      onStretchTrigger: null,
       shape: shape,
     ),
 );

@@ -6,12 +6,12 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/sliver_grid.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/sliver.dart';
-import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/src/rendering/sliver.dart' ;
+import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -29,10 +29,10 @@ var _sliverGridGeometry = MXFunctionInvoke(
     "SliverGridGeometry",
     (
       {
-      double scrollOffset,
-      double crossAxisOffset,
-      double mainAxisExtent,
-      double crossAxisExtent,
+      dynamic scrollOffset,
+      dynamic crossAxisOffset,
+      dynamic mainAxisExtent,
+      dynamic crossAxisExtent,
       }
     ) =>
       SliverGridGeometry(
@@ -47,10 +47,10 @@ var _sliverGridRegularTileLayout = MXFunctionInvoke(
     (
       {
       int crossAxisCount,
-      double mainAxisStride,
-      double crossAxisStride,
-      double childMainAxisExtent,
-      double childCrossAxisExtent,
+      dynamic mainAxisStride,
+      dynamic crossAxisStride,
+      dynamic childMainAxisExtent,
+      dynamic childCrossAxisExtent,
       bool reverseCrossAxis,
       }
     ) =>
@@ -68,9 +68,9 @@ var _sliverGridDelegateWithFixedCrossAxisCount = MXFunctionInvoke(
     (
       {
       int crossAxisCount,
-      double mainAxisSpacing = 0.0,
-      double crossAxisSpacing = 0.0,
-      double childAspectRatio = 1.0,
+      dynamic mainAxisSpacing = 0.0,
+      dynamic crossAxisSpacing = 0.0,
+      dynamic childAspectRatio = 1.0,
       }
     ) =>
       SliverGridDelegateWithFixedCrossAxisCount(
@@ -84,10 +84,10 @@ var _sliverGridDelegateWithMaxCrossAxisExtent = MXFunctionInvoke(
     "SliverGridDelegateWithMaxCrossAxisExtent",
     (
       {
-      double maxCrossAxisExtent,
-      double mainAxisSpacing = 0.0,
-      double crossAxisSpacing = 0.0,
-      double childAspectRatio = 1.0,
+      dynamic maxCrossAxisExtent,
+      dynamic mainAxisSpacing = 0.0,
+      dynamic crossAxisSpacing = 0.0,
+      dynamic childAspectRatio = 1.0,
       }
     ) =>
       SliverGridDelegateWithMaxCrossAxisExtent(

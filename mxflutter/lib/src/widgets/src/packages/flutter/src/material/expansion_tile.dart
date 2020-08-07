@@ -6,12 +6,12 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/expansion_tile.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/colors.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/list_tile.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/theme_data.dart';
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/colors.dart' ;
+import 'package:flutter/src/material/icons.dart' ;
+import 'package:flutter/src/material/list_tile.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/src/material/theme_data.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

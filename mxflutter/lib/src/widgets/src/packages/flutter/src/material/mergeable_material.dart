@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/mergeable_material.dart';
-import 'dart:ui';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/divider.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/shadows.dart';
-import 'package:flutter/src/material/theme.dart';
+import 'dart:ui' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/divider.dart' ;
+import 'package:flutter/src/material/material.dart' ;
+import 'package:flutter/src/material/shadows.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -41,7 +41,7 @@ var _materialGap = MXFunctionInvoke(
     (
       {
       LocalKey key,
-      double size = 16.0,
+      dynamic size = 16.0,
       }
     ) =>
       MaterialGap(

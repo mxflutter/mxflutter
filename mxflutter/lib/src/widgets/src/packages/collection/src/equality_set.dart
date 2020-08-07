@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/equality_set.dart';
-import 'dart:collection';
-import 'package:collection/src/equality.dart';
-import 'package:collection/src/wrappers.dart';
+import 'dart:collection' ;
+import 'package:collection/src/equality.dart' ;
+import 'package:collection/src/wrappers.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -30,7 +30,7 @@ var _equalitySet = MXFunctionInvoke(
     ),
 );
 var _equalitySet_from = MXFunctionInvoke(
-  "equalitySet.from",
+  "EqualitySet.from",
     (
       {
       Equality<dynamic> equality,

@@ -6,15 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/pickers/input_date_picker.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/input_border.dart';
-import 'package:flutter/src/material/input_decorator.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/text_field.dart';
-import 'package:flutter/src/material/text_form_field.dart';
-import 'package:flutter/src/material/pickers/date_picker_common.dart';
-import 'package:flutter/src/material/pickers/date_utils.dart';
+import 'package:flutter/services.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/input_border.dart' ;
+import 'package:flutter/src/material/input_decorator.dart' ;
+import 'package:flutter/src/material/material_localizations.dart' ;
+import 'package:flutter/src/material/text_field.dart' ;
+import 'package:flutter/src/material/text_form_field.dart' ;
+import 'package:flutter/src/material/pickers/date_picker_common.dart' ;
+import 'package:flutter/src/material/pickers/date_utils.dart' as utils;
 
 
 ///把自己能处理的类注册到分发器中
@@ -48,7 +48,7 @@ var _inputDatePickerFormField = MXFunctionInvoke(
       lastDate: lastDate,
       onDateSubmitted: createValueChangedGenericClosure<DateTime>(_inputDatePickerFormField.buildOwner, onDateSubmitted),
       onDateSaved: createValueChangedGenericClosure<DateTime>(_inputDatePickerFormField.buildOwner, onDateSaved),
-      selectableDayPredicate: createGenericValueGenericClosure<bool, DateTime>(_inputDatePickerFormField.buildOwner, selectableDayPredicate),
+      selectableDayPredicate: null,
       errorFormatText: errorFormatText,
       errorInvalidText: errorInvalidText,
       fieldHintText: fieldHintText,

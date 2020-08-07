@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/text_form_field.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/input_decorator.dart';
-import 'package:flutter/src/material/text_field.dart';
-import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/services.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/input_decorator.dart' ;
+import 'package:flutter/src/material/text_field.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -59,7 +59,7 @@ var _textFormField = MXFunctionInvoke(
       dynamic validator,
       List<TextInputFormatter> inputFormatters,
       bool enabled = true,
-      double cursorWidth = 2.0,
+      dynamic cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
       Brightness keyboardAppearance,
@@ -103,7 +103,7 @@ var _textFormField = MXFunctionInvoke(
       onEditingComplete: createVoidCallbackClosure(_textFormField.buildOwner, onEditingComplete),
       onFieldSubmitted: createValueChangedGenericClosure<String>(_textFormField.buildOwner, onFieldSubmitted),
       onSaved: createValueChangedGenericClosure<String>(_textFormField.buildOwner, onSaved),
-      validator: createGenericValueGenericClosure<String, String>(_textFormField.buildOwner, validator),
+      validator: null,
       inputFormatters: inputFormatters,
       enabled: enabled,
       cursorWidth: cursorWidth?.toDouble(),
@@ -112,7 +112,7 @@ var _textFormField = MXFunctionInvoke(
       keyboardAppearance: keyboardAppearance,
       scrollPadding: scrollPadding,
       enableInteractiveSelection: enableInteractiveSelection,
-      buildCounter: createGenericValueGenericClosure<Widget, BuildContext>(_textFormField.buildOwner, buildCounter),
+      buildCounter: null,
       scrollPhysics: scrollPhysics,
     ),
 );

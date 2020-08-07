@@ -6,10 +6,10 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/image_cache.dart';
-import 'dart:developer';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/image_stream.dart';
+import 'dart:developer' ;
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/image_stream.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

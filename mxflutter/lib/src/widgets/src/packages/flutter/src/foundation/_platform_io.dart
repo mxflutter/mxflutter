@@ -5,23 +5,32 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/src/foundation/debug.dart';
-import 'dart:async';
-import 'package:flutter/src/foundation/assertions.dart';
+import 'package:flutter/src/foundation/_platform_io.dart';
+import 'dart:io' ;
+import 'package:flutter/src/foundation/assertions.dart' ;
+import 'package:flutter/src/foundation/platform.dart' as platform;
 import 'package:flutter/src/foundation/platform.dart';
-import 'package:flutter/src/foundation/print.dart';
+import 'package:flutter/src/foundation/_platform_io.dart' as _platform;
+import 'package:flutter/src/foundation/debug.dart';
+import 'dart:async' ;
+import 'package:flutter/src/foundation/platform.dart' ;
+import 'package:flutter/src/foundation/print.dart' ;
 import 'package:flutter/src/foundation/diagnostics.dart';
-import 'dart:math';
-import 'package:meta/meta.dart';
-import 'package:flutter/src/foundation/constants.dart';
-import 'package:flutter/src/foundation/object.dart';
-import 'package:flutter/src/foundation/basic_types.dart';
-import 'package:flutter/src/foundation/stack_frame.dart';
+import 'dart:math' as math;
+import 'package:meta/meta.dart' ;
+import 'package:flutter/src/foundation/constants.dart' ;
+import 'package:flutter/src/foundation/debug.dart' ;
+import 'package:flutter/src/foundation/object.dart' ;
+import 'package:flutter/src/foundation/assertions.dart';
+import 'package:flutter/src/foundation/basic_types.dart' ;
+import 'package:flutter/src/foundation/diagnostics.dart' ;
+import 'package:flutter/src/foundation/stack_frame.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
-Map<String, MXFunctionInvoke> registerDebugSeries() {
+Map<String, MXFunctionInvoke> registerPlatformIoSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_targetPlatform.funName] = _targetPlatform;
   m[_diagnosticLevel.funName] = _diagnosticLevel;
   m[_diagnosticsTreeStyle.funName] = _diagnosticsTreeStyle;
   m[_textTreeConfiguration.funName] = _textTreeConfiguration;
@@ -58,6 +67,10 @@ Map<String, MXFunctionInvoke> registerDebugSeries() {
   m[_diagnosticsStackTrace_singleFrame.funName] = _diagnosticsStackTrace_singleFrame;
   return m;
 }
+var _targetPlatform = MXFunctionInvoke(
+    "TargetPlatform",
+    ({Map args}) => MXTargetPlatform.parse(args),
+  );
 var _diagnosticLevel = MXFunctionInvoke(
     "DiagnosticLevel",
     ({Map args}) => MXDiagnosticLevel.parse(args),
@@ -184,7 +197,7 @@ var _diagnosticsProperty = MXFunctionInvoke(
     ),
 );
 var _diagnosticsProperty_lazy = MXFunctionInvoke(
-  "diagnosticsProperty.lazy",
+  "DiagnosticsProperty.lazy",
     (
       {
       String name,
@@ -273,7 +286,7 @@ var _doubleProperty = MXFunctionInvoke(
     (
       {
       String name,
-      double value,
+      dynamic value,
       String ifNull,
       String unit,
       String tooltip,
@@ -296,7 +309,7 @@ var _doubleProperty = MXFunctionInvoke(
     ),
 );
 var _doubleProperty_lazy = MXFunctionInvoke(
-  "doubleProperty.lazy",
+  "DoubleProperty.lazy",
     (
       {
       String name,
@@ -350,7 +363,7 @@ var _percentProperty = MXFunctionInvoke(
     (
       {
       String name,
-      double fraction,
+      dynamic fraction,
       String ifNull,
       bool showName = true,
       String tooltip,
@@ -457,7 +470,7 @@ var _objectFlagProperty = MXFunctionInvoke(
     ),
 );
 var _objectFlagProperty_has = MXFunctionInvoke(
-  "objectFlagProperty.has",
+  "ObjectFlagProperty.has",
     (
       {
       String name,
@@ -530,7 +543,7 @@ var _diagnosticPropertiesBuilder = MXFunctionInvoke(
     ),
 );
 var _diagnosticPropertiesBuilder_fromProperties = MXFunctionInvoke(
-  "diagnosticPropertiesBuilder.fromProperties",
+  "DiagnosticPropertiesBuilder.fromProperties",
     (
       {
       List<DiagnosticsNode> properties,
@@ -657,8 +670,8 @@ var _flutterErrorDetails = MXFunctionInvoke(
       stack: stack,
       library: library,
       context: context,
-      stackFilter: createGenericValueGenericClosure<Iterable<String>, Iterable<String>>(_flutterErrorDetails.buildOwner, stackFilter),
-      informationCollector: informationCollector,
+      stackFilter: null,
+      informationCollector: null,
       silent: silent,
     ),
 );
@@ -674,7 +687,7 @@ var _flutterError = MXFunctionInvoke(
     ),
 );
 var _flutterError_fromParts = MXFunctionInvoke(
-  "flutterError.fromParts",
+  "FlutterError.fromParts",
     (
       {
       List<DiagnosticsNode> diagnostics,
@@ -697,12 +710,12 @@ var _diagnosticsStackTrace = MXFunctionInvoke(
       DiagnosticsStackTrace(
       name,
       stack,
-      stackFilter: createGenericValueGenericClosure<Iterable<String>, Iterable<String>>(_diagnosticsStackTrace.buildOwner, stackFilter),
+      stackFilter: null,
       showSeparator: showSeparator,
     ),
 );
 var _diagnosticsStackTrace_singleFrame = MXFunctionInvoke(
-  "diagnosticsStackTrace.singleFrame",
+  "DiagnosticsStackTrace.singleFrame",
     (
       {
       String name,
@@ -716,6 +729,25 @@ var _diagnosticsStackTrace_singleFrame = MXFunctionInvoke(
       showSeparator: showSeparator,
     ),
 );
+class MXTargetPlatform {
+  static Map str2VMap = {
+    'TargetPlatform.android': TargetPlatform.android,
+    'TargetPlatform.fuchsia': TargetPlatform.fuchsia,
+    'TargetPlatform.iOS': TargetPlatform.iOS,
+    'TargetPlatform.linux': TargetPlatform.linux,
+    'TargetPlatform.macOS': TargetPlatform.macOS,
+    'TargetPlatform.windows': TargetPlatform.windows,
+  };
+  static TargetPlatform parse(dynamic value) {
+    if (value is Map) {
+      var valueStr = value["_name"].trim();
+      var v = str2VMap[valueStr];
+      return v;
+    } else {
+      return value;
+    }
+  }
+}
 class MXDiagnosticLevel {
   static Map str2VMap = {
     'DiagnosticLevel.hidden': DiagnosticLevel.hidden,

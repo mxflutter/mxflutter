@@ -22,7 +22,7 @@ import 'src/services/text_formatter.dart';
 import 'src/services/text_input.dart';
 
 
-Map<String, MXFunctionInvoke> registerServicesSeries() {
+Map<String, MXFunctionInvoke> registerServicesLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerPlatformChannelSeries());
   m.addAll(registerClipboardSeries());

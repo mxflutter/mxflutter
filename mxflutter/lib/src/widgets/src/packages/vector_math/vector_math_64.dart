@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:vector_math/vector_math_64.dart';
-import 'dart:math';
-import 'dart:typed_data';
-import 'package:vector_math/hash.dart';
+import 'dart:math' as math;
+import 'dart:typed_data' ;
+import 'package:vector_math/hash.dart' as quiver;
 
 
 ///把自己能处理的类注册到分发器中
@@ -138,7 +138,7 @@ var _aabb2 = MXFunctionInvoke(
     ),
 );
 var _aabb2_centerAndHalfExtents = MXFunctionInvoke(
-  "aabb2.centerAndHalfExtents",
+  "Aabb2.centerAndHalfExtents",
     (
       {
       Vector2 center,
@@ -151,7 +151,7 @@ var _aabb2_centerAndHalfExtents = MXFunctionInvoke(
     ),
 );
 var _aabb2_copy = MXFunctionInvoke(
-  "aabb2.copy",
+  "Aabb2.copy",
     (
       {
       Aabb2 other,
@@ -162,7 +162,7 @@ var _aabb2_copy = MXFunctionInvoke(
     ),
 );
 var _aabb2_minMax = MXFunctionInvoke(
-  "aabb2.minMax",
+  "Aabb2.minMax",
     (
       {
       Vector2 min,
@@ -175,7 +175,7 @@ var _aabb2_minMax = MXFunctionInvoke(
     ),
 );
 var _aabb2_fromBuffer = MXFunctionInvoke(
-  "aabb2.fromBuffer",
+  "Aabb2.fromBuffer",
     (
       {
       ByteBuffer buffer,
@@ -195,7 +195,7 @@ var _aabb3 = MXFunctionInvoke(
     ),
 );
 var _aabb3_fromSphere = MXFunctionInvoke(
-  "aabb3.fromSphere",
+  "Aabb3.fromSphere",
     (
       {
       Sphere sphere,
@@ -206,7 +206,7 @@ var _aabb3_fromSphere = MXFunctionInvoke(
     ),
 );
 var _aabb3_fromTriangle = MXFunctionInvoke(
-  "aabb3.fromTriangle",
+  "Aabb3.fromTriangle",
     (
       {
       Triangle triangle,
@@ -217,7 +217,7 @@ var _aabb3_fromTriangle = MXFunctionInvoke(
     ),
 );
 var _aabb3_fromQuad = MXFunctionInvoke(
-  "aabb3.fromQuad",
+  "Aabb3.fromQuad",
     (
       {
       Quad quad,
@@ -228,7 +228,7 @@ var _aabb3_fromQuad = MXFunctionInvoke(
     ),
 );
 var _aabb3_fromObb3 = MXFunctionInvoke(
-  "aabb3.fromObb3",
+  "Aabb3.fromObb3",
     (
       {
       Obb3 obb,
@@ -239,12 +239,12 @@ var _aabb3_fromObb3 = MXFunctionInvoke(
     ),
 );
 var _aabb3_fromRay = MXFunctionInvoke(
-  "aabb3.fromRay",
+  "Aabb3.fromRay",
     (
       {
       Ray ray,
-      double limitMin,
-      double limitMax,
+      dynamic limitMin,
+      dynamic limitMax,
       }
     ) =>
       Aabb3.fromRay(
@@ -254,7 +254,7 @@ var _aabb3_fromRay = MXFunctionInvoke(
     ),
 );
 var _aabb3_centerAndHalfExtents = MXFunctionInvoke(
-  "aabb3.centerAndHalfExtents",
+  "Aabb3.centerAndHalfExtents",
     (
       {
       Vector3 center,
@@ -267,7 +267,7 @@ var _aabb3_centerAndHalfExtents = MXFunctionInvoke(
     ),
 );
 var _aabb3_copy = MXFunctionInvoke(
-  "aabb3.copy",
+  "Aabb3.copy",
     (
       {
       Aabb3 other,
@@ -278,7 +278,7 @@ var _aabb3_copy = MXFunctionInvoke(
     ),
 );
 var _aabb3_minMax = MXFunctionInvoke(
-  "aabb3.minMax",
+  "Aabb3.minMax",
     (
       {
       Vector3 min,
@@ -291,7 +291,7 @@ var _aabb3_minMax = MXFunctionInvoke(
     ),
 );
 var _aabb3_fromBuffer = MXFunctionInvoke(
-  "aabb3.fromBuffer",
+  "Aabb3.fromBuffer",
     (
       {
       ByteBuffer buffer,
@@ -311,7 +311,7 @@ var _frustum = MXFunctionInvoke(
     ),
 );
 var _frustum_copy = MXFunctionInvoke(
-  "frustum.copy",
+  "Frustum.copy",
     (
       {
       Frustum other,
@@ -322,7 +322,7 @@ var _frustum_copy = MXFunctionInvoke(
     ),
 );
 var _frustum_matrix = MXFunctionInvoke(
-  "frustum.matrix",
+  "Frustum.matrix",
     (
       {
       Matrix4 matrix,
@@ -343,10 +343,10 @@ var _matrix2 = MXFunctionInvoke(
     "Matrix2",
     (
       {
-      double arg0,
-      double arg1,
-      double arg2,
-      double arg3,
+      dynamic arg0,
+      dynamic arg1,
+      dynamic arg2,
+      dynamic arg3,
       }
     ) =>
       Matrix2(
@@ -357,7 +357,7 @@ var _matrix2 = MXFunctionInvoke(
     ),
 );
 var _matrix2_fromList = MXFunctionInvoke(
-  "matrix2.fromList",
+  "Matrix2.fromList",
     (
       {
       List<double> values,
@@ -368,14 +368,14 @@ var _matrix2_fromList = MXFunctionInvoke(
     ),
 );
 var _matrix2_identity = MXFunctionInvoke(
-  "matrix2.identity",
+  "Matrix2.identity",
     (
     ) =>
       Matrix2.identity(
     ),
 );
 var _matrix2_copy = MXFunctionInvoke(
-  "matrix2.copy",
+  "Matrix2.copy",
     (
       {
       Matrix2 other,
@@ -386,7 +386,7 @@ var _matrix2_copy = MXFunctionInvoke(
     ),
 );
 var _matrix2_columns = MXFunctionInvoke(
-  "matrix2.columns",
+  "Matrix2.columns",
     (
       {
       Vector2 arg0,
@@ -399,7 +399,7 @@ var _matrix2_columns = MXFunctionInvoke(
     ),
 );
 var _matrix2_outer = MXFunctionInvoke(
-  "matrix2.outer",
+  "Matrix2.outer",
     (
       {
       Vector2 u,
@@ -412,10 +412,10 @@ var _matrix2_outer = MXFunctionInvoke(
     ),
 );
 var _matrix2_rotation = MXFunctionInvoke(
-  "matrix2.rotation",
+  "Matrix2.rotation",
     (
       {
-      double radians,
+      dynamic radians,
       }
     ) =>
       Matrix2.rotation(
@@ -423,7 +423,7 @@ var _matrix2_rotation = MXFunctionInvoke(
     ),
 );
 var _matrix2_zero = MXFunctionInvoke(
-  "matrix2.zero",
+  "Matrix2.zero",
     (
     ) =>
       Matrix2.zero(
@@ -433,15 +433,15 @@ var _matrix3 = MXFunctionInvoke(
     "Matrix3",
     (
       {
-      double arg0,
-      double arg1,
-      double arg2,
-      double arg3,
-      double arg4,
-      double arg5,
-      double arg6,
-      double arg7,
-      double arg8,
+      dynamic arg0,
+      dynamic arg1,
+      dynamic arg2,
+      dynamic arg3,
+      dynamic arg4,
+      dynamic arg5,
+      dynamic arg6,
+      dynamic arg7,
+      dynamic arg8,
       }
     ) =>
       Matrix3(
@@ -457,7 +457,7 @@ var _matrix3 = MXFunctionInvoke(
     ),
 );
 var _matrix3_fromList = MXFunctionInvoke(
-  "matrix3.fromList",
+  "Matrix3.fromList",
     (
       {
       List<double> values,
@@ -468,14 +468,14 @@ var _matrix3_fromList = MXFunctionInvoke(
     ),
 );
 var _matrix3_identity = MXFunctionInvoke(
-  "matrix3.identity",
+  "Matrix3.identity",
     (
     ) =>
       Matrix3.identity(
     ),
 );
 var _matrix3_copy = MXFunctionInvoke(
-  "matrix3.copy",
+  "Matrix3.copy",
     (
       {
       Matrix3 other,
@@ -486,7 +486,7 @@ var _matrix3_copy = MXFunctionInvoke(
     ),
 );
 var _matrix3_columns = MXFunctionInvoke(
-  "matrix3.columns",
+  "Matrix3.columns",
     (
       {
       Vector3 arg0,
@@ -501,7 +501,7 @@ var _matrix3_columns = MXFunctionInvoke(
     ),
 );
 var _matrix3_outer = MXFunctionInvoke(
-  "matrix3.outer",
+  "Matrix3.outer",
     (
       {
       Vector3 u,
@@ -514,10 +514,10 @@ var _matrix3_outer = MXFunctionInvoke(
     ),
 );
 var _matrix3_rotationX = MXFunctionInvoke(
-  "matrix3.rotationX",
+  "Matrix3.rotationX",
     (
       {
-      double radians,
+      dynamic radians,
       }
     ) =>
       Matrix3.rotationX(
@@ -525,10 +525,10 @@ var _matrix3_rotationX = MXFunctionInvoke(
     ),
 );
 var _matrix3_rotationY = MXFunctionInvoke(
-  "matrix3.rotationY",
+  "Matrix3.rotationY",
     (
       {
-      double radians,
+      dynamic radians,
       }
     ) =>
       Matrix3.rotationY(
@@ -536,10 +536,10 @@ var _matrix3_rotationY = MXFunctionInvoke(
     ),
 );
 var _matrix3_rotationZ = MXFunctionInvoke(
-  "matrix3.rotationZ",
+  "Matrix3.rotationZ",
     (
       {
-      double radians,
+      dynamic radians,
       }
     ) =>
       Matrix3.rotationZ(
@@ -547,7 +547,7 @@ var _matrix3_rotationZ = MXFunctionInvoke(
     ),
 );
 var _matrix3_zero = MXFunctionInvoke(
-  "matrix3.zero",
+  "Matrix3.zero",
     (
     ) =>
       Matrix3.zero(
@@ -557,22 +557,22 @@ var _matrix4 = MXFunctionInvoke(
     "Matrix4",
     (
       {
-      double arg0,
-      double arg1,
-      double arg2,
-      double arg3,
-      double arg4,
-      double arg5,
-      double arg6,
-      double arg7,
-      double arg8,
-      double arg9,
-      double arg10,
-      double arg11,
-      double arg12,
-      double arg13,
-      double arg14,
-      double arg15,
+      dynamic arg0,
+      dynamic arg1,
+      dynamic arg2,
+      dynamic arg3,
+      dynamic arg4,
+      dynamic arg5,
+      dynamic arg6,
+      dynamic arg7,
+      dynamic arg8,
+      dynamic arg9,
+      dynamic arg10,
+      dynamic arg11,
+      dynamic arg12,
+      dynamic arg13,
+      dynamic arg14,
+      dynamic arg15,
       }
     ) =>
       Matrix4(
@@ -595,7 +595,7 @@ var _matrix4 = MXFunctionInvoke(
     ),
 );
 var _matrix4_fromList = MXFunctionInvoke(
-  "matrix4.fromList",
+  "Matrix4.fromList",
     (
       {
       List<double> values,
@@ -606,14 +606,14 @@ var _matrix4_fromList = MXFunctionInvoke(
     ),
 );
 var _matrix4_identity = MXFunctionInvoke(
-  "matrix4.identity",
+  "Matrix4.identity",
     (
     ) =>
       Matrix4.identity(
     ),
 );
 var _matrix4_copy = MXFunctionInvoke(
-  "matrix4.copy",
+  "Matrix4.copy",
     (
       {
       Matrix4 other,
@@ -624,7 +624,7 @@ var _matrix4_copy = MXFunctionInvoke(
     ),
 );
 var _matrix4_inverted = MXFunctionInvoke(
-  "matrix4.inverted",
+  "Matrix4.inverted",
     (
       {
       Matrix4 other,
@@ -635,7 +635,7 @@ var _matrix4_inverted = MXFunctionInvoke(
     ),
 );
 var _matrix4_columns = MXFunctionInvoke(
-  "matrix4.columns",
+  "Matrix4.columns",
     (
       {
       Vector4 arg0,
@@ -652,7 +652,7 @@ var _matrix4_columns = MXFunctionInvoke(
     ),
 );
 var _matrix4_outer = MXFunctionInvoke(
-  "matrix4.outer",
+  "Matrix4.outer",
     (
       {
       Vector4 u,
@@ -665,10 +665,10 @@ var _matrix4_outer = MXFunctionInvoke(
     ),
 );
 var _matrix4_rotationX = MXFunctionInvoke(
-  "matrix4.rotationX",
+  "Matrix4.rotationX",
     (
       {
-      double radians,
+      dynamic radians,
       }
     ) =>
       Matrix4.rotationX(
@@ -676,10 +676,10 @@ var _matrix4_rotationX = MXFunctionInvoke(
     ),
 );
 var _matrix4_rotationY = MXFunctionInvoke(
-  "matrix4.rotationY",
+  "Matrix4.rotationY",
     (
       {
-      double radians,
+      dynamic radians,
       }
     ) =>
       Matrix4.rotationY(
@@ -687,10 +687,10 @@ var _matrix4_rotationY = MXFunctionInvoke(
     ),
 );
 var _matrix4_rotationZ = MXFunctionInvoke(
-  "matrix4.rotationZ",
+  "Matrix4.rotationZ",
     (
       {
-      double radians,
+      dynamic radians,
       }
     ) =>
       Matrix4.rotationZ(
@@ -698,7 +698,7 @@ var _matrix4_rotationZ = MXFunctionInvoke(
     ),
 );
 var _matrix4_translation = MXFunctionInvoke(
-  "matrix4.translation",
+  "Matrix4.translation",
     (
       {
       Vector3 translation,
@@ -709,12 +709,12 @@ var _matrix4_translation = MXFunctionInvoke(
     ),
 );
 var _matrix4_translationValues = MXFunctionInvoke(
-  "matrix4.translationValues",
+  "Matrix4.translationValues",
     (
       {
-      double x,
-      double y,
-      double z,
+      dynamic x,
+      dynamic y,
+      dynamic z,
       }
     ) =>
       Matrix4.translationValues(
@@ -724,7 +724,7 @@ var _matrix4_translationValues = MXFunctionInvoke(
     ),
 );
 var _matrix4_diagonal3 = MXFunctionInvoke(
-  "matrix4.diagonal3",
+  "Matrix4.diagonal3",
     (
       {
       Vector3 scale,
@@ -735,12 +735,12 @@ var _matrix4_diagonal3 = MXFunctionInvoke(
     ),
 );
 var _matrix4_diagonal3Values = MXFunctionInvoke(
-  "matrix4.diagonal3Values",
+  "Matrix4.diagonal3Values",
     (
       {
-      double x,
-      double y,
-      double z,
+      dynamic x,
+      dynamic y,
+      dynamic z,
       }
     ) =>
       Matrix4.diagonal3Values(
@@ -750,10 +750,10 @@ var _matrix4_diagonal3Values = MXFunctionInvoke(
     ),
 );
 var _matrix4_skewX = MXFunctionInvoke(
-  "matrix4.skewX",
+  "Matrix4.skewX",
     (
       {
-      double alpha,
+      dynamic alpha,
       }
     ) =>
       Matrix4.skewX(
@@ -761,10 +761,10 @@ var _matrix4_skewX = MXFunctionInvoke(
     ),
 );
 var _matrix4_skewY = MXFunctionInvoke(
-  "matrix4.skewY",
+  "Matrix4.skewY",
     (
       {
-      double beta,
+      dynamic beta,
       }
     ) =>
       Matrix4.skewY(
@@ -772,11 +772,11 @@ var _matrix4_skewY = MXFunctionInvoke(
     ),
 );
 var _matrix4_skew = MXFunctionInvoke(
-  "matrix4.skew",
+  "Matrix4.skew",
     (
       {
-      double alpha,
-      double beta,
+      dynamic alpha,
+      dynamic beta,
       }
     ) =>
       Matrix4.skew(
@@ -785,7 +785,7 @@ var _matrix4_skew = MXFunctionInvoke(
     ),
 );
 var _matrix4_compose = MXFunctionInvoke(
-  "matrix4.compose",
+  "Matrix4.compose",
     (
       {
       Vector3 translation,
@@ -800,14 +800,14 @@ var _matrix4_compose = MXFunctionInvoke(
     ),
 );
 var _matrix4_zero = MXFunctionInvoke(
-  "matrix4.zero",
+  "Matrix4.zero",
     (
     ) =>
       Matrix4.zero(
     ),
 );
 var _matrix4_fromFloat64List = MXFunctionInvoke(
-  "matrix4.fromFloat64List",
+  "Matrix4.fromFloat64List",
     (
       {
       Float64List m4storage,
@@ -818,7 +818,7 @@ var _matrix4_fromFloat64List = MXFunctionInvoke(
     ),
 );
 var _matrix4_fromBuffer = MXFunctionInvoke(
-  "matrix4.fromBuffer",
+  "Matrix4.fromBuffer",
     (
       {
       ByteBuffer buffer,
@@ -838,7 +838,7 @@ var _obb3 = MXFunctionInvoke(
     ),
 );
 var _obb3_copy = MXFunctionInvoke(
-  "obb3.copy",
+  "Obb3.copy",
     (
       {
       Obb3 other,
@@ -849,7 +849,7 @@ var _obb3_copy = MXFunctionInvoke(
     ),
 );
 var _obb3_centerExtentsAxes = MXFunctionInvoke(
-  "obb3.centerExtentsAxes",
+  "Obb3.centerExtentsAxes",
     (
       {
       Vector3 center,
@@ -875,7 +875,7 @@ var _plane = MXFunctionInvoke(
     ),
 );
 var _plane_copy = MXFunctionInvoke(
-  "plane.copy",
+  "Plane.copy",
     (
       {
       Plane other,
@@ -886,13 +886,13 @@ var _plane_copy = MXFunctionInvoke(
     ),
 );
 var _plane_components = MXFunctionInvoke(
-  "plane.components",
+  "Plane.components",
     (
       {
-      double x,
-      double y,
-      double z,
-      double w,
+      dynamic x,
+      dynamic y,
+      dynamic z,
+      dynamic w,
       }
     ) =>
       Plane.components(
@@ -903,11 +903,11 @@ var _plane_components = MXFunctionInvoke(
     ),
 );
 var _plane_normalconstant = MXFunctionInvoke(
-  "plane.normalconstant",
+  "Plane.normalconstant",
     (
       {
       Vector3 normal_,
-      double constant_,
+      dynamic constant_,
       }
     ) =>
       Plane.normalconstant(
@@ -923,7 +923,7 @@ var _quad = MXFunctionInvoke(
     ),
 );
 var _quad_copy = MXFunctionInvoke(
-  "quad.copy",
+  "Quad.copy",
     (
       {
       Quad other,
@@ -934,7 +934,7 @@ var _quad_copy = MXFunctionInvoke(
     ),
 );
 var _quad_points = MXFunctionInvoke(
-  "quad.points",
+  "Quad.points",
     (
       {
       Vector3 point0,
@@ -954,10 +954,10 @@ var _quaternion = MXFunctionInvoke(
     "Quaternion",
     (
       {
-      double x,
-      double y,
-      double z,
-      double w,
+      dynamic x,
+      dynamic y,
+      dynamic z,
+      dynamic w,
       }
     ) =>
       Quaternion(
@@ -968,7 +968,7 @@ var _quaternion = MXFunctionInvoke(
     ),
 );
 var _quaternion_fromRotation = MXFunctionInvoke(
-  "quaternion.fromRotation",
+  "Quaternion.fromRotation",
     (
       {
       Matrix3 rotationMatrix,
@@ -979,11 +979,11 @@ var _quaternion_fromRotation = MXFunctionInvoke(
     ),
 );
 var _quaternion_axisAngle = MXFunctionInvoke(
-  "quaternion.axisAngle",
+  "Quaternion.axisAngle",
     (
       {
       Vector3 axis,
-      double angle,
+      dynamic angle,
       }
     ) =>
       Quaternion.axisAngle(
@@ -992,7 +992,7 @@ var _quaternion_axisAngle = MXFunctionInvoke(
     ),
 );
 var _quaternion_fromTwoVectors = MXFunctionInvoke(
-  "quaternion.fromTwoVectors",
+  "Quaternion.fromTwoVectors",
     (
       {
       Vector3 a,
@@ -1005,7 +1005,7 @@ var _quaternion_fromTwoVectors = MXFunctionInvoke(
     ),
 );
 var _quaternion_copy = MXFunctionInvoke(
-  "quaternion.copy",
+  "Quaternion.copy",
     (
       {
       Quaternion original,
@@ -1016,7 +1016,7 @@ var _quaternion_copy = MXFunctionInvoke(
     ),
 );
 var _quaternion_random = MXFunctionInvoke(
-  "quaternion.random",
+  "Quaternion.random",
     (
       {
       Random rn,
@@ -1027,14 +1027,14 @@ var _quaternion_random = MXFunctionInvoke(
     ),
 );
 var _quaternion_identity = MXFunctionInvoke(
-  "quaternion.identity",
+  "Quaternion.identity",
     (
     ) =>
       Quaternion.identity(
     ),
 );
 var _quaternion_dq = MXFunctionInvoke(
-  "quaternion.dq",
+  "Quaternion.dq",
     (
       {
       Quaternion q,
@@ -1047,12 +1047,12 @@ var _quaternion_dq = MXFunctionInvoke(
     ),
 );
 var _quaternion_euler = MXFunctionInvoke(
-  "quaternion.euler",
+  "Quaternion.euler",
     (
       {
-      double yaw,
-      double pitch,
-      double roll,
+      dynamic yaw,
+      dynamic pitch,
+      dynamic roll,
       }
     ) =>
       Quaternion.euler(
@@ -1062,7 +1062,7 @@ var _quaternion_euler = MXFunctionInvoke(
     ),
 );
 var _quaternion_fromFloat64List = MXFunctionInvoke(
-  "quaternion.fromFloat64List",
+  "Quaternion.fromFloat64List",
     (
       {
       Float64List qStorage,
@@ -1073,7 +1073,7 @@ var _quaternion_fromFloat64List = MXFunctionInvoke(
     ),
 );
 var _quaternion_fromBuffer = MXFunctionInvoke(
-  "quaternion.fromBuffer",
+  "Quaternion.fromBuffer",
     (
       {
       ByteBuffer buffer,
@@ -1093,7 +1093,7 @@ var _ray = MXFunctionInvoke(
     ),
 );
 var _ray_copy = MXFunctionInvoke(
-  "ray.copy",
+  "Ray.copy",
     (
       {
       Ray other,
@@ -1104,7 +1104,7 @@ var _ray_copy = MXFunctionInvoke(
     ),
 );
 var _ray_originDirection = MXFunctionInvoke(
-  "ray.originDirection",
+  "Ray.originDirection",
     (
       {
       Vector3 origin,
@@ -1124,7 +1124,7 @@ var _sphere = MXFunctionInvoke(
     ),
 );
 var _sphere_copy = MXFunctionInvoke(
-  "sphere.copy",
+  "Sphere.copy",
     (
       {
       Sphere other,
@@ -1135,11 +1135,11 @@ var _sphere_copy = MXFunctionInvoke(
     ),
 );
 var _sphere_centerRadius = MXFunctionInvoke(
-  "sphere.centerRadius",
+  "Sphere.centerRadius",
     (
       {
       Vector3 center,
-      double radius,
+      dynamic radius,
       }
     ) =>
       Sphere.centerRadius(
@@ -1166,7 +1166,7 @@ var _triangle = MXFunctionInvoke(
     ),
 );
 var _triangle_copy = MXFunctionInvoke(
-  "triangle.copy",
+  "Triangle.copy",
     (
       {
       Triangle other,
@@ -1177,7 +1177,7 @@ var _triangle_copy = MXFunctionInvoke(
     ),
 );
 var _triangle_points = MXFunctionInvoke(
-  "triangle.points",
+  "Triangle.points",
     (
       {
       Vector3 point0,
@@ -1195,8 +1195,8 @@ var _vector2 = MXFunctionInvoke(
     "Vector2",
     (
       {
-      double x,
-      double y,
+      dynamic x,
+      dynamic y,
       }
     ) =>
       Vector2(
@@ -1205,7 +1205,7 @@ var _vector2 = MXFunctionInvoke(
     ),
 );
 var _vector2_array = MXFunctionInvoke(
-  "vector2.array",
+  "Vector2.array",
     (
       {
       List<double> array,
@@ -1218,10 +1218,10 @@ var _vector2_array = MXFunctionInvoke(
     ),
 );
 var _vector2_all = MXFunctionInvoke(
-  "vector2.all",
+  "Vector2.all",
     (
       {
-      double value,
+      dynamic value,
       }
     ) =>
       Vector2.all(
@@ -1229,7 +1229,7 @@ var _vector2_all = MXFunctionInvoke(
     ),
 );
 var _vector2_copy = MXFunctionInvoke(
-  "vector2.copy",
+  "Vector2.copy",
     (
       {
       Vector2 other,
@@ -1240,7 +1240,7 @@ var _vector2_copy = MXFunctionInvoke(
     ),
 );
 var _vector2_random = MXFunctionInvoke(
-  "vector2.random",
+  "Vector2.random",
     (
       {
       Random rng,
@@ -1251,14 +1251,14 @@ var _vector2_random = MXFunctionInvoke(
     ),
 );
 var _vector2_zero = MXFunctionInvoke(
-  "vector2.zero",
+  "Vector2.zero",
     (
     ) =>
       Vector2.zero(
     ),
 );
 var _vector2_fromFloat64List = MXFunctionInvoke(
-  "vector2.fromFloat64List",
+  "Vector2.fromFloat64List",
     (
       {
       Float64List v2storage,
@@ -1269,7 +1269,7 @@ var _vector2_fromFloat64List = MXFunctionInvoke(
     ),
 );
 var _vector2_fromBuffer = MXFunctionInvoke(
-  "vector2.fromBuffer",
+  "Vector2.fromBuffer",
     (
       {
       ByteBuffer buffer,
@@ -1285,9 +1285,9 @@ var _vector3 = MXFunctionInvoke(
     "Vector3",
     (
       {
-      double x,
-      double y,
-      double z,
+      dynamic x,
+      dynamic y,
+      dynamic z,
       }
     ) =>
       Vector3(
@@ -1297,7 +1297,7 @@ var _vector3 = MXFunctionInvoke(
     ),
 );
 var _vector3_array = MXFunctionInvoke(
-  "vector3.array",
+  "Vector3.array",
     (
       {
       List<double> array,
@@ -1310,10 +1310,10 @@ var _vector3_array = MXFunctionInvoke(
     ),
 );
 var _vector3_all = MXFunctionInvoke(
-  "vector3.all",
+  "Vector3.all",
     (
       {
-      double value,
+      dynamic value,
       }
     ) =>
       Vector3.all(
@@ -1321,7 +1321,7 @@ var _vector3_all = MXFunctionInvoke(
     ),
 );
 var _vector3_copy = MXFunctionInvoke(
-  "vector3.copy",
+  "Vector3.copy",
     (
       {
       Vector3 other,
@@ -1332,7 +1332,7 @@ var _vector3_copy = MXFunctionInvoke(
     ),
 );
 var _vector3_random = MXFunctionInvoke(
-  "vector3.random",
+  "Vector3.random",
     (
       {
       Random rng,
@@ -1343,14 +1343,14 @@ var _vector3_random = MXFunctionInvoke(
     ),
 );
 var _vector3_zero = MXFunctionInvoke(
-  "vector3.zero",
+  "Vector3.zero",
     (
     ) =>
       Vector3.zero(
     ),
 );
 var _vector3_fromFloat64List = MXFunctionInvoke(
-  "vector3.fromFloat64List",
+  "Vector3.fromFloat64List",
     (
       {
       Float64List v3storage,
@@ -1361,7 +1361,7 @@ var _vector3_fromFloat64List = MXFunctionInvoke(
     ),
 );
 var _vector3_fromBuffer = MXFunctionInvoke(
-  "vector3.fromBuffer",
+  "Vector3.fromBuffer",
     (
       {
       ByteBuffer buffer,
@@ -1377,10 +1377,10 @@ var _vector4 = MXFunctionInvoke(
     "Vector4",
     (
       {
-      double x,
-      double y,
-      double z,
-      double w,
+      dynamic x,
+      dynamic y,
+      dynamic z,
+      dynamic w,
       }
     ) =>
       Vector4(
@@ -1391,7 +1391,7 @@ var _vector4 = MXFunctionInvoke(
     ),
 );
 var _vector4_array = MXFunctionInvoke(
-  "vector4.array",
+  "Vector4.array",
     (
       {
       List<double> array,
@@ -1404,17 +1404,17 @@ var _vector4_array = MXFunctionInvoke(
     ),
 );
 var _vector4_identity = MXFunctionInvoke(
-  "vector4.identity",
+  "Vector4.identity",
     (
     ) =>
       Vector4.identity(
     ),
 );
 var _vector4_all = MXFunctionInvoke(
-  "vector4.all",
+  "Vector4.all",
     (
       {
-      double value,
+      dynamic value,
       }
     ) =>
       Vector4.all(
@@ -1422,7 +1422,7 @@ var _vector4_all = MXFunctionInvoke(
     ),
 );
 var _vector4_copy = MXFunctionInvoke(
-  "vector4.copy",
+  "Vector4.copy",
     (
       {
       Vector4 other,
@@ -1433,7 +1433,7 @@ var _vector4_copy = MXFunctionInvoke(
     ),
 );
 var _vector4_random = MXFunctionInvoke(
-  "vector4.random",
+  "Vector4.random",
     (
       {
       Random rng,
@@ -1444,14 +1444,14 @@ var _vector4_random = MXFunctionInvoke(
     ),
 );
 var _vector4_zero = MXFunctionInvoke(
-  "vector4.zero",
+  "Vector4.zero",
     (
     ) =>
       Vector4.zero(
     ),
 );
 var _vector4_fromFloat64List = MXFunctionInvoke(
-  "vector4.fromFloat64List",
+  "Vector4.fromFloat64List",
     (
       {
       Float64List v4storage,
@@ -1462,7 +1462,7 @@ var _vector4_fromFloat64List = MXFunctionInvoke(
     ),
 );
 var _vector4_fromBuffer = MXFunctionInvoke(
-  "vector4.fromBuffer",
+  "Vector4.fromBuffer",
     (
       {
       ByteBuffer buffer,

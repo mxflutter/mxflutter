@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/input_border.dart';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/widgets.dart';
+import 'dart:math' as math;
+import 'dart:ui' ;
+import 'package:flutter/widgets.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -37,7 +37,7 @@ var _outlineInputBorder = MXFunctionInvoke(
       {
       BorderSide borderSide,
       BorderRadius borderRadius,
-      double gapPadding = 4.0,
+      dynamic gapPadding = 4.0,
       }
     ) =>
       OutlineInputBorder(

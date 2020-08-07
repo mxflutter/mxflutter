@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/scroll_metrics.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/rendering.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -21,10 +21,10 @@ var _fixedScrollMetrics = MXFunctionInvoke(
     "FixedScrollMetrics",
     (
       {
-      double minScrollExtent,
-      double maxScrollExtent,
-      double pixels,
-      double viewportDimension,
+      dynamic minScrollExtent,
+      dynamic maxScrollExtent,
+      dynamic pixels,
+      dynamic viewportDimension,
       AxisDirection axisDirection,
       }
     ) =>

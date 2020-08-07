@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/slider.dart';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/colors.dart';
-import 'package:flutter/src/cupertino/theme.dart';
-import 'package:flutter/src/cupertino/thumb_painter.dart';
+import 'dart:math' as math;
+import 'dart:ui' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/cupertino/colors.dart' ;
+import 'package:flutter/src/cupertino/theme.dart' ;
+import 'package:flutter/src/cupertino/thumb_painter.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -27,12 +27,12 @@ var _cupertinoSlider = MXFunctionInvoke(
     (
       {
       Key key,
-      double value,
+      dynamic value,
       dynamic onChanged,
       dynamic onChangeStart,
       dynamic onChangeEnd,
-      double min = 0.0,
-      double max = 1.0,
+      dynamic min = 0.0,
+      dynamic max = 1.0,
       int divisions,
       Color activeColor,
       Color thumbColor,
@@ -41,9 +41,9 @@ var _cupertinoSlider = MXFunctionInvoke(
       CupertinoSlider(
       key: key,
       value: value?.toDouble(),
-      onChanged: createValueChangedGenericClosure<double>(_cupertinoSlider.buildOwner, onChanged),
-      onChangeStart: createValueChangedGenericClosure<double>(_cupertinoSlider.buildOwner, onChangeStart),
-      onChangeEnd: createValueChangedGenericClosure<double>(_cupertinoSlider.buildOwner, onChangeEnd),
+      onChanged: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChanged),
+      onChangeStart: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChangeStart),
+      onChangeEnd: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChangeEnd),
       min: min?.toDouble(),
       max: max?.toDouble(),
       divisions: divisions,

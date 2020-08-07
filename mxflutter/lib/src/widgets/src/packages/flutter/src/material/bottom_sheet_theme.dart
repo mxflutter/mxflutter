@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/bottom_sheet_theme.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/rendering.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -22,9 +22,9 @@ var _bottomSheetThemeData = MXFunctionInvoke(
     (
       {
       Color backgroundColor,
-      double elevation,
+      dynamic elevation,
       Color modalBackgroundColor,
-      double modalElevation,
+      dynamic modalElevation,
       ShapeBorder shape,
       Clip clipBehavior,
       }

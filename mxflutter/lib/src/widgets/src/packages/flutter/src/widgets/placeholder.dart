@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -23,9 +23,9 @@ var _placeholder = MXFunctionInvoke(
       {
       Key key,
       Color color,
-      double strokeWidth = 2.0,
-      double fallbackWidth = 400.0,
-      double fallbackHeight = 400.0,
+      dynamic strokeWidth = 2.0,
+      dynamic fallbackWidth = 400.0,
+      dynamic fallbackHeight = 400.0,
       }
     ) =>
       Placeholder(

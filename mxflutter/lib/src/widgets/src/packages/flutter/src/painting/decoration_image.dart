@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/decoration_image.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/alignment.dart';
-import 'package:flutter/src/painting/basic_types.dart';
-import 'package:flutter/src/painting/borders.dart';
-import 'package:flutter/src/painting/box_fit.dart';
-import 'package:flutter/src/painting/image_provider.dart';
-import 'package:flutter/src/painting/image_stream.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/alignment.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
+import 'package:flutter/src/painting/borders.dart' ;
+import 'package:flutter/src/painting/box_fit.dart' ;
+import 'package:flutter/src/painting/image_provider.dart' ;
+import 'package:flutter/src/painting/image_stream.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -43,7 +43,7 @@ var _decorationImage = MXFunctionInvoke(
     ) =>
       DecorationImage(
       image: image,
-      onError: null,
+      onError: createVoidTwoParamsClosure<dynamic, StackTrace>(_decorationImage.buildOwner, onError),
       colorFilter: colorFilter,
       fit: fit,
       alignment: alignment,

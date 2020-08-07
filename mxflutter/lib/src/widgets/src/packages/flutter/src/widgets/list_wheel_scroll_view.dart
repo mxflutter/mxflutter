@@ -6,24 +6,24 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/list_wheel_scroll_view.dart';
-import 'dart:async';
-import 'dart:collection';
-import 'dart:math';
-import 'package:flutter/animation.dart';
-import 'package:flutter/physics.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/notification_listener.dart';
-import 'package:flutter/src/widgets/scroll_context.dart';
-import 'package:flutter/src/widgets/scroll_controller.dart';
-import 'package:flutter/src/widgets/scroll_metrics.dart';
-import 'package:flutter/src/widgets/scroll_notification.dart';
-import 'package:flutter/src/widgets/scroll_physics.dart';
-import 'package:flutter/src/widgets/scroll_position.dart';
-import 'package:flutter/src/widgets/scroll_position_with_single_context.dart';
-import 'package:flutter/src/widgets/scrollable.dart';
+import 'dart:async' ;
+import 'dart:collection' ;
+import 'dart:math' as math;
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/physics.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/scheduler.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/notification_listener.dart' ;
+import 'package:flutter/src/widgets/scroll_context.dart' ;
+import 'package:flutter/src/widgets/scroll_controller.dart' ;
+import 'package:flutter/src/widgets/scroll_metrics.dart' ;
+import 'package:flutter/src/widgets/scroll_notification.dart' ;
+import 'package:flutter/src/widgets/scroll_physics.dart' ;
+import 'package:flutter/src/widgets/scroll_position.dart' ;
+import 'package:flutter/src/widgets/scroll_position_with_single_context.dart' ;
+import 'package:flutter/src/widgets/scrollable.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -91,10 +91,10 @@ var _fixedExtentMetrics = MXFunctionInvoke(
     "FixedExtentMetrics",
     (
       {
-      double minScrollExtent,
-      double maxScrollExtent,
-      double pixels,
-      double viewportDimension,
+      dynamic minScrollExtent,
+      dynamic maxScrollExtent,
+      dynamic pixels,
+      dynamic viewportDimension,
       AxisDirection axisDirection,
       int itemIndex,
       }
@@ -126,14 +126,14 @@ var _listWheelScrollView = MXFunctionInvoke(
       Key key,
       ScrollController controller,
       ScrollPhysics physics,
-      double diameterRatio = 2.0,
-      double perspective = 0.003,
-      double offAxisFraction = 0.0,
+      dynamic diameterRatio = 2.0,
+      dynamic perspective = 0.003,
+      dynamic offAxisFraction = 0.0,
       bool useMagnifier = false,
-      double magnification = 1.0,
-      double overAndUnderCenterOpacity = 1.0,
-      double itemExtent,
-      double squeeze = 1.0,
+      dynamic magnification = 1.0,
+      dynamic overAndUnderCenterOpacity = 1.0,
+      dynamic itemExtent,
+      dynamic squeeze = 1.0,
       dynamic onSelectedItemChanged,
       bool clipToSize = true,
       bool renderChildrenOutsideViewport = false,
@@ -159,20 +159,20 @@ var _listWheelScrollView = MXFunctionInvoke(
     ),
 );
 var _listWheelScrollView_useDelegate = MXFunctionInvoke(
-  "listWheelScrollView.useDelegate",
+  "ListWheelScrollView.useDelegate",
     (
       {
       Key key,
       ScrollController controller,
       ScrollPhysics physics,
-      double diameterRatio = 2.0,
-      double perspective = 0.003,
-      double offAxisFraction = 0.0,
+      dynamic diameterRatio = 2.0,
+      dynamic perspective = 0.003,
+      dynamic offAxisFraction = 0.0,
       bool useMagnifier = false,
-      double magnification = 1.0,
-      double overAndUnderCenterOpacity = 1.0,
-      double itemExtent,
-      double squeeze = 1.0,
+      dynamic magnification = 1.0,
+      dynamic overAndUnderCenterOpacity = 1.0,
+      dynamic itemExtent,
+      dynamic squeeze = 1.0,
       dynamic onSelectedItemChanged,
       bool clipToSize = true,
       bool renderChildrenOutsideViewport = false,
@@ -213,14 +213,14 @@ var _listWheelViewport = MXFunctionInvoke(
     (
       {
       Key key,
-      double diameterRatio = 2.0,
-      double perspective = 0.003,
-      double offAxisFraction = 0.0,
+      dynamic diameterRatio = 2.0,
+      dynamic perspective = 0.003,
+      dynamic offAxisFraction = 0.0,
       bool useMagnifier = false,
-      double magnification = 1.0,
-      double overAndUnderCenterOpacity = 1.0,
-      double itemExtent,
-      double squeeze = 1.0,
+      dynamic magnification = 1.0,
+      dynamic overAndUnderCenterOpacity = 1.0,
+      dynamic itemExtent,
+      dynamic squeeze = 1.0,
       bool clipToSize = true,
       bool renderChildrenOutsideViewport = false,
       ViewportOffset offset,

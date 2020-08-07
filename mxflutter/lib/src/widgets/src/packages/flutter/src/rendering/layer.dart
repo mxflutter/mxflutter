@@ -6,27 +6,33 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/layer.dart';
-import 'dart:async';
-import 'dart:collection';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/painting.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/mouse_tracking.dart';
+import 'dart:async' ;
+import 'dart:collection' ;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/painting.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/rendering/debug.dart' ;
+import 'package:flutter/src/rendering/mouse_tracking.dart' ;
 import 'package:flutter/src/rendering/view.dart';
-import 'dart:developer';
-import 'dart:io';
-import 'package:flutter/services.dart';
+import 'dart:developer' ;
+import 'dart:io' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/src/rendering/binding.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/layer.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
 import 'package:flutter/src/rendering/binding.dart';
-import 'package:flutter/src/rendering/box.dart';
+import 'dart:typed_data' ;
+import 'package:flutter/scheduler.dart' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:flutter/src/rendering/view.dart' ;
 import 'package:flutter/src/rendering/object.dart';
-import 'dart:typed_data';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/semantics.dart';
-import 'package:flutter/animation.dart';
-import 'dart:math';
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/src/rendering/debug.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'dart:math' as math;
 
 
 ///把自己能处理的类注册到分发器中
@@ -291,7 +297,7 @@ var _physicalModelLayer = MXFunctionInvoke(
       {
       Path clipPath,
       Clip clipBehavior = Clip.none,
-      double elevation,
+      dynamic elevation,
       Color color,
       Color shadowColor,
       }
@@ -363,7 +369,7 @@ var _viewConfiguration = MXFunctionInvoke(
     (
       {
       Size size,
-      double devicePixelRatio = 1.0,
+      dynamic devicePixelRatio = 1.0,
       }
     ) =>
       ViewConfiguration(
@@ -451,7 +457,7 @@ var _flutterErrorDetailsForRendering = MXFunctionInvoke(
       library: library,
       context: context,
       renderObject: renderObject,
-      informationCollector: informationCollector,
+      informationCollector: null,
       silent: silent,
     ),
 );
@@ -470,10 +476,10 @@ var _boxConstraints = MXFunctionInvoke(
     "BoxConstraints",
     (
       {
-      double minWidth = 0.0,
-      double maxWidth = double.infinity,
-      double minHeight = 0.0,
-      double maxHeight = double.infinity,
+      dynamic minWidth = 0.0,
+      dynamic maxWidth = double.infinity,
+      dynamic minHeight = 0.0,
+      dynamic maxHeight = double.infinity,
       }
     ) =>
       BoxConstraints(
@@ -484,7 +490,7 @@ var _boxConstraints = MXFunctionInvoke(
     ),
 );
 var _boxConstraints_tight = MXFunctionInvoke(
-  "boxConstraints.tight",
+  "BoxConstraints.tight",
     (
       {
       Size size,
@@ -495,11 +501,11 @@ var _boxConstraints_tight = MXFunctionInvoke(
     ),
 );
 var _boxConstraints_tightFor = MXFunctionInvoke(
-  "boxConstraints.tightFor",
+  "BoxConstraints.tightFor",
     (
       {
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       }
     ) =>
       BoxConstraints.tightFor(
@@ -508,11 +514,11 @@ var _boxConstraints_tightFor = MXFunctionInvoke(
     ),
 );
 var _boxConstraints_tightForFinite = MXFunctionInvoke(
-  "boxConstraints.tightForFinite",
+  "BoxConstraints.tightForFinite",
     (
       {
-      double width = double.infinity,
-      double height = double.infinity,
+      dynamic width = double.infinity,
+      dynamic height = double.infinity,
       }
     ) =>
       BoxConstraints.tightForFinite(
@@ -521,7 +527,7 @@ var _boxConstraints_tightForFinite = MXFunctionInvoke(
     ),
 );
 var _boxConstraints_loose = MXFunctionInvoke(
-  "boxConstraints.loose",
+  "BoxConstraints.loose",
     (
       {
       Size size,
@@ -532,11 +538,11 @@ var _boxConstraints_loose = MXFunctionInvoke(
     ),
 );
 var _boxConstraints_expand = MXFunctionInvoke(
-  "boxConstraints.expand",
+  "BoxConstraints.expand",
     (
       {
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       }
     ) =>
       BoxConstraints.expand(
@@ -552,7 +558,7 @@ var _boxHitTestResult = MXFunctionInvoke(
     ),
 );
 var _boxHitTestResult_wrap = MXFunctionInvoke(
-  "boxHitTestResult.wrap",
+  "BoxHitTestResult.wrap",
     (
       {
       HitTestResult result,

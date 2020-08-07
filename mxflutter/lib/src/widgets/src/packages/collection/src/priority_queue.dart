@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/priority_queue.dart';
-import 'dart:collection';
-import 'package:collection/src/utils.dart';
+import 'dart:collection' ;
+import 'package:collection/src/utils.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

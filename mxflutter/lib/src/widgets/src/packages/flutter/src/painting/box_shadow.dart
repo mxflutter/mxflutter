@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/box_shadow.dart';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/basic_types.dart';
-import 'package:flutter/src/painting/debug.dart';
+import 'dart:math' as math;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
+import 'package:flutter/src/painting/debug.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -25,8 +25,8 @@ var _boxShadow = MXFunctionInvoke(
       {
       Color color,
       Offset offset,
-      double blurRadius = 0.0,
-      double spreadRadius = 0.0,
+      dynamic blurRadius = 0.0,
+      dynamic spreadRadius = 0.0,
       }
     ) =>
       BoxShadow(

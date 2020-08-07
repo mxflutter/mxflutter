@@ -6,22 +6,22 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/popup_menu.dart';
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/constants.dart';
-import 'package:flutter/src/material/debug.dart';
-import 'package:flutter/src/material/divider.dart';
-import 'package:flutter/src/material/icon_button.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/ink_well.dart';
-import 'package:flutter/src/material/list_tile.dart';
-import 'package:flutter/src/material/material.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'package:flutter/src/material/popup_menu_theme.dart';
-import 'package:flutter/src/material/theme.dart';
-import 'package:flutter/src/material/tooltip.dart';
+import 'dart:async' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/material/constants.dart' ;
+import 'package:flutter/src/material/debug.dart' ;
+import 'package:flutter/src/material/divider.dart' ;
+import 'package:flutter/src/material/icon_button.dart' ;
+import 'package:flutter/src/material/icons.dart' ;
+import 'package:flutter/src/material/ink_well.dart' ;
+import 'package:flutter/src/material/list_tile.dart' ;
+import 'package:flutter/src/material/material.dart' ;
+import 'package:flutter/src/material/material_localizations.dart' ;
+import 'package:flutter/src/material/popup_menu_theme.dart' ;
+import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/src/material/tooltip.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -40,7 +40,7 @@ var _popupMenuDivider = MXFunctionInvoke(
     (
       {
       Key key,
-      double height = 16.0,
+      dynamic height = 16.0,
       }
     ) =>
       PopupMenuDivider(
@@ -55,7 +55,7 @@ var _popupMenuItem = MXFunctionInvoke(
       Key key,
       dynamic value,
       bool enabled = true,
-      double height = 48.0,
+      dynamic height = 48.0,
       TextStyle textStyle,
       Widget child,
       }
@@ -105,7 +105,7 @@ var _popupMenuButton = MXFunctionInvoke(
       dynamic onSelected,
       dynamic onCanceled,
       String tooltip,
-      double elevation,
+      dynamic elevation,
       EdgeInsetsGeometry padding,
       Widget child,
       Widget icon,
@@ -118,7 +118,7 @@ var _popupMenuButton = MXFunctionInvoke(
     ) =>
       PopupMenuButton(
       key: key,
-      itemBuilder: createGenericValueGenericClosure<List<PopupMenuEntry<dynamic>>, BuildContext>(_popupMenuButton.buildOwner, itemBuilder),
+      itemBuilder: null,
       initialValue: initialValue,
       onSelected: createValueChangedGenericClosure<dynamic>(_popupMenuButton.buildOwner, onSelected),
       onCanceled: createVoidCallbackClosure(_popupMenuButton.buildOwner, onCanceled),

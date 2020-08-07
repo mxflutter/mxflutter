@@ -29,7 +29,7 @@ import 'src/painting/geometry.dart';
 import 'src/painting/gradient.dart';
 import 'src/painting/image_cache.dart';
 import 'src/painting/image_decoder.dart';
-import 'src/painting/_network_image_web.dart';
+import 'src/painting/_network_image_io.dart';
 import 'src/painting/image_resolution.dart';
 import 'src/painting/image_stream.dart';
 import 'src/painting/placeholder_span.dart';
@@ -43,7 +43,7 @@ import 'src/painting/stadium_border.dart';
 import 'src/painting/strut_style.dart';
 
 
-Map<String, MXFunctionInvoke> registerPaintingSeries() {
+Map<String, MXFunctionInvoke> registerPaintingLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerAlignmentSeries());
   m.addAll(registerBasicTypesSeries());
@@ -69,7 +69,7 @@ Map<String, MXFunctionInvoke> registerPaintingSeries() {
   m.addAll(registerGradientSeries());
   m.addAll(registerImageCacheSeries());
   m.addAll(registerImageDecoderSeries());
-  m.addAll(registerNetworkImageWebSeries());
+  m.addAll(registerNetworkImageIoSeries());
   m.addAll(registerImageResolutionSeries());
   m.addAll(registerImageStreamSeries());
   m.addAll(registerPlaceholderSpanSeries());

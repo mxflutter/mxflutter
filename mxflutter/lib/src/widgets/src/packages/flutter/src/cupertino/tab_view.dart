@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/tab_view.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/cupertino/app.dart';
-import 'package:flutter/src/cupertino/route.dart';
+import 'package:flutter/widgets.dart' ;
+import 'package:flutter/src/cupertino/app.dart' ;
+import 'package:flutter/src/cupertino/route.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -33,12 +33,12 @@ var _cupertinoTabView = MXFunctionInvoke(
     ) =>
       CupertinoTabView(
       key: key,
-      builder: createGenericValueGenericClosure<Widget, BuildContext>(_cupertinoTabView.buildOwner, builder),
+      builder: null,
       navigatorKey: navigatorKey,
       defaultTitle: defaultTitle,
       routes: routes,
-      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_cupertinoTabView.buildOwner, onGenerateRoute),
-      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_cupertinoTabView.buildOwner, onUnknownRoute),
+      onGenerateRoute: null,
+      onUnknownRoute: null,
       navigatorObservers: navigatorObservers,
     ),
 );

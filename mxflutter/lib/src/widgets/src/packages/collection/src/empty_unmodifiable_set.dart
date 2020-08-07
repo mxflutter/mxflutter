@@ -6,10 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/empty_unmodifiable_set.dart';
-import 'dart:collection';
+import 'dart:collection' ;
+import 'package:collection/src/unmodifiable_wrappers.dart' ;
 import 'package:collection/src/unmodifiable_wrappers.dart';
+import 'package:collection/src/empty_unmodifiable_set.dart' ;
+import 'package:collection/src/wrappers.dart' ;
 import 'package:collection/src/wrappers.dart';
-import 'dart:math';
+import 'dart:math' as math;
 
 
 ///把自己能处理的类注册到分发器中

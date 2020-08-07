@@ -6,12 +6,12 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/raw_keyboard_listener.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/focus_manager.dart';
-import 'package:flutter/src/widgets/focus_scope.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/focus_manager.dart' ;
+import 'package:flutter/src/widgets/focus_scope.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

@@ -6,17 +6,21 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/placeholder_span.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/painting/basic_types.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
+import 'package:flutter/src/painting/inline_span.dart' ;
+import 'package:flutter/src/painting/text_painter.dart' ;
+import 'package:flutter/src/painting/text_span.dart' ;
+import 'package:flutter/src/painting/text_style.dart' ;
+import 'package:flutter/src/painting/text_span.dart';
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/services.dart' ;
 import 'package:flutter/src/painting/inline_span.dart';
 import 'package:flutter/src/painting/text_painter.dart';
-import 'package:flutter/src/painting/text_span.dart';
-import 'package:flutter/src/painting/text_style.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/services.dart';
-import 'dart:math';
-import 'package:flutter/src/painting/strut_style.dart';
+import 'dart:math' ;
+import 'package:flutter/src/painting/placeholder_span.dart' ;
+import 'package:flutter/src/painting/strut_style.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -84,7 +88,7 @@ var _placeholderDimensions = MXFunctionInvoke(
       Size size,
       PlaceholderAlignment alignment,
       TextBaseline baseline,
-      double baselineOffset,
+      dynamic baselineOffset,
       }
     ) =>
       PlaceholderDimensions(
@@ -105,7 +109,7 @@ var _textPainter = MXFunctionInvoke(
       InlineSpan text,
       TextAlign textAlign = TextAlign.start,
       TextDirection textDirection,
-      double textScaleFactor = 1.0,
+      dynamic textScaleFactor = 1.0,
       int maxLines,
       String ellipsis,
       Locale locale,

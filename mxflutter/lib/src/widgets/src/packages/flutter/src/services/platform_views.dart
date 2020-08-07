@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/platform_views.dart';
-import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/services/message_codec.dart';
-import 'package:flutter/src/services/system_channels.dart';
+import 'dart:async' ;
+import 'dart:typed_data' ;
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/src/services/message_codec.dart' ;
+import 'package:flutter/src/services/system_channels.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -40,15 +40,15 @@ var _androidPointerCoords = MXFunctionInvoke(
     "AndroidPointerCoords",
     (
       {
-      double orientation,
-      double pressure,
-      double size,
-      double toolMajor,
-      double toolMinor,
-      double touchMajor,
-      double touchMinor,
-      double x,
-      double y,
+      dynamic orientation,
+      dynamic pressure,
+      dynamic size,
+      dynamic toolMajor,
+      dynamic toolMinor,
+      dynamic touchMajor,
+      dynamic touchMinor,
+      dynamic x,
+      dynamic y,
       }
     ) =>
       AndroidPointerCoords(
@@ -75,8 +75,8 @@ var _androidMotionEvent = MXFunctionInvoke(
       List<AndroidPointerCoords> pointerCoords,
       int metaState,
       int buttonState,
-      double xPrecision,
-      double yPrecision,
+      dynamic xPrecision,
+      dynamic yPrecision,
       int deviceId,
       int edgeFlags,
       int source,

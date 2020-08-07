@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/bottom_navigation_bar_item.dart';
-import 'dart:ui';
-import 'package:flutter/src/widgets/framework.dart';
+import 'dart:ui' ;
+import 'package:flutter/src/widgets/framework.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/scheduler/ticker.dart';
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/scheduler/binding.dart';
+import 'dart:async' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/scheduler/binding.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -33,7 +33,7 @@ var _ticker = MXFunctionInvoke(
     ),
 );
 var _tickerFuture_complete = MXFunctionInvoke(
-  "tickerFuture.complete",
+  "TickerFuture.complete",
     (
     ) =>
       TickerFuture.complete(

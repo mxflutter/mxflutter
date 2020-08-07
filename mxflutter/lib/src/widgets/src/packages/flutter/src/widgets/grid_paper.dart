@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/grid_paper.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -23,7 +23,7 @@ var _gridPaper = MXFunctionInvoke(
       {
       Key key,
       Color color,
-      double interval = 100.0,
+      dynamic interval = 100.0,
       int divisions = 2,
       int subdivisions = 5,
       Widget child,

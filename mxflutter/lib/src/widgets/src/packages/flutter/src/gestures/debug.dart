@@ -6,7 +6,7 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/debug.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart' ;
 
 
 ///把自己能处理的类注册到分发器中

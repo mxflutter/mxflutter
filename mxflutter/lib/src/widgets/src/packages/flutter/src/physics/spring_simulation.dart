@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/physics/spring_simulation.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/physics/simulation.dart';
-import 'package:flutter/src/physics/tolerance.dart';
-import 'package:flutter/src/physics/utils.dart';
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/physics/simulation.dart' ;
+import 'package:flutter/src/physics/tolerance.dart' ;
+import 'package:flutter/src/physics/utils.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -27,9 +27,9 @@ var _springDescription = MXFunctionInvoke(
     "SpringDescription",
     (
       {
-      double mass,
-      double stiffness,
-      double damping,
+      dynamic mass,
+      dynamic stiffness,
+      dynamic damping,
       }
     ) =>
       SpringDescription(
@@ -39,12 +39,12 @@ var _springDescription = MXFunctionInvoke(
     ),
 );
 var _springDescription_withDampingRatio = MXFunctionInvoke(
-  "springDescription.withDampingRatio",
+  "SpringDescription.withDampingRatio",
     (
       {
-      double mass,
-      double stiffness,
-      double ratio = 1.0,
+      dynamic mass,
+      dynamic stiffness,
+      dynamic ratio = 1.0,
       }
     ) =>
       SpringDescription.withDampingRatio(
@@ -62,9 +62,9 @@ var _springSimulation = MXFunctionInvoke(
     (
       {
       SpringDescription spring,
-      double start,
-      double end,
-      double velocity,
+      dynamic start,
+      dynamic end,
+      dynamic velocity,
       Tolerance tolerance,
       }
     ) =>
@@ -81,9 +81,9 @@ var _scrollSpringSimulation = MXFunctionInvoke(
     (
       {
       SpringDescription spring,
-      double start,
-      double end,
-      double velocity,
+      dynamic start,
+      dynamic end,
+      dynamic velocity,
       Tolerance tolerance,
       }
     ) =>

@@ -6,20 +6,20 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/draggable_scrollable_sheet.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/inherited_notifier.dart';
-import 'package:flutter/src/widgets/layout_builder.dart';
-import 'package:flutter/src/widgets/notification_listener.dart';
-import 'package:flutter/src/widgets/scroll_context.dart';
-import 'package:flutter/src/widgets/scroll_controller.dart';
-import 'package:flutter/src/widgets/scroll_notification.dart';
-import 'package:flutter/src/widgets/scroll_physics.dart';
-import 'package:flutter/src/widgets/scroll_position.dart';
-import 'package:flutter/src/widgets/scroll_position_with_single_context.dart';
-import 'package:flutter/src/widgets/scroll_simulation.dart';
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/inherited_notifier.dart' ;
+import 'package:flutter/src/widgets/layout_builder.dart' ;
+import 'package:flutter/src/widgets/notification_listener.dart' ;
+import 'package:flutter/src/widgets/scroll_context.dart' ;
+import 'package:flutter/src/widgets/scroll_controller.dart' ;
+import 'package:flutter/src/widgets/scroll_notification.dart' ;
+import 'package:flutter/src/widgets/scroll_physics.dart' ;
+import 'package:flutter/src/widgets/scroll_position.dart' ;
+import 'package:flutter/src/widgets/scroll_position_with_single_context.dart' ;
+import 'package:flutter/src/widgets/scroll_simulation.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -35,9 +35,9 @@ var _draggableScrollableSheet = MXFunctionInvoke(
     (
       {
       Key key,
-      double initialChildSize = 0.5,
-      double minChildSize = 0.25,
-      double maxChildSize = 1.0,
+      dynamic initialChildSize = 0.5,
+      dynamic minChildSize = 0.25,
+      dynamic maxChildSize = 1.0,
       bool expand = true,
       dynamic builder,
       }
@@ -55,10 +55,10 @@ var _draggableScrollableNotification = MXFunctionInvoke(
     "DraggableScrollableNotification",
     (
       {
-      double extent,
-      double minExtent,
-      double maxExtent,
-      double initialExtent,
+      dynamic extent,
+      dynamic minExtent,
+      dynamic maxExtent,
+      dynamic initialExtent,
       BuildContext context,
       }
     ) =>

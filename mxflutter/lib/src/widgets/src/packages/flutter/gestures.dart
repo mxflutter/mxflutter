@@ -30,7 +30,7 @@ import 'src/gestures/team.dart';
 import 'src/gestures/velocity_tracker.dart';
 
 
-Map<String, MXFunctionInvoke> registerGesturesSeries() {
+Map<String, MXFunctionInvoke> registerGesturesLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerArenaSeries());
   m.addAll(registerBindingSeries());

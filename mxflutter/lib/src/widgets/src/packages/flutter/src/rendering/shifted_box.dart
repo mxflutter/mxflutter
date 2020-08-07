@@ -6,13 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/shifted_box.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/debug_overflow_indicator.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/stack.dart';
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/debug.dart' ;
+import 'package:flutter/src/rendering/debug_overflow_indicator.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/src/rendering/stack.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -48,8 +48,8 @@ var _renderPositionedBox = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      double widthFactor,
-      double heightFactor,
+      dynamic widthFactor,
+      dynamic heightFactor,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       }
@@ -67,10 +67,10 @@ var _renderConstrainedOverflowBox = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      double minWidth,
-      double maxWidth,
-      double minHeight,
-      double maxHeight,
+      dynamic minWidth,
+      dynamic maxWidth,
+      dynamic minHeight,
+      dynamic maxHeight,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       }
@@ -124,8 +124,8 @@ var _renderFractionallySizedOverflowBox = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      double widthFactor,
-      double heightFactor,
+      dynamic widthFactor,
+      dynamic heightFactor,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       }
@@ -156,7 +156,7 @@ var _renderBaseline = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      double baseline,
+      dynamic baseline,
       TextBaseline baselineType,
       }
     ) =>

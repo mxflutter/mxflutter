@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/basic_types.dart';
-import 'dart:async';
-import 'dart:collection';
-import 'dart:ui';
+import 'dart:async' ;
+import 'dart:collection' ;
+import 'dart:ui' ;
 
 
 ///把自己能处理的类注册到分发器中

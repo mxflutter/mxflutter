@@ -6,81 +6,136 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/widget_span.dart';
-import 'dart:ui';
-import 'package:flutter/painting.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
 import 'package:flutter/src/widgets/table.dart';
-import 'dart:collection';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/debug.dart';
-import 'package:flutter/src/widgets/image.dart';
+import 'dart:collection' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/debug.dart' ;
+import 'package:flutter/src/widgets/image.dart' ;
 import 'package:flutter/src/widgets/inherited_model.dart';
 import 'package:flutter/src/widgets/widget_inspector.dart';
-import 'dart:async';
-import 'dart:convert';
-import 'dart:developer';
-import 'dart:math';
-import 'dart:typed_data';
-import 'package:flutter/scheduler.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/widgets/app.dart';
-import 'package:flutter/src/widgets/binding.dart';
-import 'package:flutter/src/widgets/gesture_detector.dart';
+import 'dart:async' ;
+import 'dart:convert' ;
+import 'dart:developer' as developer;
+import 'dart:math' as math;
+import 'dart:typed_data' ;
+import 'dart:ui' ;
+import 'package:flutter/scheduler.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/widgets/app.dart' ;
+import 'package:flutter/src/widgets/binding.dart' ;
+import 'package:flutter/src/widgets/gesture_detector.dart' ;
 import 'package:flutter/src/widgets/title.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/services.dart' ;
 import 'package:flutter/src/widgets/shortcuts.dart';
-import 'package:collection/collection.dart';
-import 'package:flutter/src/widgets/actions.dart';
-import 'package:flutter/src/widgets/focus_manager.dart';
-import 'package:flutter/src/widgets/focus_scope.dart';
-import 'package:flutter/src/widgets/inherited_notifier.dart';
+import 'package:collection/collection.dart' ;
+import 'package:flutter/src/widgets/actions.dart' ;
+import 'package:flutter/src/widgets/focus_manager.dart' ;
+import 'package:flutter/src/widgets/focus_scope.dart' ;
+import 'package:flutter/src/widgets/inherited_notifier.dart' ;
 import 'package:flutter/src/widgets/semantics_debugger.dart';
 import 'package:flutter/src/widgets/performance_overlay.dart';
 import 'package:flutter/src/widgets/pages.dart';
-import 'package:flutter/src/widgets/navigator.dart';
-import 'package:flutter/src/widgets/routes.dart';
+import 'package:flutter/src/widgets/navigator.dart' ;
+import 'package:flutter/src/widgets/routes.dart' ;
 import 'package:flutter/src/widgets/modal_barrier.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/transitions.dart';
-import 'package:flutter/src/widgets/overlay.dart';
-import 'package:flutter/src/widgets/page_storage.dart';
-import 'package:flutter/src/widgets/route_notification_messages.dart';
-import 'package:flutter/src/widgets/ticker_provider.dart';
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/src/widgets/container.dart' ;
+import 'package:flutter/src/widgets/transitions.dart' ;
+import 'package:flutter/src/widgets/routes.dart';
+import 'package:flutter/src/widgets/modal_barrier.dart' ;
+import 'package:flutter/src/widgets/overlay.dart' ;
+import 'package:flutter/src/widgets/page_storage.dart' ;
+import 'package:flutter/src/widgets/navigator.dart';
+import 'package:flutter/src/widgets/route_notification_messages.dart' ;
+import 'package:flutter/src/widgets/ticker_provider.dart' ;
 import 'package:flutter/src/widgets/visibility.dart';
-import 'package:flutter/src/widgets/sliver.dart';
+import 'package:flutter/src/widgets/sliver.dart' ;
 import 'package:flutter/src/widgets/inherited_theme.dart';
 import 'package:flutter/src/widgets/text.dart';
-import 'package:flutter/src/widgets/media_query.dart';
+import 'package:flutter/src/widgets/inherited_theme.dart' ;
+import 'package:flutter/src/widgets/media_query.dart' ;
+import 'package:flutter/src/widgets/transitions.dart';
+import 'package:flutter/src/widgets/text.dart' ;
+import 'package:flutter/src/widgets/overlay.dart';
 import 'package:flutter/src/widgets/text_selection.dart';
-import 'package:flutter/src/widgets/constants.dart';
-import 'package:flutter/src/widgets/editable_text.dart';
+import 'package:flutter/src/widgets/constants.dart' ;
+import 'package:flutter/src/widgets/editable_text.dart' ;
+import 'package:flutter/src/widgets/visibility.dart' ;
 import 'package:flutter/src/widgets/viewport.dart';
 import 'package:flutter/src/widgets/scroll_position_with_single_context.dart';
-import 'package:flutter/physics.dart';
+import 'package:flutter/physics.dart' ;
+import 'package:flutter/src/widgets/scroll_activity.dart' ;
+import 'package:flutter/src/widgets/scroll_context.dart' ;
+import 'package:flutter/src/widgets/scroll_notification.dart' ;
+import 'package:flutter/src/widgets/scroll_physics.dart' ;
+import 'package:flutter/src/widgets/scroll_position.dart' ;
 import 'package:flutter/src/widgets/scroll_activity.dart';
-import 'package:flutter/src/widgets/scroll_context.dart';
-import 'package:flutter/src/widgets/scroll_notification.dart';
-import 'package:flutter/src/widgets/scroll_physics.dart';
+import 'package:flutter/src/widgets/scroll_metrics.dart' ;
+import 'package:flutter/src/widgets/page_storage.dart';
 import 'package:flutter/src/widgets/scroll_position.dart';
-import 'package:flutter/src/widgets/scroll_metrics.dart';
 import 'package:flutter/src/widgets/scroll_controller.dart';
-import 'package:flutter/animation.dart';
+import 'package:flutter/animation.dart' ;
+import 'package:flutter/src/widgets/scroll_position_with_single_context.dart' ;
+import 'package:flutter/src/widgets/scroll_context.dart';
+import 'package:flutter/src/widgets/scroll_physics.dart';
+import 'package:flutter/src/widgets/overscroll_indicator.dart' ;
+import 'package:flutter/src/widgets/scroll_simulation.dart' ;
+import 'package:flutter/src/widgets/ticker_provider.dart';
+import 'package:flutter/src/widgets/scroll_notification.dart';
+import 'package:flutter/src/widgets/notification_listener.dart' ;
 import 'package:flutter/src/widgets/overscroll_indicator.dart';
-import 'package:flutter/src/widgets/scroll_simulation.dart';
-import 'package:flutter/src/widgets/notification_listener.dart';
 import 'package:flutter/src/widgets/scroll_configuration.dart';
+import 'package:flutter/src/widgets/gesture_detector.dart';
 import 'package:flutter/src/widgets/scrollable.dart';
+import 'package:flutter/src/widgets/scroll_configuration.dart' ;
+import 'package:flutter/src/widgets/scroll_controller.dart' ;
+import 'package:flutter/src/widgets/viewport.dart' ;
 import 'package:flutter/src/widgets/scroll_aware_image_provider.dart';
+import 'package:flutter/src/widgets/disposable_build_context.dart' ;
+import 'package:flutter/src/widgets/scrollable.dart' ;
+import 'package:flutter/src/widgets/media_query.dart';
 import 'package:flutter/src/widgets/disposable_build_context.dart';
-import 'dart:io';
-import 'package:flutter/semantics.dart';
+import 'package:flutter/src/widgets/image.dart';
+import 'dart:io' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:flutter/src/widgets/localizations.dart' ;
+import 'package:flutter/src/widgets/scroll_aware_image_provider.dart' ;
+import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/localizations.dart';
+import 'package:flutter/src/widgets/inherited_notifier.dart';
+import 'package:flutter/src/widgets/focus_scope.dart';
+import 'package:flutter/src/widgets/sliver.dart';
+import 'package:flutter/src/widgets/automatic_keep_alive.dart' ;
+import 'package:flutter/src/widgets/notification_listener.dart';
 import 'package:flutter/src/widgets/automatic_keep_alive.dart';
+import 'package:flutter/src/widgets/editable_text.dart';
+import 'package:flutter/src/widgets/text_selection.dart' ;
 import 'package:flutter/src/widgets/focus_traversal.dart';
 import 'package:flutter/src/widgets/banner.dart';
+import 'package:flutter/src/widgets/app.dart';
+import 'package:flutter/src/widgets/banner.dart' ;
+import 'package:flutter/src/widgets/focus_traversal.dart' ;
+import 'package:flutter/src/widgets/pages.dart' ;
+import 'package:flutter/src/widgets/performance_overlay.dart' ;
+import 'package:flutter/src/widgets/semantics_debugger.dart' ;
+import 'package:flutter/src/widgets/shortcuts.dart' ;
+import 'package:flutter/src/widgets/title.dart' ;
+import 'package:flutter/src/widgets/widget_inspector.dart' ;
+import 'package:flutter/src/widgets/binding.dart';
+import 'package:flutter/src/widgets/focus_manager.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'dart:developer' ;
+import 'package:flutter/src/widgets/inherited_model.dart' ;
+import 'package:flutter/src/widgets/debug.dart';
+import 'package:flutter/src/widgets/table.dart' ;
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/widget_span.dart' ;
+import 'package:flutter/src/widgets/actions.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -537,7 +592,7 @@ var _keySet = MXFunctionInvoke(
     ),
 );
 var _keySet_fromSet = MXFunctionInvoke(
-  "keySet.fromSet",
+  "KeySet.fromSet",
     (
       {
       Set<KeyboardKey> keys,
@@ -565,7 +620,7 @@ var _logicalKeySet = MXFunctionInvoke(
     ),
 );
 var _logicalKeySet_fromSet = MXFunctionInvoke(
-  "logicalKeySet.fromSet",
+  "LogicalKeySet.fromSet",
     (
       {
       Set<LogicalKeyboardKey> keys,
@@ -663,7 +718,7 @@ var _performanceOverlay = MXFunctionInvoke(
     ),
 );
 var _performanceOverlay_allEnabled = MXFunctionInvoke(
-  "performanceOverlay.allEnabled",
+  "PerformanceOverlay.allEnabled",
     (
       {
       Key key,
@@ -833,8 +888,8 @@ var _navigator = MXFunctionInvoke(
       onPopPage: null,
       initialRoute: initialRoute,
       onGenerateInitialRoutes: null,
-      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_navigator.buildOwner, onGenerateRoute),
-      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_navigator.buildOwner, onUnknownRoute),
+      onGenerateRoute: null,
+      onUnknownRoute: null,
       transitionDelegate: transitionDelegate,
       observers: observers,
     ),
@@ -928,7 +983,7 @@ var _defaultTextStyle = MXFunctionInvoke(
     ),
 );
 var _defaultTextStyle_fallback = MXFunctionInvoke(
-  "defaultTextStyle.fallback",
+  "DefaultTextStyle.fallback",
     (
       {
       Key key,
@@ -951,7 +1006,7 @@ var _text = MXFunctionInvoke(
       Locale locale,
       bool softWrap,
       TextOverflow overflow,
-      double textScaleFactor,
+      dynamic textScaleFactor,
       int maxLines,
       String semanticsLabel,
       TextWidthBasis textWidthBasis,
@@ -976,7 +1031,7 @@ var _text = MXFunctionInvoke(
     ),
 );
 var _text_rich = MXFunctionInvoke(
-  "text.rich",
+  "Text.rich",
     (
       {
       InlineSpan textSpan,
@@ -988,7 +1043,7 @@ var _text_rich = MXFunctionInvoke(
       Locale locale,
       bool softWrap,
       TextOverflow overflow,
-      double textScaleFactor,
+      dynamic textScaleFactor,
       int maxLines,
       String semanticsLabel,
       TextWidthBasis textWidthBasis,
@@ -1072,7 +1127,7 @@ var _sizeTransition = MXFunctionInvoke(
       Key key,
       Axis axis = Axis.vertical,
       Animation<double> sizeFactor,
-      double axisAlignment = 0.0,
+      dynamic axisAlignment = 0.0,
       Widget child,
       }
     ) =>
@@ -1187,8 +1242,8 @@ var _alignTransition = MXFunctionInvoke(
       Key key,
       Animation<AlignmentGeometry> alignment,
       Widget child,
-      double widthFactor,
-      double heightFactor,
+      dynamic widthFactor,
+      dynamic heightFactor,
       }
     ) =>
       AlignTransition(
@@ -1249,7 +1304,7 @@ var _overlayEntry = MXFunctionInvoke(
       }
     ) =>
       OverlayEntry(
-      builder: createGenericValueGenericClosure<Widget, BuildContext>(_overlayEntry.buildOwner, builder),
+      builder: null,
       opaque: opaque,
       maintainState: maintainState,
     ),
@@ -1355,7 +1410,7 @@ var _textSelectionGestureDetector = MXFunctionInvoke(
       onSingleLongTapEnd: createValueChangedGenericClosure<LongPressEndDetails>(_textSelectionGestureDetector.buildOwner, onSingleLongTapEnd),
       onDoubleTapDown: createValueChangedGenericClosure<TapDownDetails>(_textSelectionGestureDetector.buildOwner, onDoubleTapDown),
       onDragSelectionStart: createValueChangedGenericClosure<DragStartDetails>(_textSelectionGestureDetector.buildOwner, onDragSelectionStart),
-      onDragSelectionUpdate: null,
+      onDragSelectionUpdate: createVoidTwoParamsClosure<DragStartDetails, DragUpdateDetails>(_textSelectionGestureDetector.buildOwner, onDragSelectionUpdate),
       onDragSelectionEnd: createValueChangedGenericClosure<DragEndDetails>(_textSelectionGestureDetector.buildOwner, onDragSelectionEnd),
       behavior: behavior,
       child: child,
@@ -1368,10 +1423,10 @@ var _viewport = MXFunctionInvoke(
       Key key,
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
-      double anchor = 0.0,
+      dynamic anchor = 0.0,
       ViewportOffset offset,
       Key center,
-      double cacheExtent,
+      dynamic cacheExtent,
       CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
       List<Widget> slivers,
       }
@@ -1413,7 +1468,7 @@ var _scrollPositionWithSingleContext = MXFunctionInvoke(
       {
       ScrollPhysics physics,
       ScrollContext context,
-      double initialPixels = 0.0,
+      dynamic initialPixels = 0.0,
       bool keepScrollOffset = true,
       ScrollPosition oldPosition,
       String debugLabel,
@@ -1459,8 +1514,8 @@ var _scrollDragController = MXFunctionInvoke(
       ScrollActivityDelegate delegate,
       DragStartDetails details,
       dynamic onDragCanceled,
-      double carriedVelocity,
-      double motionStartDistanceThreshold,
+      dynamic carriedVelocity,
+      dynamic motionStartDistanceThreshold,
       }
     ) =>
       ScrollDragController(
@@ -1504,8 +1559,8 @@ var _drivenScrollActivity = MXFunctionInvoke(
     (
       {
       ScrollActivityDelegate delegate,
-      double from,
-      double to,
+      dynamic from,
+      dynamic to,
       Duration duration,
       Curve curve,
       TickerProvider vsync,
@@ -1561,7 +1616,7 @@ var _scrollController = MXFunctionInvoke(
     "ScrollController",
     (
       {
-      double initialScrollOffset = 0.0,
+      dynamic initialScrollOffset = 0.0,
       bool keepScrollOffset = true,
       String debugLabel,
       }
@@ -1576,7 +1631,7 @@ var _trackingScrollController = MXFunctionInvoke(
     "TrackingScrollController",
     (
       {
-      double initialScrollOffset = 0.0,
+      dynamic initialScrollOffset = 0.0,
       bool keepScrollOffset = true,
       String debugLabel,
       }
@@ -1679,7 +1734,7 @@ var _scrollUpdateNotification = MXFunctionInvoke(
       ScrollMetrics metrics,
       BuildContext context,
       DragUpdateDetails dragDetails,
-      double scrollDelta,
+      dynamic scrollDelta,
       }
     ) =>
       ScrollUpdateNotification(
@@ -1696,8 +1751,8 @@ var _overscrollNotification = MXFunctionInvoke(
       ScrollMetrics metrics,
       BuildContext context,
       DragUpdateDetails dragDetails,
-      double overscroll,
-      double velocity = 0.0,
+      dynamic overscroll,
+      dynamic velocity = 0.0,
       }
     ) =>
       OverscrollNotification(
@@ -1757,7 +1812,7 @@ var _glowingOverscrollIndicator = MXFunctionInvoke(
       showTrailing: showTrailing,
       axisDirection: axisDirection,
       color: color,
-      notificationPredicate: createGenericValueGenericClosure<bool, ScrollNotification>(_glowingOverscrollIndicator.buildOwner, notificationPredicate),
+      notificationPredicate: null,
       child: child,
     ),
 );
@@ -1945,7 +2000,7 @@ var _scrollable = MXFunctionInvoke(
       controller: controller,
       physics: physics,
       viewportBuilder: null,
-      incrementCalculator: createGenericValueGenericClosure<double, ScrollIncrementDetails>(_scrollable.buildOwner, incrementCalculator),
+      incrementCalculator: null,
       excludeFromSemantics: excludeFromSemantics,
       semanticChildCount: semanticChildCount,
       dragStartBehavior: dragStartBehavior,
@@ -2028,14 +2083,14 @@ var _mediaQueryData = MXFunctionInvoke(
     (
       {
       Size size,
-      double devicePixelRatio = 1.0,
-      double textScaleFactor = 1.0,
+      dynamic devicePixelRatio = 1.0,
+      dynamic textScaleFactor = 1.0,
       Brightness platformBrightness = Brightness.light,
       EdgeInsets padding,
       EdgeInsets viewInsets,
       EdgeInsets systemGestureInsets,
       EdgeInsets viewPadding,
-      double physicalDepth = 1.7976931348623157e+308,
+      dynamic physicalDepth = 1.7976931348623157e+308,
       bool alwaysUse24HourFormat = false,
       bool accessibleNavigation = false,
       bool invertColors = false,
@@ -2063,7 +2118,7 @@ var _mediaQueryData = MXFunctionInvoke(
     ),
 );
 var _mediaQueryData_fromWindow = MXFunctionInvoke(
-  "mediaQueryData.fromWindow",
+  "MediaQueryData.fromWindow",
     (
       {
       Window window,
@@ -2089,7 +2144,7 @@ var _mediaQuery = MXFunctionInvoke(
     ),
 );
 var _mediaQuery_removePadding = MXFunctionInvoke(
-  "mediaQuery.removePadding",
+  "MediaQuery.removePadding",
     (
       {
       Key key,
@@ -2112,7 +2167,7 @@ var _mediaQuery_removePadding = MXFunctionInvoke(
     ),
 );
 var _mediaQuery_removeViewInsets = MXFunctionInvoke(
-  "mediaQuery.removeViewInsets",
+  "MediaQuery.removeViewInsets",
     (
       {
       Key key,
@@ -2135,7 +2190,7 @@ var _mediaQuery_removeViewInsets = MXFunctionInvoke(
     ),
 );
 var _mediaQuery_removeViewPadding = MXFunctionInvoke(
-  "mediaQuery.removeViewPadding",
+  "MediaQuery.removeViewPadding",
     (
       {
       Key key,
@@ -2179,8 +2234,8 @@ var _image = MXFunctionInvoke(
       dynamic errorBuilder,
       String semanticLabel,
       bool excludeFromSemantics = false,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       Color color,
       BlendMode colorBlendMode,
       BoxFit fit,
@@ -2214,19 +2269,19 @@ var _image = MXFunctionInvoke(
     ),
 );
 var _image_network = MXFunctionInvoke(
-  "image.network",
+  "Image.network",
     (
       {
       String src,
       Key key,
-      double scale = 1.0,
+      dynamic scale = 1.0,
       dynamic frameBuilder,
       dynamic loadingBuilder,
       dynamic errorBuilder,
       String semanticLabel,
       bool excludeFromSemantics = false,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       Color color,
       BlendMode colorBlendMode,
       BoxFit fit,
@@ -2267,18 +2322,18 @@ var _image_network = MXFunctionInvoke(
     ),
 );
 var _image_file = MXFunctionInvoke(
-  "image.file",
+  "Image.file",
     (
       {
       File file,
       Key key,
-      double scale = 1.0,
+      dynamic scale = 1.0,
       dynamic frameBuilder,
       dynamic errorBuilder,
       String semanticLabel,
       bool excludeFromSemantics = false,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       Color color,
       BlendMode colorBlendMode,
       BoxFit fit,
@@ -2316,7 +2371,7 @@ var _image_file = MXFunctionInvoke(
     ),
 );
 var _image_asset = MXFunctionInvoke(
-  "image.asset",
+  "Image.asset",
     (
       {
       String name,
@@ -2326,9 +2381,9 @@ var _image_asset = MXFunctionInvoke(
       dynamic errorBuilder,
       String semanticLabel,
       bool excludeFromSemantics = false,
-      double scale,
-      double width,
-      double height,
+      dynamic scale,
+      dynamic width,
+      dynamic height,
       Color color,
       BlendMode colorBlendMode,
       BoxFit fit,
@@ -2369,18 +2424,18 @@ var _image_asset = MXFunctionInvoke(
     ),
 );
 var _image_memory = MXFunctionInvoke(
-  "image.memory",
+  "Image.memory",
     (
       {
       Uint8List bytes,
       Key key,
-      double scale = 1.0,
+      dynamic scale = 1.0,
       dynamic frameBuilder,
       dynamic errorBuilder,
       String semanticLabel,
       bool excludeFromSemantics = false,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       Color color,
       BlendMode colorBlendMode,
       BoxFit fit,
@@ -2444,8 +2499,8 @@ var _container = MXFunctionInvoke(
       Color color,
       Decoration decoration,
       Decoration foregroundDecoration,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       BoxConstraints constraints,
       EdgeInsetsGeometry margin,
       Matrix4 transform,
@@ -2494,7 +2549,7 @@ var _localizations = MXFunctionInvoke(
     ),
 );
 var _localizations_override = MXFunctionInvoke(
-  "localizations.override",
+  "Localizations.override",
     (
       {
       Key key,
@@ -2584,7 +2639,7 @@ var _sliverChildBuilderDelegate = MXFunctionInvoke(
     ) =>
       SliverChildBuilderDelegate(
       builder,
-      findChildIndexCallback: createGenericValueGenericClosure<int, Key>(_sliverChildBuilderDelegate.buildOwner, findChildIndexCallback),
+      findChildIndexCallback: null,
       childCount: childCount,
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
@@ -2615,7 +2670,7 @@ var _sliverChildListDelegate = MXFunctionInvoke(
     ),
 );
 var _sliverChildListDelegate_fixed = MXFunctionInvoke(
-  "sliverChildListDelegate.fixed",
+  "SliverChildListDelegate.fixed",
     (
       {
       List<Widget> children,
@@ -2654,7 +2709,7 @@ var _sliverFixedExtentList = MXFunctionInvoke(
       {
       Key key,
       SliverChildDelegate delegate,
-      double itemExtent,
+      dynamic itemExtent,
       }
     ) =>
       SliverFixedExtentList(
@@ -2679,14 +2734,14 @@ var _sliverGrid = MXFunctionInvoke(
     ),
 );
 var _sliverGrid_count = MXFunctionInvoke(
-  "sliverGrid.count",
+  "SliverGrid.count",
     (
       {
       Key key,
       int crossAxisCount,
-      double mainAxisSpacing = 0.0,
-      double crossAxisSpacing = 0.0,
-      double childAspectRatio = 1.0,
+      dynamic mainAxisSpacing = 0.0,
+      dynamic crossAxisSpacing = 0.0,
+      dynamic childAspectRatio = 1.0,
       List<Widget> children,
       }
     ) =>
@@ -2700,14 +2755,14 @@ var _sliverGrid_count = MXFunctionInvoke(
     ),
 );
 var _sliverGrid_extent = MXFunctionInvoke(
-  "sliverGrid.extent",
+  "SliverGrid.extent",
     (
       {
       Key key,
-      double maxCrossAxisExtent,
-      double mainAxisSpacing = 0.0,
-      double crossAxisSpacing = 0.0,
-      double childAspectRatio = 1.0,
+      dynamic maxCrossAxisExtent,
+      dynamic mainAxisSpacing = 0.0,
+      dynamic crossAxisSpacing = 0.0,
+      dynamic childAspectRatio = 1.0,
       List<Widget> children,
       }
     ) =>
@@ -2736,7 +2791,7 @@ var _sliverOpacity = MXFunctionInvoke(
     (
       {
       Key key,
-      double opacity,
+      dynamic opacity,
       bool alwaysIncludeSemantics = false,
       Widget sliver,
       }
@@ -2807,7 +2862,7 @@ var _notificationListener = MXFunctionInvoke(
       NotificationListener(
       key: key,
       child: child,
-      onNotification: createGenericValueGenericClosure<bool, Notification>(_notificationListener.buildOwner, onNotification),
+      onNotification: null,
     ),
 );
 var _layoutChangedNotification = MXFunctionInvoke(
@@ -2860,7 +2915,7 @@ var _textEditingController = MXFunctionInvoke(
     ),
 );
 var _textEditingController_fromValue = MXFunctionInvoke(
-  "textEditingController.fromValue",
+  "TextEditingController.fromValue",
     (
       {
       TextEditingValue value,
@@ -2907,7 +2962,7 @@ var _editableText = MXFunctionInvoke(
       TextAlign textAlign = TextAlign.start,
       TextDirection textDirection,
       Locale locale,
-      double textScaleFactor,
+      dynamic textScaleFactor,
       int maxLines = 1,
       int minLines,
       bool expands = false,
@@ -2928,7 +2983,7 @@ var _editableText = MXFunctionInvoke(
       dynamic onSelectionHandleTapped,
       List<TextInputFormatter> inputFormatters,
       bool rendererIgnoresPointer = false,
-      double cursorWidth = 2.0,
+      dynamic cursorWidth = 2.0,
       Radius cursorRadius,
       bool cursorOpacityAnimates = false,
       Offset cursorOffset,
@@ -2978,7 +3033,7 @@ var _editableText = MXFunctionInvoke(
       onChanged: createValueChangedGenericClosure<String>(_editableText.buildOwner, onChanged),
       onEditingComplete: createVoidCallbackClosure(_editableText.buildOwner, onEditingComplete),
       onSubmitted: createValueChangedGenericClosure<String>(_editableText.buildOwner, onSubmitted),
-      onSelectionChanged: null,
+      onSelectionChanged: createVoidTwoParamsClosure<TextSelection, SelectionChangedCause>(_editableText.buildOwner, onSelectionChanged),
       onSelectionHandleTapped: createVoidCallbackClosure(_editableText.buildOwner, onSelectionHandleTapped),
       inputFormatters: inputFormatters,
       rendererIgnoresPointer: rendererIgnoresPointer,
@@ -3027,7 +3082,7 @@ var _numericFocusOrder = MXFunctionInvoke(
     "NumericFocusOrder",
     (
       {
-      double order,
+      dynamic order,
       }
     ) =>
       NumericFocusOrder(
@@ -3228,9 +3283,9 @@ var _widgetsApp = MXFunctionInvoke(
       WidgetsApp(
       key: key,
       navigatorKey: navigatorKey,
-      onGenerateRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_widgetsApp.buildOwner, onGenerateRoute),
-      onGenerateInitialRoutes: createGenericValueGenericClosure<List<Route<dynamic>>, String>(_widgetsApp.buildOwner, onGenerateInitialRoutes),
-      onUnknownRoute: createGenericValueGenericClosure<Route<dynamic>, RouteSettings>(_widgetsApp.buildOwner, onUnknownRoute),
+      onGenerateRoute: null,
+      onGenerateInitialRoutes: null,
+      onUnknownRoute: null,
       navigatorObservers: navigatorObservers,
       initialRoute: initialRoute,
       pageRouteBuilder: null,
@@ -3238,7 +3293,7 @@ var _widgetsApp = MXFunctionInvoke(
       routes: routes,
       builder: null,
       title: title,
-      onGenerateTitle: createGenericValueGenericClosure<String, BuildContext>(_widgetsApp.buildOwner, onGenerateTitle),
+      onGenerateTitle: null,
       textStyle: textStyle,
       color: color,
       locale: locale,
@@ -3413,7 +3468,7 @@ var _errorWidget = MXFunctionInvoke(
     ),
 );
 var _errorWidget_withDetails = MXFunctionInvoke(
-  "errorWidget.withDetails",
+  "ErrorWidget.withDetails",
     (
       {
       String message = '',
@@ -3535,7 +3590,7 @@ var _opacity = MXFunctionInvoke(
     (
       {
       Key key,
-      double opacity,
+      dynamic opacity,
       bool alwaysIncludeSemantics = false,
       Widget child,
       }
@@ -3559,7 +3614,7 @@ var _shaderMask = MXFunctionInvoke(
     ) =>
       ShaderMask(
       key: key,
-      shaderCallback: createGenericValueGenericClosure<Shader, Rect>(_shaderMask.buildOwner, shaderCallback),
+      shaderCallback: null,
       blendMode: blendMode,
       child: child,
     ),
@@ -3680,7 +3735,7 @@ var _physicalModel = MXFunctionInvoke(
       BoxShape shape = BoxShape.rectangle,
       Clip clipBehavior = Clip.none,
       BorderRadius borderRadius,
-      double elevation = 0.0,
+      dynamic elevation = 0.0,
       Color color,
       Color shadowColor,
       Widget child,
@@ -3704,7 +3759,7 @@ var _physicalShape = MXFunctionInvoke(
       Key key,
       CustomClipper<Path> clipper,
       Clip clipBehavior = Clip.none,
-      double elevation = 0.0,
+      dynamic elevation = 0.0,
       Color color,
       Color shadowColor,
       Widget child,
@@ -3742,11 +3797,11 @@ var _transform = MXFunctionInvoke(
     ),
 );
 var _transform_rotate = MXFunctionInvoke(
-  "transform.rotate",
+  "Transform.rotate",
     (
       {
       Key key,
-      double angle,
+      dynamic angle,
       Offset origin,
       AlignmentGeometry alignment,
       bool transformHitTests = true,
@@ -3763,7 +3818,7 @@ var _transform_rotate = MXFunctionInvoke(
     ),
 );
 var _transform_translate = MXFunctionInvoke(
-  "transform.translate",
+  "Transform.translate",
     (
       {
       Key key,
@@ -3780,11 +3835,11 @@ var _transform_translate = MXFunctionInvoke(
     ),
 );
 var _transform_scale = MXFunctionInvoke(
-  "transform.scale",
+  "Transform.scale",
     (
       {
       Key key,
-      double scale,
+      dynamic scale,
       Offset origin,
       AlignmentGeometry alignment,
       bool transformHitTests = true,
@@ -3904,8 +3959,8 @@ var _align = MXFunctionInvoke(
       {
       Key key,
       AlignmentGeometry alignment,
-      double widthFactor,
-      double heightFactor,
+      dynamic widthFactor,
+      dynamic heightFactor,
       Widget child,
       }
     ) =>
@@ -3922,8 +3977,8 @@ var _center = MXFunctionInvoke(
     (
       {
       Key key,
-      double widthFactor,
-      double heightFactor,
+      dynamic widthFactor,
+      dynamic heightFactor,
       Widget child,
       }
     ) =>
@@ -3984,8 +4039,8 @@ var _sizedBox = MXFunctionInvoke(
     (
       {
       Key key,
-      double width,
-      double height,
+      dynamic width,
+      dynamic height,
       Widget child,
       }
     ) =>
@@ -3997,7 +4052,7 @@ var _sizedBox = MXFunctionInvoke(
     ),
 );
 var _sizedBox_expand = MXFunctionInvoke(
-  "sizedBox.expand",
+  "SizedBox.expand",
     (
       {
       Key key,
@@ -4010,7 +4065,7 @@ var _sizedBox_expand = MXFunctionInvoke(
     ),
 );
 var _sizedBox_shrink = MXFunctionInvoke(
-  "sizedBox.shrink",
+  "SizedBox.shrink",
     (
       {
       Key key,
@@ -4023,7 +4078,7 @@ var _sizedBox_shrink = MXFunctionInvoke(
     ),
 );
 var _sizedBox_fromSize = MXFunctionInvoke(
-  "sizedBox.fromSize",
+  "SizedBox.fromSize",
     (
       {
       Key key,
@@ -4077,8 +4132,8 @@ var _fractionallySizedBox = MXFunctionInvoke(
       {
       Key key,
       AlignmentGeometry alignment,
-      double widthFactor,
-      double heightFactor,
+      dynamic widthFactor,
+      dynamic heightFactor,
       Widget child,
       }
     ) =>
@@ -4095,8 +4150,8 @@ var _limitedBox = MXFunctionInvoke(
     (
       {
       Key key,
-      double maxWidth = double.infinity,
-      double maxHeight = double.infinity,
+      dynamic maxWidth = double.infinity,
+      dynamic maxHeight = double.infinity,
       Widget child,
       }
     ) =>
@@ -4113,10 +4168,10 @@ var _overflowBox = MXFunctionInvoke(
       {
       Key key,
       AlignmentGeometry alignment,
-      double minWidth,
-      double maxWidth,
-      double minHeight,
-      double maxHeight,
+      dynamic minWidth,
+      dynamic maxWidth,
+      dynamic minHeight,
+      dynamic maxHeight,
       Widget child,
       }
     ) =>
@@ -4167,7 +4222,7 @@ var _aspectRatio = MXFunctionInvoke(
     (
       {
       Key key,
-      double aspectRatio,
+      dynamic aspectRatio,
       Widget child,
       }
     ) =>
@@ -4182,8 +4237,8 @@ var _intrinsicWidth = MXFunctionInvoke(
     (
       {
       Key key,
-      double stepWidth,
-      double stepHeight,
+      dynamic stepWidth,
+      dynamic stepHeight,
       Widget child,
       }
     ) =>
@@ -4212,7 +4267,7 @@ var _baseline = MXFunctionInvoke(
     (
       {
       Key key,
-      double baseline,
+      dynamic baseline,
       TextBaseline baselineType,
       Widget child,
       }
@@ -4316,12 +4371,12 @@ var _positioned = MXFunctionInvoke(
     (
       {
       Key key,
-      double left,
-      double top,
-      double right,
-      double bottom,
-      double width,
-      double height,
+      dynamic left,
+      dynamic top,
+      dynamic right,
+      dynamic bottom,
+      dynamic width,
+      dynamic height,
       Widget child,
       }
     ) =>
@@ -4337,17 +4392,17 @@ var _positioned = MXFunctionInvoke(
     ),
 );
 var _positioned_directional = MXFunctionInvoke(
-  "positioned.directional",
+  "Positioned.directional",
     (
       {
       Key key,
       TextDirection textDirection,
-      double start,
-      double top,
-      double end,
-      double bottom,
-      double width,
-      double height,
+      dynamic start,
+      dynamic top,
+      dynamic end,
+      dynamic bottom,
+      dynamic width,
+      dynamic height,
       Widget child,
       }
     ) =>
@@ -4364,7 +4419,7 @@ var _positioned_directional = MXFunctionInvoke(
     ),
 );
 var _positioned_fromRect = MXFunctionInvoke(
-  "positioned.fromRect",
+  "Positioned.fromRect",
     (
       {
       Key key,
@@ -4379,7 +4434,7 @@ var _positioned_fromRect = MXFunctionInvoke(
     ),
 );
 var _positioned_fromRelativeRect = MXFunctionInvoke(
-  "positioned.fromRelativeRect",
+  "Positioned.fromRelativeRect",
     (
       {
       Key key,
@@ -4394,14 +4449,14 @@ var _positioned_fromRelativeRect = MXFunctionInvoke(
     ),
 );
 var _positioned_fill = MXFunctionInvoke(
-  "positioned.fill",
+  "Positioned.fill",
     (
       {
       Key key,
-      double left = 0.0,
-      double top = 0.0,
-      double right = 0.0,
-      double bottom = 0.0,
+      dynamic left = 0.0,
+      dynamic top = 0.0,
+      dynamic right = 0.0,
+      dynamic bottom = 0.0,
       Widget child,
       }
     ) =>
@@ -4419,12 +4474,12 @@ var _positionedDirectional = MXFunctionInvoke(
     (
       {
       Key key,
-      double start,
-      double top,
-      double end,
-      double bottom,
-      double width,
-      double height,
+      dynamic start,
+      dynamic top,
+      dynamic end,
+      dynamic bottom,
+      dynamic width,
+      dynamic height,
       Widget child,
       }
     ) =>
@@ -4555,9 +4610,9 @@ var _wrap = MXFunctionInvoke(
       Key key,
       Axis direction = Axis.horizontal,
       WrapAlignment alignment = WrapAlignment.start,
-      double spacing = 0.0,
+      dynamic spacing = 0.0,
       WrapAlignment runAlignment = WrapAlignment.start,
-      double runSpacing = 0.0,
+      dynamic runSpacing = 0.0,
       WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
       TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
@@ -4593,7 +4648,7 @@ var _flow = MXFunctionInvoke(
     ),
 );
 var _flow_unwrapped = MXFunctionInvoke(
-  "flow.unwrapped",
+  "Flow.unwrapped",
     (
       {
       Key key,
@@ -4617,7 +4672,7 @@ var _richText = MXFunctionInvoke(
       TextDirection textDirection,
       bool softWrap = true,
       TextOverflow overflow = TextOverflow.clip,
-      double textScaleFactor = 1.0,
+      dynamic textScaleFactor = 1.0,
       int maxLines,
       Locale locale,
       StrutStyle strutStyle,
@@ -4646,9 +4701,9 @@ var _rawImage = MXFunctionInvoke(
       {
       Key key,
       Image image,
-      double width,
-      double height,
-      double scale = 1.0,
+      dynamic width,
+      dynamic height,
+      dynamic scale = 1.0,
       Color color,
       BlendMode colorBlendMode,
       BoxFit fit,
@@ -4771,7 +4826,7 @@ var _repaintBoundary = MXFunctionInvoke(
     ),
 );
 var _repaintBoundary_wrap = MXFunctionInvoke(
-  "repaintBoundary.wrap",
+  "RepaintBoundary.wrap",
     (
       {
       Widget child,
@@ -4950,7 +5005,7 @@ var _semantics = MXFunctionInvoke(
     ),
 );
 var _semantics_fromProperties = MXFunctionInvoke(
-  "semantics.fromProperties",
+  "Semantics.fromProperties",
     (
       {
       Key key,
@@ -5042,7 +5097,7 @@ var _keyedSubtree = MXFunctionInvoke(
     ),
 );
 var _keyedSubtree_wrap = MXFunctionInvoke(
-  "keyedSubtree.wrap",
+  "KeyedSubtree.wrap",
     (
       {
       Widget child,
@@ -5064,7 +5119,7 @@ var _builder = MXFunctionInvoke(
     ) =>
       Builder(
       key: key,
-      builder: createGenericValueGenericClosure<Widget, BuildContext>(_builder.buildOwner, builder),
+      builder: null,
     ),
 );
 var _statefulBuilder = MXFunctionInvoke(
@@ -5105,7 +5160,7 @@ var _callbackAction = MXFunctionInvoke(
     ) =>
       CallbackAction(
       intentKey,
-      onInvoke: null,
+      onInvoke: createVoidTwoParamsClosure<FocusNode, Intent>(_callbackAction.buildOwner, onInvoke),
     ),
 );
 var _actionDispatcher = MXFunctionInvoke(

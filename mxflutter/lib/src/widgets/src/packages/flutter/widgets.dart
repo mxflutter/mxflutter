@@ -61,7 +61,7 @@ import 'src/widgets/constants.dart';
 import 'src/widgets/route_notification_messages.dart';
 
 
-Map<String, MXFunctionInvoke> registerWidgetsSeries() {
+Map<String, MXFunctionInvoke> registerWidgetsLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerWidgetSpanSeries());
   m.addAll(registerAnimatedCrossFadeSeries());

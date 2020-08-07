@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/gradient.dart';
-import 'dart:collection';
-import 'dart:math';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/painting/alignment.dart';
-import 'package:flutter/src/painting/basic_types.dart';
+import 'dart:collection' ;
+import 'dart:math' as math;
+import 'dart:typed_data' ;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:vector_math/vector_math_64.dart' ;
+import 'package:flutter/src/painting/alignment.dart' ;
+import 'package:flutter/src/painting/basic_types.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -29,7 +29,7 @@ var _gradientRotation = MXFunctionInvoke(
     "GradientRotation",
     (
       {
-      double radians,
+      dynamic radians,
       }
     ) =>
       GradientRotation(
@@ -62,12 +62,12 @@ var _radialGradient = MXFunctionInvoke(
     (
       {
       AlignmentGeometry center,
-      double radius = 0.5,
+      dynamic radius = 0.5,
       List<Color> colors,
       List<double> stops,
       TileMode tileMode = TileMode.clamp,
       AlignmentGeometry focal,
-      double focalRadius = 0.0,
+      dynamic focalRadius = 0.0,
       GradientTransform transform,
       }
     ) =>
@@ -87,8 +87,8 @@ var _sweepGradient = MXFunctionInvoke(
     (
       {
       AlignmentGeometry center,
-      double startAngle = 0.0,
-      double endAngle = 6.283185307179586,
+      dynamic startAngle = 0.0,
+      dynamic endAngle = 6.283185307179586,
       List<Color> colors,
       List<double> stops,
       TileMode tileMode = TileMode.clamp,

@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/async.dart';
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'dart:async' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -27,14 +27,14 @@ var _connectionState = MXFunctionInvoke(
     ({Map args}) => MXConnectionState.parse(args),
   );
 var _asyncSnapshot_nothing = MXFunctionInvoke(
-  "asyncSnapshot.nothing",
+  "AsyncSnapshot.nothing",
     (
     ) =>
       AsyncSnapshot.nothing(
     ),
 );
 var _asyncSnapshot_withData = MXFunctionInvoke(
-  "asyncSnapshot.withData",
+  "AsyncSnapshot.withData",
     (
       {
       ConnectionState state,
@@ -47,7 +47,7 @@ var _asyncSnapshot_withData = MXFunctionInvoke(
     ),
 );
 var _asyncSnapshot_withError = MXFunctionInvoke(
-  "asyncSnapshot.withError",
+  "AsyncSnapshot.withError",
     (
       {
       ConnectionState state,

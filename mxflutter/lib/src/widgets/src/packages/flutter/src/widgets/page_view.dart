@@ -6,29 +6,29 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/page_view.dart';
-import 'dart:async';
-import 'dart:math';
-import 'package:flutter/physics.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/debug.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/notification_listener.dart';
-import 'package:flutter/src/widgets/page_storage.dart';
-import 'package:flutter/src/widgets/scroll_context.dart';
-import 'package:flutter/src/widgets/scroll_controller.dart';
-import 'package:flutter/src/widgets/scroll_metrics.dart';
-import 'package:flutter/src/widgets/scroll_notification.dart';
-import 'package:flutter/src/widgets/scroll_physics.dart';
-import 'package:flutter/src/widgets/scroll_position.dart';
-import 'package:flutter/src/widgets/scroll_position_with_single_context.dart';
-import 'package:flutter/src/widgets/scroll_view.dart';
-import 'package:flutter/src/widgets/scrollable.dart';
-import 'package:flutter/src/widgets/sliver.dart';
-import 'package:flutter/src/widgets/sliver_fill.dart';
-import 'package:flutter/src/widgets/viewport.dart';
+import 'dart:async' ;
+import 'dart:math' as math;
+import 'package:flutter/physics.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/debug.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/notification_listener.dart' ;
+import 'package:flutter/src/widgets/page_storage.dart' ;
+import 'package:flutter/src/widgets/scroll_context.dart' ;
+import 'package:flutter/src/widgets/scroll_controller.dart' ;
+import 'package:flutter/src/widgets/scroll_metrics.dart' ;
+import 'package:flutter/src/widgets/scroll_notification.dart' ;
+import 'package:flutter/src/widgets/scroll_physics.dart' ;
+import 'package:flutter/src/widgets/scroll_position.dart' ;
+import 'package:flutter/src/widgets/scroll_position_with_single_context.dart' ;
+import 'package:flutter/src/widgets/scroll_view.dart' ;
+import 'package:flutter/src/widgets/scrollable.dart' ;
+import 'package:flutter/src/widgets/sliver.dart' ;
+import 'package:flutter/src/widgets/sliver_fill.dart' ;
+import 'package:flutter/src/widgets/viewport.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -48,7 +48,7 @@ var _pageController = MXFunctionInvoke(
       {
       int initialPage = 0,
       bool keepPage = true,
-      double viewportFraction = 1.0,
+      dynamic viewportFraction = 1.0,
       }
     ) =>
       PageController(
@@ -61,12 +61,12 @@ var _pageMetrics = MXFunctionInvoke(
     "PageMetrics",
     (
       {
-      double minScrollExtent,
-      double maxScrollExtent,
-      double pixels,
-      double viewportDimension,
+      dynamic minScrollExtent,
+      dynamic maxScrollExtent,
+      dynamic pixels,
+      dynamic viewportDimension,
       AxisDirection axisDirection,
-      double viewportFraction,
+      dynamic viewportFraction,
       }
     ) =>
       PageMetrics(
@@ -119,7 +119,7 @@ var _pageView = MXFunctionInvoke(
     ),
 );
 var _pageView_builder = MXFunctionInvoke(
-  "pageView.builder",
+  "PageView.builder",
     (
       {
       Key key,
@@ -150,7 +150,7 @@ var _pageView_builder = MXFunctionInvoke(
     ),
 );
 var _pageView_custom = MXFunctionInvoke(
-  "pageView.custom",
+  "PageView.custom",
     (
       {
       Key key,

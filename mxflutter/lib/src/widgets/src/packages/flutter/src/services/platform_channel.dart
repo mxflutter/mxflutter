@@ -6,18 +6,26 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/platform_channel.dart';
-import 'dart:async';
-import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/src/services/binary_messenger.dart';
-import 'package:flutter/src/services/binding.dart';
+import 'dart:async' ;
+import 'dart:typed_data' ;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/src/services/binary_messenger.dart' ;
+import 'package:flutter/src/services/binding.dart' ;
+import 'package:flutter/src/services/message_codec.dart' ;
+import 'package:flutter/src/services/message_codecs.dart' ;
 import 'package:flutter/src/services/message_codec.dart';
+import 'package:flutter/src/services/platform_channel.dart' ;
 import 'package:flutter/src/services/message_codecs.dart';
-import 'dart:convert';
+import 'dart:convert' ;
 import 'package:flutter/src/services/system_channels.dart';
-import 'dart:ui';
+import 'dart:ui' ;
+import 'package:flutter/src/services/binding.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/src/services/asset_bundle.dart' ;
+import 'package:flutter/src/services/system_channels.dart' ;
+import 'package:flutter/src/services/binary_messenger.dart';
 import 'package:flutter/src/services/asset_bundle.dart';
-import 'dart:io';
+import 'dart:io' ;
 
 
 ///把自己能处理的类注册到分发器中

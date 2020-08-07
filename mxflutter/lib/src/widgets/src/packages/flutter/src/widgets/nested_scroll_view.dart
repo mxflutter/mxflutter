@@ -6,27 +6,27 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/nested_scroll_view.dart';
-import 'dart:async';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/physics.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/primary_scroll_controller.dart';
-import 'package:flutter/src/widgets/scroll_activity.dart';
-import 'package:flutter/src/widgets/scroll_context.dart';
-import 'package:flutter/src/widgets/scroll_controller.dart';
-import 'package:flutter/src/widgets/scroll_metrics.dart';
-import 'package:flutter/src/widgets/scroll_physics.dart';
-import 'package:flutter/src/widgets/scroll_position.dart';
-import 'package:flutter/src/widgets/scroll_view.dart';
-import 'package:flutter/src/widgets/sliver_fill.dart';
-import 'package:flutter/src/widgets/ticker_provider.dart';
-import 'package:flutter/src/widgets/viewport.dart';
+import 'dart:async' ;
+import 'dart:math' as math;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/painting.dart' ;
+import 'package:flutter/physics.dart' ;
+import 'package:flutter/rendering.dart' ;
+import 'package:flutter/scheduler.dart' ;
+import 'package:flutter/src/widgets/basic.dart' ;
+import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/src/widgets/primary_scroll_controller.dart' ;
+import 'package:flutter/src/widgets/scroll_activity.dart' ;
+import 'package:flutter/src/widgets/scroll_context.dart' ;
+import 'package:flutter/src/widgets/scroll_controller.dart' ;
+import 'package:flutter/src/widgets/scroll_metrics.dart' ;
+import 'package:flutter/src/widgets/scroll_physics.dart' ;
+import 'package:flutter/src/widgets/scroll_position.dart' ;
+import 'package:flutter/src/widgets/scroll_view.dart' ;
+import 'package:flutter/src/widgets/sliver_fill.dart' ;
+import 'package:flutter/src/widgets/ticker_provider.dart' ;
+import 'package:flutter/src/widgets/viewport.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -149,7 +149,7 @@ var _nestedScrollViewViewport = MXFunctionInvoke(
       Key key,
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
-      double anchor = 0.0,
+      dynamic anchor = 0.0,
       ViewportOffset offset,
       Key center,
       List<Widget> slivers,
@@ -174,7 +174,7 @@ var _renderNestedScrollViewViewport = MXFunctionInvoke(
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
-      double anchor = 0.0,
+      dynamic anchor = 0.0,
       List<RenderSliver> children,
       RenderSliver center,
       SliverOverlapAbsorberHandle handle,

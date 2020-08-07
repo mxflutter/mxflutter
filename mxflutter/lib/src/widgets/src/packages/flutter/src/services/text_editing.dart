@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/text_editing.dart';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
+import 'dart:ui' ;
+import 'package:flutter/foundation.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -36,7 +36,7 @@ var _textSelection = MXFunctionInvoke(
     ),
 );
 var _textSelection_collapsed = MXFunctionInvoke(
-  "textSelection.collapsed",
+  "TextSelection.collapsed",
     (
       {
       int offset,
@@ -49,7 +49,7 @@ var _textSelection_collapsed = MXFunctionInvoke(
     ),
 );
 var _textSelection_fromPosition = MXFunctionInvoke(
-  "textSelection.fromPosition",
+  "TextSelection.fromPosition",
     (
       {
       TextPosition position,

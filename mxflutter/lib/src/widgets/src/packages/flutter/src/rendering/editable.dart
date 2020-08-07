@@ -6,16 +6,16 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/editable.dart';
-import 'dart:math';
-import 'dart:ui';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/semantics.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/rendering/layer.dart';
-import 'package:flutter/src/rendering/object.dart';
-import 'package:flutter/src/rendering/viewport_offset.dart';
+import 'dart:math' as math;
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' ;
+import 'package:flutter/gestures.dart' ;
+import 'package:flutter/semantics.dart' ;
+import 'package:flutter/services.dart' ;
+import 'package:flutter/src/rendering/box.dart' ;
+import 'package:flutter/src/rendering/layer.dart' ;
+import 'package:flutter/src/rendering/object.dart' ;
+import 'package:flutter/src/rendering/viewport_offset.dart' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -61,7 +61,7 @@ var _renderEditable = MXFunctionInvoke(
       bool expands = false,
       StrutStyle strutStyle,
       Color selectionColor,
-      double textScaleFactor = 1.0,
+      dynamic textScaleFactor = 1.0,
       TextSelection selection,
       ViewportOffset offset,
       dynamic onSelectionChanged,
@@ -72,11 +72,11 @@ var _renderEditable = MXFunctionInvoke(
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
       bool obscureText = false,
       Locale locale,
-      double cursorWidth = 1.0,
+      dynamic cursorWidth = 1.0,
       Radius cursorRadius,
       bool paintCursorAboveText = false,
       Offset cursorOffset,
-      double devicePixelRatio = 1.0,
+      dynamic devicePixelRatio = 1.0,
       BoxHeightStyle selectionHeightStyle = BoxHeightStyle.tight,
       BoxWidthStyle selectionWidthStyle = BoxWidthStyle.tight,
       bool enableInteractiveSelection,
@@ -102,7 +102,7 @@ var _renderEditable = MXFunctionInvoke(
       textScaleFactor: textScaleFactor?.toDouble(),
       selection: selection,
       offset: offset,
-      onSelectionChanged: null,
+      onSelectionChanged: createVoidThreeParamsClosure<TextSelection, RenderEditable, SelectionChangedCause>(_renderEditable.buildOwner, onSelectionChanged),
       onCaretChanged: createValueChangedGenericClosure<Rect>(_renderEditable.buildOwner, onCaretChanged),
       ignorePointer: ignorePointer,
       readOnly: readOnly,
