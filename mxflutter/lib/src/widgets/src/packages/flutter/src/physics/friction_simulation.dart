@@ -30,9 +30,9 @@ var _frictionSimulation = MXFunctionInvoke(
       }
     ) =>
       FrictionSimulation(
-      drag,
-      position,
-      velocity,
+      drag?.toDouble(),
+      position?.toDouble(),
+      velocity?.toDouble(),
       tolerance: tolerance,
     ),
 );
@@ -47,10 +47,10 @@ var _frictionSimulation_through = MXFunctionInvoke(
       }
     ) =>
       FrictionSimulation.through(
-      startPosition,
-      endPosition,
-      startVelocity,
-      endVelocity,
+      startPosition?.toDouble(),
+      endPosition?.toDouble(),
+      startVelocity?.toDouble(),
+      endVelocity?.toDouble(),
     ),
 );
 var _boundedFrictionSimulation = MXFunctionInvoke(
@@ -65,10 +65,10 @@ var _boundedFrictionSimulation = MXFunctionInvoke(
       }
     ) =>
       BoundedFrictionSimulation(
-      drag,
-      position,
-      velocity,
-      minX,
-      maxX,
+      drag?.toDouble(),
+      position?.toDouble(),
+      velocity?.toDouble(),
+      minX?.toDouble(),
+      maxX?.toDouble(),
     ),
 );

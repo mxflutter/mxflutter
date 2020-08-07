@@ -62,7 +62,7 @@ var _fixedColumnWidth = MXFunctionInvoke(
       }
     ) =>
       FixedColumnWidth(
-      value,
+      value?.toDouble(),
     ),
 );
 var _fractionColumnWidth = MXFunctionInvoke(
@@ -73,7 +73,7 @@ var _fractionColumnWidth = MXFunctionInvoke(
       }
     ) =>
       FractionColumnWidth(
-      value,
+      value?.toDouble(),
     ),
 );
 var _flexColumnWidth = MXFunctionInvoke(
@@ -84,7 +84,7 @@ var _flexColumnWidth = MXFunctionInvoke(
       }
     ) =>
       FlexColumnWidth(
-      value,
+      value?.toDouble(),
     ),
 );
 var _maxColumnWidth = MXFunctionInvoke(

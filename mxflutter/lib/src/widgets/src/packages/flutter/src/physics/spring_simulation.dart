@@ -70,9 +70,9 @@ var _springSimulation = MXFunctionInvoke(
     ) =>
       SpringSimulation(
       spring,
-      start,
-      end,
-      velocity,
+      start?.toDouble(),
+      end?.toDouble(),
+      velocity?.toDouble(),
       tolerance: tolerance,
     ),
 );
@@ -89,9 +89,9 @@ var _scrollSpringSimulation = MXFunctionInvoke(
     ) =>
       ScrollSpringSimulation(
       spring,
-      start,
-      end,
-      velocity,
+      start?.toDouble(),
+      end?.toDouble(),
+      velocity?.toDouble(),
       tolerance: tolerance,
     ),
 );

@@ -61,7 +61,7 @@ var _licenseRegistry_addLicense = MXFunctionInvoke(
       }
     ) =>
       LicenseRegistry.addLicense(
-      collector,
+      collector: null,
     ),
 );
 var _licenseRegistry_reset = MXFunctionInvoke(

@@ -44,7 +44,7 @@ var _equalityBy = MXFunctionInvoke(
       }
     ) =>
       EqualityBy(
-      getKey,
+      getKey: null,
       inner,
     ),
 );

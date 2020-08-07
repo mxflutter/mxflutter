@@ -167,6 +167,6 @@ var _mapValueSet = MXFunctionInvoke(
     ) =>
       MapValueSet(
       base,
-      keyForValue,
+      keyForValue: null,
     ),
 );

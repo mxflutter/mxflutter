@@ -1982,8 +1982,8 @@ var _rangeValues = MXFunctionInvoke(
       }
     ) =>
       RangeValues(
-      start,
-      end,
+      start?.toDouble(),
+      end?.toDouble(),
     ),
 );
 var _rangeLabels = MXFunctionInvoke(

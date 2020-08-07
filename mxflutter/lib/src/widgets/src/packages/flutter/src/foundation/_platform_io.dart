@@ -264,7 +264,7 @@ var _diagnosticsProperty_lazy = MXFunctionInvoke(
     ) =>
       DiagnosticsProperty.lazy(
       name,
-      computeValue,
+      computeValue: null,
       description: description,
       ifNull: ifNull,
       ifEmpty: ifEmpty,
@@ -343,7 +343,7 @@ var _doubleProperty = MXFunctionInvoke(
     ) =>
       DoubleProperty(
       name,
-      value,
+      value?.toDouble(),
       ifNull: ifNull,
       unit: unit,
       tooltip: tooltip,
@@ -369,7 +369,7 @@ var _doubleProperty_lazy = MXFunctionInvoke(
     ) =>
       DoubleProperty.lazy(
       name,
-      computeValue,
+      computeValue: null,
       ifNull: ifNull,
       showName: showName,
       unit: unit,
@@ -418,7 +418,7 @@ var _percentProperty = MXFunctionInvoke(
     ) =>
       PercentProperty(
       name,
-      fraction,
+      fraction?.toDouble(),
       ifNull: ifNull,
       showName: showName,
       tooltip: tooltip,

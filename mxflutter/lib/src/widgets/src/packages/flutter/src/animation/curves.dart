@@ -67,8 +67,8 @@ var _interval = MXFunctionInvoke(
       }
     ) =>
       Interval(
-      begin,
-      end,
+      begin?.toDouble(),
+      end?.toDouble(),
       curve: curve,
     ),
 );
@@ -80,7 +80,7 @@ var _threshold = MXFunctionInvoke(
       }
     ) =>
       Threshold(
-      threshold,
+      threshold?.toDouble(),
     ),
 );
 var _cubic = MXFunctionInvoke(
@@ -94,10 +94,10 @@ var _cubic = MXFunctionInvoke(
       }
     ) =>
       Cubic(
-      a,
-      b,
-      c,
-      d,
+      a?.toDouble(),
+      b?.toDouble(),
+      c?.toDouble(),
+      d?.toDouble(),
     ),
 );
 var _curve2D = MXFunctionInvoke(
@@ -116,7 +116,7 @@ var _curve2DSample = MXFunctionInvoke(
       }
     ) =>
       Curve2DSample(
-      t,
+      t?.toDouble(),
       value,
     ),
 );
@@ -199,7 +199,7 @@ var _elasticInCurve = MXFunctionInvoke(
       }
     ) =>
       ElasticInCurve(
-      period,
+      period?.toDouble(),
     ),
 );
 var _elasticOutCurve = MXFunctionInvoke(
@@ -210,7 +210,7 @@ var _elasticOutCurve = MXFunctionInvoke(
       }
     ) =>
       ElasticOutCurve(
-      period,
+      period?.toDouble(),
     ),
 );
 var _elasticInOutCurve = MXFunctionInvoke(
@@ -221,6 +221,6 @@ var _elasticInOutCurve = MXFunctionInvoke(
       }
     ) =>
       ElasticInOutCurve(
-      period,
+      period?.toDouble(),
     ),
 );

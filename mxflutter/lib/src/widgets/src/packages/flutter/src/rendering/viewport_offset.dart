@@ -39,7 +39,7 @@ var _viewportOffset_fixed = MXFunctionInvoke(
       }
     ) =>
       ViewportOffset.fixed(
-      value,
+      value?.toDouble(),
     ),
 );
 var _viewportOffset_zero = MXFunctionInvoke(

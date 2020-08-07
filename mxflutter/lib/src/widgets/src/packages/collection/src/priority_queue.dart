@@ -25,7 +25,7 @@ var _priorityQueue = MXFunctionInvoke(
       }
     ) =>
       PriorityQueue(
-      comparison,
+      comparison: null,
     ),
 );
 var _heapPriorityQueue = MXFunctionInvoke(
@@ -36,6 +36,6 @@ var _heapPriorityQueue = MXFunctionInvoke(
       }
     ) =>
       HeapPriorityQueue(
-      comparison,
+      comparison: null,
     ),
 );

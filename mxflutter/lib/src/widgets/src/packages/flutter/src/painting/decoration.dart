@@ -34,6 +34,6 @@ var _boxPainter = MXFunctionInvoke(
       }
     ) =>
       BoxPainter(
-      onChanged,
+      onChanged: createVoidCallbackClosure(_boxPainter.buildOwner, onChanged),
     ),
 );
