@@ -6,16 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/gestures/arena.dart';
-import 'dart:async' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/gestures/debug.dart' ;
+import 'dart:async';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/gestures/debug.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerArenaSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_gestureDisposition.funName] = _gestureDisposition;
-  m[_gestureArenaMember.funName] = _gestureArenaMember;
   m[_gestureArenaManager.funName] = _gestureArenaManager;
   return m;
 }
@@ -23,13 +22,6 @@ var _gestureDisposition = MXFunctionInvoke(
     "GestureDisposition",
     ({Map args}) => MXGestureDisposition.parse(args),
   );
-var _gestureArenaMember = MXFunctionInvoke(
-    "GestureArenaMember",
-    (
-    ) =>
-      GestureArenaMember(
-    ),
-);
 var _gestureArenaManager = MXFunctionInvoke(
     "GestureArenaManager",
     (

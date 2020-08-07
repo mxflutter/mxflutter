@@ -7,16 +7,16 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/app.dart';
 import 'dart:ui' as ui;
-import 'package:flutter/cupertino.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/arc.dart' ;
-import 'package:flutter/src/material/colors.dart' ;
-import 'package:flutter/src/material/floating_action_button.dart' ;
-import 'package:flutter/src/material/icons.dart' ;
-import 'package:flutter/src/material/material_localizations.dart' ;
-import 'package:flutter/src/material/page.dart' ;
-import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/arc.dart';
+import 'package:flutter/src/material/colors.dart';
+import 'package:flutter/src/material/floating_action_button.dart';
+import 'package:flutter/src/material/icons.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/page.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中

@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/tab_view.dart';
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/cupertino/app.dart' ;
-import 'package:flutter/src/cupertino/route.dart' ;
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/cupertino/app.dart';
+import 'package:flutter/src/cupertino/route.dart';
 
 
 ///把自己能处理的类注册到分发器中

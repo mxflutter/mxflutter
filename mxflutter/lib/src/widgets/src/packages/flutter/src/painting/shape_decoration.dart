@@ -6,20 +6,20 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/shape_decoration.dart';
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/painting/basic_types.dart' ;
-import 'package:flutter/src/painting/borders.dart' ;
-import 'package:flutter/src/painting/box_border.dart' ;
-import 'package:flutter/src/painting/box_decoration.dart' ;
-import 'package:flutter/src/painting/box_shadow.dart' ;
-import 'package:flutter/src/painting/circle_border.dart' ;
-import 'package:flutter/src/painting/colors.dart' ;
-import 'package:flutter/src/painting/decoration.dart' ;
-import 'package:flutter/src/painting/decoration_image.dart' ;
-import 'package:flutter/src/painting/edge_insets.dart' ;
-import 'package:flutter/src/painting/gradient.dart' ;
-import 'package:flutter/src/painting/image_provider.dart' ;
-import 'package:flutter/src/painting/rounded_rectangle_border.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/painting/basic_types.dart';
+import 'package:flutter/src/painting/borders.dart';
+import 'package:flutter/src/painting/box_border.dart';
+import 'package:flutter/src/painting/box_decoration.dart';
+import 'package:flutter/src/painting/box_shadow.dart';
+import 'package:flutter/src/painting/circle_border.dart';
+import 'package:flutter/src/painting/colors.dart';
+import 'package:flutter/src/painting/decoration.dart';
+import 'package:flutter/src/painting/decoration_image.dart';
+import 'package:flutter/src/painting/edge_insets.dart';
+import 'package:flutter/src/painting/gradient.dart';
+import 'package:flutter/src/painting/image_provider.dart';
+import 'package:flutter/src/painting/rounded_rectangle_border.dart';
 
 
 ///把自己能处理的类注册到分发器中

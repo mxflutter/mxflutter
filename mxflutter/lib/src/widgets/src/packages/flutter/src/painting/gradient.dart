@@ -6,34 +6,25 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/gradient.dart';
-import 'dart:collection' ;
+import 'dart:collection';
 import 'dart:math' as math;
-import 'dart:typed_data' ;
+import 'dart:typed_data';
 import 'dart:ui' as ui;
-import 'package:flutter/foundation.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/painting/alignment.dart' ;
-import 'package:flutter/src/painting/basic_types.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/painting/alignment.dart';
+import 'package:flutter/src/painting/basic_types.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerGradientSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_gradientTransform.funName] = _gradientTransform;
   m[_gradientRotation.funName] = _gradientRotation;
-  m[_gradient.funName] = _gradient;
   m[_linearGradient.funName] = _linearGradient;
   m[_radialGradient.funName] = _radialGradient;
   m[_sweepGradient.funName] = _sweepGradient;
   return m;
 }
-var _gradientTransform = MXFunctionInvoke(
-    "GradientTransform",
-    (
-    ) =>
-      GradientTransform(
-    ),
-);
 var _gradientRotation = MXFunctionInvoke(
     "GradientRotation",
     (
@@ -43,21 +34,6 @@ var _gradientRotation = MXFunctionInvoke(
     ) =>
       GradientRotation(
       radians?.toDouble(),
-    ),
-);
-var _gradient = MXFunctionInvoke(
-    "Gradient",
-    (
-      {
-      List<Color> colors,
-      List<double> stops,
-      GradientTransform transform,
-      }
-    ) =>
-      Gradient(
-      colors: colors,
-      stops: stops,
-      transform: transform,
     ),
 );
 var _linearGradient = MXFunctionInvoke(

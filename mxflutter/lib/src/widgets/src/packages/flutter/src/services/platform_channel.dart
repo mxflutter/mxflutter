@@ -6,26 +6,13 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/platform_channel.dart';
-import 'dart:async' ;
-import 'dart:typed_data' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/services/binary_messenger.dart' ;
-import 'package:flutter/src/services/binding.dart' ;
-import 'package:flutter/src/services/message_codec.dart' ;
-import 'package:flutter/src/services/message_codecs.dart' ;
-import 'package:flutter/src/services/message_codec.dart';
-import 'package:flutter/src/services/platform_channel.dart' ;
-import 'package:flutter/src/services/message_codecs.dart';
-import 'dart:convert' ;
-import 'package:flutter/src/services/system_channels.dart';
-import 'dart:ui' ;
-import 'package:flutter/src/services/binding.dart';
-import 'dart:ui' as ui;
-import 'package:flutter/src/services/asset_bundle.dart' ;
-import 'package:flutter/src/services/system_channels.dart' ;
+import 'dart:async';
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/binary_messenger.dart';
-import 'package:flutter/src/services/asset_bundle.dart';
-import 'dart:io' ;
+import 'package:flutter/src/services/binding.dart';
+import 'package:flutter/src/services/message_codec.dart';
+import 'package:flutter/src/services/message_codecs.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -35,22 +22,6 @@ Map<String, MXFunctionInvoke> registerPlatformChannelSeries() {
   m[_methodChannel.funName] = _methodChannel;
   m[_optionalMethodChannel.funName] = _optionalMethodChannel;
   m[_eventChannel.funName] = _eventChannel;
-  m[_messageCodec.funName] = _messageCodec;
-  m[_methodCall.funName] = _methodCall;
-  m[_methodCodec.funName] = _methodCodec;
-  m[_platformException.funName] = _platformException;
-  m[_missingPluginException.funName] = _missingPluginException;
-  m[_binaryCodec.funName] = _binaryCodec;
-  m[_stringCodec.funName] = _stringCodec;
-  m[_jSONMessageCodec.funName] = _jSONMessageCodec;
-  m[_jSONMethodCodec.funName] = _jSONMethodCodec;
-  m[_standardMessageCodec.funName] = _standardMessageCodec;
-  m[_standardMethodCodec.funName] = _standardMethodCodec;
-  m[_binaryMessenger.funName] = _binaryMessenger;
-  m[_assetBundle.funName] = _assetBundle;
-  m[_networkAssetBundle.funName] = _networkAssetBundle;
-  m[_cachingAssetBundle.funName] = _cachingAssetBundle;
-  m[_platformAssetBundle.funName] = _platformAssetBundle;
   return m;
 }
 var _basicMessageChannel = MXFunctionInvoke(
@@ -109,143 +80,5 @@ var _eventChannel = MXFunctionInvoke(
       name,
       codec,
       binaryMessenger,
-    ),
-);
-var _messageCodec = MXFunctionInvoke(
-    "MessageCodec",
-    (
-    ) =>
-      MessageCodec(
-    ),
-);
-var _methodCall = MXFunctionInvoke(
-    "MethodCall",
-    (
-      {
-      String method,
-      dynamic arguments,
-      }
-    ) =>
-      MethodCall(
-      method,
-      arguments,
-    ),
-);
-var _methodCodec = MXFunctionInvoke(
-    "MethodCodec",
-    (
-    ) =>
-      MethodCodec(
-    ),
-);
-var _platformException = MXFunctionInvoke(
-    "PlatformException",
-    (
-      {
-      String code,
-      String message,
-      dynamic details,
-      }
-    ) =>
-      PlatformException(
-      code: code,
-      message: message,
-      details: details,
-    ),
-);
-var _missingPluginException = MXFunctionInvoke(
-    "MissingPluginException",
-    (
-      {
-      String message,
-      }
-    ) =>
-      MissingPluginException(
-      message,
-    ),
-);
-var _binaryCodec = MXFunctionInvoke(
-    "BinaryCodec",
-    (
-    ) =>
-      BinaryCodec(
-    ),
-);
-var _stringCodec = MXFunctionInvoke(
-    "StringCodec",
-    (
-    ) =>
-      StringCodec(
-    ),
-);
-var _jSONMessageCodec = MXFunctionInvoke(
-    "JSONMessageCodec",
-    (
-    ) =>
-      JSONMessageCodec(
-    ),
-);
-var _jSONMethodCodec = MXFunctionInvoke(
-    "JSONMethodCodec",
-    (
-    ) =>
-      JSONMethodCodec(
-    ),
-);
-var _standardMessageCodec = MXFunctionInvoke(
-    "StandardMessageCodec",
-    (
-    ) =>
-      StandardMessageCodec(
-    ),
-);
-var _standardMethodCodec = MXFunctionInvoke(
-    "StandardMethodCodec",
-    (
-      {
-      StandardMessageCodec messageCodec,
-      }
-    ) =>
-      StandardMethodCodec(
-      messageCodec,
-    ),
-);
-var _binaryMessenger = MXFunctionInvoke(
-    "BinaryMessenger",
-    (
-    ) =>
-      BinaryMessenger(
-    ),
-);
-var _assetBundle = MXFunctionInvoke(
-    "AssetBundle",
-    (
-    ) =>
-      AssetBundle(
-    ),
-);
-var _networkAssetBundle = MXFunctionInvoke(
-    "NetworkAssetBundle",
-    (
-      {
-      Uri baseUrl,
-      }
-    ) =>
-      NetworkAssetBundle(
-      baseUrl,
-    ),
-);
-var _cachingAssetBundle = MXFunctionInvoke(
-    "CachingAssetBundle",
-    (
-    ) =>
-      CachingAssetBundle(
-    ),
-);
-var _platformAssetBundle = MXFunctionInvoke(
-    "PlatformAssetBundle",
-    (
-    ) =>
-      PlatformAssetBundle(
     ),
 );

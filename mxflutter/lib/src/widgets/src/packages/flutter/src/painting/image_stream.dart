@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/image_stream.dart';
-import 'dart:async' ;
+import 'dart:async';
 import 'dart:ui' as ui;
-import 'dart:ui' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/scheduler.dart' ;
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/scheduler.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -20,7 +20,6 @@ Map<String, MXFunctionInvoke> registerImageStreamSeries() {
   m[_imageStreamListener.funName] = _imageStreamListener;
   m[_imageChunkEvent.funName] = _imageChunkEvent;
   m[_imageStream.funName] = _imageStream;
-  m[_imageStreamCompleter.funName] = _imageStreamCompleter;
   m[_oneFrameImageStreamCompleter.funName] = _oneFrameImageStreamCompleter;
   m[_multiFrameImageStreamCompleter.funName] = _multiFrameImageStreamCompleter;
   return m;
@@ -48,7 +47,7 @@ var _imageStreamListener = MXFunctionInvoke(
       }
     ) =>
       ImageStreamListener(
-      onImage: createVoidTwoParamsClosure<ImageInfo, bool>(_imageStreamListener.buildOwner, onImage),
+      createVoidTwoParamsClosure<ImageInfo, bool>(_imageStreamListener.buildOwner, onImage),
       onChunk: createValueChangedGenericClosure<ImageChunkEvent>(_imageStreamListener.buildOwner, onChunk),
       onError: createVoidTwoParamsClosure<dynamic, StackTrace>(_imageStreamListener.buildOwner, onError),
     ),
@@ -71,13 +70,6 @@ var _imageStream = MXFunctionInvoke(
     (
     ) =>
       ImageStream(
-    ),
-);
-var _imageStreamCompleter = MXFunctionInvoke(
-    "ImageStreamCompleter",
-    (
-    ) =>
-      ImageStreamCompleter(
     ),
 );
 var _oneFrameImageStreamCompleter = MXFunctionInvoke(

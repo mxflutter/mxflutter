@@ -7,23 +7,23 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/dropdown.dart';
 import 'dart:math' as math;
-import 'dart:ui' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/services.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/button_theme.dart' ;
-import 'package:flutter/src/material/colors.dart' ;
-import 'package:flutter/src/material/constants.dart' ;
-import 'package:flutter/src/material/debug.dart' ;
-import 'package:flutter/src/material/icons.dart' ;
-import 'package:flutter/src/material/ink_well.dart' ;
-import 'package:flutter/src/material/input_decorator.dart' ;
-import 'package:flutter/src/material/material.dart' ;
-import 'package:flutter/src/material/material_localizations.dart' ;
-import 'package:flutter/src/material/scrollbar.dart' ;
-import 'package:flutter/src/material/shadows.dart' ;
-import 'package:flutter/src/material/theme.dart' ;
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/button_theme.dart';
+import 'package:flutter/src/material/colors.dart';
+import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/icons.dart';
+import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/input_decorator.dart';
+import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/scrollbar.dart';
+import 'package:flutter/src/material/shadows.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中

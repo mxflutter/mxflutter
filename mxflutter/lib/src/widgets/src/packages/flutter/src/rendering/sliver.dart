@@ -7,19 +7,15 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/sliver.dart';
 import 'dart:math' as math;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/rendering/binding.dart' ;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/debug.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
-import 'package:flutter/src/rendering/viewport.dart' ;
-import 'package:flutter/src/rendering/viewport_offset.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/rendering/binding.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/debug.dart';
+import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/viewport.dart';
-import 'package:flutter/animation.dart' ;
-import 'package:flutter/semantics.dart' ;
-import 'package:flutter/src/rendering/sliver.dart' ;
+import 'package:flutter/src/rendering/viewport_offset.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -35,15 +31,7 @@ Map<String, MXFunctionInvoke> registerSliverSeries() {
   m[_sliverLogicalContainerParentData.funName] = _sliverLogicalContainerParentData;
   m[_sliverPhysicalParentData.funName] = _sliverPhysicalParentData;
   m[_sliverPhysicalContainerParentData.funName] = _sliverPhysicalContainerParentData;
-  m[_renderSliver.funName] = _renderSliver;
-  m[_renderSliverHelpers.funName] = _renderSliverHelpers;
-  m[_renderSliverSingleBoxAdapter.funName] = _renderSliverSingleBoxAdapter;
   m[_renderSliverToBoxAdapter.funName] = _renderSliverToBoxAdapter;
-  m[_cacheExtentStyle.funName] = _cacheExtentStyle;
-  m[_revealedOffset.funName] = _revealedOffset;
-  m[_renderViewportBase.funName] = _renderViewportBase;
-  m[_renderViewport.funName] = _renderViewport;
-  m[_renderShrinkWrappingViewport.funName] = _renderShrinkWrappingViewport;
   return m;
 }
 var _growthDirection = MXFunctionInvoke(
@@ -175,31 +163,6 @@ var _sliverPhysicalContainerParentData = MXFunctionInvoke(
       SliverPhysicalContainerParentData(
     ),
 );
-var _renderSliver = MXFunctionInvoke(
-    "RenderSliver",
-    (
-    ) =>
-      RenderSliver(
-    ),
-);
-var _renderSliverHelpers = MXFunctionInvoke(
-    "RenderSliverHelpers",
-    (
-    ) =>
-      RenderSliverHelpers(
-    ),
-);
-var _renderSliverSingleBoxAdapter = MXFunctionInvoke(
-    "RenderSliverSingleBoxAdapter",
-    (
-      {
-      RenderBox child,
-      }
-    ) =>
-      RenderSliverSingleBoxAdapter(
-      child: child,
-    ),
-);
 var _renderSliverToBoxAdapter = MXFunctionInvoke(
     "RenderSliverToBoxAdapter",
     (
@@ -211,105 +174,12 @@ var _renderSliverToBoxAdapter = MXFunctionInvoke(
       child: child,
     ),
 );
-var _cacheExtentStyle = MXFunctionInvoke(
-    "CacheExtentStyle",
-    ({Map args}) => MXCacheExtentStyle.parse(args),
-  );
-var _revealedOffset = MXFunctionInvoke(
-    "RevealedOffset",
-    (
-      {
-      dynamic offset,
-      Rect rect,
-      }
-    ) =>
-      RevealedOffset(
-      offset: offset?.toDouble(),
-      rect: rect,
-    ),
-);
-var _renderViewportBase = MXFunctionInvoke(
-    "RenderViewportBase",
-    (
-      {
-      AxisDirection axisDirection = AxisDirection.down,
-      AxisDirection crossAxisDirection,
-      ViewportOffset offset,
-      dynamic cacheExtent,
-      CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
-      }
-    ) =>
-      RenderViewportBase(
-      axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection,
-      offset: offset,
-      cacheExtent: cacheExtent?.toDouble(),
-      cacheExtentStyle: cacheExtentStyle,
-    ),
-);
-var _renderViewport = MXFunctionInvoke(
-    "RenderViewport",
-    (
-      {
-      AxisDirection axisDirection = AxisDirection.down,
-      AxisDirection crossAxisDirection,
-      ViewportOffset offset,
-      dynamic anchor = 0.0,
-      List<RenderSliver> children,
-      RenderSliver center,
-      dynamic cacheExtent,
-      CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
-      }
-    ) =>
-      RenderViewport(
-      axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection,
-      offset: offset,
-      anchor: anchor?.toDouble(),
-      children: children,
-      center: center,
-      cacheExtent: cacheExtent?.toDouble(),
-      cacheExtentStyle: cacheExtentStyle,
-    ),
-);
-var _renderShrinkWrappingViewport = MXFunctionInvoke(
-    "RenderShrinkWrappingViewport",
-    (
-      {
-      AxisDirection axisDirection = AxisDirection.down,
-      AxisDirection crossAxisDirection,
-      ViewportOffset offset,
-      List<RenderSliver> children,
-      }
-    ) =>
-      RenderShrinkWrappingViewport(
-      axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection,
-      offset: offset,
-      children: children,
-    ),
-);
 class MXGrowthDirection {
   static Map str2VMap = {
     'GrowthDirection.forward': GrowthDirection.forward,
     'GrowthDirection.reverse': GrowthDirection.reverse,
   };
   static GrowthDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
-    }
-  }
-}
-class MXCacheExtentStyle {
-  static Map str2VMap = {
-    'CacheExtentStyle.pixel': CacheExtentStyle.pixel,
-    'CacheExtentStyle.viewport': CacheExtentStyle.viewport,
-  };
-  static CacheExtentStyle parse(dynamic value) {
     if (value is Map) {
       var valueStr = value["_name"].trim();
       var v = str2VMap[valueStr];

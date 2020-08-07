@@ -6,7 +6,7 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/widgets.dart' ;
+import 'package:flutter/widgets.dart';
 
 
 ///把自己能处理的类注册到分发器中

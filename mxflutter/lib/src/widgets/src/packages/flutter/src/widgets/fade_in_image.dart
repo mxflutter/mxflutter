@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/fade_in_image.dart';
-import 'dart:typed_data' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/services.dart' ;
-import 'package:flutter/src/widgets/basic.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
-import 'package:flutter/src/widgets/image.dart' ;
-import 'package:flutter/src/widgets/implicit_animations.dart' ;
-import 'package:flutter/src/widgets/transitions.dart' ;
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/image.dart';
+import 'package:flutter/src/widgets/implicit_animations.dart';
+import 'package:flutter/src/widgets/transitions.dart';
 
 
 ///把自己能处理的类注册到分发器中

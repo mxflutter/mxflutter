@@ -7,8 +7,8 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 import 'dart:ui' as ui;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/painting/basic_types.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/painting/basic_types.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -34,10 +34,10 @@ var _edgeInsets_fromLTRB = MXFunctionInvoke(
       }
     ) =>
       EdgeInsets.fromLTRB(
-      left,
-      top,
-      right,
-      bottom,
+      left?.toDouble(),
+      top?.toDouble(),
+      right?.toDouble(),
+      bottom?.toDouble(),
     ),
 );
 var _edgeInsets_all = MXFunctionInvoke(
@@ -48,7 +48,7 @@ var _edgeInsets_all = MXFunctionInvoke(
       }
     ) =>
       EdgeInsets.all(
-      value,
+      value?.toDouble(),
     ),
 );
 var _edgeInsets_only = MXFunctionInvoke(
@@ -91,7 +91,7 @@ var _edgeInsets_fromWindowPadding = MXFunctionInvoke(
     ) =>
       EdgeInsets.fromWindowPadding(
       padding,
-      devicePixelRatio,
+      devicePixelRatio?.toDouble(),
     ),
 );
 var _edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
@@ -105,10 +105,10 @@ var _edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
       }
     ) =>
       EdgeInsetsDirectional.fromSTEB(
-      start,
-      top,
-      end,
-      bottom,
+      start?.toDouble(),
+      top?.toDouble(),
+      end?.toDouble(),
+      bottom?.toDouble(),
     ),
 );
 var _edgeInsetsDirectional_only = MXFunctionInvoke(

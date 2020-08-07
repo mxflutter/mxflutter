@@ -6,15 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/animation/animation_controller.dart';
-import 'dart:async' ;
+import 'dart:async';
 import 'dart:ui' as ui;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/physics.dart' ;
-import 'package:flutter/scheduler.dart' ;
-import 'package:flutter/semantics.dart' ;
-import 'package:flutter/src/animation/animation.dart' ;
-import 'package:flutter/src/animation/curves.dart' ;
-import 'package:flutter/src/animation/listener_helpers.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/physics.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/semantics.dart';
+import 'package:flutter/src/animation/animation.dart';
+import 'package:flutter/src/animation/curves.dart';
+import 'package:flutter/src/animation/listener_helpers.dart';
 
 
 ///把自己能处理的类注册到分发器中

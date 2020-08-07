@@ -5,37 +5,22 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/src/foundation/_platform_io.dart';
-import 'dart:io' ;
-import 'package:flutter/src/foundation/assertions.dart' ;
-import 'package:flutter/src/foundation/platform.dart' as platform;
-import 'package:flutter/src/foundation/platform.dart';
-import 'package:flutter/src/foundation/_platform_io.dart' as _platform;
-import 'package:flutter/src/foundation/debug.dart';
-import 'dart:async' ;
-import 'package:flutter/src/foundation/platform.dart' ;
-import 'package:flutter/src/foundation/print.dart' ;
 import 'package:flutter/src/foundation/diagnostics.dart';
 import 'dart:math' as math;
-import 'package:meta/meta.dart' ;
-import 'package:flutter/src/foundation/constants.dart' ;
-import 'package:flutter/src/foundation/debug.dart' ;
-import 'package:flutter/src/foundation/object.dart' ;
+import 'package:meta/meta.dart';
 import 'package:flutter/src/foundation/assertions.dart';
-import 'package:flutter/src/foundation/basic_types.dart' ;
-import 'package:flutter/src/foundation/diagnostics.dart' ;
-import 'package:flutter/src/foundation/stack_frame.dart' ;
+import 'package:flutter/src/foundation/constants.dart';
+import 'package:flutter/src/foundation/debug.dart';
+import 'package:flutter/src/foundation/object.dart';
 
 
 ///把自己能处理的类注册到分发器中
-Map<String, MXFunctionInvoke> registerPlatformIoSeries() {
+Map<String, MXFunctionInvoke> registerDiagnosticsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_targetPlatform.funName] = _targetPlatform;
   m[_diagnosticLevel.funName] = _diagnosticLevel;
   m[_diagnosticsTreeStyle.funName] = _diagnosticsTreeStyle;
   m[_textTreeConfiguration.funName] = _textTreeConfiguration;
   m[_textTreeRenderer.funName] = _textTreeRenderer;
-  m[_diagnosticsNode.funName] = _diagnosticsNode;
   m[_diagnosticsNode_message.funName] = _diagnosticsNode_message;
   m[_diagnosticsProperty.funName] = _diagnosticsProperty;
   m[_diagnosticsProperty_lazy.funName] = _diagnosticsProperty_lazy;
@@ -55,31 +40,10 @@ Map<String, MXFunctionInvoke> registerPlatformIoSeries() {
   m[_diagnosticableTreeNode.funName] = _diagnosticableTreeNode;
   m[_diagnosticPropertiesBuilder.funName] = _diagnosticPropertiesBuilder;
   m[_diagnosticPropertiesBuilder_fromProperties.funName] = _diagnosticPropertiesBuilder_fromProperties;
-  m[_diagnosticableTree.funName] = _diagnosticableTree;
   m[_diagnosticsBlock.funName] = _diagnosticsBlock;
   m[_diagnosticsSerializationDelegate.funName] = _diagnosticsSerializationDelegate;
-  m[_partialStackFrame.funName] = _partialStackFrame;
-  m[_stackFilter.funName] = _stackFilter;
-  m[_repetitiveStackFrameFilter.funName] = _repetitiveStackFrameFilter;
-  m[_errorDescription.funName] = _errorDescription;
-  m[_errorSummary.funName] = _errorSummary;
-  m[_errorHint.funName] = _errorHint;
-  m[_errorSpacer.funName] = _errorSpacer;
-  m[_flutterErrorDetails.funName] = _flutterErrorDetails;
-  m[_flutterError.funName] = _flutterError;
-  m[_flutterError_resetErrorCount.funName] = _flutterError_resetErrorCount;
-  m[_flutterError_dumpErrorToConsole.funName] = _flutterError_dumpErrorToConsole;
-  m[_flutterError_addDefaultStackFilter.funName] = _flutterError_addDefaultStackFilter;
-  m[_flutterError_reportError.funName] = _flutterError_reportError;
-  m[_flutterError_fromParts.funName] = _flutterError_fromParts;
-  m[_diagnosticsStackTrace.funName] = _diagnosticsStackTrace;
-  m[_diagnosticsStackTrace_singleFrame.funName] = _diagnosticsStackTrace_singleFrame;
   return m;
 }
-var _targetPlatform = MXFunctionInvoke(
-    "TargetPlatform",
-    ({Map args}) => MXTargetPlatform.parse(args),
-  );
 var _diagnosticLevel = MXFunctionInvoke(
     "DiagnosticLevel",
     ({Map args}) => MXDiagnosticLevel.parse(args),
@@ -164,25 +128,6 @@ var _textTreeRenderer = MXFunctionInvoke(
       maxDescendentsTruncatableNode: maxDescendentsTruncatableNode,
     ),
 );
-var _diagnosticsNode = MXFunctionInvoke(
-    "DiagnosticsNode",
-    (
-      {
-      String name,
-      DiagnosticsTreeStyle style,
-      bool showName = true,
-      bool showSeparator = true,
-      String linePrefix,
-      }
-    ) =>
-      DiagnosticsNode(
-      name: name,
-      style: style,
-      showName: showName,
-      showSeparator: showSeparator,
-      linePrefix: linePrefix,
-    ),
-);
 var _diagnosticsNode_message = MXFunctionInvoke(
   "DiagnosticsNode.message",
     (
@@ -264,7 +209,7 @@ var _diagnosticsProperty_lazy = MXFunctionInvoke(
     ) =>
       DiagnosticsProperty.lazy(
       name,
-      computeValue: null,
+      null,
       description: description,
       ifNull: ifNull,
       ifEmpty: ifEmpty,
@@ -369,7 +314,7 @@ var _doubleProperty_lazy = MXFunctionInvoke(
     ) =>
       DoubleProperty.lazy(
       name,
-      computeValue: null,
+      null,
       ifNull: ifNull,
       showName: showName,
       unit: unit,
@@ -598,13 +543,6 @@ var _diagnosticPropertiesBuilder_fromProperties = MXFunctionInvoke(
       properties,
     ),
 );
-var _diagnosticableTree = MXFunctionInvoke(
-    "DiagnosticableTree",
-    (
-    ) =>
-      DiagnosticableTree(
-    ),
-);
 var _diagnosticsBlock = MXFunctionInvoke(
     "DiagnosticsBlock",
     (
@@ -649,219 +587,6 @@ var _diagnosticsSerializationDelegate = MXFunctionInvoke(
       includeProperties: includeProperties,
     ),
 );
-var _partialStackFrame = MXFunctionInvoke(
-    "PartialStackFrame",
-    (
-      {
-      Pattern package,
-      String className,
-      String method,
-      }
-    ) =>
-      PartialStackFrame(
-      package: package,
-      className: className,
-      method: method,
-    ),
-);
-var _stackFilter = MXFunctionInvoke(
-    "StackFilter",
-    (
-    ) =>
-      StackFilter(
-    ),
-);
-var _repetitiveStackFrameFilter = MXFunctionInvoke(
-    "RepetitiveStackFrameFilter",
-    (
-      {
-      List<PartialStackFrame> frames,
-      String replacement,
-      }
-    ) =>
-      RepetitiveStackFrameFilter(
-      frames: frames,
-      replacement: replacement,
-    ),
-);
-var _errorDescription = MXFunctionInvoke(
-    "ErrorDescription",
-    (
-      {
-      String message,
-      }
-    ) =>
-      ErrorDescription(
-      message,
-    ),
-);
-var _errorSummary = MXFunctionInvoke(
-    "ErrorSummary",
-    (
-      {
-      String message,
-      }
-    ) =>
-      ErrorSummary(
-      message,
-    ),
-);
-var _errorHint = MXFunctionInvoke(
-    "ErrorHint",
-    (
-      {
-      String message,
-      }
-    ) =>
-      ErrorHint(
-      message,
-    ),
-);
-var _errorSpacer = MXFunctionInvoke(
-    "ErrorSpacer",
-    (
-    ) =>
-      ErrorSpacer(
-    ),
-);
-var _flutterErrorDetails = MXFunctionInvoke(
-    "FlutterErrorDetails",
-    (
-      {
-      dynamic exception,
-      StackTrace stack,
-      String library = 'Flutter framework',
-      DiagnosticsNode context,
-      dynamic stackFilter,
-      dynamic informationCollector,
-      bool silent = false,
-      }
-    ) =>
-      FlutterErrorDetails(
-      exception: exception,
-      stack: stack,
-      library: library,
-      context: context,
-      stackFilter: null,
-      informationCollector: null,
-      silent: silent,
-    ),
-);
-var _flutterError = MXFunctionInvoke(
-    "FlutterError",
-    (
-      {
-      String message,
-      }
-    ) =>
-      FlutterError(
-      message,
-    ),
-);
-var _flutterError_resetErrorCount = MXFunctionInvoke(
-  "FlutterError.resetErrorCount",
-    (
-    ) =>
-      FlutterError.resetErrorCount(
-    ),
-);
-var _flutterError_dumpErrorToConsole = MXFunctionInvoke(
-  "FlutterError.dumpErrorToConsole",
-    (
-      {
-      FlutterErrorDetails details,
-      bool forceReport = false,
-      }
-    ) =>
-      FlutterError.dumpErrorToConsole(
-      details,
-      forceReport: forceReport,
-    ),
-);
-var _flutterError_addDefaultStackFilter = MXFunctionInvoke(
-  "FlutterError.addDefaultStackFilter",
-    (
-      {
-      StackFilter filter,
-      }
-    ) =>
-      FlutterError.addDefaultStackFilter(
-      filter,
-    ),
-);
-var _flutterError_reportError = MXFunctionInvoke(
-  "FlutterError.reportError",
-    (
-      {
-      FlutterErrorDetails details,
-      }
-    ) =>
-      FlutterError.reportError(
-      details,
-    ),
-);
-var _flutterError_fromParts = MXFunctionInvoke(
-  "FlutterError.fromParts",
-    (
-      {
-      List<DiagnosticsNode> diagnostics,
-      }
-    ) =>
-      FlutterError.fromParts(
-      diagnostics,
-    ),
-);
-var _diagnosticsStackTrace = MXFunctionInvoke(
-    "DiagnosticsStackTrace",
-    (
-      {
-      String name,
-      StackTrace stack,
-      dynamic stackFilter,
-      bool showSeparator = true,
-      }
-    ) =>
-      DiagnosticsStackTrace(
-      name,
-      stack,
-      stackFilter: null,
-      showSeparator: showSeparator,
-    ),
-);
-var _diagnosticsStackTrace_singleFrame = MXFunctionInvoke(
-  "DiagnosticsStackTrace.singleFrame",
-    (
-      {
-      String name,
-      String frame,
-      bool showSeparator = true,
-      }
-    ) =>
-      DiagnosticsStackTrace.singleFrame(
-      name,
-      frame: frame,
-      showSeparator: showSeparator,
-    ),
-);
-class MXTargetPlatform {
-  static Map str2VMap = {
-    'TargetPlatform.android': TargetPlatform.android,
-    'TargetPlatform.fuchsia': TargetPlatform.fuchsia,
-    'TargetPlatform.iOS': TargetPlatform.iOS,
-    'TargetPlatform.linux': TargetPlatform.linux,
-    'TargetPlatform.macOS': TargetPlatform.macOS,
-    'TargetPlatform.windows': TargetPlatform.windows,
-  };
-  static TargetPlatform parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
-    }
-  }
-}
 class MXDiagnosticLevel {
   static Map str2VMap = {
     'DiagnosticLevel.hidden': DiagnosticLevel.hidden,

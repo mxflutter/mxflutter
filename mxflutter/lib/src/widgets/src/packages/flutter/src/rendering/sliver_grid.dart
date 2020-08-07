@@ -7,20 +7,18 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/sliver_grid.dart';
 import 'dart:math' as math;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
-import 'package:flutter/src/rendering/sliver.dart' ;
-import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/object.dart';
+import 'package:flutter/src/rendering/sliver.dart';
+import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverGridSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_sliverGridGeometry.funName] = _sliverGridGeometry;
-  m[_sliverGridLayout.funName] = _sliverGridLayout;
   m[_sliverGridRegularTileLayout.funName] = _sliverGridRegularTileLayout;
-  m[_sliverGridDelegate.funName] = _sliverGridDelegate;
   m[_sliverGridDelegateWithFixedCrossAxisCount.funName] = _sliverGridDelegateWithFixedCrossAxisCount;
   m[_sliverGridDelegateWithMaxCrossAxisExtent.funName] = _sliverGridDelegateWithMaxCrossAxisExtent;
   m[_sliverGridParentData.funName] = _sliverGridParentData;
@@ -44,13 +42,6 @@ var _sliverGridGeometry = MXFunctionInvoke(
       crossAxisExtent: crossAxisExtent?.toDouble(),
     ),
 );
-var _sliverGridLayout = MXFunctionInvoke(
-    "SliverGridLayout",
-    (
-    ) =>
-      SliverGridLayout(
-    ),
-);
 var _sliverGridRegularTileLayout = MXFunctionInvoke(
     "SliverGridRegularTileLayout",
     (
@@ -70,13 +61,6 @@ var _sliverGridRegularTileLayout = MXFunctionInvoke(
       childMainAxisExtent: childMainAxisExtent?.toDouble(),
       childCrossAxisExtent: childCrossAxisExtent?.toDouble(),
       reverseCrossAxis: reverseCrossAxis,
-    ),
-);
-var _sliverGridDelegate = MXFunctionInvoke(
-    "SliverGridDelegate",
-    (
-    ) =>
-      SliverGridDelegate(
     ),
 );
 var _sliverGridDelegateWithFixedCrossAxisCount = MXFunctionInvoke(

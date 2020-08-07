@@ -7,18 +7,18 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/implicit_animations.dart';
 import 'dart:ui' as ui;
-import 'package:flutter/animation.dart' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/painting.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/widgets/basic.dart' ;
-import 'package:flutter/src/widgets/container.dart' ;
-import 'package:flutter/src/widgets/debug.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
-import 'package:flutter/src/widgets/text.dart' ;
-import 'package:flutter/src/widgets/ticker_provider.dart' ;
-import 'package:flutter/src/widgets/transitions.dart' ;
+import 'package:flutter/animation.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/debug.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/text.dart';
+import 'package:flutter/src/widgets/ticker_provider.dart';
+import 'package:flutter/src/widgets/transitions.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -32,9 +32,6 @@ Map<String, MXFunctionInvoke> registerImplicitAnimationsSeries() {
   m[_borderTween.funName] = _borderTween;
   m[_matrix4Tween.funName] = _matrix4Tween;
   m[_textStyleTween.funName] = _textStyleTween;
-  m[_implicitlyAnimatedWidget.funName] = _implicitlyAnimatedWidget;
-  m[_implicitlyAnimatedWidgetState.funName] = _implicitlyAnimatedWidgetState;
-  m[_animatedWidgetBaseState.funName] = _animatedWidgetBaseState;
   m[_animatedContainer.funName] = _animatedContainer;
   m[_animatedPadding.funName] = _animatedPadding;
   m[_animatedAlign.funName] = _animatedAlign;
@@ -149,37 +146,6 @@ var _textStyleTween = MXFunctionInvoke(
       TextStyleTween(
       begin: begin,
       end: end,
-    ),
-);
-var _implicitlyAnimatedWidget = MXFunctionInvoke(
-    "ImplicitlyAnimatedWidget",
-    (
-      {
-      Key key,
-      Curve curve,
-      Duration duration,
-      dynamic onEnd,
-      }
-    ) =>
-      ImplicitlyAnimatedWidget(
-      key: key,
-      curve: curve,
-      duration: duration,
-      onEnd: createVoidCallbackClosure(_implicitlyAnimatedWidget.buildOwner, onEnd),
-    ),
-);
-var _implicitlyAnimatedWidgetState = MXFunctionInvoke(
-    "ImplicitlyAnimatedWidgetState",
-    (
-    ) =>
-      ImplicitlyAnimatedWidgetState(
-    ),
-);
-var _animatedWidgetBaseState = MXFunctionInvoke(
-    "AnimatedWidgetBaseState",
-    (
-    ) =>
-      AnimatedWidgetBaseState(
     ),
 );
 var _animatedContainer = MXFunctionInvoke(

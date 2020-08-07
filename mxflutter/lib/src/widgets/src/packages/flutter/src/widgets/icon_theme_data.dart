@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/icon_theme_data.dart';
-import 'dart:ui' ;
+import 'dart:ui';
 import 'dart:ui' as ui;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/painting.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 
 ///把自己能处理的类注册到分发器中

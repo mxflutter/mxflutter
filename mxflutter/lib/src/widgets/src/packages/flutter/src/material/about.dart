@@ -6,23 +6,23 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/about.dart';
-import 'dart:async' ;
-import 'dart:developer' ;
-import 'dart:io' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/scheduler.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/app_bar.dart' ;
-import 'package:flutter/src/material/debug.dart' ;
-import 'package:flutter/src/material/dialog.dart' ;
-import 'package:flutter/src/material/flat_button.dart' ;
-import 'package:flutter/src/material/list_tile.dart' ;
-import 'package:flutter/src/material/material_localizations.dart' ;
-import 'package:flutter/src/material/page.dart' ;
-import 'package:flutter/src/material/progress_indicator.dart' ;
-import 'package:flutter/src/material/scaffold.dart' ;
-import 'package:flutter/src/material/scrollbar.dart' ;
-import 'package:flutter/src/material/theme.dart' ;
+import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/app_bar.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/dialog.dart';
+import 'package:flutter/src/material/flat_button.dart';
+import 'package:flutter/src/material/list_tile.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/page.dart';
+import 'package:flutter/src/material/progress_indicator.dart';
+import 'package:flutter/src/material/scaffold.dart';
+import 'package:flutter/src/material/scrollbar.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中

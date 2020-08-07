@@ -7,30 +7,22 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/list_wheel_viewport.dart';
 import 'dart:math' as math;
-import 'package:flutter/animation.dart' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
-import 'package:flutter/src/rendering/viewport.dart' ;
-import 'package:flutter/src/rendering/viewport_offset.dart' ;
+import 'package:flutter/animation.dart';
+import 'package:flutter/foundation.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/object.dart';
+import 'package:flutter/src/rendering/viewport.dart';
+import 'package:flutter/src/rendering/viewport_offset.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListWheelViewportSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_listWheelChildManager.funName] = _listWheelChildManager;
   m[_listWheelParentData.funName] = _listWheelParentData;
   m[_renderListWheelViewport.funName] = _renderListWheelViewport;
   return m;
 }
-var _listWheelChildManager = MXFunctionInvoke(
-    "ListWheelChildManager",
-    (
-    ) =>
-      ListWheelChildManager(
-    ),
-);
 var _listWheelParentData = MXFunctionInvoke(
     "ListWheelParentData",
     (

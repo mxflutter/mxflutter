@@ -7,30 +7,18 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/sliver_fixed_extent_list.dart';
 import 'dart:math' as math;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/sliver.dart' ;
-import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/sliver.dart';
+import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverFixedExtentListSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_renderSliverFixedExtentBoxAdaptor.funName] = _renderSliverFixedExtentBoxAdaptor;
   m[_renderSliverFixedExtentList.funName] = _renderSliverFixedExtentList;
   return m;
 }
-var _renderSliverFixedExtentBoxAdaptor = MXFunctionInvoke(
-    "RenderSliverFixedExtentBoxAdaptor",
-    (
-      {
-      RenderSliverBoxChildManager childManager,
-      }
-    ) =>
-      RenderSliverFixedExtentBoxAdaptor(
-      childManager: childManager,
-    ),
-);
 var _renderSliverFixedExtentList = MXFunctionInvoke(
     "RenderSliverFixedExtentList",
     (

@@ -6,9 +6,9 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/will_pop_scope.dart';
-import 'package:flutter/src/widgets/framework.dart' ;
-import 'package:flutter/src/widgets/navigator.dart' ;
-import 'package:flutter/src/widgets/routes.dart' ;
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/navigator.dart';
+import 'package:flutter/src/widgets/routes.dart';
 
 
 ///把自己能处理的类注册到分发器中

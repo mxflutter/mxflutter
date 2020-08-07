@@ -7,10 +7,10 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/circle_border.dart';
 import 'dart:math' as math;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/painting/basic_types.dart' ;
-import 'package:flutter/src/painting/borders.dart' ;
-import 'package:flutter/src/painting/edge_insets.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/painting/basic_types.dart';
+import 'package:flutter/src/painting/borders.dart';
+import 'package:flutter/src/painting/edge_insets.dart';
 
 
 ///把自己能处理的类注册到分发器中

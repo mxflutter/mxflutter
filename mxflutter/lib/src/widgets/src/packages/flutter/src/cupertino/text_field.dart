@@ -7,14 +7,14 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/text_field.dart';
 import 'dart:ui' as ui;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/services.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/cupertino/colors.dart' ;
-import 'package:flutter/src/cupertino/icons.dart' ;
-import 'package:flutter/src/cupertino/text_selection.dart' ;
-import 'package:flutter/src/cupertino/theme.dart' ;
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/cupertino/colors.dart';
+import 'package:flutter/src/cupertino/icons.dart';
+import 'package:flutter/src/cupertino/text_selection.dart';
+import 'package:flutter/src/cupertino/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中

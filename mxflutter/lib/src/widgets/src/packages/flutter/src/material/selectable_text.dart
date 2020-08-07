@@ -6,15 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/selectable_text.dart';
-import 'package:flutter/cupertino.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/services.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/src/material/feedback.dart' ;
-import 'package:flutter/src/material/text_selection.dart' ;
-import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/src/material/feedback.dart';
+import 'package:flutter/src/material/text_selection.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中

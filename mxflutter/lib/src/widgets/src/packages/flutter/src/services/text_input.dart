@@ -6,16 +6,16 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/text_input.dart';
-import 'dart:async' ;
-import 'dart:io' ;
-import 'dart:ui' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/services/message_codec.dart' ;
-import 'package:flutter/src/services/platform_channel.dart' ;
-import 'package:flutter/src/services/system_channels.dart' ;
-import 'package:flutter/src/services/system_chrome.dart' ;
-import 'package:flutter/src/services/text_editing.dart' ;
+import 'dart:async';
+import 'dart:io';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/services/message_codec.dart';
+import 'package:flutter/src/services/platform_channel.dart';
+import 'package:flutter/src/services/system_channels.dart';
+import 'package:flutter/src/services/system_chrome.dart';
+import 'package:flutter/src/services/text_editing.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -31,8 +31,6 @@ Map<String, MXFunctionInvoke> registerTextInputSeries() {
   m[_rawFloatingCursorPoint.funName] = _rawFloatingCursorPoint;
   m[_textEditingValue.funName] = _textEditingValue;
   m[_textEditingValue_fromJSON.funName] = _textEditingValue_fromJSON;
-  m[_textSelectionDelegate.funName] = _textSelectionDelegate;
-  m[_textInputClient.funName] = _textInputClient;
   m[_textInputConnection_debugResetId.funName] = _textInputConnection_debugResetId;
   m[_textInput_setChannel.funName] = _textInput_setChannel;
   return m;
@@ -136,20 +134,6 @@ var _textEditingValue_fromJSON = MXFunctionInvoke(
     ) =>
       TextEditingValue.fromJSON(
       encoded,
-    ),
-);
-var _textSelectionDelegate = MXFunctionInvoke(
-    "TextSelectionDelegate",
-    (
-    ) =>
-      TextSelectionDelegate(
-    ),
-);
-var _textInputClient = MXFunctionInvoke(
-    "TextInputClient",
-    (
-    ) =>
-      TextInputClient(
     ),
 );
 var _textInputConnection_debugResetId = MXFunctionInvoke(

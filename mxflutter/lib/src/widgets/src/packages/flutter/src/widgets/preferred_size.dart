@@ -6,25 +6,17 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/preferred_size.dart';
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/src/widgets/basic.dart' ;
-import 'package:flutter/src/widgets/framework.dart' ;
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPreferredSizeSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_preferredSizeWidget.funName] = _preferredSizeWidget;
   m[_preferredSize.funName] = _preferredSize;
   return m;
 }
-var _preferredSizeWidget = MXFunctionInvoke(
-    "PreferredSizeWidget",
-    (
-    ) =>
-      PreferredSizeWidget(
-    ),
-);
 var _preferredSize = MXFunctionInvoke(
     "PreferredSize",
     (

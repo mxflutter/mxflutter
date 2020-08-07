@@ -6,44 +6,24 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:vector_math/vector_math_64.dart' ;
-import 'package:flutter/src/rendering/box.dart' ;
-import 'package:flutter/src/rendering/object.dart' ;
-import 'package:flutter/src/rendering/sliver.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter/src/rendering/object.dart';
+import 'package:flutter/src/rendering/sliver.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverMultiBoxAdaptorSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_renderSliverBoxChildManager.funName] = _renderSliverBoxChildManager;
   m[_sliverMultiBoxAdaptorParentData.funName] = _sliverMultiBoxAdaptorParentData;
-  m[_renderSliverMultiBoxAdaptor.funName] = _renderSliverMultiBoxAdaptor;
   return m;
 }
-var _renderSliverBoxChildManager = MXFunctionInvoke(
-    "RenderSliverBoxChildManager",
-    (
-    ) =>
-      RenderSliverBoxChildManager(
-    ),
-);
 var _sliverMultiBoxAdaptorParentData = MXFunctionInvoke(
     "SliverMultiBoxAdaptorParentData",
     (
     ) =>
       SliverMultiBoxAdaptorParentData(
-    ),
-);
-var _renderSliverMultiBoxAdaptor = MXFunctionInvoke(
-    "RenderSliverMultiBoxAdaptor",
-    (
-      {
-      RenderSliverBoxChildManager childManager,
-      }
-    ) =>
-      RenderSliverMultiBoxAdaptor(
-      childManager: childManager,
     ),
 );

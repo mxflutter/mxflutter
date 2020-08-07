@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/platform_messages.dart';
-import 'dart:async' ;
-import 'dart:typed_data' ;
+import 'dart:async';
+import 'dart:typed_data';
 import 'dart:ui' as ui;
-import 'package:flutter/src/services/binary_messenger.dart' ;
-import 'package:flutter/src/services/platform_channel.dart' ;
+import 'package:flutter/src/services/binary_messenger.dart';
+import 'package:flutter/src/services/platform_channel.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -30,7 +30,7 @@ var _binaryMessages_setMessageHandler = MXFunctionInvoke(
     ) =>
       BinaryMessages.setMessageHandler(
       channel,
-      handler: null,
+      null,
     ),
 );
 var _binaryMessages_setMockMessageHandler = MXFunctionInvoke(
@@ -43,6 +43,6 @@ var _binaryMessages_setMockMessageHandler = MXFunctionInvoke(
     ) =>
       BinaryMessages.setMockMessageHandler(
       channel,
-      handler: null,
+      null,
     ),
 );

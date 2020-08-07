@@ -6,17 +6,17 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/stepper.dart';
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/button_theme.dart' ;
-import 'package:flutter/src/material/colors.dart' ;
-import 'package:flutter/src/material/debug.dart' ;
-import 'package:flutter/src/material/flat_button.dart' ;
-import 'package:flutter/src/material/icons.dart' ;
-import 'package:flutter/src/material/ink_well.dart' ;
-import 'package:flutter/src/material/material.dart' ;
-import 'package:flutter/src/material/material_localizations.dart' ;
-import 'package:flutter/src/material/text_theme.dart' ;
-import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/button_theme.dart';
+import 'package:flutter/src/material/colors.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/flat_button.dart';
+import 'package:flutter/src/material/icons.dart';
+import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/text_theme.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中

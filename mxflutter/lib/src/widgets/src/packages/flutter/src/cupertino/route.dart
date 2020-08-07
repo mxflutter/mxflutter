@@ -6,16 +6,16 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/route.dart';
-import 'dart:async' ;
-import 'dart:math' ;
-import 'dart:ui' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/animation.dart' ;
-import 'package:flutter/src/cupertino/colors.dart' ;
-import 'package:flutter/src/cupertino/interface_level.dart' ;
+import 'dart:async';
+import 'dart:math';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/animation.dart';
+import 'package:flutter/src/cupertino/colors.dart';
+import 'package:flutter/src/cupertino/interface_level.dart';
 
 
 ///把自己能处理的类注册到分发器中

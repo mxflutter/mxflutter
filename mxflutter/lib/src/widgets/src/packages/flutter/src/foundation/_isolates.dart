@@ -6,18 +6,16 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/_isolates_io.dart';
-import 'dart:async' ;
-import 'dart:developer' ;
-import 'dart:isolate' ;
-import 'package:meta/meta.dart' ;
-import 'package:flutter/src/foundation/constants.dart' ;
+import 'dart:async';
+import 'dart:developer';
+import 'dart:isolate';
+import 'package:meta/meta.dart';
+import 'package:flutter/src/foundation/constants.dart';
 import 'package:flutter/src/foundation/isolates.dart' as isolates;
-import 'package:flutter/src/foundation/isolates.dart';
-import 'package:flutter/src/foundation/_isolates_io.dart' as _isolates;
 
 
 ///把自己能处理的类注册到分发器中
-Map<String, MXFunctionInvoke> registerIsolatesIoSeries() {
+Map<String, MXFunctionInvoke> registerIsolatesSeries() {
   var m = <String, MXFunctionInvoke>{};
   return m;
 }

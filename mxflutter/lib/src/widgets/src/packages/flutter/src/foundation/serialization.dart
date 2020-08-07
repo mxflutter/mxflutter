@@ -6,8 +6,8 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/serialization.dart';
-import 'dart:typed_data' ;
-import 'package:typed_data/typed_buffers.dart' ;
+import 'dart:typed_data';
+import 'package:typed_data/typed_buffers.dart';
 
 
 ///把自己能处理的类注册到分发器中

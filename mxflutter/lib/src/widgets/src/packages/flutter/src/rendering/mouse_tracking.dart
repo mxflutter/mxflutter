@@ -6,11 +6,11 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/mouse_tracking.dart';
-import 'dart:collection' ;
-import 'dart:ui' ;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/scheduler.dart' ;
+import 'dart:collection';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/scheduler.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -45,6 +45,6 @@ var _mouseTracker = MXFunctionInvoke(
     ) =>
       MouseTracker(
       router,
-      annotationFinder: null,
+      null,
     ),
 );

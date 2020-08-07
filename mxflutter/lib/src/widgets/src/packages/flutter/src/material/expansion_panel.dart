@@ -6,14 +6,14 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/expansion_panel.dart';
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/constants.dart' ;
-import 'package:flutter/src/material/expand_icon.dart' ;
-import 'package:flutter/src/material/ink_well.dart' ;
-import 'package:flutter/src/material/material_localizations.dart' ;
-import 'package:flutter/src/material/mergeable_material.dart' ;
-import 'package:flutter/src/material/theme.dart' ;
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/expand_icon.dart';
+import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/mergeable_material.dart';
+import 'package:flutter/src/material/theme.dart';
 
 
 ///把自己能处理的类注册到分发器中

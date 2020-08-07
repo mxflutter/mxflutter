@@ -5,14 +5,11 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/src/foundation/_bitfield_io.dart';
-import 'package:flutter/src/foundation/bitfield.dart' as bitfield;
 import 'package:flutter/src/foundation/bitfield.dart';
-import 'package:flutter/src/foundation/_bitfield_io.dart' as _bitfield;
 
 
 ///把自己能处理的类注册到分发器中
-Map<String, MXFunctionInvoke> registerBitfieldIoSeries() {
+Map<String, MXFunctionInvoke> registerBitfieldSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_bitField.funName] = _bitField;
   m[_bitField_filled.funName] = _bitField_filled;

@@ -6,15 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/radio.dart';
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/gestures.dart' ;
-import 'package:flutter/rendering.dart' ;
-import 'package:flutter/widgets.dart' ;
-import 'package:flutter/src/material/constants.dart' ;
-import 'package:flutter/src/material/debug.dart' ;
-import 'package:flutter/src/material/theme.dart' ;
-import 'package:flutter/src/material/theme_data.dart' ;
-import 'package:flutter/src/material/toggleable.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/src/material/constants.dart';
+import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/src/material/theme_data.dart';
+import 'package:flutter/src/material/toggleable.dart';
 
 
 ///把自己能处理的类注册到分发器中

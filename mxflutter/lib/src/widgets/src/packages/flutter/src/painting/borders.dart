@@ -8,9 +8,9 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/borders.dart';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
-import 'package:flutter/foundation.dart' ;
-import 'package:flutter/src/painting/basic_types.dart' ;
-import 'package:flutter/src/painting/edge_insets.dart' ;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/painting/basic_types.dart';
+import 'package:flutter/src/painting/edge_insets.dart';
 
 
 ///把自己能处理的类注册到分发器中
@@ -18,7 +18,6 @@ Map<String, MXFunctionInvoke> registerBordersSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_borderStyle.funName] = _borderStyle;
   m[_borderSide.funName] = _borderSide;
-  m[_shapeBorder.funName] = _shapeBorder;
   return m;
 }
 var _borderStyle = MXFunctionInvoke(
@@ -38,13 +37,6 @@ var _borderSide = MXFunctionInvoke(
       color: color,
       width: width?.toDouble(),
       style: style,
-    ),
-);
-var _shapeBorder = MXFunctionInvoke(
-    "ShapeBorder",
-    (
-    ) =>
-      ShapeBorder(
     ),
 );
 class MXBorderStyle {
