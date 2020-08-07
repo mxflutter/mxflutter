@@ -744,7 +744,7 @@ class MXJSWidgetHelper {
     let jsWidget = this.findWidgetWithWidgetID(widgetID);
 
     if (jsWidget != null) {
-      return jsWidget.helper.invokeCallback(buildWidgetDataSeq, callID, args["args"]);
+      return jsWidget.helper.invokeCallback(buildWidgetDataSeq, callID, callArgs);
     } else {
       MXJSLog.error(
         "onEventCallback error: jsWidget == null onEventCallback(args:" + args
@@ -844,6 +844,10 @@ class MXJSWidgetHelper {
     }
 
     if (this.widget.currentWidgetTree && this.widget.currentWidgetTree.findCallback(callID)) {
+      //TODO: V0.3.0需修改
+      if (args != null) {
+        return this.widget.currentWidgetTree.invokeCallback(callID, ...args);
+      }
       return this.widget.currentWidgetTree.invokeCallback(callID, args);
     }
     else {

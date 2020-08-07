@@ -973,7 +973,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
         ///TODO: 此处泛型是否可以改写成下面这种形式呢？
 //        onSelected: (dynamic b) {
 //          PopupMenuItemSelected<dynamic> cb = (dynamic b) {
-//            bo.eventCallback(jsonMap["onSelected"], p:b);
+//            bo.eventCallback(jsonMap["onSelected"], b);
 //          };
 //          return cb;
 //        },
@@ -1024,7 +1024,7 @@ class MXProxyButtonSeries extends MXJsonObjProxy {
   PopupMenuItemSelected<T> createPopMenuItemSelectedHandle<T>(
       MXJsonBuildOwner bo, dynamic eventCallbackID) {
     PopupMenuItemSelected<T> cb = (T b) {
-      bo.eventCallback(eventCallbackID, p: b);
+      bo.eventCallback(eventCallbackID, b);
     };
 
     return cb;
