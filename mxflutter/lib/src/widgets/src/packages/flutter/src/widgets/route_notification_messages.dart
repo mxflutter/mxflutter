@@ -13,5 +13,19 @@ import 'package:flutter/services.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRouteNotificationMessagesSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_routeNotificationMessages_maybeNotifyRouteChange.funName] = _routeNotificationMessages_maybeNotifyRouteChange;
   return m;
 }
+var _routeNotificationMessages_maybeNotifyRouteChange = MXFunctionInvoke(
+  "RouteNotificationMessages.maybeNotifyRouteChange",
+    (
+      {
+      String routeName,
+      String previousRouteName,
+      }
+    ) =>
+      RouteNotificationMessages.maybeNotifyRouteChange(
+      routeName,
+      previousRouteName,
+    ),
+);

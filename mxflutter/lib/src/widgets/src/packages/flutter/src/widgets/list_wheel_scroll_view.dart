@@ -29,6 +29,7 @@ import 'package:flutter/src/widgets/scrollable.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListWheelScrollViewSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_listWheelChildDelegate.funName] = _listWheelChildDelegate;
   m[_listWheelChildListDelegate.funName] = _listWheelChildListDelegate;
   m[_listWheelChildLoopingListDelegate.funName] = _listWheelChildLoopingListDelegate;
   m[_listWheelChildBuilderDelegate.funName] = _listWheelChildBuilderDelegate;
@@ -41,6 +42,13 @@ Map<String, MXFunctionInvoke> registerListWheelScrollViewSeries() {
   m[_listWheelViewport.funName] = _listWheelViewport;
   return m;
 }
+var _listWheelChildDelegate = MXFunctionInvoke(
+    "ListWheelChildDelegate",
+    (
+    ) =>
+      ListWheelChildDelegate(
+    ),
+);
 var _listWheelChildListDelegate = MXFunctionInvoke(
     "ListWheelChildListDelegate",
     (

@@ -19,6 +19,7 @@ Map<String, MXFunctionInvoke> registerSystemChromeSeries() {
   m[_applicationSwitcherDescription.funName] = _applicationSwitcherDescription;
   m[_systemUiOverlay.funName] = _systemUiOverlay;
   m[_systemUiOverlayStyle.funName] = _systemUiOverlayStyle;
+  m[_systemChrome_setSystemUIOverlayStyle.funName] = _systemChrome_setSystemUIOverlayStyle;
   return m;
 }
 var _deviceOrientation = MXFunctionInvoke(
@@ -61,6 +62,17 @@ var _systemUiOverlayStyle = MXFunctionInvoke(
       statusBarColor: statusBarColor,
       statusBarBrightness: statusBarBrightness,
       statusBarIconBrightness: statusBarIconBrightness,
+    ),
+);
+var _systemChrome_setSystemUIOverlayStyle = MXFunctionInvoke(
+  "SystemChrome.setSystemUIOverlayStyle",
+    (
+      {
+      SystemUiOverlayStyle style,
+      }
+    ) =>
+      SystemChrome.setSystemUIOverlayStyle(
+      style,
     ),
 );
 class MXDeviceOrientation {

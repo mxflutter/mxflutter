@@ -35,6 +35,8 @@ Map<String, MXFunctionInvoke> registerPlatformIoSeries() {
   m[_diagnosticsTreeStyle.funName] = _diagnosticsTreeStyle;
   m[_textTreeConfiguration.funName] = _textTreeConfiguration;
   m[_textTreeRenderer.funName] = _textTreeRenderer;
+  m[_diagnosticsNode.funName] = _diagnosticsNode;
+  m[_diagnosticsNode_message.funName] = _diagnosticsNode_message;
   m[_diagnosticsProperty.funName] = _diagnosticsProperty;
   m[_diagnosticsProperty_lazy.funName] = _diagnosticsProperty_lazy;
   m[_messageProperty.funName] = _messageProperty;
@@ -53,8 +55,11 @@ Map<String, MXFunctionInvoke> registerPlatformIoSeries() {
   m[_diagnosticableTreeNode.funName] = _diagnosticableTreeNode;
   m[_diagnosticPropertiesBuilder.funName] = _diagnosticPropertiesBuilder;
   m[_diagnosticPropertiesBuilder_fromProperties.funName] = _diagnosticPropertiesBuilder_fromProperties;
+  m[_diagnosticableTree.funName] = _diagnosticableTree;
   m[_diagnosticsBlock.funName] = _diagnosticsBlock;
+  m[_diagnosticsSerializationDelegate.funName] = _diagnosticsSerializationDelegate;
   m[_partialStackFrame.funName] = _partialStackFrame;
+  m[_stackFilter.funName] = _stackFilter;
   m[_repetitiveStackFrameFilter.funName] = _repetitiveStackFrameFilter;
   m[_errorDescription.funName] = _errorDescription;
   m[_errorSummary.funName] = _errorSummary;
@@ -62,6 +67,10 @@ Map<String, MXFunctionInvoke> registerPlatformIoSeries() {
   m[_errorSpacer.funName] = _errorSpacer;
   m[_flutterErrorDetails.funName] = _flutterErrorDetails;
   m[_flutterError.funName] = _flutterError;
+  m[_flutterError_resetErrorCount.funName] = _flutterError_resetErrorCount;
+  m[_flutterError_dumpErrorToConsole.funName] = _flutterError_dumpErrorToConsole;
+  m[_flutterError_addDefaultStackFilter.funName] = _flutterError_addDefaultStackFilter;
+  m[_flutterError_reportError.funName] = _flutterError_reportError;
   m[_flutterError_fromParts.funName] = _flutterError_fromParts;
   m[_diagnosticsStackTrace.funName] = _diagnosticsStackTrace;
   m[_diagnosticsStackTrace_singleFrame.funName] = _diagnosticsStackTrace_singleFrame;
@@ -153,6 +162,42 @@ var _textTreeRenderer = MXFunctionInvoke(
       wrapWidth: wrapWidth,
       wrapWidthProperties: wrapWidthProperties,
       maxDescendentsTruncatableNode: maxDescendentsTruncatableNode,
+    ),
+);
+var _diagnosticsNode = MXFunctionInvoke(
+    "DiagnosticsNode",
+    (
+      {
+      String name,
+      DiagnosticsTreeStyle style,
+      bool showName = true,
+      bool showSeparator = true,
+      String linePrefix,
+      }
+    ) =>
+      DiagnosticsNode(
+      name: name,
+      style: style,
+      showName: showName,
+      showSeparator: showSeparator,
+      linePrefix: linePrefix,
+    ),
+);
+var _diagnosticsNode_message = MXFunctionInvoke(
+  "DiagnosticsNode.message",
+    (
+      {
+      String message,
+      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
+      DiagnosticLevel level = DiagnosticLevel.info,
+      bool allowWrap = true,
+      }
+    ) =>
+      DiagnosticsNode.message(
+      message,
+      style: style,
+      level: level,
+      allowWrap: allowWrap,
     ),
 );
 var _diagnosticsProperty = MXFunctionInvoke(
@@ -553,6 +598,13 @@ var _diagnosticPropertiesBuilder_fromProperties = MXFunctionInvoke(
       properties,
     ),
 );
+var _diagnosticableTree = MXFunctionInvoke(
+    "DiagnosticableTree",
+    (
+    ) =>
+      DiagnosticableTree(
+    ),
+);
 var _diagnosticsBlock = MXFunctionInvoke(
     "DiagnosticsBlock",
     (
@@ -584,6 +636,19 @@ var _diagnosticsBlock = MXFunctionInvoke(
       properties: properties,
     ),
 );
+var _diagnosticsSerializationDelegate = MXFunctionInvoke(
+    "DiagnosticsSerializationDelegate",
+    (
+      {
+      int subtreeDepth,
+      bool includeProperties,
+      }
+    ) =>
+      DiagnosticsSerializationDelegate(
+      subtreeDepth: subtreeDepth,
+      includeProperties: includeProperties,
+    ),
+);
 var _partialStackFrame = MXFunctionInvoke(
     "PartialStackFrame",
     (
@@ -597,6 +662,13 @@ var _partialStackFrame = MXFunctionInvoke(
       package: package,
       className: className,
       method: method,
+    ),
+);
+var _stackFilter = MXFunctionInvoke(
+    "StackFilter",
+    (
+    ) =>
+      StackFilter(
     ),
 );
 var _repetitiveStackFrameFilter = MXFunctionInvoke(
@@ -684,6 +756,48 @@ var _flutterError = MXFunctionInvoke(
     ) =>
       FlutterError(
       message,
+    ),
+);
+var _flutterError_resetErrorCount = MXFunctionInvoke(
+  "FlutterError.resetErrorCount",
+    (
+    ) =>
+      FlutterError.resetErrorCount(
+    ),
+);
+var _flutterError_dumpErrorToConsole = MXFunctionInvoke(
+  "FlutterError.dumpErrorToConsole",
+    (
+      {
+      FlutterErrorDetails details,
+      bool forceReport = false,
+      }
+    ) =>
+      FlutterError.dumpErrorToConsole(
+      details,
+      forceReport: forceReport,
+    ),
+);
+var _flutterError_addDefaultStackFilter = MXFunctionInvoke(
+  "FlutterError.addDefaultStackFilter",
+    (
+      {
+      StackFilter filter,
+      }
+    ) =>
+      FlutterError.addDefaultStackFilter(
+      filter,
+    ),
+);
+var _flutterError_reportError = MXFunctionInvoke(
+  "FlutterError.reportError",
+    (
+      {
+      FlutterErrorDetails details,
+      }
+    ) =>
+      FlutterError.reportError(
+      details,
     ),
 );
 var _flutterError_fromParts = MXFunctionInvoke(

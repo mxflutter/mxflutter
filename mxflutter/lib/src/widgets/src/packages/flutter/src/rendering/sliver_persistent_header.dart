@@ -24,7 +24,12 @@ import 'package:flutter/src/rendering/viewport_offset.dart' ;
 Map<String, MXFunctionInvoke> registerSliverPersistentHeaderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_overScrollHeaderStretchConfiguration.funName] = _overScrollHeaderStretchConfiguration;
+  m[_renderSliverPersistentHeader.funName] = _renderSliverPersistentHeader;
+  m[_renderSliverScrollingPersistentHeader.funName] = _renderSliverScrollingPersistentHeader;
+  m[_renderSliverPinnedPersistentHeader.funName] = _renderSliverPinnedPersistentHeader;
   m[_floatingHeaderSnapConfiguration.funName] = _floatingHeaderSnapConfiguration;
+  m[_renderSliverFloatingPersistentHeader.funName] = _renderSliverFloatingPersistentHeader;
+  m[_renderSliverFloatingPinnedPersistentHeader.funName] = _renderSliverFloatingPinnedPersistentHeader;
   return m;
 }
 var _overScrollHeaderStretchConfiguration = MXFunctionInvoke(
@@ -40,6 +45,45 @@ var _overScrollHeaderStretchConfiguration = MXFunctionInvoke(
       onStretchTrigger: null,
     ),
 );
+var _renderSliverPersistentHeader = MXFunctionInvoke(
+    "RenderSliverPersistentHeader",
+    (
+      {
+      RenderBox child,
+      OverScrollHeaderStretchConfiguration stretchConfiguration,
+      }
+    ) =>
+      RenderSliverPersistentHeader(
+      child: child,
+      stretchConfiguration: stretchConfiguration,
+    ),
+);
+var _renderSliverScrollingPersistentHeader = MXFunctionInvoke(
+    "RenderSliverScrollingPersistentHeader",
+    (
+      {
+      RenderBox child,
+      OverScrollHeaderStretchConfiguration stretchConfiguration,
+      }
+    ) =>
+      RenderSliverScrollingPersistentHeader(
+      child: child,
+      stretchConfiguration: stretchConfiguration,
+    ),
+);
+var _renderSliverPinnedPersistentHeader = MXFunctionInvoke(
+    "RenderSliverPinnedPersistentHeader",
+    (
+      {
+      RenderBox child,
+      OverScrollHeaderStretchConfiguration stretchConfiguration,
+      }
+    ) =>
+      RenderSliverPinnedPersistentHeader(
+      child: child,
+      stretchConfiguration: stretchConfiguration,
+    ),
+);
 var _floatingHeaderSnapConfiguration = MXFunctionInvoke(
     "FloatingHeaderSnapConfiguration",
     (
@@ -53,5 +97,35 @@ var _floatingHeaderSnapConfiguration = MXFunctionInvoke(
       vsync: vsync,
       curve: curve,
       duration: duration,
+    ),
+);
+var _renderSliverFloatingPersistentHeader = MXFunctionInvoke(
+    "RenderSliverFloatingPersistentHeader",
+    (
+      {
+      RenderBox child,
+      FloatingHeaderSnapConfiguration snapConfiguration,
+      OverScrollHeaderStretchConfiguration stretchConfiguration,
+      }
+    ) =>
+      RenderSliverFloatingPersistentHeader(
+      child: child,
+      snapConfiguration: snapConfiguration,
+      stretchConfiguration: stretchConfiguration,
+    ),
+);
+var _renderSliverFloatingPinnedPersistentHeader = MXFunctionInvoke(
+    "RenderSliverFloatingPinnedPersistentHeader",
+    (
+      {
+      RenderBox child,
+      FloatingHeaderSnapConfiguration snapConfiguration,
+      OverScrollHeaderStretchConfiguration stretchConfiguration,
+      }
+    ) =>
+      RenderSliverFloatingPinnedPersistentHeader(
+      child: child,
+      snapConfiguration: snapConfiguration,
+      stretchConfiguration: stretchConfiguration,
     ),
 );

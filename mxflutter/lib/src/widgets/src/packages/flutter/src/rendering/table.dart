@@ -18,6 +18,7 @@ import 'package:flutter/src/rendering/table_border.dart' ;
 Map<String, MXFunctionInvoke> registerTableSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_tableCellParentData.funName] = _tableCellParentData;
+  m[_tableColumnWidth.funName] = _tableColumnWidth;
   m[_intrinsicColumnWidth.funName] = _intrinsicColumnWidth;
   m[_fixedColumnWidth.funName] = _fixedColumnWidth;
   m[_fractionColumnWidth.funName] = _fractionColumnWidth;
@@ -33,6 +34,13 @@ var _tableCellParentData = MXFunctionInvoke(
     (
     ) =>
       TableCellParentData(
+    ),
+);
+var _tableColumnWidth = MXFunctionInvoke(
+    "TableColumnWidth",
+    (
+    ) =>
+      TableColumnWidth(
     ),
 );
 var _intrinsicColumnWidth = MXFunctionInvoke(

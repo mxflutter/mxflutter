@@ -14,6 +14,17 @@ import 'dart:math' as math;
 import 'dart:typed_data' ;
 import 'dart:_engine' as engine;
 import 'dart:_engine' ;
+import 'dart:core';
+import 'dart:_internal' as _symbol_dev;
+import 'dart:_interceptors' ;
+import 'dart:_js_helper' ;
+import 'dart:_runtime' as dart;
+import 'dart:_foreign_helper' ;
+import 'dart:_native_typed_data' ;
+import 'dart:collection' ;
+import 'dart:_internal' ;
+import 'dart:_internal' as internal;
+import 'dart:math' ;
 
 
 ///把自己能处理的类注册到分发器中
@@ -23,16 +34,30 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_clipOp.funName] = _clipOp;
   m[_vertexMode.funName] = _vertexMode;
   m[_vertices.funName] = _vertices;
-  m[_vertices.funName] = _vertices;
   m[_vertices_raw.funName] = _vertices_raw;
+  m[_pictureRecorder.funName] = _pictureRecorder;
   m[_canvas.funName] = _canvas;
-  m[_canvas.funName] = _canvas;
+  m[_picture.funName] = _picture;
   m[_pathFillType.funName] = _pathFillType;
   m[_pathOperation.funName] = _pathOperation;
   m[_rawRecordingCanvas.funName] = _rawRecordingCanvas;
   m[_channelBuffers.funName] = _channelBuffers;
+  m[_scene.funName] = _scene;
+  m[_transformEngineLayer.funName] = _transformEngineLayer;
+  m[_offsetEngineLayer.funName] = _offsetEngineLayer;
+  m[_clipRectEngineLayer.funName] = _clipRectEngineLayer;
+  m[_clipRRectEngineLayer.funName] = _clipRRectEngineLayer;
+  m[_clipPathEngineLayer.funName] = _clipPathEngineLayer;
+  m[_opacityEngineLayer.funName] = _opacityEngineLayer;
+  m[_colorFilterEngineLayer.funName] = _colorFilterEngineLayer;
+  m[_imageFilterEngineLayer.funName] = _imageFilterEngineLayer;
+  m[_backdropFilterEngineLayer.funName] = _backdropFilterEngineLayer;
+  m[_shaderMaskEngineLayer.funName] = _shaderMaskEngineLayer;
+  m[_physicalShapeEngineLayer.funName] = _physicalShapeEngineLayer;
+  m[_sceneBuilder.funName] = _sceneBuilder;
   m[_engineLayer.funName] = _engineLayer;
   m[_sceneHost.funName] = _sceneHost;
+  m[_offsetBase.funName] = _offsetBase;
   m[_offset.funName] = _offset;
   m[_offset_fromDirection.funName] = _offset_fromDirection;
   m[_size.funName] = _size;
@@ -41,16 +66,13 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_size_fromWidth.funName] = _size_fromWidth;
   m[_size_fromHeight.funName] = _size_fromHeight;
   m[_size_fromRadius.funName] = _size_fromRadius;
-  m[_rect.funName] = _rect;
   m[_rect_fromLTRB.funName] = _rect_fromLTRB;
   m[_rect_fromLTWH.funName] = _rect_fromLTWH;
   m[_rect_fromCircle.funName] = _rect_fromCircle;
   m[_rect_fromCenter.funName] = _rect_fromCenter;
   m[_rect_fromPoints.funName] = _rect_fromPoints;
-  m[_radius.funName] = _radius;
   m[_radius_circular.funName] = _radius_circular;
   m[_radius_elliptical.funName] = _radius_elliptical;
-  m[_rRect.funName] = _rRect;
   m[_rRect_fromLTRBXY.funName] = _rRect_fromLTRBXY;
   m[_rRect_fromLTRBR.funName] = _rRect_fromLTRBR;
   m[_rRect_fromRectXY.funName] = _rRect_fromRectXY;
@@ -68,17 +90,28 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_paintingStyle.funName] = _paintingStyle;
   m[_blendMode.funName] = _blendMode;
   m[_clip.funName] = _clip;
+  m[_paint.funName] = _paint;
+  m[_gradient_linear.funName] = _gradient_linear;
+  m[_gradient_radial.funName] = _gradient_radial;
+  m[_gradient_sweep.funName] = _gradient_sweep;
+  m[_image.funName] = _image;
+  m[_colorFilter_mode.funName] = _colorFilter_mode;
+  m[_colorFilter_matrix.funName] = _colorFilter_matrix;
+  m[_colorFilter_linearToSrgbGamma.funName] = _colorFilter_linearToSrgbGamma;
+  m[_colorFilter_srgbToLinearGamma.funName] = _colorFilter_srgbToLinearGamma;
   m[_blurStyle.funName] = _blurStyle;
-  m[_maskFilter.funName] = _maskFilter;
   m[_maskFilter_blur.funName] = _maskFilter_blur;
   m[_filterQuality.funName] = _filterQuality;
-  m[_imageFilter.funName] = _imageFilter;
   m[_imageFilter_blur.funName] = _imageFilter_blur;
   m[_imageFilter_matrix.funName] = _imageFilter_matrix;
   m[_imageByteFormat.funName] = _imageByteFormat;
   m[_pixelFormat.funName] = _pixelFormat;
-  m[_codec.funName] = _codec;
   m[_shadow.funName] = _shadow;
+  m[_path.funName] = _path;
+  m[_path_from.funName] = _path_from;
+  m[_pathMetrics.funName] = _pathMetrics;
+  m[_pathMetricIterator.funName] = _pathMetricIterator;
+  m[_pathMetric.funName] = _pathMetric;
   m[_tangent.funName] = _tangent;
   m[_tangent_fromAngle.funName] = _tangent_fromAngle;
   m[_pointerChange.funName] = _pointerChange;
@@ -86,12 +119,9 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_pointerSignalKind.funName] = _pointerSignalKind;
   m[_pointerData.funName] = _pointerData;
   m[_pointerDataPacket.funName] = _pointerDataPacket;
-  m[_semanticsAction.funName] = _semanticsAction;
-  m[_semanticsFlag.funName] = _semanticsFlag;
   m[_semanticsUpdateBuilder.funName] = _semanticsUpdateBuilder;
   m[_fontStyle.funName] = _fontStyle;
   m[_placeholderAlignment.funName] = _placeholderAlignment;
-  m[_fontWeight.funName] = _fontWeight;
   m[_fontFeature.funName] = _fontFeature;
   m[_fontFeature_stylisticSet.funName] = _fontFeature_stylisticSet;
   m[_fontFeature_enable.funName] = _fontFeature_enable;
@@ -103,13 +133,14 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_fontFeature_tabularFigures.funName] = _fontFeature_tabularFigures;
   m[_textAlign.funName] = _textAlign;
   m[_textBaseline.funName] = _textBaseline;
-  m[_textDecoration.funName] = _textDecoration;
   m[_textDecoration_combine.funName] = _textDecoration_combine;
   m[_textDecorationStyle.funName] = _textDecorationStyle;
   m[_textHeightBehavior.funName] = _textHeightBehavior;
   m[_textHeightBehavior_fromEncoded.funName] = _textHeightBehavior_fromEncoded;
+  m[_textStyle.funName] = _textStyle;
+  m[_paragraphStyle.funName] = _paragraphStyle;
+  m[_strutStyle.funName] = _strutStyle;
   m[_textDirection.funName] = _textDirection;
-  m[_textBox.funName] = _textBox;
   m[_textBox_fromLTRBD.funName] = _textBox_fromLTRBD;
   m[_textAffinity.funName] = _textAffinity;
   m[_textPosition.funName] = _textPosition;
@@ -118,20 +149,125 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_paragraphConstraints.funName] = _paragraphConstraints;
   m[_boxHeightStyle.funName] = _boxHeightStyle;
   m[_boxWidthStyle.funName] = _boxWidthStyle;
+  m[_lineMetrics.funName] = _lineMetrics;
+  m[_paragraph.funName] = _paragraph;
+  m[_paragraphBuilder.funName] = _paragraphBuilder;
   m[_tileMode.funName] = _tileMode;
   m[_appLifecycleState.funName] = _appLifecycleState;
-  m[_windowPadding.funName] = _windowPadding;
   m[_locale.funName] = _locale;
   m[_locale_fromSubtags.funName] = _locale_fromSubtags;
-  m[_accessibilityFeatures.funName] = _accessibilityFeatures;
+  m[_window.funName] = _window;
   m[_brightness.funName] = _brightness;
-  m[_callbackHandle.funName] = _callbackHandle;
   m[_callbackHandle_fromRawHandle.funName] = _callbackHandle_fromRawHandle;
   m[_pluginUtilities.funName] = _pluginUtilities;
   m[_imageShader.funName] = _imageShader;
   m[_isolateNameServer.funName] = _isolateNameServer;
   m[_framePhase.funName] = _framePhase;
   m[_frameTiming.funName] = _frameTiming;
+  m[_deprecated.funName] = _deprecated;
+  m[_provisional.funName] = _provisional;
+  m[_pragma.funName] = _pragma;
+  m[_bigInt_from.funName] = _bigInt_from;
+  m[_bool_fromEnvironment.funName] = _bool_fromEnvironment;
+  m[_bool_hasEnvironment.funName] = _bool_hasEnvironment;
+  m[_comparable.funName] = _comparable;
+  m[_dateTime.funName] = _dateTime;
+  m[_dateTime_utc.funName] = _dateTime_utc;
+  m[_dateTime_now.funName] = _dateTime_now;
+  m[_dateTime_fromMillisecondsSinceEpoch.funName] = _dateTime_fromMillisecondsSinceEpoch;
+  m[_dateTime_fromMicrosecondsSinceEpoch.funName] = _dateTime_fromMicrosecondsSinceEpoch;
+  m[_num.funName] = _num;
+  m[_double.funName] = _double;
+  m[_duration.funName] = _duration;
+  m[_error.funName] = _error;
+  m[_assertionError.funName] = _assertionError;
+  m[_typeError.funName] = _typeError;
+  m[_castError.funName] = _castError;
+  m[_nullThrownError.funName] = _nullThrownError;
+  m[_argumentError.funName] = _argumentError;
+  m[_argumentError_value.funName] = _argumentError_value;
+  m[_argumentError_notNull.funName] = _argumentError_notNull;
+  m[_rangeError.funName] = _rangeError;
+  m[_rangeError_index.funName] = _rangeError_index;
+  m[_rangeError_value.funName] = _rangeError_value;
+  m[_rangeError_range.funName] = _rangeError_range;
+  m[_indexError.funName] = _indexError;
+  m[_fallThroughError.funName] = _fallThroughError;
+  m[_abstractClassInstantiationError.funName] = _abstractClassInstantiationError;
+  m[_noSuchMethodError.funName] = _noSuchMethodError;
+  m[_noSuchMethodError_withInvocation.funName] = _noSuchMethodError_withInvocation;
+  m[_unsupportedError.funName] = _unsupportedError;
+  m[_unimplementedError.funName] = _unimplementedError;
+  m[_stateError.funName] = _stateError;
+  m[_concurrentModificationError.funName] = _concurrentModificationError;
+  m[_outOfMemoryError.funName] = _outOfMemoryError;
+  m[_stackOverflowError.funName] = _stackOverflowError;
+  m[_cyclicInitializationError.funName] = _cyclicInitializationError;
+  m[_exception.funName] = _exception;
+  m[_formatException.funName] = _formatException;
+  m[_integerDivisionByZeroException.funName] = _integerDivisionByZeroException;
+  m[_expando.funName] = _expando;
+  m[_function.funName] = _function;
+  m[_int_fromEnvironment.funName] = _int_fromEnvironment;
+  m[_invocation.funName] = _invocation;
+  m[_invocation_method.funName] = _invocation_method;
+  m[_invocation_genericMethod.funName] = _invocation_genericMethod;
+  m[_invocation_getter.funName] = _invocation_getter;
+  m[_invocation_setter.funName] = _invocation_setter;
+  m[_iterable.funName] = _iterable;
+  m[_iterable_generate.funName] = _iterable_generate;
+  m[_iterable_empty.funName] = _iterable_empty;
+  m[_bidirectionalIterator.funName] = _bidirectionalIterator;
+  m[_iterator.funName] = _iterator;
+  m[_list.funName] = _list;
+  m[_list_filled.funName] = _list_filled;
+  m[_list_from.funName] = _list_from;
+  m[_list_of.funName] = _list_of;
+  m[_list_generate.funName] = _list_generate;
+  m[_list_unmodifiable.funName] = _list_unmodifiable;
+  m[_list_copyRange.funName] = _list_copyRange;
+  m[_list_writeIterable.funName] = _list_writeIterable;
+  m[_map.funName] = _map;
+  m[_map_from.funName] = _map_from;
+  m[_map_of.funName] = _map_of;
+  m[_map_unmodifiable.funName] = _map_unmodifiable;
+  m[_map_identity.funName] = _map_identity;
+  m[_map_fromIterable.funName] = _map_fromIterable;
+  m[_map_fromIterables.funName] = _map_fromIterables;
+  m[_map_fromEntries.funName] = _map_fromEntries;
+  m[_mapEntry.funName] = _mapEntry;
+  m[_pattern.funName] = _pattern;
+  m[_match.funName] = _match;
+  m[_regExp.funName] = _regExp;
+  m[_regExpMatch.funName] = _regExpMatch;
+  m[_set.funName] = _set;
+  m[_set_identity.funName] = _set_identity;
+  m[_set_from.funName] = _set_from;
+  m[_set_of.funName] = _set_of;
+  m[_sink.funName] = _sink;
+  m[_stackTrace.funName] = _stackTrace;
+  m[_stackTrace_fromString.funName] = _stackTrace_fromString;
+  m[_stopwatch.funName] = _stopwatch;
+  m[_string_fromCharCodes.funName] = _string_fromCharCodes;
+  m[_string_fromCharCode.funName] = _string_fromCharCode;
+  m[_string_fromEnvironment.funName] = _string_fromEnvironment;
+  m[_runes.funName] = _runes;
+  m[_runeIterator.funName] = _runeIterator;
+  m[_runeIterator_at.funName] = _runeIterator_at;
+  m[_stringBuffer.funName] = _stringBuffer;
+  m[_stringSink.funName] = _stringSink;
+  m[_symbol.funName] = _symbol;
+  m[_type.funName] = _type;
+  m[_uri.funName] = _uri;
+  m[_uri_http.funName] = _uri_http;
+  m[_uri_https.funName] = _uri_https;
+  m[_uri_file.funName] = _uri_file;
+  m[_uri_directory.funName] = _uri_directory;
+  m[_uri_dataFromString.funName] = _uri_dataFromString;
+  m[_uri_dataFromBytes.funName] = _uri_dataFromBytes;
+  m[_uriData_fromString.funName] = _uriData_fromString;
+  m[_uriData_fromBytes.funName] = _uriData_fromBytes;
+  m[_uriData_fromUri.funName] = _uriData_fromUri;
   return m;
 }
 var _pointMode = MXFunctionInvoke(
@@ -146,13 +282,6 @@ var _vertexMode = MXFunctionInvoke(
     "VertexMode",
     ({Map args}) => MXVertexMode.parse(args),
   );
-var _vertices = MXFunctionInvoke(
-    "Vertices",
-    (
-    ) =>
-      Vertices(
-    ),
-);
 var _vertices = MXFunctionInvoke(
     "Vertices",
     (
@@ -191,11 +320,11 @@ var _vertices_raw = MXFunctionInvoke(
       indices: indices,
     ),
 );
-var _canvas = MXFunctionInvoke(
-    "Canvas",
+var _pictureRecorder = MXFunctionInvoke(
+    "PictureRecorder",
     (
     ) =>
-      Canvas(
+      PictureRecorder(
     ),
 );
 var _canvas = MXFunctionInvoke(
@@ -209,6 +338,13 @@ var _canvas = MXFunctionInvoke(
       Canvas(
       recorder,
       cullRect,
+    ),
+);
+var _picture = MXFunctionInvoke(
+    "Picture",
+    (
+    ) =>
+      Picture(
     ),
 );
 var _pathFillType = MXFunctionInvoke(
@@ -237,6 +373,97 @@ var _channelBuffers = MXFunctionInvoke(
       ChannelBuffers(
     ),
 );
+var _scene = MXFunctionInvoke(
+    "Scene",
+    (
+    ) =>
+      Scene(
+    ),
+);
+var _transformEngineLayer = MXFunctionInvoke(
+    "TransformEngineLayer",
+    (
+    ) =>
+      TransformEngineLayer(
+    ),
+);
+var _offsetEngineLayer = MXFunctionInvoke(
+    "OffsetEngineLayer",
+    (
+    ) =>
+      OffsetEngineLayer(
+    ),
+);
+var _clipRectEngineLayer = MXFunctionInvoke(
+    "ClipRectEngineLayer",
+    (
+    ) =>
+      ClipRectEngineLayer(
+    ),
+);
+var _clipRRectEngineLayer = MXFunctionInvoke(
+    "ClipRRectEngineLayer",
+    (
+    ) =>
+      ClipRRectEngineLayer(
+    ),
+);
+var _clipPathEngineLayer = MXFunctionInvoke(
+    "ClipPathEngineLayer",
+    (
+    ) =>
+      ClipPathEngineLayer(
+    ),
+);
+var _opacityEngineLayer = MXFunctionInvoke(
+    "OpacityEngineLayer",
+    (
+    ) =>
+      OpacityEngineLayer(
+    ),
+);
+var _colorFilterEngineLayer = MXFunctionInvoke(
+    "ColorFilterEngineLayer",
+    (
+    ) =>
+      ColorFilterEngineLayer(
+    ),
+);
+var _imageFilterEngineLayer = MXFunctionInvoke(
+    "ImageFilterEngineLayer",
+    (
+    ) =>
+      ImageFilterEngineLayer(
+    ),
+);
+var _backdropFilterEngineLayer = MXFunctionInvoke(
+    "BackdropFilterEngineLayer",
+    (
+    ) =>
+      BackdropFilterEngineLayer(
+    ),
+);
+var _shaderMaskEngineLayer = MXFunctionInvoke(
+    "ShaderMaskEngineLayer",
+    (
+    ) =>
+      ShaderMaskEngineLayer(
+    ),
+);
+var _physicalShapeEngineLayer = MXFunctionInvoke(
+    "PhysicalShapeEngineLayer",
+    (
+    ) =>
+      PhysicalShapeEngineLayer(
+    ),
+);
+var _sceneBuilder = MXFunctionInvoke(
+    "SceneBuilder",
+    (
+    ) =>
+      SceneBuilder(
+    ),
+);
 var _engineLayer = MXFunctionInvoke(
     "EngineLayer",
     (
@@ -259,6 +486,19 @@ var _sceneHost = MXFunctionInvoke(
       viewConnectedCallback,
       viewDisconnectedCallback,
       viewStateChangedCallback,
+    ),
+);
+var _offsetBase = MXFunctionInvoke(
+    "OffsetBase",
+    (
+      {
+      dynamic dx,
+      dynamic dy,
+      }
+    ) =>
+      OffsetBase(
+      dx,
+      dy,
     ),
 );
 var _offset = MXFunctionInvoke(
@@ -355,13 +595,6 @@ var _size_fromRadius = MXFunctionInvoke(
       radius,
     ),
 );
-var _rect = MXFunctionInvoke(
-    "Rect",
-    (
-    ) =>
-      Rect(
-    ),
-);
 var _rect_fromLTRB = MXFunctionInvoke(
   "Rect.fromLTRB",
     (
@@ -437,13 +670,6 @@ var _rect_fromPoints = MXFunctionInvoke(
       b,
     ),
 );
-var _radius = MXFunctionInvoke(
-    "Radius",
-    (
-    ) =>
-      Radius(
-    ),
-);
 var _radius_circular = MXFunctionInvoke(
   "Radius.circular",
     (
@@ -466,13 +692,6 @@ var _radius_elliptical = MXFunctionInvoke(
       Radius.elliptical(
       x,
       y,
-    ),
-);
-var _rRect = MXFunctionInvoke(
-    "RRect",
-    (
-    ) =>
-      RRect(
     ),
 );
 var _rRect_fromLTRBXY = MXFunctionInvoke(
@@ -703,17 +922,131 @@ var _clip = MXFunctionInvoke(
     "Clip",
     ({Map args}) => MXClip.parse(args),
   );
+var _paint = MXFunctionInvoke(
+    "Paint",
+    (
+    ) =>
+      Paint(
+    ),
+);
+var _gradient_linear = MXFunctionInvoke(
+  "Gradient.linear",
+    (
+      {
+      Offset from,
+      Offset to,
+      List<Color> colors,
+      List<double> colorStops,
+      TileMode tileMode,
+      Float64List matrix4,
+      }
+    ) =>
+      Gradient.linear(
+      from,
+      to,
+      colors,
+      colorStops,
+      tileMode,
+      matrix4,
+    ),
+);
+var _gradient_radial = MXFunctionInvoke(
+  "Gradient.radial",
+    (
+      {
+      Offset center,
+      dynamic radius,
+      List<Color> colors,
+      List<double> colorStops,
+      TileMode tileMode,
+      Float64List matrix4,
+      Offset focal,
+      dynamic focalRadius,
+      }
+    ) =>
+      Gradient.radial(
+      center,
+      radius,
+      colors,
+      colorStops,
+      tileMode,
+      matrix4,
+      focal,
+      focalRadius,
+    ),
+);
+var _gradient_sweep = MXFunctionInvoke(
+  "Gradient.sweep",
+    (
+      {
+      Offset center,
+      List<Color> colors,
+      List<double> colorStops,
+      TileMode tileMode,
+      dynamic startAngle,
+      dynamic endAngle,
+      Float64List matrix4,
+      }
+    ) =>
+      Gradient.sweep(
+      center,
+      colors,
+      colorStops,
+      tileMode,
+      startAngle,
+      endAngle,
+      matrix4,
+    ),
+);
+var _image = MXFunctionInvoke(
+    "Image",
+    (
+    ) =>
+      Image(
+    ),
+);
+var _colorFilter_mode = MXFunctionInvoke(
+  "ColorFilter.mode",
+    (
+      {
+      Color color,
+      BlendMode blendMode,
+      }
+    ) =>
+      ColorFilter.mode(
+      color,
+      blendMode,
+    ),
+);
+var _colorFilter_matrix = MXFunctionInvoke(
+  "ColorFilter.matrix",
+    (
+      {
+      List<double> matrix,
+      }
+    ) =>
+      ColorFilter.matrix(
+      matrix,
+    ),
+);
+var _colorFilter_linearToSrgbGamma = MXFunctionInvoke(
+  "ColorFilter.linearToSrgbGamma",
+    (
+    ) =>
+      ColorFilter.linearToSrgbGamma(
+    ),
+);
+var _colorFilter_srgbToLinearGamma = MXFunctionInvoke(
+  "ColorFilter.srgbToLinearGamma",
+    (
+    ) =>
+      ColorFilter.srgbToLinearGamma(
+    ),
+);
 var _blurStyle = MXFunctionInvoke(
     "BlurStyle",
     ({Map args}) => MXBlurStyle.parse(args),
   );
-var _maskFilter = MXFunctionInvoke(
-    "MaskFilter",
-    (
-    ) =>
-      MaskFilter(
-    ),
-);
 var _maskFilter_blur = MXFunctionInvoke(
   "MaskFilter.blur",
     (
@@ -731,13 +1064,6 @@ var _filterQuality = MXFunctionInvoke(
     "FilterQuality",
     ({Map args}) => MXFilterQuality.parse(args),
   );
-var _imageFilter = MXFunctionInvoke(
-    "ImageFilter",
-    (
-    ) =>
-      ImageFilter(
-    ),
-);
 var _imageFilter_blur = MXFunctionInvoke(
   "ImageFilter.blur",
     (
@@ -772,13 +1098,6 @@ var _pixelFormat = MXFunctionInvoke(
     "PixelFormat",
     ({Map args}) => MXPixelFormat.parse(args),
   );
-var _codec = MXFunctionInvoke(
-    "Codec",
-    (
-    ) =>
-      Codec(
-    ),
-);
 var _shadow = MXFunctionInvoke(
     "Shadow",
     (
@@ -792,6 +1111,45 @@ var _shadow = MXFunctionInvoke(
       color: color,
       offset: offset,
       blurRadius: blurRadius?.toDouble(),
+    ),
+);
+var _path = MXFunctionInvoke(
+    "Path",
+    (
+    ) =>
+      Path(
+    ),
+);
+var _path_from = MXFunctionInvoke(
+  "Path.from",
+    (
+      {
+      Path source,
+      }
+    ) =>
+      Path.from(
+      source,
+    ),
+);
+var _pathMetrics = MXFunctionInvoke(
+    "PathMetrics",
+    (
+    ) =>
+      PathMetrics(
+    ),
+);
+var _pathMetricIterator = MXFunctionInvoke(
+    "PathMetricIterator",
+    (
+    ) =>
+      PathMetricIterator(
+    ),
+);
+var _pathMetric = MXFunctionInvoke(
+    "PathMetric",
+    (
+    ) =>
+      PathMetric(
     ),
 );
 var _tangent = MXFunctionInvoke(
@@ -908,20 +1266,6 @@ var _pointerDataPacket = MXFunctionInvoke(
       data: data,
     ),
 );
-var _semanticsAction = MXFunctionInvoke(
-    "SemanticsAction",
-    (
-    ) =>
-      SemanticsAction(
-    ),
-);
-var _semanticsFlag = MXFunctionInvoke(
-    "SemanticsFlag",
-    (
-    ) =>
-      SemanticsFlag(
-    ),
-);
 var _semanticsUpdateBuilder = MXFunctionInvoke(
     "SemanticsUpdateBuilder",
     (
@@ -937,13 +1281,6 @@ var _placeholderAlignment = MXFunctionInvoke(
     "PlaceholderAlignment",
     ({Map args}) => MXPlaceholderAlignment.parse(args),
   );
-var _fontWeight = MXFunctionInvoke(
-    "FontWeight",
-    (
-    ) =>
-      FontWeight(
-    ),
-);
 var _fontFeature = MXFunctionInvoke(
     "FontFeature",
     (
@@ -1033,13 +1370,6 @@ var _textBaseline = MXFunctionInvoke(
     "TextBaseline",
     ({Map args}) => MXTextBaseline.parse(args),
   );
-var _textDecoration = MXFunctionInvoke(
-    "TextDecoration",
-    (
-    ) =>
-      TextDecoration(
-    ),
-);
 var _textDecoration_combine = MXFunctionInvoke(
   "TextDecoration.combine",
     (
@@ -1079,17 +1409,115 @@ var _textHeightBehavior_fromEncoded = MXFunctionInvoke(
       encoded,
     ),
 );
+var _textStyle = MXFunctionInvoke(
+    "TextStyle",
+    (
+      {
+      Color color,
+      TextDecoration decoration,
+      Color decorationColor,
+      TextDecorationStyle decorationStyle,
+      dynamic decorationThickness,
+      FontWeight fontWeight,
+      FontStyle fontStyle,
+      TextBaseline textBaseline,
+      String fontFamily,
+      List<String> fontFamilyFallback,
+      dynamic fontSize,
+      dynamic letterSpacing,
+      dynamic wordSpacing,
+      dynamic height,
+      Locale locale,
+      Paint background,
+      Paint foreground,
+      List<Shadow> shadows,
+      List<FontFeature> fontFeatures,
+      }
+    ) =>
+      TextStyle(
+      color: color,
+      decoration: decoration,
+      decorationColor: decorationColor,
+      decorationStyle: decorationStyle,
+      decorationThickness: decorationThickness?.toDouble(),
+      fontWeight: fontWeight,
+      fontStyle: fontStyle,
+      textBaseline: textBaseline,
+      fontFamily: fontFamily,
+      fontFamilyFallback: fontFamilyFallback,
+      fontSize: fontSize?.toDouble(),
+      letterSpacing: letterSpacing?.toDouble(),
+      wordSpacing: wordSpacing?.toDouble(),
+      height: height?.toDouble(),
+      locale: locale,
+      background: background,
+      foreground: foreground,
+      shadows: shadows,
+      fontFeatures: fontFeatures,
+    ),
+);
+var _paragraphStyle = MXFunctionInvoke(
+    "ParagraphStyle",
+    (
+      {
+      TextAlign textAlign,
+      TextDirection textDirection,
+      int maxLines,
+      String fontFamily,
+      dynamic fontSize,
+      dynamic height,
+      TextHeightBehavior textHeightBehavior,
+      FontWeight fontWeight,
+      FontStyle fontStyle,
+      StrutStyle strutStyle,
+      String ellipsis,
+      Locale locale,
+      }
+    ) =>
+      ParagraphStyle(
+      textAlign: textAlign,
+      textDirection: textDirection,
+      maxLines: maxLines,
+      fontFamily: fontFamily,
+      fontSize: fontSize?.toDouble(),
+      height: height?.toDouble(),
+      textHeightBehavior: textHeightBehavior,
+      fontWeight: fontWeight,
+      fontStyle: fontStyle,
+      strutStyle: strutStyle,
+      ellipsis: ellipsis,
+      locale: locale,
+    ),
+);
+var _strutStyle = MXFunctionInvoke(
+    "StrutStyle",
+    (
+      {
+      String fontFamily,
+      List<String> fontFamilyFallback,
+      dynamic fontSize,
+      dynamic height,
+      dynamic leading,
+      FontWeight fontWeight,
+      FontStyle fontStyle,
+      bool forceStrutHeight,
+      }
+    ) =>
+      StrutStyle(
+      fontFamily: fontFamily,
+      fontFamilyFallback: fontFamilyFallback,
+      fontSize: fontSize?.toDouble(),
+      height: height?.toDouble(),
+      leading: leading?.toDouble(),
+      fontWeight: fontWeight,
+      fontStyle: fontStyle,
+      forceStrutHeight: forceStrutHeight,
+    ),
+);
 var _textDirection = MXFunctionInvoke(
     "TextDirection",
     ({Map args}) => MXTextDirection.parse(args),
   );
-var _textBox = MXFunctionInvoke(
-    "TextBox",
-    (
-    ) =>
-      TextBox(
-    ),
-);
 var _textBox_fromLTRBD = MXFunctionInvoke(
   "TextBox.fromLTRBD",
     (
@@ -1169,6 +1597,51 @@ var _boxWidthStyle = MXFunctionInvoke(
     "BoxWidthStyle",
     ({Map args}) => MXBoxWidthStyle.parse(args),
   );
+var _lineMetrics = MXFunctionInvoke(
+    "LineMetrics",
+    (
+      {
+      bool hardBreak,
+      dynamic ascent,
+      dynamic descent,
+      dynamic unscaledAscent,
+      dynamic height,
+      dynamic width,
+      dynamic left,
+      dynamic baseline,
+      int lineNumber,
+      }
+    ) =>
+      LineMetrics(
+      hardBreak: hardBreak,
+      ascent: ascent?.toDouble(),
+      descent: descent?.toDouble(),
+      unscaledAscent: unscaledAscent?.toDouble(),
+      height: height?.toDouble(),
+      width: width?.toDouble(),
+      left: left?.toDouble(),
+      baseline: baseline?.toDouble(),
+      lineNumber: lineNumber,
+    ),
+);
+var _paragraph = MXFunctionInvoke(
+    "Paragraph",
+    (
+    ) =>
+      Paragraph(
+    ),
+);
+var _paragraphBuilder = MXFunctionInvoke(
+    "ParagraphBuilder",
+    (
+      {
+      ParagraphStyle style,
+      }
+    ) =>
+      ParagraphBuilder(
+      style,
+    ),
+);
 var _tileMode = MXFunctionInvoke(
     "TileMode",
     ({Map args}) => MXTileMode.parse(args),
@@ -1177,13 +1650,6 @@ var _appLifecycleState = MXFunctionInvoke(
     "AppLifecycleState",
     ({Map args}) => MXAppLifecycleState.parse(args),
   );
-var _windowPadding = MXFunctionInvoke(
-    "WindowPadding",
-    (
-    ) =>
-      WindowPadding(
-    ),
-);
 var _locale = MXFunctionInvoke(
     "Locale",
     (
@@ -1212,24 +1678,17 @@ var _locale_fromSubtags = MXFunctionInvoke(
       countryCode: countryCode,
     ),
 );
-var _accessibilityFeatures = MXFunctionInvoke(
-    "AccessibilityFeatures",
+var _window = MXFunctionInvoke(
+    "Window",
     (
     ) =>
-      AccessibilityFeatures(
+      Window(
     ),
 );
 var _brightness = MXFunctionInvoke(
     "Brightness",
     ({Map args}) => MXBrightness.parse(args),
   );
-var _callbackHandle = MXFunctionInvoke(
-    "CallbackHandle",
-    (
-    ) =>
-      CallbackHandle(
-    ),
-);
 var _callbackHandle_fromRawHandle = MXFunctionInvoke(
   "CallbackHandle.fromRawHandle",
     (
@@ -1285,6 +1744,1242 @@ var _frameTiming = MXFunctionInvoke(
     ) =>
       FrameTiming(
       timestamps,
+    ),
+);
+var _deprecated = MXFunctionInvoke(
+    "Deprecated",
+    (
+      {
+      String message,
+      }
+    ) =>
+      Deprecated(
+      message,
+    ),
+);
+var _provisional = MXFunctionInvoke(
+    "Provisional",
+    (
+      {
+      String message,
+      }
+    ) =>
+      Provisional(
+      message: message,
+    ),
+);
+var _pragma = MXFunctionInvoke(
+    "pragma",
+    (
+      {
+      String name,
+      Object options,
+      }
+    ) =>
+      pragma(
+      name,
+      options,
+    ),
+);
+var _bigInt_from = MXFunctionInvoke(
+  "BigInt.from",
+    (
+      {
+      num value,
+      }
+    ) =>
+      BigInt.from(
+      value,
+    ),
+);
+var _bool_fromEnvironment = MXFunctionInvoke(
+  "bool.fromEnvironment",
+    (
+      {
+      String name,
+      bool defaultValue = false,
+      }
+    ) =>
+      bool.fromEnvironment(
+      name,
+      defaultValue: defaultValue,
+    ),
+);
+var _bool_hasEnvironment = MXFunctionInvoke(
+  "bool.hasEnvironment",
+    (
+      {
+      String name,
+      }
+    ) =>
+      bool.hasEnvironment(
+      name,
+    ),
+);
+var _comparable = MXFunctionInvoke(
+    "Comparable",
+    (
+    ) =>
+      Comparable(
+    ),
+);
+var _dateTime = MXFunctionInvoke(
+    "DateTime",
+    (
+      {
+      int year,
+      int month,
+      int day,
+      int hour,
+      int minute,
+      int second,
+      int millisecond,
+      int microsecond,
+      }
+    ) =>
+      DateTime(
+      year,
+      month,
+      day,
+      hour,
+      minute,
+      second,
+      millisecond,
+      microsecond,
+    ),
+);
+var _dateTime_utc = MXFunctionInvoke(
+  "DateTime.utc",
+    (
+      {
+      int year,
+      int month,
+      int day,
+      int hour,
+      int minute,
+      int second,
+      int millisecond,
+      int microsecond,
+      }
+    ) =>
+      DateTime.utc(
+      year,
+      month,
+      day,
+      hour,
+      minute,
+      second,
+      millisecond,
+      microsecond,
+    ),
+);
+var _dateTime_now = MXFunctionInvoke(
+  "DateTime.now",
+    (
+    ) =>
+      DateTime.now(
+    ),
+);
+var _dateTime_fromMillisecondsSinceEpoch = MXFunctionInvoke(
+  "DateTime.fromMillisecondsSinceEpoch",
+    (
+      {
+      int millisecondsSinceEpoch,
+      bool isUtc = false,
+      }
+    ) =>
+      DateTime.fromMillisecondsSinceEpoch(
+      millisecondsSinceEpoch,
+      isUtc: isUtc,
+    ),
+);
+var _dateTime_fromMicrosecondsSinceEpoch = MXFunctionInvoke(
+  "DateTime.fromMicrosecondsSinceEpoch",
+    (
+      {
+      int microsecondsSinceEpoch,
+      bool isUtc = false,
+      }
+    ) =>
+      DateTime.fromMicrosecondsSinceEpoch(
+      microsecondsSinceEpoch,
+      isUtc: isUtc,
+    ),
+);
+var _num = MXFunctionInvoke(
+    "num",
+    (
+    ) =>
+      num(
+    ),
+);
+var _double = MXFunctionInvoke(
+    "double",
+    (
+    ) =>
+      double(
+    ),
+);
+var _duration = MXFunctionInvoke(
+    "Duration",
+    (
+      {
+      int days = 0,
+      int hours = 0,
+      int minutes = 0,
+      int seconds = 0,
+      int milliseconds = 0,
+      int microseconds = 0,
+      }
+    ) =>
+      Duration(
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds,
+      milliseconds: milliseconds,
+      microseconds: microseconds,
+    ),
+);
+var _error = MXFunctionInvoke(
+    "Error",
+    (
+    ) =>
+      Error(
+    ),
+);
+var _assertionError = MXFunctionInvoke(
+    "AssertionError",
+    (
+      {
+      Object message,
+      }
+    ) =>
+      AssertionError(
+      message,
+    ),
+);
+var _typeError = MXFunctionInvoke(
+    "TypeError",
+    (
+    ) =>
+      TypeError(
+    ),
+);
+var _castError = MXFunctionInvoke(
+    "CastError",
+    (
+    ) =>
+      CastError(
+    ),
+);
+var _nullThrownError = MXFunctionInvoke(
+    "NullThrownError",
+    (
+    ) =>
+      NullThrownError(
+    ),
+);
+var _argumentError = MXFunctionInvoke(
+    "ArgumentError",
+    (
+      {
+      dynamic message,
+      }
+    ) =>
+      ArgumentError(
+      message,
+    ),
+);
+var _argumentError_value = MXFunctionInvoke(
+  "ArgumentError.value",
+    (
+      {
+      dynamic value,
+      String name,
+      dynamic message,
+      }
+    ) =>
+      ArgumentError.value(
+      value,
+      name,
+      message,
+    ),
+);
+var _argumentError_notNull = MXFunctionInvoke(
+  "ArgumentError.notNull",
+    (
+      {
+      String name,
+      }
+    ) =>
+      ArgumentError.notNull(
+      name,
+    ),
+);
+var _rangeError = MXFunctionInvoke(
+    "RangeError",
+    (
+      {
+      dynamic message,
+      }
+    ) =>
+      RangeError(
+      message,
+    ),
+);
+var _rangeError_index = MXFunctionInvoke(
+  "RangeError.index",
+    (
+      {
+      int index,
+      dynamic indexable,
+      String name,
+      String message,
+      int length,
+      }
+    ) =>
+      RangeError.index(
+      index,
+      indexable,
+      name,
+      message,
+      length,
+    ),
+);
+var _rangeError_value = MXFunctionInvoke(
+  "RangeError.value",
+    (
+      {
+      num value,
+      String name,
+      String message,
+      }
+    ) =>
+      RangeError.value(
+      value,
+      name,
+      message,
+    ),
+);
+var _rangeError_range = MXFunctionInvoke(
+  "RangeError.range",
+    (
+      {
+      num invalidValue,
+      int minValue,
+      int maxValue,
+      String name,
+      String message,
+      }
+    ) =>
+      RangeError.range(
+      invalidValue,
+      minValue,
+      maxValue,
+      name,
+      message,
+    ),
+);
+var _indexError = MXFunctionInvoke(
+    "IndexError",
+    (
+      {
+      int invalidValue,
+      dynamic indexable,
+      String name,
+      String message,
+      int length,
+      }
+    ) =>
+      IndexError(
+      invalidValue,
+      indexable,
+      name,
+      message,
+      length,
+    ),
+);
+var _fallThroughError = MXFunctionInvoke(
+    "FallThroughError",
+    (
+    ) =>
+      FallThroughError(
+    ),
+);
+var _abstractClassInstantiationError = MXFunctionInvoke(
+    "AbstractClassInstantiationError",
+    (
+      {
+      String className,
+      }
+    ) =>
+      AbstractClassInstantiationError(
+      className,
+    ),
+);
+var _noSuchMethodError = MXFunctionInvoke(
+    "NoSuchMethodError",
+    (
+      {
+      Object receiver,
+      Symbol memberName,
+      List<dynamic> positionalArguments,
+      Map<Symbol, dynamic> namedArguments,
+      List<dynamic> existingArgumentNames,
+      }
+    ) =>
+      NoSuchMethodError(
+      receiver,
+      memberName,
+      positionalArguments,
+      namedArguments,
+      existingArgumentNames,
+    ),
+);
+var _noSuchMethodError_withInvocation = MXFunctionInvoke(
+  "NoSuchMethodError.withInvocation",
+    (
+      {
+      Object receiver,
+      Invocation invocation,
+      }
+    ) =>
+      NoSuchMethodError.withInvocation(
+      receiver,
+      invocation,
+    ),
+);
+var _unsupportedError = MXFunctionInvoke(
+    "UnsupportedError",
+    (
+      {
+      String message,
+      }
+    ) =>
+      UnsupportedError(
+      message,
+    ),
+);
+var _unimplementedError = MXFunctionInvoke(
+    "UnimplementedError",
+    (
+      {
+      String message,
+      }
+    ) =>
+      UnimplementedError(
+      message,
+    ),
+);
+var _stateError = MXFunctionInvoke(
+    "StateError",
+    (
+      {
+      String message,
+      }
+    ) =>
+      StateError(
+      message,
+    ),
+);
+var _concurrentModificationError = MXFunctionInvoke(
+    "ConcurrentModificationError",
+    (
+      {
+      Object modifiedObject,
+      }
+    ) =>
+      ConcurrentModificationError(
+      modifiedObject,
+    ),
+);
+var _outOfMemoryError = MXFunctionInvoke(
+    "OutOfMemoryError",
+    (
+    ) =>
+      OutOfMemoryError(
+    ),
+);
+var _stackOverflowError = MXFunctionInvoke(
+    "StackOverflowError",
+    (
+    ) =>
+      StackOverflowError(
+    ),
+);
+var _cyclicInitializationError = MXFunctionInvoke(
+    "CyclicInitializationError",
+    (
+      {
+      String variableName,
+      }
+    ) =>
+      CyclicInitializationError(
+      variableName,
+    ),
+);
+var _exception = MXFunctionInvoke(
+    "Exception",
+    (
+      {
+      dynamic message,
+      }
+    ) =>
+      Exception(
+      message,
+    ),
+);
+var _formatException = MXFunctionInvoke(
+    "FormatException",
+    (
+      {
+      String message,
+      dynamic source,
+      int offset,
+      }
+    ) =>
+      FormatException(
+      message,
+      source,
+      offset,
+    ),
+);
+var _integerDivisionByZeroException = MXFunctionInvoke(
+    "IntegerDivisionByZeroException",
+    (
+    ) =>
+      IntegerDivisionByZeroException(
+    ),
+);
+var _expando = MXFunctionInvoke(
+    "Expando",
+    (
+      {
+      String name,
+      }
+    ) =>
+      Expando(
+      name,
+    ),
+);
+var _function = MXFunctionInvoke(
+    "Function",
+    (
+    ) =>
+      Function(
+    ),
+);
+var _int_fromEnvironment = MXFunctionInvoke(
+  "int.fromEnvironment",
+    (
+      {
+      String name,
+      int defaultValue = 0,
+      }
+    ) =>
+      int.fromEnvironment(
+      name,
+      defaultValue: defaultValue,
+    ),
+);
+var _invocation = MXFunctionInvoke(
+    "Invocation",
+    (
+    ) =>
+      Invocation(
+    ),
+);
+var _invocation_method = MXFunctionInvoke(
+  "Invocation.method",
+    (
+      {
+      Symbol memberName,
+      Iterable<Object> positionalArguments,
+      Map<Symbol, Object> namedArguments,
+      }
+    ) =>
+      Invocation.method(
+      memberName,
+      positionalArguments,
+      namedArguments,
+    ),
+);
+var _invocation_genericMethod = MXFunctionInvoke(
+  "Invocation.genericMethod",
+    (
+      {
+      Symbol memberName,
+      Iterable<Type> typeArguments,
+      Iterable<Object> positionalArguments,
+      Map<Symbol, Object> namedArguments,
+      }
+    ) =>
+      Invocation.genericMethod(
+      memberName,
+      typeArguments,
+      positionalArguments,
+      namedArguments,
+    ),
+);
+var _invocation_getter = MXFunctionInvoke(
+  "Invocation.getter",
+    (
+      {
+      Symbol name,
+      }
+    ) =>
+      Invocation.getter(
+      name,
+    ),
+);
+var _invocation_setter = MXFunctionInvoke(
+  "Invocation.setter",
+    (
+      {
+      Symbol memberName,
+      Object argument,
+      }
+    ) =>
+      Invocation.setter(
+      memberName,
+      argument,
+    ),
+);
+var _iterable = MXFunctionInvoke(
+    "Iterable",
+    (
+    ) =>
+      Iterable(
+    ),
+);
+var _iterable_generate = MXFunctionInvoke(
+  "Iterable.generate",
+    (
+      {
+      int count,
+      dynamic generator,
+      }
+    ) =>
+      Iterable.generate(
+      count,
+      generator,
+    ),
+);
+var _iterable_empty = MXFunctionInvoke(
+  "Iterable.empty",
+    (
+    ) =>
+      Iterable.empty(
+    ),
+);
+var _bidirectionalIterator = MXFunctionInvoke(
+    "BidirectionalIterator",
+    (
+    ) =>
+      BidirectionalIterator(
+    ),
+);
+var _iterator = MXFunctionInvoke(
+    "Iterator",
+    (
+    ) =>
+      Iterator(
+    ),
+);
+var _list = MXFunctionInvoke(
+    "List",
+    (
+      {
+      int length,
+      }
+    ) =>
+      List(
+      length,
+    ),
+);
+var _list_filled = MXFunctionInvoke(
+  "List.filled",
+    (
+      {
+      int length,
+      dynamic fill,
+      bool growable = false,
+      }
+    ) =>
+      List.filled(
+      length,
+      fill,
+      growable: growable,
+    ),
+);
+var _list_from = MXFunctionInvoke(
+  "List.from",
+    (
+      {
+      Iterable<dynamic> elements,
+      bool growable = true,
+      }
+    ) =>
+      List.from(
+      elements,
+      growable: growable,
+    ),
+);
+var _list_of = MXFunctionInvoke(
+  "List.of",
+    (
+      {
+      Iterable<dynamic> elements,
+      bool growable = true,
+      }
+    ) =>
+      List.of(
+      elements,
+      growable: growable,
+    ),
+);
+var _list_generate = MXFunctionInvoke(
+  "List.generate",
+    (
+      {
+      int length,
+      dynamic generator,
+      bool growable = true,
+      }
+    ) =>
+      List.generate(
+      length,
+      generator,
+      growable: growable,
+    ),
+);
+var _list_unmodifiable = MXFunctionInvoke(
+  "List.unmodifiable",
+    (
+      {
+      Iterable<dynamic> elements,
+      }
+    ) =>
+      List.unmodifiable(
+      elements,
+    ),
+);
+var _list_copyRange = MXFunctionInvoke(
+  "List.copyRange",
+    (
+      {
+      List<dynamic> target,
+      int at,
+      List<dynamic> source,
+      int start,
+      int end,
+      }
+    ) =>
+      List.copyRange(
+      target,
+      at,
+      source,
+      start,
+      end,
+    ),
+);
+var _list_writeIterable = MXFunctionInvoke(
+  "List.writeIterable",
+    (
+      {
+      List<dynamic> target,
+      int at,
+      Iterable<dynamic> source,
+      }
+    ) =>
+      List.writeIterable(
+      target,
+      at,
+      source,
+    ),
+);
+var _map = MXFunctionInvoke(
+    "Map",
+    (
+    ) =>
+      Map(
+    ),
+);
+var _map_from = MXFunctionInvoke(
+  "Map.from",
+    (
+      {
+      Map<dynamic, dynamic> other,
+      }
+    ) =>
+      Map.from(
+      other,
+    ),
+);
+var _map_of = MXFunctionInvoke(
+  "Map.of",
+    (
+      {
+      Map<dynamic, dynamic> other,
+      }
+    ) =>
+      Map.of(
+      other,
+    ),
+);
+var _map_unmodifiable = MXFunctionInvoke(
+  "Map.unmodifiable",
+    (
+      {
+      Map<dynamic, dynamic> other,
+      }
+    ) =>
+      Map.unmodifiable(
+      other,
+    ),
+);
+var _map_identity = MXFunctionInvoke(
+  "Map.identity",
+    (
+    ) =>
+      Map.identity(
+    ),
+);
+var _map_fromIterable = MXFunctionInvoke(
+  "Map.fromIterable",
+    (
+      {
+      Iterable<dynamic> iterable,
+      dynamic key,
+      dynamic value,
+      }
+    ) =>
+      Map.fromIterable(
+      iterable,
+      key: null,
+      value: null,
+    ),
+);
+var _map_fromIterables = MXFunctionInvoke(
+  "Map.fromIterables",
+    (
+      {
+      Iterable<dynamic> keys,
+      Iterable<dynamic> values,
+      }
+    ) =>
+      Map.fromIterables(
+      keys,
+      values,
+    ),
+);
+var _map_fromEntries = MXFunctionInvoke(
+  "Map.fromEntries",
+    (
+      {
+      Iterable<MapEntry<dynamic, dynamic>> entries,
+      }
+    ) =>
+      Map.fromEntries(
+      entries,
+    ),
+);
+var _mapEntry = MXFunctionInvoke(
+    "MapEntry",
+    (
+      {
+      dynamic key,
+      dynamic value,
+      }
+    ) =>
+      MapEntry(
+      key,
+      value,
+    ),
+);
+var _pattern = MXFunctionInvoke(
+    "Pattern",
+    (
+    ) =>
+      Pattern(
+    ),
+);
+var _match = MXFunctionInvoke(
+    "Match",
+    (
+    ) =>
+      Match(
+    ),
+);
+var _regExp = MXFunctionInvoke(
+    "RegExp",
+    (
+      {
+      String source,
+      bool multiLine = false,
+      bool caseSensitive = true,
+      bool unicode = false,
+      bool dotAll = false,
+      }
+    ) =>
+      RegExp(
+      source,
+      multiLine: multiLine,
+      caseSensitive: caseSensitive,
+      unicode: unicode,
+      dotAll: dotAll,
+    ),
+);
+var _regExpMatch = MXFunctionInvoke(
+    "RegExpMatch",
+    (
+    ) =>
+      RegExpMatch(
+    ),
+);
+var _set = MXFunctionInvoke(
+    "Set",
+    (
+    ) =>
+      Set(
+    ),
+);
+var _set_identity = MXFunctionInvoke(
+  "Set.identity",
+    (
+    ) =>
+      Set.identity(
+    ),
+);
+var _set_from = MXFunctionInvoke(
+  "Set.from",
+    (
+      {
+      Iterable<dynamic> elements,
+      }
+    ) =>
+      Set.from(
+      elements,
+    ),
+);
+var _set_of = MXFunctionInvoke(
+  "Set.of",
+    (
+      {
+      Iterable<dynamic> elements,
+      }
+    ) =>
+      Set.of(
+      elements,
+    ),
+);
+var _sink = MXFunctionInvoke(
+    "Sink",
+    (
+    ) =>
+      Sink(
+    ),
+);
+var _stackTrace = MXFunctionInvoke(
+    "StackTrace",
+    (
+    ) =>
+      StackTrace(
+    ),
+);
+var _stackTrace_fromString = MXFunctionInvoke(
+  "StackTrace.fromString",
+    (
+      {
+      String stackTraceString,
+      }
+    ) =>
+      StackTrace.fromString(
+      stackTraceString,
+    ),
+);
+var _stopwatch = MXFunctionInvoke(
+    "Stopwatch",
+    (
+    ) =>
+      Stopwatch(
+    ),
+);
+var _string_fromCharCodes = MXFunctionInvoke(
+  "String.fromCharCodes",
+    (
+      {
+      Iterable<int> charCodes,
+      int start,
+      int end,
+      }
+    ) =>
+      String.fromCharCodes(
+      charCodes,
+      start,
+      end,
+    ),
+);
+var _string_fromCharCode = MXFunctionInvoke(
+  "String.fromCharCode",
+    (
+      {
+      int charCode,
+      }
+    ) =>
+      String.fromCharCode(
+      charCode,
+    ),
+);
+var _string_fromEnvironment = MXFunctionInvoke(
+  "String.fromEnvironment",
+    (
+      {
+      String name,
+      String defaultValue = '',
+      }
+    ) =>
+      String.fromEnvironment(
+      name,
+      defaultValue: defaultValue,
+    ),
+);
+var _runes = MXFunctionInvoke(
+    "Runes",
+    (
+      {
+      String string,
+      }
+    ) =>
+      Runes(
+      string,
+    ),
+);
+var _runeIterator = MXFunctionInvoke(
+    "RuneIterator",
+    (
+      {
+      String string,
+      }
+    ) =>
+      RuneIterator(
+      string,
+    ),
+);
+var _runeIterator_at = MXFunctionInvoke(
+  "RuneIterator.at",
+    (
+      {
+      String string,
+      int index,
+      }
+    ) =>
+      RuneIterator.at(
+      string,
+      index,
+    ),
+);
+var _stringBuffer = MXFunctionInvoke(
+    "StringBuffer",
+    (
+      {
+      Object content,
+      }
+    ) =>
+      StringBuffer(
+      content,
+    ),
+);
+var _stringSink = MXFunctionInvoke(
+    "StringSink",
+    (
+    ) =>
+      StringSink(
+    ),
+);
+var _symbol = MXFunctionInvoke(
+    "Symbol",
+    (
+      {
+      String name,
+      }
+    ) =>
+      Symbol(
+      name,
+    ),
+);
+var _type = MXFunctionInvoke(
+    "Type",
+    (
+    ) =>
+      Type(
+    ),
+);
+var _uri = MXFunctionInvoke(
+    "Uri",
+    (
+      {
+      String scheme,
+      String userInfo,
+      String host,
+      int port,
+      String path,
+      Iterable<String> pathSegments,
+      String query,
+      Map<String, dynamic> queryParameters,
+      String fragment,
+      }
+    ) =>
+      Uri(
+      scheme: scheme,
+      userInfo: userInfo,
+      host: host,
+      port: port,
+      path: path,
+      pathSegments: pathSegments,
+      query: query,
+      queryParameters: queryParameters,
+      fragment: fragment,
+    ),
+);
+var _uri_http = MXFunctionInvoke(
+  "Uri.http",
+    (
+      {
+      String authority,
+      String unencodedPath,
+      Map<String, String> queryParameters,
+      }
+    ) =>
+      Uri.http(
+      authority,
+      unencodedPath,
+      queryParameters,
+    ),
+);
+var _uri_https = MXFunctionInvoke(
+  "Uri.https",
+    (
+      {
+      String authority,
+      String unencodedPath,
+      Map<String, String> queryParameters,
+      }
+    ) =>
+      Uri.https(
+      authority,
+      unencodedPath,
+      queryParameters,
+    ),
+);
+var _uri_file = MXFunctionInvoke(
+  "Uri.file",
+    (
+      {
+      String path,
+      bool windows,
+      }
+    ) =>
+      Uri.file(
+      path,
+      windows: windows,
+    ),
+);
+var _uri_directory = MXFunctionInvoke(
+  "Uri.directory",
+    (
+      {
+      String path,
+      bool windows,
+      }
+    ) =>
+      Uri.directory(
+      path,
+      windows: windows,
+    ),
+);
+var _uri_dataFromString = MXFunctionInvoke(
+  "Uri.dataFromString",
+    (
+      {
+      String content,
+      String mimeType,
+      Encoding encoding,
+      Map<String, String> parameters,
+      bool base64 = false,
+      }
+    ) =>
+      Uri.dataFromString(
+      content,
+      mimeType: mimeType,
+      encoding: encoding,
+      parameters: parameters,
+      base64: base64,
+    ),
+);
+var _uri_dataFromBytes = MXFunctionInvoke(
+  "Uri.dataFromBytes",
+    (
+      {
+      List<int> bytes,
+      dynamic mimeType = 'application/octet-stream',
+      Map<String, String> parameters,
+      dynamic percentEncoded = false,
+      }
+    ) =>
+      Uri.dataFromBytes(
+      bytes,
+      mimeType: mimeType,
+      parameters: parameters,
+      percentEncoded: percentEncoded,
+    ),
+);
+var _uriData_fromString = MXFunctionInvoke(
+  "UriData.fromString",
+    (
+      {
+      String content,
+      String mimeType,
+      Encoding encoding,
+      Map<String, String> parameters,
+      bool base64 = false,
+      }
+    ) =>
+      UriData.fromString(
+      content,
+      mimeType: mimeType,
+      encoding: encoding,
+      parameters: parameters,
+      base64: base64,
+    ),
+);
+var _uriData_fromBytes = MXFunctionInvoke(
+  "UriData.fromBytes",
+    (
+      {
+      List<int> bytes,
+      dynamic mimeType = 'application/octet-stream',
+      Map<String, String> parameters,
+      dynamic percentEncoded = false,
+      }
+    ) =>
+      UriData.fromBytes(
+      bytes,
+      mimeType: mimeType,
+      parameters: parameters,
+      percentEncoded: percentEncoded,
+    ),
+);
+var _uriData_fromUri = MXFunctionInvoke(
+  "UriData.fromUri",
+    (
+      {
+      Uri uri,
+      }
+    ) =>
+      UriData.fromUri(
+      uri,
     ),
 );
 class MXPointMode {

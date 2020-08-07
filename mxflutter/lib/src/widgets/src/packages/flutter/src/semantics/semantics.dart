@@ -32,6 +32,7 @@ Map<String, MXFunctionInvoke> registerSemanticsSeries() {
   m[_semanticsOwner.funName] = _semanticsOwner;
   m[_semanticsConfiguration.funName] = _semanticsConfiguration;
   m[_debugSemanticsDumpOrder.funName] = _debugSemanticsDumpOrder;
+  m[_semanticsSortKey.funName] = _semanticsSortKey;
   m[_ordinalSortKey.funName] = _ordinalSortKey;
   return m;
 }
@@ -291,6 +292,17 @@ var _debugSemanticsDumpOrder = MXFunctionInvoke(
     "DebugSemanticsDumpOrder",
     ({Map args}) => MXDebugSemanticsDumpOrder.parse(args),
   );
+var _semanticsSortKey = MXFunctionInvoke(
+    "SemanticsSortKey",
+    (
+      {
+      String name,
+      }
+    ) =>
+      SemanticsSortKey(
+      name: name,
+    ),
+);
 var _ordinalSortKey = MXFunctionInvoke(
     "OrdinalSortKey",
     (

@@ -20,6 +20,7 @@ Map<String, MXFunctionInvoke> registerImageStreamSeries() {
   m[_imageStreamListener.funName] = _imageStreamListener;
   m[_imageChunkEvent.funName] = _imageChunkEvent;
   m[_imageStream.funName] = _imageStream;
+  m[_imageStreamCompleter.funName] = _imageStreamCompleter;
   m[_oneFrameImageStreamCompleter.funName] = _oneFrameImageStreamCompleter;
   m[_multiFrameImageStreamCompleter.funName] = _multiFrameImageStreamCompleter;
   return m;
@@ -70,6 +71,13 @@ var _imageStream = MXFunctionInvoke(
     (
     ) =>
       ImageStream(
+    ),
+);
+var _imageStreamCompleter = MXFunctionInvoke(
+    "ImageStreamCompleter",
+    (
+    ) =>
+      ImageStreamCompleter(
     ),
 );
 var _oneFrameImageStreamCompleter = MXFunctionInvoke(

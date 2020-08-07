@@ -19,11 +19,27 @@ import 'package:flutter/src/gestures/velocity_tracker.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMonodragSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_dragGestureRecognizer.funName] = _dragGestureRecognizer;
   m[_verticalDragGestureRecognizer.funName] = _verticalDragGestureRecognizer;
   m[_horizontalDragGestureRecognizer.funName] = _horizontalDragGestureRecognizer;
   m[_panGestureRecognizer.funName] = _panGestureRecognizer;
   return m;
 }
+var _dragGestureRecognizer = MXFunctionInvoke(
+    "DragGestureRecognizer",
+    (
+      {
+      Object debugOwner,
+      PointerDeviceKind kind,
+      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      }
+    ) =>
+      DragGestureRecognizer(
+      debugOwner: debugOwner,
+      kind: kind,
+      dragStartBehavior: dragStartBehavior,
+    ),
+);
 var _verticalDragGestureRecognizer = MXFunctionInvoke(
     "VerticalDragGestureRecognizer",
     (

@@ -13,5 +13,13 @@ import 'package:flutter/src/material/data_table.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDataTableSourceSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_dataTableSource.funName] = _dataTableSource;
   return m;
 }
+var _dataTableSource = MXFunctionInvoke(
+    "DataTableSource",
+    (
+    ) =>
+      DataTableSource(
+    ),
+);

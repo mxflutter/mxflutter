@@ -14,7 +14,10 @@ import 'package:meta/meta.dart' ;
 Map<String, MXFunctionInvoke> registerLicensesSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_licenseParagraph.funName] = _licenseParagraph;
+  m[_licenseEntry.funName] = _licenseEntry;
   m[_licenseEntryWithLineBreaks.funName] = _licenseEntryWithLineBreaks;
+  m[_licenseRegistry_addLicense.funName] = _licenseRegistry_addLicense;
+  m[_licenseRegistry_reset.funName] = _licenseRegistry_reset;
   return m;
 }
 var _licenseParagraph = MXFunctionInvoke(
@@ -30,6 +33,13 @@ var _licenseParagraph = MXFunctionInvoke(
       indent,
     ),
 );
+var _licenseEntry = MXFunctionInvoke(
+    "LicenseEntry",
+    (
+    ) =>
+      LicenseEntry(
+    ),
+);
 var _licenseEntryWithLineBreaks = MXFunctionInvoke(
     "LicenseEntryWithLineBreaks",
     (
@@ -41,5 +51,23 @@ var _licenseEntryWithLineBreaks = MXFunctionInvoke(
       LicenseEntryWithLineBreaks(
       packages,
       text,
+    ),
+);
+var _licenseRegistry_addLicense = MXFunctionInvoke(
+  "LicenseRegistry.addLicense",
+    (
+      {
+      dynamic collector,
+      }
+    ) =>
+      LicenseRegistry.addLicense(
+      collector,
+    ),
+);
+var _licenseRegistry_reset = MXFunctionInvoke(
+  "LicenseRegistry.reset",
+    (
+    ) =>
+      LicenseRegistry.reset(
     ),
 );

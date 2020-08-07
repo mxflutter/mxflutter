@@ -13,5 +13,17 @@ import 'package:flutter/src/physics/tolerance.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_simulation.funName] = _simulation;
   return m;
 }
+var _simulation = MXFunctionInvoke(
+    "Simulation",
+    (
+      {
+      Tolerance tolerance,
+      }
+    ) =>
+      Simulation(
+      tolerance: tolerance,
+    ),
+);

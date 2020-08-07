@@ -18,6 +18,7 @@ import 'package:flutter/src/material/typography.dart' ;
 Map<String, MXFunctionInvoke> registerTypographySeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scriptCategory.funName] = _scriptCategory;
+  m[_typography.funName] = _typography;
   m[_typography_material2014.funName] = _typography_material2014;
   m[_typography_material2018.funName] = _typography_material2018;
   m[_textTheme.funName] = _textTheme;
@@ -27,6 +28,27 @@ var _scriptCategory = MXFunctionInvoke(
     "ScriptCategory",
     ({Map args}) => MXScriptCategory.parse(args),
   );
+var _typography = MXFunctionInvoke(
+    "Typography",
+    (
+      {
+      TargetPlatform platform,
+      TextTheme black,
+      TextTheme white,
+      TextTheme englishLike,
+      TextTheme dense,
+      TextTheme tall,
+      }
+    ) =>
+      Typography(
+      platform: platform,
+      black: black,
+      white: white,
+      englishLike: englishLike,
+      dense: dense,
+      tall: tall,
+    ),
+);
 var _typography_material2014 = MXFunctionInvoke(
   "Typography.material2014",
     (

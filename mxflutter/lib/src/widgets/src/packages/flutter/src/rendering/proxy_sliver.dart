@@ -19,12 +19,24 @@ import 'package:flutter/src/rendering/sliver.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerProxySliverSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_renderProxySliver.funName] = _renderProxySliver;
   m[_renderSliverOpacity.funName] = _renderSliverOpacity;
   m[_renderSliverIgnorePointer.funName] = _renderSliverIgnorePointer;
   m[_renderSliverOffstage.funName] = _renderSliverOffstage;
   m[_renderSliverAnimatedOpacity.funName] = _renderSliverAnimatedOpacity;
   return m;
 }
+var _renderProxySliver = MXFunctionInvoke(
+    "RenderProxySliver",
+    (
+      {
+      RenderSliver child,
+      }
+    ) =>
+      RenderProxySliver(
+      child,
+    ),
+);
 var _renderSliverOpacity = MXFunctionInvoke(
     "RenderSliverOpacity",
     (

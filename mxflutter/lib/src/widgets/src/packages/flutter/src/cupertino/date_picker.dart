@@ -28,6 +28,7 @@ Map<String, MXFunctionInvoke> registerDatePickerSeries() {
   m[_cupertinoTimerPicker.funName] = _cupertinoTimerPicker;
   m[_datePickerDateTimeOrder.funName] = _datePickerDateTimeOrder;
   m[_datePickerDateOrder.funName] = _datePickerDateOrder;
+  m[_cupertinoLocalizations.funName] = _cupertinoLocalizations;
   m[_defaultCupertinoLocalizations.funName] = _defaultCupertinoLocalizations;
   return m;
 }
@@ -103,6 +104,13 @@ var _datePickerDateOrder = MXFunctionInvoke(
     "DatePickerDateOrder",
     ({Map args}) => MXDatePickerDateOrder.parse(args),
   );
+var _cupertinoLocalizations = MXFunctionInvoke(
+    "CupertinoLocalizations",
+    (
+    ) =>
+      CupertinoLocalizations(
+    ),
+);
 var _defaultCupertinoLocalizations = MXFunctionInvoke(
     "DefaultCupertinoLocalizations",
     (

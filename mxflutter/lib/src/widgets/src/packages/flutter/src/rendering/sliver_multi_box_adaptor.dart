@@ -17,13 +17,33 @@ import 'package:flutter/src/rendering/sliver.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverMultiBoxAdaptorSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_renderSliverBoxChildManager.funName] = _renderSliverBoxChildManager;
   m[_sliverMultiBoxAdaptorParentData.funName] = _sliverMultiBoxAdaptorParentData;
+  m[_renderSliverMultiBoxAdaptor.funName] = _renderSliverMultiBoxAdaptor;
   return m;
 }
+var _renderSliverBoxChildManager = MXFunctionInvoke(
+    "RenderSliverBoxChildManager",
+    (
+    ) =>
+      RenderSliverBoxChildManager(
+    ),
+);
 var _sliverMultiBoxAdaptorParentData = MXFunctionInvoke(
     "SliverMultiBoxAdaptorParentData",
     (
     ) =>
       SliverMultiBoxAdaptorParentData(
+    ),
+);
+var _renderSliverMultiBoxAdaptor = MXFunctionInvoke(
+    "RenderSliverMultiBoxAdaptor",
+    (
+      {
+      RenderSliverBoxChildManager childManager,
+      }
+    ) =>
+      RenderSliverMultiBoxAdaptor(
+      childManager: childManager,
     ),
 );

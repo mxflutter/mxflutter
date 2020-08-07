@@ -14,9 +14,17 @@ import 'package:flutter/rendering.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollMetricsSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_scrollMetrics.funName] = _scrollMetrics;
   m[_fixedScrollMetrics.funName] = _fixedScrollMetrics;
   return m;
 }
+var _scrollMetrics = MXFunctionInvoke(
+    "ScrollMetrics",
+    (
+    ) =>
+      ScrollMetrics(
+    ),
+);
 var _fixedScrollMetrics = MXFunctionInvoke(
     "FixedScrollMetrics",
     (

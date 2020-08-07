@@ -15,6 +15,7 @@ import 'package:flutter/src/rendering/object.dart' ;
 Map<String, MXFunctionInvoke> registerCustomLayoutSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_multiChildLayoutParentData.funName] = _multiChildLayoutParentData;
+  m[_multiChildLayoutDelegate.funName] = _multiChildLayoutDelegate;
   m[_renderCustomMultiChildLayoutBox.funName] = _renderCustomMultiChildLayoutBox;
   return m;
 }
@@ -23,6 +24,17 @@ var _multiChildLayoutParentData = MXFunctionInvoke(
     (
     ) =>
       MultiChildLayoutParentData(
+    ),
+);
+var _multiChildLayoutDelegate = MXFunctionInvoke(
+    "MultiChildLayoutDelegate",
+    (
+      {
+      Listenable relayout,
+      }
+    ) =>
+      MultiChildLayoutDelegate(
+      relayout: relayout,
     ),
 );
 var _renderCustomMultiChildLayoutBox = MXFunctionInvoke(

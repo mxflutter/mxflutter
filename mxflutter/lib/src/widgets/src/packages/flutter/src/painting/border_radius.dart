@@ -13,6 +13,7 @@ import 'package:flutter/src/painting/basic_types.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBorderRadiusSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_borderRadiusGeometry.funName] = _borderRadiusGeometry;
   m[_borderRadius_all.funName] = _borderRadius_all;
   m[_borderRadius_circular.funName] = _borderRadius_circular;
   m[_borderRadius_vertical.funName] = _borderRadius_vertical;
@@ -25,6 +26,13 @@ Map<String, MXFunctionInvoke> registerBorderRadiusSeries() {
   m[_borderRadiusDirectional_only.funName] = _borderRadiusDirectional_only;
   return m;
 }
+var _borderRadiusGeometry = MXFunctionInvoke(
+    "BorderRadiusGeometry",
+    (
+    ) =>
+      BorderRadiusGeometry(
+    ),
+);
 var _borderRadius_all = MXFunctionInvoke(
   "BorderRadius.all",
     (

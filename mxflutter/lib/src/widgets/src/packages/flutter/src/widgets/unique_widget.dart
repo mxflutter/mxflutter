@@ -12,5 +12,17 @@ import 'package:flutter/src/widgets/framework.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerUniqueWidgetSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_uniqueWidget.funName] = _uniqueWidget;
   return m;
 }
+var _uniqueWidget = MXFunctionInvoke(
+    "UniqueWidget",
+    (
+      {
+      GlobalKey<State<StatefulWidget>> key,
+      }
+    ) =>
+      UniqueWidget(
+      key: key,
+    ),
+);

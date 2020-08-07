@@ -18,11 +18,23 @@ import 'package:flutter/src/material/theme.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMergeableMaterialSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_mergeableMaterialItem.funName] = _mergeableMaterialItem;
   m[_materialSlice.funName] = _materialSlice;
   m[_materialGap.funName] = _materialGap;
   m[_mergeableMaterial.funName] = _mergeableMaterial;
   return m;
 }
+var _mergeableMaterialItem = MXFunctionInvoke(
+    "MergeableMaterialItem",
+    (
+      {
+      LocalKey key,
+      }
+    ) =>
+      MergeableMaterialItem(
+      key,
+    ),
+);
 var _materialSlice = MXFunctionInvoke(
     "MaterialSlice",
     (

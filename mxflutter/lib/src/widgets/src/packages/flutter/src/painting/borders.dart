@@ -18,6 +18,7 @@ Map<String, MXFunctionInvoke> registerBordersSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_borderStyle.funName] = _borderStyle;
   m[_borderSide.funName] = _borderSide;
+  m[_shapeBorder.funName] = _shapeBorder;
   return m;
 }
 var _borderStyle = MXFunctionInvoke(
@@ -37,6 +38,13 @@ var _borderSide = MXFunctionInvoke(
       color: color,
       width: width?.toDouble(),
       style: style,
+    ),
+);
+var _shapeBorder = MXFunctionInvoke(
+    "ShapeBorder",
+    (
+    ) =>
+      ShapeBorder(
     ),
 );
 class MXBorderStyle {

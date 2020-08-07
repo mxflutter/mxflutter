@@ -22,14 +22,17 @@ import 'package:flutter/src/animation/tween.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListenerHelpersSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_animation.funName] = _animation;
   m[_alwaysStoppedAnimation.funName] = _alwaysStoppedAnimation;
   m[_proxyAnimation.funName] = _proxyAnimation;
   m[_reverseAnimation.funName] = _reverseAnimation;
   m[_curvedAnimation.funName] = _curvedAnimation;
   m[_trainHoppingAnimation.funName] = _trainHoppingAnimation;
+  m[_compoundAnimation.funName] = _compoundAnimation;
   m[_animationMean.funName] = _animationMean;
   m[_animationMax.funName] = _animationMax;
   m[_animationMin.funName] = _animationMin;
+  m[_animatable.funName] = _animatable;
   m[_tween.funName] = _tween;
   m[_reverseTween.funName] = _reverseTween;
   m[_colorTween.funName] = _colorTween;
@@ -42,6 +45,13 @@ Map<String, MXFunctionInvoke> registerListenerHelpersSeries() {
   m[_animationStatus.funName] = _animationStatus;
   return m;
 }
+var _animation = MXFunctionInvoke(
+    "Animation",
+    (
+    ) =>
+      Animation(
+    ),
+);
 var _alwaysStoppedAnimation = MXFunctionInvoke(
     "AlwaysStoppedAnimation",
     (
@@ -105,6 +115,19 @@ var _trainHoppingAnimation = MXFunctionInvoke(
       onSwitchedTrain: createVoidCallbackClosure(_trainHoppingAnimation.buildOwner, onSwitchedTrain),
     ),
 );
+var _compoundAnimation = MXFunctionInvoke(
+    "CompoundAnimation",
+    (
+      {
+      Animation<dynamic> first,
+      Animation<dynamic> next,
+      }
+    ) =>
+      CompoundAnimation(
+      first: first,
+      next: next,
+    ),
+);
 var _animationMean = MXFunctionInvoke(
     "AnimationMean",
     (
@@ -142,6 +165,13 @@ var _animationMin = MXFunctionInvoke(
       AnimationMin(
       first,
       next,
+    ),
+);
+var _animatable = MXFunctionInvoke(
+    "Animatable",
+    (
+    ) =>
+      Animatable(
     ),
 );
 var _tween = MXFunctionInvoke(

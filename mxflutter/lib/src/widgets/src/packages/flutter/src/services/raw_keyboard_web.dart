@@ -29,18 +29,29 @@ import 'package:flutter/src/services/system_channels.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRawKeyboardWebSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_rawKeyEventData.funName] = _rawKeyEventData;
   m[_rawKeyEventDataWeb.funName] = _rawKeyEventDataWeb;
   m[_rawKeyEventDataMacOs.funName] = _rawKeyEventDataMacOs;
   m[_rawKeyEventDataLinux.funName] = _rawKeyEventDataLinux;
+  m[_keyHelper.funName] = _keyHelper;
   m[_gLFWKeyHelper.funName] = _gLFWKeyHelper;
   m[_rawKeyEventDataFuchsia.funName] = _rawKeyEventDataFuchsia;
   m[_rawKeyEventDataAndroid.funName] = _rawKeyEventDataAndroid;
   m[_keyboardSide.funName] = _keyboardSide;
   m[_modifierKey.funName] = _modifierKey;
+  m[_rawKeyEvent.funName] = _rawKeyEvent;
+  m[_rawKeyEvent_fromMessage.funName] = _rawKeyEvent_fromMessage;
   m[_rawKeyDownEvent.funName] = _rawKeyDownEvent;
   m[_rawKeyUpEvent.funName] = _rawKeyUpEvent;
   return m;
 }
+var _rawKeyEventData = MXFunctionInvoke(
+    "RawKeyEventData",
+    (
+    ) =>
+      RawKeyEventData(
+    ),
+);
 var _rawKeyEventDataWeb = MXFunctionInvoke(
     "RawKeyEventDataWeb",
     (
@@ -92,6 +103,17 @@ var _rawKeyEventDataLinux = MXFunctionInvoke(
       keyCode: keyCode,
       modifiers: modifiers,
       isDown: isDown,
+    ),
+);
+var _keyHelper = MXFunctionInvoke(
+    "KeyHelper",
+    (
+      {
+      String toolkit,
+      }
+    ) =>
+      KeyHelper(
+      toolkit,
     ),
 );
 var _gLFWKeyHelper = MXFunctionInvoke(
@@ -155,6 +177,30 @@ var _modifierKey = MXFunctionInvoke(
     "ModifierKey",
     ({Map args}) => MXModifierKey.parse(args),
   );
+var _rawKeyEvent = MXFunctionInvoke(
+    "RawKeyEvent",
+    (
+      {
+      RawKeyEventData data,
+      String character,
+      }
+    ) =>
+      RawKeyEvent(
+      data: data,
+      character: character,
+    ),
+);
+var _rawKeyEvent_fromMessage = MXFunctionInvoke(
+  "RawKeyEvent.fromMessage",
+    (
+      {
+      Map<String, dynamic> message,
+      }
+    ) =>
+      RawKeyEvent.fromMessage(
+      message,
+    ),
+);
 var _rawKeyDownEvent = MXFunctionInvoke(
     "RawKeyDownEvent",
     (

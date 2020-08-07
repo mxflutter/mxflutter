@@ -19,6 +19,7 @@ Map<String, MXFunctionInvoke> registerTapSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_tapDownDetails.funName] = _tapDownDetails;
   m[_tapUpDetails.funName] = _tapUpDetails;
+  m[_baseTapGestureRecognizer.funName] = _baseTapGestureRecognizer;
   m[_tapGestureRecognizer.funName] = _tapGestureRecognizer;
   return m;
 }
@@ -48,6 +49,17 @@ var _tapUpDetails = MXFunctionInvoke(
       TapUpDetails(
       globalPosition: globalPosition,
       localPosition: localPosition,
+    ),
+);
+var _baseTapGestureRecognizer = MXFunctionInvoke(
+    "BaseTapGestureRecognizer",
+    (
+      {
+      Object debugOwner,
+      }
+    ) =>
+      BaseTapGestureRecognizer(
+      debugOwner: debugOwner,
     ),
 );
 var _tapGestureRecognizer = MXFunctionInvoke(

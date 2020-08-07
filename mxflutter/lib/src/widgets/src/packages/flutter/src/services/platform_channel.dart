@@ -35,7 +35,9 @@ Map<String, MXFunctionInvoke> registerPlatformChannelSeries() {
   m[_methodChannel.funName] = _methodChannel;
   m[_optionalMethodChannel.funName] = _optionalMethodChannel;
   m[_eventChannel.funName] = _eventChannel;
+  m[_messageCodec.funName] = _messageCodec;
   m[_methodCall.funName] = _methodCall;
+  m[_methodCodec.funName] = _methodCodec;
   m[_platformException.funName] = _platformException;
   m[_missingPluginException.funName] = _missingPluginException;
   m[_binaryCodec.funName] = _binaryCodec;
@@ -44,7 +46,10 @@ Map<String, MXFunctionInvoke> registerPlatformChannelSeries() {
   m[_jSONMethodCodec.funName] = _jSONMethodCodec;
   m[_standardMessageCodec.funName] = _standardMessageCodec;
   m[_standardMethodCodec.funName] = _standardMethodCodec;
+  m[_binaryMessenger.funName] = _binaryMessenger;
+  m[_assetBundle.funName] = _assetBundle;
   m[_networkAssetBundle.funName] = _networkAssetBundle;
+  m[_cachingAssetBundle.funName] = _cachingAssetBundle;
   m[_platformAssetBundle.funName] = _platformAssetBundle;
   return m;
 }
@@ -106,6 +111,13 @@ var _eventChannel = MXFunctionInvoke(
       binaryMessenger,
     ),
 );
+var _messageCodec = MXFunctionInvoke(
+    "MessageCodec",
+    (
+    ) =>
+      MessageCodec(
+    ),
+);
 var _methodCall = MXFunctionInvoke(
     "MethodCall",
     (
@@ -117,6 +129,13 @@ var _methodCall = MXFunctionInvoke(
       MethodCall(
       method,
       arguments,
+    ),
+);
+var _methodCodec = MXFunctionInvoke(
+    "MethodCodec",
+    (
+    ) =>
+      MethodCodec(
     ),
 );
 var _platformException = MXFunctionInvoke(
@@ -191,6 +210,20 @@ var _standardMethodCodec = MXFunctionInvoke(
       messageCodec,
     ),
 );
+var _binaryMessenger = MXFunctionInvoke(
+    "BinaryMessenger",
+    (
+    ) =>
+      BinaryMessenger(
+    ),
+);
+var _assetBundle = MXFunctionInvoke(
+    "AssetBundle",
+    (
+    ) =>
+      AssetBundle(
+    ),
+);
 var _networkAssetBundle = MXFunctionInvoke(
     "NetworkAssetBundle",
     (
@@ -200,6 +233,13 @@ var _networkAssetBundle = MXFunctionInvoke(
     ) =>
       NetworkAssetBundle(
       baseUrl,
+    ),
+);
+var _cachingAssetBundle = MXFunctionInvoke(
+    "CachingAssetBundle",
+    (
+    ) =>
+      CachingAssetBundle(
     ),
 );
 var _platformAssetBundle = MXFunctionInvoke(

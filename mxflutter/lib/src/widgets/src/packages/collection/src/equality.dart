@@ -13,6 +13,7 @@ import 'package:collection/src/comparators.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEqualitySeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_equality.funName] = _equality;
   m[_equalityBy.funName] = _equalityBy;
   m[_defaultEquality.funName] = _defaultEquality;
   m[_identityEquality.funName] = _identityEquality;
@@ -27,6 +28,13 @@ Map<String, MXFunctionInvoke> registerEqualitySeries() {
   m[_caseInsensitiveEquality.funName] = _caseInsensitiveEquality;
   return m;
 }
+var _equality = MXFunctionInvoke(
+    "Equality",
+    (
+    ) =>
+      Equality(
+    ),
+);
 var _equalityBy = MXFunctionInvoke(
     "EqualityBy",
     (

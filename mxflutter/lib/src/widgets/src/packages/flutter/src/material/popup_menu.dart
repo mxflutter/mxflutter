@@ -27,6 +27,7 @@ import 'package:flutter/src/material/tooltip.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPopupMenuSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_popupMenuEntry.funName] = _popupMenuEntry;
   m[_popupMenuDivider.funName] = _popupMenuDivider;
   m[_popupMenuItem.funName] = _popupMenuItem;
   m[_popupMenuItemState.funName] = _popupMenuItemState;
@@ -35,6 +36,17 @@ Map<String, MXFunctionInvoke> registerPopupMenuSeries() {
   m[_popupMenuButtonState.funName] = _popupMenuButtonState;
   return m;
 }
+var _popupMenuEntry = MXFunctionInvoke(
+    "PopupMenuEntry",
+    (
+      {
+      Key key,
+      }
+    ) =>
+      PopupMenuEntry(
+      key: key,
+    ),
+);
 var _popupMenuDivider = MXFunctionInvoke(
     "PopupMenuDivider",
     (

@@ -19,12 +19,21 @@ import 'package:flutter/src/painting/basic_types.dart' ;
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerGradientSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_gradientTransform.funName] = _gradientTransform;
   m[_gradientRotation.funName] = _gradientRotation;
+  m[_gradient.funName] = _gradient;
   m[_linearGradient.funName] = _linearGradient;
   m[_radialGradient.funName] = _radialGradient;
   m[_sweepGradient.funName] = _sweepGradient;
   return m;
 }
+var _gradientTransform = MXFunctionInvoke(
+    "GradientTransform",
+    (
+    ) =>
+      GradientTransform(
+    ),
+);
 var _gradientRotation = MXFunctionInvoke(
     "GradientRotation",
     (
@@ -34,6 +43,21 @@ var _gradientRotation = MXFunctionInvoke(
     ) =>
       GradientRotation(
       radians,
+    ),
+);
+var _gradient = MXFunctionInvoke(
+    "Gradient",
+    (
+      {
+      List<Color> colors,
+      List<double> stops,
+      GradientTransform transform,
+      }
+    ) =>
+      Gradient(
+      colors: colors,
+      stops: stops,
+      transform: transform,
     ),
 );
 var _linearGradient = MXFunctionInvoke(
