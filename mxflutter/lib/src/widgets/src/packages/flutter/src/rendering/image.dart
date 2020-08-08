@@ -22,20 +22,20 @@ var _renderImage = MXFunctionInvoke(
     "RenderImage",
     (
       {
-      Image image,
+      ui.Image image,
       dynamic width,
       dynamic height,
       dynamic scale = 1.0,
-      Color color,
-      BlendMode colorBlendMode,
+      ui.Color color,
+      ui.BlendMode colorBlendMode,
       BoxFit fit,
       AlignmentGeometry alignment,
       ImageRepeat repeat = ImageRepeat.noRepeat,
-      Rect centerSlice,
+      ui.Rect centerSlice,
       bool matchTextDirection = false,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       bool invertColors = false,
-      FilterQuality filterQuality = FilterQuality.low,
+      ui.FilterQuality filterQuality = ui.FilterQuality.low,
       }
     ) =>
       RenderImage(

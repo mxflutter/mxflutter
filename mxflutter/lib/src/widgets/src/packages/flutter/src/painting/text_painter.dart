@@ -29,9 +29,9 @@ var _placeholderDimensions = MXFunctionInvoke(
     "PlaceholderDimensions",
     (
       {
-      Size size,
-      PlaceholderAlignment alignment,
-      TextBaseline baseline,
+      ui.Size size,
+      ui.PlaceholderAlignment alignment,
+      ui.TextBaseline baseline,
       dynamic baselineOffset,
       }
     ) =>
@@ -51,15 +51,15 @@ var _textPainter = MXFunctionInvoke(
     (
       {
       InlineSpan text,
-      TextAlign textAlign = TextAlign.start,
-      TextDirection textDirection,
+      ui.TextAlign textAlign = ui.TextAlign.start,
+      ui.TextDirection textDirection,
       dynamic textScaleFactor = 1.0,
       int maxLines,
       String ellipsis,
-      Locale locale,
+      ui.Locale locale,
       StrutStyle strutStyle,
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
-      TextHeightBehavior textHeightBehavior,
+      ui.TextHeightBehavior textHeightBehavior,
       }
     ) =>
       TextPainter(

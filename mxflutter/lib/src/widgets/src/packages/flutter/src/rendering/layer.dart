@@ -49,7 +49,7 @@ var _annotationEntry = MXFunctionInvoke(
     (
       {
       dynamic annotation,
-      Offset localPosition,
+      ui.Offset localPosition,
       }
     ) =>
       AnnotationEntry(
@@ -68,7 +68,7 @@ var _pictureLayer = MXFunctionInvoke(
     "PictureLayer",
     (
       {
-      Rect canvasBounds,
+      ui.Rect canvasBounds,
       }
     ) =>
       PictureLayer(
@@ -79,7 +79,7 @@ var _textureLayer = MXFunctionInvoke(
     "TextureLayer",
     (
       {
-      Rect rect,
+      ui.Rect rect,
       int textureId,
       bool freeze = false,
       }
@@ -94,7 +94,7 @@ var _platformViewLayer = MXFunctionInvoke(
     "PlatformViewLayer",
     (
       {
-      Rect rect,
+      ui.Rect rect,
       int viewId,
       MouseTrackerAnnotation hoverAnnotation,
       }
@@ -109,7 +109,7 @@ var _performanceOverlayLayer = MXFunctionInvoke(
     "PerformanceOverlayLayer",
     (
       {
-      Rect overlayRect,
+      ui.Rect overlayRect,
       int optionsMask,
       int rasterizerThreshold,
       bool checkerboardRasterCacheImages,
@@ -135,7 +135,7 @@ var _offsetLayer = MXFunctionInvoke(
     "OffsetLayer",
     (
       {
-      Offset offset,
+      ui.Offset offset,
       }
     ) =>
       OffsetLayer(
@@ -146,8 +146,8 @@ var _clipRectLayer = MXFunctionInvoke(
     "ClipRectLayer",
     (
       {
-      Rect clipRect,
-      Clip clipBehavior = Clip.hardEdge,
+      ui.Rect clipRect,
+      ui.Clip clipBehavior = ui.Clip.hardEdge,
       }
     ) =>
       ClipRectLayer(
@@ -159,8 +159,8 @@ var _clipRRectLayer = MXFunctionInvoke(
     "ClipRRectLayer",
     (
       {
-      RRect clipRRect,
-      Clip clipBehavior = Clip.antiAlias,
+      ui.RRect clipRRect,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       }
     ) =>
       ClipRRectLayer(
@@ -172,8 +172,8 @@ var _clipPathLayer = MXFunctionInvoke(
     "ClipPathLayer",
     (
       {
-      Path clipPath,
-      Clip clipBehavior = Clip.antiAlias,
+      ui.Path clipPath,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       }
     ) =>
       ClipPathLayer(
@@ -185,7 +185,7 @@ var _colorFilterLayer = MXFunctionInvoke(
     "ColorFilterLayer",
     (
       {
-      ColorFilter colorFilter,
+      ui.ColorFilter colorFilter,
       }
     ) =>
       ColorFilterLayer(
@@ -196,7 +196,7 @@ var _imageFilterLayer = MXFunctionInvoke(
     "ImageFilterLayer",
     (
       {
-      ImageFilter imageFilter,
+      ui.ImageFilter imageFilter,
       }
     ) =>
       ImageFilterLayer(
@@ -208,7 +208,7 @@ var _transformLayer = MXFunctionInvoke(
     (
       {
       Matrix4 transform,
-      Offset offset,
+      ui.Offset offset,
       }
     ) =>
       TransformLayer(
@@ -221,7 +221,7 @@ var _opacityLayer = MXFunctionInvoke(
     (
       {
       int alpha,
-      Offset offset,
+      ui.Offset offset,
       }
     ) =>
       OpacityLayer(
@@ -233,9 +233,9 @@ var _shaderMaskLayer = MXFunctionInvoke(
     "ShaderMaskLayer",
     (
       {
-      Shader shader,
-      Rect maskRect,
-      BlendMode blendMode,
+      ui.Shader shader,
+      ui.Rect maskRect,
+      ui.BlendMode blendMode,
       }
     ) =>
       ShaderMaskLayer(
@@ -248,7 +248,7 @@ var _backdropFilterLayer = MXFunctionInvoke(
     "BackdropFilterLayer",
     (
       {
-      ImageFilter filter,
+      ui.ImageFilter filter,
       }
     ) =>
       BackdropFilterLayer(
@@ -259,11 +259,11 @@ var _physicalModelLayer = MXFunctionInvoke(
     "PhysicalModelLayer",
     (
       {
-      Path clipPath,
-      Clip clipBehavior = Clip.none,
+      ui.Path clipPath,
+      ui.Clip clipBehavior = ui.Clip.none,
       dynamic elevation,
-      Color color,
-      Color shadowColor,
+      ui.Color color,
+      ui.Color shadowColor,
       }
     ) =>
       PhysicalModelLayer(
@@ -286,7 +286,7 @@ var _leaderLayer = MXFunctionInvoke(
     (
       {
       LayerLink link,
-      Offset offset,
+      ui.Offset offset,
       }
     ) =>
       LeaderLayer(
@@ -300,8 +300,8 @@ var _followerLayer = MXFunctionInvoke(
       {
       LayerLink link,
       bool showWhenUnlinked = true,
-      Offset unlinkedOffset,
-      Offset linkedOffset,
+      ui.Offset unlinkedOffset,
+      ui.Offset linkedOffset,
       }
     ) =>
       FollowerLayer(
@@ -316,8 +316,8 @@ var _annotatedRegionLayer = MXFunctionInvoke(
     (
       {
       dynamic value,
-      Size size,
-      Offset offset,
+      ui.Size size,
+      ui.Offset offset,
       bool opaque = false,
       }
     ) =>

@@ -31,7 +31,7 @@ var _viewConfiguration = MXFunctionInvoke(
     "ViewConfiguration",
     (
       {
-      Size size,
+      ui.Size size,
       dynamic devicePixelRatio = 1.0,
       }
     ) =>
@@ -46,7 +46,7 @@ var _renderView = MXFunctionInvoke(
       {
       RenderBox child,
       ViewConfiguration configuration,
-      Window window,
+      ui.Window window,
       }
     ) =>
       RenderView(
