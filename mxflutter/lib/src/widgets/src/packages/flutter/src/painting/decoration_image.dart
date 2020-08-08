@@ -33,10 +33,10 @@ var _decorationImage = MXFunctionInvoke(
       {
       ImageProvider<dynamic> image,
       dynamic onError,
-      ColorFilter colorFilter,
+      ui.ColorFilter colorFilter,
       BoxFit fit,
       AlignmentGeometry alignment,
-      Rect centerSlice,
+      ui.Rect centerSlice,
       ImageRepeat repeat = ImageRepeat.noRepeat,
       bool matchTextDirection = false,
       }

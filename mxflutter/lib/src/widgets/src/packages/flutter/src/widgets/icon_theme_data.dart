@@ -24,7 +24,7 @@ var _iconThemeData = MXFunctionInvoke(
     "IconThemeData",
     (
       {
-      Color color,
+      ui.Color color,
       dynamic opacity,
       dynamic size,
       }

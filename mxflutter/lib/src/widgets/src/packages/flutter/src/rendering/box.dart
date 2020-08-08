@@ -51,7 +51,7 @@ var _boxConstraints_tight = MXFunctionInvoke(
   "BoxConstraints.tight",
     (
       {
-      Size size,
+      ui.Size size,
       }
     ) =>
       BoxConstraints.tight(
@@ -88,7 +88,7 @@ var _boxConstraints_loose = MXFunctionInvoke(
   "BoxConstraints.loose",
     (
       {
-      Size size,
+      ui.Size size,
       }
     ) =>
       BoxConstraints.loose(
@@ -131,7 +131,7 @@ var _boxHitTestEntry = MXFunctionInvoke(
     (
       {
       RenderBox target,
-      Offset localPosition,
+      ui.Offset localPosition,
       }
     ) =>
       BoxHitTestEntry(

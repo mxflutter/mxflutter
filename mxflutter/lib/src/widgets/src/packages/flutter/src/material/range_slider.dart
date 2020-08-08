@@ -39,8 +39,8 @@ var _rangeSlider = MXFunctionInvoke(
       dynamic max = 1.0,
       int divisions,
       RangeLabels labels,
-      Color activeColor,
-      Color inactiveColor,
+      ui.Color activeColor,
+      ui.Color inactiveColor,
       dynamic semanticFormatterCallback,
       }
     ) =>

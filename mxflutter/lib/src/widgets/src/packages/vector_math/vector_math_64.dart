@@ -1294,7 +1294,7 @@ var _quaternion_random = MXFunctionInvoke(
   "Quaternion.random",
     (
       {
-      Random rn,
+      math.Random rn,
       }
     ) =>
       Quaternion.random(
@@ -1426,7 +1426,7 @@ var _simplexNoise = MXFunctionInvoke(
     "SimplexNoise",
     (
       {
-      Random r,
+      math.Random r,
       }
     ) =>
       SimplexNoise(
@@ -1565,7 +1565,7 @@ var _vector2_random = MXFunctionInvoke(
   "Vector2.random",
     (
       {
-      Random rng,
+      math.Random rng,
       }
     ) =>
       Vector2.random(
@@ -1704,7 +1704,7 @@ var _vector3_random = MXFunctionInvoke(
   "Vector3.random",
     (
       {
-      Random rng,
+      math.Random rng,
       }
     ) =>
       Vector3.random(
@@ -1852,7 +1852,7 @@ var _vector4_random = MXFunctionInvoke(
   "Vector4.random",
     (
       {
-      Random rng,
+      math.Random rng,
       }
     ) =>
       Vector4.random(

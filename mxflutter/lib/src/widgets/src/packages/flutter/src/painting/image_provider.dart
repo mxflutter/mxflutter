@@ -37,9 +37,9 @@ var _imageConfiguration = MXFunctionInvoke(
       {
       AssetBundle bundle,
       dynamic devicePixelRatio,
-      Locale locale,
-      TextDirection textDirection,
-      Size size,
+      ui.Locale locale,
+      ui.TextDirection textDirection,
+      ui.Size size,
       TargetPlatform platform,
       }
     ) =>

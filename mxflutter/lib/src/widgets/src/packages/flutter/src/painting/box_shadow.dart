@@ -23,8 +23,8 @@ var _boxShadow = MXFunctionInvoke(
     "BoxShadow",
     (
       {
-      Color color,
-      Offset offset,
+      ui.Color color,
+      ui.Offset offset,
       dynamic blurRadius = 0.0,
       dynamic spreadRadius = 0.0,
       }

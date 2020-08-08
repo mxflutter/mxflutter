@@ -37,8 +37,8 @@ var _fractionalOffset_fromOffsetAndSize = MXFunctionInvoke(
   "FractionalOffset.fromOffsetAndSize",
     (
       {
-      Offset offset,
-      Size size,
+      ui.Offset offset,
+      ui.Size size,
       }
     ) =>
       FractionalOffset.fromOffsetAndSize(
@@ -50,8 +50,8 @@ var _fractionalOffset_fromOffsetAndRect = MXFunctionInvoke(
   "FractionalOffset.fromOffsetAndRect",
     (
       {
-      Offset offset,
-      Rect rect,
+      ui.Offset offset,
+      ui.Rect rect,
       }
     ) =>
       FractionalOffset.fromOffsetAndRect(

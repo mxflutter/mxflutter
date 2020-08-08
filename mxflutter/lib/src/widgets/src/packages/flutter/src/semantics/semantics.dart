@@ -62,7 +62,7 @@ var _customSemanticsAction_overridingAction = MXFunctionInvoke(
     (
       {
       String hint,
-      SemanticsAction action,
+      ui.SemanticsAction action,
       }
     ) =>
       CustomSemanticsAction.overridingAction(
@@ -81,8 +81,8 @@ var _semanticsData = MXFunctionInvoke(
       String value,
       String decreasedValue,
       String hint,
-      TextDirection textDirection,
-      Rect rect,
+      ui.TextDirection textDirection,
+      ui.Rect rect,
       dynamic elevation,
       dynamic thickness,
       TextSelection textSelection,
@@ -169,7 +169,7 @@ var _semanticsProperties = MXFunctionInvoke(
       String decreasedValue,
       String hint,
       SemanticsHintOverrides hintOverrides,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       SemanticsSortKey sortKey,
       dynamic onTap,
       dynamic onLongPress,

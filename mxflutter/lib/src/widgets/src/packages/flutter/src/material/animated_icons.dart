@@ -25,10 +25,10 @@ var _animatedIcon = MXFunctionInvoke(
       Key key,
       AnimatedIconData icon,
       Animation<double> progress,
-      Color color,
+      ui.Color color,
       dynamic size,
       String semanticLabel,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       }
     ) =>
       AnimatedIcon(

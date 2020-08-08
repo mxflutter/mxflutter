@@ -44,16 +44,16 @@ var _renderParagraph = MXFunctionInvoke(
     (
       {
       InlineSpan text,
-      TextAlign textAlign = TextAlign.start,
-      TextDirection textDirection,
+      ui.TextAlign textAlign = ui.TextAlign.start,
+      ui.TextDirection textDirection,
       bool softWrap = true,
       TextOverflow overflow = TextOverflow.clip,
       dynamic textScaleFactor = 1.0,
       int maxLines,
-      Locale locale,
+      ui.Locale locale,
       StrutStyle strutStyle,
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
-      TextHeightBehavior textHeightBehavior,
+      ui.TextHeightBehavior textHeightBehavior,
       List<RenderBox> children,
       }
     ) =>

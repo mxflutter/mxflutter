@@ -30,12 +30,12 @@ var _defaultTextStyle = MXFunctionInvoke(
       {
       Key key,
       TextStyle style,
-      TextAlign textAlign,
+      ui.TextAlign textAlign,
       bool softWrap = true,
       TextOverflow overflow = TextOverflow.clip,
       int maxLines,
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
-      TextHeightBehavior textHeightBehavior,
+      ui.TextHeightBehavior textHeightBehavior,
       Widget child,
       }
     ) =>
@@ -70,16 +70,16 @@ var _text = MXFunctionInvoke(
       Key key,
       TextStyle style,
       StrutStyle strutStyle,
-      TextAlign textAlign,
-      TextDirection textDirection,
-      Locale locale,
+      ui.TextAlign textAlign,
+      ui.TextDirection textDirection,
+      ui.Locale locale,
       bool softWrap,
       TextOverflow overflow,
       dynamic textScaleFactor,
       int maxLines,
       String semanticsLabel,
       TextWidthBasis textWidthBasis,
-      TextHeightBehavior textHeightBehavior,
+      ui.TextHeightBehavior textHeightBehavior,
       }
     ) =>
       Text(
@@ -107,16 +107,16 @@ var _text_rich = MXFunctionInvoke(
       Key key,
       TextStyle style,
       StrutStyle strutStyle,
-      TextAlign textAlign,
-      TextDirection textDirection,
-      Locale locale,
+      ui.TextAlign textAlign,
+      ui.TextDirection textDirection,
+      ui.Locale locale,
       bool softWrap,
       TextOverflow overflow,
       dynamic textScaleFactor,
       int maxLines,
       String semanticsLabel,
       TextWidthBasis textWidthBasis,
-      TextHeightBehavior textHeightBehavior,
+      ui.TextHeightBehavior textHeightBehavior,
       }
     ) =>
       Text.rich(
