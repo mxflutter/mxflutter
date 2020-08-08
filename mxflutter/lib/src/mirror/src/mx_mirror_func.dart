@@ -12,6 +12,9 @@ class MXMirrorFunc {
   final constFuncStr = "funcName";
   final constClassStr = "className";
   final constConstructorStr = "constructorName";
+  final constEnumNameStr = "_name";
+  final constReplaceEnumNameStr = "name";
+  final constEnumIndexStr = "index";
 
   // funcName到Fun方法的映射表
   var _funcName2FunMap = <String, dynamic>{};
@@ -39,7 +42,8 @@ class MXMirrorFunc {
   }
 
   /// 调用Function.apply方法，通过 callback 返回结果
-  void invokeWithCallback(Map jsonMap, void Function(dynamic result) callback, { MXJsonBuildOwner buildOwner }) {
+  void invokeWithCallback(Map jsonMap, void Function(dynamic result) callback,
+      {MXJsonBuildOwner buildOwner}) {
     var result = invoke(jsonMap, buildOwner: buildOwner);
     if (callback != null) {
       callback(result);
@@ -47,7 +51,7 @@ class MXMirrorFunc {
   }
 
   /// 调用Function.apply方法。直接返回结果
-  dynamic invoke(Map jsonMap, { MXJsonBuildOwner buildOwner }) {
+  dynamic invoke(Map jsonMap, {MXJsonBuildOwner buildOwner}) {
     // 判断是否存在fun字段
     if (jsonMap[constFuncStr] == null) {
       return null;
@@ -61,7 +65,8 @@ class MXMirrorFunc {
     try {
       var namedArguments = <Symbol, dynamic>{};
       for (var name in jsonMap.keys) {
-        namedArguments[Symbol(name)] = _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
+        namedArguments[Symbol(name)] =
+            _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
       }
       // 为方便处理，此处都使用命名参数，不用位置参数
       var result = fi.apply(namedArguments);
@@ -81,8 +86,8 @@ class MXMirrorFunc {
   bool canInvoke(String funcName) {
     return _funcName2FunMap[funcName] != null;
   }
-  
-  /// 获取对象方法名称 
+
+  /// 获取对象方法名称
   String objectFuncName(Map jsonMap) {
     var className = jsonMap[constClassStr];
     var funcName = jsonMap[constFuncStr];
@@ -92,31 +97,44 @@ class MXMirrorFunc {
 
     return className + "_" + funcName;
   }
-  
+
   /// 获取构造方法名称
   String constructorFuncName(Map jsonMap) {
     var className = jsonMap[constClassStr];
-    var constructorName = jsonMap[constConstructorStr];
-    if (className == null) {
-      return null;
-    }
 
-    // 若 constructorName 不为空，则为静态方法。例如：Image.network
-    if (constructorName != null) {
-      return className + '.' + constructorName;
+    // className不为空
+    if (className != null) {
+      var constructorName = jsonMap[constConstructorStr];
+      // 若 constructorName 不为空，则为静态方法。例如：Image.network
+      if (constructorName != null) {
+        return className + '.' + constructorName;
+      }
+      return className;
+    }
+    // 枚举
+    else if (_isEnumType(jsonMap)) {
+      String name = jsonMap[constEnumNameStr];
+      List strList = name.split('.');
+      return strList[0];
     }
     return className;
   }
-  
+
   /// 移除func、className、constructorName等辅助字段
   void _removeHelpProperty(Map jsonMap) {
     jsonMap.remove(constFuncStr);
     jsonMap.remove(constClassStr);
     jsonMap.remove(constConstructorStr);
+
+    // 针对枚举类型，把_name替换成name
+    if (_isEnumType(jsonMap)) {
+      jsonMap[constReplaceEnumNameStr] = jsonMap[constEnumNameStr];
+      jsonMap.remove(constEnumNameStr);
+    }
   }
 
   /// 将json装成flutter对象
-  dynamic _jsonToDartObject(dynamic json, { MXJsonBuildOwner buildOwner }) {
+  dynamic _jsonToDartObject(dynamic json, {MXJsonBuildOwner buildOwner}) {
     if (json is Map) {
       String funcName = json[constFuncStr];
       Map<String, dynamic> newJsonMap = Map.from(json);
@@ -124,7 +142,7 @@ class MXMirrorFunc {
         funcName = constructorFuncName(json);
         newJsonMap[constFuncStr] = funcName;
       }
-      
+
       if (!canInvoke(funcName)) {
         return json;
       }
@@ -139,5 +157,13 @@ class MXMirrorFunc {
     } else {
       return json;
     }
+  }
+
+  /// 是否是枚举类型
+  bool _isEnumType(Map jsonMap) {
+    // 仅包含_name和index两个属性。如{"_name" : "TextAlign.right", "index" : 1}
+    return jsonMap.keys.length == 2 &&
+        jsonMap[constEnumNameStr] != null &&
+        jsonMap[constEnumIndexStr] != null;
   }
 }
