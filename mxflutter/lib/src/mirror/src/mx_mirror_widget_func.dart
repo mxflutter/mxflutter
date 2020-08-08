@@ -1,5 +1,6 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:mxflutter/src/widgets/mx_widgets.dart';
+import 'package:mxflutter/src/widgets/src/packages/flutter/src/foundation/collections.dart';
 
 /// 注册widget方法
 void registerMirrorWidgetFunc() {
@@ -13,39 +14,32 @@ void registerMirrorWidgetFunc() {
 //  // Layout
 //  MXMirrorFunc.getInstance().registerBizFunction(registerLayoutSeriesOld());
 
+
   // flutter/animation
-  MXMirrorFunc.getInstance().registerBizFunction(registerAnimationSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerAnimationLibrarySeries());
   // flutter/cupertino
-  MXMirrorFunc.getInstance().registerBizFunction(registerCupertinoSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerCupertinoLibrarySeries());
   // flutter/foundation
-  MXMirrorFunc.getInstance().registerBizFunction(registerFoundationSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerFoundationLibrarySeries());
   // flutter/gestures
-  MXMirrorFunc.getInstance().registerBizFunction(registerGesturesSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerGesturesLibrarySeries());
   // flutter/material
-  MXMirrorFunc.getInstance().registerBizFunction(registerMaterialSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerMaterialLibrarySeries());
   // flutter/painting
-  MXMirrorFunc.getInstance().registerBizFunction(registerPaintingSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerPaintingLibrarySeries());
   // flutter/physics
-  MXMirrorFunc.getInstance().registerBizFunction(registerPhysicsSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerPhysicsLibrarySeries());
   // flutter/rendering
-  MXMirrorFunc.getInstance().registerBizFunction(registerRenderingSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerRenderingLibrarySeries());
   // flutter/scheduler
-  MXMirrorFunc.getInstance().registerBizFunction(registerSchedulerSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerSchedulerLibrarySeries());
   // flutter/semantics
-  MXMirrorFunc.getInstance().registerBizFunction(registerSemanticsSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerSemanticsLibrarySeries());
   // flutter/services
-  MXMirrorFunc.getInstance().registerBizFunction(registerServicesSeries());
-
+  MXMirrorFunc.getInstance().registerBizFunction(registerServicesLibrarySeries());
   // flutter/widgets
-  MXMirrorFunc.getInstance().registerBizFunction(registerWidgetsSeries());
+  MXMirrorFunc.getInstance().registerBizFunction(registerWidgetsLibrarySeries());
+
+  // mx_dart_sdk
+  MXMirrorFunc.getInstance().registerBizFunction(registerMxDartSdkSeries());
 }
