@@ -9,21 +9,21 @@ import 'dart:ui';
 import 'dart:async';
 import 'dart:collection' as collection;
 import 'dart:convert';
-import 'dart:html' as html;
+// import 'dart:html' as html;
 import 'dart:math' as math;
 import 'dart:typed_data';
-import 'dart:_engine' as engine;
-import 'dart:_engine';
+// import 'dart:_engine' as engine;
+// import 'dart:_engine';
 import 'dart:core';
-import 'dart:_internal' as _symbol_dev;
-import 'dart:_interceptors';
-import 'dart:_js_helper';
-import 'dart:_runtime' as dart;
-import 'dart:_foreign_helper';
-import 'dart:_native_typed_data';
+// import 'dart:_internal' as _symbol_dev;
+// import 'dart:_interceptors';
+// import 'dart:_js_helper';
+// import 'dart:_runtime' as dart;
+// import 'dart:_foreign_helper';
+// import 'dart:_native_typed_data';
 import 'dart:collection';
-import 'dart:_internal';
-import 'dart:_internal' as internal;
+// import 'dart:_internal';
+// import 'dart:_internal' as internal;
 import 'dart:math';
 
 
@@ -39,10 +39,10 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_canvas.funName] = _canvas;
   m[_pathFillType.funName] = _pathFillType;
   m[_pathOperation.funName] = _pathOperation;
-  m[_rawRecordingCanvas.funName] = _rawRecordingCanvas;
+  // m[_rawRecordingCanvas.funName] = _rawRecordingCanvas;
   m[_channelBuffers.funName] = _channelBuffers;
   m[_sceneBuilder.funName] = _sceneBuilder;
-  m[_engineLayer.funName] = _engineLayer;
+  // m[_engineLayer.funName] = _engineLayer;
   m[_sceneHost.funName] = _sceneHost;
   m[_offset.funName] = _offset;
   m[_offset_fromDirection.funName] = _offset_fromDirection;
@@ -139,9 +139,9 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_locale_fromSubtags.funName] = _locale_fromSubtags;
   m[_brightness.funName] = _brightness;
   m[_callbackHandle_fromRawHandle.funName] = _callbackHandle_fromRawHandle;
-  m[_pluginUtilities.funName] = _pluginUtilities;
+  // m[_pluginUtilities.funName] = _pluginUtilities;
   m[_imageShader.funName] = _imageShader;
-  m[_isolateNameServer.funName] = _isolateNameServer;
+  // m[_isolateNameServer.funName] = _isolateNameServer;
   m[_framePhase.funName] = _framePhase;
   m[_frameTiming.funName] = _frameTiming;
   m[_deprecated.funName] = _deprecated;
@@ -171,7 +171,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_indexError.funName] = _indexError;
   m[_fallThroughError.funName] = _fallThroughError;
   m[_abstractClassInstantiationError.funName] = _abstractClassInstantiationError;
-  m[_noSuchMethodError.funName] = _noSuchMethodError;
+  // m[_noSuchMethodError.funName] = _noSuchMethodError;
   m[_noSuchMethodError_withInvocation.funName] = _noSuchMethodError_withInvocation;
   m[_unsupportedError.funName] = _unsupportedError;
   m[_unimplementedError.funName] = _unimplementedError;
@@ -185,10 +185,10 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_integerDivisionByZeroException.funName] = _integerDivisionByZeroException;
   m[_expando.funName] = _expando;
   m[_int_fromEnvironment.funName] = _int_fromEnvironment;
-  m[_invocation_method.funName] = _invocation_method;
-  m[_invocation_genericMethod.funName] = _invocation_genericMethod;
-  m[_invocation_getter.funName] = _invocation_getter;
-  m[_invocation_setter.funName] = _invocation_setter;
+  // m[_invocation_method.funName] = _invocation_method;
+  // m[_invocation_genericMethod.funName] = _invocation_genericMethod;
+  // m[_invocation_getter.funName] = _invocation_getter;
+  // m[_invocation_setter.funName] = _invocation_setter;
   m[_iterable_generate.funName] = _iterable_generate;
   m[_iterable_empty.funName] = _iterable_empty;
   m[_list.funName] = _list;
@@ -222,7 +222,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_runeIterator.funName] = _runeIterator;
   m[_runeIterator_at.funName] = _runeIterator_at;
   m[_stringBuffer.funName] = _stringBuffer;
-  m[_symbol.funName] = _symbol;
+  // m[_symbol.funName] = _symbol;
   m[_uri.funName] = _uri;
   m[_uri_http.funName] = _uri_http;
   m[_uri_https.funName] = _uri_https;
@@ -313,17 +313,17 @@ var _pathOperation = MXFunctionInvoke(
     "PathOperation",
     ({Map args}) => MXPathOperation.parse(args),
   );
-var _rawRecordingCanvas = MXFunctionInvoke(
-    "RawRecordingCanvas",
-    (
-      {
-      Size size,
-      }
-    ) =>
-      RawRecordingCanvas(
-      size,
-    ),
-);
+// var _rawRecordingCanvas = MXFunctionInvoke(
+//     "RawRecordingCanvas",
+//     (
+//       {
+//       Size size,
+//       }
+//     ) =>
+//       RawRecordingCanvas(
+//       size,
+//     ),
+// );
 var _channelBuffers = MXFunctionInvoke(
     "ChannelBuffers",
     (
@@ -338,13 +338,13 @@ var _sceneBuilder = MXFunctionInvoke(
       SceneBuilder(
     ),
 );
-var _engineLayer = MXFunctionInvoke(
-    "EngineLayer",
-    (
-    ) =>
-      EngineLayer(
-    ),
-);
+// var _engineLayer = MXFunctionInvoke(
+//     "EngineLayer",
+//     (
+//     ) =>
+//       EngineLayer(
+//     ),
+// );
 var _sceneHost = MXFunctionInvoke(
     "SceneHost",
     (
@@ -713,7 +713,7 @@ var _point = MXFunctionInvoke(
       dynamic y,
       }
     ) =>
-      Point(
+      Point<double>( ///TODO:先写死double吧
       x?.toDouble(),
       y?.toDouble(),
     ),
@@ -1519,13 +1519,13 @@ var _callbackHandle_fromRawHandle = MXFunctionInvoke(
       handle,
     ),
 );
-var _pluginUtilities = MXFunctionInvoke(
-    "PluginUtilities",
-    (
-    ) =>
-      PluginUtilities(
-    ),
-);
+// var _pluginUtilities = MXFunctionInvoke(
+//     "PluginUtilities",
+//     (
+//     ) =>
+//       PluginUtilities(
+//     ),
+// );
 var _imageShader = MXFunctionInvoke(
     "ImageShader",
     (
@@ -1543,13 +1543,13 @@ var _imageShader = MXFunctionInvoke(
       matrix4,
     ),
 );
-var _isolateNameServer = MXFunctionInvoke(
-    "IsolateNameServer",
-    (
-    ) =>
-      IsolateNameServer(
-    ),
-);
+// var _isolateNameServer = MXFunctionInvoke(
+//     "IsolateNameServer",
+//     (
+//     ) =>
+//       IsolateNameServer(
+//     ),
+// );
 var _framePhase = MXFunctionInvoke(
     "FramePhase",
     ({Map args}) => MXFramePhase.parse(args),
@@ -1916,25 +1916,25 @@ var _abstractClassInstantiationError = MXFunctionInvoke(
       className,
     ),
 );
-var _noSuchMethodError = MXFunctionInvoke(
-    "NoSuchMethodError",
-    (
-      {
-      Object receiver,
-      Symbol memberName,
-      List<dynamic> positionalArguments,
-      Map<Symbol, dynamic> namedArguments,
-      List<dynamic> existingArgumentNames,
-      }
-    ) =>
-      NoSuchMethodError(
-      receiver,
-      memberName,
-      positionalArguments,
-      namedArguments,
-      existingArgumentNames,
-    ),
-);
+// var _noSuchMethodError = MXFunctionInvoke(
+//     "NoSuchMethodError",
+//     (
+//       {
+//       Object receiver,
+//       Symbol memberName,
+//       List<dynamic> positionalArguments,
+//       Map<Symbol, dynamic> namedArguments,
+//       List<dynamic> existingArgumentNames,
+//       }
+//     ) =>
+//       NoSuchMethodError(
+//       receiver,
+//       memberName,
+//       positionalArguments,
+//       namedArguments,
+//       existingArgumentNames,
+//     ),
+// );
 var _noSuchMethodError_withInvocation = MXFunctionInvoke(
   "NoSuchMethodError.withInvocation",
     (
@@ -2074,62 +2074,62 @@ var _int_fromEnvironment = MXFunctionInvoke(
       defaultValue: defaultValue,
     ),
 );
-var _invocation_method = MXFunctionInvoke(
-  "Invocation.method",
-    (
-      {
-      Symbol memberName,
-      Iterable<Object> positionalArguments,
-      Map<Symbol, Object> namedArguments,
-      }
-    ) =>
-      Invocation.method(
-      memberName,
-      positionalArguments,
-      namedArguments,
-    ),
-);
-var _invocation_genericMethod = MXFunctionInvoke(
-  "Invocation.genericMethod",
-    (
-      {
-      Symbol memberName,
-      Iterable<Type> typeArguments,
-      Iterable<Object> positionalArguments,
-      Map<Symbol, Object> namedArguments,
-      }
-    ) =>
-      Invocation.genericMethod(
-      memberName,
-      typeArguments,
-      positionalArguments,
-      namedArguments,
-    ),
-);
-var _invocation_getter = MXFunctionInvoke(
-  "Invocation.getter",
-    (
-      {
-      Symbol name,
-      }
-    ) =>
-      Invocation.getter(
-      name,
-    ),
-);
-var _invocation_setter = MXFunctionInvoke(
-  "Invocation.setter",
-    (
-      {
-      Symbol memberName,
-      Object argument,
-      }
-    ) =>
-      Invocation.setter(
-      memberName,
-      argument,
-    ),
-);
+// var _invocation_method = MXFunctionInvoke(
+//   "Invocation.method",
+//     (
+//       {
+//       Symbol memberName,
+//       Iterable<Object> positionalArguments,
+//       Map<Symbol, Object> namedArguments,
+//       }
+//     ) =>
+//       Invocation.method(
+//       memberName,
+//       positionalArguments,
+//       namedArguments,
+//     ),
+// );
+// var _invocation_genericMethod = MXFunctionInvoke(
+//   "Invocation.genericMethod",
+//     (
+//       {
+//       Symbol memberName,
+//       Iterable<Type> typeArguments,
+//       Iterable<Object> positionalArguments,
+//       Map<Symbol, Object> namedArguments,
+//       }
+//     ) =>
+//       Invocation.genericMethod(
+//       memberName,
+//       typeArguments,
+//       positionalArguments,
+//       namedArguments,
+//     ),
+// );
+// var _invocation_getter = MXFunctionInvoke(
+//   "Invocation.getter",
+//     (
+//       {
+//       Symbol name,
+//       }
+//     ) =>
+//       Invocation.getter(
+//       name,
+//     ),
+// );
+// var _invocation_setter = MXFunctionInvoke(
+//   "Invocation.setter",
+//     (
+//       {
+//       Symbol memberName,
+//       Object argument,
+//       }
+//     ) =>
+//       Invocation.setter(
+//       memberName,
+//       argument,
+//     ),
+// );
 var _iterable_generate = MXFunctionInvoke(
   "Iterable.generate",
     (
@@ -2519,17 +2519,17 @@ var _stringBuffer = MXFunctionInvoke(
       content,
     ),
 );
-var _symbol = MXFunctionInvoke(
-    "Symbol",
-    (
-      {
-      String name,
-      }
-    ) =>
-      Symbol(
-      name,
-    ),
-);
+// var _symbol = MXFunctionInvoke(
+//     "Symbol",
+//     (
+//       {
+//       String name,
+//       }
+//     ) =>
+//       Symbol(
+//       name,
+//     ),
+// );
 var _uri = MXFunctionInvoke(
     "Uri",
     (
