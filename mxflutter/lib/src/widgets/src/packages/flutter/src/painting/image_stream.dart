@@ -28,7 +28,7 @@ var _imageInfo = MXFunctionInvoke(
     "ImageInfo",
     (
       {
-      Image image,
+      ui.Image image,
       dynamic scale = 1.0,
       }
     ) =>
@@ -89,7 +89,7 @@ var _multiFrameImageStreamCompleter = MXFunctionInvoke(
     "MultiFrameImageStreamCompleter",
     (
       {
-      Future<Codec> codec,
+      Future<ui.Codec> codec,
       dynamic scale,
       Stream<ImageChunkEvent> chunkEvents,
       dynamic informationCollector,

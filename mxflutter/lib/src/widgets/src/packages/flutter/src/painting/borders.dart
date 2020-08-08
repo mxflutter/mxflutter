@@ -28,7 +28,7 @@ var _borderSide = MXFunctionInvoke(
     "BorderSide",
     (
       {
-      Color color,
+      ui.Color color,
       dynamic width = 1.0,
       BorderStyle style = BorderStyle.solid,
       }

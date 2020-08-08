@@ -43,7 +43,7 @@ var _paintingContext = MXFunctionInvoke(
     (
       {
       ContainerLayer containerLayer,
-      Rect estimatedBounds,
+      ui.Rect estimatedBounds,
       }
     ) =>
       PaintingContext(

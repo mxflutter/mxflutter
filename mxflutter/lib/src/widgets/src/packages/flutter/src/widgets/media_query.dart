@@ -34,10 +34,10 @@ var _mediaQueryData = MXFunctionInvoke(
     "MediaQueryData",
     (
       {
-      Size size,
+      ui.Size size,
       dynamic devicePixelRatio = 1.0,
       dynamic textScaleFactor = 1.0,
-      Brightness platformBrightness = Brightness.light,
+      ui.Brightness platformBrightness = ui.Brightness.light,
       EdgeInsets padding,
       EdgeInsets viewInsets,
       EdgeInsets systemGestureInsets,
@@ -73,7 +73,7 @@ var _mediaQueryData_fromWindow = MXFunctionInvoke(
   "MediaQueryData.fromWindow",
     (
       {
-      Window window,
+      ui.Window window,
       }
     ) =>
       MediaQueryData.fromWindow(
