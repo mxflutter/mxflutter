@@ -34,8 +34,8 @@ var _textSelectionPoint = MXFunctionInvoke(
     "TextSelectionPoint",
     (
       {
-      Offset point,
-      TextDirection direction,
+      ui.Offset point,
+      ui.TextDirection direction,
       }
     ) =>
       TextSelectionPoint(
@@ -48,10 +48,10 @@ var _renderEditable = MXFunctionInvoke(
     (
       {
       TextSpan text,
-      TextDirection textDirection,
-      TextAlign textAlign = TextAlign.start,
-      Color cursorColor,
-      Color backgroundCursorColor,
+      ui.TextDirection textDirection,
+      ui.TextAlign textAlign = ui.TextAlign.start,
+      ui.Color cursorColor,
+      ui.Color backgroundCursorColor,
       ValueNotifier<bool> showCursor,
       bool hasFocus,
       LayerLink startHandleLayerLink,
@@ -60,7 +60,7 @@ var _renderEditable = MXFunctionInvoke(
       int minLines,
       bool expands = false,
       StrutStyle strutStyle,
-      Color selectionColor,
+      ui.Color selectionColor,
       dynamic textScaleFactor = 1.0,
       TextSelection selection,
       ViewportOffset offset,
@@ -71,14 +71,14 @@ var _renderEditable = MXFunctionInvoke(
       bool forceLine = true,
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
       bool obscureText = false,
-      Locale locale,
+      ui.Locale locale,
       dynamic cursorWidth = 1.0,
-      Radius cursorRadius,
+      ui.Radius cursorRadius,
       bool paintCursorAboveText = false,
-      Offset cursorOffset,
+      ui.Offset cursorOffset,
       dynamic devicePixelRatio = 1.0,
-      BoxHeightStyle selectionHeightStyle = BoxHeightStyle.tight,
-      BoxWidthStyle selectionWidthStyle = BoxWidthStyle.tight,
+      ui.BoxHeightStyle selectionHeightStyle = ui.BoxHeightStyle.tight,
+      ui.BoxWidthStyle selectionWidthStyle = ui.BoxWidthStyle.tight,
       bool enableInteractiveSelection,
       EdgeInsets floatingCursorAddedMargin,
       TextSelectionDelegate textSelectionDelegate,

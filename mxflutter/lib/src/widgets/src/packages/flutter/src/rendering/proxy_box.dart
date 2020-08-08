@@ -183,7 +183,7 @@ var _renderShaderMask = MXFunctionInvoke(
       {
       RenderBox child,
       dynamic shaderCallback,
-      BlendMode blendMode = BlendMode.modulate,
+      ui.BlendMode blendMode = ui.BlendMode.modulate,
       }
     ) =>
       RenderShaderMask(
@@ -197,7 +197,7 @@ var _renderBackdropFilter = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      ImageFilter filter,
+      ui.ImageFilter filter,
       }
     ) =>
       RenderBackdropFilter(
@@ -210,7 +210,7 @@ var _shapeBorderClipper = MXFunctionInvoke(
     (
       {
       ShapeBorder shape,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       }
     ) =>
       ShapeBorderClipper(
@@ -223,8 +223,8 @@ var _renderClipRect = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      CustomClipper<Rect> clipper,
-      Clip clipBehavior = Clip.antiAlias,
+      CustomClipper<ui.Rect> clipper,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       }
     ) =>
       RenderClipRect(
@@ -239,8 +239,8 @@ var _renderClipRRect = MXFunctionInvoke(
       {
       RenderBox child,
       BorderRadius borderRadius,
-      CustomClipper<RRect> clipper,
-      Clip clipBehavior = Clip.antiAlias,
+      CustomClipper<ui.RRect> clipper,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       }
     ) =>
       RenderClipRRect(
@@ -255,8 +255,8 @@ var _renderClipOval = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      CustomClipper<Rect> clipper,
-      Clip clipBehavior = Clip.antiAlias,
+      CustomClipper<ui.Rect> clipper,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       }
     ) =>
       RenderClipOval(
@@ -270,8 +270,8 @@ var _renderClipPath = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      CustomClipper<Path> clipper,
-      Clip clipBehavior = Clip.antiAlias,
+      CustomClipper<ui.Path> clipper,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       }
     ) =>
       RenderClipPath(
@@ -286,11 +286,11 @@ var _renderPhysicalModel = MXFunctionInvoke(
       {
       RenderBox child,
       BoxShape shape = BoxShape.rectangle,
-      Clip clipBehavior = Clip.none,
+      ui.Clip clipBehavior = ui.Clip.none,
       BorderRadius borderRadius,
       dynamic elevation = 0.0,
-      Color color,
-      Color shadowColor,
+      ui.Color color,
+      ui.Color shadowColor,
       }
     ) =>
       RenderPhysicalModel(
@@ -308,11 +308,11 @@ var _renderPhysicalShape = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      CustomClipper<Path> clipper,
-      Clip clipBehavior = Clip.none,
+      CustomClipper<ui.Path> clipper,
+      ui.Clip clipBehavior = ui.Clip.none,
       dynamic elevation = 0.0,
-      Color color,
-      Color shadowColor,
+      ui.Color color,
+      ui.Color shadowColor,
       }
     ) =>
       RenderPhysicalShape(
@@ -350,9 +350,9 @@ var _renderTransform = MXFunctionInvoke(
     (
       {
       Matrix4 transform,
-      Offset origin,
+      ui.Offset origin,
       AlignmentGeometry alignment,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       bool transformHitTests = true,
       RenderBox child,
       }
@@ -372,7 +372,7 @@ var _renderFittedBox = MXFunctionInvoke(
       {
       BoxFit fit = BoxFit.contain,
       AlignmentGeometry alignment,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       RenderBox child,
       }
     ) =>
@@ -387,7 +387,7 @@ var _renderFractionalTranslation = MXFunctionInvoke(
     "RenderFractionalTranslation",
     (
       {
-      Offset translation,
+      ui.Offset translation,
       bool transformHitTests = true,
       RenderBox child,
       }
@@ -565,7 +565,7 @@ var _renderSemanticsAnnotations = MXFunctionInvoke(
       String decreasedValue,
       String hint,
       SemanticsHintOverrides hintOverrides,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       SemanticsSortKey sortKey,
       dynamic onTap,
       dynamic onDismiss,
@@ -714,7 +714,7 @@ var _renderFollowerLayer = MXFunctionInvoke(
       {
       LayerLink link,
       bool showWhenUnlinked = true,
-      Offset offset,
+      ui.Offset offset,
       RenderBox child,
       }
     ) =>

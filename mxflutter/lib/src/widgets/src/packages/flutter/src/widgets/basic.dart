@@ -111,7 +111,7 @@ var _directionality = MXFunctionInvoke(
     (
       {
       Key key,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       Widget child,
       }
     ) =>
@@ -144,7 +144,7 @@ var _shaderMask = MXFunctionInvoke(
       {
       Key key,
       dynamic shaderCallback,
-      BlendMode blendMode = BlendMode.modulate,
+      ui.BlendMode blendMode = ui.BlendMode.modulate,
       Widget child,
       }
     ) =>
@@ -160,7 +160,7 @@ var _backdropFilter = MXFunctionInvoke(
     (
       {
       Key key,
-      ImageFilter filter,
+      ui.ImageFilter filter,
       Widget child,
       }
     ) =>
@@ -177,7 +177,7 @@ var _customPaint = MXFunctionInvoke(
       Key key,
       CustomPainter painter,
       CustomPainter foregroundPainter,
-      Size size,
+      ui.Size size,
       bool isComplex = false,
       bool willChange = false,
       Widget child,
@@ -198,8 +198,8 @@ var _clipRect = MXFunctionInvoke(
     (
       {
       Key key,
-      CustomClipper<Rect> clipper,
-      Clip clipBehavior = Clip.hardEdge,
+      CustomClipper<ui.Rect> clipper,
+      ui.Clip clipBehavior = ui.Clip.hardEdge,
       Widget child,
       }
     ) =>
@@ -216,8 +216,8 @@ var _clipRRect = MXFunctionInvoke(
       {
       Key key,
       BorderRadius borderRadius,
-      CustomClipper<RRect> clipper,
-      Clip clipBehavior = Clip.antiAlias,
+      CustomClipper<ui.RRect> clipper,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       Widget child,
       }
     ) =>
@@ -234,8 +234,8 @@ var _clipOval = MXFunctionInvoke(
     (
       {
       Key key,
-      CustomClipper<Rect> clipper,
-      Clip clipBehavior = Clip.antiAlias,
+      CustomClipper<ui.Rect> clipper,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       Widget child,
       }
     ) =>
@@ -251,8 +251,8 @@ var _clipPath = MXFunctionInvoke(
     (
       {
       Key key,
-      CustomClipper<Path> clipper,
-      Clip clipBehavior = Clip.antiAlias,
+      CustomClipper<ui.Path> clipper,
+      ui.Clip clipBehavior = ui.Clip.antiAlias,
       Widget child,
       }
     ) =>
@@ -269,11 +269,11 @@ var _physicalModel = MXFunctionInvoke(
       {
       Key key,
       BoxShape shape = BoxShape.rectangle,
-      Clip clipBehavior = Clip.none,
+      ui.Clip clipBehavior = ui.Clip.none,
       BorderRadius borderRadius,
       dynamic elevation = 0.0,
-      Color color,
-      Color shadowColor,
+      ui.Color color,
+      ui.Color shadowColor,
       Widget child,
       }
     ) =>
@@ -293,11 +293,11 @@ var _physicalShape = MXFunctionInvoke(
     (
       {
       Key key,
-      CustomClipper<Path> clipper,
-      Clip clipBehavior = Clip.none,
+      CustomClipper<ui.Path> clipper,
+      ui.Clip clipBehavior = ui.Clip.none,
       dynamic elevation = 0.0,
-      Color color,
-      Color shadowColor,
+      ui.Color color,
+      ui.Color shadowColor,
       Widget child,
       }
     ) =>
@@ -317,7 +317,7 @@ var _transform = MXFunctionInvoke(
       {
       Key key,
       Matrix4 transform,
-      Offset origin,
+      ui.Offset origin,
       AlignmentGeometry alignment,
       bool transformHitTests = true,
       Widget child,
@@ -338,7 +338,7 @@ var _transform_rotate = MXFunctionInvoke(
       {
       Key key,
       dynamic angle,
-      Offset origin,
+      ui.Offset origin,
       AlignmentGeometry alignment,
       bool transformHitTests = true,
       Widget child,
@@ -358,7 +358,7 @@ var _transform_translate = MXFunctionInvoke(
     (
       {
       Key key,
-      Offset offset,
+      ui.Offset offset,
       bool transformHitTests = true,
       Widget child,
       }
@@ -376,7 +376,7 @@ var _transform_scale = MXFunctionInvoke(
       {
       Key key,
       dynamic scale,
-      Offset origin,
+      ui.Offset origin,
       AlignmentGeometry alignment,
       bool transformHitTests = true,
       Widget child,
@@ -413,7 +413,7 @@ var _compositedTransformFollower = MXFunctionInvoke(
       Key key,
       LayerLink link,
       bool showWhenUnlinked = true,
-      Offset offset,
+      ui.Offset offset,
       Widget child,
       }
     ) =>
@@ -447,7 +447,7 @@ var _fractionalTranslation = MXFunctionInvoke(
     (
       {
       Key key,
-      Offset translation,
+      ui.Offset translation,
       bool transformHitTests = true,
       Widget child,
       }
@@ -619,7 +619,7 @@ var _sizedBox_fromSize = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      Size size,
+      ui.Size size,
       }
     ) =>
       SizedBox.fromSize(
@@ -649,7 +649,7 @@ var _unconstrainedBox = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       AlignmentGeometry alignment,
       Axis constrainedAxis,
       }
@@ -726,7 +726,7 @@ var _sizedOverflowBox = MXFunctionInvoke(
     (
       {
       Key key,
-      Size size,
+      ui.Size size,
       AlignmentGeometry alignment,
       Widget child,
       }
@@ -804,7 +804,7 @@ var _baseline = MXFunctionInvoke(
       {
       Key key,
       dynamic baseline,
-      TextBaseline baselineType,
+      ui.TextBaseline baselineType,
       Widget child,
       }
     ) =>
@@ -866,7 +866,7 @@ var _stack = MXFunctionInvoke(
       {
       Key key,
       AlignmentGeometry alignment,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       StackFit fit = StackFit.loose,
       Overflow overflow = Overflow.clip,
       List<Widget> children,
@@ -887,7 +887,7 @@ var _indexedStack = MXFunctionInvoke(
       {
       Key key,
       AlignmentGeometry alignment,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       StackFit sizing = StackFit.loose,
       int index = 0,
       List<Widget> children,
@@ -932,7 +932,7 @@ var _positioned_directional = MXFunctionInvoke(
     (
       {
       Key key,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       dynamic start,
       dynamic top,
       dynamic end,
@@ -959,7 +959,7 @@ var _positioned_fromRect = MXFunctionInvoke(
     (
       {
       Key key,
-      Rect rect,
+      ui.Rect rect,
       Widget child,
       }
     ) =>
@@ -1039,9 +1039,9 @@ var _flex = MXFunctionInvoke(
       MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
       MainAxisSize mainAxisSize = MainAxisSize.max,
       CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
-      TextBaseline textBaseline,
+      ui.TextBaseline textBaseline,
       List<Widget> children,
       }
     ) =>
@@ -1065,9 +1065,9 @@ var _row = MXFunctionInvoke(
       MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
       MainAxisSize mainAxisSize = MainAxisSize.max,
       CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
-      TextBaseline textBaseline,
+      ui.TextBaseline textBaseline,
       List<Widget> children,
       }
     ) =>
@@ -1090,9 +1090,9 @@ var _column = MXFunctionInvoke(
       MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
       MainAxisSize mainAxisSize = MainAxisSize.max,
       CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
-      TextBaseline textBaseline,
+      ui.TextBaseline textBaseline,
       List<Widget> children,
       }
     ) =>
@@ -1150,7 +1150,7 @@ var _wrap = MXFunctionInvoke(
       WrapAlignment runAlignment = WrapAlignment.start,
       dynamic runSpacing = 0.0,
       WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
       List<Widget> children,
       }
@@ -1204,16 +1204,16 @@ var _richText = MXFunctionInvoke(
       {
       Key key,
       InlineSpan text,
-      TextAlign textAlign = TextAlign.start,
-      TextDirection textDirection,
+      ui.TextAlign textAlign = ui.TextAlign.start,
+      ui.TextDirection textDirection,
       bool softWrap = true,
       TextOverflow overflow = TextOverflow.clip,
       dynamic textScaleFactor = 1.0,
       int maxLines,
-      Locale locale,
+      ui.Locale locale,
       StrutStyle strutStyle,
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
-      TextHeightBehavior textHeightBehavior,
+      ui.TextHeightBehavior textHeightBehavior,
       }
     ) =>
       RichText(
@@ -1236,19 +1236,19 @@ var _rawImage = MXFunctionInvoke(
     (
       {
       Key key,
-      Image image,
+      ui.Image image,
       dynamic width,
       dynamic height,
       dynamic scale = 1.0,
-      Color color,
-      BlendMode colorBlendMode,
+      ui.Color color,
+      ui.BlendMode colorBlendMode,
       BoxFit fit,
       AlignmentGeometry alignment,
       ImageRepeat repeat = ImageRepeat.noRepeat,
-      Rect centerSlice,
+      ui.Rect centerSlice,
       bool matchTextDirection = false,
       bool invertColors = false,
-      FilterQuality filterQuality = FilterQuality.low,
+      ui.FilterQuality filterQuality = ui.FilterQuality.low,
       }
     ) =>
       RawImage(
@@ -1462,7 +1462,7 @@ var _semantics = MXFunctionInvoke(
       String hint,
       String onTapHint,
       String onLongPressHint,
-      TextDirection textDirection,
+      ui.TextDirection textDirection,
       SemanticsSortKey sortKey,
       dynamic onTap,
       dynamic onLongPress,
@@ -1675,7 +1675,7 @@ var _coloredBox = MXFunctionInvoke(
     "ColoredBox",
     (
       {
-      Color color,
+      ui.Color color,
       Widget child,
       Key key,
       }

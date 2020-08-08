@@ -85,7 +85,7 @@ var _edgeInsets_fromWindowPadding = MXFunctionInvoke(
   "EdgeInsets.fromWindowPadding",
     (
       {
-      WindowPadding padding,
+      ui.WindowPadding padding,
       dynamic devicePixelRatio,
       }
     ) =>
