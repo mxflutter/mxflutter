@@ -12,6 +12,14 @@ List<T> toListT<T>(list) {
   return List<T>.from(list);
 }
 
+///TODO:此处还有问题
+Map<T, S> toMapT<T, S>(Map map) {
+  Map<T, S> result = map?.map((k, v) {
+    return MapEntry<T, S>(k, v);
+  });
+  return result;
+}
+
 /// 转Map<int, T>类型
 Map<int, T> toMapIntT<T>(Map map) {
   Map<int, T> result = map?.map((k, v) {
