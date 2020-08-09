@@ -5,35 +5,24 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/src/services/raw_keyboard_web.dart';
+import 'package:flutter/src/services/raw_keyboard.dart';
+import 'dart:async';
+import 'dart:io';
+import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/keyboard_key.dart';
-import 'package:flutter/src/services/keyboard_maps.dart';
-import 'package:flutter/src/services/raw_keyboard.dart';
+import 'package:flutter/src/services/raw_keyboard_android.dart';
+import 'package:flutter/src/services/raw_keyboard_fuchsia.dart';
+import 'package:flutter/src/services/raw_keyboard_linux.dart';
+import 'package:flutter/src/services/raw_keyboard_macos.dart';
+import 'package:flutter/src/services/system_channels.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRawKeyboardSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_rawKeyEventDataWeb.funName] = _rawKeyEventDataWeb;
-  return m;
-}
-var _rawKeyEventDataWeb = MXFunctionInvoke(
-    "RawKeyEventDataWeb",
-    (
-      {
-      String code,
-      String key,
-      int metaState = 0,
-      }
-    ) =>
-      RawKeyEventDataWeb(
-      code: code,
-      key: key,
-      metaState: metaState,
-    ),
-);
-fierKey;
+  m[_keyboardSide.funName] = _keyboardSide;
+  m[_modifierKey.funName] = _modifierKey;
   m[_rawKeyEvent_fromMessage.funName] = _rawKeyEvent_fromMessage;
   m[_rawKeyDownEvent.funName] = _rawKeyDownEvent;
   m[_rawKeyUpEvent.funName] = _rawKeyUpEvent;
