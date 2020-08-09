@@ -4,6 +4,9 @@ import 'package:mxflutter/src/widgets/src/packages/flutter/src/foundation/collec
 
 /// 注册widget方法
 void registerMirrorWidgetFunc() {
+  // mx_dart_sdk
+  MXMirrorFunc.getInstance().registerBizFunction(registerMxDartSdkSeries());
+  
   //TODO: 待删除
   // Image
 //  MXMirrorFunc.getInstance().registerBizFunction(registerImageSeriesOld());
@@ -39,7 +42,4 @@ void registerMirrorWidgetFunc() {
   MXMirrorFunc.getInstance().registerBizFunction(registerServicesLibrarySeries());
   // flutter/widgets
   MXMirrorFunc.getInstance().registerBizFunction(registerWidgetsLibrarySeries());
-
-  // mx_dart_sdk
-  MXMirrorFunc.getInstance().registerBizFunction(registerMxDartSdkSeries());
 }
