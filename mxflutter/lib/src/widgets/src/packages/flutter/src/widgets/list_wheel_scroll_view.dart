@@ -194,7 +194,7 @@ var _listWheelScrollView_useDelegate = MXFunctionInvoke(
       onSelectedItemChanged: createValueChangedGenericClosure<int>(_listWheelScrollView_useDelegate.buildOwner, onSelectedItemChanged),
       clipToSize: clipToSize,
       renderChildrenOutsideViewport: renderChildrenOutsideViewport,
-      childDelegate: toListTWheelChildDelegate(childDelegate),
+      childDelegate: childDelegate,
     ),
 );
 var _listWheelElement = MXFunctionInvoke(
@@ -205,7 +205,7 @@ var _listWheelElement = MXFunctionInvoke(
       }
     ) =>
       ListWheelElement(
-      toListTWheelViewport(widget),
+      widget,
     ),
 );
 var _listWheelViewport = MXFunctionInvoke(
@@ -240,6 +240,6 @@ var _listWheelViewport = MXFunctionInvoke(
       clipToSize: clipToSize,
       renderChildrenOutsideViewport: renderChildrenOutsideViewport,
       offset: offset,
-      childDelegate: toListTWheelChildDelegate(childDelegate),
+      childDelegate: childDelegate,
     ),
 );

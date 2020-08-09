@@ -255,7 +255,7 @@ var _animatedBuilder = MXFunctionInvoke(
     ) =>
       AnimatedBuilder(
       key: key,
-      animation: toListTenable(animation),
+      animation: animation,
       builder: null,
       child: child,
     ),

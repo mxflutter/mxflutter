@@ -49,6 +49,6 @@ var _checkboxListTile = MXFunctionInvoke(
       dense: dense,
       secondary: secondary,
       selected: selected,
-      controlAffinity: toListTTileControlAffinity(controlAffinity),
+      controlAffinity: controlAffinity,
     ),
 );

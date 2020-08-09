@@ -48,7 +48,7 @@ var _listTileTheme = MXFunctionInvoke(
       ListTileTheme(
       key: key,
       dense: dense,
-      style: toListTTileStyle(style),
+      style: style,
       selectedColor: selectedColor,
       iconColor: iconColor,
       textColor: textColor,

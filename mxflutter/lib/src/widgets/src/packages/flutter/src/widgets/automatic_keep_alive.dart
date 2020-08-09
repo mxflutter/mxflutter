@@ -44,7 +44,7 @@ var _keepAliveNotification = MXFunctionInvoke(
       }
     ) =>
       KeepAliveNotification(
-      toListTenable(handle),
+      handle,
     ),
 );
 var _keepAliveHandle = MXFunctionInvoke(

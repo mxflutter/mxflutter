@@ -50,7 +50,7 @@ var _renderListWheelViewport = MXFunctionInvoke(
       }
     ) =>
       RenderListWheelViewport(
-      childManager: toListTWheelChildManager(childManager),
+      childManager: childManager,
       offset: offset,
       diameterRatio: diameterRatio?.toDouble(),
       perspective: perspective?.toDouble(),
