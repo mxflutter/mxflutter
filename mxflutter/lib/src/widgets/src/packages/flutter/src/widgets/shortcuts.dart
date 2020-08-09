@@ -90,7 +90,7 @@ var _shortcutMapProperty = MXFunctionInvoke(
     (
       {
       String name,
-      Map<LogicalKeySet, Intent> value,
+      dynamic value,
       bool showName = true,
       Object defaultValue,
       DiagnosticLevel level = DiagnosticLevel.info,
@@ -99,7 +99,7 @@ var _shortcutMapProperty = MXFunctionInvoke(
     ) =>
       ShortcutMapProperty(
       name,
-      value,
+      toMapT<LogicalKeySet, Intent>(value),
       showName: showName,
       defaultValue: defaultValue,
       level: level,
@@ -110,12 +110,12 @@ var _shortcutManager = MXFunctionInvoke(
     "ShortcutManager",
     (
       {
-      Map<LogicalKeySet, Intent> shortcuts,
+      dynamic shortcuts,
       bool modal = false,
       }
     ) =>
       ShortcutManager(
-      shortcuts: shortcuts,
+      shortcuts: toMapT<LogicalKeySet, Intent>(shortcuts),
       modal: modal,
     ),
 );
@@ -125,7 +125,7 @@ var _shortcuts = MXFunctionInvoke(
       {
       Key key,
       ShortcutManager manager,
-      Map<LogicalKeySet, Intent> shortcuts,
+      dynamic shortcuts,
       Widget child,
       String debugLabel,
       }
@@ -133,7 +133,7 @@ var _shortcuts = MXFunctionInvoke(
       Shortcuts(
       key: key,
       manager: manager,
-      shortcuts: shortcuts,
+      shortcuts: toMapT<LogicalKeySet, Intent>(shortcuts),
       child: child,
       debugLabel: debugLabel,
     ),

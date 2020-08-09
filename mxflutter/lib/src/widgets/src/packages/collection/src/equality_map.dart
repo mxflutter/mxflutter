@@ -34,11 +34,11 @@ var _equalityMap_from = MXFunctionInvoke(
     (
       {
       Equality<dynamic> equality,
-      Map<dynamic, dynamic> other,
+      dynamic other,
       }
     ) =>
       EqualityMap.from(
       equality,
-      other,
+      toMapT<dynamic, dynamic>(other),
     ),
 );

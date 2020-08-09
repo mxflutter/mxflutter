@@ -21,81 +21,69 @@ Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
 }
 var _renderComparison = MXFunctionInvoke(
     "RenderComparison",
-    ({Map args}) => MXRenderComparison.parse(args),
+    ({String name, int index}) => MXRenderComparison.parse(name, index),
   );
 var _axis = MXFunctionInvoke(
     "Axis",
-    ({Map args}) => MXAxis.parse(args),
+    ({String name, int index}) => MXAxis.parse(name, index),
   );
 var _verticalDirection = MXFunctionInvoke(
     "VerticalDirection",
-    ({Map args}) => MXVerticalDirection.parse(args),
+    ({String name, int index}) => MXVerticalDirection.parse(name, index),
   );
 var _axisDirection = MXFunctionInvoke(
     "AxisDirection",
-    ({Map args}) => MXAxisDirection.parse(args),
+    ({String name, int index}) => MXAxisDirection.parse(name, index),
   );
 class MXRenderComparison {
-  static Map str2VMap = {
-    'RenderComparison.identical': RenderComparison.identical,
-    'RenderComparison.metadata': RenderComparison.metadata,
-    'RenderComparison.paint': RenderComparison.paint,
-    'RenderComparison.layout': RenderComparison.layout,
-  };
-  static RenderComparison parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static RenderComparison parse(String name, int index) {
+    switch(name) {
+      case 'RenderComparison.identical': 
+       return RenderComparison.identical;
+      case 'RenderComparison.metadata': 
+       return RenderComparison.metadata;
+      case 'RenderComparison.paint': 
+       return RenderComparison.paint;
+      case 'RenderComparison.layout': 
+       return RenderComparison.layout;
     }
+    return null;
   }
 }
 class MXAxis {
-  static Map str2VMap = {
-    'Axis.horizontal': Axis.horizontal,
-    'Axis.vertical': Axis.vertical,
-  };
-  static Axis parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static Axis parse(String name, int index) {
+    switch(name) {
+      case 'Axis.horizontal': 
+       return Axis.horizontal;
+      case 'Axis.vertical': 
+       return Axis.vertical;
     }
+    return null;
   }
 }
 class MXVerticalDirection {
-  static Map str2VMap = {
-    'VerticalDirection.up': VerticalDirection.up,
-    'VerticalDirection.down': VerticalDirection.down,
-  };
-  static VerticalDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static VerticalDirection parse(String name, int index) {
+    switch(name) {
+      case 'VerticalDirection.up': 
+       return VerticalDirection.up;
+      case 'VerticalDirection.down': 
+       return VerticalDirection.down;
     }
+    return null;
   }
 }
 class MXAxisDirection {
-  static Map str2VMap = {
-    'AxisDirection.up': AxisDirection.up,
-    'AxisDirection.right': AxisDirection.right,
-    'AxisDirection.down': AxisDirection.down,
-    'AxisDirection.left': AxisDirection.left,
-  };
-  static AxisDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static AxisDirection parse(String name, int index) {
+    switch(name) {
+      case 'AxisDirection.up': 
+       return AxisDirection.up;
+      case 'AxisDirection.right': 
+       return AxisDirection.right;
+      case 'AxisDirection.down': 
+       return AxisDirection.down;
+      case 'AxisDirection.left': 
+       return AxisDirection.left;
     }
+    return null;
   }
 }

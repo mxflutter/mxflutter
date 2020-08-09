@@ -78,7 +78,7 @@ var _renderProxyBox = MXFunctionInvoke(
 );
 var _hitTestBehavior = MXFunctionInvoke(
     "HitTestBehavior",
-    ({Map args}) => MXHitTestBehavior.parse(args),
+    ({String name, int index}) => MXHitTestBehavior.parse(name, index),
   );
 var _renderConstrainedBox = MXFunctionInvoke(
     "RenderConstrainedBox",
@@ -326,7 +326,7 @@ var _renderPhysicalShape = MXFunctionInvoke(
 );
 var _decorationPosition = MXFunctionInvoke(
     "DecorationPosition",
-    ({Map args}) => MXDecorationPosition.parse(args),
+    ({String name, int index}) => MXDecorationPosition.parse(name, index),
   );
 var _renderDecoratedBox = MXFunctionInvoke(
     "RenderDecoratedBox",
@@ -586,7 +586,7 @@ var _renderSemanticsAnnotations = MXFunctionInvoke(
       dynamic onSetSelection,
       dynamic onDidGainAccessibilityFocus,
       dynamic onDidLoseAccessibilityFocus,
-      Map<CustomSemanticsAction, void Function()> customSemanticsActions,
+      dynamic customSemanticsActions,
       }
     ) =>
       RenderSemanticsAnnotations(
@@ -642,7 +642,7 @@ var _renderSemanticsAnnotations = MXFunctionInvoke(
       onSetSelection: createValueChangedGenericClosure<TextSelection>(_renderSemanticsAnnotations.buildOwner, onSetSelection),
       onDidGainAccessibilityFocus: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onDidGainAccessibilityFocus),
       onDidLoseAccessibilityFocus: createVoidCallbackClosure(_renderSemanticsAnnotations.buildOwner, onDidLoseAccessibilityFocus),
-      customSemanticsActions: customSemanticsActions,
+      customSemanticsActions: toMapT<CustomSemanticsAction, void Function()>(customSemanticsActions),
     ),
 );
 var _renderBlockSemantics = MXFunctionInvoke(
@@ -741,33 +741,26 @@ var _renderAnnotatedRegion = MXFunctionInvoke(
     ),
 );
 class MXHitTestBehavior {
-  static Map str2VMap = {
-    'HitTestBehavior.deferToChild': HitTestBehavior.deferToChild,
-    'HitTestBehavior.opaque': HitTestBehavior.opaque,
-    'HitTestBehavior.translucent': HitTestBehavior.translucent,
-  };
-  static HitTestBehavior parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static HitTestBehavior parse(String name, int index) {
+    switch(name) {
+      case 'HitTestBehavior.deferToChild': 
+       return HitTestBehavior.deferToChild;
+      case 'HitTestBehavior.opaque': 
+       return HitTestBehavior.opaque;
+      case 'HitTestBehavior.translucent': 
+       return HitTestBehavior.translucent;
     }
+    return null;
   }
 }
 class MXDecorationPosition {
-  static Map str2VMap = {
-    'DecorationPosition.background': DecorationPosition.background,
-    'DecorationPosition.foreground': DecorationPosition.foreground,
-  };
-  static DecorationPosition parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DecorationPosition parse(String name, int index) {
+    switch(name) {
+      case 'DecorationPosition.background': 
+       return DecorationPosition.background;
+      case 'DecorationPosition.foreground': 
+       return DecorationPosition.foreground;
     }
+    return null;
   }
 }

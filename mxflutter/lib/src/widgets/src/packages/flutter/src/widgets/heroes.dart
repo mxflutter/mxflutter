@@ -28,7 +28,7 @@ Map<String, MXFunctionInvoke> registerHeroesSeries() {
 }
 var _heroFlightDirection = MXFunctionInvoke(
     "HeroFlightDirection",
-    ({Map args}) => MXHeroFlightDirection.parse(args),
+    ({String name, int index}) => MXHeroFlightDirection.parse(name, index),
   );
 var _hero = MXFunctionInvoke(
     "Hero",
@@ -65,17 +65,13 @@ var _heroController = MXFunctionInvoke(
     ),
 );
 class MXHeroFlightDirection {
-  static Map str2VMap = {
-    'HeroFlightDirection.push': HeroFlightDirection.push,
-    'HeroFlightDirection.pop': HeroFlightDirection.pop,
-  };
-  static HeroFlightDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static HeroFlightDirection parse(String name, int index) {
+    switch(name) {
+      case 'HeroFlightDirection.push': 
+       return HeroFlightDirection.push;
+      case 'HeroFlightDirection.pop': 
+       return HeroFlightDirection.pop;
     }
+    return null;
   }
 }

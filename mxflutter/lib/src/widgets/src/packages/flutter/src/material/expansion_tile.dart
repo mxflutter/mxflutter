@@ -30,7 +30,7 @@ var _expansionTile = MXFunctionInvoke(
       Widget subtitle,
       Color backgroundColor,
       dynamic onExpansionChanged,
-      List<Widget> children,
+      dynamic children,
       Widget trailing,
       bool initiallyExpanded = false,
       }
@@ -42,7 +42,7 @@ var _expansionTile = MXFunctionInvoke(
       subtitle: subtitle,
       backgroundColor: backgroundColor,
       onExpansionChanged: createValueChangedGenericClosure<bool>(_expansionTile.buildOwner, onExpansionChanged),
-      children: children,
+      children: toListT<Widget>(children),
       trailing: trailing,
       initiallyExpanded: initiallyExpanded,
     ),

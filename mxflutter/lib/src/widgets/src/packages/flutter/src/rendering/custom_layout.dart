@@ -29,12 +29,12 @@ var _renderCustomMultiChildLayoutBox = MXFunctionInvoke(
     "RenderCustomMultiChildLayoutBox",
     (
       {
-      List<RenderBox> children,
+      dynamic children,
       MultiChildLayoutDelegate delegate,
       }
     ) =>
       RenderCustomMultiChildLayoutBox(
-      children: children,
+      children: toListT<RenderBox>(children),
       delegate: delegate,
     ),
 );

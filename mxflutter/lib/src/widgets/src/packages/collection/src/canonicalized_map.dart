@@ -34,13 +34,13 @@ var _canonicalizedMap_from = MXFunctionInvoke(
   "CanonicalizedMap.from",
     (
       {
-      Map<dynamic, dynamic> other,
+      dynamic other,
       dynamic canonicalize,
       dynamic isValidKey,
       }
     ) =>
       CanonicalizedMap.from(
-      other,
+      toMapT<dynamic, dynamic>(other),
       null,
       isValidKey: null,
     ),

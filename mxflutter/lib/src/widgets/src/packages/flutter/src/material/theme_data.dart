@@ -55,7 +55,7 @@ Map<String, MXFunctionInvoke> registerThemeDataSeries() {
 }
 var _materialTapTargetSize = MXFunctionInvoke(
     "MaterialTapTargetSize",
-    ({Map args}) => MXMaterialTapTargetSize.parse(args),
+    ({String name, int index}) => MXMaterialTapTargetSize.parse(name, index),
   );
 var _themeData = MXFunctionInvoke(
     "ThemeData",
@@ -394,17 +394,13 @@ var _visualDensity = MXFunctionInvoke(
     ),
 );
 class MXMaterialTapTargetSize {
-  static Map str2VMap = {
-    'MaterialTapTargetSize.padded': MaterialTapTargetSize.padded,
-    'MaterialTapTargetSize.shrinkWrap': MaterialTapTargetSize.shrinkWrap,
-  };
-  static MaterialTapTargetSize parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static MaterialTapTargetSize parse(String name, int index) {
+    switch(name) {
+      case 'MaterialTapTargetSize.padded': 
+       return MaterialTapTargetSize.padded;
+      case 'MaterialTapTargetSize.shrinkWrap': 
+       return MaterialTapTargetSize.shrinkWrap;
     }
+    return null;
   }
 }

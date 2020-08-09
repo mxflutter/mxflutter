@@ -30,7 +30,7 @@ Map<String, MXFunctionInvoke> registerInputDecoratorSeries() {
 }
 var _floatingLabelBehavior = MXFunctionInvoke(
     "FloatingLabelBehavior",
-    ({Map args}) => MXFloatingLabelBehavior.parse(args),
+    ({String name, int index}) => MXFloatingLabelBehavior.parse(name, index),
   );
 var _inputDecorator = MXFunctionInvoke(
     "InputDecorator",
@@ -243,18 +243,15 @@ var _inputDecorationTheme = MXFunctionInvoke(
     ),
 );
 class MXFloatingLabelBehavior {
-  static Map str2VMap = {
-    'FloatingLabelBehavior.never': FloatingLabelBehavior.never,
-    'FloatingLabelBehavior.auto': FloatingLabelBehavior.auto,
-    'FloatingLabelBehavior.always': FloatingLabelBehavior.always,
-  };
-  static FloatingLabelBehavior parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FloatingLabelBehavior parse(String name, int index) {
+    switch(name) {
+      case 'FloatingLabelBehavior.never': 
+       return FloatingLabelBehavior.never;
+      case 'FloatingLabelBehavior.auto': 
+       return FloatingLabelBehavior.auto;
+      case 'FloatingLabelBehavior.always': 
+       return FloatingLabelBehavior.always;
     }
+    return null;
   }
 }

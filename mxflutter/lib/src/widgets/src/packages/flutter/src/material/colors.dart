@@ -22,12 +22,12 @@ var _materialColor = MXFunctionInvoke(
     (
       {
       int primary,
-      Map<int, Color> swatch,
+      dynamic swatch,
       }
     ) =>
       MaterialColor(
       primary,
-      swatch,
+      toMapT<int, Color>(swatch),
     ),
 );
 var _materialAccentColor = MXFunctionInvoke(
@@ -35,11 +35,11 @@ var _materialAccentColor = MXFunctionInvoke(
     (
       {
       int primary,
-      Map<int, Color> swatch,
+      dynamic swatch,
       }
     ) =>
       MaterialAccentColor(
       primary,
-      swatch,
+      toMapT<int, Color>(swatch),
     ),
 );

@@ -24,7 +24,7 @@ Map<String, MXFunctionInvoke> registerAsyncSeries() {
 }
 var _connectionState = MXFunctionInvoke(
     "ConnectionState",
-    ({Map args}) => MXConnectionState.parse(args),
+    ({String name, int index}) => MXConnectionState.parse(name, index),
   );
 var _asyncSnapshot_nothing = MXFunctionInvoke(
   "AsyncSnapshot.nothing",
@@ -94,19 +94,17 @@ var _futureBuilder = MXFunctionInvoke(
     ),
 );
 class MXConnectionState {
-  static Map str2VMap = {
-    'ConnectionState.none': ConnectionState.none,
-    'ConnectionState.waiting': ConnectionState.waiting,
-    'ConnectionState.active': ConnectionState.active,
-    'ConnectionState.done': ConnectionState.done,
-  };
-  static ConnectionState parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ConnectionState parse(String name, int index) {
+    switch(name) {
+      case 'ConnectionState.none': 
+       return ConnectionState.none;
+      case 'ConnectionState.waiting': 
+       return ConnectionState.waiting;
+      case 'ConnectionState.active': 
+       return ConnectionState.active;
+      case 'ConnectionState.done': 
+       return ConnectionState.done;
     }
+    return null;
   }
 }

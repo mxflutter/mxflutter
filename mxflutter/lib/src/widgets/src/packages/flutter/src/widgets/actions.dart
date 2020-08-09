@@ -64,14 +64,14 @@ var _actions = MXFunctionInvoke(
       {
       Key key,
       ActionDispatcher dispatcher,
-      Map<LocalKey, Action Function()> actions,
+      dynamic actions,
       Widget child,
       }
     ) =>
       Actions(
       key: key,
       dispatcher: dispatcher,
-      actions: actions,
+      actions: toMapT<LocalKey, Action Function()>(actions),
       child: child,
     ),
 );
@@ -83,8 +83,8 @@ var _focusableActionDetector = MXFunctionInvoke(
       bool enabled = true,
       FocusNode focusNode,
       bool autofocus = false,
-      Map<LogicalKeySet, Intent> shortcuts,
-      Map<LocalKey, Action Function()> actions,
+      dynamic shortcuts,
+      dynamic actions,
       dynamic onShowFocusHighlight,
       dynamic onShowHoverHighlight,
       dynamic onFocusChange,
@@ -96,8 +96,8 @@ var _focusableActionDetector = MXFunctionInvoke(
       enabled: enabled,
       focusNode: focusNode,
       autofocus: autofocus,
-      shortcuts: shortcuts,
-      actions: actions,
+      shortcuts: toMapT<LogicalKeySet, Intent>(shortcuts),
+      actions: toMapT<LocalKey, Action Function()>(actions),
       onShowFocusHighlight: createValueChangedGenericClosure<bool>(_focusableActionDetector.buildOwner, onShowFocusHighlight),
       onShowHoverHighlight: createValueChangedGenericClosure<bool>(_focusableActionDetector.buildOwner, onShowHoverHighlight),
       onFocusChange: createValueChangedGenericClosure<bool>(_focusableActionDetector.buildOwner, onFocusChange),

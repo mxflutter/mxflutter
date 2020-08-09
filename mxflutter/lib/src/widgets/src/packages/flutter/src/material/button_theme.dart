@@ -33,11 +33,11 @@ Map<String, MXFunctionInvoke> registerButtonThemeSeries() {
 }
 var _buttonTextTheme = MXFunctionInvoke(
     "ButtonTextTheme",
-    ({Map args}) => MXButtonTextTheme.parse(args),
+    ({String name, int index}) => MXButtonTextTheme.parse(name, index),
   );
 var _buttonBarLayoutBehavior = MXFunctionInvoke(
     "ButtonBarLayoutBehavior",
-    ({Map args}) => MXButtonBarLayoutBehavior.parse(args),
+    ({String name, int index}) => MXButtonBarLayoutBehavior.parse(name, index),
   );
 var _buttonTheme = MXFunctionInvoke(
     "ButtonTheme",
@@ -178,33 +178,26 @@ var _buttonThemeData = MXFunctionInvoke(
     ),
 );
 class MXButtonTextTheme {
-  static Map str2VMap = {
-    'ButtonTextTheme.normal': ButtonTextTheme.normal,
-    'ButtonTextTheme.accent': ButtonTextTheme.accent,
-    'ButtonTextTheme.primary': ButtonTextTheme.primary,
-  };
-  static ButtonTextTheme parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ButtonTextTheme parse(String name, int index) {
+    switch(name) {
+      case 'ButtonTextTheme.normal': 
+       return ButtonTextTheme.normal;
+      case 'ButtonTextTheme.accent': 
+       return ButtonTextTheme.accent;
+      case 'ButtonTextTheme.primary': 
+       return ButtonTextTheme.primary;
     }
+    return null;
   }
 }
 class MXButtonBarLayoutBehavior {
-  static Map str2VMap = {
-    'ButtonBarLayoutBehavior.constrained': ButtonBarLayoutBehavior.constrained,
-    'ButtonBarLayoutBehavior.padded': ButtonBarLayoutBehavior.padded,
-  };
-  static ButtonBarLayoutBehavior parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ButtonBarLayoutBehavior parse(String name, int index) {
+    switch(name) {
+      case 'ButtonBarLayoutBehavior.constrained': 
+       return ButtonBarLayoutBehavior.constrained;
+      case 'ButtonBarLayoutBehavior.padded': 
+       return ButtonBarLayoutBehavior.padded;
     }
+    return null;
   }
 }

@@ -59,14 +59,14 @@ var _dataRow = MXFunctionInvoke(
       LocalKey key,
       bool selected = false,
       dynamic onSelectChanged,
-      List<DataCell> cells,
+      dynamic cells,
       }
     ) =>
       DataRow(
       key: key,
       selected: selected,
       onSelectChanged: createValueChangedGenericClosure<bool>(_dataRow.buildOwner, onSelectChanged),
-      cells: cells,
+      cells: toListT<DataCell>(cells),
     ),
 );
 var _dataRow_byIndex = MXFunctionInvoke(
@@ -76,14 +76,14 @@ var _dataRow_byIndex = MXFunctionInvoke(
       int index,
       bool selected = false,
       dynamic onSelectChanged,
-      List<DataCell> cells,
+      dynamic cells,
       }
     ) =>
       DataRow.byIndex(
       index: index,
       selected: selected,
       onSelectChanged: createValueChangedGenericClosure<bool>(_dataRow_byIndex.buildOwner, onSelectChanged),
-      cells: cells,
+      cells: toListT<DataCell>(cells),
     ),
 );
 var _dataCell = MXFunctionInvoke(
@@ -108,7 +108,7 @@ var _dataTable = MXFunctionInvoke(
     (
       {
       Key key,
-      List<DataColumn> columns,
+      dynamic columns,
       int sortColumnIndex,
       bool sortAscending = true,
       dynamic onSelectAll,
@@ -118,12 +118,12 @@ var _dataTable = MXFunctionInvoke(
       dynamic columnSpacing = 56.0,
       bool showCheckboxColumn = true,
       dynamic dividerThickness = 1.0,
-      List<DataRow> rows,
+      dynamic rows,
       }
     ) =>
       DataTable(
       key: key,
-      columns: columns,
+      columns: toListT<DataColumn>(columns),
       sortColumnIndex: sortColumnIndex,
       sortAscending: sortAscending,
       onSelectAll: createValueChangedGenericClosure<bool>(_dataTable.buildOwner, onSelectAll),
@@ -133,7 +133,7 @@ var _dataTable = MXFunctionInvoke(
       columnSpacing: columnSpacing?.toDouble(),
       showCheckboxColumn: showCheckboxColumn,
       dividerThickness: dividerThickness?.toDouble(),
-      rows: rows,
+      rows: toListT<DataRow>(rows),
     ),
 );
 var _tableRowInkWell = MXFunctionInvoke(

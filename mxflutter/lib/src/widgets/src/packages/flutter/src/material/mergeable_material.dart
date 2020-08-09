@@ -57,7 +57,7 @@ var _mergeableMaterial = MXFunctionInvoke(
       Axis mainAxis = Axis.vertical,
       int elevation = 2,
       bool hasDividers = false,
-      List<MergeableMaterialItem> children,
+      dynamic children,
       }
     ) =>
       MergeableMaterial(
@@ -65,6 +65,6 @@ var _mergeableMaterial = MXFunctionInvoke(
       mainAxis: mainAxis,
       elevation: elevation,
       hasDividers: hasDividers,
-      children: children,
+      children: toListT<MergeableMaterialItem>(children),
     ),
 );

@@ -29,7 +29,7 @@ Map<String, MXFunctionInvoke> registerListTileSeries() {
 }
 var _listTileStyle = MXFunctionInvoke(
     "ListTileStyle",
-    ({Map args}) => MXListTileStyle.parse(args),
+    ({String name, int index}) => MXListTileStyle.parse(name, index),
   );
 var _listTileTheme = MXFunctionInvoke(
     "ListTileTheme",
@@ -37,7 +37,7 @@ var _listTileTheme = MXFunctionInvoke(
       {
       Key key,
       bool dense = false,
-      ListTileStyle style = ListTileStyle.list,
+      dynamic style = ListTileStyle.list,
       Color selectedColor,
       Color iconColor,
       Color textColor,
@@ -48,7 +48,7 @@ var _listTileTheme = MXFunctionInvoke(
       ListTileTheme(
       key: key,
       dense: dense,
-      style: style,
+      style: toListTTileStyle(style),
       selectedColor: selectedColor,
       iconColor: iconColor,
       textColor: textColor,
@@ -58,7 +58,7 @@ var _listTileTheme = MXFunctionInvoke(
 );
 var _listTileControlAffinity = MXFunctionInvoke(
     "ListTileControlAffinity",
-    ({Map args}) => MXListTileControlAffinity.parse(args),
+    ({String name, int index}) => MXListTileControlAffinity.parse(name, index),
   );
 var _listTile = MXFunctionInvoke(
     "ListTile",
@@ -94,33 +94,26 @@ var _listTile = MXFunctionInvoke(
     ),
 );
 class MXListTileStyle {
-  static Map str2VMap = {
-    'ListTileStyle.list': ListTileStyle.list,
-    'ListTileStyle.drawer': ListTileStyle.drawer,
-  };
-  static ListTileStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ListTileStyle parse(String name, int index) {
+    switch(name) {
+      case 'ListTileStyle.list': 
+       return ListTileStyle.list;
+      case 'ListTileStyle.drawer': 
+       return ListTileStyle.drawer;
     }
+    return null;
   }
 }
 class MXListTileControlAffinity {
-  static Map str2VMap = {
-    'ListTileControlAffinity.leading': ListTileControlAffinity.leading,
-    'ListTileControlAffinity.trailing': ListTileControlAffinity.trailing,
-    'ListTileControlAffinity.platform': ListTileControlAffinity.platform,
-  };
-  static ListTileControlAffinity parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ListTileControlAffinity parse(String name, int index) {
+    switch(name) {
+      case 'ListTileControlAffinity.leading': 
+       return ListTileControlAffinity.leading;
+      case 'ListTileControlAffinity.trailing': 
+       return ListTileControlAffinity.trailing;
+      case 'ListTileControlAffinity.platform': 
+       return ListTileControlAffinity.platform;
     }
+    return null;
   }
 }

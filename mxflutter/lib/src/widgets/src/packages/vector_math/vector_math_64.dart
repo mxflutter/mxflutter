@@ -543,11 +543,11 @@ var _matrix2_fromList = MXFunctionInvoke(
   "Matrix2.fromList",
     (
       {
-      List<double> values,
+      dynamic values,
       }
     ) =>
       Matrix2.fromList(
-      values,
+      toListT<double>(values),
     ),
 );
 var _matrix2_identity = MXFunctionInvoke(
@@ -673,11 +673,11 @@ var _matrix3_fromList = MXFunctionInvoke(
   "Matrix3.fromList",
     (
       {
-      List<double> values,
+      dynamic values,
       }
     ) =>
       Matrix3.fromList(
-      values,
+      toListT<double>(values),
     ),
 );
 var _matrix3_identity = MXFunctionInvoke(
@@ -856,11 +856,11 @@ var _matrix4_fromList = MXFunctionInvoke(
   "Matrix4.fromList",
     (
       {
-      List<double> values,
+      dynamic values,
       }
     ) =>
       Matrix4.fromList(
-      values,
+      toListT<double>(values),
     ),
 );
 var _matrix4_identity = MXFunctionInvoke(
@@ -1530,12 +1530,12 @@ var _vector2_array = MXFunctionInvoke(
   "Vector2.array",
     (
       {
-      List<double> array,
+      dynamic array,
       int offset,
       }
     ) =>
       Vector2.array(
-      array,
+      toListT<double>(array),
       offset,
     ),
 );
@@ -1669,12 +1669,12 @@ var _vector3_array = MXFunctionInvoke(
   "Vector3.array",
     (
       {
-      List<double> array,
+      dynamic array,
       int offset,
       }
     ) =>
       Vector3.array(
-      array,
+      toListT<double>(array),
       offset,
     ),
 );
@@ -1810,12 +1810,12 @@ var _vector4_array = MXFunctionInvoke(
   "Vector4.array",
     (
       {
-      List<double> array,
+      dynamic array,
       int offset,
       }
     ) =>
       Vector4.array(
-      array,
+      toListT<double>(array),
       offset,
     ),
 );

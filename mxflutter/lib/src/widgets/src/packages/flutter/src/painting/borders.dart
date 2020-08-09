@@ -22,7 +22,7 @@ Map<String, MXFunctionInvoke> registerBordersSeries() {
 }
 var _borderStyle = MXFunctionInvoke(
     "BorderStyle",
-    ({Map args}) => MXBorderStyle.parse(args),
+    ({String name, int index}) => MXBorderStyle.parse(name, index),
   );
 var _borderSide = MXFunctionInvoke(
     "BorderSide",
@@ -40,17 +40,13 @@ var _borderSide = MXFunctionInvoke(
     ),
 );
 class MXBorderStyle {
-  static Map str2VMap = {
-    'BorderStyle.none': BorderStyle.none,
-    'BorderStyle.solid': BorderStyle.solid,
-  };
-  static BorderStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BorderStyle parse(String name, int index) {
+    switch(name) {
+      case 'BorderStyle.none': 
+       return BorderStyle.none;
+      case 'BorderStyle.solid': 
+       return BorderStyle.solid;
     }
+    return null;
   }
 }

@@ -55,10 +55,10 @@ var _pageTransitionsTheme = MXFunctionInvoke(
     "PageTransitionsTheme",
     (
       {
-      Map<TargetPlatform, PageTransitionsBuilder> builders,
+      dynamic builders,
       }
     ) =>
       PageTransitionsTheme(
-      builders: builders,
+      builders: toMapT<TargetPlatform, PageTransitionsBuilder>(builders),
     ),
 );

@@ -45,22 +45,22 @@ var _listWheelChildListDelegate = MXFunctionInvoke(
     "ListWheelChildListDelegate",
     (
       {
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       ListWheelChildListDelegate(
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _listWheelChildLoopingListDelegate = MXFunctionInvoke(
     "ListWheelChildLoopingListDelegate",
     (
       {
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       ListWheelChildLoopingListDelegate(
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _listWheelChildBuilderDelegate = MXFunctionInvoke(
@@ -137,7 +137,7 @@ var _listWheelScrollView = MXFunctionInvoke(
       dynamic onSelectedItemChanged,
       bool clipToSize = true,
       bool renderChildrenOutsideViewport = false,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       ListWheelScrollView(
@@ -155,7 +155,7 @@ var _listWheelScrollView = MXFunctionInvoke(
       onSelectedItemChanged: createValueChangedGenericClosure<int>(_listWheelScrollView.buildOwner, onSelectedItemChanged),
       clipToSize: clipToSize,
       renderChildrenOutsideViewport: renderChildrenOutsideViewport,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _listWheelScrollView_useDelegate = MXFunctionInvoke(
@@ -176,7 +176,7 @@ var _listWheelScrollView_useDelegate = MXFunctionInvoke(
       dynamic onSelectedItemChanged,
       bool clipToSize = true,
       bool renderChildrenOutsideViewport = false,
-      ListWheelChildDelegate childDelegate,
+      dynamic childDelegate,
       }
     ) =>
       ListWheelScrollView.useDelegate(
@@ -194,18 +194,18 @@ var _listWheelScrollView_useDelegate = MXFunctionInvoke(
       onSelectedItemChanged: createValueChangedGenericClosure<int>(_listWheelScrollView_useDelegate.buildOwner, onSelectedItemChanged),
       clipToSize: clipToSize,
       renderChildrenOutsideViewport: renderChildrenOutsideViewport,
-      childDelegate: childDelegate,
+      childDelegate: toListTWheelChildDelegate(childDelegate),
     ),
 );
 var _listWheelElement = MXFunctionInvoke(
     "ListWheelElement",
     (
       {
-      ListWheelViewport widget,
+      dynamic widget,
       }
     ) =>
       ListWheelElement(
-      widget,
+      toListTWheelViewport(widget),
     ),
 );
 var _listWheelViewport = MXFunctionInvoke(
@@ -224,7 +224,7 @@ var _listWheelViewport = MXFunctionInvoke(
       bool clipToSize = true,
       bool renderChildrenOutsideViewport = false,
       ViewportOffset offset,
-      ListWheelChildDelegate childDelegate,
+      dynamic childDelegate,
       }
     ) =>
       ListWheelViewport(
@@ -240,6 +240,6 @@ var _listWheelViewport = MXFunctionInvoke(
       clipToSize: clipToSize,
       renderChildrenOutsideViewport: renderChildrenOutsideViewport,
       offset: offset,
-      childDelegate: childDelegate,
+      childDelegate: toListTWheelChildDelegate(childDelegate),
     ),
 );

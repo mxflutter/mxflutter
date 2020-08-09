@@ -21,7 +21,7 @@ Map<String, MXFunctionInvoke> registerViewportOffsetSeries() {
 }
 var _scrollDirection = MXFunctionInvoke(
     "ScrollDirection",
-    ({Map args}) => MXScrollDirection.parse(args),
+    ({String name, int index}) => MXScrollDirection.parse(name, index),
   );
 var _viewportOffset_fixed = MXFunctionInvoke(
   "ViewportOffset.fixed",
@@ -42,18 +42,15 @@ var _viewportOffset_zero = MXFunctionInvoke(
     ),
 );
 class MXScrollDirection {
-  static Map str2VMap = {
-    'ScrollDirection.idle': ScrollDirection.idle,
-    'ScrollDirection.forward': ScrollDirection.forward,
-    'ScrollDirection.reverse': ScrollDirection.reverse,
-  };
-  static ScrollDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ScrollDirection parse(String name, int index) {
+    switch(name) {
+      case 'ScrollDirection.idle': 
+       return ScrollDirection.idle;
+      case 'ScrollDirection.forward': 
+       return ScrollDirection.forward;
+      case 'ScrollDirection.reverse': 
+       return ScrollDirection.reverse;
     }
+    return null;
   }
 }

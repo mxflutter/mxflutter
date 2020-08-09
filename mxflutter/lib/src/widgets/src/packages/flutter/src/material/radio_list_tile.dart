@@ -34,7 +34,7 @@ var _radioListTile = MXFunctionInvoke(
       bool dense,
       Widget secondary,
       bool selected = false,
-      ListTileControlAffinity controlAffinity = ListTileControlAffinity.platform,
+      dynamic controlAffinity = ListTileControlAffinity.platform,
       }
     ) =>
       RadioListTile(
@@ -49,6 +49,6 @@ var _radioListTile = MXFunctionInvoke(
       dense: dense,
       secondary: secondary,
       selected: selected,
-      controlAffinity: controlAffinity,
+      controlAffinity: toListTTileControlAffinity(controlAffinity),
     ),
 );

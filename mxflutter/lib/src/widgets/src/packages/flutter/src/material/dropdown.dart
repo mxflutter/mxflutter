@@ -70,7 +70,7 @@ var _dropdownButton = MXFunctionInvoke(
     (
       {
       Key key,
-      List<DropdownMenuItem<dynamic>> items,
+      dynamic items,
       dynamic selectedItemBuilder,
       dynamic value,
       Widget hint,
@@ -95,7 +95,7 @@ var _dropdownButton = MXFunctionInvoke(
     ) =>
       DropdownButton(
       key: key,
-      items: items,
+      items: toListT<DropdownMenuItem<dynamic>>(items),
       selectedItemBuilder: null,
       value: value,
       hint: hint,
@@ -124,7 +124,7 @@ var _dropdownButtonFormField = MXFunctionInvoke(
       {
       Key key,
       dynamic value,
-      List<DropdownMenuItem<dynamic>> items,
+      dynamic items,
       dynamic selectedItemBuilder,
       Widget hint,
       dynamic onChanged,
@@ -148,7 +148,7 @@ var _dropdownButtonFormField = MXFunctionInvoke(
       DropdownButtonFormField(
       key: key,
       value: value,
-      items: items,
+      items: toListT<DropdownMenuItem<dynamic>>(items),
       selectedItemBuilder: null,
       hint: hint,
       onChanged: createValueChangedGenericClosure<dynamic>(_dropdownButtonFormField.buildOwner, onChanged),

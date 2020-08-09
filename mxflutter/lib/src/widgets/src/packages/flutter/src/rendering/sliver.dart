@@ -36,7 +36,7 @@ Map<String, MXFunctionInvoke> registerSliverSeries() {
 }
 var _growthDirection = MXFunctionInvoke(
     "GrowthDirection",
-    ({Map args}) => MXGrowthDirection.parse(args),
+    ({String name, int index}) => MXGrowthDirection.parse(name, index),
   );
 var _sliverConstraints = MXFunctionInvoke(
     "SliverConstraints",
@@ -175,17 +175,13 @@ var _renderSliverToBoxAdapter = MXFunctionInvoke(
     ),
 );
 class MXGrowthDirection {
-  static Map str2VMap = {
-    'GrowthDirection.forward': GrowthDirection.forward,
-    'GrowthDirection.reverse': GrowthDirection.reverse,
-  };
-  static GrowthDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static GrowthDirection parse(String name, int index) {
+    switch(name) {
+      case 'GrowthDirection.forward': 
+       return GrowthDirection.forward;
+      case 'GrowthDirection.reverse': 
+       return GrowthDirection.reverse;
     }
+    return null;
   }
 }

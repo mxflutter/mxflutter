@@ -35,7 +35,7 @@ var _cupertinoPicker = MXFunctionInvoke(
       dynamic squeeze = 1.45,
       dynamic itemExtent,
       dynamic onSelectedItemChanged,
-      List<Widget> children,
+      dynamic children,
       bool looping = false,
       }
     ) =>
@@ -50,7 +50,7 @@ var _cupertinoPicker = MXFunctionInvoke(
       squeeze: squeeze?.toDouble(),
       itemExtent: itemExtent?.toDouble(),
       onSelectedItemChanged: createValueChangedGenericClosure<int>(_cupertinoPicker.buildOwner, onSelectedItemChanged),
-      children: children,
+      children: toListT<Widget>(children),
       looping: looping,
     ),
 );

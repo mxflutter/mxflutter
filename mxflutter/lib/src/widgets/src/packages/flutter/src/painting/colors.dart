@@ -83,12 +83,12 @@ var _colorSwatch = MXFunctionInvoke(
     (
       {
       int primary,
-      Map<dynamic, Color> swatch,
+      dynamic swatch,
       }
     ) =>
       ColorSwatch(
       primary,
-      swatch,
+      toMapT<dynamic, Color>(swatch),
     ),
 );
 var _colorProperty = MXFunctionInvoke(

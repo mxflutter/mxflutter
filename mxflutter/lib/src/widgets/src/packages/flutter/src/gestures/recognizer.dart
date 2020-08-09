@@ -32,11 +32,11 @@ Map<String, MXFunctionInvoke> registerRecognizerSeries() {
 }
 var _dragStartBehavior = MXFunctionInvoke(
     "DragStartBehavior",
-    ({Map args}) => MXDragStartBehavior.parse(args),
+    ({String name, int index}) => MXDragStartBehavior.parse(name, index),
   );
 var _gestureRecognizerState = MXFunctionInvoke(
     "GestureRecognizerState",
-    ({Map args}) => MXGestureRecognizerState.parse(args),
+    ({String name, int index}) => MXGestureRecognizerState.parse(name, index),
   );
 var _offsetPair = MXFunctionInvoke(
     "OffsetPair",
@@ -74,33 +74,26 @@ var _offsetPair_fromEventDelta = MXFunctionInvoke(
     ),
 );
 class MXDragStartBehavior {
-  static Map str2VMap = {
-    'DragStartBehavior.down': DragStartBehavior.down,
-    'DragStartBehavior.start': DragStartBehavior.start,
-  };
-  static DragStartBehavior parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DragStartBehavior parse(String name, int index) {
+    switch(name) {
+      case 'DragStartBehavior.down': 
+       return DragStartBehavior.down;
+      case 'DragStartBehavior.start': 
+       return DragStartBehavior.start;
     }
+    return null;
   }
 }
 class MXGestureRecognizerState {
-  static Map str2VMap = {
-    'GestureRecognizerState.ready': GestureRecognizerState.ready,
-    'GestureRecognizerState.possible': GestureRecognizerState.possible,
-    'GestureRecognizerState.defunct': GestureRecognizerState.defunct,
-  };
-  static GestureRecognizerState parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static GestureRecognizerState parse(String name, int index) {
+    switch(name) {
+      case 'GestureRecognizerState.ready': 
+       return GestureRecognizerState.ready;
+      case 'GestureRecognizerState.possible': 
+       return GestureRecognizerState.possible;
+      case 'GestureRecognizerState.defunct': 
+       return GestureRecognizerState.defunct;
     }
+    return null;
   }
 }

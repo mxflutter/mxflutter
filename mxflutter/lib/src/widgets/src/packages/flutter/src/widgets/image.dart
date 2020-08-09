@@ -102,7 +102,7 @@ var _image_network = MXFunctionInvoke(
       bool matchTextDirection = false,
       bool gaplessPlayback = false,
       FilterQuality filterQuality = FilterQuality.low,
-      Map<String, String> headers,
+      dynamic headers,
       int cacheWidth,
       int cacheHeight,
       }
@@ -127,7 +127,7 @@ var _image_network = MXFunctionInvoke(
       matchTextDirection: matchTextDirection,
       gaplessPlayback: gaplessPlayback,
       filterQuality: filterQuality,
-      headers: headers,
+      headers: toMapT<String, String>(headers),
       cacheWidth: cacheWidth,
       cacheHeight: cacheHeight,
     ),

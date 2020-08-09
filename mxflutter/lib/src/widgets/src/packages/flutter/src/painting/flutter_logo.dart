@@ -30,7 +30,7 @@ Map<String, MXFunctionInvoke> registerFlutterLogoSeries() {
 }
 var _flutterLogoStyle = MXFunctionInvoke(
     "FlutterLogoStyle",
-    ({Map args}) => MXFlutterLogoStyle.parse(args),
+    ({String name, int index}) => MXFlutterLogoStyle.parse(name, index),
   );
 var _flutterLogoDecoration = MXFunctionInvoke(
     "FlutterLogoDecoration",
@@ -52,18 +52,15 @@ var _flutterLogoDecoration = MXFunctionInvoke(
     ),
 );
 class MXFlutterLogoStyle {
-  static Map str2VMap = {
-    'FlutterLogoStyle.markOnly': FlutterLogoStyle.markOnly,
-    'FlutterLogoStyle.horizontal': FlutterLogoStyle.horizontal,
-    'FlutterLogoStyle.stacked': FlutterLogoStyle.stacked,
-  };
-  static FlutterLogoStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FlutterLogoStyle parse(String name, int index) {
+    switch(name) {
+      case 'FlutterLogoStyle.markOnly': 
+       return FlutterLogoStyle.markOnly;
+      case 'FlutterLogoStyle.horizontal': 
+       return FlutterLogoStyle.horizontal;
+      case 'FlutterLogoStyle.stacked': 
+       return FlutterLogoStyle.stacked;
     }
+    return null;
   }
 }

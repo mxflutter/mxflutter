@@ -17,25 +17,26 @@ Map<String, MXFunctionInvoke> registerMaterialStateSeries() {
 }
 var _materialState = MXFunctionInvoke(
     "MaterialState",
-    ({Map args}) => MXMaterialState.parse(args),
+    ({String name, int index}) => MXMaterialState.parse(name, index),
   );
 class MXMaterialState {
-  static Map str2VMap = {
-    'MaterialState.hovered': MaterialState.hovered,
-    'MaterialState.focused': MaterialState.focused,
-    'MaterialState.pressed': MaterialState.pressed,
-    'MaterialState.dragged': MaterialState.dragged,
-    'MaterialState.selected': MaterialState.selected,
-    'MaterialState.disabled': MaterialState.disabled,
-    'MaterialState.error': MaterialState.error,
-  };
-  static MaterialState parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static MaterialState parse(String name, int index) {
+    switch(name) {
+      case 'MaterialState.hovered': 
+       return MaterialState.hovered;
+      case 'MaterialState.focused': 
+       return MaterialState.focused;
+      case 'MaterialState.pressed': 
+       return MaterialState.pressed;
+      case 'MaterialState.dragged': 
+       return MaterialState.dragged;
+      case 'MaterialState.selected': 
+       return MaterialState.selected;
+      case 'MaterialState.disabled': 
+       return MaterialState.disabled;
+      case 'MaterialState.error': 
+       return MaterialState.error;
     }
+    return null;
   }
 }

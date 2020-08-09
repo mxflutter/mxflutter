@@ -25,23 +25,22 @@ Map<String, MXFunctionInvoke> registerBindingSeries() {
 }
 var _schedulerPhase = MXFunctionInvoke(
     "SchedulerPhase",
-    ({Map args}) => MXSchedulerPhase.parse(args),
+    ({String name, int index}) => MXSchedulerPhase.parse(name, index),
   );
 class MXSchedulerPhase {
-  static Map str2VMap = {
-    'SchedulerPhase.idle': SchedulerPhase.idle,
-    'SchedulerPhase.transientCallbacks': SchedulerPhase.transientCallbacks,
-    'SchedulerPhase.midFrameMicrotasks': SchedulerPhase.midFrameMicrotasks,
-    'SchedulerPhase.persistentCallbacks': SchedulerPhase.persistentCallbacks,
-    'SchedulerPhase.postFrameCallbacks': SchedulerPhase.postFrameCallbacks,
-  };
-  static SchedulerPhase parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SchedulerPhase parse(String name, int index) {
+    switch(name) {
+      case 'SchedulerPhase.idle': 
+       return SchedulerPhase.idle;
+      case 'SchedulerPhase.transientCallbacks': 
+       return SchedulerPhase.transientCallbacks;
+      case 'SchedulerPhase.midFrameMicrotasks': 
+       return SchedulerPhase.midFrameMicrotasks;
+      case 'SchedulerPhase.persistentCallbacks': 
+       return SchedulerPhase.persistentCallbacks;
+      case 'SchedulerPhase.postFrameCallbacks': 
+       return SchedulerPhase.postFrameCallbacks;
     }
+    return null;
   }
 }

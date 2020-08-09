@@ -26,7 +26,7 @@ Map<String, MXFunctionInvoke> registerTextFieldSeries() {
 }
 var _overlayVisibilityMode = MXFunctionInvoke(
     "OverlayVisibilityMode",
-    ({Map args}) => MXOverlayVisibilityMode.parse(args),
+    ({String name, int index}) => MXOverlayVisibilityMode.parse(name, index),
   );
 var _cupertinoTextField = MXFunctionInvoke(
     "CupertinoTextField",
@@ -68,7 +68,7 @@ var _cupertinoTextField = MXFunctionInvoke(
       dynamic onChanged,
       dynamic onEditingComplete,
       dynamic onSubmitted,
-      List<TextInputFormatter> inputFormatters,
+      dynamic inputFormatters,
       bool enabled,
       dynamic cursorWidth = 2.0,
       ui.Radius cursorRadius,
@@ -121,7 +121,7 @@ var _cupertinoTextField = MXFunctionInvoke(
       onChanged: createValueChangedGenericClosure<String>(_cupertinoTextField.buildOwner, onChanged),
       onEditingComplete: createVoidCallbackClosure(_cupertinoTextField.buildOwner, onEditingComplete),
       onSubmitted: createValueChangedGenericClosure<String>(_cupertinoTextField.buildOwner, onSubmitted),
-      inputFormatters: inputFormatters,
+      inputFormatters: toListT<TextInputFormatter>(inputFormatters),
       enabled: enabled,
       cursorWidth: cursorWidth?.toDouble(),
       cursorRadius: cursorRadius,
@@ -138,19 +138,17 @@ var _cupertinoTextField = MXFunctionInvoke(
     ),
 );
 class MXOverlayVisibilityMode {
-  static Map str2VMap = {
-    'OverlayVisibilityMode.never': OverlayVisibilityMode.never,
-    'OverlayVisibilityMode.editing': OverlayVisibilityMode.editing,
-    'OverlayVisibilityMode.notEditing': OverlayVisibilityMode.notEditing,
-    'OverlayVisibilityMode.always': OverlayVisibilityMode.always,
-  };
-  static OverlayVisibilityMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static OverlayVisibilityMode parse(String name, int index) {
+    switch(name) {
+      case 'OverlayVisibilityMode.never': 
+       return OverlayVisibilityMode.never;
+      case 'OverlayVisibilityMode.editing': 
+       return OverlayVisibilityMode.editing;
+      case 'OverlayVisibilityMode.notEditing': 
+       return OverlayVisibilityMode.notEditing;
+      case 'OverlayVisibilityMode.always': 
+       return OverlayVisibilityMode.always;
     }
+    return null;
   }
 }

@@ -28,7 +28,7 @@ Map<String, MXFunctionInvoke> registerSnackBarSeries() {
 }
 var _snackBarClosedReason = MXFunctionInvoke(
     "SnackBarClosedReason",
-    ({Map args}) => MXSnackBarClosedReason.parse(args),
+    ({String name, int index}) => MXSnackBarClosedReason.parse(name, index),
   );
 var _snackBarAction = MXFunctionInvoke(
     "SnackBarAction",
@@ -79,21 +79,21 @@ var _snackBar = MXFunctionInvoke(
     ),
 );
 class MXSnackBarClosedReason {
-  static Map str2VMap = {
-    'SnackBarClosedReason.action': SnackBarClosedReason.action,
-    'SnackBarClosedReason.dismiss': SnackBarClosedReason.dismiss,
-    'SnackBarClosedReason.swipe': SnackBarClosedReason.swipe,
-    'SnackBarClosedReason.hide': SnackBarClosedReason.hide,
-    'SnackBarClosedReason.remove': SnackBarClosedReason.remove,
-    'SnackBarClosedReason.timeout': SnackBarClosedReason.timeout,
-  };
-  static SnackBarClosedReason parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SnackBarClosedReason parse(String name, int index) {
+    switch(name) {
+      case 'SnackBarClosedReason.action': 
+       return SnackBarClosedReason.action;
+      case 'SnackBarClosedReason.dismiss': 
+       return SnackBarClosedReason.dismiss;
+      case 'SnackBarClosedReason.swipe': 
+       return SnackBarClosedReason.swipe;
+      case 'SnackBarClosedReason.hide': 
+       return SnackBarClosedReason.hide;
+      case 'SnackBarClosedReason.remove': 
+       return SnackBarClosedReason.remove;
+      case 'SnackBarClosedReason.timeout': 
+       return SnackBarClosedReason.timeout;
     }
+    return null;
   }
 }

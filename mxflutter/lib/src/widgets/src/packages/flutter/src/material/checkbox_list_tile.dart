@@ -34,7 +34,7 @@ var _checkboxListTile = MXFunctionInvoke(
       bool dense,
       Widget secondary,
       bool selected = false,
-      ListTileControlAffinity controlAffinity = ListTileControlAffinity.platform,
+      dynamic controlAffinity = ListTileControlAffinity.platform,
       }
     ) =>
       CheckboxListTile(
@@ -49,6 +49,6 @@ var _checkboxListTile = MXFunctionInvoke(
       dense: dense,
       secondary: secondary,
       selected: selected,
-      controlAffinity: controlAffinity,
+      controlAffinity: toListTTileControlAffinity(controlAffinity),
     ),
 );

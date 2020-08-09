@@ -20,11 +20,11 @@ var _category = MXFunctionInvoke(
     "Category",
     (
       {
-      List<String> sections,
+      dynamic sections,
       }
     ) =>
       Category(
-      sections,
+      toListT<String>(sections),
     ),
 );
 var _documentationIcon = MXFunctionInvoke(

@@ -17,39 +17,31 @@ Map<String, MXFunctionInvoke> registerDatePickerCommonSeries() {
 }
 var _datePickerEntryMode = MXFunctionInvoke(
     "DatePickerEntryMode",
-    ({Map args}) => MXDatePickerEntryMode.parse(args),
+    ({String name, int index}) => MXDatePickerEntryMode.parse(name, index),
   );
 var _datePickerMode = MXFunctionInvoke(
     "DatePickerMode",
-    ({Map args}) => MXDatePickerMode.parse(args),
+    ({String name, int index}) => MXDatePickerMode.parse(name, index),
   );
 class MXDatePickerEntryMode {
-  static Map str2VMap = {
-    'DatePickerEntryMode.calendar': DatePickerEntryMode.calendar,
-    'DatePickerEntryMode.input': DatePickerEntryMode.input,
-  };
-  static DatePickerEntryMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DatePickerEntryMode parse(String name, int index) {
+    switch(name) {
+      case 'DatePickerEntryMode.calendar': 
+       return DatePickerEntryMode.calendar;
+      case 'DatePickerEntryMode.input': 
+       return DatePickerEntryMode.input;
     }
+    return null;
   }
 }
 class MXDatePickerMode {
-  static Map str2VMap = {
-    'DatePickerMode.day': DatePickerMode.day,
-    'DatePickerMode.year': DatePickerMode.year,
-  };
-  static DatePickerMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DatePickerMode parse(String name, int index) {
+    switch(name) {
+      case 'DatePickerMode.day': 
+       return DatePickerMode.day;
+      case 'DatePickerMode.year': 
+       return DatePickerMode.year;
     }
+    return null;
   }
 }

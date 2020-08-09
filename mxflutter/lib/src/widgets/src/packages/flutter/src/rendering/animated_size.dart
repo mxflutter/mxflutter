@@ -23,7 +23,7 @@ Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
 }
 var _renderAnimatedSizeState = MXFunctionInvoke(
     "RenderAnimatedSizeState",
-    ({Map args}) => MXRenderAnimatedSizeState.parse(args),
+    ({String name, int index}) => MXRenderAnimatedSizeState.parse(name, index),
   );
 var _renderAnimatedSize = MXFunctionInvoke(
     "RenderAnimatedSize",
@@ -49,19 +49,17 @@ var _renderAnimatedSize = MXFunctionInvoke(
     ),
 );
 class MXRenderAnimatedSizeState {
-  static Map str2VMap = {
-    'RenderAnimatedSizeState.start': RenderAnimatedSizeState.start,
-    'RenderAnimatedSizeState.stable': RenderAnimatedSizeState.stable,
-    'RenderAnimatedSizeState.changed': RenderAnimatedSizeState.changed,
-    'RenderAnimatedSizeState.unstable': RenderAnimatedSizeState.unstable,
-  };
-  static RenderAnimatedSizeState parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static RenderAnimatedSizeState parse(String name, int index) {
+    switch(name) {
+      case 'RenderAnimatedSizeState.start': 
+       return RenderAnimatedSizeState.start;
+      case 'RenderAnimatedSizeState.stable': 
+       return RenderAnimatedSizeState.stable;
+      case 'RenderAnimatedSizeState.changed': 
+       return RenderAnimatedSizeState.changed;
+      case 'RenderAnimatedSizeState.unstable': 
+       return RenderAnimatedSizeState.unstable;
     }
+    return null;
   }
 }

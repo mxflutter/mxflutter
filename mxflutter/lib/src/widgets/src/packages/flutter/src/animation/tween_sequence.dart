@@ -23,22 +23,22 @@ var _tweenSequence = MXFunctionInvoke(
     "TweenSequence",
     (
       {
-      List<TweenSequenceItem<dynamic>> items,
+      dynamic items,
       }
     ) =>
       TweenSequence(
-      items,
+      toListT<TweenSequenceItem<dynamic>>(items),
     ),
 );
 var _flippedTweenSequence = MXFunctionInvoke(
     "FlippedTweenSequence",
     (
       {
-      List<TweenSequenceItem<double>> items,
+      dynamic items,
       }
     ) =>
       FlippedTweenSequence(
-      items,
+      toListT<TweenSequenceItem<double>>(items),
     ),
 );
 var _tweenSequenceItem = MXFunctionInvoke(

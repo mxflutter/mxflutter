@@ -28,7 +28,7 @@ Map<String, MXFunctionInvoke> registerDrawerSeries() {
 }
 var _drawerAlignment = MXFunctionInvoke(
     "DrawerAlignment",
-    ({Map args}) => MXDrawerAlignment.parse(args),
+    ({String name, int index}) => MXDrawerAlignment.parse(name, index),
   );
 var _drawer = MXFunctionInvoke(
     "Drawer",
@@ -80,17 +80,13 @@ var _drawerControllerState = MXFunctionInvoke(
     ),
 );
 class MXDrawerAlignment {
-  static Map str2VMap = {
-    'DrawerAlignment.start': DrawerAlignment.start,
-    'DrawerAlignment.end': DrawerAlignment.end,
-  };
-  static DrawerAlignment parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DrawerAlignment parse(String name, int index) {
+    switch(name) {
+      case 'DrawerAlignment.start': 
+       return DrawerAlignment.start;
+      case 'DrawerAlignment.end': 
+       return DrawerAlignment.end;
     }
+    return null;
   }
 }

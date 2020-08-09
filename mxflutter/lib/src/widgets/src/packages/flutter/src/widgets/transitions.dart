@@ -248,14 +248,14 @@ var _animatedBuilder = MXFunctionInvoke(
     (
       {
       Key key,
-      Listenable animation,
+      dynamic animation,
       dynamic builder,
       Widget child,
       }
     ) =>
       AnimatedBuilder(
       key: key,
-      animation: animation,
+      animation: toListTenable(animation),
       builder: null,
       child: child,
     ),

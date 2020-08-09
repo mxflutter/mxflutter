@@ -22,11 +22,11 @@ Map<String, MXFunctionInvoke> registerLocalizationsSeries() {
 }
 var _datePickerDateTimeOrder = MXFunctionInvoke(
     "DatePickerDateTimeOrder",
-    ({Map args}) => MXDatePickerDateTimeOrder.parse(args),
+    ({String name, int index}) => MXDatePickerDateTimeOrder.parse(name, index),
   );
 var _datePickerDateOrder = MXFunctionInvoke(
     "DatePickerDateOrder",
-    ({Map args}) => MXDatePickerDateOrder.parse(args),
+    ({String name, int index}) => MXDatePickerDateOrder.parse(name, index),
   );
 var _defaultCupertinoLocalizations = MXFunctionInvoke(
     "DefaultCupertinoLocalizations",
@@ -36,36 +36,32 @@ var _defaultCupertinoLocalizations = MXFunctionInvoke(
     ),
 );
 class MXDatePickerDateTimeOrder {
-  static Map str2VMap = {
-    'DatePickerDateTimeOrder.date_time_dayPeriod': DatePickerDateTimeOrder.date_time_dayPeriod,
-    'DatePickerDateTimeOrder.date_dayPeriod_time': DatePickerDateTimeOrder.date_dayPeriod_time,
-    'DatePickerDateTimeOrder.time_dayPeriod_date': DatePickerDateTimeOrder.time_dayPeriod_date,
-    'DatePickerDateTimeOrder.dayPeriod_time_date': DatePickerDateTimeOrder.dayPeriod_time_date,
-  };
-  static DatePickerDateTimeOrder parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DatePickerDateTimeOrder parse(String name, int index) {
+    switch(name) {
+      case 'DatePickerDateTimeOrder.date_time_dayPeriod': 
+       return DatePickerDateTimeOrder.date_time_dayPeriod;
+      case 'DatePickerDateTimeOrder.date_dayPeriod_time': 
+       return DatePickerDateTimeOrder.date_dayPeriod_time;
+      case 'DatePickerDateTimeOrder.time_dayPeriod_date': 
+       return DatePickerDateTimeOrder.time_dayPeriod_date;
+      case 'DatePickerDateTimeOrder.dayPeriod_time_date': 
+       return DatePickerDateTimeOrder.dayPeriod_time_date;
     }
+    return null;
   }
 }
 class MXDatePickerDateOrder {
-  static Map str2VMap = {
-    'DatePickerDateOrder.dmy': DatePickerDateOrder.dmy,
-    'DatePickerDateOrder.mdy': DatePickerDateOrder.mdy,
-    'DatePickerDateOrder.ymd': DatePickerDateOrder.ymd,
-    'DatePickerDateOrder.ydm': DatePickerDateOrder.ydm,
-  };
-  static DatePickerDateOrder parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DatePickerDateOrder parse(String name, int index) {
+    switch(name) {
+      case 'DatePickerDateOrder.dmy': 
+       return DatePickerDateOrder.dmy;
+      case 'DatePickerDateOrder.mdy': 
+       return DatePickerDateOrder.mdy;
+      case 'DatePickerDateOrder.ymd': 
+       return DatePickerDateOrder.ymd;
+      case 'DatePickerDateOrder.ydm': 
+       return DatePickerDateOrder.ydm;
     }
+    return null;
   }
 }

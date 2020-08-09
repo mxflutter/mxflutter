@@ -42,7 +42,7 @@ Map<String, MXFunctionInvoke> registerScrollViewSeries() {
 }
 var _scrollViewKeyboardDismissBehavior = MXFunctionInvoke(
     "ScrollViewKeyboardDismissBehavior",
-    ({Map args}) => MXScrollViewKeyboardDismissBehavior.parse(args),
+    ({String name, int index}) => MXScrollViewKeyboardDismissBehavior.parse(name, index),
   );
 var _customScrollView = MXFunctionInvoke(
     "CustomScrollView",
@@ -58,7 +58,7 @@ var _customScrollView = MXFunctionInvoke(
       Key center,
       dynamic anchor = 0.0,
       dynamic cacheExtent,
-      List<Widget> slivers,
+      dynamic slivers,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }
@@ -74,7 +74,7 @@ var _customScrollView = MXFunctionInvoke(
       center: center,
       anchor: anchor?.toDouble(),
       cacheExtent: cacheExtent?.toDouble(),
-      slivers: slivers,
+      slivers: toListT<Widget>(slivers),
       semanticChildCount: semanticChildCount,
       dragStartBehavior: dragStartBehavior,
     ),
@@ -96,7 +96,7 @@ var _listView = MXFunctionInvoke(
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
-      List<Widget> children,
+      dynamic children,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
@@ -116,7 +116,7 @@ var _listView = MXFunctionInvoke(
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
       cacheExtent: cacheExtent?.toDouble(),
-      children: children,
+      children: toListT<Widget>(children),
       semanticChildCount: semanticChildCount,
       dragStartBehavior: dragStartBehavior,
       keyboardDismissBehavior: keyboardDismissBehavior,
@@ -256,7 +256,7 @@ var _gridView = MXFunctionInvoke(
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
-      List<Widget> children,
+      dynamic children,
       int semanticChildCount,
       }
     ) =>
@@ -274,7 +274,7 @@ var _gridView = MXFunctionInvoke(
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
       cacheExtent: cacheExtent?.toDouble(),
-      children: children,
+      children: toListT<Widget>(children),
       semanticChildCount: semanticChildCount,
     ),
 );
@@ -374,7 +374,7 @@ var _gridView_count = MXFunctionInvoke(
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
-      List<Widget> children,
+      dynamic children,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }
@@ -396,7 +396,7 @@ var _gridView_count = MXFunctionInvoke(
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
       cacheExtent: cacheExtent?.toDouble(),
-      children: children,
+      children: toListT<Widget>(children),
       semanticChildCount: semanticChildCount,
       dragStartBehavior: dragStartBehavior,
     ),
@@ -420,7 +420,7 @@ var _gridView_extent = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      List<Widget> children,
+      dynamic children,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }
@@ -441,23 +441,19 @@ var _gridView_extent = MXFunctionInvoke(
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
-      children: children,
+      children: toListT<Widget>(children),
       semanticChildCount: semanticChildCount,
       dragStartBehavior: dragStartBehavior,
     ),
 );
 class MXScrollViewKeyboardDismissBehavior {
-  static Map str2VMap = {
-    'ScrollViewKeyboardDismissBehavior.manual': ScrollViewKeyboardDismissBehavior.manual,
-    'ScrollViewKeyboardDismissBehavior.onDrag': ScrollViewKeyboardDismissBehavior.onDrag,
-  };
-  static ScrollViewKeyboardDismissBehavior parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ScrollViewKeyboardDismissBehavior parse(String name, int index) {
+    switch(name) {
+      case 'ScrollViewKeyboardDismissBehavior.manual': 
+       return ScrollViewKeyboardDismissBehavior.manual;
+      case 'ScrollViewKeyboardDismissBehavior.onDrag': 
+       return ScrollViewKeyboardDismissBehavior.onDrag;
     }
+    return null;
   }
 }

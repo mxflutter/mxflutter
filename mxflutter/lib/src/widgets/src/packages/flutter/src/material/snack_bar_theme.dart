@@ -21,7 +21,7 @@ Map<String, MXFunctionInvoke> registerSnackBarThemeSeries() {
 }
 var _snackBarBehavior = MXFunctionInvoke(
     "SnackBarBehavior",
-    ({Map args}) => MXSnackBarBehavior.parse(args),
+    ({String name, int index}) => MXSnackBarBehavior.parse(name, index),
   );
 var _snackBarThemeData = MXFunctionInvoke(
     "SnackBarThemeData",
@@ -47,17 +47,13 @@ var _snackBarThemeData = MXFunctionInvoke(
     ),
 );
 class MXSnackBarBehavior {
-  static Map str2VMap = {
-    'SnackBarBehavior.fixed': SnackBarBehavior.fixed,
-    'SnackBarBehavior.floating': SnackBarBehavior.floating,
-  };
-  static SnackBarBehavior parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SnackBarBehavior parse(String name, int index) {
+    switch(name) {
+      case 'SnackBarBehavior.fixed': 
+       return SnackBarBehavior.fixed;
+      case 'SnackBarBehavior.floating': 
+       return SnackBarBehavior.floating;
     }
+    return null;
   }
 }

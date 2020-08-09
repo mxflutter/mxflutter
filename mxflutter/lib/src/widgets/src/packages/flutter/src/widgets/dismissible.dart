@@ -25,7 +25,7 @@ Map<String, MXFunctionInvoke> registerDismissibleSeries() {
 }
 var _dismissDirection = MXFunctionInvoke(
     "DismissDirection",
-    ({Map args}) => MXDismissDirection.parse(args),
+    ({String name, int index}) => MXDismissDirection.parse(name, index),
   );
 var _dismissible = MXFunctionInvoke(
     "Dismissible",
@@ -40,7 +40,7 @@ var _dismissible = MXFunctionInvoke(
       dynamic onDismissed,
       DismissDirection direction = DismissDirection.horizontal,
       Duration resizeDuration,
-      Map<DismissDirection, double> dismissThresholds,
+      dynamic dismissThresholds,
       Duration movementDuration,
       dynamic crossAxisEndOffset = 0.0,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
@@ -56,28 +56,28 @@ var _dismissible = MXFunctionInvoke(
       onDismissed: createValueChangedGenericClosure<DismissDirection>(_dismissible.buildOwner, onDismissed),
       direction: direction,
       resizeDuration: resizeDuration,
-      dismissThresholds: dismissThresholds,
+      dismissThresholds: toMapT<DismissDirection, double>(dismissThresholds),
       movementDuration: movementDuration,
       crossAxisEndOffset: crossAxisEndOffset?.toDouble(),
       dragStartBehavior: dragStartBehavior,
     ),
 );
 class MXDismissDirection {
-  static Map str2VMap = {
-    'DismissDirection.vertical': DismissDirection.vertical,
-    'DismissDirection.horizontal': DismissDirection.horizontal,
-    'DismissDirection.endToStart': DismissDirection.endToStart,
-    'DismissDirection.startToEnd': DismissDirection.startToEnd,
-    'DismissDirection.up': DismissDirection.up,
-    'DismissDirection.down': DismissDirection.down,
-  };
-  static DismissDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DismissDirection parse(String name, int index) {
+    switch(name) {
+      case 'DismissDirection.vertical': 
+       return DismissDirection.vertical;
+      case 'DismissDirection.horizontal': 
+       return DismissDirection.horizontal;
+      case 'DismissDirection.endToStart': 
+       return DismissDirection.endToStart;
+      case 'DismissDirection.startToEnd': 
+       return DismissDirection.startToEnd;
+      case 'DismissDirection.up': 
+       return DismissDirection.up;
+      case 'DismissDirection.down': 
+       return DismissDirection.down;
     }
+    return null;
   }
 }

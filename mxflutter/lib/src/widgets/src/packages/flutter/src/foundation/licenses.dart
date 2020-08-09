@@ -36,12 +36,12 @@ var _licenseEntryWithLineBreaks = MXFunctionInvoke(
     "LicenseEntryWithLineBreaks",
     (
       {
-      List<String> packages,
+      dynamic packages,
       String text,
       }
     ) =>
       LicenseEntryWithLineBreaks(
-      packages,
+      toListT<String>(packages),
       text,
     ),
 );

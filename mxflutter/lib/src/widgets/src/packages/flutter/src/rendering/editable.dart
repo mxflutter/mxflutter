@@ -28,7 +28,7 @@ Map<String, MXFunctionInvoke> registerEditableSeries() {
 }
 var _selectionChangedCause = MXFunctionInvoke(
     "SelectionChangedCause",
-    ({Map args}) => MXSelectionChangedCause.parse(args),
+    ({String name, int index}) => MXSelectionChangedCause.parse(name, index),
   );
 var _textSelectionPoint = MXFunctionInvoke(
     "TextSelectionPoint",
@@ -123,21 +123,21 @@ var _renderEditable = MXFunctionInvoke(
     ),
 );
 class MXSelectionChangedCause {
-  static Map str2VMap = {
-    'SelectionChangedCause.tap': SelectionChangedCause.tap,
-    'SelectionChangedCause.doubleTap': SelectionChangedCause.doubleTap,
-    'SelectionChangedCause.longPress': SelectionChangedCause.longPress,
-    'SelectionChangedCause.forcePress': SelectionChangedCause.forcePress,
-    'SelectionChangedCause.keyboard': SelectionChangedCause.keyboard,
-    'SelectionChangedCause.drag': SelectionChangedCause.drag,
-  };
-  static SelectionChangedCause parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SelectionChangedCause parse(String name, int index) {
+    switch(name) {
+      case 'SelectionChangedCause.tap': 
+       return SelectionChangedCause.tap;
+      case 'SelectionChangedCause.doubleTap': 
+       return SelectionChangedCause.doubleTap;
+      case 'SelectionChangedCause.longPress': 
+       return SelectionChangedCause.longPress;
+      case 'SelectionChangedCause.forcePress': 
+       return SelectionChangedCause.forcePress;
+      case 'SelectionChangedCause.keyboard': 
+       return SelectionChangedCause.keyboard;
+      case 'SelectionChangedCause.drag': 
+       return SelectionChangedCause.drag;
     }
+    return null;
   }
 }

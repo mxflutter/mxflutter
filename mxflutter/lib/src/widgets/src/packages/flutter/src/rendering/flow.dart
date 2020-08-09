@@ -31,12 +31,12 @@ var _renderFlow = MXFunctionInvoke(
     "RenderFlow",
     (
       {
-      List<RenderBox> children,
+      dynamic children,
       FlowDelegate delegate,
       }
     ) =>
       RenderFlow(
-      children: children,
+      children: toListT<RenderBox>(children),
       delegate: delegate,
     ),
 );

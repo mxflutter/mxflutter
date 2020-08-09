@@ -27,7 +27,7 @@ Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
 }
 var _animationBehavior = MXFunctionInvoke(
     "AnimationBehavior",
-    ({Map args}) => MXAnimationBehavior.parse(args),
+    ({String name, int index}) => MXAnimationBehavior.parse(name, index),
   );
 var _animationController = MXFunctionInvoke(
     "AnimationController",
@@ -76,17 +76,13 @@ var _animationController_unbounded = MXFunctionInvoke(
     ),
 );
 class MXAnimationBehavior {
-  static Map str2VMap = {
-    'AnimationBehavior.normal': AnimationBehavior.normal,
-    'AnimationBehavior.preserve': AnimationBehavior.preserve,
-  };
-  static AnimationBehavior parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static AnimationBehavior parse(String name, int index) {
+    switch(name) {
+      case 'AnimationBehavior.normal': 
+       return AnimationBehavior.normal;
+      case 'AnimationBehavior.preserve': 
+       return AnimationBehavior.preserve;
     }
+    return null;
   }
 }

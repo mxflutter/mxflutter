@@ -20,7 +20,7 @@ Map<String, MXFunctionInvoke> registerArenaSeries() {
 }
 var _gestureDisposition = MXFunctionInvoke(
     "GestureDisposition",
-    ({Map args}) => MXGestureDisposition.parse(args),
+    ({String name, int index}) => MXGestureDisposition.parse(name, index),
   );
 var _gestureArenaManager = MXFunctionInvoke(
     "GestureArenaManager",
@@ -30,17 +30,13 @@ var _gestureArenaManager = MXFunctionInvoke(
     ),
 );
 class MXGestureDisposition {
-  static Map str2VMap = {
-    'GestureDisposition.accepted': GestureDisposition.accepted,
-    'GestureDisposition.rejected': GestureDisposition.rejected,
-  };
-  static GestureDisposition parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static GestureDisposition parse(String name, int index) {
+    switch(name) {
+      case 'GestureDisposition.accepted': 
+       return GestureDisposition.accepted;
+      case 'GestureDisposition.rejected': 
+       return GestureDisposition.rejected;
     }
+    return null;
   }
 }

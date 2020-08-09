@@ -29,14 +29,14 @@ Map<String, MXFunctionInvoke> registerBottomNavigationBarSeries() {
 }
 var _bottomNavigationBarType = MXFunctionInvoke(
     "BottomNavigationBarType",
-    ({Map args}) => MXBottomNavigationBarType.parse(args),
+    ({String name, int index}) => MXBottomNavigationBarType.parse(name, index),
   );
 var _bottomNavigationBar = MXFunctionInvoke(
     "BottomNavigationBar",
     (
       {
       Key key,
-      List<BottomNavigationBarItem> items,
+      dynamic items,
       dynamic onTap,
       int currentIndex = 0,
       dynamic elevation = 8.0,
@@ -58,7 +58,7 @@ var _bottomNavigationBar = MXFunctionInvoke(
     ) =>
       BottomNavigationBar(
       key: key,
-      items: items,
+      items: toListT<BottomNavigationBarItem>(items),
       onTap: createValueChangedGenericClosure<int>(_bottomNavigationBar.buildOwner, onTap),
       currentIndex: currentIndex,
       elevation: elevation?.toDouble(),
@@ -79,17 +79,13 @@ var _bottomNavigationBar = MXFunctionInvoke(
     ),
 );
 class MXBottomNavigationBarType {
-  static Map str2VMap = {
-    'BottomNavigationBarType.fixed': BottomNavigationBarType.fixed,
-    'BottomNavigationBarType.shifting': BottomNavigationBarType.shifting,
-  };
-  static BottomNavigationBarType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BottomNavigationBarType parse(String name, int index) {
+    switch(name) {
+      case 'BottomNavigationBarType.fixed': 
+       return BottomNavigationBarType.fixed;
+      case 'BottomNavigationBarType.shifting': 
+       return BottomNavigationBarType.shifting;
     }
+    return null;
   }
 }

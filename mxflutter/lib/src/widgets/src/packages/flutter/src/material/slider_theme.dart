@@ -56,11 +56,11 @@ var _sliderTheme = MXFunctionInvoke(
 );
 var _showValueIndicator = MXFunctionInvoke(
     "ShowValueIndicator",
-    ({Map args}) => MXShowValueIndicator.parse(args),
+    ({String name, int index}) => MXShowValueIndicator.parse(name, index),
   );
 var _thumb = MXFunctionInvoke(
     "Thumb",
-    ({Map args}) => MXThumb.parse(args),
+    ({String name, int index}) => MXThumb.parse(name, index),
   );
 var _sliderThemeData = MXFunctionInvoke(
     "SliderThemeData",
@@ -274,34 +274,28 @@ var _rangeLabels = MXFunctionInvoke(
     ),
 );
 class MXShowValueIndicator {
-  static Map str2VMap = {
-    'ShowValueIndicator.onlyForDiscrete': ShowValueIndicator.onlyForDiscrete,
-    'ShowValueIndicator.onlyForContinuous': ShowValueIndicator.onlyForContinuous,
-    'ShowValueIndicator.always': ShowValueIndicator.always,
-    'ShowValueIndicator.never': ShowValueIndicator.never,
-  };
-  static ShowValueIndicator parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ShowValueIndicator parse(String name, int index) {
+    switch(name) {
+      case 'ShowValueIndicator.onlyForDiscrete': 
+       return ShowValueIndicator.onlyForDiscrete;
+      case 'ShowValueIndicator.onlyForContinuous': 
+       return ShowValueIndicator.onlyForContinuous;
+      case 'ShowValueIndicator.always': 
+       return ShowValueIndicator.always;
+      case 'ShowValueIndicator.never': 
+       return ShowValueIndicator.never;
     }
+    return null;
   }
 }
 class MXThumb {
-  static Map str2VMap = {
-    'Thumb.start': Thumb.start,
-    'Thumb.end': Thumb.end,
-  };
-  static Thumb parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static Thumb parse(String name, int index) {
+    switch(name) {
+      case 'Thumb.start': 
+       return Thumb.start;
+      case 'Thumb.end': 
+       return Thumb.end;
     }
+    return null;
   }
 }

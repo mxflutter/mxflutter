@@ -27,7 +27,7 @@ Map<String, MXFunctionInvoke> registerDragTargetSeries() {
 }
 var _dragAnchor = MXFunctionInvoke(
     "DragAnchor",
-    ({Map args}) => MXDragAnchor.parse(args),
+    ({String name, int index}) => MXDragAnchor.parse(name, index),
   );
 var _draggable = MXFunctionInvoke(
     "Draggable",
@@ -142,17 +142,13 @@ var _dragTarget = MXFunctionInvoke(
     ),
 );
 class MXDragAnchor {
-  static Map str2VMap = {
-    'DragAnchor.child': DragAnchor.child,
-    'DragAnchor.pointer': DragAnchor.pointer,
-  };
-  static DragAnchor parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DragAnchor parse(String name, int index) {
+    switch(name) {
+      case 'DragAnchor.child': 
+       return DragAnchor.child;
+      case 'DragAnchor.pointer': 
+       return DragAnchor.pointer;
     }
+    return null;
   }
 }

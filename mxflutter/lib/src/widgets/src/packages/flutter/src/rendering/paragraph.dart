@@ -30,7 +30,7 @@ Map<String, MXFunctionInvoke> registerParagraphSeries() {
 }
 var _textOverflow = MXFunctionInvoke(
     "TextOverflow",
-    ({Map args}) => MXTextOverflow.parse(args),
+    ({String name, int index}) => MXTextOverflow.parse(name, index),
   );
 var _textParentData = MXFunctionInvoke(
     "TextParentData",
@@ -54,7 +54,7 @@ var _renderParagraph = MXFunctionInvoke(
       StrutStyle strutStyle,
       TextWidthBasis textWidthBasis = TextWidthBasis.parent,
       ui.TextHeightBehavior textHeightBehavior,
-      List<RenderBox> children,
+      dynamic children,
       }
     ) =>
       RenderParagraph(
@@ -69,23 +69,21 @@ var _renderParagraph = MXFunctionInvoke(
       strutStyle: strutStyle,
       textWidthBasis: textWidthBasis,
       textHeightBehavior: textHeightBehavior,
-      children: children,
+      children: toListT<RenderBox>(children),
     ),
 );
 class MXTextOverflow {
-  static Map str2VMap = {
-    'TextOverflow.clip': TextOverflow.clip,
-    'TextOverflow.fade': TextOverflow.fade,
-    'TextOverflow.ellipsis': TextOverflow.ellipsis,
-    'TextOverflow.visible': TextOverflow.visible,
-  };
-  static TextOverflow parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextOverflow parse(String name, int index) {
+    switch(name) {
+      case 'TextOverflow.clip': 
+       return TextOverflow.clip;
+      case 'TextOverflow.fade': 
+       return TextOverflow.fade;
+      case 'TextOverflow.ellipsis': 
+       return TextOverflow.ellipsis;
+      case 'TextOverflow.visible': 
+       return TextOverflow.visible;
     }
+    return null;
   }
 }

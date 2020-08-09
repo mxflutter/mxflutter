@@ -26,7 +26,7 @@ Map<String, MXFunctionInvoke> registerFlexSeries() {
 }
 var _flexFit = MXFunctionInvoke(
     "FlexFit",
-    ({Map args}) => MXFlexFit.parse(args),
+    ({String name, int index}) => MXFlexFit.parse(name, index),
   );
 var _flexParentData = MXFunctionInvoke(
     "FlexParentData",
@@ -37,21 +37,21 @@ var _flexParentData = MXFunctionInvoke(
 );
 var _mainAxisSize = MXFunctionInvoke(
     "MainAxisSize",
-    ({Map args}) => MXMainAxisSize.parse(args),
+    ({String name, int index}) => MXMainAxisSize.parse(name, index),
   );
 var _mainAxisAlignment = MXFunctionInvoke(
     "MainAxisAlignment",
-    ({Map args}) => MXMainAxisAlignment.parse(args),
+    ({String name, int index}) => MXMainAxisAlignment.parse(name, index),
   );
 var _crossAxisAlignment = MXFunctionInvoke(
     "CrossAxisAlignment",
-    ({Map args}) => MXCrossAxisAlignment.parse(args),
+    ({String name, int index}) => MXCrossAxisAlignment.parse(name, index),
   );
 var _renderFlex = MXFunctionInvoke(
     "RenderFlex",
     (
       {
-      List<RenderBox> children,
+      dynamic children,
       Axis direction = Axis.horizontal,
       MainAxisSize mainAxisSize = MainAxisSize.max,
       MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
@@ -62,7 +62,7 @@ var _renderFlex = MXFunctionInvoke(
       }
     ) =>
       RenderFlex(
-      children: children,
+      children: toListT<RenderBox>(children),
       direction: direction,
       mainAxisSize: mainAxisSize,
       mainAxisAlignment: mainAxisAlignment,
@@ -73,69 +73,60 @@ var _renderFlex = MXFunctionInvoke(
     ),
 );
 class MXFlexFit {
-  static Map str2VMap = {
-    'FlexFit.tight': FlexFit.tight,
-    'FlexFit.loose': FlexFit.loose,
-  };
-  static FlexFit parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FlexFit parse(String name, int index) {
+    switch(name) {
+      case 'FlexFit.tight': 
+       return FlexFit.tight;
+      case 'FlexFit.loose': 
+       return FlexFit.loose;
     }
+    return null;
   }
 }
 class MXMainAxisSize {
-  static Map str2VMap = {
-    'MainAxisSize.min': MainAxisSize.min,
-    'MainAxisSize.max': MainAxisSize.max,
-  };
-  static MainAxisSize parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static MainAxisSize parse(String name, int index) {
+    switch(name) {
+      case 'MainAxisSize.min': 
+       return MainAxisSize.min;
+      case 'MainAxisSize.max': 
+       return MainAxisSize.max;
     }
+    return null;
   }
 }
 class MXMainAxisAlignment {
-  static Map str2VMap = {
-    'MainAxisAlignment.start': MainAxisAlignment.start,
-    'MainAxisAlignment.end': MainAxisAlignment.end,
-    'MainAxisAlignment.center': MainAxisAlignment.center,
-    'MainAxisAlignment.spaceBetween': MainAxisAlignment.spaceBetween,
-    'MainAxisAlignment.spaceAround': MainAxisAlignment.spaceAround,
-    'MainAxisAlignment.spaceEvenly': MainAxisAlignment.spaceEvenly,
-  };
-  static MainAxisAlignment parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static MainAxisAlignment parse(String name, int index) {
+    switch(name) {
+      case 'MainAxisAlignment.start': 
+       return MainAxisAlignment.start;
+      case 'MainAxisAlignment.end': 
+       return MainAxisAlignment.end;
+      case 'MainAxisAlignment.center': 
+       return MainAxisAlignment.center;
+      case 'MainAxisAlignment.spaceBetween': 
+       return MainAxisAlignment.spaceBetween;
+      case 'MainAxisAlignment.spaceAround': 
+       return MainAxisAlignment.spaceAround;
+      case 'MainAxisAlignment.spaceEvenly': 
+       return MainAxisAlignment.spaceEvenly;
     }
+    return null;
   }
 }
 class MXCrossAxisAlignment {
-  static Map str2VMap = {
-    'CrossAxisAlignment.start': CrossAxisAlignment.start,
-    'CrossAxisAlignment.end': CrossAxisAlignment.end,
-    'CrossAxisAlignment.center': CrossAxisAlignment.center,
-    'CrossAxisAlignment.stretch': CrossAxisAlignment.stretch,
-    'CrossAxisAlignment.baseline': CrossAxisAlignment.baseline,
-  };
-  static CrossAxisAlignment parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static CrossAxisAlignment parse(String name, int index) {
+    switch(name) {
+      case 'CrossAxisAlignment.start': 
+       return CrossAxisAlignment.start;
+      case 'CrossAxisAlignment.end': 
+       return CrossAxisAlignment.end;
+      case 'CrossAxisAlignment.center': 
+       return CrossAxisAlignment.center;
+      case 'CrossAxisAlignment.stretch': 
+       return CrossAxisAlignment.stretch;
+      case 'CrossAxisAlignment.baseline': 
+       return CrossAxisAlignment.baseline;
     }
+    return null;
   }
 }

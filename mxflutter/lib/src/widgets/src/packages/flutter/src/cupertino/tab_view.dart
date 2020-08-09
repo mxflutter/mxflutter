@@ -25,10 +25,10 @@ var _cupertinoTabView = MXFunctionInvoke(
       dynamic builder,
       GlobalKey<NavigatorState> navigatorKey,
       String defaultTitle,
-      Map<String, Widget Function(BuildContext)> routes,
+      dynamic routes,
       dynamic onGenerateRoute,
       dynamic onUnknownRoute,
-      List<NavigatorObserver> navigatorObservers,
+      dynamic navigatorObservers,
       }
     ) =>
       CupertinoTabView(
@@ -36,9 +36,9 @@ var _cupertinoTabView = MXFunctionInvoke(
       builder: null,
       navigatorKey: navigatorKey,
       defaultTitle: defaultTitle,
-      routes: routes,
+      routes: toMapT<String, Widget Function(BuildContext)>(routes),
       onGenerateRoute: null,
       onUnknownRoute: null,
-      navigatorObservers: navigatorObservers,
+      navigatorObservers: toListT<NavigatorObserver>(navigatorObservers),
     ),
 );

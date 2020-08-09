@@ -107,7 +107,7 @@ var _minColumnWidth = MXFunctionInvoke(
 );
 var _tableCellVerticalAlignment = MXFunctionInvoke(
     "TableCellVerticalAlignment",
-    ({Map args}) => MXTableCellVerticalAlignment.parse(args),
+    ({String name, int index}) => MXTableCellVerticalAlignment.parse(name, index),
   );
 var _renderTable = MXFunctionInvoke(
     "RenderTable",
@@ -115,46 +115,45 @@ var _renderTable = MXFunctionInvoke(
       {
       int columns,
       int rows,
-      Map<int, TableColumnWidth> columnWidths,
+      dynamic columnWidths,
       TableColumnWidth defaultColumnWidth,
       TextDirection textDirection,
       TableBorder border,
-      List<Decoration> rowDecorations,
+      dynamic rowDecorations,
       ImageConfiguration configuration,
       TableCellVerticalAlignment defaultVerticalAlignment = TableCellVerticalAlignment.top,
       TextBaseline textBaseline,
-      List<List<RenderBox>> children,
+      dynamic children,
       }
     ) =>
       RenderTable(
       columns: columns,
       rows: rows,
-      columnWidths: columnWidths,
+      columnWidths: toMapT<int, TableColumnWidth>(columnWidths),
       defaultColumnWidth: defaultColumnWidth,
       textDirection: textDirection,
       border: border,
-      rowDecorations: rowDecorations,
+      rowDecorations: toListT<Decoration>(rowDecorations),
       configuration: configuration,
       defaultVerticalAlignment: defaultVerticalAlignment,
       textBaseline: textBaseline,
-      children: children,
+      children: toListT<List<RenderBox>>(children),
     ),
 );
 class MXTableCellVerticalAlignment {
-  static Map str2VMap = {
-    'TableCellVerticalAlignment.top': TableCellVerticalAlignment.top,
-    'TableCellVerticalAlignment.middle': TableCellVerticalAlignment.middle,
-    'TableCellVerticalAlignment.bottom': TableCellVerticalAlignment.bottom,
-    'TableCellVerticalAlignment.baseline': TableCellVerticalAlignment.baseline,
-    'TableCellVerticalAlignment.fill': TableCellVerticalAlignment.fill,
-  };
-  static TableCellVerticalAlignment parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TableCellVerticalAlignment parse(String name, int index) {
+    switch(name) {
+      case 'TableCellVerticalAlignment.top': 
+       return TableCellVerticalAlignment.top;
+      case 'TableCellVerticalAlignment.middle': 
+       return TableCellVerticalAlignment.middle;
+      case 'TableCellVerticalAlignment.bottom': 
+       return TableCellVerticalAlignment.bottom;
+      case 'TableCellVerticalAlignment.baseline': 
+       return TableCellVerticalAlignment.baseline;
+      case 'TableCellVerticalAlignment.fill': 
+       return TableCellVerticalAlignment.fill;
     }
+    return null;
   }
 }

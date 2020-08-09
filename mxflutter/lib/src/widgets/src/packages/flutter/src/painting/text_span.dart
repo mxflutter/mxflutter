@@ -27,7 +27,7 @@ var _textSpan = MXFunctionInvoke(
     (
       {
       String text,
-      List<InlineSpan> children,
+      dynamic children,
       TextStyle style,
       GestureRecognizer recognizer,
       String semanticsLabel,
@@ -35,7 +35,7 @@ var _textSpan = MXFunctionInvoke(
     ) =>
       TextSpan(
       text: text,
-      children: children,
+      children: toListT<InlineSpan>(children),
       style: style,
       recognizer: recognizer,
       semanticsLabel: semanticsLabel,

@@ -29,7 +29,7 @@ Map<String, MXFunctionInvoke> registerPlatformViewSeries() {
 }
 var _platformViewHitTestBehavior = MXFunctionInvoke(
     "PlatformViewHitTestBehavior",
-    ({Map args}) => MXPlatformViewHitTestBehavior.parse(args),
+    ({String name, int index}) => MXPlatformViewHitTestBehavior.parse(name, index),
   );
 var _renderAndroidView = MXFunctionInvoke(
     "RenderAndroidView",
@@ -77,18 +77,15 @@ var _platformViewRenderBox = MXFunctionInvoke(
     ),
 );
 class MXPlatformViewHitTestBehavior {
-  static Map str2VMap = {
-    'PlatformViewHitTestBehavior.opaque': PlatformViewHitTestBehavior.opaque,
-    'PlatformViewHitTestBehavior.translucent': PlatformViewHitTestBehavior.translucent,
-    'PlatformViewHitTestBehavior.transparent': PlatformViewHitTestBehavior.transparent,
-  };
-  static PlatformViewHitTestBehavior parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PlatformViewHitTestBehavior parse(String name, int index) {
+    switch(name) {
+      case 'PlatformViewHitTestBehavior.opaque': 
+       return PlatformViewHitTestBehavior.opaque;
+      case 'PlatformViewHitTestBehavior.translucent': 
+       return PlatformViewHitTestBehavior.translucent;
+      case 'PlatformViewHitTestBehavior.transparent': 
+       return PlatformViewHitTestBehavior.transparent;
     }
+    return null;
   }
 }

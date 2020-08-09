@@ -44,7 +44,7 @@ Map<String, MXFunctionInvoke> registerNavigatorSeries() {
 }
 var _routePopDisposition = MXFunctionInvoke(
     "RoutePopDisposition",
-    ({Map args}) => MXRoutePopDisposition.parse(args),
+    ({String name, int index}) => MXRoutePopDisposition.parse(name, index),
   );
 var _routeSettings = MXFunctionInvoke(
     "RouteSettings",
@@ -95,26 +95,26 @@ var _navigator = MXFunctionInvoke(
     (
       {
       Key key,
-      List<Page<dynamic>> pages,
+      dynamic pages,
       dynamic onPopPage,
       String initialRoute,
       dynamic onGenerateInitialRoutes,
       dynamic onGenerateRoute,
       dynamic onUnknownRoute,
       TransitionDelegate<dynamic> transitionDelegate,
-      List<NavigatorObserver> observers,
+      dynamic observers,
       }
     ) =>
       Navigator(
       key: key,
-      pages: pages,
+      pages: toListT<Page<dynamic>>(pages),
       onPopPage: null,
       initialRoute: initialRoute,
       onGenerateInitialRoutes: null,
       onGenerateRoute: null,
       onUnknownRoute: null,
       transitionDelegate: transitionDelegate,
-      observers: observers,
+      observers: toListT<NavigatorObserver>(observers),
     ),
 );
 var _navigator_replace = MXFunctionInvoke(
@@ -207,18 +207,15 @@ var _navigatorState = MXFunctionInvoke(
     ),
 );
 class MXRoutePopDisposition {
-  static Map str2VMap = {
-    'RoutePopDisposition.pop': RoutePopDisposition.pop,
-    'RoutePopDisposition.doNotPop': RoutePopDisposition.doNotPop,
-    'RoutePopDisposition.bubble': RoutePopDisposition.bubble,
-  };
-  static RoutePopDisposition parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static RoutePopDisposition parse(String name, int index) {
+    switch(name) {
+      case 'RoutePopDisposition.pop': 
+       return RoutePopDisposition.pop;
+      case 'RoutePopDisposition.doNotPop': 
+       return RoutePopDisposition.doNotPop;
+      case 'RoutePopDisposition.bubble': 
+       return RoutePopDisposition.bubble;
     }
+    return null;
   }
 }

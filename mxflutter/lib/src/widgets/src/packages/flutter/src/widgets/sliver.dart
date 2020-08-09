@@ -61,7 +61,7 @@ var _sliverChildListDelegate = MXFunctionInvoke(
     "SliverChildListDelegate",
     (
       {
-      List<Widget> children,
+      dynamic children,
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
@@ -70,7 +70,7 @@ var _sliverChildListDelegate = MXFunctionInvoke(
       }
     ) =>
       SliverChildListDelegate(
-      children,
+      toListT<Widget>(children),
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
@@ -82,7 +82,7 @@ var _sliverChildListDelegate_fixed = MXFunctionInvoke(
   "SliverChildListDelegate.fixed",
     (
       {
-      List<Widget> children,
+      dynamic children,
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
@@ -91,7 +91,7 @@ var _sliverChildListDelegate_fixed = MXFunctionInvoke(
       }
     ) =>
       SliverChildListDelegate.fixed(
-      children,
+      toListT<Widget>(children),
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
@@ -151,7 +151,7 @@ var _sliverGrid_count = MXFunctionInvoke(
       dynamic mainAxisSpacing = 0.0,
       dynamic crossAxisSpacing = 0.0,
       dynamic childAspectRatio = 1.0,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       SliverGrid.count(
@@ -160,7 +160,7 @@ var _sliverGrid_count = MXFunctionInvoke(
       mainAxisSpacing: mainAxisSpacing?.toDouble(),
       crossAxisSpacing: crossAxisSpacing?.toDouble(),
       childAspectRatio: childAspectRatio?.toDouble(),
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _sliverGrid_extent = MXFunctionInvoke(
@@ -172,7 +172,7 @@ var _sliverGrid_extent = MXFunctionInvoke(
       dynamic mainAxisSpacing = 0.0,
       dynamic crossAxisSpacing = 0.0,
       dynamic childAspectRatio = 1.0,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       SliverGrid.extent(
@@ -181,7 +181,7 @@ var _sliverGrid_extent = MXFunctionInvoke(
       mainAxisSpacing: mainAxisSpacing?.toDouble(),
       crossAxisSpacing: crossAxisSpacing?.toDouble(),
       childAspectRatio: childAspectRatio?.toDouble(),
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _sliverMultiBoxAdaptorElement = MXFunctionInvoke(
