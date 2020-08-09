@@ -18,22 +18,20 @@ Map<String, MXFunctionInvoke> registerAnimationSeries() {
 }
 var _animationStatus = MXFunctionInvoke(
     "AnimationStatus",
-    ({Map args}) => MXAnimationStatus.parse(args),
+    ({String name, int index}) => MXAnimationStatus.parse(name, index),
   );
 class MXAnimationStatus {
-  static Map str2VMap = {
-    'AnimationStatus.dismissed': AnimationStatus.dismissed,
-    'AnimationStatus.forward': AnimationStatus.forward,
-    'AnimationStatus.reverse': AnimationStatus.reverse,
-    'AnimationStatus.completed': AnimationStatus.completed,
-  };
-  static AnimationStatus parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static AnimationStatus parse(String name, int index) {
+    switch(name) {
+      case 'AnimationStatus.dismissed': 
+       return AnimationStatus.dismissed;
+      case 'AnimationStatus.forward': 
+       return AnimationStatus.forward;
+      case 'AnimationStatus.reverse': 
+       return AnimationStatus.reverse;
+      case 'AnimationStatus.completed': 
+       return AnimationStatus.completed;
     }
+    return null;
   }
 }

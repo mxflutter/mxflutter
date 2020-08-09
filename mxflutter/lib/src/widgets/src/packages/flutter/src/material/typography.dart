@@ -23,7 +23,7 @@ Map<String, MXFunctionInvoke> registerTypographySeries() {
 }
 var _scriptCategory = MXFunctionInvoke(
     "ScriptCategory",
-    ({Map args}) => MXScriptCategory.parse(args),
+    ({String name, int index}) => MXScriptCategory.parse(name, index),
   );
 var _typography = MXFunctionInvoke(
     "Typography",
@@ -89,18 +89,15 @@ var _typography_material2018 = MXFunctionInvoke(
     ),
 );
 class MXScriptCategory {
-  static Map str2VMap = {
-    'ScriptCategory.englishLike': ScriptCategory.englishLike,
-    'ScriptCategory.dense': ScriptCategory.dense,
-    'ScriptCategory.tall': ScriptCategory.tall,
-  };
-  static ScriptCategory parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ScriptCategory parse(String name, int index) {
+    switch(name) {
+      case 'ScriptCategory.englishLike': 
+       return ScriptCategory.englishLike;
+      case 'ScriptCategory.dense': 
+       return ScriptCategory.dense;
+      case 'ScriptCategory.tall': 
+       return ScriptCategory.tall;
     }
+    return null;
   }
 }

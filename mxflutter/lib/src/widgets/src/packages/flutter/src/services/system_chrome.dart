@@ -24,7 +24,7 @@ Map<String, MXFunctionInvoke> registerSystemChromeSeries() {
 }
 var _deviceOrientation = MXFunctionInvoke(
     "DeviceOrientation",
-    ({Map args}) => MXDeviceOrientation.parse(args),
+    ({String name, int index}) => MXDeviceOrientation.parse(name, index),
   );
 var _applicationSwitcherDescription = MXFunctionInvoke(
     "ApplicationSwitcherDescription",
@@ -41,7 +41,7 @@ var _applicationSwitcherDescription = MXFunctionInvoke(
 );
 var _systemUiOverlay = MXFunctionInvoke(
     "SystemUiOverlay",
-    ({Map args}) => MXSystemUiOverlay.parse(args),
+    ({String name, int index}) => MXSystemUiOverlay.parse(name, index),
   );
 var _systemUiOverlayStyle = MXFunctionInvoke(
     "SystemUiOverlayStyle",
@@ -76,34 +76,28 @@ var _systemChrome_setSystemUIOverlayStyle = MXFunctionInvoke(
     ),
 );
 class MXDeviceOrientation {
-  static Map str2VMap = {
-    'DeviceOrientation.portraitUp': DeviceOrientation.portraitUp,
-    'DeviceOrientation.landscapeLeft': DeviceOrientation.landscapeLeft,
-    'DeviceOrientation.portraitDown': DeviceOrientation.portraitDown,
-    'DeviceOrientation.landscapeRight': DeviceOrientation.landscapeRight,
-  };
-  static DeviceOrientation parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DeviceOrientation parse(String name, int index) {
+    switch(name) {
+      case 'DeviceOrientation.portraitUp': 
+       return DeviceOrientation.portraitUp;
+      case 'DeviceOrientation.landscapeLeft': 
+       return DeviceOrientation.landscapeLeft;
+      case 'DeviceOrientation.portraitDown': 
+       return DeviceOrientation.portraitDown;
+      case 'DeviceOrientation.landscapeRight': 
+       return DeviceOrientation.landscapeRight;
     }
+    return null;
   }
 }
 class MXSystemUiOverlay {
-  static Map str2VMap = {
-    'SystemUiOverlay.top': SystemUiOverlay.top,
-    'SystemUiOverlay.bottom': SystemUiOverlay.bottom,
-  };
-  static SystemUiOverlay parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SystemUiOverlay parse(String name, int index) {
+    switch(name) {
+      case 'SystemUiOverlay.top': 
+       return SystemUiOverlay.top;
+      case 'SystemUiOverlay.bottom': 
+       return SystemUiOverlay.bottom;
     }
+    return null;
   }
 }

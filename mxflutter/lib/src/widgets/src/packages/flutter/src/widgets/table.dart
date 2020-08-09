@@ -29,13 +29,13 @@ var _tableRow = MXFunctionInvoke(
       {
       LocalKey key,
       Decoration decoration,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       TableRow(
       key: key,
       decoration: decoration,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _table = MXFunctionInvoke(
@@ -43,8 +43,8 @@ var _table = MXFunctionInvoke(
     (
       {
       Key key,
-      List<TableRow> children,
-      Map<int, TableColumnWidth> columnWidths,
+      dynamic children,
+      dynamic columnWidths,
       TableColumnWidth defaultColumnWidth,
       TextDirection textDirection,
       TableBorder border,
@@ -54,8 +54,8 @@ var _table = MXFunctionInvoke(
     ) =>
       Table(
       key: key,
-      children: children,
-      columnWidths: columnWidths,
+      children: toListT<TableRow>(children),
+      columnWidths: toMapT<int, TableColumnWidth>(columnWidths),
       defaultColumnWidth: defaultColumnWidth,
       textDirection: textDirection,
       border: border,

@@ -53,12 +53,12 @@ var _repetitiveStackFrameFilter = MXFunctionInvoke(
     "RepetitiveStackFrameFilter",
     (
       {
-      List<PartialStackFrame> frames,
+      dynamic frames,
       String replacement,
       }
     ) =>
       RepetitiveStackFrameFilter(
-      frames: frames,
+      frames: toListT<PartialStackFrame>(frames),
       replacement: replacement,
     ),
 );
@@ -182,11 +182,11 @@ var _flutterError_fromParts = MXFunctionInvoke(
   "FlutterError.fromParts",
     (
       {
-      List<DiagnosticsNode> diagnostics,
+      dynamic diagnostics,
       }
     ) =>
       FlutterError.fromParts(
-      diagnostics,
+      toListT<DiagnosticsNode>(diagnostics),
     ),
 );
 var _diagnosticsStackTrace = MXFunctionInvoke(

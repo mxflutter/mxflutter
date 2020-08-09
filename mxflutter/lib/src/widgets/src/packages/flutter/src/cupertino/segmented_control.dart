@@ -25,7 +25,7 @@ var _cupertinoSegmentedControl = MXFunctionInvoke(
     (
       {
       Key key,
-      Map<dynamic, Widget> children,
+      dynamic children,
       dynamic onValueChanged,
       dynamic groupValue,
       Color unselectedColor,
@@ -37,7 +37,7 @@ var _cupertinoSegmentedControl = MXFunctionInvoke(
     ) =>
       CupertinoSegmentedControl(
       key: key,
-      children: children,
+      children: toMapT<dynamic, Widget>(children),
       onValueChanged: createValueChangedGenericClosure<dynamic>(_cupertinoSegmentedControl.buildOwner, onValueChanged),
       groupValue: groupValue,
       unselectedColor: unselectedColor,

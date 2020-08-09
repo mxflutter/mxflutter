@@ -64,7 +64,7 @@ var _expansionPanelList = MXFunctionInvoke(
     (
       {
       Key key,
-      List<ExpansionPanel> children,
+      dynamic children,
       dynamic expansionCallback,
       Duration animationDuration,
       EdgeInsets expandedHeaderPadding,
@@ -72,7 +72,7 @@ var _expansionPanelList = MXFunctionInvoke(
     ) =>
       ExpansionPanelList(
       key: key,
-      children: children,
+      children: toListT<ExpansionPanel>(children),
       expansionCallback: createVoidTwoParamsClosure<int, bool>(_expansionPanelList.buildOwner, expansionCallback),
       animationDuration: animationDuration,
       expandedHeaderPadding: expandedHeaderPadding,
@@ -83,7 +83,7 @@ var _expansionPanelList_radio = MXFunctionInvoke(
     (
       {
       Key key,
-      List<ExpansionPanel> children,
+      dynamic children,
       dynamic expansionCallback,
       Duration animationDuration,
       Object initialOpenPanelValue,
@@ -92,7 +92,7 @@ var _expansionPanelList_radio = MXFunctionInvoke(
     ) =>
       ExpansionPanelList.radio(
       key: key,
-      children: children,
+      children: toListT<ExpansionPanel>(children),
       expansionCallback: createVoidTwoParamsClosure<int, bool>(_expansionPanelList_radio.buildOwner, expansionCallback),
       animationDuration: animationDuration,
       initialOpenPanelValue: initialOpenPanelValue,

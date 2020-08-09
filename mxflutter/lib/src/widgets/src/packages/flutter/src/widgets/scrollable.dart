@@ -78,7 +78,7 @@ var _scrollableState = MXFunctionInvoke(
 );
 var _scrollIncrementType = MXFunctionInvoke(
     "ScrollIncrementType",
-    ({Map args}) => MXScrollIncrementType.parse(args),
+    ({String name, int index}) => MXScrollIncrementType.parse(name, index),
   );
 var _scrollIncrementDetails = MXFunctionInvoke(
     "ScrollIncrementDetails",
@@ -114,17 +114,13 @@ var _scrollAction = MXFunctionInvoke(
     ),
 );
 class MXScrollIncrementType {
-  static Map str2VMap = {
-    'ScrollIncrementType.line': ScrollIncrementType.line,
-    'ScrollIncrementType.page': ScrollIncrementType.page,
-  };
-  static ScrollIncrementType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ScrollIncrementType parse(String name, int index) {
+    switch(name) {
+      case 'ScrollIncrementType.line': 
+       return ScrollIncrementType.line;
+      case 'ScrollIncrementType.page': 
+       return ScrollIncrementType.page;
     }
+    return null;
   }
 }

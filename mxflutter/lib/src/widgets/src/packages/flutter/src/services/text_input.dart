@@ -37,11 +37,11 @@ Map<String, MXFunctionInvoke> registerTextInputSeries() {
 }
 var _smartDashesType = MXFunctionInvoke(
     "SmartDashesType",
-    ({Map args}) => MXSmartDashesType.parse(args),
+    ({String name, int index}) => MXSmartDashesType.parse(name, index),
   );
 var _smartQuotesType = MXFunctionInvoke(
     "SmartQuotesType",
-    ({Map args}) => MXSmartQuotesType.parse(args),
+    ({String name, int index}) => MXSmartQuotesType.parse(name, index),
   );
 var _textInputType_numberWithOptions = MXFunctionInvoke(
   "TextInputType.numberWithOptions",
@@ -58,11 +58,11 @@ var _textInputType_numberWithOptions = MXFunctionInvoke(
 );
 var _textInputAction = MXFunctionInvoke(
     "TextInputAction",
-    ({Map args}) => MXTextInputAction.parse(args),
+    ({String name, int index}) => MXTextInputAction.parse(name, index),
   );
 var _textCapitalization = MXFunctionInvoke(
     "TextCapitalization",
-    ({Map args}) => MXTextCapitalization.parse(args),
+    ({String name, int index}) => MXTextCapitalization.parse(name, index),
   );
 var _textInputConfiguration = MXFunctionInvoke(
     "TextInputConfiguration",
@@ -95,7 +95,7 @@ var _textInputConfiguration = MXFunctionInvoke(
 );
 var _floatingCursorDragState = MXFunctionInvoke(
     "FloatingCursorDragState",
-    ({Map args}) => MXFloatingCursorDragState.parse(args),
+    ({String name, int index}) => MXFloatingCursorDragState.parse(name, index),
   );
 var _rawFloatingCursorPoint = MXFunctionInvoke(
     "RawFloatingCursorPoint",
@@ -129,11 +129,11 @@ var _textEditingValue_fromJSON = MXFunctionInvoke(
   "TextEditingValue.fromJSON",
     (
       {
-      Map<String, dynamic> encoded,
+      dynamic encoded,
       }
     ) =>
       TextEditingValue.fromJSON(
-      encoded,
+      toMapT<String, dynamic>(encoded),
     ),
 );
 var _textInputConnection_debugResetId = MXFunctionInvoke(
@@ -159,91 +159,85 @@ var _textInput_setChannel = MXFunctionInvoke(
     ),
 );
 class MXSmartDashesType {
-  static Map str2VMap = {
-    'SmartDashesType.disabled': SmartDashesType.disabled,
-    'SmartDashesType.enabled': SmartDashesType.enabled,
-  };
-  static SmartDashesType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SmartDashesType parse(String name, int index) {
+    switch(name) {
+      case 'SmartDashesType.disabled': 
+       return SmartDashesType.disabled;
+      case 'SmartDashesType.enabled': 
+       return SmartDashesType.enabled;
     }
+    return null;
   }
 }
 class MXSmartQuotesType {
-  static Map str2VMap = {
-    'SmartQuotesType.disabled': SmartQuotesType.disabled,
-    'SmartQuotesType.enabled': SmartQuotesType.enabled,
-  };
-  static SmartQuotesType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SmartQuotesType parse(String name, int index) {
+    switch(name) {
+      case 'SmartQuotesType.disabled': 
+       return SmartQuotesType.disabled;
+      case 'SmartQuotesType.enabled': 
+       return SmartQuotesType.enabled;
     }
+    return null;
   }
 }
 class MXTextInputAction {
-  static Map str2VMap = {
-    'TextInputAction.none': TextInputAction.none,
-    'TextInputAction.unspecified': TextInputAction.unspecified,
-    'TextInputAction.done': TextInputAction.done,
-    'TextInputAction.go': TextInputAction.go,
-    'TextInputAction.search': TextInputAction.search,
-    'TextInputAction.send': TextInputAction.send,
-    'TextInputAction.next': TextInputAction.next,
-    'TextInputAction.previous': TextInputAction.previous,
-    'TextInputAction.continueAction': TextInputAction.continueAction,
-    'TextInputAction.join': TextInputAction.join,
-    'TextInputAction.route': TextInputAction.route,
-    'TextInputAction.emergencyCall': TextInputAction.emergencyCall,
-    'TextInputAction.newline': TextInputAction.newline,
-  };
-  static TextInputAction parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextInputAction parse(String name, int index) {
+    switch(name) {
+      case 'TextInputAction.none': 
+       return TextInputAction.none;
+      case 'TextInputAction.unspecified': 
+       return TextInputAction.unspecified;
+      case 'TextInputAction.done': 
+       return TextInputAction.done;
+      case 'TextInputAction.go': 
+       return TextInputAction.go;
+      case 'TextInputAction.search': 
+       return TextInputAction.search;
+      case 'TextInputAction.send': 
+       return TextInputAction.send;
+      case 'TextInputAction.next': 
+       return TextInputAction.next;
+      case 'TextInputAction.previous': 
+       return TextInputAction.previous;
+      case 'TextInputAction.continueAction': 
+       return TextInputAction.continueAction;
+      case 'TextInputAction.join': 
+       return TextInputAction.join;
+      case 'TextInputAction.route': 
+       return TextInputAction.route;
+      case 'TextInputAction.emergencyCall': 
+       return TextInputAction.emergencyCall;
+      case 'TextInputAction.newline': 
+       return TextInputAction.newline;
     }
+    return null;
   }
 }
 class MXTextCapitalization {
-  static Map str2VMap = {
-    'TextCapitalization.words': TextCapitalization.words,
-    'TextCapitalization.sentences': TextCapitalization.sentences,
-    'TextCapitalization.characters': TextCapitalization.characters,
-    'TextCapitalization.none': TextCapitalization.none,
-  };
-  static TextCapitalization parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextCapitalization parse(String name, int index) {
+    switch(name) {
+      case 'TextCapitalization.words': 
+       return TextCapitalization.words;
+      case 'TextCapitalization.sentences': 
+       return TextCapitalization.sentences;
+      case 'TextCapitalization.characters': 
+       return TextCapitalization.characters;
+      case 'TextCapitalization.none': 
+       return TextCapitalization.none;
     }
+    return null;
   }
 }
 class MXFloatingCursorDragState {
-  static Map str2VMap = {
-    'FloatingCursorDragState.Start': FloatingCursorDragState.Start,
-    'FloatingCursorDragState.Update': FloatingCursorDragState.Update,
-    'FloatingCursorDragState.End': FloatingCursorDragState.End,
-  };
-  static FloatingCursorDragState parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FloatingCursorDragState parse(String name, int index) {
+    switch(name) {
+      case 'FloatingCursorDragState.Start': 
+       return FloatingCursorDragState.Start;
+      case 'FloatingCursorDragState.Update': 
+       return FloatingCursorDragState.Update;
+      case 'FloatingCursorDragState.End': 
+       return FloatingCursorDragState.End;
     }
+    return null;
   }
 }

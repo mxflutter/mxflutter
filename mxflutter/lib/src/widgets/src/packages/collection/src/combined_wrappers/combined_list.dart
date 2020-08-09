@@ -19,10 +19,10 @@ var _combinedListView = MXFunctionInvoke(
     "CombinedListView",
     (
       {
-      List<List<dynamic>> lists,
+      dynamic lists,
       }
     ) =>
       CombinedListView(
-      lists,
+      toListT<List<dynamic>>(lists),
     ),
 );

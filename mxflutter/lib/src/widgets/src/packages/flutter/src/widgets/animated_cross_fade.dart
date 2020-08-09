@@ -23,7 +23,7 @@ Map<String, MXFunctionInvoke> registerAnimatedCrossFadeSeries() {
 }
 var _crossFadeState = MXFunctionInvoke(
     "CrossFadeState",
-    ({Map args}) => MXCrossFadeState.parse(args),
+    ({String name, int index}) => MXCrossFadeState.parse(name, index),
   );
 var _animatedCrossFade = MXFunctionInvoke(
     "AnimatedCrossFade",
@@ -57,17 +57,13 @@ var _animatedCrossFade = MXFunctionInvoke(
     ),
 );
 class MXCrossFadeState {
-  static Map str2VMap = {
-    'CrossFadeState.showFirst': CrossFadeState.showFirst,
-    'CrossFadeState.showSecond': CrossFadeState.showSecond,
-  };
-  static CrossFadeState parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static CrossFadeState parse(String name, int index) {
+    switch(name) {
+      case 'CrossFadeState.showFirst': 
+       return CrossFadeState.showFirst;
+      case 'CrossFadeState.showSecond': 
+       return CrossFadeState.showSecond;
     }
+    return null;
   }
 }

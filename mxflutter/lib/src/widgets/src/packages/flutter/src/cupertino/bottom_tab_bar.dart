@@ -23,7 +23,7 @@ var _cupertinoTabBar = MXFunctionInvoke(
     (
       {
       Key key,
-      List<BottomNavigationBarItem> items,
+      dynamic items,
       dynamic onTap,
       int currentIndex = 0,
       Color backgroundColor,
@@ -35,7 +35,7 @@ var _cupertinoTabBar = MXFunctionInvoke(
     ) =>
       CupertinoTabBar(
       key: key,
-      items: items,
+      items: toListT<BottomNavigationBarItem>(items),
       onTap: createValueChangedGenericClosure<int>(_cupertinoTabBar.buildOwner, onTap),
       currentIndex: currentIndex,
       backgroundColor: backgroundColor,

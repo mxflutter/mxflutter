@@ -36,7 +36,7 @@ var _buttonBar = MXFunctionInvoke(
       ButtonBarLayoutBehavior layoutBehavior,
       VerticalDirection overflowDirection,
       dynamic overflowButtonSpacing,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       ButtonBar(
@@ -51,6 +51,6 @@ var _buttonBar = MXFunctionInvoke(
       layoutBehavior: layoutBehavior,
       overflowDirection: overflowDirection,
       overflowButtonSpacing: overflowButtonSpacing?.toDouble(),
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );

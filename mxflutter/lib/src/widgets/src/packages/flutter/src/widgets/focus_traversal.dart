@@ -40,7 +40,7 @@ Map<String, MXFunctionInvoke> registerFocusTraversalSeries() {
 }
 var _traversalDirection = MXFunctionInvoke(
     "TraversalDirection",
-    ({Map args}) => MXTraversalDirection.parse(args),
+    ({String name, int index}) => MXTraversalDirection.parse(name, index),
   );
 var _widgetOrderTraversalPolicy = MXFunctionInvoke(
     "WidgetOrderTraversalPolicy",
@@ -161,19 +161,17 @@ var _directionalFocusAction = MXFunctionInvoke(
     ),
 );
 class MXTraversalDirection {
-  static Map str2VMap = {
-    'TraversalDirection.up': TraversalDirection.up,
-    'TraversalDirection.right': TraversalDirection.right,
-    'TraversalDirection.down': TraversalDirection.down,
-    'TraversalDirection.left': TraversalDirection.left,
-  };
-  static TraversalDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TraversalDirection parse(String name, int index) {
+    switch(name) {
+      case 'TraversalDirection.up': 
+       return TraversalDirection.up;
+      case 'TraversalDirection.right': 
+       return TraversalDirection.right;
+      case 'TraversalDirection.down': 
+       return TraversalDirection.down;
+      case 'TraversalDirection.left': 
+       return TraversalDirection.left;
     }
+    return null;
   }
 }

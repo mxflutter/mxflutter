@@ -37,7 +37,7 @@ Map<String, MXFunctionInvoke> registerTabsSeries() {
 }
 var _tabBarIndicatorSize = MXFunctionInvoke(
     "TabBarIndicatorSize",
-    ({Map args}) => MXTabBarIndicatorSize.parse(args),
+    ({String name, int index}) => MXTabBarIndicatorSize.parse(name, index),
   );
 var _tab = MXFunctionInvoke(
     "Tab",
@@ -63,7 +63,7 @@ var _tabBar = MXFunctionInvoke(
     (
       {
       Key key,
-      List<Widget> tabs,
+      dynamic tabs,
       TabController controller,
       bool isScrollable = false,
       Color indicatorColor,
@@ -82,7 +82,7 @@ var _tabBar = MXFunctionInvoke(
     ) =>
       TabBar(
       key: key,
-      tabs: tabs,
+      tabs: toListT<Widget>(tabs),
       controller: controller,
       isScrollable: isScrollable,
       indicatorColor: indicatorColor,
@@ -104,7 +104,7 @@ var _tabBarView = MXFunctionInvoke(
     (
       {
       Key key,
-      List<Widget> children,
+      dynamic children,
       TabController controller,
       ScrollPhysics physics,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
@@ -112,7 +112,7 @@ var _tabBarView = MXFunctionInvoke(
     ) =>
       TabBarView(
       key: key,
-      children: children,
+      children: toListT<Widget>(children),
       controller: controller,
       physics: physics,
       dragStartBehavior: dragStartBehavior,
@@ -155,17 +155,13 @@ var _tabPageSelector = MXFunctionInvoke(
     ),
 );
 class MXTabBarIndicatorSize {
-  static Map str2VMap = {
-    'TabBarIndicatorSize.tab': TabBarIndicatorSize.tab,
-    'TabBarIndicatorSize.label': TabBarIndicatorSize.label,
-  };
-  static TabBarIndicatorSize parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TabBarIndicatorSize parse(String name, int index) {
+    switch(name) {
+      case 'TabBarIndicatorSize.tab': 
+       return TabBarIndicatorSize.tab;
+      case 'TabBarIndicatorSize.label': 
+       return TabBarIndicatorSize.label;
     }
+    return null;
   }
 }

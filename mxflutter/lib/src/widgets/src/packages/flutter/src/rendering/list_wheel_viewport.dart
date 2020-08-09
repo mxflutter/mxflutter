@@ -34,7 +34,7 @@ var _renderListWheelViewport = MXFunctionInvoke(
     "RenderListWheelViewport",
     (
       {
-      ListWheelChildManager childManager,
+      dynamic childManager,
       ViewportOffset offset,
       dynamic diameterRatio = 2.0,
       dynamic perspective = 0.003,
@@ -46,11 +46,11 @@ var _renderListWheelViewport = MXFunctionInvoke(
       dynamic squeeze = 1.0,
       bool clipToSize = true,
       bool renderChildrenOutsideViewport = false,
-      List<RenderBox> children,
+      dynamic children,
       }
     ) =>
       RenderListWheelViewport(
-      childManager: childManager,
+      childManager: toListTWheelChildManager(childManager),
       offset: offset,
       diameterRatio: diameterRatio?.toDouble(),
       perspective: perspective?.toDouble(),
@@ -62,6 +62,6 @@ var _renderListWheelViewport = MXFunctionInvoke(
       squeeze: squeeze?.toDouble(),
       clipToSize: clipToSize,
       renderChildrenOutsideViewport: renderChildrenOutsideViewport,
-      children: children,
+      children: toListT<RenderBox>(children),
     ),
 );

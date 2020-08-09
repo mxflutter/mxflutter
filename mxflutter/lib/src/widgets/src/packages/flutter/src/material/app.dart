@@ -28,7 +28,7 @@ Map<String, MXFunctionInvoke> registerAppSeries() {
 }
 var _themeMode = MXFunctionInvoke(
     "ThemeMode",
-    ({Map args}) => MXThemeMode.parse(args),
+    ({String name, int index}) => MXThemeMode.parse(name, index),
   );
 var _materialApp = MXFunctionInvoke(
     "MaterialApp",
@@ -37,12 +37,12 @@ var _materialApp = MXFunctionInvoke(
       Key key,
       GlobalKey<NavigatorState> navigatorKey,
       Widget home,
-      Map<String, Widget Function(BuildContext)> routes,
+      dynamic routes,
       String initialRoute,
       dynamic onGenerateRoute,
       dynamic onGenerateInitialRoutes,
       dynamic onUnknownRoute,
-      List<NavigatorObserver> navigatorObservers,
+      dynamic navigatorObservers,
       dynamic builder,
       String title = '',
       dynamic onGenerateTitle,
@@ -61,20 +61,20 @@ var _materialApp = MXFunctionInvoke(
       bool checkerboardOffscreenLayers = false,
       bool showSemanticsDebugger = false,
       bool debugShowCheckedModeBanner = true,
-      Map<LogicalKeySet, Intent> shortcuts,
-      Map<LocalKey, Action Function()> actions,
+      dynamic shortcuts,
+      dynamic actions,
       }
     ) =>
       MaterialApp(
       key: key,
       navigatorKey: navigatorKey,
       home: home,
-      routes: routes,
+      routes: toMapT<String, Widget Function(BuildContext)>(routes),
       initialRoute: initialRoute,
       onGenerateRoute: null,
       onGenerateInitialRoutes: null,
       onUnknownRoute: null,
-      navigatorObservers: navigatorObservers,
+      navigatorObservers: toListT<NavigatorObserver>(navigatorObservers),
       builder: null,
       title: title,
       onGenerateTitle: null,
@@ -93,23 +93,20 @@ var _materialApp = MXFunctionInvoke(
       checkerboardOffscreenLayers: checkerboardOffscreenLayers,
       showSemanticsDebugger: showSemanticsDebugger,
       debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-      shortcuts: shortcuts,
-      actions: actions,
+      shortcuts: toMapT<LogicalKeySet, Intent>(shortcuts),
+      actions: toMapT<LocalKey, Action Function()>(actions),
     ),
 );
 class MXThemeMode {
-  static Map str2VMap = {
-    'ThemeMode.system': ThemeMode.system,
-    'ThemeMode.light': ThemeMode.light,
-    'ThemeMode.dark': ThemeMode.dark,
-  };
-  static ThemeMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ThemeMode parse(String name, int index) {
+    switch(name) {
+      case 'ThemeMode.system': 
+       return ThemeMode.system;
+      case 'ThemeMode.light': 
+       return ThemeMode.light;
+      case 'ThemeMode.dark': 
+       return ThemeMode.dark;
     }
+    return null;
   }
 }

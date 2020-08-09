@@ -30,11 +30,11 @@ Map<String, MXFunctionInvoke> registerStepperSeries() {
 }
 var _stepState = MXFunctionInvoke(
     "StepState",
-    ({Map args}) => MXStepState.parse(args),
+    ({String name, int index}) => MXStepState.parse(name, index),
   );
 var _stepperType = MXFunctionInvoke(
     "StepperType",
-    ({Map args}) => MXStepperType.parse(args),
+    ({String name, int index}) => MXStepperType.parse(name, index),
   );
 var _step = MXFunctionInvoke(
     "Step",
@@ -60,7 +60,7 @@ var _stepper = MXFunctionInvoke(
     (
       {
       Key key,
-      List<Step> steps,
+      dynamic steps,
       ScrollPhysics physics,
       StepperType type = StepperType.vertical,
       int currentStep = 0,
@@ -72,7 +72,7 @@ var _stepper = MXFunctionInvoke(
     ) =>
       Stepper(
       key: key,
-      steps: steps,
+      steps: toListT<Step>(steps),
       physics: physics,
       type: type,
       currentStep: currentStep,
@@ -83,35 +83,30 @@ var _stepper = MXFunctionInvoke(
     ),
 );
 class MXStepState {
-  static Map str2VMap = {
-    'StepState.indexed': StepState.indexed,
-    'StepState.editing': StepState.editing,
-    'StepState.complete': StepState.complete,
-    'StepState.disabled': StepState.disabled,
-    'StepState.error': StepState.error,
-  };
-  static StepState parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static StepState parse(String name, int index) {
+    switch(name) {
+      case 'StepState.indexed': 
+       return StepState.indexed;
+      case 'StepState.editing': 
+       return StepState.editing;
+      case 'StepState.complete': 
+       return StepState.complete;
+      case 'StepState.disabled': 
+       return StepState.disabled;
+      case 'StepState.error': 
+       return StepState.error;
     }
+    return null;
   }
 }
 class MXStepperType {
-  static Map str2VMap = {
-    'StepperType.vertical': StepperType.vertical,
-    'StepperType.horizontal': StepperType.horizontal,
-  };
-  static StepperType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static StepperType parse(String name, int index) {
+    switch(name) {
+      case 'StepperType.vertical': 
+       return StepperType.vertical;
+      case 'StepperType.horizontal': 
+       return StepperType.horizontal;
     }
+    return null;
   }
 }

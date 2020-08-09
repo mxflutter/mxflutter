@@ -22,12 +22,12 @@ var _cupertinoThumbPainter = MXFunctionInvoke(
     (
       {
       Color color,
-      List<BoxShadow> shadows,
+      dynamic shadows,
       }
     ) =>
       CupertinoThumbPainter(
       color: color,
-      shadows: shadows,
+      shadows: toListT<BoxShadow>(shadows),
     ),
 );
 var _cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
@@ -35,11 +35,11 @@ var _cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
     (
       {
       Color color,
-      List<BoxShadow> shadows,
+      dynamic shadows,
       }
     ) =>
       CupertinoThumbPainter.switchThumb(
       color: color,
-      shadows: shadows,
+      shadows: toListT<BoxShadow>(shadows),
     ),
 );

@@ -130,7 +130,7 @@ var _rawGestureDetector = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      Map<Type, GestureRecognizerFactory<GestureRecognizer>> gestures,
+      dynamic gestures,
       HitTestBehavior behavior,
       bool excludeFromSemantics = false,
       SemanticsGestureDelegate semantics,
@@ -139,7 +139,7 @@ var _rawGestureDetector = MXFunctionInvoke(
       RawGestureDetector(
       key: key,
       child: child,
-      gestures: gestures,
+      gestures: toMapT<Type, GestureRecognizerFactory<GestureRecognizer>>(gestures),
       behavior: behavior,
       excludeFromSemantics: excludeFromSemantics,
       semantics: semantics,

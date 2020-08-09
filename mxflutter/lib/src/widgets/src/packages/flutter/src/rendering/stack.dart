@@ -78,17 +78,17 @@ var _stackParentData = MXFunctionInvoke(
 );
 var _stackFit = MXFunctionInvoke(
     "StackFit",
-    ({Map args}) => MXStackFit.parse(args),
+    ({String name, int index}) => MXStackFit.parse(name, index),
   );
 var _overflow = MXFunctionInvoke(
     "Overflow",
-    ({Map args}) => MXOverflow.parse(args),
+    ({String name, int index}) => MXOverflow.parse(name, index),
   );
 var _renderStack = MXFunctionInvoke(
     "RenderStack",
     (
       {
-      List<RenderBox> children,
+      dynamic children,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       StackFit fit = StackFit.loose,
@@ -96,7 +96,7 @@ var _renderStack = MXFunctionInvoke(
       }
     ) =>
       RenderStack(
-      children: children,
+      children: toListT<RenderBox>(children),
       alignment: alignment,
       textDirection: textDirection,
       fit: fit,
@@ -107,47 +107,40 @@ var _renderIndexedStack = MXFunctionInvoke(
     "RenderIndexedStack",
     (
       {
-      List<RenderBox> children,
+      dynamic children,
       AlignmentGeometry alignment,
       TextDirection textDirection,
       int index = 0,
       }
     ) =>
       RenderIndexedStack(
-      children: children,
+      children: toListT<RenderBox>(children),
       alignment: alignment,
       textDirection: textDirection,
       index: index,
     ),
 );
 class MXStackFit {
-  static Map str2VMap = {
-    'StackFit.loose': StackFit.loose,
-    'StackFit.expand': StackFit.expand,
-    'StackFit.passthrough': StackFit.passthrough,
-  };
-  static StackFit parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static StackFit parse(String name, int index) {
+    switch(name) {
+      case 'StackFit.loose': 
+       return StackFit.loose;
+      case 'StackFit.expand': 
+       return StackFit.expand;
+      case 'StackFit.passthrough': 
+       return StackFit.passthrough;
     }
+    return null;
   }
 }
 class MXOverflow {
-  static Map str2VMap = {
-    'Overflow.visible': Overflow.visible,
-    'Overflow.clip': Overflow.clip,
-  };
-  static Overflow parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static Overflow parse(String name, int index) {
+    switch(name) {
+      case 'Overflow.visible': 
+       return Overflow.visible;
+      case 'Overflow.clip': 
+       return Overflow.clip;
     }
+    return null;
   }
 }

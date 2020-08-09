@@ -5,24 +5,35 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/src/services/raw_keyboard.dart';
-import 'dart:async';
-import 'dart:io';
-import 'dart:ui';
+import 'package:flutter/src/services/raw_keyboard_web.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/keyboard_key.dart';
-import 'package:flutter/src/services/raw_keyboard_android.dart';
-import 'package:flutter/src/services/raw_keyboard_fuchsia.dart';
-import 'package:flutter/src/services/raw_keyboard_linux.dart';
-import 'package:flutter/src/services/raw_keyboard_macos.dart';
-import 'package:flutter/src/services/system_channels.dart';
+import 'package:flutter/src/services/keyboard_maps.dart';
+import 'package:flutter/src/services/raw_keyboard.dart';
 
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRawKeyboardSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_keyboardSide.funName] = _keyboardSide;
-  m[_modifierKey.funName] = _modifierKey;
+  m[_rawKeyEventDataWeb.funName] = _rawKeyEventDataWeb;
+  return m;
+}
+var _rawKeyEventDataWeb = MXFunctionInvoke(
+    "RawKeyEventDataWeb",
+    (
+      {
+      String code,
+      String key,
+      int metaState = 0,
+      }
+    ) =>
+      RawKeyEventDataWeb(
+      code: code,
+      key: key,
+      metaState: metaState,
+    ),
+);
+fierKey;
   m[_rawKeyEvent_fromMessage.funName] = _rawKeyEvent_fromMessage;
   m[_rawKeyDownEvent.funName] = _rawKeyDownEvent;
   m[_rawKeyUpEvent.funName] = _rawKeyUpEvent;
@@ -30,21 +41,21 @@ Map<String, MXFunctionInvoke> registerRawKeyboardSeries() {
 }
 var _keyboardSide = MXFunctionInvoke(
     "KeyboardSide",
-    ({Map args}) => MXKeyboardSide.parse(args),
+    ({String name, int index}) => MXKeyboardSide.parse(name, index),
   );
 var _modifierKey = MXFunctionInvoke(
     "ModifierKey",
-    ({Map args}) => MXModifierKey.parse(args),
+    ({String name, int index}) => MXModifierKey.parse(name, index),
   );
 var _rawKeyEvent_fromMessage = MXFunctionInvoke(
   "RawKeyEvent.fromMessage",
     (
       {
-      Map<String, dynamic> message,
+      dynamic message,
       }
     ) =>
       RawKeyEvent.fromMessage(
-      message,
+      toMapT<String, dynamic>(message),
     ),
 );
 var _rawKeyDownEvent = MXFunctionInvoke(
@@ -74,41 +85,42 @@ var _rawKeyUpEvent = MXFunctionInvoke(
     ),
 );
 class MXKeyboardSide {
-  static Map str2VMap = {
-    'KeyboardSide.any': KeyboardSide.any,
-    'KeyboardSide.left': KeyboardSide.left,
-    'KeyboardSide.right': KeyboardSide.right,
-    'KeyboardSide.all': KeyboardSide.all,
-  };
-  static KeyboardSide parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static KeyboardSide parse(String name, int index) {
+    switch(name) {
+      case 'KeyboardSide.any': 
+       return KeyboardSide.any;
+      case 'KeyboardSide.left': 
+       return KeyboardSide.left;
+      case 'KeyboardSide.right': 
+       return KeyboardSide.right;
+      case 'KeyboardSide.all': 
+       return KeyboardSide.all;
     }
+    return null;
   }
 }
 class MXModifierKey {
-  static Map str2VMap = {
-    'ModifierKey.controlModifier': ModifierKey.controlModifier,
-    'ModifierKey.shiftModifier': ModifierKey.shiftModifier,
-    'ModifierKey.altModifier': ModifierKey.altModifier,
-    'ModifierKey.metaModifier': ModifierKey.metaModifier,
-    'ModifierKey.capsLockModifier': ModifierKey.capsLockModifier,
-    'ModifierKey.numLockModifier': ModifierKey.numLockModifier,
-    'ModifierKey.scrollLockModifier': ModifierKey.scrollLockModifier,
-    'ModifierKey.functionModifier': ModifierKey.functionModifier,
-    'ModifierKey.symbolModifier': ModifierKey.symbolModifier,
-  };
-  static ModifierKey parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ModifierKey parse(String name, int index) {
+    switch(name) {
+      case 'ModifierKey.controlModifier': 
+       return ModifierKey.controlModifier;
+      case 'ModifierKey.shiftModifier': 
+       return ModifierKey.shiftModifier;
+      case 'ModifierKey.altModifier': 
+       return ModifierKey.altModifier;
+      case 'ModifierKey.metaModifier': 
+       return ModifierKey.metaModifier;
+      case 'ModifierKey.capsLockModifier': 
+       return ModifierKey.capsLockModifier;
+      case 'ModifierKey.numLockModifier': 
+       return ModifierKey.numLockModifier;
+      case 'ModifierKey.scrollLockModifier': 
+       return ModifierKey.scrollLockModifier;
+      case 'ModifierKey.functionModifier': 
+       return ModifierKey.functionModifier;
+      case 'ModifierKey.symbolModifier': 
+       return ModifierKey.symbolModifier;
     }
+    return null;
   }
 }

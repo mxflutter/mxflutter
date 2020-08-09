@@ -29,7 +29,7 @@ Map<String, MXFunctionInvoke> registerViewportSeries() {
 }
 var _cacheExtentStyle = MXFunctionInvoke(
     "CacheExtentStyle",
-    ({Map args}) => MXCacheExtentStyle.parse(args),
+    ({String name, int index}) => MXCacheExtentStyle.parse(name, index),
   );
 var _revealedOffset = MXFunctionInvoke(
     "RevealedOffset",
@@ -52,7 +52,7 @@ var _renderViewport = MXFunctionInvoke(
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
       dynamic anchor = 0.0,
-      List<RenderSliver> children,
+      dynamic children,
       RenderSliver center,
       dynamic cacheExtent,
       CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
@@ -63,7 +63,7 @@ var _renderViewport = MXFunctionInvoke(
       crossAxisDirection: crossAxisDirection,
       offset: offset,
       anchor: anchor?.toDouble(),
-      children: children,
+      children: toListT<RenderSliver>(children),
       center: center,
       cacheExtent: cacheExtent?.toDouble(),
       cacheExtentStyle: cacheExtentStyle,
@@ -76,28 +76,24 @@ var _renderShrinkWrappingViewport = MXFunctionInvoke(
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
-      List<RenderSliver> children,
+      dynamic children,
       }
     ) =>
       RenderShrinkWrappingViewport(
       axisDirection: axisDirection,
       crossAxisDirection: crossAxisDirection,
       offset: offset,
-      children: children,
+      children: toListT<RenderSliver>(children),
     ),
 );
 class MXCacheExtentStyle {
-  static Map str2VMap = {
-    'CacheExtentStyle.pixel': CacheExtentStyle.pixel,
-    'CacheExtentStyle.viewport': CacheExtentStyle.viewport,
-  };
-  static CacheExtentStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static CacheExtentStyle parse(String name, int index) {
+    switch(name) {
+      case 'CacheExtentStyle.pixel': 
+       return CacheExtentStyle.pixel;
+      case 'CacheExtentStyle.viewport': 
+       return CacheExtentStyle.viewport;
     }
+    return null;
   }
 }

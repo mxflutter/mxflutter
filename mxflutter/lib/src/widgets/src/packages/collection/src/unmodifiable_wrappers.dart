@@ -23,11 +23,11 @@ var _nonGrowableListView = MXFunctionInvoke(
     "NonGrowableListView",
     (
       {
-      List<dynamic> listBase,
+      dynamic listBase,
       }
     ) =>
       NonGrowableListView(
-      listBase,
+      toListT<dynamic>(listBase),
     ),
 );
 var _unmodifiableSetView = MXFunctionInvoke(

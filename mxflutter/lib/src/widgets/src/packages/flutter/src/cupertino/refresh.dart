@@ -26,7 +26,7 @@ Map<String, MXFunctionInvoke> registerRefreshSeries() {
 }
 var _refreshIndicatorMode = MXFunctionInvoke(
     "RefreshIndicatorMode",
-    ({Map args}) => MXRefreshIndicatorMode.parse(args),
+    ({String name, int index}) => MXRefreshIndicatorMode.parse(name, index),
   );
 var _cupertinoSliverRefreshControl = MXFunctionInvoke(
     "CupertinoSliverRefreshControl",
@@ -48,20 +48,19 @@ var _cupertinoSliverRefreshControl = MXFunctionInvoke(
     ),
 );
 class MXRefreshIndicatorMode {
-  static Map str2VMap = {
-    'RefreshIndicatorMode.inactive': RefreshIndicatorMode.inactive,
-    'RefreshIndicatorMode.drag': RefreshIndicatorMode.drag,
-    'RefreshIndicatorMode.armed': RefreshIndicatorMode.armed,
-    'RefreshIndicatorMode.refresh': RefreshIndicatorMode.refresh,
-    'RefreshIndicatorMode.done': RefreshIndicatorMode.done,
-  };
-  static RefreshIndicatorMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static RefreshIndicatorMode parse(String name, int index) {
+    switch(name) {
+      case 'RefreshIndicatorMode.inactive': 
+       return RefreshIndicatorMode.inactive;
+      case 'RefreshIndicatorMode.drag': 
+       return RefreshIndicatorMode.drag;
+      case 'RefreshIndicatorMode.armed': 
+       return RefreshIndicatorMode.armed;
+      case 'RefreshIndicatorMode.refresh': 
+       return RefreshIndicatorMode.refresh;
+      case 'RefreshIndicatorMode.done': 
+       return RefreshIndicatorMode.done;
     }
+    return null;
   }
 }

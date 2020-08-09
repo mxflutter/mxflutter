@@ -26,7 +26,7 @@ Map<String, MXFunctionInvoke> registerDatePickerSeries() {
 }
 var _cupertinoDatePickerMode = MXFunctionInvoke(
     "CupertinoDatePickerMode",
-    ({Map args}) => MXCupertinoDatePickerMode.parse(args),
+    ({String name, int index}) => MXCupertinoDatePickerMode.parse(name, index),
   );
 var _cupertinoDatePicker = MXFunctionInvoke(
     "CupertinoDatePicker",
@@ -61,7 +61,7 @@ var _cupertinoDatePicker = MXFunctionInvoke(
 );
 var _cupertinoTimerPickerMode = MXFunctionInvoke(
     "CupertinoTimerPickerMode",
-    ({Map args}) => MXCupertinoTimerPickerMode.parse(args),
+    ({String name, int index}) => MXCupertinoTimerPickerMode.parse(name, index),
   );
 var _cupertinoTimerPicker = MXFunctionInvoke(
     "CupertinoTimerPicker",
@@ -89,34 +89,28 @@ var _cupertinoTimerPicker = MXFunctionInvoke(
     ),
 );
 class MXCupertinoDatePickerMode {
-  static Map str2VMap = {
-    'CupertinoDatePickerMode.time': CupertinoDatePickerMode.time,
-    'CupertinoDatePickerMode.date': CupertinoDatePickerMode.date,
-    'CupertinoDatePickerMode.dateAndTime': CupertinoDatePickerMode.dateAndTime,
-  };
-  static CupertinoDatePickerMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static CupertinoDatePickerMode parse(String name, int index) {
+    switch(name) {
+      case 'CupertinoDatePickerMode.time': 
+       return CupertinoDatePickerMode.time;
+      case 'CupertinoDatePickerMode.date': 
+       return CupertinoDatePickerMode.date;
+      case 'CupertinoDatePickerMode.dateAndTime': 
+       return CupertinoDatePickerMode.dateAndTime;
     }
+    return null;
   }
 }
 class MXCupertinoTimerPickerMode {
-  static Map str2VMap = {
-    'CupertinoTimerPickerMode.hm': CupertinoTimerPickerMode.hm,
-    'CupertinoTimerPickerMode.ms': CupertinoTimerPickerMode.ms,
-    'CupertinoTimerPickerMode.hms': CupertinoTimerPickerMode.hms,
-  };
-  static CupertinoTimerPickerMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static CupertinoTimerPickerMode parse(String name, int index) {
+    switch(name) {
+      case 'CupertinoTimerPickerMode.hm': 
+       return CupertinoTimerPickerMode.hm;
+      case 'CupertinoTimerPickerMode.ms': 
+       return CupertinoTimerPickerMode.ms;
+      case 'CupertinoTimerPickerMode.hms': 
+       return CupertinoTimerPickerMode.hms;
     }
+    return null;
   }
 }

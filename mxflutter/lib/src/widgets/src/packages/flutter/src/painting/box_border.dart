@@ -26,7 +26,7 @@ Map<String, MXFunctionInvoke> registerBoxBorderSeries() {
 }
 var _boxShape = MXFunctionInvoke(
     "BoxShape",
-    ({Map args}) => MXBoxShape.parse(args),
+    ({String name, int index}) => MXBoxShape.parse(name, index),
   );
 var _border = MXFunctionInvoke(
     "Border",
@@ -102,17 +102,13 @@ var _borderDirectional = MXFunctionInvoke(
     ),
 );
 class MXBoxShape {
-  static Map str2VMap = {
-    'BoxShape.rectangle': BoxShape.rectangle,
-    'BoxShape.circle': BoxShape.circle,
-  };
-  static BoxShape parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BoxShape parse(String name, int index) {
+    switch(name) {
+      case 'BoxShape.rectangle': 
+       return BoxShape.rectangle;
+      case 'BoxShape.circle': 
+       return BoxShape.circle;
     }
+    return null;
   }
 }

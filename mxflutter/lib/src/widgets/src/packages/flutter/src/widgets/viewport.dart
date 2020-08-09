@@ -30,7 +30,7 @@ var _viewport = MXFunctionInvoke(
       Key center,
       dynamic cacheExtent,
       CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
-      List<Widget> slivers,
+      dynamic slivers,
       }
     ) =>
       Viewport(
@@ -42,7 +42,7 @@ var _viewport = MXFunctionInvoke(
       center: center,
       cacheExtent: cacheExtent?.toDouble(),
       cacheExtentStyle: cacheExtentStyle,
-      slivers: slivers,
+      slivers: toListT<Widget>(slivers),
     ),
 );
 var _shrinkWrappingViewport = MXFunctionInvoke(
@@ -53,7 +53,7 @@ var _shrinkWrappingViewport = MXFunctionInvoke(
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
-      List<Widget> slivers,
+      dynamic slivers,
       }
     ) =>
       ShrinkWrappingViewport(
@@ -61,6 +61,6 @@ var _shrinkWrappingViewport = MXFunctionInvoke(
       axisDirection: axisDirection,
       crossAxisDirection: crossAxisDirection,
       offset: offset,
-      slivers: slivers,
+      slivers: toListT<Widget>(slivers),
     ),
 );

@@ -22,11 +22,11 @@ Map<String, MXFunctionInvoke> registerWrapSeries() {
 }
 var _wrapAlignment = MXFunctionInvoke(
     "WrapAlignment",
-    ({Map args}) => MXWrapAlignment.parse(args),
+    ({String name, int index}) => MXWrapAlignment.parse(name, index),
   );
 var _wrapCrossAlignment = MXFunctionInvoke(
     "WrapCrossAlignment",
-    ({Map args}) => MXWrapCrossAlignment.parse(args),
+    ({String name, int index}) => MXWrapCrossAlignment.parse(name, index),
   );
 var _wrapParentData = MXFunctionInvoke(
     "WrapParentData",
@@ -39,7 +39,7 @@ var _renderWrap = MXFunctionInvoke(
     "RenderWrap",
     (
       {
-      List<RenderBox> children,
+      dynamic children,
       Axis direction = Axis.horizontal,
       WrapAlignment alignment = WrapAlignment.start,
       dynamic spacing = 0.0,
@@ -51,7 +51,7 @@ var _renderWrap = MXFunctionInvoke(
       }
     ) =>
       RenderWrap(
-      children: children,
+      children: toListT<RenderBox>(children),
       direction: direction,
       alignment: alignment,
       spacing: spacing?.toDouble(),
@@ -63,37 +63,34 @@ var _renderWrap = MXFunctionInvoke(
     ),
 );
 class MXWrapAlignment {
-  static Map str2VMap = {
-    'WrapAlignment.start': WrapAlignment.start,
-    'WrapAlignment.end': WrapAlignment.end,
-    'WrapAlignment.center': WrapAlignment.center,
-    'WrapAlignment.spaceBetween': WrapAlignment.spaceBetween,
-    'WrapAlignment.spaceAround': WrapAlignment.spaceAround,
-    'WrapAlignment.spaceEvenly': WrapAlignment.spaceEvenly,
-  };
-  static WrapAlignment parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static WrapAlignment parse(String name, int index) {
+    switch(name) {
+      case 'WrapAlignment.start': 
+       return WrapAlignment.start;
+      case 'WrapAlignment.end': 
+       return WrapAlignment.end;
+      case 'WrapAlignment.center': 
+       return WrapAlignment.center;
+      case 'WrapAlignment.spaceBetween': 
+       return WrapAlignment.spaceBetween;
+      case 'WrapAlignment.spaceAround': 
+       return WrapAlignment.spaceAround;
+      case 'WrapAlignment.spaceEvenly': 
+       return WrapAlignment.spaceEvenly;
     }
+    return null;
   }
 }
 class MXWrapCrossAlignment {
-  static Map str2VMap = {
-    'WrapCrossAlignment.start': WrapCrossAlignment.start,
-    'WrapCrossAlignment.end': WrapCrossAlignment.end,
-    'WrapCrossAlignment.center': WrapCrossAlignment.center,
-  };
-  static WrapCrossAlignment parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static WrapCrossAlignment parse(String name, int index) {
+    switch(name) {
+      case 'WrapCrossAlignment.start': 
+       return WrapCrossAlignment.start;
+      case 'WrapCrossAlignment.end': 
+       return WrapCrossAlignment.end;
+      case 'WrapCrossAlignment.center': 
+       return WrapCrossAlignment.center;
     }
+    return null;
   }
 }

@@ -36,7 +36,7 @@ var _shapeDecoration = MXFunctionInvoke(
       Color color,
       DecorationImage image,
       Gradient gradient,
-      List<BoxShadow> shadows,
+      dynamic shadows,
       ShapeBorder shape,
       }
     ) =>
@@ -44,7 +44,7 @@ var _shapeDecoration = MXFunctionInvoke(
       color: color,
       image: image,
       gradient: gradient,
-      shadows: shadows,
+      shadows: toListT<BoxShadow>(shadows),
       shape: shape,
     ),
 );

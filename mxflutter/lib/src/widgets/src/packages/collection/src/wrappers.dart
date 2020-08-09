@@ -38,11 +38,11 @@ var _delegatingList = MXFunctionInvoke(
     "DelegatingList",
     (
       {
-      List<dynamic> base,
+      dynamic base,
       }
     ) =>
       DelegatingList(
-      base,
+      toListT<dynamic>(base),
     ),
 );
 var _delegatingSet = MXFunctionInvoke(
@@ -71,34 +71,34 @@ var _delegatingMap = MXFunctionInvoke(
     "DelegatingMap",
     (
       {
-      Map<dynamic, dynamic> base,
+      dynamic base,
       }
     ) =>
       DelegatingMap(
-      base,
+      toMapT<dynamic, dynamic>(base),
     ),
 );
 var _mapKeySet = MXFunctionInvoke(
     "MapKeySet",
     (
       {
-      Map<dynamic, dynamic> base,
+      dynamic base,
       }
     ) =>
       MapKeySet(
-      base,
+      toMapT<dynamic, dynamic>(base),
     ),
 );
 var _mapValueSet = MXFunctionInvoke(
     "MapValueSet",
     (
       {
-      Map<dynamic, dynamic> base,
+      dynamic base,
       dynamic keyForValue,
       }
     ) =>
       MapValueSet(
-      base,
+      toMapT<dynamic, dynamic>(base),
       null,
     ),
 );

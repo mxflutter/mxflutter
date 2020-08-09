@@ -34,7 +34,7 @@ var _navigationRail = MXFunctionInvoke(
       bool extended = false,
       Widget leading,
       Widget trailing,
-      List<NavigationRailDestination> destinations,
+      dynamic destinations,
       int selectedIndex,
       dynamic onDestinationSelected,
       dynamic elevation,
@@ -53,7 +53,7 @@ var _navigationRail = MXFunctionInvoke(
       extended: extended,
       leading: leading,
       trailing: trailing,
-      destinations: destinations,
+      destinations: toListT<NavigationRailDestination>(destinations),
       selectedIndex: selectedIndex,
       onDestinationSelected: createValueChangedGenericClosure<int>(_navigationRail.buildOwner, onDestinationSelected),
       elevation: elevation?.toDouble(),
@@ -69,7 +69,7 @@ var _navigationRail = MXFunctionInvoke(
 );
 var _navigationRailLabelType = MXFunctionInvoke(
     "NavigationRailLabelType",
-    ({Map args}) => MXNavigationRailLabelType.parse(args),
+    ({String name, int index}) => MXNavigationRailLabelType.parse(name, index),
   );
 var _navigationRailDestination = MXFunctionInvoke(
     "NavigationRailDestination",
@@ -87,18 +87,15 @@ var _navigationRailDestination = MXFunctionInvoke(
     ),
 );
 class MXNavigationRailLabelType {
-  static Map str2VMap = {
-    'NavigationRailLabelType.none': NavigationRailLabelType.none,
-    'NavigationRailLabelType.selected': NavigationRailLabelType.selected,
-    'NavigationRailLabelType.all': NavigationRailLabelType.all,
-  };
-  static NavigationRailLabelType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static NavigationRailLabelType parse(String name, int index) {
+    switch(name) {
+      case 'NavigationRailLabelType.none': 
+       return NavigationRailLabelType.none;
+      case 'NavigationRailLabelType.selected': 
+       return NavigationRailLabelType.selected;
+      case 'NavigationRailLabelType.all': 
+       return NavigationRailLabelType.all;
     }
+    return null;
   }
 }

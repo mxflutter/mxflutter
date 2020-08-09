@@ -100,7 +100,7 @@ var _pageView = MXFunctionInvoke(
       ScrollPhysics physics,
       bool pageSnapping = true,
       dynamic onPageChanged,
-      List<Widget> children,
+      dynamic children,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       bool allowImplicitScrolling = false,
       }
@@ -113,7 +113,7 @@ var _pageView = MXFunctionInvoke(
       physics: physics,
       pageSnapping: pageSnapping,
       onPageChanged: createValueChangedGenericClosure<int>(_pageView.buildOwner, onPageChanged),
-      children: children,
+      children: toListT<Widget>(children),
       dragStartBehavior: dragStartBehavior,
       allowImplicitScrolling: allowImplicitScrolling,
     ),

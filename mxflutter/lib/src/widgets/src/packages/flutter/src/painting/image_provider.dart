@@ -88,13 +88,13 @@ var _networkImage = MXFunctionInvoke(
       {
       String url,
       dynamic scale,
-      Map<String, String> headers,
+      dynamic headers,
       }
     ) =>
       NetworkImage(
       url,
       scale: scale?.toDouble(),
-      headers: headers,
+      headers: toMapT<String, String>(headers),
     ),
 );
 var _fileImage = MXFunctionInvoke(

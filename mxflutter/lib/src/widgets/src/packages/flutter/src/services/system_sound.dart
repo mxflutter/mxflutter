@@ -18,19 +18,14 @@ Map<String, MXFunctionInvoke> registerSystemSoundSeries() {
 }
 var _systemSoundType = MXFunctionInvoke(
     "SystemSoundType",
-    ({Map args}) => MXSystemSoundType.parse(args),
+    ({String name, int index}) => MXSystemSoundType.parse(name, index),
   );
 class MXSystemSoundType {
-  static Map str2VMap = {
-    'SystemSoundType.click': SystemSoundType.click,
-  };
-  static SystemSoundType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SystemSoundType parse(String name, int index) {
+    switch(name) {
+      case 'SystemSoundType.click': 
+       return SystemSoundType.click;
     }
+    return null;
   }
 }

@@ -36,7 +36,7 @@ Map<String, MXFunctionInvoke> registerTextSelectionSeries() {
 }
 var _textSelectionHandleType = MXFunctionInvoke(
     "TextSelectionHandleType",
-    ({Map args}) => MXTextSelectionHandleType.parse(args),
+    ({String name, int index}) => MXTextSelectionHandleType.parse(name, index),
   );
 var _textSelectionOverlay = MXFunctionInvoke(
     "TextSelectionOverlay",
@@ -122,18 +122,15 @@ var _textSelectionGestureDetector = MXFunctionInvoke(
     ),
 );
 class MXTextSelectionHandleType {
-  static Map str2VMap = {
-    'TextSelectionHandleType.left': TextSelectionHandleType.left,
-    'TextSelectionHandleType.right': TextSelectionHandleType.right,
-    'TextSelectionHandleType.collapsed': TextSelectionHandleType.collapsed,
-  };
-  static TextSelectionHandleType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextSelectionHandleType parse(String name, int index) {
+    switch(name) {
+      case 'TextSelectionHandleType.left': 
+       return TextSelectionHandleType.left;
+      case 'TextSelectionHandleType.right': 
+       return TextSelectionHandleType.right;
+      case 'TextSelectionHandleType.collapsed': 
+       return TextSelectionHandleType.collapsed;
     }
+    return null;
   }
 }

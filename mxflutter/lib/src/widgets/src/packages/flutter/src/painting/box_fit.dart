@@ -20,7 +20,7 @@ Map<String, MXFunctionInvoke> registerBoxFitSeries() {
 }
 var _boxFit = MXFunctionInvoke(
     "BoxFit",
-    ({Map args}) => MXBoxFit.parse(args),
+    ({String name, int index}) => MXBoxFit.parse(name, index),
   );
 var _fittedSizes = MXFunctionInvoke(
     "FittedSizes",
@@ -36,22 +36,23 @@ var _fittedSizes = MXFunctionInvoke(
     ),
 );
 class MXBoxFit {
-  static Map str2VMap = {
-    'BoxFit.fill': BoxFit.fill,
-    'BoxFit.contain': BoxFit.contain,
-    'BoxFit.cover': BoxFit.cover,
-    'BoxFit.fitWidth': BoxFit.fitWidth,
-    'BoxFit.fitHeight': BoxFit.fitHeight,
-    'BoxFit.none': BoxFit.none,
-    'BoxFit.scaleDown': BoxFit.scaleDown,
-  };
-  static BoxFit parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BoxFit parse(String name, int index) {
+    switch(name) {
+      case 'BoxFit.fill': 
+       return BoxFit.fill;
+      case 'BoxFit.contain': 
+       return BoxFit.contain;
+      case 'BoxFit.cover': 
+       return BoxFit.cover;
+      case 'BoxFit.fitWidth': 
+       return BoxFit.fitWidth;
+      case 'BoxFit.fitHeight': 
+       return BoxFit.fitHeight;
+      case 'BoxFit.none': 
+       return BoxFit.none;
+      case 'BoxFit.scaleDown': 
+       return BoxFit.scaleDown;
     }
+    return null;
   }
 }

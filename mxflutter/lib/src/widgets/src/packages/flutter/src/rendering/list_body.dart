@@ -29,12 +29,12 @@ var _renderListBody = MXFunctionInvoke(
     "RenderListBody",
     (
       {
-      List<RenderBox> children,
+      dynamic children,
       AxisDirection axisDirection = AxisDirection.down,
       }
     ) =>
       RenderListBody(
-      children: children,
+      children: toListT<RenderBox>(children),
       axisDirection: axisDirection,
     ),
 );

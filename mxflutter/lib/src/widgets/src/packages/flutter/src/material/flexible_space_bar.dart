@@ -26,11 +26,11 @@ Map<String, MXFunctionInvoke> registerFlexibleSpaceBarSeries() {
 }
 var _collapseMode = MXFunctionInvoke(
     "CollapseMode",
-    ({Map args}) => MXCollapseMode.parse(args),
+    ({String name, int index}) => MXCollapseMode.parse(name, index),
   );
 var _stretchMode = MXFunctionInvoke(
     "StretchMode",
-    ({Map args}) => MXStretchMode.parse(args),
+    ({String name, int index}) => MXStretchMode.parse(name, index),
   );
 var _flexibleSpaceBar = MXFunctionInvoke(
     "FlexibleSpaceBar",
@@ -42,7 +42,7 @@ var _flexibleSpaceBar = MXFunctionInvoke(
       bool centerTitle,
       EdgeInsetsGeometry titlePadding,
       CollapseMode collapseMode = CollapseMode.parallax,
-      List<StretchMode> stretchModes,
+      dynamic stretchModes,
       }
     ) =>
       FlexibleSpaceBar(
@@ -52,7 +52,7 @@ var _flexibleSpaceBar = MXFunctionInvoke(
       centerTitle: centerTitle,
       titlePadding: titlePadding,
       collapseMode: collapseMode,
-      stretchModes: stretchModes,
+      stretchModes: toListT<StretchMode>(stretchModes),
     ),
 );
 var _flexibleSpaceBarSettings = MXFunctionInvoke(
@@ -77,34 +77,28 @@ var _flexibleSpaceBarSettings = MXFunctionInvoke(
     ),
 );
 class MXCollapseMode {
-  static Map str2VMap = {
-    'CollapseMode.parallax': CollapseMode.parallax,
-    'CollapseMode.pin': CollapseMode.pin,
-    'CollapseMode.none': CollapseMode.none,
-  };
-  static CollapseMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static CollapseMode parse(String name, int index) {
+    switch(name) {
+      case 'CollapseMode.parallax': 
+       return CollapseMode.parallax;
+      case 'CollapseMode.pin': 
+       return CollapseMode.pin;
+      case 'CollapseMode.none': 
+       return CollapseMode.none;
     }
+    return null;
   }
 }
 class MXStretchMode {
-  static Map str2VMap = {
-    'StretchMode.zoomBackground': StretchMode.zoomBackground,
-    'StretchMode.blurBackground': StretchMode.blurBackground,
-    'StretchMode.fadeTitle': StretchMode.fadeTitle,
-  };
-  static StretchMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static StretchMode parse(String name, int index) {
+    switch(name) {
+      case 'StretchMode.zoomBackground': 
+       return StretchMode.zoomBackground;
+      case 'StretchMode.blurBackground': 
+       return StretchMode.blurBackground;
+      case 'StretchMode.fadeTitle': 
+       return StretchMode.fadeTitle;
     }
+    return null;
   }
 }

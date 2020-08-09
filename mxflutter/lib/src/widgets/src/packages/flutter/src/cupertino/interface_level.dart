@@ -19,7 +19,7 @@ Map<String, MXFunctionInvoke> registerInterfaceLevelSeries() {
 }
 var _cupertinoUserInterfaceLevelData = MXFunctionInvoke(
     "CupertinoUserInterfaceLevelData",
-    ({Map args}) => MXCupertinoUserInterfaceLevelData.parse(args),
+    ({String name, int index}) => MXCupertinoUserInterfaceLevelData.parse(name, index),
   );
 var _cupertinoUserInterfaceLevel = MXFunctionInvoke(
     "CupertinoUserInterfaceLevel",
@@ -37,17 +37,13 @@ var _cupertinoUserInterfaceLevel = MXFunctionInvoke(
     ),
 );
 class MXCupertinoUserInterfaceLevelData {
-  static Map str2VMap = {
-    'CupertinoUserInterfaceLevelData.base': CupertinoUserInterfaceLevelData.base,
-    'CupertinoUserInterfaceLevelData.elevated': CupertinoUserInterfaceLevelData.elevated,
-  };
-  static CupertinoUserInterfaceLevelData parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static CupertinoUserInterfaceLevelData parse(String name, int index) {
+    switch(name) {
+      case 'CupertinoUserInterfaceLevelData.base': 
+       return CupertinoUserInterfaceLevelData.base;
+      case 'CupertinoUserInterfaceLevelData.elevated': 
+       return CupertinoUserInterfaceLevelData.elevated;
     }
+    return null;
   }
 }

@@ -25,7 +25,7 @@ Map<String, MXFunctionInvoke> registerDecorationImageSeries() {
 }
 var _imageRepeat = MXFunctionInvoke(
     "ImageRepeat",
-    ({Map args}) => MXImageRepeat.parse(args),
+    ({String name, int index}) => MXImageRepeat.parse(name, index),
   );
 var _decorationImage = MXFunctionInvoke(
     "DecorationImage",
@@ -53,19 +53,17 @@ var _decorationImage = MXFunctionInvoke(
     ),
 );
 class MXImageRepeat {
-  static Map str2VMap = {
-    'ImageRepeat.repeat': ImageRepeat.repeat,
-    'ImageRepeat.repeatX': ImageRepeat.repeatX,
-    'ImageRepeat.repeatY': ImageRepeat.repeatY,
-    'ImageRepeat.noRepeat': ImageRepeat.noRepeat,
-  };
-  static ImageRepeat parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ImageRepeat parse(String name, int index) {
+    switch(name) {
+      case 'ImageRepeat.repeat': 
+       return ImageRepeat.repeat;
+      case 'ImageRepeat.repeatX': 
+       return ImageRepeat.repeatX;
+      case 'ImageRepeat.repeatY': 
+       return ImageRepeat.repeatY;
+      case 'ImageRepeat.noRepeat': 
+       return ImageRepeat.noRepeat;
     }
+    return null;
   }
 }

@@ -44,7 +44,7 @@ var _placeholderDimensions = MXFunctionInvoke(
 );
 var _textWidthBasis = MXFunctionInvoke(
     "TextWidthBasis",
-    ({Map args}) => MXTextWidthBasis.parse(args),
+    ({String name, int index}) => MXTextWidthBasis.parse(name, index),
   );
 var _textPainter = MXFunctionInvoke(
     "TextPainter",
@@ -76,17 +76,13 @@ var _textPainter = MXFunctionInvoke(
     ),
 );
 class MXTextWidthBasis {
-  static Map str2VMap = {
-    'TextWidthBasis.parent': TextWidthBasis.parent,
-    'TextWidthBasis.longestLine': TextWidthBasis.longestLine,
-  };
-  static TextWidthBasis parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextWidthBasis parse(String name, int index) {
+    switch(name) {
+      case 'TextWidthBasis.parent': 
+       return TextWidthBasis.parent;
+      case 'TextWidthBasis.longestLine': 
+       return TextWidthBasis.longestLine;
     }
+    return null;
   }
 }

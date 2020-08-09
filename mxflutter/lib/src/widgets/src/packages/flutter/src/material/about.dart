@@ -44,7 +44,7 @@ var _aboutListTile = MXFunctionInvoke(
       String applicationVersion,
       Widget applicationIcon,
       String applicationLegalese,
-      List<Widget> aboutBoxChildren,
+      dynamic aboutBoxChildren,
       bool dense,
       }
     ) =>
@@ -56,7 +56,7 @@ var _aboutListTile = MXFunctionInvoke(
       applicationVersion: applicationVersion,
       applicationIcon: applicationIcon,
       applicationLegalese: applicationLegalese,
-      aboutBoxChildren: aboutBoxChildren,
+      aboutBoxChildren: toListT<Widget>(aboutBoxChildren),
       dense: dense,
     ),
 );
@@ -69,7 +69,7 @@ var _aboutDialog = MXFunctionInvoke(
       String applicationVersion,
       Widget applicationIcon,
       String applicationLegalese,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       AboutDialog(
@@ -78,7 +78,7 @@ var _aboutDialog = MXFunctionInvoke(
       applicationVersion: applicationVersion,
       applicationIcon: applicationIcon,
       applicationLegalese: applicationLegalese,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _licensePage = MXFunctionInvoke(

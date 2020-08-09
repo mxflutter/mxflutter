@@ -40,11 +40,11 @@ var _keepAliveNotification = MXFunctionInvoke(
     "KeepAliveNotification",
     (
       {
-      Listenable handle,
+      dynamic handle,
       }
     ) =>
       KeepAliveNotification(
-      handle,
+      toListTenable(handle),
     ),
 );
 var _keepAliveHandle = MXFunctionInvoke(

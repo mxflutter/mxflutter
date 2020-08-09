@@ -25,7 +25,7 @@ Map<String, MXFunctionInvoke> registerTimeSeries() {
 }
 var _dayPeriod = MXFunctionInvoke(
     "DayPeriod",
-    ({Map args}) => MXDayPeriod.parse(args),
+    ({String name, int index}) => MXDayPeriod.parse(name, index),
   );
 var _timeOfDay = MXFunctionInvoke(
     "TimeOfDay",
@@ -60,59 +60,52 @@ var _timeOfDay_fromDateTime = MXFunctionInvoke(
 );
 var _timeOfDayFormat = MXFunctionInvoke(
     "TimeOfDayFormat",
-    ({Map args}) => MXTimeOfDayFormat.parse(args),
+    ({String name, int index}) => MXTimeOfDayFormat.parse(name, index),
   );
 var _hourFormat = MXFunctionInvoke(
     "HourFormat",
-    ({Map args}) => MXHourFormat.parse(args),
+    ({String name, int index}) => MXHourFormat.parse(name, index),
   );
 class MXDayPeriod {
-  static Map str2VMap = {
-    'DayPeriod.am': DayPeriod.am,
-    'DayPeriod.pm': DayPeriod.pm,
-  };
-  static DayPeriod parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DayPeriod parse(String name, int index) {
+    switch(name) {
+      case 'DayPeriod.am': 
+       return DayPeriod.am;
+      case 'DayPeriod.pm': 
+       return DayPeriod.pm;
     }
+    return null;
   }
 }
 class MXTimeOfDayFormat {
-  static Map str2VMap = {
-    'TimeOfDayFormat.HH_colon_mm': TimeOfDayFormat.HH_colon_mm,
-    'TimeOfDayFormat.HH_dot_mm': TimeOfDayFormat.HH_dot_mm,
-    'TimeOfDayFormat.frenchCanadian': TimeOfDayFormat.frenchCanadian,
-    'TimeOfDayFormat.H_colon_mm': TimeOfDayFormat.H_colon_mm,
-    'TimeOfDayFormat.h_colon_mm_space_a': TimeOfDayFormat.h_colon_mm_space_a,
-    'TimeOfDayFormat.a_space_h_colon_mm': TimeOfDayFormat.a_space_h_colon_mm,
-  };
-  static TimeOfDayFormat parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TimeOfDayFormat parse(String name, int index) {
+    switch(name) {
+      case 'TimeOfDayFormat.HH_colon_mm': 
+       return TimeOfDayFormat.HH_colon_mm;
+      case 'TimeOfDayFormat.HH_dot_mm': 
+       return TimeOfDayFormat.HH_dot_mm;
+      case 'TimeOfDayFormat.frenchCanadian': 
+       return TimeOfDayFormat.frenchCanadian;
+      case 'TimeOfDayFormat.H_colon_mm': 
+       return TimeOfDayFormat.H_colon_mm;
+      case 'TimeOfDayFormat.h_colon_mm_space_a': 
+       return TimeOfDayFormat.h_colon_mm_space_a;
+      case 'TimeOfDayFormat.a_space_h_colon_mm': 
+       return TimeOfDayFormat.a_space_h_colon_mm;
     }
+    return null;
   }
 }
 class MXHourFormat {
-  static Map str2VMap = {
-    'HourFormat.HH': HourFormat.HH,
-    'HourFormat.H': HourFormat.H,
-    'HourFormat.h': HourFormat.h,
-  };
-  static HourFormat parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static HourFormat parse(String name, int index) {
+    switch(name) {
+      case 'HourFormat.HH': 
+       return HourFormat.HH;
+      case 'HourFormat.H': 
+       return HourFormat.H;
+      case 'HourFormat.h': 
+       return HourFormat.h;
     }
+    return null;
   }
 }

@@ -100,14 +100,14 @@ var _catmullRomSpline = MXFunctionInvoke(
     "CatmullRomSpline",
     (
       {
-      List<Offset> controlPoints,
+      dynamic controlPoints,
       dynamic tension = 0.0,
       Offset startHandle,
       Offset endHandle,
       }
     ) =>
       CatmullRomSpline(
-      controlPoints,
+      toListT<Offset>(controlPoints),
       tension: tension?.toDouble(),
       startHandle: startHandle,
       endHandle: endHandle,
@@ -117,14 +117,14 @@ var _catmullRomSpline_precompute = MXFunctionInvoke(
   "CatmullRomSpline.precompute",
     (
       {
-      List<Offset> controlPoints,
+      dynamic controlPoints,
       dynamic tension = 0.0,
       Offset startHandle,
       Offset endHandle,
       }
     ) =>
       CatmullRomSpline.precompute(
-      controlPoints,
+      toListT<Offset>(controlPoints),
       tension: tension?.toDouble(),
       startHandle: startHandle,
       endHandle: endHandle,
@@ -134,12 +134,12 @@ var _catmullRomCurve = MXFunctionInvoke(
     "CatmullRomCurve",
     (
       {
-      List<Offset> controlPoints,
+      dynamic controlPoints,
       dynamic tension = 0.0,
       }
     ) =>
       CatmullRomCurve(
-      controlPoints,
+      toListT<Offset>(controlPoints),
       tension: tension?.toDouble(),
     ),
 );
@@ -147,12 +147,12 @@ var _catmullRomCurve_precompute = MXFunctionInvoke(
   "CatmullRomCurve.precompute",
     (
       {
-      List<Offset> controlPoints,
+      dynamic controlPoints,
       dynamic tension = 0.0,
       }
     ) =>
       CatmullRomCurve.precompute(
-      controlPoints,
+      toListT<Offset>(controlPoints),
       tension: tension?.toDouble(),
     ),
 );

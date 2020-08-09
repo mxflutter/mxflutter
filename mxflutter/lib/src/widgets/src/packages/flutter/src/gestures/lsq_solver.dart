@@ -33,14 +33,14 @@ var _leastSquaresSolver = MXFunctionInvoke(
     "LeastSquaresSolver",
     (
       {
-      List<double> x,
-      List<double> y,
-      List<double> w,
+      dynamic x,
+      dynamic y,
+      dynamic w,
       }
     ) =>
       LeastSquaresSolver(
-      x,
-      y,
-      w,
+      toListT<double>(x),
+      toListT<double>(y),
+      toListT<double>(w),
     ),
 );

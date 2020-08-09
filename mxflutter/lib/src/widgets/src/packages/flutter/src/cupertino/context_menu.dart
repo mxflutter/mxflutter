@@ -27,14 +27,14 @@ var _cupertinoContextMenu = MXFunctionInvoke(
     (
       {
       Key key,
-      List<Widget> actions,
+      dynamic actions,
       Widget child,
       dynamic previewBuilder,
       }
     ) =>
       CupertinoContextMenu(
       key: key,
-      actions: actions,
+      actions: toListT<Widget>(actions),
       child: child,
       previewBuilder: null,
     ),

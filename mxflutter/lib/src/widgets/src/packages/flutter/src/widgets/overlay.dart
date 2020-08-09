@@ -45,12 +45,12 @@ var _overlay = MXFunctionInvoke(
     (
       {
       Key key,
-      List<OverlayEntry> initialEntries,
+      dynamic initialEntries,
       }
     ) =>
       Overlay(
       key: key,
-      initialEntries: initialEntries,
+      initialEntries: toListT<OverlayEntry>(initialEntries),
     ),
 );
 var _overlayState = MXFunctionInvoke(

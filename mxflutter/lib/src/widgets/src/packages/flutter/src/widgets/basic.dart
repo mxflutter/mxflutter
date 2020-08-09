@@ -561,13 +561,13 @@ var _customMultiChildLayout = MXFunctionInvoke(
       {
       Key key,
       MultiChildLayoutDelegate delegate,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       CustomMultiChildLayout(
       key: key,
       delegate: delegate,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _sizedBox = MXFunctionInvoke(
@@ -850,14 +850,14 @@ var _listBody = MXFunctionInvoke(
       Key key,
       Axis mainAxis = Axis.vertical,
       bool reverse = false,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       ListBody(
       key: key,
       mainAxis: mainAxis,
       reverse: reverse,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _stack = MXFunctionInvoke(
@@ -869,7 +869,7 @@ var _stack = MXFunctionInvoke(
       ui.TextDirection textDirection,
       StackFit fit = StackFit.loose,
       Overflow overflow = Overflow.clip,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       Stack(
@@ -878,7 +878,7 @@ var _stack = MXFunctionInvoke(
       textDirection: textDirection,
       fit: fit,
       overflow: overflow,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _indexedStack = MXFunctionInvoke(
@@ -890,7 +890,7 @@ var _indexedStack = MXFunctionInvoke(
       ui.TextDirection textDirection,
       StackFit sizing = StackFit.loose,
       int index = 0,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       IndexedStack(
@@ -899,7 +899,7 @@ var _indexedStack = MXFunctionInvoke(
       textDirection: textDirection,
       sizing: sizing,
       index: index,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _positioned = MXFunctionInvoke(
@@ -1042,7 +1042,7 @@ var _flex = MXFunctionInvoke(
       ui.TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
       ui.TextBaseline textBaseline,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       Flex(
@@ -1054,7 +1054,7 @@ var _flex = MXFunctionInvoke(
       textDirection: textDirection,
       verticalDirection: verticalDirection,
       textBaseline: textBaseline,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _row = MXFunctionInvoke(
@@ -1068,7 +1068,7 @@ var _row = MXFunctionInvoke(
       ui.TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
       ui.TextBaseline textBaseline,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       Row(
@@ -1079,7 +1079,7 @@ var _row = MXFunctionInvoke(
       textDirection: textDirection,
       verticalDirection: verticalDirection,
       textBaseline: textBaseline,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _column = MXFunctionInvoke(
@@ -1093,7 +1093,7 @@ var _column = MXFunctionInvoke(
       ui.TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
       ui.TextBaseline textBaseline,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       Column(
@@ -1104,7 +1104,7 @@ var _column = MXFunctionInvoke(
       textDirection: textDirection,
       verticalDirection: verticalDirection,
       textBaseline: textBaseline,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _flexible = MXFunctionInvoke(
@@ -1152,7 +1152,7 @@ var _wrap = MXFunctionInvoke(
       WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
       ui.TextDirection textDirection,
       VerticalDirection verticalDirection = VerticalDirection.down,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       Wrap(
@@ -1165,7 +1165,7 @@ var _wrap = MXFunctionInvoke(
       crossAxisAlignment: crossAxisAlignment,
       textDirection: textDirection,
       verticalDirection: verticalDirection,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _flow = MXFunctionInvoke(
@@ -1174,13 +1174,13 @@ var _flow = MXFunctionInvoke(
       {
       Key key,
       FlowDelegate delegate,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       Flow(
       key: key,
       delegate: delegate,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _flow_unwrapped = MXFunctionInvoke(
@@ -1189,13 +1189,13 @@ var _flow_unwrapped = MXFunctionInvoke(
       {
       Key key,
       FlowDelegate delegate,
-      List<Widget> children,
+      dynamic children,
       }
     ) =>
       Flow.unwrapped(
       key: key,
       delegate: delegate,
-      children: children,
+      children: toListT<Widget>(children),
     ),
 );
 var _richText = MXFunctionInvoke(
@@ -1481,7 +1481,7 @@ var _semantics = MXFunctionInvoke(
       dynamic onSetSelection,
       dynamic onDidGainAccessibilityFocus,
       dynamic onDidLoseAccessibilityFocus,
-      Map<CustomSemanticsAction, void Function()> customSemanticsActions,
+      dynamic customSemanticsActions,
       }
     ) =>
       Semantics(
@@ -1537,7 +1537,7 @@ var _semantics = MXFunctionInvoke(
       onSetSelection: createValueChangedGenericClosure<TextSelection>(_semantics.buildOwner, onSetSelection),
       onDidGainAccessibilityFocus: createVoidCallbackClosure(_semantics.buildOwner, onDidGainAccessibilityFocus),
       onDidLoseAccessibilityFocus: createVoidCallbackClosure(_semantics.buildOwner, onDidLoseAccessibilityFocus),
-      customSemanticsActions: customSemanticsActions,
+      customSemanticsActions: toMapT<CustomSemanticsAction, void Function()>(customSemanticsActions),
     ),
 );
 var _semantics_fromProperties = MXFunctionInvoke(

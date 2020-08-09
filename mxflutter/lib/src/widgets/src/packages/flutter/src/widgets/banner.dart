@@ -25,7 +25,7 @@ Map<String, MXFunctionInvoke> registerBannerSeries() {
 }
 var _bannerLocation = MXFunctionInvoke(
     "BannerLocation",
-    ({Map args}) => MXBannerLocation.parse(args),
+    ({String name, int index}) => MXBannerLocation.parse(name, index),
   );
 var _bannerPainter = MXFunctionInvoke(
     "BannerPainter",
@@ -87,19 +87,17 @@ var _checkedModeBanner = MXFunctionInvoke(
     ),
 );
 class MXBannerLocation {
-  static Map str2VMap = {
-    'BannerLocation.topStart': BannerLocation.topStart,
-    'BannerLocation.topEnd': BannerLocation.topEnd,
-    'BannerLocation.bottomStart': BannerLocation.bottomStart,
-    'BannerLocation.bottomEnd': BannerLocation.bottomEnd,
-  };
-  static BannerLocation parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BannerLocation parse(String name, int index) {
+    switch(name) {
+      case 'BannerLocation.topStart': 
+       return BannerLocation.topStart;
+      case 'BannerLocation.topEnd': 
+       return BannerLocation.topEnd;
+      case 'BannerLocation.bottomStart': 
+       return BannerLocation.bottomStart;
+      case 'BannerLocation.bottomEnd': 
+       return BannerLocation.bottomEnd;
     }
+    return null;
   }
 }

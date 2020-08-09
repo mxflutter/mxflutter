@@ -23,7 +23,7 @@ var _strutStyle = MXFunctionInvoke(
     (
       {
       String fontFamily,
-      List<String> fontFamilyFallback,
+      dynamic fontFamilyFallback,
       dynamic fontSize,
       dynamic height,
       dynamic leading,
@@ -36,7 +36,7 @@ var _strutStyle = MXFunctionInvoke(
     ) =>
       StrutStyle(
       fontFamily: fontFamily,
-      fontFamilyFallback: fontFamilyFallback,
+      fontFamilyFallback: toListT<String>(fontFamilyFallback),
       fontSize: fontSize?.toDouble(),
       height: height?.toDouble(),
       leading: leading?.toDouble(),
@@ -53,7 +53,7 @@ var _strutStyle_fromTextStyle = MXFunctionInvoke(
       {
       TextStyle textStyle,
       String fontFamily,
-      List<String> fontFamilyFallback,
+      dynamic fontFamilyFallback,
       dynamic fontSize,
       dynamic height,
       dynamic leading,
@@ -67,7 +67,7 @@ var _strutStyle_fromTextStyle = MXFunctionInvoke(
       StrutStyle.fromTextStyle(
       textStyle,
       fontFamily: fontFamily,
-      fontFamilyFallback: fontFamilyFallback,
+      fontFamilyFallback: toListT<String>(fontFamilyFallback),
       fontSize: fontSize?.toDouble(),
       height: height?.toDouble(),
       leading: leading?.toDouble(),

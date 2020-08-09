@@ -32,7 +32,7 @@ Map<String, MXFunctionInvoke> registerFocusManagerSeries() {
 }
 var _unfocusDisposition = MXFunctionInvoke(
     "UnfocusDisposition",
-    ({Map args}) => MXUnfocusDisposition.parse(args),
+    ({String name, int index}) => MXUnfocusDisposition.parse(name, index),
   );
 var _focusNode = MXFunctionInvoke(
     "FocusNode",
@@ -70,11 +70,11 @@ var _focusScopeNode = MXFunctionInvoke(
 );
 var _focusHighlightMode = MXFunctionInvoke(
     "FocusHighlightMode",
-    ({Map args}) => MXFocusHighlightMode.parse(args),
+    ({String name, int index}) => MXFocusHighlightMode.parse(name, index),
   );
 var _focusHighlightStrategy = MXFunctionInvoke(
     "FocusHighlightStrategy",
-    ({Map args}) => MXFocusHighlightStrategy.parse(args),
+    ({String name, int index}) => MXFocusHighlightStrategy.parse(name, index),
   );
 var _focusManager = MXFunctionInvoke(
     "FocusManager",
@@ -84,48 +84,37 @@ var _focusManager = MXFunctionInvoke(
     ),
 );
 class MXUnfocusDisposition {
-  static Map str2VMap = {
-    'UnfocusDisposition.scope': UnfocusDisposition.scope,
-    'UnfocusDisposition.previouslyFocusedChild': UnfocusDisposition.previouslyFocusedChild,
-  };
-  static UnfocusDisposition parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static UnfocusDisposition parse(String name, int index) {
+    switch(name) {
+      case 'UnfocusDisposition.scope': 
+       return UnfocusDisposition.scope;
+      case 'UnfocusDisposition.previouslyFocusedChild': 
+       return UnfocusDisposition.previouslyFocusedChild;
     }
+    return null;
   }
 }
 class MXFocusHighlightMode {
-  static Map str2VMap = {
-    'FocusHighlightMode.touch': FocusHighlightMode.touch,
-    'FocusHighlightMode.traditional': FocusHighlightMode.traditional,
-  };
-  static FocusHighlightMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FocusHighlightMode parse(String name, int index) {
+    switch(name) {
+      case 'FocusHighlightMode.touch': 
+       return FocusHighlightMode.touch;
+      case 'FocusHighlightMode.traditional': 
+       return FocusHighlightMode.traditional;
     }
+    return null;
   }
 }
 class MXFocusHighlightStrategy {
-  static Map str2VMap = {
-    'FocusHighlightStrategy.automatic': FocusHighlightStrategy.automatic,
-    'FocusHighlightStrategy.alwaysTouch': FocusHighlightStrategy.alwaysTouch,
-    'FocusHighlightStrategy.alwaysTraditional': FocusHighlightStrategy.alwaysTraditional,
-  };
-  static FocusHighlightStrategy parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FocusHighlightStrategy parse(String name, int index) {
+    switch(name) {
+      case 'FocusHighlightStrategy.automatic': 
+       return FocusHighlightStrategy.automatic;
+      case 'FocusHighlightStrategy.alwaysTouch': 
+       return FocusHighlightStrategy.alwaysTouch;
+      case 'FocusHighlightStrategy.alwaysTraditional': 
+       return FocusHighlightStrategy.alwaysTraditional;
     }
+    return null;
   }
 }

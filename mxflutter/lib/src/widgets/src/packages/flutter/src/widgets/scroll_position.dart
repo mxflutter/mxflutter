@@ -31,21 +31,18 @@ Map<String, MXFunctionInvoke> registerScrollPositionSeries() {
 }
 var _scrollPositionAlignmentPolicy = MXFunctionInvoke(
     "ScrollPositionAlignmentPolicy",
-    ({Map args}) => MXScrollPositionAlignmentPolicy.parse(args),
+    ({String name, int index}) => MXScrollPositionAlignmentPolicy.parse(name, index),
   );
 class MXScrollPositionAlignmentPolicy {
-  static Map str2VMap = {
-    'ScrollPositionAlignmentPolicy.explicit': ScrollPositionAlignmentPolicy.explicit,
-    'ScrollPositionAlignmentPolicy.keepVisibleAtEnd': ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
-    'ScrollPositionAlignmentPolicy.keepVisibleAtStart': ScrollPositionAlignmentPolicy.keepVisibleAtStart,
-  };
-  static ScrollPositionAlignmentPolicy parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ScrollPositionAlignmentPolicy parse(String name, int index) {
+    switch(name) {
+      case 'ScrollPositionAlignmentPolicy.explicit': 
+       return ScrollPositionAlignmentPolicy.explicit;
+      case 'ScrollPositionAlignmentPolicy.keepVisibleAtEnd': 
+       return ScrollPositionAlignmentPolicy.keepVisibleAtEnd;
+      case 'ScrollPositionAlignmentPolicy.keepVisibleAtStart': 
+       return ScrollPositionAlignmentPolicy.keepVisibleAtStart;
     }
+    return null;
   }
 }

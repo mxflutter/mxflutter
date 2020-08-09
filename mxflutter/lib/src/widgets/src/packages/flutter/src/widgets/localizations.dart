@@ -37,14 +37,14 @@ var _localizations = MXFunctionInvoke(
       {
       Key key,
       Locale locale,
-      List<LocalizationsDelegate<dynamic>> delegates,
+      dynamic delegates,
       Widget child,
       }
     ) =>
       Localizations(
       key: key,
       locale: locale,
-      delegates: delegates,
+      delegates: toListT<LocalizationsDelegate<dynamic>>(delegates),
       child: child,
     ),
 );
@@ -55,7 +55,7 @@ var _localizations_override = MXFunctionInvoke(
       Key key,
       BuildContext context,
       Locale locale,
-      List<LocalizationsDelegate<dynamic>> delegates,
+      dynamic delegates,
       Widget child,
       }
     ) =>
@@ -63,7 +63,7 @@ var _localizations_override = MXFunctionInvoke(
       key: key,
       context: context,
       locale: locale,
-      delegates: delegates,
+      delegates: toListT<LocalizationsDelegate<dynamic>>(delegates),
       child: child,
     ),
 );

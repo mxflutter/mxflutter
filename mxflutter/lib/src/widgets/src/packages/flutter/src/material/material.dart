@@ -24,7 +24,7 @@ Map<String, MXFunctionInvoke> registerMaterialSeries() {
 }
 var _materialType = MXFunctionInvoke(
     "MaterialType",
-    ({Map args}) => MXMaterialType.parse(args),
+    ({String name, int index}) => MXMaterialType.parse(name, index),
   );
 var _material = MXFunctionInvoke(
     "Material",
@@ -73,20 +73,19 @@ var _shapeBorderTween = MXFunctionInvoke(
     ),
 );
 class MXMaterialType {
-  static Map str2VMap = {
-    'MaterialType.canvas': MaterialType.canvas,
-    'MaterialType.card': MaterialType.card,
-    'MaterialType.circle': MaterialType.circle,
-    'MaterialType.button': MaterialType.button,
-    'MaterialType.transparency': MaterialType.transparency,
-  };
-  static MaterialType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static MaterialType parse(String name, int index) {
+    switch(name) {
+      case 'MaterialType.canvas': 
+       return MaterialType.canvas;
+      case 'MaterialType.card': 
+       return MaterialType.card;
+      case 'MaterialType.circle': 
+       return MaterialType.circle;
+      case 'MaterialType.button': 
+       return MaterialType.button;
+      case 'MaterialType.transparency': 
+       return MaterialType.transparency;
     }
+    return null;
   }
 }

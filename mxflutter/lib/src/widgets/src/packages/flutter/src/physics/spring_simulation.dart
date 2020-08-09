@@ -55,7 +55,7 @@ var _springDescription_withDampingRatio = MXFunctionInvoke(
 );
 var _springType = MXFunctionInvoke(
     "SpringType",
-    ({Map args}) => MXSpringType.parse(args),
+    ({String name, int index}) => MXSpringType.parse(name, index),
   );
 var _springSimulation = MXFunctionInvoke(
     "SpringSimulation",
@@ -96,18 +96,15 @@ var _scrollSpringSimulation = MXFunctionInvoke(
     ),
 );
 class MXSpringType {
-  static Map str2VMap = {
-    'SpringType.criticallyDamped': SpringType.criticallyDamped,
-    'SpringType.underDamped': SpringType.underDamped,
-    'SpringType.overDamped': SpringType.overDamped,
-  };
-  static SpringType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static SpringType parse(String name, int index) {
+    switch(name) {
+      case 'SpringType.criticallyDamped': 
+       return SpringType.criticallyDamped;
+      case 'SpringType.underDamped': 
+       return SpringType.underDamped;
+      case 'SpringType.overDamped': 
+       return SpringType.overDamped;
     }
+    return null;
   }
 }

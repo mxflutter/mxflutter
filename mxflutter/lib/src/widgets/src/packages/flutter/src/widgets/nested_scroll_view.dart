@@ -152,7 +152,7 @@ var _nestedScrollViewViewport = MXFunctionInvoke(
       dynamic anchor = 0.0,
       ViewportOffset offset,
       Key center,
-      List<Widget> slivers,
+      dynamic slivers,
       SliverOverlapAbsorberHandle handle,
       }
     ) =>
@@ -163,7 +163,7 @@ var _nestedScrollViewViewport = MXFunctionInvoke(
       anchor: anchor?.toDouble(),
       offset: offset,
       center: center,
-      slivers: slivers,
+      slivers: toListT<Widget>(slivers),
       handle: handle,
     ),
 );
@@ -175,7 +175,7 @@ var _renderNestedScrollViewViewport = MXFunctionInvoke(
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
       dynamic anchor = 0.0,
-      List<RenderSliver> children,
+      dynamic children,
       RenderSliver center,
       SliverOverlapAbsorberHandle handle,
       }
@@ -185,7 +185,7 @@ var _renderNestedScrollViewViewport = MXFunctionInvoke(
       crossAxisDirection: crossAxisDirection,
       offset: offset,
       anchor: anchor?.toDouble(),
-      children: children,
+      children: toListT<RenderSliver>(children),
       center: center,
       handle: handle,
     ),

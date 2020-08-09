@@ -25,11 +25,11 @@ var _listenable_merge = MXFunctionInvoke(
   "Listenable.merge",
     (
       {
-      List<Listenable> listenables,
+      dynamic listenables,
       }
     ) =>
       Listenable.merge(
-      listenables,
+      toListT<Listenable>(listenables),
     ),
 );
 var _changeNotifier = MXFunctionInvoke(

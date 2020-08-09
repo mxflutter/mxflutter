@@ -26,7 +26,7 @@ var _reorderableListView = MXFunctionInvoke(
       {
       Key key,
       Widget header,
-      List<Widget> children,
+      dynamic children,
       dynamic onReorder,
       ScrollController scrollController,
       Axis scrollDirection = Axis.vertical,
@@ -37,7 +37,7 @@ var _reorderableListView = MXFunctionInvoke(
       ReorderableListView(
       key: key,
       header: header,
-      children: children,
+      children: toListT<Widget>(children),
       onReorder: createVoidTwoParamsClosure<int, int>(_reorderableListView.buildOwner, onReorder),
       scrollController: scrollController,
       scrollDirection: scrollDirection,

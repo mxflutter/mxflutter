@@ -16,24 +16,24 @@ Map<String, MXFunctionInvoke> registerPlatformSeries() {
 }
 var _targetPlatform = MXFunctionInvoke(
     "TargetPlatform",
-    ({Map args}) => MXTargetPlatform.parse(args),
+    ({String name, int index}) => MXTargetPlatform.parse(name, index),
   );
 class MXTargetPlatform {
-  static Map str2VMap = {
-    'TargetPlatform.android': TargetPlatform.android,
-    'TargetPlatform.fuchsia': TargetPlatform.fuchsia,
-    'TargetPlatform.iOS': TargetPlatform.iOS,
-    'TargetPlatform.linux': TargetPlatform.linux,
-    'TargetPlatform.macOS': TargetPlatform.macOS,
-    'TargetPlatform.windows': TargetPlatform.windows,
-  };
-  static TargetPlatform parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TargetPlatform parse(String name, int index) {
+    switch(name) {
+      case 'TargetPlatform.android': 
+       return TargetPlatform.android;
+      case 'TargetPlatform.fuchsia': 
+       return TargetPlatform.fuchsia;
+      case 'TargetPlatform.iOS': 
+       return TargetPlatform.iOS;
+      case 'TargetPlatform.linux': 
+       return TargetPlatform.linux;
+      case 'TargetPlatform.macOS': 
+       return TargetPlatform.macOS;
+      case 'TargetPlatform.windows': 
+       return TargetPlatform.windows;
     }
+    return null;
   }
 }

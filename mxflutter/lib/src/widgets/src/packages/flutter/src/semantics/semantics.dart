@@ -96,7 +96,7 @@ var _semanticsData = MXFunctionInvoke(
       int currentValueLength,
       Set<SemanticsTag> tags,
       Matrix4 transform,
-      List<int> customSemanticsActionIds,
+      dynamic customSemanticsActionIds,
       }
     ) =>
       SemanticsData(
@@ -122,7 +122,7 @@ var _semanticsData = MXFunctionInvoke(
       currentValueLength: currentValueLength,
       tags: tags,
       transform: transform,
-      customSemanticsActionIds: customSemanticsActionIds,
+      customSemanticsActionIds: toListT<int>(customSemanticsActionIds),
     ),
 );
 var _semanticsHintOverrides = MXFunctionInvoke(
@@ -190,7 +190,7 @@ var _semanticsProperties = MXFunctionInvoke(
       dynamic onDidGainAccessibilityFocus,
       dynamic onDidLoseAccessibilityFocus,
       dynamic onDismiss,
-      Map<CustomSemanticsAction, void Function()> customSemanticsActions,
+      dynamic customSemanticsActions,
       }
     ) =>
       SemanticsProperties(
@@ -242,7 +242,7 @@ var _semanticsProperties = MXFunctionInvoke(
       onDidGainAccessibilityFocus: createVoidCallbackClosure(_semanticsProperties.buildOwner, onDidGainAccessibilityFocus),
       onDidLoseAccessibilityFocus: createVoidCallbackClosure(_semanticsProperties.buildOwner, onDidLoseAccessibilityFocus),
       onDismiss: createVoidCallbackClosure(_semanticsProperties.buildOwner, onDismiss),
-      customSemanticsActions: customSemanticsActions,
+      customSemanticsActions: toMapT<CustomSemanticsAction, void Function()>(customSemanticsActions),
     ),
 );
 var _semanticsNode = MXFunctionInvoke(
@@ -289,7 +289,7 @@ var _semanticsConfiguration = MXFunctionInvoke(
 );
 var _debugSemanticsDumpOrder = MXFunctionInvoke(
     "DebugSemanticsDumpOrder",
-    ({Map args}) => MXDebugSemanticsDumpOrder.parse(args),
+    ({String name, int index}) => MXDebugSemanticsDumpOrder.parse(name, index),
   );
 var _ordinalSortKey = MXFunctionInvoke(
     "OrdinalSortKey",
@@ -305,17 +305,13 @@ var _ordinalSortKey = MXFunctionInvoke(
     ),
 );
 class MXDebugSemanticsDumpOrder {
-  static Map str2VMap = {
-    'DebugSemanticsDumpOrder.inverseHitTest': DebugSemanticsDumpOrder.inverseHitTest,
-    'DebugSemanticsDumpOrder.traversalOrder': DebugSemanticsDumpOrder.traversalOrder,
-  };
-  static DebugSemanticsDumpOrder parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DebugSemanticsDumpOrder parse(String name, int index) {
+    switch(name) {
+      case 'DebugSemanticsDumpOrder.inverseHitTest': 
+       return DebugSemanticsDumpOrder.inverseHitTest;
+      case 'DebugSemanticsDumpOrder.traversalOrder': 
+       return DebugSemanticsDumpOrder.traversalOrder;
     }
+    return null;
   }
 }

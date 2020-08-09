@@ -28,7 +28,7 @@ Map<String, MXFunctionInvoke> registerMediaQuerySeries() {
 }
 var _orientation = MXFunctionInvoke(
     "Orientation",
-    ({Map args}) => MXOrientation.parse(args),
+    ({String name, int index}) => MXOrientation.parse(name, index),
   );
 var _mediaQueryData = MXFunctionInvoke(
     "MediaQueryData",
@@ -165,17 +165,13 @@ var _mediaQuery_removeViewPadding = MXFunctionInvoke(
     ),
 );
 class MXOrientation {
-  static Map str2VMap = {
-    'Orientation.portrait': Orientation.portrait,
-    'Orientation.landscape': Orientation.landscape,
-  };
-  static Orientation parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static Orientation parse(String name, int index) {
+    switch(name) {
+      case 'Orientation.portrait': 
+       return Orientation.portrait;
+      case 'Orientation.landscape': 
+       return Orientation.landscape;
     }
+    return null;
   }
 }

@@ -29,8 +29,8 @@ var _toggleButtons = MXFunctionInvoke(
     (
       {
       Key key,
-      List<Widget> children,
-      List<bool> isSelected,
+      dynamic children,
+      dynamic isSelected,
       dynamic onPressed,
       TextStyle textStyle,
       BoxConstraints constraints,
@@ -42,7 +42,7 @@ var _toggleButtons = MXFunctionInvoke(
       Color highlightColor,
       Color hoverColor,
       Color splashColor,
-      List<FocusNode> focusNodes,
+      dynamic focusNodes,
       bool renderBorder = true,
       Color borderColor,
       Color selectedBorderColor,
@@ -53,8 +53,8 @@ var _toggleButtons = MXFunctionInvoke(
     ) =>
       ToggleButtons(
       key: key,
-      children: children,
-      isSelected: isSelected,
+      children: toListT<Widget>(children),
+      isSelected: toListT<bool>(isSelected),
       onPressed: createValueChangedGenericClosure<int>(_toggleButtons.buildOwner, onPressed),
       textStyle: textStyle,
       constraints: constraints,
@@ -66,7 +66,7 @@ var _toggleButtons = MXFunctionInvoke(
       highlightColor: highlightColor,
       hoverColor: hoverColor,
       splashColor: splashColor,
-      focusNodes: focusNodes,
+      focusNodes: toListT<FocusNode>(focusNodes),
       renderBorder: renderBorder,
       borderColor: borderColor,
       selectedBorderColor: selectedBorderColor,

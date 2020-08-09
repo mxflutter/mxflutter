@@ -20,7 +20,7 @@ Map<String, MXFunctionInvoke> registerPerformanceOverlaySeries() {
 }
 var _performanceOverlayOption = MXFunctionInvoke(
     "PerformanceOverlayOption",
-    ({Map args}) => MXPerformanceOverlayOption.parse(args),
+    ({String name, int index}) => MXPerformanceOverlayOption.parse(name, index),
   );
 var _renderPerformanceOverlay = MXFunctionInvoke(
     "RenderPerformanceOverlay",
@@ -40,19 +40,17 @@ var _renderPerformanceOverlay = MXFunctionInvoke(
     ),
 );
 class MXPerformanceOverlayOption {
-  static Map str2VMap = {
-    'PerformanceOverlayOption.displayRasterizerStatistics': PerformanceOverlayOption.displayRasterizerStatistics,
-    'PerformanceOverlayOption.visualizeRasterizerStatistics': PerformanceOverlayOption.visualizeRasterizerStatistics,
-    'PerformanceOverlayOption.displayEngineStatistics': PerformanceOverlayOption.displayEngineStatistics,
-    'PerformanceOverlayOption.visualizeEngineStatistics': PerformanceOverlayOption.visualizeEngineStatistics,
-  };
-  static PerformanceOverlayOption parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PerformanceOverlayOption parse(String name, int index) {
+    switch(name) {
+      case 'PerformanceOverlayOption.displayRasterizerStatistics': 
+       return PerformanceOverlayOption.displayRasterizerStatistics;
+      case 'PerformanceOverlayOption.visualizeRasterizerStatistics': 
+       return PerformanceOverlayOption.visualizeRasterizerStatistics;
+      case 'PerformanceOverlayOption.displayEngineStatistics': 
+       return PerformanceOverlayOption.displayEngineStatistics;
+      case 'PerformanceOverlayOption.visualizeEngineStatistics': 
+       return PerformanceOverlayOption.visualizeEngineStatistics;
     }
+    return null;
   }
 }

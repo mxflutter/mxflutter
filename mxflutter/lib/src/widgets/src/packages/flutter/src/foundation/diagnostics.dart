@@ -46,11 +46,11 @@ Map<String, MXFunctionInvoke> registerDiagnosticsSeries() {
 }
 var _diagnosticLevel = MXFunctionInvoke(
     "DiagnosticLevel",
-    ({Map args}) => MXDiagnosticLevel.parse(args),
+    ({String name, int index}) => MXDiagnosticLevel.parse(name, index),
   );
 var _diagnosticsTreeStyle = MXFunctionInvoke(
     "DiagnosticsTreeStyle",
-    ({Map args}) => MXDiagnosticsTreeStyle.parse(args),
+    ({String name, int index}) => MXDiagnosticsTreeStyle.parse(name, index),
   );
 var _textTreeConfiguration = MXFunctionInvoke(
     "TextTreeConfiguration",
@@ -479,7 +479,7 @@ var _flagsSummary = MXFunctionInvoke(
     (
       {
       String name,
-      Map<String, dynamic> value,
+      dynamic value,
       String ifEmpty,
       bool showName = true,
       bool showSeparator = true,
@@ -488,7 +488,7 @@ var _flagsSummary = MXFunctionInvoke(
     ) =>
       FlagsSummary(
       name,
-      value,
+      toMapT<String, dynamic>(value),
       ifEmpty: ifEmpty,
       showName: showName,
       showSeparator: showSeparator,
@@ -536,11 +536,11 @@ var _diagnosticPropertiesBuilder_fromProperties = MXFunctionInvoke(
   "DiagnosticPropertiesBuilder.fromProperties",
     (
       {
-      List<DiagnosticsNode> properties,
+      dynamic properties,
       }
     ) =>
       DiagnosticPropertiesBuilder.fromProperties(
-      properties,
+      toListT<DiagnosticsNode>(properties),
     ),
 );
 var _diagnosticsBlock = MXFunctionInvoke(
@@ -556,8 +556,8 @@ var _diagnosticsBlock = MXFunctionInvoke(
       String description,
       DiagnosticLevel level = DiagnosticLevel.info,
       bool allowTruncate = false,
-      List<DiagnosticsNode> children,
-      List<DiagnosticsNode> properties,
+      dynamic children,
+      dynamic properties,
       }
     ) =>
       DiagnosticsBlock(
@@ -570,8 +570,8 @@ var _diagnosticsBlock = MXFunctionInvoke(
       description: description,
       level: level,
       allowTruncate: allowTruncate,
-      children: children,
-      properties: properties,
+      children: toListT<DiagnosticsNode>(children),
+      properties: toListT<DiagnosticsNode>(properties),
     ),
 );
 var _diagnosticsSerializationDelegate = MXFunctionInvoke(
@@ -588,49 +588,58 @@ var _diagnosticsSerializationDelegate = MXFunctionInvoke(
     ),
 );
 class MXDiagnosticLevel {
-  static Map str2VMap = {
-    'DiagnosticLevel.hidden': DiagnosticLevel.hidden,
-    'DiagnosticLevel.fine': DiagnosticLevel.fine,
-    'DiagnosticLevel.debug': DiagnosticLevel.debug,
-    'DiagnosticLevel.info': DiagnosticLevel.info,
-    'DiagnosticLevel.warning': DiagnosticLevel.warning,
-    'DiagnosticLevel.hint': DiagnosticLevel.hint,
-    'DiagnosticLevel.summary': DiagnosticLevel.summary,
-    'DiagnosticLevel.error': DiagnosticLevel.error,
-    'DiagnosticLevel.off': DiagnosticLevel.off,
-  };
-  static DiagnosticLevel parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DiagnosticLevel parse(String name, int index) {
+    switch(name) {
+      case 'DiagnosticLevel.hidden': 
+       return DiagnosticLevel.hidden;
+      case 'DiagnosticLevel.fine': 
+       return DiagnosticLevel.fine;
+      case 'DiagnosticLevel.debug': 
+       return DiagnosticLevel.debug;
+      case 'DiagnosticLevel.info': 
+       return DiagnosticLevel.info;
+      case 'DiagnosticLevel.warning': 
+       return DiagnosticLevel.warning;
+      case 'DiagnosticLevel.hint': 
+       return DiagnosticLevel.hint;
+      case 'DiagnosticLevel.summary': 
+       return DiagnosticLevel.summary;
+      case 'DiagnosticLevel.error': 
+       return DiagnosticLevel.error;
+      case 'DiagnosticLevel.off': 
+       return DiagnosticLevel.off;
     }
+    return null;
   }
 }
 class MXDiagnosticsTreeStyle {
-  static Map str2VMap = {
-    'DiagnosticsTreeStyle.none': DiagnosticsTreeStyle.none,
-    'DiagnosticsTreeStyle.sparse': DiagnosticsTreeStyle.sparse,
-    'DiagnosticsTreeStyle.offstage': DiagnosticsTreeStyle.offstage,
-    'DiagnosticsTreeStyle.dense': DiagnosticsTreeStyle.dense,
-    'DiagnosticsTreeStyle.transition': DiagnosticsTreeStyle.transition,
-    'DiagnosticsTreeStyle.error': DiagnosticsTreeStyle.error,
-    'DiagnosticsTreeStyle.whitespace': DiagnosticsTreeStyle.whitespace,
-    'DiagnosticsTreeStyle.flat': DiagnosticsTreeStyle.flat,
-    'DiagnosticsTreeStyle.singleLine': DiagnosticsTreeStyle.singleLine,
-    'DiagnosticsTreeStyle.errorProperty': DiagnosticsTreeStyle.errorProperty,
-    'DiagnosticsTreeStyle.shallow': DiagnosticsTreeStyle.shallow,
-    'DiagnosticsTreeStyle.truncateChildren': DiagnosticsTreeStyle.truncateChildren,
-  };
-  static DiagnosticsTreeStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static DiagnosticsTreeStyle parse(String name, int index) {
+    switch(name) {
+      case 'DiagnosticsTreeStyle.none': 
+       return DiagnosticsTreeStyle.none;
+      case 'DiagnosticsTreeStyle.sparse': 
+       return DiagnosticsTreeStyle.sparse;
+      case 'DiagnosticsTreeStyle.offstage': 
+       return DiagnosticsTreeStyle.offstage;
+      case 'DiagnosticsTreeStyle.dense': 
+       return DiagnosticsTreeStyle.dense;
+      case 'DiagnosticsTreeStyle.transition': 
+       return DiagnosticsTreeStyle.transition;
+      case 'DiagnosticsTreeStyle.error': 
+       return DiagnosticsTreeStyle.error;
+      case 'DiagnosticsTreeStyle.whitespace': 
+       return DiagnosticsTreeStyle.whitespace;
+      case 'DiagnosticsTreeStyle.flat': 
+       return DiagnosticsTreeStyle.flat;
+      case 'DiagnosticsTreeStyle.singleLine': 
+       return DiagnosticsTreeStyle.singleLine;
+      case 'DiagnosticsTreeStyle.errorProperty': 
+       return DiagnosticsTreeStyle.errorProperty;
+      case 'DiagnosticsTreeStyle.shallow': 
+       return DiagnosticsTreeStyle.shallow;
+      case 'DiagnosticsTreeStyle.truncateChildren': 
+       return DiagnosticsTreeStyle.truncateChildren;
     }
+    return null;
   }
 }
