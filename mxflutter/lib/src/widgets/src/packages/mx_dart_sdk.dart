@@ -237,33 +237,33 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
 }
 var _pointMode = MXFunctionInvoke(
     "PointMode",
-    ({Map args}) => MXPointMode.parse(args),
+    ({String name, int index}) => MXPointMode.parse(name, index),
   );
 var _clipOp = MXFunctionInvoke(
     "ClipOp",
-    ({Map args}) => MXClipOp.parse(args),
+    ({String name, int index}) => MXClipOp.parse(name, index),
   );
 var _vertexMode = MXFunctionInvoke(
     "VertexMode",
-    ({Map args}) => MXVertexMode.parse(args),
+    ({String name, int index}) => MXVertexMode.parse(name, index),
   );
 var _vertices = MXFunctionInvoke(
     "Vertices",
     (
       {
       VertexMode mode,
-      List<Offset> positions,
-      List<Offset> textureCoordinates,
-      List<Color> colors,
-      List<int> indices,
+      dynamic positions,
+      dynamic textureCoordinates,
+      dynamic colors,
+      dynamic indices,
       }
     ) =>
       Vertices(
       mode,
-      positions,
-      textureCoordinates: textureCoordinates,
-      colors: colors,
-      indices: indices,
+      toListT<Offset>(positions),
+      textureCoordinates: toListT<Offset>(textureCoordinates),
+      colors: toListT<Color>(colors),
+      indices: toListT<int>(indices),
     ),
 );
 var _vertices_raw = MXFunctionInvoke(
@@ -307,11 +307,11 @@ var _canvas = MXFunctionInvoke(
 );
 var _pathFillType = MXFunctionInvoke(
     "PathFillType",
-    ({Map args}) => MXPathFillType.parse(args),
+    ({String name, int index}) => MXPathFillType.parse(name, index),
   );
 var _pathOperation = MXFunctionInvoke(
     "PathOperation",
-    ({Map args}) => MXPathOperation.parse(args),
+    ({String name, int index}) => MXPathOperation.parse(name, index),
   );
 var _rawRecordingCanvas = MXFunctionInvoke(
     "RawRecordingCanvas",
@@ -765,23 +765,23 @@ var _color_fromRGBO = MXFunctionInvoke(
 );
 var _strokeCap = MXFunctionInvoke(
     "StrokeCap",
-    ({Map args}) => MXStrokeCap.parse(args),
+    ({String name, int index}) => MXStrokeCap.parse(name, index),
   );
 var _strokeJoin = MXFunctionInvoke(
     "StrokeJoin",
-    ({Map args}) => MXStrokeJoin.parse(args),
+    ({String name, int index}) => MXStrokeJoin.parse(name, index),
   );
 var _paintingStyle = MXFunctionInvoke(
     "PaintingStyle",
-    ({Map args}) => MXPaintingStyle.parse(args),
+    ({String name, int index}) => MXPaintingStyle.parse(name, index),
   );
 var _blendMode = MXFunctionInvoke(
     "BlendMode",
-    ({Map args}) => MXBlendMode.parse(args),
+    ({String name, int index}) => MXBlendMode.parse(name, index),
   );
 var _clip = MXFunctionInvoke(
     "Clip",
-    ({Map args}) => MXClip.parse(args),
+    ({String name, int index}) => MXClip.parse(name, index),
   );
 var _paint = MXFunctionInvoke(
     "Paint",
@@ -796,8 +796,8 @@ var _gradient_linear = MXFunctionInvoke(
       {
       Offset from,
       Offset to,
-      List<Color> colors,
-      List<double> colorStops,
+      dynamic colors,
+      dynamic colorStops,
       TileMode tileMode,
       Float64List matrix4,
       }
@@ -805,8 +805,8 @@ var _gradient_linear = MXFunctionInvoke(
       Gradient.linear(
       from,
       to,
-      colors,
-      colorStops,
+      toListT<Color>(colors),
+      toListT<double>(colorStops),
       tileMode,
       matrix4,
     ),
@@ -817,8 +817,8 @@ var _gradient_radial = MXFunctionInvoke(
       {
       Offset center,
       dynamic radius,
-      List<Color> colors,
-      List<double> colorStops,
+      dynamic colors,
+      dynamic colorStops,
       TileMode tileMode,
       Float64List matrix4,
       Offset focal,
@@ -828,8 +828,8 @@ var _gradient_radial = MXFunctionInvoke(
       Gradient.radial(
       center,
       radius?.toDouble(),
-      colors,
-      colorStops,
+      toListT<Color>(colors),
+      toListT<double>(colorStops),
       tileMode,
       matrix4,
       focal,
@@ -841,8 +841,8 @@ var _gradient_sweep = MXFunctionInvoke(
     (
       {
       Offset center,
-      List<Color> colors,
-      List<double> colorStops,
+      dynamic colors,
+      dynamic colorStops,
       TileMode tileMode,
       dynamic startAngle,
       dynamic endAngle,
@@ -851,8 +851,8 @@ var _gradient_sweep = MXFunctionInvoke(
     ) =>
       Gradient.sweep(
       center,
-      colors,
-      colorStops,
+      toListT<Color>(colors),
+      toListT<double>(colorStops),
       tileMode,
       startAngle?.toDouble(),
       endAngle?.toDouble(),
@@ -876,11 +876,11 @@ var _colorFilter_matrix = MXFunctionInvoke(
   "ColorFilter.matrix",
     (
       {
-      List<double> matrix,
+      dynamic matrix,
       }
     ) =>
       ColorFilter.matrix(
-      matrix,
+      toListT<double>(matrix),
     ),
 );
 var _colorFilter_linearToSrgbGamma = MXFunctionInvoke(
@@ -899,7 +899,7 @@ var _colorFilter_srgbToLinearGamma = MXFunctionInvoke(
 );
 var _blurStyle = MXFunctionInvoke(
     "BlurStyle",
-    ({Map args}) => MXBlurStyle.parse(args),
+    ({String name, int index}) => MXBlurStyle.parse(name, index),
   );
 var _maskFilter_blur = MXFunctionInvoke(
   "MaskFilter.blur",
@@ -916,7 +916,7 @@ var _maskFilter_blur = MXFunctionInvoke(
 );
 var _filterQuality = MXFunctionInvoke(
     "FilterQuality",
-    ({Map args}) => MXFilterQuality.parse(args),
+    ({String name, int index}) => MXFilterQuality.parse(name, index),
   );
 var _imageFilter_blur = MXFunctionInvoke(
   "ImageFilter.blur",
@@ -946,11 +946,11 @@ var _imageFilter_matrix = MXFunctionInvoke(
 );
 var _imageByteFormat = MXFunctionInvoke(
     "ImageByteFormat",
-    ({Map args}) => MXImageByteFormat.parse(args),
+    ({String name, int index}) => MXImageByteFormat.parse(name, index),
   );
 var _pixelFormat = MXFunctionInvoke(
     "PixelFormat",
-    ({Map args}) => MXPixelFormat.parse(args),
+    ({String name, int index}) => MXPixelFormat.parse(name, index),
   );
 var _shadow = MXFunctionInvoke(
     "Shadow",
@@ -1013,15 +1013,15 @@ var _tangent_fromAngle = MXFunctionInvoke(
 );
 var _pointerChange = MXFunctionInvoke(
     "PointerChange",
-    ({Map args}) => MXPointerChange.parse(args),
+    ({String name, int index}) => MXPointerChange.parse(name, index),
   );
 var _pointerDeviceKind = MXFunctionInvoke(
     "PointerDeviceKind",
-    ({Map args}) => MXPointerDeviceKind.parse(args),
+    ({String name, int index}) => MXPointerDeviceKind.parse(name, index),
   );
 var _pointerSignalKind = MXFunctionInvoke(
     "PointerSignalKind",
-    ({Map args}) => MXPointerSignalKind.parse(args),
+    ({String name, int index}) => MXPointerSignalKind.parse(name, index),
   );
 var _pointerData = MXFunctionInvoke(
     "PointerData",
@@ -1092,11 +1092,11 @@ var _pointerDataPacket = MXFunctionInvoke(
     "PointerDataPacket",
     (
       {
-      List<PointerData> data,
+      dynamic data,
       }
     ) =>
       PointerDataPacket(
-      data: data,
+      data: toListT<PointerData>(data),
     ),
 );
 var _semanticsUpdateBuilder = MXFunctionInvoke(
@@ -1108,11 +1108,11 @@ var _semanticsUpdateBuilder = MXFunctionInvoke(
 );
 var _fontStyle = MXFunctionInvoke(
     "FontStyle",
-    ({Map args}) => MXFontStyle.parse(args),
+    ({String name, int index}) => MXFontStyle.parse(name, index),
   );
 var _placeholderAlignment = MXFunctionInvoke(
     "PlaceholderAlignment",
-    ({Map args}) => MXPlaceholderAlignment.parse(args),
+    ({String name, int index}) => MXPlaceholderAlignment.parse(name, index),
   );
 var _fontFeature = MXFunctionInvoke(
     "FontFeature",
@@ -1197,26 +1197,26 @@ var _fontFeature_tabularFigures = MXFunctionInvoke(
 );
 var _textAlign = MXFunctionInvoke(
     "TextAlign",
-    ({Map args}) => MXTextAlign.parse(args),
+    ({String name, int index}) => MXTextAlign.parse(name, index),
   );
 var _textBaseline = MXFunctionInvoke(
     "TextBaseline",
-    ({Map args}) => MXTextBaseline.parse(args),
+    ({String name, int index}) => MXTextBaseline.parse(name, index),
   );
 var _textDecoration_combine = MXFunctionInvoke(
   "TextDecoration.combine",
     (
       {
-      List<TextDecoration> decorations,
+      dynamic decorations,
       }
     ) =>
       TextDecoration.combine(
-      decorations,
+      toListT<TextDecoration>(decorations),
     ),
 );
 var _textDecorationStyle = MXFunctionInvoke(
     "TextDecorationStyle",
-    ({Map args}) => MXTextDecorationStyle.parse(args),
+    ({String name, int index}) => MXTextDecorationStyle.parse(name, index),
   );
 var _textHeightBehavior = MXFunctionInvoke(
     "TextHeightBehavior",
@@ -1255,7 +1255,7 @@ var _textStyle = MXFunctionInvoke(
       FontStyle fontStyle,
       TextBaseline textBaseline,
       String fontFamily,
-      List<String> fontFamilyFallback,
+      dynamic fontFamilyFallback,
       dynamic fontSize,
       dynamic letterSpacing,
       dynamic wordSpacing,
@@ -1263,8 +1263,8 @@ var _textStyle = MXFunctionInvoke(
       Locale locale,
       Paint background,
       Paint foreground,
-      List<Shadow> shadows,
-      List<FontFeature> fontFeatures,
+      dynamic shadows,
+      dynamic fontFeatures,
       }
     ) =>
       TextStyle(
@@ -1277,7 +1277,7 @@ var _textStyle = MXFunctionInvoke(
       fontStyle: fontStyle,
       textBaseline: textBaseline,
       fontFamily: fontFamily,
-      fontFamilyFallback: fontFamilyFallback,
+      fontFamilyFallback: toListT<String>(fontFamilyFallback),
       fontSize: fontSize?.toDouble(),
       letterSpacing: letterSpacing?.toDouble(),
       wordSpacing: wordSpacing?.toDouble(),
@@ -1285,8 +1285,8 @@ var _textStyle = MXFunctionInvoke(
       locale: locale,
       background: background,
       foreground: foreground,
-      shadows: shadows,
-      fontFeatures: fontFeatures,
+      shadows: toListT<Shadow>(shadows),
+      fontFeatures: toListT<FontFeature>(fontFeatures),
     ),
 );
 var _paragraphStyle = MXFunctionInvoke(
@@ -1327,7 +1327,7 @@ var _strutStyle = MXFunctionInvoke(
     (
       {
       String fontFamily,
-      List<String> fontFamilyFallback,
+      dynamic fontFamilyFallback,
       dynamic fontSize,
       dynamic height,
       dynamic leading,
@@ -1338,7 +1338,7 @@ var _strutStyle = MXFunctionInvoke(
     ) =>
       StrutStyle(
       fontFamily: fontFamily,
-      fontFamilyFallback: fontFamilyFallback,
+      fontFamilyFallback: toListT<String>(fontFamilyFallback),
       fontSize: fontSize?.toDouble(),
       height: height?.toDouble(),
       leading: leading?.toDouble(),
@@ -1349,7 +1349,7 @@ var _strutStyle = MXFunctionInvoke(
 );
 var _textDirection = MXFunctionInvoke(
     "TextDirection",
-    ({Map args}) => MXTextDirection.parse(args),
+    ({String name, int index}) => MXTextDirection.parse(name, index),
   );
 var _textBox_fromLTRBD = MXFunctionInvoke(
   "TextBox.fromLTRBD",
@@ -1372,7 +1372,7 @@ var _textBox_fromLTRBD = MXFunctionInvoke(
 );
 var _textAffinity = MXFunctionInvoke(
     "TextAffinity",
-    ({Map args}) => MXTextAffinity.parse(args),
+    ({String name, int index}) => MXTextAffinity.parse(name, index),
   );
 var _textPosition = MXFunctionInvoke(
     "TextPosition",
@@ -1424,11 +1424,11 @@ var _paragraphConstraints = MXFunctionInvoke(
 );
 var _boxHeightStyle = MXFunctionInvoke(
     "BoxHeightStyle",
-    ({Map args}) => MXBoxHeightStyle.parse(args),
+    ({String name, int index}) => MXBoxHeightStyle.parse(name, index),
   );
 var _boxWidthStyle = MXFunctionInvoke(
     "BoxWidthStyle",
-    ({Map args}) => MXBoxWidthStyle.parse(args),
+    ({String name, int index}) => MXBoxWidthStyle.parse(name, index),
   );
 var _lineMetrics = MXFunctionInvoke(
     "LineMetrics",
@@ -1470,11 +1470,11 @@ var _paragraphBuilder = MXFunctionInvoke(
 );
 var _tileMode = MXFunctionInvoke(
     "TileMode",
-    ({Map args}) => MXTileMode.parse(args),
+    ({String name, int index}) => MXTileMode.parse(name, index),
   );
 var _appLifecycleState = MXFunctionInvoke(
     "AppLifecycleState",
-    ({Map args}) => MXAppLifecycleState.parse(args),
+    ({String name, int index}) => MXAppLifecycleState.parse(name, index),
   );
 var _locale = MXFunctionInvoke(
     "Locale",
@@ -1506,7 +1506,7 @@ var _locale_fromSubtags = MXFunctionInvoke(
 );
 var _brightness = MXFunctionInvoke(
     "Brightness",
-    ({Map args}) => MXBrightness.parse(args),
+    ({String name, int index}) => MXBrightness.parse(name, index),
   );
 var _callbackHandle_fromRawHandle = MXFunctionInvoke(
   "CallbackHandle.fromRawHandle",
@@ -1552,17 +1552,17 @@ var _isolateNameServer = MXFunctionInvoke(
 );
 var _framePhase = MXFunctionInvoke(
     "FramePhase",
-    ({Map args}) => MXFramePhase.parse(args),
+    ({String name, int index}) => MXFramePhase.parse(name, index),
   );
 var _frameTiming = MXFunctionInvoke(
     "FrameTiming",
     (
       {
-      List<int> timestamps,
+      dynamic timestamps,
       }
     ) =>
       FrameTiming(
-      timestamps,
+      toListT<int>(timestamps),
     ),
 );
 var _deprecated = MXFunctionInvoke(
@@ -1922,17 +1922,17 @@ var _noSuchMethodError = MXFunctionInvoke(
       {
       Object receiver,
       Symbol memberName,
-      List<dynamic> positionalArguments,
-      Map<Symbol, dynamic> namedArguments,
-      List<dynamic> existingArgumentNames,
+      dynamic positionalArguments,
+      dynamic namedArguments,
+      dynamic existingArgumentNames,
       }
     ) =>
       NoSuchMethodError(
       receiver,
       memberName,
-      positionalArguments,
-      namedArguments,
-      existingArgumentNames,
+      toListT<dynamic>(positionalArguments),
+      toMapT<Symbol, dynamic>(namedArguments),
+      toListT<dynamic>(existingArgumentNames),
     ),
 );
 var _noSuchMethodError_withInvocation = MXFunctionInvoke(
@@ -2080,13 +2080,13 @@ var _invocation_method = MXFunctionInvoke(
       {
       Symbol memberName,
       Iterable<Object> positionalArguments,
-      Map<Symbol, Object> namedArguments,
+      dynamic namedArguments,
       }
     ) =>
       Invocation.method(
       memberName,
       positionalArguments,
-      namedArguments,
+      toMapT<Symbol, Object>(namedArguments),
     ),
 );
 var _invocation_genericMethod = MXFunctionInvoke(
@@ -2096,14 +2096,14 @@ var _invocation_genericMethod = MXFunctionInvoke(
       Symbol memberName,
       Iterable<Type> typeArguments,
       Iterable<Object> positionalArguments,
-      Map<Symbol, Object> namedArguments,
+      dynamic namedArguments,
       }
     ) =>
       Invocation.genericMethod(
       memberName,
       typeArguments,
       positionalArguments,
-      namedArguments,
+      toMapT<Symbol, Object>(namedArguments),
     ),
 );
 var _invocation_getter = MXFunctionInvoke(
@@ -2232,17 +2232,17 @@ var _list_copyRange = MXFunctionInvoke(
   "List.copyRange",
     (
       {
-      List<dynamic> target,
+      dynamic target,
       int at,
-      List<dynamic> source,
+      dynamic source,
       int start,
       int end,
       }
     ) =>
       List.copyRange(
-      target,
+      toListT<dynamic>(target),
       at,
-      source,
+      toListT<dynamic>(source),
       start,
       end,
     ),
@@ -2251,13 +2251,13 @@ var _list_writeIterable = MXFunctionInvoke(
   "List.writeIterable",
     (
       {
-      List<dynamic> target,
+      dynamic target,
       int at,
       Iterable<dynamic> source,
       }
     ) =>
       List.writeIterable(
-      target,
+      toListT<dynamic>(target),
       at,
       source,
     ),
@@ -2273,33 +2273,33 @@ var _map_from = MXFunctionInvoke(
   "Map.from",
     (
       {
-      Map<dynamic, dynamic> other,
+      dynamic other,
       }
     ) =>
       Map.from(
-      other,
+      toMapT<dynamic, dynamic>(other),
     ),
 );
 var _map_of = MXFunctionInvoke(
   "Map.of",
     (
       {
-      Map<dynamic, dynamic> other,
+      dynamic other,
       }
     ) =>
       Map.of(
-      other,
+      toMapT<dynamic, dynamic>(other),
     ),
 );
 var _map_unmodifiable = MXFunctionInvoke(
   "Map.unmodifiable",
     (
       {
-      Map<dynamic, dynamic> other,
+      dynamic other,
       }
     ) =>
       Map.unmodifiable(
-      other,
+      toMapT<dynamic, dynamic>(other),
     ),
 );
 var _map_identity = MXFunctionInvoke(
@@ -2541,7 +2541,7 @@ var _uri = MXFunctionInvoke(
       String path,
       Iterable<String> pathSegments,
       String query,
-      Map<String, dynamic> queryParameters,
+      dynamic queryParameters,
       String fragment,
       }
     ) =>
@@ -2553,7 +2553,7 @@ var _uri = MXFunctionInvoke(
       path: path,
       pathSegments: pathSegments,
       query: query,
-      queryParameters: queryParameters,
+      queryParameters: toMapT<String, dynamic>(queryParameters),
       fragment: fragment,
     ),
 );
@@ -2563,13 +2563,13 @@ var _uri_http = MXFunctionInvoke(
       {
       String authority,
       String unencodedPath,
-      Map<String, String> queryParameters,
+      dynamic queryParameters,
       }
     ) =>
       Uri.http(
       authority,
       unencodedPath,
-      queryParameters,
+      toMapT<String, String>(queryParameters),
     ),
 );
 var _uri_https = MXFunctionInvoke(
@@ -2578,13 +2578,13 @@ var _uri_https = MXFunctionInvoke(
       {
       String authority,
       String unencodedPath,
-      Map<String, String> queryParameters,
+      dynamic queryParameters,
       }
     ) =>
       Uri.https(
       authority,
       unencodedPath,
-      queryParameters,
+      toMapT<String, String>(queryParameters),
     ),
 );
 var _uri_file = MXFunctionInvoke(
@@ -2620,7 +2620,7 @@ var _uri_dataFromString = MXFunctionInvoke(
       String content,
       String mimeType,
       Encoding encoding,
-      Map<String, String> parameters,
+      dynamic parameters,
       bool base64 = false,
       }
     ) =>
@@ -2628,7 +2628,7 @@ var _uri_dataFromString = MXFunctionInvoke(
       content,
       mimeType: mimeType,
       encoding: encoding,
-      parameters: parameters,
+      parameters: toMapT<String, String>(parameters),
       base64: base64,
     ),
 );
@@ -2636,16 +2636,16 @@ var _uri_dataFromBytes = MXFunctionInvoke(
   "Uri.dataFromBytes",
     (
       {
-      List<int> bytes,
+      dynamic bytes,
       dynamic mimeType = 'application/octet-stream',
-      Map<String, String> parameters,
+      dynamic parameters,
       dynamic percentEncoded = false,
       }
     ) =>
       Uri.dataFromBytes(
-      bytes,
+      toListT<int>(bytes),
       mimeType: mimeType,
-      parameters: parameters,
+      parameters: toMapT<String, String>(parameters),
       percentEncoded: percentEncoded,
     ),
 );
@@ -2656,7 +2656,7 @@ var _uriData_fromString = MXFunctionInvoke(
       String content,
       String mimeType,
       Encoding encoding,
-      Map<String, String> parameters,
+      dynamic parameters,
       bool base64 = false,
       }
     ) =>
@@ -2664,7 +2664,7 @@ var _uriData_fromString = MXFunctionInvoke(
       content,
       mimeType: mimeType,
       encoding: encoding,
-      parameters: parameters,
+      parameters: toMapT<String, String>(parameters),
       base64: base64,
     ),
 );
@@ -2672,16 +2672,16 @@ var _uriData_fromBytes = MXFunctionInvoke(
   "UriData.fromBytes",
     (
       {
-      List<int> bytes,
+      dynamic bytes,
       dynamic mimeType = 'application/octet-stream',
-      Map<String, String> parameters,
+      dynamic parameters,
       dynamic percentEncoded = false,
       }
     ) =>
       UriData.fromBytes(
-      bytes,
+      toListT<int>(bytes),
       mimeType: mimeType,
-      parameters: parameters,
+      parameters: toMapT<String, String>(parameters),
       percentEncoded: percentEncoded,
     ),
 );
@@ -2697,523 +2697,473 @@ var _uriData_fromUri = MXFunctionInvoke(
     ),
 );
 class MXPointMode {
-  static Map str2VMap = {
-    'PointMode.points': PointMode.points,
-    'PointMode.lines': PointMode.lines,
-    'PointMode.polygon': PointMode.polygon,
-  };
-  static PointMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PointMode parse(String name, int index) {
+    switch(name) {
+      case 'PointMode.points': 
+       return PointMode.points;
+      case 'PointMode.lines': 
+       return PointMode.lines;
+      case 'PointMode.polygon': 
+       return PointMode.polygon;
     }
+    return null;
   }
 }
 class MXClipOp {
-  static Map str2VMap = {
-    'ClipOp.difference': ClipOp.difference,
-    'ClipOp.intersect': ClipOp.intersect,
-  };
-  static ClipOp parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ClipOp parse(String name, int index) {
+    switch(name) {
+      case 'ClipOp.difference': 
+       return ClipOp.difference;
+      case 'ClipOp.intersect': 
+       return ClipOp.intersect;
     }
+    return null;
   }
 }
 class MXVertexMode {
-  static Map str2VMap = {
-    'VertexMode.triangles': VertexMode.triangles,
-    'VertexMode.triangleStrip': VertexMode.triangleStrip,
-    'VertexMode.triangleFan': VertexMode.triangleFan,
-  };
-  static VertexMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static VertexMode parse(String name, int index) {
+    switch(name) {
+      case 'VertexMode.triangles': 
+       return VertexMode.triangles;
+      case 'VertexMode.triangleStrip': 
+       return VertexMode.triangleStrip;
+      case 'VertexMode.triangleFan': 
+       return VertexMode.triangleFan;
     }
+    return null;
   }
 }
 class MXPathFillType {
-  static Map str2VMap = {
-    'PathFillType.nonZero': PathFillType.nonZero,
-    'PathFillType.evenOdd': PathFillType.evenOdd,
-  };
-  static PathFillType parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PathFillType parse(String name, int index) {
+    switch(name) {
+      case 'PathFillType.nonZero': 
+       return PathFillType.nonZero;
+      case 'PathFillType.evenOdd': 
+       return PathFillType.evenOdd;
     }
+    return null;
   }
 }
 class MXPathOperation {
-  static Map str2VMap = {
-    'PathOperation.difference': PathOperation.difference,
-    'PathOperation.intersect': PathOperation.intersect,
-    'PathOperation.union': PathOperation.union,
-    'PathOperation.xor': PathOperation.xor,
-    'PathOperation.reverseDifference': PathOperation.reverseDifference,
-  };
-  static PathOperation parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PathOperation parse(String name, int index) {
+    switch(name) {
+      case 'PathOperation.difference': 
+       return PathOperation.difference;
+      case 'PathOperation.intersect': 
+       return PathOperation.intersect;
+      case 'PathOperation.union': 
+       return PathOperation.union;
+      case 'PathOperation.xor': 
+       return PathOperation.xor;
+      case 'PathOperation.reverseDifference': 
+       return PathOperation.reverseDifference;
     }
+    return null;
   }
 }
 class MXStrokeCap {
-  static Map str2VMap = {
-    'StrokeCap.butt': StrokeCap.butt,
-    'StrokeCap.round': StrokeCap.round,
-    'StrokeCap.square': StrokeCap.square,
-  };
-  static StrokeCap parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static StrokeCap parse(String name, int index) {
+    switch(name) {
+      case 'StrokeCap.butt': 
+       return StrokeCap.butt;
+      case 'StrokeCap.round': 
+       return StrokeCap.round;
+      case 'StrokeCap.square': 
+       return StrokeCap.square;
     }
+    return null;
   }
 }
 class MXStrokeJoin {
-  static Map str2VMap = {
-    'StrokeJoin.miter': StrokeJoin.miter,
-    'StrokeJoin.round': StrokeJoin.round,
-    'StrokeJoin.bevel': StrokeJoin.bevel,
-  };
-  static StrokeJoin parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static StrokeJoin parse(String name, int index) {
+    switch(name) {
+      case 'StrokeJoin.miter': 
+       return StrokeJoin.miter;
+      case 'StrokeJoin.round': 
+       return StrokeJoin.round;
+      case 'StrokeJoin.bevel': 
+       return StrokeJoin.bevel;
     }
+    return null;
   }
 }
 class MXPaintingStyle {
-  static Map str2VMap = {
-    'PaintingStyle.fill': PaintingStyle.fill,
-    'PaintingStyle.stroke': PaintingStyle.stroke,
-  };
-  static PaintingStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PaintingStyle parse(String name, int index) {
+    switch(name) {
+      case 'PaintingStyle.fill': 
+       return PaintingStyle.fill;
+      case 'PaintingStyle.stroke': 
+       return PaintingStyle.stroke;
     }
+    return null;
   }
 }
 class MXBlendMode {
-  static Map str2VMap = {
-    'BlendMode.clear': BlendMode.clear,
-    'BlendMode.src': BlendMode.src,
-    'BlendMode.dst': BlendMode.dst,
-    'BlendMode.srcOver': BlendMode.srcOver,
-    'BlendMode.dstOver': BlendMode.dstOver,
-    'BlendMode.srcIn': BlendMode.srcIn,
-    'BlendMode.dstIn': BlendMode.dstIn,
-    'BlendMode.srcOut': BlendMode.srcOut,
-    'BlendMode.dstOut': BlendMode.dstOut,
-    'BlendMode.srcATop': BlendMode.srcATop,
-    'BlendMode.dstATop': BlendMode.dstATop,
-    'BlendMode.xor': BlendMode.xor,
-    'BlendMode.plus': BlendMode.plus,
-    'BlendMode.modulate': BlendMode.modulate,
-    'BlendMode.screen': BlendMode.screen,
-    'BlendMode.overlay': BlendMode.overlay,
-    'BlendMode.darken': BlendMode.darken,
-    'BlendMode.lighten': BlendMode.lighten,
-    'BlendMode.colorDodge': BlendMode.colorDodge,
-    'BlendMode.colorBurn': BlendMode.colorBurn,
-    'BlendMode.hardLight': BlendMode.hardLight,
-    'BlendMode.softLight': BlendMode.softLight,
-    'BlendMode.difference': BlendMode.difference,
-    'BlendMode.exclusion': BlendMode.exclusion,
-    'BlendMode.multiply': BlendMode.multiply,
-    'BlendMode.hue': BlendMode.hue,
-    'BlendMode.saturation': BlendMode.saturation,
-    'BlendMode.color': BlendMode.color,
-    'BlendMode.luminosity': BlendMode.luminosity,
-  };
-  static BlendMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BlendMode parse(String name, int index) {
+    switch(name) {
+      case 'BlendMode.clear': 
+       return BlendMode.clear;
+      case 'BlendMode.src': 
+       return BlendMode.src;
+      case 'BlendMode.dst': 
+       return BlendMode.dst;
+      case 'BlendMode.srcOver': 
+       return BlendMode.srcOver;
+      case 'BlendMode.dstOver': 
+       return BlendMode.dstOver;
+      case 'BlendMode.srcIn': 
+       return BlendMode.srcIn;
+      case 'BlendMode.dstIn': 
+       return BlendMode.dstIn;
+      case 'BlendMode.srcOut': 
+       return BlendMode.srcOut;
+      case 'BlendMode.dstOut': 
+       return BlendMode.dstOut;
+      case 'BlendMode.srcATop': 
+       return BlendMode.srcATop;
+      case 'BlendMode.dstATop': 
+       return BlendMode.dstATop;
+      case 'BlendMode.xor': 
+       return BlendMode.xor;
+      case 'BlendMode.plus': 
+       return BlendMode.plus;
+      case 'BlendMode.modulate': 
+       return BlendMode.modulate;
+      case 'BlendMode.screen': 
+       return BlendMode.screen;
+      case 'BlendMode.overlay': 
+       return BlendMode.overlay;
+      case 'BlendMode.darken': 
+       return BlendMode.darken;
+      case 'BlendMode.lighten': 
+       return BlendMode.lighten;
+      case 'BlendMode.colorDodge': 
+       return BlendMode.colorDodge;
+      case 'BlendMode.colorBurn': 
+       return BlendMode.colorBurn;
+      case 'BlendMode.hardLight': 
+       return BlendMode.hardLight;
+      case 'BlendMode.softLight': 
+       return BlendMode.softLight;
+      case 'BlendMode.difference': 
+       return BlendMode.difference;
+      case 'BlendMode.exclusion': 
+       return BlendMode.exclusion;
+      case 'BlendMode.multiply': 
+       return BlendMode.multiply;
+      case 'BlendMode.hue': 
+       return BlendMode.hue;
+      case 'BlendMode.saturation': 
+       return BlendMode.saturation;
+      case 'BlendMode.color': 
+       return BlendMode.color;
+      case 'BlendMode.luminosity': 
+       return BlendMode.luminosity;
     }
+    return null;
   }
 }
 class MXClip {
-  static Map str2VMap = {
-    'Clip.none': Clip.none,
-    'Clip.hardEdge': Clip.hardEdge,
-    'Clip.antiAlias': Clip.antiAlias,
-    'Clip.antiAliasWithSaveLayer': Clip.antiAliasWithSaveLayer,
-  };
-  static Clip parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static Clip parse(String name, int index) {
+    switch(name) {
+      case 'Clip.none': 
+       return Clip.none;
+      case 'Clip.hardEdge': 
+       return Clip.hardEdge;
+      case 'Clip.antiAlias': 
+       return Clip.antiAlias;
+      case 'Clip.antiAliasWithSaveLayer': 
+       return Clip.antiAliasWithSaveLayer;
     }
+    return null;
   }
 }
 class MXBlurStyle {
-  static Map str2VMap = {
-    'BlurStyle.normal': BlurStyle.normal,
-    'BlurStyle.solid': BlurStyle.solid,
-    'BlurStyle.outer': BlurStyle.outer,
-    'BlurStyle.inner': BlurStyle.inner,
-  };
-  static BlurStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BlurStyle parse(String name, int index) {
+    switch(name) {
+      case 'BlurStyle.normal': 
+       return BlurStyle.normal;
+      case 'BlurStyle.solid': 
+       return BlurStyle.solid;
+      case 'BlurStyle.outer': 
+       return BlurStyle.outer;
+      case 'BlurStyle.inner': 
+       return BlurStyle.inner;
     }
+    return null;
   }
 }
 class MXFilterQuality {
-  static Map str2VMap = {
-    'FilterQuality.none': FilterQuality.none,
-    'FilterQuality.low': FilterQuality.low,
-    'FilterQuality.medium': FilterQuality.medium,
-    'FilterQuality.high': FilterQuality.high,
-  };
-  static FilterQuality parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FilterQuality parse(String name, int index) {
+    switch(name) {
+      case 'FilterQuality.none': 
+       return FilterQuality.none;
+      case 'FilterQuality.low': 
+       return FilterQuality.low;
+      case 'FilterQuality.medium': 
+       return FilterQuality.medium;
+      case 'FilterQuality.high': 
+       return FilterQuality.high;
     }
+    return null;
   }
 }
 class MXImageByteFormat {
-  static Map str2VMap = {
-    'ImageByteFormat.rawRgba': ImageByteFormat.rawRgba,
-    'ImageByteFormat.rawUnmodified': ImageByteFormat.rawUnmodified,
-    'ImageByteFormat.png': ImageByteFormat.png,
-  };
-  static ImageByteFormat parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static ImageByteFormat parse(String name, int index) {
+    switch(name) {
+      case 'ImageByteFormat.rawRgba': 
+       return ImageByteFormat.rawRgba;
+      case 'ImageByteFormat.rawUnmodified': 
+       return ImageByteFormat.rawUnmodified;
+      case 'ImageByteFormat.png': 
+       return ImageByteFormat.png;
     }
+    return null;
   }
 }
 class MXPixelFormat {
-  static Map str2VMap = {
-    'PixelFormat.rgba8888': PixelFormat.rgba8888,
-    'PixelFormat.bgra8888': PixelFormat.bgra8888,
-  };
-  static PixelFormat parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PixelFormat parse(String name, int index) {
+    switch(name) {
+      case 'PixelFormat.rgba8888': 
+       return PixelFormat.rgba8888;
+      case 'PixelFormat.bgra8888': 
+       return PixelFormat.bgra8888;
     }
+    return null;
   }
 }
 class MXPointerChange {
-  static Map str2VMap = {
-    'PointerChange.cancel': PointerChange.cancel,
-    'PointerChange.add': PointerChange.add,
-    'PointerChange.remove': PointerChange.remove,
-    'PointerChange.hover': PointerChange.hover,
-    'PointerChange.down': PointerChange.down,
-    'PointerChange.move': PointerChange.move,
-    'PointerChange.up': PointerChange.up,
-  };
-  static PointerChange parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PointerChange parse(String name, int index) {
+    switch(name) {
+      case 'PointerChange.cancel': 
+       return PointerChange.cancel;
+      case 'PointerChange.add': 
+       return PointerChange.add;
+      case 'PointerChange.remove': 
+       return PointerChange.remove;
+      case 'PointerChange.hover': 
+       return PointerChange.hover;
+      case 'PointerChange.down': 
+       return PointerChange.down;
+      case 'PointerChange.move': 
+       return PointerChange.move;
+      case 'PointerChange.up': 
+       return PointerChange.up;
     }
+    return null;
   }
 }
 class MXPointerDeviceKind {
-  static Map str2VMap = {
-    'PointerDeviceKind.touch': PointerDeviceKind.touch,
-    'PointerDeviceKind.mouse': PointerDeviceKind.mouse,
-    'PointerDeviceKind.stylus': PointerDeviceKind.stylus,
-    'PointerDeviceKind.invertedStylus': PointerDeviceKind.invertedStylus,
-    'PointerDeviceKind.unknown': PointerDeviceKind.unknown,
-  };
-  static PointerDeviceKind parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PointerDeviceKind parse(String name, int index) {
+    switch(name) {
+      case 'PointerDeviceKind.touch': 
+       return PointerDeviceKind.touch;
+      case 'PointerDeviceKind.mouse': 
+       return PointerDeviceKind.mouse;
+      case 'PointerDeviceKind.stylus': 
+       return PointerDeviceKind.stylus;
+      case 'PointerDeviceKind.invertedStylus': 
+       return PointerDeviceKind.invertedStylus;
+      case 'PointerDeviceKind.unknown': 
+       return PointerDeviceKind.unknown;
     }
+    return null;
   }
 }
 class MXPointerSignalKind {
-  static Map str2VMap = {
-    'PointerSignalKind.none': PointerSignalKind.none,
-    'PointerSignalKind.scroll': PointerSignalKind.scroll,
-    'PointerSignalKind.unknown': PointerSignalKind.unknown,
-  };
-  static PointerSignalKind parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PointerSignalKind parse(String name, int index) {
+    switch(name) {
+      case 'PointerSignalKind.none': 
+       return PointerSignalKind.none;
+      case 'PointerSignalKind.scroll': 
+       return PointerSignalKind.scroll;
+      case 'PointerSignalKind.unknown': 
+       return PointerSignalKind.unknown;
     }
+    return null;
   }
 }
 class MXFontStyle {
-  static Map str2VMap = {
-    'FontStyle.normal': FontStyle.normal,
-    'FontStyle.italic': FontStyle.italic,
-  };
-  static FontStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FontStyle parse(String name, int index) {
+    switch(name) {
+      case 'FontStyle.normal': 
+       return FontStyle.normal;
+      case 'FontStyle.italic': 
+       return FontStyle.italic;
     }
+    return null;
   }
 }
 class MXPlaceholderAlignment {
-  static Map str2VMap = {
-    'PlaceholderAlignment.baseline': PlaceholderAlignment.baseline,
-    'PlaceholderAlignment.aboveBaseline': PlaceholderAlignment.aboveBaseline,
-    'PlaceholderAlignment.belowBaseline': PlaceholderAlignment.belowBaseline,
-    'PlaceholderAlignment.top': PlaceholderAlignment.top,
-    'PlaceholderAlignment.bottom': PlaceholderAlignment.bottom,
-    'PlaceholderAlignment.middle': PlaceholderAlignment.middle,
-  };
-  static PlaceholderAlignment parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static PlaceholderAlignment parse(String name, int index) {
+    switch(name) {
+      case 'PlaceholderAlignment.baseline': 
+       return PlaceholderAlignment.baseline;
+      case 'PlaceholderAlignment.aboveBaseline': 
+       return PlaceholderAlignment.aboveBaseline;
+      case 'PlaceholderAlignment.belowBaseline': 
+       return PlaceholderAlignment.belowBaseline;
+      case 'PlaceholderAlignment.top': 
+       return PlaceholderAlignment.top;
+      case 'PlaceholderAlignment.bottom': 
+       return PlaceholderAlignment.bottom;
+      case 'PlaceholderAlignment.middle': 
+       return PlaceholderAlignment.middle;
     }
+    return null;
   }
 }
 class MXTextAlign {
-  static Map str2VMap = {
-    'TextAlign.left': TextAlign.left,
-    'TextAlign.right': TextAlign.right,
-    'TextAlign.center': TextAlign.center,
-    'TextAlign.justify': TextAlign.justify,
-    'TextAlign.start': TextAlign.start,
-    'TextAlign.end': TextAlign.end,
-  };
-  static TextAlign parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextAlign parse(String name, int index) {
+    switch(name) {
+      case 'TextAlign.left': 
+       return TextAlign.left;
+      case 'TextAlign.right': 
+       return TextAlign.right;
+      case 'TextAlign.center': 
+       return TextAlign.center;
+      case 'TextAlign.justify': 
+       return TextAlign.justify;
+      case 'TextAlign.start': 
+       return TextAlign.start;
+      case 'TextAlign.end': 
+       return TextAlign.end;
     }
+    return null;
   }
 }
 class MXTextBaseline {
-  static Map str2VMap = {
-    'TextBaseline.alphabetic': TextBaseline.alphabetic,
-    'TextBaseline.ideographic': TextBaseline.ideographic,
-  };
-  static TextBaseline parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextBaseline parse(String name, int index) {
+    switch(name) {
+      case 'TextBaseline.alphabetic': 
+       return TextBaseline.alphabetic;
+      case 'TextBaseline.ideographic': 
+       return TextBaseline.ideographic;
     }
+    return null;
   }
 }
 class MXTextDecorationStyle {
-  static Map str2VMap = {
-    'TextDecorationStyle.solid': TextDecorationStyle.solid,
-    'TextDecorationStyle.double': TextDecorationStyle.double,
-    'TextDecorationStyle.dotted': TextDecorationStyle.dotted,
-    'TextDecorationStyle.dashed': TextDecorationStyle.dashed,
-    'TextDecorationStyle.wavy': TextDecorationStyle.wavy,
-  };
-  static TextDecorationStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextDecorationStyle parse(String name, int index) {
+    switch(name) {
+      case 'TextDecorationStyle.solid': 
+       return TextDecorationStyle.solid;
+      case 'TextDecorationStyle.double': 
+       return TextDecorationStyle.double;
+      case 'TextDecorationStyle.dotted': 
+       return TextDecorationStyle.dotted;
+      case 'TextDecorationStyle.dashed': 
+       return TextDecorationStyle.dashed;
+      case 'TextDecorationStyle.wavy': 
+       return TextDecorationStyle.wavy;
     }
+    return null;
   }
 }
 class MXTextDirection {
-  static Map str2VMap = {
-    'TextDirection.rtl': TextDirection.rtl,
-    'TextDirection.ltr': TextDirection.ltr,
-  };
-  static TextDirection parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextDirection parse(String name, int index) {
+    switch(name) {
+      case 'TextDirection.rtl': 
+       return TextDirection.rtl;
+      case 'TextDirection.ltr': 
+       return TextDirection.ltr;
     }
+    return null;
   }
 }
 class MXTextAffinity {
-  static Map str2VMap = {
-    'TextAffinity.upstream': TextAffinity.upstream,
-    'TextAffinity.downstream': TextAffinity.downstream,
-  };
-  static TextAffinity parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TextAffinity parse(String name, int index) {
+    switch(name) {
+      case 'TextAffinity.upstream': 
+       return TextAffinity.upstream;
+      case 'TextAffinity.downstream': 
+       return TextAffinity.downstream;
     }
+    return null;
   }
 }
 class MXBoxHeightStyle {
-  static Map str2VMap = {
-    'BoxHeightStyle.tight': BoxHeightStyle.tight,
-    'BoxHeightStyle.max': BoxHeightStyle.max,
-    'BoxHeightStyle.includeLineSpacingMiddle': BoxHeightStyle.includeLineSpacingMiddle,
-    'BoxHeightStyle.includeLineSpacingTop': BoxHeightStyle.includeLineSpacingTop,
-    'BoxHeightStyle.includeLineSpacingBottom': BoxHeightStyle.includeLineSpacingBottom,
-    'BoxHeightStyle.strut': BoxHeightStyle.strut,
-  };
-  static BoxHeightStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BoxHeightStyle parse(String name, int index) {
+    switch(name) {
+      case 'BoxHeightStyle.tight': 
+       return BoxHeightStyle.tight;
+      case 'BoxHeightStyle.max': 
+       return BoxHeightStyle.max;
+      case 'BoxHeightStyle.includeLineSpacingMiddle': 
+       return BoxHeightStyle.includeLineSpacingMiddle;
+      case 'BoxHeightStyle.includeLineSpacingTop': 
+       return BoxHeightStyle.includeLineSpacingTop;
+      case 'BoxHeightStyle.includeLineSpacingBottom': 
+       return BoxHeightStyle.includeLineSpacingBottom;
+      case 'BoxHeightStyle.strut': 
+       return BoxHeightStyle.strut;
     }
+    return null;
   }
 }
 class MXBoxWidthStyle {
-  static Map str2VMap = {
-    'BoxWidthStyle.tight': BoxWidthStyle.tight,
-    'BoxWidthStyle.max': BoxWidthStyle.max,
-  };
-  static BoxWidthStyle parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static BoxWidthStyle parse(String name, int index) {
+    switch(name) {
+      case 'BoxWidthStyle.tight': 
+       return BoxWidthStyle.tight;
+      case 'BoxWidthStyle.max': 
+       return BoxWidthStyle.max;
     }
+    return null;
   }
 }
 class MXTileMode {
-  static Map str2VMap = {
-    'TileMode.clamp': TileMode.clamp,
-    'TileMode.repeated': TileMode.repeated,
-    'TileMode.mirror': TileMode.mirror,
-  };
-  static TileMode parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static TileMode parse(String name, int index) {
+    switch(name) {
+      case 'TileMode.clamp': 
+       return TileMode.clamp;
+      case 'TileMode.repeated': 
+       return TileMode.repeated;
+      case 'TileMode.mirror': 
+       return TileMode.mirror;
     }
+    return null;
   }
 }
 class MXAppLifecycleState {
-  static Map str2VMap = {
-    'AppLifecycleState.resumed': AppLifecycleState.resumed,
-    'AppLifecycleState.inactive': AppLifecycleState.inactive,
-    'AppLifecycleState.paused': AppLifecycleState.paused,
-    'AppLifecycleState.detached': AppLifecycleState.detached,
-  };
-  static AppLifecycleState parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static AppLifecycleState parse(String name, int index) {
+    switch(name) {
+      case 'AppLifecycleState.resumed': 
+       return AppLifecycleState.resumed;
+      case 'AppLifecycleState.inactive': 
+       return AppLifecycleState.inactive;
+      case 'AppLifecycleState.paused': 
+       return AppLifecycleState.paused;
+      case 'AppLifecycleState.detached': 
+       return AppLifecycleState.detached;
     }
+    return null;
   }
 }
 class MXBrightness {
-  static Map str2VMap = {
-    'Brightness.dark': Brightness.dark,
-    'Brightness.light': Brightness.light,
-  };
-  static Brightness parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static Brightness parse(String name, int index) {
+    switch(name) {
+      case 'Brightness.dark': 
+       return Brightness.dark;
+      case 'Brightness.light': 
+       return Brightness.light;
     }
+    return null;
   }
 }
 class MXFramePhase {
-  static Map str2VMap = {
-    'FramePhase.buildStart': FramePhase.buildStart,
-    'FramePhase.buildFinish': FramePhase.buildFinish,
-    'FramePhase.rasterStart': FramePhase.rasterStart,
-    'FramePhase.rasterFinish': FramePhase.rasterFinish,
-  };
-  static FramePhase parse(dynamic value) {
-    if (value is Map) {
-      var valueStr = value["_name"].trim();
-      var v = str2VMap[valueStr];
-      return v;
-    } else {
-      return value;
+  static FramePhase parse(String name, int index) {
+    switch(name) {
+      case 'FramePhase.buildStart': 
+       return FramePhase.buildStart;
+      case 'FramePhase.buildFinish': 
+       return FramePhase.buildFinish;
+      case 'FramePhase.rasterStart': 
+       return FramePhase.rasterStart;
+      case 'FramePhase.rasterFinish': 
+       return FramePhase.rasterFinish;
     }
+    return null;
   }
 }
 
