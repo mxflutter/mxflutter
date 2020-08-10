@@ -143,17 +143,25 @@ class MXMirrorFunc {
         newJsonMap[constFuncStr] = funcName;
       }
 
-      if (!canInvoke(funcName)) {
-        return json;
+      // 可以通过invoke转换
+      if (canInvoke(funcName)) {
+        return invoke(newJsonMap, buildOwner: buildOwner);
       }
-      return invoke(newJsonMap, buildOwner: buildOwner);
+      // 不能通过invoke的，则遍历每个元素
+      else {
+        Map resultMap = {};
+        json.forEach((k, v) {
+          resultMap[k] = _jsonToDartObject(v, buildOwner: buildOwner);
+        });
+        return resultMap;
+      }
     } else if (json is List) {
-      List list = [];
+      List resultList = [];
       for (var element in json) {
         var object = _jsonToDartObject(element, buildOwner: buildOwner);
-        list.add(object);
+        resultList.add(object);
       }
-      return list;
+      return resultList;
     } else {
       return json;
     }
