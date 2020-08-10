@@ -86,10 +86,10 @@
          [self.jsEngine addSearchDir:searchPath];
     }
     
-    NSString *js_basic_lib_Path = [jsFrameworkPath stringByAppendingPathComponent:@"js_basic_lib.js"];
-    [self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
+    //NSString *js_basic_lib_Path = [jsFrameworkPath stringByAppendingPathComponent:@"js_basic_lib.js"];
+    //[self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
         
-    }];
+    //}];
 }
 
 
