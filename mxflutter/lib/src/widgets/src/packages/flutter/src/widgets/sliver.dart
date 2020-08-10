@@ -74,7 +74,9 @@ var _sliverChildListDelegate = MXFunctionInvoke(
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
-      semanticIndexCallback: null,
+      semanticIndexCallback: semanticIndexCallback != null ? createGenericTwoParamsClosure<int, Widget, int>(_sliverChildListDelegate.buildOwner, semanticIndexCallback) : (Widget widget, int localIndex) {
+        return localIndex;
+      },
       semanticIndexOffset: semanticIndexOffset,
     ),
 );
