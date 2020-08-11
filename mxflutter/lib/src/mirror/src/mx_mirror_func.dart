@@ -65,9 +65,10 @@ class MXMirrorFunc {
     
     try {
       var namedArguments = <Symbol, dynamic>{};
+      List noJ2DProps = fi.noJ2DProps;
       for (var name in jsonMap.keys) {
-        // MXJSStatefulWidget和MXJSStatelessWidget不用作转换
-        if (funcName == "MXJSStatefulWidget" || funcName == "MXJSStatelessWidget") {
+        // 判断是否需要将属性进行转换
+        if (noJ2DProps != null && noJ2DProps.contains(name)) {
           namedArguments[Symbol(name)] = jsonMap[name];
         } else {
           namedArguments[Symbol(name)] = _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
