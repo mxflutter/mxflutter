@@ -242,8 +242,8 @@ class MXJsonObjToDartObject {
     registerProxy(MXProxyRegisterHelperSmartRefresherSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperClassIndicatorSeries.registerProxys());
     // cached_network_image
-    registerProxy(
-        MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
+    // registerProxy(
+    //     MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
     // dio
     registerProxy(MXProxyRegisterHelperDioSeries.registerProxys());
   }
