@@ -58,16 +58,20 @@ class MXMirrorFunc {
       return null;
     }
 
-    String fun = jsonMap[constFuncStr];
-    _removeHelpProperty(jsonMap);
-    var fi = _funcName2FunMap[fun];
+    String funcName = jsonMap[constFuncStr];
+    _removeUselessProperty(jsonMap);
+    var fi = _funcName2FunMap[funcName];
     fi.buildOwner = buildOwner;
     
     try {
       var namedArguments = <Symbol, dynamic>{};
       for (var name in jsonMap.keys) {
-        namedArguments[Symbol(name)] =
-            _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
+        // MXJSStatefulWidget和MXJSStatelessWidget不用作转换
+        if (funcName == "MXJSStatefulWidget" || funcName == "MXJSStatelessWidget") {
+          namedArguments[Symbol(name)] = jsonMap[name];
+        } else {
+          namedArguments[Symbol(name)] = _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
+        }
       }
       // 为方便处理，此处都使用命名参数，不用位置参数
       var result = fi.apply(namedArguments);
@@ -121,14 +125,17 @@ class MXMirrorFunc {
     return className;
   }
 
-  /// 移除func、className、constructorName等辅助字段
-  void _removeHelpProperty(Map jsonMap) {
+  /// 移除func、className、constructorName等字段
+  void _removeUselessProperty(Map jsonMap) {
     jsonMap.remove(constFuncStr);
     jsonMap.remove(constClassStr);
     jsonMap.remove(constConstructorStr);
 
     // 移除mirrorID
     jsonMap.remove(constMirrorIDStr);
+
+    // TODO:移除enableProfile
+    jsonMap.remove("enableProfile");
 
     // 针对枚举类型，把_name替换成name
     if (_isEnumType(jsonMap)) {
