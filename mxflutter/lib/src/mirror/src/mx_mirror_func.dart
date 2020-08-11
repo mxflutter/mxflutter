@@ -15,6 +15,7 @@ class MXMirrorFunc {
   final constEnumNameStr = "_name";
   final constReplaceEnumNameStr = "name";
   final constEnumIndexStr = "index";
+  final constMirrorIDStr = "mirrorID";
 
   // funcName到Fun方法的映射表
   var _funcName2FunMap = <String, dynamic>{};
@@ -125,6 +126,9 @@ class MXMirrorFunc {
     jsonMap.remove(constFuncStr);
     jsonMap.remove(constClassStr);
     jsonMap.remove(constConstructorStr);
+
+    // 移除mirrorID
+    jsonMap.remove(constMirrorIDStr);
 
     // 针对枚举类型，把_name替换成name
     if (_isEnumType(jsonMap)) {
