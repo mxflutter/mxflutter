@@ -12,11 +12,25 @@ List<T> toListT<T>(list) {
   return List<T>.from(list);
 }
 
-///TODO:此处还有问题
-Map<T, S> toMapT<T, S>(Map map) {
-  Map<T, S> result = map?.map((k, v) {
-    return MapEntry<T, S>(k, v);
-  });
+/// 转Map<S, T>类型
+Map<S, T> toMapT<S, T>(Map map) {
+  // dynamic result = map?.map((k, v) {
+  //   if (S == int && k is String) {
+  //     return MapEntry<int, T>(int.parse(k), v);
+  //   }
+  //   return MapEntry<S, T>(k, v);
+  // });
+  
+  // 上述写法会报错，先改用下面这种实现吧
+  var result = <S, T>{};
+  for (var key in map.keys) {
+    if (S == int && key is String) {
+      dynamic intKey = int.parse(key);
+      result[intKey] = map[key];
+    } else {
+      result[key] = map[key];
+    }
+  }
   return result;
 }
 
