@@ -35,7 +35,7 @@ var _cupertinoSlider = MXFunctionInvoke(
       dynamic max = 1.0,
       int divisions,
       Color activeColor,
-      Color thumbColor,
+      Color thumbColor = Colors.white,
       }
     ) =>
       CupertinoSlider(

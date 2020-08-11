@@ -68,7 +68,7 @@ var _textInputConfiguration = MXFunctionInvoke(
     "TextInputConfiguration",
     (
       {
-      TextInputType inputType,
+      TextInputType inputType = TextInputType.text,
       bool obscureText = false,
       bool autocorrect = true,
       SmartDashesType smartDashesType,
@@ -76,8 +76,8 @@ var _textInputConfiguration = MXFunctionInvoke(
       bool enableSuggestions = true,
       String actionLabel,
       TextInputAction inputAction = TextInputAction.done,
-      Brightness keyboardAppearance = Brightness.light,
-      TextCapitalization textCapitalization = TextCapitalization.none,
+      Brightness keyboardAppearance =  Brightness.light,
+      TextCapitalization textCapitalization =  TextCapitalization.none,
       }
     ) =>
       TextInputConfiguration(
@@ -115,8 +115,8 @@ var _textEditingValue = MXFunctionInvoke(
     (
       {
       String text = '',
-      TextSelection selection,
-      TextRange composing,
+      TextSelection selection = const TextSelection.collapsed(offset: -1),
+      TextRange composing = TextRange.empty,
       }
     ) =>
       TextEditingValue(

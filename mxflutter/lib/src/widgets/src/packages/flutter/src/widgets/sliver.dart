@@ -42,7 +42,7 @@ var _sliverChildBuilderDelegate = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback,
+      dynamic semanticIndexCallback = _kDefaultSemanticIndexCallback,
       int semanticIndexOffset = 0,
       }
     ) =>
@@ -65,7 +65,7 @@ var _sliverChildListDelegate = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback,
+      dynamic semanticIndexCallback =  _kDefaultSemanticIndexCallback,
       int semanticIndexOffset = 0,
       }
     ) =>
@@ -88,7 +88,7 @@ var _sliverChildListDelegate_fixed = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback,
+      dynamic semanticIndexCallback =  _kDefaultSemanticIndexCallback,
       int semanticIndexOffset = 0,
       }
     ) =>
@@ -153,7 +153,7 @@ var _sliverGrid_count = MXFunctionInvoke(
       dynamic mainAxisSpacing = 0.0,
       dynamic crossAxisSpacing = 0.0,
       dynamic childAspectRatio = 1.0,
-      dynamic children,
+      dynamic children = const <Widget>[],
       }
     ) =>
       SliverGrid.count(
@@ -174,7 +174,7 @@ var _sliverGrid_extent = MXFunctionInvoke(
       dynamic mainAxisSpacing = 0.0,
       dynamic crossAxisSpacing = 0.0,
       dynamic childAspectRatio = 1.0,
-      dynamic children,
+      dynamic children = const <Widget>[],
       }
     ) =>
       SliverGrid.extent(

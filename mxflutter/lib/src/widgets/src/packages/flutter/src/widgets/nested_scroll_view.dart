@@ -54,7 +54,7 @@ var _nestedScrollView = MXFunctionInvoke(
       ScrollPhysics physics,
       dynamic headerSliverBuilder,
       Widget body,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       }
     ) =>
       NestedScrollView(
@@ -147,12 +147,12 @@ var _nestedScrollViewViewport = MXFunctionInvoke(
     (
       {
       Key key,
-      AxisDirection axisDirection = AxisDirection.down,
+      AxisDirection axisDirection =  AxisDirection.down,
       AxisDirection crossAxisDirection,
       dynamic anchor = 0.0,
       ViewportOffset offset,
       Key center,
-      dynamic slivers,
+      dynamic slivers = const <Widget>[],
       SliverOverlapAbsorberHandle handle,
       }
     ) =>

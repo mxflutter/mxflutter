@@ -95,14 +95,14 @@ var _navigator = MXFunctionInvoke(
     (
       {
       Key key,
-      dynamic pages,
+      dynamic pages = const <Page<dynamic>>[],
       dynamic onPopPage,
       String initialRoute,
-      dynamic onGenerateInitialRoutes,
+      dynamic onGenerateInitialRoutes = Navigator.defaultGenerateInitialRoutes,
       dynamic onGenerateRoute,
       dynamic onUnknownRoute,
-      TransitionDelegate<dynamic> transitionDelegate,
-      dynamic observers,
+      TransitionDelegate<dynamic> transitionDelegate = const DefaultTransitionDelegate(),
+      dynamic observers = const <NavigatorObserver>[],
       }
     ) =>
       Navigator(

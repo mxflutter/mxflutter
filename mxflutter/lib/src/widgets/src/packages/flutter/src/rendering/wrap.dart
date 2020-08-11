@@ -41,13 +41,13 @@ var _renderWrap = MXFunctionInvoke(
       {
       dynamic children,
       Axis direction = Axis.horizontal,
-      WrapAlignment alignment = WrapAlignment.start,
+      WrapAlignment alignment =  WrapAlignment.start,
       dynamic spacing = 0.0,
-      WrapAlignment runAlignment = WrapAlignment.start,
+      WrapAlignment runAlignment =  WrapAlignment.start,
       dynamic runSpacing = 0.0,
-      WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
+      WrapCrossAlignment crossAxisAlignment =  WrapCrossAlignment.start,
       TextDirection textDirection,
-      VerticalDirection verticalDirection = VerticalDirection.down,
+      VerticalDirection verticalDirection =  VerticalDirection.down,
       }
     ) =>
       RenderWrap(

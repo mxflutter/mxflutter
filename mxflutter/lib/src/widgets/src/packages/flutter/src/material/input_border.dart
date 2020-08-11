@@ -22,8 +22,8 @@ var _underlineInputBorder = MXFunctionInvoke(
     "UnderlineInputBorder",
     (
       {
-      BorderSide borderSide,
-      BorderRadius borderRadius,
+      BorderSide borderSide = const BorderSide(),
+      BorderRadius borderRadius = const BorderRadius.only(topLeft: const Radius.circular(4.0), topRight: const Radius.circular(4.0)),
       }
     ) =>
       UnderlineInputBorder(
@@ -35,8 +35,8 @@ var _outlineInputBorder = MXFunctionInvoke(
     "OutlineInputBorder",
     (
       {
-      BorderSide borderSide,
-      BorderRadius borderRadius,
+      BorderSide borderSide = const BorderSide(),
+      BorderRadius borderRadius = const BorderRadius.all(const Radius.circular(4.0)),
       dynamic gapPadding = 4.0,
       }
     ) =>

@@ -133,8 +133,8 @@ var _diagnosticsNode_message = MXFunctionInvoke(
     (
       {
       String message,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.singleLine,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       bool allowWrap = true,
       }
     ) =>
@@ -156,15 +156,15 @@ var _diagnosticsProperty = MXFunctionInvoke(
       String ifEmpty,
       bool showName = true,
       bool showSeparator = true,
-      Object defaultValue,
+      Object defaultValue = kNoDefaultValue,
       String tooltip,
       bool missingIfNull = false,
       String linePrefix,
       bool expandableValue = false,
       bool allowWrap = true,
       bool allowNameWrap = true,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.singleLine,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       DiagnosticsProperty(
@@ -197,14 +197,14 @@ var _diagnosticsProperty_lazy = MXFunctionInvoke(
       String ifEmpty,
       bool showName = true,
       bool showSeparator = true,
-      Object defaultValue,
+      Object defaultValue = kNoDefaultValue,
       String tooltip,
       bool missingIfNull = false,
       bool expandableValue = false,
       bool allowWrap = true,
       bool allowNameWrap = true,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.singleLine,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       DiagnosticsProperty.lazy(
@@ -231,8 +231,8 @@ var _messageProperty = MXFunctionInvoke(
       {
       String name,
       String message,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.singleLine,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       MessageProperty(
@@ -251,11 +251,11 @@ var _stringProperty = MXFunctionInvoke(
       String description,
       String tooltip,
       bool showName = true,
-      Object defaultValue,
+      Object defaultValue = kNoDefaultValue,
       bool quoted = true,
       String ifEmpty,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.singleLine,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       StringProperty(
@@ -280,10 +280,10 @@ var _doubleProperty = MXFunctionInvoke(
       String ifNull,
       String unit,
       String tooltip,
-      Object defaultValue,
+      Object defaultValue = kNoDefaultValue,
       bool showName = true,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.singleLine,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       DoubleProperty(
@@ -308,8 +308,8 @@ var _doubleProperty_lazy = MXFunctionInvoke(
       bool showName = true,
       String unit,
       String tooltip,
-      Object defaultValue,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      Object defaultValue = kNoDefaultValue,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       DoubleProperty.lazy(
@@ -332,9 +332,9 @@ var _intProperty = MXFunctionInvoke(
       String ifNull,
       bool showName = true,
       String unit,
-      Object defaultValue,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      Object defaultValue = kNoDefaultValue,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.singleLine,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       IntProperty(
@@ -358,7 +358,7 @@ var _percentProperty = MXFunctionInvoke(
       bool showName = true,
       String tooltip,
       String unit,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       PercentProperty(
@@ -381,7 +381,7 @@ var _flagProperty = MXFunctionInvoke(
       String ifFalse,
       bool showName = false,
       Object defaultValue,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       FlagProperty(
@@ -400,13 +400,13 @@ var _iterableProperty = MXFunctionInvoke(
       {
       String name,
       Iterable<dynamic> value,
-      Object defaultValue,
+      Object defaultValue = kNoDefaultValue,
       String ifNull,
       String ifEmpty = '[]',
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.singleLine,
       bool showName = true,
       bool showSeparator = true,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       IterableProperty(
@@ -427,8 +427,8 @@ var _enumProperty = MXFunctionInvoke(
       {
       String name,
       dynamic value,
-      Object defaultValue,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      Object defaultValue = kNoDefaultValue,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       EnumProperty(
@@ -447,7 +447,7 @@ var _objectFlagProperty = MXFunctionInvoke(
       String ifPresent,
       String ifNull,
       bool showName = false,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       ObjectFlagProperty(
@@ -465,7 +465,7 @@ var _objectFlagProperty_has = MXFunctionInvoke(
       {
       String name,
       dynamic value,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       ObjectFlagProperty.has(
@@ -483,7 +483,7 @@ var _flagsSummary = MXFunctionInvoke(
       String ifEmpty,
       bool showName = true,
       bool showSeparator = true,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       FlagsSummary(
@@ -548,16 +548,16 @@ var _diagnosticsBlock = MXFunctionInvoke(
     (
       {
       String name,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.whitespace,
+      DiagnosticsTreeStyle style =  DiagnosticsTreeStyle.whitespace,
       bool showName = true,
       bool showSeparator = true,
       String linePrefix,
       Object value,
       String description,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       bool allowTruncate = false,
-      dynamic children,
-      dynamic properties,
+      dynamic children = const <DiagnosticsNode>[],
+      dynamic properties = const <DiagnosticsNode>[],
       }
     ) =>
       DiagnosticsBlock(

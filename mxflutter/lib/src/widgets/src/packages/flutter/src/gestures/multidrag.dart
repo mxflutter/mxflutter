@@ -71,7 +71,7 @@ var _delayedMultiDragGestureRecognizer = MXFunctionInvoke(
     "DelayedMultiDragGestureRecognizer",
     (
       {
-      Duration delay,
+      Duration delay = const Duration(milliseconds: 500),
       Object debugOwner,
       PointerDeviceKind kind,
       }

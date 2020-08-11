@@ -29,9 +29,9 @@ var _cupertinoSlidingSegmentedControl = MXFunctionInvoke(
       dynamic children,
       dynamic onValueChanged,
       dynamic groupValue,
-      Color thumbColor,
-      EdgeInsetsGeometry padding,
-      Color backgroundColor,
+      Color thumbColor = const CupertinoDynamicColor.withBrightness(color: const Color(0xFFFFFFFF), darkColor: const Color(0xFF636366)),
+      EdgeInsetsGeometry padding = const EdgeInsets.symmetric(vertical: 2.0, horizontal: 3.0),
+      Color backgroundColor = CupertinoColors.tertiarySystemFill,
       }
     ) =>
       CupertinoSlidingSegmentedControl(

@@ -23,10 +23,10 @@ var _flutterLogo = MXFunctionInvoke(
       Key key,
       dynamic size,
       MaterialColor colors,
-      Color textColor,
+      Color textColor = const Color(0xFF616161),
       FlutterLogoStyle style = FlutterLogoStyle.markOnly,
-      Duration duration,
-      Curve curve,
+      Duration duration = const Duration(milliseconds: 750),
+      Curve curve = Curves.fastOutSlowIn,
       }
     ) =>
       FlutterLogo(

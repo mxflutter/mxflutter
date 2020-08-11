@@ -34,7 +34,7 @@ var _defaultTextStyle = MXFunctionInvoke(
       bool softWrap = true,
       TextOverflow overflow = TextOverflow.clip,
       int maxLines,
-      TextWidthBasis textWidthBasis = TextWidthBasis.parent,
+      TextWidthBasis textWidthBasis =  TextWidthBasis.parent,
       ui.TextHeightBehavior textHeightBehavior,
       Widget child,
       }

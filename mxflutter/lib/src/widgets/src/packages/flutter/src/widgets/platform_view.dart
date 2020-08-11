@@ -59,7 +59,7 @@ var _uiKitView = MXFunctionInvoke(
       Key key,
       String viewType,
       dynamic onPlatformViewCreated,
-      PlatformViewHitTestBehavior hitTestBehavior = PlatformViewHitTestBehavior.opaque,
+      PlatformViewHitTestBehavior hitTestBehavior =  PlatformViewHitTestBehavior.opaque,
       TextDirection layoutDirection,
       dynamic creationParams,
       MessageCodec<dynamic> creationParamsCodec,

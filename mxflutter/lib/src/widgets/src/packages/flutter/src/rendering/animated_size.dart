@@ -32,8 +32,8 @@ var _renderAnimatedSize = MXFunctionInvoke(
       TickerProvider vsync,
       Duration duration,
       Duration reverseDuration,
-      Curve curve,
-      AlignmentGeometry alignment,
+      Curve curve = Curves.linear,
+      AlignmentGeometry alignment = Alignment.center,
       TextDirection textDirection,
       RenderBox child,
       }

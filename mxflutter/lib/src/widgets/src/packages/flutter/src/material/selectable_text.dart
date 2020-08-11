@@ -95,7 +95,7 @@ var _selectableText_rich = MXFunctionInvoke(
       dynamic cursorWidth = 2.0,
       Radius cursorRadius,
       Color cursorColor,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       bool enableInteractiveSelection = true,
       dynamic onTap,
       ScrollPhysics scrollPhysics,

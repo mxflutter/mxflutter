@@ -30,13 +30,13 @@ var _userAccountsDrawerHeader = MXFunctionInvoke(
       {
       Key key,
       Decoration decoration,
-      EdgeInsetsGeometry margin,
+      EdgeInsetsGeometry margin = const EdgeInsets.only(bottom: 8.0),
       Widget currentAccountPicture,
       dynamic otherAccountsPictures,
       Widget accountName,
       Widget accountEmail,
       dynamic onDetailsPressed,
-      Color arrowColor,
+      Color arrowColor = Colors.white,
       }
     ) =>
       UserAccountsDrawerHeader(

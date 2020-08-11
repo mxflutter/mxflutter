@@ -51,8 +51,8 @@ var _borderRadius_vertical = MXFunctionInvoke(
   "BorderRadius.vertical",
     (
       {
-      Radius top,
-      Radius bottom,
+      Radius top = Radius.zero,
+      Radius bottom = Radius.zero,
       }
     ) =>
       BorderRadius.vertical(
@@ -64,8 +64,8 @@ var _borderRadius_horizontal = MXFunctionInvoke(
   "BorderRadius.horizontal",
     (
       {
-      Radius left,
-      Radius right,
+      Radius left = Radius.zero,
+      Radius right = Radius.zero,
       }
     ) =>
       BorderRadius.horizontal(
@@ -77,10 +77,10 @@ var _borderRadius_only = MXFunctionInvoke(
   "BorderRadius.only",
     (
       {
-      Radius topLeft,
-      Radius topRight,
-      Radius bottomLeft,
-      Radius bottomRight,
+      Radius topLeft = Radius.zero,
+      Radius topRight = Radius.zero,
+      Radius bottomLeft = Radius.zero,
+      Radius bottomRight = Radius.zero,
       }
     ) =>
       BorderRadius.only(
@@ -116,8 +116,8 @@ var _borderRadiusDirectional_vertical = MXFunctionInvoke(
   "BorderRadiusDirectional.vertical",
     (
       {
-      Radius top,
-      Radius bottom,
+      Radius top = Radius.zero,
+      Radius bottom = Radius.zero,
       }
     ) =>
       BorderRadiusDirectional.vertical(
@@ -129,8 +129,8 @@ var _borderRadiusDirectional_horizontal = MXFunctionInvoke(
   "BorderRadiusDirectional.horizontal",
     (
       {
-      Radius start,
-      Radius end,
+      Radius start = Radius.zero,
+      Radius end = Radius.zero,
       }
     ) =>
       BorderRadiusDirectional.horizontal(
@@ -142,10 +142,10 @@ var _borderRadiusDirectional_only = MXFunctionInvoke(
   "BorderRadiusDirectional.only",
     (
       {
-      Radius topStart,
-      Radius topEnd,
-      Radius bottomStart,
-      Radius bottomEnd,
+      Radius topStart = Radius.zero,
+      Radius topEnd = Radius.zero,
+      Radius bottomStart = Radius.zero,
+      Radius bottomEnd = Radius.zero,
       }
     ) =>
       BorderRadiusDirectional.only(

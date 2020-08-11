@@ -24,7 +24,7 @@ var _dragDownDetails = MXFunctionInvoke(
     "DragDownDetails",
     (
       {
-      Offset globalPosition,
+      Offset globalPosition = Offset.zero,
       Offset localPosition,
       }
     ) =>
@@ -38,7 +38,7 @@ var _dragStartDetails = MXFunctionInvoke(
     (
       {
       Duration sourceTimeStamp,
-      Offset globalPosition,
+      Offset globalPosition = Offset.zero,
       Offset localPosition,
       }
     ) =>
@@ -53,7 +53,7 @@ var _dragUpdateDetails = MXFunctionInvoke(
     (
       {
       Duration sourceTimeStamp,
-      Offset delta,
+      Offset delta = Offset.zero,
       dynamic primaryDelta,
       Offset globalPosition,
       Offset localPosition,
@@ -71,7 +71,7 @@ var _dragEndDetails = MXFunctionInvoke(
     "DragEndDetails",
     (
       {
-      Velocity velocity,
+      Velocity velocity = Velocity.zero,
       dynamic primaryVelocity,
       }
     ) =>

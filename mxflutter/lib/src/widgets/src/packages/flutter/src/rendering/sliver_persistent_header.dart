@@ -45,8 +45,8 @@ var _floatingHeaderSnapConfiguration = MXFunctionInvoke(
     (
       {
       TickerProvider vsync,
-      Curve curve,
-      Duration duration,
+      Curve curve = Curves.ease,
+      Duration duration = kTabScrollDuration,
       }
     ) =>
       FloatingHeaderSnapConfiguration(

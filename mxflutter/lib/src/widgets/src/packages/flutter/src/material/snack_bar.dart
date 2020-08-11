@@ -60,7 +60,7 @@ var _snackBar = MXFunctionInvoke(
       ShapeBorder shape,
       SnackBarBehavior behavior,
       SnackBarAction action,
-      Duration duration,
+      Duration duration = const Duration(milliseconds: 4000),
       Animation<double> animation,
       dynamic onVisible,
       }

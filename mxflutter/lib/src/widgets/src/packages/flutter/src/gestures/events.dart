@@ -34,10 +34,10 @@ var _pointerAddedEvent = MXFunctionInvoke(
     "PointerAddedEvent",
     (
       {
-      Duration timeStamp,
+      Duration timeStamp = Duration.zero,
       PointerDeviceKind kind = PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
       bool obscured = false,
       dynamic pressureMin = 1.0,
@@ -75,10 +75,10 @@ var _pointerRemovedEvent = MXFunctionInvoke(
     "PointerRemovedEvent",
     (
       {
-      Duration timeStamp,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      Duration timeStamp = Duration.zero,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
       bool obscured = false,
       dynamic pressureMin = 1.0,
@@ -110,12 +110,12 @@ var _pointerHoverEvent = MXFunctionInvoke(
     "PointerHoverEvent",
     (
       {
-      Duration timeStamp,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      Duration timeStamp = Duration.zero,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
-      Offset delta,
+      Offset delta = Offset.zero,
       Offset localDelta,
       int buttons = 0,
       bool obscured = false,
@@ -165,12 +165,12 @@ var _pointerEnterEvent = MXFunctionInvoke(
     "PointerEnterEvent",
     (
       {
-      Duration timeStamp,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      Duration timeStamp = Duration.zero,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
-      Offset delta,
+      Offset delta = Offset.zero,
       Offset localDelta,
       int buttons = 0,
       bool obscured = false,
@@ -244,12 +244,12 @@ var _pointerExitEvent = MXFunctionInvoke(
     "PointerExitEvent",
     (
       {
-      Duration timeStamp,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      Duration timeStamp = Duration.zero,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
-      Offset delta,
+      Offset delta = Offset.zero,
       Offset localDelta,
       int buttons = 0,
       bool obscured = false,
@@ -323,11 +323,11 @@ var _pointerDownEvent = MXFunctionInvoke(
     "PointerDownEvent",
     (
       {
-      Duration timeStamp,
+      Duration timeStamp = Duration.zero,
       int pointer = 0,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
       int buttons = 1,
       bool obscured = false,
@@ -374,13 +374,13 @@ var _pointerMoveEvent = MXFunctionInvoke(
     "PointerMoveEvent",
     (
       {
-      Duration timeStamp,
+      Duration timeStamp = Duration.zero,
       int pointer = 0,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
-      Offset delta,
+      Offset delta = Offset.zero,
       Offset localDelta,
       int buttons = 1,
       bool obscured = false,
@@ -433,11 +433,11 @@ var _pointerUpEvent = MXFunctionInvoke(
     "PointerUpEvent",
     (
       {
-      Duration timeStamp,
+      Duration timeStamp = Duration.zero,
       int pointer = 0,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
       int buttons = 0,
       bool obscured = false,
@@ -486,12 +486,12 @@ var _pointerScrollEvent = MXFunctionInvoke(
     "PointerScrollEvent",
     (
       {
-      Duration timeStamp,
-      PointerDeviceKind kind = PointerDeviceKind.mouse,
+      Duration timeStamp = Duration.zero,
+      PointerDeviceKind kind =  PointerDeviceKind.mouse,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
-      Offset scrollDelta,
+      Offset scrollDelta = Offset.zero,
       Matrix4 transform,
       PointerScrollEvent original,
       }
@@ -511,11 +511,11 @@ var _pointerCancelEvent = MXFunctionInvoke(
     "PointerCancelEvent",
     (
       {
-      Duration timeStamp,
+      Duration timeStamp = Duration.zero,
       int pointer = 0,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       int device = 0,
-      Offset position,
+      Offset position = Offset.zero,
       Offset localPosition,
       int buttons = 0,
       bool obscured = false,

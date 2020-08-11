@@ -22,12 +22,12 @@ var _tableBorder = MXFunctionInvoke(
     "TableBorder",
     (
       {
-      BorderSide top,
-      BorderSide right,
-      BorderSide bottom,
-      BorderSide left,
-      BorderSide horizontalInside,
-      BorderSide verticalInside,
+      BorderSide top = BorderSide.none,
+      BorderSide right = BorderSide.none,
+      BorderSide bottom = BorderSide.none,
+      BorderSide left = BorderSide.none,
+      BorderSide horizontalInside = BorderSide.none,
+      BorderSide verticalInside = BorderSide.none,
       }
     ) =>
       TableBorder(
@@ -43,7 +43,7 @@ var _tableBorder_all = MXFunctionInvoke(
   "TableBorder.all",
     (
       {
-      Color color,
+      Color color = const Color(0xFF000000),
       dynamic width = 1.0,
       BorderStyle style = BorderStyle.solid,
       }
@@ -58,8 +58,8 @@ var _tableBorder_symmetric = MXFunctionInvoke(
   "TableBorder.symmetric",
     (
       {
-      BorderSide inside,
-      BorderSide outside,
+      BorderSide inside = BorderSide.none,
+      BorderSide outside = BorderSide.none,
       }
     ) =>
       TableBorder.symmetric(

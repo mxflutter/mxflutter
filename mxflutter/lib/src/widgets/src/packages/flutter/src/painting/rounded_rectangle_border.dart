@@ -25,8 +25,8 @@ var _roundedRectangleBorder = MXFunctionInvoke(
     "RoundedRectangleBorder",
     (
       {
-      BorderSide side,
-      BorderRadiusGeometry borderRadius,
+      BorderSide side = BorderSide.none,
+      BorderRadiusGeometry borderRadius = BorderRadius.zero,
       }
     ) =>
       RoundedRectangleBorder(

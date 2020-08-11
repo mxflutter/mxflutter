@@ -54,7 +54,7 @@ var _scrollable = MXFunctionInvoke(
       dynamic incrementCalculator,
       bool excludeFromSemantics = false,
       int semanticChildCount,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       }
     ) =>
       Scrollable(
@@ -98,7 +98,7 @@ var _scrollIntent = MXFunctionInvoke(
     (
       {
       AxisDirection direction,
-      ScrollIncrementType type = ScrollIncrementType.line,
+      ScrollIncrementType type =  ScrollIncrementType.line,
       }
     ) =>
       ScrollIntent(

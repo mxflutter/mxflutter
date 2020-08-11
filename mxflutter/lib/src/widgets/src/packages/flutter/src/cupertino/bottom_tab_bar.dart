@@ -28,9 +28,9 @@ var _cupertinoTabBar = MXFunctionInvoke(
       int currentIndex = 0,
       Color backgroundColor,
       Color activeColor,
-      Color inactiveColor,
+      Color inactiveColor = CupertinoColors.inactiveGray,
       dynamic iconSize = 30.0,
-      Border border,
+      Border border = const Border(top: const BorderSide(color: CupertinoDynamicColor.withBrightness(color: Color(0x4C000000), darkColor: Color(0x29000000)), width: 0.0, style: BorderStyle.solid)),
       }
     ) =>
       CupertinoTabBar(

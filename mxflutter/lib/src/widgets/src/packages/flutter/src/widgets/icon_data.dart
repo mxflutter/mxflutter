@@ -43,7 +43,7 @@ var _iconDataProperty = MXFunctionInvoke(
       String ifNull,
       bool showName = true,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       IconDataProperty(

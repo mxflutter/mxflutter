@@ -31,7 +31,7 @@ var _inkHighlight = MXFunctionInvoke(
       ShapeBorder customBorder,
       dynamic rectCallback,
       dynamic onRemoved,
-      Duration fadeDuration,
+      Duration fadeDuration = const Duration(milliseconds: 200),
       }
     ) =>
       InkHighlight(

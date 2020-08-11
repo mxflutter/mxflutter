@@ -34,13 +34,13 @@ var _material = MXFunctionInvoke(
       MaterialType type = MaterialType.canvas,
       dynamic elevation = 0.0,
       Color color,
-      Color shadowColor,
+      Color shadowColor = const Color(0xFF000000),
       TextStyle textStyle,
       BorderRadiusGeometry borderRadius,
       ShapeBorder shape,
       bool borderOnForeground = true,
-      Clip clipBehavior = Clip.none,
-      Duration animationDuration,
+      Clip clipBehavior =  Clip.none,
+      Duration animationDuration = const Duration(milliseconds: 200),
       Widget child,
       }
     ) =>

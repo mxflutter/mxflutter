@@ -51,7 +51,7 @@ var _paginatedDataTable = MXFunctionInvoke(
       int initialFirstRowIndex = 0,
       dynamic onPageChanged,
       int rowsPerPage = 10,
-      dynamic availableRowsPerPage,
+      dynamic availableRowsPerPage = const <int>[10.0, 20.0, 50.0, 100.0],
       dynamic onRowsPerPageChanged,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       DataTableSource source,

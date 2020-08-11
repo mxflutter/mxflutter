@@ -43,9 +43,9 @@ var _table = MXFunctionInvoke(
     (
       {
       Key key,
-      dynamic children,
+      dynamic children = const <TableRow>[],
       dynamic columnWidths,
-      TableColumnWidth defaultColumnWidth,
+      TableColumnWidth defaultColumnWidth = const FlexColumnWidth(1.0),
       TextDirection textDirection,
       TableBorder border,
       TableCellVerticalAlignment defaultVerticalAlignment = TableCellVerticalAlignment.top,

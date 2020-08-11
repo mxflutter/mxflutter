@@ -71,7 +71,7 @@ var _typography_material2018 = MXFunctionInvoke(
   "Typography.material2018",
     (
       {
-      TargetPlatform platform = TargetPlatform.android,
+      TargetPlatform platform =  TargetPlatform.android,
       TextTheme black,
       TextTheme white,
       TextTheme englishLike,

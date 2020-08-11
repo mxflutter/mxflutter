@@ -25,7 +25,7 @@ var _tweenAnimationBuilder = MXFunctionInvoke(
       Key key,
       Tween<dynamic> tween,
       Duration duration,
-      Curve curve,
+      Curve curve = Curves.linear,
       dynamic builder,
       dynamic onEnd,
       Widget child,

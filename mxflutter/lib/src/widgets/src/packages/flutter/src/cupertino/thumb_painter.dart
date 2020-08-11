@@ -21,8 +21,8 @@ var _cupertinoThumbPainter = MXFunctionInvoke(
     "CupertinoThumbPainter",
     (
       {
-      Color color,
-      dynamic shadows,
+      Color color = Colors.white,
+      dynamic shadows = const <BoxShadow>[BoxShadow(color: Color(0x26000000), offset: Offset(0.0, 3.0), blurRadius: 8.0), BoxShadow(color: Color(0x29000000), offset: Offset(0.0, 1.0), blurRadius: 1.0), BoxShadow(color: Color(0x1A000000), offset: Offset(0.0, 3.0), blurRadius: 1.0)],
       }
     ) =>
       CupertinoThumbPainter(
@@ -34,8 +34,8 @@ var _cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
   "CupertinoThumbPainter.switchThumb",
     (
       {
-      Color color,
-      dynamic shadows,
+      Color color = Colors.white,
+      dynamic shadows = const <BoxShadow>[BoxShadow(color: Color(0x26000000), offset: Offset(0.0, 3.0), blurRadius: 8.0), BoxShadow(color: Color(0x0F000000), offset: Offset(0.0, 3.0), blurRadius: 1.0)],
       }
     ) =>
       CupertinoThumbPainter.switchThumb(

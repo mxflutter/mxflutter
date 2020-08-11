@@ -31,7 +31,7 @@ var _viewConfiguration = MXFunctionInvoke(
     "ViewConfiguration",
     (
       {
-      ui.Size size,
+      ui.Size size = Size.zero,
       dynamic devicePixelRatio = 1.0,
       }
     ) =>

@@ -26,7 +26,7 @@ var _visibility = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      Widget replacement,
+      Widget replacement = const SizedBox.shrink(),
       bool visible = true,
       bool maintainState = false,
       bool maintainAnimation = false,
@@ -53,7 +53,7 @@ var _sliverVisibility = MXFunctionInvoke(
       {
       Key key,
       Widget sliver,
-      Widget replacementSliver,
+      Widget replacementSliver = const SliverToBoxAdapter(),
       bool visible = true,
       bool maintainState = false,
       bool maintainAnimation = false,

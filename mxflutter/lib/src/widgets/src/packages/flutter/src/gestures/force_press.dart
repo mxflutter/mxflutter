@@ -42,7 +42,7 @@ var _forcePressGestureRecognizer = MXFunctionInvoke(
       {
       dynamic startPressure = 0.4,
       dynamic peakPressure = 0.85,
-      dynamic interpolation,
+      dynamic interpolation = ForcePressGestureRecognizer._inverseLerp,
       Object debugOwner,
       PointerDeviceKind kind,
       }

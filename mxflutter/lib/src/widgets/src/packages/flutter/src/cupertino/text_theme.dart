@@ -22,7 +22,7 @@ var _cupertinoTextThemeData = MXFunctionInvoke(
     "CupertinoTextThemeData",
     (
       {
-      Color primaryColor,
+      Color primaryColor = CupertinoColors.systemBlue,
       Brightness brightness,
       TextStyle textStyle,
       TextStyle actionTextStyle,

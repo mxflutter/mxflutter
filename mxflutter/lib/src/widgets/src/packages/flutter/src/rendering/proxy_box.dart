@@ -183,7 +183,7 @@ var _renderShaderMask = MXFunctionInvoke(
       {
       RenderBox child,
       dynamic shaderCallback,
-      ui.BlendMode blendMode = ui.BlendMode.modulate,
+      ui.BlendMode blendMode = BlendMode.modulate,
       }
     ) =>
       RenderShaderMask(
@@ -224,7 +224,7 @@ var _renderClipRect = MXFunctionInvoke(
       {
       RenderBox child,
       CustomClipper<ui.Rect> clipper,
-      ui.Clip clipBehavior = ui.Clip.antiAlias,
+      ui.Clip clipBehavior =  Clip.antiAlias,
       }
     ) =>
       RenderClipRect(
@@ -238,9 +238,9 @@ var _renderClipRRect = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      BorderRadius borderRadius,
+      BorderRadius borderRadius = BorderRadius.zero,
       CustomClipper<ui.RRect> clipper,
-      ui.Clip clipBehavior = ui.Clip.antiAlias,
+      ui.Clip clipBehavior =  Clip.antiAlias,
       }
     ) =>
       RenderClipRRect(
@@ -256,7 +256,7 @@ var _renderClipOval = MXFunctionInvoke(
       {
       RenderBox child,
       CustomClipper<ui.Rect> clipper,
-      ui.Clip clipBehavior = ui.Clip.antiAlias,
+      ui.Clip clipBehavior =  Clip.antiAlias,
       }
     ) =>
       RenderClipOval(
@@ -271,7 +271,7 @@ var _renderClipPath = MXFunctionInvoke(
       {
       RenderBox child,
       CustomClipper<ui.Path> clipper,
-      ui.Clip clipBehavior = ui.Clip.antiAlias,
+      ui.Clip clipBehavior =  Clip.antiAlias,
       }
     ) =>
       RenderClipPath(
@@ -285,12 +285,12 @@ var _renderPhysicalModel = MXFunctionInvoke(
     (
       {
       RenderBox child,
-      BoxShape shape = BoxShape.rectangle,
-      ui.Clip clipBehavior = ui.Clip.none,
+      BoxShape shape =  BoxShape.rectangle,
+      ui.Clip clipBehavior =  Clip.none,
       BorderRadius borderRadius,
       dynamic elevation = 0.0,
       ui.Color color,
-      ui.Color shadowColor,
+      ui.Color shadowColor = const Color(0xFF000000),
       }
     ) =>
       RenderPhysicalModel(
@@ -309,10 +309,10 @@ var _renderPhysicalShape = MXFunctionInvoke(
       {
       RenderBox child,
       CustomClipper<ui.Path> clipper,
-      ui.Clip clipBehavior = ui.Clip.none,
+      ui.Clip clipBehavior =  Clip.none,
       dynamic elevation = 0.0,
       ui.Color color,
-      ui.Color shadowColor,
+      ui.Color shadowColor = const Color(0xFF000000),
       }
     ) =>
       RenderPhysicalShape(
@@ -333,8 +333,8 @@ var _renderDecoratedBox = MXFunctionInvoke(
     (
       {
       Decoration decoration,
-      DecorationPosition position = DecorationPosition.background,
-      ImageConfiguration configuration,
+      DecorationPosition position =  DecorationPosition.background,
+      ImageConfiguration configuration = ImageConfiguration.empty,
       RenderBox child,
       }
     ) =>
@@ -370,8 +370,8 @@ var _renderFittedBox = MXFunctionInvoke(
     "RenderFittedBox",
     (
       {
-      BoxFit fit = BoxFit.contain,
-      AlignmentGeometry alignment,
+      BoxFit fit =  BoxFit.contain,
+      AlignmentGeometry alignment = Alignment.center,
       ui.TextDirection textDirection,
       RenderBox child,
       }
@@ -407,7 +407,7 @@ var _renderPointerListener = MXFunctionInvoke(
       dynamic onPointerUp,
       dynamic onPointerCancel,
       dynamic onPointerSignal,
-      HitTestBehavior behavior = HitTestBehavior.deferToChild,
+      HitTestBehavior behavior =  HitTestBehavior.deferToChild,
       RenderBox child,
       }
     ) =>
@@ -499,7 +499,7 @@ var _renderMetaData = MXFunctionInvoke(
     (
       {
       dynamic metaData,
-      HitTestBehavior behavior = HitTestBehavior.deferToChild,
+      HitTestBehavior behavior =  HitTestBehavior.deferToChild,
       RenderBox child,
       }
     ) =>
@@ -714,7 +714,7 @@ var _renderFollowerLayer = MXFunctionInvoke(
       {
       LayerLink link,
       bool showWhenUnlinked = true,
-      ui.Offset offset,
+      ui.Offset offset = Offset.zero,
       RenderBox child,
       }
     ) =>

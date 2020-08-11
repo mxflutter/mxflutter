@@ -50,7 +50,7 @@ var _renderPositionedBox = MXFunctionInvoke(
       RenderBox child,
       dynamic widthFactor,
       dynamic heightFactor,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = Alignment.center,
       TextDirection textDirection,
       }
     ) =>
@@ -71,7 +71,7 @@ var _renderConstrainedOverflowBox = MXFunctionInvoke(
       dynamic maxWidth,
       dynamic minHeight,
       dynamic maxHeight,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = Alignment.center,
       TextDirection textDirection,
       }
     ) =>
@@ -108,7 +108,7 @@ var _renderSizedOverflowBox = MXFunctionInvoke(
       {
       RenderBox child,
       Size requestedSize,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = Alignment.center,
       TextDirection textDirection,
       }
     ) =>
@@ -126,7 +126,7 @@ var _renderFractionallySizedOverflowBox = MXFunctionInvoke(
       RenderBox child,
       dynamic widthFactor,
       dynamic heightFactor,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = Alignment.center,
       TextDirection textDirection,
       }
     ) =>

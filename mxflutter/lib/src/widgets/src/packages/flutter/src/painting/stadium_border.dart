@@ -26,7 +26,7 @@ var _stadiumBorder = MXFunctionInvoke(
     "StadiumBorder",
     (
       {
-      BorderSide side,
+      BorderSide side = BorderSide.none,
       }
     ) =>
       StadiumBorder(

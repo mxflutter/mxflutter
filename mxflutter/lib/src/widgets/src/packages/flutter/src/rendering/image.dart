@@ -29,13 +29,13 @@ var _renderImage = MXFunctionInvoke(
       ui.Color color,
       ui.BlendMode colorBlendMode,
       BoxFit fit,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = Alignment.center,
       ImageRepeat repeat = ImageRepeat.noRepeat,
       ui.Rect centerSlice,
       bool matchTextDirection = false,
       ui.TextDirection textDirection,
       bool invertColors = false,
-      ui.FilterQuality filterQuality = ui.FilterQuality.low,
+      ui.FilterQuality filterQuality =  FilterQuality.low,
       }
     ) =>
       RenderImage(

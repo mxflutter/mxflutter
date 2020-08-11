@@ -57,7 +57,7 @@ var _mergeableMaterial = MXFunctionInvoke(
       Axis mainAxis = Axis.vertical,
       int elevation = 2,
       bool hasDividers = false,
-      dynamic children,
+      dynamic children = const <MergeableMaterialItem>[],
       }
     ) =>
       MergeableMaterial(

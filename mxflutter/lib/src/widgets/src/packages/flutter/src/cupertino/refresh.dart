@@ -35,7 +35,7 @@ var _cupertinoSliverRefreshControl = MXFunctionInvoke(
       Key key,
       dynamic refreshTriggerPullDistance = 100.0,
       dynamic refreshIndicatorExtent = 60.0,
-      dynamic builder,
+      dynamic builder = CupertinoSliverRefreshControl.buildSimpleRefreshIndicator,
       dynamic onRefresh,
       }
     ) =>

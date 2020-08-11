@@ -26,7 +26,7 @@ var _frictionSimulation = MXFunctionInvoke(
       dynamic drag,
       dynamic position,
       dynamic velocity,
-      Tolerance tolerance,
+      Tolerance tolerance = Tolerance.defaultTolerance,
       }
     ) =>
       FrictionSimulation(

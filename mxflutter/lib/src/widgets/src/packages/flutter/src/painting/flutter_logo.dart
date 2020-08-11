@@ -36,11 +36,11 @@ var _flutterLogoDecoration = MXFunctionInvoke(
     "FlutterLogoDecoration",
     (
       {
-      ui.Color lightColor,
-      ui.Color darkColor,
-      ui.Color textColor,
+      ui.Color lightColor = const Color(0xFF42A5F5),
+      ui.Color darkColor = const Color(0xFF0D47A1),
+      ui.Color textColor = const Color(0xFF616161),
       FlutterLogoStyle style = FlutterLogoStyle.markOnly,
-      EdgeInsets margin,
+      EdgeInsets margin = EdgeInsets.zero,
       }
     ) =>
       FlutterLogoDecoration(

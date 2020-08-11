@@ -51,14 +51,14 @@ var _textPainter = MXFunctionInvoke(
     (
       {
       InlineSpan text,
-      ui.TextAlign textAlign = ui.TextAlign.start,
+      ui.TextAlign textAlign = TextAlign.start,
       ui.TextDirection textDirection,
       dynamic textScaleFactor = 1.0,
       int maxLines,
       String ellipsis,
       ui.Locale locale,
       StrutStyle strutStyle,
-      TextWidthBasis textWidthBasis = TextWidthBasis.parent,
+      TextWidthBasis textWidthBasis =  TextWidthBasis.parent,
       ui.TextHeightBehavior textHeightBehavior,
       }
     ) =>

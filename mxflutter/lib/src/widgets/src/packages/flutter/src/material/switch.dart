@@ -86,7 +86,7 @@ var _switch_adaptive = MXFunctionInvoke(
       ImageProvider<dynamic> inactiveThumbImage,
       dynamic onInactiveThumbImageError,
       MaterialTapTargetSize materialTapTargetSize,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       Color focusColor,
       Color hoverColor,
       FocusNode focusNode,

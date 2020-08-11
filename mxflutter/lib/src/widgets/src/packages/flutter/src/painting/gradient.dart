@@ -40,11 +40,11 @@ var _linearGradient = MXFunctionInvoke(
     "LinearGradient",
     (
       {
-      AlignmentGeometry begin,
-      AlignmentGeometry end,
+      AlignmentGeometry begin = Alignment.centerLeft,
+      AlignmentGeometry end = Alignment.centerRight,
       dynamic colors,
       dynamic stops,
-      ui.TileMode tileMode = ui.TileMode.clamp,
+      ui.TileMode tileMode = TileMode.clamp,
       GradientTransform transform,
       }
     ) =>
@@ -61,11 +61,11 @@ var _radialGradient = MXFunctionInvoke(
     "RadialGradient",
     (
       {
-      AlignmentGeometry center,
+      AlignmentGeometry center = Alignment.center,
       dynamic radius = 0.5,
       dynamic colors,
       dynamic stops,
-      ui.TileMode tileMode = ui.TileMode.clamp,
+      ui.TileMode tileMode =  TileMode.clamp,
       AlignmentGeometry focal,
       dynamic focalRadius = 0.0,
       GradientTransform transform,
@@ -86,12 +86,12 @@ var _sweepGradient = MXFunctionInvoke(
     "SweepGradient",
     (
       {
-      AlignmentGeometry center,
+      AlignmentGeometry center = Alignment.center,
       dynamic startAngle = 0.0,
       dynamic endAngle = 6.283185307179586,
       dynamic colors,
       dynamic stops,
-      ui.TileMode tileMode = ui.TileMode.clamp,
+      ui.TileMode tileMode =  TileMode.clamp,
       GradientTransform transform,
       }
     ) =>

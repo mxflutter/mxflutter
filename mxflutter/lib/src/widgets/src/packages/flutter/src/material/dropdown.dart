@@ -129,7 +129,7 @@ var _dropdownButtonFormField = MXFunctionInvoke(
       Widget hint,
       dynamic onChanged,
       dynamic onTap,
-      InputDecoration decoration,
+      InputDecoration decoration = const InputDecoration(),
       dynamic onSaved,
       dynamic validator,
       bool autovalidate = false,

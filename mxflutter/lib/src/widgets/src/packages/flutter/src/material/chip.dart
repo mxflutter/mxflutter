@@ -106,7 +106,7 @@ var _inputChip = MXFunctionInvoke(
       Color selectedColor,
       String tooltip,
       ShapeBorder shape,
-      Clip clipBehavior = Clip.none,
+      Clip clipBehavior =  Clip.none,
       FocusNode focusNode,
       bool autofocus = false,
       Color backgroundColor,
@@ -118,7 +118,7 @@ var _inputChip = MXFunctionInvoke(
       Color selectedShadowColor,
       bool showCheckmark,
       Color checkmarkColor,
-      ShapeBorder avatarBorder,
+      ShapeBorder avatarBorder = const CircleBorder(),
       }
     ) =>
       InputChip(
@@ -171,7 +171,7 @@ var _choiceChip = MXFunctionInvoke(
       Color disabledColor,
       String tooltip,
       ShapeBorder shape,
-      Clip clipBehavior = Clip.none,
+      Clip clipBehavior =  Clip.none,
       FocusNode focusNode,
       bool autofocus = false,
       Color backgroundColor,
@@ -181,7 +181,7 @@ var _choiceChip = MXFunctionInvoke(
       dynamic elevation,
       Color shadowColor,
       Color selectedShadowColor,
-      ShapeBorder avatarBorder,
+      ShapeBorder avatarBorder = const CircleBorder(),
       }
     ) =>
       ChoiceChip(
@@ -226,7 +226,7 @@ var _filterChip = MXFunctionInvoke(
       Color selectedColor,
       String tooltip,
       ShapeBorder shape,
-      Clip clipBehavior = Clip.none,
+      Clip clipBehavior =  Clip.none,
       FocusNode focusNode,
       bool autofocus = false,
       Color backgroundColor,
@@ -238,7 +238,7 @@ var _filterChip = MXFunctionInvoke(
       Color selectedShadowColor,
       bool showCheckmark,
       Color checkmarkColor,
-      ShapeBorder avatarBorder,
+      ShapeBorder avatarBorder = const CircleBorder(),
       }
     ) =>
       FilterChip(
@@ -282,7 +282,7 @@ var _actionChip = MXFunctionInvoke(
       dynamic pressElevation,
       String tooltip,
       ShapeBorder shape,
-      Clip clipBehavior = Clip.none,
+      Clip clipBehavior =  Clip.none,
       FocusNode focusNode,
       bool autofocus = false,
       Color backgroundColor,
@@ -339,7 +339,7 @@ var _rawChip = MXFunctionInvoke(
       Color selectedColor,
       String tooltip,
       ShapeBorder shape,
-      Clip clipBehavior = Clip.none,
+      Clip clipBehavior =  Clip.none,
       FocusNode focusNode,
       bool autofocus = false,
       Color backgroundColor,
@@ -349,7 +349,7 @@ var _rawChip = MXFunctionInvoke(
       Color selectedShadowColor,
       bool showCheckmark = true,
       Color checkmarkColor,
-      ShapeBorder avatarBorder,
+      ShapeBorder avatarBorder = const CircleBorder(),
       }
     ) =>
       RawChip(

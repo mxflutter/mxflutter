@@ -46,7 +46,7 @@ var _tab = MXFunctionInvoke(
       Key key,
       String text,
       Widget icon,
-      EdgeInsetsGeometry iconMargin,
+      EdgeInsetsGeometry iconMargin = const EdgeInsets.only(bottom: 10.0),
       Widget child,
       }
     ) =>
@@ -68,7 +68,7 @@ var _tabBar = MXFunctionInvoke(
       bool isScrollable = false,
       Color indicatorColor,
       dynamic indicatorWeight = 2.0,
-      EdgeInsetsGeometry indicatorPadding,
+      EdgeInsetsGeometry indicatorPadding = EdgeInsets.zero,
       Decoration indicator,
       TabBarIndicatorSize indicatorSize,
       Color labelColor,
@@ -107,7 +107,7 @@ var _tabBarView = MXFunctionInvoke(
       dynamic children,
       TabController controller,
       ScrollPhysics physics,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       }
     ) =>
       TabBarView(

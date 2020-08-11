@@ -58,7 +58,7 @@ var _scaleTransition = MXFunctionInvoke(
       {
       Key key,
       Animation<double> scale,
-      Alignment alignment,
+      Alignment alignment = Alignment.center,
       Widget child,
       }
     ) =>
@@ -75,7 +75,7 @@ var _rotationTransition = MXFunctionInvoke(
       {
       Key key,
       Animation<double> turns,
-      Alignment alignment,
+      Alignment alignment = Alignment.center,
       Widget child,
       }
     ) =>
@@ -190,7 +190,7 @@ var _decoratedBoxTransition = MXFunctionInvoke(
       {
       Key key,
       Animation<Decoration> decoration,
-      DecorationPosition position = DecorationPosition.background,
+      DecorationPosition position =  DecorationPosition.background,
       Widget child,
       }
     ) =>
@@ -229,7 +229,7 @@ var _defaultTextStyleTransition = MXFunctionInvoke(
       Widget child,
       TextAlign textAlign,
       bool softWrap = true,
-      TextOverflow overflow = TextOverflow.clip,
+      TextOverflow overflow =  TextOverflow.clip,
       int maxLines,
       }
     ) =>

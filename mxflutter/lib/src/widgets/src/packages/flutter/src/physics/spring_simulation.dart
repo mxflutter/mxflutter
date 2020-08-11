@@ -65,7 +65,7 @@ var _springSimulation = MXFunctionInvoke(
       dynamic start,
       dynamic end,
       dynamic velocity,
-      Tolerance tolerance,
+      Tolerance tolerance = Tolerance.defaultTolerance,
       }
     ) =>
       SpringSimulation(
@@ -84,7 +84,7 @@ var _scrollSpringSimulation = MXFunctionInvoke(
       dynamic start,
       dynamic end,
       dynamic velocity,
-      Tolerance tolerance,
+      Tolerance tolerance = Tolerance.defaultTolerance,
       }
     ) =>
       ScrollSpringSimulation(

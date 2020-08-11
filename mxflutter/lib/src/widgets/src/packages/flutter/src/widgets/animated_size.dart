@@ -24,8 +24,8 @@ var _animatedSize = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      AlignmentGeometry alignment,
-      Curve curve,
+      AlignmentGeometry alignment = Alignment.center,
+      Curve curve = Curves.linear,
       Duration duration,
       Duration reverseDuration,
       TickerProvider vsync,
