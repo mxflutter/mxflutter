@@ -81,7 +81,7 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
   }
 
   ///由dart侧创建MXWidget壳子
-  static MXJSStatefulWidget createEmptyWidget(
+  static MXJSStatefulWidget createHostWidget(
       {Key key, String name, MXJsonBuildOwner parentBuildOwner}) {
     //由dart侧生成 widgetID
     String widgetID = MXJSBaseWidget.generateWidgetID();

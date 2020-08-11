@@ -165,8 +165,7 @@ class MXJsonBuildOwner {
 
   //js->flutter
 
-  void jsCallRebuild(args) {
-    String widgetDataStr = args["widgetData"];
+  void jsCallRebuild(widgetDataStr) {
     var startDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
 
     Map widgetMap = json.decode(widgetDataStr);
@@ -226,8 +225,7 @@ class MXJsonBuildOwner {
   }
 
   //js->flutter
-  jsCallNavigatorPush(args) {
-    String widgetDataStr = args["widgetData"];
+  jsCallNavigatorPush(widgetDataStr) {
 
     var startDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
     Map widgetMap = json.decode(widgetDataStr);

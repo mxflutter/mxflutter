@@ -17,10 +17,10 @@ import 'mx_js_widget.dart';
 class MXJSFlutterApp {
   String name;
 
-  MethodChannel _jsFlutterAppChannel;
-  BasicMessageChannel<String> _jsFlutterAppRebuildChannel; //大数据通道
-  BasicMessageChannel<String> _jsFlutterAppJSPushWidgetChannel; //大数据通道
-  Map<String, dynamic> _jsFlutterAppChannelFunRegMap = {};
+  MethodChannel _appChannel;
+  BasicMessageChannel<String> _rebuildChannel; //大数据通道
+  BasicMessageChannel<String> _jsPushWidgetChannel; //大数据通道
+  Map<String, Function> _channelName2FunMap = {};
   MXJsonBuildOwner _rootBuildOwner;
 
   //JSWidget根节点
@@ -64,7 +64,7 @@ class MXJSFlutterApp {
       return jsWidget;
     }
 
-    jsWidget = MXJSStatefulWidget.createEmptyWidget(
+    jsWidget = MXJSStatefulWidget.createHostWidget(
         key: widgetKey, name: widgetName, parentBuildOwner: _rootBuildOwner);
 
     callJSNavigatorPushWithName(jsWidget.name, jsWidget.widgetID,
@@ -81,9 +81,9 @@ class MXJSFlutterApp {
     return jsWidget;
   }
 
-  //flutter -> JS flutter 调用 JS
-  //flutter层 主动push页面,call js 创建名字为widgetName的jswidget
-  //先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页���
+  /// flutter -> JS flutter 调用 JS
+  /// flutter层 主动push页面,call js 创建名字为widgetName的jswidget
+  /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页���
   callJSNavigatorPushWithName(String widgetName, String widgetID,
       {ThemeData themeData,
       MediaQueryData mediaQueryData,
@@ -108,7 +108,7 @@ class MXJSFlutterApp {
       "arguments": jsMethodCall.arguments,
     };
 
-    return await _jsFlutterAppChannel.invokeMethod("callJS", jsArgs);
+    return await _appChannel.invokeMethod("callJS", jsArgs);
   }
 
   //flutter->js Channel
@@ -129,7 +129,7 @@ class MXJSFlutterApp {
           "arguments": _frequencyLimitMethodCallQueue,
         };
 
-        _jsFlutterAppChannel.invokeMethod("callJS", jsArgs);
+        _appChannel.invokeMethod("callJS", jsArgs);
 
         _frequencyLimitMethodCallQueue.clear();
       });
@@ -139,8 +139,8 @@ class MXJSFlutterApp {
   //事件处理
   // JS ->  flutter  开放给调用 JS
   _setupChannel() {
-    _jsFlutterAppChannel = MethodChannel("js_flutter.js_flutter_app_channel");
-    _jsFlutterAppChannel.setMethodCallHandler((MethodCall call) async {
+    _appChannel = MethodChannel("js_flutter.js_flutter_app_channel");
+    _appChannel.setMethodCallHandler((MethodCall call) async {
       // if (call.arguments is Map) {
       //   var ms = (new DateTime.now()).millisecondsSinceEpoch;
       //   MXJSLog.log(
@@ -148,49 +148,44 @@ class MXJSFlutterApp {
       // }
 
       MXJSLog.log(
-          "_jsFlutterAppChannel_methodHandler: recv js call ${call.method}");
+          "_appChannel_methodHandler: recv js call ${call.method}");
 
-      Function fun = _jsFlutterAppChannelFunRegMap[call.method];
+      Function fun = _channelName2FunMap[call.method];
       return fun(call.arguments);
     });
 
-    /// JS ->  flutter  开放给调用 JS
-    _jsFlutterAppChannelFunRegMap["rebuild"] = _jsRebuild;
-    _jsFlutterAppChannelFunRegMap["navigatorPush"] = _navigatorPush;
-    _jsFlutterAppChannelFunRegMap["navigatorPop"] = _navigatorPop;
+    // JS ->  flutter  开放给调用 JS
+    _channelName2FunMap["navigatorPush"] = _navigatorPush;
+    _channelName2FunMap["navigatorPop"] = _navigatorPop;
 
     // 设置Rebuild方法通道
-    _jsFlutterAppRebuildChannel = const BasicMessageChannel(
+    _rebuildChannel = const BasicMessageChannel(
         'js_flutter.js_flutter_app_channel.rebuild', StringCodec());
-    _jsFlutterAppRebuildChannel
-        .setMessageHandler((String message) => Future<String>(() {
-              Map args = {};
-              args["widgetData"] = message;
-              _jsRebuild(args);
+    _rebuildChannel
+        .setMessageHandler((String widgetDataStr) => Future<String>(() {
+              _jsRebuild(widgetDataStr);
               return null;
             }));
 
     // 设置navigatorPush方法通道
-    _jsFlutterAppJSPushWidgetChannel = const BasicMessageChannel(
+    _jsPushWidgetChannel = const BasicMessageChannel(
         'js_flutter.js_flutter_app_channel.navigator_push', StringCodec());
-    _jsFlutterAppJSPushWidgetChannel
-        .setMessageHandler((String message) => Future<String>(() {
-              Map args = {};
-              args["widgetData"] = message;
-              _navigatorPush(args);
+    _jsPushWidgetChannel
+        .setMessageHandler((String widgetDataStr) => Future<String>(() {
+              _navigatorPush(widgetDataStr);
               return null;
             }));
   }
 
   /// JS ->  flutter  开放给调用 JS
-  Future<dynamic> _jsRebuild(args) async {
-    _rootBuildOwner.jsCallRebuild(args);
+  Future<dynamic> _jsRebuild(widgetDataStr) async {
+    _rootBuildOwner.jsCallRebuild(widgetDataStr);
   }
 
   //js层 调用navigatorPush 主动push页面
   //和Flutter dart代码调用 MXFluter.navigatorPushWithName 的区别是_navigatorPush并不创建_rootBuildOwner，只是创建_rootBuildOwner的子Widget
-  Future<dynamic> _navigatorPush(args) async {
-    _rootBuildOwner.jsCallNavigatorPush(args);
+  Future<dynamic> _navigatorPush(widgetDataStr) async {
+    _rootBuildOwner.jsCallNavigatorPush(widgetDataStr);
   }
 
   //js层 调用navigatorPop 主动pop页面
