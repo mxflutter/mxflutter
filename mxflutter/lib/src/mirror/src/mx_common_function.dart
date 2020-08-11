@@ -14,6 +14,9 @@ List<T> toListT<T>(list) {
 
 /// 转Map<S, T>类型
 Map<S, T> toMapT<S, T>(Map map) {
+  if (map == null) {
+    return null;
+  }
   // dynamic result = map?.map((k, v) {
   //   if (S == int && k is String) {
   //     return MapEntry<int, T>(int.parse(k), v);
@@ -36,6 +39,9 @@ Map<S, T> toMapT<S, T>(Map map) {
 
 /// 转Map<int, T>类型
 Map<int, T> toMapIntT<T>(Map map) {
+  if (map == null) {
+    return null;
+  }
   Map<int, T> result = map?.map((k, v) {
     if (v.runtimeType == T) {
       return MapEntry<int, T>(int.parse(k), v);
@@ -50,6 +56,9 @@ Map<int, T> toMapIntT<T>(Map map) {
 
 /// 转Map<String, T>类型
 Map<String, T> toMapStringT<T>(Map map) {
+  if (map == null) {
+    return null;
+  }
   Map<String, T> result = map?.map((k, v) {
     if (v.runtimeType == T) {
       return MapEntry<String, T>(k, v);
