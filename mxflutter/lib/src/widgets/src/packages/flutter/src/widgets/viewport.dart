@@ -29,8 +29,8 @@ var _viewport = MXFunctionInvoke(
       ViewportOffset offset,
       Key center,
       dynamic cacheExtent,
-      CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
-      dynamic slivers,
+      CacheExtentStyle cacheExtentStyle =  CacheExtentStyle.pixel,
+      dynamic slivers = const <Widget>[],
       }
     ) =>
       Viewport(
@@ -53,7 +53,7 @@ var _shrinkWrappingViewport = MXFunctionInvoke(
       AxisDirection axisDirection = AxisDirection.down,
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
-      dynamic slivers,
+      dynamic slivers = const <Widget>[],
       }
     ) =>
       ShrinkWrappingViewport(

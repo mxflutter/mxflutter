@@ -53,11 +53,11 @@ var _renderFlex = MXFunctionInvoke(
       {
       dynamic children,
       Axis direction = Axis.horizontal,
-      MainAxisSize mainAxisSize = MainAxisSize.max,
-      MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-      CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+      MainAxisSize mainAxisSize =  MainAxisSize.max,
+      MainAxisAlignment mainAxisAlignment =  MainAxisAlignment.start,
+      CrossAxisAlignment crossAxisAlignment =  CrossAxisAlignment.center,
       TextDirection textDirection,
-      VerticalDirection verticalDirection = VerticalDirection.down,
+      VerticalDirection verticalDirection =  VerticalDirection.down,
       TextBaseline textBaseline,
       }
     ) =>

@@ -100,7 +100,7 @@ var _pageView = MXFunctionInvoke(
       ScrollPhysics physics,
       bool pageSnapping = true,
       dynamic onPageChanged,
-      dynamic children,
+      dynamic children = const <Widget>[],
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       bool allowImplicitScrolling = false,
       }
@@ -123,7 +123,7 @@ var _pageView_builder = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.horizontal,
+      Axis scrollDirection =  Axis.horizontal,
       bool reverse = false,
       PageController controller,
       ScrollPhysics physics,
@@ -131,7 +131,7 @@ var _pageView_builder = MXFunctionInvoke(
       dynamic onPageChanged,
       dynamic itemBuilder,
       int itemCount,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       bool allowImplicitScrolling = false,
       }
     ) =>
@@ -154,14 +154,14 @@ var _pageView_custom = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.horizontal,
+      Axis scrollDirection =  Axis.horizontal,
       bool reverse = false,
       PageController controller,
       ScrollPhysics physics,
       bool pageSnapping = true,
       dynamic onPageChanged,
       SliverChildDelegate childrenDelegate,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       bool allowImplicitScrolling = false,
       }
     ) =>

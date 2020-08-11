@@ -40,13 +40,13 @@ var _cupertinoNavigationBar = MXFunctionInvoke(
       String previousPageTitle,
       Widget middle,
       Widget trailing,
-      Border border,
+      Border border = const Border(bottom: const BorderSide(color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
       Color backgroundColor,
       Brightness brightness,
       EdgeInsetsDirectional padding,
       Color actionsForegroundColor,
       bool transitionBetweenRoutes = true,
-      Object heroTag,
+      Object heroTag = const _HeroTag(null),
       }
     ) =>
       CupertinoNavigationBar(
@@ -78,13 +78,13 @@ var _cupertinoSliverNavigationBar = MXFunctionInvoke(
       String previousPageTitle,
       Widget middle,
       Widget trailing,
-      Border border,
+      Border border = const Border(bottom: const BorderSide(color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
       Color backgroundColor,
       Brightness brightness,
       EdgeInsetsDirectional padding,
       Color actionsForegroundColor,
       bool transitionBetweenRoutes = true,
-      Object heroTag,
+      Object heroTag = const _HeroTag(null),
       }
     ) =>
       CupertinoSliverNavigationBar(

@@ -35,8 +35,8 @@ var _bannerPainter = MXFunctionInvoke(
       TextDirection textDirection,
       BannerLocation location,
       TextDirection layoutDirection,
-      Color color,
-      TextStyle textStyle,
+      Color color = const Color(0xA0B71C1C),
+      TextStyle textStyle = const TextStyle(color: const Color(0xFFFFFFFF), fontSize: 12.0 * 0.85, fontWeight: FontWeight.w900, height: 1.0),
       }
     ) =>
       BannerPainter(
@@ -58,8 +58,8 @@ var _banner = MXFunctionInvoke(
       TextDirection textDirection,
       BannerLocation location,
       TextDirection layoutDirection,
-      Color color,
-      TextStyle textStyle,
+      Color color = const Color(0xA0B71C1C),
+      TextStyle textStyle = const TextStyle(color: const Color(0xFFFFFFFF), fontSize: 12.0 * 0.85, fontWeight: FontWeight.w900, height: 1.0),
       }
     ) =>
       Banner(

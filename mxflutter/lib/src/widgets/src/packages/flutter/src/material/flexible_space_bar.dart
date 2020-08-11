@@ -42,7 +42,7 @@ var _flexibleSpaceBar = MXFunctionInvoke(
       bool centerTitle,
       EdgeInsetsGeometry titlePadding,
       CollapseMode collapseMode = CollapseMode.parallax,
-      dynamic stretchModes,
+      dynamic stretchModes = const <StretchMode>[StretchMode.zoomBackground],
       }
     ) =>
       FlexibleSpaceBar(

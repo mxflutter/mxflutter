@@ -22,7 +22,7 @@ var _placeholder = MXFunctionInvoke(
     (
       {
       Key key,
-      Color color,
+      Color color = const Color(0xFF455A64),
       dynamic strokeWidth = 2.0,
       dynamic fallbackWidth = 400.0,
       dynamic fallbackHeight = 400.0,

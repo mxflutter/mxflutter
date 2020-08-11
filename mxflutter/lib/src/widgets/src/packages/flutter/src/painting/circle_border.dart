@@ -23,7 +23,7 @@ var _circleBorder = MXFunctionInvoke(
     "CircleBorder",
     (
       {
-      BorderSide side,
+      BorderSide side = BorderSide.none,
       }
     ) =>
       CircleBorder(

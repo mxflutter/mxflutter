@@ -46,7 +46,7 @@ var _interval = MXFunctionInvoke(
       {
       dynamic begin,
       dynamic end,
-      Curve curve,
+      Curve curve = Curves.linear,
       }
     ) =>
       Interval(

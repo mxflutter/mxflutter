@@ -55,7 +55,7 @@ var _renderViewport = MXFunctionInvoke(
       dynamic children,
       RenderSliver center,
       dynamic cacheExtent,
-      CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
+      CacheExtentStyle cacheExtentStyle =  CacheExtentStyle.pixel,
       }
     ) =>
       RenderViewport(
@@ -73,7 +73,7 @@ var _renderShrinkWrappingViewport = MXFunctionInvoke(
     "RenderShrinkWrappingViewport",
     (
       {
-      AxisDirection axisDirection = AxisDirection.down,
+      AxisDirection axisDirection =  AxisDirection.down,
       AxisDirection crossAxisDirection,
       ViewportOffset offset,
       dynamic children,

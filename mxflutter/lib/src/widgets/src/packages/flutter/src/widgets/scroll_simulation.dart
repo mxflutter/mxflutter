@@ -27,7 +27,7 @@ var _bouncingScrollSimulation = MXFunctionInvoke(
       dynamic leadingExtent,
       dynamic trailingExtent,
       SpringDescription spring,
-      Tolerance tolerance,
+      Tolerance tolerance = Tolerance.defaultTolerance,
       }
     ) =>
       BouncingScrollSimulation(
@@ -46,7 +46,7 @@ var _clampingScrollSimulation = MXFunctionInvoke(
       dynamic position,
       dynamic velocity,
       dynamic friction = 0.015,
-      Tolerance tolerance,
+      Tolerance tolerance = Tolerance.defaultTolerance,
       }
     ) =>
       ClampingScrollSimulation(

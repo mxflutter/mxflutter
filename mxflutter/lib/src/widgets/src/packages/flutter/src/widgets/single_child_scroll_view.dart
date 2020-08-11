@@ -35,7 +35,7 @@ var _singleChildScrollView = MXFunctionInvoke(
       ScrollPhysics physics,
       ScrollController controller,
       Widget child,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       }
     ) =>
       SingleChildScrollView(

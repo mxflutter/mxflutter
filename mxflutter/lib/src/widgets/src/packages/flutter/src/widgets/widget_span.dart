@@ -22,7 +22,7 @@ var _widgetSpan = MXFunctionInvoke(
     (
       {
       Widget child,
-      ui.PlaceholderAlignment alignment = ui.PlaceholderAlignment.bottom,
+      ui.PlaceholderAlignment alignment = PlaceholderAlignment.bottom,
       ui.TextBaseline baseline,
       TextStyle style,
       }

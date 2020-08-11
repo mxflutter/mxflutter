@@ -47,7 +47,7 @@ var _renderCustomPaint = MXFunctionInvoke(
       {
       CustomPainter painter,
       CustomPainter foregroundPainter,
-      Size preferredSize,
+      Size preferredSize = Size.zero,
       bool isComplex = false,
       bool willChange = false,
       RenderBox child,

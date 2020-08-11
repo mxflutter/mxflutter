@@ -53,7 +53,7 @@ var _ink_image = MXFunctionInvoke(
       dynamic onImageError,
       ColorFilter colorFilter,
       BoxFit fit,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = Alignment.center,
       Rect centerSlice,
       ImageRepeat repeat = ImageRepeat.noRepeat,
       bool matchTextDirection = false,

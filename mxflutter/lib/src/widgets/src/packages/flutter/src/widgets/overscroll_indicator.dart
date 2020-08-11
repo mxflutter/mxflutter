@@ -36,7 +36,7 @@ var _glowingOverscrollIndicator = MXFunctionInvoke(
       bool showTrailing = true,
       AxisDirection axisDirection,
       Color color,
-      dynamic notificationPredicate,
+      dynamic notificationPredicate = defaultScrollNotificationPredicate,
       Widget child,
       }
     ) =>

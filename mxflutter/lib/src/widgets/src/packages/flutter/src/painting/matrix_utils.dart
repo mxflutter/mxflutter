@@ -25,7 +25,7 @@ var _transformProperty = MXFunctionInvoke(
       String name,
       Matrix4 value,
       bool showName = true,
-      Object defaultValue,
+      Object defaultValue = kNoDefaultValue,
       DiagnosticLevel level = DiagnosticLevel.info,
       }
     ) =>

@@ -32,10 +32,10 @@ var _border = MXFunctionInvoke(
     "Border",
     (
       {
-      BorderSide top,
-      BorderSide right,
-      BorderSide bottom,
-      BorderSide left,
+      BorderSide top = BorderSide.none,
+      BorderSide right = BorderSide.none,
+      BorderSide bottom = BorderSide.none,
+      BorderSide left = BorderSide.none,
       }
     ) =>
       Border(
@@ -49,7 +49,7 @@ var _border_all = MXFunctionInvoke(
   "Border.all",
     (
       {
-      Color color,
+      Color color = const Color(0xFF000000),
       dynamic width = 1.0,
       BorderStyle style = BorderStyle.solid,
       }
@@ -75,8 +75,8 @@ var _border_symmetric = MXFunctionInvoke(
   "Border.symmetric",
     (
       {
-      BorderSide vertical,
-      BorderSide horizontal,
+      BorderSide vertical = BorderSide.none,
+      BorderSide horizontal = BorderSide.none,
       }
     ) =>
       Border.symmetric(
@@ -88,10 +88,10 @@ var _borderDirectional = MXFunctionInvoke(
     "BorderDirectional",
     (
       {
-      BorderSide top,
-      BorderSide start,
-      BorderSide end,
-      BorderSide bottom,
+      BorderSide top = BorderSide.none,
+      BorderSide start = BorderSide.none,
+      BorderSide end = BorderSide.none,
+      BorderSide bottom = BorderSide.none,
       }
     ) =>
       BorderDirectional(

@@ -28,7 +28,7 @@ var _cupertinoTabView = MXFunctionInvoke(
       dynamic routes,
       dynamic onGenerateRoute,
       dynamic onUnknownRoute,
-      dynamic navigatorObservers,
+      dynamic navigatorObservers = const <NavigatorObserver>[],
       }
     ) =>
       CupertinoTabView(

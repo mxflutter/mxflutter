@@ -61,7 +61,7 @@ var _colorScheme_fromSwatch = MXFunctionInvoke(
   "ColorScheme.fromSwatch",
     (
       {
-      MaterialColor primarySwatch,
+      MaterialColor primarySwatch = Colors.blue,
       Color primaryColorDark,
       Color accentColor,
       Color cardColor,
@@ -84,19 +84,19 @@ var _colorScheme_light = MXFunctionInvoke(
   "ColorScheme.light",
     (
       {
-      Color primary,
-      Color primaryVariant,
-      Color secondary,
-      Color secondaryVariant,
-      Color surface,
-      Color background,
-      Color error,
-      Color onPrimary,
-      Color onSecondary,
-      Color onSurface,
-      Color onBackground,
-      Color onError,
-      Brightness brightness = Brightness.light,
+      Color primary = const Color(0xff6200ee),
+      Color primaryVariant = const Color(0xff3700b3),
+      Color secondary = const Color(0xff03dac6),
+      Color secondaryVariant = const Color(0xff018786),
+      Color surface = Colors.white,
+      Color background = Colors.white,
+      Color error = const Color(0xffb00020),
+      Color onPrimary = Colors.white,
+      Color onSecondary = const Color(0xFF000000),
+      Color onSurface = const Color(0xFF000000),
+      Color onBackground = const Color(0xFF000000),
+      Color onError = Colors.white,
+      Brightness brightness =  Brightness.light,
       }
     ) =>
       ColorScheme.light(
@@ -119,19 +119,19 @@ var _colorScheme_dark = MXFunctionInvoke(
   "ColorScheme.dark",
     (
       {
-      Color primary,
-      Color primaryVariant,
-      Color secondary,
-      Color secondaryVariant,
-      Color surface,
-      Color background,
-      Color error,
-      Color onPrimary,
-      Color onSecondary,
-      Color onSurface,
-      Color onBackground,
-      Color onError,
-      Brightness brightness = Brightness.dark,
+      Color primary = const Color(0xffbb86fc),
+      Color primaryVariant = const Color(0xff3700b3),
+      Color secondary = const Color(0xff03dac6),
+      Color secondaryVariant = const Color(0xff03dac6),
+      Color surface = const Color(0xff121212),
+      Color background = const Color(0xff121212),
+      Color error = const Color(0xffcf6679),
+      Color onPrimary = const Color(0xFF000000),
+      Color onSecondary = const Color(0xFF000000),
+      Color onSurface = Colors.white,
+      Color onBackground = Colors.white,
+      Color onError = const Color(0xFF000000),
+      Brightness brightness =  Brightness.dark,
       }
     ) =>
       ColorScheme.dark(

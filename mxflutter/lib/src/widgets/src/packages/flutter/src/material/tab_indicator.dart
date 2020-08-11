@@ -20,8 +20,8 @@ var _underlineTabIndicator = MXFunctionInvoke(
     "UnderlineTabIndicator",
     (
       {
-      BorderSide borderSide,
-      EdgeInsetsGeometry insets,
+      BorderSide borderSide = const BorderSide(width: 2.0, color: Colors.white),
+      EdgeInsetsGeometry insets = EdgeInsets.zero,
       }
     ) =>
       UnderlineTabIndicator(

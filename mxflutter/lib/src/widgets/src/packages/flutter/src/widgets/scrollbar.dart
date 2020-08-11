@@ -27,7 +27,7 @@ var _scrollbarPainter = MXFunctionInvoke(
       TextDirection textDirection,
       dynamic thickness,
       Animation<double> fadeoutOpacityAnimation,
-      EdgeInsets padding,
+      EdgeInsets padding = EdgeInsets.zero,
       dynamic mainAxisMargin = 0.0,
       dynamic crossAxisMargin = 0.0,
       Radius radius,

@@ -130,7 +130,7 @@ var _rawGestureDetector = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      dynamic gestures,
+      dynamic gestures = const <Type, GestureRecognizerFactory<GestureRecognizer>>{},
       HitTestBehavior behavior,
       bool excludeFromSemantics = false,
       SemanticsGestureDelegate semantics,

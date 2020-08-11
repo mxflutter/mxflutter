@@ -64,10 +64,10 @@ var _expansionPanelList = MXFunctionInvoke(
     (
       {
       Key key,
-      dynamic children,
+      dynamic children = const <ExpansionPanel>[],
       dynamic expansionCallback,
-      Duration animationDuration,
-      EdgeInsets expandedHeaderPadding,
+      Duration animationDuration = const Duration(milliseconds: 200),
+      EdgeInsets expandedHeaderPadding = const EdgeInsets.symmetric(vertical: 64.0 - 48.0),
       }
     ) =>
       ExpansionPanelList(
@@ -83,11 +83,11 @@ var _expansionPanelList_radio = MXFunctionInvoke(
     (
       {
       Key key,
-      dynamic children,
+      dynamic children = const <ExpansionPanelRadio>[],
       dynamic expansionCallback,
-      Duration animationDuration,
+      Duration animationDuration = const Duration(milliseconds: 200),
       Object initialOpenPanelValue,
-      EdgeInsets expandedHeaderPadding,
+      EdgeInsets expandedHeaderPadding = const EdgeInsets.symmetric(vertical: 64.0 - 48.0),
       }
     ) =>
       ExpansionPanelList.radio(

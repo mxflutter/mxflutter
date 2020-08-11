@@ -26,7 +26,7 @@ var _tapDownDetails = MXFunctionInvoke(
     "TapDownDetails",
     (
       {
-      Offset globalPosition,
+      Offset globalPosition = Offset.zero,
       Offset localPosition,
       PointerDeviceKind kind,
       }
@@ -41,7 +41,7 @@ var _tapUpDetails = MXFunctionInvoke(
     "TapUpDetails",
     (
       {
-      Offset globalPosition,
+      Offset globalPosition = Offset.zero,
       Offset localPosition,
       }
     ) =>

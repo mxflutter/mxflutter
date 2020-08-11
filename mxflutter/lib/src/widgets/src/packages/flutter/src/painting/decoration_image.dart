@@ -35,7 +35,7 @@ var _decorationImage = MXFunctionInvoke(
       dynamic onError,
       ui.ColorFilter colorFilter,
       BoxFit fit,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = Alignment.center,
       ui.Rect centerSlice,
       ImageRepeat repeat = ImageRepeat.noRepeat,
       bool matchTextDirection = false,

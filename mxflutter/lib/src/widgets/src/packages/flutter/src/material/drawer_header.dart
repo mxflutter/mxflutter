@@ -24,10 +24,10 @@ var _drawerHeader = MXFunctionInvoke(
       {
       Key key,
       Decoration decoration,
-      EdgeInsetsGeometry margin,
-      EdgeInsetsGeometry padding,
-      Duration duration,
-      Curve curve,
+      EdgeInsetsGeometry margin = const EdgeInsets.only(bottom: 8.0),
+      EdgeInsetsGeometry padding = const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
+      Duration duration = const Duration(milliseconds: 250),
+      Curve curve = Curves.fastOutSlowIn,
       Widget child,
       }
     ) =>

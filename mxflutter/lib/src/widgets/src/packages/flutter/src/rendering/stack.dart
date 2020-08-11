@@ -89,10 +89,10 @@ var _renderStack = MXFunctionInvoke(
     (
       {
       dynamic children,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = AlignmentDirectional.topStart,
       TextDirection textDirection,
       StackFit fit = StackFit.loose,
-      Overflow overflow = Overflow.clip,
+      Overflow overflow =  Overflow.clip,
       }
     ) =>
       RenderStack(
@@ -108,7 +108,7 @@ var _renderIndexedStack = MXFunctionInvoke(
     (
       {
       dynamic children,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = AlignmentDirectional.topStart,
       TextDirection textDirection,
       int index = 0,
       }

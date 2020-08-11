@@ -22,7 +22,7 @@ var _gridPaper = MXFunctionInvoke(
     (
       {
       Key key,
-      Color color,
+      Color color = const Color(0x7FC3E8F3),
       dynamic interval = 100.0,
       int divisions = 2,
       int subdivisions = 5,

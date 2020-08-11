@@ -28,10 +28,10 @@ var _animatedSwitcher = MXFunctionInvoke(
       Widget child,
       Duration duration,
       Duration reverseDuration,
-      Curve switchInCurve,
-      Curve switchOutCurve,
-      dynamic transitionBuilder,
-      dynamic layoutBuilder,
+      Curve switchInCurve = Curves.linear,
+      Curve switchOutCurve = Curves.linear,
+      dynamic transitionBuilder = AnimatedSwitcher.defaultTransitionBuilder,
+      dynamic layoutBuilder =  AnimatedSwitcher.defaultLayoutBuilder,
       }
     ) =>
       AnimatedSwitcher(

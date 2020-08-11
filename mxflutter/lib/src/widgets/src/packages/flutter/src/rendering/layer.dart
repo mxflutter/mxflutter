@@ -135,7 +135,7 @@ var _offsetLayer = MXFunctionInvoke(
     "OffsetLayer",
     (
       {
-      ui.Offset offset,
+      ui.Offset offset = Offset.zero,
       }
     ) =>
       OffsetLayer(
@@ -147,7 +147,7 @@ var _clipRectLayer = MXFunctionInvoke(
     (
       {
       ui.Rect clipRect,
-      ui.Clip clipBehavior = ui.Clip.hardEdge,
+      ui.Clip clipBehavior = Clip.hardEdge,
       }
     ) =>
       ClipRectLayer(
@@ -160,7 +160,7 @@ var _clipRRectLayer = MXFunctionInvoke(
     (
       {
       ui.RRect clipRRect,
-      ui.Clip clipBehavior = ui.Clip.antiAlias,
+      ui.Clip clipBehavior =  Clip.antiAlias,
       }
     ) =>
       ClipRRectLayer(
@@ -173,7 +173,7 @@ var _clipPathLayer = MXFunctionInvoke(
     (
       {
       ui.Path clipPath,
-      ui.Clip clipBehavior = ui.Clip.antiAlias,
+      ui.Clip clipBehavior =  Clip.antiAlias,
       }
     ) =>
       ClipPathLayer(
@@ -208,7 +208,7 @@ var _transformLayer = MXFunctionInvoke(
     (
       {
       Matrix4 transform,
-      ui.Offset offset,
+      ui.Offset offset = Offset.zero,
       }
     ) =>
       TransformLayer(
@@ -221,7 +221,7 @@ var _opacityLayer = MXFunctionInvoke(
     (
       {
       int alpha,
-      ui.Offset offset,
+      ui.Offset offset = Offset.zero,
       }
     ) =>
       OpacityLayer(
@@ -260,7 +260,7 @@ var _physicalModelLayer = MXFunctionInvoke(
     (
       {
       ui.Path clipPath,
-      ui.Clip clipBehavior = ui.Clip.none,
+      ui.Clip clipBehavior =  Clip.none,
       dynamic elevation,
       ui.Color color,
       ui.Color shadowColor,
@@ -286,7 +286,7 @@ var _leaderLayer = MXFunctionInvoke(
     (
       {
       LayerLink link,
-      ui.Offset offset,
+      ui.Offset offset = Offset.zero,
       }
     ) =>
       LeaderLayer(
@@ -300,8 +300,8 @@ var _followerLayer = MXFunctionInvoke(
       {
       LayerLink link,
       bool showWhenUnlinked = true,
-      ui.Offset unlinkedOffset,
-      ui.Offset linkedOffset,
+      ui.Offset unlinkedOffset = Offset.zero,
+      ui.Offset linkedOffset = Offset.zero,
       }
     ) =>
       FollowerLayer(

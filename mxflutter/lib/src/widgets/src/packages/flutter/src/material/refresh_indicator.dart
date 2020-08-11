@@ -32,7 +32,7 @@ var _refreshIndicator = MXFunctionInvoke(
       dynamic onRefresh,
       Color color,
       Color backgroundColor,
-      dynamic notificationPredicate,
+      dynamic notificationPredicate = defaultScrollNotificationPredicate,
       String semanticsLabel,
       String semanticsValue,
       dynamic strokeWidth = 2.0,

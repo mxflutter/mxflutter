@@ -92,7 +92,7 @@ var _shortcutMapProperty = MXFunctionInvoke(
       String name,
       dynamic value,
       bool showName = true,
-      Object defaultValue,
+      Object defaultValue = kNoDefaultValue,
       DiagnosticLevel level = DiagnosticLevel.info,
       String description,
       }
@@ -110,7 +110,7 @@ var _shortcutManager = MXFunctionInvoke(
     "ShortcutManager",
     (
       {
-      dynamic shortcuts,
+      dynamic shortcuts = const <LogicalKeySet, Intent>{},
       bool modal = false,
       }
     ) =>

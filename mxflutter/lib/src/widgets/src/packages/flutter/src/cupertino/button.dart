@@ -28,10 +28,10 @@ var _cupertinoButton = MXFunctionInvoke(
       Widget child,
       EdgeInsetsGeometry padding,
       Color color,
-      Color disabledColor,
+      Color disabledColor = CupertinoColors.quaternarySystemFill,
       dynamic minSize = 44.0,
       dynamic pressedOpacity = 0.4,
-      BorderRadius borderRadius,
+      BorderRadius borderRadius = const BorderRadius.all(const Radius.circular(8.0)),
       dynamic onPressed,
       }
     ) =>
@@ -54,10 +54,10 @@ var _cupertinoButton_filled = MXFunctionInvoke(
       Key key,
       Widget child,
       EdgeInsetsGeometry padding,
-      Color disabledColor,
+      Color disabledColor = CupertinoColors.quaternarySystemFill,
       dynamic minSize = 44.0,
       dynamic pressedOpacity = 0.4,
-      BorderRadius borderRadius,
+      BorderRadius borderRadius = const BorderRadius.all(const Radius.circular(8.0)),
       dynamic onPressed,
       }
     ) =>

@@ -29,7 +29,7 @@ var _semanticsDebugger = MXFunctionInvoke(
       {
       Key key,
       Widget child,
-      TextStyle labelStyle,
+      TextStyle labelStyle = const TextStyle(color: const Color(0xFF000000), fontSize: 10.0, height: 0.8),
       }
     ) =>
       SemanticsDebugger(

@@ -160,13 +160,13 @@ var _inputDecoration_collapsed = MXFunctionInvoke(
       {
       String hintText,
       bool hasFloatingPlaceholder = true,
-      FloatingLabelBehavior floatingLabelBehavior = FloatingLabelBehavior.auto,
+      FloatingLabelBehavior floatingLabelBehavior =  FloatingLabelBehavior.auto,
       TextStyle hintStyle,
       bool filled = false,
       Color fillColor,
       Color focusColor,
       Color hoverColor,
-      InputBorder border,
+      InputBorder border = InputBorder.none,
       bool enabled = true,
       }
     ) =>
@@ -194,7 +194,7 @@ var _inputDecorationTheme = MXFunctionInvoke(
       TextStyle errorStyle,
       int errorMaxLines,
       bool hasFloatingPlaceholder = true,
-      FloatingLabelBehavior floatingLabelBehavior = FloatingLabelBehavior.auto,
+      FloatingLabelBehavior floatingLabelBehavior =  FloatingLabelBehavior.auto,
       bool isDense = false,
       EdgeInsetsGeometry contentPadding,
       bool isCollapsed = false,

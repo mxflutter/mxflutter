@@ -110,8 +110,8 @@ var _mapEquality = MXFunctionInvoke(
     "MapEquality",
     (
       {
-      Equality<dynamic> keys,
-      Equality<dynamic> values,
+      Equality<dynamic> keys = const DefaultEquality(),
+      Equality<dynamic> values = const DefaultEquality(),
       }
     ) =>
       MapEquality(

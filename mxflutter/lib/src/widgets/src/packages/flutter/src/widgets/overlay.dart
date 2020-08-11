@@ -45,7 +45,7 @@ var _overlay = MXFunctionInvoke(
     (
       {
       Key key,
-      dynamic initialEntries,
+      dynamic initialEntries = const <OverlayEntry>[],
       }
     ) =>
       Overlay(

@@ -30,7 +30,7 @@ var _safeArea = MXFunctionInvoke(
       bool top = true,
       bool right = true,
       bool bottom = true,
-      EdgeInsets minimum,
+      EdgeInsets minimum = EdgeInsets.zero,
       bool maintainBottomViewPadding = false,
       Widget child,
       }
@@ -55,7 +55,7 @@ var _sliverSafeArea = MXFunctionInvoke(
       bool top = true,
       bool right = true,
       bool bottom = true,
-      EdgeInsets minimum,
+      EdgeInsets minimum = EdgeInsets.zero,
       Widget sliver,
       }
     ) =>

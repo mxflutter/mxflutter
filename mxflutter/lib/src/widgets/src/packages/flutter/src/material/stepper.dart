@@ -62,7 +62,7 @@ var _stepper = MXFunctionInvoke(
       Key key,
       dynamic steps,
       ScrollPhysics physics,
-      StepperType type = StepperType.vertical,
+      StepperType type =  StepperType.vertical,
       int currentStep = 0,
       dynamic onStepTapped,
       dynamic onStepContinue,

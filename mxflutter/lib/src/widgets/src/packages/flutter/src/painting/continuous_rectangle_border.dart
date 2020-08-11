@@ -24,8 +24,8 @@ var _continuousRectangleBorder = MXFunctionInvoke(
     "ContinuousRectangleBorder",
     (
       {
-      BorderSide side,
-      BorderRadiusGeometry borderRadius,
+      BorderSide side = BorderSide.none,
+      BorderRadiusGeometry borderRadius = BorderRadius.zero,
       }
     ) =>
       ContinuousRectangleBorder(

@@ -40,7 +40,7 @@ var _textSelection_collapsed = MXFunctionInvoke(
     (
       {
       int offset,
-      TextAffinity affinity = TextAffinity.downstream,
+      TextAffinity affinity =  TextAffinity.downstream,
       }
     ) =>
       TextSelection.collapsed(

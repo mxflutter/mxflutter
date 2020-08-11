@@ -32,14 +32,14 @@ var _animatedCrossFade = MXFunctionInvoke(
       Key key,
       Widget firstChild,
       Widget secondChild,
-      Curve firstCurve,
-      Curve secondCurve,
-      Curve sizeCurve,
-      AlignmentGeometry alignment,
+      Curve firstCurve = Curves.linear,
+      Curve secondCurve = Curves.linear,
+      Curve sizeCurve = Curves.linear,
+      AlignmentGeometry alignment = Alignment.topCenter,
       CrossFadeState crossFadeState,
       Duration duration,
       Duration reverseDuration,
-      dynamic layoutBuilder,
+      dynamic layoutBuilder = AnimatedCrossFade.defaultLayoutBuilder,
       }
     ) =>
       AnimatedCrossFade(

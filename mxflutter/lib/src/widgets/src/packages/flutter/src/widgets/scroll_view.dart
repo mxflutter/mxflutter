@@ -58,7 +58,7 @@ var _customScrollView = MXFunctionInvoke(
       Key center,
       dynamic anchor = 0.0,
       dynamic cacheExtent,
-      dynamic slivers,
+      dynamic slivers = const <Widget>[],
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }
@@ -84,7 +84,7 @@ var _listView = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.vertical,
+      Axis scrollDirection =  Axis.vertical,
       bool reverse = false,
       ScrollController controller,
       bool primary,
@@ -96,10 +96,10 @@ var _listView = MXFunctionInvoke(
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
-      dynamic children,
+      dynamic children = const <Widget>[],
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
+      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =  ScrollViewKeyboardDismissBehavior.manual,
       }
     ) =>
       ListView(
@@ -127,7 +127,7 @@ var _listView_builder = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.vertical,
+      Axis scrollDirection =  Axis.vertical,
       bool reverse = false,
       ScrollController controller,
       bool primary,
@@ -142,7 +142,7 @@ var _listView_builder = MXFunctionInvoke(
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
       int semanticChildCount,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       }
     ) =>
       ListView.builder(
@@ -170,7 +170,7 @@ var _listView_separated = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.vertical,
+      Axis scrollDirection =  Axis.vertical,
       bool reverse = false,
       ScrollController controller,
       bool primary,
@@ -184,7 +184,7 @@ var _listView_separated = MXFunctionInvoke(
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
-      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
+      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =  ScrollViewKeyboardDismissBehavior.manual,
       }
     ) =>
       ListView.separated(
@@ -211,7 +211,7 @@ var _listView_custom = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.vertical,
+      Axis scrollDirection =  Axis.vertical,
       bool reverse = false,
       ScrollController controller,
       bool primary,
@@ -244,7 +244,7 @@ var _gridView = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.vertical,
+      Axis scrollDirection =  Axis.vertical,
       bool reverse = false,
       ScrollController controller,
       bool primary,
@@ -256,7 +256,7 @@ var _gridView = MXFunctionInvoke(
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
-      dynamic children,
+      dynamic children = const <Widget>[],
       int semanticChildCount,
       }
     ) =>
@@ -324,7 +324,7 @@ var _gridView_custom = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.vertical,
+      Axis scrollDirection =  Axis.vertical,
       bool reverse = false,
       ScrollController controller,
       bool primary,
@@ -335,7 +335,7 @@ var _gridView_custom = MXFunctionInvoke(
       SliverChildDelegate childrenDelegate,
       dynamic cacheExtent,
       int semanticChildCount,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
       }
     ) =>
       GridView.custom(
@@ -359,7 +359,7 @@ var _gridView_count = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.vertical,
+      Axis scrollDirection =  Axis.vertical,
       bool reverse = false,
       ScrollController controller,
       bool primary,
@@ -374,7 +374,7 @@ var _gridView_count = MXFunctionInvoke(
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
-      dynamic children,
+      dynamic children = const <Widget>[],
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }
@@ -406,7 +406,7 @@ var _gridView_extent = MXFunctionInvoke(
     (
       {
       Key key,
-      Axis scrollDirection = Axis.vertical,
+      Axis scrollDirection =  Axis.vertical,
       bool reverse = false,
       ScrollController controller,
       bool primary,
@@ -420,7 +420,7 @@ var _gridView_extent = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      dynamic children,
+      dynamic children = const <Widget>[],
       int semanticChildCount,
       DragStartBehavior dragStartBehavior = DragStartBehavior.start,
       }

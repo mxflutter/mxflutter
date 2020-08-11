@@ -43,7 +43,7 @@ var _multiTapGestureRecognizer = MXFunctionInvoke(
     "MultiTapGestureRecognizer",
     (
       {
-      Duration longTapDelay,
+      Duration longTapDelay = Duration.zero,
       Object debugOwner,
       PointerDeviceKind kind,
       }

@@ -33,11 +33,11 @@ var _cupertinoAlertDialog = MXFunctionInvoke(
       Key key,
       Widget title,
       Widget content,
-      dynamic actions,
+      dynamic actions = const <Widget>[],
       ScrollController scrollController,
       ScrollController actionScrollController,
-      Duration insetAnimationDuration,
-      Curve insetAnimationCurve,
+      Duration insetAnimationDuration = const Duration(milliseconds: 100),
+      Curve insetAnimationCurve = Curves.decelerate,
       }
     ) =>
       CupertinoAlertDialog(

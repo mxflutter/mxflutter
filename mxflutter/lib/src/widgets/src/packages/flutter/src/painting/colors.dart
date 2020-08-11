@@ -98,9 +98,9 @@ var _colorProperty = MXFunctionInvoke(
       String name,
       Color value,
       bool showName = true,
-      Object defaultValue,
+      Object defaultValue = kNoDefaultValue,
       DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level = DiagnosticLevel.info,
+      DiagnosticLevel level =  DiagnosticLevel.info,
       }
     ) =>
       ColorProperty(

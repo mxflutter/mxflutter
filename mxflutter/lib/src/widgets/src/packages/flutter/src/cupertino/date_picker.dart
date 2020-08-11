@@ -68,11 +68,11 @@ var _cupertinoTimerPicker = MXFunctionInvoke(
     (
       {
       Key key,
-      CupertinoTimerPickerMode mode = CupertinoTimerPickerMode.hms,
-      Duration initialTimerDuration,
+      CupertinoTimerPickerMode mode =  CupertinoTimerPickerMode.hms,
+      Duration initialTimerDuration = Duration.zero,
       int minuteInterval = 1,
       int secondInterval = 1,
-      AlignmentGeometry alignment,
+      AlignmentGeometry alignment = Alignment.center,
       Color backgroundColor,
       dynamic onTimerDurationChanged,
       }

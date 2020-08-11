@@ -49,7 +49,7 @@ var _renderEditable = MXFunctionInvoke(
       {
       TextSpan text,
       ui.TextDirection textDirection,
-      ui.TextAlign textAlign = ui.TextAlign.start,
+      ui.TextAlign textAlign = TextAlign.start,
       ui.Color cursorColor,
       ui.Color backgroundCursorColor,
       ValueNotifier<bool> showCursor,
@@ -69,7 +69,7 @@ var _renderEditable = MXFunctionInvoke(
       bool ignorePointer = false,
       bool readOnly = false,
       bool forceLine = true,
-      TextWidthBasis textWidthBasis = TextWidthBasis.parent,
+      TextWidthBasis textWidthBasis =  TextWidthBasis.parent,
       bool obscureText = false,
       ui.Locale locale,
       dynamic cursorWidth = 1.0,
@@ -77,10 +77,10 @@ var _renderEditable = MXFunctionInvoke(
       bool paintCursorAboveText = false,
       ui.Offset cursorOffset,
       dynamic devicePixelRatio = 1.0,
-      ui.BoxHeightStyle selectionHeightStyle = ui.BoxHeightStyle.tight,
-      ui.BoxWidthStyle selectionWidthStyle = ui.BoxWidthStyle.tight,
+      ui.BoxHeightStyle selectionHeightStyle =  BoxHeightStyle.tight,
+      ui.BoxWidthStyle selectionWidthStyle =  BoxWidthStyle.tight,
       bool enableInteractiveSelection,
-      EdgeInsets floatingCursorAddedMargin,
+      EdgeInsets floatingCursorAddedMargin = const EdgeInsets.fromLTRB(4.0, 4.0, 4.0, 5.0),
       TextSelectionDelegate textSelectionDelegate,
       }
     ) =>

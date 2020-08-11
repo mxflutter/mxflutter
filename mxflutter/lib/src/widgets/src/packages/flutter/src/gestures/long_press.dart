@@ -26,7 +26,7 @@ var _longPressStartDetails = MXFunctionInvoke(
     "LongPressStartDetails",
     (
       {
-      Offset globalPosition,
+      Offset globalPosition = Offset.zero,
       Offset localPosition,
       }
     ) =>
@@ -39,9 +39,9 @@ var _longPressMoveUpdateDetails = MXFunctionInvoke(
     "LongPressMoveUpdateDetails",
     (
       {
-      Offset globalPosition,
+      Offset globalPosition = Offset.zero,
       Offset localPosition,
-      Offset offsetFromOrigin,
+      Offset offsetFromOrigin = Offset.zero,
       Offset localOffsetFromOrigin,
       }
     ) =>
@@ -56,9 +56,9 @@ var _longPressEndDetails = MXFunctionInvoke(
     "LongPressEndDetails",
     (
       {
-      Offset globalPosition,
+      Offset globalPosition = Offset.zero,
       Offset localPosition,
-      Velocity velocity,
+      Velocity velocity = Velocity.zero,
       }
     ) =>
       LongPressEndDetails(

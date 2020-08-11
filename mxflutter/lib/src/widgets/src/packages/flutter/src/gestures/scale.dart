@@ -28,7 +28,7 @@ var _scaleStartDetails = MXFunctionInvoke(
     "ScaleStartDetails",
     (
       {
-      Offset focalPoint,
+      Offset focalPoint = Offset.zero,
       Offset localFocalPoint,
       }
     ) =>
@@ -41,7 +41,7 @@ var _scaleUpdateDetails = MXFunctionInvoke(
     "ScaleUpdateDetails",
     (
       {
-      Offset focalPoint,
+      Offset focalPoint = Offset.zero,
       Offset localFocalPoint,
       dynamic scale = 1.0,
       dynamic horizontalScale = 1.0,
@@ -62,7 +62,7 @@ var _scaleEndDetails = MXFunctionInvoke(
     "ScaleEndDetails",
     (
       {
-      Velocity velocity,
+      Velocity velocity = Velocity.zero,
       }
     ) =>
       ScaleEndDetails(

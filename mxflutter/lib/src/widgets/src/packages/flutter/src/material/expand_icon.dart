@@ -30,7 +30,7 @@ var _expandIcon = MXFunctionInvoke(
       bool isExpanded = false,
       dynamic size = 24.0,
       dynamic onPressed,
-      EdgeInsetsGeometry padding,
+      EdgeInsetsGeometry padding = const EdgeInsets.all(8.0),
       Color color,
       Color disabledColor,
       Color expandedColor,

@@ -45,7 +45,7 @@ var _buttonTheme = MXFunctionInvoke(
       {
       Key key,
       ButtonTextTheme textTheme = ButtonTextTheme.normal,
-      ButtonBarLayoutBehavior layoutBehavior = ButtonBarLayoutBehavior.padded,
+      ButtonBarLayoutBehavior layoutBehavior =  ButtonBarLayoutBehavior.padded,
       dynamic minWidth = 88.0,
       dynamic height = 36.0,
       EdgeInsetsGeometry padding,
@@ -102,10 +102,10 @@ var _buttonTheme_bar = MXFunctionInvoke(
     (
       {
       Key key,
-      ButtonTextTheme textTheme = ButtonTextTheme.accent,
+      ButtonTextTheme textTheme =  ButtonTextTheme.accent,
       dynamic minWidth = 64.0,
       dynamic height = 36.0,
-      EdgeInsetsGeometry padding,
+      EdgeInsetsGeometry padding = const EdgeInsets.symmetric(horizontal: 8.0),
       ShapeBorder shape,
       bool alignedDropdown = false,
       Color buttonColor,
@@ -116,7 +116,7 @@ var _buttonTheme_bar = MXFunctionInvoke(
       Color splashColor,
       ColorScheme colorScheme,
       Widget child,
-      ButtonBarLayoutBehavior layoutBehavior = ButtonBarLayoutBehavior.padded,
+      ButtonBarLayoutBehavior layoutBehavior =  ButtonBarLayoutBehavior.padded,
       }
     ) =>
       ButtonTheme.bar(
@@ -142,12 +142,12 @@ var _buttonThemeData = MXFunctionInvoke(
     "ButtonThemeData",
     (
       {
-      ButtonTextTheme textTheme = ButtonTextTheme.normal,
+      ButtonTextTheme textTheme =  ButtonTextTheme.normal,
       dynamic minWidth = 88.0,
       dynamic height = 36.0,
       EdgeInsetsGeometry padding,
       ShapeBorder shape,
-      ButtonBarLayoutBehavior layoutBehavior = ButtonBarLayoutBehavior.padded,
+      ButtonBarLayoutBehavior layoutBehavior =  ButtonBarLayoutBehavior.padded,
       bool alignedDropdown = false,
       Color buttonColor,
       Color disabledColor,

@@ -30,7 +30,7 @@ var _expansionTile = MXFunctionInvoke(
       Widget subtitle,
       Color backgroundColor,
       dynamic onExpansionChanged,
-      dynamic children,
+      dynamic children = const <Widget>[],
       Widget trailing,
       bool initiallyExpanded = false,
       }

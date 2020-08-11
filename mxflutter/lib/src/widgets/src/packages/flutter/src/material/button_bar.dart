@@ -36,7 +36,7 @@ var _buttonBar = MXFunctionInvoke(
       ButtonBarLayoutBehavior layoutBehavior,
       VerticalDirection overflowDirection,
       dynamic overflowButtonSpacing,
-      dynamic children,
+      dynamic children = const <Widget>[],
       }
     ) =>
       ButtonBar(
