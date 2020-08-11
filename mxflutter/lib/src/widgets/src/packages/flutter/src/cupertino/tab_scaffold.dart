@@ -41,12 +41,16 @@ var _cupertinoTabScaffold = MXFunctionInvoke(
       CupertinoTabController controller,
       Color backgroundColor,
       bool resizeToAvoidBottomInset = true,
+      dynamic children,
       }
     ) =>
       CupertinoTabScaffold(
       key: key,
       tabBar: tabBar,
-      tabBuilder: null,
+      tabBuilder: (BuildContext context, int index) {
+        List<Widget> list = toListT<Widget>(children);
+        return list[index];
+      },
       controller: controller,
       backgroundColor: backgroundColor,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,

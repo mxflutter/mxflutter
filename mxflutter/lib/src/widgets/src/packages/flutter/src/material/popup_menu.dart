@@ -114,11 +114,14 @@ var _popupMenuButton = MXFunctionInvoke(
       ShapeBorder shape,
       Color color,
       bool captureInheritedThemes = true,
+      dynamic children,
       }
     ) =>
       PopupMenuButton(
       key: key,
-      itemBuilder: null,
+      itemBuilder: (BuildContext context) {
+          return toListT<PopupMenuEntry>(children);
+      },
       initialValue: initialValue,
       onSelected: createValueChangedGenericClosure<dynamic>(_popupMenuButton.buildOwner, onSelected),
       onCanceled: createVoidCallbackClosure(_popupMenuButton.buildOwner, onCanceled),

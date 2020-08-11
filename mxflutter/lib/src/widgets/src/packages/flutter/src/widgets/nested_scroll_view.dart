@@ -55,6 +55,7 @@ var _nestedScrollView = MXFunctionInvoke(
       dynamic headerSliverBuilder,
       Widget body,
       DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
+      dynamic children,
       }
     ) =>
       NestedScrollView(
@@ -63,7 +64,9 @@ var _nestedScrollView = MXFunctionInvoke(
       scrollDirection: scrollDirection,
       reverse: reverse,
       physics: physics,
-      headerSliverBuilder: null,
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return toListT<Widget>(children);
+      },
       body: body,
       dragStartBehavior: dragStartBehavior,
     ),

@@ -44,10 +44,14 @@ var _sliverChildBuilderDelegate = MXFunctionInvoke(
       bool addSemanticIndexes = true,
       dynamic semanticIndexCallback,
       int semanticIndexOffset = 0,
+      dynamic children,
       }
     ) =>
       SliverChildBuilderDelegate(
-      null,
+      (BuildContext context, int index) {
+        List<Widget> list = toListT<Widget>(children);
+        return list[index];
+      },
       findChildIndexCallback: null,
       childCount: childCount,
       addAutomaticKeepAlives: addAutomaticKeepAlives,

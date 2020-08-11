@@ -1651,11 +1651,14 @@ var _builder = MXFunctionInvoke(
       {
       Key key,
       dynamic builder,
+      dynamic child,
       }
     ) =>
       Builder(
       key: key,
-      builder: null,
+      builder: (BuildContext context) {
+        return child;
+      },
     ),
 );
 var _statefulBuilder = MXFunctionInvoke(
