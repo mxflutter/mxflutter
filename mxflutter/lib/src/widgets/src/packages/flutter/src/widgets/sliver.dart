@@ -42,7 +42,7 @@ var _sliverChildBuilderDelegate = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback = _kDefaultSemanticIndexCallback,
+      dynamic semanticIndexCallback,
       int semanticIndexOffset = 0,
       }
     ) =>
@@ -53,7 +53,9 @@ var _sliverChildBuilderDelegate = MXFunctionInvoke(
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
-      semanticIndexCallback: null,
+      semanticIndexCallback: semanticIndexCallback != null ? createGenericTwoParamsClosure<int, Widget, int>(_sliverChildListDelegate.buildOwner, semanticIndexCallback) : (Widget widget, int localIndex) {
+        return localIndex;
+      },
       semanticIndexOffset: semanticIndexOffset,
     ),
 );
@@ -65,7 +67,7 @@ var _sliverChildListDelegate = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback =  _kDefaultSemanticIndexCallback,
+      dynamic semanticIndexCallback,
       int semanticIndexOffset = 0,
       }
     ) =>
@@ -88,7 +90,7 @@ var _sliverChildListDelegate_fixed = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback =  _kDefaultSemanticIndexCallback,
+      dynamic semanticIndexCallback,
       int semanticIndexOffset = 0,
       }
     ) =>
@@ -97,7 +99,9 @@ var _sliverChildListDelegate_fixed = MXFunctionInvoke(
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
-      semanticIndexCallback: null,
+      semanticIndexCallback: semanticIndexCallback != null ? createGenericTwoParamsClosure<int, Widget, int>(_sliverChildListDelegate.buildOwner, semanticIndexCallback) : (Widget widget, int localIndex) {
+        return localIndex;
+      },
       semanticIndexOffset: semanticIndexOffset,
     ),
 );

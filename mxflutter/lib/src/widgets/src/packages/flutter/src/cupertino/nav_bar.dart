@@ -46,7 +46,7 @@ var _cupertinoNavigationBar = MXFunctionInvoke(
       EdgeInsetsDirectional padding,
       Color actionsForegroundColor,
       bool transitionBetweenRoutes = true,
-      Object heroTag = const _HeroTag(null),
+      // Object heroTag = const _HeroTag(null),
       }
     ) =>
       CupertinoNavigationBar(
@@ -63,7 +63,7 @@ var _cupertinoNavigationBar = MXFunctionInvoke(
       padding: padding,
       actionsForegroundColor: actionsForegroundColor,
       transitionBetweenRoutes: transitionBetweenRoutes,
-      heroTag: heroTag,
+      // heroTag: heroTag,
     ),
 );
 var _cupertinoSliverNavigationBar = MXFunctionInvoke(
@@ -84,7 +84,7 @@ var _cupertinoSliverNavigationBar = MXFunctionInvoke(
       EdgeInsetsDirectional padding,
       Color actionsForegroundColor,
       bool transitionBetweenRoutes = true,
-      Object heroTag = const _HeroTag(null),
+      // Object heroTag = const _HeroTag(null),
       }
     ) =>
       CupertinoSliverNavigationBar(
@@ -102,7 +102,7 @@ var _cupertinoSliverNavigationBar = MXFunctionInvoke(
       padding: padding,
       actionsForegroundColor: actionsForegroundColor,
       transitionBetweenRoutes: transitionBetweenRoutes,
-      heroTag: heroTag,
+      // heroTag: heroTag,
     ),
 );
 var _cupertinoNavigationBarBackButton = MXFunctionInvoke(

@@ -39,7 +39,7 @@ var _dismissible = MXFunctionInvoke(
       dynamic onResize,
       dynamic onDismissed,
       DismissDirection direction = DismissDirection.horizontal,
-      Duration resizeDuration = kTabScrollDuration,
+      Duration resizeDuration = const Duration(milliseconds: 300),
       dynamic dismissThresholds = const <DismissDirection, double>{},
       Duration movementDuration = const Duration(milliseconds: 200),
       dynamic crossAxisEndOffset = 0.0,

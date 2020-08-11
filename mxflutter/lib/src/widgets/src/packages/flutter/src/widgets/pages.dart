@@ -24,8 +24,8 @@ var _pageRouteBuilder = MXFunctionInvoke(
       {
       RouteSettings settings,
       dynamic pageBuilder,
-      dynamic transitionsBuilder = _defaultTransitionsBuilder,
-      Duration transitionDuration = kTabScrollDuration,
+      dynamic transitionsBuilder,
+      Duration transitionDuration = const Duration(milliseconds: 300),
       bool opaque = true,
       bool barrierDismissible = false,
       Color barrierColor,
