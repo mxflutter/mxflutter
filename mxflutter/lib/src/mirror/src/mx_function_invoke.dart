@@ -11,8 +11,9 @@ class MXFunctionInvoke {
   String funName;
   Function fun;
   MXJsonBuildOwner buildOwner;
+  List<String> noJ2DProps;
 
-  MXFunctionInvoke(this.funName, this.fun);
+  MXFunctionInvoke(this.funName, this.fun, {this.noJ2DProps});
 
   /// 调用方法
   /// argument: 命名参数
