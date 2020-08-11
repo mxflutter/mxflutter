@@ -36,6 +36,10 @@ typedef GenericFiveGenericParamsCallback<R, T, S, W, V, U> = R Function(
 /// VoidCallback闭包
 VoidCallback createVoidCallbackClosure(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+  
   VoidCallback cb = () {
     bo.eventCallback(eventCallbackID);
   };
