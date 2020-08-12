@@ -166,17 +166,17 @@ var _cupertinoIcons_iconFontPackage = MXFunctionInvoke(
     ) =>
       CupertinoIcons.iconFontPackage
 );
-var _cupertinoIcons_leftchevron = MXFunctionInvoke(
-  "CupertinoIcons.leftchevron",
+var _cupertinoIcons_left_chevron = MXFunctionInvoke(
+  "CupertinoIcons.left_chevron",
     (
     ) =>
-      CupertinoIcons.leftchevron
+      CupertinoIcons.left_chevron
 );
-var _cupertinoIcons_rightchevron = MXFunctionInvoke(
-  "CupertinoIcons.rightchevron",
+var _cupertinoIcons_right_chevron = MXFunctionInvoke(
+  "CupertinoIcons.right_chevron",
     (
     ) =>
-      CupertinoIcons.rightchevron
+      CupertinoIcons.right_chevron
 );
 var _cupertinoIcons_share = MXFunctionInvoke(
   "CupertinoIcons.share",
@@ -184,11 +184,11 @@ var _cupertinoIcons_share = MXFunctionInvoke(
     ) =>
       CupertinoIcons.share
 );
-var _cupertinoIcons_sharesolid = MXFunctionInvoke(
-  "CupertinoIcons.sharesolid",
+var _cupertinoIcons_share_solid = MXFunctionInvoke(
+  "CupertinoIcons.share_solid",
     (
     ) =>
-      CupertinoIcons.sharesolid
+      CupertinoIcons.share_solid
 );
 var _cupertinoIcons_book = MXFunctionInvoke(
   "CupertinoIcons.book",
@@ -196,11 +196,11 @@ var _cupertinoIcons_book = MXFunctionInvoke(
     ) =>
       CupertinoIcons.book
 );
-var _cupertinoIcons_booksolid = MXFunctionInvoke(
-  "CupertinoIcons.booksolid",
+var _cupertinoIcons_book_solid = MXFunctionInvoke(
+  "CupertinoIcons.book_solid",
     (
     ) =>
-      CupertinoIcons.booksolid
+      CupertinoIcons.book_solid
 );
 var _cupertinoIcons_bookmark = MXFunctionInvoke(
   "CupertinoIcons.bookmark",
@@ -208,11 +208,11 @@ var _cupertinoIcons_bookmark = MXFunctionInvoke(
     ) =>
       CupertinoIcons.bookmark
 );
-var _cupertinoIcons_bookmarksolid = MXFunctionInvoke(
-  "CupertinoIcons.bookmarksolid",
+var _cupertinoIcons_bookmark_solid = MXFunctionInvoke(
+  "CupertinoIcons.bookmark_solid",
     (
     ) =>
-      CupertinoIcons.bookmarksolid
+      CupertinoIcons.bookmark_solid
 );
 var _cupertinoIcons_info = MXFunctionInvoke(
   "CupertinoIcons.info",
@@ -226,29 +226,29 @@ var _cupertinoIcons_reply = MXFunctionInvoke(
     ) =>
       CupertinoIcons.reply
 );
-var _cupertinoIcons_conversationbubble = MXFunctionInvoke(
-  "CupertinoIcons.conversationbubble",
+var _cupertinoIcons_conversation_bubble = MXFunctionInvoke(
+  "CupertinoIcons.conversation_bubble",
     (
     ) =>
-      CupertinoIcons.conversationbubble
+      CupertinoIcons.conversation_bubble
 );
-var _cupertinoIcons_profilecircled = MXFunctionInvoke(
-  "CupertinoIcons.profilecircled",
+var _cupertinoIcons_profile_circled = MXFunctionInvoke(
+  "CupertinoIcons.profile_circled",
     (
     ) =>
-      CupertinoIcons.profilecircled
+      CupertinoIcons.profile_circled
 );
-var _cupertinoIcons_pluscircled = MXFunctionInvoke(
-  "CupertinoIcons.pluscircled",
+var _cupertinoIcons_plus_circled = MXFunctionInvoke(
+  "CupertinoIcons.plus_circled",
     (
     ) =>
-      CupertinoIcons.pluscircled
+      CupertinoIcons.plus_circled
 );
-var _cupertinoIcons_minuscircled = MXFunctionInvoke(
-  "CupertinoIcons.minuscircled",
+var _cupertinoIcons_minus_circled = MXFunctionInvoke(
+  "CupertinoIcons.minus_circled",
     (
     ) =>
-      CupertinoIcons.minuscircled
+      CupertinoIcons.minus_circled
 );
 var _cupertinoIcons_flag = MXFunctionInvoke(
   "CupertinoIcons.flag",
@@ -262,23 +262,23 @@ var _cupertinoIcons_search = MXFunctionInvoke(
     ) =>
       CupertinoIcons.search
 );
-var _cupertinoIcons_checkmark = MXFunctionInvoke(
-  "CupertinoIcons.checkmark",
+var _cupertinoIcons_check_mark = MXFunctionInvoke(
+  "CupertinoIcons.check_mark",
     (
     ) =>
-      CupertinoIcons.checkmark
+      CupertinoIcons.check_mark
 );
-var _cupertinoIcons_checkmarkcircled = MXFunctionInvoke(
-  "CupertinoIcons.checkmarkcircled",
+var _cupertinoIcons_check_mark_circled = MXFunctionInvoke(
+  "CupertinoIcons.check_mark_circled",
     (
     ) =>
-      CupertinoIcons.checkmarkcircled
+      CupertinoIcons.check_mark_circled
 );
-var _cupertinoIcons_checkmarkcircledsolid = MXFunctionInvoke(
-  "CupertinoIcons.checkmarkcircledsolid",
+var _cupertinoIcons_check_mark_circled_solid = MXFunctionInvoke(
+  "CupertinoIcons.check_mark_circled_solid",
     (
     ) =>
-      CupertinoIcons.checkmarkcircledsolid
+      CupertinoIcons.check_mark_circled_solid
 );
 var _cupertinoIcons_circle = MXFunctionInvoke(
   "CupertinoIcons.circle",
@@ -286,11 +286,11 @@ var _cupertinoIcons_circle = MXFunctionInvoke(
     ) =>
       CupertinoIcons.circle
 );
-var _cupertinoIcons_circlefilled = MXFunctionInvoke(
-  "CupertinoIcons.circlefilled",
+var _cupertinoIcons_circle_filled = MXFunctionInvoke(
+  "CupertinoIcons.circle_filled",
     (
     ) =>
-      CupertinoIcons.circlefilled
+      CupertinoIcons.circle_filled
 );
 var _cupertinoIcons_back = MXFunctionInvoke(
   "CupertinoIcons.back",
@@ -310,11 +310,11 @@ var _cupertinoIcons_home = MXFunctionInvoke(
     ) =>
       CupertinoIcons.home
 );
-var _cupertinoIcons_shoppingcart = MXFunctionInvoke(
-  "CupertinoIcons.shoppingcart",
+var _cupertinoIcons_shopping_cart = MXFunctionInvoke(
+  "CupertinoIcons.shopping_cart",
     (
     ) =>
-      CupertinoIcons.shoppingcart
+      CupertinoIcons.shopping_cart
 );
 var _cupertinoIcons_ellipsis = MXFunctionInvoke(
   "CupertinoIcons.ellipsis",
@@ -328,53 +328,53 @@ var _cupertinoIcons_phone = MXFunctionInvoke(
     ) =>
       CupertinoIcons.phone
 );
-var _cupertinoIcons_phonesolid = MXFunctionInvoke(
-  "CupertinoIcons.phonesolid",
+var _cupertinoIcons_phone_solid = MXFunctionInvoke(
+  "CupertinoIcons.phone_solid",
     (
     ) =>
-      CupertinoIcons.phonesolid
+      CupertinoIcons.phone_solid
 );
-var _cupertinoIcons_downarrow = MXFunctionInvoke(
-  "CupertinoIcons.downarrow",
+var _cupertinoIcons_down_arrow = MXFunctionInvoke(
+  "CupertinoIcons.down_arrow",
     (
     ) =>
-      CupertinoIcons.downarrow
+      CupertinoIcons.down_arrow
 );
-var _cupertinoIcons_uparrow = MXFunctionInvoke(
-  "CupertinoIcons.uparrow",
+var _cupertinoIcons_up_arrow = MXFunctionInvoke(
+  "CupertinoIcons.up_arrow",
     (
     ) =>
-      CupertinoIcons.uparrow
+      CupertinoIcons.up_arrow
 );
-var _cupertinoIcons_batterycharging = MXFunctionInvoke(
-  "CupertinoIcons.batterycharging",
+var _cupertinoIcons_battery_charging = MXFunctionInvoke(
+  "CupertinoIcons.battery_charging",
     (
     ) =>
-      CupertinoIcons.batterycharging
+      CupertinoIcons.battery_charging
 );
-var _cupertinoIcons_batteryempty = MXFunctionInvoke(
-  "CupertinoIcons.batteryempty",
+var _cupertinoIcons_battery_empty = MXFunctionInvoke(
+  "CupertinoIcons.battery_empty",
     (
     ) =>
-      CupertinoIcons.batteryempty
+      CupertinoIcons.battery_empty
 );
-var _cupertinoIcons_batteryfull = MXFunctionInvoke(
-  "CupertinoIcons.batteryfull",
+var _cupertinoIcons_battery_full = MXFunctionInvoke(
+  "CupertinoIcons.battery_full",
     (
     ) =>
-      CupertinoIcons.batteryfull
+      CupertinoIcons.battery_full
 );
-var _cupertinoIcons_battery75percent = MXFunctionInvoke(
-  "CupertinoIcons.battery75percent",
+var _cupertinoIcons_battery_75_percent = MXFunctionInvoke(
+  "CupertinoIcons.battery_75_percent",
     (
     ) =>
-      CupertinoIcons.battery75percent
+      CupertinoIcons.battery_75_percent
 );
-var _cupertinoIcons_battery25percent = MXFunctionInvoke(
-  "CupertinoIcons.battery25percent",
+var _cupertinoIcons_battery_25_percent = MXFunctionInvoke(
+  "CupertinoIcons.battery_25_percent",
     (
     ) =>
-      CupertinoIcons.battery25percent
+      CupertinoIcons.battery_25_percent
 );
 var _cupertinoIcons_bluetooth = MXFunctionInvoke(
   "CupertinoIcons.bluetooth",
@@ -388,23 +388,23 @@ var _cupertinoIcons_restart = MXFunctionInvoke(
     ) =>
       CupertinoIcons.restart
 );
-var _cupertinoIcons_replyall = MXFunctionInvoke(
-  "CupertinoIcons.replyall",
+var _cupertinoIcons_reply_all = MXFunctionInvoke(
+  "CupertinoIcons.reply_all",
     (
     ) =>
-      CupertinoIcons.replyall
+      CupertinoIcons.reply_all
 );
-var _cupertinoIcons_replythicksolid = MXFunctionInvoke(
-  "CupertinoIcons.replythicksolid",
+var _cupertinoIcons_reply_thick_solid = MXFunctionInvoke(
+  "CupertinoIcons.reply_thick_solid",
     (
     ) =>
-      CupertinoIcons.replythicksolid
+      CupertinoIcons.reply_thick_solid
 );
-var _cupertinoIcons_shareup = MXFunctionInvoke(
-  "CupertinoIcons.shareup",
+var _cupertinoIcons_share_up = MXFunctionInvoke(
+  "CupertinoIcons.share_up",
     (
     ) =>
-      CupertinoIcons.shareup
+      CupertinoIcons.share_up
 );
 var _cupertinoIcons_shuffle = MXFunctionInvoke(
   "CupertinoIcons.shuffle",
@@ -412,53 +412,53 @@ var _cupertinoIcons_shuffle = MXFunctionInvoke(
     ) =>
       CupertinoIcons.shuffle
 );
-var _cupertinoIcons_shufflemedium = MXFunctionInvoke(
-  "CupertinoIcons.shufflemedium",
+var _cupertinoIcons_shuffle_medium = MXFunctionInvoke(
+  "CupertinoIcons.shuffle_medium",
     (
     ) =>
-      CupertinoIcons.shufflemedium
+      CupertinoIcons.shuffle_medium
 );
-var _cupertinoIcons_shufflethick = MXFunctionInvoke(
-  "CupertinoIcons.shufflethick",
+var _cupertinoIcons_shuffle_thick = MXFunctionInvoke(
+  "CupertinoIcons.shuffle_thick",
     (
     ) =>
-      CupertinoIcons.shufflethick
+      CupertinoIcons.shuffle_thick
 );
-var _cupertinoIcons_photocamera = MXFunctionInvoke(
-  "CupertinoIcons.photocamera",
+var _cupertinoIcons_photo_camera = MXFunctionInvoke(
+  "CupertinoIcons.photo_camera",
     (
     ) =>
-      CupertinoIcons.photocamera
+      CupertinoIcons.photo_camera
 );
-var _cupertinoIcons_photocamerasolid = MXFunctionInvoke(
-  "CupertinoIcons.photocamerasolid",
+var _cupertinoIcons_photo_camera_solid = MXFunctionInvoke(
+  "CupertinoIcons.photo_camera_solid",
     (
     ) =>
-      CupertinoIcons.photocamerasolid
+      CupertinoIcons.photo_camera_solid
 );
-var _cupertinoIcons_videocamera = MXFunctionInvoke(
-  "CupertinoIcons.videocamera",
+var _cupertinoIcons_video_camera = MXFunctionInvoke(
+  "CupertinoIcons.video_camera",
     (
     ) =>
-      CupertinoIcons.videocamera
+      CupertinoIcons.video_camera
 );
-var _cupertinoIcons_videocamerasolid = MXFunctionInvoke(
-  "CupertinoIcons.videocamerasolid",
+var _cupertinoIcons_video_camera_solid = MXFunctionInvoke(
+  "CupertinoIcons.video_camera_solid",
     (
     ) =>
-      CupertinoIcons.videocamerasolid
+      CupertinoIcons.video_camera_solid
 );
-var _cupertinoIcons_switchcamera = MXFunctionInvoke(
-  "CupertinoIcons.switchcamera",
+var _cupertinoIcons_switch_camera = MXFunctionInvoke(
+  "CupertinoIcons.switch_camera",
     (
     ) =>
-      CupertinoIcons.switchcamera
+      CupertinoIcons.switch_camera
 );
-var _cupertinoIcons_switchcamerasolid = MXFunctionInvoke(
-  "CupertinoIcons.switchcamerasolid",
+var _cupertinoIcons_switch_camera_solid = MXFunctionInvoke(
+  "CupertinoIcons.switch_camera_solid",
     (
     ) =>
-      CupertinoIcons.switchcamerasolid
+      CupertinoIcons.switch_camera_solid
 );
 var _cupertinoIcons_collections = MXFunctionInvoke(
   "CupertinoIcons.collections",
@@ -466,11 +466,11 @@ var _cupertinoIcons_collections = MXFunctionInvoke(
     ) =>
       CupertinoIcons.collections
 );
-var _cupertinoIcons_collectionssolid = MXFunctionInvoke(
-  "CupertinoIcons.collectionssolid",
+var _cupertinoIcons_collections_solid = MXFunctionInvoke(
+  "CupertinoIcons.collections_solid",
     (
     ) =>
-      CupertinoIcons.collectionssolid
+      CupertinoIcons.collections_solid
 );
 var _cupertinoIcons_folder = MXFunctionInvoke(
   "CupertinoIcons.folder",
@@ -478,17 +478,17 @@ var _cupertinoIcons_folder = MXFunctionInvoke(
     ) =>
       CupertinoIcons.folder
 );
-var _cupertinoIcons_foldersolid = MXFunctionInvoke(
-  "CupertinoIcons.foldersolid",
+var _cupertinoIcons_folder_solid = MXFunctionInvoke(
+  "CupertinoIcons.folder_solid",
     (
     ) =>
-      CupertinoIcons.foldersolid
+      CupertinoIcons.folder_solid
 );
-var _cupertinoIcons_folderopen = MXFunctionInvoke(
-  "CupertinoIcons.folderopen",
+var _cupertinoIcons_folder_open = MXFunctionInvoke(
+  "CupertinoIcons.folder_open",
     (
     ) =>
-      CupertinoIcons.folderopen
+      CupertinoIcons.folder_open
 );
 var _cupertinoIcons_delete = MXFunctionInvoke(
   "CupertinoIcons.delete",
@@ -496,17 +496,17 @@ var _cupertinoIcons_delete = MXFunctionInvoke(
     ) =>
       CupertinoIcons.delete
 );
-var _cupertinoIcons_deletesolid = MXFunctionInvoke(
-  "CupertinoIcons.deletesolid",
+var _cupertinoIcons_delete_solid = MXFunctionInvoke(
+  "CupertinoIcons.delete_solid",
     (
     ) =>
-      CupertinoIcons.deletesolid
+      CupertinoIcons.delete_solid
 );
-var _cupertinoIcons_deletesimple = MXFunctionInvoke(
-  "CupertinoIcons.deletesimple",
+var _cupertinoIcons_delete_simple = MXFunctionInvoke(
+  "CupertinoIcons.delete_simple",
     (
     ) =>
-      CupertinoIcons.deletesimple
+      CupertinoIcons.delete_simple
 );
 var _cupertinoIcons_pen = MXFunctionInvoke(
   "CupertinoIcons.pen",
@@ -526,11 +526,11 @@ var _cupertinoIcons_create = MXFunctionInvoke(
     ) =>
       CupertinoIcons.create
 );
-var _cupertinoIcons_createsolid = MXFunctionInvoke(
-  "CupertinoIcons.createsolid",
+var _cupertinoIcons_create_solid = MXFunctionInvoke(
+  "CupertinoIcons.create_solid",
     (
     ) =>
-      CupertinoIcons.createsolid
+      CupertinoIcons.create_solid
 );
 var _cupertinoIcons_refresh = MXFunctionInvoke(
   "CupertinoIcons.refresh",
@@ -538,47 +538,47 @@ var _cupertinoIcons_refresh = MXFunctionInvoke(
     ) =>
       CupertinoIcons.refresh
 );
-var _cupertinoIcons_refreshcircled = MXFunctionInvoke(
-  "CupertinoIcons.refreshcircled",
+var _cupertinoIcons_refresh_circled = MXFunctionInvoke(
+  "CupertinoIcons.refresh_circled",
     (
     ) =>
-      CupertinoIcons.refreshcircled
+      CupertinoIcons.refresh_circled
 );
-var _cupertinoIcons_refreshcircledsolid = MXFunctionInvoke(
-  "CupertinoIcons.refreshcircledsolid",
+var _cupertinoIcons_refresh_circled_solid = MXFunctionInvoke(
+  "CupertinoIcons.refresh_circled_solid",
     (
     ) =>
-      CupertinoIcons.refreshcircledsolid
+      CupertinoIcons.refresh_circled_solid
 );
-var _cupertinoIcons_refreshthin = MXFunctionInvoke(
-  "CupertinoIcons.refreshthin",
+var _cupertinoIcons_refresh_thin = MXFunctionInvoke(
+  "CupertinoIcons.refresh_thin",
     (
     ) =>
-      CupertinoIcons.refreshthin
+      CupertinoIcons.refresh_thin
 );
-var _cupertinoIcons_refreshthick = MXFunctionInvoke(
-  "CupertinoIcons.refreshthick",
+var _cupertinoIcons_refresh_thick = MXFunctionInvoke(
+  "CupertinoIcons.refresh_thick",
     (
     ) =>
-      CupertinoIcons.refreshthick
+      CupertinoIcons.refresh_thick
 );
-var _cupertinoIcons_refreshbold = MXFunctionInvoke(
-  "CupertinoIcons.refreshbold",
+var _cupertinoIcons_refresh_bold = MXFunctionInvoke(
+  "CupertinoIcons.refresh_bold",
     (
     ) =>
-      CupertinoIcons.refreshbold
+      CupertinoIcons.refresh_bold
 );
-var _cupertinoIcons_clearthick = MXFunctionInvoke(
-  "CupertinoIcons.clearthick",
+var _cupertinoIcons_clear_thick = MXFunctionInvoke(
+  "CupertinoIcons.clear_thick",
     (
     ) =>
-      CupertinoIcons.clearthick
+      CupertinoIcons.clear_thick
 );
-var _cupertinoIcons_clearthickcircled = MXFunctionInvoke(
-  "CupertinoIcons.clearthickcircled",
+var _cupertinoIcons_clear_thick_circled = MXFunctionInvoke(
+  "CupertinoIcons.clear_thick_circled",
     (
     ) =>
-      CupertinoIcons.clearthickcircled
+      CupertinoIcons.clear_thick_circled
 );
 var _cupertinoIcons_clear = MXFunctionInvoke(
   "CupertinoIcons.clear",
@@ -586,17 +586,17 @@ var _cupertinoIcons_clear = MXFunctionInvoke(
     ) =>
       CupertinoIcons.clear
 );
-var _cupertinoIcons_clearcircled = MXFunctionInvoke(
-  "CupertinoIcons.clearcircled",
+var _cupertinoIcons_clear_circled = MXFunctionInvoke(
+  "CupertinoIcons.clear_circled",
     (
     ) =>
-      CupertinoIcons.clearcircled
+      CupertinoIcons.clear_circled
 );
-var _cupertinoIcons_clearcircledsolid = MXFunctionInvoke(
-  "CupertinoIcons.clearcircledsolid",
+var _cupertinoIcons_clear_circled_solid = MXFunctionInvoke(
+  "CupertinoIcons.clear_circled_solid",
     (
     ) =>
-      CupertinoIcons.clearcircledsolid
+      CupertinoIcons.clear_circled_solid
 );
 var _cupertinoIcons_add = MXFunctionInvoke(
   "CupertinoIcons.add",
@@ -604,17 +604,17 @@ var _cupertinoIcons_add = MXFunctionInvoke(
     ) =>
       CupertinoIcons.add
 );
-var _cupertinoIcons_addcircled = MXFunctionInvoke(
-  "CupertinoIcons.addcircled",
+var _cupertinoIcons_add_circled = MXFunctionInvoke(
+  "CupertinoIcons.add_circled",
     (
     ) =>
-      CupertinoIcons.addcircled
+      CupertinoIcons.add_circled
 );
-var _cupertinoIcons_addcircledsolid = MXFunctionInvoke(
-  "CupertinoIcons.addcircledsolid",
+var _cupertinoIcons_add_circled_solid = MXFunctionInvoke(
+  "CupertinoIcons.add_circled_solid",
     (
     ) =>
-      CupertinoIcons.addcircledsolid
+      CupertinoIcons.add_circled_solid
 );
 var _cupertinoIcons_gear = MXFunctionInvoke(
   "CupertinoIcons.gear",
@@ -622,17 +622,17 @@ var _cupertinoIcons_gear = MXFunctionInvoke(
     ) =>
       CupertinoIcons.gear
 );
-var _cupertinoIcons_gearsolid = MXFunctionInvoke(
-  "CupertinoIcons.gearsolid",
+var _cupertinoIcons_gear_solid = MXFunctionInvoke(
+  "CupertinoIcons.gear_solid",
     (
     ) =>
-      CupertinoIcons.gearsolid
+      CupertinoIcons.gear_solid
 );
-var _cupertinoIcons_gearbig = MXFunctionInvoke(
-  "CupertinoIcons.gearbig",
+var _cupertinoIcons_gear_big = MXFunctionInvoke(
+  "CupertinoIcons.gear_big",
     (
     ) =>
-      CupertinoIcons.gearbig
+      CupertinoIcons.gear_big
 );
 var _cupertinoIcons_settings = MXFunctionInvoke(
   "CupertinoIcons.settings",
@@ -640,35 +640,35 @@ var _cupertinoIcons_settings = MXFunctionInvoke(
     ) =>
       CupertinoIcons.settings
 );
-var _cupertinoIcons_settingssolid = MXFunctionInvoke(
-  "CupertinoIcons.settingssolid",
+var _cupertinoIcons_settings_solid = MXFunctionInvoke(
+  "CupertinoIcons.settings_solid",
     (
     ) =>
-      CupertinoIcons.settingssolid
+      CupertinoIcons.settings_solid
 );
-var _cupertinoIcons_musicnote = MXFunctionInvoke(
-  "CupertinoIcons.musicnote",
+var _cupertinoIcons_music_note = MXFunctionInvoke(
+  "CupertinoIcons.music_note",
     (
     ) =>
-      CupertinoIcons.musicnote
+      CupertinoIcons.music_note
 );
-var _cupertinoIcons_doublemusicnote = MXFunctionInvoke(
-  "CupertinoIcons.doublemusicnote",
+var _cupertinoIcons_double_music_note = MXFunctionInvoke(
+  "CupertinoIcons.double_music_note",
     (
     ) =>
-      CupertinoIcons.doublemusicnote
+      CupertinoIcons.double_music_note
 );
-var _cupertinoIcons_playarrow = MXFunctionInvoke(
-  "CupertinoIcons.playarrow",
+var _cupertinoIcons_play_arrow = MXFunctionInvoke(
+  "CupertinoIcons.play_arrow",
     (
     ) =>
-      CupertinoIcons.playarrow
+      CupertinoIcons.play_arrow
 );
-var _cupertinoIcons_playarrowsolid = MXFunctionInvoke(
-  "CupertinoIcons.playarrowsolid",
+var _cupertinoIcons_play_arrow_solid = MXFunctionInvoke(
+  "CupertinoIcons.play_arrow_solid",
     (
     ) =>
-      CupertinoIcons.playarrowsolid
+      CupertinoIcons.play_arrow_solid
 );
 var _cupertinoIcons_pause = MXFunctionInvoke(
   "CupertinoIcons.pause",
@@ -676,11 +676,11 @@ var _cupertinoIcons_pause = MXFunctionInvoke(
     ) =>
       CupertinoIcons.pause
 );
-var _cupertinoIcons_pausesolid = MXFunctionInvoke(
-  "CupertinoIcons.pausesolid",
+var _cupertinoIcons_pause_solid = MXFunctionInvoke(
+  "CupertinoIcons.pause_solid",
     (
     ) =>
-      CupertinoIcons.pausesolid
+      CupertinoIcons.pause_solid
 );
 var _cupertinoIcons_loop = MXFunctionInvoke(
   "CupertinoIcons.loop",
@@ -688,35 +688,35 @@ var _cupertinoIcons_loop = MXFunctionInvoke(
     ) =>
       CupertinoIcons.loop
 );
-var _cupertinoIcons_loopthick = MXFunctionInvoke(
-  "CupertinoIcons.loopthick",
+var _cupertinoIcons_loop_thick = MXFunctionInvoke(
+  "CupertinoIcons.loop_thick",
     (
     ) =>
-      CupertinoIcons.loopthick
+      CupertinoIcons.loop_thick
 );
-var _cupertinoIcons_volumedown = MXFunctionInvoke(
-  "CupertinoIcons.volumedown",
+var _cupertinoIcons_volume_down = MXFunctionInvoke(
+  "CupertinoIcons.volume_down",
     (
     ) =>
-      CupertinoIcons.volumedown
+      CupertinoIcons.volume_down
 );
-var _cupertinoIcons_volumemute = MXFunctionInvoke(
-  "CupertinoIcons.volumemute",
+var _cupertinoIcons_volume_mute = MXFunctionInvoke(
+  "CupertinoIcons.volume_mute",
     (
     ) =>
-      CupertinoIcons.volumemute
+      CupertinoIcons.volume_mute
 );
-var _cupertinoIcons_volumeoff = MXFunctionInvoke(
-  "CupertinoIcons.volumeoff",
+var _cupertinoIcons_volume_off = MXFunctionInvoke(
+  "CupertinoIcons.volume_off",
     (
     ) =>
-      CupertinoIcons.volumeoff
+      CupertinoIcons.volume_off
 );
-var _cupertinoIcons_volumeup = MXFunctionInvoke(
-  "CupertinoIcons.volumeup",
+var _cupertinoIcons_volume_up = MXFunctionInvoke(
+  "CupertinoIcons.volume_up",
     (
     ) =>
-      CupertinoIcons.volumeup
+      CupertinoIcons.volume_up
 );
 var _cupertinoIcons_fullscreen = MXFunctionInvoke(
   "CupertinoIcons.fullscreen",
@@ -724,17 +724,17 @@ var _cupertinoIcons_fullscreen = MXFunctionInvoke(
     ) =>
       CupertinoIcons.fullscreen
 );
-var _cupertinoIcons_fullscreenexit = MXFunctionInvoke(
-  "CupertinoIcons.fullscreenexit",
+var _cupertinoIcons_fullscreen_exit = MXFunctionInvoke(
+  "CupertinoIcons.fullscreen_exit",
     (
     ) =>
-      CupertinoIcons.fullscreenexit
+      CupertinoIcons.fullscreen_exit
 );
-var _cupertinoIcons_micoff = MXFunctionInvoke(
-  "CupertinoIcons.micoff",
+var _cupertinoIcons_mic_off = MXFunctionInvoke(
+  "CupertinoIcons.mic_off",
     (
     ) =>
-      CupertinoIcons.micoff
+      CupertinoIcons.mic_off
 );
 var _cupertinoIcons_mic = MXFunctionInvoke(
   "CupertinoIcons.mic",
@@ -742,11 +742,11 @@ var _cupertinoIcons_mic = MXFunctionInvoke(
     ) =>
       CupertinoIcons.mic
 );
-var _cupertinoIcons_micsolid = MXFunctionInvoke(
-  "CupertinoIcons.micsolid",
+var _cupertinoIcons_mic_solid = MXFunctionInvoke(
+  "CupertinoIcons.mic_solid",
     (
     ) =>
-      CupertinoIcons.micsolid
+      CupertinoIcons.mic_solid
 );
 var _cupertinoIcons_clock = MXFunctionInvoke(
   "CupertinoIcons.clock",
@@ -754,11 +754,11 @@ var _cupertinoIcons_clock = MXFunctionInvoke(
     ) =>
       CupertinoIcons.clock
 );
-var _cupertinoIcons_clocksolid = MXFunctionInvoke(
-  "CupertinoIcons.clocksolid",
+var _cupertinoIcons_clock_solid = MXFunctionInvoke(
+  "CupertinoIcons.clock_solid",
     (
     ) =>
-      CupertinoIcons.clocksolid
+      CupertinoIcons.clock_solid
 );
 var _cupertinoIcons_time = MXFunctionInvoke(
   "CupertinoIcons.time",
@@ -766,11 +766,11 @@ var _cupertinoIcons_time = MXFunctionInvoke(
     ) =>
       CupertinoIcons.time
 );
-var _cupertinoIcons_timesolid = MXFunctionInvoke(
-  "CupertinoIcons.timesolid",
+var _cupertinoIcons_time_solid = MXFunctionInvoke(
+  "CupertinoIcons.time_solid",
     (
     ) =>
-      CupertinoIcons.timesolid
+      CupertinoIcons.time_solid
 );
 var _cupertinoIcons_padlock = MXFunctionInvoke(
   "CupertinoIcons.padlock",
@@ -778,11 +778,11 @@ var _cupertinoIcons_padlock = MXFunctionInvoke(
     ) =>
       CupertinoIcons.padlock
 );
-var _cupertinoIcons_padlocksolid = MXFunctionInvoke(
-  "CupertinoIcons.padlocksolid",
+var _cupertinoIcons_padlock_solid = MXFunctionInvoke(
+  "CupertinoIcons.padlock_solid",
     (
     ) =>
-      CupertinoIcons.padlocksolid
+      CupertinoIcons.padlock_solid
 );
 var _cupertinoIcons_eye = MXFunctionInvoke(
   "CupertinoIcons.eye",
@@ -790,11 +790,11 @@ var _cupertinoIcons_eye = MXFunctionInvoke(
     ) =>
       CupertinoIcons.eye
 );
-var _cupertinoIcons_eyesolid = MXFunctionInvoke(
-  "CupertinoIcons.eyesolid",
+var _cupertinoIcons_eye_solid = MXFunctionInvoke(
+  "CupertinoIcons.eye_solid",
     (
     ) =>
-      CupertinoIcons.eyesolid
+      CupertinoIcons.eye_solid
 );
 var _cupertinoIcons_person = MXFunctionInvoke(
   "CupertinoIcons.person",
@@ -802,23 +802,23 @@ var _cupertinoIcons_person = MXFunctionInvoke(
     ) =>
       CupertinoIcons.person
 );
-var _cupertinoIcons_personsolid = MXFunctionInvoke(
-  "CupertinoIcons.personsolid",
+var _cupertinoIcons_person_solid = MXFunctionInvoke(
+  "CupertinoIcons.person_solid",
     (
     ) =>
-      CupertinoIcons.personsolid
+      CupertinoIcons.person_solid
 );
-var _cupertinoIcons_personadd = MXFunctionInvoke(
-  "CupertinoIcons.personadd",
+var _cupertinoIcons_person_add = MXFunctionInvoke(
+  "CupertinoIcons.person_add",
     (
     ) =>
-      CupertinoIcons.personadd
+      CupertinoIcons.person_add
 );
-var _cupertinoIcons_personaddsolid = MXFunctionInvoke(
-  "CupertinoIcons.personaddsolid",
+var _cupertinoIcons_person_add_solid = MXFunctionInvoke(
+  "CupertinoIcons.person_add_solid",
     (
     ) =>
-      CupertinoIcons.personaddsolid
+      CupertinoIcons.person_add_solid
 );
 var _cupertinoIcons_group = MXFunctionInvoke(
   "CupertinoIcons.group",
@@ -826,11 +826,11 @@ var _cupertinoIcons_group = MXFunctionInvoke(
     ) =>
       CupertinoIcons.group
 );
-var _cupertinoIcons_groupsolid = MXFunctionInvoke(
-  "CupertinoIcons.groupsolid",
+var _cupertinoIcons_group_solid = MXFunctionInvoke(
+  "CupertinoIcons.group_solid",
     (
     ) =>
-      CupertinoIcons.groupsolid
+      CupertinoIcons.group_solid
 );
 var _cupertinoIcons_mail = MXFunctionInvoke(
   "CupertinoIcons.mail",
@@ -838,11 +838,11 @@ var _cupertinoIcons_mail = MXFunctionInvoke(
     ) =>
       CupertinoIcons.mail
 );
-var _cupertinoIcons_mailsolid = MXFunctionInvoke(
-  "CupertinoIcons.mailsolid",
+var _cupertinoIcons_mail_solid = MXFunctionInvoke(
+  "CupertinoIcons.mail_solid",
     (
     ) =>
-      CupertinoIcons.mailsolid
+      CupertinoIcons.mail_solid
 );
 var _cupertinoIcons_location = MXFunctionInvoke(
   "CupertinoIcons.location",
@@ -850,11 +850,11 @@ var _cupertinoIcons_location = MXFunctionInvoke(
     ) =>
       CupertinoIcons.location
 );
-var _cupertinoIcons_locationsolid = MXFunctionInvoke(
-  "CupertinoIcons.locationsolid",
+var _cupertinoIcons_location_solid = MXFunctionInvoke(
+  "CupertinoIcons.location_solid",
     (
     ) =>
-      CupertinoIcons.locationsolid
+      CupertinoIcons.location_solid
 );
 var _cupertinoIcons_tag = MXFunctionInvoke(
   "CupertinoIcons.tag",
@@ -862,11 +862,11 @@ var _cupertinoIcons_tag = MXFunctionInvoke(
     ) =>
       CupertinoIcons.tag
 );
-var _cupertinoIcons_tagsolid = MXFunctionInvoke(
-  "CupertinoIcons.tagsolid",
+var _cupertinoIcons_tag_solid = MXFunctionInvoke(
+  "CupertinoIcons.tag_solid",
     (
     ) =>
-      CupertinoIcons.tagsolid
+      CupertinoIcons.tag_solid
 );
 var _cupertinoIcons_tags = MXFunctionInvoke(
   "CupertinoIcons.tags",
@@ -874,11 +874,11 @@ var _cupertinoIcons_tags = MXFunctionInvoke(
     ) =>
       CupertinoIcons.tags
 );
-var _cupertinoIcons_tagssolid = MXFunctionInvoke(
-  "CupertinoIcons.tagssolid",
+var _cupertinoIcons_tags_solid = MXFunctionInvoke(
+  "CupertinoIcons.tags_solid",
     (
     ) =>
-      CupertinoIcons.tagssolid
+      CupertinoIcons.tags_solid
 );
 var _cupertinoIcons_bus = MXFunctionInvoke(
   "CupertinoIcons.bus",
@@ -892,23 +892,23 @@ var _cupertinoIcons_car = MXFunctionInvoke(
     ) =>
       CupertinoIcons.car
 );
-var _cupertinoIcons_cardetailed = MXFunctionInvoke(
-  "CupertinoIcons.cardetailed",
+var _cupertinoIcons_car_detailed = MXFunctionInvoke(
+  "CupertinoIcons.car_detailed",
     (
     ) =>
-      CupertinoIcons.cardetailed
+      CupertinoIcons.car_detailed
 );
-var _cupertinoIcons_trainstyleone = MXFunctionInvoke(
-  "CupertinoIcons.trainstyleone",
+var _cupertinoIcons_train_style_one = MXFunctionInvoke(
+  "CupertinoIcons.train_style_one",
     (
     ) =>
-      CupertinoIcons.trainstyleone
+      CupertinoIcons.train_style_one
 );
-var _cupertinoIcons_trainstyletwo = MXFunctionInvoke(
-  "CupertinoIcons.trainstyletwo",
+var _cupertinoIcons_train_style_two = MXFunctionInvoke(
+  "CupertinoIcons.train_style_two",
     (
     ) =>
-      CupertinoIcons.trainstyletwo
+      CupertinoIcons.train_style_two
 );
 var _cupertinoIcons_paw = MXFunctionInvoke(
   "CupertinoIcons.paw",
@@ -916,35 +916,35 @@ var _cupertinoIcons_paw = MXFunctionInvoke(
     ) =>
       CupertinoIcons.paw
 );
-var _cupertinoIcons_pawsolid = MXFunctionInvoke(
-  "CupertinoIcons.pawsolid",
+var _cupertinoIcons_paw_solid = MXFunctionInvoke(
+  "CupertinoIcons.paw_solid",
     (
     ) =>
-      CupertinoIcons.pawsolid
+      CupertinoIcons.paw_solid
 );
-var _cupertinoIcons_gamecontroller = MXFunctionInvoke(
-  "CupertinoIcons.gamecontroller",
+var _cupertinoIcons_game_controller = MXFunctionInvoke(
+  "CupertinoIcons.game_controller",
     (
     ) =>
-      CupertinoIcons.gamecontroller
+      CupertinoIcons.game_controller
 );
-var _cupertinoIcons_gamecontrollersolid = MXFunctionInvoke(
-  "CupertinoIcons.gamecontrollersolid",
+var _cupertinoIcons_game_controller_solid = MXFunctionInvoke(
+  "CupertinoIcons.game_controller_solid",
     (
     ) =>
-      CupertinoIcons.gamecontrollersolid
+      CupertinoIcons.game_controller_solid
 );
-var _cupertinoIcons_labflask = MXFunctionInvoke(
-  "CupertinoIcons.labflask",
+var _cupertinoIcons_lab_flask = MXFunctionInvoke(
+  "CupertinoIcons.lab_flask",
     (
     ) =>
-      CupertinoIcons.labflask
+      CupertinoIcons.lab_flask
 );
-var _cupertinoIcons_labflasksolid = MXFunctionInvoke(
-  "CupertinoIcons.labflasksolid",
+var _cupertinoIcons_lab_flask_solid = MXFunctionInvoke(
+  "CupertinoIcons.lab_flask_solid",
     (
     ) =>
-      CupertinoIcons.labflasksolid
+      CupertinoIcons.lab_flask_solid
 );
 var _cupertinoIcons_heart = MXFunctionInvoke(
   "CupertinoIcons.heart",
@@ -952,11 +952,11 @@ var _cupertinoIcons_heart = MXFunctionInvoke(
     ) =>
       CupertinoIcons.heart
 );
-var _cupertinoIcons_heartsolid = MXFunctionInvoke(
-  "CupertinoIcons.heartsolid",
+var _cupertinoIcons_heart_solid = MXFunctionInvoke(
+  "CupertinoIcons.heart_solid",
     (
     ) =>
-      CupertinoIcons.heartsolid
+      CupertinoIcons.heart_solid
 );
 var _cupertinoIcons_bell = MXFunctionInvoke(
   "CupertinoIcons.bell",
@@ -964,11 +964,11 @@ var _cupertinoIcons_bell = MXFunctionInvoke(
     ) =>
       CupertinoIcons.bell
 );
-var _cupertinoIcons_bellsolid = MXFunctionInvoke(
-  "CupertinoIcons.bellsolid",
+var _cupertinoIcons_bell_solid = MXFunctionInvoke(
+  "CupertinoIcons.bell_solid",
     (
     ) =>
-      CupertinoIcons.bellsolid
+      CupertinoIcons.bell_solid
 );
 var _cupertinoIcons_news = MXFunctionInvoke(
   "CupertinoIcons.news",
@@ -976,11 +976,11 @@ var _cupertinoIcons_news = MXFunctionInvoke(
     ) =>
       CupertinoIcons.news
 );
-var _cupertinoIcons_newssolid = MXFunctionInvoke(
-  "CupertinoIcons.newssolid",
+var _cupertinoIcons_news_solid = MXFunctionInvoke(
+  "CupertinoIcons.news_solid",
     (
     ) =>
-      CupertinoIcons.newssolid
+      CupertinoIcons.news_solid
 );
 var _cupertinoIcons_brightness = MXFunctionInvoke(
   "CupertinoIcons.brightness",
@@ -988,9 +988,9 @@ var _cupertinoIcons_brightness = MXFunctionInvoke(
     ) =>
       CupertinoIcons.brightness
 );
-var _cupertinoIcons_brightnesssolid = MXFunctionInvoke(
-  "CupertinoIcons.brightnesssolid",
+var _cupertinoIcons_brightness_solid = MXFunctionInvoke(
+  "CupertinoIcons.brightness_solid",
     (
     ) =>
-      CupertinoIcons.brightnesssolid
+      CupertinoIcons.brightness_solid
 );

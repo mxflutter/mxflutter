@@ -55,87 +55,87 @@ var _animatedIcon = MXFunctionInvoke(
       textDirection: textDirection,
     ),
 );
-var _animatedIcons_addevent = MXFunctionInvoke(
-  "AnimatedIcons.addevent",
+var _animatedIcons_add_event = MXFunctionInvoke(
+  "AnimatedIcons.add_event",
     (
     ) =>
-      AnimatedIcons.addevent
+      AnimatedIcons.add_event
 );
-var _animatedIcons_arrowmenu = MXFunctionInvoke(
-  "AnimatedIcons.arrowmenu",
+var _animatedIcons_arrow_menu = MXFunctionInvoke(
+  "AnimatedIcons.arrow_menu",
     (
     ) =>
-      AnimatedIcons.arrowmenu
+      AnimatedIcons.arrow_menu
 );
-var _animatedIcons_closemenu = MXFunctionInvoke(
-  "AnimatedIcons.closemenu",
+var _animatedIcons_close_menu = MXFunctionInvoke(
+  "AnimatedIcons.close_menu",
     (
     ) =>
-      AnimatedIcons.closemenu
+      AnimatedIcons.close_menu
 );
-var _animatedIcons_ellipsissearch = MXFunctionInvoke(
-  "AnimatedIcons.ellipsissearch",
+var _animatedIcons_ellipsis_search = MXFunctionInvoke(
+  "AnimatedIcons.ellipsis_search",
     (
     ) =>
-      AnimatedIcons.ellipsissearch
+      AnimatedIcons.ellipsis_search
 );
-var _animatedIcons_eventadd = MXFunctionInvoke(
-  "AnimatedIcons.eventadd",
+var _animatedIcons_event_add = MXFunctionInvoke(
+  "AnimatedIcons.event_add",
     (
     ) =>
-      AnimatedIcons.eventadd
+      AnimatedIcons.event_add
 );
-var _animatedIcons_homemenu = MXFunctionInvoke(
-  "AnimatedIcons.homemenu",
+var _animatedIcons_home_menu = MXFunctionInvoke(
+  "AnimatedIcons.home_menu",
     (
     ) =>
-      AnimatedIcons.homemenu
+      AnimatedIcons.home_menu
 );
-var _animatedIcons_listview = MXFunctionInvoke(
-  "AnimatedIcons.listview",
+var _animatedIcons_list_view = MXFunctionInvoke(
+  "AnimatedIcons.list_view",
     (
     ) =>
-      AnimatedIcons.listview
+      AnimatedIcons.list_view
 );
-var _animatedIcons_menuarrow = MXFunctionInvoke(
-  "AnimatedIcons.menuarrow",
+var _animatedIcons_menu_arrow = MXFunctionInvoke(
+  "AnimatedIcons.menu_arrow",
     (
     ) =>
-      AnimatedIcons.menuarrow
+      AnimatedIcons.menu_arrow
 );
-var _animatedIcons_menuclose = MXFunctionInvoke(
-  "AnimatedIcons.menuclose",
+var _animatedIcons_menu_close = MXFunctionInvoke(
+  "AnimatedIcons.menu_close",
     (
     ) =>
-      AnimatedIcons.menuclose
+      AnimatedIcons.menu_close
 );
-var _animatedIcons_menuhome = MXFunctionInvoke(
-  "AnimatedIcons.menuhome",
+var _animatedIcons_menu_home = MXFunctionInvoke(
+  "AnimatedIcons.menu_home",
     (
     ) =>
-      AnimatedIcons.menuhome
+      AnimatedIcons.menu_home
 );
-var _animatedIcons_pauseplay = MXFunctionInvoke(
-  "AnimatedIcons.pauseplay",
+var _animatedIcons_pause_play = MXFunctionInvoke(
+  "AnimatedIcons.pause_play",
     (
     ) =>
-      AnimatedIcons.pauseplay
+      AnimatedIcons.pause_play
 );
-var _animatedIcons_playpause = MXFunctionInvoke(
-  "AnimatedIcons.playpause",
+var _animatedIcons_play_pause = MXFunctionInvoke(
+  "AnimatedIcons.play_pause",
     (
     ) =>
-      AnimatedIcons.playpause
+      AnimatedIcons.play_pause
 );
-var _animatedIcons_searchellipsis = MXFunctionInvoke(
-  "AnimatedIcons.searchellipsis",
+var _animatedIcons_search_ellipsis = MXFunctionInvoke(
+  "AnimatedIcons.search_ellipsis",
     (
     ) =>
-      AnimatedIcons.searchellipsis
+      AnimatedIcons.search_ellipsis
 );
-var _animatedIcons_viewlist = MXFunctionInvoke(
-  "AnimatedIcons.viewlist",
+var _animatedIcons_view_list = MXFunctionInvoke(
+  "AnimatedIcons.view_list",
     (
     ) =>
-      AnimatedIcons.viewlist
+      AnimatedIcons.view_list
 );
