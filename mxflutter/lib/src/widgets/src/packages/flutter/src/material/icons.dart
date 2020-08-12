@@ -2095,7 +2095,7 @@ var _icons_class = MXFunctionInvoke(
   "Icons.class",
     (
     ) =>
-      Icons.class
+      Icons.class_
 );
 var _icons_clear = MXFunctionInvoke(
   "Icons.clear",

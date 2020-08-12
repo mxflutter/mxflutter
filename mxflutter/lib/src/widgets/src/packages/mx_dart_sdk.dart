@@ -78,7 +78,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_rSTransform.funName] = _rSTransform;
   m[_rSTransform_fromComponents.funName] = _rSTransform_fromComponents;
   m[_point.funName] = _point;
-  m[_point_origin.funName] = _point_origin;
+  // m[_point_origin.funName] = _point_origin;
   m[_color.funName] = _color;
   m[_color_fromARGB.funName] = _color_fromARGB;
   m[_color_fromRGBO.funName] = _color_fromRGBO;
@@ -898,12 +898,12 @@ var _point = MXFunctionInvoke(
       y?.toDouble(),
     ),
 );
-var _point_origin = MXFunctionInvoke(
-  "Point.origin",
-    (
-    ) =>
-      Point.origin
-);
+// var _point_origin = MXFunctionInvoke(
+//   "Point.origin",
+//     (
+//     ) =>
+//       Point.origin
+// );
 var _color = MXFunctionInvoke(
     "Color",
     (
@@ -1142,7 +1142,7 @@ var _shadow = MXFunctionInvoke(
     "Shadow",
     (
       {
-      Color color = const Color(4278190080.0),
+      Color color = const Color(4278190080),
       Offset offset = Offset.zero,
       dynamic blurRadius = 0.0,
       }
