@@ -21,7 +21,7 @@ Map<String, MXFunctionInvoke> registerSystemChannelsSeries() {
   m[_systemChannels_lifecycle.funName] = _systemChannels_lifecycle;
   m[_systemChannels_system.funName] = _systemChannels_system;
   m[_systemChannels_accessibility.funName] = _systemChannels_accessibility;
-  m[_systemChannels_platformviews.funName] = _systemChannels_platformviews;
+  m[_systemChannels_platform_views.funName] = _systemChannels_platform_views;
   m[_systemChannels_skia.funName] = _systemChannels_skia;
   return m;
 }

@@ -16,20 +16,20 @@ import 'package:flutter/widgets.dart';
 Map<String, MXFunctionInvoke> registerAnimatedIconsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_animatedIcon.funName] = _animatedIcon;
-  m[_animatedIcons_addevent.funName] = _animatedIcons_addevent;
-  m[_animatedIcons_arrowmenu.funName] = _animatedIcons_arrowmenu;
-  m[_animatedIcons_closemenu.funName] = _animatedIcons_closemenu;
-  m[_animatedIcons_ellipsissearch.funName] = _animatedIcons_ellipsissearch;
-  m[_animatedIcons_eventadd.funName] = _animatedIcons_eventadd;
-  m[_animatedIcons_homemenu.funName] = _animatedIcons_homemenu;
-  m[_animatedIcons_listview.funName] = _animatedIcons_listview;
-  m[_animatedIcons_menuarrow.funName] = _animatedIcons_menuarrow;
-  m[_animatedIcons_menuclose.funName] = _animatedIcons_menuclose;
-  m[_animatedIcons_menuhome.funName] = _animatedIcons_menuhome;
-  m[_animatedIcons_pauseplay.funName] = _animatedIcons_pauseplay;
-  m[_animatedIcons_playpause.funName] = _animatedIcons_playpause;
-  m[_animatedIcons_searchellipsis.funName] = _animatedIcons_searchellipsis;
-  m[_animatedIcons_viewlist.funName] = _animatedIcons_viewlist;
+  m[_animatedIcons_add_event.funName] = _animatedIcons_add_event;
+  m[_animatedIcons_arrow_menu.funName] = _animatedIcons_arrow_menu;
+  m[_animatedIcons_close_menu.funName] = _animatedIcons_close_menu;
+  m[_animatedIcons_ellipsis_search.funName] = _animatedIcons_ellipsis_search;
+  m[_animatedIcons_event_add.funName] = _animatedIcons_event_add;
+  m[_animatedIcons_home_menu.funName] = _animatedIcons_home_menu;
+  m[_animatedIcons_list_view.funName] = _animatedIcons_list_view;
+  m[_animatedIcons_menu_arrow.funName] = _animatedIcons_menu_arrow;
+  m[_animatedIcons_menu_close.funName] = _animatedIcons_menu_close;
+  m[_animatedIcons_menu_home.funName] = _animatedIcons_menu_home;
+  m[_animatedIcons_pause_play.funName] = _animatedIcons_pause_play;
+  m[_animatedIcons_play_pause.funName] = _animatedIcons_play_pause;
+  m[_animatedIcons_search_ellipsis.funName] = _animatedIcons_search_ellipsis;
+  m[_animatedIcons_view_list.funName] = _animatedIcons_view_list;
   return m;
 }
 var _animatedIcon = MXFunctionInvoke(
