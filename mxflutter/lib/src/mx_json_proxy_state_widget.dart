@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'mx_json_build_owner.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_js_widget.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 class MXProxyMXJSStatefulWidget extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -58,3 +59,60 @@ class MXProxyMXJSStatelessWidget extends MXJsonObjProxy {
     return widget;
   }
 }
+
+Map<String, MXFunctionInvoke> registerMXJSStateWidgetSeries() {
+  var m = <String, MXFunctionInvoke>{};
+
+  m[_mxJSStatefulWidget.funName] = _mxJSStatefulWidget;
+  m[_mxJSStatelessWidget.funName] = _mxJSStatelessWidget;
+
+  return m;
+}
+
+var _mxJSStatefulWidget = MXFunctionInvoke(
+  "MXJSStatefulWidget",
+  ({
+    Key key,
+    String name,
+    String widgetID,
+    Map widgetData,
+    String buildWidgetDataSeq,
+    String navPushingWidgetElementID
+  }) =>
+      MXJSStatefulWidget(
+    key: key,
+    name: name,
+    widgetID: widgetID,
+    widgetData: widgetData,
+    buildingWidgetDataSeq: buildWidgetDataSeq,
+    navPushingWidgetElementID: navPushingWidgetElementID,
+    parentBuildOwner: _mxJSStatefulWidget.buildOwner,
+  ),
+  noJ2DProps: [
+    "widgetData",
+  ],
+);
+
+var _mxJSStatelessWidget = MXFunctionInvoke(
+  "MXJSStatelessWidget",
+  ({
+    Key key,
+    String name,
+    String widgetID,
+    Map widgetData,
+    String buildWidgetDataSeq,
+    String navPushingWidgetElementID
+  }) =>
+      MXJSStatelessWidget(
+    key: key,
+    name: name,
+    widgetID: widgetID,
+    widgetData: widgetData,
+    buildingWidgetDataSeq: buildWidgetDataSeq,
+    navPushingWidgetElementID: navPushingWidgetElementID,
+    parentBuildOwner: _mxJSStatelessWidget.buildOwner,
+  ),
+  noJ2DProps: [
+    "widgetData",
+  ],
+);
