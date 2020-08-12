@@ -12,16 +12,19 @@ import 'mx_json_build_owner.dart';
 import 'mx_js_flutter_common.dart';
 import 'mx_js_widget.dart';
 
-///负责JSWidget 创建管理，事件分发
-///管理一个JSAPP 代码文件集合
+/// 负责JSWidget 创建管理，事件分发
+/// 管理一个JSAPP 代码文件集合
 class MXJSFlutterApp {
   String name;
 
+  /// 调用通道
   MethodChannel _appChannel;
   BasicMessageChannel<String> _rebuildChannel; //大数据通道
   BasicMessageChannel<String> _jsPushWidgetChannel; //大数据通道
   Map<String, Function> _channelName2FunMap = {};
-  MXJsonBuildOwner _rootBuildOwner;
+
+  /// widget build owner ：rootBoNode
+  MXJsonBuildOwner _rootBuildOwnerNode;
 
   //JSWidget根节点
   dynamic rootWidget;
@@ -30,7 +33,7 @@ class MXJSFlutterApp {
   List<Map> _frequencyLimitMethodCallQueue = [];
 
   MXJSFlutterApp(this.name) {
-    _rootBuildOwner = MXJsonBuildOwner.rootBuildOwner(this);
+    _rootBuildOwnerNode = MXJsonBuildOwner.rootBuildOwner();
     _setupChannel();
   }
 
@@ -56,7 +59,7 @@ class MXJSFlutterApp {
     MXJSLog.log(
         "MXJSFlutterApp:navigatorPushWithName: widgetName: $widgetName ");
 
-    MXJSStatefulWidget jsWidget = _rootBuildOwner.findWidget(widgetKey);
+    MXJSStatefulWidget jsWidget = _rootBuildOwnerNode.findWidget(widgetKey);
 
     if (jsWidget != null) {
       MXJSLog.log(
@@ -64,8 +67,10 @@ class MXJSFlutterApp {
       return jsWidget;
     }
 
-    jsWidget = MXJSStatefulWidget.createHostWidget(
-        key: widgetKey, name: widgetName, parentBuildOwner: _rootBuildOwner);
+    jsWidget = MXJSStatefulWidget.hostWidget(
+        key: widgetKey,
+        name: widgetName,
+        parentBuildOwnerNode: _rootBuildOwnerNode);
 
     callJSNavigatorPushWithName(jsWidget.name, jsWidget.widgetID,
         themeData: themeData,
@@ -77,7 +82,7 @@ class MXJSFlutterApp {
 
   //JS->Flutter， js侧调用Flutter，传递Json Widget Tree，������建JSWidget
   dynamic createJSWidget(Map widgetData) {
-    dynamic jsWidget = _rootBuildOwner.buildRootWidget(widgetData);
+    dynamic jsWidget = _rootBuildOwnerNode.buildRootWidget(widgetData);
     return jsWidget;
   }
 
@@ -147,8 +152,7 @@ class MXJSFlutterApp {
       //       "MXTimeStamp Flutter Receive ${call.method} $ms index=${call.arguments["index"]}");
       // }
 
-      MXJSLog.log(
-          "_appChannel_methodHandler: recv js call ${call.method}");
+      MXJSLog.log("_appChannel_methodHandler: recv js call ${call.method}");
 
       Function fun = _channelName2FunMap[call.method];
       return fun(call.arguments);
@@ -179,17 +183,17 @@ class MXJSFlutterApp {
 
   /// JS ->  flutter  开放给调用 JS
   Future<dynamic> _jsRebuild(widgetDataStr) async {
-    _rootBuildOwner.jsCallRebuild(widgetDataStr);
+    _rootBuildOwnerNode.jsCallRebuild(widgetDataStr);
   }
 
   //js层 调用navigatorPush 主动push页面
   //和Flutter dart代码调用 MXFluter.navigatorPushWithName 的区别是_navigatorPush并不创建_rootBuildOwner，只是创建_rootBuildOwner的子Widget
   Future<dynamic> _navigatorPush(widgetDataStr) async {
-    _rootBuildOwner.jsCallNavigatorPush(widgetDataStr);
+    _rootBuildOwnerNode.jsCallNavigatorPush(widgetDataStr);
   }
 
   //js层 调用navigatorPop 主动pop页面
   Future<dynamic> _navigatorPop(args) async {
-    _rootBuildOwner.jsCallNavigatorPop(args);
+    _rootBuildOwnerNode.jsCallNavigatorPop(args);
   }
 }
