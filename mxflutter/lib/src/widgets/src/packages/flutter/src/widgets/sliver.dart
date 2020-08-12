@@ -42,24 +42,32 @@ var _sliverChildBuilderDelegate = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
+      /// MX modified begin -delete init
       dynamic semanticIndexCallback,
+      /// MX modified end
       int semanticIndexOffset = 0,
+      /// MX modified begin -add children
       dynamic children,
+      /// MX modified end
       }
     ) =>
       SliverChildBuilderDelegate(
+        /// MX modified begin -add function
       (BuildContext context, int index) {
         List<Widget> list = toListT<Widget>(children);
         return list[index];
       },
+      /// MX modified end
       findChildIndexCallback: null,
       childCount: childCount,
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
+      /// MX modified begin -add function
       semanticIndexCallback: semanticIndexCallback != null ? createGenericTwoParamsClosure<int, Widget, int>(_sliverChildListDelegate.buildOwner, semanticIndexCallback) : (Widget widget, int localIndex) {
         return localIndex;
       },
+      /// MX modified end
       semanticIndexOffset: semanticIndexOffset,
     ),
 );
@@ -71,7 +79,9 @@ var _sliverChildListDelegate = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
+      /// MX modified begin -delete init
       dynamic semanticIndexCallback,
+      /// MX modified end
       int semanticIndexOffset = 0,
       }
     ) =>
@@ -80,9 +90,11 @@ var _sliverChildListDelegate = MXFunctionInvoke(
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
+      /// MX modified begin -add function
       semanticIndexCallback: semanticIndexCallback != null ? createGenericTwoParamsClosure<int, Widget, int>(_sliverChildListDelegate.buildOwner, semanticIndexCallback) : (Widget widget, int localIndex) {
         return localIndex;
       },
+      /// MX modified end
       semanticIndexOffset: semanticIndexOffset,
     ),
 );
@@ -94,7 +106,9 @@ var _sliverChildListDelegate_fixed = MXFunctionInvoke(
       bool addAutomaticKeepAlives = true,
       bool addRepaintBoundaries = true,
       bool addSemanticIndexes = true,
+      /// MX modified begin -delete init
       dynamic semanticIndexCallback,
+      /// MX modified end
       int semanticIndexOffset = 0,
       }
     ) =>
@@ -103,9 +117,11 @@ var _sliverChildListDelegate_fixed = MXFunctionInvoke(
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
+      /// MX modified begin -add function
       semanticIndexCallback: semanticIndexCallback != null ? createGenericTwoParamsClosure<int, Widget, int>(_sliverChildListDelegate.buildOwner, semanticIndexCallback) : (Widget widget, int localIndex) {
         return localIndex;
       },
+      /// MX modified 
       semanticIndexOffset: semanticIndexOffset,
     ),
 );
