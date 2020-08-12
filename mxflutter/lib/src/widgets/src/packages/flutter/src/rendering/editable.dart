@@ -24,6 +24,7 @@ Map<String, MXFunctionInvoke> registerEditableSeries() {
   m[_selectionChangedCause.funName] = _selectionChangedCause;
   m[_textSelectionPoint.funName] = _textSelectionPoint;
   m[_renderEditable.funName] = _renderEditable;
+  m[_renderEditable_obscuringCharacter.funName] = _renderEditable_obscuringCharacter;
   return m;
 }
 var _selectionChangedCause = MXFunctionInvoke(
@@ -121,6 +122,12 @@ var _renderEditable = MXFunctionInvoke(
       floatingCursorAddedMargin: floatingCursorAddedMargin,
       textSelectionDelegate: textSelectionDelegate,
     ),
+);
+var _renderEditable_obscuringCharacter = MXFunctionInvoke(
+  "RenderEditable.obscuringCharacter",
+    (
+    ) =>
+      RenderEditable.obscuringCharacter
 );
 class MXSelectionChangedCause {
   static SelectionChangedCause parse(String name, int index) {

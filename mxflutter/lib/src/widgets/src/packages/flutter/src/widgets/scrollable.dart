@@ -40,6 +40,7 @@ Map<String, MXFunctionInvoke> registerScrollableSeries() {
   m[_scrollIncrementDetails.funName] = _scrollIncrementDetails;
   m[_scrollIntent.funName] = _scrollIntent;
   m[_scrollAction.funName] = _scrollAction;
+  m[_scrollAction_key.funName] = _scrollAction_key;
   return m;
 }
 var _scrollable = MXFunctionInvoke(
@@ -112,6 +113,12 @@ var _scrollAction = MXFunctionInvoke(
     ) =>
       ScrollAction(
     ),
+);
+var _scrollAction_key = MXFunctionInvoke(
+  "ScrollAction.key",
+    (
+    ) =>
+      ScrollAction.key
 );
 class MXScrollIncrementType {
   static ScrollIncrementType parse(String name, int index) {

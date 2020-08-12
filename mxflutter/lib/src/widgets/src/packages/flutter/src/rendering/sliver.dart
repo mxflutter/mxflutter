@@ -24,6 +24,7 @@ Map<String, MXFunctionInvoke> registerSliverSeries() {
   m[_growthDirection.funName] = _growthDirection;
   m[_sliverConstraints.funName] = _sliverConstraints;
   m[_sliverGeometry.funName] = _sliverGeometry;
+  m[_sliverGeometry_zero.funName] = _sliverGeometry_zero;
   m[_sliverHitTestResult.funName] = _sliverHitTestResult;
   m[_sliverHitTestResult_wrap.funName] = _sliverHitTestResult_wrap;
   m[_sliverHitTestEntry.funName] = _sliverHitTestEntry;
@@ -101,6 +102,12 @@ var _sliverGeometry = MXFunctionInvoke(
       scrollOffsetCorrection: scrollOffsetCorrection?.toDouble(),
       cacheExtent: cacheExtent?.toDouble(),
     ),
+);
+var _sliverGeometry_zero = MXFunctionInvoke(
+  "SliverGeometry.zero",
+    (
+    ) =>
+      SliverGeometry.zero
 );
 var _sliverHitTestResult = MXFunctionInvoke(
     "SliverHitTestResult",

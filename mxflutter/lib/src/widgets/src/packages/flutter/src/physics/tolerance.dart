@@ -12,6 +12,7 @@ import 'package:flutter/src/physics/tolerance.dart';
 Map<String, MXFunctionInvoke> registerToleranceSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_tolerance.funName] = _tolerance;
+  m[_tolerance_defaultTolerance.funName] = _tolerance_defaultTolerance;
   return m;
 }
 var _tolerance = MXFunctionInvoke(
@@ -28,4 +29,10 @@ var _tolerance = MXFunctionInvoke(
       time: time?.toDouble(),
       velocity: velocity?.toDouble(),
     ),
+);
+var _tolerance_defaultTolerance = MXFunctionInvoke(
+  "Tolerance.defaultTolerance",
+    (
+    ) =>
+      Tolerance.defaultTolerance
 );

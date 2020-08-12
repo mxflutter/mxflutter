@@ -51,6 +51,11 @@ Map<String, MXFunctionInvoke> registerThemeDataSeries() {
   m[_themeData_raw.funName] = _themeData_raw;
   m[_materialBasedCupertinoThemeData.funName] = _materialBasedCupertinoThemeData;
   m[_visualDensity.funName] = _visualDensity;
+  m[_visualDensity_minimumDensity.funName] = _visualDensity_minimumDensity;
+  m[_visualDensity_maximumDensity.funName] = _visualDensity_maximumDensity;
+  m[_visualDensity_standard.funName] = _visualDensity_standard;
+  m[_visualDensity_comfortable.funName] = _visualDensity_comfortable;
+  m[_visualDensity_compact.funName] = _visualDensity_compact;
   return m;
 }
 var _materialTapTargetSize = MXFunctionInvoke(
@@ -392,6 +397,36 @@ var _visualDensity = MXFunctionInvoke(
       horizontal: horizontal?.toDouble(),
       vertical: vertical?.toDouble(),
     ),
+);
+var _visualDensity_minimumDensity = MXFunctionInvoke(
+  "VisualDensity.minimumDensity",
+    (
+    ) =>
+      VisualDensity.minimumDensity
+);
+var _visualDensity_maximumDensity = MXFunctionInvoke(
+  "VisualDensity.maximumDensity",
+    (
+    ) =>
+      VisualDensity.maximumDensity
+);
+var _visualDensity_standard = MXFunctionInvoke(
+  "VisualDensity.standard",
+    (
+    ) =>
+      VisualDensity.standard
+);
+var _visualDensity_comfortable = MXFunctionInvoke(
+  "VisualDensity.comfortable",
+    (
+    ) =>
+      VisualDensity.comfortable
+);
+var _visualDensity_compact = MXFunctionInvoke(
+  "VisualDensity.compact",
+    (
+    ) =>
+      VisualDensity.compact
 );
 class MXMaterialTapTargetSize {
   static MaterialTapTargetSize parse(String name, int index) {

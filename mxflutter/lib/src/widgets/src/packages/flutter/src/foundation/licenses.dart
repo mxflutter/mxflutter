@@ -14,6 +14,7 @@ import 'package:meta/meta.dart';
 Map<String, MXFunctionInvoke> registerLicensesSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_licenseParagraph.funName] = _licenseParagraph;
+  m[_licenseParagraph_centeredIndent.funName] = _licenseParagraph_centeredIndent;
   m[_licenseEntryWithLineBreaks.funName] = _licenseEntryWithLineBreaks;
   m[_licenseRegistry_addLicense.funName] = _licenseRegistry_addLicense;
   m[_licenseRegistry_reset.funName] = _licenseRegistry_reset;
@@ -31,6 +32,12 @@ var _licenseParagraph = MXFunctionInvoke(
       text,
       indent,
     ),
+);
+var _licenseParagraph_centeredIndent = MXFunctionInvoke(
+  "LicenseParagraph.centeredIndent",
+    (
+    ) =>
+      LicenseParagraph.centeredIndent
 );
 var _licenseEntryWithLineBreaks = MXFunctionInvoke(
     "LicenseEntryWithLineBreaks",

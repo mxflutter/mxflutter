@@ -27,6 +27,8 @@ Map<String, MXFunctionInvoke> registerScrollActivitySeries() {
   m[_idleScrollActivity.funName] = _idleScrollActivity;
   m[_holdScrollActivity.funName] = _holdScrollActivity;
   m[_scrollDragController.funName] = _scrollDragController;
+  m[_scrollDragController_momentumRetainStationaryDurationThreshold.funName] = _scrollDragController_momentumRetainStationaryDurationThreshold;
+  m[_scrollDragController_motionStoppedDurationThreshold.funName] = _scrollDragController_motionStoppedDurationThreshold;
   m[_dragScrollActivity.funName] = _dragScrollActivity;
   m[_ballisticScrollActivity.funName] = _ballisticScrollActivity;
   m[_drivenScrollActivity.funName] = _drivenScrollActivity;
@@ -74,6 +76,18 @@ var _scrollDragController = MXFunctionInvoke(
       carriedVelocity: carriedVelocity?.toDouble(),
       motionStartDistanceThreshold: motionStartDistanceThreshold?.toDouble(),
     ),
+);
+var _scrollDragController_momentumRetainStationaryDurationThreshold = MXFunctionInvoke(
+  "ScrollDragController.momentumRetainStationaryDurationThreshold",
+    (
+    ) =>
+      ScrollDragController.momentumRetainStationaryDurationThreshold
+);
+var _scrollDragController_motionStoppedDurationThreshold = MXFunctionInvoke(
+  "ScrollDragController.motionStoppedDurationThreshold",
+    (
+    ) =>
+      ScrollDragController.motionStoppedDurationThreshold
 );
 var _dragScrollActivity = MXFunctionInvoke(
     "DragScrollActivity",

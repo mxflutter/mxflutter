@@ -18,6 +18,12 @@ Map<String, MXFunctionInvoke> registerRawKeyboardLinuxSeries() {
   m[_rawKeyEventDataLinux.funName] = _rawKeyEventDataLinux;
   m[_keyHelper.funName] = _keyHelper;
   m[_gLFWKeyHelper.funName] = _gLFWKeyHelper;
+  m[_gLFWKeyHelper_modifierCapsLock.funName] = _gLFWKeyHelper_modifierCapsLock;
+  m[_gLFWKeyHelper_modifierShift.funName] = _gLFWKeyHelper_modifierShift;
+  m[_gLFWKeyHelper_modifierControl.funName] = _gLFWKeyHelper_modifierControl;
+  m[_gLFWKeyHelper_modifierAlt.funName] = _gLFWKeyHelper_modifierAlt;
+  m[_gLFWKeyHelper_modifierMeta.funName] = _gLFWKeyHelper_modifierMeta;
+  m[_gLFWKeyHelper_modifierNumericPad.funName] = _gLFWKeyHelper_modifierNumericPad;
   return m;
 }
 var _rawKeyEventDataLinux = MXFunctionInvoke(
@@ -58,4 +64,40 @@ var _gLFWKeyHelper = MXFunctionInvoke(
     ) =>
       GLFWKeyHelper(
     ),
+);
+var _gLFWKeyHelper_modifierCapsLock = MXFunctionInvoke(
+  "GLFWKeyHelper.modifierCapsLock",
+    (
+    ) =>
+      GLFWKeyHelper.modifierCapsLock
+);
+var _gLFWKeyHelper_modifierShift = MXFunctionInvoke(
+  "GLFWKeyHelper.modifierShift",
+    (
+    ) =>
+      GLFWKeyHelper.modifierShift
+);
+var _gLFWKeyHelper_modifierControl = MXFunctionInvoke(
+  "GLFWKeyHelper.modifierControl",
+    (
+    ) =>
+      GLFWKeyHelper.modifierControl
+);
+var _gLFWKeyHelper_modifierAlt = MXFunctionInvoke(
+  "GLFWKeyHelper.modifierAlt",
+    (
+    ) =>
+      GLFWKeyHelper.modifierAlt
+);
+var _gLFWKeyHelper_modifierMeta = MXFunctionInvoke(
+  "GLFWKeyHelper.modifierMeta",
+    (
+    ) =>
+      GLFWKeyHelper.modifierMeta
+);
+var _gLFWKeyHelper_modifierNumericPad = MXFunctionInvoke(
+  "GLFWKeyHelper.modifierNumericPad",
+    (
+    ) =>
+      GLFWKeyHelper.modifierNumericPad
 );

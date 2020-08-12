@@ -33,6 +33,7 @@ Map<String, MXFunctionInvoke> registerNavigatorSeries() {
   m[_navigatorObserver.funName] = _navigatorObserver;
   m[_defaultTransitionDelegate.funName] = _defaultTransitionDelegate;
   m[_navigator.funName] = _navigator;
+  m[_navigator_defaultRouteName.funName] = _navigator_defaultRouteName;
   m[_navigator_replace.funName] = _navigator_replace;
   m[_navigator_replaceRouteBelow.funName] = _navigator_replaceRouteBelow;
   m[_navigator_pop.funName] = _navigator_pop;
@@ -116,6 +117,12 @@ var _navigator = MXFunctionInvoke(
       transitionDelegate: transitionDelegate,
       observers: toListT<NavigatorObserver>(observers),
     ),
+);
+var _navigator_defaultRouteName = MXFunctionInvoke(
+  "Navigator.defaultRouteName",
+    (
+    ) =>
+      Navigator.defaultRouteName
 );
 var _navigator_replace = MXFunctionInvoke(
   "Navigator.replace",

@@ -41,24 +41,34 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_pathOperation.funName] = _pathOperation;
   m[_rawRecordingCanvas.funName] = _rawRecordingCanvas;
   m[_channelBuffers.funName] = _channelBuffers;
+  m[_channelBuffers_kDefaultBufferSize.funName] = _channelBuffers_kDefaultBufferSize;
+  m[_channelBuffers_kControlChannelName.funName] = _channelBuffers_kControlChannelName;
   m[_sceneBuilder.funName] = _sceneBuilder;
   m[_engineLayer.funName] = _engineLayer;
   m[_sceneHost.funName] = _sceneHost;
   m[_offset.funName] = _offset;
+  m[_offset_zero.funName] = _offset_zero;
+  m[_offset_infinite.funName] = _offset_infinite;
   m[_offset_fromDirection.funName] = _offset_fromDirection;
   m[_size.funName] = _size;
+  m[_size_zero.funName] = _size_zero;
+  m[_size_infinite.funName] = _size_infinite;
   m[_size_copy.funName] = _size_copy;
   m[_size_square.funName] = _size_square;
   m[_size_fromWidth.funName] = _size_fromWidth;
   m[_size_fromHeight.funName] = _size_fromHeight;
   m[_size_fromRadius.funName] = _size_fromRadius;
+  m[_rect_zero.funName] = _rect_zero;
+  m[_rect_largest.funName] = _rect_largest;
   m[_rect_fromLTRB.funName] = _rect_fromLTRB;
   m[_rect_fromLTWH.funName] = _rect_fromLTWH;
   m[_rect_fromCircle.funName] = _rect_fromCircle;
   m[_rect_fromCenter.funName] = _rect_fromCenter;
   m[_rect_fromPoints.funName] = _rect_fromPoints;
+  m[_radius_zero.funName] = _radius_zero;
   m[_radius_circular.funName] = _radius_circular;
   m[_radius_elliptical.funName] = _radius_elliptical;
+  m[_rRect_zero.funName] = _rRect_zero;
   m[_rRect_fromLTRBXY.funName] = _rRect_fromLTRBXY;
   m[_rRect_fromLTRBR.funName] = _rRect_fromLTRBR;
   m[_rRect_fromRectXY.funName] = _rRect_fromRectXY;
@@ -68,6 +78,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_rSTransform.funName] = _rSTransform;
   m[_rSTransform_fromComponents.funName] = _rSTransform_fromComponents;
   m[_point.funName] = _point;
+  m[_point_origin.funName] = _point_origin;
   m[_color.funName] = _color;
   m[_color_fromARGB.funName] = _color_fromARGB;
   m[_color_fromRGBO.funName] = _color_fromRGBO;
@@ -101,9 +112,67 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_pointerSignalKind.funName] = _pointerSignalKind;
   m[_pointerData.funName] = _pointerData;
   m[_pointerDataPacket.funName] = _pointerDataPacket;
+  m[_semanticsAction_tap.funName] = _semanticsAction_tap;
+  m[_semanticsAction_longPress.funName] = _semanticsAction_longPress;
+  m[_semanticsAction_scrollLeft.funName] = _semanticsAction_scrollLeft;
+  m[_semanticsAction_scrollRight.funName] = _semanticsAction_scrollRight;
+  m[_semanticsAction_scrollUp.funName] = _semanticsAction_scrollUp;
+  m[_semanticsAction_scrollDown.funName] = _semanticsAction_scrollDown;
+  m[_semanticsAction_increase.funName] = _semanticsAction_increase;
+  m[_semanticsAction_decrease.funName] = _semanticsAction_decrease;
+  m[_semanticsAction_showOnScreen.funName] = _semanticsAction_showOnScreen;
+  m[_semanticsAction_moveCursorForwardByCharacter.funName] = _semanticsAction_moveCursorForwardByCharacter;
+  m[_semanticsAction_moveCursorBackwardByCharacter.funName] = _semanticsAction_moveCursorBackwardByCharacter;
+  m[_semanticsAction_setSelection.funName] = _semanticsAction_setSelection;
+  m[_semanticsAction_copy.funName] = _semanticsAction_copy;
+  m[_semanticsAction_cut.funName] = _semanticsAction_cut;
+  m[_semanticsAction_paste.funName] = _semanticsAction_paste;
+  m[_semanticsAction_didGainAccessibilityFocus.funName] = _semanticsAction_didGainAccessibilityFocus;
+  m[_semanticsAction_didLoseAccessibilityFocus.funName] = _semanticsAction_didLoseAccessibilityFocus;
+  m[_semanticsAction_customAction.funName] = _semanticsAction_customAction;
+  m[_semanticsAction_dismiss.funName] = _semanticsAction_dismiss;
+  m[_semanticsAction_moveCursorForwardByWord.funName] = _semanticsAction_moveCursorForwardByWord;
+  m[_semanticsAction_moveCursorBackwardByWord.funName] = _semanticsAction_moveCursorBackwardByWord;
+  m[_semanticsAction_values.funName] = _semanticsAction_values;
+  m[_semanticsFlag_hasCheckedState.funName] = _semanticsFlag_hasCheckedState;
+  m[_semanticsFlag_isChecked.funName] = _semanticsFlag_isChecked;
+  m[_semanticsFlag_isSelected.funName] = _semanticsFlag_isSelected;
+  m[_semanticsFlag_isButton.funName] = _semanticsFlag_isButton;
+  m[_semanticsFlag_isLink.funName] = _semanticsFlag_isLink;
+  m[_semanticsFlag_isTextField.funName] = _semanticsFlag_isTextField;
+  m[_semanticsFlag_isReadOnly.funName] = _semanticsFlag_isReadOnly;
+  m[_semanticsFlag_isFocusable.funName] = _semanticsFlag_isFocusable;
+  m[_semanticsFlag_isFocused.funName] = _semanticsFlag_isFocused;
+  m[_semanticsFlag_hasEnabledState.funName] = _semanticsFlag_hasEnabledState;
+  m[_semanticsFlag_isEnabled.funName] = _semanticsFlag_isEnabled;
+  m[_semanticsFlag_isInMutuallyExclusiveGroup.funName] = _semanticsFlag_isInMutuallyExclusiveGroup;
+  m[_semanticsFlag_isHeader.funName] = _semanticsFlag_isHeader;
+  m[_semanticsFlag_isObscured.funName] = _semanticsFlag_isObscured;
+  m[_semanticsFlag_scopesRoute.funName] = _semanticsFlag_scopesRoute;
+  m[_semanticsFlag_namesRoute.funName] = _semanticsFlag_namesRoute;
+  m[_semanticsFlag_isHidden.funName] = _semanticsFlag_isHidden;
+  m[_semanticsFlag_isImage.funName] = _semanticsFlag_isImage;
+  m[_semanticsFlag_isLiveRegion.funName] = _semanticsFlag_isLiveRegion;
+  m[_semanticsFlag_hasToggledState.funName] = _semanticsFlag_hasToggledState;
+  m[_semanticsFlag_isToggled.funName] = _semanticsFlag_isToggled;
+  m[_semanticsFlag_hasImplicitScrolling.funName] = _semanticsFlag_hasImplicitScrolling;
+  m[_semanticsFlag_isMultiline.funName] = _semanticsFlag_isMultiline;
+  m[_semanticsFlag_values.funName] = _semanticsFlag_values;
   m[_semanticsUpdateBuilder.funName] = _semanticsUpdateBuilder;
   m[_fontStyle.funName] = _fontStyle;
   m[_placeholderAlignment.funName] = _placeholderAlignment;
+  m[_fontWeight_w100.funName] = _fontWeight_w100;
+  m[_fontWeight_w200.funName] = _fontWeight_w200;
+  m[_fontWeight_w300.funName] = _fontWeight_w300;
+  m[_fontWeight_w400.funName] = _fontWeight_w400;
+  m[_fontWeight_w500.funName] = _fontWeight_w500;
+  m[_fontWeight_w600.funName] = _fontWeight_w600;
+  m[_fontWeight_w700.funName] = _fontWeight_w700;
+  m[_fontWeight_w800.funName] = _fontWeight_w800;
+  m[_fontWeight_w900.funName] = _fontWeight_w900;
+  m[_fontWeight_normal.funName] = _fontWeight_normal;
+  m[_fontWeight_bold.funName] = _fontWeight_bold;
+  m[_fontWeight_values.funName] = _fontWeight_values;
   m[_fontFeature.funName] = _fontFeature;
   m[_fontFeature_stylisticSet.funName] = _fontFeature_stylisticSet;
   m[_fontFeature_enable.funName] = _fontFeature_enable;
@@ -115,6 +184,10 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_fontFeature_tabularFigures.funName] = _fontFeature_tabularFigures;
   m[_textAlign.funName] = _textAlign;
   m[_textBaseline.funName] = _textBaseline;
+  m[_textDecoration_none.funName] = _textDecoration_none;
+  m[_textDecoration_underline.funName] = _textDecoration_underline;
+  m[_textDecoration_overline.funName] = _textDecoration_overline;
+  m[_textDecoration_lineThrough.funName] = _textDecoration_lineThrough;
   m[_textDecoration_combine.funName] = _textDecoration_combine;
   m[_textDecorationStyle.funName] = _textDecorationStyle;
   m[_textHeightBehavior.funName] = _textHeightBehavior;
@@ -127,6 +200,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_textAffinity.funName] = _textAffinity;
   m[_textPosition.funName] = _textPosition;
   m[_textRange.funName] = _textRange;
+  m[_textRange_empty.funName] = _textRange_empty;
   m[_textRange_collapsed.funName] = _textRange_collapsed;
   m[_paragraphConstraints.funName] = _paragraphConstraints;
   m[_boxHeightStyle.funName] = _boxHeightStyle;
@@ -135,6 +209,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_paragraphBuilder.funName] = _paragraphBuilder;
   m[_tileMode.funName] = _tileMode;
   m[_appLifecycleState.funName] = _appLifecycleState;
+  m[_windowPadding_zero.funName] = _windowPadding_zero;
   m[_locale.funName] = _locale;
   m[_locale_fromSubtags.funName] = _locale_fromSubtags;
   m[_brightness.funName] = _brightness;
@@ -151,11 +226,53 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_bool_fromEnvironment.funName] = _bool_fromEnvironment;
   m[_bool_hasEnvironment.funName] = _bool_hasEnvironment;
   m[_dateTime.funName] = _dateTime;
+  m[_dateTime_monday.funName] = _dateTime_monday;
+  m[_dateTime_tuesday.funName] = _dateTime_tuesday;
+  m[_dateTime_wednesday.funName] = _dateTime_wednesday;
+  m[_dateTime_thursday.funName] = _dateTime_thursday;
+  m[_dateTime_friday.funName] = _dateTime_friday;
+  m[_dateTime_saturday.funName] = _dateTime_saturday;
+  m[_dateTime_sunday.funName] = _dateTime_sunday;
+  m[_dateTime_daysPerWeek.funName] = _dateTime_daysPerWeek;
+  m[_dateTime_january.funName] = _dateTime_january;
+  m[_dateTime_february.funName] = _dateTime_february;
+  m[_dateTime_march.funName] = _dateTime_march;
+  m[_dateTime_april.funName] = _dateTime_april;
+  m[_dateTime_may.funName] = _dateTime_may;
+  m[_dateTime_june.funName] = _dateTime_june;
+  m[_dateTime_july.funName] = _dateTime_july;
+  m[_dateTime_august.funName] = _dateTime_august;
+  m[_dateTime_september.funName] = _dateTime_september;
+  m[_dateTime_october.funName] = _dateTime_october;
+  m[_dateTime_november.funName] = _dateTime_november;
+  m[_dateTime_december.funName] = _dateTime_december;
+  m[_dateTime_monthsPerYear.funName] = _dateTime_monthsPerYear;
   m[_dateTime_utc.funName] = _dateTime_utc;
   m[_dateTime_now.funName] = _dateTime_now;
   m[_dateTime_fromMillisecondsSinceEpoch.funName] = _dateTime_fromMillisecondsSinceEpoch;
   m[_dateTime_fromMicrosecondsSinceEpoch.funName] = _dateTime_fromMicrosecondsSinceEpoch;
+  m[_double_nan.funName] = _double_nan;
+  m[_double_infinity.funName] = _double_infinity;
+  m[_double_negativeInfinity.funName] = _double_negativeInfinity;
+  m[_double_minPositive.funName] = _double_minPositive;
+  m[_double_maxFinite.funName] = _double_maxFinite;
   m[_duration.funName] = _duration;
+  m[_duration_microsecondsPerMillisecond.funName] = _duration_microsecondsPerMillisecond;
+  m[_duration_millisecondsPerSecond.funName] = _duration_millisecondsPerSecond;
+  m[_duration_secondsPerMinute.funName] = _duration_secondsPerMinute;
+  m[_duration_minutesPerHour.funName] = _duration_minutesPerHour;
+  m[_duration_hoursPerDay.funName] = _duration_hoursPerDay;
+  m[_duration_microsecondsPerSecond.funName] = _duration_microsecondsPerSecond;
+  m[_duration_microsecondsPerMinute.funName] = _duration_microsecondsPerMinute;
+  m[_duration_microsecondsPerHour.funName] = _duration_microsecondsPerHour;
+  m[_duration_microsecondsPerDay.funName] = _duration_microsecondsPerDay;
+  m[_duration_millisecondsPerMinute.funName] = _duration_millisecondsPerMinute;
+  m[_duration_millisecondsPerHour.funName] = _duration_millisecondsPerHour;
+  m[_duration_millisecondsPerDay.funName] = _duration_millisecondsPerDay;
+  m[_duration_secondsPerHour.funName] = _duration_secondsPerHour;
+  m[_duration_secondsPerDay.funName] = _duration_secondsPerDay;
+  m[_duration_minutesPerDay.funName] = _duration_minutesPerDay;
+  m[_duration_zero.funName] = _duration_zero;
   m[_error.funName] = _error;
   m[_assertionError.funName] = _assertionError;
   m[_typeError.funName] = _typeError;
@@ -213,6 +330,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_set_identity.funName] = _set_identity;
   m[_set_from.funName] = _set_from;
   m[_set_of.funName] = _set_of;
+  m[_stackTrace_empty.funName] = _stackTrace_empty;
   m[_stackTrace_fromString.funName] = _stackTrace_fromString;
   m[_stopwatch.funName] = _stopwatch;
   m[_string_fromCharCodes.funName] = _string_fromCharCodes;
@@ -222,6 +340,8 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_runeIterator.funName] = _runeIterator;
   m[_runeIterator_at.funName] = _runeIterator_at;
   m[_stringBuffer.funName] = _stringBuffer;
+  m[_symbol_unaryMinus.funName] = _symbol_unaryMinus;
+  m[_symbol_empty.funName] = _symbol_empty;
   m[_symbol.funName] = _symbol;
   m[_uri.funName] = _uri;
   m[_uri_http.funName] = _uri_http;
@@ -331,6 +451,18 @@ var _channelBuffers = MXFunctionInvoke(
       ChannelBuffers(
     ),
 );
+var _channelBuffers_kDefaultBufferSize = MXFunctionInvoke(
+  "ChannelBuffers.kDefaultBufferSize",
+    (
+    ) =>
+      ChannelBuffers.kDefaultBufferSize
+);
+var _channelBuffers_kControlChannelName = MXFunctionInvoke(
+  "ChannelBuffers.kControlChannelName",
+    (
+    ) =>
+      ChannelBuffers.kControlChannelName
+);
 var _sceneBuilder = MXFunctionInvoke(
     "SceneBuilder",
     (
@@ -375,6 +507,18 @@ var _offset = MXFunctionInvoke(
       dy?.toDouble(),
     ),
 );
+var _offset_zero = MXFunctionInvoke(
+  "Offset.zero",
+    (
+    ) =>
+      Offset.zero
+);
+var _offset_infinite = MXFunctionInvoke(
+  "Offset.infinite",
+    (
+    ) =>
+      Offset.infinite
+);
 var _offset_fromDirection = MXFunctionInvoke(
   "Offset.fromDirection",
     (
@@ -400,6 +544,18 @@ var _size = MXFunctionInvoke(
       width?.toDouble(),
       height?.toDouble(),
     ),
+);
+var _size_zero = MXFunctionInvoke(
+  "Size.zero",
+    (
+    ) =>
+      Size.zero
+);
+var _size_infinite = MXFunctionInvoke(
+  "Size.infinite",
+    (
+    ) =>
+      Size.infinite
 );
 var _size_copy = MXFunctionInvoke(
   "Size.copy",
@@ -455,6 +611,18 @@ var _size_fromRadius = MXFunctionInvoke(
       Size.fromRadius(
       radius?.toDouble(),
     ),
+);
+var _rect_zero = MXFunctionInvoke(
+  "Rect.zero",
+    (
+    ) =>
+      Rect.zero
+);
+var _rect_largest = MXFunctionInvoke(
+  "Rect.largest",
+    (
+    ) =>
+      Rect.largest
 );
 var _rect_fromLTRB = MXFunctionInvoke(
   "Rect.fromLTRB",
@@ -531,6 +699,12 @@ var _rect_fromPoints = MXFunctionInvoke(
       b,
     ),
 );
+var _radius_zero = MXFunctionInvoke(
+  "Radius.zero",
+    (
+    ) =>
+      Radius.zero
+);
 var _radius_circular = MXFunctionInvoke(
   "Radius.circular",
     (
@@ -554,6 +728,12 @@ var _radius_elliptical = MXFunctionInvoke(
       x?.toDouble(),
       y?.toDouble(),
     ),
+);
+var _rRect_zero = MXFunctionInvoke(
+  "RRect.zero",
+    (
+    ) =>
+      RRect.zero
 );
 var _rRect_fromLTRBXY = MXFunctionInvoke(
   "RRect.fromLTRBXY",
@@ -631,10 +811,10 @@ var _rRect_fromLTRBAndCorners = MXFunctionInvoke(
       dynamic top,
       dynamic right,
       dynamic bottom,
-      Radius topLeft,
-      Radius topRight,
-      Radius bottomRight,
-      Radius bottomLeft,
+      Radius topLeft = Radius.zero,
+      Radius topRight = Radius.zero,
+      Radius bottomRight = Radius.zero,
+      Radius bottomLeft = Radius.zero,
       }
     ) =>
       RRect.fromLTRBAndCorners(
@@ -653,10 +833,10 @@ var _rRect_fromRectAndCorners = MXFunctionInvoke(
     (
       {
       Rect rect,
-      Radius topLeft,
-      Radius topRight,
-      Radius bottomRight,
-      Radius bottomLeft,
+      Radius topLeft = Radius.zero,
+      Radius topRight = Radius.zero,
+      Radius bottomRight = Radius.zero,
+      Radius bottomLeft = Radius.zero,
       }
     ) =>
       RRect.fromRectAndCorners(
@@ -717,6 +897,12 @@ var _point = MXFunctionInvoke(
       x?.toDouble(),
       y?.toDouble(),
     ),
+);
+var _point_origin = MXFunctionInvoke(
+  "Point.origin",
+    (
+    ) =>
+      Point.origin
 );
 var _color = MXFunctionInvoke(
     "Color",
@@ -956,8 +1142,8 @@ var _shadow = MXFunctionInvoke(
     "Shadow",
     (
       {
-      Color color,
-      Offset offset,
+      Color color = const Color(4278190080.0),
+      Offset offset = Offset.zero,
       dynamic blurRadius = 0.0,
       }
     ) =>
@@ -1027,9 +1213,9 @@ var _pointerData = MXFunctionInvoke(
     "PointerData",
     (
       {
-      Duration timeStamp,
-      PointerChange change = PointerChange.cancel,
-      PointerDeviceKind kind = PointerDeviceKind.touch,
+      Duration timeStamp = Duration.zero,
+      PointerChange change =  PointerChange.cancel,
+      PointerDeviceKind kind =  PointerDeviceKind.touch,
       PointerSignalKind signalKind,
       int device = 0,
       int pointerIdentifier = 0,
@@ -1092,12 +1278,288 @@ var _pointerDataPacket = MXFunctionInvoke(
     "PointerDataPacket",
     (
       {
-      dynamic data,
+      dynamic data = const <PointerData>[],
       }
     ) =>
       PointerDataPacket(
       data: toListT<PointerData>(data),
     ),
+);
+var _semanticsAction_tap = MXFunctionInvoke(
+  "SemanticsAction.tap",
+    (
+    ) =>
+      SemanticsAction.tap
+);
+var _semanticsAction_longPress = MXFunctionInvoke(
+  "SemanticsAction.longPress",
+    (
+    ) =>
+      SemanticsAction.longPress
+);
+var _semanticsAction_scrollLeft = MXFunctionInvoke(
+  "SemanticsAction.scrollLeft",
+    (
+    ) =>
+      SemanticsAction.scrollLeft
+);
+var _semanticsAction_scrollRight = MXFunctionInvoke(
+  "SemanticsAction.scrollRight",
+    (
+    ) =>
+      SemanticsAction.scrollRight
+);
+var _semanticsAction_scrollUp = MXFunctionInvoke(
+  "SemanticsAction.scrollUp",
+    (
+    ) =>
+      SemanticsAction.scrollUp
+);
+var _semanticsAction_scrollDown = MXFunctionInvoke(
+  "SemanticsAction.scrollDown",
+    (
+    ) =>
+      SemanticsAction.scrollDown
+);
+var _semanticsAction_increase = MXFunctionInvoke(
+  "SemanticsAction.increase",
+    (
+    ) =>
+      SemanticsAction.increase
+);
+var _semanticsAction_decrease = MXFunctionInvoke(
+  "SemanticsAction.decrease",
+    (
+    ) =>
+      SemanticsAction.decrease
+);
+var _semanticsAction_showOnScreen = MXFunctionInvoke(
+  "SemanticsAction.showOnScreen",
+    (
+    ) =>
+      SemanticsAction.showOnScreen
+);
+var _semanticsAction_moveCursorForwardByCharacter = MXFunctionInvoke(
+  "SemanticsAction.moveCursorForwardByCharacter",
+    (
+    ) =>
+      SemanticsAction.moveCursorForwardByCharacter
+);
+var _semanticsAction_moveCursorBackwardByCharacter = MXFunctionInvoke(
+  "SemanticsAction.moveCursorBackwardByCharacter",
+    (
+    ) =>
+      SemanticsAction.moveCursorBackwardByCharacter
+);
+var _semanticsAction_setSelection = MXFunctionInvoke(
+  "SemanticsAction.setSelection",
+    (
+    ) =>
+      SemanticsAction.setSelection
+);
+var _semanticsAction_copy = MXFunctionInvoke(
+  "SemanticsAction.copy",
+    (
+    ) =>
+      SemanticsAction.copy
+);
+var _semanticsAction_cut = MXFunctionInvoke(
+  "SemanticsAction.cut",
+    (
+    ) =>
+      SemanticsAction.cut
+);
+var _semanticsAction_paste = MXFunctionInvoke(
+  "SemanticsAction.paste",
+    (
+    ) =>
+      SemanticsAction.paste
+);
+var _semanticsAction_didGainAccessibilityFocus = MXFunctionInvoke(
+  "SemanticsAction.didGainAccessibilityFocus",
+    (
+    ) =>
+      SemanticsAction.didGainAccessibilityFocus
+);
+var _semanticsAction_didLoseAccessibilityFocus = MXFunctionInvoke(
+  "SemanticsAction.didLoseAccessibilityFocus",
+    (
+    ) =>
+      SemanticsAction.didLoseAccessibilityFocus
+);
+var _semanticsAction_customAction = MXFunctionInvoke(
+  "SemanticsAction.customAction",
+    (
+    ) =>
+      SemanticsAction.customAction
+);
+var _semanticsAction_dismiss = MXFunctionInvoke(
+  "SemanticsAction.dismiss",
+    (
+    ) =>
+      SemanticsAction.dismiss
+);
+var _semanticsAction_moveCursorForwardByWord = MXFunctionInvoke(
+  "SemanticsAction.moveCursorForwardByWord",
+    (
+    ) =>
+      SemanticsAction.moveCursorForwardByWord
+);
+var _semanticsAction_moveCursorBackwardByWord = MXFunctionInvoke(
+  "SemanticsAction.moveCursorBackwardByWord",
+    (
+    ) =>
+      SemanticsAction.moveCursorBackwardByWord
+);
+var _semanticsAction_values = MXFunctionInvoke(
+  "SemanticsAction.values",
+    (
+    ) =>
+      SemanticsAction.values
+);
+var _semanticsFlag_hasCheckedState = MXFunctionInvoke(
+  "SemanticsFlag.hasCheckedState",
+    (
+    ) =>
+      SemanticsFlag.hasCheckedState
+);
+var _semanticsFlag_isChecked = MXFunctionInvoke(
+  "SemanticsFlag.isChecked",
+    (
+    ) =>
+      SemanticsFlag.isChecked
+);
+var _semanticsFlag_isSelected = MXFunctionInvoke(
+  "SemanticsFlag.isSelected",
+    (
+    ) =>
+      SemanticsFlag.isSelected
+);
+var _semanticsFlag_isButton = MXFunctionInvoke(
+  "SemanticsFlag.isButton",
+    (
+    ) =>
+      SemanticsFlag.isButton
+);
+var _semanticsFlag_isLink = MXFunctionInvoke(
+  "SemanticsFlag.isLink",
+    (
+    ) =>
+      SemanticsFlag.isLink
+);
+var _semanticsFlag_isTextField = MXFunctionInvoke(
+  "SemanticsFlag.isTextField",
+    (
+    ) =>
+      SemanticsFlag.isTextField
+);
+var _semanticsFlag_isReadOnly = MXFunctionInvoke(
+  "SemanticsFlag.isReadOnly",
+    (
+    ) =>
+      SemanticsFlag.isReadOnly
+);
+var _semanticsFlag_isFocusable = MXFunctionInvoke(
+  "SemanticsFlag.isFocusable",
+    (
+    ) =>
+      SemanticsFlag.isFocusable
+);
+var _semanticsFlag_isFocused = MXFunctionInvoke(
+  "SemanticsFlag.isFocused",
+    (
+    ) =>
+      SemanticsFlag.isFocused
+);
+var _semanticsFlag_hasEnabledState = MXFunctionInvoke(
+  "SemanticsFlag.hasEnabledState",
+    (
+    ) =>
+      SemanticsFlag.hasEnabledState
+);
+var _semanticsFlag_isEnabled = MXFunctionInvoke(
+  "SemanticsFlag.isEnabled",
+    (
+    ) =>
+      SemanticsFlag.isEnabled
+);
+var _semanticsFlag_isInMutuallyExclusiveGroup = MXFunctionInvoke(
+  "SemanticsFlag.isInMutuallyExclusiveGroup",
+    (
+    ) =>
+      SemanticsFlag.isInMutuallyExclusiveGroup
+);
+var _semanticsFlag_isHeader = MXFunctionInvoke(
+  "SemanticsFlag.isHeader",
+    (
+    ) =>
+      SemanticsFlag.isHeader
+);
+var _semanticsFlag_isObscured = MXFunctionInvoke(
+  "SemanticsFlag.isObscured",
+    (
+    ) =>
+      SemanticsFlag.isObscured
+);
+var _semanticsFlag_scopesRoute = MXFunctionInvoke(
+  "SemanticsFlag.scopesRoute",
+    (
+    ) =>
+      SemanticsFlag.scopesRoute
+);
+var _semanticsFlag_namesRoute = MXFunctionInvoke(
+  "SemanticsFlag.namesRoute",
+    (
+    ) =>
+      SemanticsFlag.namesRoute
+);
+var _semanticsFlag_isHidden = MXFunctionInvoke(
+  "SemanticsFlag.isHidden",
+    (
+    ) =>
+      SemanticsFlag.isHidden
+);
+var _semanticsFlag_isImage = MXFunctionInvoke(
+  "SemanticsFlag.isImage",
+    (
+    ) =>
+      SemanticsFlag.isImage
+);
+var _semanticsFlag_isLiveRegion = MXFunctionInvoke(
+  "SemanticsFlag.isLiveRegion",
+    (
+    ) =>
+      SemanticsFlag.isLiveRegion
+);
+var _semanticsFlag_hasToggledState = MXFunctionInvoke(
+  "SemanticsFlag.hasToggledState",
+    (
+    ) =>
+      SemanticsFlag.hasToggledState
+);
+var _semanticsFlag_isToggled = MXFunctionInvoke(
+  "SemanticsFlag.isToggled",
+    (
+    ) =>
+      SemanticsFlag.isToggled
+);
+var _semanticsFlag_hasImplicitScrolling = MXFunctionInvoke(
+  "SemanticsFlag.hasImplicitScrolling",
+    (
+    ) =>
+      SemanticsFlag.hasImplicitScrolling
+);
+var _semanticsFlag_isMultiline = MXFunctionInvoke(
+  "SemanticsFlag.isMultiline",
+    (
+    ) =>
+      SemanticsFlag.isMultiline
+);
+var _semanticsFlag_values = MXFunctionInvoke(
+  "SemanticsFlag.values",
+    (
+    ) =>
+      SemanticsFlag.values
 );
 var _semanticsUpdateBuilder = MXFunctionInvoke(
     "SemanticsUpdateBuilder",
@@ -1114,6 +1576,78 @@ var _placeholderAlignment = MXFunctionInvoke(
     "PlaceholderAlignment",
     ({String name, int index}) => MXPlaceholderAlignment.parse(name, index),
   );
+var _fontWeight_w100 = MXFunctionInvoke(
+  "FontWeight.w100",
+    (
+    ) =>
+      FontWeight.w100
+);
+var _fontWeight_w200 = MXFunctionInvoke(
+  "FontWeight.w200",
+    (
+    ) =>
+      FontWeight.w200
+);
+var _fontWeight_w300 = MXFunctionInvoke(
+  "FontWeight.w300",
+    (
+    ) =>
+      FontWeight.w300
+);
+var _fontWeight_w400 = MXFunctionInvoke(
+  "FontWeight.w400",
+    (
+    ) =>
+      FontWeight.w400
+);
+var _fontWeight_w500 = MXFunctionInvoke(
+  "FontWeight.w500",
+    (
+    ) =>
+      FontWeight.w500
+);
+var _fontWeight_w600 = MXFunctionInvoke(
+  "FontWeight.w600",
+    (
+    ) =>
+      FontWeight.w600
+);
+var _fontWeight_w700 = MXFunctionInvoke(
+  "FontWeight.w700",
+    (
+    ) =>
+      FontWeight.w700
+);
+var _fontWeight_w800 = MXFunctionInvoke(
+  "FontWeight.w800",
+    (
+    ) =>
+      FontWeight.w800
+);
+var _fontWeight_w900 = MXFunctionInvoke(
+  "FontWeight.w900",
+    (
+    ) =>
+      FontWeight.w900
+);
+var _fontWeight_normal = MXFunctionInvoke(
+  "FontWeight.normal",
+    (
+    ) =>
+      FontWeight.normal
+);
+var _fontWeight_bold = MXFunctionInvoke(
+  "FontWeight.bold",
+    (
+    ) =>
+      FontWeight.bold
+);
+var _fontWeight_values = MXFunctionInvoke(
+  "FontWeight.values",
+    (
+    ) =>
+      FontWeight.values
+);
 var _fontFeature = MXFunctionInvoke(
     "FontFeature",
     (
@@ -1203,6 +1737,30 @@ var _textBaseline = MXFunctionInvoke(
     "TextBaseline",
     ({String name, int index}) => MXTextBaseline.parse(name, index),
   );
+var _textDecoration_none = MXFunctionInvoke(
+  "TextDecoration.none",
+    (
+    ) =>
+      TextDecoration.none
+);
+var _textDecoration_underline = MXFunctionInvoke(
+  "TextDecoration.underline",
+    (
+    ) =>
+      TextDecoration.underline
+);
+var _textDecoration_overline = MXFunctionInvoke(
+  "TextDecoration.overline",
+    (
+    ) =>
+      TextDecoration.overline
+);
+var _textDecoration_lineThrough = MXFunctionInvoke(
+  "TextDecoration.lineThrough",
+    (
+    ) =>
+      TextDecoration.lineThrough
+);
 var _textDecoration_combine = MXFunctionInvoke(
   "TextDecoration.combine",
     (
@@ -1400,6 +1958,12 @@ var _textRange = MXFunctionInvoke(
       end: end,
     ),
 );
+var _textRange_empty = MXFunctionInvoke(
+  "TextRange.empty",
+    (
+    ) =>
+      TextRange.empty
+);
 var _textRange_collapsed = MXFunctionInvoke(
   "TextRange.collapsed",
     (
@@ -1476,6 +2040,12 @@ var _appLifecycleState = MXFunctionInvoke(
     "AppLifecycleState",
     ({String name, int index}) => MXAppLifecycleState.parse(name, index),
   );
+var _windowPadding_zero = MXFunctionInvoke(
+  "WindowPadding.zero",
+    (
+    ) =>
+      WindowPadding.zero
+);
 var _locale = MXFunctionInvoke(
     "Locale",
     (
@@ -1660,6 +2230,132 @@ var _dateTime = MXFunctionInvoke(
       microsecond,
     ),
 );
+var _dateTime_monday = MXFunctionInvoke(
+  "DateTime.monday",
+    (
+    ) =>
+      DateTime.monday
+);
+var _dateTime_tuesday = MXFunctionInvoke(
+  "DateTime.tuesday",
+    (
+    ) =>
+      DateTime.tuesday
+);
+var _dateTime_wednesday = MXFunctionInvoke(
+  "DateTime.wednesday",
+    (
+    ) =>
+      DateTime.wednesday
+);
+var _dateTime_thursday = MXFunctionInvoke(
+  "DateTime.thursday",
+    (
+    ) =>
+      DateTime.thursday
+);
+var _dateTime_friday = MXFunctionInvoke(
+  "DateTime.friday",
+    (
+    ) =>
+      DateTime.friday
+);
+var _dateTime_saturday = MXFunctionInvoke(
+  "DateTime.saturday",
+    (
+    ) =>
+      DateTime.saturday
+);
+var _dateTime_sunday = MXFunctionInvoke(
+  "DateTime.sunday",
+    (
+    ) =>
+      DateTime.sunday
+);
+var _dateTime_daysPerWeek = MXFunctionInvoke(
+  "DateTime.daysPerWeek",
+    (
+    ) =>
+      DateTime.daysPerWeek
+);
+var _dateTime_january = MXFunctionInvoke(
+  "DateTime.january",
+    (
+    ) =>
+      DateTime.january
+);
+var _dateTime_february = MXFunctionInvoke(
+  "DateTime.february",
+    (
+    ) =>
+      DateTime.february
+);
+var _dateTime_march = MXFunctionInvoke(
+  "DateTime.march",
+    (
+    ) =>
+      DateTime.march
+);
+var _dateTime_april = MXFunctionInvoke(
+  "DateTime.april",
+    (
+    ) =>
+      DateTime.april
+);
+var _dateTime_may = MXFunctionInvoke(
+  "DateTime.may",
+    (
+    ) =>
+      DateTime.may
+);
+var _dateTime_june = MXFunctionInvoke(
+  "DateTime.june",
+    (
+    ) =>
+      DateTime.june
+);
+var _dateTime_july = MXFunctionInvoke(
+  "DateTime.july",
+    (
+    ) =>
+      DateTime.july
+);
+var _dateTime_august = MXFunctionInvoke(
+  "DateTime.august",
+    (
+    ) =>
+      DateTime.august
+);
+var _dateTime_september = MXFunctionInvoke(
+  "DateTime.september",
+    (
+    ) =>
+      DateTime.september
+);
+var _dateTime_october = MXFunctionInvoke(
+  "DateTime.october",
+    (
+    ) =>
+      DateTime.october
+);
+var _dateTime_november = MXFunctionInvoke(
+  "DateTime.november",
+    (
+    ) =>
+      DateTime.november
+);
+var _dateTime_december = MXFunctionInvoke(
+  "DateTime.december",
+    (
+    ) =>
+      DateTime.december
+);
+var _dateTime_monthsPerYear = MXFunctionInvoke(
+  "DateTime.monthsPerYear",
+    (
+    ) =>
+      DateTime.monthsPerYear
+);
 var _dateTime_utc = MXFunctionInvoke(
   "DateTime.utc",
     (
@@ -1718,6 +2414,36 @@ var _dateTime_fromMicrosecondsSinceEpoch = MXFunctionInvoke(
       isUtc: isUtc,
     ),
 );
+var _double_nan = MXFunctionInvoke(
+  "double.nan",
+    (
+    ) =>
+      double.nan
+);
+var _double_infinity = MXFunctionInvoke(
+  "double.infinity",
+    (
+    ) =>
+      double.infinity
+);
+var _double_negativeInfinity = MXFunctionInvoke(
+  "double.negativeInfinity",
+    (
+    ) =>
+      double.negativeInfinity
+);
+var _double_minPositive = MXFunctionInvoke(
+  "double.minPositive",
+    (
+    ) =>
+      double.minPositive
+);
+var _double_maxFinite = MXFunctionInvoke(
+  "double.maxFinite",
+    (
+    ) =>
+      double.maxFinite
+);
 var _duration = MXFunctionInvoke(
     "Duration",
     (
@@ -1738,6 +2464,102 @@ var _duration = MXFunctionInvoke(
       milliseconds: milliseconds,
       microseconds: microseconds,
     ),
+);
+var _duration_microsecondsPerMillisecond = MXFunctionInvoke(
+  "Duration.microsecondsPerMillisecond",
+    (
+    ) =>
+      Duration.microsecondsPerMillisecond
+);
+var _duration_millisecondsPerSecond = MXFunctionInvoke(
+  "Duration.millisecondsPerSecond",
+    (
+    ) =>
+      Duration.millisecondsPerSecond
+);
+var _duration_secondsPerMinute = MXFunctionInvoke(
+  "Duration.secondsPerMinute",
+    (
+    ) =>
+      Duration.secondsPerMinute
+);
+var _duration_minutesPerHour = MXFunctionInvoke(
+  "Duration.minutesPerHour",
+    (
+    ) =>
+      Duration.minutesPerHour
+);
+var _duration_hoursPerDay = MXFunctionInvoke(
+  "Duration.hoursPerDay",
+    (
+    ) =>
+      Duration.hoursPerDay
+);
+var _duration_microsecondsPerSecond = MXFunctionInvoke(
+  "Duration.microsecondsPerSecond",
+    (
+    ) =>
+      Duration.microsecondsPerSecond
+);
+var _duration_microsecondsPerMinute = MXFunctionInvoke(
+  "Duration.microsecondsPerMinute",
+    (
+    ) =>
+      Duration.microsecondsPerMinute
+);
+var _duration_microsecondsPerHour = MXFunctionInvoke(
+  "Duration.microsecondsPerHour",
+    (
+    ) =>
+      Duration.microsecondsPerHour
+);
+var _duration_microsecondsPerDay = MXFunctionInvoke(
+  "Duration.microsecondsPerDay",
+    (
+    ) =>
+      Duration.microsecondsPerDay
+);
+var _duration_millisecondsPerMinute = MXFunctionInvoke(
+  "Duration.millisecondsPerMinute",
+    (
+    ) =>
+      Duration.millisecondsPerMinute
+);
+var _duration_millisecondsPerHour = MXFunctionInvoke(
+  "Duration.millisecondsPerHour",
+    (
+    ) =>
+      Duration.millisecondsPerHour
+);
+var _duration_millisecondsPerDay = MXFunctionInvoke(
+  "Duration.millisecondsPerDay",
+    (
+    ) =>
+      Duration.millisecondsPerDay
+);
+var _duration_secondsPerHour = MXFunctionInvoke(
+  "Duration.secondsPerHour",
+    (
+    ) =>
+      Duration.secondsPerHour
+);
+var _duration_secondsPerDay = MXFunctionInvoke(
+  "Duration.secondsPerDay",
+    (
+    ) =>
+      Duration.secondsPerDay
+);
+var _duration_minutesPerDay = MXFunctionInvoke(
+  "Duration.minutesPerDay",
+    (
+    ) =>
+      Duration.minutesPerDay
+);
+var _duration_zero = MXFunctionInvoke(
+  "Duration.zero",
+    (
+    ) =>
+      Duration.zero
 );
 var _error = MXFunctionInvoke(
     "Error",
@@ -2416,6 +3238,12 @@ var _set_of = MXFunctionInvoke(
       elements,
     ),
 );
+var _stackTrace_empty = MXFunctionInvoke(
+  "StackTrace.empty",
+    (
+    ) =>
+      StackTrace.empty
+);
 var _stackTrace_fromString = MXFunctionInvoke(
   "StackTrace.fromString",
     (
@@ -2518,6 +3346,18 @@ var _stringBuffer = MXFunctionInvoke(
       StringBuffer(
       content,
     ),
+);
+var _symbol_unaryMinus = MXFunctionInvoke(
+  "Symbol.unaryMinus",
+    (
+    ) =>
+      Symbol.unaryMinus
+);
+var _symbol_empty = MXFunctionInvoke(
+  "Symbol.empty",
+    (
+    ) =>
+      Symbol.empty
 );
 var _symbol = MXFunctionInvoke(
     "Symbol",

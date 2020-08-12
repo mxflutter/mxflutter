@@ -19,8 +19,21 @@ import 'package:flutter/src/services/system_channels.dart';
 Map<String, MXFunctionInvoke> registerPlatformViewsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_androidPointerProperties.funName] = _androidPointerProperties;
+  m[_androidPointerProperties_kToolTypeUnknown.funName] = _androidPointerProperties_kToolTypeUnknown;
+  m[_androidPointerProperties_kToolTypeFinger.funName] = _androidPointerProperties_kToolTypeFinger;
+  m[_androidPointerProperties_kToolTypeStylus.funName] = _androidPointerProperties_kToolTypeStylus;
+  m[_androidPointerProperties_kToolTypeMouse.funName] = _androidPointerProperties_kToolTypeMouse;
+  m[_androidPointerProperties_kToolTypeEraser.funName] = _androidPointerProperties_kToolTypeEraser;
   m[_androidPointerCoords.funName] = _androidPointerCoords;
   m[_androidMotionEvent.funName] = _androidMotionEvent;
+  m[_androidViewController_kActionDown.funName] = _androidViewController_kActionDown;
+  m[_androidViewController_kActionUp.funName] = _androidViewController_kActionUp;
+  m[_androidViewController_kActionMove.funName] = _androidViewController_kActionMove;
+  m[_androidViewController_kActionCancel.funName] = _androidViewController_kActionCancel;
+  m[_androidViewController_kActionPointerDown.funName] = _androidViewController_kActionPointerDown;
+  m[_androidViewController_kActionPointerUp.funName] = _androidViewController_kActionPointerUp;
+  m[_androidViewController_kAndroidLayoutDirectionLtr.funName] = _androidViewController_kAndroidLayoutDirectionLtr;
+  m[_androidViewController_kAndroidLayoutDirectionRtl.funName] = _androidViewController_kAndroidLayoutDirectionRtl;
   return m;
 }
 var _androidPointerProperties = MXFunctionInvoke(
@@ -35,6 +48,36 @@ var _androidPointerProperties = MXFunctionInvoke(
       id: id,
       toolType: toolType,
     ),
+);
+var _androidPointerProperties_kToolTypeUnknown = MXFunctionInvoke(
+  "AndroidPointerProperties.kToolTypeUnknown",
+    (
+    ) =>
+      AndroidPointerProperties.kToolTypeUnknown
+);
+var _androidPointerProperties_kToolTypeFinger = MXFunctionInvoke(
+  "AndroidPointerProperties.kToolTypeFinger",
+    (
+    ) =>
+      AndroidPointerProperties.kToolTypeFinger
+);
+var _androidPointerProperties_kToolTypeStylus = MXFunctionInvoke(
+  "AndroidPointerProperties.kToolTypeStylus",
+    (
+    ) =>
+      AndroidPointerProperties.kToolTypeStylus
+);
+var _androidPointerProperties_kToolTypeMouse = MXFunctionInvoke(
+  "AndroidPointerProperties.kToolTypeMouse",
+    (
+    ) =>
+      AndroidPointerProperties.kToolTypeMouse
+);
+var _androidPointerProperties_kToolTypeEraser = MXFunctionInvoke(
+  "AndroidPointerProperties.kToolTypeEraser",
+    (
+    ) =>
+      AndroidPointerProperties.kToolTypeEraser
 );
 var _androidPointerCoords = MXFunctionInvoke(
     "AndroidPointerCoords",
@@ -99,4 +142,52 @@ var _androidMotionEvent = MXFunctionInvoke(
       source: source,
       flags: flags,
     ),
+);
+var _androidViewController_kActionDown = MXFunctionInvoke(
+  "AndroidViewController.kActionDown",
+    (
+    ) =>
+      AndroidViewController.kActionDown
+);
+var _androidViewController_kActionUp = MXFunctionInvoke(
+  "AndroidViewController.kActionUp",
+    (
+    ) =>
+      AndroidViewController.kActionUp
+);
+var _androidViewController_kActionMove = MXFunctionInvoke(
+  "AndroidViewController.kActionMove",
+    (
+    ) =>
+      AndroidViewController.kActionMove
+);
+var _androidViewController_kActionCancel = MXFunctionInvoke(
+  "AndroidViewController.kActionCancel",
+    (
+    ) =>
+      AndroidViewController.kActionCancel
+);
+var _androidViewController_kActionPointerDown = MXFunctionInvoke(
+  "AndroidViewController.kActionPointerDown",
+    (
+    ) =>
+      AndroidViewController.kActionPointerDown
+);
+var _androidViewController_kActionPointerUp = MXFunctionInvoke(
+  "AndroidViewController.kActionPointerUp",
+    (
+    ) =>
+      AndroidViewController.kActionPointerUp
+);
+var _androidViewController_kAndroidLayoutDirectionLtr = MXFunctionInvoke(
+  "AndroidViewController.kAndroidLayoutDirectionLtr",
+    (
+    ) =>
+      AndroidViewController.kAndroidLayoutDirectionLtr
+);
+var _androidViewController_kAndroidLayoutDirectionRtl = MXFunctionInvoke(
+  "AndroidViewController.kAndroidLayoutDirectionRtl",
+    (
+    ) =>
+      AndroidViewController.kAndroidLayoutDirectionRtl
 );

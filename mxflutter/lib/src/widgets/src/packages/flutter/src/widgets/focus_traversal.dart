@@ -32,10 +32,14 @@ Map<String, MXFunctionInvoke> registerFocusTraversalSeries() {
   m[_focusTraversalOrder.funName] = _focusTraversalOrder;
   m[_focusTraversalGroup.funName] = _focusTraversalGroup;
   m[_requestFocusAction.funName] = _requestFocusAction;
+  m[_requestFocusAction_key.funName] = _requestFocusAction_key;
   m[_nextFocusAction.funName] = _nextFocusAction;
+  m[_nextFocusAction_key.funName] = _nextFocusAction_key;
   m[_previousFocusAction.funName] = _previousFocusAction;
+  m[_previousFocusAction_key.funName] = _previousFocusAction_key;
   m[_directionalFocusIntent.funName] = _directionalFocusIntent;
   m[_directionalFocusAction.funName] = _directionalFocusAction;
+  m[_directionalFocusAction_key.funName] = _directionalFocusAction_key;
   return m;
 }
 var _traversalDirection = MXFunctionInvoke(
@@ -126,6 +130,12 @@ var _requestFocusAction = MXFunctionInvoke(
       RequestFocusAction(
     ),
 );
+var _requestFocusAction_key = MXFunctionInvoke(
+  "RequestFocusAction.key",
+    (
+    ) =>
+      RequestFocusAction.key
+);
 var _nextFocusAction = MXFunctionInvoke(
     "NextFocusAction",
     (
@@ -133,12 +143,24 @@ var _nextFocusAction = MXFunctionInvoke(
       NextFocusAction(
     ),
 );
+var _nextFocusAction_key = MXFunctionInvoke(
+  "NextFocusAction.key",
+    (
+    ) =>
+      NextFocusAction.key
+);
 var _previousFocusAction = MXFunctionInvoke(
     "PreviousFocusAction",
     (
     ) =>
       PreviousFocusAction(
     ),
+);
+var _previousFocusAction_key = MXFunctionInvoke(
+  "PreviousFocusAction.key",
+    (
+    ) =>
+      PreviousFocusAction.key
 );
 var _directionalFocusIntent = MXFunctionInvoke(
     "DirectionalFocusIntent",
@@ -159,6 +181,12 @@ var _directionalFocusAction = MXFunctionInvoke(
     ) =>
       DirectionalFocusAction(
     ),
+);
+var _directionalFocusAction_key = MXFunctionInvoke(
+  "DirectionalFocusAction.key",
+    (
+    ) =>
+      DirectionalFocusAction.key
 );
 class MXTraversalDirection {
   static TraversalDirection parse(String name, int index) {

@@ -14,15 +14,30 @@ import 'package:flutter/src/painting/basic_types.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEdgeInsetsSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_edgeInsetsGeometry_infinity.funName] = _edgeInsetsGeometry_infinity;
+  m[_edgeInsets_zero.funName] = _edgeInsets_zero;
   m[_edgeInsets_fromLTRB.funName] = _edgeInsets_fromLTRB;
   m[_edgeInsets_all.funName] = _edgeInsets_all;
   m[_edgeInsets_only.funName] = _edgeInsets_only;
   m[_edgeInsets_symmetric.funName] = _edgeInsets_symmetric;
   m[_edgeInsets_fromWindowPadding.funName] = _edgeInsets_fromWindowPadding;
+  m[_edgeInsetsDirectional_zero.funName] = _edgeInsetsDirectional_zero;
   m[_edgeInsetsDirectional_fromSTEB.funName] = _edgeInsetsDirectional_fromSTEB;
   m[_edgeInsetsDirectional_only.funName] = _edgeInsetsDirectional_only;
   return m;
 }
+var _edgeInsetsGeometry_infinity = MXFunctionInvoke(
+  "EdgeInsetsGeometry.infinity",
+    (
+    ) =>
+      EdgeInsetsGeometry.infinity
+);
+var _edgeInsets_zero = MXFunctionInvoke(
+  "EdgeInsets.zero",
+    (
+    ) =>
+      EdgeInsets.zero
+);
 var _edgeInsets_fromLTRB = MXFunctionInvoke(
   "EdgeInsets.fromLTRB",
     (
@@ -93,6 +108,12 @@ var _edgeInsets_fromWindowPadding = MXFunctionInvoke(
       padding,
       devicePixelRatio?.toDouble(),
     ),
+);
+var _edgeInsetsDirectional_zero = MXFunctionInvoke(
+  "EdgeInsetsDirectional.zero",
+    (
+    ) =>
+      EdgeInsetsDirectional.zero
 );
 var _edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
   "EdgeInsetsDirectional.fromSTEB",

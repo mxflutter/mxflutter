@@ -15,6 +15,7 @@ import 'package:flutter/src/painting/text_style.dart';
 Map<String, MXFunctionInvoke> registerStrutStyleSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_strutStyle.funName] = _strutStyle;
+  m[_strutStyle_disabled.funName] = _strutStyle_disabled;
   m[_strutStyle_fromTextStyle.funName] = _strutStyle_fromTextStyle;
   return m;
 }
@@ -46,6 +47,12 @@ var _strutStyle = MXFunctionInvoke(
       debugLabel: debugLabel,
       package: package,
     ),
+);
+var _strutStyle_disabled = MXFunctionInvoke(
+  "StrutStyle.disabled",
+    (
+    ) =>
+      StrutStyle.disabled
 );
 var _strutStyle_fromTextStyle = MXFunctionInvoke(
   "StrutStyle.fromTextStyle",

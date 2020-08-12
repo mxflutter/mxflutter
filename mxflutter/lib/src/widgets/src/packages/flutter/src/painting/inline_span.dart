@@ -20,6 +20,7 @@ Map<String, MXFunctionInvoke> registerInlineSpanSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_accumulator.funName] = _accumulator;
   m[_inlineSpanSemanticsInformation.funName] = _inlineSpanSemanticsInformation;
+  m[_inlineSpanSemanticsInformation_placeholder.funName] = _inlineSpanSemanticsInformation_placeholder;
   return m;
 }
 var _accumulator = MXFunctionInvoke(
@@ -49,4 +50,10 @@ var _inlineSpanSemanticsInformation = MXFunctionInvoke(
       semanticsLabel: semanticsLabel,
       recognizer: recognizer,
     ),
+);
+var _inlineSpanSemanticsInformation_placeholder = MXFunctionInvoke(
+  "InlineSpanSemanticsInformation.placeholder",
+    (
+    ) =>
+      InlineSpanSemanticsInformation.placeholder
 );

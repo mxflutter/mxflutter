@@ -26,6 +26,7 @@ Map<String, MXFunctionInvoke> registerRecognizerSeries() {
   m[_dragStartBehavior.funName] = _dragStartBehavior;
   m[_gestureRecognizerState.funName] = _gestureRecognizerState;
   m[_offsetPair.funName] = _offsetPair;
+  m[_offsetPair_zero.funName] = _offsetPair_zero;
   m[_offsetPair_fromEventPosition.funName] = _offsetPair_fromEventPosition;
   m[_offsetPair_fromEventDelta.funName] = _offsetPair_fromEventDelta;
   return m;
@@ -50,6 +51,12 @@ var _offsetPair = MXFunctionInvoke(
       local: local,
       global: global,
     ),
+);
+var _offsetPair_zero = MXFunctionInvoke(
+  "OffsetPair.zero",
+    (
+    ) =>
+      OffsetPair.zero
 );
 var _offsetPair_fromEventPosition = MXFunctionInvoke(
   "OffsetPair.fromEventPosition",
