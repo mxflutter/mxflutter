@@ -31,7 +31,7 @@ class MXJSBaseWidget extends Object {
   // The Widget Pages that pushed this Widget ID
   // 把当前widget（this） push 出来的widget ID
   // 序列化到JSON里
-  String navPushingWidgetID;
+  String navPushingWidgetElementID;
 
   // The Widget Pages that pushed this Widget
   // 把当前widget（this） push 出来的widget
@@ -68,14 +68,14 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
       String widgetID,
       Map widgetData,
       String buildingWidgetDataSeq,
-      String navPushingWidgetID,
+      String navPushingWidgetElementID,
       MXJsonBuildOwner parentBuildOwner})
       : super(key: key) {
     this.name = name;
     this.widgetID = widgetID;
     this.buildingWidgetDataSeq = buildingWidgetDataSeq;
     this.widgetData = widgetData;
-    this.navPushingWidgetID = navPushingWidgetID;
+    this.navPushingWidgetElementID = navPushingWidgetElementID;
     this.parentBuildOwner = parentBuildOwner;
     this.helper = MXJSWidgetHelper(this);
   }
@@ -172,14 +172,14 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSBaseWidget {
       String widgetID,
       Map widgetData,
       String buildingWidgetDataSeq,
-      String navPushingWidgetID,
+      String navPushingWidgetElementID,
       MXJsonBuildOwner parentBuildOwner})
       : super(key: key) {
     this.name = name;
     this.widgetID = widgetID;
     this.buildingWidgetDataSeq = buildingWidgetDataSeq;
     this.widgetData = widgetData;
-    this.navPushingWidgetID = navPushingWidgetID;
+    this.navPushingWidgetElementID = navPushingWidgetElementID;
 
     this.parentBuildOwner = parentBuildOwner;
 
