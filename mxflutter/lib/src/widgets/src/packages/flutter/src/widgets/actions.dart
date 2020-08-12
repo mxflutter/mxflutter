@@ -20,11 +20,15 @@ import 'package:flutter/src/widgets/shortcuts.dart';
 Map<String, MXFunctionInvoke> registerActionsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_intent.funName] = _intent;
+  m[_intent_doNothing.funName] = _intent_doNothing;
   m[_callbackAction.funName] = _callbackAction;
   m[_actionDispatcher.funName] = _actionDispatcher;
   m[_actions.funName] = _actions;
   m[_focusableActionDetector.funName] = _focusableActionDetector;
   m[_doNothingAction.funName] = _doNothingAction;
+  m[_doNothingAction_key.funName] = _doNothingAction_key;
+  m[_activateAction_key.funName] = _activateAction_key;
+  m[_selectAction_key.funName] = _selectAction_key;
   return m;
 }
 var _intent = MXFunctionInvoke(
@@ -37,6 +41,12 @@ var _intent = MXFunctionInvoke(
       Intent(
       key,
     ),
+);
+var _intent_doNothing = MXFunctionInvoke(
+  "Intent.doNothing",
+    (
+    ) =>
+      Intent.doNothing
 );
 var _callbackAction = MXFunctionInvoke(
     "CallbackAction",
@@ -110,4 +120,22 @@ var _doNothingAction = MXFunctionInvoke(
     ) =>
       DoNothingAction(
     ),
+);
+var _doNothingAction_key = MXFunctionInvoke(
+  "DoNothingAction.key",
+    (
+    ) =>
+      DoNothingAction.key
+);
+var _activateAction_key = MXFunctionInvoke(
+  "ActivateAction.key",
+    (
+    ) =>
+      ActivateAction.key
+);
+var _selectAction_key = MXFunctionInvoke(
+  "SelectAction.key",
+    (
+    ) =>
+      SelectAction.key
 );

@@ -14,10 +14,17 @@ import 'package:flutter/widgets.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInputBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_inputBorder_none.funName] = _inputBorder_none;
   m[_underlineInputBorder.funName] = _underlineInputBorder;
   m[_outlineInputBorder.funName] = _outlineInputBorder;
   return m;
 }
+var _inputBorder_none = MXFunctionInvoke(
+  "InputBorder.none",
+    (
+    ) =>
+      InputBorder.none
+);
 var _underlineInputBorder = MXFunctionInvoke(
     "UnderlineInputBorder",
     (

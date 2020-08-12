@@ -17,6 +17,7 @@ import 'package:flutter/src/material/material.dart';
 Map<String, MXFunctionInvoke> registerInkRippleSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_inkRipple.funName] = _inkRipple;
+  m[_inkRipple_splashFactory.funName] = _inkRipple_splashFactory;
   return m;
 }
 var _inkRipple = MXFunctionInvoke(
@@ -49,4 +50,10 @@ var _inkRipple = MXFunctionInvoke(
       radius: radius?.toDouble(),
       onRemoved: createVoidCallbackClosure(_inkRipple.buildOwner, onRemoved),
     ),
+);
+var _inkRipple_splashFactory = MXFunctionInvoke(
+  "InkRipple.splashFactory",
+    (
+    ) =>
+      InkRipple.splashFactory
 );

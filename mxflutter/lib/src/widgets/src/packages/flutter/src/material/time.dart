@@ -17,6 +17,9 @@ Map<String, MXFunctionInvoke> registerTimeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_dayPeriod.funName] = _dayPeriod;
   m[_timeOfDay.funName] = _timeOfDay;
+  m[_timeOfDay_hoursPerDay.funName] = _timeOfDay_hoursPerDay;
+  m[_timeOfDay_hoursPerPeriod.funName] = _timeOfDay_hoursPerPeriod;
+  m[_timeOfDay_minutesPerHour.funName] = _timeOfDay_minutesPerHour;
   m[_timeOfDay_now.funName] = _timeOfDay_now;
   m[_timeOfDay_fromDateTime.funName] = _timeOfDay_fromDateTime;
   m[_timeOfDayFormat.funName] = _timeOfDayFormat;
@@ -39,6 +42,24 @@ var _timeOfDay = MXFunctionInvoke(
       hour: hour,
       minute: minute,
     ),
+);
+var _timeOfDay_hoursPerDay = MXFunctionInvoke(
+  "TimeOfDay.hoursPerDay",
+    (
+    ) =>
+      TimeOfDay.hoursPerDay
+);
+var _timeOfDay_hoursPerPeriod = MXFunctionInvoke(
+  "TimeOfDay.hoursPerPeriod",
+    (
+    ) =>
+      TimeOfDay.hoursPerPeriod
+);
+var _timeOfDay_minutesPerHour = MXFunctionInvoke(
+  "TimeOfDay.minutesPerHour",
+    (
+    ) =>
+      TimeOfDay.minutesPerHour
 );
 var _timeOfDay_now = MXFunctionInvoke(
   "TimeOfDay.now",

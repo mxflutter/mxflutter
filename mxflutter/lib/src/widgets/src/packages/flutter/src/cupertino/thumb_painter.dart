@@ -15,6 +15,8 @@ import 'package:flutter/material.dart';
 Map<String, MXFunctionInvoke> registerThumbPainterSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoThumbPainter.funName] = _cupertinoThumbPainter;
+  m[_cupertinoThumbPainter_radius.funName] = _cupertinoThumbPainter_radius;
+  m[_cupertinoThumbPainter_extension.funName] = _cupertinoThumbPainter_extension;
   m[_cupertinoThumbPainter_switchThumb.funName] = _cupertinoThumbPainter_switchThumb;
   return m;
 }
@@ -30,6 +32,18 @@ var _cupertinoThumbPainter = MXFunctionInvoke(
       color: color,
       shadows: toListT<BoxShadow>(shadows),
     ),
+);
+var _cupertinoThumbPainter_radius = MXFunctionInvoke(
+  "CupertinoThumbPainter.radius",
+    (
+    ) =>
+      CupertinoThumbPainter.radius
+);
+var _cupertinoThumbPainter_extension = MXFunctionInvoke(
+  "CupertinoThumbPainter.extension",
+    (
+    ) =>
+      CupertinoThumbPainter.extension
 );
 var _cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
   "CupertinoThumbPainter.switchThumb",

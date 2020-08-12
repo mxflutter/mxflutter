@@ -16,6 +16,7 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStackSeries() {
   var m = <String, MXFunctionInvoke>{};
+  m[_relativeRect_fill.funName] = _relativeRect_fill;
   m[_relativeRect_fromSize.funName] = _relativeRect_fromSize;
   m[_relativeRect_fromRect.funName] = _relativeRect_fromRect;
   m[_relativeRect_fromLTRB.funName] = _relativeRect_fromLTRB;
@@ -26,6 +27,12 @@ Map<String, MXFunctionInvoke> registerStackSeries() {
   m[_renderIndexedStack.funName] = _renderIndexedStack;
   return m;
 }
+var _relativeRect_fill = MXFunctionInvoke(
+  "RelativeRect.fill",
+    (
+    ) =>
+      RelativeRect.fill
+);
 var _relativeRect_fromSize = MXFunctionInvoke(
   "RelativeRect.fromSize",
     (

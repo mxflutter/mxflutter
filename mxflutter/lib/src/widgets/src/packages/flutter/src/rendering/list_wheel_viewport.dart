@@ -21,6 +21,11 @@ Map<String, MXFunctionInvoke> registerListWheelViewportSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_listWheelParentData.funName] = _listWheelParentData;
   m[_renderListWheelViewport.funName] = _renderListWheelViewport;
+  m[_renderListWheelViewport_defaultDiameterRatio.funName] = _renderListWheelViewport_defaultDiameterRatio;
+  m[_renderListWheelViewport_defaultPerspective.funName] = _renderListWheelViewport_defaultPerspective;
+  m[_renderListWheelViewport_diameterRatioZeroMessage.funName] = _renderListWheelViewport_diameterRatioZeroMessage;
+  m[_renderListWheelViewport_perspectiveTooHighMessage.funName] = _renderListWheelViewport_perspectiveTooHighMessage;
+  m[_renderListWheelViewport_clipToSizeAndRenderChildrenOutsideViewportConflict.funName] = _renderListWheelViewport_clipToSizeAndRenderChildrenOutsideViewportConflict;
   return m;
 }
 var _listWheelParentData = MXFunctionInvoke(
@@ -64,4 +69,34 @@ var _renderListWheelViewport = MXFunctionInvoke(
       renderChildrenOutsideViewport: renderChildrenOutsideViewport,
       children: toListT<RenderBox>(children),
     ),
+);
+var _renderListWheelViewport_defaultDiameterRatio = MXFunctionInvoke(
+  "RenderListWheelViewport.defaultDiameterRatio",
+    (
+    ) =>
+      RenderListWheelViewport.defaultDiameterRatio
+);
+var _renderListWheelViewport_defaultPerspective = MXFunctionInvoke(
+  "RenderListWheelViewport.defaultPerspective",
+    (
+    ) =>
+      RenderListWheelViewport.defaultPerspective
+);
+var _renderListWheelViewport_diameterRatioZeroMessage = MXFunctionInvoke(
+  "RenderListWheelViewport.diameterRatioZeroMessage",
+    (
+    ) =>
+      RenderListWheelViewport.diameterRatioZeroMessage
+);
+var _renderListWheelViewport_perspectiveTooHighMessage = MXFunctionInvoke(
+  "RenderListWheelViewport.perspectiveTooHighMessage",
+    (
+    ) =>
+      RenderListWheelViewport.perspectiveTooHighMessage
+);
+var _renderListWheelViewport_clipToSizeAndRenderChildrenOutsideViewportConflict = MXFunctionInvoke(
+  "RenderListWheelViewport.clipToSizeAndRenderChildrenOutsideViewportConflict",
+    (
+    ) =>
+      RenderListWheelViewport.clipToSizeAndRenderChildrenOutsideViewportConflict
 );

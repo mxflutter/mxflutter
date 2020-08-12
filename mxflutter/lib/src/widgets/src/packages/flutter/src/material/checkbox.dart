@@ -22,6 +22,7 @@ import 'package:flutter/src/material/toggleable.dart';
 Map<String, MXFunctionInvoke> registerCheckboxSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_checkbox.funName] = _checkbox;
+  m[_checkbox_width.funName] = _checkbox_width;
   return m;
 }
 var _checkbox = MXFunctionInvoke(
@@ -56,4 +57,10 @@ var _checkbox = MXFunctionInvoke(
       focusNode: focusNode,
       autofocus: autofocus,
     ),
+);
+var _checkbox_width = MXFunctionInvoke(
+  "Checkbox.width",
+    (
+    ) =>
+      Checkbox.width
 );

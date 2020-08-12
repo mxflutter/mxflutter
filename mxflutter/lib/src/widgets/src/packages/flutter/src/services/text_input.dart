@@ -23,6 +23,15 @@ Map<String, MXFunctionInvoke> registerTextInputSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_smartDashesType.funName] = _smartDashesType;
   m[_smartQuotesType.funName] = _smartQuotesType;
+  m[_textInputType_text.funName] = _textInputType_text;
+  m[_textInputType_multiline.funName] = _textInputType_multiline;
+  m[_textInputType_number.funName] = _textInputType_number;
+  m[_textInputType_phone.funName] = _textInputType_phone;
+  m[_textInputType_datetime.funName] = _textInputType_datetime;
+  m[_textInputType_emailAddress.funName] = _textInputType_emailAddress;
+  m[_textInputType_url.funName] = _textInputType_url;
+  m[_textInputType_visiblePassword.funName] = _textInputType_visiblePassword;
+  m[_textInputType_values.funName] = _textInputType_values;
   m[_textInputType_numberWithOptions.funName] = _textInputType_numberWithOptions;
   m[_textInputAction.funName] = _textInputAction;
   m[_textCapitalization.funName] = _textCapitalization;
@@ -30,6 +39,7 @@ Map<String, MXFunctionInvoke> registerTextInputSeries() {
   m[_floatingCursorDragState.funName] = _floatingCursorDragState;
   m[_rawFloatingCursorPoint.funName] = _rawFloatingCursorPoint;
   m[_textEditingValue.funName] = _textEditingValue;
+  m[_textEditingValue_empty.funName] = _textEditingValue_empty;
   m[_textEditingValue_fromJSON.funName] = _textEditingValue_fromJSON;
   m[_textInputConnection_debugResetId.funName] = _textInputConnection_debugResetId;
   m[_textInput_setChannel.funName] = _textInput_setChannel;
@@ -43,6 +53,60 @@ var _smartQuotesType = MXFunctionInvoke(
     "SmartQuotesType",
     ({String name, int index}) => MXSmartQuotesType.parse(name, index),
   );
+var _textInputType_text = MXFunctionInvoke(
+  "TextInputType.text",
+    (
+    ) =>
+      TextInputType.text
+);
+var _textInputType_multiline = MXFunctionInvoke(
+  "TextInputType.multiline",
+    (
+    ) =>
+      TextInputType.multiline
+);
+var _textInputType_number = MXFunctionInvoke(
+  "TextInputType.number",
+    (
+    ) =>
+      TextInputType.number
+);
+var _textInputType_phone = MXFunctionInvoke(
+  "TextInputType.phone",
+    (
+    ) =>
+      TextInputType.phone
+);
+var _textInputType_datetime = MXFunctionInvoke(
+  "TextInputType.datetime",
+    (
+    ) =>
+      TextInputType.datetime
+);
+var _textInputType_emailAddress = MXFunctionInvoke(
+  "TextInputType.emailAddress",
+    (
+    ) =>
+      TextInputType.emailAddress
+);
+var _textInputType_url = MXFunctionInvoke(
+  "TextInputType.url",
+    (
+    ) =>
+      TextInputType.url
+);
+var _textInputType_visiblePassword = MXFunctionInvoke(
+  "TextInputType.visiblePassword",
+    (
+    ) =>
+      TextInputType.visiblePassword
+);
+var _textInputType_values = MXFunctionInvoke(
+  "TextInputType.values",
+    (
+    ) =>
+      TextInputType.values
+);
 var _textInputType_numberWithOptions = MXFunctionInvoke(
   "TextInputType.numberWithOptions",
     (
@@ -124,6 +188,12 @@ var _textEditingValue = MXFunctionInvoke(
       selection: selection,
       composing: composing,
     ),
+);
+var _textEditingValue_empty = MXFunctionInvoke(
+  "TextEditingValue.empty",
+    (
+    ) =>
+      TextEditingValue.empty
 );
 var _textEditingValue_fromJSON = MXFunctionInvoke(
   "TextEditingValue.fromJSON",

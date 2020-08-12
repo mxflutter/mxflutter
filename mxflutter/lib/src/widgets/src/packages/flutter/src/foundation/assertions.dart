@@ -18,12 +18,14 @@ import 'package:flutter/src/foundation/stack_frame.dart';
 Map<String, MXFunctionInvoke> registerAssertionsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_partialStackFrame.funName] = _partialStackFrame;
+  m[_partialStackFrame_asynchronousSuspension.funName] = _partialStackFrame_asynchronousSuspension;
   m[_repetitiveStackFrameFilter.funName] = _repetitiveStackFrameFilter;
   m[_errorDescription.funName] = _errorDescription;
   m[_errorSummary.funName] = _errorSummary;
   m[_errorHint.funName] = _errorHint;
   m[_errorSpacer.funName] = _errorSpacer;
   m[_flutterErrorDetails.funName] = _flutterErrorDetails;
+  m[_flutterError_wrapWidth.funName] = _flutterError_wrapWidth;
   m[_flutterError.funName] = _flutterError;
   m[_flutterError_resetErrorCount.funName] = _flutterError_resetErrorCount;
   m[_flutterError_dumpErrorToConsole.funName] = _flutterError_dumpErrorToConsole;
@@ -48,6 +50,12 @@ var _partialStackFrame = MXFunctionInvoke(
       className: className,
       method: method,
     ),
+);
+var _partialStackFrame_asynchronousSuspension = MXFunctionInvoke(
+  "PartialStackFrame.asynchronousSuspension",
+    (
+    ) =>
+      PartialStackFrame.asynchronousSuspension
 );
 var _repetitiveStackFrameFilter = MXFunctionInvoke(
     "RepetitiveStackFrameFilter",
@@ -124,6 +132,12 @@ var _flutterErrorDetails = MXFunctionInvoke(
       informationCollector: null,
       silent: silent,
     ),
+);
+var _flutterError_wrapWidth = MXFunctionInvoke(
+  "FlutterError.wrapWidth",
+    (
+    ) =>
+      FlutterError.wrapWidth
 );
 var _flutterError = MXFunctionInvoke(
     "FlutterError",
