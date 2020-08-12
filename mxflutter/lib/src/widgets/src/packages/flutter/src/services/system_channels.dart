@@ -67,11 +67,11 @@ var _systemChannels_accessibility = MXFunctionInvoke(
     ) =>
       SystemChannels.accessibility
 );
-var _systemChannels_platformviews = MXFunctionInvoke(
-  "SystemChannels.platformviews",
+var _systemChannels_platform_views = MXFunctionInvoke(
+  "SystemChannels.platform_views",
     (
     ) =>
-      SystemChannels.platformviews
+      SystemChannels.platform_views
 );
 var _systemChannels_skia = MXFunctionInvoke(
   "SystemChannels.skia",

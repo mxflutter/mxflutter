@@ -25,75 +25,75 @@ Map<String, MXFunctionInvoke> registerUnicodeSeries() {
   m[_unicode_aLM.funName] = _unicode_aLM;
   return m;
 }
-var _unicode_lRE = MXFunctionInvoke(
-  "Unicode.lRE",
+var _unicode_LRE = MXFunctionInvoke(
+  "Unicode.LRE",
     (
     ) =>
-      Unicode.lRE
+      Unicode.LRE
 );
-var _unicode_rLE = MXFunctionInvoke(
-  "Unicode.rLE",
+var _unicode_RLE = MXFunctionInvoke(
+  "Unicode.RLE",
     (
     ) =>
-      Unicode.rLE
+      Unicode.RLE
 );
-var _unicode_pDF = MXFunctionInvoke(
-  "Unicode.pDF",
+var _unicode_PDF = MXFunctionInvoke(
+  "Unicode.PDF",
     (
     ) =>
-      Unicode.pDF
+      Unicode.PDF
 );
-var _unicode_lRO = MXFunctionInvoke(
-  "Unicode.lRO",
+var _unicode_LRO = MXFunctionInvoke(
+  "Unicode.LRO",
     (
     ) =>
-      Unicode.lRO
+      Unicode.LRO
 );
-var _unicode_rLO = MXFunctionInvoke(
-  "Unicode.rLO",
+var _unicode_RLO = MXFunctionInvoke(
+  "Unicode.RLO",
     (
     ) =>
-      Unicode.rLO
+      Unicode.RLO
 );
-var _unicode_lRI = MXFunctionInvoke(
-  "Unicode.lRI",
+var _unicode_LRI = MXFunctionInvoke(
+  "Unicode.LRI",
     (
     ) =>
-      Unicode.lRI
+      Unicode.LRI
 );
-var _unicode_rLI = MXFunctionInvoke(
-  "Unicode.rLI",
+var _unicode_RLI = MXFunctionInvoke(
+  "Unicode.RLI",
     (
     ) =>
-      Unicode.rLI
+      Unicode.RLI
 );
-var _unicode_fSI = MXFunctionInvoke(
-  "Unicode.fSI",
+var _unicode_FSI = MXFunctionInvoke(
+  "Unicode.FSI",
     (
     ) =>
-      Unicode.fSI
+      Unicode.FSI
 );
-var _unicode_pDI = MXFunctionInvoke(
-  "Unicode.pDI",
+var _unicode_PDI = MXFunctionInvoke(
+  "Unicode.PDI",
     (
     ) =>
-      Unicode.pDI
+      Unicode.PDI
 );
-var _unicode_lRM = MXFunctionInvoke(
-  "Unicode.lRM",
+var _unicode_LRM = MXFunctionInvoke(
+  "Unicode.LRM",
     (
     ) =>
-      Unicode.lRM
+      Unicode.LRM
 );
-var _unicode_rLM = MXFunctionInvoke(
-  "Unicode.rLM",
+var _unicode_RLM = MXFunctionInvoke(
+  "Unicode.RLM",
     (
     ) =>
-      Unicode.rLM
+      Unicode.RLM
 );
-var _unicode_aLM = MXFunctionInvoke(
-  "Unicode.aLM",
+var _unicode_ALM = MXFunctionInvoke(
+  "Unicode.ALM",
     (
     ) =>
-      Unicode.aLM
+      Unicode.ALM
 );
