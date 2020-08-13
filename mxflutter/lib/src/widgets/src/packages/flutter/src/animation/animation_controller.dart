@@ -51,7 +51,9 @@ var _animationController = MXFunctionInvoke(
       lowerBound: lowerBound?.toDouble(),
       upperBound: upperBound?.toDouble(),
       animationBehavior: animationBehavior,
-      vsync: vsync,
+      // MX modified begin
+      vsync: _animationController.buildOwner.widget.state,
+      // MX modified end
     ),
 );
 var _animationController_unbounded = MXFunctionInvoke(
