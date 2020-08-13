@@ -197,6 +197,9 @@ class MXJSFlutterApp {
       return;
     }
 
+    widgetDataMap["#startDecodeData"] = startDecodeData;
+    widgetDataMap["#endDecodeData"] = endDecodeData;
+
     boNode.jsCallRebuild(widgetDataMap);
   }
 
@@ -217,6 +220,9 @@ class MXJSFlutterApp {
           "findBuildOwner(navPushingWidgetID:$navPushingWidgetID) == null，name:$name ");
       return;
     }
+
+    widgetDataMap["#startDecodeData"] = startDecodeData;
+    widgetDataMap["#endDecodeData"] = endDecodeData;
 
     boNode.jsCallNavigatorPush(widgetDataMap);
   }

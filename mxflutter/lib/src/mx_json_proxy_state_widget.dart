@@ -23,8 +23,8 @@ class MXProxyMXJSStatefulWidget extends MXJsonObjProxy {
         key: mxj2d(bo, jsonMap["key"]),
         name: mxj2d(bo, jsonMap["name"]),
         widgetID: mxj2d(bo, jsonMap["widgetID"]),
-        widgetData: jsonMap["widgetData"],
-        buildWidgetDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
+        widgetBuildData: jsonMap["widgetData"],
+        widgetBuildDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
         navPushingWidgetID: jsonMap["navPushingWidgetID"],
         parentBuildOwnerNode: bo);
     return widget;
@@ -51,8 +51,8 @@ class MXProxyMXJSStatelessWidget extends MXJsonObjProxy {
         key: mxj2d(bo, jsonMap["key"]),
         name: mxj2d(bo, jsonMap["name"]),
         widgetID: mxj2d(bo, jsonMap["widgetID"]),
-        widgetData: jsonMap["widgetData"],
-        buildWidgetDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
+        widgetBuildData: jsonMap["widgetData"],
+        widgetBuildDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
         navPushingWidgetID: jsonMap["navPushingWidgetID"],
         parentBuildOwnerNode: bo);
     return widget;

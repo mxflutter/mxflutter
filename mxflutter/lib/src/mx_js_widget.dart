@@ -10,8 +10,8 @@ import 'mx_js_flutter_common.dart';
 
 mixin MXJSWidgetBase {
   String get widgetID;
-  Map get widgetData;
-  String get buildWidgetDataSeq;
+  Map get widgetBuildData;
+  String get widgetBuildDataSeq;
 
   static Widget get errorWidget {
     return Container(
@@ -43,10 +43,9 @@ mixin MXJSWidgetBase {
 class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
   final String name;
   final String widgetID;
-  final Map widgetData;
-
-  /// widgetData的seq
-  final String buildWidgetDataSeq;
+  
+  final Map widgetBuildData;
+  final String widgetBuildDataSeq;
 
   /// The Widget Pages that pushed this Widget ID
   /// 把当前widget（this） push 出来的widget ID
@@ -61,8 +60,8 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
       {Key key,
       this.name,
       this.widgetID,
-      this.widgetData,
-      this.buildWidgetDataSeq,
+      this.widgetBuildData,
+      this.widgetBuildDataSeq,
       this.navPushingWidgetID,
       this.parentBuildOwnerNode})
       : this.isHostWidget = false,
@@ -71,9 +70,9 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
   ///由dart侧创建MXWidget壳子
   MXJSStatefulWidget.hostWidget({Key key, this.name, this.parentBuildOwnerNode})
       : this.widgetID = MXJSWidgetBase.generateWidgetID(),
-        this.widgetData = null,
+        this.widgetBuildData = null,
         this.isHostWidget = true,
-        this.buildWidgetDataSeq = null,
+        this.widgetBuildDataSeq = null,
         this.navPushingWidgetID = null,
         super(key: key);
 
@@ -86,7 +85,7 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
   MXJSStatefulElement createElement() {
     var element = MXJSStatefulElement(this);
     element.buildOwnerNode = MXJsonBuildOwner(element);
-    parentBuildOwnerNode.addChild(widgetID, element.buildOwnerNode);
+    parentBuildOwnerNode.addChild(element.buildOwnerNode);
     return element;
   }
 }
@@ -138,8 +137,8 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
 
   _updateStateWidgetData() {
     // state初始化时，用widget的widgetData ，之后等js侧的刷新
-    widgetBuildData = widget.widgetData;
-    widgetBuildDataSeq = widget.buildWidgetDataSeq;
+    widgetBuildData = widget.widgetBuildData;
+    widgetBuildDataSeq = widget.widgetBuildDataSeq;
   }
 
   @override
@@ -216,10 +215,9 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
 class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
   final String name;
   final String widgetID;
-  final Map widgetData;
 
-  /// widgetData的seq
-  final String buildWidgetDataSeq;
+  final Map widgetBuildData;
+  final String widgetBuildDataSeq;
 
   /// The Widget Pages that pushed this Widget ID
   /// 把当前widget（this） push 出来的widget ID
@@ -232,8 +230,8 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
       {Key key,
       this.name,
       this.widgetID,
-      this.widgetData,
-      this.buildWidgetDataSeq,
+      this.widgetBuildData,
+      this.widgetBuildDataSeq,
       this.navPushingWidgetID,
       this.parentBuildOwnerNode})
       : super(key: key);
@@ -242,18 +240,16 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
   MXJSStatelessElement createElement() {
     var element = MXJSStatelessElement(this);
     element.buildOwnerNode = MXJsonBuildOwner(element);
-    parentBuildOwnerNode.addChild(widgetID, element.buildOwnerNode);
+    parentBuildOwnerNode.addChild(element.buildOwnerNode);
     return element;
   }
 
   @override
   Widget build(BuildContext context) {
-    assert(parentBuildOwnerNode != null);
-
     MXJSLog.log("MXJSStatelessWidget:build begin: widgetID $widgetID"
-        "curBuildWidgetDataSeq:$buildWidgetDataSeq ");
+        "curBuildWidgetDataSeq:$widgetBuildDataSeq ");
 
-    if (widgetData == null) {
+    if (widgetBuildData == null) {
       // TODO: 定制loading页面和 error 页面
       MXJSLog.error("MXJSWidgetState:build: widgetData == null "
           "this.widget.widgetID:${this.widgetID}");
@@ -262,7 +258,7 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
 
     MXJSStatelessElement element = context as MXJSStatelessElement;
     MXJsonBuildOwner boNode = element.buildOwnerNode;
-    Widget child = boNode.buildWidgetData(widgetData, context);
+    Widget child = boNode.buildWidgetData(widgetBuildData, context);
 
     if (child == null) {
       MXJSLog.error(
@@ -274,13 +270,13 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
     //call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
     MXJSLog.debug(
         "MXJSStatelessWidget:building: widget:$child callJSOnBuildEnd "
-        "widgetID $widgetID curBuildWidgetDataSeq:$buildWidgetDataSeq");
+        "widgetID $widgetID curBuildWidgetDataSeq:$widgetBuildDataSeq");
 
-    parentBuildOwnerNode.callJSOnBuildEnd();
+    boNode.callJSOnBuildEnd();
 
     MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
         "callJSOnBuildEnd  widgetID $widgetID "
-        "buildWidgetDataSeq:$buildWidgetDataSeq} ");
+        "buildWidgetDataSeq:$widgetBuildDataSeq} ");
     return child;
   }
 }

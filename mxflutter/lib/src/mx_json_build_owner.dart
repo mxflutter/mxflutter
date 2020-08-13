@@ -3,7 +3,6 @@
 //
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -35,11 +34,23 @@ class MXJsonBuildOwner {
   Element _jsWidgetElement;
 
   BuildContext get buildContext => _jsWidgetElement;
-  MXJSWidgetBase get widget => _jsWidgetElement.widget as MXJSWidgetBase;
+  MXJSWidgetBase get widget => _jsWidgetElement?.widget as MXJSWidgetBase;
+  String get ownerWidgetId => widget?.widgetID;
+
   MXJSWidgetState get state {
     if (_jsWidgetElement is MXJSStatefulElement) {
       return (_jsWidgetElement as MXJSStatefulElement).state;
     }
+    return null;
+  }
+
+  String get widgetBuildDataSeq {
+    if (_jsWidgetElement is MXJSStatefulElement) {
+      return state?.widgetBuildDataSeq;
+    } else if (_jsWidgetElement is MXJSStatelessElement) {
+      return widget?.widgetBuildDataSeq;
+    }
+
     return null;
   }
 
@@ -53,27 +64,27 @@ class MXJsonBuildOwner {
   /// TODO: 暂时先打日志看下
   reset() {
     MXJSLog.debug("MXJsonBuildOwner:reset: "
-        "this.widget.widgetID:${widget.widgetID}"
+        "ownerWidgetId:$ownerWidgetId "
         "buildSeq:${_mirrorObjKeyList.join('|')}");
   }
 
-  void addChild(String widgetID, MXJsonBuildOwner child) {
-    if (widgetID == null || widgetID.isEmpty || child == null) {
+  void addChild(MXJsonBuildOwner child) {
+    if (child?.ownerWidgetId == null) {
       return;
     }
 
-    var oldChild = _children[widgetID];
+    var oldChild = _children[child.ownerWidgetId ];
     if (oldChild != null) {
       MXJSLog.debug("MXJsonBuildOwner:addChild: "
-          "widgetID:$widgetID"
+          "widgetID:${child.ownerWidgetId} "
           "_children 已经有了！");
     }
 
-    _children[widgetID] = child;
+    _children[child.ownerWidgetId] = child;
   }
 
   MXJsonBuildOwner findChild(widgetID) {
-    if (widgetID == widget.widgetID) {
+    if (widgetID == ownerWidgetId) {
       return this;
     }
 
@@ -93,17 +104,17 @@ class MXJsonBuildOwner {
     return null;
   }
 
-  removeChild(String widgetID, MXJsonBuildOwner child) {
-    var boNode = _children[widgetID];
+  removeChild( MXJsonBuildOwner child) {
+    var boNode = _children[child.ownerWidgetId];
 
     if (boNode != child) {
       MXJSLog.debug("MXJsonBuildOwner:addChild: "
-          "widgetID:$widgetID"
+          "widgetID:${child.ownerWidgetId}"
           "_children 中的和要删除的boNode不同");
       return;
     }
 
-    _children.remove(widgetID);
+    _children.remove(child.ownerWidgetId);
   }
 
   void removeAllChild() {
@@ -130,7 +141,8 @@ class MXJsonBuildOwner {
     return w;
   }
 
-  Widget buildWidgetData(Map widgetData, BuildContext context) {
+  Widget buildWidgetData(
+      Map widgetData, BuildContext context) {
     return MXJsonObjToDartObject.jsonToDartObj(widgetData,
         buildOwner: this, context: context);
   }
@@ -146,8 +158,7 @@ class MXJsonBuildOwner {
       dynamic arg3,
       dynamic arg4,
       dynamic arg5]) async {
-    var ownerWidgetID = this.widget?.widgetID;
-    String buildSeq = this.widget?.buildWidgetDataSeq;
+
     List args = [];
     args.add(arg1);
     args.add(arg2);
@@ -156,8 +167,8 @@ class MXJsonBuildOwner {
     args.add(arg5);
 
     MethodCall jsMethodCall = MethodCall("flutterCallOnEventCallback", {
-      "widgetID": ownerWidgetID,
-      "buildSeq": buildSeq,
+      "widgetID": ownerWidgetId,
+      "buildSeq": widgetBuildDataSeq,
       "callID": callID,
       "args": args
     });
@@ -209,18 +220,17 @@ class MXJsonBuildOwner {
   }
 
   void _rebuild(
-      String widgetID, Map widgetBuildData, String buildWidgetDataSeq) {
+      String rebuildWidgetID, Map widgetBuildData, String buildWidgetDataSeq) {
     removeAllChild();
-    var ownerWidgetID = this.widget.widgetID;
 
-    if (ownerWidgetID != widgetID) {
+    if (rebuildWidgetID != ownerWidgetId) {
       MXJSLog.log("MXJSStatefulWidget:_rebuild: "
-          "error: ownerWidgetID:$ownerWidgetID != widgetID$widgetID");
+          "error: rebuildWidgetID:($rebuildWidgetID) != widgetID($ownerWidgetId)");
     }
 
     if (_jsWidgetElement is MXJSStatefulElement) {
       MXJSWidgetState state = (_jsWidgetElement as MXJSStatefulElement).state;
-      state.jsCallRebuild(widgetID, widgetBuildData, buildWidgetDataSeq);
+      state.jsCallRebuild(rebuildWidgetID, widgetBuildData, buildWidgetDataSeq);
     } else {
       MXJSLog.error("MXJSStatefulWidget:_rebuild: "
           "Same thing error: _jsWidgetElement is not  MXJSStatefulElement"
@@ -263,14 +273,13 @@ class MXJsonBuildOwner {
 
   /// MXJSWidgetState -> BuildOwner
   void onDispose() {
-    // 框架最困难的点在于确定何时释放不需要的对象
-    // 移除parentBuildOwner中当前的widget
-    _parent.removeChild(this.widget.widgetID, this);
+
+    _parent?.removeChild(this);
 
     // 移除镜像对象
     disposeMirrorObjs();
 
-    //告诉JS，可以销毁这个JSWidget了
+    // 告诉JS，可以销毁这个JSWidget了
     callJSOnDispose();
   }
 
@@ -282,28 +291,25 @@ class MXJsonBuildOwner {
 
   callJSOnBuildEnd() {
     MXJSLog.debug("MXJSWidgetState:callJSOnBuildEnd: "
-        "widgetID:${widget.widgetID}"
-        "buildSeq:${widget.buildWidgetDataSeq}");
+        "widgetID:$ownerWidgetId"
+        "buildSeq:$widgetBuildDataSeq");
 
-    String ownerWidgetID = widget.widgetID;
-    String buildSeq = widget.buildWidgetDataSeq;
-
-    String parentWidgetID = _parent?.widget?.widgetID;
+    String parentWidgetID = _parent?.ownerWidgetId;
 
     MethodCall jsMethodCall;
     if (this._enableProfile == true) {
       this._profileInfo["buildEnd"] =
           (new DateTime.now()).millisecondsSinceEpoch;
       jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-        "widgetID": ownerWidgetID,
-        "buildSeq": buildSeq,
+        "widgetID": ownerWidgetId,
+        "buildSeq": widgetBuildDataSeq,
         "rootWidgetID": parentWidgetID,
         "profileInfo": this._profileInfo,
       });
     } else {
       jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-        "widgetID": ownerWidgetID,
-        "buildSeq": buildSeq,
+        "widgetID": ownerWidgetId,
+        "buildSeq": widgetBuildDataSeq,
         "rootWidgetID": parentWidgetID,
       });
     }
@@ -312,9 +318,9 @@ class MXJsonBuildOwner {
   }
 
   callJSOnDispose() {
-    var ownerWidgetID = this.widget.widgetID;
+
     MethodCall jsMethodCall = MethodCall("flutterCallOnDispose", {
-      "widgetID": ownerWidgetID,
+      "widgetID": ownerWidgetId,
       "mirrorObjIDList": _mirrorObjKeyList,
     });
 
