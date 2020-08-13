@@ -62,7 +62,7 @@ class MXMirrorFunc {
     _removeUselessProperty(jsonMap);
     var fi = _funcName2FunMap[funcName];
     fi.buildOwner = buildOwner;
-    
+
     try {
       var namedArguments = <Symbol, dynamic>{};
       List noJ2DProps = fi.noJ2DProps;
@@ -71,7 +71,8 @@ class MXMirrorFunc {
         if (noJ2DProps != null && noJ2DProps.contains(name)) {
           namedArguments[Symbol(name)] = jsonMap[name];
         } else {
-          namedArguments[Symbol(name)] = _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
+          namedArguments[Symbol(name)] =
+              _jsonToDartObject(jsonMap[name], buildOwner: buildOwner);
         }
       }
       // 为方便处理，此处都使用命名参数，不用位置参数

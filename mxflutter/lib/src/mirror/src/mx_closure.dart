@@ -39,7 +39,7 @@ VoidCallback createVoidCallbackClosure(
   if (eventCallbackID == null) {
     return null;
   }
-  
+
   VoidCallback cb = () {
     bo.eventCallback(eventCallbackID);
   };
@@ -48,9 +48,8 @@ VoidCallback createVoidCallbackClosure(
 }
 
 /// GenericNoneParamsCallback<R>闭包
-GenericNoneParamsCallback<R>
-    createGenericNoneParamsClosure<R>(
-        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+GenericNoneParamsCallback<R> createGenericNoneParamsClosure<R>(
+    MXJsonBuildOwner bo, dynamic eventCallbackID) {
   if (eventCallbackID == null) {
     return null;
   }
@@ -107,9 +106,8 @@ VoidTwoGenericParamsCallback<T, S> createVoidTwoParamsClosure<T, S>(
 }
 
 /// GenericTwoGenericParamsCallback<R, T, S>闭包
-GenericTwoGenericParamsCallback<R, T, S>
-    createGenericTwoParamsClosure<R, T, S>(
-        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+GenericTwoGenericParamsCallback<R, T, S> createGenericTwoParamsClosure<R, T, S>(
+    MXJsonBuildOwner bo, dynamic eventCallbackID) {
   if (eventCallbackID == null) {
     return null;
   }
