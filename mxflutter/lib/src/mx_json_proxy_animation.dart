@@ -143,8 +143,7 @@ class MXProxyAnimationController extends MXJsonObjProxy {
           mxj2d(bo, jsonMap["upperBound"], defaultValue: 1.0)?.toDouble(),
       animationBehavior: mxj2d(bo, jsonMap["animationBehavior"],
           defaultValue: AnimationBehavior.normal),
-      vsync: bo.widget
-          .state, //mxj2d(bo, jsonMap["vsync"]), TODO: 此处不能为StatelessWidget
+      vsync: bo.state, //mxj2d(bo, jsonMap["vsync"]), TODO: 此处不能为StatelessWidget
     );
     return widget;
   }
@@ -722,7 +721,7 @@ class MXProxyAnimatedSize extends MXJsonObjProxy {
       curve: MXCurves.parse(jsonMap["curve"], defaultValue: Curves.linear),
       duration: mxj2d(bo, jsonMap["duration"]),
       reverseDuration: mxj2d(bo, jsonMap["reverseDuration"]),
-      vsync: bo.widget.state,
+      vsync: bo.state,
       //mxj2d(bo, jsonMap["vsync"]), //TODO FIXME,bo.widget 不能是MXJSStatelessWidget
     );
     return widget;

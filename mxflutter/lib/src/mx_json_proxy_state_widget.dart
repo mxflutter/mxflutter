@@ -26,7 +26,7 @@ class MXProxyMXJSStatefulWidget extends MXJsonObjProxy {
         widgetData: jsonMap["widgetData"],
         buildWidgetDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
         navPushingWidgetID: jsonMap["navPushingWidgetID"],
-        parentBuildOwner: bo);
+        parentBuildOwnerNode: bo);
     return widget;
   }
 }
@@ -54,7 +54,7 @@ class MXProxyMXJSStatelessWidget extends MXJsonObjProxy {
         widgetData: jsonMap["widgetData"],
         buildWidgetDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
         navPushingWidgetID: jsonMap["navPushingWidgetID"],
-        parentBuildOwner: bo);
+        parentBuildOwnerNode: bo);
     return widget;
   }
 }
