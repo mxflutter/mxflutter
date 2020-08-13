@@ -91,7 +91,6 @@ class MXMirrorFunc {
 
   /// 判断是否可以调用方法
   bool canInvoke(String funcName) {
-    var x = _funcName2FunMap[funcName];
     return _funcName2FunMap[funcName] != null;
   }
 
