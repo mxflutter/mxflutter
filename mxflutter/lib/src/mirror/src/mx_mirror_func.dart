@@ -101,7 +101,7 @@ class MXMirrorFunc {
       return null;
     }
 
-    return className + "_" + funcName;
+    return className + "#" + funcName;
   }
 
   /// 获取构造方法名称

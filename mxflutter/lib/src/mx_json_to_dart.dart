@@ -226,8 +226,8 @@ class MXJsonObjToDartObject {
   Map<String, MXJsonObjProxy> _className2Proxy = {};
 
   void init() {
-    registerProxy(MXProxyMXJSStatefulWidget.registerProxy());
-    registerProxy(MXProxyMXJSStatelessWidget.registerProxy());
+    // registerProxy(MXProxyMXJSStatefulWidget.registerProxy());
+    // registerProxy(MXProxyMXJSStatelessWidget.registerProxy());
 
     registerProxy(MXProxyRegisterHelperMaterialSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperLayoutSeries.registerProxys());
