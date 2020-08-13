@@ -39,7 +39,9 @@ var _dismissible = MXFunctionInvoke(
       dynamic onResize,
       dynamic onDismissed,
       DismissDirection direction = DismissDirection.horizontal,
+      /// MX modified begin -change init
       Duration resizeDuration = const Duration(milliseconds: 300),
+      /// MX modified end
       dynamic dismissThresholds = const <DismissDirection, double>{},
       Duration movementDuration = const Duration(milliseconds: 200),
       dynamic crossAxisEndOffset = 0.0,

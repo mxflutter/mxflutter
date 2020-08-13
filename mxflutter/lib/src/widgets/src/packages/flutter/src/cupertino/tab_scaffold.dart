@@ -21,38 +21,40 @@ Map<String, MXFunctionInvoke> registerTabScaffoldSeries() {
   return m;
 }
 var _cupertinoTabController = MXFunctionInvoke(
-    "CupertinoTabController",
-    (
-      {
-      int initialIndex = 0,
-      }
-    ) =>
+  "CupertinoTabController",
+  (
+    {
+    int initialIndex = 0,
+    }
+  ) =>
       CupertinoTabController(
-      initialIndex: initialIndex,
-    ),
+    initialIndex: initialIndex,
+  ),
 );
 var _cupertinoTabScaffold = MXFunctionInvoke(
-    "CupertinoTabScaffold",
-    (
-      {
-      Key key,
-      CupertinoTabBar tabBar,
-      dynamic tabBuilder,
-      CupertinoTabController controller,
-      Color backgroundColor,
-      bool resizeToAvoidBottomInset = true,
-      dynamic children,
-      }
-    ) =>
+  "CupertinoTabScaffold",
+  (
+    {
+    Key key,
+    CupertinoTabBar tabBar,
+    dynamic tabBuilder,
+    CupertinoTabController controller,
+    Color backgroundColor,
+    bool resizeToAvoidBottomInset = true,
+    // MX modified 增加了children
+    dynamic children,
+    }
+  ) =>
       CupertinoTabScaffold(
-      key: key,
-      tabBar: tabBar,
-      tabBuilder: (BuildContext context, int index) {
-        List<Widget> list = toListT<Widget>(children);
-        return list[index];
-      },
-      controller: controller,
-      backgroundColor: backgroundColor,
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-    ),
+    key: key,
+    tabBar: tabBar,
+    // MX modified 增加了tabBuilder参数
+    tabBuilder: (BuildContext context, int index) {
+      List<Widget> list = toListT<Widget>(children);
+      return list[index];
+    },
+    controller: controller,
+    backgroundColor: backgroundColor,
+    resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+  ),
 );

@@ -39,7 +39,9 @@ var _floatingActionButton = MXFunctionInvoke(
       Color focusColor,
       Color hoverColor,
       Color splashColor,
+      /// MX modified begin -delete heroTag
       // Object heroTag = const _DefaultHeroTag(),
+      /// MX modified end
       dynamic elevation,
       dynamic focusElevation,
       dynamic hoverElevation,
@@ -64,7 +66,9 @@ var _floatingActionButton = MXFunctionInvoke(
       focusColor: focusColor,
       hoverColor: hoverColor,
       splashColor: splashColor,
+      /// MX modified begin -delete heroTag
       // heroTag: heroTag,
+      /// MX modified end
       elevation: elevation?.toDouble(),
       focusElevation: focusElevation?.toDouble(),
       hoverElevation: hoverElevation?.toDouble(),
@@ -90,7 +94,9 @@ var _floatingActionButton_extended = MXFunctionInvoke(
       Color backgroundColor,
       Color focusColor,
       Color hoverColor,
+      /// MX modified begin -delete heroTag
       // Object heroTag = const _DefaultHeroTag(),
+      /// MX modified end
       dynamic elevation,
       dynamic focusElevation,
       dynamic hoverElevation,
@@ -115,7 +121,9 @@ var _floatingActionButton_extended = MXFunctionInvoke(
       backgroundColor: backgroundColor,
       focusColor: focusColor,
       hoverColor: hoverColor,
+      /// MX modified begin -heroTag
       // heroTag: heroTag,
+      /// MX modified end
       elevation: elevation?.toDouble(),
       focusElevation: focusElevation?.toDouble(),
       hoverElevation: hoverElevation?.toDouble(),

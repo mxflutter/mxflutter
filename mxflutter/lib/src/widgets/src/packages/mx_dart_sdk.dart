@@ -433,6 +433,7 @@ var _pathOperation = MXFunctionInvoke(
     "PathOperation",
     ({String name, int index}) => MXPathOperation.parse(name, index),
   );
+/// MX modified begin -delete function
 // var _rawRecordingCanvas = MXFunctionInvoke(
 //     "RawRecordingCanvas",
 //     (
@@ -444,6 +445,7 @@ var _pathOperation = MXFunctionInvoke(
 //       size,
 //     ),
 // );
+/// MX modified end
 var _channelBuffers = MXFunctionInvoke(
     "ChannelBuffers",
     (
@@ -470,6 +472,7 @@ var _sceneBuilder = MXFunctionInvoke(
       SceneBuilder(
     ),
 );
+/// MX modified begin -delete function
 // var _engineLayer = MXFunctionInvoke(
 //     "EngineLayer",
 //     (
@@ -477,6 +480,7 @@ var _sceneBuilder = MXFunctionInvoke(
 //       EngineLayer(
 //     ),
 // );
+/// MX modified end
 var _sceneHost = MXFunctionInvoke(
     "SceneHost",
     (
@@ -898,12 +902,14 @@ var _point = MXFunctionInvoke(
       y?.toDouble(),
     ),
 );
+/// MX modified begin -delete function
 // var _point_origin = MXFunctionInvoke(
 //   "Point.origin",
 //     (
 //     ) =>
 //       Point.origin
 // );
+/// MX modified end
 var _color = MXFunctionInvoke(
     "Color",
     (
@@ -1142,7 +1148,9 @@ var _shadow = MXFunctionInvoke(
     "Shadow",
     (
       {
+      /// MX modified begin -change to int
       Color color = const Color(4278190080),
+      /// MX modified end
       Offset offset = Offset.zero,
       dynamic blurRadius = 0.0,
       }
@@ -2089,6 +2097,7 @@ var _callbackHandle_fromRawHandle = MXFunctionInvoke(
       handle,
     ),
 );
+/// MX modified begin -delete function
 // var _pluginUtilities = MXFunctionInvoke(
 //     "PluginUtilities",
 //     (
@@ -2096,6 +2105,7 @@ var _callbackHandle_fromRawHandle = MXFunctionInvoke(
 //       PluginUtilities(
 //     ),
 // );
+/// MX modified end
 var _imageShader = MXFunctionInvoke(
     "ImageShader",
     (
@@ -2113,6 +2123,7 @@ var _imageShader = MXFunctionInvoke(
       matrix4,
     ),
 );
+/// MX modified begin -delete function
 // var _isolateNameServer = MXFunctionInvoke(
 //     "IsolateNameServer",
 //     (
@@ -2120,6 +2131,7 @@ var _imageShader = MXFunctionInvoke(
 //       IsolateNameServer(
 //     ),
 // );
+/// MX modified end
 var _framePhase = MXFunctionInvoke(
     "FramePhase",
     ({String name, int index}) => MXFramePhase.parse(name, index),
