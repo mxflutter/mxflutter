@@ -128,18 +128,19 @@ class MXJsonObjToDartObject {
     }
 
     //MXJSLog.debug("jsonMap->DartClass: start className: $className ");
-    
+
     dynamic dartObject;
     //TODO: 测试mirror，这里后续要统一改成Function方法
     String funcName = MXMirrorFunc.getInstance().constructorFuncName(jsonMap);
     if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
       Map<String, dynamic> newJsonMap = Map.from(jsonMap);
       newJsonMap["funcName"] = funcName;
-      dartObject = MXMirrorFunc.getInstance().invoke(newJsonMap, buildOwner: buildOwner);
+      dartObject =
+          MXMirrorFunc.getInstance().invoke(newJsonMap, buildOwner: buildOwner);
     } else {
       MXJsonObjProxy proxy = getJSObjProxy(className);
       dartObject =
-        proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
+          proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
     }
     setMirrorObj(jsonMap, buildOwner, dartObject);
 
@@ -239,8 +240,8 @@ class MXJsonObjToDartObject {
 
     // 第三方库
     // pull_to_refresh
-    registerProxy(MXProxyRegisterHelperSmartRefresherSeries.registerProxys());
-    registerProxy(MXProxyRegisterHelperClassIndicatorSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperSmartRefresherSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperClassIndicatorSeries.registerProxys());
     // cached_network_image
     // registerProxy(
     //     MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());

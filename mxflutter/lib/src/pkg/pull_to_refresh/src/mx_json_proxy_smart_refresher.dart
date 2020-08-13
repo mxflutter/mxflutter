@@ -10,306 +10,451 @@ import '../../../mx_json_build_owner.dart';
 import "package:pull_to_refresh/pull_to_refresh.dart";
 import 'package:flutter/physics.dart';
 import 'package:flutter/foundation.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
-ShouldFollowContent createShouldFollowContentHandle(
-    MXJsonBuildOwner bo, dynamic eventCallbackID) {
-  if (eventCallbackID == null) {
-    return null;
-  }
+// ShouldFollowContent createShouldFollowContentHandle(
+//     MXJsonBuildOwner bo, dynamic eventCallbackID) {
+//   if (eventCallbackID == null) {
+//     return null;
+//   }
 
-  ShouldFollowContent cb = (LoadStatus status) {
-    return bo.eventCallback(eventCallbackID, status);
-  };
+//   ShouldFollowContent cb = (LoadStatus status) {
+//     return bo.eventCallback(eventCallbackID, status);
+//   };
 
-  return cb;
+//   return cb;
+// }
+
+// OnOffsetChange createOffsetChangeDynamicHandle(
+//     MXJsonBuildOwner bo, dynamic eventCallbackID) {
+//   if (eventCallbackID == null) {
+//     return null;
+//   }
+
+//   OnOffsetChange cb = (bool up, double offset) {
+//     bo.eventCallback(eventCallbackID, up, offset);
+//   };
+
+//   return cb;
+// }
+
+// class MXProxyRegisterHelperSmartRefresherSeries {
+//   static Map<String, CreateJsonObjProxyFun> registerProxys() {
+//     Map<String, CreateJsonObjProxyFun> m = {};
+
+//     m.addAll(MXProxyRefreshConfiguration.registerProxy());
+//     m.addAll(MXProxySmartRefresher.registerProxy());
+//     m.addAll(MXProxyRefreshController.registerProxy());
+
+//     return m;
+//   }
+// }
+
+Map<String, MXFunctionInvoke> registerSmartRefresherSeries() {
+  var m = <String, MXFunctionInvoke>{};
+  m[_refreshConfiguration.funName] = _refreshConfiguration;
+  m[_refreshController.funName] = _refreshController;
+  m[_smartRefresher.funName] = _smartRefresher;
+  return m;
 }
 
-OnOffsetChange createOffsetChangeDynamicHandle(
-    MXJsonBuildOwner bo, dynamic eventCallbackID) {
-  if (eventCallbackID == null) {
-    return null;
-  }
+// class MXLoadStatus {
+//   static Map str2VMap = {
+//     "LoadStatus.idle": LoadStatus.idle,
+//     "LoadStatus.canLoading": LoadStatus.canLoading,
+//     "LoadStatus.loading": LoadStatus.loading,
+//     "LoadStatus.noMore": LoadStatus.noMore,
+//     "LoadStatus.failed": LoadStatus.failed,
+//   };
 
-  OnOffsetChange cb = (bool up, double offset) {
-    bo.eventCallback(eventCallbackID, up, offset);
-  };
+//   static LoadStatus parse(Map valueMap, {LoadStatus defaultValue}) {
+//     if (valueMap == null) return defaultValue;
+//     var valueStr = valueMap["_name"].trim();
+//     var v = str2VMap[valueStr];
+//     return v ?? defaultValue;
+//   }
+// }
 
-  return cb;
-}
+// class MXProxyRefreshConfiguration extends MXJsonObjProxy {
+//   static Map<String, CreateJsonObjProxyFun> registerProxy() {
+//     ///**@@@  2 替换类名字符串
+//     final String regClassName = "RefreshConfiguration";
 
-class MXProxyRegisterHelperSmartRefresherSeries {
-  static Map<String, CreateJsonObjProxyFun> registerProxys() {
-    Map<String, CreateJsonObjProxyFun> m = {};
+//     ///**@@@  3 替换类构造函数
+//     return {
+//       regClassName: () =>
+//           MXProxyRefreshConfiguration()..init(className: regClassName)
+//     };
+//   }
 
-    m.addAll(MXProxyRefreshConfiguration.registerProxy());
-    m.addAll(MXProxySmartRefresher.registerProxy());
-    m.addAll(MXProxyRefreshController.registerProxy());
+//   @override
+//   RefreshConfiguration constructor(
+//       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//       {BuildContext context}) {
+//     var widget = RefreshConfiguration(
+//       child: mxj2d(bo, jsonMap["child"]),
+//       headerBuilder: () {
+//         return mxj2d(bo, jsonMap["headerBuilderChild"]);
+//       },
+//       footerBuilder: () {
+//         return mxj2d(bo, jsonMap["footerBuilderChild"]);
+//       },
+//       dragSpeedRatio:
+//           mxj2d(bo, jsonMap["dragSpeedRatio"], defaultValue: 1.0)?.toDouble(),
+//       shouldFooterFollowWhenNotFull: createShouldFollowContentHandle(
+//           bo, mxj2d(bo, jsonMap["shouldFooterFollowWhenNotFull"])),
+//       enableScrollWhenTwoLevel:
+//           mxj2d(bo, jsonMap["enableScrollWhenTwoLevel"], defaultValue: true),
+//       enableLoadingWhenNoData:
+//           mxj2d(bo, jsonMap["enableLoadingWhenNoData"], defaultValue: false),
+//       enableBallisticRefresh:
+//           mxj2d(bo, jsonMap["enableBallisticRefresh"], defaultValue: false),
+//       springDescription: mxj2d(bo, jsonMap["springDescription"],
+//           defaultValue:
+//               const SpringDescription(mass: 2.2, stiffness: 150, damping: 16)),
+//       enableScrollWhenRefreshCompleted: mxj2d(
+//           bo, jsonMap["enableScrollWhenRefreshCompleted"],
+//           defaultValue: false),
+//       enableLoadingWhenFailed:
+//           mxj2d(bo, jsonMap["enableLoadingWhenFailed"], defaultValue: true),
+//       twiceTriggerDistance:
+//           mxj2d(bo, jsonMap["twiceTriggerDistance"], defaultValue: 150.0)
+//               ?.toDouble(),
+//       closeTwoLevelDistance:
+//           mxj2d(bo, jsonMap["closeTwoLevelDistance"], defaultValue: 80.0)
+//               ?.toDouble(),
+//       skipCanRefresh: mxj2d(bo, jsonMap["skipCanRefresh"], defaultValue: false),
+//       autoLoad: mxj2d(bo, jsonMap["autoLoad"], defaultValue: true),
+//       maxOverScrollExtent: mxj2d(bo, jsonMap["maxOverScrollExtent"]),
+//       enableBallisticLoad:
+//           mxj2d(bo, jsonMap["enableBallisticLoad"], defaultValue: true),
+//       maxUnderScrollExtent: mxj2d(bo, jsonMap["maxUnderScrollExtent"]),
+//       headerTriggerDistance:
+//           mxj2d(bo, jsonMap["headerTriggerDistance"], defaultValue: 80.0)
+//               ?.toDouble(),
+//       footerTriggerDistance:
+//           mxj2d(bo, jsonMap["footerTriggerDistance"], defaultValue: 15.0)
+//               ?.toDouble(),
+//       hideFooterWhenNotFull:
+//           mxj2d(bo, jsonMap["hideFooterWhenNotFull"], defaultValue: false),
+//       topHitBoundary: mxj2d(bo, jsonMap["topHitBoundary"]),
+//       bottomHitBoundary: mxj2d(bo, jsonMap["bottomHitBoundary"]),
+//     );
+//     return widget;
+//   }
+// }
 
-    return m;
-  }
-}
+var _refreshConfiguration = MXFunctionInvoke(
+  "RefreshConfiguration",
+  ({
+    Widget child,
+    dynamic headerBuilder,
+    dynamic footerBuilder,
+    dynamic dragSpeedRatio: 1.0,
+    dynamic shouldFooterFollowWhenNotFull,
+    bool enableScrollWhenTwoLevel: true,
+    bool enableLoadingWhenNoData: false,
+    bool enableBallisticRefresh: false,
+    SpringDescription springDescription: const SpringDescription(
+      mass: 2.2,
+      stiffness: 150,
+      damping: 16,
+    ),
+    bool enableScrollWhenRefreshCompleted: false,
+    bool enableLoadingWhenFailed: true,
+    dynamic twiceTriggerDistance: 150.0,
+    dynamic closeTwoLevelDistance: 80.0,
+    bool skipCanRefresh: false,
+    bool autoLoad: true,
+    dynamic maxOverScrollExtent,
+    bool enableBallisticLoad: true,
+    dynamic maxUnderScrollExtent,
+    dynamic headerTriggerDistance: 80.0,
+    dynamic footerTriggerDistance: 15.0,
+    bool hideFooterWhenNotFull: false,
+    dynamic topHitBoundary,
+    dynamic bottomHitBoundary,
+  }) =>
+      RefreshConfiguration(
+    child: child,
+    headerBuilder: headerBuilder,
+    footerBuilder: footerBuilder,
+    dragSpeedRatio: dragSpeedRatio?.toDouble(),
+    shouldFooterFollowWhenNotFull: shouldFooterFollowWhenNotFull,
+    enableScrollWhenTwoLevel: enableScrollWhenTwoLevel,
+    enableLoadingWhenFailed: enableLoadingWhenFailed,
+    enableBallisticRefresh: enableBallisticRefresh,
+    springDescription: springDescription,
+    enableScrollWhenRefreshCompleted: enableScrollWhenRefreshCompleted,
+    enableLoadingWhenNoData: enableLoadingWhenNoData,
+    twiceTriggerDistance: twiceTriggerDistance?.toDouble(),
+    closeTwoLevelDistance: closeTwoLevelDistance?.toDouble(),
+    skipCanRefresh: skipCanRefresh,
+    autoLoad: true,
+    maxOverScrollExtent: maxOverScrollExtent,
+    enableBallisticLoad: enableBallisticLoad,
+    maxUnderScrollExtent: maxUnderScrollExtent,
+    headerTriggerDistance: headerTriggerDistance?.toDouble(),
+    footerTriggerDistance: footerTriggerDistance?.toDouble(),
+    hideFooterWhenNotFull: hideFooterWhenNotFull,
+    topHitBoundary: topHitBoundary,
+    bottomHitBoundary: bottomHitBoundary,
+  ),
+);
 
-class MXLoadStatus {
-  static Map str2VMap = {
-    "LoadStatus.idle": LoadStatus.idle,
-    "LoadStatus.canLoading": LoadStatus.canLoading,
-    "LoadStatus.loading": LoadStatus.loading,
-    "LoadStatus.noMore": LoadStatus.noMore,
-    "LoadStatus.failed": LoadStatus.failed,
-  };
+// class MXProxySmartRefresher extends MXJsonObjProxy {
+//   static Map<String, CreateJsonObjProxyFun> registerProxy() {
+//     ///**@@@  2 替换类名字符串
+//     final String regClassName = "SmartRefresher";
 
-  static LoadStatus parse(Map valueMap, {LoadStatus defaultValue}) {
-    if (valueMap == null) return defaultValue;
-    var valueStr = valueMap["_name"].trim();
-    var v = str2VMap[valueStr];
-    return v ?? defaultValue;
-  }
-}
+//     ///**@@@  3 替换类构造函数
+//     return {
+//       regClassName: () => MXProxySmartRefresher()..init(className: regClassName)
+//     };
+//   }
 
-class MXProxyRefreshConfiguration extends MXJsonObjProxy {
-  static Map<String, CreateJsonObjProxyFun> registerProxy() {
-    ///**@@@  2 替换类名字符串
-    final String regClassName = "RefreshConfiguration";
+//   @override
+//   SmartRefresher constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//       {BuildContext context}) {
+//     //从外层修复SmartRefresher的bug，如果不传入header或者footer，SmartRefresher不会刷新onRefresh等回调函数
+//     var defaultHeader = defaultTargetPlatform == TargetPlatform.iOS
+//         ? ClassicHeader()
+//         : MaterialClassicHeader();
 
-    ///**@@@  3 替换类构造函数
-    return {
-      regClassName: () =>
-          MXProxyRefreshConfiguration()..init(className: regClassName)
-    };
-  }
+//     final LoadIndicator defaultFooter = ClassicFooter();
 
-  @override
-  RefreshConfiguration constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
-      {BuildContext context}) {
-    var widget = RefreshConfiguration(
-      child: mxj2d(bo, jsonMap["child"]),
-      headerBuilder: () {
-        return mxj2d(bo, jsonMap["headerBuilderChild"]);
-      },
-      footerBuilder: () {
-        return mxj2d(bo, jsonMap["footerBuilderChild"]);
-      },
-      dragSpeedRatio:
-          mxj2d(bo, jsonMap["dragSpeedRatio"], defaultValue: 1.0)?.toDouble(),
-      shouldFooterFollowWhenNotFull: createShouldFollowContentHandle(
-          bo, mxj2d(bo, jsonMap["shouldFooterFollowWhenNotFull"])),
-      enableScrollWhenTwoLevel:
-          mxj2d(bo, jsonMap["enableScrollWhenTwoLevel"], defaultValue: true),
-      enableLoadingWhenNoData:
-          mxj2d(bo, jsonMap["enableLoadingWhenNoData"], defaultValue: false),
-      enableBallisticRefresh:
-          mxj2d(bo, jsonMap["enableBallisticRefresh"], defaultValue: false),
-      springDescription: mxj2d(bo, jsonMap["springDescription"],
-          defaultValue:
-              const SpringDescription(mass: 2.2, stiffness: 150, damping: 16)),
-      enableScrollWhenRefreshCompleted: mxj2d(
-          bo, jsonMap["enableScrollWhenRefreshCompleted"],
-          defaultValue: false),
-      enableLoadingWhenFailed:
-          mxj2d(bo, jsonMap["enableLoadingWhenFailed"], defaultValue: true),
-      twiceTriggerDistance:
-          mxj2d(bo, jsonMap["twiceTriggerDistance"], defaultValue: 150.0)
-              ?.toDouble(),
-      closeTwoLevelDistance:
-          mxj2d(bo, jsonMap["closeTwoLevelDistance"], defaultValue: 80.0)
-              ?.toDouble(),
-      skipCanRefresh: mxj2d(bo, jsonMap["skipCanRefresh"], defaultValue: false),
-      autoLoad: mxj2d(bo, jsonMap["autoLoad"], defaultValue: true),
-      maxOverScrollExtent: mxj2d(bo, jsonMap["maxOverScrollExtent"]),
-      enableBallisticLoad:
-          mxj2d(bo, jsonMap["enableBallisticLoad"], defaultValue: true),
-      maxUnderScrollExtent: mxj2d(bo, jsonMap["maxUnderScrollExtent"]),
-      headerTriggerDistance:
-          mxj2d(bo, jsonMap["headerTriggerDistance"], defaultValue: 80.0)
-              ?.toDouble(),
-      footerTriggerDistance:
-          mxj2d(bo, jsonMap["footerTriggerDistance"], defaultValue: 15.0)
-              ?.toDouble(),
-      hideFooterWhenNotFull:
-          mxj2d(bo, jsonMap["hideFooterWhenNotFull"], defaultValue: false),
-      topHitBoundary: mxj2d(bo, jsonMap["topHitBoundary"]),
-      bottomHitBoundary: mxj2d(bo, jsonMap["bottomHitBoundary"]),
-    );
-    return widget;
-  }
-}
+//     var widget = SmartRefresher(
+//       key: mxj2d(bo, jsonMap["key"]),
+//       controller: mxj2d(bo, jsonMap["controller"]),
+//       child: mxj2d(bo, jsonMap["child"]),
+//       header: mxj2d(bo, jsonMap["header"], defaultValue: defaultHeader),
+//       footer: mxj2d(bo, jsonMap["footer"], defaultValue: defaultFooter),
+//       enablePullDown: mxj2d(bo, jsonMap["enablePullDown"], defaultValue: true),
+//       enablePullUp: mxj2d(bo, jsonMap["enablePullUp"], defaultValue: false),
+//       enableTwoLevel: mxj2d(bo, jsonMap["enableTwoLevel"], defaultValue: false),
+//       onRefresh: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onRefresh"])),
+//       onLoading: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onLoading"])),
+//       onTwoLevel:
+//           createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onTwoLevel"])),
+//       onOffsetChange: createOffsetChangeDynamicHandle(
+//           bo, mxj2d(bo, jsonMap["onOffsetChange"])),
+//       dragStartBehavior: mxj2d(bo, jsonMap["dragStartBehavior"]),
+//       primary: mxj2d(bo, jsonMap["primary"]),
+//       cacheExtent: mxj2d(bo, jsonMap["cacheExtent"]),
+//       semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
+//       reverse: mxj2d(bo, jsonMap["reverse"]),
+//       physics: mxj2d(bo, jsonMap["physics"]),
+//       scrollDirection: mxj2d(bo, jsonMap["scrollDirection"]),
+//       scrollController: mxj2d(bo, jsonMap["scrollController"]),
+//     );
+//     return widget;
+//   }
+// }
 
-class MXProxySmartRefresher extends MXJsonObjProxy {
-  static Map<String, CreateJsonObjProxyFun> registerProxy() {
-    ///**@@@  2 替换类名字符串
-    final String regClassName = "SmartRefresher";
+var _smartRefresher = MXFunctionInvoke(
+  "SmartRefresher",
+  ({
+    Key key,
+    dynamic controller,
+    Widget child,
+    Widget header,
+    Widget footer,
+    bool enablePullDown: true,
+    bool enablePullUp: false,
+    bool enableTwoLevel: false,
+    dynamic onRefresh,
+    dynamic onLoading,
+    dynamic onTwoLevel,
+    dynamic onOffsetChange,
+    dynamic dragStartBehavior,
+    bool primary,
+    dynamic cacheExtent,
+    dynamic semanticChildCount,
+    bool reverse,
+    ScrollPhysics physics,
+    Axis scrollDirection,
+    ScrollController scrollController,
+  }) =>
+      SmartRefresher(
+    key: key,
+    controller: controller,
+    child: child,
+    header: header,
+    footer: footer,
+    enablePullDown: enablePullDown,
+    enablePullUp: enablePullUp,
+    enableTwoLevel: enableTwoLevel,
+    onRefresh: createVoidCallbackClosure(_smartRefresher.buildOwner, onRefresh),
+    onLoading: createVoidCallbackClosure(_smartRefresher.buildOwner, onLoading),
+    onTwoLevel:
+        createVoidCallbackClosure(_smartRefresher.buildOwner, onTwoLevel),
+    // onOffsetChange:
+    //     createVoidCallbackClosure(_smartRefresher.buildOwner, onOffsetChange),
+    dragStartBehavior: dragStartBehavior,
+    primary: primary,
+    cacheExtent: cacheExtent?.toDouble(),
+    semanticChildCount: semanticChildCount?.toInt(),
+    reverse: reverse,
+    physics: physics,
+    scrollDirection: scrollDirection,
+    scrollController: scrollController,
+  ),
+);
 
-    ///**@@@  3 替换类构造函数
-    return {
-      regClassName: () => MXProxySmartRefresher()..init(className: regClassName)
-    };
-  }
+// class MXLoadStyle {
+//   static Map str2VMap = {
+//     "LoadStyle.ShowAlways": LoadStyle.ShowAlways,
+//     "LoadStyle.HideAlways": LoadStyle.HideAlways,
+//     "LoadStyle.ShowWhenLoading": LoadStyle.ShowWhenLoading,
+//   };
 
-  @override
-  SmartRefresher constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
-      {BuildContext context}) {
-    //从外层修复SmartRefresher的bug，如果不传入header或者footer，SmartRefresher不会刷新onRefresh等回调函数
-    var defaultHeader = defaultTargetPlatform == TargetPlatform.iOS
-        ? ClassicHeader()
-        : MaterialClassicHeader();
+//   static LoadStyle parse(Map valueMap, {LoadStyle defaultValue}) {
+//     if (valueMap == null) return defaultValue;
+//     var valueStr = valueMap["_name"].trim();
+//     var v = str2VMap[valueStr];
+//     return v ?? defaultValue;
+//   }
+// }
 
-    final LoadIndicator defaultFooter = ClassicFooter();
+// class MXIconPosition {
+//   static Map str2VMap = {
+//     "IconPosition.left": IconPosition.left,
+//     "IconPosition.right": IconPosition.right,
+//     "IconPosition.top": IconPosition.top,
+//     "IconPosition.bottom": IconPosition.bottom,
+//   };
 
-    var widget = SmartRefresher(
-      key: mxj2d(bo, jsonMap["key"]),
-      controller: mxj2d(bo, jsonMap["controller"]),
-      child: mxj2d(bo, jsonMap["child"]),
-      header: mxj2d(bo, jsonMap["header"], defaultValue: defaultHeader),
-      footer: mxj2d(bo, jsonMap["footer"], defaultValue: defaultFooter),
-      enablePullDown: mxj2d(bo, jsonMap["enablePullDown"], defaultValue: true),
-      enablePullUp: mxj2d(bo, jsonMap["enablePullUp"], defaultValue: false),
-      enableTwoLevel: mxj2d(bo, jsonMap["enableTwoLevel"], defaultValue: false),
-      onRefresh: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onRefresh"])),
-      onLoading: createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onLoading"])),
-      onTwoLevel:
-          createVoidCallbackHandle(bo, mxj2d(bo, jsonMap["onTwoLevel"])),
-      onOffsetChange: createOffsetChangeDynamicHandle(
-          bo, mxj2d(bo, jsonMap["onOffsetChange"])),
-      dragStartBehavior: mxj2d(bo, jsonMap["dragStartBehavior"]),
-      primary: mxj2d(bo, jsonMap["primary"]),
-      cacheExtent: mxj2d(bo, jsonMap["cacheExtent"]),
-      semanticChildCount: mxj2d(bo, jsonMap["semanticChildCount"]),
-      reverse: mxj2d(bo, jsonMap["reverse"]),
-      physics: mxj2d(bo, jsonMap["physics"]),
-      scrollDirection: mxj2d(bo, jsonMap["scrollDirection"]),
-      scrollController: mxj2d(bo, jsonMap["scrollController"]),
-    );
-    return widget;
-  }
-}
+//   static IconPosition parse(Map valueMap, {IconPosition defaultValue}) {
+//     if (valueMap == null) return defaultValue;
+//     var valueStr = valueMap["_name"].trim();
+//     var v = str2VMap[valueStr];
+//     return v ?? defaultValue;
+//   }
+// }
 
-class MXLoadStyle {
-  static Map str2VMap = {
-    "LoadStyle.ShowAlways": LoadStyle.ShowAlways,
-    "LoadStyle.HideAlways": LoadStyle.HideAlways,
-    "LoadStyle.ShowWhenLoading": LoadStyle.ShowWhenLoading,
-  };
+// class MXRefreshStatus {
+//   static Map str2VMap = {
+//     "RefreshStatus.idle": RefreshStatus.idle,
+//     "RefreshStatus.canRefresh": RefreshStatus.canRefresh,
+//     "RefreshStatus.refreshing": RefreshStatus.refreshing,
+//     "RefreshStatus.completed": RefreshStatus.completed,
+//     "RefreshStatus.failed": RefreshStatus.failed,
+//     "RefreshStatus.canTwoLevel": RefreshStatus.canTwoLevel,
+//     "RefreshStatus.twoLevelOpening": RefreshStatus.twoLevelOpening,
+//     "RefreshStatus.twoLeveling": RefreshStatus.twoLeveling,
+//     "RefreshStatus.twoLevelClosing": RefreshStatus.twoLevelClosing,
+//   };
 
-  static LoadStyle parse(Map valueMap, {LoadStyle defaultValue}) {
-    if (valueMap == null) return defaultValue;
-    var valueStr = valueMap["_name"].trim();
-    var v = str2VMap[valueStr];
-    return v ?? defaultValue;
-  }
-}
+//   static RefreshStatus parse(Map valueMap, {RefreshStatus defaultValue}) {
+//     if (valueMap == null) return defaultValue;
+//     var valueStr = valueMap["_name"].trim();
+//     var v = str2VMap[valueStr];
+//     return v ?? defaultValue;
+//   }
+// }
 
-class MXIconPosition {
-  static Map str2VMap = {
-    "IconPosition.left": IconPosition.left,
-    "IconPosition.right": IconPosition.right,
-    "IconPosition.top": IconPosition.top,
-    "IconPosition.bottom": IconPosition.bottom,
-  };
+// class MXProxyRefreshController extends MXJsonObjProxy {
+//   static Map<String, CreateJsonObjProxyFun> registerProxy() {
+//     ///**@@@  2 替换类名字符串
+//     final String regClassName = "RefreshController";
 
-  static IconPosition parse(Map valueMap, {IconPosition defaultValue}) {
-    if (valueMap == null) return defaultValue;
-    var valueStr = valueMap["_name"].trim();
-    var v = str2VMap[valueStr];
-    return v ?? defaultValue;
-  }
-}
+//     ///**@@@  3 替换类构造函数
+//     return {
+//       regClassName: () =>
+//           MXProxyRefreshController()..init(className: regClassName)
+//     };
+//   }
 
-class MXRefreshStatus {
-  static Map str2VMap = {
-    "RefreshStatus.idle": RefreshStatus.idle,
-    "RefreshStatus.canRefresh": RefreshStatus.canRefresh,
-    "RefreshStatus.refreshing": RefreshStatus.refreshing,
-    "RefreshStatus.completed": RefreshStatus.completed,
-    "RefreshStatus.failed": RefreshStatus.failed,
-    "RefreshStatus.canTwoLevel": RefreshStatus.canTwoLevel,
-    "RefreshStatus.twoLevelOpening": RefreshStatus.twoLevelOpening,
-    "RefreshStatus.twoLeveling": RefreshStatus.twoLeveling,
-    "RefreshStatus.twoLevelClosing": RefreshStatus.twoLevelClosing,
-  };
+//   @override
+//   RefreshController constructor(
+//       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//       {BuildContext context}) {
+//     var widget = RefreshController(
+//       initialRefresh: mxj2d(bo, jsonMap["initialRefresh"], defaultValue: false),
+//       initialRefreshStatus:
+//           MXRefreshStatus.parse(mxj2d(bo, jsonMap["initialRefreshStatus"])),
+//       initialLoadStatus:
+//           MXLoadStatus.parse(mxj2d(bo, jsonMap["initialLoadStatus"])),
+//     );
+//     return widget;
+//   }
 
-  static RefreshStatus parse(Map valueMap, {RefreshStatus defaultValue}) {
-    if (valueMap == null) return defaultValue;
-    var valueStr = valueMap["_name"].trim();
-    var v = str2VMap[valueStr];
-    return v ?? defaultValue;
-  }
-}
+//   //mirrorObj 为一个RefreshController类的实例对象，把调用对象方法，路由的代理类
+//   @override
+//   void jsInvokeMirrorObjFunction(
+//       String mirrorID, dynamic mirrorObj, String funcName, Map args,
+//       {InvokeCallback callback}) {
+//     if (mirrorObj == null || !(mirrorObj is RefreshController)) {
+//       return;
+//     }
 
-class MXProxyRefreshController extends MXJsonObjProxy {
-  static Map<String, CreateJsonObjProxyFun> registerProxy() {
-    ///**@@@  2 替换类名字符串
-    final String regClassName = "RefreshController";
+//     invokeFunction(mirrorObj, funcName, args);
+//   }
 
-    ///**@@@  3 替换类构造函数
-    return {
-      regClassName: () =>
-          MXProxyRefreshController()..init(className: regClassName)
-    };
-  }
+//   void invokeFunction(RefreshController mirrorObj, String funcName, Map args) {
+//     switch (funcName) {
+//       case "refreshCompleted":
+//         mirrorObj.refreshCompleted(
+//             resetFooterState:
+//                 mxj2d(null, args["resetFooterState"], defaultValue: false));
+//         break;
+//       case "twoLevelComplete":
+//         mirrorObj.twoLevelComplete(
+//             duration: mxj2d(null, args["duration"],
+//                 defaultValue: const Duration(milliseconds: 500)),
+//             curve: mxj2d(null, args["curve"], defaultValue: Curves.linear));
+//         break;
+//       case "refreshFailed":
+//         mirrorObj.refreshFailed();
+//         break;
+//       case "refreshToIdle":
+//         mirrorObj.refreshToIdle();
+//         break;
+//       case "loadComplete":
+//         mirrorObj.loadComplete();
+//         break;
+//       case "loadFailed":
+//         mirrorObj.loadFailed();
+//         break;
+//       case "loadNoData":
+//         mirrorObj.loadNoData();
+//         break;
+//       case "resetNoData":
+//         mirrorObj.resetNoData();
+//         break;
+//       case "dispose":
+//         mirrorObj.dispose();
+//         break;
 
-  @override
-  RefreshController constructor(
-      MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
-      {BuildContext context}) {
-    var widget = RefreshController(
-      initialRefresh: mxj2d(bo, jsonMap["initialRefresh"], defaultValue: false),
-      initialRefreshStatus:
-          MXRefreshStatus.parse(mxj2d(bo, jsonMap["initialRefreshStatus"])),
-      initialLoadStatus:
-          MXLoadStatus.parse(mxj2d(bo, jsonMap["initialLoadStatus"])),
-    );
-    return widget;
-  }
+//       default:
+//     }
+//   }
+// }
 
-  //mirrorObj 为一个RefreshController类的实例对象，把调用对象方法，路由的代理类
-  @override
-  void jsInvokeMirrorObjFunction(
-      String mirrorID, dynamic mirrorObj, String funcName, Map args,
-      {InvokeCallback callback}) {
-    if (mirrorObj == null || !(mirrorObj is RefreshController)) {
-      return;
-    }
+// @override
+// RefreshController constructor(
+//     MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
+//     {BuildContext context}) {
+//   var widget = RefreshController(
+//     initialRefresh: mxj2d(bo, jsonMap["initialRefresh"], defaultValue: false),
+//     initialRefreshStatus:
+//         MXRefreshStatus.parse(mxj2d(bo, jsonMap["initialRefreshStatus"])),
+//     initialLoadStatus:
+//         MXLoadStatus.parse(mxj2d(bo, jsonMap["initialLoadStatus"])),
+//   );
+//   return widget;
+// }
 
-    invokeFunction(mirrorObj, funcName, args);
-  }
-
-  void invokeFunction(RefreshController mirrorObj, String funcName, Map args) {
-    switch (funcName) {
-      case "refreshCompleted":
-        mirrorObj.refreshCompleted(
-            resetFooterState:
-                mxj2d(null, args["resetFooterState"], defaultValue: false));
-        break;
-      case "twoLevelComplete":
-        mirrorObj.twoLevelComplete(
-            duration: mxj2d(null, args["duration"],
-                defaultValue: const Duration(milliseconds: 500)),
-            curve: mxj2d(null, args["curve"], defaultValue: Curves.linear));
-        break;
-      case "refreshFailed":
-        mirrorObj.refreshFailed();
-        break;
-      case "refreshToIdle":
-        mirrorObj.refreshToIdle();
-        break;
-      case "loadComplete":
-        mirrorObj.loadComplete();
-        break;
-      case "loadFailed":
-        mirrorObj.loadFailed();
-        break;
-      case "loadNoData":
-        mirrorObj.loadNoData();
-        break;
-      case "resetNoData":
-        mirrorObj.resetNoData();
-        break;
-      case "dispose":
-        mirrorObj.dispose();
-        break;
-
-      default:
-    }
-  }
-}
+var _refreshController = MXFunctionInvoke(
+  "RefreshController",
+  ({
+    dynamic initialRefresh: false,
+    dynamic initialRefreshStatus,
+    dynamic initialLoadStatus,
+  }) =>
+      RefreshController(
+    initialRefresh: initialRefresh,
+    // initialRefreshStatus: initialRefreshStatus,
+    // initialLoadStatus: initialLoadStatus,
+  ),
+);
