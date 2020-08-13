@@ -16,6 +16,7 @@ import 'package:flutter/src/cupertino/theme.dart';
 import 'package:flutter/src/cupertino/thumb_painter.dart';
 // MX modified beigin 多import了一个material.dart
 import 'package:flutter/material.dart';
+// MX modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliderSeries() {

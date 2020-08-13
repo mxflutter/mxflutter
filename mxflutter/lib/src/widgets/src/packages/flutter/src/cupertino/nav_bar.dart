@@ -46,8 +46,9 @@ var _cupertinoNavigationBar = MXFunctionInvoke(
     EdgeInsetsDirectional padding,
     Color actionsForegroundColor,
     bool transitionBetweenRoutes = true,
-    // MXmodify: heroTag属性被注释掉
+    // MX modified begin heroTag属性被注释掉
     // Object heroTag = const _HeroTag(null),
+    // MX modified end
     }
   ) =>
       CupertinoNavigationBar(
@@ -64,8 +65,9 @@ var _cupertinoNavigationBar = MXFunctionInvoke(
     padding: padding,
     actionsForegroundColor: actionsForegroundColor,
     transitionBetweenRoutes: transitionBetweenRoutes,
-    // MX modify begin: heroTag属性被注释掉
+    // MX modified begin heroTag属性被注释掉
     // heroTag: heroTag,
+    // MX modified end
   ),
 );
 var _cupertinoSliverNavigationBar = MXFunctionInvoke(
@@ -86,8 +88,9 @@ var _cupertinoSliverNavigationBar = MXFunctionInvoke(
     EdgeInsetsDirectional padding,
     Color actionsForegroundColor,
     bool transitionBetweenRoutes = true,
-    // MX modify begin: heroTag属性被注释掉
+    // MX modified begin heroTag属性被注释掉
     // Object heroTag = const _HeroTag(null),
+    // MX modified end
     }
   ) =>
       CupertinoSliverNavigationBar(
@@ -105,8 +108,9 @@ var _cupertinoSliverNavigationBar = MXFunctionInvoke(
     padding: padding,
     actionsForegroundColor: actionsForegroundColor,
     transitionBetweenRoutes: transitionBetweenRoutes,
-    // MX modify begin: heroTag属性被注释掉
+    // MX modified begin heroTag属性被注释掉
     // heroTag: heroTag,
+    // MX modified end
   ),
 );
 var _cupertinoNavigationBarBackButton = MXFunctionInvoke(
