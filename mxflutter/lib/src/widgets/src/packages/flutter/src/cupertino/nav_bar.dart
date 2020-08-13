@@ -30,95 +30,99 @@ Map<String, MXFunctionInvoke> registerNavBarSeries() {
   return m;
 }
 var _cupertinoNavigationBar = MXFunctionInvoke(
-    "CupertinoNavigationBar",
-    (
-      {
-      Key key,
-      Widget leading,
-      bool automaticallyImplyLeading = true,
-      bool automaticallyImplyMiddle = true,
-      String previousPageTitle,
-      Widget middle,
-      Widget trailing,
-      Border border = const Border(bottom: const BorderSide(color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
-      Color backgroundColor,
-      Brightness brightness,
-      EdgeInsetsDirectional padding,
-      Color actionsForegroundColor,
-      bool transitionBetweenRoutes = true,
-      // Object heroTag = const _HeroTag(null),
-      }
-    ) =>
+  "CupertinoNavigationBar",
+  (
+    {
+    Key key,
+    Widget leading,
+    bool automaticallyImplyLeading = true,
+    bool automaticallyImplyMiddle = true,
+    String previousPageTitle,
+    Widget middle,
+    Widget trailing,
+    Border border = const Border(bottom: const BorderSide(color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
+    Color backgroundColor,
+    Brightness brightness,
+    EdgeInsetsDirectional padding,
+    Color actionsForegroundColor,
+    bool transitionBetweenRoutes = true,
+    // MXmodify: heroTag属性被注释掉
+    // Object heroTag = const _HeroTag(null),
+    }
+  ) =>
       CupertinoNavigationBar(
-      key: key,
-      leading: leading,
-      automaticallyImplyLeading: automaticallyImplyLeading,
-      automaticallyImplyMiddle: automaticallyImplyMiddle,
-      previousPageTitle: previousPageTitle,
-      middle: middle,
-      trailing: trailing,
-      border: border,
-      backgroundColor: backgroundColor,
-      brightness: brightness,
-      padding: padding,
-      actionsForegroundColor: actionsForegroundColor,
-      transitionBetweenRoutes: transitionBetweenRoutes,
-      // heroTag: heroTag,
-    ),
+    key: key,
+    leading: leading,
+    automaticallyImplyLeading: automaticallyImplyLeading,
+    automaticallyImplyMiddle: automaticallyImplyMiddle,
+    previousPageTitle: previousPageTitle,
+    middle: middle,
+    trailing: trailing,
+    border: border,
+    backgroundColor: backgroundColor,
+    brightness: brightness,
+    padding: padding,
+    actionsForegroundColor: actionsForegroundColor,
+    transitionBetweenRoutes: transitionBetweenRoutes,
+    // MX modify begin: heroTag属性被注释掉
+    // heroTag: heroTag,
+  ),
 );
 var _cupertinoSliverNavigationBar = MXFunctionInvoke(
-    "CupertinoSliverNavigationBar",
-    (
-      {
-      Key key,
-      Widget largeTitle,
-      Widget leading,
-      bool automaticallyImplyLeading = true,
-      bool automaticallyImplyTitle = true,
-      String previousPageTitle,
-      Widget middle,
-      Widget trailing,
-      Border border = const Border(bottom: const BorderSide(color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
-      Color backgroundColor,
-      Brightness brightness,
-      EdgeInsetsDirectional padding,
-      Color actionsForegroundColor,
-      bool transitionBetweenRoutes = true,
-      // Object heroTag = const _HeroTag(null),
-      }
-    ) =>
+  "CupertinoSliverNavigationBar",
+  (
+    {
+    Key key,
+    Widget largeTitle,
+    Widget leading,
+    bool automaticallyImplyLeading = true,
+    bool automaticallyImplyTitle = true,
+    String previousPageTitle,
+    Widget middle,
+    Widget trailing,
+    Border border = const Border(bottom: const BorderSide(color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
+    Color backgroundColor,
+    Brightness brightness,
+    EdgeInsetsDirectional padding,
+    Color actionsForegroundColor,
+    bool transitionBetweenRoutes = true,
+    // MX modify begin: heroTag属性被注释掉
+    // Object heroTag = const _HeroTag(null),
+    }
+  ) =>
       CupertinoSliverNavigationBar(
-      key: key,
-      largeTitle: largeTitle,
-      leading: leading,
-      automaticallyImplyLeading: automaticallyImplyLeading,
-      automaticallyImplyTitle: automaticallyImplyTitle,
-      previousPageTitle: previousPageTitle,
-      middle: middle,
-      trailing: trailing,
-      border: border,
-      backgroundColor: backgroundColor,
-      brightness: brightness,
-      padding: padding,
-      actionsForegroundColor: actionsForegroundColor,
-      transitionBetweenRoutes: transitionBetweenRoutes,
-      // heroTag: heroTag,
-    ),
+    key: key,
+    largeTitle: largeTitle,
+    leading: leading,
+    automaticallyImplyLeading: automaticallyImplyLeading,
+    automaticallyImplyTitle: automaticallyImplyTitle,
+    previousPageTitle: previousPageTitle,
+    middle: middle,
+    trailing: trailing,
+    border: border,
+    backgroundColor: backgroundColor,
+    brightness: brightness,
+    padding: padding,
+    actionsForegroundColor: actionsForegroundColor,
+    transitionBetweenRoutes: transitionBetweenRoutes,
+    // MX modify begin: heroTag属性被注释掉
+    // heroTag: heroTag,
+  ),
 );
 var _cupertinoNavigationBarBackButton = MXFunctionInvoke(
-    "CupertinoNavigationBarBackButton",
-    (
-      {
-      Key key,
-      Color color,
-      String previousPageTitle,
-      dynamic onPressed,
-      }
-    ) =>
+  "CupertinoNavigationBarBackButton",
+  (
+    {
+    Key key,
+    Color color,
+    String previousPageTitle,
+    dynamic onPressed,
+    }
+  ) =>
       CupertinoNavigationBarBackButton(
-      key: key,
-      color: color,
-      previousPageTitle: previousPageTitle,
-      onPressed: createVoidCallbackClosure(_cupertinoNavigationBarBackButton.buildOwner, onPressed),
-    ),
+    key: key,
+    color: color,
+    previousPageTitle: previousPageTitle,
+    onPressed: createVoidCallbackClosure(_cupertinoNavigationBarBackButton.buildOwner, onPressed),
+  ),
 );
