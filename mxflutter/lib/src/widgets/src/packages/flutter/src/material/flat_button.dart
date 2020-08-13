@@ -95,9 +95,13 @@ var _flatButton_icon = MXFunctionInvoke(
       Brightness colorBrightness,
       EdgeInsetsGeometry padding,
       ShapeBorder shape,
-      Clip clipBehavior,
+      /// MX modified begin
+      Clip clipBehavior = Clip.none,
+      /// MX modified begin
       FocusNode focusNode,
-      bool autofocus,
+      /// MX modified begin
+      bool autofocus = false,
+      /// MX modified begin
       MaterialTapTargetSize materialTapTargetSize,
       Widget icon,
       Widget label,

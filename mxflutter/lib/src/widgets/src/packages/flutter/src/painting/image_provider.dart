@@ -94,7 +94,9 @@ var _networkImage = MXFunctionInvoke(
     (
       {
       String url,
-      dynamic scale,
+      /// MX modified begin
+      dynamic scale = 1.0,
+      /// MX modified end
       dynamic headers,
       }
     ) =>
