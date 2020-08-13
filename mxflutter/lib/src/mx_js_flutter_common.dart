@@ -334,57 +334,63 @@ class MXUtil {
     switch (data.index) {
       case 0:
         {
-          v = {"_name": "FontWeight.w100", "index": 0};
+          v = {"className": "FontWeight", "constructorName": "w100"};
           break;
         }
 
       case 1:
         {
-          v = {"_name": "FontWeight.w200", "index": 1};
+          v = {"className": "FontWeight", "constructorName": "w200"};
           break;
         }
 
       case 2:
         {
-          v = {"_name": "FontWeight.w300", "index": 2};
+          v = {"className": "FontWeight", "constructorName": "w300"};
           break;
         }
 
       case 3:
         {
-          v = {"_name": "FontWeight.w400", "index": 3};
+          v = {"className": "FontWeight", "constructorName": "w400"};
           break;
         }
 
       case 4:
         {
-          v = {"_name": "FontWeight.w500", "index": 4};
+          v = {"className": "FontWeight", "constructorName": "w500"};
           break;
         }
 
       case 5:
         {
-          v = {"_name": "FontWeight.w600", "index": 5};
+          v = {"className": "FontWeight", "constructorName": "w600"};
           break;
         }
 
       case 6:
         {
-          v = {"_name": "FontWeight.w700", "index": 6};
+          v = {"className": "FontWeight", "constructorName": "w700"};
           break;
         }
 
       case 7:
         {
-          v = {"_name": "FontWeight.w800", "index": 7};
+          v = {"className": "FontWeight", "constructorName": "w800"};
           break;
         }
 
       case 8:
         {
-          v = {"_name": "FontWeight.w900", "index": 8};
+          v = {"className": "FontWeight", "constructorName": "w900"};
           break;
         }
+    }
+
+    if (data == FontWeight.normal) {
+      v = {"className": "FontWeight", "constructorName": "normal"};
+    } else if (data == FontWeight.bold) {
+      v = {"className": "FontWeight", "constructorName": "bold"};
     }
 
     return v;
@@ -447,13 +453,13 @@ class MXUtil {
     Map v = {"_name": "TextDecoration.none", "index": 0};
 
     if (data == TextDecoration.none) {
-      v = {"_name": "TextDecoration.none", "index": 0};
+      v = {"className": "TextDecoration", "constructorName": "none"};
     } else if (data == TextDecoration.underline) {
-      v = {"_name": "TextDecoration.underline", "index": 1};
+      v = {"className": "TextDecoration", "constructorName": "underline"};
     } else if (data == TextDecoration.overline) {
-      v = {"_name": "TextDecoration.overline", "index": 2};
+      v = {"className": "TextDecoration", "constructorName": "overline"};
     } else if (data == TextDecoration.lineThrough) {
-      v = {"_name": "TextDecoration.lineThrough", "index": 3};
+      v = {"className": "TextDecoration", "constructorName": "lineThrough"};
     }
 
     return v;
