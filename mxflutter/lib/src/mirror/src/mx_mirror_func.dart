@@ -6,6 +6,7 @@
 
 import '../../mx_json_build_owner.dart';
 import 'mx_function_invoke.dart';
+import 'mx_mirror_object.dart';
 
 class MXMirrorFunc {
   static MXMirrorFunc _instance;
@@ -68,6 +69,11 @@ class MXMirrorFunc {
       var namedArguments = <Symbol, dynamic>{};
       List noJ2DProps = fi.noJ2DProps;
       for (var name in jsonMap.keys) {
+        /// TODO:mirrorID不添加到namedArguments里面
+        if (name == constMirrorIDStr) {
+          continue;
+        }
+
         // 判断是否需要将属性进行转换
         if (noJ2DProps != null && noJ2DProps.contains(name)) {
           namedArguments[Symbol(name)] = jsonMap[name];
@@ -133,9 +139,6 @@ class MXMirrorFunc {
     jsonMap.remove(constClassStr);
     jsonMap.remove(constConstructorStr);
 
-    // 移除mirrorID
-    jsonMap.remove(constMirrorIDStr);
-
     // TODO:移除enableProfile
     jsonMap.remove("enableProfile");
 
@@ -158,7 +161,9 @@ class MXMirrorFunc {
 
       // 可以通过invoke转换
       if (canInvoke(funcName)) {
-        return invoke(newJsonMap, buildOwner: buildOwner);
+        var obj = invoke(newJsonMap, buildOwner: buildOwner);
+        MXMirrorObject.getInstance().addMirrorObject(newJsonMap["mirrorID"], obj);
+        return obj;
       }
       // 不能通过invoke的，则遍历每个元素
       else {

@@ -4,6 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
+import 'package:flutter/animation.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/foundation.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/src/animation/tween.dart';
 Map<String, MXFunctionInvoke> registerAnimationSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_animationStatus.funName] = _animationStatus;
+  m[_animation.funName] = _animation;
   return m;
 }
 
@@ -20,6 +22,31 @@ var _animationStatus = MXFunctionInvoke(
   "AnimationStatus",
   ({String name, int index}) => MXAnimationStatus.parse(name, index),
 );
+
+var _animation = MXFunctionInvoke(
+    "Animation", 
+    ({
+      Tween tween,
+      AnimationController controller,
+      dynamic statusListenerList,
+      dynamic listenerList,
+      dynamic mirrorID,
+    }) {
+      Animation animation = tween.animate(controller);
+      animation.addStatusListener(_createStatusListenerHandle(
+          _animation.buildOwner, mirrorID, 'statusListenerCallback'));
+      return animation;
+    }
+);
+
+AnimationStatusListener _createStatusListenerHandle(
+    dynamic bo, String mirrorID, String functionName) {
+  AnimationStatusListener cb = (AnimationStatus status) {
+    bo.mirrorObjEventCallback(mirrorID, functionName,
+        p: MXAnimationStatus.encodeString(status));
+  };
+  return cb;
+}
 
 class MXAnimationStatus {
   static AnimationStatus parse(String name, int index) {
@@ -34,5 +61,26 @@ class MXAnimationStatus {
         return AnimationStatus.completed;
     }
     return null;
+  }
+
+  static Map encodeString(AnimationStatus status) {
+    Map retValut = {"_name": "AnimationStatus.dismissed", "index": 0};
+    switch (status) {
+      case AnimationStatus.dismissed:
+        retValut = {"_name": "AnimationStatus.dismissed", "index": 0};
+        break;
+      case AnimationStatus.forward:
+        retValut = {"_name": "AnimationStatus.forward", "index": 1};
+        break;
+      case AnimationStatus.reverse:
+        retValut = {"_name": "AnimationStatus.reverse", "index": 2};
+        break;
+      case AnimationStatus.completed:
+        retValut = {"_name": "AnimationStatus.completed", "index": 3};
+        break;
+      default:
+        break;
+    }
+    return retValut;
   }
 }

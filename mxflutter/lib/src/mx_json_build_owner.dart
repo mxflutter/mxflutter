@@ -10,6 +10,7 @@ import 'mx_js_flutter_lib.dart';
 
 import 'package:mxflutter/mxflutter_test.dart';
 
+import 'package:mxflutter/src/mirror/src/mx_mirror_object.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_js_flutter_app.dart';
 import 'mx_js_flutter_common.dart';
@@ -350,7 +351,8 @@ class MXJsonBuildOwner {
     if (mirrorID == null) {
       return null;
     }
-    return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+    // return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+    return MXMirrorObject.getInstance().mirrorObject(mirrorID);
   }
 
   void setMirrorObject(dynamic mirrorObj, Map jsonMap) {

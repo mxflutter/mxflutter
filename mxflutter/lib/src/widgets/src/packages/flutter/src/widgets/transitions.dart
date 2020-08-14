@@ -263,28 +263,35 @@ var _animatedBuilder = MXFunctionInvoke(
       key: key,
       animation: animation,
       // MX modified begin
-      // builder: (BuildContext context, Widget child) {
-        // if (builder != null) {
-        //   ///TODO:
-        //   print("调用JS的builder生成数据，返回");
-        //   final builderCallbackID = jsonMap["builder"];
-        //   final widgetMap = bo.eventCallback(builderCallbackID, []);
-        //   return mxj2d(bo, widgetMap);
-        // } else {
-        //   String targetString = '\$value';
-        //   var context = {
-        //     "sin": math.sin,
-        //     "cos": math.cos,
-        //     "\$value": animation.value?.toDouble(),
-        //   };
-        //   Map widgetMap =
-        //       replaceSpecificValue(jsonMap["widget"], targetString, context);
-        //   return mxj2d(bo, widgetMap);
-        // }
-      // },
+      builder: (BuildContext context, Widget child) {
+        if (builder != null) {
+          ///TODO:
+          return null;
+        } else {
+          String targetString = '\$value';
+          var context = {
+            "sin": math.sin,
+            "cos": math.cos,
+            "\$value": animation.value?.toDouble(),
+          };
+          Map widgetMap =
+              replaceSpecificValue(widget, targetString, context);
+          String funcName = MXMirrorFunc.getInstance().constructorFuncName(widgetMap);
+          if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
+            Map<String, dynamic> newJsonMap = Map.from(widgetMap);
+            newJsonMap["funcName"] = funcName;
+            return MXMirrorFunc.getInstance().invoke(newJsonMap, buildOwner: _animatedBuilder.buildOwner);
+          } else {
+            return null;
+          }
+        }
+      },
       // MX modified end
       child: child,
     ),
+    noJ2DProps: [
+      "widget"
+    ],
 );
 
 // MX modified begin
