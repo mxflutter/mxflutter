@@ -115,8 +115,8 @@ var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
   Key key,
   dynamic controller,
   Widget child,
-  Widget header,
-  Widget footer,
+  dynamic header,
+  dynamic footer,
   bool enablePullDown: true,
   bool enablePullUp: false,
   bool enableTwoLevel: false,
@@ -133,7 +133,8 @@ var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
   Axis scrollDirection,
   ScrollController scrollController,
 }) {
-  onRefresh = "4/11";
+  if (header == null) header = ClassicHeader();
+  if (footer == null) header = ClassicFooter();
   return SmartRefresher(
     key: key,
     controller: controller,
