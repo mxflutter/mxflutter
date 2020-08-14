@@ -135,6 +135,7 @@ var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
 }) {
   if (header == null) header = ClassicHeader();
   if (footer == null) header = ClassicFooter();
+
   return SmartRefresher(
     key: key,
     controller: controller,
