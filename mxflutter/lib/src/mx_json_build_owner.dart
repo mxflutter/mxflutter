@@ -90,7 +90,6 @@ class MXJsonBuildOwner {
     if (widgetID == ownerWidgetId) return this;
 
     MXJsonBuildOwner boNode = _children[widgetID];
-
     if (boNode != null) {
       return boNode;
     }
@@ -107,7 +106,6 @@ class MXJsonBuildOwner {
 
   removeChild(MXJsonBuildOwner child) {
     var boNode = _children[child.ownerWidgetId];
-
     if (boNode != child) {
       MXJSLog.debug("MXJsonBuildOwner:addChild: "
           "widgetID:${child.ownerWidgetId}"
