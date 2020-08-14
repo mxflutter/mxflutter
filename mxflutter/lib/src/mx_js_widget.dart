@@ -4,205 +4,295 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-
 import 'package:flutter/material.dart';
-
 import 'mx_json_build_owner.dart';
 import 'mx_js_flutter_common.dart';
-import 'mx_js_widget_helper.dart';
 
-class MXJSBaseWidget extends Object {
-  //Flutter 侧生成的MXWidget widgetID 从1开始，为奇数 +2
-  static int widgetIDFeed = 1;
+mixin MXJSWidgetBase {
+  String get widgetID;
+  Map get widgetBuildData;
+  String get widgetBuildDataSeq;
 
-  String name;
-  String widgetID;
-  Map widgetData;
+  static Widget get errorWidget {
+    return Container(
+        color: Colors.white,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ));
+  }
 
-  //正在构建的seq
-  String buildingWidgetDataSeq;
+  static Widget get loadingWidget {
+    return Container(
+        color: Colors.white,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ));
+  }
 
-  //buildingWidgetDataSeq真正构建成功后在切换成buildWidgetDataSeq
-  String buildWidgetDataSeq;
-
-  MXJsonBuildOwner parentBuildOwner;
-  MXJsonBuildOwner buildOwner;
-
-  // The Widget Pages that pushed this Widget ID
-  // 把当前widget（this） push 出来的widget ID
-  // 序列化到JSON里
-  String navPushingWidgetElementID;
-
-  // The Widget Pages that pushed this Widget
-  // 把当前widget（this） push 出来的widget
-  dynamic navPushingWidget;
-
-  //The widget that was pushed by this widget
-  //由自己this push的widget page
-  List<dynamic> navPushedWidgets;
-
-  // 辅助类，封装一些方法
-  MXJSWidgetHelper helper;
-
-  BuildContext context;
-
-  // 性能数据
-  bool enableProfile;
-  Map profileInfo;
+  /// Flutter 侧生成的MXWidget widgetID 从1开始，为奇数 +2
+  static int _widgetIDFeed = 1;
 
   static String generateWidgetID() {
-    //Flutter 侧生成的MXWidget widgetID 从1开始，为奇数 +2
-    widgetIDFeed = widgetIDFeed + 2;
-    return widgetIDFeed.toString();
+    // Flutter 侧生成的MXWidget widgetID 从1开始，为奇数 +2
+    _widgetIDFeed = _widgetIDFeed + 2;
+    return _widgetIDFeed.toString();
   }
 }
 
-///封装JSWidget
-// ignore: must_be_immutable
-class MXJSStatefulWidget extends StatefulWidget with MXJSBaseWidget {
-  MXJSWidgetState _state;
+/// 封装JSWidget
+class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
+  final String name;
+  final String widgetID;
+
+  final Map widgetBuildData;
+  final String widgetBuildDataSeq;
+
+  /// The Widget Pages that pushed this Widget ID
+  /// 把当前widget（this） push 出来的widget ID
+  final String navPushingWidgetID;
+
+  /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
+  final MXJsonBuildOwner parentBuildOwnerNode;
+
+  final bool isHostWidget;
 
   MXJSStatefulWidget(
       {Key key,
-      String name,
-      String widgetID,
-      Map widgetData,
-      String buildingWidgetDataSeq,
-      String navPushingWidgetElementID,
-      MXJsonBuildOwner parentBuildOwner})
-      : super(key: key) {
-    this.name = name;
-    this.widgetID = widgetID;
-    this.buildingWidgetDataSeq = buildingWidgetDataSeq;
-    this.widgetData = widgetData;
-    this.navPushingWidgetElementID = navPushingWidgetElementID;
-    this.parentBuildOwner = parentBuildOwner;
-    this.helper = MXJSWidgetHelper(this);
-  }
+      this.name,
+      this.widgetID,
+      this.widgetBuildData,
+      this.widgetBuildDataSeq,
+      this.navPushingWidgetID,
+      this.parentBuildOwnerNode})
+      : this.isHostWidget = false,
+        super(key: key);
 
   ///由dart侧创建MXWidget壳子
-  static MXJSStatefulWidget createEmptyWidget(
-      {Key key, String name, MXJsonBuildOwner parentBuildOwner}) {
-    //由dart侧生成 widgetID
-    String widgetID = MXJSBaseWidget.generateWidgetID();
-    MXJSStatefulWidget widget = MXJSStatefulWidget(
-        key: key,
-        name: name,
-        widgetID: widgetID,
-        parentBuildOwner: parentBuildOwner);
-
-    return widget;
-  }
-
-  get state => _state;
+  MXJSStatefulWidget.hostWidget({Key key, this.name, this.parentBuildOwnerNode})
+      : this.widgetID = MXJSWidgetBase.generateWidgetID(),
+        this.widgetBuildData = null,
+        this.isHostWidget = true,
+        this.widgetBuildDataSeq = null,
+        this.navPushingWidgetID = null,
+        super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    _state = MXJSWidgetState();
-    return _state;
+    return MXJSWidgetState();
   }
 
-  void resetBuildOwner() {
-    if (this.buildOwner == null) {
-      this.buildOwner = MXJsonBuildOwner(this, this.parentBuildOwner);
-    } else {
-      this.parentBuildOwner.addChildBuildOwner(widgetID, this.buildOwner);
-    }
+  @override
+  MXJSStatefulElement createElement() {
+    assert(parentBuildOwnerNode != null);
+    var element = MXJSStatefulElement(this);
+    element.buildOwnerNode = MXJsonBuildOwner(element);
+    parentBuildOwnerNode.addChild(element.buildOwnerNode);
+    return element;
   }
+}
+
+class MXJSStatefulElement extends StatefulElement {
+  MXJSStatefulElement(MXJSStatefulWidget widget) : super(widget);
+
+  MXJsonBuildOwner buildOwnerNode;
+
+  @override
+  MXJSStatefulWidget get widget => super.widget as MXJSStatefulWidget;
 }
 
 class MXJSWidgetState extends State<MXJSStatefulWidget>
     with SingleTickerProviderStateMixin {
+  // 三个场景会更新widgetData
+  // 1. 初始化 2. MXJSStatefulWidget的element被复用 3. MXJSWidgetState本身被js 刷新
+  Map widgetBuildData;
+  String widgetBuildDataSeq;
+
   MXJSWidgetState();
 
   @override
   void initState() {
     super.initState();
 
-    //widget 在Tabbar中时可能被dispose后又重新inflateWidget，dispose时会从父BuildOwner中删除自己的BuildOwner
-    //flutter根据widget重新build，回先调用initState，重新插入BuildOwnerTree
-    this.widget.resetBuildOwner();
+    _updateStateWidgetData();
+  }
+
+  @override
+  void didUpdateWidget(MXJSStatefulWidget old) {
+    super.didUpdateWidget(old);
+    // 当MXJSStatefulWidget 在element树中被复用，需要更新widgetData
+    _updateStateWidgetData();
+
+    /// 如果widget Tree相同位置都是 MXJSStatefulElement，但是widgetID 不同
+    /// 按flutter的机制会复用 MXJSStatefulElement，调用update相关函数
+    /// TODO： 需要重置下buildOwnerNode
+    if (widget.widgetID != old.widgetID) {
+      MXJSLog.log(
+          "MXJSWidgetState:didUpdateWidget:widget.widgetID != old.widgetID "
+          "widgetID ${widget.widgetID}"
+          "old.widgetID:${old.widgetID} "
+          "init BuildOwnerNode");
+      buildOwnerNode.reset();
+    }
+  }
+
+  _updateStateWidgetData() {
+    // state初始化时，用widget的widgetData ，之后等js侧的刷新
+    widgetBuildData = widget.widgetBuildData;
+    widgetBuildDataSeq = widget.widgetBuildDataSeq;
   }
 
   @override
   void dispose() {
     super.dispose();
-
-    this.widget.buildOwner.onDispose();
+    buildOwnerNode.onDispose();
   }
+
+  MXJsonBuildOwner get buildOwnerNode =>
+      (context as MXJSStatefulElement).buildOwnerNode;
 
   @override
   Widget build(BuildContext context) {
-    MXJSLog.log(
-        "MXJSStatefulWidget:build begin: widgetID ${widget.widgetID} curBuildWidgetDataSeq:${widget.buildWidgetDataSeq} buildingWidgetDataSeq:${widget.buildingWidgetDataSeq}");
+    assert(buildOwnerNode != null);
 
-    if (this.widget.buildOwner == null) {
-      this.widget.buildOwner =
-          MXJsonBuildOwner(this.widget, this.widget.parentBuildOwner);
+    MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
+        "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
+
+    if (widgetBuildData == null) {
+      // host 等待js刷新，先显示loading页面
+      // TODO: 定制loading页面和 error 页面
+      if (widget.isHostWidget) {
+        return MXJSWidgetBase.loadingWidget;
+      } else {
+        MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
+            "this.widget.widgetID:${this.widget.widgetID}");
+        return MXJSWidgetBase.errorWidget;
+      }
     }
 
-    if (widget.widgetData == null) {
+    Widget child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
+
+    if (child == null) {
       MXJSLog.error(
-          "MXJSWidgetState:build: widget.widgetData == null this.widget.widgetID:${this.widget.widgetID}");
-      return widget.helper.buildErrorWidget(context);
+          "MXJSWidgetState:build: _j2dBuild(widgetData, context) == null error; "
+          "this.widget.widgetID:${this.widget.widgetID}");
+      child = MXJSWidgetBase.errorWidget;
     }
-
-    this.widget.context = context;
-    var w = this.widget.buildOwner.build(widget.widgetData, context);
 
     //call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-    MXJSLog.debug(
-        "MXJSStatefulWidget:building: widget:$w callJSOnBuildEnd  widgetID ${widget.widgetID} curBuildWidgetDataSeq:${widget.buildWidgetDataSeq} buildingWidgetDataSeq:${widget.buildingWidgetDataSeq}");
+    MXJSLog.debug("MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
+        "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
 
-    this.widget.buildWidgetDataSeq = this.widget.buildingWidgetDataSeq;
-    this.widget.buildOwner.callJSOnBuildEnd();
+    buildOwnerNode.callJSOnBuildEnd();
 
-    MXJSLog.log(
-        "MXJSStatefulWidget:build end: widget:$w callJSOnBuildEnd  widgetID ${widget.widgetID} curBuildWidgetDataSeq:${widget.buildWidgetDataSeq} buildingWidgetDataSeq:${widget.buildingWidgetDataSeq}");
-    return w;
+    MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
+        "callJSOnBuildEnd  widgetID ${widget.widgetID} "
+        "widgetBuildDataSeq:$widgetBuildDataSeq} ");
+    return child;
+  }
+
+  jsCallRebuild(
+      String widgetID, Map widgetBuildData, String buildWidgetDataSeq) {
+    if (this.widget.widgetID != widgetID) {
+      MXJSLog.error("MXJSWidgetState:jsCallRebuild: error "
+          "this.widget.widgetID:(${this.widget.widgetID}) != widgetID:($widgetID)");
+      return;
+    }
+
+    setState(() {
+      this.widgetBuildData = widgetBuildData;
+      this.widgetBuildDataSeq = buildWidgetDataSeq;
+    });
+
+    MXJSLog.log("MXJSWidgetState:jsCallRebuild:  "
+        " widgetID:($widgetID) widgetBuildDataSeq:$widgetBuildDataSeq");
+
+    MXJSLog.debug("MXJSWidgetState:jsCallRebuild:  "
+        " widgetID:($widgetID) widgetBuildDataSeq:$widgetBuildDataSeq widgetBuildData:$widgetBuildData ");
   }
 }
 
-///静态json生成Widget
-// ignore: must_be_immutable
-class MXJSStatelessWidget extends StatelessWidget with MXJSBaseWidget {
+/// 静态json生成Widget
+class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
+  final String name;
+  final String widgetID;
+
+  final Map widgetBuildData;
+  final String widgetBuildDataSeq;
+
+  /// The Widget Pages that pushed this Widget ID
+  /// 把当前widget（this） push 出来的widget ID
+  final String navPushingWidgetID;
+
+  /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
+  final MXJsonBuildOwner parentBuildOwnerNode;
+
   MXJSStatelessWidget(
       {Key key,
-      String name,
-      String widgetID,
-      Map widgetData,
-      String buildingWidgetDataSeq,
-      String navPushingWidgetElementID,
-      MXJsonBuildOwner parentBuildOwner})
-      : super(key: key) {
-    this.name = name;
-    this.widgetID = widgetID;
-    this.buildingWidgetDataSeq = buildingWidgetDataSeq;
-    this.widgetData = widgetData;
-    this.navPushingWidgetElementID = navPushingWidgetElementID;
+      this.name,
+      this.widgetID,
+      this.widgetBuildData,
+      this.widgetBuildDataSeq,
+      this.navPushingWidgetID,
+      this.parentBuildOwnerNode})
+      : super(key: key);
 
-    this.parentBuildOwner = parentBuildOwner;
-
-    this.helper = MXJSWidgetHelper(this);
-
-    this.buildOwner = MXJsonBuildOwner(this, this.parentBuildOwner);
+  @override
+  MXJSStatelessElement createElement() {
+    assert(parentBuildOwnerNode != null);
+    var element = MXJSStatelessElement(this);
+    element.buildOwnerNode = MXJsonBuildOwner(element);
+    parentBuildOwnerNode.addChild(element.buildOwnerNode);
+    return element;
   }
 
   @override
   Widget build(BuildContext context) {
-    // MXJSLog.log("MXJSStatelessWidget:build: ${widget.widgetData} ");
-    if (this.widgetData == null) {
-      return this.helper.buildErrorWidget(context);
+    MXJSLog.log("MXJSStatelessWidget:build begin: widgetID $widgetID"
+        "curBuildWidgetDataSeq:$widgetBuildDataSeq ");
+
+    if (widgetBuildData == null) {
+      // TODO: 定制loading页面和 error 页面
+      MXJSLog.error("MXJSWidgetState:build: widgetData == null "
+          "this.widget.widgetID:${this.widgetID}");
+      return MXJSWidgetBase.errorWidget;
     }
 
-    this.context = context;
+    MXJSStatelessElement element = context as MXJSStatelessElement;
+    MXJsonBuildOwner boNode = element.buildOwnerNode;
+    Widget child = boNode.buildWidgetData(widgetBuildData, context);
 
-    var w = this.buildOwner.build(this.widgetData, context);
+    if (child == null) {
+      MXJSLog.error(
+          "MXJSWidgetState:build: _j2dBuild(widgetData, context) == null error; "
+          "this.widget.widgetID:$widgetID");
+      child = MXJSWidgetBase.errorWidget;
+    }
 
-    this.buildWidgetDataSeq = this.buildingWidgetDataSeq;
-    //告诉JS层，使用当前JSWidget 序列号的数据构建，callbackID,widgetID  与之对应
-    this.buildOwner.callJSOnBuildEnd();
+    //call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
+    MXJSLog.debug(
+        "MXJSStatelessWidget:building: widget:$child callJSOnBuildEnd "
+        "widgetID $widgetID curBuildWidgetDataSeq:$widgetBuildDataSeq");
 
-    return w;
+    boNode.callJSOnBuildEnd();
+
+    MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
+        "callJSOnBuildEnd  widgetID $widgetID "
+        "buildWidgetDataSeq:$widgetBuildDataSeq} ");
+    return child;
+  }
+}
+
+class MXJSStatelessElement extends StatelessElement {
+  MXJsonBuildOwner buildOwnerNode;
+
+  MXJSStatelessElement(MXJSStatelessWidget widget) : super(widget);
+
+  @override
+  MXJSStatelessWidget get widget => super.widget as MXJSStatelessWidget;
+
+  @override
+  void unmount() {
+    buildOwnerNode.onUnmount();
+    super.unmount();
   }
 }

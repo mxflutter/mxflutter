@@ -24,10 +24,11 @@ class MXProxyMXJSStatefulWidget extends MXJsonObjProxy {
         key: mxj2d(bo, jsonMap["key"]),
         name: mxj2d(bo, jsonMap["name"]),
         widgetID: mxj2d(bo, jsonMap["widgetID"]),
-        widgetData: jsonMap["widgetData"],
-        buildingWidgetDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
-        navPushingWidgetElementID: jsonMap["navPushingWidgetElementID"],
-        parentBuildOwner: bo);
+        widgetBuildData: jsonMap["widgetData"],
+        widgetBuildDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
+        navPushingWidgetID: jsonMap["navPushingWidgetID"],
+        parentBuildOwnerNode: bo);
+
     return widget;
   }
 }
@@ -52,10 +53,11 @@ class MXProxyMXJSStatelessWidget extends MXJsonObjProxy {
         key: mxj2d(bo, jsonMap["key"]),
         name: mxj2d(bo, jsonMap["name"]),
         widgetID: mxj2d(bo, jsonMap["widgetID"]),
-        widgetData: jsonMap["widgetData"],
-        buildingWidgetDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
-        navPushingWidgetElementID: jsonMap["navPushingWidgetElementID"],
-        parentBuildOwner: bo);
+        widgetBuildData: jsonMap["widgetData"],
+        widgetBuildDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
+        navPushingWidgetID: jsonMap["navPushingWidgetID"],
+        parentBuildOwnerNode: bo);
+
     return widget;
   }
 }
@@ -71,22 +73,21 @@ Map<String, MXFunctionInvoke> registerMXJSStateWidgetSeries() {
 
 var _mxJSStatefulWidget = MXFunctionInvoke(
   "MXJSStatefulWidget",
-  ({
-    Key key,
-    String name,
-    String widgetID,
-    Map widgetData,
-    String buildWidgetDataSeq,
-    String navPushingWidgetElementID
-  }) =>
+  (
+          {Key key,
+          String name,
+          String widgetID,
+          Map widgetData,
+          String buildWidgetDataSeq,
+          String navPushingWidgetElementID}) =>
       MXJSStatefulWidget(
     key: key,
     name: name,
     widgetID: widgetID,
-    widgetData: widgetData,
-    buildingWidgetDataSeq: buildWidgetDataSeq,
-    navPushingWidgetElementID: navPushingWidgetElementID,
-    parentBuildOwner: _mxJSStatefulWidget.buildOwner,
+    widgetBuildData: widgetData,
+    widgetBuildDataSeq: buildWidgetDataSeq,
+    navPushingWidgetID: navPushingWidgetElementID,
+    parentBuildOwnerNode: _mxJSStatefulWidget.buildOwner,
   ),
   noJ2DProps: [
     "widgetData",
@@ -95,22 +96,21 @@ var _mxJSStatefulWidget = MXFunctionInvoke(
 
 var _mxJSStatelessWidget = MXFunctionInvoke(
   "MXJSStatelessWidget",
-  ({
-    Key key,
-    String name,
-    String widgetID,
-    Map widgetData,
-    String buildWidgetDataSeq,
-    String navPushingWidgetElementID
-  }) =>
+  (
+          {Key key,
+          String name,
+          String widgetID,
+          Map widgetData,
+          String buildWidgetDataSeq,
+          String navPushingWidgetElementID}) =>
       MXJSStatelessWidget(
     key: key,
     name: name,
     widgetID: widgetID,
-    widgetData: widgetData,
-    buildingWidgetDataSeq: buildWidgetDataSeq,
-    navPushingWidgetElementID: navPushingWidgetElementID,
-    parentBuildOwner: _mxJSStatelessWidget.buildOwner,
+    widgetBuildData: widgetData,
+    widgetBuildDataSeq: buildWidgetDataSeq,
+    navPushingWidgetID: navPushingWidgetElementID,
+    parentBuildOwnerNode: _mxJSStatelessWidget.buildOwner,
   ),
   noJ2DProps: [
     "widgetData",

@@ -14,8 +14,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/theme.dart';
 import 'package:flutter/src/cupertino/thumb_painter.dart';
+// MX modified beigin 多import了一个material.dart
 import 'package:flutter/material.dart';
-
+// MX modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliderSeries() {
@@ -24,31 +25,31 @@ Map<String, MXFunctionInvoke> registerSliderSeries() {
   return m;
 }
 var _cupertinoSlider = MXFunctionInvoke(
-    "CupertinoSlider",
-    (
-      {
-      Key key,
-      dynamic value,
-      dynamic onChanged,
-      dynamic onChangeStart,
-      dynamic onChangeEnd,
-      dynamic min = 0.0,
-      dynamic max = 1.0,
-      int divisions,
-      Color activeColor,
-      Color thumbColor = Colors.white,
-      }
-    ) =>
+  "CupertinoSlider",
+  (
+    {
+    Key key,
+    dynamic value,
+    dynamic onChanged,
+    dynamic onChangeStart,
+    dynamic onChangeEnd,
+    dynamic min = 0.0,
+    dynamic max = 1.0,
+    int divisions,
+    Color activeColor,
+    Color thumbColor = Colors.white,
+    }
+  ) =>
       CupertinoSlider(
-      key: key,
-      value: value?.toDouble(),
-      onChanged: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChanged),
-      onChangeStart: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChangeStart),
-      onChangeEnd: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChangeEnd),
-      min: min?.toDouble(),
-      max: max?.toDouble(),
-      divisions: divisions,
-      activeColor: activeColor,
-      thumbColor: thumbColor,
-    ),
+    key: key,
+    value: value?.toDouble(),
+    onChanged: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChanged),
+    onChangeStart: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChangeStart),
+    onChangeEnd: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChangeEnd),
+    min: min?.toDouble(),
+    max: max?.toDouble(),
+    divisions: divisions,
+    activeColor: activeColor,
+    thumbColor: thumbColor,
+  ),
 );

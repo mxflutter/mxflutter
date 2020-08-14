@@ -78,8 +78,10 @@ var _renderEditable = MXFunctionInvoke(
       bool paintCursorAboveText = false,
       ui.Offset cursorOffset,
       dynamic devicePixelRatio = 1.0,
+      /// MX modified begin -add ui.
       ui.BoxHeightStyle selectionHeightStyle =  ui.BoxHeightStyle.tight,
       ui.BoxWidthStyle selectionWidthStyle =  ui.BoxWidthStyle.tight,
+      /// MX modified end
       bool enableInteractiveSelection,
       EdgeInsets floatingCursorAddedMargin = const EdgeInsets.fromLTRB(4.0, 4.0, 4.0, 5.0),
       TextSelectionDelegate textSelectionDelegate,

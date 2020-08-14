@@ -4,7 +4,8 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mx_json_build_owner.dart';
+import '../../mx_json_build_owner.dart';
+
 
 /// Dart函数的映射定义
 class MXFunctionInvoke {

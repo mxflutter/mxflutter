@@ -8,8 +8,9 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/cupertino/thumb_painter.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/src/cupertino/colors.dart';
+// MX modified begin 多import了material.dart
 import 'package:flutter/material.dart';
-
+// MX modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerThumbPainterSeries() {
@@ -21,40 +22,40 @@ Map<String, MXFunctionInvoke> registerThumbPainterSeries() {
   return m;
 }
 var _cupertinoThumbPainter = MXFunctionInvoke(
-    "CupertinoThumbPainter",
-    (
-      {
-      Color color = Colors.white,
-      dynamic shadows = const <BoxShadow>[BoxShadow(color: Color(0x26000000), offset: Offset(0.0, 3.0), blurRadius: 8.0), BoxShadow(color: Color(0x29000000), offset: Offset(0.0, 1.0), blurRadius: 1.0), BoxShadow(color: Color(0x1A000000), offset: Offset(0.0, 3.0), blurRadius: 1.0)],
-      }
-    ) =>
+  "CupertinoThumbPainter",
+  (
+    {
+    Color color = Colors.white,
+    dynamic shadows = const <BoxShadow>[BoxShadow(color: Color(0x26000000), offset: Offset(0.0, 3.0), blurRadius: 8.0), BoxShadow(color: Color(0x29000000), offset: Offset(0.0, 1.0), blurRadius: 1.0), BoxShadow(color: Color(0x1A000000), offset: Offset(0.0, 3.0), blurRadius: 1.0)],
+    }
+  ) =>
       CupertinoThumbPainter(
-      color: color,
-      shadows: toListT<BoxShadow>(shadows),
-    ),
+    color: color,
+    shadows: toListT<BoxShadow>(shadows),
+  ),
 );
 var _cupertinoThumbPainter_radius = MXFunctionInvoke(
-  "CupertinoThumbPainter.radius",
+    "CupertinoThumbPainter.radius",
     (
     ) =>
-      CupertinoThumbPainter.radius
+    CupertinoThumbPainter.radius
 );
 var _cupertinoThumbPainter_extension = MXFunctionInvoke(
-  "CupertinoThumbPainter.extension",
+    "CupertinoThumbPainter.extension",
     (
     ) =>
-      CupertinoThumbPainter.extension
-);
+    CupertinoThumbPainter.extension
+    );
 var _cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
   "CupertinoThumbPainter.switchThumb",
-    (
-      {
-      Color color = Colors.white,
-      dynamic shadows = const <BoxShadow>[BoxShadow(color: Color(0x26000000), offset: Offset(0.0, 3.0), blurRadius: 8.0), BoxShadow(color: Color(0x0F000000), offset: Offset(0.0, 3.0), blurRadius: 1.0)],
-      }
-    ) =>
+  (
+    {
+    Color color = Colors.white,
+    dynamic shadows = const <BoxShadow>[BoxShadow(color: Color(0x26000000), offset: Offset(0.0, 3.0), blurRadius: 8.0), BoxShadow(color: Color(0x0F000000), offset: Offset(0.0, 3.0), blurRadius: 1.0)],
+    }
+  ) =>
       CupertinoThumbPainter.switchThumb(
-      color: color,
-      shadows: toListT<BoxShadow>(shadows),
-    ),
+    color: color,
+    shadows: toListT<BoxShadow>(shadows),
+  ),
 );

@@ -38,6 +38,8 @@ var _animatedSize = MXFunctionInvoke(
       curve: curve,
       duration: duration,
       reverseDuration: reverseDuration,
-      vsync: vsync,
+      // MX modified begin
+      vsync: _animatedSize.buildOwner.state,
+      // MX modified end
     ),
 );

@@ -68,8 +68,10 @@ var _textField = MXFunctionInvoke(
       dynamic cursorWidth = 2.0,
       ui.Radius cursorRadius,
       ui.Color cursorColor,
+      /// MX modified begin -add ui.
       ui.BoxHeightStyle selectionHeightStyle =  ui.BoxHeightStyle.tight,
       ui.BoxWidthStyle selectionWidthStyle =  ui.BoxWidthStyle.tight,
+      /// MX modified end
       ui.Brightness keyboardAppearance,
       EdgeInsets scrollPadding = const EdgeInsets.all(20.0),
       DragStartBehavior dragStartBehavior =  DragStartBehavior.start,

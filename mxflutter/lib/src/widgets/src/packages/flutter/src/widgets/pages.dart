@@ -24,8 +24,10 @@ var _pageRouteBuilder = MXFunctionInvoke(
       {
       RouteSettings settings,
       dynamic pageBuilder,
+      /// MX modified begin
       dynamic transitionsBuilder,
       Duration transitionDuration = const Duration(milliseconds: 300),
+      /// MX modified end
       bool opaque = true,
       bool barrierDismissible = false,
       Color barrierColor,

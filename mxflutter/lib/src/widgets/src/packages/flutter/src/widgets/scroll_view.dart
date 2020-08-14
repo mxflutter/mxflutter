@@ -143,7 +143,9 @@ var _listView_builder = MXFunctionInvoke(
       dynamic cacheExtent,
       int semanticChildCount,
       DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
+      /// MX modified begin add children
       dynamic children,
+      /// MX modified end
       }
     ) =>
       ListView.builder(
@@ -156,9 +158,11 @@ var _listView_builder = MXFunctionInvoke(
       shrinkWrap: shrinkWrap,
       padding: padding,
       itemExtent: itemExtent?.toDouble(),
+      /// MX modified begin add function
       itemBuilder: (BuildContext context, int index) {
         return children[index];
       },
+      /// MX modified end
       itemCount: itemCount,
       addAutomaticKeepAlives: addAutomaticKeepAlives,
       addRepaintBoundaries: addRepaintBoundaries,
@@ -188,7 +192,9 @@ var _listView_separated = MXFunctionInvoke(
       bool addSemanticIndexes = true,
       dynamic cacheExtent,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =  ScrollViewKeyboardDismissBehavior.manual,
+      /// MX modified begin -add children
       dynamic children,
+      /// MX modified end
       }
     ) =>
       ListView.separated(
@@ -200,9 +206,11 @@ var _listView_separated = MXFunctionInvoke(
       physics: physics,
       shrinkWrap: shrinkWrap,
       padding: padding,
+      /// MX modified begin add function
       itemBuilder: (BuildContext context, int index) {
         return children[index];
       },
+      /// MX modified end
       separatorBuilder: null,
       itemCount: itemCount,
       addAutomaticKeepAlives: addAutomaticKeepAlives,

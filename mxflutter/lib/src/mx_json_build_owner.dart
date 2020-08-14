@@ -3,158 +3,176 @@
 //
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'mx_json_to_dart.dart';
-import 'dart:convert';
 
+import 'mx_js_flutter_lib.dart';
+
+import 'package:mxflutter/mxflutter_test.dart';
+
+import 'package:mxflutter/src/mirror/src/mx_mirror_object.dart';
+import 'mx_json_to_dart.dart';
 import 'mx_js_flutter_app.dart';
-import 'mx_js_widget_helper.dart';
 import 'mx_js_flutter_common.dart';
 import 'mx_js_mirror_obj_mgr.dart';
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
 
-//buildOwner 除了根节点，于 MXJSWidgetState 一一对应，形成树状结构，持有MXJSWidgetState，
-//并接收JS调用操作MXJSWidgetState
+/// buildOwner 除了根节点，于 MXJSWidgetState 一一对应，形成树状结构，持有MXJSWidgetState，
+/// 并接收JS调用操作MXJSWidgetState
 class MXJsonBuildOwner {
-  MXJSFlutterApp ownerApp;
-  MXJsonBuildOwner parentBuildOwner;
-  Map<String, MXJsonBuildOwner> childrenBuildOwner = {};
-
-  List mirrorObjKeyList = [];
-
-  dynamic widget;
-  var widgetName;
-
-  MXJsonBuildOwner(dynamic jsWidget, MXJsonBuildOwner parentBuildOwner) {
-    this.ownerApp = parentBuildOwner?.ownerApp;
-    this.widget = jsWidget;
-    this.parentBuildOwner = parentBuildOwner;
-
-    String ownerWidgetID = this.widget.widgetID;
-    assert(ownerWidgetID != null && ownerWidgetID.isNotEmpty);
-
-    parentBuildOwner?.addChildBuildOwner(ownerWidgetID, this);
+  MXJsonBuildOwner(Element jsWidgetElement) {
+    _jsWidgetElement = jsWidgetElement;
   }
 
-  MXJsonBuildOwner.rootBuildOwner(this.ownerApp);
+  MXJsonBuildOwner.rootBuildOwner();
 
-  void addChildBuildOwner(String widgetID, MXJsonBuildOwner bo) {
-    if (widgetID == null || widgetID.isEmpty || bo == null) {
+  /// MXJsonBuildOwner 组成BoNodeTree管理MXJsWidget的build
+  MXJsonBuildOwner _parent;
+  Map<String, MXJsonBuildOwner> _children = {};
+
+  /// MXJsonBuildOwner 通过持有MXJSWidget的 Element来驱动后续Widget的更新
+  Element _jsWidgetElement;
+
+  BuildContext get buildContext => _jsWidgetElement;
+  MXJSWidgetBase get widget => _jsWidgetElement?.widget as MXJSWidgetBase;
+  String get ownerWidgetId => widget?.widgetID;
+
+  MXJSWidgetState get state {
+    if (_jsWidgetElement is MXJSStatefulElement) {
+      return (_jsWidgetElement as MXJSStatefulElement).state;
+    }
+    return null;
+  }
+
+  String get widgetBuildDataSeq {
+    if (_jsWidgetElement is MXJSStatefulElement) {
+      return state?.widgetBuildDataSeq;
+    } else if (_jsWidgetElement is MXJSStatelessElement) {
+      return widget?.widgetBuildDataSeq;
+    }
+
+    return null;
+  }
+
+  /// MXJSWidget 保存JS侧相关的成员变量
+  List<String> _mirrorObjKeyList = [];
+
+  /// Debug下，获取刷新性能数据
+  bool _enableProfile;
+  Map _profileInfo;
+
+  /// TODO: 暂时先打日志看下
+  reset() {
+    MXJSLog.debug("MXJsonBuildOwner:reset: "
+        "ownerWidgetId:$ownerWidgetId "
+        "buildSeq:${_mirrorObjKeyList.join('|')}");
+  }
+
+  void addChild(MXJsonBuildOwner child) {
+    if (child?.ownerWidgetId == null) {
       return;
     }
 
-    childrenBuildOwner[widgetID] = bo;
-  }
-
-  removeChildBuildOwner(String widgetID) {
-    childrenBuildOwner.remove(widgetID);
-  }
-
-  dynamic findWidget(Key key) {
-    if (key == null) {
-      return null;
+    var oldChild = _children[child.ownerWidgetId];
+    if (oldChild != null) {
+      MXJSLog.debug("MXJsonBuildOwner:addChild: "
+          "widgetID:${child.ownerWidgetId} "
+          "_children 已经有了！");
     }
 
-    for (MXJsonBuildOwner bo in childrenBuildOwner.values) {
-      if (bo.widget.key == key) {
-        return bo.widget;
+    _children[child.ownerWidgetId] = child;
+    child._parent = this;
+  }
+
+  MXJsonBuildOwner findChild(widgetID) {
+
+    if (widgetID == null) return null;
+    if (widgetID == ownerWidgetId) return this;
+
+    MXJsonBuildOwner boNode = _children[widgetID];
+    if (boNode != null) {
+      return boNode;
+    }
+
+    for (var child in _children.values) {
+      boNode = child.findChild(widgetID);
+      if (boNode != null) {
+        return boNode;
       }
     }
 
     return null;
   }
 
-  dynamic buildRootWidget(Map widgetData) {
-    dynamic w =
-        MXJsonObjToDartObject.jsonToDartObj(widgetData, buildOwner: this);
-    return w;
-  }
-
-  Widget build(Map widgetData, BuildContext context) {
-    var w = MXJsonObjToDartObject.jsonToDartObj(widgetData,
-        buildOwner: this, context: context);
-
-    if (w == null) {
-      w = Center(
-        child: Text("MXJsonBuildOwner error return null"),
-      );
+  removeChild(MXJsonBuildOwner child) {
+    var boNode = _children[child.ownerWidgetId];
+    if (boNode != child) {
+      MXJSLog.debug("MXJsonBuildOwner:addChild: "
+          "widgetID:${child.ownerWidgetId}"
+          "_children 中的和要删除的boNode不同");
+      return;
     }
 
+    child._parent = null;
+    _children.remove(child.ownerWidgetId);
+  }
+
+  void removeAllChild() {
+    _children.clear();
+  }
+
+  /// FIXME : 快速多次重复调用
+  dynamic findWidget(Key key) {
+    if (key == null) {
+      return null;
+    }
+
+    for (MXJsonBuildOwner boNode in _children.values) {
+      if (boNode._jsWidgetElement.widget.key == key) {
+        return boNode._jsWidgetElement.widget;
+      }
+    }
+
+    return null;
+  }
+
+  Widget buildRootWidget(Map widgetData) {
+    var w = MXJsonObjToDartObject.jsonToDartObj(widgetData, buildOwner: this);
     return w;
   }
 
-  //事件回调
-  //flutter->JS
-  dynamic eventCallback(String callID, [dynamic arg1, dynamic arg2, dynamic arg3, dynamic arg4, dynamic arg5]) async {
-    var ownerWidgetID = this.widget?.widgetID;
-    String buildSeq = this.widget?.buildWidgetDataSeq;
+  Widget buildWidgetData(Map widgetData, BuildContext context) {
+    return MXJsonObjToDartObject.jsonToDartObj(widgetData,
+        buildOwner: this, context: context);
+  }
+
+  /// app channel
+  MXJSFlutterApp get ownerApp => MXJSFlutterLib.getInstance().currentApp;
+
+  /// 事件回调
+  /// flutter->JS
+  dynamic eventCallback(String callID,
+      [dynamic arg1,
+      dynamic arg2,
+      dynamic arg3,
+      dynamic arg4,
+      dynamic arg5]) async {
     List args = [];
     args.add(arg1);
     args.add(arg2);
     args.add(arg3);
     args.add(arg4);
     args.add(arg5);
-    return await callJSWidgetOnEventCallback(
-        widgetID: ownerWidgetID, buildSeq: buildSeq, callID: callID, args: args);
-  }
 
-  dynamic callJSWidgetOnEventCallback(
-      {String widgetID, String buildSeq, String callID, dynamic args}) async {
     MethodCall jsMethodCall = MethodCall("flutterCallOnEventCallback", {
-      "widgetID": widgetID,
-      "buildSeq": buildSeq,
+      "widgetID": ownerWidgetId,
+      "buildSeq": widgetBuildDataSeq,
       "callID": callID,
       "args": args
     });
 
     return await ownerApp.callJS(jsMethodCall);
-  }
-
-  callJSOnBuildEnd() {
-    MXJSLog.debug(
-        "MXJSWidgetState:callJSOnBuildEnd:  this.widget.widgetID:${this.widget.widgetID} buildSeq:${this.widget.buildWidgetDataSeq}");
-
-    var ownerWidgetID = this.widget.widgetID;
-    String buildSeq = this.widget.buildWidgetDataSeq;
-
-    dynamic parentWidget = this.parentBuildOwner.widget;
-    var parentWidgetID = "";
-    if (parentWidget != null) {
-      parentWidgetID = parentWidget.widgetID;
-    }
-
-    MethodCall jsMethodCall;
-    if (this.widget.enableProfile == true) {
-      this.widget.profileInfo["buildEnd"] =
-          (new DateTime.now()).millisecondsSinceEpoch;
-      jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-        "widgetID": ownerWidgetID,
-        "buildSeq": buildSeq,
-        "rootWidgetID": parentWidgetID,
-        "profileInfo": this.widget.profileInfo,
-      });
-    } else {
-      jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-        "widgetID": ownerWidgetID,
-        "buildSeq": buildSeq,
-        "rootWidgetID": parentWidgetID,
-      });
-    }
-
-    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
-  }
-
-  callJSOnDispose() {
-    var ownerWidgetID = this.widget.widgetID;
-    MethodCall jsMethodCall = MethodCall("flutterCallOnDispose", {
-      "widgetID": ownerWidgetID,
-      "mirrorObjIDList": mirrorObjKeyList,
-    });
-
-    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
   }
 
   ///动态创建Widget回调，如List
@@ -163,143 +181,153 @@ class MXJsonBuildOwner {
     return null;
   }
 
-  //js->flutter
+  /// js事件
+  /// js->flutter
 
-  void jsCallRebuild(args) {
-    String widgetDataStr = args["widgetData"];
-    var startDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
-
-    Map widgetMap = json.decode(widgetDataStr);
-    String widgetID = widgetMap["widgetID"];
-    String name = widgetMap["name"];
-    String className = widgetMap["className"];
-    Map widgetData = widgetMap["widgetData"];
-    String buildWidgetDataSeq = widgetMap["buildWidgetDataSeq"];
+  void jsCallRebuild(Map widgetDataMap) {
+    String widgetID = widgetDataMap["widgetID"];
+    String className = widgetDataMap["className"];
+    Map widgetBuildData = widgetDataMap["widgetData"];
+    String buildWidgetDataSeq = widgetDataMap["buildWidgetDataSeq"];
 
     if (className != "MXJSStatefulWidget" &&
         className != "MXJSStatelessWidget") {
-      MXJSLog.error(
-          "jsCallRebuild(jsWidget == null || (jsWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)): name:$name widgetData:$widgetData");
+      MXJSLog.error("MXJSWidgetState:jsCallRebuild: "
+          "(widgetData className is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
+          "className:$className widgetData:$widgetDataMap");
       return;
     }
 
-    //------
-    MXJsonBuildOwner bo = findBuildOwner(widgetID);
-
-    if (bo == null) {
-      //TODO:errormx
-      MXJSLog.error(
-          "findBuildOwner(jsWidget.widgetID)== null: name:$name id:$widgetID");
-      return;
-    }
-
-    //----性能分析代码
-    bool enableProfile = widgetMap["enableProfile"];
-
-    if (enableProfile == true) {
-      bo.widget.enableProfile = enableProfile;
-
-      Map profileInfo = Map();
-      profileInfo["startDecodeData"] = startDecodeData;
-
-      var endDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
-      profileInfo["endDecodeData"] = endDecodeData;
-      bo.widget.profileInfo = profileInfo;
-    }
-    //----性能分析代码 end
-
-    bo.clearAllChildBuildOwner();
-    bo.rebuildJSWidget(name, widgetID, widgetData, buildWidgetDataSeq);
+    _setProfileInfo(widgetDataMap);
+    _rebuild(widgetID, widgetBuildData, buildWidgetDataSeq);
   }
 
-  void rebuildJSWidget(
-      String name, String widgetID, Map widgetData, String buildWidgetDataSeq) {
-    var ownerWidgetID = this.widget.widgetID;
+  void _setProfileInfo(Map widgetDataMap) {
+    // 性能监控，记录解码时间
+    bool enableProfile = widgetDataMap["enableProfile"];
+    int startDecodeData = widgetDataMap["#startDecodeData"];
+    int endDecodeData = widgetDataMap["#endDecodeData"];
 
-    if (ownerWidgetID != null && ownerWidgetID != widgetID) {
-      MXJSLog.log(
-          "MXJSStatefulWidget:rebuildJSWidget: error: this.widget.widgetID != jsWidget.widgetID");
+    _enableProfile = enableProfile;
+
+    if (_enableProfile) {
+      _profileInfo = {
+        "startDecodeData": startDecodeData,
+        "endDecodeData": endDecodeData
+      };
     }
-
-    MXJSWidgetHelper helper = this.widget.helper;
-    helper.jsRebuild(widgetID, widgetData, buildWidgetDataSeq);
   }
 
-  //js->flutter
-  jsCallNavigatorPush(args) {
-    String widgetDataStr = args["widgetData"];
+  void _rebuild(
+      String rebuildWidgetID, Map widgetBuildData, String buildWidgetDataSeq) {
+    removeAllChild();
 
-    var startDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
-    Map widgetMap = json.decode(widgetDataStr);
-    var endDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
-
-    dynamic jsWidget = buildRootWidget(widgetMap);
-
-    //----性能分析代码
-    bool enableProfile = widgetMap["enableProfile"];
-
-    if (enableProfile == true) {
-      jsWidget.enableProfile = enableProfile;
-
-      Map profileInfo = Map();
-      profileInfo["startDecodeData"] = startDecodeData;
-      profileInfo["endDecodeData"] = endDecodeData;
-      jsWidget.profileInfo = profileInfo;
-    }
-    //----性能分析代码 end
-
-    if (jsWidget == null ||
-        (jsWidget.runtimeType.toString() != "MXJSStatefulWidget" && jsWidget.runtimeType.toString() != "MXJSStatelessWidget")) {
-      MXJSLog.error(
-          "jsCallNavigatorPush(jsWidget == null || (jsWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)): name:${jsWidget.name} widgetData:${jsWidget.widgetData}");
-      return;
+    if (rebuildWidgetID != ownerWidgetId) {
+      MXJSLog.log("MXJSStatefulWidget:_rebuild: "
+          "error: rebuildWidgetID:($rebuildWidgetID) != widgetID($ownerWidgetId)");
     }
 
-    //谁push jsWidget，找到对应的build owner
-    String navPushingWidgetElementID = jsWidget.navPushingWidgetElementID;
-    MXJsonBuildOwner bo = findBuildOwner(navPushingWidgetElementID);
-
-    if (bo == null) {
-      MXJSLog.error(
-          "jsCallNavigatorPush(bo == null: name:${jsWidget.name} navPushingWidgetElementID:$navPushingWidgetElementID");
-      return;
+    if (_jsWidgetElement is MXJSStatefulElement) {
+      MXJSWidgetState state = (_jsWidgetElement as MXJSStatefulElement).state;
+      state.jsCallRebuild(rebuildWidgetID, widgetBuildData, buildWidgetDataSeq);
+    } else {
+      MXJSLog.error("MXJSStatefulWidget:_rebuild: "
+          "Same thing error: _jsWidgetElement is not  MXJSStatefulElement"
+          "But call _rebuild _jsWidgetElement runtimeType:${_jsWidgetElement.runtimeType}");
     }
-
-    bo.widget.helper.jsNavigatorPush(jsWidget, bo.widget.context);
   }
 
-  jsCallNavigatorPop(args) {
-    String widgetID = args["widgetID"];
-    var bo = findBuildOwner(widgetID);
+  // js->flutter
+  jsCallNavigatorPush(Map widgetDataMap) {
+    MXJSLog.log("MXJsonBuildOwner:jsNavigatorPush:");
 
-    if (bo == null) {
-      MXJSLog.error("jsCallNavigatorPop(bo == null: widgetID:$widgetID");
-      return;
-    }
+    // 记录性能监控信息
+    _setProfileInfo(widgetDataMap);
 
-    bo.widget.helper.jsNavigatorPop(bo.widget.context);
-  }
+    WidgetBuilder builder = (BuildContext context) {
+      dynamic jsWidget = buildWidgetData(widgetDataMap, context);
 
-  MXJsonBuildOwner findBuildOwner(widgetID) {
-    MXJsonBuildOwner bo = childrenBuildOwner[widgetID];
-
-    if (bo != null) {
-      return bo;
-    }
-
-    for (var k in childrenBuildOwner.keys) {
-      var v = childrenBuildOwner[k];
-      MXJsonBuildOwner bo = v.findBuildOwner(widgetID);
-      if (bo != null) {
-        return bo;
+      if (jsWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget) {
+        String className = widgetDataMap["className"];
+        MXJSLog.error("MXJsonBuildOwner:jsCallNavigatorPush: "
+            "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
+            "className:$className widgetData:$widgetDataMap");
+        return MXJSWidgetBase.errorWidget;
       }
-    }
 
-    return null;
+      return jsWidget;
+    };
+
+    // TODO: 支持多种MaterialPageRoute效果,MaterialPageRoute应该通过j2d 直接生成
+    Navigator.push(
+      buildContext,
+      MaterialPageRoute(builder: builder),
+    );
   }
 
-  //MirrorObj事件回调
-  //flutter->JS
+  jsCallNavigatorPop() {
+    MXJSLog.log("MXJsonBuildOwner:jsCallNavigatorPop:");
+    Navigator.pop(buildContext);
+  }
+
+  /// MXJSWidgetState -> BuildOwner
+  void onDispose() {
+    _parent?.removeChild(this);
+
+    // 移除镜像对象
+    disposeMirrorObjs();
+
+    // 告诉JS，可以销毁这个JSWidget了
+    callJSOnDispose();
+  }
+
+  /// MXJSStatelessElement -> BuildOwner
+  /// MXJSStatelessElement 使用 onUnmount 释放JS
+  void onUnmount() {
+    onDispose();
+  }
+
+  callJSOnBuildEnd() {
+    MXJSLog.debug("MXJSWidgetState:callJSOnBuildEnd: "
+        "widgetID:$ownerWidgetId"
+        "buildSeq:$widgetBuildDataSeq");
+
+    String parentWidgetID = _parent?.ownerWidgetId;
+
+    MethodCall jsMethodCall;
+    if (this._enableProfile == true) {
+      this._profileInfo["buildEnd"] =
+          (new DateTime.now()).millisecondsSinceEpoch;
+      jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
+        "widgetID": ownerWidgetId,
+        "buildSeq": widgetBuildDataSeq,
+        "rootWidgetID": parentWidgetID,
+        "profileInfo": this._profileInfo,
+      });
+    } else {
+      jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
+        "widgetID": ownerWidgetId,
+        "buildSeq": widgetBuildDataSeq,
+        "rootWidgetID": parentWidgetID,
+      });
+    }
+
+    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+  }
+
+  callJSOnDispose() {
+    MethodCall jsMethodCall = MethodCall("flutterCallOnDispose", {
+      "widgetID": ownerWidgetId,
+      "mirrorObjIDList": _mirrorObjKeyList,
+    });
+
+    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+  }
+
+  /// =============================================
+  // TODO: mirror逻辑需要重构，和BuildOwner没关系
+  // MirrorObj事件回调
+  // flutter->JS
   Future<dynamic> mirrorObjEventCallback(dynamic mirrorID, String functionName,
       {dynamic p}) async {
     callJSWidgetOnmirrorObjEventCallback(
@@ -323,14 +351,15 @@ class MXJsonBuildOwner {
     if (mirrorID == null) {
       return null;
     }
-    return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+    // return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+    return MXMirrorObject.getInstance().mirrorObject(mirrorID);
   }
 
   void setMirrorObject(dynamic mirrorObj, Map jsonMap) {
     String mirrorID = getJsonObjMirrorID(jsonMap);
     if (mirrorID != null) {
-      if (!mirrorObjKeyList.contains(mirrorID)) {
-        mirrorObjKeyList.add(mirrorID);
+      if (!_mirrorObjKeyList.contains(mirrorID)) {
+        _mirrorObjKeyList.add(mirrorID);
       }
 
       MXJSMirrorObjMgr.getInstance().addMirrorObject(mirrorID, mirrorObj);
@@ -342,7 +371,7 @@ class MXJsonBuildOwner {
   }
 
   void disposeMirrorObjs() {
-    mirrorObjKeyList.forEach((dynamic mirrorID) {
+    _mirrorObjKeyList.forEach((dynamic mirrorID) {
       dynamic mirrorObj = getMirrorObjectFromID(mirrorID);
       String className = mirrorObj.runtimeType.toString();
 
@@ -352,22 +381,5 @@ class MXJsonBuildOwner {
 
       removeMirrorObject(mirrorID);
     });
-  }
-
-  void clearAllChildBuildOwner() {
-    this.childrenBuildOwner.clear();
-  }
-
-  void onDispose() {
-    //框架最困难的点在于确定何时释放不需要的对象
-
-    // 移除parentBuildOwner中当前的widget
-    parentBuildOwner.removeChildBuildOwner(this.widget.widgetID);
-
-    //告诉JS，可以销毁这个JSWidget了
-    callJSOnDispose();
-
-    // 移除镜像对象
-    disposeMirrorObjs();
   }
 }

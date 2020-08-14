@@ -4,7 +4,9 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mx_json_build_owner.dart';
+import '../../mx_json_build_owner.dart';
+import 'mx_function_invoke.dart';
+import 'mx_mirror_object.dart';
 
 class MXMirrorFunc {
   static MXMirrorFunc _instance;
@@ -18,7 +20,7 @@ class MXMirrorFunc {
   final constMirrorIDStr = "mirrorID";
 
   // funcName到Fun方法的映射表
-  var _funcName2FunMap = <String, dynamic>{};
+  var _funcName2FunMap = <String, MXFunctionInvoke>{};
 
   static MXMirrorFunc getInstance() {
     if (_instance == null) {
@@ -60,13 +62,18 @@ class MXMirrorFunc {
 
     String funcName = jsonMap[constFuncStr];
     _removeUselessProperty(jsonMap);
-    var fi = _funcName2FunMap[funcName];
+    MXFunctionInvoke fi = _funcName2FunMap[funcName];
     fi.buildOwner = buildOwner;
 
     try {
       var namedArguments = <Symbol, dynamic>{};
       List noJ2DProps = fi.noJ2DProps;
       for (var name in jsonMap.keys) {
+        /// TODO:mirrorID不添加到namedArguments里面
+        if (name == constMirrorIDStr) {
+          continue;
+        }
+
         // 判断是否需要将属性进行转换
         if (noJ2DProps != null && noJ2DProps.contains(name)) {
           namedArguments[Symbol(name)] = jsonMap[name];
@@ -133,9 +140,6 @@ class MXMirrorFunc {
     jsonMap.remove(constClassStr);
     jsonMap.remove(constConstructorStr);
 
-    // 移除mirrorID
-    jsonMap.remove(constMirrorIDStr);
-
     // TODO:移除enableProfile
     jsonMap.remove("enableProfile");
 
@@ -158,7 +162,9 @@ class MXMirrorFunc {
 
       // 可以通过invoke转换
       if (canInvoke(funcName)) {
-        return invoke(newJsonMap, buildOwner: buildOwner);
+        var obj = invoke(newJsonMap, buildOwner: buildOwner);
+        MXMirrorObject.getInstance().addMirrorObject(newJsonMap["mirrorID"], obj);
+        return obj;
       }
       // 不能通过invoke的，则遍历每个元素
       else {
