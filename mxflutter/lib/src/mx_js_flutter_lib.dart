@@ -133,7 +133,7 @@ class MXJSFlutterLib implements MXJSFlutter {
 
   /// 清理flutter侧的对象映射
   _clearMX() {
-    MXJSMirrorObjMgr.getInstance().clearMirrorObjects();
+    MXMirrorObject.getInstance().clearAllMirrorObjects();
   }
 
   callJsCallbackFunction(String callbackId, param) {
@@ -198,12 +198,10 @@ class MXJSFlutterLib implements MXJSFlutter {
     }
 
     String mirrorID = args["mirrorID"];
-    // dynamic mirrorObj =
-    //     MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
     dynamic mirrorObj =
         MXMirrorObject.getInstance().mirrorObject(mirrorID);
 
-    // 采用Function方式调用，对象的方法名称，要通过className/funcName拼接
+    // 采用Function方式调用，对象的方法名称，要通过className#funcName拼接
     String funcName = MXMirrorFunc.getInstance().objectFuncName(args);
     if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
       Completer<String> completer = new Completer<String>();
@@ -257,7 +255,6 @@ class MXJSFlutterLib implements MXJSFlutter {
   }
 
   Future<dynamic> mxfJSBridgeRemoveMirrorObjsRef(dynamic mirrorIDList) {
-    // MXJSMirrorObjMgr.getInstance().removeMirrorObjects(mirrorIDList);
     MXMirrorObject.getInstance().removeMirrorObjectList(mirrorIDList);
     return null;
   }

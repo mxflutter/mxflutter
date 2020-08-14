@@ -15,6 +15,9 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/curves.dart';
 import 'package:flutter/src/animation/listener_helpers.dart';
+// MX modified begin
+import 'package:flutter/animation.dart';
+// MX modified end
 
 
 ///把自己能处理的类注册到分发器中
@@ -23,6 +26,13 @@ Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
   m[_animationBehavior.funName] = _animationBehavior;
   m[_animationController.funName] = _animationController;
   m[_animationController_unbounded.funName] = _animationController_unbounded;
+  // MX modified begin
+  m[_animtionController_forward.funName] = _animtionController_forward;
+  m[_animtionController_reverse.funName] = _animtionController_reverse;
+  m[_animtionController_repeat.funName] = _animtionController_repeat;
+  m[_animtionController_drive.funName] = _animtionController_drive;
+  m[_animtionController_dispose.funName] = _animtionController_dispose;
+  // MX modified end
   return m;
 }
 var _animationBehavior = MXFunctionInvoke(
@@ -88,3 +98,48 @@ class MXAnimationBehavior {
     return null;
   }
 }
+
+// MX modified begin
+var _animtionController_forward = MXFunctionInvoke(
+  "AnimationController#forward",
+  ({
+    AnimationController mirrorObj,
+  }) =>
+      mirrorObj.forward(),
+);
+
+var _animtionController_repeat = MXFunctionInvoke(
+  "AnimationController#repeat",
+  ({
+    AnimationController mirrorObj,
+  }) =>
+      mirrorObj.repeat(),
+);
+
+var _animtionController_reverse = MXFunctionInvoke(
+  "AnimationController#reverse",
+  ({
+    AnimationController mirrorObj,
+  }) =>
+      mirrorObj.reverse(),
+);
+
+var _animtionController_drive = MXFunctionInvoke(
+  "AnimationController#drive",
+  ({
+    AnimationController mirrorObj,
+    Animatable animatable,
+  }) =>
+      mirrorObj.drive(
+        animatable
+      ),
+);
+
+var _animtionController_dispose = MXFunctionInvoke(
+  "AnimationController#dispose",
+  ({
+    AnimationController mirrorObj,
+  }) =>
+      mirrorObj.dispose(),
+);
+// MX modified end

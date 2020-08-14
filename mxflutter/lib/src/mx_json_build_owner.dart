@@ -351,7 +351,6 @@ class MXJsonBuildOwner {
     if (mirrorID == null) {
       return null;
     }
-    // return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
     return MXMirrorObject.getInstance().mirrorObject(mirrorID);
   }
 
