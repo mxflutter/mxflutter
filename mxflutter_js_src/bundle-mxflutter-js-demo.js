@@ -7746,15 +7746,11 @@ class ListViewDemoState extends MXJSWidgetState {
             }.bind(this),
           }),
           onRefresh: function () {
-            console.log("a");
             MXJSLog.log('onRefresh');
-            console.log("a");
             this.refresh();
           }.bind(this),
           onLoading: function () {
-            console.log("b");
             MXJSLog.log('onLoading');
-            console.log("b");
             this.loadMore();
           }.bind(this),
         }),
