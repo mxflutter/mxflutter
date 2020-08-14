@@ -22,6 +22,10 @@ typedef Future<dynamic> _MXChannelFun(dynamic arguments);
 /// MXJSFlutterLib Native层MXJSFlutterEngine的通讯代理类
 /// 负责配置，运行MXJSFlutterApp，衔接Flutter，Native，JS 三方
 class MXJSFlutterLib implements MXJSFlutter {
+  MXJSFlutterLib() {
+    setup();
+  }
+
   /// 获取MXJSFlutterLib,供mxflutter库内部使用
   static MXJSFlutterLib getInstance() {
     return MXJSFlutter.getInstance();
@@ -29,24 +33,21 @@ class MXJSFlutterLib implements MXJSFlutter {
 
   MXJSFlutterApp currentApp;
 
-  // _mainChannel 运行JS的通道
-  MethodChannel _mainChannel;
-  // 业务逻辑通用js <===bridge===> flutter 通道
+  /// Flutter和Native iOS/Android platform 通道
+  MethodChannel _platformChannel;
+
+  /// Flutter 和 JS 互调顶层通用通道
   BasicMessageChannel<String> _commonBasicChannel;
   Map<String, _MXChannelFun> _name2FunMap = {};
   bool _isSetup = false;
-
-  MXJSFlutterLib() {
-    setup();
-  }
 
   setup() {
     if (_isSetup) {
       return;
     }
-    //需要WidgetsFlutterBinding已调用
+    // 需要WidgetsFlutterBinding已调用
     WidgetsFlutterBinding.ensureInitialized();
-    setupChannel();
+    _setupChannel();
 
     // 注册MXMirrorFrameworkFunc方法
     registerMirrorFrameworkFunc();
@@ -54,31 +55,18 @@ class MXJSFlutterLib implements MXJSFlutter {
     _isSetup = true;
   }
 
-  setupChannel() {
-    //[Native->flutter]
-    _mainChannel = MethodChannel("js_flutter.flutter_main_channel");
-    _mainChannel.setMethodCallHandler((MethodCall call) async {
-      MXJSLog.log("_jsFlutterMainChannel_methodHandler:");
-      MXJSLog.log(call);
-
-      Function fun = _name2FunMap[call.method];
-      return fun(call.arguments);
-    });
-
-    _commonBasicChannel = const BasicMessageChannel(
-        'mxflutter.mxflutter_common_basic_channel', StringCodec());
-    _commonBasicChannel
-        .setMessageHandler((String message) => Future<String>(() {
-              return js2flutterSubCallChannel(message);
-            }));
-
+  _setupChannel() {
     // Method reg
-    // _name2FunMap["reloadApp"] = reloadApp;
+    _setupName2FunMap();
+    _setupPlatformChannel();
+    _setupCommonBasicChannel();
+  }
 
-    // ------mxflutterBridge [js ->native-> flutter]  subcmd------
+  /// JS ->  Flutter 开放给JS调用
+  _setupName2FunMap() {
+    // mxflutterBridge [js ->native-> flutter]  subcmd
     // 由js2flutterSubCallChannel调用
-    _name2FunMap["mxfJSBridgeCreateMirrorObj"] =
-        mxfJSBridgeCreateMirrorObj;
+    _name2FunMap["mxfJSBridgeCreateMirrorObj"] = mxfJSBridgeCreateMirrorObj;
     _name2FunMap["mxfJSBridgeInvokeMirrorObjWithCallback"] =
         mxfJSBridgeInvokeMirrorObjWithCallback;
     _name2FunMap["mxflutterBridgeMethodChannelInvoke"] =
@@ -89,8 +77,28 @@ class MXJSFlutterLib implements MXJSFlutter {
 
     _name2FunMap["mxfJSBridgeRemoveMirrorObjsRef"] =
         mxfJSBridgeRemoveMirrorObjsRef;
+  }
 
-    // ------mxflutterBridge------
+  /// Flutter和Native iOS/Android platform 通道
+  _setupPlatformChannel() {
+    _platformChannel = MethodChannel("js_flutter.flutter_main_channel");
+    _platformChannel.setMethodCallHandler((MethodCall call) async {
+      MXJSLog.log("_jsFlutterMainChannel_methodHandler:");
+      MXJSLog.log(call);
+
+      Function fun = _name2FunMap[call.method];
+      return fun(call.arguments);
+    });
+  }
+
+  /// Flutter 和 JS 互调顶层通用通道
+  _setupCommonBasicChannel() {
+    _commonBasicChannel = const BasicMessageChannel(
+        'mxflutter.mxflutter_common_basic_channel', StringCodec());
+    _commonBasicChannel
+        .setMessageHandler((String message) => Future<String>(() {
+              return js2flutterSubCallChannel(message);
+            }));
   }
 
   /// 由Flutter 代码启动JSApp。 可以用在先显示Flutter页面，然后Push路由跳转到JS页面
@@ -125,7 +133,7 @@ class MXJSFlutterLib implements MXJSFlutter {
     //清理flutter侧的对象映射
     _clearMX();
 
-    _mainChannel.invokeMethod("callNativeRunJSApp", args);
+    _platformChannel.invokeMethod("callNativeRunJSApp", args);
 
     //暂时只支持一个
     currentApp = MXJSFlutterApp(jsAppAssetsKey);
@@ -138,10 +146,10 @@ class MXJSFlutterLib implements MXJSFlutter {
 
   callJsCallbackFunction(String callbackId, param) {
     var args = {"callbackId": callbackId, "param": param};
-    _mainChannel.invokeMethod("callJsCallbackFunction", args);
+    _platformChannel.invokeMethod("callJsCallbackFunction", args);
   }
 
-  /// js->flutter 顶层通用调用通道
+  /// JS->Flutter 顶层通用调用通道
   /// args参数为Json字符串argsJsonStr
   Future<String> js2flutterSubCallChannel(argsJsonStr) async {
     MXJSLog.log("js2flutterSubCallChannel");
@@ -198,8 +206,7 @@ class MXJSFlutterLib implements MXJSFlutter {
     }
 
     String mirrorID = args["mirrorID"];
-    dynamic mirrorObj =
-        MXMirrorObject.getInstance().mirrorObject(mirrorID);
+    dynamic mirrorObj = MXMirrorObject.getInstance().mirrorObject(mirrorID);
 
     // 采用Function方式调用，对象的方法名称，要通过className#funcName拼接
     String funcName = MXMirrorFunc.getInstance().objectFuncName(args);
@@ -222,7 +229,7 @@ class MXJSFlutterLib implements MXJSFlutter {
       });
 
       return completer.future;
-    } 
+    }
     //TODO: 原有方法调用，后续要优化掉
     else {
       if (mirrorObj != null) {
@@ -235,8 +242,8 @@ class MXJSFlutterLib implements MXJSFlutter {
 
         if (proxy != null) {
           Completer<String> completer = new Completer<String>();
-          proxy.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, funcName, funArgs,
-              callback: (result) {
+          proxy.jsInvokeMirrorObjFunction(
+              mirrorID, mirrorObj, funcName, funArgs, callback: (result) {
             var returnJSONStr = result;
             if (result != null && !(result is String)) {
               returnJSONStr = json.encode(result);
@@ -303,7 +310,6 @@ class MXJSFlutterLib implements MXJSFlutter {
     }
   }
 
-
   /// API - JS页面的入口API
   /// 从 Flutter Push一个 JS 写的页面
   /// *重要：此API是从Dart侧打开一个JS页面的入口函数，将创建一个RootWidget，MXFlutter 的RootWidget对外只显示一个
@@ -321,13 +327,13 @@ class MXJSFlutterLib implements MXJSFlutter {
     return jsWidget;
   }
 
-
   mxLog(String log) {
-    _mainChannel?.invokeMethod("mxLog", log);
+    _platformChannel?.invokeMethod("mxLog", log);
   }
 
   @override
-  void registerMirrorObjProxy(Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap) {
+  void registerMirrorObjProxy(
+      Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap) {
     MXJsonObjToDartObject.getInstance()
         .registerProxy(string2CreateJsonObjProxyFunMap);
   }
