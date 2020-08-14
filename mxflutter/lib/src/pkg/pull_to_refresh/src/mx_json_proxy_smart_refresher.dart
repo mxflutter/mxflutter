@@ -5,8 +5,6 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import '../../../mx_json_to_dart.dart';
-import '../../../mx_json_build_owner.dart';
 import "package:pull_to_refresh/pull_to_refresh.dart";
 import 'package:flutter/physics.dart';
 import 'package:flutter/foundation.dart';
@@ -78,13 +76,20 @@ var _refreshConfiguration = MXFunctionInvoke(
     bool hideFooterWhenNotFull: false,
     dynamic topHitBoundary,
     dynamic bottomHitBoundary,
+    dynamic headerBuilderChild,
+    dynamic footerBuilderChild,
   }) =>
       RefreshConfiguration(
     child: child,
-    headerBuilder: headerBuilder,
-    footerBuilder: footerBuilder,
+    headerBuilder: () {
+      return headerBuilderChild;
+    },
+    footerBuilder: () {
+      return footerBuilderChild;
+    },
     dragSpeedRatio: dragSpeedRatio?.toDouble(),
-    shouldFooterFollowWhenNotFull: shouldFooterFollowWhenNotFull,
+    shouldFooterFollowWhenNotFull: createGenericValueGenericClosure(
+        _refreshConfiguration.buildOwner, shouldFooterFollowWhenNotFull),
     enableScrollWhenTwoLevel: enableScrollWhenTwoLevel,
     enableLoadingWhenFailed: enableLoadingWhenFailed,
     enableBallisticRefresh: enableBallisticRefresh,
@@ -106,31 +111,29 @@ var _refreshConfiguration = MXFunctionInvoke(
   ),
 );
 
-var _smartRefresher = MXFunctionInvoke(
-  "SmartRefresher",
-  ({
-    Key key,
-    dynamic controller,
-    Widget child,
-    Widget header,
-    Widget footer,
-    bool enablePullDown: true,
-    bool enablePullUp: false,
-    bool enableTwoLevel: false,
-    dynamic onRefresh,
-    dynamic onLoading,
-    dynamic onTwoLevel,
-    dynamic onOffsetChange,
-    dynamic dragStartBehavior,
-    bool primary,
-    dynamic cacheExtent,
-    dynamic semanticChildCount,
-    bool reverse,
-    ScrollPhysics physics,
-    Axis scrollDirection,
-    ScrollController scrollController,
-  }) =>
-      SmartRefresher(
+var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
+  Key key,
+  dynamic controller,
+  Widget child,
+  Widget header,
+  Widget footer,
+  bool enablePullDown: true,
+  bool enablePullUp: false,
+  bool enableTwoLevel: false,
+  dynamic onRefresh,
+  dynamic onLoading,
+  dynamic onTwoLevel,
+  dynamic onOffsetChange,
+  dynamic dragStartBehavior,
+  bool primary,
+  dynamic cacheExtent,
+  dynamic semanticChildCount,
+  bool reverse,
+  ScrollPhysics physics,
+  Axis scrollDirection,
+  ScrollController scrollController,
+}) {
+  return SmartRefresher(
     key: key,
     controller: controller,
     child: child,
@@ -153,8 +156,8 @@ var _smartRefresher = MXFunctionInvoke(
     physics: physics,
     scrollDirection: scrollDirection,
     scrollController: scrollController,
-  ),
-);
+  );
+});
 
 var _loadStyle = MXFunctionInvoke(
   "LoadStatus",
@@ -176,7 +179,7 @@ class MXLoadStyle {
 }
 
 var _iconPosition = MXFunctionInvoke(
-  "LoadStatus",
+  "IconPosition",
   ({String name, int index}) => MXIconPosition.parse(name, index),
 );
 
@@ -197,7 +200,7 @@ class MXIconPosition {
 }
 
 var _refreshStatus = MXFunctionInvoke(
-  "LoadStatus",
+  "RefreshStatus",
   ({String name, int index}) => MXRefreshStatus.parse(name, index),
 );
 
