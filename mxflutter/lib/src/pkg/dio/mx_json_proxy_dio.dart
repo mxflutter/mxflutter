@@ -12,8 +12,7 @@ import 'package:dio/src/adapters/io_adapter.dart';
 
 import '../../mx_json_to_dart.dart';
 import '../../mx_json_build_owner.dart';
-
-import '../../mx_js_flutter_lib.dart';
+import '../../mx_js_bridge.dart';
 
 class MXProxyRegisterHelperDioSeries {
   static Map<String, CreateJsonObjProxyFun> registerProxys() {
@@ -91,12 +90,12 @@ class MXProxyDio extends MXJsonObjProxy {
     Response response = await mirrorObj.request(args["path"],
         options: options, queryParameters: args["queryParameters"],
         onSendProgress: (int count, int total) {
-      MXJSFlutterLib.getInstance().invokeJSMirrorObj(
+      MXJSBridge.getInstance().invokeJSMirrorObj(
           mirrorID: mirrorID,
           callbackID: args["onSendProgress"],
           args: {"count": count, "total": total});
     }, onReceiveProgress: (int count, int total) {
-      MXJSFlutterLib.getInstance().invokeJSMirrorObj(
+      MXJSBridge.getInstance().invokeJSMirrorObj(
           mirrorID: mirrorID,
           callbackID: args["onReceiveProgress"],
           args: {"count": count, "total": total});
@@ -243,13 +242,13 @@ class MXProxyRequestOptions extends MXJsonObjProxy {
       queryParameters: mxj2d(bo, jsonMap["queryParameters"]),
       baseUrl: mxj2d(bo, jsonMap["baseUrl"]),
       onReceiveProgress: (int count, int total) {
-        MXJSFlutterLib.getInstance().invokeJSMirrorObj(
+        MXJSBridge.getInstance().invokeJSMirrorObj(
             mirrorID: jsonMap["owner_mirrorID"],
             callbackID: jsonMap["onReceiveProgress"],
             args: {"count": count, "total": total});
       },
       onSendProgress: (int count, int total) {
-        MXJSFlutterLib.getInstance().invokeJSMirrorObj(
+        MXJSBridge.getInstance().invokeJSMirrorObj(
             mirrorID: jsonMap["owner_mirrorID"],
             callbackID: jsonMap["onSendProgress"],
             args: {"count": count, "total": total});

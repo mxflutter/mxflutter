@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'mx_js_flutter_lib.dart';
+import 'mx_js_flutter.dart';
 
 import 'package:mxflutter/mxflutter_test.dart';
 
@@ -148,7 +148,7 @@ class MXJsonBuildOwner {
   }
 
   /// app channel
-  MXJSFlutterApp get ownerApp => MXJSFlutterLib.getInstance().currentApp;
+  MXJSFlutterApp get ownerApp => MXJSFlutter.getInstance().currentApp;
 
   /// 事件回调
   /// flutter->JS
