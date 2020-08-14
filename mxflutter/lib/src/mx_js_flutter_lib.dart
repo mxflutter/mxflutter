@@ -73,7 +73,7 @@ class MXJSFlutterLib implements MXJSFlutter {
             }));
 
     // Method reg
-    _name2FunMap["reloadApp"] = reloadApp;
+    // _name2FunMap["reloadApp"] = reloadApp;
 
     // ------mxflutterBridge [js ->native-> flutter]  subcmd------
     // 由js2flutterSubCallChannel调用
@@ -303,26 +303,6 @@ class MXJSFlutterLib implements MXJSFlutter {
     }
   }
 
-  //js->flutter 显示js页面
-  //TODO：此API功能还不完善，不支持MediaQueryData的传递
-  Future<dynamic> reloadApp(args) async {
-    String routeName = args["routeName"];
-
-    if (routeName == "MXJSWidget") {
-      String widgetDataStr = args["widgetData"];
-      var widgetData = json.decode(widgetDataStr);
-
-      try {
-        var w = currentApp.createJSWidget(widgetData);
-        currentApp.runJSApp(w);
-      } catch (e) {
-        MXJSLog.log("reloadApp error:$e");
-        rethrow;
-      }
-    } else {
-      //runApp(MyApp());
-    }
-  }
 
   /// API - JS页面的入口API
   /// 从 Flutter Push一个 JS 写的页面
@@ -341,13 +321,6 @@ class MXJSFlutterLib implements MXJSFlutter {
     return jsWidget;
   }
 
-  /// API - JS页面的入口API
-  /// JS->Flutter
-  /// js侧调用Flutter，传递Json Widget Tree，创建JSWidget
-  dynamic createJSWidget(Map widgetData) {
-    dynamic jsWidget = currentApp?.createJSWidget(widgetData);
-    return jsWidget;
-  }
 
   mxLog(String log) {
     _mainChannel?.invokeMethod("mxLog", log);
