@@ -73,7 +73,7 @@ class MXJsonBuildOwner {
       return;
     }
 
-    var oldChild = _children[child.ownerWidgetId ];
+    var oldChild = _children[child.ownerWidgetId];
     if (oldChild != null) {
       MXJSLog.debug("MXJsonBuildOwner:addChild: "
           "widgetID:${child.ownerWidgetId} "
@@ -81,12 +81,13 @@ class MXJsonBuildOwner {
     }
 
     _children[child.ownerWidgetId] = child;
+    child._parent = this;
   }
 
   MXJsonBuildOwner findChild(widgetID) {
-    if (widgetID == ownerWidgetId) {
-      return this;
-    }
+
+    if (widgetID == null) return null;
+    if (widgetID == ownerWidgetId) return this;
 
     MXJsonBuildOwner boNode = _children[widgetID];
 
@@ -104,7 +105,7 @@ class MXJsonBuildOwner {
     return null;
   }
 
-  removeChild( MXJsonBuildOwner child) {
+  removeChild(MXJsonBuildOwner child) {
     var boNode = _children[child.ownerWidgetId];
 
     if (boNode != child) {
@@ -114,6 +115,7 @@ class MXJsonBuildOwner {
       return;
     }
 
+    child._parent = null;
     _children.remove(child.ownerWidgetId);
   }
 
@@ -141,8 +143,7 @@ class MXJsonBuildOwner {
     return w;
   }
 
-  Widget buildWidgetData(
-      Map widgetData, BuildContext context) {
+  Widget buildWidgetData(Map widgetData, BuildContext context) {
     return MXJsonObjToDartObject.jsonToDartObj(widgetData,
         buildOwner: this, context: context);
   }
@@ -158,7 +159,6 @@ class MXJsonBuildOwner {
       dynamic arg3,
       dynamic arg4,
       dynamic arg5]) async {
-
     List args = [];
     args.add(arg1);
     args.add(arg2);
@@ -273,7 +273,6 @@ class MXJsonBuildOwner {
 
   /// MXJSWidgetState -> BuildOwner
   void onDispose() {
-
     _parent?.removeChild(this);
 
     // 移除镜像对象
@@ -318,7 +317,6 @@ class MXJsonBuildOwner {
   }
 
   callJSOnDispose() {
-
     MethodCall jsMethodCall = MethodCall("flutterCallOnDispose", {
       "widgetID": ownerWidgetId,
       "mirrorObjIDList": _mirrorObjKeyList,

@@ -177,7 +177,7 @@ class MXJSFlutterApp {
         'js_flutter.js_flutter_app_channel.navigator_push', StringCodec());
     _jsPushWidgetChannel
         .setMessageHandler((String widgetDataStr) => Future<String>(() {
-      _jsCallNavigatorPush(widgetDataStr);
+              _jsCallNavigatorPush(widgetDataStr);
               return null;
             }));
   }
@@ -196,9 +196,9 @@ class MXJSFlutterApp {
           "findBuildOwner(widgetID) == null，name:$name id:$widgetID");
       return;
     }
-
-    widgetDataMap["#startDecodeData"] = startDecodeData;
-    widgetDataMap["#endDecodeData"] = endDecodeData;
+//TODO :解决 invoke参数不能多问题
+//    widgetDataMap["#startDecodeData"] = startDecodeData;
+//    widgetDataMap["#endDecodeData"] = endDecodeData;
 
     boNode.jsCallRebuild(widgetDataMap);
   }
@@ -211,7 +211,7 @@ class MXJSFlutterApp {
     var endDecodeData = (new DateTime.now()).millisecondsSinceEpoch;
 
     //谁push jsWidget，找到对应的build owner
-    String navPushingWidgetID = widgetDataMap["navPushingWidgetID"];
+    String navPushingWidgetID = widgetDataMap["navPushingWidgetElementID"];
     MXJsonBuildOwner boNode = _rootBuildOwnerNode.findChild(navPushingWidgetID);
 
     if (boNode == null) {
@@ -220,16 +220,15 @@ class MXJSFlutterApp {
           "findBuildOwner(navPushingWidgetID:$navPushingWidgetID) == null，name:$name ");
       return;
     }
-
-    widgetDataMap["#startDecodeData"] = startDecodeData;
-    widgetDataMap["#endDecodeData"] = endDecodeData;
+//TODO :需要解决 invoke参数不能多问题
+//    widgetDataMap["#startDecodeData"] = startDecodeData;
+//    widgetDataMap["#endDecodeData"] = endDecodeData;
 
     boNode.jsCallNavigatorPush(widgetDataMap);
   }
 
   //js层 调用navigatorPop 主动pop页面
   Future<dynamic> _jsCallNavigatorPop(args) async {
-
     String widgetID = args["widgetID"];
 
     //谁push jsWidget，找到对应的build owner

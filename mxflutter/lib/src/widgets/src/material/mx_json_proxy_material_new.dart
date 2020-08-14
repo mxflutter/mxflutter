@@ -7,7 +7,8 @@
 import 'package:flutter/material.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
-Map<String, MXFunctionInvoke> registerMaterialSeries() {
+//TODO: 待删除
+Map<String, MXFunctionInvoke> registerMaterialSeriesOld() {
   var m = <String, MXFunctionInvoke>{};
 
   m[flatButton.funName] = flatButton;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'mx_json_build_owner.dart';
 import 'mx_json_to_dart.dart';
 import 'mx_js_widget.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 class MXProxyMXJSStatefulWidget extends MXJsonObjProxy {
   static Map<String, CreateJsonObjProxyFun> registerProxy() {
@@ -27,6 +28,7 @@ class MXProxyMXJSStatefulWidget extends MXJsonObjProxy {
         widgetBuildDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
         navPushingWidgetID: jsonMap["navPushingWidgetID"],
         parentBuildOwnerNode: bo);
+
     return widget;
   }
 }
@@ -55,6 +57,62 @@ class MXProxyMXJSStatelessWidget extends MXJsonObjProxy {
         widgetBuildDataSeq: mxj2d(bo, jsonMap["buildWidgetDataSeq"]),
         navPushingWidgetID: jsonMap["navPushingWidgetID"],
         parentBuildOwnerNode: bo);
+
     return widget;
   }
 }
+
+Map<String, MXFunctionInvoke> registerMXJSStateWidgetSeries() {
+  var m = <String, MXFunctionInvoke>{};
+
+  m[_mxJSStatefulWidget.funName] = _mxJSStatefulWidget;
+  m[_mxJSStatelessWidget.funName] = _mxJSStatelessWidget;
+
+  return m;
+}
+
+var _mxJSStatefulWidget = MXFunctionInvoke(
+  "MXJSStatefulWidget",
+  (
+          {Key key,
+          String name,
+          String widgetID,
+          Map widgetData,
+          String buildWidgetDataSeq,
+          String navPushingWidgetElementID}) =>
+      MXJSStatefulWidget(
+    key: key,
+    name: name,
+    widgetID: widgetID,
+    widgetBuildData: widgetData,
+    widgetBuildDataSeq: buildWidgetDataSeq,
+    navPushingWidgetID: navPushingWidgetElementID,
+    parentBuildOwnerNode: _mxJSStatefulWidget.buildOwner,
+  ),
+  noJ2DProps: [
+    "widgetData",
+  ],
+);
+
+var _mxJSStatelessWidget = MXFunctionInvoke(
+  "MXJSStatelessWidget",
+  (
+          {Key key,
+          String name,
+          String widgetID,
+          Map widgetData,
+          String buildWidgetDataSeq,
+          String navPushingWidgetElementID}) =>
+      MXJSStatelessWidget(
+    key: key,
+    name: name,
+    widgetID: widgetID,
+    widgetBuildData: widgetData,
+    widgetBuildDataSeq: buildWidgetDataSeq,
+    navPushingWidgetID: navPushingWidgetElementID,
+    parentBuildOwnerNode: _mxJSStatelessWidget.buildOwner,
+  ),
+  noJ2DProps: [
+    "widgetData",
+  ],
+);

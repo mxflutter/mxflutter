@@ -67,8 +67,8 @@ class MXFlutterExampleHome extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.book),
                 trailing: Icon(Icons.arrow_right),
-                title: Text('MXFlutter Demo'),
-                subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
+                title: Text('mxflutter-js-demo'),
+                subtitle: Text('run js example'),
                 onTap: () {
                   //-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
                   //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用，
@@ -77,7 +77,23 @@ class MXFlutterExampleHome extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => MXJSPageWidget(
-                              jsWidgetName: "MXJSWidgetHomePage")));
+                              jsWidgetName: "mxflutter-js-demo")));
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.book),
+                trailing: Icon(Icons.arrow_right),
+                title: Text('example1'),
+                subtitle: Text('run ts example'),
+                onTap: () {
+                  //-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
+                  //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用，
+                  //创建你需要的MX JS Widget
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MXJSPageWidget(
+                              jsWidgetName: "example1")));
                 },
               ),
               ListTile(

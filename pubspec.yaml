@@ -38,31 +38,31 @@ flutter:
     #copy js src ,mxflutter app demo 的js代码
     #吐槽下，导入资源不会自动包括子文件夹，需要每个子文件夹都导入，真是坑，所以自己写js app时，不要有太多文件夹深度
     - mxflutter_js_src/
-    - mxflutter_js_src/app_demo/
-    - mxflutter_js_src/app_demo/component/
-    - mxflutter_js_src/app_demo/examples/
-    - mxflutter_js_src/app_demo/examples/animation/
-    - mxflutter_js_src/app_demo/material/
-    - mxflutter_js_src/app_demo/platform/
-    - mxflutter_js_src/app_demo/profile/
-    #zhihu deomo
-    - mxflutter_js_src/app_demo/zhihu/
-    - mxflutter_js_src/app_demo/zhihu/home/
-    - mxflutter_js_src/app_demo/zhihu/idea/
-    - mxflutter_js_src/app_demo/zhihu/message/
-    - mxflutter_js_src/app_demo/zhihu/my/
-
-    #mxjsbuilder build app
-    - mxflutter_js_src/mxjsbuilder_demo/
-    #mxjsbuilder zhihu deomo
-    - mxflutter_js_src/mxjsbuilder_demo/packages/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/home/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/idea/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/market/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/my/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/notice/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/index/
+#    - mxflutter_js_src/app_demo/
+#    - mxflutter_js_src/app_demo/component/
+#    - mxflutter_js_src/app_demo/examples/
+#    - mxflutter_js_src/app_demo/examples/animation/
+#    - mxflutter_js_src/app_demo/material/
+#    - mxflutter_js_src/app_demo/platform/
+#    - mxflutter_js_src/app_demo/profile/
+#    #zhihu deomo
+#    - mxflutter_js_src/app_demo/zhihu/
+#    - mxflutter_js_src/app_demo/zhihu/home/
+#    - mxflutter_js_src/app_demo/zhihu/idea/
+#    - mxflutter_js_src/app_demo/zhihu/message/
+#    - mxflutter_js_src/app_demo/zhihu/my/
+#
+#    #mxjsbuilder build app
+#    - mxflutter_js_src/mxjsbuilder_demo/
+#    #mxjsbuilder zhihu deomo
+#    - mxflutter_js_src/mxjsbuilder_demo/packages/
+#    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/
+#    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/home/
+#    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/idea/
+#    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/market/
+#    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/my/
+#    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/notice/
+#    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/index/
 
     #mxflutter app demo 使用到的图片资源
 

@@ -226,8 +226,8 @@ class MXJsonObjToDartObject {
   Map<String, MXJsonObjProxy> _className2Proxy = {};
 
   void init() {
-    registerProxy(MXProxyMXJSStatefulWidget.registerProxy());
-    registerProxy(MXProxyMXJSStatelessWidget.registerProxy());
+    // registerProxy(MXProxyMXJSStatefulWidget.registerProxy());
+    // registerProxy(MXProxyMXJSStatelessWidget.registerProxy());
 
     registerProxy(MXProxyRegisterHelperMaterialSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperLayoutSeries.registerProxys());
@@ -242,8 +242,8 @@ class MXJsonObjToDartObject {
     registerProxy(MXProxyRegisterHelperSmartRefresherSeries.registerProxys());
     registerProxy(MXProxyRegisterHelperClassIndicatorSeries.registerProxys());
     // cached_network_image
-    registerProxy(
-        MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
+    // registerProxy(
+    //     MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
     // dio
     registerProxy(MXProxyRegisterHelperDioSeries.registerProxys());
   }

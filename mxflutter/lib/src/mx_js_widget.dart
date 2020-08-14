@@ -43,7 +43,7 @@ mixin MXJSWidgetBase {
 class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
   final String name;
   final String widgetID;
-  
+
   final Map widgetBuildData;
   final String widgetBuildDataSeq;
 
@@ -83,6 +83,7 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
 
   @override
   MXJSStatefulElement createElement() {
+    assert(parentBuildOwnerNode != null);
     var element = MXJSStatefulElement(this);
     element.buildOwnerNode = MXJsonBuildOwner(element);
     parentBuildOwnerNode.addChild(element.buildOwnerNode);
@@ -97,7 +98,6 @@ class MXJSStatefulElement extends StatefulElement {
 
   @override
   MXJSStatefulWidget get widget => super.widget as MXJSStatefulWidget;
-
 }
 
 class MXJSWidgetState extends State<MXJSStatefulWidget>
@@ -238,6 +238,7 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
 
   @override
   MXJSStatelessElement createElement() {
+    assert(parentBuildOwnerNode != null);
     var element = MXJSStatelessElement(this);
     element.buildOwnerNode = MXJsonBuildOwner(element);
     parentBuildOwnerNode.addChild(element.buildOwnerNode);

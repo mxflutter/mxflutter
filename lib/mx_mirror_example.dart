@@ -25,11 +25,11 @@ class MXMirrorExample {
         MXMirrorExample());
     
     // 实例方法
-    var getMyAppName = MXFunctionInvoke("MXMirrorExample_getMyAppName", ({MXMirrorExample mirrorObj, String platform, String v}) =>
+    var getMyAppName = MXFunctionInvoke("MXMirrorExample#getMyAppName", ({MXMirrorExample mirrorObj, String platform, String v}) =>
         mirrorObj.getMyAppName(platform, v: v));
 
     // 静态方法，可以不管mirrorObj
-    var getMyData = MXFunctionInvoke("MXMirrorExample_getMyData", ({MXMirrorExample mirrorObj, String sameInfo, String v,int v2}) =>
+    var getMyData = MXFunctionInvoke("MXMirrorExample#getMyData", ({MXMirrorExample mirrorObj, String sameInfo, String v,int v2}) =>
         MXMirrorExample.getMyData(sameInfo, v: v, v2: v2));
 
     Map<String, MXFunctionInvoke> funMap = {};
