@@ -133,6 +133,7 @@ var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
   Axis scrollDirection,
   ScrollController scrollController,
 }) {
+  onRefresh = "4/11";
   return SmartRefresher(
     key: key,
     controller: controller,
