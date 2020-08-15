@@ -29,7 +29,14 @@ var _mxJSStatefulWidget = MXFunctionInvoke(
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxJSStatefulWidget.buildOwner,
   ),
-  [],
+  [
+    "key",
+    "name",
+    "widgetID",
+    "widgetData",
+    "buildWidgetDataSeq",
+    "navPushingWidgetElementID",
+  ],
   [
     "widgetData",
   ],
@@ -53,7 +60,14 @@ var _mxJSStatelessWidget = MXFunctionInvoke(
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxJSStatelessWidget.buildOwner,
   ),
-  [],
+  [
+    "key",
+    "name",
+    "widgetID",
+    "widgetData",
+    "buildWidgetDataSeq",
+    "navPushingWidgetElementID",
+  ],
   [
     "widgetData",
   ],

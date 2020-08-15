@@ -121,6 +121,9 @@ var _animtionController_forward = MXFunctionInvoke(
     AnimationController mirrorObj,
   }) =>
       mirrorObj.forward(),
+  [
+    "mirrorObj",
+  ],
 );
 
 var _animtionController_repeat = MXFunctionInvoke(
@@ -129,6 +132,9 @@ var _animtionController_repeat = MXFunctionInvoke(
     AnimationController mirrorObj,
   }) =>
       mirrorObj.repeat(),
+  [
+    "mirrorObj",
+  ],
 );
 
 var _animtionController_reverse = MXFunctionInvoke(
@@ -137,6 +143,9 @@ var _animtionController_reverse = MXFunctionInvoke(
     AnimationController mirrorObj,
   }) =>
       mirrorObj.reverse(),
+  [
+    "mirrorObj",
+  ],
 );
 
 var _animtionController_drive = MXFunctionInvoke(
@@ -146,6 +155,10 @@ var _animtionController_drive = MXFunctionInvoke(
     Animatable animatable,
   }) =>
       mirrorObj.drive(animatable),
+  [
+    "mirrorObj",
+    "animatable",
+  ],
 );
 
 var _animtionController_dispose = MXFunctionInvoke(
@@ -154,5 +167,8 @@ var _animtionController_dispose = MXFunctionInvoke(
     AnimationController mirrorObj,
   }) =>
       mirrorObj.dispose(),
+  [
+    "mirrorObj",
+  ],
 );
 // MX modified end

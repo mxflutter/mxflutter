@@ -71,6 +71,10 @@ var _scrollController_jumpTo = MXFunctionInvoke(
     dynamic value,
   }) =>
       mirrorObj.jumpTo(value?.toDouble()),
+  [
+    "mirrorObj",
+    "value",
+  ],
 );
 
 var _scrollController_animateTo = MXFunctionInvoke(
@@ -86,5 +90,11 @@ var _scrollController_animateTo = MXFunctionInvoke(
     duration: duration,
     curve: curve,
   ),
+  [
+    "mirrorObj",
+    "value",
+    "duration",
+    "curve",
+  ],
 );
 // MX modified end

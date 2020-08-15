@@ -22,15 +22,15 @@ class MXMirrorExample {
   static void registerFunction() {
     // 构造方法
     var constructor = MXFunctionInvoke("MXMirrorExample", ({String mirrorID, String className, Map args}) =>
-        MXMirrorExample());
+        MXMirrorExample(), ["mirrorID", "className", "args"]);
     
     // 实例方法
     var getMyAppName = MXFunctionInvoke("MXMirrorExample#getMyAppName", ({MXMirrorExample mirrorObj, String platform, String v}) =>
-        mirrorObj.getMyAppName(platform, v: v));
+        mirrorObj.getMyAppName(platform, v: v), ["mirrorObj", "platform", "v"]);
 
     // 静态方法，可以不管mirrorObj
     var getMyData = MXFunctionInvoke("MXMirrorExample#getMyData", ({MXMirrorExample mirrorObj, String sameInfo, String v,int v2}) =>
-        MXMirrorExample.getMyData(sameInfo, v: v, v2: v2));
+        MXMirrorExample.getMyData(sameInfo, v: v, v2: v2), ["mirrorObj", "sameInfo", "v", "v2"]);
 
     Map<String, MXFunctionInvoke> funMap = {};
     funMap[constructor.funName] = constructor;

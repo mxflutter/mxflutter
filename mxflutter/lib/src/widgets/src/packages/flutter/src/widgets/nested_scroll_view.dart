@@ -85,6 +85,9 @@ var _nestedScrollView = MXFunctionInvoke(
     "headerSliverBuilder",
     "body",
     "dragStartBehavior",
+    ///MX modified begin
+    "children",
+    ///MX modified end
   ],
 );
 var _nestedScrollViewState = MXFunctionInvoke(

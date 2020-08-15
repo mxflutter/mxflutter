@@ -87,6 +87,9 @@ var _sliverChildBuilderDelegate = MXFunctionInvoke(
     "addSemanticIndexes",
     "semanticIndexCallback",
     "semanticIndexOffset",
+    ///MX modified begin
+    "children",
+    ///MX modified end
   ],
 );
 var _sliverChildListDelegate = MXFunctionInvoke(

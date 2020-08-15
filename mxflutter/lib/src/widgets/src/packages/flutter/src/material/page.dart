@@ -47,5 +47,8 @@ var _materialPageRoute = MXFunctionInvoke(
     "settings",
     "maintainState",
     "fullscreenDialog",
+    ///MX modified begin
+    "child",
+    ///MX modified end
   ],
 );

@@ -224,6 +224,9 @@ var _listView_builder = MXFunctionInvoke(
     "cacheExtent",
     "semanticChildCount",
     "dragStartBehavior",
+    ///MX modified begin
+    "children",
+    ///MX modified end
   ],
 );
 var _listView_separated = MXFunctionInvoke(
@@ -293,6 +296,9 @@ var _listView_separated = MXFunctionInvoke(
     "addSemanticIndexes",
     "cacheExtent",
     "keyboardDismissBehavior",
+    ///MX modified begin
+    "children",
+    ///MX modified end
   ],
 );
 var _listView_custom = MXFunctionInvoke(

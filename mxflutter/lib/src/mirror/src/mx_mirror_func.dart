@@ -89,25 +89,28 @@ class MXMirrorFunc {
     }
 
     String funcName = jsonMap[constFuncStr];
-    _removeUselessProperty(jsonMap);
+    _handleJsonData(jsonMap);
     MXFunctionInvoke fi = _funcName2FunMap[funcName];
     fi.buildOwner = buildOwner;
     fi.context = context;
     
     try {
       var namedArguments = <Symbol, dynamic>{};
+      List propsName = fi.propsName;
       List noJ2DProps = fi.noJ2DProps;
-      for (var name in jsonMap.keys) {
-        /// TODO:mirrorID不添加到namedArguments里面
-        if (name == constMirrorIDStr) {
-          continue;
-        }
+      if (propsName != null) {
+        for (var name in propsName) {
+          // 参数为空，直接返回
+          if (jsonMap[name] == null) {
+            continue;
+          }
 
-        // 判断是否需要将属性进行转换
-        if (noJ2DProps != null && noJ2DProps.contains(name)) {
-          namedArguments[Symbol(name)] = jsonMap[name];
-        } else {
-          namedArguments[Symbol(name)] = _jsonToObject(jsonMap[name], buildOwner: buildOwner, context: context);
+          // 判断是否需要将属性进行转换
+          if (noJ2DProps != null && noJ2DProps.contains(name)) {
+            namedArguments[Symbol(name)] = jsonMap[name];
+          } else {
+            namedArguments[Symbol(name)] = _jsonToObject(jsonMap[name], buildOwner: buildOwner, context: context);
+          }
         }
       }
       // 为方便处理，此处都使用命名参数，不用位置参数
@@ -115,7 +118,7 @@ class MXMirrorFunc {
       fi.buildOwner = null;
 
       // 设置mirror对象
-      MXMirrorObject.getInstance().addMirrorObject(jsonMap["mirrorID"], result);
+      MXMirrorObject.getInstance().addMirrorObject(jsonMap[constMirrorIDStr], result);
 
       return result;
     } catch (e) {
@@ -165,14 +168,10 @@ class MXMirrorFunc {
     return className;
   }
 
-  /// 移除func、className、constructorName等字段
-  void _removeUselessProperty(Map jsonMap) {
+  /// 处理Json数据
+  void _handleJsonData(Map jsonMap) {
+    // 移除框架添加的funcName
     jsonMap.remove(constFuncStr);
-    jsonMap.remove(constClassStr);
-    jsonMap.remove(constConstructorStr);
-
-    // TODO:移除enableProfile
-    jsonMap.remove("enableProfile");
 
     // 针对枚举类型，把_name替换成name
     if (_isEnumType(jsonMap)) {

@@ -2104,6 +2104,9 @@ var _builder = MXFunctionInvoke(
   [
     "key",
     "builder",
+    ///MX modified begin
+    "child",
+    ///MX modified end
   ],
 );
 var _statefulBuilder = MXFunctionInvoke(

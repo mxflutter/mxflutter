@@ -335,6 +335,9 @@ var _animatedBuilder = MXFunctionInvoke(
     "animation",
     "builder",
     "child",
+    ///MX modified begin
+    "widget",
+    ///MX modified end
   ],
   // MX modified begin
   ["widget"],

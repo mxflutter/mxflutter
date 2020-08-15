@@ -17,7 +17,6 @@ class MXFunctionInvoke {
   List<String> propsName;
   List<String> noJ2DProps;
 
-  ///TODO:noJ2DProps要改成命名参数的形式
   MXFunctionInvoke(this.funName, this.fun, [this.propsName, this.noJ2DProps]);
 
   /// 调用方法

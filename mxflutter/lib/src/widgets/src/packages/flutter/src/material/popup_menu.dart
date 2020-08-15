@@ -171,6 +171,9 @@ var _popupMenuButton = MXFunctionInvoke(
     "shape",
     "color",
     "captureInheritedThemes",
+    ///MX modified begin
+    "children",
+    ///MX modified end
   ],
 );
 var _popupMenuButtonState = MXFunctionInvoke(

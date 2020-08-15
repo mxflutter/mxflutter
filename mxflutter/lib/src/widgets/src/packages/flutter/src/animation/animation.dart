@@ -23,6 +23,7 @@ var _animationStatus = MXFunctionInvoke(
     ({String name, int index}) => MXAnimationStatus.parse(name, index),
     ["name", "index"]);
 
+/// MX modified begin
 var _animation = MXFunctionInvoke("Animation", ({
   Tween tween,
   AnimationController controller,
@@ -34,7 +35,15 @@ var _animation = MXFunctionInvoke("Animation", ({
   animation.addStatusListener(_createStatusListenerHandle(
       _animation.buildOwner, mirrorID, 'statusListenerCallback'));
   return animation;
-});
+},
+[
+  "tween",
+  "controller",
+  "statusListenerList",
+  "listenerList",
+  "mirrorID",
+]);
+/// MX modified end
 
 AnimationStatusListener _createStatusListenerHandle(
     dynamic bo, String mirrorID, String functionName) {
