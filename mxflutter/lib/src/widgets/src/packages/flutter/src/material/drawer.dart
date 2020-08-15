@@ -27,9 +27,9 @@ Map<String, MXFunctionInvoke> registerDrawerSeries() {
 }
 
 var _drawerAlignment = MXFunctionInvoke(
-  "DrawerAlignment",
-  ({String name, int index}) => MXDrawerAlignment.parse(name, index),
-);
+    "DrawerAlignment",
+    ({String name, int index}) => MXDrawerAlignment.parse(name, index),
+    ["name", "index"]);
 var _drawer = MXFunctionInvoke(
   "Drawer",
   ({

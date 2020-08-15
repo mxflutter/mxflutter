@@ -19,9 +19,9 @@ Map<String, MXFunctionInvoke> registerArenaSeries() {
 }
 
 var _gestureDisposition = MXFunctionInvoke(
-  "GestureDisposition",
-  ({String name, int index}) => MXGestureDisposition.parse(name, index),
-);
+    "GestureDisposition",
+    ({String name, int index}) => MXGestureDisposition.parse(name, index),
+    ["name", "index"]);
 var _gestureArenaManager = MXFunctionInvoke(
   "GestureArenaManager",
   () => GestureArenaManager(),

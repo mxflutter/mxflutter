@@ -61,9 +61,9 @@ var _springDescription_withDampingRatio = MXFunctionInvoke(
   ],
 );
 var _springType = MXFunctionInvoke(
-  "SpringType",
-  ({String name, int index}) => MXSpringType.parse(name, index),
-);
+    "SpringType",
+    ({String name, int index}) => MXSpringType.parse(name, index),
+    ["name", "index"]);
 var _springSimulation = MXFunctionInvoke(
   "SpringSimulation",
   ({

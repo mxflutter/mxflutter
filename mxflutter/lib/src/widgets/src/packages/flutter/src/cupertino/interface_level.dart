@@ -19,10 +19,10 @@ Map<String, MXFunctionInvoke> registerInterfaceLevelSeries() {
 }
 
 var _cupertinoUserInterfaceLevelData = MXFunctionInvoke(
-  "CupertinoUserInterfaceLevelData",
-  ({String name, int index}) =>
-      MXCupertinoUserInterfaceLevelData.parse(name, index),
-);
+    "CupertinoUserInterfaceLevelData",
+    ({String name, int index}) =>
+        MXCupertinoUserInterfaceLevelData.parse(name, index),
+    ["name", "index"]);
 var _cupertinoUserInterfaceLevel = MXFunctionInvoke(
   "CupertinoUserInterfaceLevel",
   ({

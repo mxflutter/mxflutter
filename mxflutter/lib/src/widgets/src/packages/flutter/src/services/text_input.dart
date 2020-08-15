@@ -48,13 +48,13 @@ Map<String, MXFunctionInvoke> registerTextInputSeries() {
 }
 
 var _smartDashesType = MXFunctionInvoke(
-  "SmartDashesType",
-  ({String name, int index}) => MXSmartDashesType.parse(name, index),
-);
+    "SmartDashesType",
+    ({String name, int index}) => MXSmartDashesType.parse(name, index),
+    ["name", "index"]);
 var _smartQuotesType = MXFunctionInvoke(
-  "SmartQuotesType",
-  ({String name, int index}) => MXSmartQuotesType.parse(name, index),
-);
+    "SmartQuotesType",
+    ({String name, int index}) => MXSmartQuotesType.parse(name, index),
+    ["name", "index"]);
 var _textInputType_text =
     MXFunctionInvoke("TextInputType.text", () => TextInputType.text);
 var _textInputType_multiline =
@@ -89,13 +89,13 @@ var _textInputType_numberWithOptions = MXFunctionInvoke(
   ],
 );
 var _textInputAction = MXFunctionInvoke(
-  "TextInputAction",
-  ({String name, int index}) => MXTextInputAction.parse(name, index),
-);
+    "TextInputAction",
+    ({String name, int index}) => MXTextInputAction.parse(name, index),
+    ["name", "index"]);
 var _textCapitalization = MXFunctionInvoke(
-  "TextCapitalization",
-  ({String name, int index}) => MXTextCapitalization.parse(name, index),
-);
+    "TextCapitalization",
+    ({String name, int index}) => MXTextCapitalization.parse(name, index),
+    ["name", "index"]);
 var _textInputConfiguration = MXFunctionInvoke(
   "TextInputConfiguration",
   ({
@@ -136,9 +136,9 @@ var _textInputConfiguration = MXFunctionInvoke(
   ],
 );
 var _floatingCursorDragState = MXFunctionInvoke(
-  "FloatingCursorDragState",
-  ({String name, int index}) => MXFloatingCursorDragState.parse(name, index),
-);
+    "FloatingCursorDragState",
+    ({String name, int index}) => MXFloatingCursorDragState.parse(name, index),
+    ["name", "index"]);
 var _rawFloatingCursorPoint = MXFunctionInvoke(
   "RawFloatingCursorPoint",
   ({

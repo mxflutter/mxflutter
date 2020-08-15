@@ -36,9 +36,9 @@ Map<String, MXFunctionInvoke> registerTypographySeries() {
 }
 
 var _scriptCategory = MXFunctionInvoke(
-  "ScriptCategory",
-  ({String name, int index}) => MXScriptCategory.parse(name, index),
-);
+    "ScriptCategory",
+    ({String name, int index}) => MXScriptCategory.parse(name, index),
+    ["name", "index"]);
 var _typography_blackMountainView = MXFunctionInvoke(
     "Typography.blackMountainView", () => Typography.blackMountainView);
 var _typography_whiteMountainView = MXFunctionInvoke(

@@ -86,13 +86,13 @@ var _stackParentData = MXFunctionInvoke(
   [],
 );
 var _stackFit = MXFunctionInvoke(
-  "StackFit",
-  ({String name, int index}) => MXStackFit.parse(name, index),
-);
+    "StackFit",
+    ({String name, int index}) => MXStackFit.parse(name, index),
+    ["name", "index"]);
 var _overflow = MXFunctionInvoke(
-  "Overflow",
-  ({String name, int index}) => MXOverflow.parse(name, index),
-);
+    "Overflow",
+    ({String name, int index}) => MXOverflow.parse(name, index),
+    ["name", "index"]);
 var _renderStack = MXFunctionInvoke(
   "RenderStack",
   ({

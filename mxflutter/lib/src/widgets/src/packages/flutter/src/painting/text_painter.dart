@@ -47,9 +47,9 @@ var _placeholderDimensions = MXFunctionInvoke(
   ],
 );
 var _textWidthBasis = MXFunctionInvoke(
-  "TextWidthBasis",
-  ({String name, int index}) => MXTextWidthBasis.parse(name, index),
-);
+    "TextWidthBasis",
+    ({String name, int index}) => MXTextWidthBasis.parse(name, index),
+    ["name", "index"]);
 var _textPainter = MXFunctionInvoke(
   "TextPainter",
   ({

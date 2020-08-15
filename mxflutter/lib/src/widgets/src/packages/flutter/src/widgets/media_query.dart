@@ -27,9 +27,9 @@ Map<String, MXFunctionInvoke> registerMediaQuerySeries() {
 }
 
 var _orientation = MXFunctionInvoke(
-  "Orientation",
-  ({String name, int index}) => MXOrientation.parse(name, index),
-);
+    "Orientation",
+    ({String name, int index}) => MXOrientation.parse(name, index),
+    ["name", "index"]);
 var _mediaQueryData = MXFunctionInvoke(
   "MediaQueryData",
   ({

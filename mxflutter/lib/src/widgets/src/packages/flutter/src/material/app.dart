@@ -27,9 +27,9 @@ Map<String, MXFunctionInvoke> registerAppSeries() {
 }
 
 var _themeMode = MXFunctionInvoke(
-  "ThemeMode",
-  ({String name, int index}) => MXThemeMode.parse(name, index),
-);
+    "ThemeMode",
+    ({String name, int index}) => MXThemeMode.parse(name, index),
+    ["name", "index"]);
 var _materialApp = MXFunctionInvoke(
   "MaterialApp",
   ({

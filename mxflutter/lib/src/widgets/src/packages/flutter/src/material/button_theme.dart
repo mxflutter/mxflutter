@@ -33,13 +33,13 @@ Map<String, MXFunctionInvoke> registerButtonThemeSeries() {
 }
 
 var _buttonTextTheme = MXFunctionInvoke(
-  "ButtonTextTheme",
-  ({String name, int index}) => MXButtonTextTheme.parse(name, index),
-);
+    "ButtonTextTheme",
+    ({String name, int index}) => MXButtonTextTheme.parse(name, index),
+    ["name", "index"]);
 var _buttonBarLayoutBehavior = MXFunctionInvoke(
-  "ButtonBarLayoutBehavior",
-  ({String name, int index}) => MXButtonBarLayoutBehavior.parse(name, index),
-);
+    "ButtonBarLayoutBehavior",
+    ({String name, int index}) => MXButtonBarLayoutBehavior.parse(name, index),
+    ["name", "index"]);
 var _buttonTheme = MXFunctionInvoke(
   "ButtonTheme",
   ({

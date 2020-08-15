@@ -112,9 +112,10 @@ var _minColumnWidth = MXFunctionInvoke(
   ],
 );
 var _tableCellVerticalAlignment = MXFunctionInvoke(
-  "TableCellVerticalAlignment",
-  ({String name, int index}) => MXTableCellVerticalAlignment.parse(name, index),
-);
+    "TableCellVerticalAlignment",
+    ({String name, int index}) =>
+        MXTableCellVerticalAlignment.parse(name, index),
+    ["name", "index"]);
 var _renderTable = MXFunctionInvoke(
   "RenderTable",
   ({

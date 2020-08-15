@@ -29,13 +29,13 @@ Map<String, MXFunctionInvoke> registerStepperSeries() {
 }
 
 var _stepState = MXFunctionInvoke(
-  "StepState",
-  ({String name, int index}) => MXStepState.parse(name, index),
-);
+    "StepState",
+    ({String name, int index}) => MXStepState.parse(name, index),
+    ["name", "index"]);
 var _stepperType = MXFunctionInvoke(
-  "StepperType",
-  ({String name, int index}) => MXStepperType.parse(name, index),
-);
+    "StepperType",
+    ({String name, int index}) => MXStepperType.parse(name, index),
+    ["name", "index"]);
 var _step = MXFunctionInvoke(
   "Step",
   ({

@@ -387,9 +387,9 @@ var _semanticsConfiguration = MXFunctionInvoke(
   [],
 );
 var _debugSemanticsDumpOrder = MXFunctionInvoke(
-  "DebugSemanticsDumpOrder",
-  ({String name, int index}) => MXDebugSemanticsDumpOrder.parse(name, index),
-);
+    "DebugSemanticsDumpOrder",
+    ({String name, int index}) => MXDebugSemanticsDumpOrder.parse(name, index),
+    ["name", "index"]);
 var _ordinalSortKey = MXFunctionInvoke(
   "OrdinalSortKey",
   ({

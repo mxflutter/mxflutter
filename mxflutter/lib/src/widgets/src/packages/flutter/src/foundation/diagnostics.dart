@@ -47,13 +47,13 @@ Map<String, MXFunctionInvoke> registerDiagnosticsSeries() {
 }
 
 var _diagnosticLevel = MXFunctionInvoke(
-  "DiagnosticLevel",
-  ({String name, int index}) => MXDiagnosticLevel.parse(name, index),
-);
+    "DiagnosticLevel",
+    ({String name, int index}) => MXDiagnosticLevel.parse(name, index),
+    ["name", "index"]);
 var _diagnosticsTreeStyle = MXFunctionInvoke(
-  "DiagnosticsTreeStyle",
-  ({String name, int index}) => MXDiagnosticsTreeStyle.parse(name, index),
-);
+    "DiagnosticsTreeStyle",
+    ({String name, int index}) => MXDiagnosticsTreeStyle.parse(name, index),
+    ["name", "index"]);
 var _textTreeConfiguration = MXFunctionInvoke(
   "TextTreeConfiguration",
   ({

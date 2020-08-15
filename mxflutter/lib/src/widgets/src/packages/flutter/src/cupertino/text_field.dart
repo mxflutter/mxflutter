@@ -25,9 +25,9 @@ Map<String, MXFunctionInvoke> registerTextFieldSeries() {
 }
 
 var _overlayVisibilityMode = MXFunctionInvoke(
-  "OverlayVisibilityMode",
-  ({String name, int index}) => MXOverlayVisibilityMode.parse(name, index),
-);
+    "OverlayVisibilityMode",
+    ({String name, int index}) => MXOverlayVisibilityMode.parse(name, index),
+    ["name", "index"]);
 var _cupertinoTextField = MXFunctionInvoke(
   "CupertinoTextField",
   ({

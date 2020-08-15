@@ -16,9 +16,9 @@ Map<String, MXFunctionInvoke> registerMaterialStateSeries() {
 }
 
 var _materialState = MXFunctionInvoke(
-  "MaterialState",
-  ({String name, int index}) => MXMaterialState.parse(name, index),
-);
+    "MaterialState",
+    ({String name, int index}) => MXMaterialState.parse(name, index),
+    ["name", "index"]);
 
 class MXMaterialState {
   static MaterialState parse(String name, int index) {

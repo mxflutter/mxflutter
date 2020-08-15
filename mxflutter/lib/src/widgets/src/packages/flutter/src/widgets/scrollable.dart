@@ -85,9 +85,9 @@ var _scrollableState = MXFunctionInvoke(
   [],
 );
 var _scrollIncrementType = MXFunctionInvoke(
-  "ScrollIncrementType",
-  ({String name, int index}) => MXScrollIncrementType.parse(name, index),
-);
+    "ScrollIncrementType",
+    ({String name, int index}) => MXScrollIncrementType.parse(name, index),
+    ["name", "index"]);
 var _scrollIncrementDetails = MXFunctionInvoke(
   "ScrollIncrementDetails",
   ({

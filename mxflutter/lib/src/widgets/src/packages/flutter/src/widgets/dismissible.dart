@@ -24,9 +24,9 @@ Map<String, MXFunctionInvoke> registerDismissibleSeries() {
 }
 
 var _dismissDirection = MXFunctionInvoke(
-  "DismissDirection",
-  ({String name, int index}) => MXDismissDirection.parse(name, index),
-);
+    "DismissDirection",
+    ({String name, int index}) => MXDismissDirection.parse(name, index),
+    ["name", "index"]);
 var _dismissible = MXFunctionInvoke(
   "Dismissible",
   ({

@@ -22,9 +22,9 @@ Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
 }
 
 var _renderAnimatedSizeState = MXFunctionInvoke(
-  "RenderAnimatedSizeState",
-  ({String name, int index}) => MXRenderAnimatedSizeState.parse(name, index),
-);
+    "RenderAnimatedSizeState",
+    ({String name, int index}) => MXRenderAnimatedSizeState.parse(name, index),
+    ["name", "index"]);
 var _renderAnimatedSize = MXFunctionInvoke(
   "RenderAnimatedSize",
   ({

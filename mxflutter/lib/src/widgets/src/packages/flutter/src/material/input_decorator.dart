@@ -29,9 +29,9 @@ Map<String, MXFunctionInvoke> registerInputDecoratorSeries() {
 }
 
 var _floatingLabelBehavior = MXFunctionInvoke(
-  "FloatingLabelBehavior",
-  ({String name, int index}) => MXFloatingLabelBehavior.parse(name, index),
-);
+    "FloatingLabelBehavior",
+    ({String name, int index}) => MXFloatingLabelBehavior.parse(name, index),
+    ["name", "index"]);
 var _inputDecorator = MXFunctionInvoke(
   "InputDecorator",
   ({

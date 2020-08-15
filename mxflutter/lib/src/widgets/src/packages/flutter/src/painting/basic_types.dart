@@ -20,21 +20,19 @@ Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
 }
 
 var _renderComparison = MXFunctionInvoke(
-  "RenderComparison",
-  ({String name, int index}) => MXRenderComparison.parse(name, index),
-);
-var _axis = MXFunctionInvoke(
-  "Axis",
-  ({String name, int index}) => MXAxis.parse(name, index),
-);
+    "RenderComparison",
+    ({String name, int index}) => MXRenderComparison.parse(name, index),
+    ["name", "index"]);
+var _axis = MXFunctionInvoke("Axis",
+    ({String name, int index}) => MXAxis.parse(name, index), ["name", "index"]);
 var _verticalDirection = MXFunctionInvoke(
-  "VerticalDirection",
-  ({String name, int index}) => MXVerticalDirection.parse(name, index),
-);
+    "VerticalDirection",
+    ({String name, int index}) => MXVerticalDirection.parse(name, index),
+    ["name", "index"]);
 var _axisDirection = MXFunctionInvoke(
-  "AxisDirection",
-  ({String name, int index}) => MXAxisDirection.parse(name, index),
-);
+    "AxisDirection",
+    ({String name, int index}) => MXAxisDirection.parse(name, index),
+    ["name", "index"]);
 
 class MXRenderComparison {
   static RenderComparison parse(String name, int index) {

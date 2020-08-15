@@ -25,13 +25,13 @@ Map<String, MXFunctionInvoke> registerFlexibleSpaceBarSeries() {
 }
 
 var _collapseMode = MXFunctionInvoke(
-  "CollapseMode",
-  ({String name, int index}) => MXCollapseMode.parse(name, index),
-);
+    "CollapseMode",
+    ({String name, int index}) => MXCollapseMode.parse(name, index),
+    ["name", "index"]);
 var _stretchMode = MXFunctionInvoke(
-  "StretchMode",
-  ({String name, int index}) => MXStretchMode.parse(name, index),
-);
+    "StretchMode",
+    ({String name, int index}) => MXStretchMode.parse(name, index),
+    ["name", "index"]);
 var _flexibleSpaceBar = MXFunctionInvoke(
   "FlexibleSpaceBar",
   ({

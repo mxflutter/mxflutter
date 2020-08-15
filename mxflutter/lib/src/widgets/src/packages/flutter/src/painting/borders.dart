@@ -22,9 +22,9 @@ Map<String, MXFunctionInvoke> registerBordersSeries() {
 }
 
 var _borderStyle = MXFunctionInvoke(
-  "BorderStyle",
-  ({String name, int index}) => MXBorderStyle.parse(name, index),
-);
+    "BorderStyle",
+    ({String name, int index}) => MXBorderStyle.parse(name, index),
+    ["name", "index"]);
 var _borderSide = MXFunctionInvoke(
   "BorderSide",
   ({

@@ -29,9 +29,9 @@ Map<String, MXFunctionInvoke> registerEditableSeries() {
 }
 
 var _selectionChangedCause = MXFunctionInvoke(
-  "SelectionChangedCause",
-  ({String name, int index}) => MXSelectionChangedCause.parse(name, index),
-);
+    "SelectionChangedCause",
+    ({String name, int index}) => MXSelectionChangedCause.parse(name, index),
+    ["name", "index"]);
 var _textSelectionPoint = MXFunctionInvoke(
   "TextSelectionPoint",
   ({

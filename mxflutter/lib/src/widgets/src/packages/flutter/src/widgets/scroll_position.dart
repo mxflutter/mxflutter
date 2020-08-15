@@ -30,10 +30,10 @@ Map<String, MXFunctionInvoke> registerScrollPositionSeries() {
 }
 
 var _scrollPositionAlignmentPolicy = MXFunctionInvoke(
-  "ScrollPositionAlignmentPolicy",
-  ({String name, int index}) =>
-      MXScrollPositionAlignmentPolicy.parse(name, index),
-);
+    "ScrollPositionAlignmentPolicy",
+    ({String name, int index}) =>
+        MXScrollPositionAlignmentPolicy.parse(name, index),
+    ["name", "index"]);
 
 class MXScrollPositionAlignmentPolicy {
   static ScrollPositionAlignmentPolicy parse(String name, int index) {

@@ -20,9 +20,9 @@ Map<String, MXFunctionInvoke> registerViewportOffsetSeries() {
 }
 
 var _scrollDirection = MXFunctionInvoke(
-  "ScrollDirection",
-  ({String name, int index}) => MXScrollDirection.parse(name, index),
-);
+    "ScrollDirection",
+    ({String name, int index}) => MXScrollDirection.parse(name, index),
+    ["name", "index"]);
 var _viewportOffset_fixed = MXFunctionInvoke(
   "ViewportOffset.fixed",
   ({

@@ -32,13 +32,13 @@ Map<String, MXFunctionInvoke> registerRecognizerSeries() {
 }
 
 var _dragStartBehavior = MXFunctionInvoke(
-  "DragStartBehavior",
-  ({String name, int index}) => MXDragStartBehavior.parse(name, index),
-);
+    "DragStartBehavior",
+    ({String name, int index}) => MXDragStartBehavior.parse(name, index),
+    ["name", "index"]);
 var _gestureRecognizerState = MXFunctionInvoke(
-  "GestureRecognizerState",
-  ({String name, int index}) => MXGestureRecognizerState.parse(name, index),
-);
+    "GestureRecognizerState",
+    ({String name, int index}) => MXGestureRecognizerState.parse(name, index),
+    ["name", "index"]);
 var _offsetPair = MXFunctionInvoke(
   "OffsetPair",
   ({

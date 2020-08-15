@@ -85,9 +85,9 @@ var _navigationRail = MXFunctionInvoke(
   ],
 );
 var _navigationRailLabelType = MXFunctionInvoke(
-  "NavigationRailLabelType",
-  ({String name, int index}) => MXNavigationRailLabelType.parse(name, index),
-);
+    "NavigationRailLabelType",
+    ({String name, int index}) => MXNavigationRailLabelType.parse(name, index),
+    ["name", "index"]);
 var _navigationRailDestination = MXFunctionInvoke(
   "NavigationRailDestination",
   ({

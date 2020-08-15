@@ -23,9 +23,9 @@ Map<String, MXFunctionInvoke> registerAsyncSeries() {
 }
 
 var _connectionState = MXFunctionInvoke(
-  "ConnectionState",
-  ({String name, int index}) => MXConnectionState.parse(name, index),
-);
+    "ConnectionState",
+    ({String name, int index}) => MXConnectionState.parse(name, index),
+    ["name", "index"]);
 var _asyncSnapshot_nothing = MXFunctionInvoke(
   "AsyncSnapshot.nothing",
   () => AsyncSnapshot.nothing(),

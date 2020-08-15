@@ -29,9 +29,9 @@ Map<String, MXFunctionInvoke> registerParagraphSeries() {
 }
 
 var _textOverflow = MXFunctionInvoke(
-  "TextOverflow",
-  ({String name, int index}) => MXTextOverflow.parse(name, index),
-);
+    "TextOverflow",
+    ({String name, int index}) => MXTextOverflow.parse(name, index),
+    ["name", "index"]);
 var _textParentData = MXFunctionInvoke(
   "TextParentData",
   () => TextParentData(),

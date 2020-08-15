@@ -19,9 +19,9 @@ Map<String, MXFunctionInvoke> registerPerformanceOverlaySeries() {
 }
 
 var _performanceOverlayOption = MXFunctionInvoke(
-  "PerformanceOverlayOption",
-  ({String name, int index}) => MXPerformanceOverlayOption.parse(name, index),
-);
+    "PerformanceOverlayOption",
+    ({String name, int index}) => MXPerformanceOverlayOption.parse(name, index),
+    ["name", "index"]);
 var _renderPerformanceOverlay = MXFunctionInvoke(
   "RenderPerformanceOverlay",
   ({

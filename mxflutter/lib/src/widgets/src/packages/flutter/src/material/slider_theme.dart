@@ -63,13 +63,13 @@ var _sliderTheme = MXFunctionInvoke(
   ],
 );
 var _showValueIndicator = MXFunctionInvoke(
-  "ShowValueIndicator",
-  ({String name, int index}) => MXShowValueIndicator.parse(name, index),
-);
+    "ShowValueIndicator",
+    ({String name, int index}) => MXShowValueIndicator.parse(name, index),
+    ["name", "index"]);
 var _thumb = MXFunctionInvoke(
-  "Thumb",
-  ({String name, int index}) => MXThumb.parse(name, index),
-);
+    "Thumb",
+    ({String name, int index}) => MXThumb.parse(name, index),
+    ["name", "index"]);
 var _sliderThemeData = MXFunctionInvoke(
   "SliderThemeData",
   ({

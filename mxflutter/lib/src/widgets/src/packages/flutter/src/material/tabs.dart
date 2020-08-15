@@ -36,9 +36,9 @@ Map<String, MXFunctionInvoke> registerTabsSeries() {
 }
 
 var _tabBarIndicatorSize = MXFunctionInvoke(
-  "TabBarIndicatorSize",
-  ({String name, int index}) => MXTabBarIndicatorSize.parse(name, index),
-);
+    "TabBarIndicatorSize",
+    ({String name, int index}) => MXTabBarIndicatorSize.parse(name, index),
+    ["name", "index"]);
 var _tab = MXFunctionInvoke(
   "Tab",
   ({

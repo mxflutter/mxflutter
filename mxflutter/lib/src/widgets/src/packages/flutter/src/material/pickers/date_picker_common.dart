@@ -16,13 +16,13 @@ Map<String, MXFunctionInvoke> registerDatePickerCommonSeries() {
 }
 
 var _datePickerEntryMode = MXFunctionInvoke(
-  "DatePickerEntryMode",
-  ({String name, int index}) => MXDatePickerEntryMode.parse(name, index),
-);
+    "DatePickerEntryMode",
+    ({String name, int index}) => MXDatePickerEntryMode.parse(name, index),
+    ["name", "index"]);
 var _datePickerMode = MXFunctionInvoke(
-  "DatePickerMode",
-  ({String name, int index}) => MXDatePickerMode.parse(name, index),
-);
+    "DatePickerMode",
+    ({String name, int index}) => MXDatePickerMode.parse(name, index),
+    ["name", "index"]);
 
 class MXDatePickerEntryMode {
   static DatePickerEntryMode parse(String name, int index) {

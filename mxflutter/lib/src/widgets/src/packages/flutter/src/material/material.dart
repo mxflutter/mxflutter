@@ -24,9 +24,9 @@ Map<String, MXFunctionInvoke> registerMaterialSeries() {
 }
 
 var _materialType = MXFunctionInvoke(
-  "MaterialType",
-  ({String name, int index}) => MXMaterialType.parse(name, index),
-);
+    "MaterialType",
+    ({String name, int index}) => MXMaterialType.parse(name, index),
+    ["name", "index"]);
 var _material = MXFunctionInvoke(
   "Material",
   ({

@@ -42,10 +42,10 @@ Map<String, MXFunctionInvoke> registerScrollViewSeries() {
 }
 
 var _scrollViewKeyboardDismissBehavior = MXFunctionInvoke(
-  "ScrollViewKeyboardDismissBehavior",
-  ({String name, int index}) =>
-      MXScrollViewKeyboardDismissBehavior.parse(name, index),
-);
+    "ScrollViewKeyboardDismissBehavior",
+    ({String name, int index}) =>
+        MXScrollViewKeyboardDismissBehavior.parse(name, index),
+    ["name", "index"]);
 var _customScrollView = MXFunctionInvoke(
   "CustomScrollView",
   ({

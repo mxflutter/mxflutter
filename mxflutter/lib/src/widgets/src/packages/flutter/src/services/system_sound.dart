@@ -17,9 +17,9 @@ Map<String, MXFunctionInvoke> registerSystemSoundSeries() {
 }
 
 var _systemSoundType = MXFunctionInvoke(
-  "SystemSoundType",
-  ({String name, int index}) => MXSystemSoundType.parse(name, index),
-);
+    "SystemSoundType",
+    ({String name, int index}) => MXSystemSoundType.parse(name, index),
+    ["name", "index"]);
 
 class MXSystemSoundType {
   static SystemSoundType parse(String name, int index) {

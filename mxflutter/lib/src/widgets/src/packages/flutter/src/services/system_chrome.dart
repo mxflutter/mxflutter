@@ -26,9 +26,9 @@ Map<String, MXFunctionInvoke> registerSystemChromeSeries() {
 }
 
 var _deviceOrientation = MXFunctionInvoke(
-  "DeviceOrientation",
-  ({String name, int index}) => MXDeviceOrientation.parse(name, index),
-);
+    "DeviceOrientation",
+    ({String name, int index}) => MXDeviceOrientation.parse(name, index),
+    ["name", "index"]);
 var _applicationSwitcherDescription = MXFunctionInvoke(
   "ApplicationSwitcherDescription",
   ({
@@ -45,9 +45,9 @@ var _applicationSwitcherDescription = MXFunctionInvoke(
   ],
 );
 var _systemUiOverlay = MXFunctionInvoke(
-  "SystemUiOverlay",
-  ({String name, int index}) => MXSystemUiOverlay.parse(name, index),
-);
+    "SystemUiOverlay",
+    ({String name, int index}) => MXSystemUiOverlay.parse(name, index),
+    ["name", "index"]);
 var _systemUiOverlayStyle = MXFunctionInvoke(
   "SystemUiOverlayStyle",
   ({
