@@ -15,31 +15,38 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/thumb_painter.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSwitchSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoSwitch.funName] = _cupertinoSwitch;
   return m;
 }
+
 var _cupertinoSwitch = MXFunctionInvoke(
-    "CupertinoSwitch",
-    (
-      {
-      Key key,
-      bool value,
-      dynamic onChanged,
-      Color activeColor,
-      Color trackColor,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      }
-    ) =>
+  "CupertinoSwitch",
+  ({
+    Key key,
+    bool value,
+    dynamic onChanged,
+    Color activeColor,
+    Color trackColor,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+  }) =>
       CupertinoSwitch(
-      key: key,
-      value: value,
-      onChanged: createValueChangedGenericClosure<bool>(_cupertinoSwitch.buildOwner, onChanged),
-      activeColor: activeColor,
-      trackColor: trackColor,
-      dragStartBehavior: dragStartBehavior,
-    ),
+    key: key,
+    value: value,
+    onChanged: createValueChangedGenericClosure<bool>(
+        _cupertinoSwitch.buildOwner, onChanged),
+    activeColor: activeColor,
+    trackColor: trackColor,
+    dragStartBehavior: dragStartBehavior,
+  ),
+  [
+    "key",
+    "value",
+    "onChanged",
+    "activeColor",
+    "trackColor",
+    "dragStartBehavior",
+  ],
 );

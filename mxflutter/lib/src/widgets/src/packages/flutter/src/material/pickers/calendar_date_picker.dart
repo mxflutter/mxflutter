@@ -22,35 +22,45 @@ import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/pickers/date_picker_common.dart';
 import 'package:flutter/src/material/pickers/date_utils.dart' as utils;
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCalendarDatePickerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_calendarDatePicker.funName] = _calendarDatePicker;
   return m;
 }
+
 var _calendarDatePicker = MXFunctionInvoke(
-    "CalendarDatePicker",
-    (
-      {
-      Key key,
-      DateTime initialDate,
-      DateTime firstDate,
-      DateTime lastDate,
-      dynamic onDateChanged,
-      dynamic onDisplayedMonthChanged,
-      DatePickerMode initialCalendarMode = DatePickerMode.day,
-      dynamic selectableDayPredicate,
-      }
-    ) =>
+  "CalendarDatePicker",
+  ({
+    Key key,
+    DateTime initialDate,
+    DateTime firstDate,
+    DateTime lastDate,
+    dynamic onDateChanged,
+    dynamic onDisplayedMonthChanged,
+    DatePickerMode initialCalendarMode = DatePickerMode.day,
+    dynamic selectableDayPredicate,
+  }) =>
       CalendarDatePicker(
-      key: key,
-      initialDate: initialDate,
-      firstDate: firstDate,
-      lastDate: lastDate,
-      onDateChanged: createValueChangedGenericClosure<DateTime>(_calendarDatePicker.buildOwner, onDateChanged),
-      onDisplayedMonthChanged: createValueChangedGenericClosure<DateTime>(_calendarDatePicker.buildOwner, onDisplayedMonthChanged),
-      initialCalendarMode: initialCalendarMode,
-      selectableDayPredicate: null,
-    ),
+    key: key,
+    initialDate: initialDate,
+    firstDate: firstDate,
+    lastDate: lastDate,
+    onDateChanged: createValueChangedGenericClosure<DateTime>(
+        _calendarDatePicker.buildOwner, onDateChanged),
+    onDisplayedMonthChanged: createValueChangedGenericClosure<DateTime>(
+        _calendarDatePicker.buildOwner, onDisplayedMonthChanged),
+    initialCalendarMode: initialCalendarMode,
+    selectableDayPredicate: null,
+  ),
+  [
+    "key",
+    "initialDate",
+    "firstDate",
+    "lastDate",
+    "onDateChanged",
+    "onDisplayedMonthChanged",
+    "initialCalendarMode",
+    "selectableDayPredicate",
+  ],
 );

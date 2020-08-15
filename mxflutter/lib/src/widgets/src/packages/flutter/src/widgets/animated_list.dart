@@ -16,7 +16,6 @@ import 'package:flutter/src/widgets/scroll_view.dart';
 import 'package:flutter/src/widgets/sliver.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedListSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -26,61 +25,71 @@ Map<String, MXFunctionInvoke> registerAnimatedListSeries() {
   m[_sliverAnimatedListState.funName] = _sliverAnimatedListState;
   return m;
 }
+
 var _animatedList = MXFunctionInvoke(
-    "AnimatedList",
-    (
-      {
-      Key key,
-      dynamic itemBuilder,
-      int initialItemCount = 0,
-      Axis scrollDirection = Axis.vertical,
-      bool reverse = false,
-      ScrollController controller,
-      bool primary,
-      ScrollPhysics physics,
-      bool shrinkWrap = false,
-      EdgeInsetsGeometry padding,
-      }
-    ) =>
+  "AnimatedList",
+  ({
+    Key key,
+    dynamic itemBuilder,
+    int initialItemCount = 0,
+    Axis scrollDirection = Axis.vertical,
+    bool reverse = false,
+    ScrollController controller,
+    bool primary,
+    ScrollPhysics physics,
+    bool shrinkWrap = false,
+    EdgeInsetsGeometry padding,
+  }) =>
       AnimatedList(
-      key: key,
-      itemBuilder: null,
-      initialItemCount: initialItemCount,
-      scrollDirection: scrollDirection,
-      reverse: reverse,
-      controller: controller,
-      primary: primary,
-      physics: physics,
-      shrinkWrap: shrinkWrap,
-      padding: padding,
-    ),
+    key: key,
+    itemBuilder: null,
+    initialItemCount: initialItemCount,
+    scrollDirection: scrollDirection,
+    reverse: reverse,
+    controller: controller,
+    primary: primary,
+    physics: physics,
+    shrinkWrap: shrinkWrap,
+    padding: padding,
+  ),
+  [
+    "key",
+    "itemBuilder",
+    "initialItemCount",
+    "scrollDirection",
+    "reverse",
+    "controller",
+    "primary",
+    "physics",
+    "shrinkWrap",
+    "padding",
+  ],
 );
 var _animatedListState = MXFunctionInvoke(
-    "AnimatedListState",
-    (
-    ) =>
-      AnimatedListState(
-    ),
+  "AnimatedListState",
+  () => AnimatedListState(),
+  [],
 );
 var _sliverAnimatedList = MXFunctionInvoke(
-    "SliverAnimatedList",
-    (
-      {
-      Key key,
-      dynamic itemBuilder,
-      int initialItemCount = 0,
-      }
-    ) =>
+  "SliverAnimatedList",
+  ({
+    Key key,
+    dynamic itemBuilder,
+    int initialItemCount = 0,
+  }) =>
       SliverAnimatedList(
-      key: key,
-      itemBuilder: null,
-      initialItemCount: initialItemCount,
-    ),
+    key: key,
+    itemBuilder: null,
+    initialItemCount: initialItemCount,
+  ),
+  [
+    "key",
+    "itemBuilder",
+    "initialItemCount",
+  ],
 );
 var _sliverAnimatedListState = MXFunctionInvoke(
-    "SliverAnimatedListState",
-    (
-    ) =>
-      SliverAnimatedListState(
-    ),
+  "SliverAnimatedListState",
+  () => SliverAnimatedListState(),
+  [],
 );

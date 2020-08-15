@@ -8,7 +8,6 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/icons.dart';
 import 'package:flutter/widgets.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIconsSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -46,12 +45,18 @@ Map<String, MXFunctionInvoke> registerIconsSeries() {
   m[_icons_adjust.funName] = _icons_adjust;
   m[_icons_airline_seat_flat.funName] = _icons_airline_seat_flat;
   m[_icons_airline_seat_flat_angled.funName] = _icons_airline_seat_flat_angled;
-  m[_icons_airline_seat_individual_suite.funName] = _icons_airline_seat_individual_suite;
-  m[_icons_airline_seat_legroom_extra.funName] = _icons_airline_seat_legroom_extra;
-  m[_icons_airline_seat_legroom_normal.funName] = _icons_airline_seat_legroom_normal;
-  m[_icons_airline_seat_legroom_reduced.funName] = _icons_airline_seat_legroom_reduced;
-  m[_icons_airline_seat_recline_extra.funName] = _icons_airline_seat_recline_extra;
-  m[_icons_airline_seat_recline_normal.funName] = _icons_airline_seat_recline_normal;
+  m[_icons_airline_seat_individual_suite.funName] =
+      _icons_airline_seat_individual_suite;
+  m[_icons_airline_seat_legroom_extra.funName] =
+      _icons_airline_seat_legroom_extra;
+  m[_icons_airline_seat_legroom_normal.funName] =
+      _icons_airline_seat_legroom_normal;
+  m[_icons_airline_seat_legroom_reduced.funName] =
+      _icons_airline_seat_legroom_reduced;
+  m[_icons_airline_seat_recline_extra.funName] =
+      _icons_airline_seat_recline_extra;
+  m[_icons_airline_seat_recline_normal.funName] =
+      _icons_airline_seat_recline_normal;
   m[_icons_airplanemode_active.funName] = _icons_airplanemode_active;
   m[_icons_airplanemode_inactive.funName] = _icons_airplanemode_inactive;
   m[_icons_airplay.funName] = _icons_airplay;
@@ -396,8 +401,10 @@ Map<String, MXFunctionInvoke> registerIconsSeries() {
   m[_icons_format_shapes.funName] = _icons_format_shapes;
   m[_icons_format_size.funName] = _icons_format_size;
   m[_icons_format_strikethrough.funName] = _icons_format_strikethrough;
-  m[_icons_format_textdirection_l_to_r.funName] = _icons_format_textdirection_l_to_r;
-  m[_icons_format_textdirection_r_to_l.funName] = _icons_format_textdirection_r_to_l;
+  m[_icons_format_textdirection_l_to_r.funName] =
+      _icons_format_textdirection_l_to_r;
+  m[_icons_format_textdirection_r_to_l.funName] =
+      _icons_format_textdirection_r_to_l;
   m[_icons_format_underlined.funName] = _icons_format_underlined;
   m[_icons_forum.funName] = _icons_forum;
   m[_icons_forward.funName] = _icons_forward;
@@ -784,7 +791,8 @@ Map<String, MXFunctionInvoke> registerIconsSeries() {
   m[_icons_sentiment_dissatisfied.funName] = _icons_sentiment_dissatisfied;
   m[_icons_sentiment_neutral.funName] = _icons_sentiment_neutral;
   m[_icons_sentiment_satisfied.funName] = _icons_sentiment_satisfied;
-  m[_icons_sentiment_very_dissatisfied.funName] = _icons_sentiment_very_dissatisfied;
+  m[_icons_sentiment_very_dissatisfied.funName] =
+      _icons_sentiment_very_dissatisfied;
   m[_icons_sentiment_very_satisfied.funName] = _icons_sentiment_very_satisfied;
   m[_icons_settings.funName] = _icons_settings;
   m[_icons_settings_applications.funName] = _icons_settings_applications;
@@ -814,7 +822,8 @@ Map<String, MXFunctionInvoke> registerIconsSeries() {
   m[_icons_shuffle.funName] = _icons_shuffle;
   m[_icons_shutter_speed.funName] = _icons_shutter_speed;
   m[_icons_signal_cellular_4_bar.funName] = _icons_signal_cellular_4_bar;
-  m[_icons_signal_cellular_connected_no_internet_4_bar.funName] = _icons_signal_cellular_connected_no_internet_4_bar;
+  m[_icons_signal_cellular_connected_no_internet_4_bar.funName] =
+      _icons_signal_cellular_connected_no_internet_4_bar;
   m[_icons_signal_cellular_no_sim.funName] = _icons_signal_cellular_no_sim;
   m[_icons_signal_cellular_null.funName] = _icons_signal_cellular_null;
   m[_icons_signal_cellular_off.funName] = _icons_signal_cellular_off;
@@ -922,7 +931,8 @@ Map<String, MXFunctionInvoke> registerIconsSeries() {
   m[_icons_traffic.funName] = _icons_traffic;
   m[_icons_train.funName] = _icons_train;
   m[_icons_tram.funName] = _icons_tram;
-  m[_icons_transfer_within_a_station.funName] = _icons_transfer_within_a_station;
+  m[_icons_transfer_within_a_station.funName] =
+      _icons_transfer_within_a_station;
   m[_icons_transform.funName] = _icons_transform;
   m[_icons_transit_enterexit.funName] = _icons_transit_enterexit;
   m[_icons_translate.funName] = _icons_translate;
@@ -1001,5917 +1011,1695 @@ Map<String, MXFunctionInvoke> registerIconsSeries() {
   m[_icons_zoom_out_map.funName] = _icons_zoom_out_map;
   return m;
 }
-var _icons_threesixty = MXFunctionInvoke(
-  "Icons.threesixty",
-    (
-    ) =>
-      Icons.threesixty
-);
-var _icons_threed_rotation = MXFunctionInvoke(
-  "Icons.threed_rotation",
-    (
-    ) =>
-      Icons.threed_rotation
-);
-var _icons_four_k = MXFunctionInvoke(
-  "Icons.four_k",
-    (
-    ) =>
-      Icons.four_k
-);
-var _icons_ac_unit = MXFunctionInvoke(
-  "Icons.ac_unit",
-    (
-    ) =>
-      Icons.ac_unit
-);
-var _icons_access_alarm = MXFunctionInvoke(
-  "Icons.access_alarm",
-    (
-    ) =>
-      Icons.access_alarm
-);
-var _icons_access_alarms = MXFunctionInvoke(
-  "Icons.access_alarms",
-    (
-    ) =>
-      Icons.access_alarms
-);
-var _icons_access_time = MXFunctionInvoke(
-  "Icons.access_time",
-    (
-    ) =>
-      Icons.access_time
-);
-var _icons_accessibility = MXFunctionInvoke(
-  "Icons.accessibility",
-    (
-    ) =>
-      Icons.accessibility
-);
-var _icons_accessibility_new = MXFunctionInvoke(
-  "Icons.accessibility_new",
-    (
-    ) =>
-      Icons.accessibility_new
-);
-var _icons_accessible = MXFunctionInvoke(
-  "Icons.accessible",
-    (
-    ) =>
-      Icons.accessible
-);
+
+var _icons_threesixty =
+    MXFunctionInvoke("Icons.threesixty", () => Icons.threesixty);
+var _icons_threed_rotation =
+    MXFunctionInvoke("Icons.threed_rotation", () => Icons.threed_rotation);
+var _icons_four_k = MXFunctionInvoke("Icons.four_k", () => Icons.four_k);
+var _icons_ac_unit = MXFunctionInvoke("Icons.ac_unit", () => Icons.ac_unit);
+var _icons_access_alarm =
+    MXFunctionInvoke("Icons.access_alarm", () => Icons.access_alarm);
+var _icons_access_alarms =
+    MXFunctionInvoke("Icons.access_alarms", () => Icons.access_alarms);
+var _icons_access_time =
+    MXFunctionInvoke("Icons.access_time", () => Icons.access_time);
+var _icons_accessibility =
+    MXFunctionInvoke("Icons.accessibility", () => Icons.accessibility);
+var _icons_accessibility_new =
+    MXFunctionInvoke("Icons.accessibility_new", () => Icons.accessibility_new);
+var _icons_accessible =
+    MXFunctionInvoke("Icons.accessible", () => Icons.accessible);
 var _icons_accessible_forward = MXFunctionInvoke(
-  "Icons.accessible_forward",
-    (
-    ) =>
-      Icons.accessible_forward
-);
-var _icons_account_balance = MXFunctionInvoke(
-  "Icons.account_balance",
-    (
-    ) =>
-      Icons.account_balance
-);
+    "Icons.accessible_forward", () => Icons.accessible_forward);
+var _icons_account_balance =
+    MXFunctionInvoke("Icons.account_balance", () => Icons.account_balance);
 var _icons_account_balance_wallet = MXFunctionInvoke(
-  "Icons.account_balance_wallet",
-    (
-    ) =>
-      Icons.account_balance_wallet
-);
-var _icons_account_box = MXFunctionInvoke(
-  "Icons.account_box",
-    (
-    ) =>
-      Icons.account_box
-);
-var _icons_account_circle = MXFunctionInvoke(
-  "Icons.account_circle",
-    (
-    ) =>
-      Icons.account_circle
-);
-var _icons_adb = MXFunctionInvoke(
-  "Icons.adb",
-    (
-    ) =>
-      Icons.adb
-);
-var _icons_add = MXFunctionInvoke(
-  "Icons.add",
-    (
-    ) =>
-      Icons.add
-);
-var _icons_add_a_photo = MXFunctionInvoke(
-  "Icons.add_a_photo",
-    (
-    ) =>
-      Icons.add_a_photo
-);
-var _icons_add_alarm = MXFunctionInvoke(
-  "Icons.add_alarm",
-    (
-    ) =>
-      Icons.add_alarm
-);
-var _icons_add_alert = MXFunctionInvoke(
-  "Icons.add_alert",
-    (
-    ) =>
-      Icons.add_alert
-);
-var _icons_add_box = MXFunctionInvoke(
-  "Icons.add_box",
-    (
-    ) =>
-      Icons.add_box
-);
-var _icons_add_call = MXFunctionInvoke(
-  "Icons.add_call",
-    (
-    ) =>
-      Icons.add_call
-);
-var _icons_add_circle = MXFunctionInvoke(
-  "Icons.add_circle",
-    (
-    ) =>
-      Icons.add_circle
-);
+    "Icons.account_balance_wallet", () => Icons.account_balance_wallet);
+var _icons_account_box =
+    MXFunctionInvoke("Icons.account_box", () => Icons.account_box);
+var _icons_account_circle =
+    MXFunctionInvoke("Icons.account_circle", () => Icons.account_circle);
+var _icons_adb = MXFunctionInvoke("Icons.adb", () => Icons.adb);
+var _icons_add = MXFunctionInvoke("Icons.add", () => Icons.add);
+var _icons_add_a_photo =
+    MXFunctionInvoke("Icons.add_a_photo", () => Icons.add_a_photo);
+var _icons_add_alarm =
+    MXFunctionInvoke("Icons.add_alarm", () => Icons.add_alarm);
+var _icons_add_alert =
+    MXFunctionInvoke("Icons.add_alert", () => Icons.add_alert);
+var _icons_add_box = MXFunctionInvoke("Icons.add_box", () => Icons.add_box);
+var _icons_add_call = MXFunctionInvoke("Icons.add_call", () => Icons.add_call);
+var _icons_add_circle =
+    MXFunctionInvoke("Icons.add_circle", () => Icons.add_circle);
 var _icons_add_circle_outline = MXFunctionInvoke(
-  "Icons.add_circle_outline",
-    (
-    ) =>
-      Icons.add_circle_outline
-);
-var _icons_add_comment = MXFunctionInvoke(
-  "Icons.add_comment",
-    (
-    ) =>
-      Icons.add_comment
-);
-var _icons_add_location = MXFunctionInvoke(
-  "Icons.add_location",
-    (
-    ) =>
-      Icons.add_location
-);
+    "Icons.add_circle_outline", () => Icons.add_circle_outline);
+var _icons_add_comment =
+    MXFunctionInvoke("Icons.add_comment", () => Icons.add_comment);
+var _icons_add_location =
+    MXFunctionInvoke("Icons.add_location", () => Icons.add_location);
 var _icons_add_photo_alternate = MXFunctionInvoke(
-  "Icons.add_photo_alternate",
-    (
-    ) =>
-      Icons.add_photo_alternate
-);
-var _icons_add_shopping_cart = MXFunctionInvoke(
-  "Icons.add_shopping_cart",
-    (
-    ) =>
-      Icons.add_shopping_cart
-);
+    "Icons.add_photo_alternate", () => Icons.add_photo_alternate);
+var _icons_add_shopping_cart =
+    MXFunctionInvoke("Icons.add_shopping_cart", () => Icons.add_shopping_cart);
 var _icons_add_to_home_screen = MXFunctionInvoke(
-  "Icons.add_to_home_screen",
-    (
-    ) =>
-      Icons.add_to_home_screen
-);
-var _icons_add_to_photos = MXFunctionInvoke(
-  "Icons.add_to_photos",
-    (
-    ) =>
-      Icons.add_to_photos
-);
-var _icons_add_to_queue = MXFunctionInvoke(
-  "Icons.add_to_queue",
-    (
-    ) =>
-      Icons.add_to_queue
-);
-var _icons_adjust = MXFunctionInvoke(
-  "Icons.adjust",
-    (
-    ) =>
-      Icons.adjust
-);
-var _icons_airline_seat_flat = MXFunctionInvoke(
-  "Icons.airline_seat_flat",
-    (
-    ) =>
-      Icons.airline_seat_flat
-);
+    "Icons.add_to_home_screen", () => Icons.add_to_home_screen);
+var _icons_add_to_photos =
+    MXFunctionInvoke("Icons.add_to_photos", () => Icons.add_to_photos);
+var _icons_add_to_queue =
+    MXFunctionInvoke("Icons.add_to_queue", () => Icons.add_to_queue);
+var _icons_adjust = MXFunctionInvoke("Icons.adjust", () => Icons.adjust);
+var _icons_airline_seat_flat =
+    MXFunctionInvoke("Icons.airline_seat_flat", () => Icons.airline_seat_flat);
 var _icons_airline_seat_flat_angled = MXFunctionInvoke(
-  "Icons.airline_seat_flat_angled",
-    (
-    ) =>
-      Icons.airline_seat_flat_angled
-);
+    "Icons.airline_seat_flat_angled", () => Icons.airline_seat_flat_angled);
 var _icons_airline_seat_individual_suite = MXFunctionInvoke(
-  "Icons.airline_seat_individual_suite",
-    (
-    ) =>
-      Icons.airline_seat_individual_suite
-);
+    "Icons.airline_seat_individual_suite",
+    () => Icons.airline_seat_individual_suite);
 var _icons_airline_seat_legroom_extra = MXFunctionInvoke(
-  "Icons.airline_seat_legroom_extra",
-    (
-    ) =>
-      Icons.airline_seat_legroom_extra
-);
+    "Icons.airline_seat_legroom_extra", () => Icons.airline_seat_legroom_extra);
 var _icons_airline_seat_legroom_normal = MXFunctionInvoke(
-  "Icons.airline_seat_legroom_normal",
-    (
-    ) =>
-      Icons.airline_seat_legroom_normal
-);
+    "Icons.airline_seat_legroom_normal",
+    () => Icons.airline_seat_legroom_normal);
 var _icons_airline_seat_legroom_reduced = MXFunctionInvoke(
-  "Icons.airline_seat_legroom_reduced",
-    (
-    ) =>
-      Icons.airline_seat_legroom_reduced
-);
+    "Icons.airline_seat_legroom_reduced",
+    () => Icons.airline_seat_legroom_reduced);
 var _icons_airline_seat_recline_extra = MXFunctionInvoke(
-  "Icons.airline_seat_recline_extra",
-    (
-    ) =>
-      Icons.airline_seat_recline_extra
-);
+    "Icons.airline_seat_recline_extra", () => Icons.airline_seat_recline_extra);
 var _icons_airline_seat_recline_normal = MXFunctionInvoke(
-  "Icons.airline_seat_recline_normal",
-    (
-    ) =>
-      Icons.airline_seat_recline_normal
-);
+    "Icons.airline_seat_recline_normal",
+    () => Icons.airline_seat_recline_normal);
 var _icons_airplanemode_active = MXFunctionInvoke(
-  "Icons.airplanemode_active",
-    (
-    ) =>
-      Icons.airplanemode_active
-);
+    "Icons.airplanemode_active", () => Icons.airplanemode_active);
 var _icons_airplanemode_inactive = MXFunctionInvoke(
-  "Icons.airplanemode_inactive",
-    (
-    ) =>
-      Icons.airplanemode_inactive
-);
-var _icons_airplay = MXFunctionInvoke(
-  "Icons.airplay",
-    (
-    ) =>
-      Icons.airplay
-);
-var _icons_airport_shuttle = MXFunctionInvoke(
-  "Icons.airport_shuttle",
-    (
-    ) =>
-      Icons.airport_shuttle
-);
-var _icons_alarm = MXFunctionInvoke(
-  "Icons.alarm",
-    (
-    ) =>
-      Icons.alarm
-);
-var _icons_alarm_add = MXFunctionInvoke(
-  "Icons.alarm_add",
-    (
-    ) =>
-      Icons.alarm_add
-);
-var _icons_alarm_off = MXFunctionInvoke(
-  "Icons.alarm_off",
-    (
-    ) =>
-      Icons.alarm_off
-);
-var _icons_alarm_on = MXFunctionInvoke(
-  "Icons.alarm_on",
-    (
-    ) =>
-      Icons.alarm_on
-);
-var _icons_album = MXFunctionInvoke(
-  "Icons.album",
-    (
-    ) =>
-      Icons.album
-);
-var _icons_all_inclusive = MXFunctionInvoke(
-  "Icons.all_inclusive",
-    (
-    ) =>
-      Icons.all_inclusive
-);
-var _icons_all_out = MXFunctionInvoke(
-  "Icons.all_out",
-    (
-    ) =>
-      Icons.all_out
-);
-var _icons_alternate_email = MXFunctionInvoke(
-  "Icons.alternate_email",
-    (
-    ) =>
-      Icons.alternate_email
-);
-var _icons_android = MXFunctionInvoke(
-  "Icons.android",
-    (
-    ) =>
-      Icons.android
-);
-var _icons_announcement = MXFunctionInvoke(
-  "Icons.announcement",
-    (
-    ) =>
-      Icons.announcement
-);
-var _icons_apps = MXFunctionInvoke(
-  "Icons.apps",
-    (
-    ) =>
-      Icons.apps
-);
-var _icons_archive = MXFunctionInvoke(
-  "Icons.archive",
-    (
-    ) =>
-      Icons.archive
-);
-var _icons_arrow_back = MXFunctionInvoke(
-  "Icons.arrow_back",
-    (
-    ) =>
-      Icons.arrow_back
-);
-var _icons_arrow_back_ios = MXFunctionInvoke(
-  "Icons.arrow_back_ios",
-    (
-    ) =>
-      Icons.arrow_back_ios
-);
-var _icons_arrow_downward = MXFunctionInvoke(
-  "Icons.arrow_downward",
-    (
-    ) =>
-      Icons.arrow_downward
-);
-var _icons_arrow_drop_down = MXFunctionInvoke(
-  "Icons.arrow_drop_down",
-    (
-    ) =>
-      Icons.arrow_drop_down
-);
+    "Icons.airplanemode_inactive", () => Icons.airplanemode_inactive);
+var _icons_airplay = MXFunctionInvoke("Icons.airplay", () => Icons.airplay);
+var _icons_airport_shuttle =
+    MXFunctionInvoke("Icons.airport_shuttle", () => Icons.airport_shuttle);
+var _icons_alarm = MXFunctionInvoke("Icons.alarm", () => Icons.alarm);
+var _icons_alarm_add =
+    MXFunctionInvoke("Icons.alarm_add", () => Icons.alarm_add);
+var _icons_alarm_off =
+    MXFunctionInvoke("Icons.alarm_off", () => Icons.alarm_off);
+var _icons_alarm_on = MXFunctionInvoke("Icons.alarm_on", () => Icons.alarm_on);
+var _icons_album = MXFunctionInvoke("Icons.album", () => Icons.album);
+var _icons_all_inclusive =
+    MXFunctionInvoke("Icons.all_inclusive", () => Icons.all_inclusive);
+var _icons_all_out = MXFunctionInvoke("Icons.all_out", () => Icons.all_out);
+var _icons_alternate_email =
+    MXFunctionInvoke("Icons.alternate_email", () => Icons.alternate_email);
+var _icons_android = MXFunctionInvoke("Icons.android", () => Icons.android);
+var _icons_announcement =
+    MXFunctionInvoke("Icons.announcement", () => Icons.announcement);
+var _icons_apps = MXFunctionInvoke("Icons.apps", () => Icons.apps);
+var _icons_archive = MXFunctionInvoke("Icons.archive", () => Icons.archive);
+var _icons_arrow_back =
+    MXFunctionInvoke("Icons.arrow_back", () => Icons.arrow_back);
+var _icons_arrow_back_ios =
+    MXFunctionInvoke("Icons.arrow_back_ios", () => Icons.arrow_back_ios);
+var _icons_arrow_downward =
+    MXFunctionInvoke("Icons.arrow_downward", () => Icons.arrow_downward);
+var _icons_arrow_drop_down =
+    MXFunctionInvoke("Icons.arrow_drop_down", () => Icons.arrow_drop_down);
 var _icons_arrow_drop_down_circle = MXFunctionInvoke(
-  "Icons.arrow_drop_down_circle",
-    (
-    ) =>
-      Icons.arrow_drop_down_circle
-);
-var _icons_arrow_drop_up = MXFunctionInvoke(
-  "Icons.arrow_drop_up",
-    (
-    ) =>
-      Icons.arrow_drop_up
-);
-var _icons_arrow_forward = MXFunctionInvoke(
-  "Icons.arrow_forward",
-    (
-    ) =>
-      Icons.arrow_forward
-);
-var _icons_arrow_forward_ios = MXFunctionInvoke(
-  "Icons.arrow_forward_ios",
-    (
-    ) =>
-      Icons.arrow_forward_ios
-);
-var _icons_arrow_left = MXFunctionInvoke(
-  "Icons.arrow_left",
-    (
-    ) =>
-      Icons.arrow_left
-);
-var _icons_arrow_right = MXFunctionInvoke(
-  "Icons.arrow_right",
-    (
-    ) =>
-      Icons.arrow_right
-);
-var _icons_arrow_upward = MXFunctionInvoke(
-  "Icons.arrow_upward",
-    (
-    ) =>
-      Icons.arrow_upward
-);
-var _icons_art_track = MXFunctionInvoke(
-  "Icons.art_track",
-    (
-    ) =>
-      Icons.art_track
-);
-var _icons_aspect_ratio = MXFunctionInvoke(
-  "Icons.aspect_ratio",
-    (
-    ) =>
-      Icons.aspect_ratio
-);
-var _icons_assessment = MXFunctionInvoke(
-  "Icons.assessment",
-    (
-    ) =>
-      Icons.assessment
-);
-var _icons_assignment = MXFunctionInvoke(
-  "Icons.assignment",
-    (
-    ) =>
-      Icons.assignment
-);
-var _icons_assignment_ind = MXFunctionInvoke(
-  "Icons.assignment_ind",
-    (
-    ) =>
-      Icons.assignment_ind
-);
-var _icons_assignment_late = MXFunctionInvoke(
-  "Icons.assignment_late",
-    (
-    ) =>
-      Icons.assignment_late
-);
-var _icons_assignment_return = MXFunctionInvoke(
-  "Icons.assignment_return",
-    (
-    ) =>
-      Icons.assignment_return
-);
+    "Icons.arrow_drop_down_circle", () => Icons.arrow_drop_down_circle);
+var _icons_arrow_drop_up =
+    MXFunctionInvoke("Icons.arrow_drop_up", () => Icons.arrow_drop_up);
+var _icons_arrow_forward =
+    MXFunctionInvoke("Icons.arrow_forward", () => Icons.arrow_forward);
+var _icons_arrow_forward_ios =
+    MXFunctionInvoke("Icons.arrow_forward_ios", () => Icons.arrow_forward_ios);
+var _icons_arrow_left =
+    MXFunctionInvoke("Icons.arrow_left", () => Icons.arrow_left);
+var _icons_arrow_right =
+    MXFunctionInvoke("Icons.arrow_right", () => Icons.arrow_right);
+var _icons_arrow_upward =
+    MXFunctionInvoke("Icons.arrow_upward", () => Icons.arrow_upward);
+var _icons_art_track =
+    MXFunctionInvoke("Icons.art_track", () => Icons.art_track);
+var _icons_aspect_ratio =
+    MXFunctionInvoke("Icons.aspect_ratio", () => Icons.aspect_ratio);
+var _icons_assessment =
+    MXFunctionInvoke("Icons.assessment", () => Icons.assessment);
+var _icons_assignment =
+    MXFunctionInvoke("Icons.assignment", () => Icons.assignment);
+var _icons_assignment_ind =
+    MXFunctionInvoke("Icons.assignment_ind", () => Icons.assignment_ind);
+var _icons_assignment_late =
+    MXFunctionInvoke("Icons.assignment_late", () => Icons.assignment_late);
+var _icons_assignment_return =
+    MXFunctionInvoke("Icons.assignment_return", () => Icons.assignment_return);
 var _icons_assignment_returned = MXFunctionInvoke(
-  "Icons.assignment_returned",
-    (
-    ) =>
-      Icons.assignment_returned
-);
+    "Icons.assignment_returned", () => Icons.assignment_returned);
 var _icons_assignment_turned_in = MXFunctionInvoke(
-  "Icons.assignment_turned_in",
-    (
-    ) =>
-      Icons.assignment_turned_in
-);
-var _icons_assistant = MXFunctionInvoke(
-  "Icons.assistant",
-    (
-    ) =>
-      Icons.assistant
-);
-var _icons_assistant_photo = MXFunctionInvoke(
-  "Icons.assistant_photo",
-    (
-    ) =>
-      Icons.assistant_photo
-);
-var _icons_atm = MXFunctionInvoke(
-  "Icons.atm",
-    (
-    ) =>
-      Icons.atm
-);
-var _icons_attach_file = MXFunctionInvoke(
-  "Icons.attach_file",
-    (
-    ) =>
-      Icons.attach_file
-);
-var _icons_attach_money = MXFunctionInvoke(
-  "Icons.attach_money",
-    (
-    ) =>
-      Icons.attach_money
-);
-var _icons_attachment = MXFunctionInvoke(
-  "Icons.attachment",
-    (
-    ) =>
-      Icons.attachment
-);
-var _icons_audiotrack = MXFunctionInvoke(
-  "Icons.audiotrack",
-    (
-    ) =>
-      Icons.audiotrack
-);
-var _icons_autorenew = MXFunctionInvoke(
-  "Icons.autorenew",
-    (
-    ) =>
-      Icons.autorenew
-);
-var _icons_av_timer = MXFunctionInvoke(
-  "Icons.av_timer",
-    (
-    ) =>
-      Icons.av_timer
-);
-var _icons_backspace = MXFunctionInvoke(
-  "Icons.backspace",
-    (
-    ) =>
-      Icons.backspace
-);
-var _icons_backup = MXFunctionInvoke(
-  "Icons.backup",
-    (
-    ) =>
-      Icons.backup
-);
-var _icons_battery_alert = MXFunctionInvoke(
-  "Icons.battery_alert",
-    (
-    ) =>
-      Icons.battery_alert
-);
+    "Icons.assignment_turned_in", () => Icons.assignment_turned_in);
+var _icons_assistant =
+    MXFunctionInvoke("Icons.assistant", () => Icons.assistant);
+var _icons_assistant_photo =
+    MXFunctionInvoke("Icons.assistant_photo", () => Icons.assistant_photo);
+var _icons_atm = MXFunctionInvoke("Icons.atm", () => Icons.atm);
+var _icons_attach_file =
+    MXFunctionInvoke("Icons.attach_file", () => Icons.attach_file);
+var _icons_attach_money =
+    MXFunctionInvoke("Icons.attach_money", () => Icons.attach_money);
+var _icons_attachment =
+    MXFunctionInvoke("Icons.attachment", () => Icons.attachment);
+var _icons_audiotrack =
+    MXFunctionInvoke("Icons.audiotrack", () => Icons.audiotrack);
+var _icons_autorenew =
+    MXFunctionInvoke("Icons.autorenew", () => Icons.autorenew);
+var _icons_av_timer = MXFunctionInvoke("Icons.av_timer", () => Icons.av_timer);
+var _icons_backspace =
+    MXFunctionInvoke("Icons.backspace", () => Icons.backspace);
+var _icons_backup = MXFunctionInvoke("Icons.backup", () => Icons.backup);
+var _icons_battery_alert =
+    MXFunctionInvoke("Icons.battery_alert", () => Icons.battery_alert);
 var _icons_battery_charging_full = MXFunctionInvoke(
-  "Icons.battery_charging_full",
-    (
-    ) =>
-      Icons.battery_charging_full
-);
-var _icons_battery_full = MXFunctionInvoke(
-  "Icons.battery_full",
-    (
-    ) =>
-      Icons.battery_full
-);
-var _icons_battery_std = MXFunctionInvoke(
-  "Icons.battery_std",
-    (
-    ) =>
-      Icons.battery_std
-);
-var _icons_battery_unknown = MXFunctionInvoke(
-  "Icons.battery_unknown",
-    (
-    ) =>
-      Icons.battery_unknown
-);
-var _icons_beach_access = MXFunctionInvoke(
-  "Icons.beach_access",
-    (
-    ) =>
-      Icons.beach_access
-);
-var _icons_beenhere = MXFunctionInvoke(
-  "Icons.beenhere",
-    (
-    ) =>
-      Icons.beenhere
-);
-var _icons_block = MXFunctionInvoke(
-  "Icons.block",
-    (
-    ) =>
-      Icons.block
-);
-var _icons_bluetooth = MXFunctionInvoke(
-  "Icons.bluetooth",
-    (
-    ) =>
-      Icons.bluetooth
-);
-var _icons_bluetooth_audio = MXFunctionInvoke(
-  "Icons.bluetooth_audio",
-    (
-    ) =>
-      Icons.bluetooth_audio
-);
+    "Icons.battery_charging_full", () => Icons.battery_charging_full);
+var _icons_battery_full =
+    MXFunctionInvoke("Icons.battery_full", () => Icons.battery_full);
+var _icons_battery_std =
+    MXFunctionInvoke("Icons.battery_std", () => Icons.battery_std);
+var _icons_battery_unknown =
+    MXFunctionInvoke("Icons.battery_unknown", () => Icons.battery_unknown);
+var _icons_beach_access =
+    MXFunctionInvoke("Icons.beach_access", () => Icons.beach_access);
+var _icons_beenhere = MXFunctionInvoke("Icons.beenhere", () => Icons.beenhere);
+var _icons_block = MXFunctionInvoke("Icons.block", () => Icons.block);
+var _icons_bluetooth =
+    MXFunctionInvoke("Icons.bluetooth", () => Icons.bluetooth);
+var _icons_bluetooth_audio =
+    MXFunctionInvoke("Icons.bluetooth_audio", () => Icons.bluetooth_audio);
 var _icons_bluetooth_connected = MXFunctionInvoke(
-  "Icons.bluetooth_connected",
-    (
-    ) =>
-      Icons.bluetooth_connected
-);
+    "Icons.bluetooth_connected", () => Icons.bluetooth_connected);
 var _icons_bluetooth_disabled = MXFunctionInvoke(
-  "Icons.bluetooth_disabled",
-    (
-    ) =>
-      Icons.bluetooth_disabled
-);
+    "Icons.bluetooth_disabled", () => Icons.bluetooth_disabled);
 var _icons_bluetooth_searching = MXFunctionInvoke(
-  "Icons.bluetooth_searching",
-    (
-    ) =>
-      Icons.bluetooth_searching
-);
-var _icons_blur_circular = MXFunctionInvoke(
-  "Icons.blur_circular",
-    (
-    ) =>
-      Icons.blur_circular
-);
-var _icons_blur_linear = MXFunctionInvoke(
-  "Icons.blur_linear",
-    (
-    ) =>
-      Icons.blur_linear
-);
-var _icons_blur_off = MXFunctionInvoke(
-  "Icons.blur_off",
-    (
-    ) =>
-      Icons.blur_off
-);
-var _icons_blur_on = MXFunctionInvoke(
-  "Icons.blur_on",
-    (
-    ) =>
-      Icons.blur_on
-);
-var _icons_book = MXFunctionInvoke(
-  "Icons.book",
-    (
-    ) =>
-      Icons.book
-);
-var _icons_bookmark = MXFunctionInvoke(
-  "Icons.bookmark",
-    (
-    ) =>
-      Icons.bookmark
-);
-var _icons_bookmark_border = MXFunctionInvoke(
-  "Icons.bookmark_border",
-    (
-    ) =>
-      Icons.bookmark_border
-);
-var _icons_border_all = MXFunctionInvoke(
-  "Icons.border_all",
-    (
-    ) =>
-      Icons.border_all
-);
-var _icons_border_bottom = MXFunctionInvoke(
-  "Icons.border_bottom",
-    (
-    ) =>
-      Icons.border_bottom
-);
-var _icons_border_clear = MXFunctionInvoke(
-  "Icons.border_clear",
-    (
-    ) =>
-      Icons.border_clear
-);
-var _icons_border_color = MXFunctionInvoke(
-  "Icons.border_color",
-    (
-    ) =>
-      Icons.border_color
-);
-var _icons_border_horizontal = MXFunctionInvoke(
-  "Icons.border_horizontal",
-    (
-    ) =>
-      Icons.border_horizontal
-);
-var _icons_border_inner = MXFunctionInvoke(
-  "Icons.border_inner",
-    (
-    ) =>
-      Icons.border_inner
-);
-var _icons_border_left = MXFunctionInvoke(
-  "Icons.border_left",
-    (
-    ) =>
-      Icons.border_left
-);
-var _icons_border_outer = MXFunctionInvoke(
-  "Icons.border_outer",
-    (
-    ) =>
-      Icons.border_outer
-);
-var _icons_border_right = MXFunctionInvoke(
-  "Icons.border_right",
-    (
-    ) =>
-      Icons.border_right
-);
-var _icons_border_style = MXFunctionInvoke(
-  "Icons.border_style",
-    (
-    ) =>
-      Icons.border_style
-);
-var _icons_border_top = MXFunctionInvoke(
-  "Icons.border_top",
-    (
-    ) =>
-      Icons.border_top
-);
-var _icons_border_vertical = MXFunctionInvoke(
-  "Icons.border_vertical",
-    (
-    ) =>
-      Icons.border_vertical
-);
+    "Icons.bluetooth_searching", () => Icons.bluetooth_searching);
+var _icons_blur_circular =
+    MXFunctionInvoke("Icons.blur_circular", () => Icons.blur_circular);
+var _icons_blur_linear =
+    MXFunctionInvoke("Icons.blur_linear", () => Icons.blur_linear);
+var _icons_blur_off = MXFunctionInvoke("Icons.blur_off", () => Icons.blur_off);
+var _icons_blur_on = MXFunctionInvoke("Icons.blur_on", () => Icons.blur_on);
+var _icons_book = MXFunctionInvoke("Icons.book", () => Icons.book);
+var _icons_bookmark = MXFunctionInvoke("Icons.bookmark", () => Icons.bookmark);
+var _icons_bookmark_border =
+    MXFunctionInvoke("Icons.bookmark_border", () => Icons.bookmark_border);
+var _icons_border_all =
+    MXFunctionInvoke("Icons.border_all", () => Icons.border_all);
+var _icons_border_bottom =
+    MXFunctionInvoke("Icons.border_bottom", () => Icons.border_bottom);
+var _icons_border_clear =
+    MXFunctionInvoke("Icons.border_clear", () => Icons.border_clear);
+var _icons_border_color =
+    MXFunctionInvoke("Icons.border_color", () => Icons.border_color);
+var _icons_border_horizontal =
+    MXFunctionInvoke("Icons.border_horizontal", () => Icons.border_horizontal);
+var _icons_border_inner =
+    MXFunctionInvoke("Icons.border_inner", () => Icons.border_inner);
+var _icons_border_left =
+    MXFunctionInvoke("Icons.border_left", () => Icons.border_left);
+var _icons_border_outer =
+    MXFunctionInvoke("Icons.border_outer", () => Icons.border_outer);
+var _icons_border_right =
+    MXFunctionInvoke("Icons.border_right", () => Icons.border_right);
+var _icons_border_style =
+    MXFunctionInvoke("Icons.border_style", () => Icons.border_style);
+var _icons_border_top =
+    MXFunctionInvoke("Icons.border_top", () => Icons.border_top);
+var _icons_border_vertical =
+    MXFunctionInvoke("Icons.border_vertical", () => Icons.border_vertical);
 var _icons_branding_watermark = MXFunctionInvoke(
-  "Icons.branding_watermark",
-    (
-    ) =>
-      Icons.branding_watermark
-);
-var _icons_brightness_1 = MXFunctionInvoke(
-  "Icons.brightness_1",
-    (
-    ) =>
-      Icons.brightness_1
-);
-var _icons_brightness_2 = MXFunctionInvoke(
-  "Icons.brightness_2",
-    (
-    ) =>
-      Icons.brightness_2
-);
-var _icons_brightness_3 = MXFunctionInvoke(
-  "Icons.brightness_3",
-    (
-    ) =>
-      Icons.brightness_3
-);
-var _icons_brightness_4 = MXFunctionInvoke(
-  "Icons.brightness_4",
-    (
-    ) =>
-      Icons.brightness_4
-);
-var _icons_brightness_5 = MXFunctionInvoke(
-  "Icons.brightness_5",
-    (
-    ) =>
-      Icons.brightness_5
-);
-var _icons_brightness_6 = MXFunctionInvoke(
-  "Icons.brightness_6",
-    (
-    ) =>
-      Icons.brightness_6
-);
-var _icons_brightness_7 = MXFunctionInvoke(
-  "Icons.brightness_7",
-    (
-    ) =>
-      Icons.brightness_7
-);
-var _icons_brightness_auto = MXFunctionInvoke(
-  "Icons.brightness_auto",
-    (
-    ) =>
-      Icons.brightness_auto
-);
-var _icons_brightness_high = MXFunctionInvoke(
-  "Icons.brightness_high",
-    (
-    ) =>
-      Icons.brightness_high
-);
-var _icons_brightness_low = MXFunctionInvoke(
-  "Icons.brightness_low",
-    (
-    ) =>
-      Icons.brightness_low
-);
-var _icons_brightness_medium = MXFunctionInvoke(
-  "Icons.brightness_medium",
-    (
-    ) =>
-      Icons.brightness_medium
-);
-var _icons_broken_image = MXFunctionInvoke(
-  "Icons.broken_image",
-    (
-    ) =>
-      Icons.broken_image
-);
-var _icons_brush = MXFunctionInvoke(
-  "Icons.brush",
-    (
-    ) =>
-      Icons.brush
-);
-var _icons_bubble_chart = MXFunctionInvoke(
-  "Icons.bubble_chart",
-    (
-    ) =>
-      Icons.bubble_chart
-);
-var _icons_bug_report = MXFunctionInvoke(
-  "Icons.bug_report",
-    (
-    ) =>
-      Icons.bug_report
-);
-var _icons_build = MXFunctionInvoke(
-  "Icons.build",
-    (
-    ) =>
-      Icons.build
-);
-var _icons_burst_mode = MXFunctionInvoke(
-  "Icons.burst_mode",
-    (
-    ) =>
-      Icons.burst_mode
-);
-var _icons_business = MXFunctionInvoke(
-  "Icons.business",
-    (
-    ) =>
-      Icons.business
-);
-var _icons_business_center = MXFunctionInvoke(
-  "Icons.business_center",
-    (
-    ) =>
-      Icons.business_center
-);
-var _icons_cached = MXFunctionInvoke(
-  "Icons.cached",
-    (
-    ) =>
-      Icons.cached
-);
-var _icons_cake = MXFunctionInvoke(
-  "Icons.cake",
-    (
-    ) =>
-      Icons.cake
-);
-var _icons_calendar_today = MXFunctionInvoke(
-  "Icons.calendar_today",
-    (
-    ) =>
-      Icons.calendar_today
-);
-var _icons_calendar_view_day = MXFunctionInvoke(
-  "Icons.calendar_view_day",
-    (
-    ) =>
-      Icons.calendar_view_day
-);
-var _icons_call = MXFunctionInvoke(
-  "Icons.call",
-    (
-    ) =>
-      Icons.call
-);
-var _icons_call_end = MXFunctionInvoke(
-  "Icons.call_end",
-    (
-    ) =>
-      Icons.call_end
-);
-var _icons_call_made = MXFunctionInvoke(
-  "Icons.call_made",
-    (
-    ) =>
-      Icons.call_made
-);
-var _icons_call_merge = MXFunctionInvoke(
-  "Icons.call_merge",
-    (
-    ) =>
-      Icons.call_merge
-);
-var _icons_call_missed = MXFunctionInvoke(
-  "Icons.call_missed",
-    (
-    ) =>
-      Icons.call_missed
-);
+    "Icons.branding_watermark", () => Icons.branding_watermark);
+var _icons_brightness_1 =
+    MXFunctionInvoke("Icons.brightness_1", () => Icons.brightness_1);
+var _icons_brightness_2 =
+    MXFunctionInvoke("Icons.brightness_2", () => Icons.brightness_2);
+var _icons_brightness_3 =
+    MXFunctionInvoke("Icons.brightness_3", () => Icons.brightness_3);
+var _icons_brightness_4 =
+    MXFunctionInvoke("Icons.brightness_4", () => Icons.brightness_4);
+var _icons_brightness_5 =
+    MXFunctionInvoke("Icons.brightness_5", () => Icons.brightness_5);
+var _icons_brightness_6 =
+    MXFunctionInvoke("Icons.brightness_6", () => Icons.brightness_6);
+var _icons_brightness_7 =
+    MXFunctionInvoke("Icons.brightness_7", () => Icons.brightness_7);
+var _icons_brightness_auto =
+    MXFunctionInvoke("Icons.brightness_auto", () => Icons.brightness_auto);
+var _icons_brightness_high =
+    MXFunctionInvoke("Icons.brightness_high", () => Icons.brightness_high);
+var _icons_brightness_low =
+    MXFunctionInvoke("Icons.brightness_low", () => Icons.brightness_low);
+var _icons_brightness_medium =
+    MXFunctionInvoke("Icons.brightness_medium", () => Icons.brightness_medium);
+var _icons_broken_image =
+    MXFunctionInvoke("Icons.broken_image", () => Icons.broken_image);
+var _icons_brush = MXFunctionInvoke("Icons.brush", () => Icons.brush);
+var _icons_bubble_chart =
+    MXFunctionInvoke("Icons.bubble_chart", () => Icons.bubble_chart);
+var _icons_bug_report =
+    MXFunctionInvoke("Icons.bug_report", () => Icons.bug_report);
+var _icons_build = MXFunctionInvoke("Icons.build", () => Icons.build);
+var _icons_burst_mode =
+    MXFunctionInvoke("Icons.burst_mode", () => Icons.burst_mode);
+var _icons_business = MXFunctionInvoke("Icons.business", () => Icons.business);
+var _icons_business_center =
+    MXFunctionInvoke("Icons.business_center", () => Icons.business_center);
+var _icons_cached = MXFunctionInvoke("Icons.cached", () => Icons.cached);
+var _icons_cake = MXFunctionInvoke("Icons.cake", () => Icons.cake);
+var _icons_calendar_today =
+    MXFunctionInvoke("Icons.calendar_today", () => Icons.calendar_today);
+var _icons_calendar_view_day =
+    MXFunctionInvoke("Icons.calendar_view_day", () => Icons.calendar_view_day);
+var _icons_call = MXFunctionInvoke("Icons.call", () => Icons.call);
+var _icons_call_end = MXFunctionInvoke("Icons.call_end", () => Icons.call_end);
+var _icons_call_made =
+    MXFunctionInvoke("Icons.call_made", () => Icons.call_made);
+var _icons_call_merge =
+    MXFunctionInvoke("Icons.call_merge", () => Icons.call_merge);
+var _icons_call_missed =
+    MXFunctionInvoke("Icons.call_missed", () => Icons.call_missed);
 var _icons_call_missed_outgoing = MXFunctionInvoke(
-  "Icons.call_missed_outgoing",
-    (
-    ) =>
-      Icons.call_missed_outgoing
-);
-var _icons_call_received = MXFunctionInvoke(
-  "Icons.call_received",
-    (
-    ) =>
-      Icons.call_received
-);
-var _icons_call_split = MXFunctionInvoke(
-  "Icons.call_split",
-    (
-    ) =>
-      Icons.call_split
-);
-var _icons_call_to_action = MXFunctionInvoke(
-  "Icons.call_to_action",
-    (
-    ) =>
-      Icons.call_to_action
-);
-var _icons_camera = MXFunctionInvoke(
-  "Icons.camera",
-    (
-    ) =>
-      Icons.camera
-);
-var _icons_camera_alt = MXFunctionInvoke(
-  "Icons.camera_alt",
-    (
-    ) =>
-      Icons.camera_alt
-);
-var _icons_camera_enhance = MXFunctionInvoke(
-  "Icons.camera_enhance",
-    (
-    ) =>
-      Icons.camera_enhance
-);
-var _icons_camera_front = MXFunctionInvoke(
-  "Icons.camera_front",
-    (
-    ) =>
-      Icons.camera_front
-);
-var _icons_camera_rear = MXFunctionInvoke(
-  "Icons.camera_rear",
-    (
-    ) =>
-      Icons.camera_rear
-);
-var _icons_camera_roll = MXFunctionInvoke(
-  "Icons.camera_roll",
-    (
-    ) =>
-      Icons.camera_roll
-);
-var _icons_cancel = MXFunctionInvoke(
-  "Icons.cancel",
-    (
-    ) =>
-      Icons.cancel
-);
-var _icons_card_giftcard = MXFunctionInvoke(
-  "Icons.card_giftcard",
-    (
-    ) =>
-      Icons.card_giftcard
-);
-var _icons_card_membership = MXFunctionInvoke(
-  "Icons.card_membership",
-    (
-    ) =>
-      Icons.card_membership
-);
-var _icons_card_travel = MXFunctionInvoke(
-  "Icons.card_travel",
-    (
-    ) =>
-      Icons.card_travel
-);
-var _icons_casino = MXFunctionInvoke(
-  "Icons.casino",
-    (
-    ) =>
-      Icons.casino
-);
-var _icons_cast = MXFunctionInvoke(
-  "Icons.cast",
-    (
-    ) =>
-      Icons.cast
-);
-var _icons_cast_connected = MXFunctionInvoke(
-  "Icons.cast_connected",
-    (
-    ) =>
-      Icons.cast_connected
-);
-var _icons_category = MXFunctionInvoke(
-  "Icons.category",
-    (
-    ) =>
-      Icons.category
-);
+    "Icons.call_missed_outgoing", () => Icons.call_missed_outgoing);
+var _icons_call_received =
+    MXFunctionInvoke("Icons.call_received", () => Icons.call_received);
+var _icons_call_split =
+    MXFunctionInvoke("Icons.call_split", () => Icons.call_split);
+var _icons_call_to_action =
+    MXFunctionInvoke("Icons.call_to_action", () => Icons.call_to_action);
+var _icons_camera = MXFunctionInvoke("Icons.camera", () => Icons.camera);
+var _icons_camera_alt =
+    MXFunctionInvoke("Icons.camera_alt", () => Icons.camera_alt);
+var _icons_camera_enhance =
+    MXFunctionInvoke("Icons.camera_enhance", () => Icons.camera_enhance);
+var _icons_camera_front =
+    MXFunctionInvoke("Icons.camera_front", () => Icons.camera_front);
+var _icons_camera_rear =
+    MXFunctionInvoke("Icons.camera_rear", () => Icons.camera_rear);
+var _icons_camera_roll =
+    MXFunctionInvoke("Icons.camera_roll", () => Icons.camera_roll);
+var _icons_cancel = MXFunctionInvoke("Icons.cancel", () => Icons.cancel);
+var _icons_card_giftcard =
+    MXFunctionInvoke("Icons.card_giftcard", () => Icons.card_giftcard);
+var _icons_card_membership =
+    MXFunctionInvoke("Icons.card_membership", () => Icons.card_membership);
+var _icons_card_travel =
+    MXFunctionInvoke("Icons.card_travel", () => Icons.card_travel);
+var _icons_casino = MXFunctionInvoke("Icons.casino", () => Icons.casino);
+var _icons_cast = MXFunctionInvoke("Icons.cast", () => Icons.cast);
+var _icons_cast_connected =
+    MXFunctionInvoke("Icons.cast_connected", () => Icons.cast_connected);
+var _icons_category = MXFunctionInvoke("Icons.category", () => Icons.category);
 var _icons_center_focus_strong = MXFunctionInvoke(
-  "Icons.center_focus_strong",
-    (
-    ) =>
-      Icons.center_focus_strong
-);
-var _icons_center_focus_weak = MXFunctionInvoke(
-  "Icons.center_focus_weak",
-    (
-    ) =>
-      Icons.center_focus_weak
-);
-var _icons_change_history = MXFunctionInvoke(
-  "Icons.change_history",
-    (
-    ) =>
-      Icons.change_history
-);
-var _icons_chat = MXFunctionInvoke(
-  "Icons.chat",
-    (
-    ) =>
-      Icons.chat
-);
-var _icons_chat_bubble = MXFunctionInvoke(
-  "Icons.chat_bubble",
-    (
-    ) =>
-      Icons.chat_bubble
-);
+    "Icons.center_focus_strong", () => Icons.center_focus_strong);
+var _icons_center_focus_weak =
+    MXFunctionInvoke("Icons.center_focus_weak", () => Icons.center_focus_weak);
+var _icons_change_history =
+    MXFunctionInvoke("Icons.change_history", () => Icons.change_history);
+var _icons_chat = MXFunctionInvoke("Icons.chat", () => Icons.chat);
+var _icons_chat_bubble =
+    MXFunctionInvoke("Icons.chat_bubble", () => Icons.chat_bubble);
 var _icons_chat_bubble_outline = MXFunctionInvoke(
-  "Icons.chat_bubble_outline",
-    (
-    ) =>
-      Icons.chat_bubble_outline
-);
-var _icons_check = MXFunctionInvoke(
-  "Icons.check",
-    (
-    ) =>
-      Icons.check
-);
-var _icons_check_box = MXFunctionInvoke(
-  "Icons.check_box",
-    (
-    ) =>
-      Icons.check_box
-);
+    "Icons.chat_bubble_outline", () => Icons.chat_bubble_outline);
+var _icons_check = MXFunctionInvoke("Icons.check", () => Icons.check);
+var _icons_check_box =
+    MXFunctionInvoke("Icons.check_box", () => Icons.check_box);
 var _icons_check_box_outline_blank = MXFunctionInvoke(
-  "Icons.check_box_outline_blank",
-    (
-    ) =>
-      Icons.check_box_outline_blank
-);
-var _icons_check_circle = MXFunctionInvoke(
-  "Icons.check_circle",
-    (
-    ) =>
-      Icons.check_circle
-);
+    "Icons.check_box_outline_blank", () => Icons.check_box_outline_blank);
+var _icons_check_circle =
+    MXFunctionInvoke("Icons.check_circle", () => Icons.check_circle);
 var _icons_check_circle_outline = MXFunctionInvoke(
-  "Icons.check_circle_outline",
-    (
-    ) =>
-      Icons.check_circle_outline
-);
-var _icons_chevron_left = MXFunctionInvoke(
-  "Icons.chevron_left",
-    (
-    ) =>
-      Icons.chevron_left
-);
-var _icons_chevron_right = MXFunctionInvoke(
-  "Icons.chevron_right",
-    (
-    ) =>
-      Icons.chevron_right
-);
-var _icons_child_care = MXFunctionInvoke(
-  "Icons.child_care",
-    (
-    ) =>
-      Icons.child_care
-);
-var _icons_child_friendly = MXFunctionInvoke(
-  "Icons.child_friendly",
-    (
-    ) =>
-      Icons.child_friendly
-);
+    "Icons.check_circle_outline", () => Icons.check_circle_outline);
+var _icons_chevron_left =
+    MXFunctionInvoke("Icons.chevron_left", () => Icons.chevron_left);
+var _icons_chevron_right =
+    MXFunctionInvoke("Icons.chevron_right", () => Icons.chevron_right);
+var _icons_child_care =
+    MXFunctionInvoke("Icons.child_care", () => Icons.child_care);
+var _icons_child_friendly =
+    MXFunctionInvoke("Icons.child_friendly", () => Icons.child_friendly);
 var _icons_chrome_reader_mode = MXFunctionInvoke(
-  "Icons.chrome_reader_mode",
-    (
-    ) =>
-      Icons.chrome_reader_mode
-);
-/// MX modified start
-var _icons_class_ = MXFunctionInvoke(
-  "Icons.class_",
-    (
-    ) =>
-    /// MX modified begin -change class_
-      Icons.class_
-    /// MX modified end
-);
-/// MX modified end
-var _icons_clear = MXFunctionInvoke(
-  "Icons.clear",
-    (
-    ) =>
-      Icons.clear
-);
-var _icons_clear_all = MXFunctionInvoke(
-  "Icons.clear_all",
-    (
-    ) =>
-      Icons.clear_all
-);
-var _icons_close = MXFunctionInvoke(
-  "Icons.close",
-    (
-    ) =>
-      Icons.close
-);
-var _icons_closed_caption = MXFunctionInvoke(
-  "Icons.closed_caption",
-    (
-    ) =>
-      Icons.closed_caption
-);
-var _icons_cloud = MXFunctionInvoke(
-  "Icons.cloud",
-    (
-    ) =>
-      Icons.cloud
-);
-var _icons_cloud_circle = MXFunctionInvoke(
-  "Icons.cloud_circle",
-    (
-    ) =>
-      Icons.cloud_circle
-);
-var _icons_cloud_done = MXFunctionInvoke(
-  "Icons.cloud_done",
-    (
-    ) =>
-      Icons.cloud_done
-);
-var _icons_cloud_download = MXFunctionInvoke(
-  "Icons.cloud_download",
-    (
-    ) =>
-      Icons.cloud_download
-);
-var _icons_cloud_off = MXFunctionInvoke(
-  "Icons.cloud_off",
-    (
-    ) =>
-      Icons.cloud_off
-);
-var _icons_cloud_queue = MXFunctionInvoke(
-  "Icons.cloud_queue",
-    (
-    ) =>
-      Icons.cloud_queue
-);
-var _icons_cloud_upload = MXFunctionInvoke(
-  "Icons.cloud_upload",
-    (
-    ) =>
-      Icons.cloud_upload
-);
-var _icons_code = MXFunctionInvoke(
-  "Icons.code",
-    (
-    ) =>
-      Icons.code
-);
-var _icons_collections = MXFunctionInvoke(
-  "Icons.collections",
-    (
-    ) =>
-      Icons.collections
-);
+    "Icons.chrome_reader_mode", () => Icons.chrome_reader_mode);
+var _icons_class_ = MXFunctionInvoke("Icons.class_", () => Icons.class_);
+var _icons_clear = MXFunctionInvoke("Icons.clear", () => Icons.clear);
+var _icons_clear_all =
+    MXFunctionInvoke("Icons.clear_all", () => Icons.clear_all);
+var _icons_close = MXFunctionInvoke("Icons.close", () => Icons.close);
+var _icons_closed_caption =
+    MXFunctionInvoke("Icons.closed_caption", () => Icons.closed_caption);
+var _icons_cloud = MXFunctionInvoke("Icons.cloud", () => Icons.cloud);
+var _icons_cloud_circle =
+    MXFunctionInvoke("Icons.cloud_circle", () => Icons.cloud_circle);
+var _icons_cloud_done =
+    MXFunctionInvoke("Icons.cloud_done", () => Icons.cloud_done);
+var _icons_cloud_download =
+    MXFunctionInvoke("Icons.cloud_download", () => Icons.cloud_download);
+var _icons_cloud_off =
+    MXFunctionInvoke("Icons.cloud_off", () => Icons.cloud_off);
+var _icons_cloud_queue =
+    MXFunctionInvoke("Icons.cloud_queue", () => Icons.cloud_queue);
+var _icons_cloud_upload =
+    MXFunctionInvoke("Icons.cloud_upload", () => Icons.cloud_upload);
+var _icons_code = MXFunctionInvoke("Icons.code", () => Icons.code);
+var _icons_collections =
+    MXFunctionInvoke("Icons.collections", () => Icons.collections);
 var _icons_collections_bookmark = MXFunctionInvoke(
-  "Icons.collections_bookmark",
-    (
-    ) =>
-      Icons.collections_bookmark
-);
-var _icons_color_lens = MXFunctionInvoke(
-  "Icons.color_lens",
-    (
-    ) =>
-      Icons.color_lens
-);
-var _icons_colorize = MXFunctionInvoke(
-  "Icons.colorize",
-    (
-    ) =>
-      Icons.colorize
-);
-var _icons_comment = MXFunctionInvoke(
-  "Icons.comment",
-    (
-    ) =>
-      Icons.comment
-);
-var _icons_compare = MXFunctionInvoke(
-  "Icons.compare",
-    (
-    ) =>
-      Icons.compare
-);
-var _icons_compare_arrows = MXFunctionInvoke(
-  "Icons.compare_arrows",
-    (
-    ) =>
-      Icons.compare_arrows
-);
-var _icons_computer = MXFunctionInvoke(
-  "Icons.computer",
-    (
-    ) =>
-      Icons.computer
-);
+    "Icons.collections_bookmark", () => Icons.collections_bookmark);
+var _icons_color_lens =
+    MXFunctionInvoke("Icons.color_lens", () => Icons.color_lens);
+var _icons_colorize = MXFunctionInvoke("Icons.colorize", () => Icons.colorize);
+var _icons_comment = MXFunctionInvoke("Icons.comment", () => Icons.comment);
+var _icons_compare = MXFunctionInvoke("Icons.compare", () => Icons.compare);
+var _icons_compare_arrows =
+    MXFunctionInvoke("Icons.compare_arrows", () => Icons.compare_arrows);
+var _icons_computer = MXFunctionInvoke("Icons.computer", () => Icons.computer);
 var _icons_confirmation_number = MXFunctionInvoke(
-  "Icons.confirmation_number",
-    (
-    ) =>
-      Icons.confirmation_number
-);
-var _icons_contact_mail = MXFunctionInvoke(
-  "Icons.contact_mail",
-    (
-    ) =>
-      Icons.contact_mail
-);
-var _icons_contact_phone = MXFunctionInvoke(
-  "Icons.contact_phone",
-    (
-    ) =>
-      Icons.contact_phone
-);
-var _icons_contacts = MXFunctionInvoke(
-  "Icons.contacts",
-    (
-    ) =>
-      Icons.contacts
-);
-var _icons_content_copy = MXFunctionInvoke(
-  "Icons.content_copy",
-    (
-    ) =>
-      Icons.content_copy
-);
-var _icons_content_cut = MXFunctionInvoke(
-  "Icons.content_cut",
-    (
-    ) =>
-      Icons.content_cut
-);
-var _icons_content_paste = MXFunctionInvoke(
-  "Icons.content_paste",
-    (
-    ) =>
-      Icons.content_paste
-);
-var _icons_control_point = MXFunctionInvoke(
-  "Icons.control_point",
-    (
-    ) =>
-      Icons.control_point
-);
+    "Icons.confirmation_number", () => Icons.confirmation_number);
+var _icons_contact_mail =
+    MXFunctionInvoke("Icons.contact_mail", () => Icons.contact_mail);
+var _icons_contact_phone =
+    MXFunctionInvoke("Icons.contact_phone", () => Icons.contact_phone);
+var _icons_contacts = MXFunctionInvoke("Icons.contacts", () => Icons.contacts);
+var _icons_content_copy =
+    MXFunctionInvoke("Icons.content_copy", () => Icons.content_copy);
+var _icons_content_cut =
+    MXFunctionInvoke("Icons.content_cut", () => Icons.content_cut);
+var _icons_content_paste =
+    MXFunctionInvoke("Icons.content_paste", () => Icons.content_paste);
+var _icons_control_point =
+    MXFunctionInvoke("Icons.control_point", () => Icons.control_point);
 var _icons_control_point_duplicate = MXFunctionInvoke(
-  "Icons.control_point_duplicate",
-    (
-    ) =>
-      Icons.control_point_duplicate
-);
-var _icons_copyright = MXFunctionInvoke(
-  "Icons.copyright",
-    (
-    ) =>
-      Icons.copyright
-);
-var _icons_create = MXFunctionInvoke(
-  "Icons.create",
-    (
-    ) =>
-      Icons.create
-);
-var _icons_create_new_folder = MXFunctionInvoke(
-  "Icons.create_new_folder",
-    (
-    ) =>
-      Icons.create_new_folder
-);
-var _icons_credit_card = MXFunctionInvoke(
-  "Icons.credit_card",
-    (
-    ) =>
-      Icons.credit_card
-);
-var _icons_crop = MXFunctionInvoke(
-  "Icons.crop",
-    (
-    ) =>
-      Icons.crop
-);
-var _icons_crop_16_9 = MXFunctionInvoke(
-  "Icons.crop_16_9",
-    (
-    ) =>
-      Icons.crop_16_9
-);
-var _icons_crop_3_2 = MXFunctionInvoke(
-  "Icons.crop_3_2",
-    (
-    ) =>
-      Icons.crop_3_2
-);
-var _icons_crop_5_4 = MXFunctionInvoke(
-  "Icons.crop_5_4",
-    (
-    ) =>
-      Icons.crop_5_4
-);
-var _icons_crop_7_5 = MXFunctionInvoke(
-  "Icons.crop_7_5",
-    (
-    ) =>
-      Icons.crop_7_5
-);
-var _icons_crop_din = MXFunctionInvoke(
-  "Icons.crop_din",
-    (
-    ) =>
-      Icons.crop_din
-);
-var _icons_crop_free = MXFunctionInvoke(
-  "Icons.crop_free",
-    (
-    ) =>
-      Icons.crop_free
-);
-var _icons_crop_landscape = MXFunctionInvoke(
-  "Icons.crop_landscape",
-    (
-    ) =>
-      Icons.crop_landscape
-);
-var _icons_crop_original = MXFunctionInvoke(
-  "Icons.crop_original",
-    (
-    ) =>
-      Icons.crop_original
-);
-var _icons_crop_portrait = MXFunctionInvoke(
-  "Icons.crop_portrait",
-    (
-    ) =>
-      Icons.crop_portrait
-);
-var _icons_crop_rotate = MXFunctionInvoke(
-  "Icons.crop_rotate",
-    (
-    ) =>
-      Icons.crop_rotate
-);
-var _icons_crop_square = MXFunctionInvoke(
-  "Icons.crop_square",
-    (
-    ) =>
-      Icons.crop_square
-);
-var _icons_dashboard = MXFunctionInvoke(
-  "Icons.dashboard",
-    (
-    ) =>
-      Icons.dashboard
-);
-var _icons_data_usage = MXFunctionInvoke(
-  "Icons.data_usage",
-    (
-    ) =>
-      Icons.data_usage
-);
-var _icons_date_range = MXFunctionInvoke(
-  "Icons.date_range",
-    (
-    ) =>
-      Icons.date_range
-);
-var _icons_dehaze = MXFunctionInvoke(
-  "Icons.dehaze",
-    (
-    ) =>
-      Icons.dehaze
-);
-var _icons_delete = MXFunctionInvoke(
-  "Icons.delete",
-    (
-    ) =>
-      Icons.delete
-);
-var _icons_delete_forever = MXFunctionInvoke(
-  "Icons.delete_forever",
-    (
-    ) =>
-      Icons.delete_forever
-);
-var _icons_delete_outline = MXFunctionInvoke(
-  "Icons.delete_outline",
-    (
-    ) =>
-      Icons.delete_outline
-);
-var _icons_delete_sweep = MXFunctionInvoke(
-  "Icons.delete_sweep",
-    (
-    ) =>
-      Icons.delete_sweep
-);
-var _icons_departure_board = MXFunctionInvoke(
-  "Icons.departure_board",
-    (
-    ) =>
-      Icons.departure_board
-);
-var _icons_description = MXFunctionInvoke(
-  "Icons.description",
-    (
-    ) =>
-      Icons.description
-);
-var _icons_desktop_mac = MXFunctionInvoke(
-  "Icons.desktop_mac",
-    (
-    ) =>
-      Icons.desktop_mac
-);
-var _icons_desktop_windows = MXFunctionInvoke(
-  "Icons.desktop_windows",
-    (
-    ) =>
-      Icons.desktop_windows
-);
-var _icons_details = MXFunctionInvoke(
-  "Icons.details",
-    (
-    ) =>
-      Icons.details
-);
-var _icons_developer_board = MXFunctionInvoke(
-  "Icons.developer_board",
-    (
-    ) =>
-      Icons.developer_board
-);
-var _icons_developer_mode = MXFunctionInvoke(
-  "Icons.developer_mode",
-    (
-    ) =>
-      Icons.developer_mode
-);
-var _icons_device_hub = MXFunctionInvoke(
-  "Icons.device_hub",
-    (
-    ) =>
-      Icons.device_hub
-);
-var _icons_device_unknown = MXFunctionInvoke(
-  "Icons.device_unknown",
-    (
-    ) =>
-      Icons.device_unknown
-);
-var _icons_devices = MXFunctionInvoke(
-  "Icons.devices",
-    (
-    ) =>
-      Icons.devices
-);
-var _icons_devices_other = MXFunctionInvoke(
-  "Icons.devices_other",
-    (
-    ) =>
-      Icons.devices_other
-);
-var _icons_dialer_sip = MXFunctionInvoke(
-  "Icons.dialer_sip",
-    (
-    ) =>
-      Icons.dialer_sip
-);
-var _icons_dialpad = MXFunctionInvoke(
-  "Icons.dialpad",
-    (
-    ) =>
-      Icons.dialpad
-);
-var _icons_directions = MXFunctionInvoke(
-  "Icons.directions",
-    (
-    ) =>
-      Icons.directions
-);
-var _icons_directions_bike = MXFunctionInvoke(
-  "Icons.directions_bike",
-    (
-    ) =>
-      Icons.directions_bike
-);
-var _icons_directions_boat = MXFunctionInvoke(
-  "Icons.directions_boat",
-    (
-    ) =>
-      Icons.directions_boat
-);
-var _icons_directions_bus = MXFunctionInvoke(
-  "Icons.directions_bus",
-    (
-    ) =>
-      Icons.directions_bus
-);
-var _icons_directions_car = MXFunctionInvoke(
-  "Icons.directions_car",
-    (
-    ) =>
-      Icons.directions_car
-);
+    "Icons.control_point_duplicate", () => Icons.control_point_duplicate);
+var _icons_copyright =
+    MXFunctionInvoke("Icons.copyright", () => Icons.copyright);
+var _icons_create = MXFunctionInvoke("Icons.create", () => Icons.create);
+var _icons_create_new_folder =
+    MXFunctionInvoke("Icons.create_new_folder", () => Icons.create_new_folder);
+var _icons_credit_card =
+    MXFunctionInvoke("Icons.credit_card", () => Icons.credit_card);
+var _icons_crop = MXFunctionInvoke("Icons.crop", () => Icons.crop);
+var _icons_crop_16_9 =
+    MXFunctionInvoke("Icons.crop_16_9", () => Icons.crop_16_9);
+var _icons_crop_3_2 = MXFunctionInvoke("Icons.crop_3_2", () => Icons.crop_3_2);
+var _icons_crop_5_4 = MXFunctionInvoke("Icons.crop_5_4", () => Icons.crop_5_4);
+var _icons_crop_7_5 = MXFunctionInvoke("Icons.crop_7_5", () => Icons.crop_7_5);
+var _icons_crop_din = MXFunctionInvoke("Icons.crop_din", () => Icons.crop_din);
+var _icons_crop_free =
+    MXFunctionInvoke("Icons.crop_free", () => Icons.crop_free);
+var _icons_crop_landscape =
+    MXFunctionInvoke("Icons.crop_landscape", () => Icons.crop_landscape);
+var _icons_crop_original =
+    MXFunctionInvoke("Icons.crop_original", () => Icons.crop_original);
+var _icons_crop_portrait =
+    MXFunctionInvoke("Icons.crop_portrait", () => Icons.crop_portrait);
+var _icons_crop_rotate =
+    MXFunctionInvoke("Icons.crop_rotate", () => Icons.crop_rotate);
+var _icons_crop_square =
+    MXFunctionInvoke("Icons.crop_square", () => Icons.crop_square);
+var _icons_dashboard =
+    MXFunctionInvoke("Icons.dashboard", () => Icons.dashboard);
+var _icons_data_usage =
+    MXFunctionInvoke("Icons.data_usage", () => Icons.data_usage);
+var _icons_date_range =
+    MXFunctionInvoke("Icons.date_range", () => Icons.date_range);
+var _icons_dehaze = MXFunctionInvoke("Icons.dehaze", () => Icons.dehaze);
+var _icons_delete = MXFunctionInvoke("Icons.delete", () => Icons.delete);
+var _icons_delete_forever =
+    MXFunctionInvoke("Icons.delete_forever", () => Icons.delete_forever);
+var _icons_delete_outline =
+    MXFunctionInvoke("Icons.delete_outline", () => Icons.delete_outline);
+var _icons_delete_sweep =
+    MXFunctionInvoke("Icons.delete_sweep", () => Icons.delete_sweep);
+var _icons_departure_board =
+    MXFunctionInvoke("Icons.departure_board", () => Icons.departure_board);
+var _icons_description =
+    MXFunctionInvoke("Icons.description", () => Icons.description);
+var _icons_desktop_mac =
+    MXFunctionInvoke("Icons.desktop_mac", () => Icons.desktop_mac);
+var _icons_desktop_windows =
+    MXFunctionInvoke("Icons.desktop_windows", () => Icons.desktop_windows);
+var _icons_details = MXFunctionInvoke("Icons.details", () => Icons.details);
+var _icons_developer_board =
+    MXFunctionInvoke("Icons.developer_board", () => Icons.developer_board);
+var _icons_developer_mode =
+    MXFunctionInvoke("Icons.developer_mode", () => Icons.developer_mode);
+var _icons_device_hub =
+    MXFunctionInvoke("Icons.device_hub", () => Icons.device_hub);
+var _icons_device_unknown =
+    MXFunctionInvoke("Icons.device_unknown", () => Icons.device_unknown);
+var _icons_devices = MXFunctionInvoke("Icons.devices", () => Icons.devices);
+var _icons_devices_other =
+    MXFunctionInvoke("Icons.devices_other", () => Icons.devices_other);
+var _icons_dialer_sip =
+    MXFunctionInvoke("Icons.dialer_sip", () => Icons.dialer_sip);
+var _icons_dialpad = MXFunctionInvoke("Icons.dialpad", () => Icons.dialpad);
+var _icons_directions =
+    MXFunctionInvoke("Icons.directions", () => Icons.directions);
+var _icons_directions_bike =
+    MXFunctionInvoke("Icons.directions_bike", () => Icons.directions_bike);
+var _icons_directions_boat =
+    MXFunctionInvoke("Icons.directions_boat", () => Icons.directions_boat);
+var _icons_directions_bus =
+    MXFunctionInvoke("Icons.directions_bus", () => Icons.directions_bus);
+var _icons_directions_car =
+    MXFunctionInvoke("Icons.directions_car", () => Icons.directions_car);
 var _icons_directions_railway = MXFunctionInvoke(
-  "Icons.directions_railway",
-    (
-    ) =>
-      Icons.directions_railway
-);
-var _icons_directions_run = MXFunctionInvoke(
-  "Icons.directions_run",
-    (
-    ) =>
-      Icons.directions_run
-);
-var _icons_directions_subway = MXFunctionInvoke(
-  "Icons.directions_subway",
-    (
-    ) =>
-      Icons.directions_subway
-);
+    "Icons.directions_railway", () => Icons.directions_railway);
+var _icons_directions_run =
+    MXFunctionInvoke("Icons.directions_run", () => Icons.directions_run);
+var _icons_directions_subway =
+    MXFunctionInvoke("Icons.directions_subway", () => Icons.directions_subway);
 var _icons_directions_transit = MXFunctionInvoke(
-  "Icons.directions_transit",
-    (
-    ) =>
-      Icons.directions_transit
-);
-var _icons_directions_walk = MXFunctionInvoke(
-  "Icons.directions_walk",
-    (
-    ) =>
-      Icons.directions_walk
-);
-var _icons_disc_full = MXFunctionInvoke(
-  "Icons.disc_full",
-    (
-    ) =>
-      Icons.disc_full
-);
-var _icons_dns = MXFunctionInvoke(
-  "Icons.dns",
-    (
-    ) =>
-      Icons.dns
-);
-var _icons_do_not_disturb = MXFunctionInvoke(
-  "Icons.do_not_disturb",
-    (
-    ) =>
-      Icons.do_not_disturb
-);
+    "Icons.directions_transit", () => Icons.directions_transit);
+var _icons_directions_walk =
+    MXFunctionInvoke("Icons.directions_walk", () => Icons.directions_walk);
+var _icons_disc_full =
+    MXFunctionInvoke("Icons.disc_full", () => Icons.disc_full);
+var _icons_dns = MXFunctionInvoke("Icons.dns", () => Icons.dns);
+var _icons_do_not_disturb =
+    MXFunctionInvoke("Icons.do_not_disturb", () => Icons.do_not_disturb);
 var _icons_do_not_disturb_alt = MXFunctionInvoke(
-  "Icons.do_not_disturb_alt",
-    (
-    ) =>
-      Icons.do_not_disturb_alt
-);
+    "Icons.do_not_disturb_alt", () => Icons.do_not_disturb_alt);
 var _icons_do_not_disturb_off = MXFunctionInvoke(
-  "Icons.do_not_disturb_off",
-    (
-    ) =>
-      Icons.do_not_disturb_off
-);
-var _icons_do_not_disturb_on = MXFunctionInvoke(
-  "Icons.do_not_disturb_on",
-    (
-    ) =>
-      Icons.do_not_disturb_on
-);
-var _icons_dock = MXFunctionInvoke(
-  "Icons.dock",
-    (
-    ) =>
-      Icons.dock
-);
-var _icons_domain = MXFunctionInvoke(
-  "Icons.domain",
-    (
-    ) =>
-      Icons.domain
-);
-var _icons_done = MXFunctionInvoke(
-  "Icons.done",
-    (
-    ) =>
-      Icons.done
-);
-var _icons_done_all = MXFunctionInvoke(
-  "Icons.done_all",
-    (
-    ) =>
-      Icons.done_all
-);
-var _icons_done_outline = MXFunctionInvoke(
-  "Icons.done_outline",
-    (
-    ) =>
-      Icons.done_outline
-);
-var _icons_donut_large = MXFunctionInvoke(
-  "Icons.donut_large",
-    (
-    ) =>
-      Icons.donut_large
-);
-var _icons_donut_small = MXFunctionInvoke(
-  "Icons.donut_small",
-    (
-    ) =>
-      Icons.donut_small
-);
-var _icons_drafts = MXFunctionInvoke(
-  "Icons.drafts",
-    (
-    ) =>
-      Icons.drafts
-);
-var _icons_drag_handle = MXFunctionInvoke(
-  "Icons.drag_handle",
-    (
-    ) =>
-      Icons.drag_handle
-);
-var _icons_drive_eta = MXFunctionInvoke(
-  "Icons.drive_eta",
-    (
-    ) =>
-      Icons.drive_eta
-);
-var _icons_dvr = MXFunctionInvoke(
-  "Icons.dvr",
-    (
-    ) =>
-      Icons.dvr
-);
-var _icons_edit = MXFunctionInvoke(
-  "Icons.edit",
-    (
-    ) =>
-      Icons.edit
-);
-var _icons_edit_attributes = MXFunctionInvoke(
-  "Icons.edit_attributes",
-    (
-    ) =>
-      Icons.edit_attributes
-);
-var _icons_edit_location = MXFunctionInvoke(
-  "Icons.edit_location",
-    (
-    ) =>
-      Icons.edit_location
-);
-var _icons_eject = MXFunctionInvoke(
-  "Icons.eject",
-    (
-    ) =>
-      Icons.eject
-);
-var _icons_email = MXFunctionInvoke(
-  "Icons.email",
-    (
-    ) =>
-      Icons.email
-);
+    "Icons.do_not_disturb_off", () => Icons.do_not_disturb_off);
+var _icons_do_not_disturb_on =
+    MXFunctionInvoke("Icons.do_not_disturb_on", () => Icons.do_not_disturb_on);
+var _icons_dock = MXFunctionInvoke("Icons.dock", () => Icons.dock);
+var _icons_domain = MXFunctionInvoke("Icons.domain", () => Icons.domain);
+var _icons_done = MXFunctionInvoke("Icons.done", () => Icons.done);
+var _icons_done_all = MXFunctionInvoke("Icons.done_all", () => Icons.done_all);
+var _icons_done_outline =
+    MXFunctionInvoke("Icons.done_outline", () => Icons.done_outline);
+var _icons_donut_large =
+    MXFunctionInvoke("Icons.donut_large", () => Icons.donut_large);
+var _icons_donut_small =
+    MXFunctionInvoke("Icons.donut_small", () => Icons.donut_small);
+var _icons_drafts = MXFunctionInvoke("Icons.drafts", () => Icons.drafts);
+var _icons_drag_handle =
+    MXFunctionInvoke("Icons.drag_handle", () => Icons.drag_handle);
+var _icons_drive_eta =
+    MXFunctionInvoke("Icons.drive_eta", () => Icons.drive_eta);
+var _icons_dvr = MXFunctionInvoke("Icons.dvr", () => Icons.dvr);
+var _icons_edit = MXFunctionInvoke("Icons.edit", () => Icons.edit);
+var _icons_edit_attributes =
+    MXFunctionInvoke("Icons.edit_attributes", () => Icons.edit_attributes);
+var _icons_edit_location =
+    MXFunctionInvoke("Icons.edit_location", () => Icons.edit_location);
+var _icons_eject = MXFunctionInvoke("Icons.eject", () => Icons.eject);
+var _icons_email = MXFunctionInvoke("Icons.email", () => Icons.email);
 var _icons_enhanced_encryption = MXFunctionInvoke(
-  "Icons.enhanced_encryption",
-    (
-    ) =>
-      Icons.enhanced_encryption
-);
-var _icons_equalizer = MXFunctionInvoke(
-  "Icons.equalizer",
-    (
-    ) =>
-      Icons.equalizer
-);
-var _icons_error = MXFunctionInvoke(
-  "Icons.error",
-    (
-    ) =>
-      Icons.error
-);
-var _icons_error_outline = MXFunctionInvoke(
-  "Icons.error_outline",
-    (
-    ) =>
-      Icons.error_outline
-);
-var _icons_euro_symbol = MXFunctionInvoke(
-  "Icons.euro_symbol",
-    (
-    ) =>
-      Icons.euro_symbol
-);
-var _icons_ev_station = MXFunctionInvoke(
-  "Icons.ev_station",
-    (
-    ) =>
-      Icons.ev_station
-);
-var _icons_event = MXFunctionInvoke(
-  "Icons.event",
-    (
-    ) =>
-      Icons.event
-);
-var _icons_event_available = MXFunctionInvoke(
-  "Icons.event_available",
-    (
-    ) =>
-      Icons.event_available
-);
-var _icons_event_busy = MXFunctionInvoke(
-  "Icons.event_busy",
-    (
-    ) =>
-      Icons.event_busy
-);
-var _icons_event_note = MXFunctionInvoke(
-  "Icons.event_note",
-    (
-    ) =>
-      Icons.event_note
-);
-var _icons_event_seat = MXFunctionInvoke(
-  "Icons.event_seat",
-    (
-    ) =>
-      Icons.event_seat
-);
-var _icons_exit_to_app = MXFunctionInvoke(
-  "Icons.exit_to_app",
-    (
-    ) =>
-      Icons.exit_to_app
-);
-var _icons_expand_less = MXFunctionInvoke(
-  "Icons.expand_less",
-    (
-    ) =>
-      Icons.expand_less
-);
-var _icons_expand_more = MXFunctionInvoke(
-  "Icons.expand_more",
-    (
-    ) =>
-      Icons.expand_more
-);
-var _icons_explicit = MXFunctionInvoke(
-  "Icons.explicit",
-    (
-    ) =>
-      Icons.explicit
-);
-var _icons_explore = MXFunctionInvoke(
-  "Icons.explore",
-    (
-    ) =>
-      Icons.explore
-);
-var _icons_exposure = MXFunctionInvoke(
-  "Icons.exposure",
-    (
-    ) =>
-      Icons.exposure
-);
-var _icons_exposure_neg_1 = MXFunctionInvoke(
-  "Icons.exposure_neg_1",
-    (
-    ) =>
-      Icons.exposure_neg_1
-);
-var _icons_exposure_neg_2 = MXFunctionInvoke(
-  "Icons.exposure_neg_2",
-    (
-    ) =>
-      Icons.exposure_neg_2
-);
-var _icons_exposure_plus_1 = MXFunctionInvoke(
-  "Icons.exposure_plus_1",
-    (
-    ) =>
-      Icons.exposure_plus_1
-);
-var _icons_exposure_plus_2 = MXFunctionInvoke(
-  "Icons.exposure_plus_2",
-    (
-    ) =>
-      Icons.exposure_plus_2
-);
-var _icons_exposure_zero = MXFunctionInvoke(
-  "Icons.exposure_zero",
-    (
-    ) =>
-      Icons.exposure_zero
-);
-var _icons_extension = MXFunctionInvoke(
-  "Icons.extension",
-    (
-    ) =>
-      Icons.extension
-);
-var _icons_face = MXFunctionInvoke(
-  "Icons.face",
-    (
-    ) =>
-      Icons.face
-);
-var _icons_fast_forward = MXFunctionInvoke(
-  "Icons.fast_forward",
-    (
-    ) =>
-      Icons.fast_forward
-);
-var _icons_fast_rewind = MXFunctionInvoke(
-  "Icons.fast_rewind",
-    (
-    ) =>
-      Icons.fast_rewind
-);
-var _icons_fastfood = MXFunctionInvoke(
-  "Icons.fastfood",
-    (
-    ) =>
-      Icons.fastfood
-);
-var _icons_favorite = MXFunctionInvoke(
-  "Icons.favorite",
-    (
-    ) =>
-      Icons.favorite
-);
-var _icons_favorite_border = MXFunctionInvoke(
-  "Icons.favorite_border",
-    (
-    ) =>
-      Icons.favorite_border
-);
+    "Icons.enhanced_encryption", () => Icons.enhanced_encryption);
+var _icons_equalizer =
+    MXFunctionInvoke("Icons.equalizer", () => Icons.equalizer);
+var _icons_error = MXFunctionInvoke("Icons.error", () => Icons.error);
+var _icons_error_outline =
+    MXFunctionInvoke("Icons.error_outline", () => Icons.error_outline);
+var _icons_euro_symbol =
+    MXFunctionInvoke("Icons.euro_symbol", () => Icons.euro_symbol);
+var _icons_ev_station =
+    MXFunctionInvoke("Icons.ev_station", () => Icons.ev_station);
+var _icons_event = MXFunctionInvoke("Icons.event", () => Icons.event);
+var _icons_event_available =
+    MXFunctionInvoke("Icons.event_available", () => Icons.event_available);
+var _icons_event_busy =
+    MXFunctionInvoke("Icons.event_busy", () => Icons.event_busy);
+var _icons_event_note =
+    MXFunctionInvoke("Icons.event_note", () => Icons.event_note);
+var _icons_event_seat =
+    MXFunctionInvoke("Icons.event_seat", () => Icons.event_seat);
+var _icons_exit_to_app =
+    MXFunctionInvoke("Icons.exit_to_app", () => Icons.exit_to_app);
+var _icons_expand_less =
+    MXFunctionInvoke("Icons.expand_less", () => Icons.expand_less);
+var _icons_expand_more =
+    MXFunctionInvoke("Icons.expand_more", () => Icons.expand_more);
+var _icons_explicit = MXFunctionInvoke("Icons.explicit", () => Icons.explicit);
+var _icons_explore = MXFunctionInvoke("Icons.explore", () => Icons.explore);
+var _icons_exposure = MXFunctionInvoke("Icons.exposure", () => Icons.exposure);
+var _icons_exposure_neg_1 =
+    MXFunctionInvoke("Icons.exposure_neg_1", () => Icons.exposure_neg_1);
+var _icons_exposure_neg_2 =
+    MXFunctionInvoke("Icons.exposure_neg_2", () => Icons.exposure_neg_2);
+var _icons_exposure_plus_1 =
+    MXFunctionInvoke("Icons.exposure_plus_1", () => Icons.exposure_plus_1);
+var _icons_exposure_plus_2 =
+    MXFunctionInvoke("Icons.exposure_plus_2", () => Icons.exposure_plus_2);
+var _icons_exposure_zero =
+    MXFunctionInvoke("Icons.exposure_zero", () => Icons.exposure_zero);
+var _icons_extension =
+    MXFunctionInvoke("Icons.extension", () => Icons.extension);
+var _icons_face = MXFunctionInvoke("Icons.face", () => Icons.face);
+var _icons_fast_forward =
+    MXFunctionInvoke("Icons.fast_forward", () => Icons.fast_forward);
+var _icons_fast_rewind =
+    MXFunctionInvoke("Icons.fast_rewind", () => Icons.fast_rewind);
+var _icons_fastfood = MXFunctionInvoke("Icons.fastfood", () => Icons.fastfood);
+var _icons_favorite = MXFunctionInvoke("Icons.favorite", () => Icons.favorite);
+var _icons_favorite_border =
+    MXFunctionInvoke("Icons.favorite_border", () => Icons.favorite_border);
 var _icons_featured_play_list = MXFunctionInvoke(
-  "Icons.featured_play_list",
-    (
-    ) =>
-      Icons.featured_play_list
-);
-var _icons_featured_video = MXFunctionInvoke(
-  "Icons.featured_video",
-    (
-    ) =>
-      Icons.featured_video
-);
-var _icons_feedback = MXFunctionInvoke(
-  "Icons.feedback",
-    (
-    ) =>
-      Icons.feedback
-);
-var _icons_fiber_dvr = MXFunctionInvoke(
-  "Icons.fiber_dvr",
-    (
-    ) =>
-      Icons.fiber_dvr
-);
+    "Icons.featured_play_list", () => Icons.featured_play_list);
+var _icons_featured_video =
+    MXFunctionInvoke("Icons.featured_video", () => Icons.featured_video);
+var _icons_feedback = MXFunctionInvoke("Icons.feedback", () => Icons.feedback);
+var _icons_fiber_dvr =
+    MXFunctionInvoke("Icons.fiber_dvr", () => Icons.fiber_dvr);
 var _icons_fiber_manual_record = MXFunctionInvoke(
-  "Icons.fiber_manual_record",
-    (
-    ) =>
-      Icons.fiber_manual_record
-);
-var _icons_fiber_new = MXFunctionInvoke(
-  "Icons.fiber_new",
-    (
-    ) =>
-      Icons.fiber_new
-);
-var _icons_fiber_pin = MXFunctionInvoke(
-  "Icons.fiber_pin",
-    (
-    ) =>
-      Icons.fiber_pin
-);
+    "Icons.fiber_manual_record", () => Icons.fiber_manual_record);
+var _icons_fiber_new =
+    MXFunctionInvoke("Icons.fiber_new", () => Icons.fiber_new);
+var _icons_fiber_pin =
+    MXFunctionInvoke("Icons.fiber_pin", () => Icons.fiber_pin);
 var _icons_fiber_smart_record = MXFunctionInvoke(
-  "Icons.fiber_smart_record",
-    (
-    ) =>
-      Icons.fiber_smart_record
-);
-var _icons_file_download = MXFunctionInvoke(
-  "Icons.file_download",
-    (
-    ) =>
-      Icons.file_download
-);
-var _icons_file_upload = MXFunctionInvoke(
-  "Icons.file_upload",
-    (
-    ) =>
-      Icons.file_upload
-);
-var _icons_filter = MXFunctionInvoke(
-  "Icons.filter",
-    (
-    ) =>
-      Icons.filter
-);
-var _icons_filter_1 = MXFunctionInvoke(
-  "Icons.filter_1",
-    (
-    ) =>
-      Icons.filter_1
-);
-var _icons_filter_2 = MXFunctionInvoke(
-  "Icons.filter_2",
-    (
-    ) =>
-      Icons.filter_2
-);
-var _icons_filter_3 = MXFunctionInvoke(
-  "Icons.filter_3",
-    (
-    ) =>
-      Icons.filter_3
-);
-var _icons_filter_4 = MXFunctionInvoke(
-  "Icons.filter_4",
-    (
-    ) =>
-      Icons.filter_4
-);
-var _icons_filter_5 = MXFunctionInvoke(
-  "Icons.filter_5",
-    (
-    ) =>
-      Icons.filter_5
-);
-var _icons_filter_6 = MXFunctionInvoke(
-  "Icons.filter_6",
-    (
-    ) =>
-      Icons.filter_6
-);
-var _icons_filter_7 = MXFunctionInvoke(
-  "Icons.filter_7",
-    (
-    ) =>
-      Icons.filter_7
-);
-var _icons_filter_8 = MXFunctionInvoke(
-  "Icons.filter_8",
-    (
-    ) =>
-      Icons.filter_8
-);
-var _icons_filter_9 = MXFunctionInvoke(
-  "Icons.filter_9",
-    (
-    ) =>
-      Icons.filter_9
-);
-var _icons_filter_9_plus = MXFunctionInvoke(
-  "Icons.filter_9_plus",
-    (
-    ) =>
-      Icons.filter_9_plus
-);
-var _icons_filter_b_and_w = MXFunctionInvoke(
-  "Icons.filter_b_and_w",
-    (
-    ) =>
-      Icons.filter_b_and_w
-);
+    "Icons.fiber_smart_record", () => Icons.fiber_smart_record);
+var _icons_file_download =
+    MXFunctionInvoke("Icons.file_download", () => Icons.file_download);
+var _icons_file_upload =
+    MXFunctionInvoke("Icons.file_upload", () => Icons.file_upload);
+var _icons_filter = MXFunctionInvoke("Icons.filter", () => Icons.filter);
+var _icons_filter_1 = MXFunctionInvoke("Icons.filter_1", () => Icons.filter_1);
+var _icons_filter_2 = MXFunctionInvoke("Icons.filter_2", () => Icons.filter_2);
+var _icons_filter_3 = MXFunctionInvoke("Icons.filter_3", () => Icons.filter_3);
+var _icons_filter_4 = MXFunctionInvoke("Icons.filter_4", () => Icons.filter_4);
+var _icons_filter_5 = MXFunctionInvoke("Icons.filter_5", () => Icons.filter_5);
+var _icons_filter_6 = MXFunctionInvoke("Icons.filter_6", () => Icons.filter_6);
+var _icons_filter_7 = MXFunctionInvoke("Icons.filter_7", () => Icons.filter_7);
+var _icons_filter_8 = MXFunctionInvoke("Icons.filter_8", () => Icons.filter_8);
+var _icons_filter_9 = MXFunctionInvoke("Icons.filter_9", () => Icons.filter_9);
+var _icons_filter_9_plus =
+    MXFunctionInvoke("Icons.filter_9_plus", () => Icons.filter_9_plus);
+var _icons_filter_b_and_w =
+    MXFunctionInvoke("Icons.filter_b_and_w", () => Icons.filter_b_and_w);
 var _icons_filter_center_focus = MXFunctionInvoke(
-  "Icons.filter_center_focus",
-    (
-    ) =>
-      Icons.filter_center_focus
-);
-var _icons_filter_drama = MXFunctionInvoke(
-  "Icons.filter_drama",
-    (
-    ) =>
-      Icons.filter_drama
-);
-var _icons_filter_frames = MXFunctionInvoke(
-  "Icons.filter_frames",
-    (
-    ) =>
-      Icons.filter_frames
-);
-var _icons_filter_hdr = MXFunctionInvoke(
-  "Icons.filter_hdr",
-    (
-    ) =>
-      Icons.filter_hdr
-);
-var _icons_filter_list = MXFunctionInvoke(
-  "Icons.filter_list",
-    (
-    ) =>
-      Icons.filter_list
-);
-var _icons_filter_none = MXFunctionInvoke(
-  "Icons.filter_none",
-    (
-    ) =>
-      Icons.filter_none
-);
-var _icons_filter_tilt_shift = MXFunctionInvoke(
-  "Icons.filter_tilt_shift",
-    (
-    ) =>
-      Icons.filter_tilt_shift
-);
-var _icons_filter_vintage = MXFunctionInvoke(
-  "Icons.filter_vintage",
-    (
-    ) =>
-      Icons.filter_vintage
-);
-var _icons_find_in_page = MXFunctionInvoke(
-  "Icons.find_in_page",
-    (
-    ) =>
-      Icons.find_in_page
-);
-var _icons_find_replace = MXFunctionInvoke(
-  "Icons.find_replace",
-    (
-    ) =>
-      Icons.find_replace
-);
-var _icons_fingerprint = MXFunctionInvoke(
-  "Icons.fingerprint",
-    (
-    ) =>
-      Icons.fingerprint
-);
-var _icons_first_page = MXFunctionInvoke(
-  "Icons.first_page",
-    (
-    ) =>
-      Icons.first_page
-);
-var _icons_fitness_center = MXFunctionInvoke(
-  "Icons.fitness_center",
-    (
-    ) =>
-      Icons.fitness_center
-);
-var _icons_flag = MXFunctionInvoke(
-  "Icons.flag",
-    (
-    ) =>
-      Icons.flag
-);
-var _icons_flare = MXFunctionInvoke(
-  "Icons.flare",
-    (
-    ) =>
-      Icons.flare
-);
-var _icons_flash_auto = MXFunctionInvoke(
-  "Icons.flash_auto",
-    (
-    ) =>
-      Icons.flash_auto
-);
-var _icons_flash_off = MXFunctionInvoke(
-  "Icons.flash_off",
-    (
-    ) =>
-      Icons.flash_off
-);
-var _icons_flash_on = MXFunctionInvoke(
-  "Icons.flash_on",
-    (
-    ) =>
-      Icons.flash_on
-);
-var _icons_flight = MXFunctionInvoke(
-  "Icons.flight",
-    (
-    ) =>
-      Icons.flight
-);
-var _icons_flight_land = MXFunctionInvoke(
-  "Icons.flight_land",
-    (
-    ) =>
-      Icons.flight_land
-);
-var _icons_flight_takeoff = MXFunctionInvoke(
-  "Icons.flight_takeoff",
-    (
-    ) =>
-      Icons.flight_takeoff
-);
-var _icons_flip = MXFunctionInvoke(
-  "Icons.flip",
-    (
-    ) =>
-      Icons.flip
-);
-var _icons_flip_to_back = MXFunctionInvoke(
-  "Icons.flip_to_back",
-    (
-    ) =>
-      Icons.flip_to_back
-);
-var _icons_flip_to_front = MXFunctionInvoke(
-  "Icons.flip_to_front",
-    (
-    ) =>
-      Icons.flip_to_front
-);
-var _icons_folder = MXFunctionInvoke(
-  "Icons.folder",
-    (
-    ) =>
-      Icons.folder
-);
-var _icons_folder_open = MXFunctionInvoke(
-  "Icons.folder_open",
-    (
-    ) =>
-      Icons.folder_open
-);
-var _icons_folder_shared = MXFunctionInvoke(
-  "Icons.folder_shared",
-    (
-    ) =>
-      Icons.folder_shared
-);
-var _icons_folder_special = MXFunctionInvoke(
-  "Icons.folder_special",
-    (
-    ) =>
-      Icons.folder_special
-);
-var _icons_font_download = MXFunctionInvoke(
-  "Icons.font_download",
-    (
-    ) =>
-      Icons.font_download
-);
+    "Icons.filter_center_focus", () => Icons.filter_center_focus);
+var _icons_filter_drama =
+    MXFunctionInvoke("Icons.filter_drama", () => Icons.filter_drama);
+var _icons_filter_frames =
+    MXFunctionInvoke("Icons.filter_frames", () => Icons.filter_frames);
+var _icons_filter_hdr =
+    MXFunctionInvoke("Icons.filter_hdr", () => Icons.filter_hdr);
+var _icons_filter_list =
+    MXFunctionInvoke("Icons.filter_list", () => Icons.filter_list);
+var _icons_filter_none =
+    MXFunctionInvoke("Icons.filter_none", () => Icons.filter_none);
+var _icons_filter_tilt_shift =
+    MXFunctionInvoke("Icons.filter_tilt_shift", () => Icons.filter_tilt_shift);
+var _icons_filter_vintage =
+    MXFunctionInvoke("Icons.filter_vintage", () => Icons.filter_vintage);
+var _icons_find_in_page =
+    MXFunctionInvoke("Icons.find_in_page", () => Icons.find_in_page);
+var _icons_find_replace =
+    MXFunctionInvoke("Icons.find_replace", () => Icons.find_replace);
+var _icons_fingerprint =
+    MXFunctionInvoke("Icons.fingerprint", () => Icons.fingerprint);
+var _icons_first_page =
+    MXFunctionInvoke("Icons.first_page", () => Icons.first_page);
+var _icons_fitness_center =
+    MXFunctionInvoke("Icons.fitness_center", () => Icons.fitness_center);
+var _icons_flag = MXFunctionInvoke("Icons.flag", () => Icons.flag);
+var _icons_flare = MXFunctionInvoke("Icons.flare", () => Icons.flare);
+var _icons_flash_auto =
+    MXFunctionInvoke("Icons.flash_auto", () => Icons.flash_auto);
+var _icons_flash_off =
+    MXFunctionInvoke("Icons.flash_off", () => Icons.flash_off);
+var _icons_flash_on = MXFunctionInvoke("Icons.flash_on", () => Icons.flash_on);
+var _icons_flight = MXFunctionInvoke("Icons.flight", () => Icons.flight);
+var _icons_flight_land =
+    MXFunctionInvoke("Icons.flight_land", () => Icons.flight_land);
+var _icons_flight_takeoff =
+    MXFunctionInvoke("Icons.flight_takeoff", () => Icons.flight_takeoff);
+var _icons_flip = MXFunctionInvoke("Icons.flip", () => Icons.flip);
+var _icons_flip_to_back =
+    MXFunctionInvoke("Icons.flip_to_back", () => Icons.flip_to_back);
+var _icons_flip_to_front =
+    MXFunctionInvoke("Icons.flip_to_front", () => Icons.flip_to_front);
+var _icons_folder = MXFunctionInvoke("Icons.folder", () => Icons.folder);
+var _icons_folder_open =
+    MXFunctionInvoke("Icons.folder_open", () => Icons.folder_open);
+var _icons_folder_shared =
+    MXFunctionInvoke("Icons.folder_shared", () => Icons.folder_shared);
+var _icons_folder_special =
+    MXFunctionInvoke("Icons.folder_special", () => Icons.folder_special);
+var _icons_font_download =
+    MXFunctionInvoke("Icons.font_download", () => Icons.font_download);
 var _icons_format_align_center = MXFunctionInvoke(
-  "Icons.format_align_center",
-    (
-    ) =>
-      Icons.format_align_center
-);
+    "Icons.format_align_center", () => Icons.format_align_center);
 var _icons_format_align_justify = MXFunctionInvoke(
-  "Icons.format_align_justify",
-    (
-    ) =>
-      Icons.format_align_justify
-);
-var _icons_format_align_left = MXFunctionInvoke(
-  "Icons.format_align_left",
-    (
-    ) =>
-      Icons.format_align_left
-);
+    "Icons.format_align_justify", () => Icons.format_align_justify);
+var _icons_format_align_left =
+    MXFunctionInvoke("Icons.format_align_left", () => Icons.format_align_left);
 var _icons_format_align_right = MXFunctionInvoke(
-  "Icons.format_align_right",
-    (
-    ) =>
-      Icons.format_align_right
-);
-var _icons_format_bold = MXFunctionInvoke(
-  "Icons.format_bold",
-    (
-    ) =>
-      Icons.format_bold
-);
-var _icons_format_clear = MXFunctionInvoke(
-  "Icons.format_clear",
-    (
-    ) =>
-      Icons.format_clear
-);
-var _icons_format_color_fill = MXFunctionInvoke(
-  "Icons.format_color_fill",
-    (
-    ) =>
-      Icons.format_color_fill
-);
+    "Icons.format_align_right", () => Icons.format_align_right);
+var _icons_format_bold =
+    MXFunctionInvoke("Icons.format_bold", () => Icons.format_bold);
+var _icons_format_clear =
+    MXFunctionInvoke("Icons.format_clear", () => Icons.format_clear);
+var _icons_format_color_fill =
+    MXFunctionInvoke("Icons.format_color_fill", () => Icons.format_color_fill);
 var _icons_format_color_reset = MXFunctionInvoke(
-  "Icons.format_color_reset",
-    (
-    ) =>
-      Icons.format_color_reset
-);
-var _icons_format_color_text = MXFunctionInvoke(
-  "Icons.format_color_text",
-    (
-    ) =>
-      Icons.format_color_text
-);
+    "Icons.format_color_reset", () => Icons.format_color_reset);
+var _icons_format_color_text =
+    MXFunctionInvoke("Icons.format_color_text", () => Icons.format_color_text);
 var _icons_format_indent_decrease = MXFunctionInvoke(
-  "Icons.format_indent_decrease",
-    (
-    ) =>
-      Icons.format_indent_decrease
-);
+    "Icons.format_indent_decrease", () => Icons.format_indent_decrease);
 var _icons_format_indent_increase = MXFunctionInvoke(
-  "Icons.format_indent_increase",
-    (
-    ) =>
-      Icons.format_indent_increase
-);
-var _icons_format_italic = MXFunctionInvoke(
-  "Icons.format_italic",
-    (
-    ) =>
-      Icons.format_italic
-);
+    "Icons.format_indent_increase", () => Icons.format_indent_increase);
+var _icons_format_italic =
+    MXFunctionInvoke("Icons.format_italic", () => Icons.format_italic);
 var _icons_format_line_spacing = MXFunctionInvoke(
-  "Icons.format_line_spacing",
-    (
-    ) =>
-      Icons.format_line_spacing
-);
+    "Icons.format_line_spacing", () => Icons.format_line_spacing);
 var _icons_format_list_bulleted = MXFunctionInvoke(
-  "Icons.format_list_bulleted",
-    (
-    ) =>
-      Icons.format_list_bulleted
-);
+    "Icons.format_list_bulleted", () => Icons.format_list_bulleted);
 var _icons_format_list_numbered = MXFunctionInvoke(
-  "Icons.format_list_numbered",
-    (
-    ) =>
-      Icons.format_list_numbered
-);
+    "Icons.format_list_numbered", () => Icons.format_list_numbered);
 var _icons_format_list_numbered_rtl = MXFunctionInvoke(
-  "Icons.format_list_numbered_rtl",
-    (
-    ) =>
-      Icons.format_list_numbered_rtl
-);
-var _icons_format_paint = MXFunctionInvoke(
-  "Icons.format_paint",
-    (
-    ) =>
-      Icons.format_paint
-);
-var _icons_format_quote = MXFunctionInvoke(
-  "Icons.format_quote",
-    (
-    ) =>
-      Icons.format_quote
-);
-var _icons_format_shapes = MXFunctionInvoke(
-  "Icons.format_shapes",
-    (
-    ) =>
-      Icons.format_shapes
-);
-var _icons_format_size = MXFunctionInvoke(
-  "Icons.format_size",
-    (
-    ) =>
-      Icons.format_size
-);
+    "Icons.format_list_numbered_rtl", () => Icons.format_list_numbered_rtl);
+var _icons_format_paint =
+    MXFunctionInvoke("Icons.format_paint", () => Icons.format_paint);
+var _icons_format_quote =
+    MXFunctionInvoke("Icons.format_quote", () => Icons.format_quote);
+var _icons_format_shapes =
+    MXFunctionInvoke("Icons.format_shapes", () => Icons.format_shapes);
+var _icons_format_size =
+    MXFunctionInvoke("Icons.format_size", () => Icons.format_size);
 var _icons_format_strikethrough = MXFunctionInvoke(
-  "Icons.format_strikethrough",
-    (
-    ) =>
-      Icons.format_strikethrough
-);
+    "Icons.format_strikethrough", () => Icons.format_strikethrough);
 var _icons_format_textdirection_l_to_r = MXFunctionInvoke(
-  "Icons.format_textdirection_l_to_r",
-    (
-    ) =>
-      Icons.format_textdirection_l_to_r
-);
+    "Icons.format_textdirection_l_to_r",
+    () => Icons.format_textdirection_l_to_r);
 var _icons_format_textdirection_r_to_l = MXFunctionInvoke(
-  "Icons.format_textdirection_r_to_l",
-    (
-    ) =>
-      Icons.format_textdirection_r_to_l
-);
-var _icons_format_underlined = MXFunctionInvoke(
-  "Icons.format_underlined",
-    (
-    ) =>
-      Icons.format_underlined
-);
-var _icons_forum = MXFunctionInvoke(
-  "Icons.forum",
-    (
-    ) =>
-      Icons.forum
-);
-var _icons_forward = MXFunctionInvoke(
-  "Icons.forward",
-    (
-    ) =>
-      Icons.forward
-);
-var _icons_forward_10 = MXFunctionInvoke(
-  "Icons.forward_10",
-    (
-    ) =>
-      Icons.forward_10
-);
-var _icons_forward_30 = MXFunctionInvoke(
-  "Icons.forward_30",
-    (
-    ) =>
-      Icons.forward_30
-);
-var _icons_forward_5 = MXFunctionInvoke(
-  "Icons.forward_5",
-    (
-    ) =>
-      Icons.forward_5
-);
-var _icons_free_breakfast = MXFunctionInvoke(
-  "Icons.free_breakfast",
-    (
-    ) =>
-      Icons.free_breakfast
-);
-var _icons_fullscreen = MXFunctionInvoke(
-  "Icons.fullscreen",
-    (
-    ) =>
-      Icons.fullscreen
-);
-var _icons_fullscreen_exit = MXFunctionInvoke(
-  "Icons.fullscreen_exit",
-    (
-    ) =>
-      Icons.fullscreen_exit
-);
-var _icons_functions = MXFunctionInvoke(
-  "Icons.functions",
-    (
-    ) =>
-      Icons.functions
-);
-var _icons_g_translate = MXFunctionInvoke(
-  "Icons.g_translate",
-    (
-    ) =>
-      Icons.g_translate
-);
-var _icons_gamepad = MXFunctionInvoke(
-  "Icons.gamepad",
-    (
-    ) =>
-      Icons.gamepad
-);
-var _icons_games = MXFunctionInvoke(
-  "Icons.games",
-    (
-    ) =>
-      Icons.games
-);
-var _icons_gavel = MXFunctionInvoke(
-  "Icons.gavel",
-    (
-    ) =>
-      Icons.gavel
-);
-var _icons_gesture = MXFunctionInvoke(
-  "Icons.gesture",
-    (
-    ) =>
-      Icons.gesture
-);
-var _icons_get_app = MXFunctionInvoke(
-  "Icons.get_app",
-    (
-    ) =>
-      Icons.get_app
-);
-var _icons_gif = MXFunctionInvoke(
-  "Icons.gif",
-    (
-    ) =>
-      Icons.gif
-);
-var _icons_golf_course = MXFunctionInvoke(
-  "Icons.golf_course",
-    (
-    ) =>
-      Icons.golf_course
-);
-var _icons_gps_fixed = MXFunctionInvoke(
-  "Icons.gps_fixed",
-    (
-    ) =>
-      Icons.gps_fixed
-);
-var _icons_gps_not_fixed = MXFunctionInvoke(
-  "Icons.gps_not_fixed",
-    (
-    ) =>
-      Icons.gps_not_fixed
-);
-var _icons_gps_off = MXFunctionInvoke(
-  "Icons.gps_off",
-    (
-    ) =>
-      Icons.gps_off
-);
-var _icons_grade = MXFunctionInvoke(
-  "Icons.grade",
-    (
-    ) =>
-      Icons.grade
-);
-var _icons_gradient = MXFunctionInvoke(
-  "Icons.gradient",
-    (
-    ) =>
-      Icons.gradient
-);
-var _icons_grain = MXFunctionInvoke(
-  "Icons.grain",
-    (
-    ) =>
-      Icons.grain
-);
-var _icons_graphic_eq = MXFunctionInvoke(
-  "Icons.graphic_eq",
-    (
-    ) =>
-      Icons.graphic_eq
-);
-var _icons_grid_off = MXFunctionInvoke(
-  "Icons.grid_off",
-    (
-    ) =>
-      Icons.grid_off
-);
-var _icons_grid_on = MXFunctionInvoke(
-  "Icons.grid_on",
-    (
-    ) =>
-      Icons.grid_on
-);
-var _icons_group = MXFunctionInvoke(
-  "Icons.group",
-    (
-    ) =>
-      Icons.group
-);
-var _icons_group_add = MXFunctionInvoke(
-  "Icons.group_add",
-    (
-    ) =>
-      Icons.group_add
-);
-var _icons_group_work = MXFunctionInvoke(
-  "Icons.group_work",
-    (
-    ) =>
-      Icons.group_work
-);
-var _icons_hd = MXFunctionInvoke(
-  "Icons.hd",
-    (
-    ) =>
-      Icons.hd
-);
-var _icons_hdr_off = MXFunctionInvoke(
-  "Icons.hdr_off",
-    (
-    ) =>
-      Icons.hdr_off
-);
-var _icons_hdr_on = MXFunctionInvoke(
-  "Icons.hdr_on",
-    (
-    ) =>
-      Icons.hdr_on
-);
-var _icons_hdr_strong = MXFunctionInvoke(
-  "Icons.hdr_strong",
-    (
-    ) =>
-      Icons.hdr_strong
-);
-var _icons_hdr_weak = MXFunctionInvoke(
-  "Icons.hdr_weak",
-    (
-    ) =>
-      Icons.hdr_weak
-);
-var _icons_headset = MXFunctionInvoke(
-  "Icons.headset",
-    (
-    ) =>
-      Icons.headset
-);
-var _icons_headset_mic = MXFunctionInvoke(
-  "Icons.headset_mic",
-    (
-    ) =>
-      Icons.headset_mic
-);
-var _icons_headset_off = MXFunctionInvoke(
-  "Icons.headset_off",
-    (
-    ) =>
-      Icons.headset_off
-);
-var _icons_healing = MXFunctionInvoke(
-  "Icons.healing",
-    (
-    ) =>
-      Icons.healing
-);
-var _icons_hearing = MXFunctionInvoke(
-  "Icons.hearing",
-    (
-    ) =>
-      Icons.hearing
-);
-var _icons_help = MXFunctionInvoke(
-  "Icons.help",
-    (
-    ) =>
-      Icons.help
-);
-var _icons_help_outline = MXFunctionInvoke(
-  "Icons.help_outline",
-    (
-    ) =>
-      Icons.help_outline
-);
-var _icons_high_quality = MXFunctionInvoke(
-  "Icons.high_quality",
-    (
-    ) =>
-      Icons.high_quality
-);
-var _icons_highlight = MXFunctionInvoke(
-  "Icons.highlight",
-    (
-    ) =>
-      Icons.highlight
-);
-var _icons_highlight_off = MXFunctionInvoke(
-  "Icons.highlight_off",
-    (
-    ) =>
-      Icons.highlight_off
-);
-var _icons_history = MXFunctionInvoke(
-  "Icons.history",
-    (
-    ) =>
-      Icons.history
-);
-var _icons_home = MXFunctionInvoke(
-  "Icons.home",
-    (
-    ) =>
-      Icons.home
-);
-var _icons_hot_tub = MXFunctionInvoke(
-  "Icons.hot_tub",
-    (
-    ) =>
-      Icons.hot_tub
-);
-var _icons_hotel = MXFunctionInvoke(
-  "Icons.hotel",
-    (
-    ) =>
-      Icons.hotel
-);
-var _icons_hourglass_empty = MXFunctionInvoke(
-  "Icons.hourglass_empty",
-    (
-    ) =>
-      Icons.hourglass_empty
-);
-var _icons_hourglass_full = MXFunctionInvoke(
-  "Icons.hourglass_full",
-    (
-    ) =>
-      Icons.hourglass_full
-);
-var _icons_http = MXFunctionInvoke(
-  "Icons.http",
-    (
-    ) =>
-      Icons.http
-);
-var _icons_https = MXFunctionInvoke(
-  "Icons.https",
-    (
-    ) =>
-      Icons.https
-);
-var _icons_image = MXFunctionInvoke(
-  "Icons.image",
-    (
-    ) =>
-      Icons.image
-);
+    "Icons.format_textdirection_r_to_l",
+    () => Icons.format_textdirection_r_to_l);
+var _icons_format_underlined =
+    MXFunctionInvoke("Icons.format_underlined", () => Icons.format_underlined);
+var _icons_forum = MXFunctionInvoke("Icons.forum", () => Icons.forum);
+var _icons_forward = MXFunctionInvoke("Icons.forward", () => Icons.forward);
+var _icons_forward_10 =
+    MXFunctionInvoke("Icons.forward_10", () => Icons.forward_10);
+var _icons_forward_30 =
+    MXFunctionInvoke("Icons.forward_30", () => Icons.forward_30);
+var _icons_forward_5 =
+    MXFunctionInvoke("Icons.forward_5", () => Icons.forward_5);
+var _icons_free_breakfast =
+    MXFunctionInvoke("Icons.free_breakfast", () => Icons.free_breakfast);
+var _icons_fullscreen =
+    MXFunctionInvoke("Icons.fullscreen", () => Icons.fullscreen);
+var _icons_fullscreen_exit =
+    MXFunctionInvoke("Icons.fullscreen_exit", () => Icons.fullscreen_exit);
+var _icons_functions =
+    MXFunctionInvoke("Icons.functions", () => Icons.functions);
+var _icons_g_translate =
+    MXFunctionInvoke("Icons.g_translate", () => Icons.g_translate);
+var _icons_gamepad = MXFunctionInvoke("Icons.gamepad", () => Icons.gamepad);
+var _icons_games = MXFunctionInvoke("Icons.games", () => Icons.games);
+var _icons_gavel = MXFunctionInvoke("Icons.gavel", () => Icons.gavel);
+var _icons_gesture = MXFunctionInvoke("Icons.gesture", () => Icons.gesture);
+var _icons_get_app = MXFunctionInvoke("Icons.get_app", () => Icons.get_app);
+var _icons_gif = MXFunctionInvoke("Icons.gif", () => Icons.gif);
+var _icons_golf_course =
+    MXFunctionInvoke("Icons.golf_course", () => Icons.golf_course);
+var _icons_gps_fixed =
+    MXFunctionInvoke("Icons.gps_fixed", () => Icons.gps_fixed);
+var _icons_gps_not_fixed =
+    MXFunctionInvoke("Icons.gps_not_fixed", () => Icons.gps_not_fixed);
+var _icons_gps_off = MXFunctionInvoke("Icons.gps_off", () => Icons.gps_off);
+var _icons_grade = MXFunctionInvoke("Icons.grade", () => Icons.grade);
+var _icons_gradient = MXFunctionInvoke("Icons.gradient", () => Icons.gradient);
+var _icons_grain = MXFunctionInvoke("Icons.grain", () => Icons.grain);
+var _icons_graphic_eq =
+    MXFunctionInvoke("Icons.graphic_eq", () => Icons.graphic_eq);
+var _icons_grid_off = MXFunctionInvoke("Icons.grid_off", () => Icons.grid_off);
+var _icons_grid_on = MXFunctionInvoke("Icons.grid_on", () => Icons.grid_on);
+var _icons_group = MXFunctionInvoke("Icons.group", () => Icons.group);
+var _icons_group_add =
+    MXFunctionInvoke("Icons.group_add", () => Icons.group_add);
+var _icons_group_work =
+    MXFunctionInvoke("Icons.group_work", () => Icons.group_work);
+var _icons_hd = MXFunctionInvoke("Icons.hd", () => Icons.hd);
+var _icons_hdr_off = MXFunctionInvoke("Icons.hdr_off", () => Icons.hdr_off);
+var _icons_hdr_on = MXFunctionInvoke("Icons.hdr_on", () => Icons.hdr_on);
+var _icons_hdr_strong =
+    MXFunctionInvoke("Icons.hdr_strong", () => Icons.hdr_strong);
+var _icons_hdr_weak = MXFunctionInvoke("Icons.hdr_weak", () => Icons.hdr_weak);
+var _icons_headset = MXFunctionInvoke("Icons.headset", () => Icons.headset);
+var _icons_headset_mic =
+    MXFunctionInvoke("Icons.headset_mic", () => Icons.headset_mic);
+var _icons_headset_off =
+    MXFunctionInvoke("Icons.headset_off", () => Icons.headset_off);
+var _icons_healing = MXFunctionInvoke("Icons.healing", () => Icons.healing);
+var _icons_hearing = MXFunctionInvoke("Icons.hearing", () => Icons.hearing);
+var _icons_help = MXFunctionInvoke("Icons.help", () => Icons.help);
+var _icons_help_outline =
+    MXFunctionInvoke("Icons.help_outline", () => Icons.help_outline);
+var _icons_high_quality =
+    MXFunctionInvoke("Icons.high_quality", () => Icons.high_quality);
+var _icons_highlight =
+    MXFunctionInvoke("Icons.highlight", () => Icons.highlight);
+var _icons_highlight_off =
+    MXFunctionInvoke("Icons.highlight_off", () => Icons.highlight_off);
+var _icons_history = MXFunctionInvoke("Icons.history", () => Icons.history);
+var _icons_home = MXFunctionInvoke("Icons.home", () => Icons.home);
+var _icons_hot_tub = MXFunctionInvoke("Icons.hot_tub", () => Icons.hot_tub);
+var _icons_hotel = MXFunctionInvoke("Icons.hotel", () => Icons.hotel);
+var _icons_hourglass_empty =
+    MXFunctionInvoke("Icons.hourglass_empty", () => Icons.hourglass_empty);
+var _icons_hourglass_full =
+    MXFunctionInvoke("Icons.hourglass_full", () => Icons.hourglass_full);
+var _icons_http = MXFunctionInvoke("Icons.http", () => Icons.http);
+var _icons_https = MXFunctionInvoke("Icons.https", () => Icons.https);
+var _icons_image = MXFunctionInvoke("Icons.image", () => Icons.image);
 var _icons_image_aspect_ratio = MXFunctionInvoke(
-  "Icons.image_aspect_ratio",
-    (
-    ) =>
-      Icons.image_aspect_ratio
-);
-var _icons_import_contacts = MXFunctionInvoke(
-  "Icons.import_contacts",
-    (
-    ) =>
-      Icons.import_contacts
-);
-var _icons_import_export = MXFunctionInvoke(
-  "Icons.import_export",
-    (
-    ) =>
-      Icons.import_export
-);
-var _icons_important_devices = MXFunctionInvoke(
-  "Icons.important_devices",
-    (
-    ) =>
-      Icons.important_devices
-);
-var _icons_inbox = MXFunctionInvoke(
-  "Icons.inbox",
-    (
-    ) =>
-      Icons.inbox
-);
+    "Icons.image_aspect_ratio", () => Icons.image_aspect_ratio);
+var _icons_import_contacts =
+    MXFunctionInvoke("Icons.import_contacts", () => Icons.import_contacts);
+var _icons_import_export =
+    MXFunctionInvoke("Icons.import_export", () => Icons.import_export);
+var _icons_important_devices =
+    MXFunctionInvoke("Icons.important_devices", () => Icons.important_devices);
+var _icons_inbox = MXFunctionInvoke("Icons.inbox", () => Icons.inbox);
 var _icons_indeterminate_check_box = MXFunctionInvoke(
-  "Icons.indeterminate_check_box",
-    (
-    ) =>
-      Icons.indeterminate_check_box
-);
-var _icons_info = MXFunctionInvoke(
-  "Icons.info",
-    (
-    ) =>
-      Icons.info
-);
-var _icons_info_outline = MXFunctionInvoke(
-  "Icons.info_outline",
-    (
-    ) =>
-      Icons.info_outline
-);
-var _icons_input = MXFunctionInvoke(
-  "Icons.input",
-    (
-    ) =>
-      Icons.input
-);
-var _icons_insert_chart = MXFunctionInvoke(
-  "Icons.insert_chart",
-    (
-    ) =>
-      Icons.insert_chart
-);
-var _icons_insert_comment = MXFunctionInvoke(
-  "Icons.insert_comment",
-    (
-    ) =>
-      Icons.insert_comment
-);
-var _icons_insert_drive_file = MXFunctionInvoke(
-  "Icons.insert_drive_file",
-    (
-    ) =>
-      Icons.insert_drive_file
-);
-var _icons_insert_emoticon = MXFunctionInvoke(
-  "Icons.insert_emoticon",
-    (
-    ) =>
-      Icons.insert_emoticon
-);
-var _icons_insert_invitation = MXFunctionInvoke(
-  "Icons.insert_invitation",
-    (
-    ) =>
-      Icons.insert_invitation
-);
-var _icons_insert_link = MXFunctionInvoke(
-  "Icons.insert_link",
-    (
-    ) =>
-      Icons.insert_link
-);
-var _icons_insert_photo = MXFunctionInvoke(
-  "Icons.insert_photo",
-    (
-    ) =>
-      Icons.insert_photo
-);
-var _icons_invert_colors = MXFunctionInvoke(
-  "Icons.invert_colors",
-    (
-    ) =>
-      Icons.invert_colors
-);
-var _icons_invert_colors_off = MXFunctionInvoke(
-  "Icons.invert_colors_off",
-    (
-    ) =>
-      Icons.invert_colors_off
-);
-var _icons_iso = MXFunctionInvoke(
-  "Icons.iso",
-    (
-    ) =>
-      Icons.iso
-);
-var _icons_keyboard = MXFunctionInvoke(
-  "Icons.keyboard",
-    (
-    ) =>
-      Icons.keyboard
-);
+    "Icons.indeterminate_check_box", () => Icons.indeterminate_check_box);
+var _icons_info = MXFunctionInvoke("Icons.info", () => Icons.info);
+var _icons_info_outline =
+    MXFunctionInvoke("Icons.info_outline", () => Icons.info_outline);
+var _icons_input = MXFunctionInvoke("Icons.input", () => Icons.input);
+var _icons_insert_chart =
+    MXFunctionInvoke("Icons.insert_chart", () => Icons.insert_chart);
+var _icons_insert_comment =
+    MXFunctionInvoke("Icons.insert_comment", () => Icons.insert_comment);
+var _icons_insert_drive_file =
+    MXFunctionInvoke("Icons.insert_drive_file", () => Icons.insert_drive_file);
+var _icons_insert_emoticon =
+    MXFunctionInvoke("Icons.insert_emoticon", () => Icons.insert_emoticon);
+var _icons_insert_invitation =
+    MXFunctionInvoke("Icons.insert_invitation", () => Icons.insert_invitation);
+var _icons_insert_link =
+    MXFunctionInvoke("Icons.insert_link", () => Icons.insert_link);
+var _icons_insert_photo =
+    MXFunctionInvoke("Icons.insert_photo", () => Icons.insert_photo);
+var _icons_invert_colors =
+    MXFunctionInvoke("Icons.invert_colors", () => Icons.invert_colors);
+var _icons_invert_colors_off =
+    MXFunctionInvoke("Icons.invert_colors_off", () => Icons.invert_colors_off);
+var _icons_iso = MXFunctionInvoke("Icons.iso", () => Icons.iso);
+var _icons_keyboard = MXFunctionInvoke("Icons.keyboard", () => Icons.keyboard);
 var _icons_keyboard_arrow_down = MXFunctionInvoke(
-  "Icons.keyboard_arrow_down",
-    (
-    ) =>
-      Icons.keyboard_arrow_down
-);
+    "Icons.keyboard_arrow_down", () => Icons.keyboard_arrow_down);
 var _icons_keyboard_arrow_left = MXFunctionInvoke(
-  "Icons.keyboard_arrow_left",
-    (
-    ) =>
-      Icons.keyboard_arrow_left
-);
+    "Icons.keyboard_arrow_left", () => Icons.keyboard_arrow_left);
 var _icons_keyboard_arrow_right = MXFunctionInvoke(
-  "Icons.keyboard_arrow_right",
-    (
-    ) =>
-      Icons.keyboard_arrow_right
-);
-var _icons_keyboard_arrow_up = MXFunctionInvoke(
-  "Icons.keyboard_arrow_up",
-    (
-    ) =>
-      Icons.keyboard_arrow_up
-);
+    "Icons.keyboard_arrow_right", () => Icons.keyboard_arrow_right);
+var _icons_keyboard_arrow_up =
+    MXFunctionInvoke("Icons.keyboard_arrow_up", () => Icons.keyboard_arrow_up);
 var _icons_keyboard_backspace = MXFunctionInvoke(
-  "Icons.keyboard_backspace",
-    (
-    ) =>
-      Icons.keyboard_backspace
-);
-var _icons_keyboard_capslock = MXFunctionInvoke(
-  "Icons.keyboard_capslock",
-    (
-    ) =>
-      Icons.keyboard_capslock
-);
-var _icons_keyboard_hide = MXFunctionInvoke(
-  "Icons.keyboard_hide",
-    (
-    ) =>
-      Icons.keyboard_hide
-);
-var _icons_keyboard_return = MXFunctionInvoke(
-  "Icons.keyboard_return",
-    (
-    ) =>
-      Icons.keyboard_return
-);
-var _icons_keyboard_tab = MXFunctionInvoke(
-  "Icons.keyboard_tab",
-    (
-    ) =>
-      Icons.keyboard_tab
-);
-var _icons_keyboard_voice = MXFunctionInvoke(
-  "Icons.keyboard_voice",
-    (
-    ) =>
-      Icons.keyboard_voice
-);
-var _icons_kitchen = MXFunctionInvoke(
-  "Icons.kitchen",
-    (
-    ) =>
-      Icons.kitchen
-);
-var _icons_label = MXFunctionInvoke(
-  "Icons.label",
-    (
-    ) =>
-      Icons.label
-);
-var _icons_label_important = MXFunctionInvoke(
-  "Icons.label_important",
-    (
-    ) =>
-      Icons.label_important
-);
-var _icons_label_outline = MXFunctionInvoke(
-  "Icons.label_outline",
-    (
-    ) =>
-      Icons.label_outline
-);
-var _icons_landscape = MXFunctionInvoke(
-  "Icons.landscape",
-    (
-    ) =>
-      Icons.landscape
-);
-var _icons_language = MXFunctionInvoke(
-  "Icons.language",
-    (
-    ) =>
-      Icons.language
-);
-var _icons_laptop = MXFunctionInvoke(
-  "Icons.laptop",
-    (
-    ) =>
-      Icons.laptop
-);
-var _icons_laptop_chromebook = MXFunctionInvoke(
-  "Icons.laptop_chromebook",
-    (
-    ) =>
-      Icons.laptop_chromebook
-);
-var _icons_laptop_mac = MXFunctionInvoke(
-  "Icons.laptop_mac",
-    (
-    ) =>
-      Icons.laptop_mac
-);
-var _icons_laptop_windows = MXFunctionInvoke(
-  "Icons.laptop_windows",
-    (
-    ) =>
-      Icons.laptop_windows
-);
-var _icons_last_page = MXFunctionInvoke(
-  "Icons.last_page",
-    (
-    ) =>
-      Icons.last_page
-);
-var _icons_launch = MXFunctionInvoke(
-  "Icons.launch",
-    (
-    ) =>
-      Icons.launch
-);
-var _icons_layers = MXFunctionInvoke(
-  "Icons.layers",
-    (
-    ) =>
-      Icons.layers
-);
-var _icons_layers_clear = MXFunctionInvoke(
-  "Icons.layers_clear",
-    (
-    ) =>
-      Icons.layers_clear
-);
-var _icons_leak_add = MXFunctionInvoke(
-  "Icons.leak_add",
-    (
-    ) =>
-      Icons.leak_add
-);
-var _icons_leak_remove = MXFunctionInvoke(
-  "Icons.leak_remove",
-    (
-    ) =>
-      Icons.leak_remove
-);
-var _icons_lens = MXFunctionInvoke(
-  "Icons.lens",
-    (
-    ) =>
-      Icons.lens
-);
-var _icons_library_add = MXFunctionInvoke(
-  "Icons.library_add",
-    (
-    ) =>
-      Icons.library_add
-);
-var _icons_library_books = MXFunctionInvoke(
-  "Icons.library_books",
-    (
-    ) =>
-      Icons.library_books
-);
-var _icons_library_music = MXFunctionInvoke(
-  "Icons.library_music",
-    (
-    ) =>
-      Icons.library_music
-);
-var _icons_lightbulb_outline = MXFunctionInvoke(
-  "Icons.lightbulb_outline",
-    (
-    ) =>
-      Icons.lightbulb_outline
-);
-var _icons_line_style = MXFunctionInvoke(
-  "Icons.line_style",
-    (
-    ) =>
-      Icons.line_style
-);
-var _icons_line_weight = MXFunctionInvoke(
-  "Icons.line_weight",
-    (
-    ) =>
-      Icons.line_weight
-);
-var _icons_linear_scale = MXFunctionInvoke(
-  "Icons.linear_scale",
-    (
-    ) =>
-      Icons.linear_scale
-);
-var _icons_link = MXFunctionInvoke(
-  "Icons.link",
-    (
-    ) =>
-      Icons.link
-);
-var _icons_link_off = MXFunctionInvoke(
-  "Icons.link_off",
-    (
-    ) =>
-      Icons.link_off
-);
-var _icons_linked_camera = MXFunctionInvoke(
-  "Icons.linked_camera",
-    (
-    ) =>
-      Icons.linked_camera
-);
-var _icons_list = MXFunctionInvoke(
-  "Icons.list",
-    (
-    ) =>
-      Icons.list
-);
-var _icons_live_help = MXFunctionInvoke(
-  "Icons.live_help",
-    (
-    ) =>
-      Icons.live_help
-);
-var _icons_live_tv = MXFunctionInvoke(
-  "Icons.live_tv",
-    (
-    ) =>
-      Icons.live_tv
-);
-var _icons_local_activity = MXFunctionInvoke(
-  "Icons.local_activity",
-    (
-    ) =>
-      Icons.local_activity
-);
-var _icons_local_airport = MXFunctionInvoke(
-  "Icons.local_airport",
-    (
-    ) =>
-      Icons.local_airport
-);
-var _icons_local_atm = MXFunctionInvoke(
-  "Icons.local_atm",
-    (
-    ) =>
-      Icons.local_atm
-);
-var _icons_local_bar = MXFunctionInvoke(
-  "Icons.local_bar",
-    (
-    ) =>
-      Icons.local_bar
-);
-var _icons_local_cafe = MXFunctionInvoke(
-  "Icons.local_cafe",
-    (
-    ) =>
-      Icons.local_cafe
-);
-var _icons_local_car_wash = MXFunctionInvoke(
-  "Icons.local_car_wash",
-    (
-    ) =>
-      Icons.local_car_wash
-);
+    "Icons.keyboard_backspace", () => Icons.keyboard_backspace);
+var _icons_keyboard_capslock =
+    MXFunctionInvoke("Icons.keyboard_capslock", () => Icons.keyboard_capslock);
+var _icons_keyboard_hide =
+    MXFunctionInvoke("Icons.keyboard_hide", () => Icons.keyboard_hide);
+var _icons_keyboard_return =
+    MXFunctionInvoke("Icons.keyboard_return", () => Icons.keyboard_return);
+var _icons_keyboard_tab =
+    MXFunctionInvoke("Icons.keyboard_tab", () => Icons.keyboard_tab);
+var _icons_keyboard_voice =
+    MXFunctionInvoke("Icons.keyboard_voice", () => Icons.keyboard_voice);
+var _icons_kitchen = MXFunctionInvoke("Icons.kitchen", () => Icons.kitchen);
+var _icons_label = MXFunctionInvoke("Icons.label", () => Icons.label);
+var _icons_label_important =
+    MXFunctionInvoke("Icons.label_important", () => Icons.label_important);
+var _icons_label_outline =
+    MXFunctionInvoke("Icons.label_outline", () => Icons.label_outline);
+var _icons_landscape =
+    MXFunctionInvoke("Icons.landscape", () => Icons.landscape);
+var _icons_language = MXFunctionInvoke("Icons.language", () => Icons.language);
+var _icons_laptop = MXFunctionInvoke("Icons.laptop", () => Icons.laptop);
+var _icons_laptop_chromebook =
+    MXFunctionInvoke("Icons.laptop_chromebook", () => Icons.laptop_chromebook);
+var _icons_laptop_mac =
+    MXFunctionInvoke("Icons.laptop_mac", () => Icons.laptop_mac);
+var _icons_laptop_windows =
+    MXFunctionInvoke("Icons.laptop_windows", () => Icons.laptop_windows);
+var _icons_last_page =
+    MXFunctionInvoke("Icons.last_page", () => Icons.last_page);
+var _icons_launch = MXFunctionInvoke("Icons.launch", () => Icons.launch);
+var _icons_layers = MXFunctionInvoke("Icons.layers", () => Icons.layers);
+var _icons_layers_clear =
+    MXFunctionInvoke("Icons.layers_clear", () => Icons.layers_clear);
+var _icons_leak_add = MXFunctionInvoke("Icons.leak_add", () => Icons.leak_add);
+var _icons_leak_remove =
+    MXFunctionInvoke("Icons.leak_remove", () => Icons.leak_remove);
+var _icons_lens = MXFunctionInvoke("Icons.lens", () => Icons.lens);
+var _icons_library_add =
+    MXFunctionInvoke("Icons.library_add", () => Icons.library_add);
+var _icons_library_books =
+    MXFunctionInvoke("Icons.library_books", () => Icons.library_books);
+var _icons_library_music =
+    MXFunctionInvoke("Icons.library_music", () => Icons.library_music);
+var _icons_lightbulb_outline =
+    MXFunctionInvoke("Icons.lightbulb_outline", () => Icons.lightbulb_outline);
+var _icons_line_style =
+    MXFunctionInvoke("Icons.line_style", () => Icons.line_style);
+var _icons_line_weight =
+    MXFunctionInvoke("Icons.line_weight", () => Icons.line_weight);
+var _icons_linear_scale =
+    MXFunctionInvoke("Icons.linear_scale", () => Icons.linear_scale);
+var _icons_link = MXFunctionInvoke("Icons.link", () => Icons.link);
+var _icons_link_off = MXFunctionInvoke("Icons.link_off", () => Icons.link_off);
+var _icons_linked_camera =
+    MXFunctionInvoke("Icons.linked_camera", () => Icons.linked_camera);
+var _icons_list = MXFunctionInvoke("Icons.list", () => Icons.list);
+var _icons_live_help =
+    MXFunctionInvoke("Icons.live_help", () => Icons.live_help);
+var _icons_live_tv = MXFunctionInvoke("Icons.live_tv", () => Icons.live_tv);
+var _icons_local_activity =
+    MXFunctionInvoke("Icons.local_activity", () => Icons.local_activity);
+var _icons_local_airport =
+    MXFunctionInvoke("Icons.local_airport", () => Icons.local_airport);
+var _icons_local_atm =
+    MXFunctionInvoke("Icons.local_atm", () => Icons.local_atm);
+var _icons_local_bar =
+    MXFunctionInvoke("Icons.local_bar", () => Icons.local_bar);
+var _icons_local_cafe =
+    MXFunctionInvoke("Icons.local_cafe", () => Icons.local_cafe);
+var _icons_local_car_wash =
+    MXFunctionInvoke("Icons.local_car_wash", () => Icons.local_car_wash);
 var _icons_local_convenience_store = MXFunctionInvoke(
-  "Icons.local_convenience_store",
-    (
-    ) =>
-      Icons.local_convenience_store
-);
-var _icons_local_dining = MXFunctionInvoke(
-  "Icons.local_dining",
-    (
-    ) =>
-      Icons.local_dining
-);
-var _icons_local_drink = MXFunctionInvoke(
-  "Icons.local_drink",
-    (
-    ) =>
-      Icons.local_drink
-);
-var _icons_local_florist = MXFunctionInvoke(
-  "Icons.local_florist",
-    (
-    ) =>
-      Icons.local_florist
-);
-var _icons_local_gas_station = MXFunctionInvoke(
-  "Icons.local_gas_station",
-    (
-    ) =>
-      Icons.local_gas_station
-);
+    "Icons.local_convenience_store", () => Icons.local_convenience_store);
+var _icons_local_dining =
+    MXFunctionInvoke("Icons.local_dining", () => Icons.local_dining);
+var _icons_local_drink =
+    MXFunctionInvoke("Icons.local_drink", () => Icons.local_drink);
+var _icons_local_florist =
+    MXFunctionInvoke("Icons.local_florist", () => Icons.local_florist);
+var _icons_local_gas_station =
+    MXFunctionInvoke("Icons.local_gas_station", () => Icons.local_gas_station);
 var _icons_local_grocery_store = MXFunctionInvoke(
-  "Icons.local_grocery_store",
-    (
-    ) =>
-      Icons.local_grocery_store
-);
-var _icons_local_hospital = MXFunctionInvoke(
-  "Icons.local_hospital",
-    (
-    ) =>
-      Icons.local_hospital
-);
-var _icons_local_hotel = MXFunctionInvoke(
-  "Icons.local_hotel",
-    (
-    ) =>
-      Icons.local_hotel
-);
+    "Icons.local_grocery_store", () => Icons.local_grocery_store);
+var _icons_local_hospital =
+    MXFunctionInvoke("Icons.local_hospital", () => Icons.local_hospital);
+var _icons_local_hotel =
+    MXFunctionInvoke("Icons.local_hotel", () => Icons.local_hotel);
 var _icons_local_laundry_service = MXFunctionInvoke(
-  "Icons.local_laundry_service",
-    (
-    ) =>
-      Icons.local_laundry_service
-);
-var _icons_local_library = MXFunctionInvoke(
-  "Icons.local_library",
-    (
-    ) =>
-      Icons.local_library
-);
-var _icons_local_mall = MXFunctionInvoke(
-  "Icons.local_mall",
-    (
-    ) =>
-      Icons.local_mall
-);
-var _icons_local_movies = MXFunctionInvoke(
-  "Icons.local_movies",
-    (
-    ) =>
-      Icons.local_movies
-);
-var _icons_local_offer = MXFunctionInvoke(
-  "Icons.local_offer",
-    (
-    ) =>
-      Icons.local_offer
-);
-var _icons_local_parking = MXFunctionInvoke(
-  "Icons.local_parking",
-    (
-    ) =>
-      Icons.local_parking
-);
-var _icons_local_pharmacy = MXFunctionInvoke(
-  "Icons.local_pharmacy",
-    (
-    ) =>
-      Icons.local_pharmacy
-);
-var _icons_local_phone = MXFunctionInvoke(
-  "Icons.local_phone",
-    (
-    ) =>
-      Icons.local_phone
-);
-var _icons_local_pizza = MXFunctionInvoke(
-  "Icons.local_pizza",
-    (
-    ) =>
-      Icons.local_pizza
-);
-var _icons_local_play = MXFunctionInvoke(
-  "Icons.local_play",
-    (
-    ) =>
-      Icons.local_play
-);
-var _icons_local_post_office = MXFunctionInvoke(
-  "Icons.local_post_office",
-    (
-    ) =>
-      Icons.local_post_office
-);
-var _icons_local_printshop = MXFunctionInvoke(
-  "Icons.local_printshop",
-    (
-    ) =>
-      Icons.local_printshop
-);
-var _icons_local_see = MXFunctionInvoke(
-  "Icons.local_see",
-    (
-    ) =>
-      Icons.local_see
-);
-var _icons_local_shipping = MXFunctionInvoke(
-  "Icons.local_shipping",
-    (
-    ) =>
-      Icons.local_shipping
-);
-var _icons_local_taxi = MXFunctionInvoke(
-  "Icons.local_taxi",
-    (
-    ) =>
-      Icons.local_taxi
-);
-var _icons_location_city = MXFunctionInvoke(
-  "Icons.location_city",
-    (
-    ) =>
-      Icons.location_city
-);
-var _icons_location_disabled = MXFunctionInvoke(
-  "Icons.location_disabled",
-    (
-    ) =>
-      Icons.location_disabled
-);
-var _icons_location_off = MXFunctionInvoke(
-  "Icons.location_off",
-    (
-    ) =>
-      Icons.location_off
-);
-var _icons_location_on = MXFunctionInvoke(
-  "Icons.location_on",
-    (
-    ) =>
-      Icons.location_on
-);
+    "Icons.local_laundry_service", () => Icons.local_laundry_service);
+var _icons_local_library =
+    MXFunctionInvoke("Icons.local_library", () => Icons.local_library);
+var _icons_local_mall =
+    MXFunctionInvoke("Icons.local_mall", () => Icons.local_mall);
+var _icons_local_movies =
+    MXFunctionInvoke("Icons.local_movies", () => Icons.local_movies);
+var _icons_local_offer =
+    MXFunctionInvoke("Icons.local_offer", () => Icons.local_offer);
+var _icons_local_parking =
+    MXFunctionInvoke("Icons.local_parking", () => Icons.local_parking);
+var _icons_local_pharmacy =
+    MXFunctionInvoke("Icons.local_pharmacy", () => Icons.local_pharmacy);
+var _icons_local_phone =
+    MXFunctionInvoke("Icons.local_phone", () => Icons.local_phone);
+var _icons_local_pizza =
+    MXFunctionInvoke("Icons.local_pizza", () => Icons.local_pizza);
+var _icons_local_play =
+    MXFunctionInvoke("Icons.local_play", () => Icons.local_play);
+var _icons_local_post_office =
+    MXFunctionInvoke("Icons.local_post_office", () => Icons.local_post_office);
+var _icons_local_printshop =
+    MXFunctionInvoke("Icons.local_printshop", () => Icons.local_printshop);
+var _icons_local_see =
+    MXFunctionInvoke("Icons.local_see", () => Icons.local_see);
+var _icons_local_shipping =
+    MXFunctionInvoke("Icons.local_shipping", () => Icons.local_shipping);
+var _icons_local_taxi =
+    MXFunctionInvoke("Icons.local_taxi", () => Icons.local_taxi);
+var _icons_location_city =
+    MXFunctionInvoke("Icons.location_city", () => Icons.location_city);
+var _icons_location_disabled =
+    MXFunctionInvoke("Icons.location_disabled", () => Icons.location_disabled);
+var _icons_location_off =
+    MXFunctionInvoke("Icons.location_off", () => Icons.location_off);
+var _icons_location_on =
+    MXFunctionInvoke("Icons.location_on", () => Icons.location_on);
 var _icons_location_searching = MXFunctionInvoke(
-  "Icons.location_searching",
-    (
-    ) =>
-      Icons.location_searching
-);
-var _icons_lock = MXFunctionInvoke(
-  "Icons.lock",
-    (
-    ) =>
-      Icons.lock
-);
-var _icons_lock_open = MXFunctionInvoke(
-  "Icons.lock_open",
-    (
-    ) =>
-      Icons.lock_open
-);
-var _icons_lock_outline = MXFunctionInvoke(
-  "Icons.lock_outline",
-    (
-    ) =>
-      Icons.lock_outline
-);
-var _icons_looks = MXFunctionInvoke(
-  "Icons.looks",
-    (
-    ) =>
-      Icons.looks
-);
-var _icons_looks_3 = MXFunctionInvoke(
-  "Icons.looks_3",
-    (
-    ) =>
-      Icons.looks_3
-);
-var _icons_looks_4 = MXFunctionInvoke(
-  "Icons.looks_4",
-    (
-    ) =>
-      Icons.looks_4
-);
-var _icons_looks_5 = MXFunctionInvoke(
-  "Icons.looks_5",
-    (
-    ) =>
-      Icons.looks_5
-);
-var _icons_looks_6 = MXFunctionInvoke(
-  "Icons.looks_6",
-    (
-    ) =>
-      Icons.looks_6
-);
-var _icons_looks_one = MXFunctionInvoke(
-  "Icons.looks_one",
-    (
-    ) =>
-      Icons.looks_one
-);
-var _icons_looks_two = MXFunctionInvoke(
-  "Icons.looks_two",
-    (
-    ) =>
-      Icons.looks_two
-);
-var _icons_loop = MXFunctionInvoke(
-  "Icons.loop",
-    (
-    ) =>
-      Icons.loop
-);
-var _icons_loupe = MXFunctionInvoke(
-  "Icons.loupe",
-    (
-    ) =>
-      Icons.loupe
-);
-var _icons_low_priority = MXFunctionInvoke(
-  "Icons.low_priority",
-    (
-    ) =>
-      Icons.low_priority
-);
-var _icons_loyalty = MXFunctionInvoke(
-  "Icons.loyalty",
-    (
-    ) =>
-      Icons.loyalty
-);
-var _icons_mail = MXFunctionInvoke(
-  "Icons.mail",
-    (
-    ) =>
-      Icons.mail
-);
-var _icons_mail_outline = MXFunctionInvoke(
-  "Icons.mail_outline",
-    (
-    ) =>
-      Icons.mail_outline
-);
-var _icons_map = MXFunctionInvoke(
-  "Icons.map",
-    (
-    ) =>
-      Icons.map
-);
-var _icons_markunread = MXFunctionInvoke(
-  "Icons.markunread",
-    (
-    ) =>
-      Icons.markunread
-);
+    "Icons.location_searching", () => Icons.location_searching);
+var _icons_lock = MXFunctionInvoke("Icons.lock", () => Icons.lock);
+var _icons_lock_open =
+    MXFunctionInvoke("Icons.lock_open", () => Icons.lock_open);
+var _icons_lock_outline =
+    MXFunctionInvoke("Icons.lock_outline", () => Icons.lock_outline);
+var _icons_looks = MXFunctionInvoke("Icons.looks", () => Icons.looks);
+var _icons_looks_3 = MXFunctionInvoke("Icons.looks_3", () => Icons.looks_3);
+var _icons_looks_4 = MXFunctionInvoke("Icons.looks_4", () => Icons.looks_4);
+var _icons_looks_5 = MXFunctionInvoke("Icons.looks_5", () => Icons.looks_5);
+var _icons_looks_6 = MXFunctionInvoke("Icons.looks_6", () => Icons.looks_6);
+var _icons_looks_one =
+    MXFunctionInvoke("Icons.looks_one", () => Icons.looks_one);
+var _icons_looks_two =
+    MXFunctionInvoke("Icons.looks_two", () => Icons.looks_two);
+var _icons_loop = MXFunctionInvoke("Icons.loop", () => Icons.loop);
+var _icons_loupe = MXFunctionInvoke("Icons.loupe", () => Icons.loupe);
+var _icons_low_priority =
+    MXFunctionInvoke("Icons.low_priority", () => Icons.low_priority);
+var _icons_loyalty = MXFunctionInvoke("Icons.loyalty", () => Icons.loyalty);
+var _icons_mail = MXFunctionInvoke("Icons.mail", () => Icons.mail);
+var _icons_mail_outline =
+    MXFunctionInvoke("Icons.mail_outline", () => Icons.mail_outline);
+var _icons_map = MXFunctionInvoke("Icons.map", () => Icons.map);
+var _icons_markunread =
+    MXFunctionInvoke("Icons.markunread", () => Icons.markunread);
 var _icons_markunread_mailbox = MXFunctionInvoke(
-  "Icons.markunread_mailbox",
-    (
-    ) =>
-      Icons.markunread_mailbox
-);
-var _icons_maximize = MXFunctionInvoke(
-  "Icons.maximize",
-    (
-    ) =>
-      Icons.maximize
-);
-var _icons_memory = MXFunctionInvoke(
-  "Icons.memory",
-    (
-    ) =>
-      Icons.memory
-);
-var _icons_menu = MXFunctionInvoke(
-  "Icons.menu",
-    (
-    ) =>
-      Icons.menu
-);
-var _icons_merge_type = MXFunctionInvoke(
-  "Icons.merge_type",
-    (
-    ) =>
-      Icons.merge_type
-);
-var _icons_message = MXFunctionInvoke(
-  "Icons.message",
-    (
-    ) =>
-      Icons.message
-);
-var _icons_mic = MXFunctionInvoke(
-  "Icons.mic",
-    (
-    ) =>
-      Icons.mic
-);
-var _icons_mic_none = MXFunctionInvoke(
-  "Icons.mic_none",
-    (
-    ) =>
-      Icons.mic_none
-);
-var _icons_mic_off = MXFunctionInvoke(
-  "Icons.mic_off",
-    (
-    ) =>
-      Icons.mic_off
-);
-var _icons_minimize = MXFunctionInvoke(
-  "Icons.minimize",
-    (
-    ) =>
-      Icons.minimize
-);
-var _icons_missed_video_call = MXFunctionInvoke(
-  "Icons.missed_video_call",
-    (
-    ) =>
-      Icons.missed_video_call
-);
-var _icons_mms = MXFunctionInvoke(
-  "Icons.mms",
-    (
-    ) =>
-      Icons.mms
-);
+    "Icons.markunread_mailbox", () => Icons.markunread_mailbox);
+var _icons_maximize = MXFunctionInvoke("Icons.maximize", () => Icons.maximize);
+var _icons_memory = MXFunctionInvoke("Icons.memory", () => Icons.memory);
+var _icons_menu = MXFunctionInvoke("Icons.menu", () => Icons.menu);
+var _icons_merge_type =
+    MXFunctionInvoke("Icons.merge_type", () => Icons.merge_type);
+var _icons_message = MXFunctionInvoke("Icons.message", () => Icons.message);
+var _icons_mic = MXFunctionInvoke("Icons.mic", () => Icons.mic);
+var _icons_mic_none = MXFunctionInvoke("Icons.mic_none", () => Icons.mic_none);
+var _icons_mic_off = MXFunctionInvoke("Icons.mic_off", () => Icons.mic_off);
+var _icons_minimize = MXFunctionInvoke("Icons.minimize", () => Icons.minimize);
+var _icons_missed_video_call =
+    MXFunctionInvoke("Icons.missed_video_call", () => Icons.missed_video_call);
+var _icons_mms = MXFunctionInvoke("Icons.mms", () => Icons.mms);
 var _icons_mobile_screen_share = MXFunctionInvoke(
-  "Icons.mobile_screen_share",
-    (
-    ) =>
-      Icons.mobile_screen_share
-);
-var _icons_mode_comment = MXFunctionInvoke(
-  "Icons.mode_comment",
-    (
-    ) =>
-      Icons.mode_comment
-);
-var _icons_mode_edit = MXFunctionInvoke(
-  "Icons.mode_edit",
-    (
-    ) =>
-      Icons.mode_edit
-);
-var _icons_monetization_on = MXFunctionInvoke(
-  "Icons.monetization_on",
-    (
-    ) =>
-      Icons.monetization_on
-);
-var _icons_money_off = MXFunctionInvoke(
-  "Icons.money_off",
-    (
-    ) =>
-      Icons.money_off
-);
-var _icons_monochrome_photos = MXFunctionInvoke(
-  "Icons.monochrome_photos",
-    (
-    ) =>
-      Icons.monochrome_photos
-);
-var _icons_mood = MXFunctionInvoke(
-  "Icons.mood",
-    (
-    ) =>
-      Icons.mood
-);
-var _icons_mood_bad = MXFunctionInvoke(
-  "Icons.mood_bad",
-    (
-    ) =>
-      Icons.mood_bad
-);
-var _icons_more = MXFunctionInvoke(
-  "Icons.more",
-    (
-    ) =>
-      Icons.more
-);
-var _icons_more_horiz = MXFunctionInvoke(
-  "Icons.more_horiz",
-    (
-    ) =>
-      Icons.more_horiz
-);
-var _icons_more_vert = MXFunctionInvoke(
-  "Icons.more_vert",
-    (
-    ) =>
-      Icons.more_vert
-);
-var _icons_motorcycle = MXFunctionInvoke(
-  "Icons.motorcycle",
-    (
-    ) =>
-      Icons.motorcycle
-);
-var _icons_mouse = MXFunctionInvoke(
-  "Icons.mouse",
-    (
-    ) =>
-      Icons.mouse
-);
-var _icons_move_to_inbox = MXFunctionInvoke(
-  "Icons.move_to_inbox",
-    (
-    ) =>
-      Icons.move_to_inbox
-);
-var _icons_movie = MXFunctionInvoke(
-  "Icons.movie",
-    (
-    ) =>
-      Icons.movie
-);
-var _icons_movie_creation = MXFunctionInvoke(
-  "Icons.movie_creation",
-    (
-    ) =>
-      Icons.movie_creation
-);
-var _icons_movie_filter = MXFunctionInvoke(
-  "Icons.movie_filter",
-    (
-    ) =>
-      Icons.movie_filter
-);
-var _icons_multiline_chart = MXFunctionInvoke(
-  "Icons.multiline_chart",
-    (
-    ) =>
-      Icons.multiline_chart
-);
-var _icons_music_note = MXFunctionInvoke(
-  "Icons.music_note",
-    (
-    ) =>
-      Icons.music_note
-);
-var _icons_music_video = MXFunctionInvoke(
-  "Icons.music_video",
-    (
-    ) =>
-      Icons.music_video
-);
-var _icons_my_location = MXFunctionInvoke(
-  "Icons.my_location",
-    (
-    ) =>
-      Icons.my_location
-);
-var _icons_nature = MXFunctionInvoke(
-  "Icons.nature",
-    (
-    ) =>
-      Icons.nature
-);
-var _icons_nature_people = MXFunctionInvoke(
-  "Icons.nature_people",
-    (
-    ) =>
-      Icons.nature_people
-);
-var _icons_navigate_before = MXFunctionInvoke(
-  "Icons.navigate_before",
-    (
-    ) =>
-      Icons.navigate_before
-);
-var _icons_navigate_next = MXFunctionInvoke(
-  "Icons.navigate_next",
-    (
-    ) =>
-      Icons.navigate_next
-);
-var _icons_navigation = MXFunctionInvoke(
-  "Icons.navigation",
-    (
-    ) =>
-      Icons.navigation
-);
-var _icons_near_me = MXFunctionInvoke(
-  "Icons.near_me",
-    (
-    ) =>
-      Icons.near_me
-);
-var _icons_network_cell = MXFunctionInvoke(
-  "Icons.network_cell",
-    (
-    ) =>
-      Icons.network_cell
-);
-var _icons_network_check = MXFunctionInvoke(
-  "Icons.network_check",
-    (
-    ) =>
-      Icons.network_check
-);
-var _icons_network_locked = MXFunctionInvoke(
-  "Icons.network_locked",
-    (
-    ) =>
-      Icons.network_locked
-);
-var _icons_network_wifi = MXFunctionInvoke(
-  "Icons.network_wifi",
-    (
-    ) =>
-      Icons.network_wifi
-);
-var _icons_new_releases = MXFunctionInvoke(
-  "Icons.new_releases",
-    (
-    ) =>
-      Icons.new_releases
-);
-var _icons_next_week = MXFunctionInvoke(
-  "Icons.next_week",
-    (
-    ) =>
-      Icons.next_week
-);
-var _icons_nfc = MXFunctionInvoke(
-  "Icons.nfc",
-    (
-    ) =>
-      Icons.nfc
-);
-var _icons_no_encryption = MXFunctionInvoke(
-  "Icons.no_encryption",
-    (
-    ) =>
-      Icons.no_encryption
-);
-var _icons_no_sim = MXFunctionInvoke(
-  "Icons.no_sim",
-    (
-    ) =>
-      Icons.no_sim
-);
-var _icons_not_interested = MXFunctionInvoke(
-  "Icons.not_interested",
-    (
-    ) =>
-      Icons.not_interested
-);
+    "Icons.mobile_screen_share", () => Icons.mobile_screen_share);
+var _icons_mode_comment =
+    MXFunctionInvoke("Icons.mode_comment", () => Icons.mode_comment);
+var _icons_mode_edit =
+    MXFunctionInvoke("Icons.mode_edit", () => Icons.mode_edit);
+var _icons_monetization_on =
+    MXFunctionInvoke("Icons.monetization_on", () => Icons.monetization_on);
+var _icons_money_off =
+    MXFunctionInvoke("Icons.money_off", () => Icons.money_off);
+var _icons_monochrome_photos =
+    MXFunctionInvoke("Icons.monochrome_photos", () => Icons.monochrome_photos);
+var _icons_mood = MXFunctionInvoke("Icons.mood", () => Icons.mood);
+var _icons_mood_bad = MXFunctionInvoke("Icons.mood_bad", () => Icons.mood_bad);
+var _icons_more = MXFunctionInvoke("Icons.more", () => Icons.more);
+var _icons_more_horiz =
+    MXFunctionInvoke("Icons.more_horiz", () => Icons.more_horiz);
+var _icons_more_vert =
+    MXFunctionInvoke("Icons.more_vert", () => Icons.more_vert);
+var _icons_motorcycle =
+    MXFunctionInvoke("Icons.motorcycle", () => Icons.motorcycle);
+var _icons_mouse = MXFunctionInvoke("Icons.mouse", () => Icons.mouse);
+var _icons_move_to_inbox =
+    MXFunctionInvoke("Icons.move_to_inbox", () => Icons.move_to_inbox);
+var _icons_movie = MXFunctionInvoke("Icons.movie", () => Icons.movie);
+var _icons_movie_creation =
+    MXFunctionInvoke("Icons.movie_creation", () => Icons.movie_creation);
+var _icons_movie_filter =
+    MXFunctionInvoke("Icons.movie_filter", () => Icons.movie_filter);
+var _icons_multiline_chart =
+    MXFunctionInvoke("Icons.multiline_chart", () => Icons.multiline_chart);
+var _icons_music_note =
+    MXFunctionInvoke("Icons.music_note", () => Icons.music_note);
+var _icons_music_video =
+    MXFunctionInvoke("Icons.music_video", () => Icons.music_video);
+var _icons_my_location =
+    MXFunctionInvoke("Icons.my_location", () => Icons.my_location);
+var _icons_nature = MXFunctionInvoke("Icons.nature", () => Icons.nature);
+var _icons_nature_people =
+    MXFunctionInvoke("Icons.nature_people", () => Icons.nature_people);
+var _icons_navigate_before =
+    MXFunctionInvoke("Icons.navigate_before", () => Icons.navigate_before);
+var _icons_navigate_next =
+    MXFunctionInvoke("Icons.navigate_next", () => Icons.navigate_next);
+var _icons_navigation =
+    MXFunctionInvoke("Icons.navigation", () => Icons.navigation);
+var _icons_near_me = MXFunctionInvoke("Icons.near_me", () => Icons.near_me);
+var _icons_network_cell =
+    MXFunctionInvoke("Icons.network_cell", () => Icons.network_cell);
+var _icons_network_check =
+    MXFunctionInvoke("Icons.network_check", () => Icons.network_check);
+var _icons_network_locked =
+    MXFunctionInvoke("Icons.network_locked", () => Icons.network_locked);
+var _icons_network_wifi =
+    MXFunctionInvoke("Icons.network_wifi", () => Icons.network_wifi);
+var _icons_new_releases =
+    MXFunctionInvoke("Icons.new_releases", () => Icons.new_releases);
+var _icons_next_week =
+    MXFunctionInvoke("Icons.next_week", () => Icons.next_week);
+var _icons_nfc = MXFunctionInvoke("Icons.nfc", () => Icons.nfc);
+var _icons_no_encryption =
+    MXFunctionInvoke("Icons.no_encryption", () => Icons.no_encryption);
+var _icons_no_sim = MXFunctionInvoke("Icons.no_sim", () => Icons.no_sim);
+var _icons_not_interested =
+    MXFunctionInvoke("Icons.not_interested", () => Icons.not_interested);
 var _icons_not_listed_location = MXFunctionInvoke(
-  "Icons.not_listed_location",
-    (
-    ) =>
-      Icons.not_listed_location
-);
-var _icons_note = MXFunctionInvoke(
-  "Icons.note",
-    (
-    ) =>
-      Icons.note
-);
-var _icons_note_add = MXFunctionInvoke(
-  "Icons.note_add",
-    (
-    ) =>
-      Icons.note_add
-);
+    "Icons.not_listed_location", () => Icons.not_listed_location);
+var _icons_note = MXFunctionInvoke("Icons.note", () => Icons.note);
+var _icons_note_add = MXFunctionInvoke("Icons.note_add", () => Icons.note_add);
 var _icons_notification_important = MXFunctionInvoke(
-  "Icons.notification_important",
-    (
-    ) =>
-      Icons.notification_important
-);
-var _icons_notifications = MXFunctionInvoke(
-  "Icons.notifications",
-    (
-    ) =>
-      Icons.notifications
-);
+    "Icons.notification_important", () => Icons.notification_important);
+var _icons_notifications =
+    MXFunctionInvoke("Icons.notifications", () => Icons.notifications);
 var _icons_notifications_active = MXFunctionInvoke(
-  "Icons.notifications_active",
-    (
-    ) =>
-      Icons.notifications_active
-);
+    "Icons.notifications_active", () => Icons.notifications_active);
 var _icons_notifications_none = MXFunctionInvoke(
-  "Icons.notifications_none",
-    (
-    ) =>
-      Icons.notifications_none
-);
-var _icons_notifications_off = MXFunctionInvoke(
-  "Icons.notifications_off",
-    (
-    ) =>
-      Icons.notifications_off
-);
+    "Icons.notifications_none", () => Icons.notifications_none);
+var _icons_notifications_off =
+    MXFunctionInvoke("Icons.notifications_off", () => Icons.notifications_off);
 var _icons_notifications_paused = MXFunctionInvoke(
-  "Icons.notifications_paused",
-    (
-    ) =>
-      Icons.notifications_paused
-);
-var _icons_offline_bolt = MXFunctionInvoke(
-  "Icons.offline_bolt",
-    (
-    ) =>
-      Icons.offline_bolt
-);
-var _icons_offline_pin = MXFunctionInvoke(
-  "Icons.offline_pin",
-    (
-    ) =>
-      Icons.offline_pin
-);
-var _icons_ondemand_video = MXFunctionInvoke(
-  "Icons.ondemand_video",
-    (
-    ) =>
-      Icons.ondemand_video
-);
-var _icons_opacity = MXFunctionInvoke(
-  "Icons.opacity",
-    (
-    ) =>
-      Icons.opacity
-);
-var _icons_open_in_browser = MXFunctionInvoke(
-  "Icons.open_in_browser",
-    (
-    ) =>
-      Icons.open_in_browser
-);
-var _icons_open_in_new = MXFunctionInvoke(
-  "Icons.open_in_new",
-    (
-    ) =>
-      Icons.open_in_new
-);
-var _icons_open_with = MXFunctionInvoke(
-  "Icons.open_with",
-    (
-    ) =>
-      Icons.open_with
-);
-var _icons_outlined_flag = MXFunctionInvoke(
-  "Icons.outlined_flag",
-    (
-    ) =>
-      Icons.outlined_flag
-);
-var _icons_pages = MXFunctionInvoke(
-  "Icons.pages",
-    (
-    ) =>
-      Icons.pages
-);
-var _icons_pageview = MXFunctionInvoke(
-  "Icons.pageview",
-    (
-    ) =>
-      Icons.pageview
-);
-var _icons_palette = MXFunctionInvoke(
-  "Icons.palette",
-    (
-    ) =>
-      Icons.palette
-);
-var _icons_pan_tool = MXFunctionInvoke(
-  "Icons.pan_tool",
-    (
-    ) =>
-      Icons.pan_tool
-);
-var _icons_panorama = MXFunctionInvoke(
-  "Icons.panorama",
-    (
-    ) =>
-      Icons.panorama
-);
-var _icons_panorama_fish_eye = MXFunctionInvoke(
-  "Icons.panorama_fish_eye",
-    (
-    ) =>
-      Icons.panorama_fish_eye
-);
+    "Icons.notifications_paused", () => Icons.notifications_paused);
+var _icons_offline_bolt =
+    MXFunctionInvoke("Icons.offline_bolt", () => Icons.offline_bolt);
+var _icons_offline_pin =
+    MXFunctionInvoke("Icons.offline_pin", () => Icons.offline_pin);
+var _icons_ondemand_video =
+    MXFunctionInvoke("Icons.ondemand_video", () => Icons.ondemand_video);
+var _icons_opacity = MXFunctionInvoke("Icons.opacity", () => Icons.opacity);
+var _icons_open_in_browser =
+    MXFunctionInvoke("Icons.open_in_browser", () => Icons.open_in_browser);
+var _icons_open_in_new =
+    MXFunctionInvoke("Icons.open_in_new", () => Icons.open_in_new);
+var _icons_open_with =
+    MXFunctionInvoke("Icons.open_with", () => Icons.open_with);
+var _icons_outlined_flag =
+    MXFunctionInvoke("Icons.outlined_flag", () => Icons.outlined_flag);
+var _icons_pages = MXFunctionInvoke("Icons.pages", () => Icons.pages);
+var _icons_pageview = MXFunctionInvoke("Icons.pageview", () => Icons.pageview);
+var _icons_palette = MXFunctionInvoke("Icons.palette", () => Icons.palette);
+var _icons_pan_tool = MXFunctionInvoke("Icons.pan_tool", () => Icons.pan_tool);
+var _icons_panorama = MXFunctionInvoke("Icons.panorama", () => Icons.panorama);
+var _icons_panorama_fish_eye =
+    MXFunctionInvoke("Icons.panorama_fish_eye", () => Icons.panorama_fish_eye);
 var _icons_panorama_horizontal = MXFunctionInvoke(
-  "Icons.panorama_horizontal",
-    (
-    ) =>
-      Icons.panorama_horizontal
-);
-var _icons_panorama_vertical = MXFunctionInvoke(
-  "Icons.panorama_vertical",
-    (
-    ) =>
-      Icons.panorama_vertical
-);
+    "Icons.panorama_horizontal", () => Icons.panorama_horizontal);
+var _icons_panorama_vertical =
+    MXFunctionInvoke("Icons.panorama_vertical", () => Icons.panorama_vertical);
 var _icons_panorama_wide_angle = MXFunctionInvoke(
-  "Icons.panorama_wide_angle",
-    (
-    ) =>
-      Icons.panorama_wide_angle
-);
-var _icons_party_mode = MXFunctionInvoke(
-  "Icons.party_mode",
-    (
-    ) =>
-      Icons.party_mode
-);
-var _icons_pause = MXFunctionInvoke(
-  "Icons.pause",
-    (
-    ) =>
-      Icons.pause
-);
+    "Icons.panorama_wide_angle", () => Icons.panorama_wide_angle);
+var _icons_party_mode =
+    MXFunctionInvoke("Icons.party_mode", () => Icons.party_mode);
+var _icons_pause = MXFunctionInvoke("Icons.pause", () => Icons.pause);
 var _icons_pause_circle_filled = MXFunctionInvoke(
-  "Icons.pause_circle_filled",
-    (
-    ) =>
-      Icons.pause_circle_filled
-);
+    "Icons.pause_circle_filled", () => Icons.pause_circle_filled);
 var _icons_pause_circle_outline = MXFunctionInvoke(
-  "Icons.pause_circle_outline",
-    (
-    ) =>
-      Icons.pause_circle_outline
-);
-var _icons_payment = MXFunctionInvoke(
-  "Icons.payment",
-    (
-    ) =>
-      Icons.payment
-);
-var _icons_people = MXFunctionInvoke(
-  "Icons.people",
-    (
-    ) =>
-      Icons.people
-);
-var _icons_people_outline = MXFunctionInvoke(
-  "Icons.people_outline",
-    (
-    ) =>
-      Icons.people_outline
-);
-var _icons_perm_camera_mic = MXFunctionInvoke(
-  "Icons.perm_camera_mic",
-    (
-    ) =>
-      Icons.perm_camera_mic
-);
+    "Icons.pause_circle_outline", () => Icons.pause_circle_outline);
+var _icons_payment = MXFunctionInvoke("Icons.payment", () => Icons.payment);
+var _icons_people = MXFunctionInvoke("Icons.people", () => Icons.people);
+var _icons_people_outline =
+    MXFunctionInvoke("Icons.people_outline", () => Icons.people_outline);
+var _icons_perm_camera_mic =
+    MXFunctionInvoke("Icons.perm_camera_mic", () => Icons.perm_camera_mic);
 var _icons_perm_contact_calendar = MXFunctionInvoke(
-  "Icons.perm_contact_calendar",
-    (
-    ) =>
-      Icons.perm_contact_calendar
-);
-var _icons_perm_data_setting = MXFunctionInvoke(
-  "Icons.perm_data_setting",
-    (
-    ) =>
-      Icons.perm_data_setting
-);
+    "Icons.perm_contact_calendar", () => Icons.perm_contact_calendar);
+var _icons_perm_data_setting =
+    MXFunctionInvoke("Icons.perm_data_setting", () => Icons.perm_data_setting);
 var _icons_perm_device_information = MXFunctionInvoke(
-  "Icons.perm_device_information",
-    (
-    ) =>
-      Icons.perm_device_information
-);
-var _icons_perm_identity = MXFunctionInvoke(
-  "Icons.perm_identity",
-    (
-    ) =>
-      Icons.perm_identity
-);
-var _icons_perm_media = MXFunctionInvoke(
-  "Icons.perm_media",
-    (
-    ) =>
-      Icons.perm_media
-);
-var _icons_perm_phone_msg = MXFunctionInvoke(
-  "Icons.perm_phone_msg",
-    (
-    ) =>
-      Icons.perm_phone_msg
-);
-var _icons_perm_scan_wifi = MXFunctionInvoke(
-  "Icons.perm_scan_wifi",
-    (
-    ) =>
-      Icons.perm_scan_wifi
-);
-var _icons_person = MXFunctionInvoke(
-  "Icons.person",
-    (
-    ) =>
-      Icons.person
-);
-var _icons_person_add = MXFunctionInvoke(
-  "Icons.person_add",
-    (
-    ) =>
-      Icons.person_add
-);
-var _icons_person_outline = MXFunctionInvoke(
-  "Icons.person_outline",
-    (
-    ) =>
-      Icons.person_outline
-);
-var _icons_person_pin = MXFunctionInvoke(
-  "Icons.person_pin",
-    (
-    ) =>
-      Icons.person_pin
-);
-var _icons_person_pin_circle = MXFunctionInvoke(
-  "Icons.person_pin_circle",
-    (
-    ) =>
-      Icons.person_pin_circle
-);
-var _icons_personal_video = MXFunctionInvoke(
-  "Icons.personal_video",
-    (
-    ) =>
-      Icons.personal_video
-);
-var _icons_pets = MXFunctionInvoke(
-  "Icons.pets",
-    (
-    ) =>
-      Icons.pets
-);
-var _icons_phone = MXFunctionInvoke(
-  "Icons.phone",
-    (
-    ) =>
-      Icons.phone
-);
-var _icons_phone_android = MXFunctionInvoke(
-  "Icons.phone_android",
-    (
-    ) =>
-      Icons.phone_android
-);
+    "Icons.perm_device_information", () => Icons.perm_device_information);
+var _icons_perm_identity =
+    MXFunctionInvoke("Icons.perm_identity", () => Icons.perm_identity);
+var _icons_perm_media =
+    MXFunctionInvoke("Icons.perm_media", () => Icons.perm_media);
+var _icons_perm_phone_msg =
+    MXFunctionInvoke("Icons.perm_phone_msg", () => Icons.perm_phone_msg);
+var _icons_perm_scan_wifi =
+    MXFunctionInvoke("Icons.perm_scan_wifi", () => Icons.perm_scan_wifi);
+var _icons_person = MXFunctionInvoke("Icons.person", () => Icons.person);
+var _icons_person_add =
+    MXFunctionInvoke("Icons.person_add", () => Icons.person_add);
+var _icons_person_outline =
+    MXFunctionInvoke("Icons.person_outline", () => Icons.person_outline);
+var _icons_person_pin =
+    MXFunctionInvoke("Icons.person_pin", () => Icons.person_pin);
+var _icons_person_pin_circle =
+    MXFunctionInvoke("Icons.person_pin_circle", () => Icons.person_pin_circle);
+var _icons_personal_video =
+    MXFunctionInvoke("Icons.personal_video", () => Icons.personal_video);
+var _icons_pets = MXFunctionInvoke("Icons.pets", () => Icons.pets);
+var _icons_phone = MXFunctionInvoke("Icons.phone", () => Icons.phone);
+var _icons_phone_android =
+    MXFunctionInvoke("Icons.phone_android", () => Icons.phone_android);
 var _icons_phone_bluetooth_speaker = MXFunctionInvoke(
-  "Icons.phone_bluetooth_speaker",
-    (
-    ) =>
-      Icons.phone_bluetooth_speaker
-);
-var _icons_phone_forwarded = MXFunctionInvoke(
-  "Icons.phone_forwarded",
-    (
-    ) =>
-      Icons.phone_forwarded
-);
-var _icons_phone_in_talk = MXFunctionInvoke(
-  "Icons.phone_in_talk",
-    (
-    ) =>
-      Icons.phone_in_talk
-);
-var _icons_phone_iphone = MXFunctionInvoke(
-  "Icons.phone_iphone",
-    (
-    ) =>
-      Icons.phone_iphone
-);
-var _icons_phone_locked = MXFunctionInvoke(
-  "Icons.phone_locked",
-    (
-    ) =>
-      Icons.phone_locked
-);
-var _icons_phone_missed = MXFunctionInvoke(
-  "Icons.phone_missed",
-    (
-    ) =>
-      Icons.phone_missed
-);
-var _icons_phone_paused = MXFunctionInvoke(
-  "Icons.phone_paused",
-    (
-    ) =>
-      Icons.phone_paused
-);
-var _icons_phonelink = MXFunctionInvoke(
-  "Icons.phonelink",
-    (
-    ) =>
-      Icons.phonelink
-);
-var _icons_phonelink_erase = MXFunctionInvoke(
-  "Icons.phonelink_erase",
-    (
-    ) =>
-      Icons.phonelink_erase
-);
-var _icons_phonelink_lock = MXFunctionInvoke(
-  "Icons.phonelink_lock",
-    (
-    ) =>
-      Icons.phonelink_lock
-);
-var _icons_phonelink_off = MXFunctionInvoke(
-  "Icons.phonelink_off",
-    (
-    ) =>
-      Icons.phonelink_off
-);
-var _icons_phonelink_ring = MXFunctionInvoke(
-  "Icons.phonelink_ring",
-    (
-    ) =>
-      Icons.phonelink_ring
-);
-var _icons_phonelink_setup = MXFunctionInvoke(
-  "Icons.phonelink_setup",
-    (
-    ) =>
-      Icons.phonelink_setup
-);
-var _icons_photo = MXFunctionInvoke(
-  "Icons.photo",
-    (
-    ) =>
-      Icons.photo
-);
-var _icons_photo_album = MXFunctionInvoke(
-  "Icons.photo_album",
-    (
-    ) =>
-      Icons.photo_album
-);
-var _icons_photo_camera = MXFunctionInvoke(
-  "Icons.photo_camera",
-    (
-    ) =>
-      Icons.photo_camera
-);
-var _icons_photo_filter = MXFunctionInvoke(
-  "Icons.photo_filter",
-    (
-    ) =>
-      Icons.photo_filter
-);
-var _icons_photo_library = MXFunctionInvoke(
-  "Icons.photo_library",
-    (
-    ) =>
-      Icons.photo_library
-);
+    "Icons.phone_bluetooth_speaker", () => Icons.phone_bluetooth_speaker);
+var _icons_phone_forwarded =
+    MXFunctionInvoke("Icons.phone_forwarded", () => Icons.phone_forwarded);
+var _icons_phone_in_talk =
+    MXFunctionInvoke("Icons.phone_in_talk", () => Icons.phone_in_talk);
+var _icons_phone_iphone =
+    MXFunctionInvoke("Icons.phone_iphone", () => Icons.phone_iphone);
+var _icons_phone_locked =
+    MXFunctionInvoke("Icons.phone_locked", () => Icons.phone_locked);
+var _icons_phone_missed =
+    MXFunctionInvoke("Icons.phone_missed", () => Icons.phone_missed);
+var _icons_phone_paused =
+    MXFunctionInvoke("Icons.phone_paused", () => Icons.phone_paused);
+var _icons_phonelink =
+    MXFunctionInvoke("Icons.phonelink", () => Icons.phonelink);
+var _icons_phonelink_erase =
+    MXFunctionInvoke("Icons.phonelink_erase", () => Icons.phonelink_erase);
+var _icons_phonelink_lock =
+    MXFunctionInvoke("Icons.phonelink_lock", () => Icons.phonelink_lock);
+var _icons_phonelink_off =
+    MXFunctionInvoke("Icons.phonelink_off", () => Icons.phonelink_off);
+var _icons_phonelink_ring =
+    MXFunctionInvoke("Icons.phonelink_ring", () => Icons.phonelink_ring);
+var _icons_phonelink_setup =
+    MXFunctionInvoke("Icons.phonelink_setup", () => Icons.phonelink_setup);
+var _icons_photo = MXFunctionInvoke("Icons.photo", () => Icons.photo);
+var _icons_photo_album =
+    MXFunctionInvoke("Icons.photo_album", () => Icons.photo_album);
+var _icons_photo_camera =
+    MXFunctionInvoke("Icons.photo_camera", () => Icons.photo_camera);
+var _icons_photo_filter =
+    MXFunctionInvoke("Icons.photo_filter", () => Icons.photo_filter);
+var _icons_photo_library =
+    MXFunctionInvoke("Icons.photo_library", () => Icons.photo_library);
 var _icons_photo_size_select_actual = MXFunctionInvoke(
-  "Icons.photo_size_select_actual",
-    (
-    ) =>
-      Icons.photo_size_select_actual
-);
+    "Icons.photo_size_select_actual", () => Icons.photo_size_select_actual);
 var _icons_photo_size_select_large = MXFunctionInvoke(
-  "Icons.photo_size_select_large",
-    (
-    ) =>
-      Icons.photo_size_select_large
-);
+    "Icons.photo_size_select_large", () => Icons.photo_size_select_large);
 var _icons_photo_size_select_small = MXFunctionInvoke(
-  "Icons.photo_size_select_small",
-    (
-    ) =>
-      Icons.photo_size_select_small
-);
-var _icons_picture_as_pdf = MXFunctionInvoke(
-  "Icons.picture_as_pdf",
-    (
-    ) =>
-      Icons.picture_as_pdf
-);
+    "Icons.photo_size_select_small", () => Icons.photo_size_select_small);
+var _icons_picture_as_pdf =
+    MXFunctionInvoke("Icons.picture_as_pdf", () => Icons.picture_as_pdf);
 var _icons_picture_in_picture = MXFunctionInvoke(
-  "Icons.picture_in_picture",
-    (
-    ) =>
-      Icons.picture_in_picture
-);
+    "Icons.picture_in_picture", () => Icons.picture_in_picture);
 var _icons_picture_in_picture_alt = MXFunctionInvoke(
-  "Icons.picture_in_picture_alt",
-    (
-    ) =>
-      Icons.picture_in_picture_alt
-);
-var _icons_pie_chart = MXFunctionInvoke(
-  "Icons.pie_chart",
-    (
-    ) =>
-      Icons.pie_chart
-);
+    "Icons.picture_in_picture_alt", () => Icons.picture_in_picture_alt);
+var _icons_pie_chart =
+    MXFunctionInvoke("Icons.pie_chart", () => Icons.pie_chart);
 var _icons_pie_chart_outlined = MXFunctionInvoke(
-  "Icons.pie_chart_outlined",
-    (
-    ) =>
-      Icons.pie_chart_outlined
-);
-var _icons_pin_drop = MXFunctionInvoke(
-  "Icons.pin_drop",
-    (
-    ) =>
-      Icons.pin_drop
-);
-var _icons_place = MXFunctionInvoke(
-  "Icons.place",
-    (
-    ) =>
-      Icons.place
-);
-var _icons_play_arrow = MXFunctionInvoke(
-  "Icons.play_arrow",
-    (
-    ) =>
-      Icons.play_arrow
-);
+    "Icons.pie_chart_outlined", () => Icons.pie_chart_outlined);
+var _icons_pin_drop = MXFunctionInvoke("Icons.pin_drop", () => Icons.pin_drop);
+var _icons_place = MXFunctionInvoke("Icons.place", () => Icons.place);
+var _icons_play_arrow =
+    MXFunctionInvoke("Icons.play_arrow", () => Icons.play_arrow);
 var _icons_play_circle_filled = MXFunctionInvoke(
-  "Icons.play_circle_filled",
-    (
-    ) =>
-      Icons.play_circle_filled
-);
+    "Icons.play_circle_filled", () => Icons.play_circle_filled);
 var _icons_play_circle_outline = MXFunctionInvoke(
-  "Icons.play_circle_outline",
-    (
-    ) =>
-      Icons.play_circle_outline
-);
-var _icons_play_for_work = MXFunctionInvoke(
-  "Icons.play_for_work",
-    (
-    ) =>
-      Icons.play_for_work
-);
-var _icons_playlist_add = MXFunctionInvoke(
-  "Icons.playlist_add",
-    (
-    ) =>
-      Icons.playlist_add
-);
+    "Icons.play_circle_outline", () => Icons.play_circle_outline);
+var _icons_play_for_work =
+    MXFunctionInvoke("Icons.play_for_work", () => Icons.play_for_work);
+var _icons_playlist_add =
+    MXFunctionInvoke("Icons.playlist_add", () => Icons.playlist_add);
 var _icons_playlist_add_check = MXFunctionInvoke(
-  "Icons.playlist_add_check",
-    (
-    ) =>
-      Icons.playlist_add_check
-);
-var _icons_playlist_play = MXFunctionInvoke(
-  "Icons.playlist_play",
-    (
-    ) =>
-      Icons.playlist_play
-);
-var _icons_plus_one = MXFunctionInvoke(
-  "Icons.plus_one",
-    (
-    ) =>
-      Icons.plus_one
-);
-var _icons_poll = MXFunctionInvoke(
-  "Icons.poll",
-    (
-    ) =>
-      Icons.poll
-);
-var _icons_polymer = MXFunctionInvoke(
-  "Icons.polymer",
-    (
-    ) =>
-      Icons.polymer
-);
-var _icons_pool = MXFunctionInvoke(
-  "Icons.pool",
-    (
-    ) =>
-      Icons.pool
-);
-var _icons_portable_wifi_off = MXFunctionInvoke(
-  "Icons.portable_wifi_off",
-    (
-    ) =>
-      Icons.portable_wifi_off
-);
-var _icons_portrait = MXFunctionInvoke(
-  "Icons.portrait",
-    (
-    ) =>
-      Icons.portrait
-);
-var _icons_power = MXFunctionInvoke(
-  "Icons.power",
-    (
-    ) =>
-      Icons.power
-);
-var _icons_power_input = MXFunctionInvoke(
-  "Icons.power_input",
-    (
-    ) =>
-      Icons.power_input
-);
+    "Icons.playlist_add_check", () => Icons.playlist_add_check);
+var _icons_playlist_play =
+    MXFunctionInvoke("Icons.playlist_play", () => Icons.playlist_play);
+var _icons_plus_one = MXFunctionInvoke("Icons.plus_one", () => Icons.plus_one);
+var _icons_poll = MXFunctionInvoke("Icons.poll", () => Icons.poll);
+var _icons_polymer = MXFunctionInvoke("Icons.polymer", () => Icons.polymer);
+var _icons_pool = MXFunctionInvoke("Icons.pool", () => Icons.pool);
+var _icons_portable_wifi_off =
+    MXFunctionInvoke("Icons.portable_wifi_off", () => Icons.portable_wifi_off);
+var _icons_portrait = MXFunctionInvoke("Icons.portrait", () => Icons.portrait);
+var _icons_power = MXFunctionInvoke("Icons.power", () => Icons.power);
+var _icons_power_input =
+    MXFunctionInvoke("Icons.power_input", () => Icons.power_input);
 var _icons_power_settings_new = MXFunctionInvoke(
-  "Icons.power_settings_new",
-    (
-    ) =>
-      Icons.power_settings_new
-);
-var _icons_pregnant_woman = MXFunctionInvoke(
-  "Icons.pregnant_woman",
-    (
-    ) =>
-      Icons.pregnant_woman
-);
-var _icons_present_to_all = MXFunctionInvoke(
-  "Icons.present_to_all",
-    (
-    ) =>
-      Icons.present_to_all
-);
-var _icons_print = MXFunctionInvoke(
-  "Icons.print",
-    (
-    ) =>
-      Icons.print
-);
-var _icons_priority_high = MXFunctionInvoke(
-  "Icons.priority_high",
-    (
-    ) =>
-      Icons.priority_high
-);
-var _icons_public = MXFunctionInvoke(
-  "Icons.public",
-    (
-    ) =>
-      Icons.public
-);
-var _icons_publish = MXFunctionInvoke(
-  "Icons.publish",
-    (
-    ) =>
-      Icons.publish
-);
-var _icons_query_builder = MXFunctionInvoke(
-  "Icons.query_builder",
-    (
-    ) =>
-      Icons.query_builder
-);
-var _icons_question_answer = MXFunctionInvoke(
-  "Icons.question_answer",
-    (
-    ) =>
-      Icons.question_answer
-);
-var _icons_queue = MXFunctionInvoke(
-  "Icons.queue",
-    (
-    ) =>
-      Icons.queue
-);
-var _icons_queue_music = MXFunctionInvoke(
-  "Icons.queue_music",
-    (
-    ) =>
-      Icons.queue_music
-);
-var _icons_queue_play_next = MXFunctionInvoke(
-  "Icons.queue_play_next",
-    (
-    ) =>
-      Icons.queue_play_next
-);
-var _icons_radio = MXFunctionInvoke(
-  "Icons.radio",
-    (
-    ) =>
-      Icons.radio
-);
+    "Icons.power_settings_new", () => Icons.power_settings_new);
+var _icons_pregnant_woman =
+    MXFunctionInvoke("Icons.pregnant_woman", () => Icons.pregnant_woman);
+var _icons_present_to_all =
+    MXFunctionInvoke("Icons.present_to_all", () => Icons.present_to_all);
+var _icons_print = MXFunctionInvoke("Icons.print", () => Icons.print);
+var _icons_priority_high =
+    MXFunctionInvoke("Icons.priority_high", () => Icons.priority_high);
+var _icons_public = MXFunctionInvoke("Icons.public", () => Icons.public);
+var _icons_publish = MXFunctionInvoke("Icons.publish", () => Icons.publish);
+var _icons_query_builder =
+    MXFunctionInvoke("Icons.query_builder", () => Icons.query_builder);
+var _icons_question_answer =
+    MXFunctionInvoke("Icons.question_answer", () => Icons.question_answer);
+var _icons_queue = MXFunctionInvoke("Icons.queue", () => Icons.queue);
+var _icons_queue_music =
+    MXFunctionInvoke("Icons.queue_music", () => Icons.queue_music);
+var _icons_queue_play_next =
+    MXFunctionInvoke("Icons.queue_play_next", () => Icons.queue_play_next);
+var _icons_radio = MXFunctionInvoke("Icons.radio", () => Icons.radio);
 var _icons_radio_button_checked = MXFunctionInvoke(
-  "Icons.radio_button_checked",
-    (
-    ) =>
-      Icons.radio_button_checked
-);
+    "Icons.radio_button_checked", () => Icons.radio_button_checked);
 var _icons_radio_button_unchecked = MXFunctionInvoke(
-  "Icons.radio_button_unchecked",
-    (
-    ) =>
-      Icons.radio_button_unchecked
-);
-var _icons_rate_review = MXFunctionInvoke(
-  "Icons.rate_review",
-    (
-    ) =>
-      Icons.rate_review
-);
-var _icons_receipt = MXFunctionInvoke(
-  "Icons.receipt",
-    (
-    ) =>
-      Icons.receipt
-);
-var _icons_recent_actors = MXFunctionInvoke(
-  "Icons.recent_actors",
-    (
-    ) =>
-      Icons.recent_actors
-);
-var _icons_record_voice_over = MXFunctionInvoke(
-  "Icons.record_voice_over",
-    (
-    ) =>
-      Icons.record_voice_over
-);
-var _icons_redeem = MXFunctionInvoke(
-  "Icons.redeem",
-    (
-    ) =>
-      Icons.redeem
-);
-var _icons_redo = MXFunctionInvoke(
-  "Icons.redo",
-    (
-    ) =>
-      Icons.redo
-);
-var _icons_refresh = MXFunctionInvoke(
-  "Icons.refresh",
-    (
-    ) =>
-      Icons.refresh
-);
-var _icons_remove = MXFunctionInvoke(
-  "Icons.remove",
-    (
-    ) =>
-      Icons.remove
-);
-var _icons_remove_circle = MXFunctionInvoke(
-  "Icons.remove_circle",
-    (
-    ) =>
-      Icons.remove_circle
-);
+    "Icons.radio_button_unchecked", () => Icons.radio_button_unchecked);
+var _icons_rate_review =
+    MXFunctionInvoke("Icons.rate_review", () => Icons.rate_review);
+var _icons_receipt = MXFunctionInvoke("Icons.receipt", () => Icons.receipt);
+var _icons_recent_actors =
+    MXFunctionInvoke("Icons.recent_actors", () => Icons.recent_actors);
+var _icons_record_voice_over =
+    MXFunctionInvoke("Icons.record_voice_over", () => Icons.record_voice_over);
+var _icons_redeem = MXFunctionInvoke("Icons.redeem", () => Icons.redeem);
+var _icons_redo = MXFunctionInvoke("Icons.redo", () => Icons.redo);
+var _icons_refresh = MXFunctionInvoke("Icons.refresh", () => Icons.refresh);
+var _icons_remove = MXFunctionInvoke("Icons.remove", () => Icons.remove);
+var _icons_remove_circle =
+    MXFunctionInvoke("Icons.remove_circle", () => Icons.remove_circle);
 var _icons_remove_circle_outline = MXFunctionInvoke(
-  "Icons.remove_circle_outline",
-    (
-    ) =>
-      Icons.remove_circle_outline
-);
-var _icons_remove_from_queue = MXFunctionInvoke(
-  "Icons.remove_from_queue",
-    (
-    ) =>
-      Icons.remove_from_queue
-);
-var _icons_remove_red_eye = MXFunctionInvoke(
-  "Icons.remove_red_eye",
-    (
-    ) =>
-      Icons.remove_red_eye
-);
+    "Icons.remove_circle_outline", () => Icons.remove_circle_outline);
+var _icons_remove_from_queue =
+    MXFunctionInvoke("Icons.remove_from_queue", () => Icons.remove_from_queue);
+var _icons_remove_red_eye =
+    MXFunctionInvoke("Icons.remove_red_eye", () => Icons.remove_red_eye);
 var _icons_remove_shopping_cart = MXFunctionInvoke(
-  "Icons.remove_shopping_cart",
-    (
-    ) =>
-      Icons.remove_shopping_cart
-);
-var _icons_reorder = MXFunctionInvoke(
-  "Icons.reorder",
-    (
-    ) =>
-      Icons.reorder
-);
-var _icons_repeat = MXFunctionInvoke(
-  "Icons.repeat",
-    (
-    ) =>
-      Icons.repeat
-);
-var _icons_repeat_one = MXFunctionInvoke(
-  "Icons.repeat_one",
-    (
-    ) =>
-      Icons.repeat_one
-);
-var _icons_replay = MXFunctionInvoke(
-  "Icons.replay",
-    (
-    ) =>
-      Icons.replay
-);
-var _icons_replay_10 = MXFunctionInvoke(
-  "Icons.replay_10",
-    (
-    ) =>
-      Icons.replay_10
-);
-var _icons_replay_30 = MXFunctionInvoke(
-  "Icons.replay_30",
-    (
-    ) =>
-      Icons.replay_30
-);
-var _icons_replay_5 = MXFunctionInvoke(
-  "Icons.replay_5",
-    (
-    ) =>
-      Icons.replay_5
-);
-var _icons_reply = MXFunctionInvoke(
-  "Icons.reply",
-    (
-    ) =>
-      Icons.reply
-);
-var _icons_reply_all = MXFunctionInvoke(
-  "Icons.reply_all",
-    (
-    ) =>
-      Icons.reply_all
-);
-var _icons_report = MXFunctionInvoke(
-  "Icons.report",
-    (
-    ) =>
-      Icons.report
-);
-var _icons_report_off = MXFunctionInvoke(
-  "Icons.report_off",
-    (
-    ) =>
-      Icons.report_off
-);
-var _icons_report_problem = MXFunctionInvoke(
-  "Icons.report_problem",
-    (
-    ) =>
-      Icons.report_problem
-);
-var _icons_restaurant = MXFunctionInvoke(
-  "Icons.restaurant",
-    (
-    ) =>
-      Icons.restaurant
-);
-var _icons_restaurant_menu = MXFunctionInvoke(
-  "Icons.restaurant_menu",
-    (
-    ) =>
-      Icons.restaurant_menu
-);
-var _icons_restore = MXFunctionInvoke(
-  "Icons.restore",
-    (
-    ) =>
-      Icons.restore
-);
+    "Icons.remove_shopping_cart", () => Icons.remove_shopping_cart);
+var _icons_reorder = MXFunctionInvoke("Icons.reorder", () => Icons.reorder);
+var _icons_repeat = MXFunctionInvoke("Icons.repeat", () => Icons.repeat);
+var _icons_repeat_one =
+    MXFunctionInvoke("Icons.repeat_one", () => Icons.repeat_one);
+var _icons_replay = MXFunctionInvoke("Icons.replay", () => Icons.replay);
+var _icons_replay_10 =
+    MXFunctionInvoke("Icons.replay_10", () => Icons.replay_10);
+var _icons_replay_30 =
+    MXFunctionInvoke("Icons.replay_30", () => Icons.replay_30);
+var _icons_replay_5 = MXFunctionInvoke("Icons.replay_5", () => Icons.replay_5);
+var _icons_reply = MXFunctionInvoke("Icons.reply", () => Icons.reply);
+var _icons_reply_all =
+    MXFunctionInvoke("Icons.reply_all", () => Icons.reply_all);
+var _icons_report = MXFunctionInvoke("Icons.report", () => Icons.report);
+var _icons_report_off =
+    MXFunctionInvoke("Icons.report_off", () => Icons.report_off);
+var _icons_report_problem =
+    MXFunctionInvoke("Icons.report_problem", () => Icons.report_problem);
+var _icons_restaurant =
+    MXFunctionInvoke("Icons.restaurant", () => Icons.restaurant);
+var _icons_restaurant_menu =
+    MXFunctionInvoke("Icons.restaurant_menu", () => Icons.restaurant_menu);
+var _icons_restore = MXFunctionInvoke("Icons.restore", () => Icons.restore);
 var _icons_restore_from_trash = MXFunctionInvoke(
-  "Icons.restore_from_trash",
-    (
-    ) =>
-      Icons.restore_from_trash
-);
-var _icons_restore_page = MXFunctionInvoke(
-  "Icons.restore_page",
-    (
-    ) =>
-      Icons.restore_page
-);
-var _icons_ring_volume = MXFunctionInvoke(
-  "Icons.ring_volume",
-    (
-    ) =>
-      Icons.ring_volume
-);
-var _icons_room = MXFunctionInvoke(
-  "Icons.room",
-    (
-    ) =>
-      Icons.room
-);
-var _icons_room_service = MXFunctionInvoke(
-  "Icons.room_service",
-    (
-    ) =>
-      Icons.room_service
-);
+    "Icons.restore_from_trash", () => Icons.restore_from_trash);
+var _icons_restore_page =
+    MXFunctionInvoke("Icons.restore_page", () => Icons.restore_page);
+var _icons_ring_volume =
+    MXFunctionInvoke("Icons.ring_volume", () => Icons.ring_volume);
+var _icons_room = MXFunctionInvoke("Icons.room", () => Icons.room);
+var _icons_room_service =
+    MXFunctionInvoke("Icons.room_service", () => Icons.room_service);
 var _icons_rotate_90_degrees_ccw = MXFunctionInvoke(
-  "Icons.rotate_90_degrees_ccw",
-    (
-    ) =>
-      Icons.rotate_90_degrees_ccw
-);
-var _icons_rotate_left = MXFunctionInvoke(
-  "Icons.rotate_left",
-    (
-    ) =>
-      Icons.rotate_left
-);
-var _icons_rotate_right = MXFunctionInvoke(
-  "Icons.rotate_right",
-    (
-    ) =>
-      Icons.rotate_right
-);
-var _icons_rounded_corner = MXFunctionInvoke(
-  "Icons.rounded_corner",
-    (
-    ) =>
-      Icons.rounded_corner
-);
-var _icons_router = MXFunctionInvoke(
-  "Icons.router",
-    (
-    ) =>
-      Icons.router
-);
-var _icons_rowing = MXFunctionInvoke(
-  "Icons.rowing",
-    (
-    ) =>
-      Icons.rowing
-);
-var _icons_rss_feed = MXFunctionInvoke(
-  "Icons.rss_feed",
-    (
-    ) =>
-      Icons.rss_feed
-);
-var _icons_rv_hookup = MXFunctionInvoke(
-  "Icons.rv_hookup",
-    (
-    ) =>
-      Icons.rv_hookup
-);
-var _icons_satellite = MXFunctionInvoke(
-  "Icons.satellite",
-    (
-    ) =>
-      Icons.satellite
-);
-var _icons_save = MXFunctionInvoke(
-  "Icons.save",
-    (
-    ) =>
-      Icons.save
-);
-var _icons_save_alt = MXFunctionInvoke(
-  "Icons.save_alt",
-    (
-    ) =>
-      Icons.save_alt
-);
-var _icons_scanner = MXFunctionInvoke(
-  "Icons.scanner",
-    (
-    ) =>
-      Icons.scanner
-);
-var _icons_scatter_plot = MXFunctionInvoke(
-  "Icons.scatter_plot",
-    (
-    ) =>
-      Icons.scatter_plot
-);
-var _icons_schedule = MXFunctionInvoke(
-  "Icons.schedule",
-    (
-    ) =>
-      Icons.schedule
-);
-var _icons_school = MXFunctionInvoke(
-  "Icons.school",
-    (
-    ) =>
-      Icons.school
-);
-var _icons_score = MXFunctionInvoke(
-  "Icons.score",
-    (
-    ) =>
-      Icons.score
-);
+    "Icons.rotate_90_degrees_ccw", () => Icons.rotate_90_degrees_ccw);
+var _icons_rotate_left =
+    MXFunctionInvoke("Icons.rotate_left", () => Icons.rotate_left);
+var _icons_rotate_right =
+    MXFunctionInvoke("Icons.rotate_right", () => Icons.rotate_right);
+var _icons_rounded_corner =
+    MXFunctionInvoke("Icons.rounded_corner", () => Icons.rounded_corner);
+var _icons_router = MXFunctionInvoke("Icons.router", () => Icons.router);
+var _icons_rowing = MXFunctionInvoke("Icons.rowing", () => Icons.rowing);
+var _icons_rss_feed = MXFunctionInvoke("Icons.rss_feed", () => Icons.rss_feed);
+var _icons_rv_hookup =
+    MXFunctionInvoke("Icons.rv_hookup", () => Icons.rv_hookup);
+var _icons_satellite =
+    MXFunctionInvoke("Icons.satellite", () => Icons.satellite);
+var _icons_save = MXFunctionInvoke("Icons.save", () => Icons.save);
+var _icons_save_alt = MXFunctionInvoke("Icons.save_alt", () => Icons.save_alt);
+var _icons_scanner = MXFunctionInvoke("Icons.scanner", () => Icons.scanner);
+var _icons_scatter_plot =
+    MXFunctionInvoke("Icons.scatter_plot", () => Icons.scatter_plot);
+var _icons_schedule = MXFunctionInvoke("Icons.schedule", () => Icons.schedule);
+var _icons_school = MXFunctionInvoke("Icons.school", () => Icons.school);
+var _icons_score = MXFunctionInvoke("Icons.score", () => Icons.score);
 var _icons_screen_lock_landscape = MXFunctionInvoke(
-  "Icons.screen_lock_landscape",
-    (
-    ) =>
-      Icons.screen_lock_landscape
-);
+    "Icons.screen_lock_landscape", () => Icons.screen_lock_landscape);
 var _icons_screen_lock_portrait = MXFunctionInvoke(
-  "Icons.screen_lock_portrait",
-    (
-    ) =>
-      Icons.screen_lock_portrait
-);
+    "Icons.screen_lock_portrait", () => Icons.screen_lock_portrait);
 var _icons_screen_lock_rotation = MXFunctionInvoke(
-  "Icons.screen_lock_rotation",
-    (
-    ) =>
-      Icons.screen_lock_rotation
-);
-var _icons_screen_rotation = MXFunctionInvoke(
-  "Icons.screen_rotation",
-    (
-    ) =>
-      Icons.screen_rotation
-);
-var _icons_screen_share = MXFunctionInvoke(
-  "Icons.screen_share",
-    (
-    ) =>
-      Icons.screen_share
-);
-var _icons_sd_card = MXFunctionInvoke(
-  "Icons.sd_card",
-    (
-    ) =>
-      Icons.sd_card
-);
-var _icons_sd_storage = MXFunctionInvoke(
-  "Icons.sd_storage",
-    (
-    ) =>
-      Icons.sd_storage
-);
-var _icons_search = MXFunctionInvoke(
-  "Icons.search",
-    (
-    ) =>
-      Icons.search
-);
-var _icons_security = MXFunctionInvoke(
-  "Icons.security",
-    (
-    ) =>
-      Icons.security
-);
-var _icons_select_all = MXFunctionInvoke(
-  "Icons.select_all",
-    (
-    ) =>
-      Icons.select_all
-);
-var _icons_send = MXFunctionInvoke(
-  "Icons.send",
-    (
-    ) =>
-      Icons.send
-);
+    "Icons.screen_lock_rotation", () => Icons.screen_lock_rotation);
+var _icons_screen_rotation =
+    MXFunctionInvoke("Icons.screen_rotation", () => Icons.screen_rotation);
+var _icons_screen_share =
+    MXFunctionInvoke("Icons.screen_share", () => Icons.screen_share);
+var _icons_sd_card = MXFunctionInvoke("Icons.sd_card", () => Icons.sd_card);
+var _icons_sd_storage =
+    MXFunctionInvoke("Icons.sd_storage", () => Icons.sd_storage);
+var _icons_search = MXFunctionInvoke("Icons.search", () => Icons.search);
+var _icons_security = MXFunctionInvoke("Icons.security", () => Icons.security);
+var _icons_select_all =
+    MXFunctionInvoke("Icons.select_all", () => Icons.select_all);
+var _icons_send = MXFunctionInvoke("Icons.send", () => Icons.send);
 var _icons_sentiment_dissatisfied = MXFunctionInvoke(
-  "Icons.sentiment_dissatisfied",
-    (
-    ) =>
-      Icons.sentiment_dissatisfied
-);
-var _icons_sentiment_neutral = MXFunctionInvoke(
-  "Icons.sentiment_neutral",
-    (
-    ) =>
-      Icons.sentiment_neutral
-);
+    "Icons.sentiment_dissatisfied", () => Icons.sentiment_dissatisfied);
+var _icons_sentiment_neutral =
+    MXFunctionInvoke("Icons.sentiment_neutral", () => Icons.sentiment_neutral);
 var _icons_sentiment_satisfied = MXFunctionInvoke(
-  "Icons.sentiment_satisfied",
-    (
-    ) =>
-      Icons.sentiment_satisfied
-);
+    "Icons.sentiment_satisfied", () => Icons.sentiment_satisfied);
 var _icons_sentiment_very_dissatisfied = MXFunctionInvoke(
-  "Icons.sentiment_very_dissatisfied",
-    (
-    ) =>
-      Icons.sentiment_very_dissatisfied
-);
+    "Icons.sentiment_very_dissatisfied",
+    () => Icons.sentiment_very_dissatisfied);
 var _icons_sentiment_very_satisfied = MXFunctionInvoke(
-  "Icons.sentiment_very_satisfied",
-    (
-    ) =>
-      Icons.sentiment_very_satisfied
-);
-var _icons_settings = MXFunctionInvoke(
-  "Icons.settings",
-    (
-    ) =>
-      Icons.settings
-);
+    "Icons.sentiment_very_satisfied", () => Icons.sentiment_very_satisfied);
+var _icons_settings = MXFunctionInvoke("Icons.settings", () => Icons.settings);
 var _icons_settings_applications = MXFunctionInvoke(
-  "Icons.settings_applications",
-    (
-    ) =>
-      Icons.settings_applications
-);
+    "Icons.settings_applications", () => Icons.settings_applications);
 var _icons_settings_backup_restore = MXFunctionInvoke(
-  "Icons.settings_backup_restore",
-    (
-    ) =>
-      Icons.settings_backup_restore
-);
+    "Icons.settings_backup_restore", () => Icons.settings_backup_restore);
 var _icons_settings_bluetooth = MXFunctionInvoke(
-  "Icons.settings_bluetooth",
-    (
-    ) =>
-      Icons.settings_bluetooth
-);
+    "Icons.settings_bluetooth", () => Icons.settings_bluetooth);
 var _icons_settings_brightness = MXFunctionInvoke(
-  "Icons.settings_brightness",
-    (
-    ) =>
-      Icons.settings_brightness
-);
-var _icons_settings_cell = MXFunctionInvoke(
-  "Icons.settings_cell",
-    (
-    ) =>
-      Icons.settings_cell
-);
-var _icons_settings_ethernet = MXFunctionInvoke(
-  "Icons.settings_ethernet",
-    (
-    ) =>
-      Icons.settings_ethernet
-);
+    "Icons.settings_brightness", () => Icons.settings_brightness);
+var _icons_settings_cell =
+    MXFunctionInvoke("Icons.settings_cell", () => Icons.settings_cell);
+var _icons_settings_ethernet =
+    MXFunctionInvoke("Icons.settings_ethernet", () => Icons.settings_ethernet);
 var _icons_settings_input_antenna = MXFunctionInvoke(
-  "Icons.settings_input_antenna",
-    (
-    ) =>
-      Icons.settings_input_antenna
-);
+    "Icons.settings_input_antenna", () => Icons.settings_input_antenna);
 var _icons_settings_input_component = MXFunctionInvoke(
-  "Icons.settings_input_component",
-    (
-    ) =>
-      Icons.settings_input_component
-);
+    "Icons.settings_input_component", () => Icons.settings_input_component);
 var _icons_settings_input_composite = MXFunctionInvoke(
-  "Icons.settings_input_composite",
-    (
-    ) =>
-      Icons.settings_input_composite
-);
+    "Icons.settings_input_composite", () => Icons.settings_input_composite);
 var _icons_settings_input_hdmi = MXFunctionInvoke(
-  "Icons.settings_input_hdmi",
-    (
-    ) =>
-      Icons.settings_input_hdmi
-);
+    "Icons.settings_input_hdmi", () => Icons.settings_input_hdmi);
 var _icons_settings_input_svideo = MXFunctionInvoke(
-  "Icons.settings_input_svideo",
-    (
-    ) =>
-      Icons.settings_input_svideo
-);
-var _icons_settings_overscan = MXFunctionInvoke(
-  "Icons.settings_overscan",
-    (
-    ) =>
-      Icons.settings_overscan
-);
-var _icons_settings_phone = MXFunctionInvoke(
-  "Icons.settings_phone",
-    (
-    ) =>
-      Icons.settings_phone
-);
-var _icons_settings_power = MXFunctionInvoke(
-  "Icons.settings_power",
-    (
-    ) =>
-      Icons.settings_power
-);
-var _icons_settings_remote = MXFunctionInvoke(
-  "Icons.settings_remote",
-    (
-    ) =>
-      Icons.settings_remote
-);
+    "Icons.settings_input_svideo", () => Icons.settings_input_svideo);
+var _icons_settings_overscan =
+    MXFunctionInvoke("Icons.settings_overscan", () => Icons.settings_overscan);
+var _icons_settings_phone =
+    MXFunctionInvoke("Icons.settings_phone", () => Icons.settings_phone);
+var _icons_settings_power =
+    MXFunctionInvoke("Icons.settings_power", () => Icons.settings_power);
+var _icons_settings_remote =
+    MXFunctionInvoke("Icons.settings_remote", () => Icons.settings_remote);
 var _icons_settings_system_daydream = MXFunctionInvoke(
-  "Icons.settings_system_daydream",
-    (
-    ) =>
-      Icons.settings_system_daydream
-);
-var _icons_settings_voice = MXFunctionInvoke(
-  "Icons.settings_voice",
-    (
-    ) =>
-      Icons.settings_voice
-);
-var _icons_share = MXFunctionInvoke(
-  "Icons.share",
-    (
-    ) =>
-      Icons.share
-);
-var _icons_shop = MXFunctionInvoke(
-  "Icons.shop",
-    (
-    ) =>
-      Icons.shop
-);
-var _icons_shop_two = MXFunctionInvoke(
-  "Icons.shop_two",
-    (
-    ) =>
-      Icons.shop_two
-);
-var _icons_shopping_basket = MXFunctionInvoke(
-  "Icons.shopping_basket",
-    (
-    ) =>
-      Icons.shopping_basket
-);
-var _icons_shopping_cart = MXFunctionInvoke(
-  "Icons.shopping_cart",
-    (
-    ) =>
-      Icons.shopping_cart
-);
-var _icons_short_text = MXFunctionInvoke(
-  "Icons.short_text",
-    (
-    ) =>
-      Icons.short_text
-);
-var _icons_show_chart = MXFunctionInvoke(
-  "Icons.show_chart",
-    (
-    ) =>
-      Icons.show_chart
-);
-var _icons_shuffle = MXFunctionInvoke(
-  "Icons.shuffle",
-    (
-    ) =>
-      Icons.shuffle
-);
-var _icons_shutter_speed = MXFunctionInvoke(
-  "Icons.shutter_speed",
-    (
-    ) =>
-      Icons.shutter_speed
-);
+    "Icons.settings_system_daydream", () => Icons.settings_system_daydream);
+var _icons_settings_voice =
+    MXFunctionInvoke("Icons.settings_voice", () => Icons.settings_voice);
+var _icons_share = MXFunctionInvoke("Icons.share", () => Icons.share);
+var _icons_shop = MXFunctionInvoke("Icons.shop", () => Icons.shop);
+var _icons_shop_two = MXFunctionInvoke("Icons.shop_two", () => Icons.shop_two);
+var _icons_shopping_basket =
+    MXFunctionInvoke("Icons.shopping_basket", () => Icons.shopping_basket);
+var _icons_shopping_cart =
+    MXFunctionInvoke("Icons.shopping_cart", () => Icons.shopping_cart);
+var _icons_short_text =
+    MXFunctionInvoke("Icons.short_text", () => Icons.short_text);
+var _icons_show_chart =
+    MXFunctionInvoke("Icons.show_chart", () => Icons.show_chart);
+var _icons_shuffle = MXFunctionInvoke("Icons.shuffle", () => Icons.shuffle);
+var _icons_shutter_speed =
+    MXFunctionInvoke("Icons.shutter_speed", () => Icons.shutter_speed);
 var _icons_signal_cellular_4_bar = MXFunctionInvoke(
-  "Icons.signal_cellular_4_bar",
-    (
-    ) =>
-      Icons.signal_cellular_4_bar
-);
+    "Icons.signal_cellular_4_bar", () => Icons.signal_cellular_4_bar);
 var _icons_signal_cellular_connected_no_internet_4_bar = MXFunctionInvoke(
-  "Icons.signal_cellular_connected_no_internet_4_bar",
-    (
-    ) =>
-      Icons.signal_cellular_connected_no_internet_4_bar
-);
+    "Icons.signal_cellular_connected_no_internet_4_bar",
+    () => Icons.signal_cellular_connected_no_internet_4_bar);
 var _icons_signal_cellular_no_sim = MXFunctionInvoke(
-  "Icons.signal_cellular_no_sim",
-    (
-    ) =>
-      Icons.signal_cellular_no_sim
-);
+    "Icons.signal_cellular_no_sim", () => Icons.signal_cellular_no_sim);
 var _icons_signal_cellular_null = MXFunctionInvoke(
-  "Icons.signal_cellular_null",
-    (
-    ) =>
-      Icons.signal_cellular_null
-);
+    "Icons.signal_cellular_null", () => Icons.signal_cellular_null);
 var _icons_signal_cellular_off = MXFunctionInvoke(
-  "Icons.signal_cellular_off",
-    (
-    ) =>
-      Icons.signal_cellular_off
-);
-var _icons_signal_wifi_4_bar = MXFunctionInvoke(
-  "Icons.signal_wifi_4_bar",
-    (
-    ) =>
-      Icons.signal_wifi_4_bar
-);
+    "Icons.signal_cellular_off", () => Icons.signal_cellular_off);
+var _icons_signal_wifi_4_bar =
+    MXFunctionInvoke("Icons.signal_wifi_4_bar", () => Icons.signal_wifi_4_bar);
 var _icons_signal_wifi_4_bar_lock = MXFunctionInvoke(
-  "Icons.signal_wifi_4_bar_lock",
-    (
-    ) =>
-      Icons.signal_wifi_4_bar_lock
-);
-var _icons_signal_wifi_off = MXFunctionInvoke(
-  "Icons.signal_wifi_off",
-    (
-    ) =>
-      Icons.signal_wifi_off
-);
-var _icons_sim_card = MXFunctionInvoke(
-  "Icons.sim_card",
-    (
-    ) =>
-      Icons.sim_card
-);
-var _icons_sim_card_alert = MXFunctionInvoke(
-  "Icons.sim_card_alert",
-    (
-    ) =>
-      Icons.sim_card_alert
-);
-var _icons_skip_next = MXFunctionInvoke(
-  "Icons.skip_next",
-    (
-    ) =>
-      Icons.skip_next
-);
-var _icons_skip_previous = MXFunctionInvoke(
-  "Icons.skip_previous",
-    (
-    ) =>
-      Icons.skip_previous
-);
-var _icons_slideshow = MXFunctionInvoke(
-  "Icons.slideshow",
-    (
-    ) =>
-      Icons.slideshow
-);
-var _icons_slow_motion_video = MXFunctionInvoke(
-  "Icons.slow_motion_video",
-    (
-    ) =>
-      Icons.slow_motion_video
-);
-var _icons_smartphone = MXFunctionInvoke(
-  "Icons.smartphone",
-    (
-    ) =>
-      Icons.smartphone
-);
-var _icons_smoke_free = MXFunctionInvoke(
-  "Icons.smoke_free",
-    (
-    ) =>
-      Icons.smoke_free
-);
-var _icons_smoking_rooms = MXFunctionInvoke(
-  "Icons.smoking_rooms",
-    (
-    ) =>
-      Icons.smoking_rooms
-);
-var _icons_sms = MXFunctionInvoke(
-  "Icons.sms",
-    (
-    ) =>
-      Icons.sms
-);
-var _icons_sms_failed = MXFunctionInvoke(
-  "Icons.sms_failed",
-    (
-    ) =>
-      Icons.sms_failed
-);
-var _icons_snooze = MXFunctionInvoke(
-  "Icons.snooze",
-    (
-    ) =>
-      Icons.snooze
-);
-var _icons_sort = MXFunctionInvoke(
-  "Icons.sort",
-    (
-    ) =>
-      Icons.sort
-);
-var _icons_sort_by_alpha = MXFunctionInvoke(
-  "Icons.sort_by_alpha",
-    (
-    ) =>
-      Icons.sort_by_alpha
-);
-var _icons_spa = MXFunctionInvoke(
-  "Icons.spa",
-    (
-    ) =>
-      Icons.spa
-);
-var _icons_space_bar = MXFunctionInvoke(
-  "Icons.space_bar",
-    (
-    ) =>
-      Icons.space_bar
-);
-var _icons_speaker = MXFunctionInvoke(
-  "Icons.speaker",
-    (
-    ) =>
-      Icons.speaker
-);
-var _icons_speaker_group = MXFunctionInvoke(
-  "Icons.speaker_group",
-    (
-    ) =>
-      Icons.speaker_group
-);
-var _icons_speaker_notes = MXFunctionInvoke(
-  "Icons.speaker_notes",
-    (
-    ) =>
-      Icons.speaker_notes
-);
-var _icons_speaker_notes_off = MXFunctionInvoke(
-  "Icons.speaker_notes_off",
-    (
-    ) =>
-      Icons.speaker_notes_off
-);
-var _icons_speaker_phone = MXFunctionInvoke(
-  "Icons.speaker_phone",
-    (
-    ) =>
-      Icons.speaker_phone
-);
-var _icons_spellcheck = MXFunctionInvoke(
-  "Icons.spellcheck",
-    (
-    ) =>
-      Icons.spellcheck
-);
-var _icons_star = MXFunctionInvoke(
-  "Icons.star",
-    (
-    ) =>
-      Icons.star
-);
-var _icons_star_border = MXFunctionInvoke(
-  "Icons.star_border",
-    (
-    ) =>
-      Icons.star_border
-);
-var _icons_star_half = MXFunctionInvoke(
-  "Icons.star_half",
-    (
-    ) =>
-      Icons.star_half
-);
-var _icons_stars = MXFunctionInvoke(
-  "Icons.stars",
-    (
-    ) =>
-      Icons.stars
-);
+    "Icons.signal_wifi_4_bar_lock", () => Icons.signal_wifi_4_bar_lock);
+var _icons_signal_wifi_off =
+    MXFunctionInvoke("Icons.signal_wifi_off", () => Icons.signal_wifi_off);
+var _icons_sim_card = MXFunctionInvoke("Icons.sim_card", () => Icons.sim_card);
+var _icons_sim_card_alert =
+    MXFunctionInvoke("Icons.sim_card_alert", () => Icons.sim_card_alert);
+var _icons_skip_next =
+    MXFunctionInvoke("Icons.skip_next", () => Icons.skip_next);
+var _icons_skip_previous =
+    MXFunctionInvoke("Icons.skip_previous", () => Icons.skip_previous);
+var _icons_slideshow =
+    MXFunctionInvoke("Icons.slideshow", () => Icons.slideshow);
+var _icons_slow_motion_video =
+    MXFunctionInvoke("Icons.slow_motion_video", () => Icons.slow_motion_video);
+var _icons_smartphone =
+    MXFunctionInvoke("Icons.smartphone", () => Icons.smartphone);
+var _icons_smoke_free =
+    MXFunctionInvoke("Icons.smoke_free", () => Icons.smoke_free);
+var _icons_smoking_rooms =
+    MXFunctionInvoke("Icons.smoking_rooms", () => Icons.smoking_rooms);
+var _icons_sms = MXFunctionInvoke("Icons.sms", () => Icons.sms);
+var _icons_sms_failed =
+    MXFunctionInvoke("Icons.sms_failed", () => Icons.sms_failed);
+var _icons_snooze = MXFunctionInvoke("Icons.snooze", () => Icons.snooze);
+var _icons_sort = MXFunctionInvoke("Icons.sort", () => Icons.sort);
+var _icons_sort_by_alpha =
+    MXFunctionInvoke("Icons.sort_by_alpha", () => Icons.sort_by_alpha);
+var _icons_spa = MXFunctionInvoke("Icons.spa", () => Icons.spa);
+var _icons_space_bar =
+    MXFunctionInvoke("Icons.space_bar", () => Icons.space_bar);
+var _icons_speaker = MXFunctionInvoke("Icons.speaker", () => Icons.speaker);
+var _icons_speaker_group =
+    MXFunctionInvoke("Icons.speaker_group", () => Icons.speaker_group);
+var _icons_speaker_notes =
+    MXFunctionInvoke("Icons.speaker_notes", () => Icons.speaker_notes);
+var _icons_speaker_notes_off =
+    MXFunctionInvoke("Icons.speaker_notes_off", () => Icons.speaker_notes_off);
+var _icons_speaker_phone =
+    MXFunctionInvoke("Icons.speaker_phone", () => Icons.speaker_phone);
+var _icons_spellcheck =
+    MXFunctionInvoke("Icons.spellcheck", () => Icons.spellcheck);
+var _icons_star = MXFunctionInvoke("Icons.star", () => Icons.star);
+var _icons_star_border =
+    MXFunctionInvoke("Icons.star_border", () => Icons.star_border);
+var _icons_star_half =
+    MXFunctionInvoke("Icons.star_half", () => Icons.star_half);
+var _icons_stars = MXFunctionInvoke("Icons.stars", () => Icons.stars);
 var _icons_stay_current_landscape = MXFunctionInvoke(
-  "Icons.stay_current_landscape",
-    (
-    ) =>
-      Icons.stay_current_landscape
-);
+    "Icons.stay_current_landscape", () => Icons.stay_current_landscape);
 var _icons_stay_current_portrait = MXFunctionInvoke(
-  "Icons.stay_current_portrait",
-    (
-    ) =>
-      Icons.stay_current_portrait
-);
+    "Icons.stay_current_portrait", () => Icons.stay_current_portrait);
 var _icons_stay_primary_landscape = MXFunctionInvoke(
-  "Icons.stay_primary_landscape",
-    (
-    ) =>
-      Icons.stay_primary_landscape
-);
+    "Icons.stay_primary_landscape", () => Icons.stay_primary_landscape);
 var _icons_stay_primary_portrait = MXFunctionInvoke(
-  "Icons.stay_primary_portrait",
-    (
-    ) =>
-      Icons.stay_primary_portrait
-);
-var _icons_stop = MXFunctionInvoke(
-  "Icons.stop",
-    (
-    ) =>
-      Icons.stop
-);
-var _icons_stop_screen_share = MXFunctionInvoke(
-  "Icons.stop_screen_share",
-    (
-    ) =>
-      Icons.stop_screen_share
-);
-var _icons_storage = MXFunctionInvoke(
-  "Icons.storage",
-    (
-    ) =>
-      Icons.storage
-);
-var _icons_store = MXFunctionInvoke(
-  "Icons.store",
-    (
-    ) =>
-      Icons.store
-);
+    "Icons.stay_primary_portrait", () => Icons.stay_primary_portrait);
+var _icons_stop = MXFunctionInvoke("Icons.stop", () => Icons.stop);
+var _icons_stop_screen_share =
+    MXFunctionInvoke("Icons.stop_screen_share", () => Icons.stop_screen_share);
+var _icons_storage = MXFunctionInvoke("Icons.storage", () => Icons.storage);
+var _icons_store = MXFunctionInvoke("Icons.store", () => Icons.store);
 var _icons_store_mall_directory = MXFunctionInvoke(
-  "Icons.store_mall_directory",
-    (
-    ) =>
-      Icons.store_mall_directory
-);
-var _icons_straighten = MXFunctionInvoke(
-  "Icons.straighten",
-    (
-    ) =>
-      Icons.straighten
-);
-var _icons_streetview = MXFunctionInvoke(
-  "Icons.streetview",
-    (
-    ) =>
-      Icons.streetview
-);
-var _icons_strikethrough_s = MXFunctionInvoke(
-  "Icons.strikethrough_s",
-    (
-    ) =>
-      Icons.strikethrough_s
-);
-var _icons_style = MXFunctionInvoke(
-  "Icons.style",
-    (
-    ) =>
-      Icons.style
-);
+    "Icons.store_mall_directory", () => Icons.store_mall_directory);
+var _icons_straighten =
+    MXFunctionInvoke("Icons.straighten", () => Icons.straighten);
+var _icons_streetview =
+    MXFunctionInvoke("Icons.streetview", () => Icons.streetview);
+var _icons_strikethrough_s =
+    MXFunctionInvoke("Icons.strikethrough_s", () => Icons.strikethrough_s);
+var _icons_style = MXFunctionInvoke("Icons.style", () => Icons.style);
 var _icons_subdirectory_arrow_left = MXFunctionInvoke(
-  "Icons.subdirectory_arrow_left",
-    (
-    ) =>
-      Icons.subdirectory_arrow_left
-);
+    "Icons.subdirectory_arrow_left", () => Icons.subdirectory_arrow_left);
 var _icons_subdirectory_arrow_right = MXFunctionInvoke(
-  "Icons.subdirectory_arrow_right",
-    (
-    ) =>
-      Icons.subdirectory_arrow_right
-);
-var _icons_subject = MXFunctionInvoke(
-  "Icons.subject",
-    (
-    ) =>
-      Icons.subject
-);
-var _icons_subscriptions = MXFunctionInvoke(
-  "Icons.subscriptions",
-    (
-    ) =>
-      Icons.subscriptions
-);
-var _icons_subtitles = MXFunctionInvoke(
-  "Icons.subtitles",
-    (
-    ) =>
-      Icons.subtitles
-);
-var _icons_subway = MXFunctionInvoke(
-  "Icons.subway",
-    (
-    ) =>
-      Icons.subway
-);
+    "Icons.subdirectory_arrow_right", () => Icons.subdirectory_arrow_right);
+var _icons_subject = MXFunctionInvoke("Icons.subject", () => Icons.subject);
+var _icons_subscriptions =
+    MXFunctionInvoke("Icons.subscriptions", () => Icons.subscriptions);
+var _icons_subtitles =
+    MXFunctionInvoke("Icons.subtitles", () => Icons.subtitles);
+var _icons_subway = MXFunctionInvoke("Icons.subway", () => Icons.subway);
 var _icons_supervised_user_circle = MXFunctionInvoke(
-  "Icons.supervised_user_circle",
-    (
-    ) =>
-      Icons.supervised_user_circle
-);
+    "Icons.supervised_user_circle", () => Icons.supervised_user_circle);
 var _icons_supervisor_account = MXFunctionInvoke(
-  "Icons.supervisor_account",
-    (
-    ) =>
-      Icons.supervisor_account
-);
-var _icons_surround_sound = MXFunctionInvoke(
-  "Icons.surround_sound",
-    (
-    ) =>
-      Icons.surround_sound
-);
-var _icons_swap_calls = MXFunctionInvoke(
-  "Icons.swap_calls",
-    (
-    ) =>
-      Icons.swap_calls
-);
-var _icons_swap_horiz = MXFunctionInvoke(
-  "Icons.swap_horiz",
-    (
-    ) =>
-      Icons.swap_horiz
-);
+    "Icons.supervisor_account", () => Icons.supervisor_account);
+var _icons_surround_sound =
+    MXFunctionInvoke("Icons.surround_sound", () => Icons.surround_sound);
+var _icons_swap_calls =
+    MXFunctionInvoke("Icons.swap_calls", () => Icons.swap_calls);
+var _icons_swap_horiz =
+    MXFunctionInvoke("Icons.swap_horiz", () => Icons.swap_horiz);
 var _icons_swap_horizontal_circle = MXFunctionInvoke(
-  "Icons.swap_horizontal_circle",
-    (
-    ) =>
-      Icons.swap_horizontal_circle
-);
-var _icons_swap_vert = MXFunctionInvoke(
-  "Icons.swap_vert",
-    (
-    ) =>
-      Icons.swap_vert
-);
+    "Icons.swap_horizontal_circle", () => Icons.swap_horizontal_circle);
+var _icons_swap_vert =
+    MXFunctionInvoke("Icons.swap_vert", () => Icons.swap_vert);
 var _icons_swap_vertical_circle = MXFunctionInvoke(
-  "Icons.swap_vertical_circle",
-    (
-    ) =>
-      Icons.swap_vertical_circle
-);
-var _icons_switch_camera = MXFunctionInvoke(
-  "Icons.switch_camera",
-    (
-    ) =>
-      Icons.switch_camera
-);
-var _icons_switch_video = MXFunctionInvoke(
-  "Icons.switch_video",
-    (
-    ) =>
-      Icons.switch_video
-);
-var _icons_sync = MXFunctionInvoke(
-  "Icons.sync",
-    (
-    ) =>
-      Icons.sync
-);
-var _icons_sync_disabled = MXFunctionInvoke(
-  "Icons.sync_disabled",
-    (
-    ) =>
-      Icons.sync_disabled
-);
-var _icons_sync_problem = MXFunctionInvoke(
-  "Icons.sync_problem",
-    (
-    ) =>
-      Icons.sync_problem
-);
-var _icons_system_update = MXFunctionInvoke(
-  "Icons.system_update",
-    (
-    ) =>
-      Icons.system_update
-);
-var _icons_system_update_alt = MXFunctionInvoke(
-  "Icons.system_update_alt",
-    (
-    ) =>
-      Icons.system_update_alt
-);
-var _icons_tab = MXFunctionInvoke(
-  "Icons.tab",
-    (
-    ) =>
-      Icons.tab
-);
-var _icons_tab_unselected = MXFunctionInvoke(
-  "Icons.tab_unselected",
-    (
-    ) =>
-      Icons.tab_unselected
-);
-var _icons_table_chart = MXFunctionInvoke(
-  "Icons.table_chart",
-    (
-    ) =>
-      Icons.table_chart
-);
-var _icons_tablet = MXFunctionInvoke(
-  "Icons.tablet",
-    (
-    ) =>
-      Icons.tablet
-);
-var _icons_tablet_android = MXFunctionInvoke(
-  "Icons.tablet_android",
-    (
-    ) =>
-      Icons.tablet_android
-);
-var _icons_tablet_mac = MXFunctionInvoke(
-  "Icons.tablet_mac",
-    (
-    ) =>
-      Icons.tablet_mac
-);
-var _icons_tag_faces = MXFunctionInvoke(
-  "Icons.tag_faces",
-    (
-    ) =>
-      Icons.tag_faces
-);
-var _icons_tap_and_play = MXFunctionInvoke(
-  "Icons.tap_and_play",
-    (
-    ) =>
-      Icons.tap_and_play
-);
-var _icons_terrain = MXFunctionInvoke(
-  "Icons.terrain",
-    (
-    ) =>
-      Icons.terrain
-);
-var _icons_text_fields = MXFunctionInvoke(
-  "Icons.text_fields",
-    (
-    ) =>
-      Icons.text_fields
-);
-var _icons_text_format = MXFunctionInvoke(
-  "Icons.text_format",
-    (
-    ) =>
-      Icons.text_format
-);
-var _icons_text_rotate_up = MXFunctionInvoke(
-  "Icons.text_rotate_up",
-    (
-    ) =>
-      Icons.text_rotate_up
-);
+    "Icons.swap_vertical_circle", () => Icons.swap_vertical_circle);
+var _icons_switch_camera =
+    MXFunctionInvoke("Icons.switch_camera", () => Icons.switch_camera);
+var _icons_switch_video =
+    MXFunctionInvoke("Icons.switch_video", () => Icons.switch_video);
+var _icons_sync = MXFunctionInvoke("Icons.sync", () => Icons.sync);
+var _icons_sync_disabled =
+    MXFunctionInvoke("Icons.sync_disabled", () => Icons.sync_disabled);
+var _icons_sync_problem =
+    MXFunctionInvoke("Icons.sync_problem", () => Icons.sync_problem);
+var _icons_system_update =
+    MXFunctionInvoke("Icons.system_update", () => Icons.system_update);
+var _icons_system_update_alt =
+    MXFunctionInvoke("Icons.system_update_alt", () => Icons.system_update_alt);
+var _icons_tab = MXFunctionInvoke("Icons.tab", () => Icons.tab);
+var _icons_tab_unselected =
+    MXFunctionInvoke("Icons.tab_unselected", () => Icons.tab_unselected);
+var _icons_table_chart =
+    MXFunctionInvoke("Icons.table_chart", () => Icons.table_chart);
+var _icons_tablet = MXFunctionInvoke("Icons.tablet", () => Icons.tablet);
+var _icons_tablet_android =
+    MXFunctionInvoke("Icons.tablet_android", () => Icons.tablet_android);
+var _icons_tablet_mac =
+    MXFunctionInvoke("Icons.tablet_mac", () => Icons.tablet_mac);
+var _icons_tag_faces =
+    MXFunctionInvoke("Icons.tag_faces", () => Icons.tag_faces);
+var _icons_tap_and_play =
+    MXFunctionInvoke("Icons.tap_and_play", () => Icons.tap_and_play);
+var _icons_terrain = MXFunctionInvoke("Icons.terrain", () => Icons.terrain);
+var _icons_text_fields =
+    MXFunctionInvoke("Icons.text_fields", () => Icons.text_fields);
+var _icons_text_format =
+    MXFunctionInvoke("Icons.text_format", () => Icons.text_format);
+var _icons_text_rotate_up =
+    MXFunctionInvoke("Icons.text_rotate_up", () => Icons.text_rotate_up);
 var _icons_text_rotate_vertical = MXFunctionInvoke(
-  "Icons.text_rotate_vertical",
-    (
-    ) =>
-      Icons.text_rotate_vertical
-);
+    "Icons.text_rotate_vertical", () => Icons.text_rotate_vertical);
 var _icons_text_rotation_angledown = MXFunctionInvoke(
-  "Icons.text_rotation_angledown",
-    (
-    ) =>
-      Icons.text_rotation_angledown
-);
+    "Icons.text_rotation_angledown", () => Icons.text_rotation_angledown);
 var _icons_text_rotation_angleup = MXFunctionInvoke(
-  "Icons.text_rotation_angleup",
-    (
-    ) =>
-      Icons.text_rotation_angleup
-);
+    "Icons.text_rotation_angleup", () => Icons.text_rotation_angleup);
 var _icons_text_rotation_down = MXFunctionInvoke(
-  "Icons.text_rotation_down",
-    (
-    ) =>
-      Icons.text_rotation_down
-);
+    "Icons.text_rotation_down", () => Icons.text_rotation_down);
 var _icons_text_rotation_none = MXFunctionInvoke(
-  "Icons.text_rotation_none",
-    (
-    ) =>
-      Icons.text_rotation_none
-);
-var _icons_textsms = MXFunctionInvoke(
-  "Icons.textsms",
-    (
-    ) =>
-      Icons.textsms
-);
-var _icons_texture = MXFunctionInvoke(
-  "Icons.texture",
-    (
-    ) =>
-      Icons.texture
-);
-var _icons_theaters = MXFunctionInvoke(
-  "Icons.theaters",
-    (
-    ) =>
-      Icons.theaters
-);
-var _icons_thumb_down = MXFunctionInvoke(
-  "Icons.thumb_down",
-    (
-    ) =>
-      Icons.thumb_down
-);
-var _icons_thumb_up = MXFunctionInvoke(
-  "Icons.thumb_up",
-    (
-    ) =>
-      Icons.thumb_up
-);
-var _icons_thumbs_up_down = MXFunctionInvoke(
-  "Icons.thumbs_up_down",
-    (
-    ) =>
-      Icons.thumbs_up_down
-);
-var _icons_time_to_leave = MXFunctionInvoke(
-  "Icons.time_to_leave",
-    (
-    ) =>
-      Icons.time_to_leave
-);
-var _icons_timelapse = MXFunctionInvoke(
-  "Icons.timelapse",
-    (
-    ) =>
-      Icons.timelapse
-);
-var _icons_timeline = MXFunctionInvoke(
-  "Icons.timeline",
-    (
-    ) =>
-      Icons.timeline
-);
-var _icons_timer = MXFunctionInvoke(
-  "Icons.timer",
-    (
-    ) =>
-      Icons.timer
-);
-var _icons_timer_10 = MXFunctionInvoke(
-  "Icons.timer_10",
-    (
-    ) =>
-      Icons.timer_10
-);
-var _icons_timer_3 = MXFunctionInvoke(
-  "Icons.timer_3",
-    (
-    ) =>
-      Icons.timer_3
-);
-var _icons_timer_off = MXFunctionInvoke(
-  "Icons.timer_off",
-    (
-    ) =>
-      Icons.timer_off
-);
-var _icons_title = MXFunctionInvoke(
-  "Icons.title",
-    (
-    ) =>
-      Icons.title
-);
-var _icons_toc = MXFunctionInvoke(
-  "Icons.toc",
-    (
-    ) =>
-      Icons.toc
-);
-var _icons_today = MXFunctionInvoke(
-  "Icons.today",
-    (
-    ) =>
-      Icons.today
-);
-var _icons_toll = MXFunctionInvoke(
-  "Icons.toll",
-    (
-    ) =>
-      Icons.toll
-);
-var _icons_tonality = MXFunctionInvoke(
-  "Icons.tonality",
-    (
-    ) =>
-      Icons.tonality
-);
-var _icons_touch_app = MXFunctionInvoke(
-  "Icons.touch_app",
-    (
-    ) =>
-      Icons.touch_app
-);
-var _icons_toys = MXFunctionInvoke(
-  "Icons.toys",
-    (
-    ) =>
-      Icons.toys
-);
-var _icons_track_changes = MXFunctionInvoke(
-  "Icons.track_changes",
-    (
-    ) =>
-      Icons.track_changes
-);
-var _icons_traffic = MXFunctionInvoke(
-  "Icons.traffic",
-    (
-    ) =>
-      Icons.traffic
-);
-var _icons_train = MXFunctionInvoke(
-  "Icons.train",
-    (
-    ) =>
-      Icons.train
-);
-var _icons_tram = MXFunctionInvoke(
-  "Icons.tram",
-    (
-    ) =>
-      Icons.tram
-);
+    "Icons.text_rotation_none", () => Icons.text_rotation_none);
+var _icons_textsms = MXFunctionInvoke("Icons.textsms", () => Icons.textsms);
+var _icons_texture = MXFunctionInvoke("Icons.texture", () => Icons.texture);
+var _icons_theaters = MXFunctionInvoke("Icons.theaters", () => Icons.theaters);
+var _icons_thumb_down =
+    MXFunctionInvoke("Icons.thumb_down", () => Icons.thumb_down);
+var _icons_thumb_up = MXFunctionInvoke("Icons.thumb_up", () => Icons.thumb_up);
+var _icons_thumbs_up_down =
+    MXFunctionInvoke("Icons.thumbs_up_down", () => Icons.thumbs_up_down);
+var _icons_time_to_leave =
+    MXFunctionInvoke("Icons.time_to_leave", () => Icons.time_to_leave);
+var _icons_timelapse =
+    MXFunctionInvoke("Icons.timelapse", () => Icons.timelapse);
+var _icons_timeline = MXFunctionInvoke("Icons.timeline", () => Icons.timeline);
+var _icons_timer = MXFunctionInvoke("Icons.timer", () => Icons.timer);
+var _icons_timer_10 = MXFunctionInvoke("Icons.timer_10", () => Icons.timer_10);
+var _icons_timer_3 = MXFunctionInvoke("Icons.timer_3", () => Icons.timer_3);
+var _icons_timer_off =
+    MXFunctionInvoke("Icons.timer_off", () => Icons.timer_off);
+var _icons_title = MXFunctionInvoke("Icons.title", () => Icons.title);
+var _icons_toc = MXFunctionInvoke("Icons.toc", () => Icons.toc);
+var _icons_today = MXFunctionInvoke("Icons.today", () => Icons.today);
+var _icons_toll = MXFunctionInvoke("Icons.toll", () => Icons.toll);
+var _icons_tonality = MXFunctionInvoke("Icons.tonality", () => Icons.tonality);
+var _icons_touch_app =
+    MXFunctionInvoke("Icons.touch_app", () => Icons.touch_app);
+var _icons_toys = MXFunctionInvoke("Icons.toys", () => Icons.toys);
+var _icons_track_changes =
+    MXFunctionInvoke("Icons.track_changes", () => Icons.track_changes);
+var _icons_traffic = MXFunctionInvoke("Icons.traffic", () => Icons.traffic);
+var _icons_train = MXFunctionInvoke("Icons.train", () => Icons.train);
+var _icons_tram = MXFunctionInvoke("Icons.tram", () => Icons.tram);
 var _icons_transfer_within_a_station = MXFunctionInvoke(
-  "Icons.transfer_within_a_station",
-    (
-    ) =>
-      Icons.transfer_within_a_station
-);
-var _icons_transform = MXFunctionInvoke(
-  "Icons.transform",
-    (
-    ) =>
-      Icons.transform
-);
-var _icons_transit_enterexit = MXFunctionInvoke(
-  "Icons.transit_enterexit",
-    (
-    ) =>
-      Icons.transit_enterexit
-);
-var _icons_translate = MXFunctionInvoke(
-  "Icons.translate",
-    (
-    ) =>
-      Icons.translate
-);
-var _icons_trending_down = MXFunctionInvoke(
-  "Icons.trending_down",
-    (
-    ) =>
-      Icons.trending_down
-);
-var _icons_trending_flat = MXFunctionInvoke(
-  "Icons.trending_flat",
-    (
-    ) =>
-      Icons.trending_flat
-);
-var _icons_trending_up = MXFunctionInvoke(
-  "Icons.trending_up",
-    (
-    ) =>
-      Icons.trending_up
-);
-var _icons_trip_origin = MXFunctionInvoke(
-  "Icons.trip_origin",
-    (
-    ) =>
-      Icons.trip_origin
-);
-var _icons_tune = MXFunctionInvoke(
-  "Icons.tune",
-    (
-    ) =>
-      Icons.tune
-);
-var _icons_turned_in = MXFunctionInvoke(
-  "Icons.turned_in",
-    (
-    ) =>
-      Icons.turned_in
-);
-var _icons_turned_in_not = MXFunctionInvoke(
-  "Icons.turned_in_not",
-    (
-    ) =>
-      Icons.turned_in_not
-);
-var _icons_tv = MXFunctionInvoke(
-  "Icons.tv",
-    (
-    ) =>
-      Icons.tv
-);
-var _icons_unarchive = MXFunctionInvoke(
-  "Icons.unarchive",
-    (
-    ) =>
-      Icons.unarchive
-);
-var _icons_undo = MXFunctionInvoke(
-  "Icons.undo",
-    (
-    ) =>
-      Icons.undo
-);
-var _icons_unfold_less = MXFunctionInvoke(
-  "Icons.unfold_less",
-    (
-    ) =>
-      Icons.unfold_less
-);
-var _icons_unfold_more = MXFunctionInvoke(
-  "Icons.unfold_more",
-    (
-    ) =>
-      Icons.unfold_more
-);
-var _icons_update = MXFunctionInvoke(
-  "Icons.update",
-    (
-    ) =>
-      Icons.update
-);
-var _icons_usb = MXFunctionInvoke(
-  "Icons.usb",
-    (
-    ) =>
-      Icons.usb
-);
-var _icons_verified_user = MXFunctionInvoke(
-  "Icons.verified_user",
-    (
-    ) =>
-      Icons.verified_user
-);
+    "Icons.transfer_within_a_station", () => Icons.transfer_within_a_station);
+var _icons_transform =
+    MXFunctionInvoke("Icons.transform", () => Icons.transform);
+var _icons_transit_enterexit =
+    MXFunctionInvoke("Icons.transit_enterexit", () => Icons.transit_enterexit);
+var _icons_translate =
+    MXFunctionInvoke("Icons.translate", () => Icons.translate);
+var _icons_trending_down =
+    MXFunctionInvoke("Icons.trending_down", () => Icons.trending_down);
+var _icons_trending_flat =
+    MXFunctionInvoke("Icons.trending_flat", () => Icons.trending_flat);
+var _icons_trending_up =
+    MXFunctionInvoke("Icons.trending_up", () => Icons.trending_up);
+var _icons_trip_origin =
+    MXFunctionInvoke("Icons.trip_origin", () => Icons.trip_origin);
+var _icons_tune = MXFunctionInvoke("Icons.tune", () => Icons.tune);
+var _icons_turned_in =
+    MXFunctionInvoke("Icons.turned_in", () => Icons.turned_in);
+var _icons_turned_in_not =
+    MXFunctionInvoke("Icons.turned_in_not", () => Icons.turned_in_not);
+var _icons_tv = MXFunctionInvoke("Icons.tv", () => Icons.tv);
+var _icons_unarchive =
+    MXFunctionInvoke("Icons.unarchive", () => Icons.unarchive);
+var _icons_undo = MXFunctionInvoke("Icons.undo", () => Icons.undo);
+var _icons_unfold_less =
+    MXFunctionInvoke("Icons.unfold_less", () => Icons.unfold_less);
+var _icons_unfold_more =
+    MXFunctionInvoke("Icons.unfold_more", () => Icons.unfold_more);
+var _icons_update = MXFunctionInvoke("Icons.update", () => Icons.update);
+var _icons_usb = MXFunctionInvoke("Icons.usb", () => Icons.usb);
+var _icons_verified_user =
+    MXFunctionInvoke("Icons.verified_user", () => Icons.verified_user);
 var _icons_vertical_align_bottom = MXFunctionInvoke(
-  "Icons.vertical_align_bottom",
-    (
-    ) =>
-      Icons.vertical_align_bottom
-);
+    "Icons.vertical_align_bottom", () => Icons.vertical_align_bottom);
 var _icons_vertical_align_center = MXFunctionInvoke(
-  "Icons.vertical_align_center",
-    (
-    ) =>
-      Icons.vertical_align_center
-);
+    "Icons.vertical_align_center", () => Icons.vertical_align_center);
 var _icons_vertical_align_top = MXFunctionInvoke(
-  "Icons.vertical_align_top",
-    (
-    ) =>
-      Icons.vertical_align_top
-);
-var _icons_vibration = MXFunctionInvoke(
-  "Icons.vibration",
-    (
-    ) =>
-      Icons.vibration
-);
-var _icons_video_call = MXFunctionInvoke(
-  "Icons.video_call",
-    (
-    ) =>
-      Icons.video_call
-);
-var _icons_video_label = MXFunctionInvoke(
-  "Icons.video_label",
-    (
-    ) =>
-      Icons.video_label
-);
-var _icons_video_library = MXFunctionInvoke(
-  "Icons.video_library",
-    (
-    ) =>
-      Icons.video_library
-);
-var _icons_videocam = MXFunctionInvoke(
-  "Icons.videocam",
-    (
-    ) =>
-      Icons.videocam
-);
-var _icons_videocam_off = MXFunctionInvoke(
-  "Icons.videocam_off",
-    (
-    ) =>
-      Icons.videocam_off
-);
-var _icons_videogame_asset = MXFunctionInvoke(
-  "Icons.videogame_asset",
-    (
-    ) =>
-      Icons.videogame_asset
-);
-var _icons_view_agenda = MXFunctionInvoke(
-  "Icons.view_agenda",
-    (
-    ) =>
-      Icons.view_agenda
-);
-var _icons_view_array = MXFunctionInvoke(
-  "Icons.view_array",
-    (
-    ) =>
-      Icons.view_array
-);
-var _icons_view_carousel = MXFunctionInvoke(
-  "Icons.view_carousel",
-    (
-    ) =>
-      Icons.view_carousel
-);
-var _icons_view_column = MXFunctionInvoke(
-  "Icons.view_column",
-    (
-    ) =>
-      Icons.view_column
-);
-var _icons_view_comfy = MXFunctionInvoke(
-  "Icons.view_comfy",
-    (
-    ) =>
-      Icons.view_comfy
-);
-var _icons_view_compact = MXFunctionInvoke(
-  "Icons.view_compact",
-    (
-    ) =>
-      Icons.view_compact
-);
-var _icons_view_day = MXFunctionInvoke(
-  "Icons.view_day",
-    (
-    ) =>
-      Icons.view_day
-);
-var _icons_view_headline = MXFunctionInvoke(
-  "Icons.view_headline",
-    (
-    ) =>
-      Icons.view_headline
-);
-var _icons_view_list = MXFunctionInvoke(
-  "Icons.view_list",
-    (
-    ) =>
-      Icons.view_list
-);
-var _icons_view_module = MXFunctionInvoke(
-  "Icons.view_module",
-    (
-    ) =>
-      Icons.view_module
-);
-var _icons_view_quilt = MXFunctionInvoke(
-  "Icons.view_quilt",
-    (
-    ) =>
-      Icons.view_quilt
-);
-var _icons_view_stream = MXFunctionInvoke(
-  "Icons.view_stream",
-    (
-    ) =>
-      Icons.view_stream
-);
-var _icons_view_week = MXFunctionInvoke(
-  "Icons.view_week",
-    (
-    ) =>
-      Icons.view_week
-);
-var _icons_vignette = MXFunctionInvoke(
-  "Icons.vignette",
-    (
-    ) =>
-      Icons.vignette
-);
-var _icons_visibility = MXFunctionInvoke(
-  "Icons.visibility",
-    (
-    ) =>
-      Icons.visibility
-);
-var _icons_visibility_off = MXFunctionInvoke(
-  "Icons.visibility_off",
-    (
-    ) =>
-      Icons.visibility_off
-);
-var _icons_voice_chat = MXFunctionInvoke(
-  "Icons.voice_chat",
-    (
-    ) =>
-      Icons.voice_chat
-);
-var _icons_voicemail = MXFunctionInvoke(
-  "Icons.voicemail",
-    (
-    ) =>
-      Icons.voicemail
-);
-var _icons_volume_down = MXFunctionInvoke(
-  "Icons.volume_down",
-    (
-    ) =>
-      Icons.volume_down
-);
-var _icons_volume_mute = MXFunctionInvoke(
-  "Icons.volume_mute",
-    (
-    ) =>
-      Icons.volume_mute
-);
-var _icons_volume_off = MXFunctionInvoke(
-  "Icons.volume_off",
-    (
-    ) =>
-      Icons.volume_off
-);
-var _icons_volume_up = MXFunctionInvoke(
-  "Icons.volume_up",
-    (
-    ) =>
-      Icons.volume_up
-);
-var _icons_vpn_key = MXFunctionInvoke(
-  "Icons.vpn_key",
-    (
-    ) =>
-      Icons.vpn_key
-);
-var _icons_vpn_lock = MXFunctionInvoke(
-  "Icons.vpn_lock",
-    (
-    ) =>
-      Icons.vpn_lock
-);
-var _icons_wallpaper = MXFunctionInvoke(
-  "Icons.wallpaper",
-    (
-    ) =>
-      Icons.wallpaper
-);
-var _icons_warning = MXFunctionInvoke(
-  "Icons.warning",
-    (
-    ) =>
-      Icons.warning
-);
-var _icons_watch = MXFunctionInvoke(
-  "Icons.watch",
-    (
-    ) =>
-      Icons.watch
-);
-var _icons_watch_later = MXFunctionInvoke(
-  "Icons.watch_later",
-    (
-    ) =>
-      Icons.watch_later
-);
-var _icons_wb_auto = MXFunctionInvoke(
-  "Icons.wb_auto",
-    (
-    ) =>
-      Icons.wb_auto
-);
-var _icons_wb_cloudy = MXFunctionInvoke(
-  "Icons.wb_cloudy",
-    (
-    ) =>
-      Icons.wb_cloudy
-);
-var _icons_wb_incandescent = MXFunctionInvoke(
-  "Icons.wb_incandescent",
-    (
-    ) =>
-      Icons.wb_incandescent
-);
-var _icons_wb_iridescent = MXFunctionInvoke(
-  "Icons.wb_iridescent",
-    (
-    ) =>
-      Icons.wb_iridescent
-);
-var _icons_wb_sunny = MXFunctionInvoke(
-  "Icons.wb_sunny",
-    (
-    ) =>
-      Icons.wb_sunny
-);
-var _icons_wc = MXFunctionInvoke(
-  "Icons.wc",
-    (
-    ) =>
-      Icons.wc
-);
-var _icons_web = MXFunctionInvoke(
-  "Icons.web",
-    (
-    ) =>
-      Icons.web
-);
-var _icons_web_asset = MXFunctionInvoke(
-  "Icons.web_asset",
-    (
-    ) =>
-      Icons.web_asset
-);
-var _icons_weekend = MXFunctionInvoke(
-  "Icons.weekend",
-    (
-    ) =>
-      Icons.weekend
-);
-var _icons_whatshot = MXFunctionInvoke(
-  "Icons.whatshot",
-    (
-    ) =>
-      Icons.whatshot
-);
-var _icons_widgets = MXFunctionInvoke(
-  "Icons.widgets",
-    (
-    ) =>
-      Icons.widgets
-);
-var _icons_wifi = MXFunctionInvoke(
-  "Icons.wifi",
-    (
-    ) =>
-      Icons.wifi
-);
-var _icons_wifi_lock = MXFunctionInvoke(
-  "Icons.wifi_lock",
-    (
-    ) =>
-      Icons.wifi_lock
-);
-var _icons_wifi_tethering = MXFunctionInvoke(
-  "Icons.wifi_tethering",
-    (
-    ) =>
-      Icons.wifi_tethering
-);
-var _icons_work = MXFunctionInvoke(
-  "Icons.work",
-    (
-    ) =>
-      Icons.work
-);
-var _icons_wrap_text = MXFunctionInvoke(
-  "Icons.wrap_text",
-    (
-    ) =>
-      Icons.wrap_text
-);
+    "Icons.vertical_align_top", () => Icons.vertical_align_top);
+var _icons_vibration =
+    MXFunctionInvoke("Icons.vibration", () => Icons.vibration);
+var _icons_video_call =
+    MXFunctionInvoke("Icons.video_call", () => Icons.video_call);
+var _icons_video_label =
+    MXFunctionInvoke("Icons.video_label", () => Icons.video_label);
+var _icons_video_library =
+    MXFunctionInvoke("Icons.video_library", () => Icons.video_library);
+var _icons_videocam = MXFunctionInvoke("Icons.videocam", () => Icons.videocam);
+var _icons_videocam_off =
+    MXFunctionInvoke("Icons.videocam_off", () => Icons.videocam_off);
+var _icons_videogame_asset =
+    MXFunctionInvoke("Icons.videogame_asset", () => Icons.videogame_asset);
+var _icons_view_agenda =
+    MXFunctionInvoke("Icons.view_agenda", () => Icons.view_agenda);
+var _icons_view_array =
+    MXFunctionInvoke("Icons.view_array", () => Icons.view_array);
+var _icons_view_carousel =
+    MXFunctionInvoke("Icons.view_carousel", () => Icons.view_carousel);
+var _icons_view_column =
+    MXFunctionInvoke("Icons.view_column", () => Icons.view_column);
+var _icons_view_comfy =
+    MXFunctionInvoke("Icons.view_comfy", () => Icons.view_comfy);
+var _icons_view_compact =
+    MXFunctionInvoke("Icons.view_compact", () => Icons.view_compact);
+var _icons_view_day = MXFunctionInvoke("Icons.view_day", () => Icons.view_day);
+var _icons_view_headline =
+    MXFunctionInvoke("Icons.view_headline", () => Icons.view_headline);
+var _icons_view_list =
+    MXFunctionInvoke("Icons.view_list", () => Icons.view_list);
+var _icons_view_module =
+    MXFunctionInvoke("Icons.view_module", () => Icons.view_module);
+var _icons_view_quilt =
+    MXFunctionInvoke("Icons.view_quilt", () => Icons.view_quilt);
+var _icons_view_stream =
+    MXFunctionInvoke("Icons.view_stream", () => Icons.view_stream);
+var _icons_view_week =
+    MXFunctionInvoke("Icons.view_week", () => Icons.view_week);
+var _icons_vignette = MXFunctionInvoke("Icons.vignette", () => Icons.vignette);
+var _icons_visibility =
+    MXFunctionInvoke("Icons.visibility", () => Icons.visibility);
+var _icons_visibility_off =
+    MXFunctionInvoke("Icons.visibility_off", () => Icons.visibility_off);
+var _icons_voice_chat =
+    MXFunctionInvoke("Icons.voice_chat", () => Icons.voice_chat);
+var _icons_voicemail =
+    MXFunctionInvoke("Icons.voicemail", () => Icons.voicemail);
+var _icons_volume_down =
+    MXFunctionInvoke("Icons.volume_down", () => Icons.volume_down);
+var _icons_volume_mute =
+    MXFunctionInvoke("Icons.volume_mute", () => Icons.volume_mute);
+var _icons_volume_off =
+    MXFunctionInvoke("Icons.volume_off", () => Icons.volume_off);
+var _icons_volume_up =
+    MXFunctionInvoke("Icons.volume_up", () => Icons.volume_up);
+var _icons_vpn_key = MXFunctionInvoke("Icons.vpn_key", () => Icons.vpn_key);
+var _icons_vpn_lock = MXFunctionInvoke("Icons.vpn_lock", () => Icons.vpn_lock);
+var _icons_wallpaper =
+    MXFunctionInvoke("Icons.wallpaper", () => Icons.wallpaper);
+var _icons_warning = MXFunctionInvoke("Icons.warning", () => Icons.warning);
+var _icons_watch = MXFunctionInvoke("Icons.watch", () => Icons.watch);
+var _icons_watch_later =
+    MXFunctionInvoke("Icons.watch_later", () => Icons.watch_later);
+var _icons_wb_auto = MXFunctionInvoke("Icons.wb_auto", () => Icons.wb_auto);
+var _icons_wb_cloudy =
+    MXFunctionInvoke("Icons.wb_cloudy", () => Icons.wb_cloudy);
+var _icons_wb_incandescent =
+    MXFunctionInvoke("Icons.wb_incandescent", () => Icons.wb_incandescent);
+var _icons_wb_iridescent =
+    MXFunctionInvoke("Icons.wb_iridescent", () => Icons.wb_iridescent);
+var _icons_wb_sunny = MXFunctionInvoke("Icons.wb_sunny", () => Icons.wb_sunny);
+var _icons_wc = MXFunctionInvoke("Icons.wc", () => Icons.wc);
+var _icons_web = MXFunctionInvoke("Icons.web", () => Icons.web);
+var _icons_web_asset =
+    MXFunctionInvoke("Icons.web_asset", () => Icons.web_asset);
+var _icons_weekend = MXFunctionInvoke("Icons.weekend", () => Icons.weekend);
+var _icons_whatshot = MXFunctionInvoke("Icons.whatshot", () => Icons.whatshot);
+var _icons_widgets = MXFunctionInvoke("Icons.widgets", () => Icons.widgets);
+var _icons_wifi = MXFunctionInvoke("Icons.wifi", () => Icons.wifi);
+var _icons_wifi_lock =
+    MXFunctionInvoke("Icons.wifi_lock", () => Icons.wifi_lock);
+var _icons_wifi_tethering =
+    MXFunctionInvoke("Icons.wifi_tethering", () => Icons.wifi_tethering);
+var _icons_work = MXFunctionInvoke("Icons.work", () => Icons.work);
+var _icons_wrap_text =
+    MXFunctionInvoke("Icons.wrap_text", () => Icons.wrap_text);
 var _icons_youtube_searched_for = MXFunctionInvoke(
-  "Icons.youtube_searched_for",
-    (
-    ) =>
-      Icons.youtube_searched_for
-);
-var _icons_zoom_in = MXFunctionInvoke(
-  "Icons.zoom_in",
-    (
-    ) =>
-      Icons.zoom_in
-);
-var _icons_zoom_out = MXFunctionInvoke(
-  "Icons.zoom_out",
-    (
-    ) =>
-      Icons.zoom_out
-);
-var _icons_zoom_out_map = MXFunctionInvoke(
-  "Icons.zoom_out_map",
-    (
-    ) =>
-      Icons.zoom_out_map
-);
+    "Icons.youtube_searched_for", () => Icons.youtube_searched_for);
+var _icons_zoom_in = MXFunctionInvoke("Icons.zoom_in", () => Icons.zoom_in);
+var _icons_zoom_out = MXFunctionInvoke("Icons.zoom_out", () => Icons.zoom_out);
+var _icons_zoom_out_map =
+    MXFunctionInvoke("Icons.zoom_out_map", () => Icons.zoom_out_map);

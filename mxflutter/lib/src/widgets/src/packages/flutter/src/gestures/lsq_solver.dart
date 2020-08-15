@@ -10,7 +10,6 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerLsqSolverSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,29 +17,34 @@ Map<String, MXFunctionInvoke> registerLsqSolverSeries() {
   m[_leastSquaresSolver.funName] = _leastSquaresSolver;
   return m;
 }
+
 var _polynomialFit = MXFunctionInvoke(
-    "PolynomialFit",
-    (
-      {
-      int degree,
-      }
-    ) =>
+  "PolynomialFit",
+  ({
+    int degree,
+  }) =>
       PolynomialFit(
-      degree,
-    ),
+    degree,
+  ),
+  [
+    "degree",
+  ],
 );
 var _leastSquaresSolver = MXFunctionInvoke(
-    "LeastSquaresSolver",
-    (
-      {
-      dynamic x,
-      dynamic y,
-      dynamic w,
-      }
-    ) =>
+  "LeastSquaresSolver",
+  ({
+    dynamic x,
+    dynamic y,
+    dynamic w,
+  }) =>
       LeastSquaresSolver(
-      toListT<double>(x),
-      toListT<double>(y),
-      toListT<double>(w),
-    ),
+    toListT<double>(x),
+    toListT<double>(y),
+    toListT<double>(w),
+  ),
+  [
+    "x",
+    "y",
+    "w",
+  ],
 );

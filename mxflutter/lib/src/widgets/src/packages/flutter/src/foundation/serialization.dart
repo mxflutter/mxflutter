@@ -9,7 +9,6 @@ import 'package:flutter/src/foundation/serialization.dart';
 import 'dart:typed_data';
 import 'package:typed_data/typed_buffers.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSerializationSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -17,21 +16,21 @@ Map<String, MXFunctionInvoke> registerSerializationSeries() {
   m[_readBuffer.funName] = _readBuffer;
   return m;
 }
+
 var _writeBuffer = MXFunctionInvoke(
-    "WriteBuffer",
-    (
-    ) =>
-      WriteBuffer(
-    ),
+  "WriteBuffer",
+  () => WriteBuffer(),
+  [],
 );
 var _readBuffer = MXFunctionInvoke(
-    "ReadBuffer",
-    (
-      {
-      ByteData data,
-      }
-    ) =>
+  "ReadBuffer",
+  ({
+    ByteData data,
+  }) =>
       ReadBuffer(
-      data,
-    ),
+    data,
+  ),
+  [
+    "data",
+  ],
 );

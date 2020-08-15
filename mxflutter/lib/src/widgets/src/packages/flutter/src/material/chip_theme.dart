@@ -14,7 +14,6 @@ import 'package:flutter/src/material/colors.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerChipThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,78 +22,103 @@ Map<String, MXFunctionInvoke> registerChipThemeSeries() {
   m[_chipThemeData_fromDefaults.funName] = _chipThemeData_fromDefaults;
   return m;
 }
+
 var _chipTheme = MXFunctionInvoke(
-    "ChipTheme",
-    (
-      {
-      Key key,
-      ChipThemeData data,
-      Widget child,
-      }
-    ) =>
+  "ChipTheme",
+  ({
+    Key key,
+    ChipThemeData data,
+    Widget child,
+  }) =>
       ChipTheme(
-      key: key,
-      data: data,
-      child: child,
-    ),
+    key: key,
+    data: data,
+    child: child,
+  ),
+  [
+    "key",
+    "data",
+    "child",
+  ],
 );
 var _chipThemeData = MXFunctionInvoke(
-    "ChipThemeData",
-    (
-      {
-      Color backgroundColor,
-      Color deleteIconColor,
-      Color disabledColor,
-      Color selectedColor,
-      Color secondarySelectedColor,
-      Color shadowColor,
-      Color selectedShadowColor,
-      bool showCheckmark,
-      Color checkmarkColor,
-      EdgeInsetsGeometry labelPadding,
-      EdgeInsetsGeometry padding,
-      ShapeBorder shape,
-      TextStyle labelStyle,
-      TextStyle secondaryLabelStyle,
-      Brightness brightness,
-      dynamic elevation,
-      dynamic pressElevation,
-      }
-    ) =>
+  "ChipThemeData",
+  ({
+    Color backgroundColor,
+    Color deleteIconColor,
+    Color disabledColor,
+    Color selectedColor,
+    Color secondarySelectedColor,
+    Color shadowColor,
+    Color selectedShadowColor,
+    bool showCheckmark,
+    Color checkmarkColor,
+    EdgeInsetsGeometry labelPadding,
+    EdgeInsetsGeometry padding,
+    ShapeBorder shape,
+    TextStyle labelStyle,
+    TextStyle secondaryLabelStyle,
+    Brightness brightness,
+    dynamic elevation,
+    dynamic pressElevation,
+  }) =>
       ChipThemeData(
-      backgroundColor: backgroundColor,
-      deleteIconColor: deleteIconColor,
-      disabledColor: disabledColor,
-      selectedColor: selectedColor,
-      secondarySelectedColor: secondarySelectedColor,
-      shadowColor: shadowColor,
-      selectedShadowColor: selectedShadowColor,
-      showCheckmark: showCheckmark,
-      checkmarkColor: checkmarkColor,
-      labelPadding: labelPadding,
-      padding: padding,
-      shape: shape,
-      labelStyle: labelStyle,
-      secondaryLabelStyle: secondaryLabelStyle,
-      brightness: brightness,
-      elevation: elevation?.toDouble(),
-      pressElevation: pressElevation?.toDouble(),
-    ),
+    backgroundColor: backgroundColor,
+    deleteIconColor: deleteIconColor,
+    disabledColor: disabledColor,
+    selectedColor: selectedColor,
+    secondarySelectedColor: secondarySelectedColor,
+    shadowColor: shadowColor,
+    selectedShadowColor: selectedShadowColor,
+    showCheckmark: showCheckmark,
+    checkmarkColor: checkmarkColor,
+    labelPadding: labelPadding,
+    padding: padding,
+    shape: shape,
+    labelStyle: labelStyle,
+    secondaryLabelStyle: secondaryLabelStyle,
+    brightness: brightness,
+    elevation: elevation?.toDouble(),
+    pressElevation: pressElevation?.toDouble(),
+  ),
+  [
+    "backgroundColor",
+    "deleteIconColor",
+    "disabledColor",
+    "selectedColor",
+    "secondarySelectedColor",
+    "shadowColor",
+    "selectedShadowColor",
+    "showCheckmark",
+    "checkmarkColor",
+    "labelPadding",
+    "padding",
+    "shape",
+    "labelStyle",
+    "secondaryLabelStyle",
+    "brightness",
+    "elevation",
+    "pressElevation",
+  ],
 );
 var _chipThemeData_fromDefaults = MXFunctionInvoke(
   "ChipThemeData.fromDefaults",
-    (
-      {
-      Brightness brightness,
-      Color primaryColor,
-      Color secondaryColor,
-      TextStyle labelStyle,
-      }
-    ) =>
+  ({
+    Brightness brightness,
+    Color primaryColor,
+    Color secondaryColor,
+    TextStyle labelStyle,
+  }) =>
       ChipThemeData.fromDefaults(
-      brightness: brightness,
-      primaryColor: primaryColor,
-      secondaryColor: secondaryColor,
-      labelStyle: labelStyle,
-    ),
+    brightness: brightness,
+    primaryColor: primaryColor,
+    secondaryColor: secondaryColor,
+    labelStyle: labelStyle,
+  ),
+  [
+    "brightness",
+    "primaryColor",
+    "secondaryColor",
+    "labelStyle",
+  ],
 );

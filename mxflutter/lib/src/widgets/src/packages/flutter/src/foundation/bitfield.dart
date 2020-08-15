@@ -7,7 +7,6 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/bitfield.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBitfieldSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -15,27 +14,31 @@ Map<String, MXFunctionInvoke> registerBitfieldSeries() {
   m[_bitField_filled.funName] = _bitField_filled;
   return m;
 }
+
 var _bitField = MXFunctionInvoke(
-    "BitField",
-    (
-      {
-      int length,
-      }
-    ) =>
+  "BitField",
+  ({
+    int length,
+  }) =>
       BitField(
-      length,
-    ),
+    length,
+  ),
+  [
+    "length",
+  ],
 );
 var _bitField_filled = MXFunctionInvoke(
   "BitField.filled",
-    (
-      {
-      int length,
-      bool value,
-      }
-    ) =>
+  ({
+    int length,
+    bool value,
+  }) =>
       BitField.filled(
-      length,
-      value,
-    ),
+    length,
+    value,
+  ),
+  [
+    "length",
+    "value",
+  ],
 );

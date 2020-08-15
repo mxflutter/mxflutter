@@ -10,7 +10,6 @@ import 'package:collection/src/empty_unmodifiable_set.dart';
 import 'package:collection/src/wrappers.dart';
 import 'dart:collection';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerUnmodifiableWrappersSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,32 +18,33 @@ Map<String, MXFunctionInvoke> registerUnmodifiableWrappersSeries() {
   m[_unmodifiableSetView_empty.funName] = _unmodifiableSetView_empty;
   return m;
 }
+
 var _nonGrowableListView = MXFunctionInvoke(
-    "NonGrowableListView",
-    (
-      {
-      dynamic listBase,
-      }
-    ) =>
+  "NonGrowableListView",
+  ({
+    dynamic listBase,
+  }) =>
       NonGrowableListView(
-      toListT<dynamic>(listBase),
-    ),
+    toListT<dynamic>(listBase),
+  ),
+  [
+    "listBase",
+  ],
 );
 var _unmodifiableSetView = MXFunctionInvoke(
-    "UnmodifiableSetView",
-    (
-      {
-      Set<dynamic> setBase,
-      }
-    ) =>
+  "UnmodifiableSetView",
+  ({
+    Set<dynamic> setBase,
+  }) =>
       UnmodifiableSetView(
-      setBase,
-    ),
+    setBase,
+  ),
+  [
+    "setBase",
+  ],
 );
 var _unmodifiableSetView_empty = MXFunctionInvoke(
   "UnmodifiableSetView.empty",
-    (
-    ) =>
-      UnmodifiableSetView.empty(
-    ),
+  () => UnmodifiableSetView.empty(),
+  [],
 );

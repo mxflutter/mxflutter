@@ -24,119 +24,164 @@ import 'package:flutter/src/widgets/ticker_provider.dart';
 import 'package:flutter/src/widgets/transitions.dart';
 import 'package:flutter/src/widgets/visibility.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextSelectionSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_textSelectionHandleType.funName] = _textSelectionHandleType;
   m[_textSelectionOverlay.funName] = _textSelectionOverlay;
-  m[_textSelectionOverlay_fadeDuration.funName] = _textSelectionOverlay_fadeDuration;
-  m[_textSelectionGestureDetectorBuilder.funName] = _textSelectionGestureDetectorBuilder;
+  m[_textSelectionOverlay_fadeDuration.funName] =
+      _textSelectionOverlay_fadeDuration;
+  m[_textSelectionGestureDetectorBuilder.funName] =
+      _textSelectionGestureDetectorBuilder;
   m[_textSelectionGestureDetector.funName] = _textSelectionGestureDetector;
   return m;
 }
+
 var _textSelectionHandleType = MXFunctionInvoke(
-    "TextSelectionHandleType",
-    ({String name, int index}) => MXTextSelectionHandleType.parse(name, index),
-  );
+  "TextSelectionHandleType",
+  ({String name, int index}) => MXTextSelectionHandleType.parse(name, index),
+);
 var _textSelectionOverlay = MXFunctionInvoke(
-    "TextSelectionOverlay",
-    (
-      {
-      TextEditingValue value,
-      BuildContext context,
-      Widget debugRequiredFor,
-      LayerLink toolbarLayerLink,
-      LayerLink startHandleLayerLink,
-      LayerLink endHandleLayerLink,
-      RenderEditable renderObject,
-      TextSelectionControls selectionControls,
-      bool handlesVisible = false,
-      TextSelectionDelegate selectionDelegate,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      dynamic onSelectionHandleTapped,
-      }
-    ) =>
+  "TextSelectionOverlay",
+  ({
+    TextEditingValue value,
+    BuildContext context,
+    Widget debugRequiredFor,
+    LayerLink toolbarLayerLink,
+    LayerLink startHandleLayerLink,
+    LayerLink endHandleLayerLink,
+    RenderEditable renderObject,
+    TextSelectionControls selectionControls,
+    bool handlesVisible = false,
+    TextSelectionDelegate selectionDelegate,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    dynamic onSelectionHandleTapped,
+  }) =>
       TextSelectionOverlay(
-      value: value,
-      context: context,
-      debugRequiredFor: debugRequiredFor,
-      toolbarLayerLink: toolbarLayerLink,
-      startHandleLayerLink: startHandleLayerLink,
-      endHandleLayerLink: endHandleLayerLink,
-      renderObject: renderObject,
-      selectionControls: selectionControls,
-      handlesVisible: handlesVisible,
-      selectionDelegate: selectionDelegate,
-      dragStartBehavior: dragStartBehavior,
-      onSelectionHandleTapped: createVoidCallbackClosure(_textSelectionOverlay.buildOwner, onSelectionHandleTapped),
-    ),
+    value: value,
+    context: context,
+    debugRequiredFor: debugRequiredFor,
+    toolbarLayerLink: toolbarLayerLink,
+    startHandleLayerLink: startHandleLayerLink,
+    endHandleLayerLink: endHandleLayerLink,
+    renderObject: renderObject,
+    selectionControls: selectionControls,
+    handlesVisible: handlesVisible,
+    selectionDelegate: selectionDelegate,
+    dragStartBehavior: dragStartBehavior,
+    onSelectionHandleTapped: createVoidCallbackClosure(
+        _textSelectionOverlay.buildOwner, onSelectionHandleTapped),
+  ),
+  [
+    "value",
+    "context",
+    "debugRequiredFor",
+    "toolbarLayerLink",
+    "startHandleLayerLink",
+    "endHandleLayerLink",
+    "renderObject",
+    "selectionControls",
+    "handlesVisible",
+    "selectionDelegate",
+    "dragStartBehavior",
+    "onSelectionHandleTapped",
+  ],
 );
 var _textSelectionOverlay_fadeDuration = MXFunctionInvoke(
-  "TextSelectionOverlay.fadeDuration",
-    (
-    ) =>
-      TextSelectionOverlay.fadeDuration
-);
+    "TextSelectionOverlay.fadeDuration",
+    () => TextSelectionOverlay.fadeDuration);
 var _textSelectionGestureDetectorBuilder = MXFunctionInvoke(
-    "TextSelectionGestureDetectorBuilder",
-    (
-      {
-      TextSelectionGestureDetectorBuilderDelegate delegate,
-      }
-    ) =>
+  "TextSelectionGestureDetectorBuilder",
+  ({
+    TextSelectionGestureDetectorBuilderDelegate delegate,
+  }) =>
       TextSelectionGestureDetectorBuilder(
-      delegate: delegate,
-    ),
+    delegate: delegate,
+  ),
+  [
+    "delegate",
+  ],
 );
 var _textSelectionGestureDetector = MXFunctionInvoke(
-    "TextSelectionGestureDetector",
-    (
-      {
-      Key key,
-      dynamic onTapDown,
-      dynamic onForcePressStart,
-      dynamic onForcePressEnd,
-      dynamic onSingleTapUp,
-      dynamic onSingleTapCancel,
-      dynamic onSingleLongTapStart,
-      dynamic onSingleLongTapMoveUpdate,
-      dynamic onSingleLongTapEnd,
-      dynamic onDoubleTapDown,
-      dynamic onDragSelectionStart,
-      dynamic onDragSelectionUpdate,
-      dynamic onDragSelectionEnd,
-      HitTestBehavior behavior,
-      Widget child,
-      }
-    ) =>
+  "TextSelectionGestureDetector",
+  ({
+    Key key,
+    dynamic onTapDown,
+    dynamic onForcePressStart,
+    dynamic onForcePressEnd,
+    dynamic onSingleTapUp,
+    dynamic onSingleTapCancel,
+    dynamic onSingleLongTapStart,
+    dynamic onSingleLongTapMoveUpdate,
+    dynamic onSingleLongTapEnd,
+    dynamic onDoubleTapDown,
+    dynamic onDragSelectionStart,
+    dynamic onDragSelectionUpdate,
+    dynamic onDragSelectionEnd,
+    HitTestBehavior behavior,
+    Widget child,
+  }) =>
       TextSelectionGestureDetector(
-      key: key,
-      onTapDown: createValueChangedGenericClosure<TapDownDetails>(_textSelectionGestureDetector.buildOwner, onTapDown),
-      onForcePressStart: createValueChangedGenericClosure<ForcePressDetails>(_textSelectionGestureDetector.buildOwner, onForcePressStart),
-      onForcePressEnd: createValueChangedGenericClosure<ForcePressDetails>(_textSelectionGestureDetector.buildOwner, onForcePressEnd),
-      onSingleTapUp: createValueChangedGenericClosure<TapUpDetails>(_textSelectionGestureDetector.buildOwner, onSingleTapUp),
-      onSingleTapCancel: createVoidCallbackClosure(_textSelectionGestureDetector.buildOwner, onSingleTapCancel),
-      onSingleLongTapStart: createValueChangedGenericClosure<LongPressStartDetails>(_textSelectionGestureDetector.buildOwner, onSingleLongTapStart),
-      onSingleLongTapMoveUpdate: createValueChangedGenericClosure<LongPressMoveUpdateDetails>(_textSelectionGestureDetector.buildOwner, onSingleLongTapMoveUpdate),
-      onSingleLongTapEnd: createValueChangedGenericClosure<LongPressEndDetails>(_textSelectionGestureDetector.buildOwner, onSingleLongTapEnd),
-      onDoubleTapDown: createValueChangedGenericClosure<TapDownDetails>(_textSelectionGestureDetector.buildOwner, onDoubleTapDown),
-      onDragSelectionStart: createValueChangedGenericClosure<DragStartDetails>(_textSelectionGestureDetector.buildOwner, onDragSelectionStart),
-      onDragSelectionUpdate: createVoidTwoParamsClosure<DragStartDetails, DragUpdateDetails>(_textSelectionGestureDetector.buildOwner, onDragSelectionUpdate),
-      onDragSelectionEnd: createValueChangedGenericClosure<DragEndDetails>(_textSelectionGestureDetector.buildOwner, onDragSelectionEnd),
-      behavior: behavior,
-      child: child,
-    ),
+    key: key,
+    onTapDown: createValueChangedGenericClosure<TapDownDetails>(
+        _textSelectionGestureDetector.buildOwner, onTapDown),
+    onForcePressStart: createValueChangedGenericClosure<ForcePressDetails>(
+        _textSelectionGestureDetector.buildOwner, onForcePressStart),
+    onForcePressEnd: createValueChangedGenericClosure<ForcePressDetails>(
+        _textSelectionGestureDetector.buildOwner, onForcePressEnd),
+    onSingleTapUp: createValueChangedGenericClosure<TapUpDetails>(
+        _textSelectionGestureDetector.buildOwner, onSingleTapUp),
+    onSingleTapCancel: createVoidCallbackClosure(
+        _textSelectionGestureDetector.buildOwner, onSingleTapCancel),
+    onSingleLongTapStart:
+        createValueChangedGenericClosure<LongPressStartDetails>(
+            _textSelectionGestureDetector.buildOwner, onSingleLongTapStart),
+    onSingleLongTapMoveUpdate:
+        createValueChangedGenericClosure<LongPressMoveUpdateDetails>(
+            _textSelectionGestureDetector.buildOwner,
+            onSingleLongTapMoveUpdate),
+    onSingleLongTapEnd: createValueChangedGenericClosure<LongPressEndDetails>(
+        _textSelectionGestureDetector.buildOwner, onSingleLongTapEnd),
+    onDoubleTapDown: createValueChangedGenericClosure<TapDownDetails>(
+        _textSelectionGestureDetector.buildOwner, onDoubleTapDown),
+    onDragSelectionStart: createValueChangedGenericClosure<DragStartDetails>(
+        _textSelectionGestureDetector.buildOwner, onDragSelectionStart),
+    onDragSelectionUpdate:
+        createVoidTwoParamsClosure<DragStartDetails, DragUpdateDetails>(
+            _textSelectionGestureDetector.buildOwner, onDragSelectionUpdate),
+    onDragSelectionEnd: createValueChangedGenericClosure<DragEndDetails>(
+        _textSelectionGestureDetector.buildOwner, onDragSelectionEnd),
+    behavior: behavior,
+    child: child,
+  ),
+  [
+    "key",
+    "onTapDown",
+    "onForcePressStart",
+    "onForcePressEnd",
+    "onSingleTapUp",
+    "onSingleTapCancel",
+    "onSingleLongTapStart",
+    "onSingleLongTapMoveUpdate",
+    "onSingleLongTapEnd",
+    "onDoubleTapDown",
+    "onDragSelectionStart",
+    "onDragSelectionUpdate",
+    "onDragSelectionEnd",
+    "behavior",
+    "child",
+  ],
 );
+
 class MXTextSelectionHandleType {
   static TextSelectionHandleType parse(String name, int index) {
-    switch(name) {
-      case 'TextSelectionHandleType.left': 
-       return TextSelectionHandleType.left;
-      case 'TextSelectionHandleType.right': 
-       return TextSelectionHandleType.right;
-      case 'TextSelectionHandleType.collapsed': 
-       return TextSelectionHandleType.collapsed;
+    switch (name) {
+      case 'TextSelectionHandleType.left':
+        return TextSelectionHandleType.left;
+      case 'TextSelectionHandleType.right':
+        return TextSelectionHandleType.right;
+      case 'TextSelectionHandleType.collapsed':
+        return TextSelectionHandleType.collapsed;
     }
     return null;
   }

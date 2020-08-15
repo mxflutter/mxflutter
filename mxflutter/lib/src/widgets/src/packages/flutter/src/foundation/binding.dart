@@ -20,7 +20,6 @@ import 'package:flutter/src/foundation/object.dart';
 import 'package:flutter/src/foundation/platform.dart';
 import 'package:flutter/src/foundation/print.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};

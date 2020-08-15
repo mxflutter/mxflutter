@@ -10,7 +10,6 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/platform_channel.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMessageCodecSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,42 +18,49 @@ Map<String, MXFunctionInvoke> registerMessageCodecSeries() {
   m[_missingPluginException.funName] = _missingPluginException;
   return m;
 }
+
 var _methodCall = MXFunctionInvoke(
-    "MethodCall",
-    (
-      {
-      String method,
-      dynamic arguments,
-      }
-    ) =>
+  "MethodCall",
+  ({
+    String method,
+    dynamic arguments,
+  }) =>
       MethodCall(
-      method,
-      arguments,
-    ),
+    method,
+    arguments,
+  ),
+  [
+    "method",
+    "arguments",
+  ],
 );
 var _platformException = MXFunctionInvoke(
-    "PlatformException",
-    (
-      {
-      String code,
-      String message,
-      dynamic details,
-      }
-    ) =>
+  "PlatformException",
+  ({
+    String code,
+    String message,
+    dynamic details,
+  }) =>
       PlatformException(
-      code: code,
-      message: message,
-      details: details,
-    ),
+    code: code,
+    message: message,
+    details: details,
+  ),
+  [
+    "code",
+    "message",
+    "details",
+  ],
 );
 var _missingPluginException = MXFunctionInvoke(
-    "MissingPluginException",
-    (
-      {
-      String message,
-      }
-    ) =>
+  "MissingPluginException",
+  ({
+    String message,
+  }) =>
       MissingPluginException(
-      message,
-    ),
+    message,
+  ),
+  [
+    "message",
+  ],
 );

@@ -10,7 +10,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/tween.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTweenSequenceSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,38 +18,43 @@ Map<String, MXFunctionInvoke> registerTweenSequenceSeries() {
   m[_tweenSequenceItem.funName] = _tweenSequenceItem;
   return m;
 }
+
 var _tweenSequence = MXFunctionInvoke(
-    "TweenSequence",
-    (
-      {
-      dynamic items,
-      }
-    ) =>
+  "TweenSequence",
+  ({
+    dynamic items,
+  }) =>
       TweenSequence(
-      toListT<TweenSequenceItem<dynamic>>(items),
-    ),
+    toListT<TweenSequenceItem<dynamic>>(items),
+  ),
+  [
+    "items",
+  ],
 );
 var _flippedTweenSequence = MXFunctionInvoke(
-    "FlippedTweenSequence",
-    (
-      {
-      dynamic items,
-      }
-    ) =>
+  "FlippedTweenSequence",
+  ({
+    dynamic items,
+  }) =>
       FlippedTweenSequence(
-      toListT<TweenSequenceItem<double>>(items),
-    ),
+    toListT<TweenSequenceItem<double>>(items),
+  ),
+  [
+    "items",
+  ],
 );
 var _tweenSequenceItem = MXFunctionInvoke(
-    "TweenSequenceItem",
-    (
-      {
-      Animatable<dynamic> tween,
-      dynamic weight,
-      }
-    ) =>
+  "TweenSequenceItem",
+  ({
+    Animatable<dynamic> tween,
+    dynamic weight,
+  }) =>
       TweenSequenceItem(
-      tween: tween,
-      weight: weight?.toDouble(),
-    ),
+    tween: tween,
+    weight: weight?.toDouble(),
+  ),
+  [
+    "tween",
+    "weight",
+  ],
 );

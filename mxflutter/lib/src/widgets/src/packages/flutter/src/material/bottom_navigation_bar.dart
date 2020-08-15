@@ -19,7 +19,6 @@ import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/text_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBottomNavigationBarSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -27,64 +26,86 @@ Map<String, MXFunctionInvoke> registerBottomNavigationBarSeries() {
   m[_bottomNavigationBar.funName] = _bottomNavigationBar;
   return m;
 }
+
 var _bottomNavigationBarType = MXFunctionInvoke(
-    "BottomNavigationBarType",
-    ({String name, int index}) => MXBottomNavigationBarType.parse(name, index),
-  );
-var _bottomNavigationBar = MXFunctionInvoke(
-    "BottomNavigationBar",
-    (
-      {
-      Key key,
-      dynamic items,
-      dynamic onTap,
-      int currentIndex = 0,
-      dynamic elevation = 8.0,
-      BottomNavigationBarType type,
-      Color fixedColor,
-      Color backgroundColor,
-      dynamic iconSize = 24.0,
-      Color selectedItemColor,
-      Color unselectedItemColor,
-      IconThemeData selectedIconTheme = const IconThemeData(),
-      IconThemeData unselectedIconTheme = const IconThemeData(),
-      dynamic selectedFontSize = 14.0,
-      dynamic unselectedFontSize = 12.0,
-      TextStyle selectedLabelStyle,
-      TextStyle unselectedLabelStyle,
-      bool showSelectedLabels = true,
-      bool showUnselectedLabels,
-      }
-    ) =>
-      BottomNavigationBar(
-      key: key,
-      items: toListT<BottomNavigationBarItem>(items),
-      onTap: createValueChangedGenericClosure<int>(_bottomNavigationBar.buildOwner, onTap),
-      currentIndex: currentIndex,
-      elevation: elevation?.toDouble(),
-      type: type,
-      fixedColor: fixedColor,
-      backgroundColor: backgroundColor,
-      iconSize: iconSize?.toDouble(),
-      selectedItemColor: selectedItemColor,
-      unselectedItemColor: unselectedItemColor,
-      selectedIconTheme: selectedIconTheme,
-      unselectedIconTheme: unselectedIconTheme,
-      selectedFontSize: selectedFontSize?.toDouble(),
-      unselectedFontSize: unselectedFontSize?.toDouble(),
-      selectedLabelStyle: selectedLabelStyle,
-      unselectedLabelStyle: unselectedLabelStyle,
-      showSelectedLabels: showSelectedLabels,
-      showUnselectedLabels: showUnselectedLabels,
-    ),
+  "BottomNavigationBarType",
+  ({String name, int index}) => MXBottomNavigationBarType.parse(name, index),
 );
+var _bottomNavigationBar = MXFunctionInvoke(
+  "BottomNavigationBar",
+  ({
+    Key key,
+    dynamic items,
+    dynamic onTap,
+    int currentIndex = 0,
+    dynamic elevation = 8.0,
+    BottomNavigationBarType type,
+    Color fixedColor,
+    Color backgroundColor,
+    dynamic iconSize = 24.0,
+    Color selectedItemColor,
+    Color unselectedItemColor,
+    IconThemeData selectedIconTheme = const IconThemeData(),
+    IconThemeData unselectedIconTheme = const IconThemeData(),
+    dynamic selectedFontSize = 14.0,
+    dynamic unselectedFontSize = 12.0,
+    TextStyle selectedLabelStyle,
+    TextStyle unselectedLabelStyle,
+    bool showSelectedLabels = true,
+    bool showUnselectedLabels,
+  }) =>
+      BottomNavigationBar(
+    key: key,
+    items: toListT<BottomNavigationBarItem>(items),
+    onTap: createValueChangedGenericClosure<int>(
+        _bottomNavigationBar.buildOwner, onTap),
+    currentIndex: currentIndex,
+    elevation: elevation?.toDouble(),
+    type: type,
+    fixedColor: fixedColor,
+    backgroundColor: backgroundColor,
+    iconSize: iconSize?.toDouble(),
+    selectedItemColor: selectedItemColor,
+    unselectedItemColor: unselectedItemColor,
+    selectedIconTheme: selectedIconTheme,
+    unselectedIconTheme: unselectedIconTheme,
+    selectedFontSize: selectedFontSize?.toDouble(),
+    unselectedFontSize: unselectedFontSize?.toDouble(),
+    selectedLabelStyle: selectedLabelStyle,
+    unselectedLabelStyle: unselectedLabelStyle,
+    showSelectedLabels: showSelectedLabels,
+    showUnselectedLabels: showUnselectedLabels,
+  ),
+  [
+    "key",
+    "items",
+    "onTap",
+    "currentIndex",
+    "elevation",
+    "type",
+    "fixedColor",
+    "backgroundColor",
+    "iconSize",
+    "selectedItemColor",
+    "unselectedItemColor",
+    "selectedIconTheme",
+    "unselectedIconTheme",
+    "selectedFontSize",
+    "unselectedFontSize",
+    "selectedLabelStyle",
+    "unselectedLabelStyle",
+    "showSelectedLabels",
+    "showUnselectedLabels",
+  ],
+);
+
 class MXBottomNavigationBarType {
   static BottomNavigationBarType parse(String name, int index) {
-    switch(name) {
-      case 'BottomNavigationBarType.fixed': 
-       return BottomNavigationBarType.fixed;
-      case 'BottomNavigationBarType.shifting': 
-       return BottomNavigationBarType.shifting;
+    switch (name) {
+      case 'BottomNavigationBarType.fixed':
+        return BottomNavigationBarType.fixed;
+      case 'BottomNavigationBarType.shifting':
+        return BottomNavigationBarType.shifting;
     }
     return null;
   }

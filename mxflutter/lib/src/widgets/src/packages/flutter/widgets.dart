@@ -112,7 +112,6 @@ import 'src/widgets/will_pop_scope.dart';
 import 'src/widgets/constants.dart';
 import 'src/widgets/route_notification_messages.dart';
 
-
 Map<String, MXFunctionInvoke> registerWidgetsLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerActionsSeries());

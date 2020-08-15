@@ -16,7 +16,6 @@ import 'package:flutter/src/widgets/gesture_detector.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 import 'package:flutter/src/widgets/transitions.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerModalBarrierSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -24,41 +23,52 @@ Map<String, MXFunctionInvoke> registerModalBarrierSeries() {
   m[_animatedModalBarrier.funName] = _animatedModalBarrier;
   return m;
 }
+
 var _modalBarrier = MXFunctionInvoke(
-    "ModalBarrier",
-    (
-      {
-      Key key,
-      Color color,
-      bool dismissible = true,
-      String semanticsLabel,
-      bool barrierSemanticsDismissible = true,
-      }
-    ) =>
+  "ModalBarrier",
+  ({
+    Key key,
+    Color color,
+    bool dismissible = true,
+    String semanticsLabel,
+    bool barrierSemanticsDismissible = true,
+  }) =>
       ModalBarrier(
-      key: key,
-      color: color,
-      dismissible: dismissible,
-      semanticsLabel: semanticsLabel,
-      barrierSemanticsDismissible: barrierSemanticsDismissible,
-    ),
+    key: key,
+    color: color,
+    dismissible: dismissible,
+    semanticsLabel: semanticsLabel,
+    barrierSemanticsDismissible: barrierSemanticsDismissible,
+  ),
+  [
+    "key",
+    "color",
+    "dismissible",
+    "semanticsLabel",
+    "barrierSemanticsDismissible",
+  ],
 );
 var _animatedModalBarrier = MXFunctionInvoke(
-    "AnimatedModalBarrier",
-    (
-      {
-      Key key,
-      Animation<Color> color,
-      bool dismissible = true,
-      String semanticsLabel,
-      bool barrierSemanticsDismissible,
-      }
-    ) =>
+  "AnimatedModalBarrier",
+  ({
+    Key key,
+    Animation<Color> color,
+    bool dismissible = true,
+    String semanticsLabel,
+    bool barrierSemanticsDismissible,
+  }) =>
       AnimatedModalBarrier(
-      key: key,
-      color: color,
-      dismissible: dismissible,
-      semanticsLabel: semanticsLabel,
-      barrierSemanticsDismissible: barrierSemanticsDismissible,
-    ),
+    key: key,
+    color: color,
+    dismissible: dismissible,
+    semanticsLabel: semanticsLabel,
+    barrierSemanticsDismissible: barrierSemanticsDismissible,
+  ),
+  [
+    "key",
+    "color",
+    "dismissible",
+    "semanticsLabel",
+    "barrierSemanticsDismissible",
+  ],
 );

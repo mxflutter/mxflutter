@@ -14,7 +14,6 @@ import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/progress_indicator.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRefreshIndicatorSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -22,39 +21,48 @@ Map<String, MXFunctionInvoke> registerRefreshIndicatorSeries() {
   m[_refreshIndicatorState.funName] = _refreshIndicatorState;
   return m;
 }
+
 var _refreshIndicator = MXFunctionInvoke(
-    "RefreshIndicator",
-    (
-      {
-      Key key,
-      Widget child,
-      dynamic displacement = 40.0,
-      dynamic onRefresh,
-      Color color,
-      Color backgroundColor,
-      dynamic notificationPredicate = defaultScrollNotificationPredicate,
-      String semanticsLabel,
-      String semanticsValue,
-      dynamic strokeWidth = 2.0,
-      }
-    ) =>
+  "RefreshIndicator",
+  ({
+    Key key,
+    Widget child,
+    dynamic displacement = 40.0,
+    dynamic onRefresh,
+    Color color,
+    Color backgroundColor,
+    dynamic notificationPredicate = defaultScrollNotificationPredicate,
+    String semanticsLabel,
+    String semanticsValue,
+    dynamic strokeWidth = 2.0,
+  }) =>
       RefreshIndicator(
-      key: key,
-      child: child,
-      displacement: displacement?.toDouble(),
-      onRefresh: null,
-      color: color,
-      backgroundColor: backgroundColor,
-      notificationPredicate: null,
-      semanticsLabel: semanticsLabel,
-      semanticsValue: semanticsValue,
-      strokeWidth: strokeWidth?.toDouble(),
-    ),
+    key: key,
+    child: child,
+    displacement: displacement?.toDouble(),
+    onRefresh: null,
+    color: color,
+    backgroundColor: backgroundColor,
+    notificationPredicate: null,
+    semanticsLabel: semanticsLabel,
+    semanticsValue: semanticsValue,
+    strokeWidth: strokeWidth?.toDouble(),
+  ),
+  [
+    "key",
+    "child",
+    "displacement",
+    "onRefresh",
+    "color",
+    "backgroundColor",
+    "notificationPredicate",
+    "semanticsLabel",
+    "semanticsValue",
+    "strokeWidth",
+  ],
 );
 var _refreshIndicatorState = MXFunctionInvoke(
-    "RefreshIndicatorState",
-    (
-    ) =>
-      RefreshIndicatorState(
-    ),
+  "RefreshIndicatorState",
+  () => RefreshIndicatorState(),
+  [],
 );

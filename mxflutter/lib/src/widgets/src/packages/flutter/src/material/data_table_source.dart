@@ -9,7 +9,6 @@ import 'package:flutter/src/material/data_table_source.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/material/data_table.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDataTableSourceSeries() {
   var m = <String, MXFunctionInvoke>{};

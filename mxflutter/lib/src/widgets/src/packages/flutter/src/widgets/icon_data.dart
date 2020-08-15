@@ -9,7 +9,6 @@ import 'package:flutter/src/widgets/icon_data.dart';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIconDataSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -17,41 +16,52 @@ Map<String, MXFunctionInvoke> registerIconDataSeries() {
   m[_iconDataProperty.funName] = _iconDataProperty;
   return m;
 }
+
 var _iconData = MXFunctionInvoke(
-    "IconData",
-    (
-      {
-      int codePoint,
-      String fontFamily,
-      String fontPackage,
-      bool matchTextDirection = false,
-      }
-    ) =>
+  "IconData",
+  ({
+    int codePoint,
+    String fontFamily,
+    String fontPackage,
+    bool matchTextDirection = false,
+  }) =>
       IconData(
-      codePoint,
-      fontFamily: fontFamily,
-      fontPackage: fontPackage,
-      matchTextDirection: matchTextDirection,
-    ),
+    codePoint,
+    fontFamily: fontFamily,
+    fontPackage: fontPackage,
+    matchTextDirection: matchTextDirection,
+  ),
+  [
+    "codePoint",
+    "fontFamily",
+    "fontPackage",
+    "matchTextDirection",
+  ],
 );
 var _iconDataProperty = MXFunctionInvoke(
-    "IconDataProperty",
-    (
-      {
-      String name,
-      IconData value,
-      String ifNull,
-      bool showName = true,
-      DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
-      DiagnosticLevel level =  DiagnosticLevel.info,
-      }
-    ) =>
+  "IconDataProperty",
+  ({
+    String name,
+    IconData value,
+    String ifNull,
+    bool showName = true,
+    DiagnosticsTreeStyle style = DiagnosticsTreeStyle.singleLine,
+    DiagnosticLevel level = DiagnosticLevel.info,
+  }) =>
       IconDataProperty(
-      name,
-      value,
-      ifNull: ifNull,
-      showName: showName,
-      style: style,
-      level: level,
-    ),
+    name,
+    value,
+    ifNull: ifNull,
+    showName: showName,
+    style: style,
+    level: level,
+  ),
+  [
+    "name",
+    "value",
+    "ifNull",
+    "showName",
+    "style",
+    "level",
+  ],
 );

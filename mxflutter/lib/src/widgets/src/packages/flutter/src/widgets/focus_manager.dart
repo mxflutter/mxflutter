@@ -18,7 +18,6 @@ import 'package:flutter/src/widgets/focus_scope.dart';
 import 'package:flutter/src/widgets/focus_traversal.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFocusManagerSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -30,90 +29,100 @@ Map<String, MXFunctionInvoke> registerFocusManagerSeries() {
   m[_focusManager.funName] = _focusManager;
   return m;
 }
+
 var _unfocusDisposition = MXFunctionInvoke(
-    "UnfocusDisposition",
-    ({String name, int index}) => MXUnfocusDisposition.parse(name, index),
-  );
+  "UnfocusDisposition",
+  ({String name, int index}) => MXUnfocusDisposition.parse(name, index),
+);
 var _focusNode = MXFunctionInvoke(
-    "FocusNode",
-    (
-      {
-      String debugLabel,
-      dynamic onKey,
-      bool skipTraversal = false,
-      bool canRequestFocus = true,
-      }
-    ) =>
+  "FocusNode",
+  ({
+    String debugLabel,
+    dynamic onKey,
+    bool skipTraversal = false,
+    bool canRequestFocus = true,
+  }) =>
       FocusNode(
-      debugLabel: debugLabel,
-      onKey: null,
-      skipTraversal: skipTraversal,
-      canRequestFocus: canRequestFocus,
-    ),
+    debugLabel: debugLabel,
+    onKey: null,
+    skipTraversal: skipTraversal,
+    canRequestFocus: canRequestFocus,
+  ),
+  [
+    "debugLabel",
+    "onKey",
+    "skipTraversal",
+    "canRequestFocus",
+  ],
 );
 var _focusScopeNode = MXFunctionInvoke(
-    "FocusScopeNode",
-    (
-      {
-      String debugLabel,
-      dynamic onKey,
-      bool skipTraversal = false,
-      bool canRequestFocus = true,
-      }
-    ) =>
+  "FocusScopeNode",
+  ({
+    String debugLabel,
+    dynamic onKey,
+    bool skipTraversal = false,
+    bool canRequestFocus = true,
+  }) =>
       FocusScopeNode(
-      debugLabel: debugLabel,
-      onKey: null,
-      skipTraversal: skipTraversal,
-      canRequestFocus: canRequestFocus,
-    ),
+    debugLabel: debugLabel,
+    onKey: null,
+    skipTraversal: skipTraversal,
+    canRequestFocus: canRequestFocus,
+  ),
+  [
+    "debugLabel",
+    "onKey",
+    "skipTraversal",
+    "canRequestFocus",
+  ],
 );
 var _focusHighlightMode = MXFunctionInvoke(
-    "FocusHighlightMode",
-    ({String name, int index}) => MXFocusHighlightMode.parse(name, index),
-  );
-var _focusHighlightStrategy = MXFunctionInvoke(
-    "FocusHighlightStrategy",
-    ({String name, int index}) => MXFocusHighlightStrategy.parse(name, index),
-  );
-var _focusManager = MXFunctionInvoke(
-    "FocusManager",
-    (
-    ) =>
-      FocusManager(
-    ),
+  "FocusHighlightMode",
+  ({String name, int index}) => MXFocusHighlightMode.parse(name, index),
 );
+var _focusHighlightStrategy = MXFunctionInvoke(
+  "FocusHighlightStrategy",
+  ({String name, int index}) => MXFocusHighlightStrategy.parse(name, index),
+);
+var _focusManager = MXFunctionInvoke(
+  "FocusManager",
+  () => FocusManager(),
+  [],
+);
+
 class MXUnfocusDisposition {
   static UnfocusDisposition parse(String name, int index) {
-    switch(name) {
-      case 'UnfocusDisposition.scope': 
-       return UnfocusDisposition.scope;
-      case 'UnfocusDisposition.previouslyFocusedChild': 
-       return UnfocusDisposition.previouslyFocusedChild;
+    switch (name) {
+      case 'UnfocusDisposition.scope':
+        return UnfocusDisposition.scope;
+      case 'UnfocusDisposition.previouslyFocusedChild':
+        return UnfocusDisposition.previouslyFocusedChild;
     }
     return null;
   }
 }
+
 class MXFocusHighlightMode {
   static FocusHighlightMode parse(String name, int index) {
-    switch(name) {
-      case 'FocusHighlightMode.touch': 
-       return FocusHighlightMode.touch;
-      case 'FocusHighlightMode.traditional': 
-       return FocusHighlightMode.traditional;
+    switch (name) {
+      case 'FocusHighlightMode.touch':
+        return FocusHighlightMode.touch;
+      case 'FocusHighlightMode.traditional':
+        return FocusHighlightMode.traditional;
     }
     return null;
   }
 }
+
 class MXFocusHighlightStrategy {
   static FocusHighlightStrategy parse(String name, int index) {
-    switch(name) {
-      case 'FocusHighlightStrategy.automatic': 
-       return FocusHighlightStrategy.automatic;
-      case 'FocusHighlightStrategy.alwaysTouch': 
-       return FocusHighlightStrategy.alwaysTouch;
-      case 'FocusHighlightStrategy.alwaysTraditional': 
-       return FocusHighlightStrategy.alwaysTraditional;
+    switch (name) {
+      case 'FocusHighlightStrategy.automatic':
+        return FocusHighlightStrategy.automatic;
+      case 'FocusHighlightStrategy.alwaysTouch':
+        return FocusHighlightStrategy.alwaysTouch;
+      case 'FocusHighlightStrategy.alwaysTraditional':
+        return FocusHighlightStrategy.alwaysTraditional;
     }
     return null;
   }

@@ -13,7 +13,6 @@ import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/typography.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -22,56 +21,70 @@ Map<String, MXFunctionInvoke> registerThemeSeries() {
   m[_animatedTheme.funName] = _animatedTheme;
   return m;
 }
+
 var _theme = MXFunctionInvoke(
-    "Theme",
-    (
-      {
-      Key key,
-      ThemeData data,
-      bool isMaterialAppTheme = false,
-      Widget child,
-      }
-    ) =>
+  "Theme",
+  ({
+    Key key,
+    ThemeData data,
+    bool isMaterialAppTheme = false,
+    Widget child,
+  }) =>
       Theme(
-      key: key,
-      data: data,
-      isMaterialAppTheme: isMaterialAppTheme,
-      child: child,
-    ),
+    key: key,
+    data: data,
+    isMaterialAppTheme: isMaterialAppTheme,
+    child: child,
+  ),
+  [
+    "key",
+    "data",
+    "isMaterialAppTheme",
+    "child",
+  ],
 );
 var _themeDataTween = MXFunctionInvoke(
-    "ThemeDataTween",
-    (
-      {
-      ThemeData begin,
-      ThemeData end,
-      }
-    ) =>
+  "ThemeDataTween",
+  ({
+    ThemeData begin,
+    ThemeData end,
+  }) =>
       ThemeDataTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _animatedTheme = MXFunctionInvoke(
-    "AnimatedTheme",
-    (
-      {
-      Key key,
-      ThemeData data,
-      bool isMaterialAppTheme = false,
-      Curve curve = Curves.linear,
-      Duration duration = const Duration(milliseconds: 200),
-      dynamic onEnd,
-      Widget child,
-      }
-    ) =>
+  "AnimatedTheme",
+  ({
+    Key key,
+    ThemeData data,
+    bool isMaterialAppTheme = false,
+    Curve curve = Curves.linear,
+    Duration duration = const Duration(milliseconds: 200),
+    dynamic onEnd,
+    Widget child,
+  }) =>
       AnimatedTheme(
-      key: key,
-      data: data,
-      isMaterialAppTheme: isMaterialAppTheme,
-      curve: curve,
-      duration: duration,
-      onEnd: createVoidCallbackClosure(_animatedTheme.buildOwner, onEnd),
-      child: child,
-    ),
+    key: key,
+    data: data,
+    isMaterialAppTheme: isMaterialAppTheme,
+    curve: curve,
+    duration: duration,
+    onEnd: createVoidCallbackClosure(_animatedTheme.buildOwner, onEnd),
+    child: child,
+  ),
+  [
+    "key",
+    "data",
+    "isMaterialAppTheme",
+    "curve",
+    "duration",
+    "onEnd",
+    "child",
+  ],
 );

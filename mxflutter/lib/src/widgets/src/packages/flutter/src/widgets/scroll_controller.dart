@@ -14,7 +14,6 @@ import 'package:flutter/src/widgets/scroll_physics.dart';
 import 'package:flutter/src/widgets/scroll_position.dart';
 import 'package:flutter/src/widgets/scroll_position_with_single_context.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -26,35 +25,42 @@ Map<String, MXFunctionInvoke> registerScrollControllerSeries() {
   // MX modified end
   return m;
 }
+
 var _scrollController = MXFunctionInvoke(
-    "ScrollController",
-    (
-      {
-      dynamic initialScrollOffset = 0.0,
-      bool keepScrollOffset = true,
-      String debugLabel,
-      }
-    ) =>
+  "ScrollController",
+  ({
+    dynamic initialScrollOffset = 0.0,
+    bool keepScrollOffset = true,
+    String debugLabel,
+  }) =>
       ScrollController(
-      initialScrollOffset: initialScrollOffset?.toDouble(),
-      keepScrollOffset: keepScrollOffset,
-      debugLabel: debugLabel,
-    ),
+    initialScrollOffset: initialScrollOffset?.toDouble(),
+    keepScrollOffset: keepScrollOffset,
+    debugLabel: debugLabel,
+  ),
+  [
+    "initialScrollOffset",
+    "keepScrollOffset",
+    "debugLabel",
+  ],
 );
 var _trackingScrollController = MXFunctionInvoke(
-    "TrackingScrollController",
-    (
-      {
-      dynamic initialScrollOffset = 0.0,
-      bool keepScrollOffset = true,
-      String debugLabel,
-      }
-    ) =>
+  "TrackingScrollController",
+  ({
+    dynamic initialScrollOffset = 0.0,
+    bool keepScrollOffset = true,
+    String debugLabel,
+  }) =>
       TrackingScrollController(
-      initialScrollOffset: initialScrollOffset?.toDouble(),
-      keepScrollOffset: keepScrollOffset,
-      debugLabel: debugLabel,
-    ),
+    initialScrollOffset: initialScrollOffset?.toDouble(),
+    keepScrollOffset: keepScrollOffset,
+    debugLabel: debugLabel,
+  ),
+  [
+    "initialScrollOffset",
+    "keepScrollOffset",
+    "debugLabel",
+  ],
 );
 
 // MX modified begin

@@ -16,7 +16,6 @@ import 'package:flutter/src/cupertino/icons.dart';
 import 'package:flutter/src/cupertino/text_selection.dart';
 import 'package:flutter/src/cupertino/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextFieldSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -24,32 +23,57 @@ Map<String, MXFunctionInvoke> registerTextFieldSeries() {
   m[_cupertinoTextField.funName] = _cupertinoTextField;
   return m;
 }
+
 var _overlayVisibilityMode = MXFunctionInvoke(
   "OverlayVisibilityMode",
   ({String name, int index}) => MXOverlayVisibilityMode.parse(name, index),
 );
 var _cupertinoTextField = MXFunctionInvoke(
   "CupertinoTextField",
-  (
-    {
+  ({
     Key key,
     TextEditingController controller,
     FocusNode focusNode,
-    BoxDecoration decoration = const BoxDecoration(color: const CupertinoDynamicColor.withBrightness(color: CupertinoColors.white, darkColor: CupertinoColors.black), border: Border(top: BorderSide(color: CupertinoDynamicColor.withBrightness(color: Color(0x33000000), darkColor: Color(0x33FFFFFF)), style: BorderStyle.solid, width: 0.0), bottom: BorderSide(color: CupertinoDynamicColor.withBrightness(color: Color(0x33000000), darkColor: Color(0x33FFFFFF)), style: BorderStyle.solid, width: 0.0), left: BorderSide(color: CupertinoDynamicColor.withBrightness(color: Color(0x33000000), darkColor: Color(0x33FFFFFF)), style: BorderStyle.solid, width: 0.0), right: BorderSide(color: CupertinoDynamicColor.withBrightness(color: Color(0x33000000), darkColor: Color(0x33FFFFFF)), style: BorderStyle.solid, width: 0.0)), borderRadius: const BorderRadius.all(const Radius.circular(5.0))),
+    BoxDecoration decoration = const BoxDecoration(
+        color: const CupertinoDynamicColor.withBrightness(
+            color: CupertinoColors.white, darkColor: CupertinoColors.black),
+        border: Border(
+            top: BorderSide(
+                color: CupertinoDynamicColor.withBrightness(
+                    color: Color(0x33000000), darkColor: Color(0x33FFFFFF)),
+                style: BorderStyle.solid,
+                width: 0.0),
+            bottom: BorderSide(
+                color: CupertinoDynamicColor.withBrightness(
+                    color: Color(0x33000000), darkColor: Color(0x33FFFFFF)),
+                style: BorderStyle.solid,
+                width: 0.0),
+            left: BorderSide(
+                color: CupertinoDynamicColor.withBrightness(
+                    color: Color(0x33000000), darkColor: Color(0x33FFFFFF)),
+                style: BorderStyle.solid,
+                width: 0.0),
+            right: BorderSide(
+                color: CupertinoDynamicColor.withBrightness(
+                    color: Color(0x33000000), darkColor: Color(0x33FFFFFF)),
+                style: BorderStyle.solid,
+                width: 0.0)),
+        borderRadius: const BorderRadius.all(const Radius.circular(5.0))),
     EdgeInsetsGeometry padding = const EdgeInsets.all(6.0),
     String placeholder,
-    TextStyle placeholderStyle = const TextStyle(fontWeight: FontWeight.w400, color: CupertinoColors.placeholderText),
+    TextStyle placeholderStyle = const TextStyle(
+        fontWeight: FontWeight.w400, color: CupertinoColors.placeholderText),
     Widget prefix,
     OverlayVisibilityMode prefixMode = OverlayVisibilityMode.always,
     Widget suffix,
-    OverlayVisibilityMode suffixMode =  OverlayVisibilityMode.always,
-    OverlayVisibilityMode clearButtonMode =  OverlayVisibilityMode.never,
+    OverlayVisibilityMode suffixMode = OverlayVisibilityMode.always,
+    OverlayVisibilityMode clearButtonMode = OverlayVisibilityMode.never,
     TextInputType keyboardType,
     TextInputAction textInputAction,
-    TextCapitalization textCapitalization =  TextCapitalization.none,
+    TextCapitalization textCapitalization = TextCapitalization.none,
     TextStyle style,
     StrutStyle strutStyle,
-    ui.TextAlign textAlign =  TextAlign.start,
+    ui.TextAlign textAlign = TextAlign.start,
     TextAlignVertical textAlignVertical,
     bool readOnly = false,
     ToolbarOptions toolbarOptions,
@@ -79,13 +103,12 @@ var _cupertinoTextField = MXFunctionInvoke(
     // MX modified end
     ui.Brightness keyboardAppearance,
     EdgeInsets scrollPadding = const EdgeInsets.all(20.0),
-    DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     bool enableInteractiveSelection = true,
     dynamic onTap,
     ScrollController scrollController,
     ScrollPhysics scrollPhysics,
-  }
-  ) =>
+  }) =>
       CupertinoTextField(
     key: key,
     controller: controller,
@@ -120,9 +143,12 @@ var _cupertinoTextField = MXFunctionInvoke(
     expands: expands,
     maxLength: maxLength,
     maxLengthEnforced: maxLengthEnforced,
-    onChanged: createValueChangedGenericClosure<String>(_cupertinoTextField.buildOwner, onChanged),
-    onEditingComplete: createVoidCallbackClosure(_cupertinoTextField.buildOwner, onEditingComplete),
-    onSubmitted: createValueChangedGenericClosure<String>(_cupertinoTextField.buildOwner, onSubmitted),
+    onChanged: createValueChangedGenericClosure<String>(
+        _cupertinoTextField.buildOwner, onChanged),
+    onEditingComplete: createVoidCallbackClosure(
+        _cupertinoTextField.buildOwner, onEditingComplete),
+    onSubmitted: createValueChangedGenericClosure<String>(
+        _cupertinoTextField.buildOwner, onSubmitted),
     inputFormatters: toListT<TextInputFormatter>(inputFormatters),
     enabled: enabled,
     cursorWidth: cursorWidth?.toDouble(),
@@ -138,10 +164,63 @@ var _cupertinoTextField = MXFunctionInvoke(
     scrollController: scrollController,
     scrollPhysics: scrollPhysics,
   ),
+  [
+    "key",
+    "controller",
+    "focusNode",
+    "decoration",
+    "padding",
+    "placeholder",
+    "placeholderStyle",
+    "prefix",
+    "prefixMode",
+    "suffix",
+    "suffixMode",
+    "clearButtonMode",
+    "keyboardType",
+    "textInputAction",
+    "textCapitalization",
+    "style",
+    "strutStyle",
+    "textAlign",
+    "textAlignVertical",
+    "readOnly",
+    "toolbarOptions",
+    "showCursor",
+    "autofocus",
+    "obscureText",
+    "autocorrect",
+    "smartDashesType",
+    "smartQuotesType",
+    "enableSuggestions",
+    "maxLines",
+    "minLines",
+    "expands",
+    "maxLength",
+    "maxLengthEnforced",
+    "onChanged",
+    "onEditingComplete",
+    "onSubmitted",
+    "inputFormatters",
+    "enabled",
+    "cursorWidth",
+    "cursorRadius",
+    "cursorColor",
+    "selectionHeightStyle",
+    "selectionWidthStyle",
+    "keyboardAppearance",
+    "scrollPadding",
+    "dragStartBehavior",
+    "enableInteractiveSelection",
+    "onTap",
+    "scrollController",
+    "scrollPhysics",
+  ],
 );
+
 class MXOverlayVisibilityMode {
   static OverlayVisibilityMode parse(String name, int index) {
-    switch(name) {
+    switch (name) {
       case 'OverlayVisibilityMode.never':
         return OverlayVisibilityMode.never;
       case 'OverlayVisibilityMode.editing':

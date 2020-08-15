@@ -12,7 +12,6 @@ import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/curves.dart';
 import 'package:flutter/src/animation/listener_helpers.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimationsSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -26,105 +25,122 @@ Map<String, MXFunctionInvoke> registerAnimationsSeries() {
   m[_animationMin.funName] = _animationMin;
   return m;
 }
+
 var _alwaysStoppedAnimation = MXFunctionInvoke(
-    "AlwaysStoppedAnimation",
-    (
-      {
-      dynamic value,
-      }
-    ) =>
+  "AlwaysStoppedAnimation",
+  ({
+    dynamic value,
+  }) =>
       AlwaysStoppedAnimation(
-      value,
-    ),
+    value,
+  ),
+  [
+    "value",
+  ],
 );
 var _proxyAnimation = MXFunctionInvoke(
-    "ProxyAnimation",
-    (
-      {
-      Animation<double> animation,
-      }
-    ) =>
+  "ProxyAnimation",
+  ({
+    Animation<double> animation,
+  }) =>
       ProxyAnimation(
-      animation,
-    ),
+    animation,
+  ),
+  [
+    "animation",
+  ],
 );
 var _reverseAnimation = MXFunctionInvoke(
-    "ReverseAnimation",
-    (
-      {
-      Animation<double> parent,
-      }
-    ) =>
+  "ReverseAnimation",
+  ({
+    Animation<double> parent,
+  }) =>
       ReverseAnimation(
-      parent,
-    ),
+    parent,
+  ),
+  [
+    "parent",
+  ],
 );
 var _curvedAnimation = MXFunctionInvoke(
-    "CurvedAnimation",
-    (
-      {
-      Animation<double> parent,
-      Curve curve,
-      Curve reverseCurve,
-      }
-    ) =>
+  "CurvedAnimation",
+  ({
+    Animation<double> parent,
+    Curve curve,
+    Curve reverseCurve,
+  }) =>
       CurvedAnimation(
-      parent: parent,
-      curve: curve,
-      reverseCurve: reverseCurve,
-    ),
+    parent: parent,
+    curve: curve,
+    reverseCurve: reverseCurve,
+  ),
+  [
+    "parent",
+    "curve",
+    "reverseCurve",
+  ],
 );
 var _trainHoppingAnimation = MXFunctionInvoke(
-    "TrainHoppingAnimation",
-    (
-      {
-      Animation<double> currentTrain,
-      Animation<double> nextTrain,
-      dynamic onSwitchedTrain,
-      }
-    ) =>
+  "TrainHoppingAnimation",
+  ({
+    Animation<double> currentTrain,
+    Animation<double> nextTrain,
+    dynamic onSwitchedTrain,
+  }) =>
       TrainHoppingAnimation(
-      currentTrain,
-      nextTrain,
-      onSwitchedTrain: createVoidCallbackClosure(_trainHoppingAnimation.buildOwner, onSwitchedTrain),
-    ),
+    currentTrain,
+    nextTrain,
+    onSwitchedTrain: createVoidCallbackClosure(
+        _trainHoppingAnimation.buildOwner, onSwitchedTrain),
+  ),
+  [
+    "currentTrain",
+    "nextTrain",
+    "onSwitchedTrain",
+  ],
 );
 var _animationMean = MXFunctionInvoke(
-    "AnimationMean",
-    (
-      {
-      Animation<double> left,
-      Animation<double> right,
-      }
-    ) =>
+  "AnimationMean",
+  ({
+    Animation<double> left,
+    Animation<double> right,
+  }) =>
       AnimationMean(
-      left: left,
-      right: right,
-    ),
+    left: left,
+    right: right,
+  ),
+  [
+    "left",
+    "right",
+  ],
 );
 var _animationMax = MXFunctionInvoke(
-    "AnimationMax",
-    (
-      {
-      Animation<num> first,
-      Animation<num> next,
-      }
-    ) =>
+  "AnimationMax",
+  ({
+    Animation<num> first,
+    Animation<num> next,
+  }) =>
       AnimationMax(
-      first,
-      next,
-    ),
+    first,
+    next,
+  ),
+  [
+    "first",
+    "next",
+  ],
 );
 var _animationMin = MXFunctionInvoke(
-    "AnimationMin",
-    (
-      {
-      Animation<num> first,
-      Animation<num> next,
-      }
-    ) =>
+  "AnimationMin",
+  ({
+    Animation<num> first,
+    Animation<num> next,
+  }) =>
       AnimationMin(
-      first,
-      next,
-    ),
+    first,
+    next,
+  ),
+  [
+    "first",
+    "next",
+  ],
 );

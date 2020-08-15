@@ -13,7 +13,6 @@ import 'src/physics/spring_simulation.dart';
 import 'src/physics/tolerance.dart';
 import 'src/physics/utils.dart';
 
-
 Map<String, MXFunctionInvoke> registerPhysicsLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerClampedSimulationSeries());

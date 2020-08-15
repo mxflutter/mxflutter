@@ -11,7 +11,6 @@ import 'package:flutter/src/painting/basic_types.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 import 'package:flutter/src/painting/image_provider.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};

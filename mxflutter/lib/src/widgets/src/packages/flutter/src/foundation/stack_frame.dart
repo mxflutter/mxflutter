@@ -11,53 +11,58 @@ import 'package:meta/meta.dart';
 import 'package:flutter/src/foundation/constants.dart';
 import 'package:flutter/src/foundation/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStackFrameSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_stackFrame.funName] = _stackFrame;
-  m[_stackFrame_asynchronousSuspension.funName] = _stackFrame_asynchronousSuspension;
-  m[_stackFrame_stackOverFlowElision.funName] = _stackFrame_stackOverFlowElision;
+  m[_stackFrame_asynchronousSuspension.funName] =
+      _stackFrame_asynchronousSuspension;
+  m[_stackFrame_stackOverFlowElision.funName] =
+      _stackFrame_stackOverFlowElision;
   return m;
 }
+
 var _stackFrame = MXFunctionInvoke(
-    "StackFrame",
-    (
-      {
-      int number,
-      int column,
-      int line,
-      String packageScheme,
-      String package,
-      String packagePath,
-      String className = '',
-      String method,
-      bool isConstructor = false,
-      String source,
-      }
-    ) =>
+  "StackFrame",
+  ({
+    int number,
+    int column,
+    int line,
+    String packageScheme,
+    String package,
+    String packagePath,
+    String className = '',
+    String method,
+    bool isConstructor = false,
+    String source,
+  }) =>
       StackFrame(
-      number: number,
-      column: column,
-      line: line,
-      packageScheme: packageScheme,
-      package: package,
-      packagePath: packagePath,
-      className: className,
-      method: method,
-      isConstructor: isConstructor,
-      source: source,
-    ),
+    number: number,
+    column: column,
+    line: line,
+    packageScheme: packageScheme,
+    package: package,
+    packagePath: packagePath,
+    className: className,
+    method: method,
+    isConstructor: isConstructor,
+    source: source,
+  ),
+  [
+    "number",
+    "column",
+    "line",
+    "packageScheme",
+    "package",
+    "packagePath",
+    "className",
+    "method",
+    "isConstructor",
+    "source",
+  ],
 );
 var _stackFrame_asynchronousSuspension = MXFunctionInvoke(
-  "StackFrame.asynchronousSuspension",
-    (
-    ) =>
-      StackFrame.asynchronousSuspension
-);
+    "StackFrame.asynchronousSuspension",
+    () => StackFrame.asynchronousSuspension);
 var _stackFrame_stackOverFlowElision = MXFunctionInvoke(
-  "StackFrame.stackOverFlowElision",
-    (
-    ) =>
-      StackFrame.stackOverFlowElision
-);
+    "StackFrame.stackOverFlowElision", () => StackFrame.stackOverFlowElision);

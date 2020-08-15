@@ -14,7 +14,6 @@ import 'package:flutter/src/material/material.dart';
 import 'package:flutter/src/material/shadows.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMergeableMaterialSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,48 +22,58 @@ Map<String, MXFunctionInvoke> registerMergeableMaterialSeries() {
   m[_mergeableMaterial.funName] = _mergeableMaterial;
   return m;
 }
+
 var _materialSlice = MXFunctionInvoke(
-    "MaterialSlice",
-    (
-      {
-      LocalKey key,
-      Widget child,
-      }
-    ) =>
+  "MaterialSlice",
+  ({
+    LocalKey key,
+    Widget child,
+  }) =>
       MaterialSlice(
-      key: key,
-      child: child,
-    ),
+    key: key,
+    child: child,
+  ),
+  [
+    "key",
+    "child",
+  ],
 );
 var _materialGap = MXFunctionInvoke(
-    "MaterialGap",
-    (
-      {
-      LocalKey key,
-      dynamic size = 16.0,
-      }
-    ) =>
+  "MaterialGap",
+  ({
+    LocalKey key,
+    dynamic size = 16.0,
+  }) =>
       MaterialGap(
-      key: key,
-      size: size?.toDouble(),
-    ),
+    key: key,
+    size: size?.toDouble(),
+  ),
+  [
+    "key",
+    "size",
+  ],
 );
 var _mergeableMaterial = MXFunctionInvoke(
-    "MergeableMaterial",
-    (
-      {
-      Key key,
-      Axis mainAxis = Axis.vertical,
-      int elevation = 2,
-      bool hasDividers = false,
-      dynamic children = const <MergeableMaterialItem>[],
-      }
-    ) =>
+  "MergeableMaterial",
+  ({
+    Key key,
+    Axis mainAxis = Axis.vertical,
+    int elevation = 2,
+    bool hasDividers = false,
+    dynamic children = const <MergeableMaterialItem>[],
+  }) =>
       MergeableMaterial(
-      key: key,
-      mainAxis: mainAxis,
-      elevation: elevation,
-      hasDividers: hasDividers,
-      children: toListT<MergeableMaterialItem>(children),
-    ),
+    key: key,
+    mainAxis: mainAxis,
+    elevation: elevation,
+    hasDividers: hasDividers,
+    children: toListT<MergeableMaterialItem>(children),
+  ),
+  [
+    "key",
+    "mainAxis",
+    "elevation",
+    "hasDividers",
+    "children",
+  ],
 );

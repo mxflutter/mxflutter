@@ -11,7 +11,6 @@ import 'package:flutter/src/services/keyboard_key.dart';
 import 'package:flutter/src/services/keyboard_maps.dart';
 import 'package:flutter/src/services/raw_keyboard.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRawKeyboardLinuxSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,81 +22,64 @@ Map<String, MXFunctionInvoke> registerRawKeyboardLinuxSeries() {
   m[_gLFWKeyHelper_modifierControl.funName] = _gLFWKeyHelper_modifierControl;
   m[_gLFWKeyHelper_modifierAlt.funName] = _gLFWKeyHelper_modifierAlt;
   m[_gLFWKeyHelper_modifierMeta.funName] = _gLFWKeyHelper_modifierMeta;
-  m[_gLFWKeyHelper_modifierNumericPad.funName] = _gLFWKeyHelper_modifierNumericPad;
+  m[_gLFWKeyHelper_modifierNumericPad.funName] =
+      _gLFWKeyHelper_modifierNumericPad;
   return m;
 }
+
 var _rawKeyEventDataLinux = MXFunctionInvoke(
-    "RawKeyEventDataLinux",
-    (
-      {
-      KeyHelper keyHelper,
-      int unicodeScalarValues = 0,
-      int scanCode = 0,
-      int keyCode = 0,
-      int modifiers = 0,
-      bool isDown,
-      }
-    ) =>
+  "RawKeyEventDataLinux",
+  ({
+    KeyHelper keyHelper,
+    int unicodeScalarValues = 0,
+    int scanCode = 0,
+    int keyCode = 0,
+    int modifiers = 0,
+    bool isDown,
+  }) =>
       RawKeyEventDataLinux(
-      keyHelper: keyHelper,
-      unicodeScalarValues: unicodeScalarValues,
-      scanCode: scanCode,
-      keyCode: keyCode,
-      modifiers: modifiers,
-      isDown: isDown,
-    ),
+    keyHelper: keyHelper,
+    unicodeScalarValues: unicodeScalarValues,
+    scanCode: scanCode,
+    keyCode: keyCode,
+    modifiers: modifiers,
+    isDown: isDown,
+  ),
+  [
+    "keyHelper",
+    "unicodeScalarValues",
+    "scanCode",
+    "keyCode",
+    "modifiers",
+    "isDown",
+  ],
 );
 var _keyHelper = MXFunctionInvoke(
-    "KeyHelper",
-    (
-      {
-      String toolkit,
-      }
-    ) =>
+  "KeyHelper",
+  ({
+    String toolkit,
+  }) =>
       KeyHelper(
-      toolkit,
-    ),
+    toolkit,
+  ),
+  [
+    "toolkit",
+  ],
 );
 var _gLFWKeyHelper = MXFunctionInvoke(
-    "GLFWKeyHelper",
-    (
-    ) =>
-      GLFWKeyHelper(
-    ),
+  "GLFWKeyHelper",
+  () => GLFWKeyHelper(),
+  [],
 );
 var _gLFWKeyHelper_modifierCapsLock = MXFunctionInvoke(
-  "GLFWKeyHelper.modifierCapsLock",
-    (
-    ) =>
-      GLFWKeyHelper.modifierCapsLock
-);
+    "GLFWKeyHelper.modifierCapsLock", () => GLFWKeyHelper.modifierCapsLock);
 var _gLFWKeyHelper_modifierShift = MXFunctionInvoke(
-  "GLFWKeyHelper.modifierShift",
-    (
-    ) =>
-      GLFWKeyHelper.modifierShift
-);
+    "GLFWKeyHelper.modifierShift", () => GLFWKeyHelper.modifierShift);
 var _gLFWKeyHelper_modifierControl = MXFunctionInvoke(
-  "GLFWKeyHelper.modifierControl",
-    (
-    ) =>
-      GLFWKeyHelper.modifierControl
-);
+    "GLFWKeyHelper.modifierControl", () => GLFWKeyHelper.modifierControl);
 var _gLFWKeyHelper_modifierAlt = MXFunctionInvoke(
-  "GLFWKeyHelper.modifierAlt",
-    (
-    ) =>
-      GLFWKeyHelper.modifierAlt
-);
+    "GLFWKeyHelper.modifierAlt", () => GLFWKeyHelper.modifierAlt);
 var _gLFWKeyHelper_modifierMeta = MXFunctionInvoke(
-  "GLFWKeyHelper.modifierMeta",
-    (
-    ) =>
-      GLFWKeyHelper.modifierMeta
-);
+    "GLFWKeyHelper.modifierMeta", () => GLFWKeyHelper.modifierMeta);
 var _gLFWKeyHelper_modifierNumericPad = MXFunctionInvoke(
-  "GLFWKeyHelper.modifierNumericPad",
-    (
-    ) =>
-      GLFWKeyHelper.modifierNumericPad
-);
+    "GLFWKeyHelper.modifierNumericPad", () => GLFWKeyHelper.modifierNumericPad);

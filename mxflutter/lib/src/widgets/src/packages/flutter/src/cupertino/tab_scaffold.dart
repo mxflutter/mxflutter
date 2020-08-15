@@ -12,7 +12,6 @@ import 'package:flutter/src/cupertino/bottom_tab_bar.dart';
 import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTabScaffoldSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,35 +19,35 @@ Map<String, MXFunctionInvoke> registerTabScaffoldSeries() {
   m[_cupertinoTabScaffold.funName] = _cupertinoTabScaffold;
   return m;
 }
+
 var _cupertinoTabController = MXFunctionInvoke(
   "CupertinoTabController",
-  (
-    {
+  ({
     int initialIndex = 0,
-    }
-  ) =>
+  }) =>
       CupertinoTabController(
     initialIndex: initialIndex,
   ),
+  [
+    "initialIndex",
+  ],
 );
 var _cupertinoTabScaffold = MXFunctionInvoke(
   "CupertinoTabScaffold",
-  (
-    {
+  ({
     Key key,
     CupertinoTabBar tabBar,
     dynamic tabBuilder,
     CupertinoTabController controller,
     Color backgroundColor,
     bool resizeToAvoidBottomInset = true,
-    // MX modified 增加了children
-    dynamic children,
-    }
-  ) =>
+  // MX modified 增加了children
+  dynamic children,
+  }) =>
       CupertinoTabScaffold(
     key: key,
     tabBar: tabBar,
-    // MX modified 增加了tabBuilder参数
+   // MX modified 增加了tabBuilder参数
     tabBuilder: (BuildContext context, int index) {
       List<Widget> list = toListT<Widget>(children);
       return list[index];
@@ -57,4 +56,12 @@ var _cupertinoTabScaffold = MXFunctionInvoke(
     backgroundColor: backgroundColor,
     resizeToAvoidBottomInset: resizeToAvoidBottomInset,
   ),
+  [
+    "key",
+    "tabBar",
+    "tabBuilder",
+    "controller",
+    "backgroundColor",
+    "resizeToAvoidBottomInset",
+  ],
 );

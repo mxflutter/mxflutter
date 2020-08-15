@@ -14,46 +14,49 @@ import 'package:flutter/src/painting/text_painter.dart';
 import 'package:flutter/src/painting/text_span.dart';
 import 'package:flutter/src/painting/text_style.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInlineSpanSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_accumulator.funName] = _accumulator;
   m[_inlineSpanSemanticsInformation.funName] = _inlineSpanSemanticsInformation;
-  m[_inlineSpanSemanticsInformation_placeholder.funName] = _inlineSpanSemanticsInformation_placeholder;
+  m[_inlineSpanSemanticsInformation_placeholder.funName] =
+      _inlineSpanSemanticsInformation_placeholder;
   return m;
 }
+
 var _accumulator = MXFunctionInvoke(
-    "Accumulator",
-    (
-      {
-      int value,
-      }
-    ) =>
+  "Accumulator",
+  ({
+    int value,
+  }) =>
       Accumulator(
-      value,
-    ),
+    value,
+  ),
+  [
+    "value",
+  ],
 );
 var _inlineSpanSemanticsInformation = MXFunctionInvoke(
-    "InlineSpanSemanticsInformation",
-    (
-      {
-      String text,
-      bool isPlaceholder = false,
-      String semanticsLabel,
-      GestureRecognizer recognizer,
-      }
-    ) =>
+  "InlineSpanSemanticsInformation",
+  ({
+    String text,
+    bool isPlaceholder = false,
+    String semanticsLabel,
+    GestureRecognizer recognizer,
+  }) =>
       InlineSpanSemanticsInformation(
-      text,
-      isPlaceholder: isPlaceholder,
-      semanticsLabel: semanticsLabel,
-      recognizer: recognizer,
-    ),
+    text,
+    isPlaceholder: isPlaceholder,
+    semanticsLabel: semanticsLabel,
+    recognizer: recognizer,
+  ),
+  [
+    "text",
+    "isPlaceholder",
+    "semanticsLabel",
+    "recognizer",
+  ],
 );
 var _inlineSpanSemanticsInformation_placeholder = MXFunctionInvoke(
-  "InlineSpanSemanticsInformation.placeholder",
-    (
-    ) =>
-      InlineSpanSemanticsInformation.placeholder
-);
+    "InlineSpanSemanticsInformation.placeholder",
+    () => InlineSpanSemanticsInformation.placeholder);

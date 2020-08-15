@@ -10,7 +10,6 @@ import 'dart:async';
 import 'package:flutter/animation.dart';
 import 'package:flutter/foundation.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerViewportOffsetSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,37 +18,38 @@ Map<String, MXFunctionInvoke> registerViewportOffsetSeries() {
   m[_viewportOffset_zero.funName] = _viewportOffset_zero;
   return m;
 }
+
 var _scrollDirection = MXFunctionInvoke(
-    "ScrollDirection",
-    ({String name, int index}) => MXScrollDirection.parse(name, index),
-  );
+  "ScrollDirection",
+  ({String name, int index}) => MXScrollDirection.parse(name, index),
+);
 var _viewportOffset_fixed = MXFunctionInvoke(
   "ViewportOffset.fixed",
-    (
-      {
-      dynamic value,
-      }
-    ) =>
+  ({
+    dynamic value,
+  }) =>
       ViewportOffset.fixed(
-      value?.toDouble(),
-    ),
+    value?.toDouble(),
+  ),
+  [
+    "value",
+  ],
 );
 var _viewportOffset_zero = MXFunctionInvoke(
   "ViewportOffset.zero",
-    (
-    ) =>
-      ViewportOffset.zero(
-    ),
+  () => ViewportOffset.zero(),
+  [],
 );
+
 class MXScrollDirection {
   static ScrollDirection parse(String name, int index) {
-    switch(name) {
-      case 'ScrollDirection.idle': 
-       return ScrollDirection.idle;
-      case 'ScrollDirection.forward': 
-       return ScrollDirection.forward;
-      case 'ScrollDirection.reverse': 
-       return ScrollDirection.reverse;
+    switch (name) {
+      case 'ScrollDirection.idle':
+        return ScrollDirection.idle;
+      case 'ScrollDirection.forward':
+        return ScrollDirection.forward;
+      case 'ScrollDirection.reverse':
+        return ScrollDirection.reverse;
     }
     return null;
   }

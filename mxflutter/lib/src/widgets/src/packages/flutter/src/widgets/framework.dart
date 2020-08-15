@@ -16,7 +16,6 @@ import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/inherited_model.dart';
 import 'dart:ui';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFrameworkSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -40,197 +39,213 @@ Map<String, MXFunctionInvoke> registerFrameworkSeries() {
   m[_indexedSlot.funName] = _indexedSlot;
   return m;
 }
+
 var _uniqueKey = MXFunctionInvoke(
-    "UniqueKey",
-    (
-    ) =>
-      UniqueKey(
-    ),
+  "UniqueKey",
+  () => UniqueKey(),
+  [],
 );
 var _objectKey = MXFunctionInvoke(
-    "ObjectKey",
-    (
-      {
-      Object value,
-      }
-    ) =>
+  "ObjectKey",
+  ({
+    Object value,
+  }) =>
       ObjectKey(
-      value,
-    ),
+    value,
+  ),
+  [
+    "value",
+  ],
 );
 var _globalKey = MXFunctionInvoke(
-    "GlobalKey",
-    (
-      {
-      String debugLabel,
-      }
-    ) =>
+  "GlobalKey",
+  ({
+    String debugLabel,
+  }) =>
       GlobalKey(
-      debugLabel: debugLabel,
-    ),
+    debugLabel: debugLabel,
+  ),
+  [
+    "debugLabel",
+  ],
 );
 var _labeledGlobalKey = MXFunctionInvoke(
-    "LabeledGlobalKey",
-    (
-      {
-      String debugLabel,
-      }
-    ) =>
+  "LabeledGlobalKey",
+  ({
+    String debugLabel,
+  }) =>
       LabeledGlobalKey(
-      debugLabel,
-    ),
+    debugLabel,
+  ),
+  [
+    "debugLabel",
+  ],
 );
 var _globalObjectKey = MXFunctionInvoke(
-    "GlobalObjectKey",
-    (
-      {
-      Object value,
-      }
-    ) =>
+  "GlobalObjectKey",
+  ({
+    Object value,
+  }) =>
       GlobalObjectKey(
-      value,
-    ),
+    value,
+  ),
+  [
+    "value",
+  ],
 );
 var _typeMatcher = MXFunctionInvoke(
-    "TypeMatcher",
-    (
-    ) =>
-      TypeMatcher(
-    ),
+  "TypeMatcher",
+  () => TypeMatcher(),
+  [],
 );
 var _buildOwner = MXFunctionInvoke(
-    "BuildOwner",
-    (
-      {
-      dynamic onBuildScheduled,
-      }
-    ) =>
+  "BuildOwner",
+  ({
+    dynamic onBuildScheduled,
+  }) =>
       BuildOwner(
-      onBuildScheduled: createVoidCallbackClosure(_buildOwner.buildOwner, onBuildScheduled),
-    ),
+    onBuildScheduled:
+        createVoidCallbackClosure(_buildOwner.buildOwner, onBuildScheduled),
+  ),
+  [
+    "onBuildScheduled",
+  ],
 );
 var _errorWidget = MXFunctionInvoke(
-    "ErrorWidget",
-    (
-      {
-      Object exception,
-      }
-    ) =>
+  "ErrorWidget",
+  ({
+    Object exception,
+  }) =>
       ErrorWidget(
-      exception,
-    ),
+    exception,
+  ),
+  [
+    "exception",
+  ],
 );
 var _errorWidget_withDetails = MXFunctionInvoke(
   "ErrorWidget.withDetails",
-    (
-      {
-      String message = '',
-      FlutterError error,
-      }
-    ) =>
+  ({
+    String message = '',
+    FlutterError error,
+  }) =>
       ErrorWidget.withDetails(
-      message: message,
-      error: error,
-    ),
+    message: message,
+    error: error,
+  ),
+  [
+    "message",
+    "error",
+  ],
 );
 var _statelessElement = MXFunctionInvoke(
-    "StatelessElement",
-    (
-      {
-      StatelessWidget widget,
-      }
-    ) =>
+  "StatelessElement",
+  ({
+    StatelessWidget widget,
+  }) =>
       StatelessElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _statefulElement = MXFunctionInvoke(
-    "StatefulElement",
-    (
-      {
-      StatefulWidget widget,
-      }
-    ) =>
+  "StatefulElement",
+  ({
+    StatefulWidget widget,
+  }) =>
       StatefulElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _parentDataElement = MXFunctionInvoke(
-    "ParentDataElement",
-    (
-      {
-      ParentDataWidget<ParentData> widget,
-      }
-    ) =>
+  "ParentDataElement",
+  ({
+    ParentDataWidget<ParentData> widget,
+  }) =>
       ParentDataElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _inheritedElement = MXFunctionInvoke(
-    "InheritedElement",
-    (
-      {
-      InheritedWidget widget,
-      }
-    ) =>
+  "InheritedElement",
+  ({
+    InheritedWidget widget,
+  }) =>
       InheritedElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _leafRenderObjectElement = MXFunctionInvoke(
-    "LeafRenderObjectElement",
-    (
-      {
-      LeafRenderObjectWidget widget,
-      }
-    ) =>
+  "LeafRenderObjectElement",
+  ({
+    LeafRenderObjectWidget widget,
+  }) =>
       LeafRenderObjectElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _singleChildRenderObjectElement = MXFunctionInvoke(
-    "SingleChildRenderObjectElement",
-    (
-      {
-      SingleChildRenderObjectWidget widget,
-      }
-    ) =>
+  "SingleChildRenderObjectElement",
+  ({
+    SingleChildRenderObjectWidget widget,
+  }) =>
       SingleChildRenderObjectElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _multiChildRenderObjectElement = MXFunctionInvoke(
-    "MultiChildRenderObjectElement",
-    (
-      {
-      MultiChildRenderObjectWidget widget,
-      }
-    ) =>
+  "MultiChildRenderObjectElement",
+  ({
+    MultiChildRenderObjectWidget widget,
+  }) =>
       MultiChildRenderObjectElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _debugCreator = MXFunctionInvoke(
-    "DebugCreator",
-    (
-      {
-      Element element,
-      }
-    ) =>
+  "DebugCreator",
+  ({
+    Element element,
+  }) =>
       DebugCreator(
-      element,
-    ),
+    element,
+  ),
+  [
+    "element",
+  ],
 );
 var _indexedSlot = MXFunctionInvoke(
-    "IndexedSlot",
-    (
-      {
-      int index,
-      dynamic value,
-      }
-    ) =>
+  "IndexedSlot",
+  ({
+    int index,
+    dynamic value,
+  }) =>
       IndexedSlot(
-      index,
-      value,
-    ),
+    index,
+    value,
+  ),
+  [
+    "index",
+    "value",
+  ],
 );

@@ -9,7 +9,6 @@ import 'package:flutter/src/semantics/semantics_event.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSemanticsEventSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,48 +19,46 @@ Map<String, MXFunctionInvoke> registerSemanticsEventSeries() {
   m[_updateLiveRegionEvent.funName] = _updateLiveRegionEvent;
   return m;
 }
+
 var _announceSemanticsEvent = MXFunctionInvoke(
-    "AnnounceSemanticsEvent",
-    (
-      {
-      String message,
-      TextDirection textDirection,
-      }
-    ) =>
+  "AnnounceSemanticsEvent",
+  ({
+    String message,
+    TextDirection textDirection,
+  }) =>
       AnnounceSemanticsEvent(
-      message,
-      textDirection,
-    ),
+    message,
+    textDirection,
+  ),
+  [
+    "message",
+    "textDirection",
+  ],
 );
 var _tooltipSemanticsEvent = MXFunctionInvoke(
-    "TooltipSemanticsEvent",
-    (
-      {
-      String message,
-      }
-    ) =>
+  "TooltipSemanticsEvent",
+  ({
+    String message,
+  }) =>
       TooltipSemanticsEvent(
-      message,
-    ),
+    message,
+  ),
+  [
+    "message",
+  ],
 );
 var _longPressSemanticsEvent = MXFunctionInvoke(
-    "LongPressSemanticsEvent",
-    (
-    ) =>
-      LongPressSemanticsEvent(
-    ),
+  "LongPressSemanticsEvent",
+  () => LongPressSemanticsEvent(),
+  [],
 );
 var _tapSemanticEvent = MXFunctionInvoke(
-    "TapSemanticEvent",
-    (
-    ) =>
-      TapSemanticEvent(
-    ),
+  "TapSemanticEvent",
+  () => TapSemanticEvent(),
+  [],
 );
 var _updateLiveRegionEvent = MXFunctionInvoke(
-    "UpdateLiveRegionEvent",
-    (
-    ) =>
-      UpdateLiveRegionEvent(
-    ),
+  "UpdateLiveRegionEvent",
+  () => UpdateLiveRegionEvent(),
+  [],
 );

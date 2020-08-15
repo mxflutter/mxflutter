@@ -13,7 +13,6 @@ import 'package:flutter/src/gestures/constants.dart';
 import 'package:flutter/src/gestures/events.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTapSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -22,42 +21,49 @@ Map<String, MXFunctionInvoke> registerTapSeries() {
   m[_tapGestureRecognizer.funName] = _tapGestureRecognizer;
   return m;
 }
+
 var _tapDownDetails = MXFunctionInvoke(
-    "TapDownDetails",
-    (
-      {
-      Offset globalPosition = Offset.zero,
-      Offset localPosition,
-      PointerDeviceKind kind,
-      }
-    ) =>
+  "TapDownDetails",
+  ({
+    Offset globalPosition = Offset.zero,
+    Offset localPosition,
+    PointerDeviceKind kind,
+  }) =>
       TapDownDetails(
-      globalPosition: globalPosition,
-      localPosition: localPosition,
-      kind: kind,
-    ),
+    globalPosition: globalPosition,
+    localPosition: localPosition,
+    kind: kind,
+  ),
+  [
+    "globalPosition",
+    "localPosition",
+    "kind",
+  ],
 );
 var _tapUpDetails = MXFunctionInvoke(
-    "TapUpDetails",
-    (
-      {
-      Offset globalPosition = Offset.zero,
-      Offset localPosition,
-      }
-    ) =>
+  "TapUpDetails",
+  ({
+    Offset globalPosition = Offset.zero,
+    Offset localPosition,
+  }) =>
       TapUpDetails(
-      globalPosition: globalPosition,
-      localPosition: localPosition,
-    ),
+    globalPosition: globalPosition,
+    localPosition: localPosition,
+  ),
+  [
+    "globalPosition",
+    "localPosition",
+  ],
 );
 var _tapGestureRecognizer = MXFunctionInvoke(
-    "TapGestureRecognizer",
-    (
-      {
-      Object debugOwner,
-      }
-    ) =>
+  "TapGestureRecognizer",
+  ({
+    Object debugOwner,
+  }) =>
       TapGestureRecognizer(
-      debugOwner: debugOwner,
-    ),
+    debugOwner: debugOwner,
+  ),
+  [
+    "debugOwner",
+  ],
 );

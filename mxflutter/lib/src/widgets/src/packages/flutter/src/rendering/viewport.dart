@@ -17,103 +17,112 @@ import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/sliver.dart';
 import 'package:flutter/src/rendering/viewport_offset.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerViewportSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cacheExtentStyle.funName] = _cacheExtentStyle;
-  m[_renderAbstractViewport_defaultCacheExtent.funName] = _renderAbstractViewport_defaultCacheExtent;
+  m[_renderAbstractViewport_defaultCacheExtent.funName] =
+      _renderAbstractViewport_defaultCacheExtent;
   m[_revealedOffset.funName] = _revealedOffset;
   m[_renderViewport.funName] = _renderViewport;
-  m[_renderViewport_useTwoPaneSemantics.funName] = _renderViewport_useTwoPaneSemantics;
-  m[_renderViewport_excludeFromScrolling.funName] = _renderViewport_excludeFromScrolling;
+  m[_renderViewport_useTwoPaneSemantics.funName] =
+      _renderViewport_useTwoPaneSemantics;
+  m[_renderViewport_excludeFromScrolling.funName] =
+      _renderViewport_excludeFromScrolling;
   m[_renderShrinkWrappingViewport.funName] = _renderShrinkWrappingViewport;
   return m;
 }
+
 var _cacheExtentStyle = MXFunctionInvoke(
-    "CacheExtentStyle",
-    ({String name, int index}) => MXCacheExtentStyle.parse(name, index),
-  );
-var _renderAbstractViewport_defaultCacheExtent = MXFunctionInvoke(
-  "RenderAbstractViewport.defaultCacheExtent",
-    (
-    ) =>
-      RenderAbstractViewport.defaultCacheExtent
+  "CacheExtentStyle",
+  ({String name, int index}) => MXCacheExtentStyle.parse(name, index),
 );
+var _renderAbstractViewport_defaultCacheExtent = MXFunctionInvoke(
+    "RenderAbstractViewport.defaultCacheExtent",
+    () => RenderAbstractViewport.defaultCacheExtent);
 var _revealedOffset = MXFunctionInvoke(
-    "RevealedOffset",
-    (
-      {
-      dynamic offset,
-      Rect rect,
-      }
-    ) =>
+  "RevealedOffset",
+  ({
+    dynamic offset,
+    Rect rect,
+  }) =>
       RevealedOffset(
-      offset: offset?.toDouble(),
-      rect: rect,
-    ),
+    offset: offset?.toDouble(),
+    rect: rect,
+  ),
+  [
+    "offset",
+    "rect",
+  ],
 );
 var _renderViewport = MXFunctionInvoke(
-    "RenderViewport",
-    (
-      {
-      AxisDirection axisDirection = AxisDirection.down,
-      AxisDirection crossAxisDirection,
-      ViewportOffset offset,
-      dynamic anchor = 0.0,
-      dynamic children,
-      RenderSliver center,
-      dynamic cacheExtent,
-      CacheExtentStyle cacheExtentStyle =  CacheExtentStyle.pixel,
-      }
-    ) =>
+  "RenderViewport",
+  ({
+    AxisDirection axisDirection = AxisDirection.down,
+    AxisDirection crossAxisDirection,
+    ViewportOffset offset,
+    dynamic anchor = 0.0,
+    dynamic children,
+    RenderSliver center,
+    dynamic cacheExtent,
+    CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
+  }) =>
       RenderViewport(
-      axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection,
-      offset: offset,
-      anchor: anchor?.toDouble(),
-      children: toListT<RenderSliver>(children),
-      center: center,
-      cacheExtent: cacheExtent?.toDouble(),
-      cacheExtentStyle: cacheExtentStyle,
-    ),
+    axisDirection: axisDirection,
+    crossAxisDirection: crossAxisDirection,
+    offset: offset,
+    anchor: anchor?.toDouble(),
+    children: toListT<RenderSliver>(children),
+    center: center,
+    cacheExtent: cacheExtent?.toDouble(),
+    cacheExtentStyle: cacheExtentStyle,
+  ),
+  [
+    "axisDirection",
+    "crossAxisDirection",
+    "offset",
+    "anchor",
+    "children",
+    "center",
+    "cacheExtent",
+    "cacheExtentStyle",
+  ],
 );
 var _renderViewport_useTwoPaneSemantics = MXFunctionInvoke(
-  "RenderViewport.useTwoPaneSemantics",
-    (
-    ) =>
-      RenderViewport.useTwoPaneSemantics
-);
+    "RenderViewport.useTwoPaneSemantics",
+    () => RenderViewport.useTwoPaneSemantics);
 var _renderViewport_excludeFromScrolling = MXFunctionInvoke(
-  "RenderViewport.excludeFromScrolling",
-    (
-    ) =>
-      RenderViewport.excludeFromScrolling
-);
+    "RenderViewport.excludeFromScrolling",
+    () => RenderViewport.excludeFromScrolling);
 var _renderShrinkWrappingViewport = MXFunctionInvoke(
-    "RenderShrinkWrappingViewport",
-    (
-      {
-      AxisDirection axisDirection =  AxisDirection.down,
-      AxisDirection crossAxisDirection,
-      ViewportOffset offset,
-      dynamic children,
-      }
-    ) =>
+  "RenderShrinkWrappingViewport",
+  ({
+    AxisDirection axisDirection = AxisDirection.down,
+    AxisDirection crossAxisDirection,
+    ViewportOffset offset,
+    dynamic children,
+  }) =>
       RenderShrinkWrappingViewport(
-      axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection,
-      offset: offset,
-      children: toListT<RenderSliver>(children),
-    ),
+    axisDirection: axisDirection,
+    crossAxisDirection: crossAxisDirection,
+    offset: offset,
+    children: toListT<RenderSliver>(children),
+  ),
+  [
+    "axisDirection",
+    "crossAxisDirection",
+    "offset",
+    "children",
+  ],
 );
+
 class MXCacheExtentStyle {
   static CacheExtentStyle parse(String name, int index) {
-    switch(name) {
-      case 'CacheExtentStyle.pixel': 
-       return CacheExtentStyle.pixel;
-      case 'CacheExtentStyle.viewport': 
-       return CacheExtentStyle.viewport;
+    switch (name) {
+      case 'CacheExtentStyle.pixel':
+        return CacheExtentStyle.pixel;
+      case 'CacheExtentStyle.viewport':
+        return CacheExtentStyle.viewport;
     }
     return null;
   }

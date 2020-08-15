@@ -20,121 +20,139 @@ import 'package:flutter/src/widgets/scroll_metrics.dart';
 import 'package:flutter/src/widgets/scroll_notification.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollActivitySeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_idleScrollActivity.funName] = _idleScrollActivity;
   m[_holdScrollActivity.funName] = _holdScrollActivity;
   m[_scrollDragController.funName] = _scrollDragController;
-  m[_scrollDragController_momentumRetainStationaryDurationThreshold.funName] = _scrollDragController_momentumRetainStationaryDurationThreshold;
-  m[_scrollDragController_motionStoppedDurationThreshold.funName] = _scrollDragController_motionStoppedDurationThreshold;
+  m[_scrollDragController_momentumRetainStationaryDurationThreshold.funName] =
+      _scrollDragController_momentumRetainStationaryDurationThreshold;
+  m[_scrollDragController_motionStoppedDurationThreshold.funName] =
+      _scrollDragController_motionStoppedDurationThreshold;
   m[_dragScrollActivity.funName] = _dragScrollActivity;
   m[_ballisticScrollActivity.funName] = _ballisticScrollActivity;
   m[_drivenScrollActivity.funName] = _drivenScrollActivity;
   return m;
 }
+
 var _idleScrollActivity = MXFunctionInvoke(
-    "IdleScrollActivity",
-    (
-      {
-      ScrollActivityDelegate delegate,
-      }
-    ) =>
+  "IdleScrollActivity",
+  ({
+    ScrollActivityDelegate delegate,
+  }) =>
       IdleScrollActivity(
-      delegate,
-    ),
+    delegate,
+  ),
+  [
+    "delegate",
+  ],
 );
 var _holdScrollActivity = MXFunctionInvoke(
-    "HoldScrollActivity",
-    (
-      {
-      ScrollActivityDelegate delegate,
-      dynamic onHoldCanceled,
-      }
-    ) =>
+  "HoldScrollActivity",
+  ({
+    ScrollActivityDelegate delegate,
+    dynamic onHoldCanceled,
+  }) =>
       HoldScrollActivity(
-      delegate: delegate,
-      onHoldCanceled: createVoidCallbackClosure(_holdScrollActivity.buildOwner, onHoldCanceled),
-    ),
+    delegate: delegate,
+    onHoldCanceled: createVoidCallbackClosure(
+        _holdScrollActivity.buildOwner, onHoldCanceled),
+  ),
+  [
+    "delegate",
+    "onHoldCanceled",
+  ],
 );
 var _scrollDragController = MXFunctionInvoke(
-    "ScrollDragController",
-    (
-      {
-      ScrollActivityDelegate delegate,
-      DragStartDetails details,
-      dynamic onDragCanceled,
-      dynamic carriedVelocity,
-      dynamic motionStartDistanceThreshold,
-      }
-    ) =>
+  "ScrollDragController",
+  ({
+    ScrollActivityDelegate delegate,
+    DragStartDetails details,
+    dynamic onDragCanceled,
+    dynamic carriedVelocity,
+    dynamic motionStartDistanceThreshold,
+  }) =>
       ScrollDragController(
-      delegate: delegate,
-      details: details,
-      onDragCanceled: createVoidCallbackClosure(_scrollDragController.buildOwner, onDragCanceled),
-      carriedVelocity: carriedVelocity?.toDouble(),
-      motionStartDistanceThreshold: motionStartDistanceThreshold?.toDouble(),
-    ),
+    delegate: delegate,
+    details: details,
+    onDragCanceled: createVoidCallbackClosure(
+        _scrollDragController.buildOwner, onDragCanceled),
+    carriedVelocity: carriedVelocity?.toDouble(),
+    motionStartDistanceThreshold: motionStartDistanceThreshold?.toDouble(),
+  ),
+  [
+    "delegate",
+    "details",
+    "onDragCanceled",
+    "carriedVelocity",
+    "motionStartDistanceThreshold",
+  ],
 );
-var _scrollDragController_momentumRetainStationaryDurationThreshold = MXFunctionInvoke(
-  "ScrollDragController.momentumRetainStationaryDurationThreshold",
-    (
-    ) =>
-      ScrollDragController.momentumRetainStationaryDurationThreshold
-);
+var _scrollDragController_momentumRetainStationaryDurationThreshold =
+    MXFunctionInvoke(
+        "ScrollDragController.momentumRetainStationaryDurationThreshold",
+        () => ScrollDragController.momentumRetainStationaryDurationThreshold);
 var _scrollDragController_motionStoppedDurationThreshold = MXFunctionInvoke(
-  "ScrollDragController.motionStoppedDurationThreshold",
-    (
-    ) =>
-      ScrollDragController.motionStoppedDurationThreshold
-);
+    "ScrollDragController.motionStoppedDurationThreshold",
+    () => ScrollDragController.motionStoppedDurationThreshold);
 var _dragScrollActivity = MXFunctionInvoke(
-    "DragScrollActivity",
-    (
-      {
-      ScrollActivityDelegate delegate,
-      ScrollDragController controller,
-      }
-    ) =>
+  "DragScrollActivity",
+  ({
+    ScrollActivityDelegate delegate,
+    ScrollDragController controller,
+  }) =>
       DragScrollActivity(
-      delegate,
-      controller,
-    ),
+    delegate,
+    controller,
+  ),
+  [
+    "delegate",
+    "controller",
+  ],
 );
 var _ballisticScrollActivity = MXFunctionInvoke(
-    "BallisticScrollActivity",
-    (
-      {
-      ScrollActivityDelegate delegate,
-      Simulation simulation,
-      TickerProvider vsync,
-      }
-    ) =>
+  "BallisticScrollActivity",
+  ({
+    ScrollActivityDelegate delegate,
+    Simulation simulation,
+    TickerProvider vsync,
+  }) =>
       BallisticScrollActivity(
-      delegate,
-      simulation,
-      vsync,
-    ),
+    delegate,
+    simulation,
+    vsync,
+  ),
+  [
+    "delegate",
+    "simulation",
+    "vsync",
+  ],
 );
 var _drivenScrollActivity = MXFunctionInvoke(
-    "DrivenScrollActivity",
-    (
-      {
-      ScrollActivityDelegate delegate,
-      dynamic from,
-      dynamic to,
-      Duration duration,
-      Curve curve,
-      TickerProvider vsync,
-      }
-    ) =>
+  "DrivenScrollActivity",
+  ({
+    ScrollActivityDelegate delegate,
+    dynamic from,
+    dynamic to,
+    Duration duration,
+    Curve curve,
+    TickerProvider vsync,
+  }) =>
       DrivenScrollActivity(
-      delegate,
-      from: from?.toDouble(),
-      to: to?.toDouble(),
-      duration: duration,
-      curve: curve,
-      vsync: vsync,
-    ),
+    delegate,
+    from: from?.toDouble(),
+    to: to?.toDouble(),
+    duration: duration,
+    curve: curve,
+    vsync: vsync,
+  ),
+  [
+    "delegate",
+    "from",
+    "to",
+    "duration",
+    "curve",
+    "vsync",
+  ],
 );

@@ -9,7 +9,6 @@ import 'package:collection/src/union_set.dart';
 import 'dart:collection';
 import 'package:collection/src/unmodifiable_wrappers.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerUnionSetSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -17,29 +16,34 @@ Map<String, MXFunctionInvoke> registerUnionSetSeries() {
   m[_unionSet_from.funName] = _unionSet_from;
   return m;
 }
+
 var _unionSet = MXFunctionInvoke(
-    "UnionSet",
-    (
-      {
-      Set<Set<dynamic>> sets,
-      bool disjoint = false,
-      }
-    ) =>
+  "UnionSet",
+  ({
+    Set<Set<dynamic>> sets,
+    bool disjoint = false,
+  }) =>
       UnionSet(
-      sets,
-      disjoint: disjoint,
-    ),
+    sets,
+    disjoint: disjoint,
+  ),
+  [
+    "sets",
+    "disjoint",
+  ],
 );
 var _unionSet_from = MXFunctionInvoke(
   "UnionSet.from",
-    (
-      {
-      Iterable<Set<dynamic>> sets,
-      bool disjoint = false,
-      }
-    ) =>
+  ({
+    Iterable<Set<dynamic>> sets,
+    bool disjoint = false,
+  }) =>
       UnionSet.from(
-      sets,
-      disjoint: disjoint,
-    ),
+    sets,
+    disjoint: disjoint,
+  ),
+  [
+    "sets",
+    "disjoint",
+  ],
 );

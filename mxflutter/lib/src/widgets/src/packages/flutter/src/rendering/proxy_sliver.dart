@@ -15,7 +15,6 @@ import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/proxy_box.dart';
 import 'package:flutter/src/rendering/sliver.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerProxySliverSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -25,61 +24,73 @@ Map<String, MXFunctionInvoke> registerProxySliverSeries() {
   m[_renderSliverAnimatedOpacity.funName] = _renderSliverAnimatedOpacity;
   return m;
 }
+
 var _renderSliverOpacity = MXFunctionInvoke(
-    "RenderSliverOpacity",
-    (
-      {
-      dynamic opacity = 1.0,
-      bool alwaysIncludeSemantics = false,
-      RenderSliver sliver,
-      }
-    ) =>
+  "RenderSliverOpacity",
+  ({
+    dynamic opacity = 1.0,
+    bool alwaysIncludeSemantics = false,
+    RenderSliver sliver,
+  }) =>
       RenderSliverOpacity(
-      opacity: opacity?.toDouble(),
-      alwaysIncludeSemantics: alwaysIncludeSemantics,
-      sliver: sliver,
-    ),
+    opacity: opacity?.toDouble(),
+    alwaysIncludeSemantics: alwaysIncludeSemantics,
+    sliver: sliver,
+  ),
+  [
+    "opacity",
+    "alwaysIncludeSemantics",
+    "sliver",
+  ],
 );
 var _renderSliverIgnorePointer = MXFunctionInvoke(
-    "RenderSliverIgnorePointer",
-    (
-      {
-      RenderSliver sliver,
-      bool ignoring = true,
-      bool ignoringSemantics,
-      }
-    ) =>
+  "RenderSliverIgnorePointer",
+  ({
+    RenderSliver sliver,
+    bool ignoring = true,
+    bool ignoringSemantics,
+  }) =>
       RenderSliverIgnorePointer(
-      sliver: sliver,
-      ignoring: ignoring,
-      ignoringSemantics: ignoringSemantics,
-    ),
+    sliver: sliver,
+    ignoring: ignoring,
+    ignoringSemantics: ignoringSemantics,
+  ),
+  [
+    "sliver",
+    "ignoring",
+    "ignoringSemantics",
+  ],
 );
 var _renderSliverOffstage = MXFunctionInvoke(
-    "RenderSliverOffstage",
-    (
-      {
-      bool offstage = true,
-      RenderSliver sliver,
-      }
-    ) =>
+  "RenderSliverOffstage",
+  ({
+    bool offstage = true,
+    RenderSliver sliver,
+  }) =>
       RenderSliverOffstage(
-      offstage: offstage,
-      sliver: sliver,
-    ),
+    offstage: offstage,
+    sliver: sliver,
+  ),
+  [
+    "offstage",
+    "sliver",
+  ],
 );
 var _renderSliverAnimatedOpacity = MXFunctionInvoke(
-    "RenderSliverAnimatedOpacity",
-    (
-      {
-      Animation<double> opacity,
-      bool alwaysIncludeSemantics = false,
-      RenderSliver sliver,
-      }
-    ) =>
+  "RenderSliverAnimatedOpacity",
+  ({
+    Animation<double> opacity,
+    bool alwaysIncludeSemantics = false,
+    RenderSliver sliver,
+  }) =>
       RenderSliverAnimatedOpacity(
-      opacity: opacity,
-      alwaysIncludeSemantics: alwaysIncludeSemantics,
-      sliver: sliver,
-    ),
+    opacity: opacity,
+    alwaysIncludeSemantics: alwaysIncludeSemantics,
+    sliver: sliver,
+  ),
+  [
+    "opacity",
+    "alwaysIncludeSemantics",
+    "sliver",
+  ],
 );

@@ -16,17 +16,16 @@ import 'package:flutter/src/cupertino/localizations.dart';
 import 'package:flutter/src/cupertino/route.dart';
 import 'package:flutter/src/cupertino/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAppSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoApp.funName] = _cupertinoApp;
   return m;
 }
+
 var _cupertinoApp = MXFunctionInvoke(
   "CupertinoApp",
-  (
-    {
+  ({
     Key key,
     GlobalKey<NavigatorState> navigatorKey,
     Widget home,
@@ -53,8 +52,7 @@ var _cupertinoApp = MXFunctionInvoke(
     bool debugShowCheckedModeBanner = true,
     dynamic shortcuts,
     dynamic actions,
-    }
-  ) =>
+  }) =>
       CupertinoApp(
     key: key,
     navigatorKey: navigatorKey,
@@ -83,4 +81,32 @@ var _cupertinoApp = MXFunctionInvoke(
     shortcuts: toMapT<LogicalKeySet, Intent>(shortcuts),
     actions: toMapT<LocalKey, Action Function()>(actions),
   ),
+  [
+    "key",
+    "navigatorKey",
+    "home",
+    "theme",
+    "routes",
+    "initialRoute",
+    "onGenerateRoute",
+    "onGenerateInitialRoutes",
+    "onUnknownRoute",
+    "navigatorObservers",
+    "builder",
+    "title",
+    "onGenerateTitle",
+    "color",
+    "locale",
+    "localizationsDelegates",
+    "localeListResolutionCallback",
+    "localeResolutionCallback",
+    "supportedLocales",
+    "showPerformanceOverlay",
+    "checkerboardRasterCacheImages",
+    "checkerboardOffscreenLayers",
+    "showSemanticsDebugger",
+    "debugShowCheckedModeBanner",
+    "shortcuts",
+    "actions",
+  ],
 );

@@ -11,7 +11,6 @@ import 'package:flutter/foundation.dart';
 import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/gestures/events.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerHitTestSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,32 +19,33 @@ Map<String, MXFunctionInvoke> registerHitTestSeries() {
   m[_hitTestResult_wrap.funName] = _hitTestResult_wrap;
   return m;
 }
+
 var _hitTestEntry = MXFunctionInvoke(
-    "HitTestEntry",
-    (
-      {
-      HitTestTarget target,
-      }
-    ) =>
+  "HitTestEntry",
+  ({
+    HitTestTarget target,
+  }) =>
       HitTestEntry(
-      target,
-    ),
+    target,
+  ),
+  [
+    "target",
+  ],
 );
 var _hitTestResult = MXFunctionInvoke(
-    "HitTestResult",
-    (
-    ) =>
-      HitTestResult(
-    ),
+  "HitTestResult",
+  () => HitTestResult(),
+  [],
 );
 var _hitTestResult_wrap = MXFunctionInvoke(
   "HitTestResult.wrap",
-    (
-      {
-      HitTestResult result,
-      }
-    ) =>
+  ({
+    HitTestResult result,
+  }) =>
       HitTestResult.wrap(
-      result,
-    ),
+    result,
+  ),
+  [
+    "result",
+  ],
 );

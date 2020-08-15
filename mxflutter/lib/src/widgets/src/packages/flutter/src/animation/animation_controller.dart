@@ -19,7 +19,6 @@ import 'package:flutter/src/animation/listener_helpers.dart';
 import 'package:flutter/animation.dart';
 // MX modified end
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -35,24 +34,23 @@ Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
   // MX modified end
   return m;
 }
+
 var _animationBehavior = MXFunctionInvoke(
-    "AnimationBehavior",
-    ({String name, int index}) => MXAnimationBehavior.parse(name, index),
-  );
+  "AnimationBehavior",
+  ({String name, int index}) => MXAnimationBehavior.parse(name, index),
+);
 var _animationController = MXFunctionInvoke(
-    "AnimationController",
-    (
-      {
-      dynamic value,
-      Duration duration,
-      Duration reverseDuration,
-      String debugLabel,
-      dynamic lowerBound = 0.0,
-      dynamic upperBound = 1.0,
-      AnimationBehavior animationBehavior = AnimationBehavior.normal,
-      TickerProvider vsync,
-      }
-    ) =>
+  "AnimationController",
+  ({
+    dynamic value,
+    Duration duration,
+    Duration reverseDuration,
+    String debugLabel,
+    dynamic lowerBound = 0.0,
+    dynamic upperBound = 1.0,
+    AnimationBehavior animationBehavior = AnimationBehavior.normal,
+    TickerProvider vsync,
+  }) =>
       AnimationController(
       value: value?.toDouble(),
       duration: duration,
@@ -65,35 +63,52 @@ var _animationController = MXFunctionInvoke(
       vsync: _animationController.buildOwner.state,
       // MX modified end
     ),
+ [
+    "value",
+    "duration",
+    "reverseDuration",
+    "debugLabel",
+    "lowerBound",
+    "upperBound",
+    "animationBehavior",
+    "vsync",
+  ],
 );
 var _animationController_unbounded = MXFunctionInvoke(
   "AnimationController.unbounded",
-    (
-      {
-      dynamic value = 0.0,
-      Duration duration,
-      Duration reverseDuration,
-      String debugLabel,
-      TickerProvider vsync,
-      AnimationBehavior animationBehavior =  AnimationBehavior.preserve,
-      }
-    ) =>
+  ({
+    dynamic value = 0.0,
+    Duration duration,
+    Duration reverseDuration,
+    String debugLabel,
+    TickerProvider vsync,
+    AnimationBehavior animationBehavior = AnimationBehavior.preserve,
+  }) =>
       AnimationController.unbounded(
-      value: value?.toDouble(),
-      duration: duration,
-      reverseDuration: reverseDuration,
-      debugLabel: debugLabel,
-      vsync: vsync,
-      animationBehavior: animationBehavior,
-    ),
+    value: value?.toDouble(),
+    duration: duration,
+    reverseDuration: reverseDuration,
+    debugLabel: debugLabel,
+    vsync: vsync,
+    animationBehavior: animationBehavior,
+  ),
+  [
+    "value",
+    "duration",
+    "reverseDuration",
+    "debugLabel",
+    "vsync",
+    "animationBehavior",
+  ],
 );
+
 class MXAnimationBehavior {
   static AnimationBehavior parse(String name, int index) {
-    switch(name) {
-      case 'AnimationBehavior.normal': 
-       return AnimationBehavior.normal;
-      case 'AnimationBehavior.preserve': 
-       return AnimationBehavior.preserve;
+    switch (name) {
+      case 'AnimationBehavior.normal':
+        return AnimationBehavior.normal;
+      case 'AnimationBehavior.preserve':
+        return AnimationBehavior.preserve;
     }
     return null;
   }

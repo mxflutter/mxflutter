@@ -16,7 +16,6 @@ import 'package:flutter/src/material/material.dart';
 import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDrawerSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -26,66 +25,79 @@ Map<String, MXFunctionInvoke> registerDrawerSeries() {
   m[_drawerControllerState.funName] = _drawerControllerState;
   return m;
 }
+
 var _drawerAlignment = MXFunctionInvoke(
-    "DrawerAlignment",
-    ({String name, int index}) => MXDrawerAlignment.parse(name, index),
-  );
+  "DrawerAlignment",
+  ({String name, int index}) => MXDrawerAlignment.parse(name, index),
+);
 var _drawer = MXFunctionInvoke(
-    "Drawer",
-    (
-      {
-      Key key,
-      dynamic elevation = 16.0,
-      Widget child,
-      String semanticLabel,
-      }
-    ) =>
+  "Drawer",
+  ({
+    Key key,
+    dynamic elevation = 16.0,
+    Widget child,
+    String semanticLabel,
+  }) =>
       Drawer(
-      key: key,
-      elevation: elevation?.toDouble(),
-      child: child,
-      semanticLabel: semanticLabel,
-    ),
+    key: key,
+    elevation: elevation?.toDouble(),
+    child: child,
+    semanticLabel: semanticLabel,
+  ),
+  [
+    "key",
+    "elevation",
+    "child",
+    "semanticLabel",
+  ],
 );
 var _drawerController = MXFunctionInvoke(
-    "DrawerController",
-    (
-      {
-      GlobalKey<State<StatefulWidget>> key,
-      Widget child,
-      DrawerAlignment alignment,
-      dynamic drawerCallback,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      Color scrimColor,
-      dynamic edgeDragWidth,
-      bool enableOpenDragGesture = true,
-      }
-    ) =>
+  "DrawerController",
+  ({
+    GlobalKey<State<StatefulWidget>> key,
+    Widget child,
+    DrawerAlignment alignment,
+    dynamic drawerCallback,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    Color scrimColor,
+    dynamic edgeDragWidth,
+    bool enableOpenDragGesture = true,
+  }) =>
       DrawerController(
-      key: key,
-      child: child,
-      alignment: alignment,
-      drawerCallback: createValueChangedGenericClosure<bool>(_drawerController.buildOwner, drawerCallback),
-      dragStartBehavior: dragStartBehavior,
-      scrimColor: scrimColor,
-      edgeDragWidth: edgeDragWidth?.toDouble(),
-      enableOpenDragGesture: enableOpenDragGesture,
-    ),
+    key: key,
+    child: child,
+    alignment: alignment,
+    drawerCallback: createValueChangedGenericClosure<bool>(
+        _drawerController.buildOwner, drawerCallback),
+    dragStartBehavior: dragStartBehavior,
+    scrimColor: scrimColor,
+    edgeDragWidth: edgeDragWidth?.toDouble(),
+    enableOpenDragGesture: enableOpenDragGesture,
+  ),
+  [
+    "key",
+    "child",
+    "alignment",
+    "drawerCallback",
+    "dragStartBehavior",
+    "scrimColor",
+    "edgeDragWidth",
+    "enableOpenDragGesture",
+  ],
 );
 var _drawerControllerState = MXFunctionInvoke(
-    "DrawerControllerState",
-    (
-    ) =>
-      DrawerControllerState(
-    ),
+  "DrawerControllerState",
+  () => DrawerControllerState(),
+  [],
 );
+
 class MXDrawerAlignment {
   static DrawerAlignment parse(String name, int index) {
-    switch(name) {
-      case 'DrawerAlignment.start': 
-       return DrawerAlignment.start;
-      case 'DrawerAlignment.end': 
-       return DrawerAlignment.end;
+    switch (name) {
+      case 'DrawerAlignment.start':
+        return DrawerAlignment.start;
+      case 'DrawerAlignment.end':
+        return DrawerAlignment.end;
     }
     return null;
   }

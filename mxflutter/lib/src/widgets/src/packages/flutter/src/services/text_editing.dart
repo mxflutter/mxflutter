@@ -9,7 +9,6 @@ import 'package:flutter/src/services/text_editing.dart';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextEditingSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,44 +17,52 @@ Map<String, MXFunctionInvoke> registerTextEditingSeries() {
   m[_textSelection_fromPosition.funName] = _textSelection_fromPosition;
   return m;
 }
+
 var _textSelection = MXFunctionInvoke(
-    "TextSelection",
-    (
-      {
-      int baseOffset,
-      int extentOffset,
-      TextAffinity affinity = TextAffinity.downstream,
-      bool isDirectional = false,
-      }
-    ) =>
+  "TextSelection",
+  ({
+    int baseOffset,
+    int extentOffset,
+    TextAffinity affinity = TextAffinity.downstream,
+    bool isDirectional = false,
+  }) =>
       TextSelection(
-      baseOffset: baseOffset,
-      extentOffset: extentOffset,
-      affinity: affinity,
-      isDirectional: isDirectional,
-    ),
+    baseOffset: baseOffset,
+    extentOffset: extentOffset,
+    affinity: affinity,
+    isDirectional: isDirectional,
+  ),
+  [
+    "baseOffset",
+    "extentOffset",
+    "affinity",
+    "isDirectional",
+  ],
 );
 var _textSelection_collapsed = MXFunctionInvoke(
   "TextSelection.collapsed",
-    (
-      {
-      int offset,
-      TextAffinity affinity =  TextAffinity.downstream,
-      }
-    ) =>
+  ({
+    int offset,
+    TextAffinity affinity = TextAffinity.downstream,
+  }) =>
       TextSelection.collapsed(
-      offset: offset,
-      affinity: affinity,
-    ),
+    offset: offset,
+    affinity: affinity,
+  ),
+  [
+    "offset",
+    "affinity",
+  ],
 );
 var _textSelection_fromPosition = MXFunctionInvoke(
   "TextSelection.fromPosition",
-    (
-      {
-      TextPosition position,
-      }
-    ) =>
+  ({
+    TextPosition position,
+  }) =>
       TextSelection.fromPosition(
-      position,
-    ),
+    position,
+  ),
+  [
+    "position",
+  ],
 );

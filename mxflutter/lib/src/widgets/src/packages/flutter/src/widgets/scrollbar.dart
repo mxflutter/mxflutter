@@ -12,39 +12,49 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/scroll_metrics.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollbarSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scrollbarPainter.funName] = _scrollbarPainter;
   return m;
 }
+
 var _scrollbarPainter = MXFunctionInvoke(
-    "ScrollbarPainter",
-    (
-      {
-      Color color,
-      TextDirection textDirection,
-      dynamic thickness,
-      Animation<double> fadeoutOpacityAnimation,
-      EdgeInsets padding = EdgeInsets.zero,
-      dynamic mainAxisMargin = 0.0,
-      dynamic crossAxisMargin = 0.0,
-      Radius radius,
-      dynamic minLength = 18.0,
-      dynamic minOverscrollLength,
-      }
-    ) =>
+  "ScrollbarPainter",
+  ({
+    Color color,
+    TextDirection textDirection,
+    dynamic thickness,
+    Animation<double> fadeoutOpacityAnimation,
+    EdgeInsets padding = EdgeInsets.zero,
+    dynamic mainAxisMargin = 0.0,
+    dynamic crossAxisMargin = 0.0,
+    Radius radius,
+    dynamic minLength = 18.0,
+    dynamic minOverscrollLength,
+  }) =>
       ScrollbarPainter(
-      color: color,
-      textDirection: textDirection,
-      thickness: thickness?.toDouble(),
-      fadeoutOpacityAnimation: fadeoutOpacityAnimation,
-      padding: padding,
-      mainAxisMargin: mainAxisMargin?.toDouble(),
-      crossAxisMargin: crossAxisMargin?.toDouble(),
-      radius: radius,
-      minLength: minLength?.toDouble(),
-      minOverscrollLength: minOverscrollLength?.toDouble(),
-    ),
+    color: color,
+    textDirection: textDirection,
+    thickness: thickness?.toDouble(),
+    fadeoutOpacityAnimation: fadeoutOpacityAnimation,
+    padding: padding,
+    mainAxisMargin: mainAxisMargin?.toDouble(),
+    crossAxisMargin: crossAxisMargin?.toDouble(),
+    radius: radius,
+    minLength: minLength?.toDouble(),
+    minOverscrollLength: minOverscrollLength?.toDouble(),
+  ),
+  [
+    "color",
+    "textDirection",
+    "thickness",
+    "fadeoutOpacityAnimation",
+    "padding",
+    "mainAxisMargin",
+    "crossAxisMargin",
+    "radius",
+    "minLength",
+    "minOverscrollLength",
+  ],
 );

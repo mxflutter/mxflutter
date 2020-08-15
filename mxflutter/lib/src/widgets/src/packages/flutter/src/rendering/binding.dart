@@ -20,21 +20,22 @@ import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/view.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_renderingFlutterBinding.funName] = _renderingFlutterBinding;
   return m;
 }
+
 var _renderingFlutterBinding = MXFunctionInvoke(
-    "RenderingFlutterBinding",
-    (
-      {
-      RenderBox root,
-      }
-    ) =>
+  "RenderingFlutterBinding",
+  ({
+    RenderBox root,
+  }) =>
       RenderingFlutterBinding(
-      root: root,
-    ),
+    root: root,
+  ),
+  [
+    "root",
+  ],
 );

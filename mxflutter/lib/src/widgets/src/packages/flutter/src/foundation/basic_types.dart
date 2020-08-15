@@ -10,7 +10,6 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:ui';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,25 +17,28 @@ Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
   m[_factory.funName] = _factory;
   return m;
 }
+
 var _cachingIterable = MXFunctionInvoke(
-    "CachingIterable",
-    (
-      {
-      Iterator<dynamic> prefillIterator,
-      }
-    ) =>
+  "CachingIterable",
+  ({
+    Iterator<dynamic> prefillIterator,
+  }) =>
       CachingIterable(
-      prefillIterator,
-    ),
+    prefillIterator,
+  ),
+  [
+    "prefillIterator",
+  ],
 );
 var _factory = MXFunctionInvoke(
-    "Factory",
-    (
-      {
-      dynamic constructor,
-      }
-    ) =>
+  "Factory",
+  ({
+    dynamic constructor,
+  }) =>
       Factory(
-      null,
-    ),
+    null,
+  ),
+  [
+    "constructor",
+  ],
 );

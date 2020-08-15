@@ -9,7 +9,6 @@ import 'package:collection/src/priority_queue.dart';
 import 'dart:collection';
 import 'package:collection/src/utils.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPriorityQueueSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -17,25 +16,28 @@ Map<String, MXFunctionInvoke> registerPriorityQueueSeries() {
   m[_heapPriorityQueue.funName] = _heapPriorityQueue;
   return m;
 }
+
 var _priorityQueue = MXFunctionInvoke(
-    "PriorityQueue",
-    (
-      {
-      dynamic comparison,
-      }
-    ) =>
+  "PriorityQueue",
+  ({
+    dynamic comparison,
+  }) =>
       PriorityQueue(
-      null,
-    ),
+    null,
+  ),
+  [
+    "comparison",
+  ],
 );
 var _heapPriorityQueue = MXFunctionInvoke(
-    "HeapPriorityQueue",
-    (
-      {
-      dynamic comparison,
-      }
-    ) =>
+  "HeapPriorityQueue",
+  ({
+    dynamic comparison,
+  }) =>
       HeapPriorityQueue(
-      null,
-    ),
+    null,
+  ),
+  [
+    "comparison",
+  ],
 );

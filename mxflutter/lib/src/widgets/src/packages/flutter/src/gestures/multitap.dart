@@ -18,7 +18,6 @@ import 'package:flutter/src/gestures/pointer_router.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
 import 'package:flutter/src/gestures/tap.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMultitapSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -26,31 +25,37 @@ Map<String, MXFunctionInvoke> registerMultitapSeries() {
   m[_multiTapGestureRecognizer.funName] = _multiTapGestureRecognizer;
   return m;
 }
+
 var _doubleTapGestureRecognizer = MXFunctionInvoke(
-    "DoubleTapGestureRecognizer",
-    (
-      {
-      Object debugOwner,
-      PointerDeviceKind kind,
-      }
-    ) =>
+  "DoubleTapGestureRecognizer",
+  ({
+    Object debugOwner,
+    PointerDeviceKind kind,
+  }) =>
       DoubleTapGestureRecognizer(
-      debugOwner: debugOwner,
-      kind: kind,
-    ),
+    debugOwner: debugOwner,
+    kind: kind,
+  ),
+  [
+    "debugOwner",
+    "kind",
+  ],
 );
 var _multiTapGestureRecognizer = MXFunctionInvoke(
-    "MultiTapGestureRecognizer",
-    (
-      {
-      Duration longTapDelay = Duration.zero,
-      Object debugOwner,
-      PointerDeviceKind kind,
-      }
-    ) =>
+  "MultiTapGestureRecognizer",
+  ({
+    Duration longTapDelay = Duration.zero,
+    Object debugOwner,
+    PointerDeviceKind kind,
+  }) =>
       MultiTapGestureRecognizer(
-      longTapDelay: longTapDelay,
-      debugOwner: debugOwner,
-      kind: kind,
-    ),
+    longTapDelay: longTapDelay,
+    debugOwner: debugOwner,
+    kind: kind,
+  ),
+  [
+    "longTapDelay",
+    "debugOwner",
+    "kind",
+  ],
 );

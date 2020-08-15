@@ -10,7 +10,6 @@ import 'dart:math' as math;
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListBodySeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,23 +17,24 @@ Map<String, MXFunctionInvoke> registerListBodySeries() {
   m[_renderListBody.funName] = _renderListBody;
   return m;
 }
+
 var _listBodyParentData = MXFunctionInvoke(
-    "ListBodyParentData",
-    (
-    ) =>
-      ListBodyParentData(
-    ),
+  "ListBodyParentData",
+  () => ListBodyParentData(),
+  [],
 );
 var _renderListBody = MXFunctionInvoke(
-    "RenderListBody",
-    (
-      {
-      dynamic children,
-      AxisDirection axisDirection = AxisDirection.down,
-      }
-    ) =>
+  "RenderListBody",
+  ({
+    dynamic children,
+    AxisDirection axisDirection = AxisDirection.down,
+  }) =>
       RenderListBody(
-      children: toListT<RenderBox>(children),
-      axisDirection: axisDirection,
-    ),
+    children: toListT<RenderBox>(children),
+    axisDirection: axisDirection,
+  ),
+  [
+    "children",
+    "axisDirection",
+  ],
 );

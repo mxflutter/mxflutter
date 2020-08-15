@@ -13,7 +13,6 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/binary_messenger.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAssetBundleSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -21,21 +20,21 @@ Map<String, MXFunctionInvoke> registerAssetBundleSeries() {
   m[_platformAssetBundle.funName] = _platformAssetBundle;
   return m;
 }
+
 var _networkAssetBundle = MXFunctionInvoke(
-    "NetworkAssetBundle",
-    (
-      {
-      Uri baseUrl,
-      }
-    ) =>
+  "NetworkAssetBundle",
+  ({
+    Uri baseUrl,
+  }) =>
       NetworkAssetBundle(
-      baseUrl,
-    ),
+    baseUrl,
+  ),
+  [
+    "baseUrl",
+  ],
 );
 var _platformAssetBundle = MXFunctionInvoke(
-    "PlatformAssetBundle",
-    (
-    ) =>
-      PlatformAssetBundle(
-    ),
+  "PlatformAssetBundle",
+  () => PlatformAssetBundle(),
+  [],
 );

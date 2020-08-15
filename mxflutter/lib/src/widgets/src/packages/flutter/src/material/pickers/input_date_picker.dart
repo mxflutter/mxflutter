@@ -16,43 +16,57 @@ import 'package:flutter/src/material/text_form_field.dart';
 import 'package:flutter/src/material/pickers/date_picker_common.dart';
 import 'package:flutter/src/material/pickers/date_utils.dart' as utils;
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInputDatePickerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_inputDatePickerFormField.funName] = _inputDatePickerFormField;
   return m;
 }
+
 var _inputDatePickerFormField = MXFunctionInvoke(
-    "InputDatePickerFormField",
-    (
-      {
-      Key key,
-      DateTime initialDate,
-      DateTime firstDate,
-      DateTime lastDate,
-      dynamic onDateSubmitted,
-      dynamic onDateSaved,
-      dynamic selectableDayPredicate,
-      String errorFormatText,
-      String errorInvalidText,
-      String fieldHintText,
-      String fieldLabelText,
-      bool autofocus = false,
-      }
-    ) =>
+  "InputDatePickerFormField",
+  ({
+    Key key,
+    DateTime initialDate,
+    DateTime firstDate,
+    DateTime lastDate,
+    dynamic onDateSubmitted,
+    dynamic onDateSaved,
+    dynamic selectableDayPredicate,
+    String errorFormatText,
+    String errorInvalidText,
+    String fieldHintText,
+    String fieldLabelText,
+    bool autofocus = false,
+  }) =>
       InputDatePickerFormField(
-      key: key,
-      initialDate: initialDate,
-      firstDate: firstDate,
-      lastDate: lastDate,
-      onDateSubmitted: createValueChangedGenericClosure<DateTime>(_inputDatePickerFormField.buildOwner, onDateSubmitted),
-      onDateSaved: createValueChangedGenericClosure<DateTime>(_inputDatePickerFormField.buildOwner, onDateSaved),
-      selectableDayPredicate: null,
-      errorFormatText: errorFormatText,
-      errorInvalidText: errorInvalidText,
-      fieldHintText: fieldHintText,
-      fieldLabelText: fieldLabelText,
-      autofocus: autofocus,
-    ),
+    key: key,
+    initialDate: initialDate,
+    firstDate: firstDate,
+    lastDate: lastDate,
+    onDateSubmitted: createValueChangedGenericClosure<DateTime>(
+        _inputDatePickerFormField.buildOwner, onDateSubmitted),
+    onDateSaved: createValueChangedGenericClosure<DateTime>(
+        _inputDatePickerFormField.buildOwner, onDateSaved),
+    selectableDayPredicate: null,
+    errorFormatText: errorFormatText,
+    errorInvalidText: errorInvalidText,
+    fieldHintText: fieldHintText,
+    fieldLabelText: fieldLabelText,
+    autofocus: autofocus,
+  ),
+  [
+    "key",
+    "initialDate",
+    "firstDate",
+    "lastDate",
+    "onDateSubmitted",
+    "onDateSaved",
+    "selectableDayPredicate",
+    "errorFormatText",
+    "errorInvalidText",
+    "fieldHintText",
+    "fieldLabelText",
+    "autofocus",
+  ],
 );

@@ -38,7 +38,6 @@ import 'src/cupertino/theme.dart';
 import 'src/cupertino/thumb_painter.dart';
 import 'src/cupertino/constants.dart';
 
-
 Map<String, MXFunctionInvoke> registerCupertinoLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerActionSheetSeries());

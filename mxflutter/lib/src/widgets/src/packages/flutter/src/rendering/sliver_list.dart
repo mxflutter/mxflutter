@@ -11,21 +11,22 @@ import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/sliver.dart';
 import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverListSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_renderSliverList.funName] = _renderSliverList;
   return m;
 }
+
 var _renderSliverList = MXFunctionInvoke(
-    "RenderSliverList",
-    (
-      {
-      RenderSliverBoxChildManager childManager,
-      }
-    ) =>
+  "RenderSliverList",
+  ({
+    RenderSliverBoxChildManager childManager,
+  }) =>
       RenderSliverList(
-      childManager: childManager,
-    ),
+    childManager: childManager,
+  ),
+  [
+    "childManager",
+  ],
 );

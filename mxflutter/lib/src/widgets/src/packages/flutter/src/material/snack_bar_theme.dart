@@ -11,7 +11,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSnackBarThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,40 +18,49 @@ Map<String, MXFunctionInvoke> registerSnackBarThemeSeries() {
   m[_snackBarThemeData.funName] = _snackBarThemeData;
   return m;
 }
+
 var _snackBarBehavior = MXFunctionInvoke(
-    "SnackBarBehavior",
-    ({String name, int index}) => MXSnackBarBehavior.parse(name, index),
-  );
-var _snackBarThemeData = MXFunctionInvoke(
-    "SnackBarThemeData",
-    (
-      {
-      Color backgroundColor,
-      Color actionTextColor,
-      Color disabledActionTextColor,
-      TextStyle contentTextStyle,
-      dynamic elevation,
-      ShapeBorder shape,
-      SnackBarBehavior behavior,
-      }
-    ) =>
-      SnackBarThemeData(
-      backgroundColor: backgroundColor,
-      actionTextColor: actionTextColor,
-      disabledActionTextColor: disabledActionTextColor,
-      contentTextStyle: contentTextStyle,
-      elevation: elevation?.toDouble(),
-      shape: shape,
-      behavior: behavior,
-    ),
+  "SnackBarBehavior",
+  ({String name, int index}) => MXSnackBarBehavior.parse(name, index),
 );
+var _snackBarThemeData = MXFunctionInvoke(
+  "SnackBarThemeData",
+  ({
+    Color backgroundColor,
+    Color actionTextColor,
+    Color disabledActionTextColor,
+    TextStyle contentTextStyle,
+    dynamic elevation,
+    ShapeBorder shape,
+    SnackBarBehavior behavior,
+  }) =>
+      SnackBarThemeData(
+    backgroundColor: backgroundColor,
+    actionTextColor: actionTextColor,
+    disabledActionTextColor: disabledActionTextColor,
+    contentTextStyle: contentTextStyle,
+    elevation: elevation?.toDouble(),
+    shape: shape,
+    behavior: behavior,
+  ),
+  [
+    "backgroundColor",
+    "actionTextColor",
+    "disabledActionTextColor",
+    "contentTextStyle",
+    "elevation",
+    "shape",
+    "behavior",
+  ],
+);
+
 class MXSnackBarBehavior {
   static SnackBarBehavior parse(String name, int index) {
-    switch(name) {
-      case 'SnackBarBehavior.fixed': 
-       return SnackBarBehavior.fixed;
-      case 'SnackBarBehavior.floating': 
-       return SnackBarBehavior.floating;
+    switch (name) {
+      case 'SnackBarBehavior.fixed':
+        return SnackBarBehavior.fixed;
+      case 'SnackBarBehavior.floating':
+        return SnackBarBehavior.floating;
     }
     return null;
   }

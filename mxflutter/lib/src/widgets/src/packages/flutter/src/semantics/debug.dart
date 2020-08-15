@@ -7,7 +7,6 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/semantics/debug.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDebugSeries() {
   var m = <String, MXFunctionInvoke>{};

@@ -28,7 +28,6 @@ import 'package:flutter/src/widgets/sliver_fill.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 import 'package:flutter/src/widgets/viewport.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNestedScrollViewSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -43,157 +42,189 @@ Map<String, MXFunctionInvoke> registerNestedScrollViewSeries() {
   m[_renderNestedScrollViewViewport.funName] = _renderNestedScrollViewViewport;
   return m;
 }
+
 var _nestedScrollView = MXFunctionInvoke(
-    "NestedScrollView",
-    (
-      {
-      Key key,
-      ScrollController controller,
-      Axis scrollDirection = Axis.vertical,
-      bool reverse = false,
-      ScrollPhysics physics,
-      dynamic headerSliverBuilder,
-      Widget body,
-      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
-      /// MX modified begin  -add children
+  "NestedScrollView",
+  ({
+    Key key,
+    ScrollController controller,
+    Axis scrollDirection = Axis.vertical,
+    bool reverse = false,
+    ScrollPhysics physics,
+    dynamic headerSliverBuilder,
+    Widget body,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+          /// MX modified begin  -add children
       dynamic children,
       /// MX modified end
-      }
-    ) =>
+  }) =>
       NestedScrollView(
-      key: key,
-      controller: controller,
-      scrollDirection: scrollDirection,
-      reverse: reverse,
-      physics: physics,
-      /// MX modified begin -add function
+    key: key,
+    controller: controller,
+    scrollDirection: scrollDirection,
+    reverse: reverse,
+    physics: physics,
+          /// MX modified begin -add function
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return toListT<Widget>(children);
       },
       /// MX modified end
-      body: body,
-      dragStartBehavior: dragStartBehavior,
-    ),
+    body: body,
+    dragStartBehavior: dragStartBehavior,
+  ),
+  [
+    "key",
+    "controller",
+    "scrollDirection",
+    "reverse",
+    "physics",
+    "headerSliverBuilder",
+    "body",
+    "dragStartBehavior",
+  ],
 );
 var _nestedScrollViewState = MXFunctionInvoke(
-    "NestedScrollViewState",
-    (
-    ) =>
-      NestedScrollViewState(
-    ),
+  "NestedScrollViewState",
+  () => NestedScrollViewState(),
+  [],
 );
 var _sliverOverlapAbsorberHandle = MXFunctionInvoke(
-    "SliverOverlapAbsorberHandle",
-    (
-    ) =>
-      SliverOverlapAbsorberHandle(
-    ),
+  "SliverOverlapAbsorberHandle",
+  () => SliverOverlapAbsorberHandle(),
+  [],
 );
 var _sliverOverlapAbsorber = MXFunctionInvoke(
-    "SliverOverlapAbsorber",
-    (
-      {
-      Key key,
-      SliverOverlapAbsorberHandle handle,
-      Widget child,
-      Widget sliver,
-      }
-    ) =>
+  "SliverOverlapAbsorber",
+  ({
+    Key key,
+    SliverOverlapAbsorberHandle handle,
+    Widget child,
+    Widget sliver,
+  }) =>
       SliverOverlapAbsorber(
-      key: key,
-      handle: handle,
-      child: child,
-      sliver: sliver,
-    ),
+    key: key,
+    handle: handle,
+    child: child,
+    sliver: sliver,
+  ),
+  [
+    "key",
+    "handle",
+    "child",
+    "sliver",
+  ],
 );
 var _renderSliverOverlapAbsorber = MXFunctionInvoke(
-    "RenderSliverOverlapAbsorber",
-    (
-      {
-      SliverOverlapAbsorberHandle handle,
-      RenderSliver child,
-      RenderSliver sliver,
-      }
-    ) =>
+  "RenderSliverOverlapAbsorber",
+  ({
+    SliverOverlapAbsorberHandle handle,
+    RenderSliver child,
+    RenderSliver sliver,
+  }) =>
       RenderSliverOverlapAbsorber(
-      handle: handle,
-      child: child,
-      sliver: sliver,
-    ),
+    handle: handle,
+    child: child,
+    sliver: sliver,
+  ),
+  [
+    "handle",
+    "child",
+    "sliver",
+  ],
 );
 var _sliverOverlapInjector = MXFunctionInvoke(
-    "SliverOverlapInjector",
-    (
-      {
-      Key key,
-      SliverOverlapAbsorberHandle handle,
-      Widget child,
-      Widget sliver,
-      }
-    ) =>
+  "SliverOverlapInjector",
+  ({
+    Key key,
+    SliverOverlapAbsorberHandle handle,
+    Widget child,
+    Widget sliver,
+  }) =>
       SliverOverlapInjector(
-      key: key,
-      handle: handle,
-      child: child,
-      sliver: sliver,
-    ),
+    key: key,
+    handle: handle,
+    child: child,
+    sliver: sliver,
+  ),
+  [
+    "key",
+    "handle",
+    "child",
+    "sliver",
+  ],
 );
 var _renderSliverOverlapInjector = MXFunctionInvoke(
-    "RenderSliverOverlapInjector",
-    (
-      {
-      SliverOverlapAbsorberHandle handle,
-      }
-    ) =>
+  "RenderSliverOverlapInjector",
+  ({
+    SliverOverlapAbsorberHandle handle,
+  }) =>
       RenderSliverOverlapInjector(
-      handle: handle,
-    ),
+    handle: handle,
+  ),
+  [
+    "handle",
+  ],
 );
 var _nestedScrollViewViewport = MXFunctionInvoke(
-    "NestedScrollViewViewport",
-    (
-      {
-      Key key,
-      AxisDirection axisDirection =  AxisDirection.down,
-      AxisDirection crossAxisDirection,
-      dynamic anchor = 0.0,
-      ViewportOffset offset,
-      Key center,
-      dynamic slivers = const <Widget>[],
-      SliverOverlapAbsorberHandle handle,
-      }
-    ) =>
+  "NestedScrollViewViewport",
+  ({
+    Key key,
+    AxisDirection axisDirection = AxisDirection.down,
+    AxisDirection crossAxisDirection,
+    dynamic anchor = 0.0,
+    ViewportOffset offset,
+    Key center,
+    dynamic slivers = const <Widget>[],
+    SliverOverlapAbsorberHandle handle,
+  }) =>
       NestedScrollViewViewport(
-      key: key,
-      axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection,
-      anchor: anchor?.toDouble(),
-      offset: offset,
-      center: center,
-      slivers: toListT<Widget>(slivers),
-      handle: handle,
-    ),
+    key: key,
+    axisDirection: axisDirection,
+    crossAxisDirection: crossAxisDirection,
+    anchor: anchor?.toDouble(),
+    offset: offset,
+    center: center,
+    slivers: toListT<Widget>(slivers),
+    handle: handle,
+  ),
+  [
+    "key",
+    "axisDirection",
+    "crossAxisDirection",
+    "anchor",
+    "offset",
+    "center",
+    "slivers",
+    "handle",
+  ],
 );
 var _renderNestedScrollViewViewport = MXFunctionInvoke(
-    "RenderNestedScrollViewViewport",
-    (
-      {
-      AxisDirection axisDirection = AxisDirection.down,
-      AxisDirection crossAxisDirection,
-      ViewportOffset offset,
-      dynamic anchor = 0.0,
-      dynamic children,
-      RenderSliver center,
-      SliverOverlapAbsorberHandle handle,
-      }
-    ) =>
+  "RenderNestedScrollViewViewport",
+  ({
+    AxisDirection axisDirection = AxisDirection.down,
+    AxisDirection crossAxisDirection,
+    ViewportOffset offset,
+    dynamic anchor = 0.0,
+    dynamic children,
+    RenderSliver center,
+    SliverOverlapAbsorberHandle handle,
+  }) =>
       RenderNestedScrollViewViewport(
-      axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection,
-      offset: offset,
-      anchor: anchor?.toDouble(),
-      children: toListT<RenderSliver>(children),
-      center: center,
-      handle: handle,
-    ),
+    axisDirection: axisDirection,
+    crossAxisDirection: crossAxisDirection,
+    offset: offset,
+    anchor: anchor?.toDouble(),
+    children: toListT<RenderSliver>(children),
+    center: center,
+    handle: handle,
+  ),
+  [
+    "axisDirection",
+    "crossAxisDirection",
+    "offset",
+    "anchor",
+    "children",
+    "center",
+    "handle",
+  ],
 );

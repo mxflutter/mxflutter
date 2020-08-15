@@ -10,7 +10,6 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 import 'package:vector_math/hash.dart' as quiver;
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   var m = <String, MXFunctionInvoke>{};
@@ -156,1737 +155,1954 @@ Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   m[_vector4_fromBuffer.funName] = _vector4_fromBuffer;
   return m;
 }
+
 var _aabb2 = MXFunctionInvoke(
-    "Aabb2",
-    (
-    ) =>
-      Aabb2(
-    ),
+  "Aabb2",
+  () => Aabb2(),
+  [],
 );
 var _aabb2_centerAndHalfExtents = MXFunctionInvoke(
   "Aabb2.centerAndHalfExtents",
-    (
-      {
-      Vector2 center,
-      Vector2 halfExtents,
-      }
-    ) =>
+  ({
+    Vector2 center,
+    Vector2 halfExtents,
+  }) =>
       Aabb2.centerAndHalfExtents(
-      center,
-      halfExtents,
-    ),
+    center,
+    halfExtents,
+  ),
+  [
+    "center",
+    "halfExtents",
+  ],
 );
 var _aabb2_copy = MXFunctionInvoke(
   "Aabb2.copy",
-    (
-      {
-      Aabb2 other,
-      }
-    ) =>
+  ({
+    Aabb2 other,
+  }) =>
       Aabb2.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _aabb2_minMax = MXFunctionInvoke(
   "Aabb2.minMax",
-    (
-      {
-      Vector2 min,
-      Vector2 max,
-      }
-    ) =>
+  ({
+    Vector2 min,
+    Vector2 max,
+  }) =>
       Aabb2.minMax(
-      min,
-      max,
-    ),
+    min,
+    max,
+  ),
+  [
+    "min",
+    "max",
+  ],
 );
 var _aabb2_fromBuffer = MXFunctionInvoke(
   "Aabb2.fromBuffer",
-    (
-      {
-      ByteBuffer buffer,
-      int offset,
-      }
-    ) =>
+  ({
+    ByteBuffer buffer,
+    int offset,
+  }) =>
       Aabb2.fromBuffer(
-      buffer,
-      offset,
-    ),
+    buffer,
+    offset,
+  ),
+  [
+    "buffer",
+    "offset",
+  ],
 );
 var _aabb3 = MXFunctionInvoke(
-    "Aabb3",
-    (
-    ) =>
-      Aabb3(
-    ),
+  "Aabb3",
+  () => Aabb3(),
+  [],
 );
 var _aabb3_fromSphere = MXFunctionInvoke(
   "Aabb3.fromSphere",
-    (
-      {
-      Sphere sphere,
-      }
-    ) =>
+  ({
+    Sphere sphere,
+  }) =>
       Aabb3.fromSphere(
-      sphere,
-    ),
+    sphere,
+  ),
+  [
+    "sphere",
+  ],
 );
 var _aabb3_fromTriangle = MXFunctionInvoke(
   "Aabb3.fromTriangle",
-    (
-      {
-      Triangle triangle,
-      }
-    ) =>
+  ({
+    Triangle triangle,
+  }) =>
       Aabb3.fromTriangle(
-      triangle,
-    ),
+    triangle,
+  ),
+  [
+    "triangle",
+  ],
 );
 var _aabb3_fromQuad = MXFunctionInvoke(
   "Aabb3.fromQuad",
-    (
-      {
-      Quad quad,
-      }
-    ) =>
+  ({
+    Quad quad,
+  }) =>
       Aabb3.fromQuad(
-      quad,
-    ),
+    quad,
+  ),
+  [
+    "quad",
+  ],
 );
 var _aabb3_fromObb3 = MXFunctionInvoke(
   "Aabb3.fromObb3",
-    (
-      {
-      Obb3 obb,
-      }
-    ) =>
+  ({
+    Obb3 obb,
+  }) =>
       Aabb3.fromObb3(
-      obb,
-    ),
+    obb,
+  ),
+  [
+    "obb",
+  ],
 );
 var _aabb3_fromRay = MXFunctionInvoke(
   "Aabb3.fromRay",
-    (
-      {
-      Ray ray,
-      dynamic limitMin,
-      dynamic limitMax,
-      }
-    ) =>
+  ({
+    Ray ray,
+    dynamic limitMin,
+    dynamic limitMax,
+  }) =>
       Aabb3.fromRay(
-      ray,
-      limitMin?.toDouble(),
-      limitMax?.toDouble(),
-    ),
+    ray,
+    limitMin?.toDouble(),
+    limitMax?.toDouble(),
+  ),
+  [
+    "ray",
+    "limitMin",
+    "limitMax",
+  ],
 );
 var _aabb3_centerAndHalfExtents = MXFunctionInvoke(
   "Aabb3.centerAndHalfExtents",
-    (
-      {
-      Vector3 center,
-      Vector3 halfExtents,
-      }
-    ) =>
+  ({
+    Vector3 center,
+    Vector3 halfExtents,
+  }) =>
       Aabb3.centerAndHalfExtents(
-      center,
-      halfExtents,
-    ),
+    center,
+    halfExtents,
+  ),
+  [
+    "center",
+    "halfExtents",
+  ],
 );
 var _aabb3_copy = MXFunctionInvoke(
   "Aabb3.copy",
-    (
-      {
-      Aabb3 other,
-      }
-    ) =>
+  ({
+    Aabb3 other,
+  }) =>
       Aabb3.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _aabb3_minMax = MXFunctionInvoke(
   "Aabb3.minMax",
-    (
-      {
-      Vector3 min,
-      Vector3 max,
-      }
-    ) =>
+  ({
+    Vector3 min,
+    Vector3 max,
+  }) =>
       Aabb3.minMax(
-      min,
-      max,
-    ),
+    min,
+    max,
+  ),
+  [
+    "min",
+    "max",
+  ],
 );
 var _aabb3_fromBuffer = MXFunctionInvoke(
   "Aabb3.fromBuffer",
-    (
-      {
-      ByteBuffer buffer,
-      int offset,
-      }
-    ) =>
+  ({
+    ByteBuffer buffer,
+    int offset,
+  }) =>
       Aabb3.fromBuffer(
-      buffer,
-      offset,
-    ),
+    buffer,
+    offset,
+  ),
+  [
+    "buffer",
+    "offset",
+  ],
 );
 var _colors_fromRgba = MXFunctionInvoke(
   "Colors.fromRgba",
-    (
-      {
-      int r,
-      int g,
-      int b,
-      int a,
-      Vector4 result,
-      }
-    ) =>
+  ({
+    int r,
+    int g,
+    int b,
+    int a,
+    Vector4 result,
+  }) =>
       Colors.fromRgba(
-      r,
-      g,
-      b,
-      a,
-      result,
-    ),
+    r,
+    g,
+    b,
+    a,
+    result,
+  ),
+  [
+    "r",
+    "g",
+    "b",
+    "a",
+    "result",
+  ],
 );
 var _colors_fromHexString = MXFunctionInvoke(
   "Colors.fromHexString",
-    (
-      {
-      String value,
-      Vector4 result,
-      }
-    ) =>
+  ({
+    String value,
+    Vector4 result,
+  }) =>
       Colors.fromHexString(
-      value,
-      result,
-    ),
+    value,
+    result,
+  ),
+  [
+    "value",
+    "result",
+  ],
 );
 var _colors_alphaBlend = MXFunctionInvoke(
   "Colors.alphaBlend",
-    (
-      {
-      Vector4 foreground,
-      Vector4 background,
-      Vector4 result,
-      }
-    ) =>
+  ({
+    Vector4 foreground,
+    Vector4 background,
+    Vector4 result,
+  }) =>
       Colors.alphaBlend(
-      foreground,
-      background,
-      result,
-    ),
+    foreground,
+    background,
+    result,
+  ),
+  [
+    "foreground",
+    "background",
+    "result",
+  ],
 );
 var _colors_toGrayscale = MXFunctionInvoke(
   "Colors.toGrayscale",
-    (
-      {
-      Vector4 input,
-      Vector4 result,
-      }
-    ) =>
+  ({
+    Vector4 input,
+    Vector4 result,
+  }) =>
       Colors.toGrayscale(
-      input,
-      result,
-    ),
+    input,
+    result,
+  ),
+  [
+    "input",
+    "result",
+  ],
 );
 var _colors_linearToGamma = MXFunctionInvoke(
   "Colors.linearToGamma",
-    (
-      {
-      Vector4 linearColor,
-      Vector4 gammaColor,
-      dynamic gamma,
-      }
-    ) =>
+  ({
+    Vector4 linearColor,
+    Vector4 gammaColor,
+    dynamic gamma,
+  }) =>
       Colors.linearToGamma(
-      linearColor,
-      gammaColor,
-      gamma?.toDouble(),
-    ),
+    linearColor,
+    gammaColor,
+    gamma?.toDouble(),
+  ),
+  [
+    "linearColor",
+    "gammaColor",
+    "gamma",
+  ],
 );
 var _colors_gammaToLinear = MXFunctionInvoke(
   "Colors.gammaToLinear",
-    (
-      {
-      Vector4 gammaColor,
-      Vector4 linearColor,
-      dynamic gamma,
-      }
-    ) =>
+  ({
+    Vector4 gammaColor,
+    Vector4 linearColor,
+    dynamic gamma,
+  }) =>
       Colors.gammaToLinear(
-      gammaColor,
-      linearColor,
-      gamma?.toDouble(),
-    ),
+    gammaColor,
+    linearColor,
+    gamma?.toDouble(),
+  ),
+  [
+    "gammaColor",
+    "linearColor",
+    "gamma",
+  ],
 );
 var _colors_rgbToHsv = MXFunctionInvoke(
   "Colors.rgbToHsv",
-    (
-      {
-      Vector4 rgbColor,
-      Vector4 hsvColor,
-      }
-    ) =>
+  ({
+    Vector4 rgbColor,
+    Vector4 hsvColor,
+  }) =>
       Colors.rgbToHsv(
-      rgbColor,
-      hsvColor,
-    ),
+    rgbColor,
+    hsvColor,
+  ),
+  [
+    "rgbColor",
+    "hsvColor",
+  ],
 );
 var _colors_hsvToRgb = MXFunctionInvoke(
   "Colors.hsvToRgb",
-    (
-      {
-      Vector4 hsvColor,
-      Vector4 rgbColor,
-      }
-    ) =>
+  ({
+    Vector4 hsvColor,
+    Vector4 rgbColor,
+  }) =>
       Colors.hsvToRgb(
-      hsvColor,
-      rgbColor,
-    ),
+    hsvColor,
+    rgbColor,
+  ),
+  [
+    "hsvColor",
+    "rgbColor",
+  ],
 );
 var _colors_rgbToHsl = MXFunctionInvoke(
   "Colors.rgbToHsl",
-    (
-      {
-      Vector4 rgbColor,
-      Vector4 hslColor,
-      }
-    ) =>
+  ({
+    Vector4 rgbColor,
+    Vector4 hslColor,
+  }) =>
       Colors.rgbToHsl(
-      rgbColor,
-      hslColor,
-    ),
+    rgbColor,
+    hslColor,
+  ),
+  [
+    "rgbColor",
+    "hslColor",
+  ],
 );
 var _colors_hslToRgb = MXFunctionInvoke(
   "Colors.hslToRgb",
-    (
-      {
-      Vector4 hslColor,
-      Vector4 rgbColor,
-      }
-    ) =>
+  ({
+    Vector4 hslColor,
+    Vector4 rgbColor,
+  }) =>
       Colors.hslToRgb(
-      hslColor,
-      rgbColor,
-    ),
+    hslColor,
+    rgbColor,
+  ),
+  [
+    "hslColor",
+    "rgbColor",
+  ],
 );
 var _frustum = MXFunctionInvoke(
-    "Frustum",
-    (
-    ) =>
-      Frustum(
-    ),
+  "Frustum",
+  () => Frustum(),
+  [],
 );
 var _frustum_copy = MXFunctionInvoke(
   "Frustum.copy",
-    (
-      {
-      Frustum other,
-      }
-    ) =>
+  ({
+    Frustum other,
+  }) =>
       Frustum.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _frustum_matrix = MXFunctionInvoke(
   "Frustum.matrix",
-    (
-      {
-      Matrix4 matrix,
-      }
-    ) =>
+  ({
+    Matrix4 matrix,
+  }) =>
       Frustum.matrix(
-      matrix,
-    ),
+    matrix,
+  ),
+  [
+    "matrix",
+  ],
 );
 var _intersectionResult = MXFunctionInvoke(
-    "IntersectionResult",
-    (
-    ) =>
-      IntersectionResult(
-    ),
+  "IntersectionResult",
+  () => IntersectionResult(),
+  [],
 );
 var _matrix2_solve = MXFunctionInvoke(
   "Matrix2.solve",
-    (
-      {
-      Matrix2 A,
-      Vector2 x,
-      Vector2 b,
-      }
-    ) =>
+  ({
+    Matrix2 A,
+    Vector2 x,
+    Vector2 b,
+  }) =>
       Matrix2.solve(
-      A,
-      x,
-      b,
-    ),
+    A,
+    x,
+    b,
+  ),
+  [
+    "A",
+    "x",
+    "b",
+  ],
 );
 var _matrix2 = MXFunctionInvoke(
-    "Matrix2",
-    (
-      {
-      dynamic arg0,
-      dynamic arg1,
-      dynamic arg2,
-      dynamic arg3,
-      }
-    ) =>
+  "Matrix2",
+  ({
+    dynamic arg0,
+    dynamic arg1,
+    dynamic arg2,
+    dynamic arg3,
+  }) =>
       Matrix2(
-      arg0?.toDouble(),
-      arg1?.toDouble(),
-      arg2?.toDouble(),
-      arg3?.toDouble(),
-    ),
+    arg0?.toDouble(),
+    arg1?.toDouble(),
+    arg2?.toDouble(),
+    arg3?.toDouble(),
+  ),
+  [
+    "arg0",
+    "arg1",
+    "arg2",
+    "arg3",
+  ],
 );
 var _matrix2_fromList = MXFunctionInvoke(
   "Matrix2.fromList",
-    (
-      {
-      dynamic values,
-      }
-    ) =>
+  ({
+    dynamic values,
+  }) =>
       Matrix2.fromList(
-      toListT<double>(values),
-    ),
+    toListT<double>(values),
+  ),
+  [
+    "values",
+  ],
 );
 var _matrix2_identity = MXFunctionInvoke(
   "Matrix2.identity",
-    (
-    ) =>
-      Matrix2.identity(
-    ),
+  () => Matrix2.identity(),
+  [],
 );
 var _matrix2_copy = MXFunctionInvoke(
   "Matrix2.copy",
-    (
-      {
-      Matrix2 other,
-      }
-    ) =>
+  ({
+    Matrix2 other,
+  }) =>
       Matrix2.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _matrix2_columns = MXFunctionInvoke(
   "Matrix2.columns",
-    (
-      {
-      Vector2 arg0,
-      Vector2 arg1,
-      }
-    ) =>
+  ({
+    Vector2 arg0,
+    Vector2 arg1,
+  }) =>
       Matrix2.columns(
-      arg0,
-      arg1,
-    ),
+    arg0,
+    arg1,
+  ),
+  [
+    "arg0",
+    "arg1",
+  ],
 );
 var _matrix2_outer = MXFunctionInvoke(
   "Matrix2.outer",
-    (
-      {
-      Vector2 u,
-      Vector2 v,
-      }
-    ) =>
+  ({
+    Vector2 u,
+    Vector2 v,
+  }) =>
       Matrix2.outer(
-      u,
-      v,
-    ),
+    u,
+    v,
+  ),
+  [
+    "u",
+    "v",
+  ],
 );
 var _matrix2_rotation = MXFunctionInvoke(
   "Matrix2.rotation",
-    (
-      {
-      dynamic radians,
-      }
-    ) =>
+  ({
+    dynamic radians,
+  }) =>
       Matrix2.rotation(
-      radians?.toDouble(),
-    ),
+    radians?.toDouble(),
+  ),
+  [
+    "radians",
+  ],
 );
 var _matrix2_zero = MXFunctionInvoke(
   "Matrix2.zero",
-    (
-    ) =>
-      Matrix2.zero(
-    ),
+  () => Matrix2.zero(),
+  [],
 );
 var _matrix3_solve2 = MXFunctionInvoke(
   "Matrix3.solve2",
-    (
-      {
-      Matrix3 A,
-      Vector2 x,
-      Vector2 b,
-      }
-    ) =>
+  ({
+    Matrix3 A,
+    Vector2 x,
+    Vector2 b,
+  }) =>
       Matrix3.solve2(
-      A,
-      x,
-      b,
-    ),
+    A,
+    x,
+    b,
+  ),
+  [
+    "A",
+    "x",
+    "b",
+  ],
 );
 var _matrix3_solve = MXFunctionInvoke(
   "Matrix3.solve",
-    (
-      {
-      Matrix3 A,
-      Vector3 x,
-      Vector3 b,
-      }
-    ) =>
+  ({
+    Matrix3 A,
+    Vector3 x,
+    Vector3 b,
+  }) =>
       Matrix3.solve(
-      A,
-      x,
-      b,
-    ),
+    A,
+    x,
+    b,
+  ),
+  [
+    "A",
+    "x",
+    "b",
+  ],
 );
 var _matrix3 = MXFunctionInvoke(
-    "Matrix3",
-    (
-      {
-      dynamic arg0,
-      dynamic arg1,
-      dynamic arg2,
-      dynamic arg3,
-      dynamic arg4,
-      dynamic arg5,
-      dynamic arg6,
-      dynamic arg7,
-      dynamic arg8,
-      }
-    ) =>
+  "Matrix3",
+  ({
+    dynamic arg0,
+    dynamic arg1,
+    dynamic arg2,
+    dynamic arg3,
+    dynamic arg4,
+    dynamic arg5,
+    dynamic arg6,
+    dynamic arg7,
+    dynamic arg8,
+  }) =>
       Matrix3(
-      arg0?.toDouble(),
-      arg1?.toDouble(),
-      arg2?.toDouble(),
-      arg3?.toDouble(),
-      arg4?.toDouble(),
-      arg5?.toDouble(),
-      arg6?.toDouble(),
-      arg7?.toDouble(),
-      arg8?.toDouble(),
-    ),
+    arg0?.toDouble(),
+    arg1?.toDouble(),
+    arg2?.toDouble(),
+    arg3?.toDouble(),
+    arg4?.toDouble(),
+    arg5?.toDouble(),
+    arg6?.toDouble(),
+    arg7?.toDouble(),
+    arg8?.toDouble(),
+  ),
+  [
+    "arg0",
+    "arg1",
+    "arg2",
+    "arg3",
+    "arg4",
+    "arg5",
+    "arg6",
+    "arg7",
+    "arg8",
+  ],
 );
 var _matrix3_fromList = MXFunctionInvoke(
   "Matrix3.fromList",
-    (
-      {
-      dynamic values,
-      }
-    ) =>
+  ({
+    dynamic values,
+  }) =>
       Matrix3.fromList(
-      toListT<double>(values),
-    ),
+    toListT<double>(values),
+  ),
+  [
+    "values",
+  ],
 );
 var _matrix3_identity = MXFunctionInvoke(
   "Matrix3.identity",
-    (
-    ) =>
-      Matrix3.identity(
-    ),
+  () => Matrix3.identity(),
+  [],
 );
 var _matrix3_copy = MXFunctionInvoke(
   "Matrix3.copy",
-    (
-      {
-      Matrix3 other,
-      }
-    ) =>
+  ({
+    Matrix3 other,
+  }) =>
       Matrix3.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _matrix3_columns = MXFunctionInvoke(
   "Matrix3.columns",
-    (
-      {
-      Vector3 arg0,
-      Vector3 arg1,
-      Vector3 arg2,
-      }
-    ) =>
+  ({
+    Vector3 arg0,
+    Vector3 arg1,
+    Vector3 arg2,
+  }) =>
       Matrix3.columns(
-      arg0,
-      arg1,
-      arg2,
-    ),
+    arg0,
+    arg1,
+    arg2,
+  ),
+  [
+    "arg0",
+    "arg1",
+    "arg2",
+  ],
 );
 var _matrix3_outer = MXFunctionInvoke(
   "Matrix3.outer",
-    (
-      {
-      Vector3 u,
-      Vector3 v,
-      }
-    ) =>
+  ({
+    Vector3 u,
+    Vector3 v,
+  }) =>
       Matrix3.outer(
-      u,
-      v,
-    ),
+    u,
+    v,
+  ),
+  [
+    "u",
+    "v",
+  ],
 );
 var _matrix3_rotationX = MXFunctionInvoke(
   "Matrix3.rotationX",
-    (
-      {
-      dynamic radians,
-      }
-    ) =>
+  ({
+    dynamic radians,
+  }) =>
       Matrix3.rotationX(
-      radians?.toDouble(),
-    ),
+    radians?.toDouble(),
+  ),
+  [
+    "radians",
+  ],
 );
 var _matrix3_rotationY = MXFunctionInvoke(
   "Matrix3.rotationY",
-    (
-      {
-      dynamic radians,
-      }
-    ) =>
+  ({
+    dynamic radians,
+  }) =>
       Matrix3.rotationY(
-      radians?.toDouble(),
-    ),
+    radians?.toDouble(),
+  ),
+  [
+    "radians",
+  ],
 );
 var _matrix3_rotationZ = MXFunctionInvoke(
   "Matrix3.rotationZ",
-    (
-      {
-      dynamic radians,
-      }
-    ) =>
+  ({
+    dynamic radians,
+  }) =>
       Matrix3.rotationZ(
-      radians?.toDouble(),
-    ),
+    radians?.toDouble(),
+  ),
+  [
+    "radians",
+  ],
 );
 var _matrix3_zero = MXFunctionInvoke(
   "Matrix3.zero",
-    (
-    ) =>
-      Matrix3.zero(
-    ),
+  () => Matrix3.zero(),
+  [],
 );
 var _matrix4_solve2 = MXFunctionInvoke(
   "Matrix4.solve2",
-    (
-      {
-      Matrix4 A,
-      Vector2 x,
-      Vector2 b,
-      }
-    ) =>
+  ({
+    Matrix4 A,
+    Vector2 x,
+    Vector2 b,
+  }) =>
       Matrix4.solve2(
-      A,
-      x,
-      b,
-    ),
+    A,
+    x,
+    b,
+  ),
+  [
+    "A",
+    "x",
+    "b",
+  ],
 );
 var _matrix4_solve3 = MXFunctionInvoke(
   "Matrix4.solve3",
-    (
-      {
-      Matrix4 A,
-      Vector3 x,
-      Vector3 b,
-      }
-    ) =>
+  ({
+    Matrix4 A,
+    Vector3 x,
+    Vector3 b,
+  }) =>
       Matrix4.solve3(
-      A,
-      x,
-      b,
-    ),
+    A,
+    x,
+    b,
+  ),
+  [
+    "A",
+    "x",
+    "b",
+  ],
 );
 var _matrix4_solve = MXFunctionInvoke(
   "Matrix4.solve",
-    (
-      {
-      Matrix4 A,
-      Vector4 x,
-      Vector4 b,
-      }
-    ) =>
+  ({
+    Matrix4 A,
+    Vector4 x,
+    Vector4 b,
+  }) =>
       Matrix4.solve(
-      A,
-      x,
-      b,
-    ),
+    A,
+    x,
+    b,
+  ),
+  [
+    "A",
+    "x",
+    "b",
+  ],
 );
 var _matrix4 = MXFunctionInvoke(
-    "Matrix4",
-    (
-      {
-      dynamic arg0,
-      dynamic arg1,
-      dynamic arg2,
-      dynamic arg3,
-      dynamic arg4,
-      dynamic arg5,
-      dynamic arg6,
-      dynamic arg7,
-      dynamic arg8,
-      dynamic arg9,
-      dynamic arg10,
-      dynamic arg11,
-      dynamic arg12,
-      dynamic arg13,
-      dynamic arg14,
-      dynamic arg15,
-      }
-    ) =>
+  "Matrix4",
+  ({
+    dynamic arg0,
+    dynamic arg1,
+    dynamic arg2,
+    dynamic arg3,
+    dynamic arg4,
+    dynamic arg5,
+    dynamic arg6,
+    dynamic arg7,
+    dynamic arg8,
+    dynamic arg9,
+    dynamic arg10,
+    dynamic arg11,
+    dynamic arg12,
+    dynamic arg13,
+    dynamic arg14,
+    dynamic arg15,
+  }) =>
       Matrix4(
-      arg0?.toDouble(),
-      arg1?.toDouble(),
-      arg2?.toDouble(),
-      arg3?.toDouble(),
-      arg4?.toDouble(),
-      arg5?.toDouble(),
-      arg6?.toDouble(),
-      arg7?.toDouble(),
-      arg8?.toDouble(),
-      arg9?.toDouble(),
-      arg10?.toDouble(),
-      arg11?.toDouble(),
-      arg12?.toDouble(),
-      arg13?.toDouble(),
-      arg14?.toDouble(),
-      arg15?.toDouble(),
-    ),
+    arg0?.toDouble(),
+    arg1?.toDouble(),
+    arg2?.toDouble(),
+    arg3?.toDouble(),
+    arg4?.toDouble(),
+    arg5?.toDouble(),
+    arg6?.toDouble(),
+    arg7?.toDouble(),
+    arg8?.toDouble(),
+    arg9?.toDouble(),
+    arg10?.toDouble(),
+    arg11?.toDouble(),
+    arg12?.toDouble(),
+    arg13?.toDouble(),
+    arg14?.toDouble(),
+    arg15?.toDouble(),
+  ),
+  [
+    "arg0",
+    "arg1",
+    "arg2",
+    "arg3",
+    "arg4",
+    "arg5",
+    "arg6",
+    "arg7",
+    "arg8",
+    "arg9",
+    "arg10",
+    "arg11",
+    "arg12",
+    "arg13",
+    "arg14",
+    "arg15",
+  ],
 );
 var _matrix4_fromList = MXFunctionInvoke(
   "Matrix4.fromList",
-    (
-      {
-      dynamic values,
-      }
-    ) =>
+  ({
+    dynamic values,
+  }) =>
       Matrix4.fromList(
-      toListT<double>(values),
-    ),
+    toListT<double>(values),
+  ),
+  [
+    "values",
+  ],
 );
 var _matrix4_identity = MXFunctionInvoke(
   "Matrix4.identity",
-    (
-    ) =>
-      Matrix4.identity(
-    ),
+  () => Matrix4.identity(),
+  [],
 );
 var _matrix4_copy = MXFunctionInvoke(
   "Matrix4.copy",
-    (
-      {
-      Matrix4 other,
-      }
-    ) =>
+  ({
+    Matrix4 other,
+  }) =>
       Matrix4.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _matrix4_inverted = MXFunctionInvoke(
   "Matrix4.inverted",
-    (
-      {
-      Matrix4 other,
-      }
-    ) =>
+  ({
+    Matrix4 other,
+  }) =>
       Matrix4.inverted(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _matrix4_columns = MXFunctionInvoke(
   "Matrix4.columns",
-    (
-      {
-      Vector4 arg0,
-      Vector4 arg1,
-      Vector4 arg2,
-      Vector4 arg3,
-      }
-    ) =>
+  ({
+    Vector4 arg0,
+    Vector4 arg1,
+    Vector4 arg2,
+    Vector4 arg3,
+  }) =>
       Matrix4.columns(
-      arg0,
-      arg1,
-      arg2,
-      arg3,
-    ),
+    arg0,
+    arg1,
+    arg2,
+    arg3,
+  ),
+  [
+    "arg0",
+    "arg1",
+    "arg2",
+    "arg3",
+  ],
 );
 var _matrix4_outer = MXFunctionInvoke(
   "Matrix4.outer",
-    (
-      {
-      Vector4 u,
-      Vector4 v,
-      }
-    ) =>
+  ({
+    Vector4 u,
+    Vector4 v,
+  }) =>
       Matrix4.outer(
-      u,
-      v,
-    ),
+    u,
+    v,
+  ),
+  [
+    "u",
+    "v",
+  ],
 );
 var _matrix4_rotationX = MXFunctionInvoke(
   "Matrix4.rotationX",
-    (
-      {
-      dynamic radians,
-      }
-    ) =>
+  ({
+    dynamic radians,
+  }) =>
       Matrix4.rotationX(
-      radians?.toDouble(),
-    ),
+    radians?.toDouble(),
+  ),
+  [
+    "radians",
+  ],
 );
 var _matrix4_rotationY = MXFunctionInvoke(
   "Matrix4.rotationY",
-    (
-      {
-      dynamic radians,
-      }
-    ) =>
+  ({
+    dynamic radians,
+  }) =>
       Matrix4.rotationY(
-      radians?.toDouble(),
-    ),
+    radians?.toDouble(),
+  ),
+  [
+    "radians",
+  ],
 );
 var _matrix4_rotationZ = MXFunctionInvoke(
   "Matrix4.rotationZ",
-    (
-      {
-      dynamic radians,
-      }
-    ) =>
+  ({
+    dynamic radians,
+  }) =>
       Matrix4.rotationZ(
-      radians?.toDouble(),
-    ),
+    radians?.toDouble(),
+  ),
+  [
+    "radians",
+  ],
 );
 var _matrix4_translation = MXFunctionInvoke(
   "Matrix4.translation",
-    (
-      {
-      Vector3 translation,
-      }
-    ) =>
+  ({
+    Vector3 translation,
+  }) =>
       Matrix4.translation(
-      translation,
-    ),
+    translation,
+  ),
+  [
+    "translation",
+  ],
 );
 var _matrix4_translationValues = MXFunctionInvoke(
   "Matrix4.translationValues",
-    (
-      {
-      dynamic x,
-      dynamic y,
-      dynamic z,
-      }
-    ) =>
+  ({
+    dynamic x,
+    dynamic y,
+    dynamic z,
+  }) =>
       Matrix4.translationValues(
-      x?.toDouble(),
-      y?.toDouble(),
-      z?.toDouble(),
-    ),
+    x?.toDouble(),
+    y?.toDouble(),
+    z?.toDouble(),
+  ),
+  [
+    "x",
+    "y",
+    "z",
+  ],
 );
 var _matrix4_diagonal3 = MXFunctionInvoke(
   "Matrix4.diagonal3",
-    (
-      {
-      Vector3 scale,
-      }
-    ) =>
+  ({
+    Vector3 scale,
+  }) =>
       Matrix4.diagonal3(
-      scale,
-    ),
+    scale,
+  ),
+  [
+    "scale",
+  ],
 );
 var _matrix4_diagonal3Values = MXFunctionInvoke(
   "Matrix4.diagonal3Values",
-    (
-      {
-      dynamic x,
-      dynamic y,
-      dynamic z,
-      }
-    ) =>
+  ({
+    dynamic x,
+    dynamic y,
+    dynamic z,
+  }) =>
       Matrix4.diagonal3Values(
-      x?.toDouble(),
-      y?.toDouble(),
-      z?.toDouble(),
-    ),
+    x?.toDouble(),
+    y?.toDouble(),
+    z?.toDouble(),
+  ),
+  [
+    "x",
+    "y",
+    "z",
+  ],
 );
 var _matrix4_skewX = MXFunctionInvoke(
   "Matrix4.skewX",
-    (
-      {
-      dynamic alpha,
-      }
-    ) =>
+  ({
+    dynamic alpha,
+  }) =>
       Matrix4.skewX(
-      alpha?.toDouble(),
-    ),
+    alpha?.toDouble(),
+  ),
+  [
+    "alpha",
+  ],
 );
 var _matrix4_skewY = MXFunctionInvoke(
   "Matrix4.skewY",
-    (
-      {
-      dynamic beta,
-      }
-    ) =>
+  ({
+    dynamic beta,
+  }) =>
       Matrix4.skewY(
-      beta?.toDouble(),
-    ),
+    beta?.toDouble(),
+  ),
+  [
+    "beta",
+  ],
 );
 var _matrix4_skew = MXFunctionInvoke(
   "Matrix4.skew",
-    (
-      {
-      dynamic alpha,
-      dynamic beta,
-      }
-    ) =>
+  ({
+    dynamic alpha,
+    dynamic beta,
+  }) =>
       Matrix4.skew(
-      alpha?.toDouble(),
-      beta?.toDouble(),
-    ),
+    alpha?.toDouble(),
+    beta?.toDouble(),
+  ),
+  [
+    "alpha",
+    "beta",
+  ],
 );
 var _matrix4_compose = MXFunctionInvoke(
   "Matrix4.compose",
-    (
-      {
-      Vector3 translation,
-      Quaternion rotation,
-      Vector3 scale,
-      }
-    ) =>
+  ({
+    Vector3 translation,
+    Quaternion rotation,
+    Vector3 scale,
+  }) =>
       Matrix4.compose(
-      translation,
-      rotation,
-      scale,
-    ),
+    translation,
+    rotation,
+    scale,
+  ),
+  [
+    "translation",
+    "rotation",
+    "scale",
+  ],
 );
 var _matrix4_zero = MXFunctionInvoke(
   "Matrix4.zero",
-    (
-    ) =>
-      Matrix4.zero(
-    ),
+  () => Matrix4.zero(),
+  [],
 );
 var _matrix4_fromFloat64List = MXFunctionInvoke(
   "Matrix4.fromFloat64List",
-    (
-      {
-      Float64List m4storage,
-      }
-    ) =>
+  ({
+    Float64List m4storage,
+  }) =>
       Matrix4.fromFloat64List(
-      m4storage,
-    ),
+    m4storage,
+  ),
+  [
+    "m4storage",
+  ],
 );
 var _matrix4_fromBuffer = MXFunctionInvoke(
   "Matrix4.fromBuffer",
-    (
-      {
-      ByteBuffer buffer,
-      int offset,
-      }
-    ) =>
+  ({
+    ByteBuffer buffer,
+    int offset,
+  }) =>
       Matrix4.fromBuffer(
-      buffer,
-      offset,
-    ),
+    buffer,
+    offset,
+  ),
+  [
+    "buffer",
+    "offset",
+  ],
 );
 var _obb3 = MXFunctionInvoke(
-    "Obb3",
-    (
-    ) =>
-      Obb3(
-    ),
+  "Obb3",
+  () => Obb3(),
+  [],
 );
 var _obb3_copy = MXFunctionInvoke(
   "Obb3.copy",
-    (
-      {
-      Obb3 other,
-      }
-    ) =>
+  ({
+    Obb3 other,
+  }) =>
       Obb3.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _obb3_centerExtentsAxes = MXFunctionInvoke(
   "Obb3.centerExtentsAxes",
-    (
-      {
-      Vector3 center,
-      Vector3 halfExtents,
-      Vector3 axis0,
-      Vector3 axis1,
-      Vector3 axis2,
-      }
-    ) =>
+  ({
+    Vector3 center,
+    Vector3 halfExtents,
+    Vector3 axis0,
+    Vector3 axis1,
+    Vector3 axis2,
+  }) =>
       Obb3.centerExtentsAxes(
-      center,
-      halfExtents,
-      axis0,
-      axis1,
-      axis2,
-    ),
+    center,
+    halfExtents,
+    axis0,
+    axis1,
+    axis2,
+  ),
+  [
+    "center",
+    "halfExtents",
+    "axis0",
+    "axis1",
+    "axis2",
+  ],
 );
 var _plane = MXFunctionInvoke(
-    "Plane",
-    (
-    ) =>
-      Plane(
-    ),
+  "Plane",
+  () => Plane(),
+  [],
 );
 var _plane_intersection = MXFunctionInvoke(
   "Plane.intersection",
-    (
-      {
-      Plane a,
-      Plane b,
-      Plane c,
-      Vector3 result,
-      }
-    ) =>
+  ({
+    Plane a,
+    Plane b,
+    Plane c,
+    Vector3 result,
+  }) =>
       Plane.intersection(
-      a,
-      b,
-      c,
-      result,
-    ),
+    a,
+    b,
+    c,
+    result,
+  ),
+  [
+    "a",
+    "b",
+    "c",
+    "result",
+  ],
 );
 var _plane_copy = MXFunctionInvoke(
   "Plane.copy",
-    (
-      {
-      Plane other,
-      }
-    ) =>
+  ({
+    Plane other,
+  }) =>
       Plane.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _plane_components = MXFunctionInvoke(
   "Plane.components",
-    (
-      {
-      dynamic x,
-      dynamic y,
-      dynamic z,
-      dynamic w,
-      }
-    ) =>
+  ({
+    dynamic x,
+    dynamic y,
+    dynamic z,
+    dynamic w,
+  }) =>
       Plane.components(
-      x?.toDouble(),
-      y?.toDouble(),
-      z?.toDouble(),
-      w?.toDouble(),
-    ),
+    x?.toDouble(),
+    y?.toDouble(),
+    z?.toDouble(),
+    w?.toDouble(),
+  ),
+  [
+    "x",
+    "y",
+    "z",
+    "w",
+  ],
 );
 var _plane_normalconstant = MXFunctionInvoke(
   "Plane.normalconstant",
-    (
-      {
-      Vector3 normal_,
-      dynamic constant_,
-      }
-    ) =>
+  ({
+    Vector3 normal_,
+    dynamic constant_,
+  }) =>
       Plane.normalconstant(
-      normal_,
-      constant_?.toDouble(),
-    ),
+    normal_,
+    constant_?.toDouble(),
+  ),
+  [
+    "normal_",
+    "constant_",
+  ],
 );
 var _quad = MXFunctionInvoke(
-    "Quad",
-    (
-    ) =>
-      Quad(
-    ),
+  "Quad",
+  () => Quad(),
+  [],
 );
 var _quad_copy = MXFunctionInvoke(
   "Quad.copy",
-    (
-      {
-      Quad other,
-      }
-    ) =>
+  ({
+    Quad other,
+  }) =>
       Quad.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _quad_points = MXFunctionInvoke(
   "Quad.points",
-    (
-      {
-      Vector3 point0,
-      Vector3 point1,
-      Vector3 point2,
-      Vector3 point3,
-      }
-    ) =>
+  ({
+    Vector3 point0,
+    Vector3 point1,
+    Vector3 point2,
+    Vector3 point3,
+  }) =>
       Quad.points(
-      point0,
-      point1,
-      point2,
-      point3,
-    ),
+    point0,
+    point1,
+    point2,
+    point3,
+  ),
+  [
+    "point0",
+    "point1",
+    "point2",
+    "point3",
+  ],
 );
 var _quaternion = MXFunctionInvoke(
-    "Quaternion",
-    (
-      {
-      dynamic x,
-      dynamic y,
-      dynamic z,
-      dynamic w,
-      }
-    ) =>
+  "Quaternion",
+  ({
+    dynamic x,
+    dynamic y,
+    dynamic z,
+    dynamic w,
+  }) =>
       Quaternion(
-      x?.toDouble(),
-      y?.toDouble(),
-      z?.toDouble(),
-      w?.toDouble(),
-    ),
+    x?.toDouble(),
+    y?.toDouble(),
+    z?.toDouble(),
+    w?.toDouble(),
+  ),
+  [
+    "x",
+    "y",
+    "z",
+    "w",
+  ],
 );
 var _quaternion_fromRotation = MXFunctionInvoke(
   "Quaternion.fromRotation",
-    (
-      {
-      Matrix3 rotationMatrix,
-      }
-    ) =>
+  ({
+    Matrix3 rotationMatrix,
+  }) =>
       Quaternion.fromRotation(
-      rotationMatrix,
-    ),
+    rotationMatrix,
+  ),
+  [
+    "rotationMatrix",
+  ],
 );
 var _quaternion_axisAngle = MXFunctionInvoke(
   "Quaternion.axisAngle",
-    (
-      {
-      Vector3 axis,
-      dynamic angle,
-      }
-    ) =>
+  ({
+    Vector3 axis,
+    dynamic angle,
+  }) =>
       Quaternion.axisAngle(
-      axis,
-      angle?.toDouble(),
-    ),
+    axis,
+    angle?.toDouble(),
+  ),
+  [
+    "axis",
+    "angle",
+  ],
 );
 var _quaternion_fromTwoVectors = MXFunctionInvoke(
   "Quaternion.fromTwoVectors",
-    (
-      {
-      Vector3 a,
-      Vector3 b,
-      }
-    ) =>
+  ({
+    Vector3 a,
+    Vector3 b,
+  }) =>
       Quaternion.fromTwoVectors(
-      a,
-      b,
-    ),
+    a,
+    b,
+  ),
+  [
+    "a",
+    "b",
+  ],
 );
 var _quaternion_copy = MXFunctionInvoke(
   "Quaternion.copy",
-    (
-      {
-      Quaternion original,
-      }
-    ) =>
+  ({
+    Quaternion original,
+  }) =>
       Quaternion.copy(
-      original,
-    ),
+    original,
+  ),
+  [
+    "original",
+  ],
 );
 var _quaternion_random = MXFunctionInvoke(
   "Quaternion.random",
-    (
-      {
-      math.Random rn,
-      }
-    ) =>
+  ({
+    math.Random rn,
+  }) =>
       Quaternion.random(
-      rn,
-    ),
+    rn,
+  ),
+  [
+    "rn",
+  ],
 );
 var _quaternion_identity = MXFunctionInvoke(
   "Quaternion.identity",
-    (
-    ) =>
-      Quaternion.identity(
-    ),
+  () => Quaternion.identity(),
+  [],
 );
 var _quaternion_dq = MXFunctionInvoke(
   "Quaternion.dq",
-    (
-      {
-      Quaternion q,
-      Vector3 omega,
-      }
-    ) =>
+  ({
+    Quaternion q,
+    Vector3 omega,
+  }) =>
       Quaternion.dq(
-      q,
-      omega,
-    ),
+    q,
+    omega,
+  ),
+  [
+    "q",
+    "omega",
+  ],
 );
 var _quaternion_euler = MXFunctionInvoke(
   "Quaternion.euler",
-    (
-      {
-      dynamic yaw,
-      dynamic pitch,
-      dynamic roll,
-      }
-    ) =>
+  ({
+    dynamic yaw,
+    dynamic pitch,
+    dynamic roll,
+  }) =>
       Quaternion.euler(
-      yaw?.toDouble(),
-      pitch?.toDouble(),
-      roll?.toDouble(),
-    ),
+    yaw?.toDouble(),
+    pitch?.toDouble(),
+    roll?.toDouble(),
+  ),
+  [
+    "yaw",
+    "pitch",
+    "roll",
+  ],
 );
 var _quaternion_fromFloat64List = MXFunctionInvoke(
   "Quaternion.fromFloat64List",
-    (
-      {
-      Float64List qStorage,
-      }
-    ) =>
+  ({
+    Float64List qStorage,
+  }) =>
       Quaternion.fromFloat64List(
-      qStorage,
-    ),
+    qStorage,
+  ),
+  [
+    "qStorage",
+  ],
 );
 var _quaternion_fromBuffer = MXFunctionInvoke(
   "Quaternion.fromBuffer",
-    (
-      {
-      ByteBuffer buffer,
-      int offset,
-      }
-    ) =>
+  ({
+    ByteBuffer buffer,
+    int offset,
+  }) =>
       Quaternion.fromBuffer(
-      buffer,
-      offset,
-    ),
+    buffer,
+    offset,
+  ),
+  [
+    "buffer",
+    "offset",
+  ],
 );
 var _ray = MXFunctionInvoke(
-    "Ray",
-    (
-    ) =>
-      Ray(
-    ),
+  "Ray",
+  () => Ray(),
+  [],
 );
 var _ray_copy = MXFunctionInvoke(
   "Ray.copy",
-    (
-      {
-      Ray other,
-      }
-    ) =>
+  ({
+    Ray other,
+  }) =>
       Ray.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _ray_originDirection = MXFunctionInvoke(
   "Ray.originDirection",
-    (
-      {
-      Vector3 origin,
-      Vector3 direction,
-      }
-    ) =>
+  ({
+    Vector3 origin,
+    Vector3 direction,
+  }) =>
       Ray.originDirection(
-      origin,
-      direction,
-    ),
+    origin,
+    direction,
+  ),
+  [
+    "origin",
+    "direction",
+  ],
 );
 var _sphere = MXFunctionInvoke(
-    "Sphere",
-    (
-    ) =>
-      Sphere(
-    ),
+  "Sphere",
+  () => Sphere(),
+  [],
 );
 var _sphere_copy = MXFunctionInvoke(
   "Sphere.copy",
-    (
-      {
-      Sphere other,
-      }
-    ) =>
+  ({
+    Sphere other,
+  }) =>
       Sphere.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _sphere_centerRadius = MXFunctionInvoke(
   "Sphere.centerRadius",
-    (
-      {
-      Vector3 center,
-      dynamic radius,
-      }
-    ) =>
+  ({
+    Vector3 center,
+    dynamic radius,
+  }) =>
       Sphere.centerRadius(
-      center,
-      radius?.toDouble(),
-    ),
+    center,
+    radius?.toDouble(),
+  ),
+  [
+    "center",
+    "radius",
+  ],
 );
 var _simplexNoise = MXFunctionInvoke(
-    "SimplexNoise",
-    (
-      {
-      math.Random r,
-      }
-    ) =>
+  "SimplexNoise",
+  ({
+    math.Random r,
+  }) =>
       SimplexNoise(
-      r,
-    ),
+    r,
+  ),
+  [
+    "r",
+  ],
 );
 var _triangle = MXFunctionInvoke(
-    "Triangle",
-    (
-    ) =>
-      Triangle(
-    ),
+  "Triangle",
+  () => Triangle(),
+  [],
 );
 var _triangle_copy = MXFunctionInvoke(
   "Triangle.copy",
-    (
-      {
-      Triangle other,
-      }
-    ) =>
+  ({
+    Triangle other,
+  }) =>
       Triangle.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _triangle_points = MXFunctionInvoke(
   "Triangle.points",
-    (
-      {
-      Vector3 point0,
-      Vector3 point1,
-      Vector3 point2,
-      }
-    ) =>
+  ({
+    Vector3 point0,
+    Vector3 point1,
+    Vector3 point2,
+  }) =>
       Triangle.points(
-      point0,
-      point1,
-      point2,
-    ),
+    point0,
+    point1,
+    point2,
+  ),
+  [
+    "point0",
+    "point1",
+    "point2",
+  ],
 );
 var _vector2_min = MXFunctionInvoke(
   "Vector2.min",
-    (
-      {
-      Vector2 a,
-      Vector2 b,
-      Vector2 result,
-      }
-    ) =>
+  ({
+    Vector2 a,
+    Vector2 b,
+    Vector2 result,
+  }) =>
       Vector2.min(
-      a,
-      b,
-      result,
-    ),
+    a,
+    b,
+    result,
+  ),
+  [
+    "a",
+    "b",
+    "result",
+  ],
 );
 var _vector2_max = MXFunctionInvoke(
   "Vector2.max",
-    (
-      {
-      Vector2 a,
-      Vector2 b,
-      Vector2 result,
-      }
-    ) =>
+  ({
+    Vector2 a,
+    Vector2 b,
+    Vector2 result,
+  }) =>
       Vector2.max(
-      a,
-      b,
-      result,
-    ),
+    a,
+    b,
+    result,
+  ),
+  [
+    "a",
+    "b",
+    "result",
+  ],
 );
 var _vector2_mix = MXFunctionInvoke(
   "Vector2.mix",
-    (
-      {
-      Vector2 min,
-      Vector2 max,
-      dynamic a,
-      Vector2 result,
-      }
-    ) =>
+  ({
+    Vector2 min,
+    Vector2 max,
+    dynamic a,
+    Vector2 result,
+  }) =>
       Vector2.mix(
-      min,
-      max,
-      a?.toDouble(),
-      result,
-    ),
+    min,
+    max,
+    a?.toDouble(),
+    result,
+  ),
+  [
+    "min",
+    "max",
+    "a",
+    "result",
+  ],
 );
 var _vector2 = MXFunctionInvoke(
-    "Vector2",
-    (
-      {
-      dynamic x,
-      dynamic y,
-      }
-    ) =>
+  "Vector2",
+  ({
+    dynamic x,
+    dynamic y,
+  }) =>
       Vector2(
-      x?.toDouble(),
-      y?.toDouble(),
-    ),
+    x?.toDouble(),
+    y?.toDouble(),
+  ),
+  [
+    "x",
+    "y",
+  ],
 );
 var _vector2_array = MXFunctionInvoke(
   "Vector2.array",
-    (
-      {
-      dynamic array,
-      int offset,
-      }
-    ) =>
+  ({
+    dynamic array,
+    int offset,
+  }) =>
       Vector2.array(
-      toListT<double>(array),
-      offset,
-    ),
+    toListT<double>(array),
+    offset,
+  ),
+  [
+    "array",
+    "offset",
+  ],
 );
 var _vector2_all = MXFunctionInvoke(
   "Vector2.all",
-    (
-      {
-      dynamic value,
-      }
-    ) =>
+  ({
+    dynamic value,
+  }) =>
       Vector2.all(
-      value?.toDouble(),
-    ),
+    value?.toDouble(),
+  ),
+  [
+    "value",
+  ],
 );
 var _vector2_copy = MXFunctionInvoke(
   "Vector2.copy",
-    (
-      {
-      Vector2 other,
-      }
-    ) =>
+  ({
+    Vector2 other,
+  }) =>
       Vector2.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _vector2_random = MXFunctionInvoke(
   "Vector2.random",
-    (
-      {
-      math.Random rng,
-      }
-    ) =>
+  ({
+    math.Random rng,
+  }) =>
       Vector2.random(
-      rng,
-    ),
+    rng,
+  ),
+  [
+    "rng",
+  ],
 );
 var _vector2_zero = MXFunctionInvoke(
   "Vector2.zero",
-    (
-    ) =>
-      Vector2.zero(
-    ),
+  () => Vector2.zero(),
+  [],
 );
 var _vector2_fromFloat64List = MXFunctionInvoke(
   "Vector2.fromFloat64List",
-    (
-      {
-      Float64List v2storage,
-      }
-    ) =>
+  ({
+    Float64List v2storage,
+  }) =>
       Vector2.fromFloat64List(
-      v2storage,
-    ),
+    v2storage,
+  ),
+  [
+    "v2storage",
+  ],
 );
 var _vector2_fromBuffer = MXFunctionInvoke(
   "Vector2.fromBuffer",
-    (
-      {
-      ByteBuffer buffer,
-      int offset,
-      }
-    ) =>
+  ({
+    ByteBuffer buffer,
+    int offset,
+  }) =>
       Vector2.fromBuffer(
-      buffer,
-      offset,
-    ),
+    buffer,
+    offset,
+  ),
+  [
+    "buffer",
+    "offset",
+  ],
 );
 var _vector3_min = MXFunctionInvoke(
   "Vector3.min",
-    (
-      {
-      Vector3 a,
-      Vector3 b,
-      Vector3 result,
-      }
-    ) =>
+  ({
+    Vector3 a,
+    Vector3 b,
+    Vector3 result,
+  }) =>
       Vector3.min(
-      a,
-      b,
-      result,
-    ),
+    a,
+    b,
+    result,
+  ),
+  [
+    "a",
+    "b",
+    "result",
+  ],
 );
 var _vector3_max = MXFunctionInvoke(
   "Vector3.max",
-    (
-      {
-      Vector3 a,
-      Vector3 b,
-      Vector3 result,
-      }
-    ) =>
+  ({
+    Vector3 a,
+    Vector3 b,
+    Vector3 result,
+  }) =>
       Vector3.max(
-      a,
-      b,
-      result,
-    ),
+    a,
+    b,
+    result,
+  ),
+  [
+    "a",
+    "b",
+    "result",
+  ],
 );
 var _vector3_mix = MXFunctionInvoke(
   "Vector3.mix",
-    (
-      {
-      Vector3 min,
-      Vector3 max,
-      dynamic a,
-      Vector3 result,
-      }
-    ) =>
+  ({
+    Vector3 min,
+    Vector3 max,
+    dynamic a,
+    Vector3 result,
+  }) =>
       Vector3.mix(
-      min,
-      max,
-      a?.toDouble(),
-      result,
-    ),
+    min,
+    max,
+    a?.toDouble(),
+    result,
+  ),
+  [
+    "min",
+    "max",
+    "a",
+    "result",
+  ],
 );
 var _vector3 = MXFunctionInvoke(
-    "Vector3",
-    (
-      {
-      dynamic x,
-      dynamic y,
-      dynamic z,
-      }
-    ) =>
+  "Vector3",
+  ({
+    dynamic x,
+    dynamic y,
+    dynamic z,
+  }) =>
       Vector3(
-      x?.toDouble(),
-      y?.toDouble(),
-      z?.toDouble(),
-    ),
+    x?.toDouble(),
+    y?.toDouble(),
+    z?.toDouble(),
+  ),
+  [
+    "x",
+    "y",
+    "z",
+  ],
 );
 var _vector3_array = MXFunctionInvoke(
   "Vector3.array",
-    (
-      {
-      dynamic array,
-      int offset,
-      }
-    ) =>
+  ({
+    dynamic array,
+    int offset,
+  }) =>
       Vector3.array(
-      toListT<double>(array),
-      offset,
-    ),
+    toListT<double>(array),
+    offset,
+  ),
+  [
+    "array",
+    "offset",
+  ],
 );
 var _vector3_all = MXFunctionInvoke(
   "Vector3.all",
-    (
-      {
-      dynamic value,
-      }
-    ) =>
+  ({
+    dynamic value,
+  }) =>
       Vector3.all(
-      value?.toDouble(),
-    ),
+    value?.toDouble(),
+  ),
+  [
+    "value",
+  ],
 );
 var _vector3_copy = MXFunctionInvoke(
   "Vector3.copy",
-    (
-      {
-      Vector3 other,
-      }
-    ) =>
+  ({
+    Vector3 other,
+  }) =>
       Vector3.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _vector3_random = MXFunctionInvoke(
   "Vector3.random",
-    (
-      {
-      math.Random rng,
-      }
-    ) =>
+  ({
+    math.Random rng,
+  }) =>
       Vector3.random(
-      rng,
-    ),
+    rng,
+  ),
+  [
+    "rng",
+  ],
 );
 var _vector3_zero = MXFunctionInvoke(
   "Vector3.zero",
-    (
-    ) =>
-      Vector3.zero(
-    ),
+  () => Vector3.zero(),
+  [],
 );
 var _vector3_fromFloat64List = MXFunctionInvoke(
   "Vector3.fromFloat64List",
-    (
-      {
-      Float64List v3storage,
-      }
-    ) =>
+  ({
+    Float64List v3storage,
+  }) =>
       Vector3.fromFloat64List(
-      v3storage,
-    ),
+    v3storage,
+  ),
+  [
+    "v3storage",
+  ],
 );
 var _vector3_fromBuffer = MXFunctionInvoke(
   "Vector3.fromBuffer",
-    (
-      {
-      ByteBuffer buffer,
-      int offset,
-      }
-    ) =>
+  ({
+    ByteBuffer buffer,
+    int offset,
+  }) =>
       Vector3.fromBuffer(
-      buffer,
-      offset,
-    ),
+    buffer,
+    offset,
+  ),
+  [
+    "buffer",
+    "offset",
+  ],
 );
 var _vector4_min = MXFunctionInvoke(
   "Vector4.min",
-    (
-      {
-      Vector4 a,
-      Vector4 b,
-      Vector4 result,
-      }
-    ) =>
+  ({
+    Vector4 a,
+    Vector4 b,
+    Vector4 result,
+  }) =>
       Vector4.min(
-      a,
-      b,
-      result,
-    ),
+    a,
+    b,
+    result,
+  ),
+  [
+    "a",
+    "b",
+    "result",
+  ],
 );
 var _vector4_max = MXFunctionInvoke(
   "Vector4.max",
-    (
-      {
-      Vector4 a,
-      Vector4 b,
-      Vector4 result,
-      }
-    ) =>
+  ({
+    Vector4 a,
+    Vector4 b,
+    Vector4 result,
+  }) =>
       Vector4.max(
-      a,
-      b,
-      result,
-    ),
+    a,
+    b,
+    result,
+  ),
+  [
+    "a",
+    "b",
+    "result",
+  ],
 );
 var _vector4_mix = MXFunctionInvoke(
   "Vector4.mix",
-    (
-      {
-      Vector4 min,
-      Vector4 max,
-      dynamic a,
-      Vector4 result,
-      }
-    ) =>
+  ({
+    Vector4 min,
+    Vector4 max,
+    dynamic a,
+    Vector4 result,
+  }) =>
       Vector4.mix(
-      min,
-      max,
-      a?.toDouble(),
-      result,
-    ),
+    min,
+    max,
+    a?.toDouble(),
+    result,
+  ),
+  [
+    "min",
+    "max",
+    "a",
+    "result",
+  ],
 );
 var _vector4 = MXFunctionInvoke(
-    "Vector4",
-    (
-      {
-      dynamic x,
-      dynamic y,
-      dynamic z,
-      dynamic w,
-      }
-    ) =>
+  "Vector4",
+  ({
+    dynamic x,
+    dynamic y,
+    dynamic z,
+    dynamic w,
+  }) =>
       Vector4(
-      x?.toDouble(),
-      y?.toDouble(),
-      z?.toDouble(),
-      w?.toDouble(),
-    ),
+    x?.toDouble(),
+    y?.toDouble(),
+    z?.toDouble(),
+    w?.toDouble(),
+  ),
+  [
+    "x",
+    "y",
+    "z",
+    "w",
+  ],
 );
 var _vector4_array = MXFunctionInvoke(
   "Vector4.array",
-    (
-      {
-      dynamic array,
-      int offset,
-      }
-    ) =>
+  ({
+    dynamic array,
+    int offset,
+  }) =>
       Vector4.array(
-      toListT<double>(array),
-      offset,
-    ),
+    toListT<double>(array),
+    offset,
+  ),
+  [
+    "array",
+    "offset",
+  ],
 );
 var _vector4_identity = MXFunctionInvoke(
   "Vector4.identity",
-    (
-    ) =>
-      Vector4.identity(
-    ),
+  () => Vector4.identity(),
+  [],
 );
 var _vector4_all = MXFunctionInvoke(
   "Vector4.all",
-    (
-      {
-      dynamic value,
-      }
-    ) =>
+  ({
+    dynamic value,
+  }) =>
       Vector4.all(
-      value?.toDouble(),
-    ),
+    value?.toDouble(),
+  ),
+  [
+    "value",
+  ],
 );
 var _vector4_copy = MXFunctionInvoke(
   "Vector4.copy",
-    (
-      {
-      Vector4 other,
-      }
-    ) =>
+  ({
+    Vector4 other,
+  }) =>
       Vector4.copy(
-      other,
-    ),
+    other,
+  ),
+  [
+    "other",
+  ],
 );
 var _vector4_random = MXFunctionInvoke(
   "Vector4.random",
-    (
-      {
-      math.Random rng,
-      }
-    ) =>
+  ({
+    math.Random rng,
+  }) =>
       Vector4.random(
-      rng,
-    ),
+    rng,
+  ),
+  [
+    "rng",
+  ],
 );
 var _vector4_zero = MXFunctionInvoke(
   "Vector4.zero",
-    (
-    ) =>
-      Vector4.zero(
-    ),
+  () => Vector4.zero(),
+  [],
 );
 var _vector4_fromFloat64List = MXFunctionInvoke(
   "Vector4.fromFloat64List",
-    (
-      {
-      Float64List v4storage,
-      }
-    ) =>
+  ({
+    Float64List v4storage,
+  }) =>
       Vector4.fromFloat64List(
-      v4storage,
-    ),
+    v4storage,
+  ),
+  [
+    "v4storage",
+  ],
 );
 var _vector4_fromBuffer = MXFunctionInvoke(
   "Vector4.fromBuffer",
-    (
-      {
-      ByteBuffer buffer,
-      int offset,
-      }
-    ) =>
+  ({
+    ByteBuffer buffer,
+    int offset,
+  }) =>
       Vector4.fromBuffer(
-      buffer,
-      offset,
-    ),
+    buffer,
+    offset,
+  ),
+  [
+    "buffer",
+    "offset",
+  ],
 );

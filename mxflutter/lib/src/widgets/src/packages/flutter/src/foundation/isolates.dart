@@ -8,7 +8,6 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/isolates.dart';
 import 'dart:async';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIsolatesSeries() {
   var m = <String, MXFunctionInvoke>{};
