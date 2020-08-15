@@ -27,9 +27,9 @@ Map<String, MXFunctionInvoke> registerHeroesSeries() {
 }
 
 var _heroFlightDirection = MXFunctionInvoke(
-  "HeroFlightDirection",
-  ({String name, int index}) => MXHeroFlightDirection.parse(name, index),
-);
+    "HeroFlightDirection",
+    ({String name, int index}) => MXHeroFlightDirection.parse(name, index),
+    ["name", "index"]);
 var _hero = MXFunctionInvoke(
   "Hero",
   ({

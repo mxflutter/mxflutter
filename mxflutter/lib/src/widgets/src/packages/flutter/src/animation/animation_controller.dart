@@ -36,9 +36,9 @@ Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
 }
 
 var _animationBehavior = MXFunctionInvoke(
-  "AnimationBehavior",
-  ({String name, int index}) => MXAnimationBehavior.parse(name, index),
-);
+    "AnimationBehavior",
+    ({String name, int index}) => MXAnimationBehavior.parse(name, index),
+    ["name", "index"]);
 var _animationController = MXFunctionInvoke(
   "AnimationController",
   ({

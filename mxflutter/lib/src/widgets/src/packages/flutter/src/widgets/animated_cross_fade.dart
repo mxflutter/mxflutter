@@ -22,9 +22,9 @@ Map<String, MXFunctionInvoke> registerAnimatedCrossFadeSeries() {
 }
 
 var _crossFadeState = MXFunctionInvoke(
-  "CrossFadeState",
-  ({String name, int index}) => MXCrossFadeState.parse(name, index),
-);
+    "CrossFadeState",
+    ({String name, int index}) => MXCrossFadeState.parse(name, index),
+    ["name", "index"]);
 var _animatedCrossFade = MXFunctionInvoke(
   "AnimatedCrossFade",
   ({

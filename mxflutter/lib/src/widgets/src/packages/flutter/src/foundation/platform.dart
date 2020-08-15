@@ -15,9 +15,9 @@ Map<String, MXFunctionInvoke> registerPlatformSeries() {
 }
 
 var _targetPlatform = MXFunctionInvoke(
-  "TargetPlatform",
-  ({String name, int index}) => MXTargetPlatform.parse(name, index),
-);
+    "TargetPlatform",
+    ({String name, int index}) => MXTargetPlatform.parse(name, index),
+    ["name", "index"]);
 
 class MXTargetPlatform {
   static TargetPlatform parse(String name, int index) {

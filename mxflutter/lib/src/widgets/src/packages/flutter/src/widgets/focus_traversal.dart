@@ -43,9 +43,9 @@ Map<String, MXFunctionInvoke> registerFocusTraversalSeries() {
 }
 
 var _traversalDirection = MXFunctionInvoke(
-  "TraversalDirection",
-  ({String name, int index}) => MXTraversalDirection.parse(name, index),
-);
+    "TraversalDirection",
+    ({String name, int index}) => MXTraversalDirection.parse(name, index),
+    ["name", "index"]);
 var _widgetOrderTraversalPolicy = MXFunctionInvoke(
   "WidgetOrderTraversalPolicy",
   () => WidgetOrderTraversalPolicy(),

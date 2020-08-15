@@ -28,9 +28,9 @@ Map<String, MXFunctionInvoke> registerBottomNavigationBarSeries() {
 }
 
 var _bottomNavigationBarType = MXFunctionInvoke(
-  "BottomNavigationBarType",
-  ({String name, int index}) => MXBottomNavigationBarType.parse(name, index),
-);
+    "BottomNavigationBarType",
+    ({String name, int index}) => MXBottomNavigationBarType.parse(name, index),
+    ["name", "index"]);
 var _bottomNavigationBar = MXFunctionInvoke(
   "BottomNavigationBar",
   ({

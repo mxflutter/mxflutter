@@ -24,9 +24,9 @@ Map<String, MXFunctionInvoke> registerDecorationImageSeries() {
 }
 
 var _imageRepeat = MXFunctionInvoke(
-  "ImageRepeat",
-  ({String name, int index}) => MXImageRepeat.parse(name, index),
-);
+    "ImageRepeat",
+    ({String name, int index}) => MXImageRepeat.parse(name, index),
+    ["name", "index"]);
 var _decorationImage = MXFunctionInvoke(
   "DecorationImage",
   ({

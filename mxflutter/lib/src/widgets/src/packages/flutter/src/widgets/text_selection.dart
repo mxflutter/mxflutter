@@ -38,9 +38,9 @@ Map<String, MXFunctionInvoke> registerTextSelectionSeries() {
 }
 
 var _textSelectionHandleType = MXFunctionInvoke(
-  "TextSelectionHandleType",
-  ({String name, int index}) => MXTextSelectionHandleType.parse(name, index),
-);
+    "TextSelectionHandleType",
+    ({String name, int index}) => MXTextSelectionHandleType.parse(name, index),
+    ["name", "index"]);
 var _textSelectionOverlay = MXFunctionInvoke(
   "TextSelectionOverlay",
   ({

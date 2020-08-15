@@ -31,9 +31,9 @@ Map<String, MXFunctionInvoke> registerFocusManagerSeries() {
 }
 
 var _unfocusDisposition = MXFunctionInvoke(
-  "UnfocusDisposition",
-  ({String name, int index}) => MXUnfocusDisposition.parse(name, index),
-);
+    "UnfocusDisposition",
+    ({String name, int index}) => MXUnfocusDisposition.parse(name, index),
+    ["name", "index"]);
 var _focusNode = MXFunctionInvoke(
   "FocusNode",
   ({
@@ -77,13 +77,13 @@ var _focusScopeNode = MXFunctionInvoke(
   ],
 );
 var _focusHighlightMode = MXFunctionInvoke(
-  "FocusHighlightMode",
-  ({String name, int index}) => MXFocusHighlightMode.parse(name, index),
-);
+    "FocusHighlightMode",
+    ({String name, int index}) => MXFocusHighlightMode.parse(name, index),
+    ["name", "index"]);
 var _focusHighlightStrategy = MXFunctionInvoke(
-  "FocusHighlightStrategy",
-  ({String name, int index}) => MXFocusHighlightStrategy.parse(name, index),
-);
+    "FocusHighlightStrategy",
+    ({String name, int index}) => MXFocusHighlightStrategy.parse(name, index),
+    ["name", "index"]);
 var _focusManager = MXFunctionInvoke(
   "FocusManager",
   () => FocusManager(),

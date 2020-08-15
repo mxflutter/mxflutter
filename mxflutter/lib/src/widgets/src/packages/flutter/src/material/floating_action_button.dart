@@ -65,6 +65,7 @@ var _floatingActionButton = MXFunctionInvoke(
     focusColor: focusColor,
     hoverColor: hoverColor,
     splashColor: splashColor,
+
     /// MX modified begin -delete heroTag
     // heroTag: heroTag,
     /// MX modified end
@@ -144,6 +145,7 @@ var _floatingActionButton_extended = MXFunctionInvoke(
     backgroundColor: backgroundColor,
     focusColor: focusColor,
     hoverColor: hoverColor,
+
     /// MX modified begin -delete heroTag
     // heroTag: heroTag,
     /// MX modified end

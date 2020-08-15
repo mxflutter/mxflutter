@@ -25,26 +25,26 @@ Map<String, MXFunctionInvoke> registerFlexSeries() {
 }
 
 var _flexFit = MXFunctionInvoke(
-  "FlexFit",
-  ({String name, int index}) => MXFlexFit.parse(name, index),
-);
+    "FlexFit",
+    ({String name, int index}) => MXFlexFit.parse(name, index),
+    ["name", "index"]);
 var _flexParentData = MXFunctionInvoke(
   "FlexParentData",
   () => FlexParentData(),
   [],
 );
 var _mainAxisSize = MXFunctionInvoke(
-  "MainAxisSize",
-  ({String name, int index}) => MXMainAxisSize.parse(name, index),
-);
+    "MainAxisSize",
+    ({String name, int index}) => MXMainAxisSize.parse(name, index),
+    ["name", "index"]);
 var _mainAxisAlignment = MXFunctionInvoke(
-  "MainAxisAlignment",
-  ({String name, int index}) => MXMainAxisAlignment.parse(name, index),
-);
+    "MainAxisAlignment",
+    ({String name, int index}) => MXMainAxisAlignment.parse(name, index),
+    ["name", "index"]);
 var _crossAxisAlignment = MXFunctionInvoke(
-  "CrossAxisAlignment",
-  ({String name, int index}) => MXCrossAxisAlignment.parse(name, index),
-);
+    "CrossAxisAlignment",
+    ({String name, int index}) => MXCrossAxisAlignment.parse(name, index),
+    ["name", "index"]);
 var _renderFlex = MXFunctionInvoke(
   "RenderFlex",
   ({

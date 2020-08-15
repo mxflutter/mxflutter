@@ -60,9 +60,9 @@ Map<String, MXFunctionInvoke> registerThemeDataSeries() {
 }
 
 var _materialTapTargetSize = MXFunctionInvoke(
-  "MaterialTapTargetSize",
-  ({String name, int index}) => MXMaterialTapTargetSize.parse(name, index),
-);
+    "MaterialTapTargetSize",
+    ({String name, int index}) => MXMaterialTapTargetSize.parse(name, index),
+    ["name", "index"]);
 var _themeData = MXFunctionInvoke(
   "ThemeData",
   ({

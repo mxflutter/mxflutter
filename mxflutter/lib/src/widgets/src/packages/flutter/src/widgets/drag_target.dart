@@ -26,9 +26,9 @@ Map<String, MXFunctionInvoke> registerDragTargetSeries() {
 }
 
 var _dragAnchor = MXFunctionInvoke(
-  "DragAnchor",
-  ({String name, int index}) => MXDragAnchor.parse(name, index),
-);
+    "DragAnchor",
+    ({String name, int index}) => MXDragAnchor.parse(name, index),
+    ["name", "index"]);
 var _draggable = MXFunctionInvoke(
   "Draggable",
   ({

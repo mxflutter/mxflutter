@@ -25,9 +25,9 @@ Map<String, MXFunctionInvoke> registerDatePickerSeries() {
 }
 
 var _cupertinoDatePickerMode = MXFunctionInvoke(
-  "CupertinoDatePickerMode",
-  ({String name, int index}) => MXCupertinoDatePickerMode.parse(name, index),
-);
+    "CupertinoDatePickerMode",
+    ({String name, int index}) => MXCupertinoDatePickerMode.parse(name, index),
+    ["name", "index"]);
 var _cupertinoDatePicker = MXFunctionInvoke(
   "CupertinoDatePicker",
   ({
@@ -72,9 +72,9 @@ var _cupertinoDatePicker = MXFunctionInvoke(
   ],
 );
 var _cupertinoTimerPickerMode = MXFunctionInvoke(
-  "CupertinoTimerPickerMode",
-  ({String name, int index}) => MXCupertinoTimerPickerMode.parse(name, index),
-);
+    "CupertinoTimerPickerMode",
+    ({String name, int index}) => MXCupertinoTimerPickerMode.parse(name, index),
+    ["name", "index"]);
 var _cupertinoTimerPicker = MXFunctionInvoke(
   "CupertinoTimerPicker",
   ({

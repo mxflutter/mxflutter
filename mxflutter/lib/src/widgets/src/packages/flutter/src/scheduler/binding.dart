@@ -24,9 +24,9 @@ Map<String, MXFunctionInvoke> registerBindingSeries() {
 }
 
 var _schedulerPhase = MXFunctionInvoke(
-  "SchedulerPhase",
-  ({String name, int index}) => MXSchedulerPhase.parse(name, index),
-);
+    "SchedulerPhase",
+    ({String name, int index}) => MXSchedulerPhase.parse(name, index),
+    ["name", "index"]);
 
 class MXSchedulerPhase {
   static SchedulerPhase parse(String name, int index) {

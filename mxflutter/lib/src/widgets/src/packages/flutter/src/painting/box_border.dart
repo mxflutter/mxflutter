@@ -25,9 +25,9 @@ Map<String, MXFunctionInvoke> registerBoxBorderSeries() {
 }
 
 var _boxShape = MXFunctionInvoke(
-  "BoxShape",
-  ({String name, int index}) => MXBoxShape.parse(name, index),
-);
+    "BoxShape",
+    ({String name, int index}) => MXBoxShape.parse(name, index),
+    ["name", "index"]);
 var _border = MXFunctionInvoke(
   "Border",
   ({

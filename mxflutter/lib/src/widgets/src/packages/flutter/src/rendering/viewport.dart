@@ -34,9 +34,9 @@ Map<String, MXFunctionInvoke> registerViewportSeries() {
 }
 
 var _cacheExtentStyle = MXFunctionInvoke(
-  "CacheExtentStyle",
-  ({String name, int index}) => MXCacheExtentStyle.parse(name, index),
-);
+    "CacheExtentStyle",
+    ({String name, int index}) => MXCacheExtentStyle.parse(name, index),
+    ["name", "index"]);
 var _renderAbstractViewport_defaultCacheExtent = MXFunctionInvoke(
     "RenderAbstractViewport.defaultCacheExtent",
     () => RenderAbstractViewport.defaultCacheExtent);

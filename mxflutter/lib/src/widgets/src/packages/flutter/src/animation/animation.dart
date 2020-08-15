@@ -19,9 +19,9 @@ Map<String, MXFunctionInvoke> registerAnimationSeries() {
 }
 
 var _animationStatus = MXFunctionInvoke(
-  "AnimationStatus",
-  ({String name, int index}) => MXAnimationStatus.parse(name, index),
-);
+    "AnimationStatus",
+    ({String name, int index}) => MXAnimationStatus.parse(name, index),
+    ["name", "index"]);
 
 var _animation = MXFunctionInvoke("Animation", ({
   Tween tween,

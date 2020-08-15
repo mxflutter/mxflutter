@@ -24,9 +24,9 @@ Map<String, MXFunctionInvoke> registerBannerSeries() {
 }
 
 var _bannerLocation = MXFunctionInvoke(
-  "BannerLocation",
-  ({String name, int index}) => MXBannerLocation.parse(name, index),
-);
+    "BannerLocation",
+    ({String name, int index}) => MXBannerLocation.parse(name, index),
+    ["name", "index"]);
 var _bannerPainter = MXFunctionInvoke(
   "BannerPainter",
   ({

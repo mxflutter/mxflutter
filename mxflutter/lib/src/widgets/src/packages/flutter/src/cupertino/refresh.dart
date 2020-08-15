@@ -25,9 +25,9 @@ Map<String, MXFunctionInvoke> registerRefreshSeries() {
 }
 
 var _refreshIndicatorMode = MXFunctionInvoke(
-  "RefreshIndicatorMode",
-  ({String name, int index}) => MXRefreshIndicatorMode.parse(name, index),
-);
+    "RefreshIndicatorMode",
+    ({String name, int index}) => MXRefreshIndicatorMode.parse(name, index),
+    ["name", "index"]);
 var _cupertinoSliverRefreshControl = MXFunctionInvoke(
   "CupertinoSliverRefreshControl",
   ({

@@ -21,13 +21,13 @@ Map<String, MXFunctionInvoke> registerWrapSeries() {
 }
 
 var _wrapAlignment = MXFunctionInvoke(
-  "WrapAlignment",
-  ({String name, int index}) => MXWrapAlignment.parse(name, index),
-);
+    "WrapAlignment",
+    ({String name, int index}) => MXWrapAlignment.parse(name, index),
+    ["name", "index"]);
 var _wrapCrossAlignment = MXFunctionInvoke(
-  "WrapCrossAlignment",
-  ({String name, int index}) => MXWrapCrossAlignment.parse(name, index),
-);
+    "WrapCrossAlignment",
+    ({String name, int index}) => MXWrapCrossAlignment.parse(name, index),
+    ["name", "index"]);
 var _wrapParentData = MXFunctionInvoke(
   "WrapParentData",
   () => WrapParentData(),

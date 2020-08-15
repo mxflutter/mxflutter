@@ -27,9 +27,9 @@ Map<String, MXFunctionInvoke> registerSnackBarSeries() {
 }
 
 var _snackBarClosedReason = MXFunctionInvoke(
-  "SnackBarClosedReason",
-  ({String name, int index}) => MXSnackBarClosedReason.parse(name, index),
-);
+    "SnackBarClosedReason",
+    ({String name, int index}) => MXSnackBarClosedReason.parse(name, index),
+    ["name", "index"]);
 var _snackBarAction = MXFunctionInvoke(
   "SnackBarAction",
   ({

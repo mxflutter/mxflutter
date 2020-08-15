@@ -376,17 +376,17 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
 }
 
 var _pointMode = MXFunctionInvoke(
-  "PointMode",
-  ({String name, int index}) => MXPointMode.parse(name, index),
-);
+    "PointMode",
+    ({String name, int index}) => MXPointMode.parse(name, index),
+    ["name", "index"]);
 var _clipOp = MXFunctionInvoke(
-  "ClipOp",
-  ({String name, int index}) => MXClipOp.parse(name, index),
-);
+    "ClipOp",
+    ({String name, int index}) => MXClipOp.parse(name, index),
+    ["name", "index"]);
 var _vertexMode = MXFunctionInvoke(
-  "VertexMode",
-  ({String name, int index}) => MXVertexMode.parse(name, index),
-);
+    "VertexMode",
+    ({String name, int index}) => MXVertexMode.parse(name, index),
+    ["name", "index"]);
 var _vertices = MXFunctionInvoke(
   "Vertices",
   ({
@@ -403,6 +403,13 @@ var _vertices = MXFunctionInvoke(
     colors: toListT<Color>(colors),
     indices: toListT<int>(indices),
   ),
+  [
+    "mode",
+    "positions",
+    "textureCoordinates",
+    "colors",
+    "indices",
+  ],
 );
 var _vertices_raw = MXFunctionInvoke(
   "Vertices.raw",
@@ -420,10 +427,18 @@ var _vertices_raw = MXFunctionInvoke(
     colors: colors,
     indices: indices,
   ),
+  [
+    "mode",
+    "positions",
+    "textureCoordinates",
+    "colors",
+    "indices",
+  ],
 );
 var _pictureRecorder = MXFunctionInvoke(
   "PictureRecorder",
   () => PictureRecorder(),
+  [],
 );
 var _canvas = MXFunctionInvoke(
   "Canvas",
@@ -435,15 +450,19 @@ var _canvas = MXFunctionInvoke(
     recorder,
     cullRect,
   ),
+  [
+    "recorder",
+    "cullRect",
+  ],
 );
 var _pathFillType = MXFunctionInvoke(
-  "PathFillType",
-  ({String name, int index}) => MXPathFillType.parse(name, index),
-);
+    "PathFillType",
+    ({String name, int index}) => MXPathFillType.parse(name, index),
+    ["name", "index"]);
 var _pathOperation = MXFunctionInvoke(
-  "PathOperation",
-  ({String name, int index}) => MXPathOperation.parse(name, index),
-);
+    "PathOperation",
+    ({String name, int index}) => MXPathOperation.parse(name, index),
+    ["name", "index"]);
 
 /// MX modified begin -delete function
 // var _rawRecordingCanvas = MXFunctionInvoke(
@@ -461,6 +480,7 @@ var _pathOperation = MXFunctionInvoke(
 var _channelBuffers = MXFunctionInvoke(
   "ChannelBuffers",
   () => ChannelBuffers(),
+  [],
 );
 var _channelBuffers_kDefaultBufferSize = MXFunctionInvoke(
     "ChannelBuffers.kDefaultBufferSize",
@@ -471,6 +491,7 @@ var _channelBuffers_kControlChannelName = MXFunctionInvoke(
 var _sceneBuilder = MXFunctionInvoke(
   "SceneBuilder",
   () => SceneBuilder(),
+  [],
 );
 
 /// MX modified begin -delete function
@@ -497,6 +518,12 @@ var _sceneHost = MXFunctionInvoke(
     createValueChangedGenericClosure<bool>(
         _sceneHost.buildOwner, viewStateChangedCallback),
   ),
+  [
+    "viewHolderToken",
+    "viewConnectedCallback",
+    "viewDisconnectedCallback",
+    "viewStateChangedCallback",
+  ],
 );
 var _offset = MXFunctionInvoke(
   "Offset",
@@ -508,6 +535,10 @@ var _offset = MXFunctionInvoke(
     dx?.toDouble(),
     dy?.toDouble(),
   ),
+  [
+    "dx",
+    "dy",
+  ],
 );
 var _offset_zero = MXFunctionInvoke("Offset.zero", () => Offset.zero);
 var _offset_infinite =
@@ -522,6 +553,10 @@ var _offset_fromDirection = MXFunctionInvoke(
     direction?.toDouble(),
     distance?.toDouble(),
   ),
+  [
+    "direction",
+    "distance",
+  ],
 );
 var _size = MXFunctionInvoke(
   "Size",
@@ -533,6 +568,10 @@ var _size = MXFunctionInvoke(
     width?.toDouble(),
     height?.toDouble(),
   ),
+  [
+    "width",
+    "height",
+  ],
 );
 var _size_zero = MXFunctionInvoke("Size.zero", () => Size.zero);
 var _size_infinite = MXFunctionInvoke("Size.infinite", () => Size.infinite);
@@ -544,6 +583,9 @@ var _size_copy = MXFunctionInvoke(
       Size.copy(
     source,
   ),
+  [
+    "source",
+  ],
 );
 var _size_square = MXFunctionInvoke(
   "Size.square",
@@ -553,6 +595,9 @@ var _size_square = MXFunctionInvoke(
       Size.square(
     dimension?.toDouble(),
   ),
+  [
+    "dimension",
+  ],
 );
 var _size_fromWidth = MXFunctionInvoke(
   "Size.fromWidth",
@@ -562,6 +607,9 @@ var _size_fromWidth = MXFunctionInvoke(
       Size.fromWidth(
     width?.toDouble(),
   ),
+  [
+    "width",
+  ],
 );
 var _size_fromHeight = MXFunctionInvoke(
   "Size.fromHeight",
@@ -571,6 +619,9 @@ var _size_fromHeight = MXFunctionInvoke(
       Size.fromHeight(
     height?.toDouble(),
   ),
+  [
+    "height",
+  ],
 );
 var _size_fromRadius = MXFunctionInvoke(
   "Size.fromRadius",
@@ -580,6 +631,9 @@ var _size_fromRadius = MXFunctionInvoke(
       Size.fromRadius(
     radius?.toDouble(),
   ),
+  [
+    "radius",
+  ],
 );
 var _rect_zero = MXFunctionInvoke("Rect.zero", () => Rect.zero);
 var _rect_largest = MXFunctionInvoke("Rect.largest", () => Rect.largest);
@@ -597,6 +651,12 @@ var _rect_fromLTRB = MXFunctionInvoke(
     right?.toDouble(),
     bottom?.toDouble(),
   ),
+  [
+    "left",
+    "top",
+    "right",
+    "bottom",
+  ],
 );
 var _rect_fromLTWH = MXFunctionInvoke(
   "Rect.fromLTWH",
@@ -612,6 +672,12 @@ var _rect_fromLTWH = MXFunctionInvoke(
     width?.toDouble(),
     height?.toDouble(),
   ),
+  [
+    "left",
+    "top",
+    "width",
+    "height",
+  ],
 );
 var _rect_fromCircle = MXFunctionInvoke(
   "Rect.fromCircle",
@@ -623,6 +689,10 @@ var _rect_fromCircle = MXFunctionInvoke(
     center: center,
     radius: radius?.toDouble(),
   ),
+  [
+    "center",
+    "radius",
+  ],
 );
 var _rect_fromCenter = MXFunctionInvoke(
   "Rect.fromCenter",
@@ -636,6 +706,11 @@ var _rect_fromCenter = MXFunctionInvoke(
     width: width?.toDouble(),
     height: height?.toDouble(),
   ),
+  [
+    "center",
+    "width",
+    "height",
+  ],
 );
 var _rect_fromPoints = MXFunctionInvoke(
   "Rect.fromPoints",
@@ -647,6 +722,10 @@ var _rect_fromPoints = MXFunctionInvoke(
     a,
     b,
   ),
+  [
+    "a",
+    "b",
+  ],
 );
 var _radius_zero = MXFunctionInvoke("Radius.zero", () => Radius.zero);
 var _radius_circular = MXFunctionInvoke(
@@ -657,6 +736,9 @@ var _radius_circular = MXFunctionInvoke(
       Radius.circular(
     radius?.toDouble(),
   ),
+  [
+    "radius",
+  ],
 );
 var _radius_elliptical = MXFunctionInvoke(
   "Radius.elliptical",
@@ -668,6 +750,10 @@ var _radius_elliptical = MXFunctionInvoke(
     x?.toDouble(),
     y?.toDouble(),
   ),
+  [
+    "x",
+    "y",
+  ],
 );
 var _rRect_zero = MXFunctionInvoke("RRect.zero", () => RRect.zero);
 var _rRect_fromLTRBXY = MXFunctionInvoke(
@@ -688,6 +774,14 @@ var _rRect_fromLTRBXY = MXFunctionInvoke(
     radiusX?.toDouble(),
     radiusY?.toDouble(),
   ),
+  [
+    "left",
+    "top",
+    "right",
+    "bottom",
+    "radiusX",
+    "radiusY",
+  ],
 );
 var _rRect_fromLTRBR = MXFunctionInvoke(
   "RRect.fromLTRBR",
@@ -705,6 +799,13 @@ var _rRect_fromLTRBR = MXFunctionInvoke(
     bottom?.toDouble(),
     radius,
   ),
+  [
+    "left",
+    "top",
+    "right",
+    "bottom",
+    "radius",
+  ],
 );
 var _rRect_fromRectXY = MXFunctionInvoke(
   "RRect.fromRectXY",
@@ -718,6 +819,11 @@ var _rRect_fromRectXY = MXFunctionInvoke(
     radiusX?.toDouble(),
     radiusY?.toDouble(),
   ),
+  [
+    "rect",
+    "radiusX",
+    "radiusY",
+  ],
 );
 var _rRect_fromRectAndRadius = MXFunctionInvoke(
   "RRect.fromRectAndRadius",
@@ -729,6 +835,10 @@ var _rRect_fromRectAndRadius = MXFunctionInvoke(
     rect,
     radius,
   ),
+  [
+    "rect",
+    "radius",
+  ],
 );
 var _rRect_fromLTRBAndCorners = MXFunctionInvoke(
   "RRect.fromLTRBAndCorners",
@@ -752,6 +862,16 @@ var _rRect_fromLTRBAndCorners = MXFunctionInvoke(
     bottomRight: bottomRight,
     bottomLeft: bottomLeft,
   ),
+  [
+    "left",
+    "top",
+    "right",
+    "bottom",
+    "topLeft",
+    "topRight",
+    "bottomRight",
+    "bottomLeft",
+  ],
 );
 var _rRect_fromRectAndCorners = MXFunctionInvoke(
   "RRect.fromRectAndCorners",
@@ -769,6 +889,13 @@ var _rRect_fromRectAndCorners = MXFunctionInvoke(
     bottomRight: bottomRight,
     bottomLeft: bottomLeft,
   ),
+  [
+    "rect",
+    "topLeft",
+    "topRight",
+    "bottomRight",
+    "bottomLeft",
+  ],
 );
 var _rSTransform = MXFunctionInvoke(
   "RSTransform",
@@ -784,6 +911,12 @@ var _rSTransform = MXFunctionInvoke(
     tx?.toDouble(),
     ty?.toDouble(),
   ),
+  [
+    "scos",
+    "ssin",
+    "tx",
+    "ty",
+  ],
 );
 var _rSTransform_fromComponents = MXFunctionInvoke(
   "RSTransform.fromComponents",
@@ -803,6 +936,14 @@ var _rSTransform_fromComponents = MXFunctionInvoke(
     translateX: translateX?.toDouble(),
     translateY: translateY?.toDouble(),
   ),
+  [
+    "rotation",
+    "scale",
+    "anchorX",
+    "anchorY",
+    "translateX",
+    "translateY",
+  ],
 );
 
 /// MX modified begin
@@ -817,6 +958,10 @@ var _point = MXFunctionInvoke(
     x?.toDouble(),
     y?.toDouble(),
   ),
+  [
+    "x",
+    "y",
+  ],
 );
 
 /// MX modified end
@@ -836,6 +981,9 @@ var _color = MXFunctionInvoke(
       Color(
     value,
   ),
+  [
+    "value",
+  ],
 );
 var _color_fromARGB = MXFunctionInvoke(
   "Color.fromARGB",
@@ -851,6 +999,12 @@ var _color_fromARGB = MXFunctionInvoke(
     g,
     b,
   ),
+  [
+    "a",
+    "r",
+    "g",
+    "b",
+  ],
 );
 var _color_fromRGBO = MXFunctionInvoke(
   "Color.fromRGBO",
@@ -866,30 +1020,35 @@ var _color_fromRGBO = MXFunctionInvoke(
     b,
     opacity?.toDouble(),
   ),
+  [
+    "r",
+    "g",
+    "b",
+    "opacity",
+  ],
 );
 var _strokeCap = MXFunctionInvoke(
-  "StrokeCap",
-  ({String name, int index}) => MXStrokeCap.parse(name, index),
-);
+    "StrokeCap",
+    ({String name, int index}) => MXStrokeCap.parse(name, index),
+    ["name", "index"]);
 var _strokeJoin = MXFunctionInvoke(
-  "StrokeJoin",
-  ({String name, int index}) => MXStrokeJoin.parse(name, index),
-);
+    "StrokeJoin",
+    ({String name, int index}) => MXStrokeJoin.parse(name, index),
+    ["name", "index"]);
 var _paintingStyle = MXFunctionInvoke(
-  "PaintingStyle",
-  ({String name, int index}) => MXPaintingStyle.parse(name, index),
-);
+    "PaintingStyle",
+    ({String name, int index}) => MXPaintingStyle.parse(name, index),
+    ["name", "index"]);
 var _blendMode = MXFunctionInvoke(
-  "BlendMode",
-  ({String name, int index}) => MXBlendMode.parse(name, index),
-);
-var _clip = MXFunctionInvoke(
-  "Clip",
-  ({String name, int index}) => MXClip.parse(name, index),
-);
+    "BlendMode",
+    ({String name, int index}) => MXBlendMode.parse(name, index),
+    ["name", "index"]);
+var _clip = MXFunctionInvoke("Clip",
+    ({String name, int index}) => MXClip.parse(name, index), ["name", "index"]);
 var _paint = MXFunctionInvoke(
   "Paint",
   () => Paint(),
+  [],
 );
 var _gradient_linear = MXFunctionInvoke(
   "Gradient.linear",
@@ -909,6 +1068,14 @@ var _gradient_linear = MXFunctionInvoke(
     tileMode,
     matrix4,
   ),
+  [
+    "from",
+    "to",
+    "colors",
+    "colorStops",
+    "tileMode",
+    "matrix4",
+  ],
 );
 var _gradient_radial = MXFunctionInvoke(
   "Gradient.radial",
@@ -932,6 +1099,16 @@ var _gradient_radial = MXFunctionInvoke(
     focal,
     focalRadius?.toDouble(),
   ),
+  [
+    "center",
+    "radius",
+    "colors",
+    "colorStops",
+    "tileMode",
+    "matrix4",
+    "focal",
+    "focalRadius",
+  ],
 );
 var _gradient_sweep = MXFunctionInvoke(
   "Gradient.sweep",
@@ -953,6 +1130,15 @@ var _gradient_sweep = MXFunctionInvoke(
     endAngle?.toDouble(),
     matrix4,
   ),
+  [
+    "center",
+    "colors",
+    "colorStops",
+    "tileMode",
+    "startAngle",
+    "endAngle",
+    "matrix4",
+  ],
 );
 var _colorFilter_mode = MXFunctionInvoke(
   "ColorFilter.mode",
@@ -964,6 +1150,10 @@ var _colorFilter_mode = MXFunctionInvoke(
     color,
     blendMode,
   ),
+  [
+    "color",
+    "blendMode",
+  ],
 );
 var _colorFilter_matrix = MXFunctionInvoke(
   "ColorFilter.matrix",
@@ -973,19 +1163,24 @@ var _colorFilter_matrix = MXFunctionInvoke(
       ColorFilter.matrix(
     toListT<double>(matrix),
   ),
+  [
+    "matrix",
+  ],
 );
 var _colorFilter_linearToSrgbGamma = MXFunctionInvoke(
   "ColorFilter.linearToSrgbGamma",
   () => ColorFilter.linearToSrgbGamma(),
+  [],
 );
 var _colorFilter_srgbToLinearGamma = MXFunctionInvoke(
   "ColorFilter.srgbToLinearGamma",
   () => ColorFilter.srgbToLinearGamma(),
+  [],
 );
 var _blurStyle = MXFunctionInvoke(
-  "BlurStyle",
-  ({String name, int index}) => MXBlurStyle.parse(name, index),
-);
+    "BlurStyle",
+    ({String name, int index}) => MXBlurStyle.parse(name, index),
+    ["name", "index"]);
 var _maskFilter_blur = MXFunctionInvoke(
   "MaskFilter.blur",
   ({
@@ -996,11 +1191,15 @@ var _maskFilter_blur = MXFunctionInvoke(
     style,
     sigma?.toDouble(),
   ),
+  [
+    "style",
+    "sigma",
+  ],
 );
 var _filterQuality = MXFunctionInvoke(
-  "FilterQuality",
-  ({String name, int index}) => MXFilterQuality.parse(name, index),
-);
+    "FilterQuality",
+    ({String name, int index}) => MXFilterQuality.parse(name, index),
+    ["name", "index"]);
 var _imageFilter_blur = MXFunctionInvoke(
   "ImageFilter.blur",
   ({
@@ -1011,6 +1210,10 @@ var _imageFilter_blur = MXFunctionInvoke(
     sigmaX: sigmaX?.toDouble(),
     sigmaY: sigmaY?.toDouble(),
   ),
+  [
+    "sigmaX",
+    "sigmaY",
+  ],
 );
 var _imageFilter_matrix = MXFunctionInvoke(
   "ImageFilter.matrix",
@@ -1022,15 +1225,19 @@ var _imageFilter_matrix = MXFunctionInvoke(
     matrix4,
     filterQuality: filterQuality,
   ),
+  [
+    "matrix4",
+    "filterQuality",
+  ],
 );
 var _imageByteFormat = MXFunctionInvoke(
-  "ImageByteFormat",
-  ({String name, int index}) => MXImageByteFormat.parse(name, index),
-);
+    "ImageByteFormat",
+    ({String name, int index}) => MXImageByteFormat.parse(name, index),
+    ["name", "index"]);
 var _pixelFormat = MXFunctionInvoke(
-  "PixelFormat",
-  ({String name, int index}) => MXPixelFormat.parse(name, index),
-);
+    "PixelFormat",
+    ({String name, int index}) => MXPixelFormat.parse(name, index),
+    ["name", "index"]);
 var _shadow = MXFunctionInvoke(
   "Shadow",
   ({
@@ -1046,10 +1253,16 @@ var _shadow = MXFunctionInvoke(
     offset: offset,
     blurRadius: blurRadius?.toDouble(),
   ),
+  [
+    "color",
+    "offset",
+    "blurRadius",
+  ],
 );
 var _path = MXFunctionInvoke(
   "Path",
   () => Path(),
+  [],
 );
 var _path_from = MXFunctionInvoke(
   "Path.from",
@@ -1059,6 +1272,9 @@ var _path_from = MXFunctionInvoke(
       Path.from(
     source,
   ),
+  [
+    "source",
+  ],
 );
 var _tangent = MXFunctionInvoke(
   "Tangent",
@@ -1070,6 +1286,10 @@ var _tangent = MXFunctionInvoke(
     position,
     vector,
   ),
+  [
+    "position",
+    "vector",
+  ],
 );
 var _tangent_fromAngle = MXFunctionInvoke(
   "Tangent.fromAngle",
@@ -1081,19 +1301,23 @@ var _tangent_fromAngle = MXFunctionInvoke(
     position,
     angle?.toDouble(),
   ),
+  [
+    "position",
+    "angle",
+  ],
 );
 var _pointerChange = MXFunctionInvoke(
-  "PointerChange",
-  ({String name, int index}) => MXPointerChange.parse(name, index),
-);
+    "PointerChange",
+    ({String name, int index}) => MXPointerChange.parse(name, index),
+    ["name", "index"]);
 var _pointerDeviceKind = MXFunctionInvoke(
-  "PointerDeviceKind",
-  ({String name, int index}) => MXPointerDeviceKind.parse(name, index),
-);
+    "PointerDeviceKind",
+    ({String name, int index}) => MXPointerDeviceKind.parse(name, index),
+    ["name", "index"]);
 var _pointerSignalKind = MXFunctionInvoke(
-  "PointerSignalKind",
-  ({String name, int index}) => MXPointerSignalKind.parse(name, index),
-);
+    "PointerSignalKind",
+    ({String name, int index}) => MXPointerSignalKind.parse(name, index),
+    ["name", "index"]);
 var _pointerData = MXFunctionInvoke(
   "PointerData",
   ({
@@ -1156,6 +1380,36 @@ var _pointerData = MXFunctionInvoke(
     scrollDeltaX: scrollDeltaX?.toDouble(),
     scrollDeltaY: scrollDeltaY?.toDouble(),
   ),
+  [
+    "timeStamp",
+    "change",
+    "kind",
+    "signalKind",
+    "device",
+    "pointerIdentifier",
+    "physicalX",
+    "physicalY",
+    "physicalDeltaX",
+    "physicalDeltaY",
+    "buttons",
+    "obscured",
+    "synthesized",
+    "pressure",
+    "pressureMin",
+    "pressureMax",
+    "distance",
+    "distanceMax",
+    "size",
+    "radiusMajor",
+    "radiusMinor",
+    "radiusMin",
+    "radiusMax",
+    "orientation",
+    "tilt",
+    "platformData",
+    "scrollDeltaX",
+    "scrollDeltaY",
+  ],
 );
 var _pointerDataPacket = MXFunctionInvoke(
   "PointerDataPacket",
@@ -1165,6 +1419,9 @@ var _pointerDataPacket = MXFunctionInvoke(
       PointerDataPacket(
     data: toListT<PointerData>(data),
   ),
+  [
+    "data",
+  ],
 );
 var _semanticsAction_tap =
     MXFunctionInvoke("SemanticsAction.tap", () => SemanticsAction.tap);
@@ -1269,15 +1526,16 @@ var _semanticsFlag_values =
 var _semanticsUpdateBuilder = MXFunctionInvoke(
   "SemanticsUpdateBuilder",
   () => SemanticsUpdateBuilder(),
+  [],
 );
 var _fontStyle = MXFunctionInvoke(
-  "FontStyle",
-  ({String name, int index}) => MXFontStyle.parse(name, index),
-);
+    "FontStyle",
+    ({String name, int index}) => MXFontStyle.parse(name, index),
+    ["name", "index"]);
 var _placeholderAlignment = MXFunctionInvoke(
-  "PlaceholderAlignment",
-  ({String name, int index}) => MXPlaceholderAlignment.parse(name, index),
-);
+    "PlaceholderAlignment",
+    ({String name, int index}) => MXPlaceholderAlignment.parse(name, index),
+    ["name", "index"]);
 var _fontWeight_w100 =
     MXFunctionInvoke("FontWeight.w100", () => FontWeight.w100);
 var _fontWeight_w200 =
@@ -1312,6 +1570,10 @@ var _fontFeature = MXFunctionInvoke(
     feature,
     value,
   ),
+  [
+    "feature",
+    "value",
+  ],
 );
 var _fontFeature_stylisticSet = MXFunctionInvoke(
   "FontFeature.stylisticSet",
@@ -1321,6 +1583,9 @@ var _fontFeature_stylisticSet = MXFunctionInvoke(
       FontFeature.stylisticSet(
     value,
   ),
+  [
+    "value",
+  ],
 );
 var _fontFeature_enable = MXFunctionInvoke(
   "FontFeature.enable",
@@ -1330,6 +1595,9 @@ var _fontFeature_enable = MXFunctionInvoke(
       FontFeature.enable(
     feature,
   ),
+  [
+    "feature",
+  ],
 );
 var _fontFeature_disable = MXFunctionInvoke(
   "FontFeature.disable",
@@ -1339,35 +1607,43 @@ var _fontFeature_disable = MXFunctionInvoke(
       FontFeature.disable(
     feature,
   ),
+  [
+    "feature",
+  ],
 );
 var _fontFeature_randomize = MXFunctionInvoke(
   "FontFeature.randomize",
   () => FontFeature.randomize(),
+  [],
 );
 var _fontFeature_slashedZero = MXFunctionInvoke(
   "FontFeature.slashedZero",
   () => FontFeature.slashedZero(),
+  [],
 );
 var _fontFeature_oldstyleFigures = MXFunctionInvoke(
   "FontFeature.oldstyleFigures",
   () => FontFeature.oldstyleFigures(),
+  [],
 );
 var _fontFeature_proportionalFigures = MXFunctionInvoke(
   "FontFeature.proportionalFigures",
   () => FontFeature.proportionalFigures(),
+  [],
 );
 var _fontFeature_tabularFigures = MXFunctionInvoke(
   "FontFeature.tabularFigures",
   () => FontFeature.tabularFigures(),
+  [],
 );
 var _textAlign = MXFunctionInvoke(
-  "TextAlign",
-  ({String name, int index}) => MXTextAlign.parse(name, index),
-);
+    "TextAlign",
+    ({String name, int index}) => MXTextAlign.parse(name, index),
+    ["name", "index"]);
 var _textBaseline = MXFunctionInvoke(
-  "TextBaseline",
-  ({String name, int index}) => MXTextBaseline.parse(name, index),
-);
+    "TextBaseline",
+    ({String name, int index}) => MXTextBaseline.parse(name, index),
+    ["name", "index"]);
 var _textDecoration_none =
     MXFunctionInvoke("TextDecoration.none", () => TextDecoration.none);
 var _textDecoration_underline = MXFunctionInvoke(
@@ -1384,11 +1660,14 @@ var _textDecoration_combine = MXFunctionInvoke(
       TextDecoration.combine(
     toListT<TextDecoration>(decorations),
   ),
+  [
+    "decorations",
+  ],
 );
 var _textDecorationStyle = MXFunctionInvoke(
-  "TextDecorationStyle",
-  ({String name, int index}) => MXTextDecorationStyle.parse(name, index),
-);
+    "TextDecorationStyle",
+    ({String name, int index}) => MXTextDecorationStyle.parse(name, index),
+    ["name", "index"]);
 var _textHeightBehavior = MXFunctionInvoke(
   "TextHeightBehavior",
   ({
@@ -1399,6 +1678,10 @@ var _textHeightBehavior = MXFunctionInvoke(
     applyHeightToFirstAscent: applyHeightToFirstAscent,
     applyHeightToLastDescent: applyHeightToLastDescent,
   ),
+  [
+    "applyHeightToFirstAscent",
+    "applyHeightToLastDescent",
+  ],
 );
 var _textHeightBehavior_fromEncoded = MXFunctionInvoke(
   "TextHeightBehavior.fromEncoded",
@@ -1408,6 +1691,9 @@ var _textHeightBehavior_fromEncoded = MXFunctionInvoke(
       TextHeightBehavior.fromEncoded(
     encoded,
   ),
+  [
+    "encoded",
+  ],
 );
 var _textStyle = MXFunctionInvoke(
   "TextStyle",
@@ -1453,6 +1739,27 @@ var _textStyle = MXFunctionInvoke(
     shadows: toListT<Shadow>(shadows),
     fontFeatures: toListT<FontFeature>(fontFeatures),
   ),
+  [
+    "color",
+    "decoration",
+    "decorationColor",
+    "decorationStyle",
+    "decorationThickness",
+    "fontWeight",
+    "fontStyle",
+    "textBaseline",
+    "fontFamily",
+    "fontFamilyFallback",
+    "fontSize",
+    "letterSpacing",
+    "wordSpacing",
+    "height",
+    "locale",
+    "background",
+    "foreground",
+    "shadows",
+    "fontFeatures",
+  ],
 );
 var _paragraphStyle = MXFunctionInvoke(
   "ParagraphStyle",
@@ -1484,6 +1791,20 @@ var _paragraphStyle = MXFunctionInvoke(
     ellipsis: ellipsis,
     locale: locale,
   ),
+  [
+    "textAlign",
+    "textDirection",
+    "maxLines",
+    "fontFamily",
+    "fontSize",
+    "height",
+    "textHeightBehavior",
+    "fontWeight",
+    "fontStyle",
+    "strutStyle",
+    "ellipsis",
+    "locale",
+  ],
 );
 var _strutStyle = MXFunctionInvoke(
   "StrutStyle",
@@ -1507,11 +1828,21 @@ var _strutStyle = MXFunctionInvoke(
     fontStyle: fontStyle,
     forceStrutHeight: forceStrutHeight,
   ),
+  [
+    "fontFamily",
+    "fontFamilyFallback",
+    "fontSize",
+    "height",
+    "leading",
+    "fontWeight",
+    "fontStyle",
+    "forceStrutHeight",
+  ],
 );
 var _textDirection = MXFunctionInvoke(
-  "TextDirection",
-  ({String name, int index}) => MXTextDirection.parse(name, index),
-);
+    "TextDirection",
+    ({String name, int index}) => MXTextDirection.parse(name, index),
+    ["name", "index"]);
 var _textBox_fromLTRBD = MXFunctionInvoke(
   "TextBox.fromLTRBD",
   ({
@@ -1528,11 +1859,18 @@ var _textBox_fromLTRBD = MXFunctionInvoke(
     bottom?.toDouble(),
     direction,
   ),
+  [
+    "left",
+    "top",
+    "right",
+    "bottom",
+    "direction",
+  ],
 );
 var _textAffinity = MXFunctionInvoke(
-  "TextAffinity",
-  ({String name, int index}) => MXTextAffinity.parse(name, index),
-);
+    "TextAffinity",
+    ({String name, int index}) => MXTextAffinity.parse(name, index),
+    ["name", "index"]);
 var _textPosition = MXFunctionInvoke(
   "TextPosition",
   ({
@@ -1543,6 +1881,10 @@ var _textPosition = MXFunctionInvoke(
     offset: offset,
     affinity: affinity,
   ),
+  [
+    "offset",
+    "affinity",
+  ],
 );
 var _textRange = MXFunctionInvoke(
   "TextRange",
@@ -1554,6 +1896,10 @@ var _textRange = MXFunctionInvoke(
     start: start,
     end: end,
   ),
+  [
+    "start",
+    "end",
+  ],
 );
 var _textRange_empty =
     MXFunctionInvoke("TextRange.empty", () => TextRange.empty);
@@ -1565,6 +1911,9 @@ var _textRange_collapsed = MXFunctionInvoke(
       TextRange.collapsed(
     offset,
   ),
+  [
+    "offset",
+  ],
 );
 var _paragraphConstraints = MXFunctionInvoke(
   "ParagraphConstraints",
@@ -1574,15 +1923,18 @@ var _paragraphConstraints = MXFunctionInvoke(
       ParagraphConstraints(
     width: width?.toDouble(),
   ),
+  [
+    "width",
+  ],
 );
 var _boxHeightStyle = MXFunctionInvoke(
-  "BoxHeightStyle",
-  ({String name, int index}) => MXBoxHeightStyle.parse(name, index),
-);
+    "BoxHeightStyle",
+    ({String name, int index}) => MXBoxHeightStyle.parse(name, index),
+    ["name", "index"]);
 var _boxWidthStyle = MXFunctionInvoke(
-  "BoxWidthStyle",
-  ({String name, int index}) => MXBoxWidthStyle.parse(name, index),
-);
+    "BoxWidthStyle",
+    ({String name, int index}) => MXBoxWidthStyle.parse(name, index),
+    ["name", "index"]);
 var _lineMetrics = MXFunctionInvoke(
   "LineMetrics",
   ({
@@ -1607,6 +1959,17 @@ var _lineMetrics = MXFunctionInvoke(
     baseline: baseline?.toDouble(),
     lineNumber: lineNumber,
   ),
+  [
+    "hardBreak",
+    "ascent",
+    "descent",
+    "unscaledAscent",
+    "height",
+    "width",
+    "left",
+    "baseline",
+    "lineNumber",
+  ],
 );
 var _paragraphBuilder = MXFunctionInvoke(
   "ParagraphBuilder",
@@ -1616,15 +1979,18 @@ var _paragraphBuilder = MXFunctionInvoke(
       ParagraphBuilder(
     style,
   ),
+  [
+    "style",
+  ],
 );
 var _tileMode = MXFunctionInvoke(
-  "TileMode",
-  ({String name, int index}) => MXTileMode.parse(name, index),
-);
+    "TileMode",
+    ({String name, int index}) => MXTileMode.parse(name, index),
+    ["name", "index"]);
 var _appLifecycleState = MXFunctionInvoke(
-  "AppLifecycleState",
-  ({String name, int index}) => MXAppLifecycleState.parse(name, index),
-);
+    "AppLifecycleState",
+    ({String name, int index}) => MXAppLifecycleState.parse(name, index),
+    ["name", "index"]);
 var _windowPadding_zero =
     MXFunctionInvoke("WindowPadding.zero", () => WindowPadding.zero);
 var _locale = MXFunctionInvoke(
@@ -1637,6 +2003,10 @@ var _locale = MXFunctionInvoke(
     languageCode,
     countryCode,
   ),
+  [
+    "languageCode",
+    "countryCode",
+  ],
 );
 var _locale_fromSubtags = MXFunctionInvoke(
   "Locale.fromSubtags",
@@ -1650,11 +2020,16 @@ var _locale_fromSubtags = MXFunctionInvoke(
     scriptCode: scriptCode,
     countryCode: countryCode,
   ),
+  [
+    "languageCode",
+    "scriptCode",
+    "countryCode",
+  ],
 );
 var _brightness = MXFunctionInvoke(
-  "Brightness",
-  ({String name, int index}) => MXBrightness.parse(name, index),
-);
+    "Brightness",
+    ({String name, int index}) => MXBrightness.parse(name, index),
+    ["name", "index"]);
 var _callbackHandle_fromRawHandle = MXFunctionInvoke(
   "CallbackHandle.fromRawHandle",
   ({
@@ -1663,6 +2038,9 @@ var _callbackHandle_fromRawHandle = MXFunctionInvoke(
       CallbackHandle.fromRawHandle(
     handle,
   ),
+  [
+    "handle",
+  ],
 );
 
 /// MX modified begin -delete function
@@ -1688,6 +2066,12 @@ var _imageShader = MXFunctionInvoke(
     tmy,
     matrix4,
   ),
+  [
+    "image",
+    "tmx",
+    "tmy",
+    "matrix4",
+  ],
 );
 
 /// MX modified begin -delete function
@@ -1700,9 +2084,9 @@ var _imageShader = MXFunctionInvoke(
 // );
 /// MX modified end
 var _framePhase = MXFunctionInvoke(
-  "FramePhase",
-  ({String name, int index}) => MXFramePhase.parse(name, index),
-);
+    "FramePhase",
+    ({String name, int index}) => MXFramePhase.parse(name, index),
+    ["name", "index"]);
 var _frameTiming = MXFunctionInvoke(
   "FrameTiming",
   ({
@@ -1711,6 +2095,9 @@ var _frameTiming = MXFunctionInvoke(
       FrameTiming(
     toListT<int>(timestamps),
   ),
+  [
+    "timestamps",
+  ],
 );
 var _deprecated = MXFunctionInvoke(
   "Deprecated",
@@ -1720,6 +2107,9 @@ var _deprecated = MXFunctionInvoke(
       Deprecated(
     message,
   ),
+  [
+    "message",
+  ],
 );
 var _provisional = MXFunctionInvoke(
   "Provisional",
@@ -1729,6 +2119,9 @@ var _provisional = MXFunctionInvoke(
       Provisional(
     message: message,
   ),
+  [
+    "message",
+  ],
 );
 var _pragma = MXFunctionInvoke(
   "pragma",
@@ -1740,6 +2133,10 @@ var _pragma = MXFunctionInvoke(
     name,
     options,
   ),
+  [
+    "name",
+    "options",
+  ],
 );
 var _bigInt_from = MXFunctionInvoke(
   "BigInt.from",
@@ -1749,6 +2146,9 @@ var _bigInt_from = MXFunctionInvoke(
       BigInt.from(
     value,
   ),
+  [
+    "value",
+  ],
 );
 var _bool_fromEnvironment = MXFunctionInvoke(
   "bool.fromEnvironment",
@@ -1760,6 +2160,10 @@ var _bool_fromEnvironment = MXFunctionInvoke(
     name,
     defaultValue: defaultValue,
   ),
+  [
+    "name",
+    "defaultValue",
+  ],
 );
 var _bool_hasEnvironment = MXFunctionInvoke(
   "bool.hasEnvironment",
@@ -1769,6 +2173,9 @@ var _bool_hasEnvironment = MXFunctionInvoke(
       bool.hasEnvironment(
     name,
   ),
+  [
+    "name",
+  ],
 );
 var _dateTime = MXFunctionInvoke(
   "DateTime",
@@ -1792,6 +2199,16 @@ var _dateTime = MXFunctionInvoke(
     millisecond,
     microsecond,
   ),
+  [
+    "year",
+    "month",
+    "day",
+    "hour",
+    "minute",
+    "second",
+    "millisecond",
+    "microsecond",
+  ],
 );
 var _dateTime_monday =
     MXFunctionInvoke("DateTime.monday", () => DateTime.monday);
@@ -1852,10 +2269,21 @@ var _dateTime_utc = MXFunctionInvoke(
     millisecond,
     microsecond,
   ),
+  [
+    "year",
+    "month",
+    "day",
+    "hour",
+    "minute",
+    "second",
+    "millisecond",
+    "microsecond",
+  ],
 );
 var _dateTime_now = MXFunctionInvoke(
   "DateTime.now",
   () => DateTime.now(),
+  [],
 );
 var _dateTime_fromMillisecondsSinceEpoch = MXFunctionInvoke(
   "DateTime.fromMillisecondsSinceEpoch",
@@ -1867,6 +2295,10 @@ var _dateTime_fromMillisecondsSinceEpoch = MXFunctionInvoke(
     millisecondsSinceEpoch,
     isUtc: isUtc,
   ),
+  [
+    "millisecondsSinceEpoch",
+    "isUtc",
+  ],
 );
 var _dateTime_fromMicrosecondsSinceEpoch = MXFunctionInvoke(
   "DateTime.fromMicrosecondsSinceEpoch",
@@ -1878,6 +2310,10 @@ var _dateTime_fromMicrosecondsSinceEpoch = MXFunctionInvoke(
     microsecondsSinceEpoch,
     isUtc: isUtc,
   ),
+  [
+    "microsecondsSinceEpoch",
+    "isUtc",
+  ],
 );
 var _double_nan = MXFunctionInvoke("double.nan", () => double.nan);
 var _double_infinity =
@@ -1906,6 +2342,14 @@ var _duration = MXFunctionInvoke(
     milliseconds: milliseconds,
     microseconds: microseconds,
   ),
+  [
+    "days",
+    "hours",
+    "minutes",
+    "seconds",
+    "milliseconds",
+    "microseconds",
+  ],
 );
 var _duration_microsecondsPerMillisecond = MXFunctionInvoke(
     "Duration.microsecondsPerMillisecond",
@@ -1942,6 +2386,7 @@ var _duration_zero = MXFunctionInvoke("Duration.zero", () => Duration.zero);
 var _error = MXFunctionInvoke(
   "Error",
   () => Error(),
+  [],
 );
 var _assertionError = MXFunctionInvoke(
   "AssertionError",
@@ -1951,18 +2396,24 @@ var _assertionError = MXFunctionInvoke(
       AssertionError(
     message,
   ),
+  [
+    "message",
+  ],
 );
 var _typeError = MXFunctionInvoke(
   "TypeError",
   () => TypeError(),
+  [],
 );
 var _castError = MXFunctionInvoke(
   "CastError",
   () => CastError(),
+  [],
 );
 var _nullThrownError = MXFunctionInvoke(
   "NullThrownError",
   () => NullThrownError(),
+  [],
 );
 var _argumentError = MXFunctionInvoke(
   "ArgumentError",
@@ -1972,6 +2423,9 @@ var _argumentError = MXFunctionInvoke(
       ArgumentError(
     message,
   ),
+  [
+    "message",
+  ],
 );
 var _argumentError_value = MXFunctionInvoke(
   "ArgumentError.value",
@@ -1985,6 +2439,11 @@ var _argumentError_value = MXFunctionInvoke(
     name,
     message,
   ),
+  [
+    "value",
+    "name",
+    "message",
+  ],
 );
 var _argumentError_notNull = MXFunctionInvoke(
   "ArgumentError.notNull",
@@ -1994,6 +2453,9 @@ var _argumentError_notNull = MXFunctionInvoke(
       ArgumentError.notNull(
     name,
   ),
+  [
+    "name",
+  ],
 );
 var _rangeError = MXFunctionInvoke(
   "RangeError",
@@ -2003,6 +2465,9 @@ var _rangeError = MXFunctionInvoke(
       RangeError(
     message,
   ),
+  [
+    "message",
+  ],
 );
 var _rangeError_index = MXFunctionInvoke(
   "RangeError.index",
@@ -2020,6 +2485,13 @@ var _rangeError_index = MXFunctionInvoke(
     message,
     length,
   ),
+  [
+    "index",
+    "indexable",
+    "name",
+    "message",
+    "length",
+  ],
 );
 var _rangeError_value = MXFunctionInvoke(
   "RangeError.value",
@@ -2033,6 +2505,11 @@ var _rangeError_value = MXFunctionInvoke(
     name,
     message,
   ),
+  [
+    "value",
+    "name",
+    "message",
+  ],
 );
 var _rangeError_range = MXFunctionInvoke(
   "RangeError.range",
@@ -2050,6 +2527,13 @@ var _rangeError_range = MXFunctionInvoke(
     name,
     message,
   ),
+  [
+    "invalidValue",
+    "minValue",
+    "maxValue",
+    "name",
+    "message",
+  ],
 );
 var _indexError = MXFunctionInvoke(
   "IndexError",
@@ -2067,10 +2551,18 @@ var _indexError = MXFunctionInvoke(
     message,
     length,
   ),
+  [
+    "invalidValue",
+    "indexable",
+    "name",
+    "message",
+    "length",
+  ],
 );
 var _fallThroughError = MXFunctionInvoke(
   "FallThroughError",
   () => FallThroughError(),
+  [],
 );
 var _abstractClassInstantiationError = MXFunctionInvoke(
   "AbstractClassInstantiationError",
@@ -2080,6 +2572,9 @@ var _abstractClassInstantiationError = MXFunctionInvoke(
       AbstractClassInstantiationError(
     className,
   ),
+  [
+    "className",
+  ],
 );
 var _noSuchMethodError = MXFunctionInvoke(
   "NoSuchMethodError",
@@ -2097,6 +2592,13 @@ var _noSuchMethodError = MXFunctionInvoke(
     toMapT<Symbol, dynamic>(namedArguments),
     toListT<dynamic>(existingArgumentNames),
   ),
+  [
+    "receiver",
+    "memberName",
+    "positionalArguments",
+    "namedArguments",
+    "existingArgumentNames",
+  ],
 );
 var _noSuchMethodError_withInvocation = MXFunctionInvoke(
   "NoSuchMethodError.withInvocation",
@@ -2108,6 +2610,10 @@ var _noSuchMethodError_withInvocation = MXFunctionInvoke(
     receiver,
     invocation,
   ),
+  [
+    "receiver",
+    "invocation",
+  ],
 );
 var _unsupportedError = MXFunctionInvoke(
   "UnsupportedError",
@@ -2117,6 +2623,9 @@ var _unsupportedError = MXFunctionInvoke(
       UnsupportedError(
     message,
   ),
+  [
+    "message",
+  ],
 );
 var _unimplementedError = MXFunctionInvoke(
   "UnimplementedError",
@@ -2126,6 +2635,9 @@ var _unimplementedError = MXFunctionInvoke(
       UnimplementedError(
     message,
   ),
+  [
+    "message",
+  ],
 );
 var _stateError = MXFunctionInvoke(
   "StateError",
@@ -2135,6 +2647,9 @@ var _stateError = MXFunctionInvoke(
       StateError(
     message,
   ),
+  [
+    "message",
+  ],
 );
 var _concurrentModificationError = MXFunctionInvoke(
   "ConcurrentModificationError",
@@ -2144,14 +2659,19 @@ var _concurrentModificationError = MXFunctionInvoke(
       ConcurrentModificationError(
     modifiedObject,
   ),
+  [
+    "modifiedObject",
+  ],
 );
 var _outOfMemoryError = MXFunctionInvoke(
   "OutOfMemoryError",
   () => OutOfMemoryError(),
+  [],
 );
 var _stackOverflowError = MXFunctionInvoke(
   "StackOverflowError",
   () => StackOverflowError(),
+  [],
 );
 var _cyclicInitializationError = MXFunctionInvoke(
   "CyclicInitializationError",
@@ -2161,6 +2681,9 @@ var _cyclicInitializationError = MXFunctionInvoke(
       CyclicInitializationError(
     variableName,
   ),
+  [
+    "variableName",
+  ],
 );
 var _exception = MXFunctionInvoke(
   "Exception",
@@ -2170,6 +2693,9 @@ var _exception = MXFunctionInvoke(
       Exception(
     message,
   ),
+  [
+    "message",
+  ],
 );
 var _formatException = MXFunctionInvoke(
   "FormatException",
@@ -2183,10 +2709,16 @@ var _formatException = MXFunctionInvoke(
     source,
     offset,
   ),
+  [
+    "message",
+    "source",
+    "offset",
+  ],
 );
 var _integerDivisionByZeroException = MXFunctionInvoke(
   "IntegerDivisionByZeroException",
   () => IntegerDivisionByZeroException(),
+  [],
 );
 var _expando = MXFunctionInvoke(
   "Expando",
@@ -2196,6 +2728,9 @@ var _expando = MXFunctionInvoke(
       Expando(
     name,
   ),
+  [
+    "name",
+  ],
 );
 var _int_fromEnvironment = MXFunctionInvoke(
   "int.fromEnvironment",
@@ -2207,6 +2742,10 @@ var _int_fromEnvironment = MXFunctionInvoke(
     name,
     defaultValue: defaultValue,
   ),
+  [
+    "name",
+    "defaultValue",
+  ],
 );
 var _invocation_method = MXFunctionInvoke(
   "Invocation.method",
@@ -2220,6 +2759,11 @@ var _invocation_method = MXFunctionInvoke(
     positionalArguments,
     toMapT<Symbol, Object>(namedArguments),
   ),
+  [
+    "memberName",
+    "positionalArguments",
+    "namedArguments",
+  ],
 );
 var _invocation_genericMethod = MXFunctionInvoke(
   "Invocation.genericMethod",
@@ -2235,6 +2779,12 @@ var _invocation_genericMethod = MXFunctionInvoke(
     positionalArguments,
     toMapT<Symbol, Object>(namedArguments),
   ),
+  [
+    "memberName",
+    "typeArguments",
+    "positionalArguments",
+    "namedArguments",
+  ],
 );
 var _invocation_getter = MXFunctionInvoke(
   "Invocation.getter",
@@ -2244,6 +2794,9 @@ var _invocation_getter = MXFunctionInvoke(
       Invocation.getter(
     name,
   ),
+  [
+    "name",
+  ],
 );
 var _invocation_setter = MXFunctionInvoke(
   "Invocation.setter",
@@ -2255,6 +2808,10 @@ var _invocation_setter = MXFunctionInvoke(
     memberName,
     argument,
   ),
+  [
+    "memberName",
+    "argument",
+  ],
 );
 var _iterable_generate = MXFunctionInvoke(
   "Iterable.generate",
@@ -2266,10 +2823,15 @@ var _iterable_generate = MXFunctionInvoke(
     count,
     null,
   ),
+  [
+    "count",
+    "generator",
+  ],
 );
 var _iterable_empty = MXFunctionInvoke(
   "Iterable.empty",
   () => Iterable.empty(),
+  [],
 );
 var _list = MXFunctionInvoke(
   "List",
@@ -2279,6 +2841,9 @@ var _list = MXFunctionInvoke(
       List(
     length,
   ),
+  [
+    "length",
+  ],
 );
 var _list_filled = MXFunctionInvoke(
   "List.filled",
@@ -2292,6 +2857,11 @@ var _list_filled = MXFunctionInvoke(
     fill,
     growable: growable,
   ),
+  [
+    "length",
+    "fill",
+    "growable",
+  ],
 );
 var _list_from = MXFunctionInvoke(
   "List.from",
@@ -2303,6 +2873,10 @@ var _list_from = MXFunctionInvoke(
     elements,
     growable: growable,
   ),
+  [
+    "elements",
+    "growable",
+  ],
 );
 var _list_of = MXFunctionInvoke(
   "List.of",
@@ -2314,6 +2888,10 @@ var _list_of = MXFunctionInvoke(
     elements,
     growable: growable,
   ),
+  [
+    "elements",
+    "growable",
+  ],
 );
 var _list_generate = MXFunctionInvoke(
   "List.generate",
@@ -2327,6 +2905,11 @@ var _list_generate = MXFunctionInvoke(
     null,
     growable: growable,
   ),
+  [
+    "length",
+    "generator",
+    "growable",
+  ],
 );
 var _list_unmodifiable = MXFunctionInvoke(
   "List.unmodifiable",
@@ -2336,6 +2919,9 @@ var _list_unmodifiable = MXFunctionInvoke(
       List.unmodifiable(
     elements,
   ),
+  [
+    "elements",
+  ],
 );
 var _list_copyRange = MXFunctionInvoke(
   "List.copyRange",
@@ -2353,6 +2939,13 @@ var _list_copyRange = MXFunctionInvoke(
     start,
     end,
   ),
+  [
+    "target",
+    "at",
+    "source",
+    "start",
+    "end",
+  ],
 );
 var _list_writeIterable = MXFunctionInvoke(
   "List.writeIterable",
@@ -2366,10 +2959,16 @@ var _list_writeIterable = MXFunctionInvoke(
     at,
     source,
   ),
+  [
+    "target",
+    "at",
+    "source",
+  ],
 );
 var _map = MXFunctionInvoke(
   "Map",
   () => Map(),
+  [],
 );
 var _map_from = MXFunctionInvoke(
   "Map.from",
@@ -2379,6 +2978,9 @@ var _map_from = MXFunctionInvoke(
       Map.from(
     toMapT<dynamic, dynamic>(other),
   ),
+  [
+    "other",
+  ],
 );
 var _map_of = MXFunctionInvoke(
   "Map.of",
@@ -2388,6 +2990,9 @@ var _map_of = MXFunctionInvoke(
       Map.of(
     toMapT<dynamic, dynamic>(other),
   ),
+  [
+    "other",
+  ],
 );
 var _map_unmodifiable = MXFunctionInvoke(
   "Map.unmodifiable",
@@ -2397,10 +3002,14 @@ var _map_unmodifiable = MXFunctionInvoke(
       Map.unmodifiable(
     toMapT<dynamic, dynamic>(other),
   ),
+  [
+    "other",
+  ],
 );
 var _map_identity = MXFunctionInvoke(
   "Map.identity",
   () => Map.identity(),
+  [],
 );
 var _map_fromIterable = MXFunctionInvoke(
   "Map.fromIterable",
@@ -2414,6 +3023,11 @@ var _map_fromIterable = MXFunctionInvoke(
     key: null,
     value: null,
   ),
+  [
+    "iterable",
+    "key",
+    "value",
+  ],
 );
 var _map_fromIterables = MXFunctionInvoke(
   "Map.fromIterables",
@@ -2425,6 +3039,10 @@ var _map_fromIterables = MXFunctionInvoke(
     keys,
     values,
   ),
+  [
+    "keys",
+    "values",
+  ],
 );
 var _map_fromEntries = MXFunctionInvoke(
   "Map.fromEntries",
@@ -2434,6 +3052,9 @@ var _map_fromEntries = MXFunctionInvoke(
       Map.fromEntries(
     entries,
   ),
+  [
+    "entries",
+  ],
 );
 var _mapEntry = MXFunctionInvoke(
   "MapEntry",
@@ -2445,6 +3066,10 @@ var _mapEntry = MXFunctionInvoke(
     key,
     value,
   ),
+  [
+    "key",
+    "value",
+  ],
 );
 var _regExp = MXFunctionInvoke(
   "RegExp",
@@ -2462,14 +3087,23 @@ var _regExp = MXFunctionInvoke(
     unicode: unicode,
     dotAll: dotAll,
   ),
+  [
+    "source",
+    "multiLine",
+    "caseSensitive",
+    "unicode",
+    "dotAll",
+  ],
 );
 var _set = MXFunctionInvoke(
   "Set",
   () => Set(),
+  [],
 );
 var _set_identity = MXFunctionInvoke(
   "Set.identity",
   () => Set.identity(),
+  [],
 );
 var _set_from = MXFunctionInvoke(
   "Set.from",
@@ -2479,6 +3113,9 @@ var _set_from = MXFunctionInvoke(
       Set.from(
     elements,
   ),
+  [
+    "elements",
+  ],
 );
 var _set_of = MXFunctionInvoke(
   "Set.of",
@@ -2488,6 +3125,9 @@ var _set_of = MXFunctionInvoke(
       Set.of(
     elements,
   ),
+  [
+    "elements",
+  ],
 );
 var _stackTrace_empty =
     MXFunctionInvoke("StackTrace.empty", () => StackTrace.empty);
@@ -2499,10 +3139,14 @@ var _stackTrace_fromString = MXFunctionInvoke(
       StackTrace.fromString(
     stackTraceString,
   ),
+  [
+    "stackTraceString",
+  ],
 );
 var _stopwatch = MXFunctionInvoke(
   "Stopwatch",
   () => Stopwatch(),
+  [],
 );
 var _string_fromCharCodes = MXFunctionInvoke(
   "String.fromCharCodes",
@@ -2516,6 +3160,11 @@ var _string_fromCharCodes = MXFunctionInvoke(
     start,
     end,
   ),
+  [
+    "charCodes",
+    "start",
+    "end",
+  ],
 );
 var _string_fromCharCode = MXFunctionInvoke(
   "String.fromCharCode",
@@ -2525,6 +3174,9 @@ var _string_fromCharCode = MXFunctionInvoke(
       String.fromCharCode(
     charCode,
   ),
+  [
+    "charCode",
+  ],
 );
 var _string_fromEnvironment = MXFunctionInvoke(
   "String.fromEnvironment",
@@ -2536,6 +3188,10 @@ var _string_fromEnvironment = MXFunctionInvoke(
     name,
     defaultValue: defaultValue,
   ),
+  [
+    "name",
+    "defaultValue",
+  ],
 );
 var _runes = MXFunctionInvoke(
   "Runes",
@@ -2545,6 +3201,9 @@ var _runes = MXFunctionInvoke(
       Runes(
     string,
   ),
+  [
+    "string",
+  ],
 );
 var _runeIterator = MXFunctionInvoke(
   "RuneIterator",
@@ -2554,6 +3213,9 @@ var _runeIterator = MXFunctionInvoke(
       RuneIterator(
     string,
   ),
+  [
+    "string",
+  ],
 );
 var _runeIterator_at = MXFunctionInvoke(
   "RuneIterator.at",
@@ -2565,6 +3227,10 @@ var _runeIterator_at = MXFunctionInvoke(
     string,
     index,
   ),
+  [
+    "string",
+    "index",
+  ],
 );
 var _stringBuffer = MXFunctionInvoke(
   "StringBuffer",
@@ -2574,6 +3240,9 @@ var _stringBuffer = MXFunctionInvoke(
       StringBuffer(
     content,
   ),
+  [
+    "content",
+  ],
 );
 var _symbol_unaryMinus =
     MXFunctionInvoke("Symbol.unaryMinus", () => Symbol.unaryMinus);
@@ -2586,6 +3255,9 @@ var _symbol = MXFunctionInvoke(
       Symbol(
     name,
   ),
+  [
+    "name",
+  ],
 );
 var _uri = MXFunctionInvoke(
   "Uri",
@@ -2611,6 +3283,17 @@ var _uri = MXFunctionInvoke(
     queryParameters: toMapT<String, dynamic>(queryParameters),
     fragment: fragment,
   ),
+  [
+    "scheme",
+    "userInfo",
+    "host",
+    "port",
+    "path",
+    "pathSegments",
+    "query",
+    "queryParameters",
+    "fragment",
+  ],
 );
 var _uri_http = MXFunctionInvoke(
   "Uri.http",
@@ -2624,6 +3307,11 @@ var _uri_http = MXFunctionInvoke(
     unencodedPath,
     toMapT<String, String>(queryParameters),
   ),
+  [
+    "authority",
+    "unencodedPath",
+    "queryParameters",
+  ],
 );
 var _uri_https = MXFunctionInvoke(
   "Uri.https",
@@ -2637,6 +3325,11 @@ var _uri_https = MXFunctionInvoke(
     unencodedPath,
     toMapT<String, String>(queryParameters),
   ),
+  [
+    "authority",
+    "unencodedPath",
+    "queryParameters",
+  ],
 );
 var _uri_file = MXFunctionInvoke(
   "Uri.file",
@@ -2648,6 +3341,10 @@ var _uri_file = MXFunctionInvoke(
     path,
     windows: windows,
   ),
+  [
+    "path",
+    "windows",
+  ],
 );
 var _uri_directory = MXFunctionInvoke(
   "Uri.directory",
@@ -2659,6 +3356,10 @@ var _uri_directory = MXFunctionInvoke(
     path,
     windows: windows,
   ),
+  [
+    "path",
+    "windows",
+  ],
 );
 var _uri_dataFromString = MXFunctionInvoke(
   "Uri.dataFromString",
@@ -2676,6 +3377,13 @@ var _uri_dataFromString = MXFunctionInvoke(
     parameters: toMapT<String, String>(parameters),
     base64: base64,
   ),
+  [
+    "content",
+    "mimeType",
+    "encoding",
+    "parameters",
+    "base64",
+  ],
 );
 var _uri_dataFromBytes = MXFunctionInvoke(
   "Uri.dataFromBytes",
@@ -2691,6 +3399,12 @@ var _uri_dataFromBytes = MXFunctionInvoke(
     parameters: toMapT<String, String>(parameters),
     percentEncoded: percentEncoded,
   ),
+  [
+    "bytes",
+    "mimeType",
+    "parameters",
+    "percentEncoded",
+  ],
 );
 var _uriData_fromString = MXFunctionInvoke(
   "UriData.fromString",
@@ -2708,6 +3422,13 @@ var _uriData_fromString = MXFunctionInvoke(
     parameters: toMapT<String, String>(parameters),
     base64: base64,
   ),
+  [
+    "content",
+    "mimeType",
+    "encoding",
+    "parameters",
+    "base64",
+  ],
 );
 var _uriData_fromBytes = MXFunctionInvoke(
   "UriData.fromBytes",
@@ -2723,6 +3444,12 @@ var _uriData_fromBytes = MXFunctionInvoke(
     parameters: toMapT<String, String>(parameters),
     percentEncoded: percentEncoded,
   ),
+  [
+    "bytes",
+    "mimeType",
+    "parameters",
+    "percentEncoded",
+  ],
 );
 var _uriData_fromUri = MXFunctionInvoke(
   "UriData.fromUri",
@@ -2732,6 +3459,9 @@ var _uriData_fromUri = MXFunctionInvoke(
       UriData.fromUri(
     uri,
   ),
+  [
+    "uri",
+  ],
 );
 
 class MXPointMode {

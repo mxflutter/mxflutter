@@ -28,9 +28,9 @@ Map<String, MXFunctionInvoke> registerListTileSeries() {
 }
 
 var _listTileStyle = MXFunctionInvoke(
-  "ListTileStyle",
-  ({String name, int index}) => MXListTileStyle.parse(name, index),
-);
+    "ListTileStyle",
+    ({String name, int index}) => MXListTileStyle.parse(name, index),
+    ["name", "index"]);
 var _listTileTheme = MXFunctionInvoke(
   "ListTileTheme",
   ({
@@ -65,9 +65,9 @@ var _listTileTheme = MXFunctionInvoke(
   ],
 );
 var _listTileControlAffinity = MXFunctionInvoke(
-  "ListTileControlAffinity",
-  ({String name, int index}) => MXListTileControlAffinity.parse(name, index),
-);
+    "ListTileControlAffinity",
+    ({String name, int index}) => MXListTileControlAffinity.parse(name, index),
+    ["name", "index"]);
 var _listTile = MXFunctionInvoke(
   "ListTile",
   ({

@@ -44,9 +44,9 @@ Map<String, MXFunctionInvoke> registerNavigatorSeries() {
 }
 
 var _routePopDisposition = MXFunctionInvoke(
-  "RoutePopDisposition",
-  ({String name, int index}) => MXRoutePopDisposition.parse(name, index),
-);
+    "RoutePopDisposition",
+    ({String name, int index}) => MXRoutePopDisposition.parse(name, index),
+    ["name", "index"]);
 var _routeSettings = MXFunctionInvoke(
   "RouteSettings",
   ({

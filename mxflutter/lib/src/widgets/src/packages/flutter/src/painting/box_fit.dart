@@ -19,9 +19,9 @@ Map<String, MXFunctionInvoke> registerBoxFitSeries() {
 }
 
 var _boxFit = MXFunctionInvoke(
-  "BoxFit",
-  ({String name, int index}) => MXBoxFit.parse(name, index),
-);
+    "BoxFit",
+    ({String name, int index}) => MXBoxFit.parse(name, index),
+    ["name", "index"]);
 var _fittedSizes = MXFunctionInvoke(
   "FittedSizes",
   ({

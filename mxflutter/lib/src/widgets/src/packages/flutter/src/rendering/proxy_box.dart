@@ -78,9 +78,9 @@ var _renderProxyBox = MXFunctionInvoke(
   ],
 );
 var _hitTestBehavior = MXFunctionInvoke(
-  "HitTestBehavior",
-  ({String name, int index}) => MXHitTestBehavior.parse(name, index),
-);
+    "HitTestBehavior",
+    ({String name, int index}) => MXHitTestBehavior.parse(name, index),
+    ["name", "index"]);
 var _renderConstrainedBox = MXFunctionInvoke(
   "RenderConstrainedBox",
   ({
@@ -376,9 +376,9 @@ var _renderPhysicalShape = MXFunctionInvoke(
   ],
 );
 var _decorationPosition = MXFunctionInvoke(
-  "DecorationPosition",
-  ({String name, int index}) => MXDecorationPosition.parse(name, index),
-);
+    "DecorationPosition",
+    ({String name, int index}) => MXDecorationPosition.parse(name, index),
+    ["name", "index"]);
 var _renderDecoratedBox = MXFunctionInvoke(
   "RenderDecoratedBox",
   ({

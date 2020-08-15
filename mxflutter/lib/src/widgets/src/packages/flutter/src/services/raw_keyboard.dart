@@ -29,13 +29,13 @@ Map<String, MXFunctionInvoke> registerRawKeyboardSeries() {
 }
 
 var _keyboardSide = MXFunctionInvoke(
-  "KeyboardSide",
-  ({String name, int index}) => MXKeyboardSide.parse(name, index),
-);
+    "KeyboardSide",
+    ({String name, int index}) => MXKeyboardSide.parse(name, index),
+    ["name", "index"]);
 var _modifierKey = MXFunctionInvoke(
-  "ModifierKey",
-  ({String name, int index}) => MXModifierKey.parse(name, index),
-);
+    "ModifierKey",
+    ({String name, int index}) => MXModifierKey.parse(name, index),
+    ["name", "index"]);
 var _rawKeyEvent_fromMessage = MXFunctionInvoke(
   "RawKeyEvent.fromMessage",
   ({

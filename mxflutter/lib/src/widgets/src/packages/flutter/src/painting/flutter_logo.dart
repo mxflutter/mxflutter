@@ -29,9 +29,9 @@ Map<String, MXFunctionInvoke> registerFlutterLogoSeries() {
 }
 
 var _flutterLogoStyle = MXFunctionInvoke(
-  "FlutterLogoStyle",
-  ({String name, int index}) => MXFlutterLogoStyle.parse(name, index),
-);
+    "FlutterLogoStyle",
+    ({String name, int index}) => MXFlutterLogoStyle.parse(name, index),
+    ["name", "index"]);
 var _flutterLogoDecoration = MXFunctionInvoke(
   "FlutterLogoDecoration",
   ({

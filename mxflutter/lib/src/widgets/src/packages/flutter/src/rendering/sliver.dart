@@ -38,9 +38,9 @@ Map<String, MXFunctionInvoke> registerSliverSeries() {
 }
 
 var _growthDirection = MXFunctionInvoke(
-  "GrowthDirection",
-  ({String name, int index}) => MXGrowthDirection.parse(name, index),
-);
+    "GrowthDirection",
+    ({String name, int index}) => MXGrowthDirection.parse(name, index),
+    ["name", "index"]);
 var _sliverConstraints = MXFunctionInvoke(
   "SliverConstraints",
   ({

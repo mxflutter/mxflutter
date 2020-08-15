@@ -20,9 +20,9 @@ Map<String, MXFunctionInvoke> registerSnackBarThemeSeries() {
 }
 
 var _snackBarBehavior = MXFunctionInvoke(
-  "SnackBarBehavior",
-  ({String name, int index}) => MXSnackBarBehavior.parse(name, index),
-);
+    "SnackBarBehavior",
+    ({String name, int index}) => MXSnackBarBehavior.parse(name, index),
+    ["name", "index"]);
 var _snackBarThemeData = MXFunctionInvoke(
   "SnackBarThemeData",
   ({

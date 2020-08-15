@@ -28,10 +28,10 @@ Map<String, MXFunctionInvoke> registerPlatformViewSeries() {
 }
 
 var _platformViewHitTestBehavior = MXFunctionInvoke(
-  "PlatformViewHitTestBehavior",
-  ({String name, int index}) =>
-      MXPlatformViewHitTestBehavior.parse(name, index),
-);
+    "PlatformViewHitTestBehavior",
+    ({String name, int index}) =>
+        MXPlatformViewHitTestBehavior.parse(name, index),
+    ["name", "index"]);
 var _renderAndroidView = MXFunctionInvoke(
   "RenderAndroidView",
   ({

@@ -23,13 +23,13 @@ Map<String, MXFunctionInvoke> registerLocalizationsSeries() {
 }
 
 var _datePickerDateTimeOrder = MXFunctionInvoke(
-  "DatePickerDateTimeOrder",
-  ({String name, int index}) => MXDatePickerDateTimeOrder.parse(name, index),
-);
+    "DatePickerDateTimeOrder",
+    ({String name, int index}) => MXDatePickerDateTimeOrder.parse(name, index),
+    ["name", "index"]);
 var _datePickerDateOrder = MXFunctionInvoke(
-  "DatePickerDateOrder",
-  ({String name, int index}) => MXDatePickerDateOrder.parse(name, index),
-);
+    "DatePickerDateOrder",
+    ({String name, int index}) => MXDatePickerDateOrder.parse(name, index),
+    ["name", "index"]);
 var _defaultCupertinoLocalizations = MXFunctionInvoke(
   "DefaultCupertinoLocalizations",
   () => DefaultCupertinoLocalizations(),

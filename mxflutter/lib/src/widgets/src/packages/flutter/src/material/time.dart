@@ -27,9 +27,9 @@ Map<String, MXFunctionInvoke> registerTimeSeries() {
 }
 
 var _dayPeriod = MXFunctionInvoke(
-  "DayPeriod",
-  ({String name, int index}) => MXDayPeriod.parse(name, index),
-);
+    "DayPeriod",
+    ({String name, int index}) => MXDayPeriod.parse(name, index),
+    ["name", "index"]);
 var _timeOfDay = MXFunctionInvoke(
   "TimeOfDay",
   ({
@@ -69,13 +69,13 @@ var _timeOfDay_fromDateTime = MXFunctionInvoke(
   ],
 );
 var _timeOfDayFormat = MXFunctionInvoke(
-  "TimeOfDayFormat",
-  ({String name, int index}) => MXTimeOfDayFormat.parse(name, index),
-);
+    "TimeOfDayFormat",
+    ({String name, int index}) => MXTimeOfDayFormat.parse(name, index),
+    ["name", "index"]);
 var _hourFormat = MXFunctionInvoke(
-  "HourFormat",
-  ({String name, int index}) => MXHourFormat.parse(name, index),
-);
+    "HourFormat",
+    ({String name, int index}) => MXHourFormat.parse(name, index),
+    ["name", "index"]);
 
 class MXDayPeriod {
   static DayPeriod parse(String name, int index) {
