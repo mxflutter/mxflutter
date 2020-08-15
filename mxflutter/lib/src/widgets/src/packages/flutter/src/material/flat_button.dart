@@ -117,14 +117,18 @@ var _flatButton_icon = MXFunctionInvoke(
     Brightness colorBrightness,
     EdgeInsetsGeometry padding,
     ShapeBorder shape,
-          /// MX modified begin
-      Clip clipBehavior = Clip.none,
-      /// MX modified begin
-      FocusNode focusNode,
-      /// MX modified begin
-      bool autofocus = false,
-      /// MX modified begin
-          MaterialTapTargetSize materialTapTargetSize,
+
+    /// MX modified begin
+    Clip clipBehavior = Clip.none,
+
+    /// MX modified begin
+    FocusNode focusNode,
+
+    /// MX modified begin
+    bool autofocus = false,
+
+    /// MX modified begin
+    MaterialTapTargetSize materialTapTargetSize,
     Widget icon,
     Widget label,
   }) =>

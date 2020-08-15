@@ -22,9 +22,11 @@ var _defaultShaderWarmUp = MXFunctionInvoke(
   "DefaultShaderWarmUp",
   ({
     dynamic drawCallSpacing = 0.0,
-      /// MX modified begin -add ui.
-      ui.Size canvasSize = const ui.Size(100.0, 100.0),
-      /// MX modified end
+
+    /// MX modified begin -add ui.
+    ui.Size canvasSize = const ui.Size(100.0, 100.0),
+
+    /// MX modified end
   }) =>
       DefaultShaderWarmUp(
     drawCallSpacing: drawCallSpacing?.toDouble(),

@@ -34,9 +34,11 @@ var _fadeInImage = MXFunctionInvoke(
     dynamic imageErrorBuilder,
     bool excludeFromSemantics = false,
     String imageSemanticLabel,
-      /// MX modified begin add const
-      Duration fadeOutDuration = const Duration(milliseconds: 300),
-      /// MX modified end
+
+    /// MX modified begin add const
+    Duration fadeOutDuration = const Duration(milliseconds: 300),
+
+    /// MX modified end
     Curve fadeOutCurve = Curves.easeOut,
     Duration fadeInDuration = const Duration(milliseconds: 700),
     Curve fadeInCurve = Curves.easeIn,

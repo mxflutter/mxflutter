@@ -199,8 +199,10 @@ Map<String, MXFunctionInvoke> registerIconsSeries() {
   m[_icons_child_care.funName] = _icons_child_care;
   m[_icons_child_friendly.funName] = _icons_child_friendly;
   m[_icons_chrome_reader_mode.funName] = _icons_chrome_reader_mode;
+
   /// MX modified start
   m[_icons_class_.funName] = _icons_class_;
+
   /// MX modified end
   m[_icons_clear.funName] = _icons_clear;
   m[_icons_clear_all.funName] = _icons_clear_all;

@@ -41,13 +41,13 @@ var _cupertinoTabScaffold = MXFunctionInvoke(
     CupertinoTabController controller,
     Color backgroundColor,
     bool resizeToAvoidBottomInset = true,
-  // MX modified 增加了children
-  dynamic children,
+    // MX modified 增加了children
+    dynamic children,
   }) =>
       CupertinoTabScaffold(
     key: key,
     tabBar: tabBar,
-   // MX modified 增加了tabBuilder参数
+    // MX modified 增加了tabBuilder参数
     tabBuilder: (BuildContext context, int index) {
       List<Widget> list = toListT<Widget>(children);
       return list[index];

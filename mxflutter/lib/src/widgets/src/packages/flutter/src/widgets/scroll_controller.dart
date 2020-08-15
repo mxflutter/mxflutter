@@ -82,9 +82,9 @@ var _scrollController_animateTo = MXFunctionInvoke(
     Curve curve,
   }) =>
       mirrorObj.animateTo(
-        value?.toDouble(),
-        duration: duration,
-        curve: curve,
-      ),
+    value?.toDouble(),
+    duration: duration,
+    curve: curve,
+  ),
 );
 // MX modified end

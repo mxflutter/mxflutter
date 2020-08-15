@@ -98,8 +98,8 @@ var _cupertinoTextField = MXFunctionInvoke(
     ui.Radius cursorRadius = const Radius.circular(2.0),
     ui.Color cursorColor,
     // MX modified begin -add ui.
-    ui.BoxHeightStyle selectionHeightStyle =  ui.BoxHeightStyle.tight,
-    ui.BoxWidthStyle selectionWidthStyle =  ui.BoxWidthStyle.tight,
+    ui.BoxHeightStyle selectionHeightStyle = ui.BoxHeightStyle.tight,
+    ui.BoxWidthStyle selectionWidthStyle = ui.BoxWidthStyle.tight,
     // MX modified end
     ui.Brightness keyboardAppearance,
     EdgeInsets scrollPadding = const EdgeInsets.all(20.0),

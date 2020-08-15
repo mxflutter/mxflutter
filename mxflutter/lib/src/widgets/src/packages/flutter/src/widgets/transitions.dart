@@ -304,31 +304,30 @@ var _animatedBuilder = MXFunctionInvoke(
     dynamic animation,
     dynamic builder,
     Widget child,
-          // MX modified begin
-      dynamic widget,
-      // MX modified end
+    // MX modified begin
+    dynamic widget,
+    // MX modified end
   }) =>
       AnimatedBuilder(
     key: key,
     animation: animation,
-     // MX modified begin
-      builder: (BuildContext context, Widget child) {
-        if (builder != null) {
-          ///TODO:
-          return null;
-        } else {
-          String targetString = '\$value';
-          var context = {
-            "sin": math.sin,
-            "cos": math.cos,
-            "\$value": animation.value?.toDouble(),
-          };
-          Map widgetMap =
-              replaceSpecificValue(widget, targetString, context);
-          return MXMirrorFunc.getInstance().jsonToDartObj(widgetMap);
-        }
-      },
-      // MX modified end
+    // MX modified begin
+    builder: (BuildContext context, Widget child) {
+      if (builder != null) {
+        ///TODO:
+        return null;
+      } else {
+        String targetString = '\$value';
+        var context = {
+          "sin": math.sin,
+          "cos": math.cos,
+          "\$value": animation.value?.toDouble(),
+        };
+        Map widgetMap = replaceSpecificValue(widget, targetString, context);
+        return MXMirrorFunc.getInstance().jsonToDartObj(widgetMap);
+      }
+    },
+    // MX modified end
     child: child,
   ),
   [
@@ -341,21 +340,21 @@ var _animatedBuilder = MXFunctionInvoke(
 
 // MX modified begin
 Map replaceSpecificValue(Map map, String targetValue, dynamic context) {
-    Map nMap = <String, dynamic>{};
-    if (map != null) {
-      map.forEach((key, value) {
-        if (value is Map) {
-          nMap[key] = replaceSpecificValue(value, targetValue, context);
-        } else if (value.toString().contains(targetValue)) {
-          final evaluator = const ExpressionEvaluator();
-          Expression expression = Expression.parse(value);
-          var replaceValue = evaluator.eval(expression, context);
-          nMap[key] = replaceValue;
-        } else {
-          nMap[key] = value;
-        }
-      });
-    }
-    return nMap;
+  Map nMap = <String, dynamic>{};
+  if (map != null) {
+    map.forEach((key, value) {
+      if (value is Map) {
+        nMap[key] = replaceSpecificValue(value, targetValue, context);
+      } else if (value.toString().contains(targetValue)) {
+        final evaluator = const ExpressionEvaluator();
+        Expression expression = Expression.parse(value);
+        var replaceValue = evaluator.eval(expression, context);
+        nMap[key] = replaceValue;
+      } else {
+        nMap[key] = value;
+      }
+    });
   }
+  return nMap;
+}
 // MX modified end

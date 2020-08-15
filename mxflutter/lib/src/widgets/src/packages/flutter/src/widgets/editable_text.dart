@@ -133,10 +133,12 @@ var _editableText = MXFunctionInvoke(
     bool cursorOpacityAnimates = false,
     ui.Offset cursorOffset,
     bool paintCursorAboveText = false,
-  /// MX modified begin 增加UI.
-      ui.BoxHeightStyle selectionHeightStyle =  ui.BoxHeightStyle.tight,
-      ui.BoxWidthStyle selectionWidthStyle =  ui.BoxWidthStyle.tight,
-      /// MX modified end
+
+    /// MX modified begin 增加UI.
+    ui.BoxHeightStyle selectionHeightStyle = ui.BoxHeightStyle.tight,
+    ui.BoxWidthStyle selectionWidthStyle = ui.BoxWidthStyle.tight,
+
+    /// MX modified end
     EdgeInsets scrollPadding = const EdgeInsets.all(20.0),
     ui.Brightness keyboardAppearance = Brightness.light,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,

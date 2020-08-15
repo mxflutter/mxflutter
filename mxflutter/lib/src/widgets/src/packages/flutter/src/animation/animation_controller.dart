@@ -52,18 +52,18 @@ var _animationController = MXFunctionInvoke(
     TickerProvider vsync,
   }) =>
       AnimationController(
-      value: value?.toDouble(),
-      duration: duration,
-      reverseDuration: reverseDuration,
-      debugLabel: debugLabel,
-      lowerBound: lowerBound?.toDouble(),
-      upperBound: upperBound?.toDouble(),
-      animationBehavior: animationBehavior,
-      // MX modified begin
-      vsync: _animationController.buildOwner.state,
-      // MX modified end
-    ),
- [
+    value: value?.toDouble(),
+    duration: duration,
+    reverseDuration: reverseDuration,
+    debugLabel: debugLabel,
+    lowerBound: lowerBound?.toDouble(),
+    upperBound: upperBound?.toDouble(),
+    animationBehavior: animationBehavior,
+    // MX modified begin
+    vsync: _animationController.buildOwner.state,
+    // MX modified end
+  ),
+  [
     "value",
     "duration",
     "reverseDuration",
@@ -145,9 +145,7 @@ var _animtionController_drive = MXFunctionInvoke(
     AnimationController mirrorObj,
     Animatable animatable,
   }) =>
-      mirrorObj.drive(
-        animatable
-      ),
+      mirrorObj.drive(animatable),
 );
 
 var _animtionController_dispose = MXFunctionInvoke(
