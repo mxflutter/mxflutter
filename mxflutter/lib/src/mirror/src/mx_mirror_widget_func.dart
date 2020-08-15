@@ -9,17 +9,6 @@ import 'package:mxflutter/src/mx_json_state_widget.dart';
 void registerBuilderWidgetFunc() {
   // mx_dart_sdk
   MXMirrorFunc.getInstance().registerBizFunction(registerMxDartSdkSeries());
-  
-  //TODO: 待删除
-  // Image
-//  MXMirrorFunc.getInstance().registerBizFunction(registerImageSeriesOld());
-//
-//  // Meterial
-//  MXMirrorFunc.getInstance().registerBizFunction(registerMaterialSeriesOld());
-//
-//  // Layout
-//  MXMirrorFunc.getInstance().registerBizFunction(registerLayoutSeriesOld());
-
 
   // flutter/animation
   MXMirrorFunc.getInstance().registerBizFunction(registerAnimationLibrarySeries());
