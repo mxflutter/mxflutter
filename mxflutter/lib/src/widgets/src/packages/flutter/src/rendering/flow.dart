@@ -12,7 +12,6 @@ import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFlowSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,23 +19,24 @@ Map<String, MXFunctionInvoke> registerFlowSeries() {
   m[_renderFlow.funName] = _renderFlow;
   return m;
 }
+
 var _flowParentData = MXFunctionInvoke(
-    "FlowParentData",
-    (
-    ) =>
-      FlowParentData(
-    ),
+  "FlowParentData",
+  () => FlowParentData(),
+  [],
 );
 var _renderFlow = MXFunctionInvoke(
-    "RenderFlow",
-    (
-      {
-      dynamic children,
-      FlowDelegate delegate,
-      }
-    ) =>
+  "RenderFlow",
+  ({
+    dynamic children,
+    FlowDelegate delegate,
+  }) =>
       RenderFlow(
-      children: toListT<RenderBox>(children),
-      delegate: delegate,
-    ),
+    children: toListT<RenderBox>(children),
+    delegate: delegate,
+  ),
+  [
+    "children",
+    "delegate",
+  ],
 );

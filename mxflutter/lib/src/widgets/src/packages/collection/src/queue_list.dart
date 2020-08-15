@@ -8,7 +8,6 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:collection/src/queue_list.dart';
 import 'dart:collection';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerQueueListSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -16,25 +15,28 @@ Map<String, MXFunctionInvoke> registerQueueListSeries() {
   m[_queueList_from.funName] = _queueList_from;
   return m;
 }
+
 var _queueList = MXFunctionInvoke(
-    "QueueList",
-    (
-      {
-      int initialCapacity,
-      }
-    ) =>
+  "QueueList",
+  ({
+    int initialCapacity,
+  }) =>
       QueueList(
-      initialCapacity,
-    ),
+    initialCapacity,
+  ),
+  [
+    "initialCapacity",
+  ],
 );
 var _queueList_from = MXFunctionInvoke(
   "QueueList.from",
-    (
-      {
-      Iterable<dynamic> source,
-      }
-    ) =>
+  ({
+    Iterable<dynamic> source,
+  }) =>
       QueueList.from(
-      source,
-    ),
+    source,
+  ),
+  [
+    "source",
+  ],
 );

@@ -30,7 +30,6 @@ import 'src/foundation/stack_frame.dart';
 import 'src/foundation/synchronous_future.dart';
 import 'src/foundation/unicode.dart';
 
-
 Map<String, MXFunctionInvoke> registerFoundationLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerAnnotationsSeries());

@@ -14,29 +14,34 @@ import 'package:flutter/src/widgets/icon_theme.dart';
 import 'package:flutter/src/widgets/icon_theme_data.dart';
 import 'package:flutter/src/widgets/image.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerImageIconSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_imageIcon.funName] = _imageIcon;
   return m;
 }
+
 var _imageIcon = MXFunctionInvoke(
-    "ImageIcon",
-    (
-      {
-      ImageProvider<dynamic> image,
-      Key key,
-      dynamic size,
-      Color color,
-      String semanticLabel,
-      }
-    ) =>
+  "ImageIcon",
+  ({
+    ImageProvider<dynamic> image,
+    Key key,
+    dynamic size,
+    Color color,
+    String semanticLabel,
+  }) =>
       ImageIcon(
-      image,
-      key: key,
-      size: size?.toDouble(),
-      color: color,
-      semanticLabel: semanticLabel,
-    ),
+    image,
+    key: key,
+    size: size?.toDouble(),
+    color: color,
+    semanticLabel: semanticLabel,
+  ),
+  [
+    "image",
+    "key",
+    "size",
+    "color",
+    "semanticLabel",
+  ],
 );

@@ -15,21 +15,22 @@ import 'package:flutter/src/painting/circle_border.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 import 'package:flutter/src/painting/rounded_rectangle_border.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStadiumBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_stadiumBorder.funName] = _stadiumBorder;
   return m;
 }
+
 var _stadiumBorder = MXFunctionInvoke(
-    "StadiumBorder",
-    (
-      {
-      BorderSide side = BorderSide.none,
-      }
-    ) =>
+  "StadiumBorder",
+  ({
+    BorderSide side = BorderSide.none,
+  }) =>
       StadiumBorder(
-      side: side,
-    ),
+    side: side,
+  ),
+  [
+    "side",
+  ],
 );

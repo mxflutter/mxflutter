@@ -12,7 +12,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/button_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerButtonBarThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,45 +19,58 @@ Map<String, MXFunctionInvoke> registerButtonBarThemeSeries() {
   m[_buttonBarTheme.funName] = _buttonBarTheme;
   return m;
 }
+
 var _buttonBarThemeData = MXFunctionInvoke(
-    "ButtonBarThemeData",
-    (
-      {
-      MainAxisAlignment alignment,
-      MainAxisSize mainAxisSize,
-      ButtonTextTheme buttonTextTheme,
-      dynamic buttonMinWidth,
-      dynamic buttonHeight,
-      EdgeInsetsGeometry buttonPadding,
-      bool buttonAlignedDropdown,
-      ButtonBarLayoutBehavior layoutBehavior,
-      VerticalDirection overflowDirection,
-      }
-    ) =>
+  "ButtonBarThemeData",
+  ({
+    MainAxisAlignment alignment,
+    MainAxisSize mainAxisSize,
+    ButtonTextTheme buttonTextTheme,
+    dynamic buttonMinWidth,
+    dynamic buttonHeight,
+    EdgeInsetsGeometry buttonPadding,
+    bool buttonAlignedDropdown,
+    ButtonBarLayoutBehavior layoutBehavior,
+    VerticalDirection overflowDirection,
+  }) =>
       ButtonBarThemeData(
-      alignment: alignment,
-      mainAxisSize: mainAxisSize,
-      buttonTextTheme: buttonTextTheme,
-      buttonMinWidth: buttonMinWidth?.toDouble(),
-      buttonHeight: buttonHeight?.toDouble(),
-      buttonPadding: buttonPadding,
-      buttonAlignedDropdown: buttonAlignedDropdown,
-      layoutBehavior: layoutBehavior,
-      overflowDirection: overflowDirection,
-    ),
+    alignment: alignment,
+    mainAxisSize: mainAxisSize,
+    buttonTextTheme: buttonTextTheme,
+    buttonMinWidth: buttonMinWidth?.toDouble(),
+    buttonHeight: buttonHeight?.toDouble(),
+    buttonPadding: buttonPadding,
+    buttonAlignedDropdown: buttonAlignedDropdown,
+    layoutBehavior: layoutBehavior,
+    overflowDirection: overflowDirection,
+  ),
+  [
+    "alignment",
+    "mainAxisSize",
+    "buttonTextTheme",
+    "buttonMinWidth",
+    "buttonHeight",
+    "buttonPadding",
+    "buttonAlignedDropdown",
+    "layoutBehavior",
+    "overflowDirection",
+  ],
 );
 var _buttonBarTheme = MXFunctionInvoke(
-    "ButtonBarTheme",
-    (
-      {
-      Key key,
-      ButtonBarThemeData data,
-      Widget child,
-      }
-    ) =>
+  "ButtonBarTheme",
+  ({
+    Key key,
+    ButtonBarThemeData data,
+    Widget child,
+  }) =>
       ButtonBarTheme(
-      key: key,
-      data: data,
-      child: child,
-    ),
+    key: key,
+    data: data,
+    child: child,
+  ),
+  [
+    "key",
+    "data",
+    "child",
+  ],
 );

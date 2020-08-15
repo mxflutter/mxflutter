@@ -21,41 +21,48 @@ import 'package:flutter/src/painting/gradient.dart';
 import 'package:flutter/src/painting/image_provider.dart';
 import 'package:flutter/src/painting/rounded_rectangle_border.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerShapeDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_shapeDecoration.funName] = _shapeDecoration;
-  m[_shapeDecoration_fromBoxDecoration.funName] = _shapeDecoration_fromBoxDecoration;
+  m[_shapeDecoration_fromBoxDecoration.funName] =
+      _shapeDecoration_fromBoxDecoration;
   return m;
 }
+
 var _shapeDecoration = MXFunctionInvoke(
-    "ShapeDecoration",
-    (
-      {
-      Color color,
-      DecorationImage image,
-      Gradient gradient,
-      dynamic shadows,
-      ShapeBorder shape,
-      }
-    ) =>
+  "ShapeDecoration",
+  ({
+    Color color,
+    DecorationImage image,
+    Gradient gradient,
+    dynamic shadows,
+    ShapeBorder shape,
+  }) =>
       ShapeDecoration(
-      color: color,
-      image: image,
-      gradient: gradient,
-      shadows: toListT<BoxShadow>(shadows),
-      shape: shape,
-    ),
+    color: color,
+    image: image,
+    gradient: gradient,
+    shadows: toListT<BoxShadow>(shadows),
+    shape: shape,
+  ),
+  [
+    "color",
+    "image",
+    "gradient",
+    "shadows",
+    "shape",
+  ],
 );
 var _shapeDecoration_fromBoxDecoration = MXFunctionInvoke(
   "ShapeDecoration.fromBoxDecoration",
-    (
-      {
-      BoxDecoration source,
-      }
-    ) =>
+  ({
+    BoxDecoration source,
+  }) =>
       ShapeDecoration.fromBoxDecoration(
-      source,
-    ),
+    source,
+  ),
+  [
+    "source",
+  ],
 );

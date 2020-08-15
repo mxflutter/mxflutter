@@ -9,7 +9,6 @@ import 'package:typed_data/typed_buffers.dart';
 import 'dart:collection';
 import 'dart:typed_data';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTypedBuffersSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -28,146 +27,160 @@ Map<String, MXFunctionInvoke> registerTypedBuffersSeries() {
   m[_float32x4Buffer.funName] = _float32x4Buffer;
   return m;
 }
+
 var _uint8Buffer = MXFunctionInvoke(
-    "Uint8Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Uint8Buffer",
+  ({
+    int initialLength,
+  }) =>
       Uint8Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _int8Buffer = MXFunctionInvoke(
-    "Int8Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Int8Buffer",
+  ({
+    int initialLength,
+  }) =>
       Int8Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _uint8ClampedBuffer = MXFunctionInvoke(
-    "Uint8ClampedBuffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Uint8ClampedBuffer",
+  ({
+    int initialLength,
+  }) =>
       Uint8ClampedBuffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _uint16Buffer = MXFunctionInvoke(
-    "Uint16Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Uint16Buffer",
+  ({
+    int initialLength,
+  }) =>
       Uint16Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _int16Buffer = MXFunctionInvoke(
-    "Int16Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Int16Buffer",
+  ({
+    int initialLength,
+  }) =>
       Int16Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _uint32Buffer = MXFunctionInvoke(
-    "Uint32Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Uint32Buffer",
+  ({
+    int initialLength,
+  }) =>
       Uint32Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _int32Buffer = MXFunctionInvoke(
-    "Int32Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Int32Buffer",
+  ({
+    int initialLength,
+  }) =>
       Int32Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _uint64Buffer = MXFunctionInvoke(
-    "Uint64Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Uint64Buffer",
+  ({
+    int initialLength,
+  }) =>
       Uint64Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _int64Buffer = MXFunctionInvoke(
-    "Int64Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Int64Buffer",
+  ({
+    int initialLength,
+  }) =>
       Int64Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _float32Buffer = MXFunctionInvoke(
-    "Float32Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Float32Buffer",
+  ({
+    int initialLength,
+  }) =>
       Float32Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _float64Buffer = MXFunctionInvoke(
-    "Float64Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Float64Buffer",
+  ({
+    int initialLength,
+  }) =>
       Float64Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _int32x4Buffer = MXFunctionInvoke(
-    "Int32x4Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Int32x4Buffer",
+  ({
+    int initialLength,
+  }) =>
       Int32x4Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );
 var _float32x4Buffer = MXFunctionInvoke(
-    "Float32x4Buffer",
-    (
-      {
-      int initialLength,
-      }
-    ) =>
+  "Float32x4Buffer",
+  ({
+    int initialLength,
+  }) =>
       Float32x4Buffer(
-      initialLength,
-    ),
+    initialLength,
+  ),
+  [
+    "initialLength",
+  ],
 );

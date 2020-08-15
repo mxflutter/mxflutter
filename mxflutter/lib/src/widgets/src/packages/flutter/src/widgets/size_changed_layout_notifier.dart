@@ -10,7 +10,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/notification_listener.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSizeChangedLayoutNotifierSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,23 +17,24 @@ Map<String, MXFunctionInvoke> registerSizeChangedLayoutNotifierSeries() {
   m[_sizeChangedLayoutNotifier.funName] = _sizeChangedLayoutNotifier;
   return m;
 }
+
 var _sizeChangedLayoutNotification = MXFunctionInvoke(
-    "SizeChangedLayoutNotification",
-    (
-    ) =>
-      SizeChangedLayoutNotification(
-    ),
+  "SizeChangedLayoutNotification",
+  () => SizeChangedLayoutNotification(),
+  [],
 );
 var _sizeChangedLayoutNotifier = MXFunctionInvoke(
-    "SizeChangedLayoutNotifier",
-    (
-      {
-      Key key,
-      Widget child,
-      }
-    ) =>
+  "SizeChangedLayoutNotifier",
+  ({
+    Key key,
+    Widget child,
+  }) =>
       SizeChangedLayoutNotifier(
-      key: key,
-      child: child,
-    ),
+    key: key,
+    child: child,
+  ),
+  [
+    "key",
+    "child",
+  ],
 );

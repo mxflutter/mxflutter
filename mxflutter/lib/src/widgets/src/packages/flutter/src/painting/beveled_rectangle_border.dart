@@ -13,23 +13,25 @@ import 'package:flutter/src/painting/border_radius.dart';
 import 'package:flutter/src/painting/borders.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBeveledRectangleBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_beveledRectangleBorder.funName] = _beveledRectangleBorder;
   return m;
 }
+
 var _beveledRectangleBorder = MXFunctionInvoke(
-    "BeveledRectangleBorder",
-    (
-      {
-      BorderSide side = BorderSide.none,
-      BorderRadiusGeometry borderRadius = BorderRadius.zero,
-      }
-    ) =>
+  "BeveledRectangleBorder",
+  ({
+    BorderSide side = BorderSide.none,
+    BorderRadiusGeometry borderRadius = BorderRadius.zero,
+  }) =>
       BeveledRectangleBorder(
-      side: side,
-      borderRadius: borderRadius,
-    ),
+    side: side,
+    borderRadius: borderRadius,
+  ),
+  [
+    "side",
+    "borderRadius",
+  ],
 );

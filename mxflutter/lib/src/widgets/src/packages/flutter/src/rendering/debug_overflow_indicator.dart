@@ -13,7 +13,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/stack.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDebugOverflowIndicatorSeries() {
   var m = <String, MXFunctionInvoke>{};

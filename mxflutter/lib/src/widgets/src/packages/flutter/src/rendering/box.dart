@@ -14,7 +14,6 @@ import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/rendering/debug.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -30,119 +29,131 @@ Map<String, MXFunctionInvoke> registerBoxSeries() {
   m[_boxParentData.funName] = _boxParentData;
   return m;
 }
+
 var _boxConstraints = MXFunctionInvoke(
-    "BoxConstraints",
-    (
-      {
-      dynamic minWidth = 0.0,
-      dynamic maxWidth = double.infinity,
-      dynamic minHeight = 0.0,
-      dynamic maxHeight = double.infinity,
-      }
-    ) =>
+  "BoxConstraints",
+  ({
+    dynamic minWidth = 0.0,
+    dynamic maxWidth = double.infinity,
+    dynamic minHeight = 0.0,
+    dynamic maxHeight = double.infinity,
+  }) =>
       BoxConstraints(
-      minWidth: minWidth?.toDouble(),
-      maxWidth: maxWidth?.toDouble(),
-      minHeight: minHeight?.toDouble(),
-      maxHeight: maxHeight?.toDouble(),
-    ),
+    minWidth: minWidth?.toDouble(),
+    maxWidth: maxWidth?.toDouble(),
+    minHeight: minHeight?.toDouble(),
+    maxHeight: maxHeight?.toDouble(),
+  ),
+  [
+    "minWidth",
+    "maxWidth",
+    "minHeight",
+    "maxHeight",
+  ],
 );
 var _boxConstraints_tight = MXFunctionInvoke(
   "BoxConstraints.tight",
-    (
-      {
-      ui.Size size,
-      }
-    ) =>
+  ({
+    ui.Size size,
+  }) =>
       BoxConstraints.tight(
-      size,
-    ),
+    size,
+  ),
+  [
+    "size",
+  ],
 );
 var _boxConstraints_tightFor = MXFunctionInvoke(
   "BoxConstraints.tightFor",
-    (
-      {
-      dynamic width,
-      dynamic height,
-      }
-    ) =>
+  ({
+    dynamic width,
+    dynamic height,
+  }) =>
       BoxConstraints.tightFor(
-      width: width?.toDouble(),
-      height: height?.toDouble(),
-    ),
+    width: width?.toDouble(),
+    height: height?.toDouble(),
+  ),
+  [
+    "width",
+    "height",
+  ],
 );
 var _boxConstraints_tightForFinite = MXFunctionInvoke(
   "BoxConstraints.tightForFinite",
-    (
-      {
-      dynamic width = double.infinity,
-      dynamic height = double.infinity,
-      }
-    ) =>
+  ({
+    dynamic width = double.infinity,
+    dynamic height = double.infinity,
+  }) =>
       BoxConstraints.tightForFinite(
-      width: width?.toDouble(),
-      height: height?.toDouble(),
-    ),
+    width: width?.toDouble(),
+    height: height?.toDouble(),
+  ),
+  [
+    "width",
+    "height",
+  ],
 );
 var _boxConstraints_loose = MXFunctionInvoke(
   "BoxConstraints.loose",
-    (
-      {
-      ui.Size size,
-      }
-    ) =>
+  ({
+    ui.Size size,
+  }) =>
       BoxConstraints.loose(
-      size,
-    ),
+    size,
+  ),
+  [
+    "size",
+  ],
 );
 var _boxConstraints_expand = MXFunctionInvoke(
   "BoxConstraints.expand",
-    (
-      {
-      dynamic width,
-      dynamic height,
-      }
-    ) =>
+  ({
+    dynamic width,
+    dynamic height,
+  }) =>
       BoxConstraints.expand(
-      width: width?.toDouble(),
-      height: height?.toDouble(),
-    ),
+    width: width?.toDouble(),
+    height: height?.toDouble(),
+  ),
+  [
+    "width",
+    "height",
+  ],
 );
 var _boxHitTestResult = MXFunctionInvoke(
-    "BoxHitTestResult",
-    (
-    ) =>
-      BoxHitTestResult(
-    ),
+  "BoxHitTestResult",
+  () => BoxHitTestResult(),
+  [],
 );
 var _boxHitTestResult_wrap = MXFunctionInvoke(
   "BoxHitTestResult.wrap",
-    (
-      {
-      HitTestResult result,
-      }
-    ) =>
+  ({
+    HitTestResult result,
+  }) =>
       BoxHitTestResult.wrap(
-      result,
-    ),
+    result,
+  ),
+  [
+    "result",
+  ],
 );
 var _boxHitTestEntry = MXFunctionInvoke(
-    "BoxHitTestEntry",
-    (
-      {
-      RenderBox target,
-      ui.Offset localPosition,
-      }
-    ) =>
+  "BoxHitTestEntry",
+  ({
+    RenderBox target,
+    ui.Offset localPosition,
+  }) =>
       BoxHitTestEntry(
-      target,
-      localPosition,
-    ),
+    target,
+    localPosition,
+  ),
+  [
+    "target",
+    "localPosition",
+  ],
 );
 var _boxParentData = MXFunctionInvoke(
-    "BoxParentData",
-    (
-    ) =>
-      BoxParentData(
-    ),
+  "BoxParentData",
+  () => BoxParentData(),
+  [],
 );

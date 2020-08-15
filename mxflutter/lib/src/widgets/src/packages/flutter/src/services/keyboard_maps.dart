@@ -8,7 +8,6 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/services/keyboard_maps.dart';
 import 'package:flutter/src/services/keyboard_key.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerKeyboardMapsSeries() {
   var m = <String, MXFunctionInvoke>{};

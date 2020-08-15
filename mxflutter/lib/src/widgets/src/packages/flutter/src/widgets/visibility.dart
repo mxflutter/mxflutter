@@ -12,7 +12,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/sliver.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerVisibilitySeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,57 +19,76 @@ Map<String, MXFunctionInvoke> registerVisibilitySeries() {
   m[_sliverVisibility.funName] = _sliverVisibility;
   return m;
 }
+
 var _visibility = MXFunctionInvoke(
-    "Visibility",
-    (
-      {
-      Key key,
-      Widget child,
-      Widget replacement = const SizedBox.shrink(),
-      bool visible = true,
-      bool maintainState = false,
-      bool maintainAnimation = false,
-      bool maintainSize = false,
-      bool maintainSemantics = false,
-      bool maintainInteractivity = false,
-      }
-    ) =>
+  "Visibility",
+  ({
+    Key key,
+    Widget child,
+    Widget replacement = const SizedBox.shrink(),
+    bool visible = true,
+    bool maintainState = false,
+    bool maintainAnimation = false,
+    bool maintainSize = false,
+    bool maintainSemantics = false,
+    bool maintainInteractivity = false,
+  }) =>
       Visibility(
-      key: key,
-      child: child,
-      replacement: replacement,
-      visible: visible,
-      maintainState: maintainState,
-      maintainAnimation: maintainAnimation,
-      maintainSize: maintainSize,
-      maintainSemantics: maintainSemantics,
-      maintainInteractivity: maintainInteractivity,
-    ),
+    key: key,
+    child: child,
+    replacement: replacement,
+    visible: visible,
+    maintainState: maintainState,
+    maintainAnimation: maintainAnimation,
+    maintainSize: maintainSize,
+    maintainSemantics: maintainSemantics,
+    maintainInteractivity: maintainInteractivity,
+  ),
+  [
+    "key",
+    "child",
+    "replacement",
+    "visible",
+    "maintainState",
+    "maintainAnimation",
+    "maintainSize",
+    "maintainSemantics",
+    "maintainInteractivity",
+  ],
 );
 var _sliverVisibility = MXFunctionInvoke(
-    "SliverVisibility",
-    (
-      {
-      Key key,
-      Widget sliver,
-      Widget replacementSliver = const SliverToBoxAdapter(),
-      bool visible = true,
-      bool maintainState = false,
-      bool maintainAnimation = false,
-      bool maintainSize = false,
-      bool maintainSemantics = false,
-      bool maintainInteractivity = false,
-      }
-    ) =>
+  "SliverVisibility",
+  ({
+    Key key,
+    Widget sliver,
+    Widget replacementSliver = const SliverToBoxAdapter(),
+    bool visible = true,
+    bool maintainState = false,
+    bool maintainAnimation = false,
+    bool maintainSize = false,
+    bool maintainSemantics = false,
+    bool maintainInteractivity = false,
+  }) =>
       SliverVisibility(
-      key: key,
-      sliver: sliver,
-      replacementSliver: replacementSliver,
-      visible: visible,
-      maintainState: maintainState,
-      maintainAnimation: maintainAnimation,
-      maintainSize: maintainSize,
-      maintainSemantics: maintainSemantics,
-      maintainInteractivity: maintainInteractivity,
-    ),
+    key: key,
+    sliver: sliver,
+    replacementSliver: replacementSliver,
+    visible: visible,
+    maintainState: maintainState,
+    maintainAnimation: maintainAnimation,
+    maintainSize: maintainSize,
+    maintainSemantics: maintainSemantics,
+    maintainInteractivity: maintainInteractivity,
+  ),
+  [
+    "key",
+    "sliver",
+    "replacementSliver",
+    "visible",
+    "maintainState",
+    "maintainAnimation",
+    "maintainSize",
+    "maintainSemantics",
+    "maintainInteractivity",
+  ],
 );

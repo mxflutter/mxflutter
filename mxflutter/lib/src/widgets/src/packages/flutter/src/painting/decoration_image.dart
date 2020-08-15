@@ -15,7 +15,6 @@ import 'package:flutter/src/painting/box_fit.dart';
 import 'package:flutter/src/painting/image_provider.dart';
 import 'package:flutter/src/painting/image_stream.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDecorationImageSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,46 +22,57 @@ Map<String, MXFunctionInvoke> registerDecorationImageSeries() {
   m[_decorationImage.funName] = _decorationImage;
   return m;
 }
+
 var _imageRepeat = MXFunctionInvoke(
-    "ImageRepeat",
-    ({String name, int index}) => MXImageRepeat.parse(name, index),
-  );
-var _decorationImage = MXFunctionInvoke(
-    "DecorationImage",
-    (
-      {
-      ImageProvider<dynamic> image,
-      dynamic onError,
-      ui.ColorFilter colorFilter,
-      BoxFit fit,
-      AlignmentGeometry alignment = Alignment.center,
-      ui.Rect centerSlice,
-      ImageRepeat repeat = ImageRepeat.noRepeat,
-      bool matchTextDirection = false,
-      }
-    ) =>
-      DecorationImage(
-      image: image,
-      onError: createVoidTwoParamsClosure<dynamic, StackTrace>(_decorationImage.buildOwner, onError),
-      colorFilter: colorFilter,
-      fit: fit,
-      alignment: alignment,
-      centerSlice: centerSlice,
-      repeat: repeat,
-      matchTextDirection: matchTextDirection,
-    ),
+  "ImageRepeat",
+  ({String name, int index}) => MXImageRepeat.parse(name, index),
 );
+var _decorationImage = MXFunctionInvoke(
+  "DecorationImage",
+  ({
+    ImageProvider<dynamic> image,
+    dynamic onError,
+    ui.ColorFilter colorFilter,
+    BoxFit fit,
+    AlignmentGeometry alignment = Alignment.center,
+    ui.Rect centerSlice,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
+    bool matchTextDirection = false,
+  }) =>
+      DecorationImage(
+    image: image,
+    onError: createVoidTwoParamsClosure<dynamic, StackTrace>(
+        _decorationImage.buildOwner, onError),
+    colorFilter: colorFilter,
+    fit: fit,
+    alignment: alignment,
+    centerSlice: centerSlice,
+    repeat: repeat,
+    matchTextDirection: matchTextDirection,
+  ),
+  [
+    "image",
+    "onError",
+    "colorFilter",
+    "fit",
+    "alignment",
+    "centerSlice",
+    "repeat",
+    "matchTextDirection",
+  ],
+);
+
 class MXImageRepeat {
   static ImageRepeat parse(String name, int index) {
-    switch(name) {
-      case 'ImageRepeat.repeat': 
-       return ImageRepeat.repeat;
-      case 'ImageRepeat.repeatX': 
-       return ImageRepeat.repeatX;
-      case 'ImageRepeat.repeatY': 
-       return ImageRepeat.repeatY;
-      case 'ImageRepeat.noRepeat': 
-       return ImageRepeat.noRepeat;
+    switch (name) {
+      case 'ImageRepeat.repeat':
+        return ImageRepeat.repeat;
+      case 'ImageRepeat.repeatX':
+        return ImageRepeat.repeatX;
+      case 'ImageRepeat.repeatY':
+        return ImageRepeat.repeatY;
+      case 'ImageRepeat.noRepeat':
+        return ImageRepeat.noRepeat;
     }
     return null;
   }

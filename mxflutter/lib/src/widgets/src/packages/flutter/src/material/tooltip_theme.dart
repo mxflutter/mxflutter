@@ -11,7 +11,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTooltipThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,47 +18,61 @@ Map<String, MXFunctionInvoke> registerTooltipThemeSeries() {
   m[_tooltipTheme.funName] = _tooltipTheme;
   return m;
 }
+
 var _tooltipThemeData = MXFunctionInvoke(
-    "TooltipThemeData",
-    (
-      {
-      dynamic height,
-      EdgeInsetsGeometry padding,
-      EdgeInsetsGeometry margin,
-      dynamic verticalOffset,
-      bool preferBelow,
-      bool excludeFromSemantics,
-      Decoration decoration,
-      TextStyle textStyle,
-      Duration waitDuration,
-      Duration showDuration,
-      }
-    ) =>
+  "TooltipThemeData",
+  ({
+    dynamic height,
+    EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
+    dynamic verticalOffset,
+    bool preferBelow,
+    bool excludeFromSemantics,
+    Decoration decoration,
+    TextStyle textStyle,
+    Duration waitDuration,
+    Duration showDuration,
+  }) =>
       TooltipThemeData(
-      height: height?.toDouble(),
-      padding: padding,
-      margin: margin,
-      verticalOffset: verticalOffset?.toDouble(),
-      preferBelow: preferBelow,
-      excludeFromSemantics: excludeFromSemantics,
-      decoration: decoration,
-      textStyle: textStyle,
-      waitDuration: waitDuration,
-      showDuration: showDuration,
-    ),
+    height: height?.toDouble(),
+    padding: padding,
+    margin: margin,
+    verticalOffset: verticalOffset?.toDouble(),
+    preferBelow: preferBelow,
+    excludeFromSemantics: excludeFromSemantics,
+    decoration: decoration,
+    textStyle: textStyle,
+    waitDuration: waitDuration,
+    showDuration: showDuration,
+  ),
+  [
+    "height",
+    "padding",
+    "margin",
+    "verticalOffset",
+    "preferBelow",
+    "excludeFromSemantics",
+    "decoration",
+    "textStyle",
+    "waitDuration",
+    "showDuration",
+  ],
 );
 var _tooltipTheme = MXFunctionInvoke(
-    "TooltipTheme",
-    (
-      {
-      Key key,
-      TooltipThemeData data,
-      Widget child,
-      }
-    ) =>
+  "TooltipTheme",
+  ({
+    Key key,
+    TooltipThemeData data,
+    Widget child,
+  }) =>
       TooltipTheme(
-      key: key,
-      data: data,
-      child: child,
-    ),
+    key: key,
+    data: data,
+    child: child,
+  ),
+  [
+    "key",
+    "data",
+    "child",
+  ],
 );

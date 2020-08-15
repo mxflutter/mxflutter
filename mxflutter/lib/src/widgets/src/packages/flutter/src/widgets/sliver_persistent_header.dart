@@ -10,27 +10,31 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverPersistentHeaderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_sliverPersistentHeader.funName] = _sliverPersistentHeader;
   return m;
 }
+
 var _sliverPersistentHeader = MXFunctionInvoke(
-    "SliverPersistentHeader",
-    (
-      {
-      Key key,
-      SliverPersistentHeaderDelegate delegate,
-      bool pinned = false,
-      bool floating = false,
-      }
-    ) =>
+  "SliverPersistentHeader",
+  ({
+    Key key,
+    SliverPersistentHeaderDelegate delegate,
+    bool pinned = false,
+    bool floating = false,
+  }) =>
       SliverPersistentHeader(
-      key: key,
-      delegate: delegate,
-      pinned: pinned,
-      floating: floating,
-    ),
+    key: key,
+    delegate: delegate,
+    pinned: pinned,
+    floating: floating,
+  ),
+  [
+    "key",
+    "delegate",
+    "pinned",
+    "floating",
+  ],
 );

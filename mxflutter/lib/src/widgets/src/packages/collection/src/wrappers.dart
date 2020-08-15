@@ -10,7 +10,6 @@ import 'dart:collection';
 import 'dart:math' as math;
 import 'package:collection/src/unmodifiable_wrappers.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerWrappersSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,82 +22,91 @@ Map<String, MXFunctionInvoke> registerWrappersSeries() {
   m[_mapValueSet.funName] = _mapValueSet;
   return m;
 }
+
 var _delegatingIterable = MXFunctionInvoke(
-    "DelegatingIterable",
-    (
-      {
-      Iterable<dynamic> base,
-      }
-    ) =>
+  "DelegatingIterable",
+  ({
+    Iterable<dynamic> base,
+  }) =>
       DelegatingIterable(
-      base,
-    ),
+    base,
+  ),
+  [
+    "base",
+  ],
 );
 var _delegatingList = MXFunctionInvoke(
-    "DelegatingList",
-    (
-      {
-      dynamic base,
-      }
-    ) =>
+  "DelegatingList",
+  ({
+    dynamic base,
+  }) =>
       DelegatingList(
-      toListT<dynamic>(base),
-    ),
+    toListT<dynamic>(base),
+  ),
+  [
+    "base",
+  ],
 );
 var _delegatingSet = MXFunctionInvoke(
-    "DelegatingSet",
-    (
-      {
-      Set<dynamic> base,
-      }
-    ) =>
+  "DelegatingSet",
+  ({
+    Set<dynamic> base,
+  }) =>
       DelegatingSet(
-      base,
-    ),
+    base,
+  ),
+  [
+    "base",
+  ],
 );
 var _delegatingQueue = MXFunctionInvoke(
-    "DelegatingQueue",
-    (
-      {
-      Queue<dynamic> queue,
-      }
-    ) =>
+  "DelegatingQueue",
+  ({
+    Queue<dynamic> queue,
+  }) =>
       DelegatingQueue(
-      queue,
-    ),
+    queue,
+  ),
+  [
+    "queue",
+  ],
 );
 var _delegatingMap = MXFunctionInvoke(
-    "DelegatingMap",
-    (
-      {
-      dynamic base,
-      }
-    ) =>
+  "DelegatingMap",
+  ({
+    dynamic base,
+  }) =>
       DelegatingMap(
-      toMapT<dynamic, dynamic>(base),
-    ),
+    toMapT<dynamic, dynamic>(base),
+  ),
+  [
+    "base",
+  ],
 );
 var _mapKeySet = MXFunctionInvoke(
-    "MapKeySet",
-    (
-      {
-      dynamic base,
-      }
-    ) =>
+  "MapKeySet",
+  ({
+    dynamic base,
+  }) =>
       MapKeySet(
-      toMapT<dynamic, dynamic>(base),
-    ),
+    toMapT<dynamic, dynamic>(base),
+  ),
+  [
+    "base",
+  ],
 );
 var _mapValueSet = MXFunctionInvoke(
-    "MapValueSet",
-    (
-      {
-      dynamic base,
-      dynamic keyForValue,
-      }
-    ) =>
+  "MapValueSet",
+  ({
+    dynamic base,
+    dynamic keyForValue,
+  }) =>
       MapValueSet(
-      toMapT<dynamic, dynamic>(base),
-      null,
-    ),
+    toMapT<dynamic, dynamic>(base),
+    null,
+  ),
+  [
+    "base",
+    "keyForValue",
+  ],
 );

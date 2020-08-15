@@ -12,27 +12,31 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/src/painting/basic_types.dart';
 import 'package:flutter/src/painting/debug.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxShadowSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_boxShadow.funName] = _boxShadow;
   return m;
 }
+
 var _boxShadow = MXFunctionInvoke(
-    "BoxShadow",
-    (
-      {
-      ui.Color color = const Color(0xFF000000),
-      ui.Offset offset = Offset.zero,
-      dynamic blurRadius = 0.0,
-      dynamic spreadRadius = 0.0,
-      }
-    ) =>
+  "BoxShadow",
+  ({
+    ui.Color color = const Color(0xFF000000),
+    ui.Offset offset = Offset.zero,
+    dynamic blurRadius = 0.0,
+    dynamic spreadRadius = 0.0,
+  }) =>
       BoxShadow(
-      color: color,
-      offset: offset,
-      blurRadius: blurRadius?.toDouble(),
-      spreadRadius: spreadRadius?.toDouble(),
-    ),
+    color: color,
+    offset: offset,
+    blurRadius: blurRadius?.toDouble(),
+    spreadRadius: spreadRadius?.toDouble(),
+  ),
+  [
+    "color",
+    "offset",
+    "blurRadius",
+    "spreadRadius",
+  ],
 );

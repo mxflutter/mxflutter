@@ -12,7 +12,6 @@ import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/constants.dart';
 import 'package:flutter/src/cupertino/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,55 +19,77 @@ Map<String, MXFunctionInvoke> registerButtonSeries() {
   m[_cupertinoButton_filled.funName] = _cupertinoButton_filled;
   return m;
 }
+
 var _cupertinoButton = MXFunctionInvoke(
-    "CupertinoButton",
-    (
-      {
-      Key key,
-      Widget child,
-      EdgeInsetsGeometry padding,
-      Color color,
-      Color disabledColor = CupertinoColors.quaternarySystemFill,
-      dynamic minSize = 44.0,
-      dynamic pressedOpacity = 0.4,
-      BorderRadius borderRadius = const BorderRadius.all(const Radius.circular(8.0)),
-      dynamic onPressed,
-      }
-    ) =>
+  "CupertinoButton",
+  ({
+    Key key,
+    Widget child,
+    EdgeInsetsGeometry padding,
+    Color color,
+    Color disabledColor = CupertinoColors.quaternarySystemFill,
+    dynamic minSize = 44.0,
+    dynamic pressedOpacity = 0.4,
+    BorderRadius borderRadius =
+        const BorderRadius.all(const Radius.circular(8.0)),
+    dynamic onPressed,
+  }) =>
       CupertinoButton(
-      key: key,
-      child: child,
-      padding: padding,
-      color: color,
-      disabledColor: disabledColor,
-      minSize: minSize?.toDouble(),
-      pressedOpacity: pressedOpacity?.toDouble(),
-      borderRadius: borderRadius,
-      onPressed: createVoidCallbackClosure(_cupertinoButton.buildOwner, onPressed),
-    ),
+    key: key,
+    child: child,
+    padding: padding,
+    color: color,
+    disabledColor: disabledColor,
+    minSize: minSize?.toDouble(),
+    pressedOpacity: pressedOpacity?.toDouble(),
+    borderRadius: borderRadius,
+    onPressed:
+        createVoidCallbackClosure(_cupertinoButton.buildOwner, onPressed),
+  ),
+  [
+    "key",
+    "child",
+    "padding",
+    "color",
+    "disabledColor",
+    "minSize",
+    "pressedOpacity",
+    "borderRadius",
+    "onPressed",
+  ],
 );
 var _cupertinoButton_filled = MXFunctionInvoke(
   "CupertinoButton.filled",
-    (
-      {
-      Key key,
-      Widget child,
-      EdgeInsetsGeometry padding,
-      Color disabledColor = CupertinoColors.quaternarySystemFill,
-      dynamic minSize = 44.0,
-      dynamic pressedOpacity = 0.4,
-      BorderRadius borderRadius = const BorderRadius.all(const Radius.circular(8.0)),
-      dynamic onPressed,
-      }
-    ) =>
+  ({
+    Key key,
+    Widget child,
+    EdgeInsetsGeometry padding,
+    Color disabledColor = CupertinoColors.quaternarySystemFill,
+    dynamic minSize = 44.0,
+    dynamic pressedOpacity = 0.4,
+    BorderRadius borderRadius =
+        const BorderRadius.all(const Radius.circular(8.0)),
+    dynamic onPressed,
+  }) =>
       CupertinoButton.filled(
-      key: key,
-      child: child,
-      padding: padding,
-      disabledColor: disabledColor,
-      minSize: minSize?.toDouble(),
-      pressedOpacity: pressedOpacity?.toDouble(),
-      borderRadius: borderRadius,
-      onPressed: createVoidCallbackClosure(_cupertinoButton_filled.buildOwner, onPressed),
-    ),
+    key: key,
+    child: child,
+    padding: padding,
+    disabledColor: disabledColor,
+    minSize: minSize?.toDouble(),
+    pressedOpacity: pressedOpacity?.toDouble(),
+    borderRadius: borderRadius,
+    onPressed: createVoidCallbackClosure(
+        _cupertinoButton_filled.buildOwner, onPressed),
+  ),
+  [
+    "key",
+    "child",
+    "padding",
+    "disabledColor",
+    "minSize",
+    "pressedOpacity",
+    "borderRadius",
+    "onPressed",
+  ],
 );

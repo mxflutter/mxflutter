@@ -14,7 +14,6 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/text.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTransitionsSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -33,230 +32,286 @@ Map<String, MXFunctionInvoke> registerTransitionsSeries() {
   m[_animatedBuilder.funName] = _animatedBuilder;
   return m;
 }
+
 var _slideTransition = MXFunctionInvoke(
-    "SlideTransition",
-    (
-      {
-      Key key,
-      Animation<Offset> position,
-      bool transformHitTests = true,
-      TextDirection textDirection,
-      Widget child,
-      }
-    ) =>
+  "SlideTransition",
+  ({
+    Key key,
+    Animation<Offset> position,
+    bool transformHitTests = true,
+    TextDirection textDirection,
+    Widget child,
+  }) =>
       SlideTransition(
-      key: key,
-      position: position,
-      transformHitTests: transformHitTests,
-      textDirection: textDirection,
-      child: child,
-    ),
+    key: key,
+    position: position,
+    transformHitTests: transformHitTests,
+    textDirection: textDirection,
+    child: child,
+  ),
+  [
+    "key",
+    "position",
+    "transformHitTests",
+    "textDirection",
+    "child",
+  ],
 );
 var _scaleTransition = MXFunctionInvoke(
-    "ScaleTransition",
-    (
-      {
-      Key key,
-      Animation<double> scale,
-      Alignment alignment = Alignment.center,
-      Widget child,
-      }
-    ) =>
+  "ScaleTransition",
+  ({
+    Key key,
+    Animation<double> scale,
+    Alignment alignment = Alignment.center,
+    Widget child,
+  }) =>
       ScaleTransition(
-      key: key,
-      scale: scale,
-      alignment: alignment,
-      child: child,
-    ),
+    key: key,
+    scale: scale,
+    alignment: alignment,
+    child: child,
+  ),
+  [
+    "key",
+    "scale",
+    "alignment",
+    "child",
+  ],
 );
 var _rotationTransition = MXFunctionInvoke(
-    "RotationTransition",
-    (
-      {
-      Key key,
-      Animation<double> turns,
-      Alignment alignment = Alignment.center,
-      Widget child,
-      }
-    ) =>
+  "RotationTransition",
+  ({
+    Key key,
+    Animation<double> turns,
+    Alignment alignment = Alignment.center,
+    Widget child,
+  }) =>
       RotationTransition(
-      key: key,
-      turns: turns,
-      alignment: alignment,
-      child: child,
-    ),
+    key: key,
+    turns: turns,
+    alignment: alignment,
+    child: child,
+  ),
+  [
+    "key",
+    "turns",
+    "alignment",
+    "child",
+  ],
 );
 var _sizeTransition = MXFunctionInvoke(
-    "SizeTransition",
-    (
-      {
-      Key key,
-      Axis axis = Axis.vertical,
-      Animation<double> sizeFactor,
-      dynamic axisAlignment = 0.0,
-      Widget child,
-      }
-    ) =>
+  "SizeTransition",
+  ({
+    Key key,
+    Axis axis = Axis.vertical,
+    Animation<double> sizeFactor,
+    dynamic axisAlignment = 0.0,
+    Widget child,
+  }) =>
       SizeTransition(
-      key: key,
-      axis: axis,
-      sizeFactor: sizeFactor,
-      axisAlignment: axisAlignment?.toDouble(),
-      child: child,
-    ),
+    key: key,
+    axis: axis,
+    sizeFactor: sizeFactor,
+    axisAlignment: axisAlignment?.toDouble(),
+    child: child,
+  ),
+  [
+    "key",
+    "axis",
+    "sizeFactor",
+    "axisAlignment",
+    "child",
+  ],
 );
 var _fadeTransition = MXFunctionInvoke(
-    "FadeTransition",
-    (
-      {
-      Key key,
-      Animation<double> opacity,
-      bool alwaysIncludeSemantics = false,
-      Widget child,
-      }
-    ) =>
+  "FadeTransition",
+  ({
+    Key key,
+    Animation<double> opacity,
+    bool alwaysIncludeSemantics = false,
+    Widget child,
+  }) =>
       FadeTransition(
-      key: key,
-      opacity: opacity,
-      alwaysIncludeSemantics: alwaysIncludeSemantics,
-      child: child,
-    ),
+    key: key,
+    opacity: opacity,
+    alwaysIncludeSemantics: alwaysIncludeSemantics,
+    child: child,
+  ),
+  [
+    "key",
+    "opacity",
+    "alwaysIncludeSemantics",
+    "child",
+  ],
 );
 var _sliverFadeTransition = MXFunctionInvoke(
-    "SliverFadeTransition",
-    (
-      {
-      Key key,
-      Animation<double> opacity,
-      bool alwaysIncludeSemantics = false,
-      Widget sliver,
-      }
-    ) =>
+  "SliverFadeTransition",
+  ({
+    Key key,
+    Animation<double> opacity,
+    bool alwaysIncludeSemantics = false,
+    Widget sliver,
+  }) =>
       SliverFadeTransition(
-      key: key,
-      opacity: opacity,
-      alwaysIncludeSemantics: alwaysIncludeSemantics,
-      sliver: sliver,
-    ),
+    key: key,
+    opacity: opacity,
+    alwaysIncludeSemantics: alwaysIncludeSemantics,
+    sliver: sliver,
+  ),
+  [
+    "key",
+    "opacity",
+    "alwaysIncludeSemantics",
+    "sliver",
+  ],
 );
 var _relativeRectTween = MXFunctionInvoke(
-    "RelativeRectTween",
-    (
-      {
-      RelativeRect begin,
-      RelativeRect end,
-      }
-    ) =>
+  "RelativeRectTween",
+  ({
+    RelativeRect begin,
+    RelativeRect end,
+  }) =>
       RelativeRectTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _positionedTransition = MXFunctionInvoke(
-    "PositionedTransition",
-    (
-      {
-      Key key,
-      Animation<RelativeRect> rect,
-      Widget child,
-      }
-    ) =>
+  "PositionedTransition",
+  ({
+    Key key,
+    Animation<RelativeRect> rect,
+    Widget child,
+  }) =>
       PositionedTransition(
-      key: key,
-      rect: rect,
-      child: child,
-    ),
+    key: key,
+    rect: rect,
+    child: child,
+  ),
+  [
+    "key",
+    "rect",
+    "child",
+  ],
 );
 var _relativePositionedTransition = MXFunctionInvoke(
-    "RelativePositionedTransition",
-    (
-      {
-      Key key,
-      Animation<Rect> rect,
-      Size size,
-      Widget child,
-      }
-    ) =>
+  "RelativePositionedTransition",
+  ({
+    Key key,
+    Animation<Rect> rect,
+    Size size,
+    Widget child,
+  }) =>
       RelativePositionedTransition(
-      key: key,
-      rect: rect,
-      size: size,
-      child: child,
-    ),
+    key: key,
+    rect: rect,
+    size: size,
+    child: child,
+  ),
+  [
+    "key",
+    "rect",
+    "size",
+    "child",
+  ],
 );
 var _decoratedBoxTransition = MXFunctionInvoke(
-    "DecoratedBoxTransition",
-    (
-      {
-      Key key,
-      Animation<Decoration> decoration,
-      DecorationPosition position =  DecorationPosition.background,
-      Widget child,
-      }
-    ) =>
+  "DecoratedBoxTransition",
+  ({
+    Key key,
+    Animation<Decoration> decoration,
+    DecorationPosition position = DecorationPosition.background,
+    Widget child,
+  }) =>
       DecoratedBoxTransition(
-      key: key,
-      decoration: decoration,
-      position: position,
-      child: child,
-    ),
+    key: key,
+    decoration: decoration,
+    position: position,
+    child: child,
+  ),
+  [
+    "key",
+    "decoration",
+    "position",
+    "child",
+  ],
 );
 var _alignTransition = MXFunctionInvoke(
-    "AlignTransition",
-    (
-      {
-      Key key,
-      Animation<AlignmentGeometry> alignment,
-      Widget child,
-      dynamic widthFactor,
-      dynamic heightFactor,
-      }
-    ) =>
+  "AlignTransition",
+  ({
+    Key key,
+    Animation<AlignmentGeometry> alignment,
+    Widget child,
+    dynamic widthFactor,
+    dynamic heightFactor,
+  }) =>
       AlignTransition(
-      key: key,
-      alignment: alignment,
-      child: child,
-      widthFactor: widthFactor?.toDouble(),
-      heightFactor: heightFactor?.toDouble(),
-    ),
+    key: key,
+    alignment: alignment,
+    child: child,
+    widthFactor: widthFactor?.toDouble(),
+    heightFactor: heightFactor?.toDouble(),
+  ),
+  [
+    "key",
+    "alignment",
+    "child",
+    "widthFactor",
+    "heightFactor",
+  ],
 );
 var _defaultTextStyleTransition = MXFunctionInvoke(
-    "DefaultTextStyleTransition",
-    (
-      {
-      Key key,
-      Animation<TextStyle> style,
-      Widget child,
-      TextAlign textAlign,
-      bool softWrap = true,
-      TextOverflow overflow =  TextOverflow.clip,
-      int maxLines,
-      }
-    ) =>
+  "DefaultTextStyleTransition",
+  ({
+    Key key,
+    Animation<TextStyle> style,
+    Widget child,
+    TextAlign textAlign,
+    bool softWrap = true,
+    TextOverflow overflow = TextOverflow.clip,
+    int maxLines,
+  }) =>
       DefaultTextStyleTransition(
-      key: key,
-      style: style,
-      child: child,
-      textAlign: textAlign,
-      softWrap: softWrap,
-      overflow: overflow,
-      maxLines: maxLines,
-    ),
+    key: key,
+    style: style,
+    child: child,
+    textAlign: textAlign,
+    softWrap: softWrap,
+    overflow: overflow,
+    maxLines: maxLines,
+  ),
+  [
+    "key",
+    "style",
+    "child",
+    "textAlign",
+    "softWrap",
+    "overflow",
+    "maxLines",
+  ],
 );
 var _animatedBuilder = MXFunctionInvoke(
-    "AnimatedBuilder",
-    (
-      {
-      Key key,
-      dynamic animation,
-      dynamic builder,
-      Widget child,
-      }
-    ) =>
+  "AnimatedBuilder",
+  ({
+    Key key,
+    dynamic animation,
+    dynamic builder,
+    Widget child,
+  }) =>
       AnimatedBuilder(
-      key: key,
-      animation: animation,
-      builder: null,
-      child: child,
-    ),
+    key: key,
+    animation: animation,
+    builder: null,
+    child: child,
+  ),
+  [
+    "key",
+    "animation",
+    "builder",
+    "child",
+  ],
 );

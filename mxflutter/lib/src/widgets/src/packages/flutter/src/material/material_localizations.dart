@@ -14,24 +14,20 @@ import 'package:flutter/src/material/text_theme.dart';
 import 'package:flutter/src/material/time.dart';
 import 'package:flutter/src/material/typography.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMaterialLocalizationsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_defaultMaterialLocalizations.funName] = _defaultMaterialLocalizations;
-  m[_defaultMaterialLocalizations_delegate.funName] = _defaultMaterialLocalizations_delegate;
+  m[_defaultMaterialLocalizations_delegate.funName] =
+      _defaultMaterialLocalizations_delegate;
   return m;
 }
+
 var _defaultMaterialLocalizations = MXFunctionInvoke(
-    "DefaultMaterialLocalizations",
-    (
-    ) =>
-      DefaultMaterialLocalizations(
-    ),
+  "DefaultMaterialLocalizations",
+  () => DefaultMaterialLocalizations(),
+  [],
 );
 var _defaultMaterialLocalizations_delegate = MXFunctionInvoke(
-  "DefaultMaterialLocalizations.delegate",
-    (
-    ) =>
-      DefaultMaterialLocalizations.delegate
-);
+    "DefaultMaterialLocalizations.delegate",
+    () => DefaultMaterialLocalizations.delegate);

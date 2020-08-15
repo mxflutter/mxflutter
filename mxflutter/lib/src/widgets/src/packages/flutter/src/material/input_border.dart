@@ -10,7 +10,6 @@ import 'dart:math' as math;
 import 'dart:ui';
 import 'package:flutter/widgets.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInputBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,37 +18,42 @@ Map<String, MXFunctionInvoke> registerInputBorderSeries() {
   m[_outlineInputBorder.funName] = _outlineInputBorder;
   return m;
 }
-var _inputBorder_none = MXFunctionInvoke(
-  "InputBorder.none",
-    (
-    ) =>
-      InputBorder.none
-);
+
+var _inputBorder_none =
+    MXFunctionInvoke("InputBorder.none", () => InputBorder.none);
 var _underlineInputBorder = MXFunctionInvoke(
-    "UnderlineInputBorder",
-    (
-      {
-      BorderSide borderSide = const BorderSide(),
-      BorderRadius borderRadius = const BorderRadius.only(topLeft: const Radius.circular(4.0), topRight: const Radius.circular(4.0)),
-      }
-    ) =>
+  "UnderlineInputBorder",
+  ({
+    BorderSide borderSide = const BorderSide(),
+    BorderRadius borderRadius = const BorderRadius.only(
+        topLeft: const Radius.circular(4.0),
+        topRight: const Radius.circular(4.0)),
+  }) =>
       UnderlineInputBorder(
-      borderSide: borderSide,
-      borderRadius: borderRadius,
-    ),
+    borderSide: borderSide,
+    borderRadius: borderRadius,
+  ),
+  [
+    "borderSide",
+    "borderRadius",
+  ],
 );
 var _outlineInputBorder = MXFunctionInvoke(
-    "OutlineInputBorder",
-    (
-      {
-      BorderSide borderSide = const BorderSide(),
-      BorderRadius borderRadius = const BorderRadius.all(const Radius.circular(4.0)),
-      dynamic gapPadding = 4.0,
-      }
-    ) =>
+  "OutlineInputBorder",
+  ({
+    BorderSide borderSide = const BorderSide(),
+    BorderRadius borderRadius =
+        const BorderRadius.all(const Radius.circular(4.0)),
+    dynamic gapPadding = 4.0,
+  }) =>
       OutlineInputBorder(
-      borderSide: borderSide,
-      borderRadius: borderRadius,
-      gapPadding: gapPadding?.toDouble(),
-    ),
+    borderSide: borderSide,
+    borderRadius: borderRadius,
+    gapPadding: gapPadding?.toDouble(),
+  ),
+  [
+    "borderSide",
+    "borderRadius",
+    "gapPadding",
+  ],
 );

@@ -11,7 +11,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/debug.dart';
 import 'package:flutter/src/material/material.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInkDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,80 +19,107 @@ Map<String, MXFunctionInvoke> registerInkDecorationSeries() {
   m[_inkDecoration.funName] = _inkDecoration;
   return m;
 }
+
 var _ink = MXFunctionInvoke(
-    "Ink",
-    (
-      {
-      Key key,
-      EdgeInsetsGeometry padding,
-      Color color,
-      Decoration decoration,
-      dynamic width,
-      dynamic height,
-      Widget child,
-      }
-    ) =>
+  "Ink",
+  ({
+    Key key,
+    EdgeInsetsGeometry padding,
+    Color color,
+    Decoration decoration,
+    dynamic width,
+    dynamic height,
+    Widget child,
+  }) =>
       Ink(
-      key: key,
-      padding: padding,
-      color: color,
-      decoration: decoration,
-      width: width?.toDouble(),
-      height: height?.toDouble(),
-      child: child,
-    ),
+    key: key,
+    padding: padding,
+    color: color,
+    decoration: decoration,
+    width: width?.toDouble(),
+    height: height?.toDouble(),
+    child: child,
+  ),
+  [
+    "key",
+    "padding",
+    "color",
+    "decoration",
+    "width",
+    "height",
+    "child",
+  ],
 );
 var _ink_image = MXFunctionInvoke(
   "Ink.image",
-    (
-      {
-      Key key,
-      EdgeInsetsGeometry padding,
-      ImageProvider<dynamic> image,
-      dynamic onImageError,
-      ColorFilter colorFilter,
-      BoxFit fit,
-      AlignmentGeometry alignment = Alignment.center,
-      Rect centerSlice,
-      ImageRepeat repeat = ImageRepeat.noRepeat,
-      bool matchTextDirection = false,
-      dynamic width,
-      dynamic height,
-      Widget child,
-      }
-    ) =>
+  ({
+    Key key,
+    EdgeInsetsGeometry padding,
+    ImageProvider<dynamic> image,
+    dynamic onImageError,
+    ColorFilter colorFilter,
+    BoxFit fit,
+    AlignmentGeometry alignment = Alignment.center,
+    Rect centerSlice,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
+    bool matchTextDirection = false,
+    dynamic width,
+    dynamic height,
+    Widget child,
+  }) =>
       Ink.image(
-      key: key,
-      padding: padding,
-      image: image,
-      onImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(_ink_image.buildOwner, onImageError),
-      colorFilter: colorFilter,
-      fit: fit,
-      alignment: alignment,
-      centerSlice: centerSlice,
-      repeat: repeat,
-      matchTextDirection: matchTextDirection,
-      width: width?.toDouble(),
-      height: height?.toDouble(),
-      child: child,
-    ),
+    key: key,
+    padding: padding,
+    image: image,
+    onImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(
+        _ink_image.buildOwner, onImageError),
+    colorFilter: colorFilter,
+    fit: fit,
+    alignment: alignment,
+    centerSlice: centerSlice,
+    repeat: repeat,
+    matchTextDirection: matchTextDirection,
+    width: width?.toDouble(),
+    height: height?.toDouble(),
+    child: child,
+  ),
+  [
+    "key",
+    "padding",
+    "image",
+    "onImageError",
+    "colorFilter",
+    "fit",
+    "alignment",
+    "centerSlice",
+    "repeat",
+    "matchTextDirection",
+    "width",
+    "height",
+    "child",
+  ],
 );
 var _inkDecoration = MXFunctionInvoke(
-    "InkDecoration",
-    (
-      {
-      Decoration decoration,
-      ImageConfiguration configuration,
-      MaterialInkController controller,
-      RenderBox referenceBox,
-      dynamic onRemoved,
-      }
-    ) =>
+  "InkDecoration",
+  ({
+    Decoration decoration,
+    ImageConfiguration configuration,
+    MaterialInkController controller,
+    RenderBox referenceBox,
+    dynamic onRemoved,
+  }) =>
       InkDecoration(
-      decoration: decoration,
-      configuration: configuration,
-      controller: controller,
-      referenceBox: referenceBox,
-      onRemoved: createVoidCallbackClosure(_inkDecoration.buildOwner, onRemoved),
-    ),
+    decoration: decoration,
+    configuration: configuration,
+    controller: controller,
+    referenceBox: referenceBox,
+    onRemoved: createVoidCallbackClosure(_inkDecoration.buildOwner, onRemoved),
+  ),
+  [
+    "decoration",
+    "configuration",
+    "controller",
+    "referenceBox",
+    "onRemoved",
+  ],
 );

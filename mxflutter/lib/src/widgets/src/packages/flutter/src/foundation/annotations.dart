@@ -7,7 +7,6 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/annotations.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnnotationsSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -16,36 +15,40 @@ Map<String, MXFunctionInvoke> registerAnnotationsSeries() {
   m[_summary.funName] = _summary;
   return m;
 }
+
 var _category = MXFunctionInvoke(
-    "Category",
-    (
-      {
-      dynamic sections,
-      }
-    ) =>
+  "Category",
+  ({
+    dynamic sections,
+  }) =>
       Category(
-      toListT<String>(sections),
-    ),
+    toListT<String>(sections),
+  ),
+  [
+    "sections",
+  ],
 );
 var _documentationIcon = MXFunctionInvoke(
-    "DocumentationIcon",
-    (
-      {
-      String url,
-      }
-    ) =>
+  "DocumentationIcon",
+  ({
+    String url,
+  }) =>
       DocumentationIcon(
-      url,
-    ),
+    url,
+  ),
+  [
+    "url",
+  ],
 );
 var _summary = MXFunctionInvoke(
-    "Summary",
-    (
-      {
-      String text,
-      }
-    ) =>
+  "Summary",
+  ({
+    String text,
+  }) =>
       Summary(
-      text,
-    ),
+    text,
+  ),
+  [
+    "text",
+  ],
 );

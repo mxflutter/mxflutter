@@ -19,39 +19,46 @@ import 'package:flutter/src/rendering/sliver.dart';
 import 'package:flutter/src/rendering/viewport.dart';
 import 'package:flutter/src/rendering/viewport_offset.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverPersistentHeaderSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_overScrollHeaderStretchConfiguration.funName] = _overScrollHeaderStretchConfiguration;
-  m[_floatingHeaderSnapConfiguration.funName] = _floatingHeaderSnapConfiguration;
+  m[_overScrollHeaderStretchConfiguration.funName] =
+      _overScrollHeaderStretchConfiguration;
+  m[_floatingHeaderSnapConfiguration.funName] =
+      _floatingHeaderSnapConfiguration;
   return m;
 }
+
 var _overScrollHeaderStretchConfiguration = MXFunctionInvoke(
-    "OverScrollHeaderStretchConfiguration",
-    (
-      {
-      dynamic stretchTriggerOffset = 100.0,
-      dynamic onStretchTrigger,
-      }
-    ) =>
+  "OverScrollHeaderStretchConfiguration",
+  ({
+    dynamic stretchTriggerOffset = 100.0,
+    dynamic onStretchTrigger,
+  }) =>
       OverScrollHeaderStretchConfiguration(
-      stretchTriggerOffset: stretchTriggerOffset?.toDouble(),
-      onStretchTrigger: null,
-    ),
+    stretchTriggerOffset: stretchTriggerOffset?.toDouble(),
+    onStretchTrigger: null,
+  ),
+  [
+    "stretchTriggerOffset",
+    "onStretchTrigger",
+  ],
 );
 var _floatingHeaderSnapConfiguration = MXFunctionInvoke(
-    "FloatingHeaderSnapConfiguration",
-    (
-      {
-      TickerProvider vsync,
-      Curve curve = Curves.ease,
-      Duration duration = kTabScrollDuration,
-      }
-    ) =>
+  "FloatingHeaderSnapConfiguration",
+  ({
+    TickerProvider vsync,
+    Curve curve = Curves.ease,
+    Duration duration = kTabScrollDuration,
+  }) =>
       FloatingHeaderSnapConfiguration(
-      vsync: vsync,
-      curve: curve,
-      duration: duration,
-    ),
+    vsync: vsync,
+    curve: curve,
+    duration: duration,
+  ),
+  [
+    "vsync",
+    "curve",
+    "duration",
+  ],
 );

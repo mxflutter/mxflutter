@@ -25,7 +25,6 @@ import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/time.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTimePickerSeries() {
   var m = <String, MXFunctionInvoke>{};

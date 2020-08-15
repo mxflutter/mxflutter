@@ -11,7 +11,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/src/semantics/debug.dart';
 import 'dart:ui';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};

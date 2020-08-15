@@ -10,7 +10,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/scheduler/binding.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTickerSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,34 +18,36 @@ Map<String, MXFunctionInvoke> registerTickerSeries() {
   m[_tickerCanceled.funName] = _tickerCanceled;
   return m;
 }
+
 var _ticker = MXFunctionInvoke(
-    "Ticker",
-    (
-      {
-      dynamic onTick,
-      String debugLabel,
-      }
-    ) =>
+  "Ticker",
+  ({
+    dynamic onTick,
+    String debugLabel,
+  }) =>
       Ticker(
-      createValueChangedGenericClosure<Duration>(_ticker.buildOwner, onTick),
-      debugLabel: debugLabel,
-    ),
+    createValueChangedGenericClosure<Duration>(_ticker.buildOwner, onTick),
+    debugLabel: debugLabel,
+  ),
+  [
+    "onTick",
+    "debugLabel",
+  ],
 );
 var _tickerFuture_complete = MXFunctionInvoke(
   "TickerFuture.complete",
-    (
-    ) =>
-      TickerFuture.complete(
-    ),
+  () => TickerFuture.complete(),
+  [],
 );
 var _tickerCanceled = MXFunctionInvoke(
-    "TickerCanceled",
-    (
-      {
-      Ticker ticker,
-      }
-    ) =>
+  "TickerCanceled",
+  ({
+    Ticker ticker,
+  }) =>
       TickerCanceled(
-      ticker,
-    ),
+    ticker,
+  ),
+  [
+    "ticker",
+  ],
 );

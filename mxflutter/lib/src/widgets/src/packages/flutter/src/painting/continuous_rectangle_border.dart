@@ -13,23 +13,25 @@ import 'package:flutter/src/painting/border_radius.dart';
 import 'package:flutter/src/painting/borders.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerContinuousRectangleBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_continuousRectangleBorder.funName] = _continuousRectangleBorder;
   return m;
 }
+
 var _continuousRectangleBorder = MXFunctionInvoke(
-    "ContinuousRectangleBorder",
-    (
-      {
-      BorderSide side = BorderSide.none,
-      BorderRadiusGeometry borderRadius = BorderRadius.zero,
-      }
-    ) =>
+  "ContinuousRectangleBorder",
+  ({
+    BorderSide side = BorderSide.none,
+    BorderRadiusGeometry borderRadius = BorderRadius.zero,
+  }) =>
       ContinuousRectangleBorder(
-      side: side,
-      borderRadius: borderRadius,
-    ),
+    side: side,
+    borderRadius: borderRadius,
+  ),
+  [
+    "side",
+    "borderRadius",
+  ],
 );

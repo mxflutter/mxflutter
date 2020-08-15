@@ -13,7 +13,6 @@ import 'package:meta/meta.dart';
 import 'package:flutter/src/foundation/constants.dart';
 import 'package:flutter/src/foundation/isolates.dart' as isolates;
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerIsolatesIoSeries() {
   var m = <String, MXFunctionInvoke>{};

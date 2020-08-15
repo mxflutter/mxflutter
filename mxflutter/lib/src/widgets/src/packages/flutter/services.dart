@@ -32,7 +32,6 @@ import 'src/services/text_editing.dart';
 import 'src/services/text_formatter.dart';
 import 'src/services/text_input.dart';
 
-
 Map<String, MXFunctionInvoke> registerServicesLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerAssetBundleSeries());

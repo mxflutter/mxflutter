@@ -12,31 +12,37 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/text_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAppBarThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_appBarTheme.funName] = _appBarTheme;
   return m;
 }
+
 var _appBarTheme = MXFunctionInvoke(
-    "AppBarTheme",
-    (
-      {
-      Brightness brightness,
-      Color color,
-      dynamic elevation,
-      IconThemeData iconTheme,
-      IconThemeData actionsIconTheme,
-      TextTheme textTheme,
-      }
-    ) =>
+  "AppBarTheme",
+  ({
+    Brightness brightness,
+    Color color,
+    dynamic elevation,
+    IconThemeData iconTheme,
+    IconThemeData actionsIconTheme,
+    TextTheme textTheme,
+  }) =>
       AppBarTheme(
-      brightness: brightness,
-      color: color,
-      elevation: elevation?.toDouble(),
-      iconTheme: iconTheme,
-      actionsIconTheme: actionsIconTheme,
-      textTheme: textTheme,
-    ),
+    brightness: brightness,
+    color: color,
+    elevation: elevation?.toDouble(),
+    iconTheme: iconTheme,
+    actionsIconTheme: actionsIconTheme,
+    textTheme: textTheme,
+  ),
+  [
+    "brightness",
+    "color",
+    "elevation",
+    "iconTheme",
+    "actionsIconTheme",
+    "textTheme",
+  ],
 );

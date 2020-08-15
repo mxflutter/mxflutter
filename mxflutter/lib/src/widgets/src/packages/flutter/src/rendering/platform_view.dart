@@ -17,7 +17,6 @@ import 'package:flutter/src/rendering/layer.dart';
 import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformViewSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -27,64 +26,76 @@ Map<String, MXFunctionInvoke> registerPlatformViewSeries() {
   m[_platformViewRenderBox.funName] = _platformViewRenderBox;
   return m;
 }
+
 var _platformViewHitTestBehavior = MXFunctionInvoke(
-    "PlatformViewHitTestBehavior",
-    ({String name, int index}) => MXPlatformViewHitTestBehavior.parse(name, index),
-  );
+  "PlatformViewHitTestBehavior",
+  ({String name, int index}) =>
+      MXPlatformViewHitTestBehavior.parse(name, index),
+);
 var _renderAndroidView = MXFunctionInvoke(
-    "RenderAndroidView",
-    (
-      {
-      AndroidViewController viewController,
-      PlatformViewHitTestBehavior hitTestBehavior,
-      Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-      }
-    ) =>
+  "RenderAndroidView",
+  ({
+    AndroidViewController viewController,
+    PlatformViewHitTestBehavior hitTestBehavior,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
+  }) =>
       RenderAndroidView(
-      viewController: viewController,
-      hitTestBehavior: hitTestBehavior,
-      gestureRecognizers: gestureRecognizers,
-    ),
+    viewController: viewController,
+    hitTestBehavior: hitTestBehavior,
+    gestureRecognizers: gestureRecognizers,
+  ),
+  [
+    "viewController",
+    "hitTestBehavior",
+    "gestureRecognizers",
+  ],
 );
 var _renderUiKitView = MXFunctionInvoke(
-    "RenderUiKitView",
-    (
-      {
-      UiKitViewController viewController,
-      PlatformViewHitTestBehavior hitTestBehavior,
-      Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-      }
-    ) =>
+  "RenderUiKitView",
+  ({
+    UiKitViewController viewController,
+    PlatformViewHitTestBehavior hitTestBehavior,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
+  }) =>
       RenderUiKitView(
-      viewController: viewController,
-      hitTestBehavior: hitTestBehavior,
-      gestureRecognizers: gestureRecognizers,
-    ),
+    viewController: viewController,
+    hitTestBehavior: hitTestBehavior,
+    gestureRecognizers: gestureRecognizers,
+  ),
+  [
+    "viewController",
+    "hitTestBehavior",
+    "gestureRecognizers",
+  ],
 );
 var _platformViewRenderBox = MXFunctionInvoke(
-    "PlatformViewRenderBox",
-    (
-      {
-      PlatformViewController controller,
-      PlatformViewHitTestBehavior hitTestBehavior,
-      Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-      }
-    ) =>
+  "PlatformViewRenderBox",
+  ({
+    PlatformViewController controller,
+    PlatformViewHitTestBehavior hitTestBehavior,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
+  }) =>
       PlatformViewRenderBox(
-      controller: controller,
-      hitTestBehavior: hitTestBehavior,
-      gestureRecognizers: gestureRecognizers,
-    ),
+    controller: controller,
+    hitTestBehavior: hitTestBehavior,
+    gestureRecognizers: gestureRecognizers,
+  ),
+  [
+    "controller",
+    "hitTestBehavior",
+    "gestureRecognizers",
+  ],
 );
+
 class MXPlatformViewHitTestBehavior {
   static PlatformViewHitTestBehavior parse(String name, int index) {
-    switch(name) {
-      case 'PlatformViewHitTestBehavior.opaque': 
-       return PlatformViewHitTestBehavior.opaque;
-      case 'PlatformViewHitTestBehavior.translucent': 
-       return PlatformViewHitTestBehavior.translucent;
-      case 'PlatformViewHitTestBehavior.transparent': 
-       return PlatformViewHitTestBehavior.transparent;
+    switch (name) {
+      case 'PlatformViewHitTestBehavior.opaque':
+        return PlatformViewHitTestBehavior.opaque;
+      case 'PlatformViewHitTestBehavior.translucent':
+        return PlatformViewHitTestBehavior.translucent;
+      case 'PlatformViewHitTestBehavior.transparent':
+        return PlatformViewHitTestBehavior.transparent;
     }
     return null;
   }

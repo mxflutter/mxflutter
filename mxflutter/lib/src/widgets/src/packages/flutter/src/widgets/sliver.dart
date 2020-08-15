@@ -13,7 +13,6 @@ import 'package:flutter/src/widgets/automatic_keep_alive.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -32,230 +31,286 @@ Map<String, MXFunctionInvoke> registerSliverSeries() {
   m[_keepAlive.funName] = _keepAlive;
   return m;
 }
+
 var _sliverChildBuilderDelegate = MXFunctionInvoke(
-    "SliverChildBuilderDelegate",
-    (
-      {
-      dynamic builder,
-      dynamic findChildIndexCallback,
-      int childCount,
-      bool addAutomaticKeepAlives = true,
-      bool addRepaintBoundaries = true,
-      bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback = _kDefaultSemanticIndexCallback,
-      int semanticIndexOffset = 0,
-      }
-    ) =>
+  "SliverChildBuilderDelegate",
+  ({
+    dynamic builder,
+    dynamic findChildIndexCallback,
+    int childCount,
+    bool addAutomaticKeepAlives = true,
+    bool addRepaintBoundaries = true,
+    bool addSemanticIndexes = true,
+    dynamic semanticIndexCallback = _kDefaultSemanticIndexCallback,
+    int semanticIndexOffset = 0,
+  }) =>
       SliverChildBuilderDelegate(
-      null,
-      findChildIndexCallback: null,
-      childCount: childCount,
-      addAutomaticKeepAlives: addAutomaticKeepAlives,
-      addRepaintBoundaries: addRepaintBoundaries,
-      addSemanticIndexes: addSemanticIndexes,
-      semanticIndexCallback: null,
-      semanticIndexOffset: semanticIndexOffset,
-    ),
+    null,
+    findChildIndexCallback: null,
+    childCount: childCount,
+    addAutomaticKeepAlives: addAutomaticKeepAlives,
+    addRepaintBoundaries: addRepaintBoundaries,
+    addSemanticIndexes: addSemanticIndexes,
+    semanticIndexCallback: null,
+    semanticIndexOffset: semanticIndexOffset,
+  ),
+  [
+    "builder",
+    "findChildIndexCallback",
+    "childCount",
+    "addAutomaticKeepAlives",
+    "addRepaintBoundaries",
+    "addSemanticIndexes",
+    "semanticIndexCallback",
+    "semanticIndexOffset",
+  ],
 );
 var _sliverChildListDelegate = MXFunctionInvoke(
-    "SliverChildListDelegate",
-    (
-      {
-      dynamic children,
-      bool addAutomaticKeepAlives = true,
-      bool addRepaintBoundaries = true,
-      bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback =  _kDefaultSemanticIndexCallback,
-      int semanticIndexOffset = 0,
-      }
-    ) =>
+  "SliverChildListDelegate",
+  ({
+    dynamic children,
+    bool addAutomaticKeepAlives = true,
+    bool addRepaintBoundaries = true,
+    bool addSemanticIndexes = true,
+    dynamic semanticIndexCallback = _kDefaultSemanticIndexCallback,
+    int semanticIndexOffset = 0,
+  }) =>
       SliverChildListDelegate(
-      toListT<Widget>(children),
-      addAutomaticKeepAlives: addAutomaticKeepAlives,
-      addRepaintBoundaries: addRepaintBoundaries,
-      addSemanticIndexes: addSemanticIndexes,
-      semanticIndexCallback: null,
-      semanticIndexOffset: semanticIndexOffset,
-    ),
+    toListT<Widget>(children),
+    addAutomaticKeepAlives: addAutomaticKeepAlives,
+    addRepaintBoundaries: addRepaintBoundaries,
+    addSemanticIndexes: addSemanticIndexes,
+    semanticIndexCallback: null,
+    semanticIndexOffset: semanticIndexOffset,
+  ),
+  [
+    "children",
+    "addAutomaticKeepAlives",
+    "addRepaintBoundaries",
+    "addSemanticIndexes",
+    "semanticIndexCallback",
+    "semanticIndexOffset",
+  ],
 );
 var _sliverChildListDelegate_fixed = MXFunctionInvoke(
   "SliverChildListDelegate.fixed",
-    (
-      {
-      dynamic children,
-      bool addAutomaticKeepAlives = true,
-      bool addRepaintBoundaries = true,
-      bool addSemanticIndexes = true,
-      dynamic semanticIndexCallback =  _kDefaultSemanticIndexCallback,
-      int semanticIndexOffset = 0,
-      }
-    ) =>
+  ({
+    dynamic children,
+    bool addAutomaticKeepAlives = true,
+    bool addRepaintBoundaries = true,
+    bool addSemanticIndexes = true,
+    dynamic semanticIndexCallback = _kDefaultSemanticIndexCallback,
+    int semanticIndexOffset = 0,
+  }) =>
       SliverChildListDelegate.fixed(
-      toListT<Widget>(children),
-      addAutomaticKeepAlives: addAutomaticKeepAlives,
-      addRepaintBoundaries: addRepaintBoundaries,
-      addSemanticIndexes: addSemanticIndexes,
-      semanticIndexCallback: null,
-      semanticIndexOffset: semanticIndexOffset,
-    ),
+    toListT<Widget>(children),
+    addAutomaticKeepAlives: addAutomaticKeepAlives,
+    addRepaintBoundaries: addRepaintBoundaries,
+    addSemanticIndexes: addSemanticIndexes,
+    semanticIndexCallback: null,
+    semanticIndexOffset: semanticIndexOffset,
+  ),
+  [
+    "children",
+    "addAutomaticKeepAlives",
+    "addRepaintBoundaries",
+    "addSemanticIndexes",
+    "semanticIndexCallback",
+    "semanticIndexOffset",
+  ],
 );
 var _sliverList = MXFunctionInvoke(
-    "SliverList",
-    (
-      {
-      Key key,
-      SliverChildDelegate delegate,
-      }
-    ) =>
+  "SliverList",
+  ({
+    Key key,
+    SliverChildDelegate delegate,
+  }) =>
       SliverList(
-      key: key,
-      delegate: delegate,
-    ),
+    key: key,
+    delegate: delegate,
+  ),
+  [
+    "key",
+    "delegate",
+  ],
 );
 var _sliverFixedExtentList = MXFunctionInvoke(
-    "SliverFixedExtentList",
-    (
-      {
-      Key key,
-      SliverChildDelegate delegate,
-      dynamic itemExtent,
-      }
-    ) =>
+  "SliverFixedExtentList",
+  ({
+    Key key,
+    SliverChildDelegate delegate,
+    dynamic itemExtent,
+  }) =>
       SliverFixedExtentList(
-      key: key,
-      delegate: delegate,
-      itemExtent: itemExtent?.toDouble(),
-    ),
+    key: key,
+    delegate: delegate,
+    itemExtent: itemExtent?.toDouble(),
+  ),
+  [
+    "key",
+    "delegate",
+    "itemExtent",
+  ],
 );
 var _sliverGrid = MXFunctionInvoke(
-    "SliverGrid",
-    (
-      {
-      Key key,
-      SliverChildDelegate delegate,
-      SliverGridDelegate gridDelegate,
-      }
-    ) =>
+  "SliverGrid",
+  ({
+    Key key,
+    SliverChildDelegate delegate,
+    SliverGridDelegate gridDelegate,
+  }) =>
       SliverGrid(
-      key: key,
-      delegate: delegate,
-      gridDelegate: gridDelegate,
-    ),
+    key: key,
+    delegate: delegate,
+    gridDelegate: gridDelegate,
+  ),
+  [
+    "key",
+    "delegate",
+    "gridDelegate",
+  ],
 );
 var _sliverGrid_count = MXFunctionInvoke(
   "SliverGrid.count",
-    (
-      {
-      Key key,
-      int crossAxisCount,
-      dynamic mainAxisSpacing = 0.0,
-      dynamic crossAxisSpacing = 0.0,
-      dynamic childAspectRatio = 1.0,
-      dynamic children = const <Widget>[],
-      }
-    ) =>
+  ({
+    Key key,
+    int crossAxisCount,
+    dynamic mainAxisSpacing = 0.0,
+    dynamic crossAxisSpacing = 0.0,
+    dynamic childAspectRatio = 1.0,
+    dynamic children = const <Widget>[],
+  }) =>
       SliverGrid.count(
-      key: key,
-      crossAxisCount: crossAxisCount,
-      mainAxisSpacing: mainAxisSpacing?.toDouble(),
-      crossAxisSpacing: crossAxisSpacing?.toDouble(),
-      childAspectRatio: childAspectRatio?.toDouble(),
-      children: toListT<Widget>(children),
-    ),
+    key: key,
+    crossAxisCount: crossAxisCount,
+    mainAxisSpacing: mainAxisSpacing?.toDouble(),
+    crossAxisSpacing: crossAxisSpacing?.toDouble(),
+    childAspectRatio: childAspectRatio?.toDouble(),
+    children: toListT<Widget>(children),
+  ),
+  [
+    "key",
+    "crossAxisCount",
+    "mainAxisSpacing",
+    "crossAxisSpacing",
+    "childAspectRatio",
+    "children",
+  ],
 );
 var _sliverGrid_extent = MXFunctionInvoke(
   "SliverGrid.extent",
-    (
-      {
-      Key key,
-      dynamic maxCrossAxisExtent,
-      dynamic mainAxisSpacing = 0.0,
-      dynamic crossAxisSpacing = 0.0,
-      dynamic childAspectRatio = 1.0,
-      dynamic children = const <Widget>[],
-      }
-    ) =>
+  ({
+    Key key,
+    dynamic maxCrossAxisExtent,
+    dynamic mainAxisSpacing = 0.0,
+    dynamic crossAxisSpacing = 0.0,
+    dynamic childAspectRatio = 1.0,
+    dynamic children = const <Widget>[],
+  }) =>
       SliverGrid.extent(
-      key: key,
-      maxCrossAxisExtent: maxCrossAxisExtent?.toDouble(),
-      mainAxisSpacing: mainAxisSpacing?.toDouble(),
-      crossAxisSpacing: crossAxisSpacing?.toDouble(),
-      childAspectRatio: childAspectRatio?.toDouble(),
-      children: toListT<Widget>(children),
-    ),
+    key: key,
+    maxCrossAxisExtent: maxCrossAxisExtent?.toDouble(),
+    mainAxisSpacing: mainAxisSpacing?.toDouble(),
+    crossAxisSpacing: crossAxisSpacing?.toDouble(),
+    childAspectRatio: childAspectRatio?.toDouble(),
+    children: toListT<Widget>(children),
+  ),
+  [
+    "key",
+    "maxCrossAxisExtent",
+    "mainAxisSpacing",
+    "crossAxisSpacing",
+    "childAspectRatio",
+    "children",
+  ],
 );
 var _sliverMultiBoxAdaptorElement = MXFunctionInvoke(
-    "SliverMultiBoxAdaptorElement",
-    (
-      {
-      SliverMultiBoxAdaptorWidget widget,
-      }
-    ) =>
+  "SliverMultiBoxAdaptorElement",
+  ({
+    SliverMultiBoxAdaptorWidget widget,
+  }) =>
       SliverMultiBoxAdaptorElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _sliverOpacity = MXFunctionInvoke(
-    "SliverOpacity",
-    (
-      {
-      Key key,
-      dynamic opacity,
-      bool alwaysIncludeSemantics = false,
-      Widget sliver,
-      }
-    ) =>
+  "SliverOpacity",
+  ({
+    Key key,
+    dynamic opacity,
+    bool alwaysIncludeSemantics = false,
+    Widget sliver,
+  }) =>
       SliverOpacity(
-      key: key,
-      opacity: opacity?.toDouble(),
-      alwaysIncludeSemantics: alwaysIncludeSemantics,
-      sliver: sliver,
-    ),
+    key: key,
+    opacity: opacity?.toDouble(),
+    alwaysIncludeSemantics: alwaysIncludeSemantics,
+    sliver: sliver,
+  ),
+  [
+    "key",
+    "opacity",
+    "alwaysIncludeSemantics",
+    "sliver",
+  ],
 );
 var _sliverIgnorePointer = MXFunctionInvoke(
-    "SliverIgnorePointer",
-    (
-      {
-      Key key,
-      bool ignoring = true,
-      bool ignoringSemantics,
-      Widget sliver,
-      }
-    ) =>
+  "SliverIgnorePointer",
+  ({
+    Key key,
+    bool ignoring = true,
+    bool ignoringSemantics,
+    Widget sliver,
+  }) =>
       SliverIgnorePointer(
-      key: key,
-      ignoring: ignoring,
-      ignoringSemantics: ignoringSemantics,
-      sliver: sliver,
-    ),
+    key: key,
+    ignoring: ignoring,
+    ignoringSemantics: ignoringSemantics,
+    sliver: sliver,
+  ),
+  [
+    "key",
+    "ignoring",
+    "ignoringSemantics",
+    "sliver",
+  ],
 );
 var _sliverOffstage = MXFunctionInvoke(
-    "SliverOffstage",
-    (
-      {
-      Key key,
-      bool offstage = true,
-      Widget sliver,
-      }
-    ) =>
+  "SliverOffstage",
+  ({
+    Key key,
+    bool offstage = true,
+    Widget sliver,
+  }) =>
       SliverOffstage(
-      key: key,
-      offstage: offstage,
-      sliver: sliver,
-    ),
+    key: key,
+    offstage: offstage,
+    sliver: sliver,
+  ),
+  [
+    "key",
+    "offstage",
+    "sliver",
+  ],
 );
 var _keepAlive = MXFunctionInvoke(
-    "KeepAlive",
-    (
-      {
-      Key key,
-      bool keepAlive,
-      Widget child,
-      }
-    ) =>
+  "KeepAlive",
+  ({
+    Key key,
+    bool keepAlive,
+    Widget child,
+  }) =>
       KeepAlive(
-      key: key,
-      keepAlive: keepAlive,
-      child: child,
-    ),
+    key: key,
+    keepAlive: keepAlive,
+    child: child,
+  ),
+  [
+    "key",
+    "keepAlive",
+    "child",
+  ],
 );

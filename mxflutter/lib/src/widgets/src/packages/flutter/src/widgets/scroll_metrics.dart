@@ -10,29 +10,34 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollMetricsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_fixedScrollMetrics.funName] = _fixedScrollMetrics;
   return m;
 }
+
 var _fixedScrollMetrics = MXFunctionInvoke(
-    "FixedScrollMetrics",
-    (
-      {
-      dynamic minScrollExtent,
-      dynamic maxScrollExtent,
-      dynamic pixels,
-      dynamic viewportDimension,
-      AxisDirection axisDirection,
-      }
-    ) =>
+  "FixedScrollMetrics",
+  ({
+    dynamic minScrollExtent,
+    dynamic maxScrollExtent,
+    dynamic pixels,
+    dynamic viewportDimension,
+    AxisDirection axisDirection,
+  }) =>
       FixedScrollMetrics(
-      minScrollExtent: minScrollExtent?.toDouble(),
-      maxScrollExtent: maxScrollExtent?.toDouble(),
-      pixels: pixels?.toDouble(),
-      viewportDimension: viewportDimension?.toDouble(),
-      axisDirection: axisDirection,
-    ),
+    minScrollExtent: minScrollExtent?.toDouble(),
+    maxScrollExtent: maxScrollExtent?.toDouble(),
+    pixels: pixels?.toDouble(),
+    viewportDimension: viewportDimension?.toDouble(),
+    axisDirection: axisDirection,
+  ),
+  [
+    "minScrollExtent",
+    "maxScrollExtent",
+    "pixels",
+    "viewportDimension",
+    "axisDirection",
+  ],
 );

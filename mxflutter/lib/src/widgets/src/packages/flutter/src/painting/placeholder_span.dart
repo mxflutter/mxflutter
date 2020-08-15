@@ -14,7 +14,6 @@ import 'package:flutter/src/painting/text_painter.dart';
 import 'package:flutter/src/painting/text_span.dart';
 import 'package:flutter/src/painting/text_style.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlaceholderSpanSeries() {
   var m = <String, MXFunctionInvoke>{};

@@ -11,21 +11,22 @@ import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/layer.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextureSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_textureBox.funName] = _textureBox;
   return m;
 }
+
 var _textureBox = MXFunctionInvoke(
-    "TextureBox",
-    (
-      {
-      int textureId,
-      }
-    ) =>
+  "TextureBox",
+  ({
+    int textureId,
+  }) =>
       TextureBox(
-      textureId: textureId,
-    ),
+    textureId: textureId,
+  ),
+  [
+    "textureId",
+  ],
 );

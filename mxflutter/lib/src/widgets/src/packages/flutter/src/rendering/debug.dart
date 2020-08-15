@@ -10,7 +10,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDebugSeries() {
   var m = <String, MXFunctionInvoke>{};

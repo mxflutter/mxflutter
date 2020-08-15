@@ -12,37 +12,43 @@ import 'dart:ui' as ui;
 import 'package:flutter/src/services/binary_messenger.dart';
 import 'package:flutter/src/services/platform_channel.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformMessagesSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_binaryMessages_setMessageHandler.funName] = _binaryMessages_setMessageHandler;
-  m[_binaryMessages_setMockMessageHandler.funName] = _binaryMessages_setMockMessageHandler;
+  m[_binaryMessages_setMessageHandler.funName] =
+      _binaryMessages_setMessageHandler;
+  m[_binaryMessages_setMockMessageHandler.funName] =
+      _binaryMessages_setMockMessageHandler;
   return m;
 }
+
 var _binaryMessages_setMessageHandler = MXFunctionInvoke(
   "BinaryMessages.setMessageHandler",
-    (
-      {
-      String channel,
-      dynamic handler,
-      }
-    ) =>
+  ({
+    String channel,
+    dynamic handler,
+  }) =>
       BinaryMessages.setMessageHandler(
-      channel,
-      null,
-    ),
+    channel,
+    null,
+  ),
+  [
+    "channel",
+    "handler",
+  ],
 );
 var _binaryMessages_setMockMessageHandler = MXFunctionInvoke(
   "BinaryMessages.setMockMessageHandler",
-    (
-      {
-      String channel,
-      dynamic handler,
-      }
-    ) =>
+  ({
+    String channel,
+    dynamic handler,
+  }) =>
       BinaryMessages.setMockMessageHandler(
-      channel,
-      null,
-    ),
+    channel,
+    null,
+  ),
+  [
+    "channel",
+    "handler",
+  ],
 );

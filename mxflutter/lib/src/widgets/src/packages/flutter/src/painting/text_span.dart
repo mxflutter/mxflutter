@@ -15,29 +15,34 @@ import 'package:flutter/src/painting/inline_span.dart';
 import 'package:flutter/src/painting/text_painter.dart';
 import 'package:flutter/src/painting/text_style.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextSpanSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_textSpan.funName] = _textSpan;
   return m;
 }
+
 var _textSpan = MXFunctionInvoke(
-    "TextSpan",
-    (
-      {
-      String text,
-      dynamic children,
-      TextStyle style,
-      GestureRecognizer recognizer,
-      String semanticsLabel,
-      }
-    ) =>
+  "TextSpan",
+  ({
+    String text,
+    dynamic children,
+    TextStyle style,
+    GestureRecognizer recognizer,
+    String semanticsLabel,
+  }) =>
       TextSpan(
-      text: text,
-      children: toListT<InlineSpan>(children),
-      style: style,
-      recognizer: recognizer,
-      semanticsLabel: semanticsLabel,
-    ),
+    text: text,
+    children: toListT<InlineSpan>(children),
+    style: style,
+    recognizer: recognizer,
+    semanticsLabel: semanticsLabel,
+  ),
+  [
+    "text",
+    "children",
+    "style",
+    "recognizer",
+    "semanticsLabel",
+  ],
 );

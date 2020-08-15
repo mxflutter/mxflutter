@@ -13,7 +13,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/painting/image_cache.dart';
 import 'package:flutter/src/painting/shader_warm_up.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};

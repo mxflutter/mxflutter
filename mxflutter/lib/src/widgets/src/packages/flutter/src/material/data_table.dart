@@ -23,7 +23,6 @@ import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/tooltip.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDataTableSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -35,125 +34,167 @@ Map<String, MXFunctionInvoke> registerDataTableSeries() {
   m[_tableRowInkWell.funName] = _tableRowInkWell;
   return m;
 }
+
 var _dataColumn = MXFunctionInvoke(
-    "DataColumn",
-    (
-      {
-      Widget label,
-      String tooltip,
-      bool numeric = false,
-      dynamic onSort,
-      }
-    ) =>
+  "DataColumn",
+  ({
+    Widget label,
+    String tooltip,
+    bool numeric = false,
+    dynamic onSort,
+  }) =>
       DataColumn(
-      label: label,
-      tooltip: tooltip,
-      numeric: numeric,
-      onSort: createVoidTwoParamsClosure<int, bool>(_dataColumn.buildOwner, onSort),
-    ),
+    label: label,
+    tooltip: tooltip,
+    numeric: numeric,
+    onSort:
+        createVoidTwoParamsClosure<int, bool>(_dataColumn.buildOwner, onSort),
+  ),
+  [
+    "label",
+    "tooltip",
+    "numeric",
+    "onSort",
+  ],
 );
 var _dataRow = MXFunctionInvoke(
-    "DataRow",
-    (
-      {
-      LocalKey key,
-      bool selected = false,
-      dynamic onSelectChanged,
-      dynamic cells,
-      }
-    ) =>
+  "DataRow",
+  ({
+    LocalKey key,
+    bool selected = false,
+    dynamic onSelectChanged,
+    dynamic cells,
+  }) =>
       DataRow(
-      key: key,
-      selected: selected,
-      onSelectChanged: createValueChangedGenericClosure<bool>(_dataRow.buildOwner, onSelectChanged),
-      cells: toListT<DataCell>(cells),
-    ),
+    key: key,
+    selected: selected,
+    onSelectChanged: createValueChangedGenericClosure<bool>(
+        _dataRow.buildOwner, onSelectChanged),
+    cells: toListT<DataCell>(cells),
+  ),
+  [
+    "key",
+    "selected",
+    "onSelectChanged",
+    "cells",
+  ],
 );
 var _dataRow_byIndex = MXFunctionInvoke(
   "DataRow.byIndex",
-    (
-      {
-      int index,
-      bool selected = false,
-      dynamic onSelectChanged,
-      dynamic cells,
-      }
-    ) =>
+  ({
+    int index,
+    bool selected = false,
+    dynamic onSelectChanged,
+    dynamic cells,
+  }) =>
       DataRow.byIndex(
-      index: index,
-      selected: selected,
-      onSelectChanged: createValueChangedGenericClosure<bool>(_dataRow_byIndex.buildOwner, onSelectChanged),
-      cells: toListT<DataCell>(cells),
-    ),
+    index: index,
+    selected: selected,
+    onSelectChanged: createValueChangedGenericClosure<bool>(
+        _dataRow_byIndex.buildOwner, onSelectChanged),
+    cells: toListT<DataCell>(cells),
+  ),
+  [
+    "index",
+    "selected",
+    "onSelectChanged",
+    "cells",
+  ],
 );
 var _dataCell = MXFunctionInvoke(
-    "DataCell",
-    (
-      {
-      Widget child,
-      bool placeholder = false,
-      bool showEditIcon = false,
-      dynamic onTap,
-      }
-    ) =>
+  "DataCell",
+  ({
+    Widget child,
+    bool placeholder = false,
+    bool showEditIcon = false,
+    dynamic onTap,
+  }) =>
       DataCell(
-      child,
-      placeholder: placeholder,
-      showEditIcon: showEditIcon,
-      onTap: createVoidCallbackClosure(_dataCell.buildOwner, onTap),
-    ),
+    child,
+    placeholder: placeholder,
+    showEditIcon: showEditIcon,
+    onTap: createVoidCallbackClosure(_dataCell.buildOwner, onTap),
+  ),
+  [
+    "child",
+    "placeholder",
+    "showEditIcon",
+    "onTap",
+  ],
 );
 var _dataTable = MXFunctionInvoke(
-    "DataTable",
-    (
-      {
-      Key key,
-      dynamic columns,
-      int sortColumnIndex,
-      bool sortAscending = true,
-      dynamic onSelectAll,
-      dynamic dataRowHeight = 48.0,
-      dynamic headingRowHeight = 56.0,
-      dynamic horizontalMargin = 24.0,
-      dynamic columnSpacing = 56.0,
-      bool showCheckboxColumn = true,
-      dynamic dividerThickness = 1.0,
-      dynamic rows,
-      }
-    ) =>
+  "DataTable",
+  ({
+    Key key,
+    dynamic columns,
+    int sortColumnIndex,
+    bool sortAscending = true,
+    dynamic onSelectAll,
+    dynamic dataRowHeight = 48.0,
+    dynamic headingRowHeight = 56.0,
+    dynamic horizontalMargin = 24.0,
+    dynamic columnSpacing = 56.0,
+    bool showCheckboxColumn = true,
+    dynamic dividerThickness = 1.0,
+    dynamic rows,
+  }) =>
       DataTable(
-      key: key,
-      columns: toListT<DataColumn>(columns),
-      sortColumnIndex: sortColumnIndex,
-      sortAscending: sortAscending,
-      onSelectAll: createValueChangedGenericClosure<bool>(_dataTable.buildOwner, onSelectAll),
-      dataRowHeight: dataRowHeight?.toDouble(),
-      headingRowHeight: headingRowHeight?.toDouble(),
-      horizontalMargin: horizontalMargin?.toDouble(),
-      columnSpacing: columnSpacing?.toDouble(),
-      showCheckboxColumn: showCheckboxColumn,
-      dividerThickness: dividerThickness?.toDouble(),
-      rows: toListT<DataRow>(rows),
-    ),
+    key: key,
+    columns: toListT<DataColumn>(columns),
+    sortColumnIndex: sortColumnIndex,
+    sortAscending: sortAscending,
+    onSelectAll: createValueChangedGenericClosure<bool>(
+        _dataTable.buildOwner, onSelectAll),
+    dataRowHeight: dataRowHeight?.toDouble(),
+    headingRowHeight: headingRowHeight?.toDouble(),
+    horizontalMargin: horizontalMargin?.toDouble(),
+    columnSpacing: columnSpacing?.toDouble(),
+    showCheckboxColumn: showCheckboxColumn,
+    dividerThickness: dividerThickness?.toDouble(),
+    rows: toListT<DataRow>(rows),
+  ),
+  [
+    "key",
+    "columns",
+    "sortColumnIndex",
+    "sortAscending",
+    "onSelectAll",
+    "dataRowHeight",
+    "headingRowHeight",
+    "horizontalMargin",
+    "columnSpacing",
+    "showCheckboxColumn",
+    "dividerThickness",
+    "rows",
+  ],
 );
 var _tableRowInkWell = MXFunctionInvoke(
-    "TableRowInkWell",
-    (
-      {
-      Key key,
-      Widget child,
-      dynamic onTap,
-      dynamic onDoubleTap,
-      dynamic onLongPress,
-      dynamic onHighlightChanged,
-      }
-    ) =>
+  "TableRowInkWell",
+  ({
+    Key key,
+    Widget child,
+    dynamic onTap,
+    dynamic onDoubleTap,
+    dynamic onLongPress,
+    dynamic onHighlightChanged,
+  }) =>
       TableRowInkWell(
-      key: key,
-      child: child,
-      onTap: createVoidCallbackClosure(_tableRowInkWell.buildOwner, onTap),
-      onDoubleTap: createVoidCallbackClosure(_tableRowInkWell.buildOwner, onDoubleTap),
-      onLongPress: createVoidCallbackClosure(_tableRowInkWell.buildOwner, onLongPress),
-      onHighlightChanged: createValueChangedGenericClosure<bool>(_tableRowInkWell.buildOwner, onHighlightChanged),
-    ),
+    key: key,
+    child: child,
+    onTap: createVoidCallbackClosure(_tableRowInkWell.buildOwner, onTap),
+    onDoubleTap:
+        createVoidCallbackClosure(_tableRowInkWell.buildOwner, onDoubleTap),
+    onLongPress:
+        createVoidCallbackClosure(_tableRowInkWell.buildOwner, onLongPress),
+    onHighlightChanged: createValueChangedGenericClosure<bool>(
+        _tableRowInkWell.buildOwner, onHighlightChanged),
+  ),
+  [
+    "key",
+    "child",
+    "onTap",
+    "onDoubleTap",
+    "onLongPress",
+    "onHighlightChanged",
+  ],
 );

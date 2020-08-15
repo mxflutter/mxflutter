@@ -13,12 +13,12 @@ import 'package:flutter/src/foundation/diagnostics.dart';
 import 'package:flutter/src/foundation/print.dart';
 import 'package:flutter/src/foundation/stack_frame.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAssertionsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_partialStackFrame.funName] = _partialStackFrame;
-  m[_partialStackFrame_asynchronousSuspension.funName] = _partialStackFrame_asynchronousSuspension;
+  m[_partialStackFrame_asynchronousSuspension.funName] =
+      _partialStackFrame_asynchronousSuspension;
   m[_repetitiveStackFrameFilter.funName] = _repetitiveStackFrameFilter;
   m[_errorDescription.funName] = _errorDescription;
   m[_errorSummary.funName] = _errorSummary;
@@ -28,210 +28,231 @@ Map<String, MXFunctionInvoke> registerAssertionsSeries() {
   m[_flutterError_wrapWidth.funName] = _flutterError_wrapWidth;
   m[_flutterError.funName] = _flutterError;
   m[_flutterError_resetErrorCount.funName] = _flutterError_resetErrorCount;
-  m[_flutterError_dumpErrorToConsole.funName] = _flutterError_dumpErrorToConsole;
-  m[_flutterError_addDefaultStackFilter.funName] = _flutterError_addDefaultStackFilter;
+  m[_flutterError_dumpErrorToConsole.funName] =
+      _flutterError_dumpErrorToConsole;
+  m[_flutterError_addDefaultStackFilter.funName] =
+      _flutterError_addDefaultStackFilter;
   m[_flutterError_reportError.funName] = _flutterError_reportError;
   m[_flutterError_fromParts.funName] = _flutterError_fromParts;
   m[_diagnosticsStackTrace.funName] = _diagnosticsStackTrace;
-  m[_diagnosticsStackTrace_singleFrame.funName] = _diagnosticsStackTrace_singleFrame;
+  m[_diagnosticsStackTrace_singleFrame.funName] =
+      _diagnosticsStackTrace_singleFrame;
   return m;
 }
+
 var _partialStackFrame = MXFunctionInvoke(
-    "PartialStackFrame",
-    (
-      {
-      Pattern package,
-      String className,
-      String method,
-      }
-    ) =>
+  "PartialStackFrame",
+  ({
+    Pattern package,
+    String className,
+    String method,
+  }) =>
       PartialStackFrame(
-      package: package,
-      className: className,
-      method: method,
-    ),
+    package: package,
+    className: className,
+    method: method,
+  ),
+  [
+    "package",
+    "className",
+    "method",
+  ],
 );
 var _partialStackFrame_asynchronousSuspension = MXFunctionInvoke(
-  "PartialStackFrame.asynchronousSuspension",
-    (
-    ) =>
-      PartialStackFrame.asynchronousSuspension
-);
+    "PartialStackFrame.asynchronousSuspension",
+    () => PartialStackFrame.asynchronousSuspension);
 var _repetitiveStackFrameFilter = MXFunctionInvoke(
-    "RepetitiveStackFrameFilter",
-    (
-      {
-      dynamic frames,
-      String replacement,
-      }
-    ) =>
+  "RepetitiveStackFrameFilter",
+  ({
+    dynamic frames,
+    String replacement,
+  }) =>
       RepetitiveStackFrameFilter(
-      frames: toListT<PartialStackFrame>(frames),
-      replacement: replacement,
-    ),
+    frames: toListT<PartialStackFrame>(frames),
+    replacement: replacement,
+  ),
+  [
+    "frames",
+    "replacement",
+  ],
 );
 var _errorDescription = MXFunctionInvoke(
-    "ErrorDescription",
-    (
-      {
-      String message,
-      }
-    ) =>
+  "ErrorDescription",
+  ({
+    String message,
+  }) =>
       ErrorDescription(
-      message,
-    ),
+    message,
+  ),
+  [
+    "message",
+  ],
 );
 var _errorSummary = MXFunctionInvoke(
-    "ErrorSummary",
-    (
-      {
-      String message,
-      }
-    ) =>
+  "ErrorSummary",
+  ({
+    String message,
+  }) =>
       ErrorSummary(
-      message,
-    ),
+    message,
+  ),
+  [
+    "message",
+  ],
 );
 var _errorHint = MXFunctionInvoke(
-    "ErrorHint",
-    (
-      {
-      String message,
-      }
-    ) =>
+  "ErrorHint",
+  ({
+    String message,
+  }) =>
       ErrorHint(
-      message,
-    ),
+    message,
+  ),
+  [
+    "message",
+  ],
 );
 var _errorSpacer = MXFunctionInvoke(
-    "ErrorSpacer",
-    (
-    ) =>
-      ErrorSpacer(
-    ),
+  "ErrorSpacer",
+  () => ErrorSpacer(),
+  [],
 );
 var _flutterErrorDetails = MXFunctionInvoke(
-    "FlutterErrorDetails",
-    (
-      {
-      dynamic exception,
-      StackTrace stack,
-      String library = 'Flutter framework',
-      DiagnosticsNode context,
-      dynamic stackFilter,
-      dynamic informationCollector,
-      bool silent = false,
-      }
-    ) =>
+  "FlutterErrorDetails",
+  ({
+    dynamic exception,
+    StackTrace stack,
+    String library = 'Flutter framework',
+    DiagnosticsNode context,
+    dynamic stackFilter,
+    dynamic informationCollector,
+    bool silent = false,
+  }) =>
       FlutterErrorDetails(
-      exception: exception,
-      stack: stack,
-      library: library,
-      context: context,
-      stackFilter: null,
-      informationCollector: null,
-      silent: silent,
-    ),
+    exception: exception,
+    stack: stack,
+    library: library,
+    context: context,
+    stackFilter: null,
+    informationCollector: null,
+    silent: silent,
+  ),
+  [
+    "exception",
+    "stack",
+    "library",
+    "context",
+    "stackFilter",
+    "informationCollector",
+    "silent",
+  ],
 );
-var _flutterError_wrapWidth = MXFunctionInvoke(
-  "FlutterError.wrapWidth",
-    (
-    ) =>
-      FlutterError.wrapWidth
-);
+var _flutterError_wrapWidth =
+    MXFunctionInvoke("FlutterError.wrapWidth", () => FlutterError.wrapWidth);
 var _flutterError = MXFunctionInvoke(
-    "FlutterError",
-    (
-      {
-      String message,
-      }
-    ) =>
+  "FlutterError",
+  ({
+    String message,
+  }) =>
       FlutterError(
-      message,
-    ),
+    message,
+  ),
+  [
+    "message",
+  ],
 );
 var _flutterError_resetErrorCount = MXFunctionInvoke(
   "FlutterError.resetErrorCount",
-    (
-    ) =>
-      FlutterError.resetErrorCount(
-    ),
+  () => FlutterError.resetErrorCount(),
+  [],
 );
 var _flutterError_dumpErrorToConsole = MXFunctionInvoke(
   "FlutterError.dumpErrorToConsole",
-    (
-      {
-      FlutterErrorDetails details,
-      bool forceReport = false,
-      }
-    ) =>
+  ({
+    FlutterErrorDetails details,
+    bool forceReport = false,
+  }) =>
       FlutterError.dumpErrorToConsole(
-      details,
-      forceReport: forceReport,
-    ),
+    details,
+    forceReport: forceReport,
+  ),
+  [
+    "details",
+    "forceReport",
+  ],
 );
 var _flutterError_addDefaultStackFilter = MXFunctionInvoke(
   "FlutterError.addDefaultStackFilter",
-    (
-      {
-      StackFilter filter,
-      }
-    ) =>
+  ({
+    StackFilter filter,
+  }) =>
       FlutterError.addDefaultStackFilter(
-      filter,
-    ),
+    filter,
+  ),
+  [
+    "filter",
+  ],
 );
 var _flutterError_reportError = MXFunctionInvoke(
   "FlutterError.reportError",
-    (
-      {
-      FlutterErrorDetails details,
-      }
-    ) =>
+  ({
+    FlutterErrorDetails details,
+  }) =>
       FlutterError.reportError(
-      details,
-    ),
+    details,
+  ),
+  [
+    "details",
+  ],
 );
 var _flutterError_fromParts = MXFunctionInvoke(
   "FlutterError.fromParts",
-    (
-      {
-      dynamic diagnostics,
-      }
-    ) =>
+  ({
+    dynamic diagnostics,
+  }) =>
       FlutterError.fromParts(
-      toListT<DiagnosticsNode>(diagnostics),
-    ),
+    toListT<DiagnosticsNode>(diagnostics),
+  ),
+  [
+    "diagnostics",
+  ],
 );
 var _diagnosticsStackTrace = MXFunctionInvoke(
-    "DiagnosticsStackTrace",
-    (
-      {
-      String name,
-      StackTrace stack,
-      dynamic stackFilter,
-      bool showSeparator = true,
-      }
-    ) =>
+  "DiagnosticsStackTrace",
+  ({
+    String name,
+    StackTrace stack,
+    dynamic stackFilter,
+    bool showSeparator = true,
+  }) =>
       DiagnosticsStackTrace(
-      name,
-      stack,
-      stackFilter: null,
-      showSeparator: showSeparator,
-    ),
+    name,
+    stack,
+    stackFilter: null,
+    showSeparator: showSeparator,
+  ),
+  [
+    "name",
+    "stack",
+    "stackFilter",
+    "showSeparator",
+  ],
 );
 var _diagnosticsStackTrace_singleFrame = MXFunctionInvoke(
   "DiagnosticsStackTrace.singleFrame",
-    (
-      {
-      String name,
-      String frame,
-      bool showSeparator = true,
-      }
-    ) =>
+  ({
+    String name,
+    String frame,
+    bool showSeparator = true,
+  }) =>
       DiagnosticsStackTrace.singleFrame(
-      name,
-      frame: frame,
-      showSeparator: showSeparator,
-    ),
+    name,
+    frame: frame,
+    showSeparator: showSeparator,
+  ),
+  [
+    "name",
+    "frame",
+    "showSeparator",
+  ],
 );

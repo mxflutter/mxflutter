@@ -21,65 +21,79 @@ import 'package:flutter/src/widgets/scroll_position.dart';
 import 'package:flutter/src/widgets/scroll_position_with_single_context.dart';
 import 'package:flutter/src/widgets/scroll_simulation.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDraggableScrollableSheetSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_draggableScrollableSheet.funName] = _draggableScrollableSheet;
-  m[_draggableScrollableNotification.funName] = _draggableScrollableNotification;
+  m[_draggableScrollableNotification.funName] =
+      _draggableScrollableNotification;
   m[_draggableScrollableActuator.funName] = _draggableScrollableActuator;
   return m;
 }
+
 var _draggableScrollableSheet = MXFunctionInvoke(
-    "DraggableScrollableSheet",
-    (
-      {
-      Key key,
-      dynamic initialChildSize = 0.5,
-      dynamic minChildSize = 0.25,
-      dynamic maxChildSize = 1.0,
-      bool expand = true,
-      dynamic builder,
-      }
-    ) =>
+  "DraggableScrollableSheet",
+  ({
+    Key key,
+    dynamic initialChildSize = 0.5,
+    dynamic minChildSize = 0.25,
+    dynamic maxChildSize = 1.0,
+    bool expand = true,
+    dynamic builder,
+  }) =>
       DraggableScrollableSheet(
-      key: key,
-      initialChildSize: initialChildSize?.toDouble(),
-      minChildSize: minChildSize?.toDouble(),
-      maxChildSize: maxChildSize?.toDouble(),
-      expand: expand,
-      builder: null,
-    ),
+    key: key,
+    initialChildSize: initialChildSize?.toDouble(),
+    minChildSize: minChildSize?.toDouble(),
+    maxChildSize: maxChildSize?.toDouble(),
+    expand: expand,
+    builder: null,
+  ),
+  [
+    "key",
+    "initialChildSize",
+    "minChildSize",
+    "maxChildSize",
+    "expand",
+    "builder",
+  ],
 );
 var _draggableScrollableNotification = MXFunctionInvoke(
-    "DraggableScrollableNotification",
-    (
-      {
-      dynamic extent,
-      dynamic minExtent,
-      dynamic maxExtent,
-      dynamic initialExtent,
-      BuildContext context,
-      }
-    ) =>
+  "DraggableScrollableNotification",
+  ({
+    dynamic extent,
+    dynamic minExtent,
+    dynamic maxExtent,
+    dynamic initialExtent,
+    BuildContext context,
+  }) =>
       DraggableScrollableNotification(
-      extent: extent?.toDouble(),
-      minExtent: minExtent?.toDouble(),
-      maxExtent: maxExtent?.toDouble(),
-      initialExtent: initialExtent?.toDouble(),
-      context: context,
-    ),
+    extent: extent?.toDouble(),
+    minExtent: minExtent?.toDouble(),
+    maxExtent: maxExtent?.toDouble(),
+    initialExtent: initialExtent?.toDouble(),
+    context: context,
+  ),
+  [
+    "extent",
+    "minExtent",
+    "maxExtent",
+    "initialExtent",
+    "context",
+  ],
 );
 var _draggableScrollableActuator = MXFunctionInvoke(
-    "DraggableScrollableActuator",
-    (
-      {
-      Key key,
-      Widget child,
-      }
-    ) =>
+  "DraggableScrollableActuator",
+  ({
+    Key key,
+    Widget child,
+  }) =>
       DraggableScrollableActuator(
-      key: key,
-      child: child,
-    ),
+    key: key,
+    child: child,
+  ),
+  [
+    "key",
+    "child",
+  ],
 );

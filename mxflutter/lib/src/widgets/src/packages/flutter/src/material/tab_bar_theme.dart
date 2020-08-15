@@ -12,33 +12,40 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/tabs.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTabBarThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_tabBarTheme.funName] = _tabBarTheme;
   return m;
 }
+
 var _tabBarTheme = MXFunctionInvoke(
-    "TabBarTheme",
-    (
-      {
-      Decoration indicator,
-      TabBarIndicatorSize indicatorSize,
-      Color labelColor,
-      EdgeInsetsGeometry labelPadding,
-      TextStyle labelStyle,
-      Color unselectedLabelColor,
-      TextStyle unselectedLabelStyle,
-      }
-    ) =>
+  "TabBarTheme",
+  ({
+    Decoration indicator,
+    TabBarIndicatorSize indicatorSize,
+    Color labelColor,
+    EdgeInsetsGeometry labelPadding,
+    TextStyle labelStyle,
+    Color unselectedLabelColor,
+    TextStyle unselectedLabelStyle,
+  }) =>
       TabBarTheme(
-      indicator: indicator,
-      indicatorSize: indicatorSize,
-      labelColor: labelColor,
-      labelPadding: labelPadding,
-      labelStyle: labelStyle,
-      unselectedLabelColor: unselectedLabelColor,
-      unselectedLabelStyle: unselectedLabelStyle,
-    ),
+    indicator: indicator,
+    indicatorSize: indicatorSize,
+    labelColor: labelColor,
+    labelPadding: labelPadding,
+    labelStyle: labelStyle,
+    unselectedLabelColor: unselectedLabelColor,
+    unselectedLabelStyle: unselectedLabelStyle,
+  ),
+  [
+    "indicator",
+    "indicatorSize",
+    "labelColor",
+    "labelPadding",
+    "labelStyle",
+    "unselectedLabelColor",
+    "unselectedLabelStyle",
+  ],
 );

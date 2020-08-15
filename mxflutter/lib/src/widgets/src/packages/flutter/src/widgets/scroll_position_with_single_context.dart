@@ -19,31 +19,38 @@ import 'package:flutter/src/widgets/scroll_notification.dart';
 import 'package:flutter/src/widgets/scroll_physics.dart';
 import 'package:flutter/src/widgets/scroll_position.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollPositionWithSingleContextSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_scrollPositionWithSingleContext.funName] = _scrollPositionWithSingleContext;
+  m[_scrollPositionWithSingleContext.funName] =
+      _scrollPositionWithSingleContext;
   return m;
 }
+
 var _scrollPositionWithSingleContext = MXFunctionInvoke(
-    "ScrollPositionWithSingleContext",
-    (
-      {
-      ScrollPhysics physics,
-      ScrollContext context,
-      dynamic initialPixels = 0.0,
-      bool keepScrollOffset = true,
-      ScrollPosition oldPosition,
-      String debugLabel,
-      }
-    ) =>
+  "ScrollPositionWithSingleContext",
+  ({
+    ScrollPhysics physics,
+    ScrollContext context,
+    dynamic initialPixels = 0.0,
+    bool keepScrollOffset = true,
+    ScrollPosition oldPosition,
+    String debugLabel,
+  }) =>
       ScrollPositionWithSingleContext(
-      physics: physics,
-      context: context,
-      initialPixels: initialPixels?.toDouble(),
-      keepScrollOffset: keepScrollOffset,
-      oldPosition: oldPosition,
-      debugLabel: debugLabel,
-    ),
+    physics: physics,
+    context: context,
+    initialPixels: initialPixels?.toDouble(),
+    keepScrollOffset: keepScrollOffset,
+    oldPosition: oldPosition,
+    debugLabel: debugLabel,
+  ),
+  [
+    "physics",
+    "context",
+    "initialPixels",
+    "keepScrollOffset",
+    "oldPosition",
+    "debugLabel",
+  ],
 );

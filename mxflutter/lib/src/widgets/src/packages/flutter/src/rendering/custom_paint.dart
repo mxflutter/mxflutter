@@ -14,7 +14,6 @@ import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/proxy_box.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCustomPaintSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -22,43 +21,55 @@ Map<String, MXFunctionInvoke> registerCustomPaintSeries() {
   m[_renderCustomPaint.funName] = _renderCustomPaint;
   return m;
 }
+
 var _customPainterSemantics = MXFunctionInvoke(
-    "CustomPainterSemantics",
-    (
-      {
-      Key key,
-      Rect rect,
-      SemanticsProperties properties,
-      Matrix4 transform,
-      Set<SemanticsTag> tags,
-      }
-    ) =>
+  "CustomPainterSemantics",
+  ({
+    Key key,
+    Rect rect,
+    SemanticsProperties properties,
+    Matrix4 transform,
+    Set<SemanticsTag> tags,
+  }) =>
       CustomPainterSemantics(
-      key: key,
-      rect: rect,
-      properties: properties,
-      transform: transform,
-      tags: tags,
-    ),
+    key: key,
+    rect: rect,
+    properties: properties,
+    transform: transform,
+    tags: tags,
+  ),
+  [
+    "key",
+    "rect",
+    "properties",
+    "transform",
+    "tags",
+  ],
 );
 var _renderCustomPaint = MXFunctionInvoke(
-    "RenderCustomPaint",
-    (
-      {
-      CustomPainter painter,
-      CustomPainter foregroundPainter,
-      Size preferredSize = Size.zero,
-      bool isComplex = false,
-      bool willChange = false,
-      RenderBox child,
-      }
-    ) =>
+  "RenderCustomPaint",
+  ({
+    CustomPainter painter,
+    CustomPainter foregroundPainter,
+    Size preferredSize = Size.zero,
+    bool isComplex = false,
+    bool willChange = false,
+    RenderBox child,
+  }) =>
       RenderCustomPaint(
-      painter: painter,
-      foregroundPainter: foregroundPainter,
-      preferredSize: preferredSize,
-      isComplex: isComplex,
-      willChange: willChange,
-      child: child,
-    ),
+    painter: painter,
+    foregroundPainter: foregroundPainter,
+    preferredSize: preferredSize,
+    isComplex: isComplex,
+    willChange: willChange,
+    child: child,
+  ),
+  [
+    "painter",
+    "foregroundPainter",
+    "preferredSize",
+    "isComplex",
+    "willChange",
+    "child",
+  ],
 );

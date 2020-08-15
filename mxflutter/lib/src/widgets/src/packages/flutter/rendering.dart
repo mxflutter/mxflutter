@@ -47,7 +47,6 @@ import 'src/rendering/viewport.dart';
 import 'src/rendering/viewport_offset.dart';
 import 'src/rendering/wrap.dart';
 
-
 Map<String, MXFunctionInvoke> registerRenderingLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerAnimatedSizeSeries());

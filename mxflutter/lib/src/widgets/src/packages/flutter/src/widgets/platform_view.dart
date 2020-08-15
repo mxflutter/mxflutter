@@ -16,7 +16,6 @@ import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/focus_scope.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformViewSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -27,100 +26,131 @@ Map<String, MXFunctionInvoke> registerPlatformViewSeries() {
   m[_platformViewSurface.funName] = _platformViewSurface;
   return m;
 }
+
 var _androidView = MXFunctionInvoke(
-    "AndroidView",
-    (
-      {
-      Key key,
-      String viewType,
-      dynamic onPlatformViewCreated,
-      PlatformViewHitTestBehavior hitTestBehavior = PlatformViewHitTestBehavior.opaque,
-      TextDirection layoutDirection,
-      Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-      dynamic creationParams,
-      MessageCodec<dynamic> creationParamsCodec,
-      }
-    ) =>
+  "AndroidView",
+  ({
+    Key key,
+    String viewType,
+    dynamic onPlatformViewCreated,
+    PlatformViewHitTestBehavior hitTestBehavior =
+        PlatformViewHitTestBehavior.opaque,
+    TextDirection layoutDirection,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
+    dynamic creationParams,
+    MessageCodec<dynamic> creationParamsCodec,
+  }) =>
       AndroidView(
-      key: key,
-      viewType: viewType,
-      onPlatformViewCreated: createValueChangedGenericClosure<int>(_androidView.buildOwner, onPlatformViewCreated),
-      hitTestBehavior: hitTestBehavior,
-      layoutDirection: layoutDirection,
-      gestureRecognizers: gestureRecognizers,
-      creationParams: creationParams,
-      creationParamsCodec: creationParamsCodec,
-    ),
+    key: key,
+    viewType: viewType,
+    onPlatformViewCreated: createValueChangedGenericClosure<int>(
+        _androidView.buildOwner, onPlatformViewCreated),
+    hitTestBehavior: hitTestBehavior,
+    layoutDirection: layoutDirection,
+    gestureRecognizers: gestureRecognizers,
+    creationParams: creationParams,
+    creationParamsCodec: creationParamsCodec,
+  ),
+  [
+    "key",
+    "viewType",
+    "onPlatformViewCreated",
+    "hitTestBehavior",
+    "layoutDirection",
+    "gestureRecognizers",
+    "creationParams",
+    "creationParamsCodec",
+  ],
 );
 var _uiKitView = MXFunctionInvoke(
-    "UiKitView",
-    (
-      {
-      Key key,
-      String viewType,
-      dynamic onPlatformViewCreated,
-      PlatformViewHitTestBehavior hitTestBehavior =  PlatformViewHitTestBehavior.opaque,
-      TextDirection layoutDirection,
-      dynamic creationParams,
-      MessageCodec<dynamic> creationParamsCodec,
-      Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-      }
-    ) =>
+  "UiKitView",
+  ({
+    Key key,
+    String viewType,
+    dynamic onPlatformViewCreated,
+    PlatformViewHitTestBehavior hitTestBehavior =
+        PlatformViewHitTestBehavior.opaque,
+    TextDirection layoutDirection,
+    dynamic creationParams,
+    MessageCodec<dynamic> creationParamsCodec,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
+  }) =>
       UiKitView(
-      key: key,
-      viewType: viewType,
-      onPlatformViewCreated: createValueChangedGenericClosure<int>(_uiKitView.buildOwner, onPlatformViewCreated),
-      hitTestBehavior: hitTestBehavior,
-      layoutDirection: layoutDirection,
-      creationParams: creationParams,
-      creationParamsCodec: creationParamsCodec,
-      gestureRecognizers: gestureRecognizers,
-    ),
+    key: key,
+    viewType: viewType,
+    onPlatformViewCreated: createValueChangedGenericClosure<int>(
+        _uiKitView.buildOwner, onPlatformViewCreated),
+    hitTestBehavior: hitTestBehavior,
+    layoutDirection: layoutDirection,
+    creationParams: creationParams,
+    creationParamsCodec: creationParamsCodec,
+    gestureRecognizers: gestureRecognizers,
+  ),
+  [
+    "key",
+    "viewType",
+    "onPlatformViewCreated",
+    "hitTestBehavior",
+    "layoutDirection",
+    "creationParams",
+    "creationParamsCodec",
+    "gestureRecognizers",
+  ],
 );
 var _htmlElementView = MXFunctionInvoke(
-    "HtmlElementView",
-    (
-      {
-      Key key,
-      String viewType,
-      }
-    ) =>
+  "HtmlElementView",
+  ({
+    Key key,
+    String viewType,
+  }) =>
       HtmlElementView(
-      key: key,
-      viewType: viewType,
-    ),
+    key: key,
+    viewType: viewType,
+  ),
+  [
+    "key",
+    "viewType",
+  ],
 );
 var _platformViewLink = MXFunctionInvoke(
-    "PlatformViewLink",
-    (
-      {
-      Key key,
-      dynamic surfaceFactory,
-      dynamic onCreatePlatformView,
-      String viewType,
-      }
-    ) =>
+  "PlatformViewLink",
+  ({
+    Key key,
+    dynamic surfaceFactory,
+    dynamic onCreatePlatformView,
+    String viewType,
+  }) =>
       PlatformViewLink(
-      key: key,
-      surfaceFactory: null,
-      onCreatePlatformView: null,
-      viewType: viewType,
-    ),
+    key: key,
+    surfaceFactory: null,
+    onCreatePlatformView: null,
+    viewType: viewType,
+  ),
+  [
+    "key",
+    "surfaceFactory",
+    "onCreatePlatformView",
+    "viewType",
+  ],
 );
 var _platformViewSurface = MXFunctionInvoke(
-    "PlatformViewSurface",
-    (
-      {
-      Key key,
-      PlatformViewController controller,
-      PlatformViewHitTestBehavior hitTestBehavior,
-      Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
-      }
-    ) =>
+  "PlatformViewSurface",
+  ({
+    Key key,
+    PlatformViewController controller,
+    PlatformViewHitTestBehavior hitTestBehavior,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
+  }) =>
       PlatformViewSurface(
-      key: key,
-      controller: controller,
-      hitTestBehavior: hitTestBehavior,
-      gestureRecognizers: gestureRecognizers,
-    ),
+    key: key,
+    controller: controller,
+    hitTestBehavior: hitTestBehavior,
+    gestureRecognizers: gestureRecognizers,
+  ),
+  [
+    "key",
+    "controller",
+    "hitTestBehavior",
+    "gestureRecognizers",
+  ],
 );

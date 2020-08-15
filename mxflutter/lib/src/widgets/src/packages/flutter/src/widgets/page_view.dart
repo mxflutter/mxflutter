@@ -30,7 +30,6 @@ import 'package:flutter/src/widgets/sliver.dart';
 import 'package:flutter/src/widgets/sliver_fill.dart';
 import 'package:flutter/src/widgets/viewport.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPageViewSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -42,139 +41,184 @@ Map<String, MXFunctionInvoke> registerPageViewSeries() {
   m[_pageView_custom.funName] = _pageView_custom;
   return m;
 }
+
 var _pageController = MXFunctionInvoke(
-    "PageController",
-    (
-      {
-      int initialPage = 0,
-      bool keepPage = true,
-      dynamic viewportFraction = 1.0,
-      }
-    ) =>
+  "PageController",
+  ({
+    int initialPage = 0,
+    bool keepPage = true,
+    dynamic viewportFraction = 1.0,
+  }) =>
       PageController(
-      initialPage: initialPage,
-      keepPage: keepPage,
-      viewportFraction: viewportFraction?.toDouble(),
-    ),
+    initialPage: initialPage,
+    keepPage: keepPage,
+    viewportFraction: viewportFraction?.toDouble(),
+  ),
+  [
+    "initialPage",
+    "keepPage",
+    "viewportFraction",
+  ],
 );
 var _pageMetrics = MXFunctionInvoke(
-    "PageMetrics",
-    (
-      {
-      dynamic minScrollExtent,
-      dynamic maxScrollExtent,
-      dynamic pixels,
-      dynamic viewportDimension,
-      AxisDirection axisDirection,
-      dynamic viewportFraction,
-      }
-    ) =>
+  "PageMetrics",
+  ({
+    dynamic minScrollExtent,
+    dynamic maxScrollExtent,
+    dynamic pixels,
+    dynamic viewportDimension,
+    AxisDirection axisDirection,
+    dynamic viewportFraction,
+  }) =>
       PageMetrics(
-      minScrollExtent: minScrollExtent?.toDouble(),
-      maxScrollExtent: maxScrollExtent?.toDouble(),
-      pixels: pixels?.toDouble(),
-      viewportDimension: viewportDimension?.toDouble(),
-      axisDirection: axisDirection,
-      viewportFraction: viewportFraction?.toDouble(),
-    ),
+    minScrollExtent: minScrollExtent?.toDouble(),
+    maxScrollExtent: maxScrollExtent?.toDouble(),
+    pixels: pixels?.toDouble(),
+    viewportDimension: viewportDimension?.toDouble(),
+    axisDirection: axisDirection,
+    viewportFraction: viewportFraction?.toDouble(),
+  ),
+  [
+    "minScrollExtent",
+    "maxScrollExtent",
+    "pixels",
+    "viewportDimension",
+    "axisDirection",
+    "viewportFraction",
+  ],
 );
 var _pageScrollPhysics = MXFunctionInvoke(
-    "PageScrollPhysics",
-    (
-      {
-      ScrollPhysics parent,
-      }
-    ) =>
+  "PageScrollPhysics",
+  ({
+    ScrollPhysics parent,
+  }) =>
       PageScrollPhysics(
-      parent: parent,
-    ),
+    parent: parent,
+  ),
+  [
+    "parent",
+  ],
 );
 var _pageView = MXFunctionInvoke(
-    "PageView",
-    (
-      {
-      Key key,
-      Axis scrollDirection = Axis.horizontal,
-      bool reverse = false,
-      PageController controller,
-      ScrollPhysics physics,
-      bool pageSnapping = true,
-      dynamic onPageChanged,
-      dynamic children = const <Widget>[],
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      bool allowImplicitScrolling = false,
-      }
-    ) =>
+  "PageView",
+  ({
+    Key key,
+    Axis scrollDirection = Axis.horizontal,
+    bool reverse = false,
+    PageController controller,
+    ScrollPhysics physics,
+    bool pageSnapping = true,
+    dynamic onPageChanged,
+    dynamic children = const <Widget>[],
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    bool allowImplicitScrolling = false,
+  }) =>
       PageView(
-      key: key,
-      scrollDirection: scrollDirection,
-      reverse: reverse,
-      controller: controller,
-      physics: physics,
-      pageSnapping: pageSnapping,
-      onPageChanged: createValueChangedGenericClosure<int>(_pageView.buildOwner, onPageChanged),
-      children: toListT<Widget>(children),
-      dragStartBehavior: dragStartBehavior,
-      allowImplicitScrolling: allowImplicitScrolling,
-    ),
+    key: key,
+    scrollDirection: scrollDirection,
+    reverse: reverse,
+    controller: controller,
+    physics: physics,
+    pageSnapping: pageSnapping,
+    onPageChanged: createValueChangedGenericClosure<int>(
+        _pageView.buildOwner, onPageChanged),
+    children: toListT<Widget>(children),
+    dragStartBehavior: dragStartBehavior,
+    allowImplicitScrolling: allowImplicitScrolling,
+  ),
+  [
+    "key",
+    "scrollDirection",
+    "reverse",
+    "controller",
+    "physics",
+    "pageSnapping",
+    "onPageChanged",
+    "children",
+    "dragStartBehavior",
+    "allowImplicitScrolling",
+  ],
 );
 var _pageView_builder = MXFunctionInvoke(
   "PageView.builder",
-    (
-      {
-      Key key,
-      Axis scrollDirection =  Axis.horizontal,
-      bool reverse = false,
-      PageController controller,
-      ScrollPhysics physics,
-      bool pageSnapping = true,
-      dynamic onPageChanged,
-      dynamic itemBuilder,
-      int itemCount,
-      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
-      bool allowImplicitScrolling = false,
-      }
-    ) =>
+  ({
+    Key key,
+    Axis scrollDirection = Axis.horizontal,
+    bool reverse = false,
+    PageController controller,
+    ScrollPhysics physics,
+    bool pageSnapping = true,
+    dynamic onPageChanged,
+    dynamic itemBuilder,
+    int itemCount,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    bool allowImplicitScrolling = false,
+  }) =>
       PageView.builder(
-      key: key,
-      scrollDirection: scrollDirection,
-      reverse: reverse,
-      controller: controller,
-      physics: physics,
-      pageSnapping: pageSnapping,
-      onPageChanged: createValueChangedGenericClosure<int>(_pageView_builder.buildOwner, onPageChanged),
-      itemBuilder: null,
-      itemCount: itemCount,
-      dragStartBehavior: dragStartBehavior,
-      allowImplicitScrolling: allowImplicitScrolling,
-    ),
+    key: key,
+    scrollDirection: scrollDirection,
+    reverse: reverse,
+    controller: controller,
+    physics: physics,
+    pageSnapping: pageSnapping,
+    onPageChanged: createValueChangedGenericClosure<int>(
+        _pageView_builder.buildOwner, onPageChanged),
+    itemBuilder: null,
+    itemCount: itemCount,
+    dragStartBehavior: dragStartBehavior,
+    allowImplicitScrolling: allowImplicitScrolling,
+  ),
+  [
+    "key",
+    "scrollDirection",
+    "reverse",
+    "controller",
+    "physics",
+    "pageSnapping",
+    "onPageChanged",
+    "itemBuilder",
+    "itemCount",
+    "dragStartBehavior",
+    "allowImplicitScrolling",
+  ],
 );
 var _pageView_custom = MXFunctionInvoke(
   "PageView.custom",
-    (
-      {
-      Key key,
-      Axis scrollDirection =  Axis.horizontal,
-      bool reverse = false,
-      PageController controller,
-      ScrollPhysics physics,
-      bool pageSnapping = true,
-      dynamic onPageChanged,
-      SliverChildDelegate childrenDelegate,
-      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
-      bool allowImplicitScrolling = false,
-      }
-    ) =>
+  ({
+    Key key,
+    Axis scrollDirection = Axis.horizontal,
+    bool reverse = false,
+    PageController controller,
+    ScrollPhysics physics,
+    bool pageSnapping = true,
+    dynamic onPageChanged,
+    SliverChildDelegate childrenDelegate,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    bool allowImplicitScrolling = false,
+  }) =>
       PageView.custom(
-      key: key,
-      scrollDirection: scrollDirection,
-      reverse: reverse,
-      controller: controller,
-      physics: physics,
-      pageSnapping: pageSnapping,
-      onPageChanged: createValueChangedGenericClosure<int>(_pageView_custom.buildOwner, onPageChanged),
-      childrenDelegate: childrenDelegate,
-      dragStartBehavior: dragStartBehavior,
-      allowImplicitScrolling: allowImplicitScrolling,
-    ),
+    key: key,
+    scrollDirection: scrollDirection,
+    reverse: reverse,
+    controller: controller,
+    physics: physics,
+    pageSnapping: pageSnapping,
+    onPageChanged: createValueChangedGenericClosure<int>(
+        _pageView_custom.buildOwner, onPageChanged),
+    childrenDelegate: childrenDelegate,
+    dragStartBehavior: dragStartBehavior,
+    allowImplicitScrolling: allowImplicitScrolling,
+  ),
+  [
+    "key",
+    "scrollDirection",
+    "reverse",
+    "controller",
+    "physics",
+    "pageSnapping",
+    "onPageChanged",
+    "childrenDelegate",
+    "dragStartBehavior",
+    "allowImplicitScrolling",
+  ],
 );

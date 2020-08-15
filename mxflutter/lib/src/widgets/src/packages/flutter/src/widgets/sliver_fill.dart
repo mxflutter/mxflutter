@@ -12,7 +12,6 @@ import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/sliver.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverFillSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,37 +19,46 @@ Map<String, MXFunctionInvoke> registerSliverFillSeries() {
   m[_sliverFillRemaining.funName] = _sliverFillRemaining;
   return m;
 }
+
 var _sliverFillViewport = MXFunctionInvoke(
-    "SliverFillViewport",
-    (
-      {
-      Key key,
-      SliverChildDelegate delegate,
-      dynamic viewportFraction = 1.0,
-      bool padEnds = true,
-      }
-    ) =>
+  "SliverFillViewport",
+  ({
+    Key key,
+    SliverChildDelegate delegate,
+    dynamic viewportFraction = 1.0,
+    bool padEnds = true,
+  }) =>
       SliverFillViewport(
-      key: key,
-      delegate: delegate,
-      viewportFraction: viewportFraction?.toDouble(),
-      padEnds: padEnds,
-    ),
+    key: key,
+    delegate: delegate,
+    viewportFraction: viewportFraction?.toDouble(),
+    padEnds: padEnds,
+  ),
+  [
+    "key",
+    "delegate",
+    "viewportFraction",
+    "padEnds",
+  ],
 );
 var _sliverFillRemaining = MXFunctionInvoke(
-    "SliverFillRemaining",
-    (
-      {
-      Key key,
-      Widget child,
-      bool hasScrollBody = true,
-      bool fillOverscroll = false,
-      }
-    ) =>
+  "SliverFillRemaining",
+  ({
+    Key key,
+    Widget child,
+    bool hasScrollBody = true,
+    bool fillOverscroll = false,
+  }) =>
       SliverFillRemaining(
-      key: key,
-      child: child,
-      hasScrollBody: hasScrollBody,
-      fillOverscroll: fillOverscroll,
-    ),
+    key: key,
+    child: child,
+    hasScrollBody: hasScrollBody,
+    fillOverscroll: fillOverscroll,
+  ),
+  [
+    "key",
+    "child",
+    "hasScrollBody",
+    "fillOverscroll",
+  ],
 );

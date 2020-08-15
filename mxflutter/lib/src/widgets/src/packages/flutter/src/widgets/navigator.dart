@@ -23,7 +23,6 @@ import 'package:flutter/src/widgets/route_notification_messages.dart';
 import 'package:flutter/src/widgets/routes.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNavigatorSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -43,185 +42,207 @@ Map<String, MXFunctionInvoke> registerNavigatorSeries() {
   m[_navigatorState.funName] = _navigatorState;
   return m;
 }
+
 var _routePopDisposition = MXFunctionInvoke(
-    "RoutePopDisposition",
-    ({String name, int index}) => MXRoutePopDisposition.parse(name, index),
-  );
+  "RoutePopDisposition",
+  ({String name, int index}) => MXRoutePopDisposition.parse(name, index),
+);
 var _routeSettings = MXFunctionInvoke(
-    "RouteSettings",
-    (
-      {
-      String name,
-      Object arguments,
-      }
-    ) =>
+  "RouteSettings",
+  ({
+    String name,
+    Object arguments,
+  }) =>
       RouteSettings(
-      name: name,
-      arguments: arguments,
-    ),
+    name: name,
+    arguments: arguments,
+  ),
+  [
+    "name",
+    "arguments",
+  ],
 );
 var _customBuilderPage = MXFunctionInvoke(
-    "CustomBuilderPage",
-    (
-      {
-      LocalKey key,
-      dynamic routeBuilder,
-      String name,
-      Object arguments,
-      }
-    ) =>
+  "CustomBuilderPage",
+  ({
+    LocalKey key,
+    dynamic routeBuilder,
+    String name,
+    Object arguments,
+  }) =>
       CustomBuilderPage(
-      key: key,
-      routeBuilder: null,
-      name: name,
-      arguments: arguments,
-    ),
+    key: key,
+    routeBuilder: null,
+    name: name,
+    arguments: arguments,
+  ),
+  [
+    "key",
+    "routeBuilder",
+    "name",
+    "arguments",
+  ],
 );
 var _navigatorObserver = MXFunctionInvoke(
-    "NavigatorObserver",
-    (
-    ) =>
-      NavigatorObserver(
-    ),
+  "NavigatorObserver",
+  () => NavigatorObserver(),
+  [],
 );
 var _defaultTransitionDelegate = MXFunctionInvoke(
-    "DefaultTransitionDelegate",
-    (
-    ) =>
-      DefaultTransitionDelegate(
-    ),
+  "DefaultTransitionDelegate",
+  () => DefaultTransitionDelegate(),
+  [],
 );
 var _navigator = MXFunctionInvoke(
-    "Navigator",
-    (
-      {
-      Key key,
-      dynamic pages = const <Page<dynamic>>[],
-      dynamic onPopPage,
-      String initialRoute,
-      dynamic onGenerateInitialRoutes = Navigator.defaultGenerateInitialRoutes,
-      dynamic onGenerateRoute,
-      dynamic onUnknownRoute,
-      TransitionDelegate<dynamic> transitionDelegate = const DefaultTransitionDelegate(),
-      dynamic observers = const <NavigatorObserver>[],
-      }
-    ) =>
+  "Navigator",
+  ({
+    Key key,
+    dynamic pages = const <Page<dynamic>>[],
+    dynamic onPopPage,
+    String initialRoute,
+    dynamic onGenerateInitialRoutes = Navigator.defaultGenerateInitialRoutes,
+    dynamic onGenerateRoute,
+    dynamic onUnknownRoute,
+    TransitionDelegate<dynamic> transitionDelegate =
+        const DefaultTransitionDelegate(),
+    dynamic observers = const <NavigatorObserver>[],
+  }) =>
       Navigator(
-      key: key,
-      pages: toListT<Page<dynamic>>(pages),
-      onPopPage: null,
-      initialRoute: initialRoute,
-      onGenerateInitialRoutes: null,
-      onGenerateRoute: null,
-      onUnknownRoute: null,
-      transitionDelegate: transitionDelegate,
-      observers: toListT<NavigatorObserver>(observers),
-    ),
+    key: key,
+    pages: toListT<Page<dynamic>>(pages),
+    onPopPage: null,
+    initialRoute: initialRoute,
+    onGenerateInitialRoutes: null,
+    onGenerateRoute: null,
+    onUnknownRoute: null,
+    transitionDelegate: transitionDelegate,
+    observers: toListT<NavigatorObserver>(observers),
+  ),
+  [
+    "key",
+    "pages",
+    "onPopPage",
+    "initialRoute",
+    "onGenerateInitialRoutes",
+    "onGenerateRoute",
+    "onUnknownRoute",
+    "transitionDelegate",
+    "observers",
+  ],
 );
 var _navigator_defaultRouteName = MXFunctionInvoke(
-  "Navigator.defaultRouteName",
-    (
-    ) =>
-      Navigator.defaultRouteName
-);
+    "Navigator.defaultRouteName", () => Navigator.defaultRouteName);
 var _navigator_replace = MXFunctionInvoke(
   "Navigator.replace",
-    (
-      {
-      BuildContext context,
-      Route<dynamic> oldRoute,
-      Route<Object> newRoute,
-      }
-    ) =>
+  ({
+    BuildContext context,
+    Route<dynamic> oldRoute,
+    Route<Object> newRoute,
+  }) =>
       Navigator.replace(
-      context,
-      oldRoute: oldRoute,
-      newRoute: newRoute,
-    ),
+    context,
+    oldRoute: oldRoute,
+    newRoute: newRoute,
+  ),
+  [
+    "context",
+    "oldRoute",
+    "newRoute",
+  ],
 );
 var _navigator_replaceRouteBelow = MXFunctionInvoke(
   "Navigator.replaceRouteBelow",
-    (
-      {
-      BuildContext context,
-      Route<dynamic> anchorRoute,
-      Route<Object> newRoute,
-      }
-    ) =>
+  ({
+    BuildContext context,
+    Route<dynamic> anchorRoute,
+    Route<Object> newRoute,
+  }) =>
       Navigator.replaceRouteBelow(
-      context,
-      anchorRoute: anchorRoute,
-      newRoute: newRoute,
-    ),
+    context,
+    anchorRoute: anchorRoute,
+    newRoute: newRoute,
+  ),
+  [
+    "context",
+    "anchorRoute",
+    "newRoute",
+  ],
 );
 var _navigator_pop = MXFunctionInvoke(
   "Navigator.pop",
-    (
-      {
-      BuildContext context,
-      Object result,
-      }
-    ) =>
+  ({
+    BuildContext context,
+    Object result,
+  }) =>
       Navigator.pop(
-      context,
-      result,
-    ),
+    context,
+    result,
+  ),
+  [
+    "context",
+    "result",
+  ],
 );
 var _navigator_popUntil = MXFunctionInvoke(
   "Navigator.popUntil",
-    (
-      {
-      BuildContext context,
-      dynamic predicate,
-      }
-    ) =>
+  ({
+    BuildContext context,
+    dynamic predicate,
+  }) =>
       Navigator.popUntil(
-      context,
-      null,
-    ),
+    context,
+    null,
+  ),
+  [
+    "context",
+    "predicate",
+  ],
 );
 var _navigator_removeRoute = MXFunctionInvoke(
   "Navigator.removeRoute",
-    (
-      {
-      BuildContext context,
-      Route<dynamic> route,
-      }
-    ) =>
+  ({
+    BuildContext context,
+    Route<dynamic> route,
+  }) =>
       Navigator.removeRoute(
-      context,
-      route,
-    ),
+    context,
+    route,
+  ),
+  [
+    "context",
+    "route",
+  ],
 );
 var _navigator_removeRouteBelow = MXFunctionInvoke(
   "Navigator.removeRouteBelow",
-    (
-      {
-      BuildContext context,
-      Route<dynamic> anchorRoute,
-      }
-    ) =>
+  ({
+    BuildContext context,
+    Route<dynamic> anchorRoute,
+  }) =>
       Navigator.removeRouteBelow(
-      context,
-      anchorRoute,
-    ),
+    context,
+    anchorRoute,
+  ),
+  [
+    "context",
+    "anchorRoute",
+  ],
 );
 var _navigatorState = MXFunctionInvoke(
-    "NavigatorState",
-    (
-    ) =>
-      NavigatorState(
-    ),
+  "NavigatorState",
+  () => NavigatorState(),
+  [],
 );
+
 class MXRoutePopDisposition {
   static RoutePopDisposition parse(String name, int index) {
-    switch(name) {
-      case 'RoutePopDisposition.pop': 
-       return RoutePopDisposition.pop;
-      case 'RoutePopDisposition.doNotPop': 
-       return RoutePopDisposition.doNotPop;
-      case 'RoutePopDisposition.bubble': 
-       return RoutePopDisposition.bubble;
+    switch (name) {
+      case 'RoutePopDisposition.pop':
+        return RoutePopDisposition.pop;
+      case 'RoutePopDisposition.doNotPop':
+        return RoutePopDisposition.doNotPop;
+      case 'RoutePopDisposition.bubble':
+        return RoutePopDisposition.bubble;
     }
     return null;
   }

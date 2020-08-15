@@ -12,7 +12,6 @@ import 'package:flutter/src/material/pickers/date_picker_deprecated.dart';
 import 'package:flutter/src/material/pickers/date_picker_dialog.dart';
 import 'package:flutter/src/material/pickers/input_date_picker.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPickersSeries() {
   var m = <String, MXFunctionInvoke>{};

@@ -16,7 +16,6 @@ import 'package:flutter/src/painting/debug.dart';
 import 'package:flutter/src/painting/image_provider.dart' as image_provider;
 import 'package:flutter/src/painting/image_stream.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNetworkImageIoSeries() {
   var m = <String, MXFunctionInvoke>{};

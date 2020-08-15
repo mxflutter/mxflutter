@@ -20,7 +20,6 @@ import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/pickers/date_picker_common.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDatePickerDeprecatedSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -29,74 +28,100 @@ Map<String, MXFunctionInvoke> registerDatePickerDeprecatedSeries() {
   m[_yearPicker.funName] = _yearPicker;
   return m;
 }
+
 var _dayPicker = MXFunctionInvoke(
-    "DayPicker",
-    (
-      {
-      Key key,
-      DateTime selectedDate,
-      DateTime currentDate,
-      dynamic onChanged,
-      DateTime firstDate,
-      DateTime lastDate,
-      DateTime displayedMonth,
-      dynamic selectableDayPredicate,
-      DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-      }
-    ) =>
+  "DayPicker",
+  ({
+    Key key,
+    DateTime selectedDate,
+    DateTime currentDate,
+    dynamic onChanged,
+    DateTime firstDate,
+    DateTime lastDate,
+    DateTime displayedMonth,
+    dynamic selectableDayPredicate,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+  }) =>
       DayPicker(
-      key: key,
-      selectedDate: selectedDate,
-      currentDate: currentDate,
-      onChanged: createValueChangedGenericClosure<DateTime>(_dayPicker.buildOwner, onChanged),
-      firstDate: firstDate,
-      lastDate: lastDate,
-      displayedMonth: displayedMonth,
-      selectableDayPredicate: null,
-      dragStartBehavior: dragStartBehavior,
-    ),
+    key: key,
+    selectedDate: selectedDate,
+    currentDate: currentDate,
+    onChanged: createValueChangedGenericClosure<DateTime>(
+        _dayPicker.buildOwner, onChanged),
+    firstDate: firstDate,
+    lastDate: lastDate,
+    displayedMonth: displayedMonth,
+    selectableDayPredicate: null,
+    dragStartBehavior: dragStartBehavior,
+  ),
+  [
+    "key",
+    "selectedDate",
+    "currentDate",
+    "onChanged",
+    "firstDate",
+    "lastDate",
+    "displayedMonth",
+    "selectableDayPredicate",
+    "dragStartBehavior",
+  ],
 );
 var _monthPicker = MXFunctionInvoke(
-    "MonthPicker",
-    (
-      {
-      Key key,
-      DateTime selectedDate,
-      dynamic onChanged,
-      DateTime firstDate,
-      DateTime lastDate,
-      dynamic selectableDayPredicate,
-      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
-      }
-    ) =>
+  "MonthPicker",
+  ({
+    Key key,
+    DateTime selectedDate,
+    dynamic onChanged,
+    DateTime firstDate,
+    DateTime lastDate,
+    dynamic selectableDayPredicate,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+  }) =>
       MonthPicker(
-      key: key,
-      selectedDate: selectedDate,
-      onChanged: createValueChangedGenericClosure<DateTime>(_monthPicker.buildOwner, onChanged),
-      firstDate: firstDate,
-      lastDate: lastDate,
-      selectableDayPredicate: null,
-      dragStartBehavior: dragStartBehavior,
-    ),
+    key: key,
+    selectedDate: selectedDate,
+    onChanged: createValueChangedGenericClosure<DateTime>(
+        _monthPicker.buildOwner, onChanged),
+    firstDate: firstDate,
+    lastDate: lastDate,
+    selectableDayPredicate: null,
+    dragStartBehavior: dragStartBehavior,
+  ),
+  [
+    "key",
+    "selectedDate",
+    "onChanged",
+    "firstDate",
+    "lastDate",
+    "selectableDayPredicate",
+    "dragStartBehavior",
+  ],
 );
 var _yearPicker = MXFunctionInvoke(
-    "YearPicker",
-    (
-      {
-      Key key,
-      DateTime selectedDate,
-      dynamic onChanged,
-      DateTime firstDate,
-      DateTime lastDate,
-      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
-      }
-    ) =>
+  "YearPicker",
+  ({
+    Key key,
+    DateTime selectedDate,
+    dynamic onChanged,
+    DateTime firstDate,
+    DateTime lastDate,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+  }) =>
       YearPicker(
-      key: key,
-      selectedDate: selectedDate,
-      onChanged: createValueChangedGenericClosure<DateTime>(_yearPicker.buildOwner, onChanged),
-      firstDate: firstDate,
-      lastDate: lastDate,
-      dragStartBehavior: dragStartBehavior,
-    ),
+    key: key,
+    selectedDate: selectedDate,
+    onChanged: createValueChangedGenericClosure<DateTime>(
+        _yearPicker.buildOwner, onChanged),
+    firstDate: firstDate,
+    lastDate: lastDate,
+    dragStartBehavior: dragStartBehavior,
+  ),
+  [
+    "key",
+    "selectedDate",
+    "onChanged",
+    "firstDate",
+    "lastDate",
+    "dragStartBehavior",
+  ],
 );

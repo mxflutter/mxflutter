@@ -13,7 +13,6 @@ import 'package:flutter/src/gestures/constants.dart';
 import 'package:flutter/src/gestures/events.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerForcePressSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -21,37 +20,46 @@ Map<String, MXFunctionInvoke> registerForcePressSeries() {
   m[_forcePressGestureRecognizer.funName] = _forcePressGestureRecognizer;
   return m;
 }
+
 var _forcePressDetails = MXFunctionInvoke(
-    "ForcePressDetails",
-    (
-      {
-      Offset globalPosition,
-      Offset localPosition,
-      dynamic pressure,
-      }
-    ) =>
+  "ForcePressDetails",
+  ({
+    Offset globalPosition,
+    Offset localPosition,
+    dynamic pressure,
+  }) =>
       ForcePressDetails(
-      globalPosition: globalPosition,
-      localPosition: localPosition,
-      pressure: pressure?.toDouble(),
-    ),
+    globalPosition: globalPosition,
+    localPosition: localPosition,
+    pressure: pressure?.toDouble(),
+  ),
+  [
+    "globalPosition",
+    "localPosition",
+    "pressure",
+  ],
 );
 var _forcePressGestureRecognizer = MXFunctionInvoke(
-    "ForcePressGestureRecognizer",
-    (
-      {
-      dynamic startPressure = 0.4,
-      dynamic peakPressure = 0.85,
-      dynamic interpolation = ForcePressGestureRecognizer._inverseLerp,
-      Object debugOwner,
-      PointerDeviceKind kind,
-      }
-    ) =>
+  "ForcePressGestureRecognizer",
+  ({
+    dynamic startPressure = 0.4,
+    dynamic peakPressure = 0.85,
+    dynamic interpolation = ForcePressGestureRecognizer._inverseLerp,
+    Object debugOwner,
+    PointerDeviceKind kind,
+  }) =>
       ForcePressGestureRecognizer(
-      startPressure: startPressure?.toDouble(),
-      peakPressure: peakPressure?.toDouble(),
-      interpolation: null,
-      debugOwner: debugOwner,
-      kind: kind,
-    ),
+    startPressure: startPressure?.toDouble(),
+    peakPressure: peakPressure?.toDouble(),
+    interpolation: null,
+    debugOwner: debugOwner,
+    kind: kind,
+  ),
+  [
+    "startPressure",
+    "peakPressure",
+    "interpolation",
+    "debugOwner",
+    "kind",
+  ],
 );

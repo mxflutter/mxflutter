@@ -9,7 +9,6 @@ import 'package:flutter/src/rendering/tweens.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/painting.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTweensSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,42 +17,49 @@ Map<String, MXFunctionInvoke> registerTweensSeries() {
   m[_alignmentGeometryTween.funName] = _alignmentGeometryTween;
   return m;
 }
+
 var _fractionalOffsetTween = MXFunctionInvoke(
-    "FractionalOffsetTween",
-    (
-      {
-      FractionalOffset begin,
-      FractionalOffset end,
-      }
-    ) =>
+  "FractionalOffsetTween",
+  ({
+    FractionalOffset begin,
+    FractionalOffset end,
+  }) =>
       FractionalOffsetTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _alignmentTween = MXFunctionInvoke(
-    "AlignmentTween",
-    (
-      {
-      Alignment begin,
-      Alignment end,
-      }
-    ) =>
+  "AlignmentTween",
+  ({
+    Alignment begin,
+    Alignment end,
+  }) =>
       AlignmentTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _alignmentGeometryTween = MXFunctionInvoke(
-    "AlignmentGeometryTween",
-    (
-      {
-      AlignmentGeometry begin,
-      AlignmentGeometry end,
-      }
-    ) =>
+  "AlignmentGeometryTween",
+  ({
+    AlignmentGeometry begin,
+    AlignmentGeometry end,
+  }) =>
       AlignmentGeometryTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );

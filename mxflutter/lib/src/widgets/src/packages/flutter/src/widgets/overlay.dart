@@ -16,7 +16,6 @@ import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerOverlaySeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -25,38 +24,42 @@ Map<String, MXFunctionInvoke> registerOverlaySeries() {
   m[_overlayState.funName] = _overlayState;
   return m;
 }
+
 var _overlayEntry = MXFunctionInvoke(
-    "OverlayEntry",
-    (
-      {
-      dynamic builder,
-      bool opaque = false,
-      bool maintainState = false,
-      }
-    ) =>
+  "OverlayEntry",
+  ({
+    dynamic builder,
+    bool opaque = false,
+    bool maintainState = false,
+  }) =>
       OverlayEntry(
-      builder: null,
-      opaque: opaque,
-      maintainState: maintainState,
-    ),
+    builder: null,
+    opaque: opaque,
+    maintainState: maintainState,
+  ),
+  [
+    "builder",
+    "opaque",
+    "maintainState",
+  ],
 );
 var _overlay = MXFunctionInvoke(
-    "Overlay",
-    (
-      {
-      Key key,
-      dynamic initialEntries = const <OverlayEntry>[],
-      }
-    ) =>
+  "Overlay",
+  ({
+    Key key,
+    dynamic initialEntries = const <OverlayEntry>[],
+  }) =>
       Overlay(
-      key: key,
-      initialEntries: toListT<OverlayEntry>(initialEntries),
-    ),
+    key: key,
+    initialEntries: toListT<OverlayEntry>(initialEntries),
+  ),
+  [
+    "key",
+    "initialEntries",
+  ],
 );
 var _overlayState = MXFunctionInvoke(
-    "OverlayState",
-    (
-    ) =>
-      OverlayState(
-    ),
+  "OverlayState",
+  () => OverlayState(),
+  [],
 );

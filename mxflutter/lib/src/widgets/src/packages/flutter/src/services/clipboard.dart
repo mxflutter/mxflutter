@@ -10,7 +10,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/system_channels.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerClipboardSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,20 +17,18 @@ Map<String, MXFunctionInvoke> registerClipboardSeries() {
   m[_clipboard_kTextPlain.funName] = _clipboard_kTextPlain;
   return m;
 }
+
 var _clipboardData = MXFunctionInvoke(
-    "ClipboardData",
-    (
-      {
-      String text,
-      }
-    ) =>
+  "ClipboardData",
+  ({
+    String text,
+  }) =>
       ClipboardData(
-      text: text,
-    ),
+    text: text,
+  ),
+  [
+    "text",
+  ],
 );
-var _clipboard_kTextPlain = MXFunctionInvoke(
-  "Clipboard.kTextPlain",
-    (
-    ) =>
-      Clipboard.kTextPlain
-);
+var _clipboard_kTextPlain =
+    MXFunctionInvoke("Clipboard.kTextPlain", () => Clipboard.kTextPlain);

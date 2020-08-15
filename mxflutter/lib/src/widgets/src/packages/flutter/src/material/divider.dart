@@ -11,7 +11,6 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/src/material/divider_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDividerSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,45 +18,58 @@ Map<String, MXFunctionInvoke> registerDividerSeries() {
   m[_verticalDivider.funName] = _verticalDivider;
   return m;
 }
+
 var _divider = MXFunctionInvoke(
-    "Divider",
-    (
-      {
-      Key key,
-      dynamic height,
-      dynamic thickness,
-      dynamic indent,
-      dynamic endIndent,
-      Color color,
-      }
-    ) =>
+  "Divider",
+  ({
+    Key key,
+    dynamic height,
+    dynamic thickness,
+    dynamic indent,
+    dynamic endIndent,
+    Color color,
+  }) =>
       Divider(
-      key: key,
-      height: height?.toDouble(),
-      thickness: thickness?.toDouble(),
-      indent: indent?.toDouble(),
-      endIndent: endIndent?.toDouble(),
-      color: color,
-    ),
+    key: key,
+    height: height?.toDouble(),
+    thickness: thickness?.toDouble(),
+    indent: indent?.toDouble(),
+    endIndent: endIndent?.toDouble(),
+    color: color,
+  ),
+  [
+    "key",
+    "height",
+    "thickness",
+    "indent",
+    "endIndent",
+    "color",
+  ],
 );
 var _verticalDivider = MXFunctionInvoke(
-    "VerticalDivider",
-    (
-      {
-      Key key,
-      dynamic width,
-      dynamic thickness,
-      dynamic indent,
-      dynamic endIndent,
-      Color color,
-      }
-    ) =>
+  "VerticalDivider",
+  ({
+    Key key,
+    dynamic width,
+    dynamic thickness,
+    dynamic indent,
+    dynamic endIndent,
+    Color color,
+  }) =>
       VerticalDivider(
-      key: key,
-      width: width?.toDouble(),
-      thickness: thickness?.toDouble(),
-      indent: indent?.toDouble(),
-      endIndent: endIndent?.toDouble(),
-      color: color,
-    ),
+    key: key,
+    width: width?.toDouble(),
+    thickness: thickness?.toDouble(),
+    indent: indent?.toDouble(),
+    endIndent: endIndent?.toDouble(),
+    color: color,
+  ),
+  [
+    "key",
+    "width",
+    "thickness",
+    "indent",
+    "endIndent",
+    "color",
+  ],
 );

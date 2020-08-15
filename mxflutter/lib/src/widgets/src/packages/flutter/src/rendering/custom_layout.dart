@@ -10,31 +10,32 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCustomLayoutSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_multiChildLayoutParentData.funName] = _multiChildLayoutParentData;
-  m[_renderCustomMultiChildLayoutBox.funName] = _renderCustomMultiChildLayoutBox;
+  m[_renderCustomMultiChildLayoutBox.funName] =
+      _renderCustomMultiChildLayoutBox;
   return m;
 }
+
 var _multiChildLayoutParentData = MXFunctionInvoke(
-    "MultiChildLayoutParentData",
-    (
-    ) =>
-      MultiChildLayoutParentData(
-    ),
+  "MultiChildLayoutParentData",
+  () => MultiChildLayoutParentData(),
+  [],
 );
 var _renderCustomMultiChildLayoutBox = MXFunctionInvoke(
-    "RenderCustomMultiChildLayoutBox",
-    (
-      {
-      dynamic children,
-      MultiChildLayoutDelegate delegate,
-      }
-    ) =>
+  "RenderCustomMultiChildLayoutBox",
+  ({
+    dynamic children,
+    MultiChildLayoutDelegate delegate,
+  }) =>
       RenderCustomMultiChildLayoutBox(
-      children: toListT<RenderBox>(children),
-      delegate: delegate,
-    ),
+    children: toListT<RenderBox>(children),
+    delegate: delegate,
+  ),
+  [
+    "children",
+    "delegate",
+  ],
 );

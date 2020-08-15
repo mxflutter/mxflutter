@@ -11,33 +11,40 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_animatedSize.funName] = _animatedSize;
   return m;
 }
+
 var _animatedSize = MXFunctionInvoke(
-    "AnimatedSize",
-    (
-      {
-      Key key,
-      Widget child,
-      AlignmentGeometry alignment = Alignment.center,
-      Curve curve = Curves.linear,
-      Duration duration,
-      Duration reverseDuration,
-      TickerProvider vsync,
-      }
-    ) =>
+  "AnimatedSize",
+  ({
+    Key key,
+    Widget child,
+    AlignmentGeometry alignment = Alignment.center,
+    Curve curve = Curves.linear,
+    Duration duration,
+    Duration reverseDuration,
+    TickerProvider vsync,
+  }) =>
       AnimatedSize(
-      key: key,
-      child: child,
-      alignment: alignment,
-      curve: curve,
-      duration: duration,
-      reverseDuration: reverseDuration,
-      vsync: vsync,
-    ),
+    key: key,
+    child: child,
+    alignment: alignment,
+    curve: curve,
+    duration: duration,
+    reverseDuration: reverseDuration,
+    vsync: vsync,
+  ),
+  [
+    "key",
+    "child",
+    "alignment",
+    "curve",
+    "duration",
+    "reverseDuration",
+    "vsync",
+  ],
 );

@@ -30,7 +30,6 @@ import 'package:flutter/src/material/snack_bar_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScaffoldSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -40,101 +39,132 @@ Map<String, MXFunctionInvoke> registerScaffoldSeries() {
   m[_scaffoldState.funName] = _scaffoldState;
   return m;
 }
+
 var _scaffoldPrelayoutGeometry = MXFunctionInvoke(
-    "ScaffoldPrelayoutGeometry",
-    (
-      {
-      Size bottomSheetSize,
-      dynamic contentBottom,
-      dynamic contentTop,
-      Size floatingActionButtonSize,
-      EdgeInsets minInsets,
-      Size scaffoldSize,
-      Size snackBarSize,
-      TextDirection textDirection,
-      }
-    ) =>
+  "ScaffoldPrelayoutGeometry",
+  ({
+    Size bottomSheetSize,
+    dynamic contentBottom,
+    dynamic contentTop,
+    Size floatingActionButtonSize,
+    EdgeInsets minInsets,
+    Size scaffoldSize,
+    Size snackBarSize,
+    TextDirection textDirection,
+  }) =>
       ScaffoldPrelayoutGeometry(
-      bottomSheetSize: bottomSheetSize,
-      contentBottom: contentBottom?.toDouble(),
-      contentTop: contentTop?.toDouble(),
-      floatingActionButtonSize: floatingActionButtonSize,
-      minInsets: minInsets,
-      scaffoldSize: scaffoldSize,
-      snackBarSize: snackBarSize,
-      textDirection: textDirection,
-    ),
+    bottomSheetSize: bottomSheetSize,
+    contentBottom: contentBottom?.toDouble(),
+    contentTop: contentTop?.toDouble(),
+    floatingActionButtonSize: floatingActionButtonSize,
+    minInsets: minInsets,
+    scaffoldSize: scaffoldSize,
+    snackBarSize: snackBarSize,
+    textDirection: textDirection,
+  ),
+  [
+    "bottomSheetSize",
+    "contentBottom",
+    "contentTop",
+    "floatingActionButtonSize",
+    "minInsets",
+    "scaffoldSize",
+    "snackBarSize",
+    "textDirection",
+  ],
 );
 var _scaffoldGeometry = MXFunctionInvoke(
-    "ScaffoldGeometry",
-    (
-      {
-      dynamic bottomNavigationBarTop,
-      Rect floatingActionButtonArea,
-      }
-    ) =>
+  "ScaffoldGeometry",
+  ({
+    dynamic bottomNavigationBarTop,
+    Rect floatingActionButtonArea,
+  }) =>
       ScaffoldGeometry(
-      bottomNavigationBarTop: bottomNavigationBarTop?.toDouble(),
-      floatingActionButtonArea: floatingActionButtonArea,
-    ),
+    bottomNavigationBarTop: bottomNavigationBarTop?.toDouble(),
+    floatingActionButtonArea: floatingActionButtonArea,
+  ),
+  [
+    "bottomNavigationBarTop",
+    "floatingActionButtonArea",
+  ],
 );
 var _scaffold = MXFunctionInvoke(
-    "Scaffold",
-    (
-      {
-      Key key,
-      PreferredSizeWidget appBar,
-      Widget body,
-      Widget floatingActionButton,
-      FloatingActionButtonLocation floatingActionButtonLocation,
-      FloatingActionButtonAnimator floatingActionButtonAnimator,
-      dynamic persistentFooterButtons,
-      Widget drawer,
-      Widget endDrawer,
-      Widget bottomNavigationBar,
-      Widget bottomSheet,
-      Color backgroundColor,
-      bool resizeToAvoidBottomPadding,
-      bool resizeToAvoidBottomInset,
-      bool primary = true,
-      DragStartBehavior drawerDragStartBehavior = DragStartBehavior.start,
-      bool extendBody = false,
-      bool extendBodyBehindAppBar = false,
-      Color drawerScrimColor,
-      dynamic drawerEdgeDragWidth,
-      bool drawerEnableOpenDragGesture = true,
-      bool endDrawerEnableOpenDragGesture = true,
-      }
-    ) =>
+  "Scaffold",
+  ({
+    Key key,
+    PreferredSizeWidget appBar,
+    Widget body,
+    Widget floatingActionButton,
+    FloatingActionButtonLocation floatingActionButtonLocation,
+    FloatingActionButtonAnimator floatingActionButtonAnimator,
+    dynamic persistentFooterButtons,
+    Widget drawer,
+    Widget endDrawer,
+    Widget bottomNavigationBar,
+    Widget bottomSheet,
+    Color backgroundColor,
+    bool resizeToAvoidBottomPadding,
+    bool resizeToAvoidBottomInset,
+    bool primary = true,
+    DragStartBehavior drawerDragStartBehavior = DragStartBehavior.start,
+    bool extendBody = false,
+    bool extendBodyBehindAppBar = false,
+    Color drawerScrimColor,
+    dynamic drawerEdgeDragWidth,
+    bool drawerEnableOpenDragGesture = true,
+    bool endDrawerEnableOpenDragGesture = true,
+  }) =>
       Scaffold(
-      key: key,
-      appBar: appBar,
-      body: body,
-      floatingActionButton: floatingActionButton,
-      floatingActionButtonLocation: floatingActionButtonLocation,
-      floatingActionButtonAnimator: floatingActionButtonAnimator,
-      persistentFooterButtons: toListT<Widget>(persistentFooterButtons),
-      drawer: drawer,
-      endDrawer: endDrawer,
-      bottomNavigationBar: bottomNavigationBar,
-      bottomSheet: bottomSheet,
-      backgroundColor: backgroundColor,
-      resizeToAvoidBottomPadding: resizeToAvoidBottomPadding,
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-      primary: primary,
-      drawerDragStartBehavior: drawerDragStartBehavior,
-      extendBody: extendBody,
-      extendBodyBehindAppBar: extendBodyBehindAppBar,
-      drawerScrimColor: drawerScrimColor,
-      drawerEdgeDragWidth: drawerEdgeDragWidth?.toDouble(),
-      drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
-      endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
-    ),
+    key: key,
+    appBar: appBar,
+    body: body,
+    floatingActionButton: floatingActionButton,
+    floatingActionButtonLocation: floatingActionButtonLocation,
+    floatingActionButtonAnimator: floatingActionButtonAnimator,
+    persistentFooterButtons: toListT<Widget>(persistentFooterButtons),
+    drawer: drawer,
+    endDrawer: endDrawer,
+    bottomNavigationBar: bottomNavigationBar,
+    bottomSheet: bottomSheet,
+    backgroundColor: backgroundColor,
+    resizeToAvoidBottomPadding: resizeToAvoidBottomPadding,
+    resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+    primary: primary,
+    drawerDragStartBehavior: drawerDragStartBehavior,
+    extendBody: extendBody,
+    extendBodyBehindAppBar: extendBodyBehindAppBar,
+    drawerScrimColor: drawerScrimColor,
+    drawerEdgeDragWidth: drawerEdgeDragWidth?.toDouble(),
+    drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
+    endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
+  ),
+  [
+    "key",
+    "appBar",
+    "body",
+    "floatingActionButton",
+    "floatingActionButtonLocation",
+    "floatingActionButtonAnimator",
+    "persistentFooterButtons",
+    "drawer",
+    "endDrawer",
+    "bottomNavigationBar",
+    "bottomSheet",
+    "backgroundColor",
+    "resizeToAvoidBottomPadding",
+    "resizeToAvoidBottomInset",
+    "primary",
+    "drawerDragStartBehavior",
+    "extendBody",
+    "extendBodyBehindAppBar",
+    "drawerScrimColor",
+    "drawerEdgeDragWidth",
+    "drawerEnableOpenDragGesture",
+    "endDrawerEnableOpenDragGesture",
+  ],
 );
 var _scaffoldState = MXFunctionInvoke(
-    "ScaffoldState",
-    (
-    ) =>
-      ScaffoldState(
-    ),
+  "ScaffoldState",
+  () => ScaffoldState(),
+  [],
 );

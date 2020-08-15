@@ -20,7 +20,6 @@ import 'package:flutter/src/widgets/overlay.dart';
 import 'package:flutter/src/widgets/page_storage.dart';
 import 'package:flutter/src/widgets/transitions.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRoutesSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -28,21 +27,22 @@ Map<String, MXFunctionInvoke> registerRoutesSeries() {
   m[_routeObserver.funName] = _routeObserver;
   return m;
 }
+
 var _localHistoryEntry = MXFunctionInvoke(
-    "LocalHistoryEntry",
-    (
-      {
-      dynamic onRemove,
-      }
-    ) =>
+  "LocalHistoryEntry",
+  ({
+    dynamic onRemove,
+  }) =>
       LocalHistoryEntry(
-      onRemove: createVoidCallbackClosure(_localHistoryEntry.buildOwner, onRemove),
-    ),
+    onRemove:
+        createVoidCallbackClosure(_localHistoryEntry.buildOwner, onRemove),
+  ),
+  [
+    "onRemove",
+  ],
 );
 var _routeObserver = MXFunctionInvoke(
-    "RouteObserver",
-    (
-    ) =>
-      RouteObserver(
-    ),
+  "RouteObserver",
+  () => RouteObserver(),
+  [],
 );

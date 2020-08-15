@@ -10,7 +10,6 @@ import 'src/scheduler/debug.dart';
 import 'src/scheduler/priority.dart';
 import 'src/scheduler/ticker.dart';
 
-
 Map<String, MXFunctionInvoke> registerSchedulerLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerBindingSeries());
