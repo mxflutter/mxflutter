@@ -176,16 +176,4 @@ class _MXJSFlutter implements MXJSFlutter {
     MXMirrorObject.getInstance().clearAllMirrorObjects();
   }
 
-  // TODO 移动到Mirror模块
-  invokeJSMirrorObj(
-      {dynamic mirrorID,
-      String functionName,
-      String callbackID,
-      dynamic args}) {
-    MXJSBridge.getInstance().invokeJSMirrorObj(
-        mirrorID: mirrorID,
-        functionName: functionName,
-        callbackID: callbackID,
-        args: args);
-  }
 }
