@@ -8,7 +8,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'mx_json_to_dart.dart';
 import 'mx_js_flutter_app.dart';
 import './mirror/mx_mirror.dart';
 import 'mx_js_bridge.dart';
@@ -78,9 +77,9 @@ abstract class MXJSFlutter {
       MediaQueryData mediaQueryData,
       IconThemeData iconThemeData});
 
-  ///注册JS call dart Proxy
-  void registerMirrorObjProxy(
-      Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap);
+  // ///注册JS call dart Proxy
+  // void registerMirrorObjProxy(
+  //     Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap);
 
   MXJSFlutterApp get currentApp;
 }
@@ -101,6 +100,10 @@ class _MXJSFlutter implements MXJSFlutter {
     }
     // 需要WidgetsFlutterBinding已调用
     WidgetsFlutterBinding.ensureInitialized();
+
+    // 初始化JS Bridge
+    MXJSBridge.getInstance();
+
     // 注册MXMirrorFrameworkFunc方法
     registerMirrorFrameworkFunc();
 
@@ -161,12 +164,12 @@ class _MXJSFlutter implements MXJSFlutter {
     return jsWidget;
   }
 
-  @override
-  void registerMirrorObjProxy(
-      Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap) {
-    MXJsonObjToDartObject.getInstance()
-        .registerProxy(string2CreateJsonObjProxyFunMap);
-  }
+  // @override
+  // void registerMirrorObjProxy(
+  //     Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap) {
+  //   MXJsonObjToDartObject.getInstance()
+  //       .registerProxy(string2CreateJsonObjProxyFunMap);
+  // }
 
   /// 清理flutter侧的对象映射
   _clearMX() {

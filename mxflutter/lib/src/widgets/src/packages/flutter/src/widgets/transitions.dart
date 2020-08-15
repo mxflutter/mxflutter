@@ -276,14 +276,7 @@ var _animatedBuilder = MXFunctionInvoke(
           };
           Map widgetMap =
               replaceSpecificValue(widget, targetString, context);
-          String funcName = MXMirrorFunc.getInstance().constructorFuncName(widgetMap);
-          if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
-            Map<String, dynamic> newJsonMap = Map.from(widgetMap);
-            newJsonMap["funcName"] = funcName;
-            return MXMirrorFunc.getInstance().invoke(newJsonMap, buildOwner: _animatedBuilder.buildOwner);
-          } else {
-            return null;
-          }
+          return MXMirrorFunc.getInstance().jsonToDartObj(widgetMap);
         }
       },
       // MX modified end

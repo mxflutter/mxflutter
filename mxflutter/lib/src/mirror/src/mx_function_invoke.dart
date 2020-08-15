@@ -4,6 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
+import 'package:flutter/widgets.dart';
 import '../../mx_json_build_owner.dart';
 
 
@@ -12,6 +13,7 @@ class MXFunctionInvoke {
   String funName;
   Function fun;
   MXJsonBuildOwner buildOwner;
+  BuildContext context;
   List<String> noJ2DProps;
 
   MXFunctionInvoke(this.funName, this.fun, {this.noJ2DProps});
