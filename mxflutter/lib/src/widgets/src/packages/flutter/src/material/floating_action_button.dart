@@ -65,7 +65,9 @@ var _floatingActionButton = MXFunctionInvoke(
     focusColor: focusColor,
     hoverColor: hoverColor,
     splashColor: splashColor,
-    heroTag: heroTag,
+    /// MX modified begin -delete heroTag
+    // heroTag: heroTag,
+    /// MX modified end
     elevation: elevation?.toDouble(),
     focusElevation: focusElevation?.toDouble(),
     hoverElevation: hoverElevation?.toDouble(),
@@ -142,7 +144,9 @@ var _floatingActionButton_extended = MXFunctionInvoke(
     backgroundColor: backgroundColor,
     focusColor: focusColor,
     hoverColor: hoverColor,
-    heroTag: heroTag,
+    /// MX modified begin -delete heroTag
+    // heroTag: heroTag,
+    /// MX modified end
     elevation: elevation?.toDouble(),
     focusElevation: focusElevation?.toDouble(),
     hoverElevation: hoverElevation?.toDouble(),

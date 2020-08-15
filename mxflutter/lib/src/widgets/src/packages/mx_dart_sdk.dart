@@ -79,7 +79,9 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_rSTransform.funName] = _rSTransform;
   m[_rSTransform_fromComponents.funName] = _rSTransform_fromComponents;
   m[_point.funName] = _point;
+  // MX modified begin
   // m[_point_origin.funName] = _point_origin;
+  // MX modified end
   m[_color.funName] = _color;
   m[_color_fromARGB.funName] = _color_fromARGB;
   m[_color_fromRGBO.funName] = _color_fromRGBO;
@@ -802,21 +804,29 @@ var _rSTransform_fromComponents = MXFunctionInvoke(
     translateY: translateY?.toDouble(),
   ),
 );
+
+/// MX modified begin
 var _point = MXFunctionInvoke(
   "Point",
   ({
     dynamic x,
     dynamic y,
   }) =>
-      Point(
+      Point<double>(
+    ///TODO:先写死double吧
     x?.toDouble(),
     y?.toDouble(),
   ),
 );
 
+/// MX modified end
 /// MX modified begin -delete function
-var _point_origin = MXFunctionInvoke("Point.origin", () => Point.origin);
-
+// var _point_origin = MXFunctionInvoke(
+//   "Point.origin",
+//     (
+//     ) =>
+//       Point.origin
+// );
 /// MX modified end
 var _color = MXFunctionInvoke(
   "Color",

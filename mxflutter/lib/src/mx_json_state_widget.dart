@@ -29,7 +29,8 @@ var _mxJSStatefulWidget = MXFunctionInvoke(
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxJSStatefulWidget.buildOwner,
   ),
-  noJ2DProps: [
+  [],
+  [
     "widgetData",
   ],
 );
@@ -52,7 +53,8 @@ var _mxJSStatelessWidget = MXFunctionInvoke(
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxJSStatelessWidget.buildOwner,
   ),
-  noJ2DProps: [
+  [],
+  [
     "widgetData",
   ],
 );

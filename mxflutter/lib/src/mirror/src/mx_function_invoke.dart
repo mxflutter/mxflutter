@@ -14,9 +14,11 @@ class MXFunctionInvoke {
   Function fun;
   MXJsonBuildOwner buildOwner;
   BuildContext context;
+  List<String> propsName;
   List<String> noJ2DProps;
 
-  MXFunctionInvoke(this.funName, this.fun, {this.noJ2DProps});
+  ///TODO:noJ2DProps要改成命名参数的形式
+  MXFunctionInvoke(this.funName, this.fun, [this.propsName, this.noJ2DProps]);
 
   /// 调用方法
   /// argument: 命名参数

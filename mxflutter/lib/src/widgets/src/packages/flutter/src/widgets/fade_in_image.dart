@@ -100,7 +100,9 @@ var _fadeInImage_memoryNetwork = MXFunctionInvoke(
     dynamic imageScale = 1.0,
     bool excludeFromSemantics = false,
     String imageSemanticLabel,
-    Duration fadeOutDuration = kTabScrollDuration,
+    /// MX modified begin
+    Duration fadeOutDuration = const Duration(milliseconds: 700),
+    /// MX modified end
     Curve fadeOutCurve = Curves.easeOut,
     Duration fadeInDuration = const Duration(milliseconds: 700),
     Curve fadeInCurve = Curves.easeIn,
@@ -179,7 +181,9 @@ var _fadeInImage_assetNetwork = MXFunctionInvoke(
     dynamic imageScale = 1.0,
     bool excludeFromSemantics = false,
     String imageSemanticLabel,
-    Duration fadeOutDuration = kTabScrollDuration,
+    /// MX modified begin
+    Duration fadeOutDuration = const Duration(milliseconds: 700),
+    /// MX modified end
     Curve fadeOutCurve = Curves.easeOut,
     Duration fadeInDuration = const Duration(milliseconds: 700),
     Curve fadeInCurve = Curves.easeIn,
