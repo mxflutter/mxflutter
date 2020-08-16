@@ -9,9 +9,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'mx_json_build_owner.dart';
-import 'mx_js_flutter_common.dart';
-import 'mx_js_widget.dart';
+import 'mx_build_owner.dart';
+import 'mx_common.dart';
+import 'mx_widget.dart';
 
 /// 管理一个JSAPP 代码文件集合
 /// 负责 JS 与 Flutter UI数据通道，事件通道
@@ -30,42 +30,17 @@ class MXJSFlutterApp {
   /// *重要：此API是从Flutter侧打开一个JS页面的入口函数
   /// 从 Flutter Push 一个 JS 写的页面
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
-  MXJSStatefulWidget navigatorPushWithName(String widgetName, Key widgetKey,
-      {ThemeData themeData,
-      MediaQueryData mediaQueryData,
-      IconThemeData iconThemeData}) {
+  MXJSStatefulWidget navigatorPushWithName(String widgetName, Key widgetKey) {
     MXJSLog.log(
         "MXJSFlutterApp:navigatorPushWithName: widgetName: $widgetName ");
-
-    MXJSStatefulWidget jsWidget = _rootBuildOwnerNode.findWidget(widgetKey);
-
-    if (jsWidget != null) {
-      MXJSLog.log(
-          "MXJSFlutterApp:_rootBuildOwnerNode.findWidget(widgetKey) true: widgetName: $widgetName ");
-      return jsWidget;
-    }
-
-    jsWidget = MXJSStatefulWidget.hostWidget(
-        key: widgetKey,
-        name: widgetName,
-        parentBuildOwnerNode: _rootBuildOwnerNode);
-
-    callJSNavigatorPushWithName(jsWidget.name, jsWidget.widgetID,
-        themeData: themeData,
-        mediaQueryData: mediaQueryData,
-        iconThemeData: iconThemeData);
-
-    return jsWidget;
+    return createHostJSWidget(widgetName, widgetKey);
   }
 
   /// API JS->Flutter
   /// *重要：此API是从Flutter侧打开一个JS页面的入口函数
   /// 创建一个hostJSWidget,可以直接放入Fltuter的build widget Tree中
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
-  MXJSStatefulWidget createHostJSWidget(String widgetName, Key widgetKey,
-      {ThemeData themeData,
-      MediaQueryData mediaQueryData,
-      IconThemeData iconThemeData}) {
+  MXJSStatefulWidget createHostJSWidget(String widgetName, Key widgetKey) {
     MXJSLog.log(
         "MXJSFlutterApp:navigatorPushWithName: widgetName: $widgetName ");
 
@@ -82,31 +57,9 @@ class MXJSFlutterApp {
         name: widgetName,
         parentBuildOwnerNode: _rootBuildOwnerNode);
 
-    callJSNavigatorPushWithName(jsWidget.name, jsWidget.widgetID,
-        themeData: themeData,
-        mediaQueryData: mediaQueryData,
-        iconThemeData: iconThemeData);
-
     return jsWidget;
   }
 
-  /// Flutter -> JS ,flutter 调用 JS
-  /// flutter层 主动push页面,call js 创建名字为widgetName的jswidget
-  /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页���
-  callJSNavigatorPushWithName(String widgetName, String widgetID,
-      {ThemeData themeData,
-      MediaQueryData mediaQueryData,
-      IconThemeData iconThemeData}) async {
-    MethodCall jsMethodCall = MethodCall("flutterCallNavigatorPushWithName", {
-      "widgetName": widgetName,
-      "widgetID": widgetID,
-      "themeData": MXUtil.cThemeDataToJson(themeData),
-      "mediaQueryData": MXUtil.cMediaQueryDataToJson(mediaQueryData),
-      "iconThemeData": MXUtil.cIconThemeDataToJson(iconThemeData),
-    });
-
-    callJS(jsMethodCall);
-  }
 
   /// Flutter->JS  Channel
   dynamic callJS(MethodCall jsMethodCall) async {

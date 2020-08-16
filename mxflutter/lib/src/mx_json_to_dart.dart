@@ -6,7 +6,7 @@
 
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'mx_json_build_owner.dart';
+import 'mx_build_owner.dart';
 
 // import 'mx_json_proxy_material.dart';
 // import 'mx_json_proxy_layout.dart';
@@ -14,7 +14,7 @@ import 'mx_json_build_owner.dart';
 // import 'mx_json_proxy_basic_types.dart';
 // import 'mx_json_proxy_image.dart';
 // import 'mx_json_proxy_cupertino.dart';
-import 'mx_js_flutter_common.dart';
+import 'mx_common.dart';
 // import 'mx_json_proxy_animation.dart';
 import 'pkg/dio/mx_json_proxy_dio.dart';
 import 'pkg/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';

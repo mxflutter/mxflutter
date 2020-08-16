@@ -6,7 +6,7 @@
 
 import 'package:flutter/widgets.dart';
 
-import '../../mx_json_build_owner.dart';
+import '../../mx_build_owner.dart';
 import 'mx_function_invoke.dart';
 import 'mx_mirror_object.dart';
 

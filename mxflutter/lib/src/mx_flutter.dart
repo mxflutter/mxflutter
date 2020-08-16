@@ -8,7 +8,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'mx_js_flutter_app.dart';
+import 'mx_flutter_app.dart';
 import './mirror/mx_mirror.dart';
 import 'mx_js_bridge.dart';
 import 'mx_platform_channel.dart';
@@ -72,10 +72,7 @@ abstract class MXJSFlutter {
   ///
   /// '''
   ///
-  dynamic navigatorPushWithName(String widgetName, Key widgetKey,
-      {ThemeData themeData,
-      MediaQueryData mediaQueryData,
-      IconThemeData iconThemeData});
+  dynamic navigatorPushWithName(String widgetName, Key widgetKey);
 
   // ///注册JS call dart Proxy
   // void registerMirrorObjProxy(
@@ -152,15 +149,8 @@ class _MXJSFlutter implements MXJSFlutter {
   /// *重要：此API是从Dart侧打开一个JS页面的入口函数，将创建一个RootWidget，MXFlutter 的RootWidget对外只显示一个
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
   @override
-  dynamic navigatorPushWithName(String widgetName, Key widgetKey,
-      {ThemeData themeData,
-      MediaQueryData mediaQueryData,
-      IconThemeData iconThemeData}) {
-    dynamic jsWidget = currentApp?.navigatorPushWithName(widgetName, widgetKey,
-        themeData: themeData,
-        mediaQueryData: mediaQueryData,
-        iconThemeData: iconThemeData);
-
+  dynamic navigatorPushWithName(String widgetName, Key widgetKey) {
+    dynamic jsWidget = currentApp?.navigatorPushWithName(widgetName, widgetKey);
     return jsWidget;
   }
 

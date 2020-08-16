@@ -5,8 +5,8 @@
 //  found in the LICENSE file.
 
 /// 单元测试和自动化测试
-export 'src/mx_json_build_owner.dart';
+export 'src/mx_build_owner.dart';
 
-export 'src/mx_js_flutter_common.dart';
-export 'src/mx_js_flutter_app.dart';
-export 'src/mx_js_widget.dart';
+export 'src/mx_common.dart';
+export 'src/mx_flutter_app.dart';
+export 'src/mx_widget.dart';

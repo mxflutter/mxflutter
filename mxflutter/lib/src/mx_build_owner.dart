@@ -9,9 +9,9 @@ import 'package:mxflutter/mxflutter_test.dart';
 import 'package:mxflutter/src/mirror/src/mx_mirror_object.dart';
 
 import 'mirror/mx_mirror.dart';
-import 'mx_js_flutter.dart';
-import 'mx_js_flutter_app.dart';
-import 'mx_js_flutter_common.dart';
+import 'mx_flutter.dart';
+import 'mx_flutter_app.dart';
+import 'mx_common.dart';
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
 
@@ -145,6 +145,25 @@ class MXJsonBuildOwner {
 
   /// app channel
   MXJSFlutterApp get ownerApp => MXJSFlutter.getInstance().currentApp;
+
+  /// 调用js 刷新hostwidget
+  callJSRefreshHostWidget(String widgetName, String widgetID, BuildContext context){
+
+    var mediaQueryData = MediaQuery.of(context);
+    var themeData = Theme.of(context);
+    var iconThemeData = IconTheme.of(context);
+
+    // TODO: rename flutterCallNavigatorPushWithName
+    MethodCall jsMethodCall = MethodCall("flutterCallNavigatorPushWithName", {
+      "widgetName": widgetName,
+      "widgetID": widgetID,
+      "themeData": MXUtil.cThemeDataToJson(themeData),
+      "mediaQueryData": MXUtil.cMediaQueryDataToJson(mediaQueryData),
+      "iconThemeData": MXUtil.cIconThemeDataToJson(iconThemeData),
+    });
+
+    ownerApp.callJS(jsMethodCall);
+  }
 
   /// 事件回调
   /// flutter->JS

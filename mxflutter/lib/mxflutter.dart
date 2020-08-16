@@ -21,6 +21,6 @@ library mxflutter;
 /// '''
 ///
 ///
-export 'src/mx_js_flutter.dart';
-export 'src/mx_js_page_widget.dart';
-export 'src/mx_js_flutter_common.dart';
+export 'src/mx_flutter.dart';
+export 'src/mx_host_widget.dart';
+export 'src/mx_common.dart';

@@ -5,8 +5,8 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'mx_json_build_owner.dart';
-import 'mx_js_flutter_common.dart';
+import 'mx_build_owner.dart';
+import 'mx_common.dart';
 
 mixin MXJSWidgetBase {
   String get widgetID;
@@ -106,6 +106,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
   // 1. 初始化 2. MXJSStatefulWidget的element被复用 3. MXJSWidgetState本身被js 刷新
   Map widgetBuildData;
   String widgetBuildDataSeq;
+  bool isHostWidgetAlreadyCallJSRefreshed = false;
 
   MXJSWidgetState();
 
@@ -161,7 +162,14 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
       // host 等待js刷新，先显示loading页面
       // TODO: 定制loading页面和 error 页面
       if (widget.isHostWidget) {
-        return MXJSWidgetBase.loadingWidget;
+        if (!isHostWidgetAlreadyCallJSRefreshed) {
+          isHostWidgetAlreadyCallJSRefreshed = true;
+          buildOwnerNode.callJSRefreshHostWidget(
+              widget.name, widget.widgetID, context);
+          return MXJSWidgetBase.loadingWidget;
+        } else {
+          return MXJSWidgetBase.errorWidget;
+        }
       } else {
         MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
             "this.widget.widgetID:${this.widget.widgetID}");

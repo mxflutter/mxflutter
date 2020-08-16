@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'mx_js_widget.dart';
+import 'mx_widget.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 Map<String, MXFunctionInvoke> registerMXJSStateWidgetSeries() {

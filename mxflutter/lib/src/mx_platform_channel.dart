@@ -6,7 +6,7 @@
 
 import 'dart:async';
 import 'package:flutter/services.dart';
-import 'mx_js_flutter_common.dart';
+import 'mx_common.dart';
 
 
 typedef Future<dynamic> _MXChannelFun(dynamic arguments);

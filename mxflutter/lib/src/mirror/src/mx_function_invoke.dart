@@ -5,7 +5,7 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/widgets.dart';
-import '../../mx_json_build_owner.dart';
+import '../../mx_build_owner.dart';
 
 
 /// Dart函数的映射定义

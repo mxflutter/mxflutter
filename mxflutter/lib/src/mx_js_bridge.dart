@@ -8,7 +8,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-import 'mx_js_flutter_common.dart';
+import 'mx_common.dart';
 import './mirror/mx_mirror.dart';
 
 typedef Future<dynamic> _MXChannelFun(dynamic arguments);
