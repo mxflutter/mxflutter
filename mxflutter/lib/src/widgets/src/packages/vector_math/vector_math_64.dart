@@ -14,145 +14,145 @@ import 'package:vector_math/hash.dart' as quiver;
 Map<String, MXFunctionInvoke> registerVectorMath64Series() {
   var m = <String, MXFunctionInvoke>{};
   m[_aabb2.funName] = _aabb2;
-  m[_aabb2_centerAndHalfExtents.funName] = _aabb2_centerAndHalfExtents;
-  m[_aabb2_copy.funName] = _aabb2_copy;
-  m[_aabb2_minMax.funName] = _aabb2_minMax;
-  m[_aabb2_fromBuffer.funName] = _aabb2_fromBuffer;
+  m[_aabb2CenterAndHalfExtents.funName] = _aabb2CenterAndHalfExtents;
+  m[_aabb2Copy.funName] = _aabb2Copy;
+  m[_aabb2MinMax.funName] = _aabb2MinMax;
+  m[_aabb2FromBuffer.funName] = _aabb2FromBuffer;
   m[_aabb3.funName] = _aabb3;
-  m[_aabb3_fromSphere.funName] = _aabb3_fromSphere;
-  m[_aabb3_fromTriangle.funName] = _aabb3_fromTriangle;
-  m[_aabb3_fromQuad.funName] = _aabb3_fromQuad;
-  m[_aabb3_fromObb3.funName] = _aabb3_fromObb3;
-  m[_aabb3_fromRay.funName] = _aabb3_fromRay;
-  m[_aabb3_centerAndHalfExtents.funName] = _aabb3_centerAndHalfExtents;
-  m[_aabb3_copy.funName] = _aabb3_copy;
-  m[_aabb3_minMax.funName] = _aabb3_minMax;
-  m[_aabb3_fromBuffer.funName] = _aabb3_fromBuffer;
-  m[_colors_fromRgba.funName] = _colors_fromRgba;
-  m[_colors_fromHexString.funName] = _colors_fromHexString;
-  m[_colors_alphaBlend.funName] = _colors_alphaBlend;
-  m[_colors_toGrayscale.funName] = _colors_toGrayscale;
-  m[_colors_linearToGamma.funName] = _colors_linearToGamma;
-  m[_colors_gammaToLinear.funName] = _colors_gammaToLinear;
-  m[_colors_rgbToHsv.funName] = _colors_rgbToHsv;
-  m[_colors_hsvToRgb.funName] = _colors_hsvToRgb;
-  m[_colors_rgbToHsl.funName] = _colors_rgbToHsl;
-  m[_colors_hslToRgb.funName] = _colors_hslToRgb;
+  m[_aabb3FromSphere.funName] = _aabb3FromSphere;
+  m[_aabb3FromTriangle.funName] = _aabb3FromTriangle;
+  m[_aabb3FromQuad.funName] = _aabb3FromQuad;
+  m[_aabb3FromObb3.funName] = _aabb3FromObb3;
+  m[_aabb3FromRay.funName] = _aabb3FromRay;
+  m[_aabb3CenterAndHalfExtents.funName] = _aabb3CenterAndHalfExtents;
+  m[_aabb3Copy.funName] = _aabb3Copy;
+  m[_aabb3MinMax.funName] = _aabb3MinMax;
+  m[_aabb3FromBuffer.funName] = _aabb3FromBuffer;
+  m[_colorsFromRgba.funName] = _colorsFromRgba;
+  m[_colorsFromHexString.funName] = _colorsFromHexString;
+  m[_colorsAlphaBlend.funName] = _colorsAlphaBlend;
+  m[_colorsToGrayscale.funName] = _colorsToGrayscale;
+  m[_colorsLinearToGamma.funName] = _colorsLinearToGamma;
+  m[_colorsGammaToLinear.funName] = _colorsGammaToLinear;
+  m[_colorsRgbToHsv.funName] = _colorsRgbToHsv;
+  m[_colorsHsvToRgb.funName] = _colorsHsvToRgb;
+  m[_colorsRgbToHsl.funName] = _colorsRgbToHsl;
+  m[_colorsHslToRgb.funName] = _colorsHslToRgb;
   m[_frustum.funName] = _frustum;
-  m[_frustum_copy.funName] = _frustum_copy;
-  m[_frustum_matrix.funName] = _frustum_matrix;
+  m[_frustumCopy.funName] = _frustumCopy;
+  m[_frustumMatrix.funName] = _frustumMatrix;
   m[_intersectionResult.funName] = _intersectionResult;
-  m[_matrix2_solve.funName] = _matrix2_solve;
+  m[_matrix2Solve.funName] = _matrix2Solve;
   m[_matrix2.funName] = _matrix2;
-  m[_matrix2_fromList.funName] = _matrix2_fromList;
-  m[_matrix2_identity.funName] = _matrix2_identity;
-  m[_matrix2_copy.funName] = _matrix2_copy;
-  m[_matrix2_columns.funName] = _matrix2_columns;
-  m[_matrix2_outer.funName] = _matrix2_outer;
-  m[_matrix2_rotation.funName] = _matrix2_rotation;
-  m[_matrix2_zero.funName] = _matrix2_zero;
-  m[_matrix3_solve2.funName] = _matrix3_solve2;
-  m[_matrix3_solve.funName] = _matrix3_solve;
+  m[_matrix2FromList.funName] = _matrix2FromList;
+  m[_matrix2Identity.funName] = _matrix2Identity;
+  m[_matrix2Copy.funName] = _matrix2Copy;
+  m[_matrix2Columns.funName] = _matrix2Columns;
+  m[_matrix2Outer.funName] = _matrix2Outer;
+  m[_matrix2Rotation.funName] = _matrix2Rotation;
+  m[_matrix2Zero.funName] = _matrix2Zero;
+  m[_matrix3Solve2.funName] = _matrix3Solve2;
+  m[_matrix3Solve.funName] = _matrix3Solve;
   m[_matrix3.funName] = _matrix3;
-  m[_matrix3_fromList.funName] = _matrix3_fromList;
-  m[_matrix3_identity.funName] = _matrix3_identity;
-  m[_matrix3_copy.funName] = _matrix3_copy;
-  m[_matrix3_columns.funName] = _matrix3_columns;
-  m[_matrix3_outer.funName] = _matrix3_outer;
-  m[_matrix3_rotationX.funName] = _matrix3_rotationX;
-  m[_matrix3_rotationY.funName] = _matrix3_rotationY;
-  m[_matrix3_rotationZ.funName] = _matrix3_rotationZ;
-  m[_matrix3_zero.funName] = _matrix3_zero;
-  m[_matrix4_solve2.funName] = _matrix4_solve2;
-  m[_matrix4_solve3.funName] = _matrix4_solve3;
-  m[_matrix4_solve.funName] = _matrix4_solve;
+  m[_matrix3FromList.funName] = _matrix3FromList;
+  m[_matrix3Identity.funName] = _matrix3Identity;
+  m[_matrix3Copy.funName] = _matrix3Copy;
+  m[_matrix3Columns.funName] = _matrix3Columns;
+  m[_matrix3Outer.funName] = _matrix3Outer;
+  m[_matrix3RotationX.funName] = _matrix3RotationX;
+  m[_matrix3RotationY.funName] = _matrix3RotationY;
+  m[_matrix3RotationZ.funName] = _matrix3RotationZ;
+  m[_matrix3Zero.funName] = _matrix3Zero;
+  m[_matrix4Solve2.funName] = _matrix4Solve2;
+  m[_matrix4Solve3.funName] = _matrix4Solve3;
+  m[_matrix4Solve.funName] = _matrix4Solve;
   m[_matrix4.funName] = _matrix4;
-  m[_matrix4_fromList.funName] = _matrix4_fromList;
-  m[_matrix4_identity.funName] = _matrix4_identity;
-  m[_matrix4_copy.funName] = _matrix4_copy;
-  m[_matrix4_inverted.funName] = _matrix4_inverted;
-  m[_matrix4_columns.funName] = _matrix4_columns;
-  m[_matrix4_outer.funName] = _matrix4_outer;
-  m[_matrix4_rotationX.funName] = _matrix4_rotationX;
-  m[_matrix4_rotationY.funName] = _matrix4_rotationY;
-  m[_matrix4_rotationZ.funName] = _matrix4_rotationZ;
-  m[_matrix4_translation.funName] = _matrix4_translation;
-  m[_matrix4_translationValues.funName] = _matrix4_translationValues;
-  m[_matrix4_diagonal3.funName] = _matrix4_diagonal3;
-  m[_matrix4_diagonal3Values.funName] = _matrix4_diagonal3Values;
-  m[_matrix4_skewX.funName] = _matrix4_skewX;
-  m[_matrix4_skewY.funName] = _matrix4_skewY;
-  m[_matrix4_skew.funName] = _matrix4_skew;
-  m[_matrix4_compose.funName] = _matrix4_compose;
-  m[_matrix4_zero.funName] = _matrix4_zero;
-  m[_matrix4_fromFloat64List.funName] = _matrix4_fromFloat64List;
-  m[_matrix4_fromBuffer.funName] = _matrix4_fromBuffer;
+  m[_matrix4FromList.funName] = _matrix4FromList;
+  m[_matrix4Identity.funName] = _matrix4Identity;
+  m[_matrix4Copy.funName] = _matrix4Copy;
+  m[_matrix4Inverted.funName] = _matrix4Inverted;
+  m[_matrix4Columns.funName] = _matrix4Columns;
+  m[_matrix4Outer.funName] = _matrix4Outer;
+  m[_matrix4RotationX.funName] = _matrix4RotationX;
+  m[_matrix4RotationY.funName] = _matrix4RotationY;
+  m[_matrix4RotationZ.funName] = _matrix4RotationZ;
+  m[_matrix4Translation.funName] = _matrix4Translation;
+  m[_matrix4TranslationValues.funName] = _matrix4TranslationValues;
+  m[_matrix4Diagonal3.funName] = _matrix4Diagonal3;
+  m[_matrix4Diagonal3Values.funName] = _matrix4Diagonal3Values;
+  m[_matrix4SkewX.funName] = _matrix4SkewX;
+  m[_matrix4SkewY.funName] = _matrix4SkewY;
+  m[_matrix4Skew.funName] = _matrix4Skew;
+  m[_matrix4Compose.funName] = _matrix4Compose;
+  m[_matrix4Zero.funName] = _matrix4Zero;
+  m[_matrix4FromFloat64List.funName] = _matrix4FromFloat64List;
+  m[_matrix4FromBuffer.funName] = _matrix4FromBuffer;
   m[_obb3.funName] = _obb3;
-  m[_obb3_copy.funName] = _obb3_copy;
-  m[_obb3_centerExtentsAxes.funName] = _obb3_centerExtentsAxes;
+  m[_obb3Copy.funName] = _obb3Copy;
+  m[_obb3CenterExtentsAxes.funName] = _obb3CenterExtentsAxes;
   m[_plane.funName] = _plane;
-  m[_plane_intersection.funName] = _plane_intersection;
-  m[_plane_copy.funName] = _plane_copy;
-  m[_plane_components.funName] = _plane_components;
-  m[_plane_normalconstant.funName] = _plane_normalconstant;
+  m[_planeIntersection.funName] = _planeIntersection;
+  m[_planeCopy.funName] = _planeCopy;
+  m[_planeComponents.funName] = _planeComponents;
+  m[_planeNormalconstant.funName] = _planeNormalconstant;
   m[_quad.funName] = _quad;
-  m[_quad_copy.funName] = _quad_copy;
-  m[_quad_points.funName] = _quad_points;
+  m[_quadCopy.funName] = _quadCopy;
+  m[_quadPoints.funName] = _quadPoints;
   m[_quaternion.funName] = _quaternion;
-  m[_quaternion_fromRotation.funName] = _quaternion_fromRotation;
-  m[_quaternion_axisAngle.funName] = _quaternion_axisAngle;
-  m[_quaternion_fromTwoVectors.funName] = _quaternion_fromTwoVectors;
-  m[_quaternion_copy.funName] = _quaternion_copy;
-  m[_quaternion_random.funName] = _quaternion_random;
-  m[_quaternion_identity.funName] = _quaternion_identity;
-  m[_quaternion_dq.funName] = _quaternion_dq;
-  m[_quaternion_euler.funName] = _quaternion_euler;
-  m[_quaternion_fromFloat64List.funName] = _quaternion_fromFloat64List;
-  m[_quaternion_fromBuffer.funName] = _quaternion_fromBuffer;
+  m[_quaternionFromRotation.funName] = _quaternionFromRotation;
+  m[_quaternionAxisAngle.funName] = _quaternionAxisAngle;
+  m[_quaternionFromTwoVectors.funName] = _quaternionFromTwoVectors;
+  m[_quaternionCopy.funName] = _quaternionCopy;
+  m[_quaternionRandom.funName] = _quaternionRandom;
+  m[_quaternionIdentity.funName] = _quaternionIdentity;
+  m[_quaternionDq.funName] = _quaternionDq;
+  m[_quaternionEuler.funName] = _quaternionEuler;
+  m[_quaternionFromFloat64List.funName] = _quaternionFromFloat64List;
+  m[_quaternionFromBuffer.funName] = _quaternionFromBuffer;
   m[_ray.funName] = _ray;
-  m[_ray_copy.funName] = _ray_copy;
-  m[_ray_originDirection.funName] = _ray_originDirection;
+  m[_rayCopy.funName] = _rayCopy;
+  m[_rayOriginDirection.funName] = _rayOriginDirection;
   m[_sphere.funName] = _sphere;
-  m[_sphere_copy.funName] = _sphere_copy;
-  m[_sphere_centerRadius.funName] = _sphere_centerRadius;
+  m[_sphereCopy.funName] = _sphereCopy;
+  m[_sphereCenterRadius.funName] = _sphereCenterRadius;
   m[_simplexNoise.funName] = _simplexNoise;
   m[_triangle.funName] = _triangle;
-  m[_triangle_copy.funName] = _triangle_copy;
-  m[_triangle_points.funName] = _triangle_points;
-  m[_vector2_min.funName] = _vector2_min;
-  m[_vector2_max.funName] = _vector2_max;
-  m[_vector2_mix.funName] = _vector2_mix;
+  m[_triangleCopy.funName] = _triangleCopy;
+  m[_trianglePoints.funName] = _trianglePoints;
+  m[_vector2Min.funName] = _vector2Min;
+  m[_vector2Max.funName] = _vector2Max;
+  m[_vector2Mix.funName] = _vector2Mix;
   m[_vector2.funName] = _vector2;
-  m[_vector2_array.funName] = _vector2_array;
-  m[_vector2_all.funName] = _vector2_all;
-  m[_vector2_copy.funName] = _vector2_copy;
-  m[_vector2_random.funName] = _vector2_random;
-  m[_vector2_zero.funName] = _vector2_zero;
-  m[_vector2_fromFloat64List.funName] = _vector2_fromFloat64List;
-  m[_vector2_fromBuffer.funName] = _vector2_fromBuffer;
-  m[_vector3_min.funName] = _vector3_min;
-  m[_vector3_max.funName] = _vector3_max;
-  m[_vector3_mix.funName] = _vector3_mix;
+  m[_vector2Array.funName] = _vector2Array;
+  m[_vector2All.funName] = _vector2All;
+  m[_vector2Copy.funName] = _vector2Copy;
+  m[_vector2Random.funName] = _vector2Random;
+  m[_vector2Zero.funName] = _vector2Zero;
+  m[_vector2FromFloat64List.funName] = _vector2FromFloat64List;
+  m[_vector2FromBuffer.funName] = _vector2FromBuffer;
+  m[_vector3Min.funName] = _vector3Min;
+  m[_vector3Max.funName] = _vector3Max;
+  m[_vector3Mix.funName] = _vector3Mix;
   m[_vector3.funName] = _vector3;
-  m[_vector3_array.funName] = _vector3_array;
-  m[_vector3_all.funName] = _vector3_all;
-  m[_vector3_copy.funName] = _vector3_copy;
-  m[_vector3_random.funName] = _vector3_random;
-  m[_vector3_zero.funName] = _vector3_zero;
-  m[_vector3_fromFloat64List.funName] = _vector3_fromFloat64List;
-  m[_vector3_fromBuffer.funName] = _vector3_fromBuffer;
-  m[_vector4_min.funName] = _vector4_min;
-  m[_vector4_max.funName] = _vector4_max;
-  m[_vector4_mix.funName] = _vector4_mix;
+  m[_vector3Array.funName] = _vector3Array;
+  m[_vector3All.funName] = _vector3All;
+  m[_vector3Copy.funName] = _vector3Copy;
+  m[_vector3Random.funName] = _vector3Random;
+  m[_vector3Zero.funName] = _vector3Zero;
+  m[_vector3FromFloat64List.funName] = _vector3FromFloat64List;
+  m[_vector3FromBuffer.funName] = _vector3FromBuffer;
+  m[_vector4Min.funName] = _vector4Min;
+  m[_vector4Max.funName] = _vector4Max;
+  m[_vector4Mix.funName] = _vector4Mix;
   m[_vector4.funName] = _vector4;
-  m[_vector4_array.funName] = _vector4_array;
-  m[_vector4_identity.funName] = _vector4_identity;
-  m[_vector4_all.funName] = _vector4_all;
-  m[_vector4_copy.funName] = _vector4_copy;
-  m[_vector4_random.funName] = _vector4_random;
-  m[_vector4_zero.funName] = _vector4_zero;
-  m[_vector4_fromFloat64List.funName] = _vector4_fromFloat64List;
-  m[_vector4_fromBuffer.funName] = _vector4_fromBuffer;
+  m[_vector4Array.funName] = _vector4Array;
+  m[_vector4Identity.funName] = _vector4Identity;
+  m[_vector4All.funName] = _vector4All;
+  m[_vector4Copy.funName] = _vector4Copy;
+  m[_vector4Random.funName] = _vector4Random;
+  m[_vector4Zero.funName] = _vector4Zero;
+  m[_vector4FromFloat64List.funName] = _vector4FromFloat64List;
+  m[_vector4FromBuffer.funName] = _vector4FromBuffer;
   return m;
 }
 
@@ -161,7 +161,7 @@ var _aabb2 = MXFunctionInvoke(
   () => Aabb2(),
   [],
 );
-var _aabb2_centerAndHalfExtents = MXFunctionInvoke(
+var _aabb2CenterAndHalfExtents = MXFunctionInvoke(
   "Aabb2.centerAndHalfExtents",
   ({
     Vector2 center,
@@ -176,7 +176,7 @@ var _aabb2_centerAndHalfExtents = MXFunctionInvoke(
     "halfExtents",
   ],
 );
-var _aabb2_copy = MXFunctionInvoke(
+var _aabb2Copy = MXFunctionInvoke(
   "Aabb2.copy",
   ({
     Aabb2 other,
@@ -188,7 +188,7 @@ var _aabb2_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _aabb2_minMax = MXFunctionInvoke(
+var _aabb2MinMax = MXFunctionInvoke(
   "Aabb2.minMax",
   ({
     Vector2 min,
@@ -203,7 +203,7 @@ var _aabb2_minMax = MXFunctionInvoke(
     "max",
   ],
 );
-var _aabb2_fromBuffer = MXFunctionInvoke(
+var _aabb2FromBuffer = MXFunctionInvoke(
   "Aabb2.fromBuffer",
   ({
     ByteBuffer buffer,
@@ -223,7 +223,7 @@ var _aabb3 = MXFunctionInvoke(
   () => Aabb3(),
   [],
 );
-var _aabb3_fromSphere = MXFunctionInvoke(
+var _aabb3FromSphere = MXFunctionInvoke(
   "Aabb3.fromSphere",
   ({
     Sphere sphere,
@@ -235,7 +235,7 @@ var _aabb3_fromSphere = MXFunctionInvoke(
     "sphere",
   ],
 );
-var _aabb3_fromTriangle = MXFunctionInvoke(
+var _aabb3FromTriangle = MXFunctionInvoke(
   "Aabb3.fromTriangle",
   ({
     Triangle triangle,
@@ -247,7 +247,7 @@ var _aabb3_fromTriangle = MXFunctionInvoke(
     "triangle",
   ],
 );
-var _aabb3_fromQuad = MXFunctionInvoke(
+var _aabb3FromQuad = MXFunctionInvoke(
   "Aabb3.fromQuad",
   ({
     Quad quad,
@@ -259,7 +259,7 @@ var _aabb3_fromQuad = MXFunctionInvoke(
     "quad",
   ],
 );
-var _aabb3_fromObb3 = MXFunctionInvoke(
+var _aabb3FromObb3 = MXFunctionInvoke(
   "Aabb3.fromObb3",
   ({
     Obb3 obb,
@@ -271,7 +271,7 @@ var _aabb3_fromObb3 = MXFunctionInvoke(
     "obb",
   ],
 );
-var _aabb3_fromRay = MXFunctionInvoke(
+var _aabb3FromRay = MXFunctionInvoke(
   "Aabb3.fromRay",
   ({
     Ray ray,
@@ -289,7 +289,7 @@ var _aabb3_fromRay = MXFunctionInvoke(
     "limitMax",
   ],
 );
-var _aabb3_centerAndHalfExtents = MXFunctionInvoke(
+var _aabb3CenterAndHalfExtents = MXFunctionInvoke(
   "Aabb3.centerAndHalfExtents",
   ({
     Vector3 center,
@@ -304,7 +304,7 @@ var _aabb3_centerAndHalfExtents = MXFunctionInvoke(
     "halfExtents",
   ],
 );
-var _aabb3_copy = MXFunctionInvoke(
+var _aabb3Copy = MXFunctionInvoke(
   "Aabb3.copy",
   ({
     Aabb3 other,
@@ -316,7 +316,7 @@ var _aabb3_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _aabb3_minMax = MXFunctionInvoke(
+var _aabb3MinMax = MXFunctionInvoke(
   "Aabb3.minMax",
   ({
     Vector3 min,
@@ -331,7 +331,7 @@ var _aabb3_minMax = MXFunctionInvoke(
     "max",
   ],
 );
-var _aabb3_fromBuffer = MXFunctionInvoke(
+var _aabb3FromBuffer = MXFunctionInvoke(
   "Aabb3.fromBuffer",
   ({
     ByteBuffer buffer,
@@ -346,7 +346,7 @@ var _aabb3_fromBuffer = MXFunctionInvoke(
     "offset",
   ],
 );
-var _colors_fromRgba = MXFunctionInvoke(
+var _colorsFromRgba = MXFunctionInvoke(
   "Colors.fromRgba",
   ({
     int r,
@@ -370,7 +370,7 @@ var _colors_fromRgba = MXFunctionInvoke(
     "result",
   ],
 );
-var _colors_fromHexString = MXFunctionInvoke(
+var _colorsFromHexString = MXFunctionInvoke(
   "Colors.fromHexString",
   ({
     String value,
@@ -385,7 +385,7 @@ var _colors_fromHexString = MXFunctionInvoke(
     "result",
   ],
 );
-var _colors_alphaBlend = MXFunctionInvoke(
+var _colorsAlphaBlend = MXFunctionInvoke(
   "Colors.alphaBlend",
   ({
     Vector4 foreground,
@@ -403,7 +403,7 @@ var _colors_alphaBlend = MXFunctionInvoke(
     "result",
   ],
 );
-var _colors_toGrayscale = MXFunctionInvoke(
+var _colorsToGrayscale = MXFunctionInvoke(
   "Colors.toGrayscale",
   ({
     Vector4 input,
@@ -418,7 +418,7 @@ var _colors_toGrayscale = MXFunctionInvoke(
     "result",
   ],
 );
-var _colors_linearToGamma = MXFunctionInvoke(
+var _colorsLinearToGamma = MXFunctionInvoke(
   "Colors.linearToGamma",
   ({
     Vector4 linearColor,
@@ -436,7 +436,7 @@ var _colors_linearToGamma = MXFunctionInvoke(
     "gamma",
   ],
 );
-var _colors_gammaToLinear = MXFunctionInvoke(
+var _colorsGammaToLinear = MXFunctionInvoke(
   "Colors.gammaToLinear",
   ({
     Vector4 gammaColor,
@@ -454,7 +454,7 @@ var _colors_gammaToLinear = MXFunctionInvoke(
     "gamma",
   ],
 );
-var _colors_rgbToHsv = MXFunctionInvoke(
+var _colorsRgbToHsv = MXFunctionInvoke(
   "Colors.rgbToHsv",
   ({
     Vector4 rgbColor,
@@ -469,7 +469,7 @@ var _colors_rgbToHsv = MXFunctionInvoke(
     "hsvColor",
   ],
 );
-var _colors_hsvToRgb = MXFunctionInvoke(
+var _colorsHsvToRgb = MXFunctionInvoke(
   "Colors.hsvToRgb",
   ({
     Vector4 hsvColor,
@@ -484,7 +484,7 @@ var _colors_hsvToRgb = MXFunctionInvoke(
     "rgbColor",
   ],
 );
-var _colors_rgbToHsl = MXFunctionInvoke(
+var _colorsRgbToHsl = MXFunctionInvoke(
   "Colors.rgbToHsl",
   ({
     Vector4 rgbColor,
@@ -499,7 +499,7 @@ var _colors_rgbToHsl = MXFunctionInvoke(
     "hslColor",
   ],
 );
-var _colors_hslToRgb = MXFunctionInvoke(
+var _colorsHslToRgb = MXFunctionInvoke(
   "Colors.hslToRgb",
   ({
     Vector4 hslColor,
@@ -519,7 +519,7 @@ var _frustum = MXFunctionInvoke(
   () => Frustum(),
   [],
 );
-var _frustum_copy = MXFunctionInvoke(
+var _frustumCopy = MXFunctionInvoke(
   "Frustum.copy",
   ({
     Frustum other,
@@ -531,7 +531,7 @@ var _frustum_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _frustum_matrix = MXFunctionInvoke(
+var _frustumMatrix = MXFunctionInvoke(
   "Frustum.matrix",
   ({
     Matrix4 matrix,
@@ -548,7 +548,7 @@ var _intersectionResult = MXFunctionInvoke(
   () => IntersectionResult(),
   [],
 );
-var _matrix2_solve = MXFunctionInvoke(
+var _matrix2Solve = MXFunctionInvoke(
   "Matrix2.solve",
   ({
     Matrix2 A,
@@ -587,7 +587,7 @@ var _matrix2 = MXFunctionInvoke(
     "arg3",
   ],
 );
-var _matrix2_fromList = MXFunctionInvoke(
+var _matrix2FromList = MXFunctionInvoke(
   "Matrix2.fromList",
   ({
     dynamic values,
@@ -599,12 +599,12 @@ var _matrix2_fromList = MXFunctionInvoke(
     "values",
   ],
 );
-var _matrix2_identity = MXFunctionInvoke(
+var _matrix2Identity = MXFunctionInvoke(
   "Matrix2.identity",
   () => Matrix2.identity(),
   [],
 );
-var _matrix2_copy = MXFunctionInvoke(
+var _matrix2Copy = MXFunctionInvoke(
   "Matrix2.copy",
   ({
     Matrix2 other,
@@ -616,7 +616,7 @@ var _matrix2_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _matrix2_columns = MXFunctionInvoke(
+var _matrix2Columns = MXFunctionInvoke(
   "Matrix2.columns",
   ({
     Vector2 arg0,
@@ -631,7 +631,7 @@ var _matrix2_columns = MXFunctionInvoke(
     "arg1",
   ],
 );
-var _matrix2_outer = MXFunctionInvoke(
+var _matrix2Outer = MXFunctionInvoke(
   "Matrix2.outer",
   ({
     Vector2 u,
@@ -646,7 +646,7 @@ var _matrix2_outer = MXFunctionInvoke(
     "v",
   ],
 );
-var _matrix2_rotation = MXFunctionInvoke(
+var _matrix2Rotation = MXFunctionInvoke(
   "Matrix2.rotation",
   ({
     dynamic radians,
@@ -658,12 +658,12 @@ var _matrix2_rotation = MXFunctionInvoke(
     "radians",
   ],
 );
-var _matrix2_zero = MXFunctionInvoke(
+var _matrix2Zero = MXFunctionInvoke(
   "Matrix2.zero",
   () => Matrix2.zero(),
   [],
 );
-var _matrix3_solve2 = MXFunctionInvoke(
+var _matrix3Solve2 = MXFunctionInvoke(
   "Matrix3.solve2",
   ({
     Matrix3 A,
@@ -681,7 +681,7 @@ var _matrix3_solve2 = MXFunctionInvoke(
     "b",
   ],
 );
-var _matrix3_solve = MXFunctionInvoke(
+var _matrix3Solve = MXFunctionInvoke(
   "Matrix3.solve",
   ({
     Matrix3 A,
@@ -735,7 +735,7 @@ var _matrix3 = MXFunctionInvoke(
     "arg8",
   ],
 );
-var _matrix3_fromList = MXFunctionInvoke(
+var _matrix3FromList = MXFunctionInvoke(
   "Matrix3.fromList",
   ({
     dynamic values,
@@ -747,12 +747,12 @@ var _matrix3_fromList = MXFunctionInvoke(
     "values",
   ],
 );
-var _matrix3_identity = MXFunctionInvoke(
+var _matrix3Identity = MXFunctionInvoke(
   "Matrix3.identity",
   () => Matrix3.identity(),
   [],
 );
-var _matrix3_copy = MXFunctionInvoke(
+var _matrix3Copy = MXFunctionInvoke(
   "Matrix3.copy",
   ({
     Matrix3 other,
@@ -764,7 +764,7 @@ var _matrix3_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _matrix3_columns = MXFunctionInvoke(
+var _matrix3Columns = MXFunctionInvoke(
   "Matrix3.columns",
   ({
     Vector3 arg0,
@@ -782,7 +782,7 @@ var _matrix3_columns = MXFunctionInvoke(
     "arg2",
   ],
 );
-var _matrix3_outer = MXFunctionInvoke(
+var _matrix3Outer = MXFunctionInvoke(
   "Matrix3.outer",
   ({
     Vector3 u,
@@ -797,7 +797,7 @@ var _matrix3_outer = MXFunctionInvoke(
     "v",
   ],
 );
-var _matrix3_rotationX = MXFunctionInvoke(
+var _matrix3RotationX = MXFunctionInvoke(
   "Matrix3.rotationX",
   ({
     dynamic radians,
@@ -809,7 +809,7 @@ var _matrix3_rotationX = MXFunctionInvoke(
     "radians",
   ],
 );
-var _matrix3_rotationY = MXFunctionInvoke(
+var _matrix3RotationY = MXFunctionInvoke(
   "Matrix3.rotationY",
   ({
     dynamic radians,
@@ -821,7 +821,7 @@ var _matrix3_rotationY = MXFunctionInvoke(
     "radians",
   ],
 );
-var _matrix3_rotationZ = MXFunctionInvoke(
+var _matrix3RotationZ = MXFunctionInvoke(
   "Matrix3.rotationZ",
   ({
     dynamic radians,
@@ -833,12 +833,12 @@ var _matrix3_rotationZ = MXFunctionInvoke(
     "radians",
   ],
 );
-var _matrix3_zero = MXFunctionInvoke(
+var _matrix3Zero = MXFunctionInvoke(
   "Matrix3.zero",
   () => Matrix3.zero(),
   [],
 );
-var _matrix4_solve2 = MXFunctionInvoke(
+var _matrix4Solve2 = MXFunctionInvoke(
   "Matrix4.solve2",
   ({
     Matrix4 A,
@@ -856,7 +856,7 @@ var _matrix4_solve2 = MXFunctionInvoke(
     "b",
   ],
 );
-var _matrix4_solve3 = MXFunctionInvoke(
+var _matrix4Solve3 = MXFunctionInvoke(
   "Matrix4.solve3",
   ({
     Matrix4 A,
@@ -874,7 +874,7 @@ var _matrix4_solve3 = MXFunctionInvoke(
     "b",
   ],
 );
-var _matrix4_solve = MXFunctionInvoke(
+var _matrix4Solve = MXFunctionInvoke(
   "Matrix4.solve",
   ({
     Matrix4 A,
@@ -949,7 +949,7 @@ var _matrix4 = MXFunctionInvoke(
     "arg15",
   ],
 );
-var _matrix4_fromList = MXFunctionInvoke(
+var _matrix4FromList = MXFunctionInvoke(
   "Matrix4.fromList",
   ({
     dynamic values,
@@ -961,12 +961,12 @@ var _matrix4_fromList = MXFunctionInvoke(
     "values",
   ],
 );
-var _matrix4_identity = MXFunctionInvoke(
+var _matrix4Identity = MXFunctionInvoke(
   "Matrix4.identity",
   () => Matrix4.identity(),
   [],
 );
-var _matrix4_copy = MXFunctionInvoke(
+var _matrix4Copy = MXFunctionInvoke(
   "Matrix4.copy",
   ({
     Matrix4 other,
@@ -978,7 +978,7 @@ var _matrix4_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _matrix4_inverted = MXFunctionInvoke(
+var _matrix4Inverted = MXFunctionInvoke(
   "Matrix4.inverted",
   ({
     Matrix4 other,
@@ -990,7 +990,7 @@ var _matrix4_inverted = MXFunctionInvoke(
     "other",
   ],
 );
-var _matrix4_columns = MXFunctionInvoke(
+var _matrix4Columns = MXFunctionInvoke(
   "Matrix4.columns",
   ({
     Vector4 arg0,
@@ -1011,7 +1011,7 @@ var _matrix4_columns = MXFunctionInvoke(
     "arg3",
   ],
 );
-var _matrix4_outer = MXFunctionInvoke(
+var _matrix4Outer = MXFunctionInvoke(
   "Matrix4.outer",
   ({
     Vector4 u,
@@ -1026,7 +1026,7 @@ var _matrix4_outer = MXFunctionInvoke(
     "v",
   ],
 );
-var _matrix4_rotationX = MXFunctionInvoke(
+var _matrix4RotationX = MXFunctionInvoke(
   "Matrix4.rotationX",
   ({
     dynamic radians,
@@ -1038,7 +1038,7 @@ var _matrix4_rotationX = MXFunctionInvoke(
     "radians",
   ],
 );
-var _matrix4_rotationY = MXFunctionInvoke(
+var _matrix4RotationY = MXFunctionInvoke(
   "Matrix4.rotationY",
   ({
     dynamic radians,
@@ -1050,7 +1050,7 @@ var _matrix4_rotationY = MXFunctionInvoke(
     "radians",
   ],
 );
-var _matrix4_rotationZ = MXFunctionInvoke(
+var _matrix4RotationZ = MXFunctionInvoke(
   "Matrix4.rotationZ",
   ({
     dynamic radians,
@@ -1062,7 +1062,7 @@ var _matrix4_rotationZ = MXFunctionInvoke(
     "radians",
   ],
 );
-var _matrix4_translation = MXFunctionInvoke(
+var _matrix4Translation = MXFunctionInvoke(
   "Matrix4.translation",
   ({
     Vector3 translation,
@@ -1074,7 +1074,7 @@ var _matrix4_translation = MXFunctionInvoke(
     "translation",
   ],
 );
-var _matrix4_translationValues = MXFunctionInvoke(
+var _matrix4TranslationValues = MXFunctionInvoke(
   "Matrix4.translationValues",
   ({
     dynamic x,
@@ -1092,7 +1092,7 @@ var _matrix4_translationValues = MXFunctionInvoke(
     "z",
   ],
 );
-var _matrix4_diagonal3 = MXFunctionInvoke(
+var _matrix4Diagonal3 = MXFunctionInvoke(
   "Matrix4.diagonal3",
   ({
     Vector3 scale,
@@ -1104,7 +1104,7 @@ var _matrix4_diagonal3 = MXFunctionInvoke(
     "scale",
   ],
 );
-var _matrix4_diagonal3Values = MXFunctionInvoke(
+var _matrix4Diagonal3Values = MXFunctionInvoke(
   "Matrix4.diagonal3Values",
   ({
     dynamic x,
@@ -1122,7 +1122,7 @@ var _matrix4_diagonal3Values = MXFunctionInvoke(
     "z",
   ],
 );
-var _matrix4_skewX = MXFunctionInvoke(
+var _matrix4SkewX = MXFunctionInvoke(
   "Matrix4.skewX",
   ({
     dynamic alpha,
@@ -1134,7 +1134,7 @@ var _matrix4_skewX = MXFunctionInvoke(
     "alpha",
   ],
 );
-var _matrix4_skewY = MXFunctionInvoke(
+var _matrix4SkewY = MXFunctionInvoke(
   "Matrix4.skewY",
   ({
     dynamic beta,
@@ -1146,7 +1146,7 @@ var _matrix4_skewY = MXFunctionInvoke(
     "beta",
   ],
 );
-var _matrix4_skew = MXFunctionInvoke(
+var _matrix4Skew = MXFunctionInvoke(
   "Matrix4.skew",
   ({
     dynamic alpha,
@@ -1161,7 +1161,7 @@ var _matrix4_skew = MXFunctionInvoke(
     "beta",
   ],
 );
-var _matrix4_compose = MXFunctionInvoke(
+var _matrix4Compose = MXFunctionInvoke(
   "Matrix4.compose",
   ({
     Vector3 translation,
@@ -1179,12 +1179,12 @@ var _matrix4_compose = MXFunctionInvoke(
     "scale",
   ],
 );
-var _matrix4_zero = MXFunctionInvoke(
+var _matrix4Zero = MXFunctionInvoke(
   "Matrix4.zero",
   () => Matrix4.zero(),
   [],
 );
-var _matrix4_fromFloat64List = MXFunctionInvoke(
+var _matrix4FromFloat64List = MXFunctionInvoke(
   "Matrix4.fromFloat64List",
   ({
     Float64List m4storage,
@@ -1196,7 +1196,7 @@ var _matrix4_fromFloat64List = MXFunctionInvoke(
     "m4storage",
   ],
 );
-var _matrix4_fromBuffer = MXFunctionInvoke(
+var _matrix4FromBuffer = MXFunctionInvoke(
   "Matrix4.fromBuffer",
   ({
     ByteBuffer buffer,
@@ -1216,7 +1216,7 @@ var _obb3 = MXFunctionInvoke(
   () => Obb3(),
   [],
 );
-var _obb3_copy = MXFunctionInvoke(
+var _obb3Copy = MXFunctionInvoke(
   "Obb3.copy",
   ({
     Obb3 other,
@@ -1228,7 +1228,7 @@ var _obb3_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _obb3_centerExtentsAxes = MXFunctionInvoke(
+var _obb3CenterExtentsAxes = MXFunctionInvoke(
   "Obb3.centerExtentsAxes",
   ({
     Vector3 center,
@@ -1257,7 +1257,7 @@ var _plane = MXFunctionInvoke(
   () => Plane(),
   [],
 );
-var _plane_intersection = MXFunctionInvoke(
+var _planeIntersection = MXFunctionInvoke(
   "Plane.intersection",
   ({
     Plane a,
@@ -1278,7 +1278,7 @@ var _plane_intersection = MXFunctionInvoke(
     "result",
   ],
 );
-var _plane_copy = MXFunctionInvoke(
+var _planeCopy = MXFunctionInvoke(
   "Plane.copy",
   ({
     Plane other,
@@ -1290,7 +1290,7 @@ var _plane_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _plane_components = MXFunctionInvoke(
+var _planeComponents = MXFunctionInvoke(
   "Plane.components",
   ({
     dynamic x,
@@ -1311,7 +1311,7 @@ var _plane_components = MXFunctionInvoke(
     "w",
   ],
 );
-var _plane_normalconstant = MXFunctionInvoke(
+var _planeNormalconstant = MXFunctionInvoke(
   "Plane.normalconstant",
   ({
     Vector3 normal_,
@@ -1331,7 +1331,7 @@ var _quad = MXFunctionInvoke(
   () => Quad(),
   [],
 );
-var _quad_copy = MXFunctionInvoke(
+var _quadCopy = MXFunctionInvoke(
   "Quad.copy",
   ({
     Quad other,
@@ -1343,7 +1343,7 @@ var _quad_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _quad_points = MXFunctionInvoke(
+var _quadPoints = MXFunctionInvoke(
   "Quad.points",
   ({
     Vector3 point0,
@@ -1385,7 +1385,7 @@ var _quaternion = MXFunctionInvoke(
     "w",
   ],
 );
-var _quaternion_fromRotation = MXFunctionInvoke(
+var _quaternionFromRotation = MXFunctionInvoke(
   "Quaternion.fromRotation",
   ({
     Matrix3 rotationMatrix,
@@ -1397,7 +1397,7 @@ var _quaternion_fromRotation = MXFunctionInvoke(
     "rotationMatrix",
   ],
 );
-var _quaternion_axisAngle = MXFunctionInvoke(
+var _quaternionAxisAngle = MXFunctionInvoke(
   "Quaternion.axisAngle",
   ({
     Vector3 axis,
@@ -1412,7 +1412,7 @@ var _quaternion_axisAngle = MXFunctionInvoke(
     "angle",
   ],
 );
-var _quaternion_fromTwoVectors = MXFunctionInvoke(
+var _quaternionFromTwoVectors = MXFunctionInvoke(
   "Quaternion.fromTwoVectors",
   ({
     Vector3 a,
@@ -1427,7 +1427,7 @@ var _quaternion_fromTwoVectors = MXFunctionInvoke(
     "b",
   ],
 );
-var _quaternion_copy = MXFunctionInvoke(
+var _quaternionCopy = MXFunctionInvoke(
   "Quaternion.copy",
   ({
     Quaternion original,
@@ -1439,7 +1439,7 @@ var _quaternion_copy = MXFunctionInvoke(
     "original",
   ],
 );
-var _quaternion_random = MXFunctionInvoke(
+var _quaternionRandom = MXFunctionInvoke(
   "Quaternion.random",
   ({
     math.Random rn,
@@ -1451,12 +1451,12 @@ var _quaternion_random = MXFunctionInvoke(
     "rn",
   ],
 );
-var _quaternion_identity = MXFunctionInvoke(
+var _quaternionIdentity = MXFunctionInvoke(
   "Quaternion.identity",
   () => Quaternion.identity(),
   [],
 );
-var _quaternion_dq = MXFunctionInvoke(
+var _quaternionDq = MXFunctionInvoke(
   "Quaternion.dq",
   ({
     Quaternion q,
@@ -1471,7 +1471,7 @@ var _quaternion_dq = MXFunctionInvoke(
     "omega",
   ],
 );
-var _quaternion_euler = MXFunctionInvoke(
+var _quaternionEuler = MXFunctionInvoke(
   "Quaternion.euler",
   ({
     dynamic yaw,
@@ -1489,7 +1489,7 @@ var _quaternion_euler = MXFunctionInvoke(
     "roll",
   ],
 );
-var _quaternion_fromFloat64List = MXFunctionInvoke(
+var _quaternionFromFloat64List = MXFunctionInvoke(
   "Quaternion.fromFloat64List",
   ({
     Float64List qStorage,
@@ -1501,7 +1501,7 @@ var _quaternion_fromFloat64List = MXFunctionInvoke(
     "qStorage",
   ],
 );
-var _quaternion_fromBuffer = MXFunctionInvoke(
+var _quaternionFromBuffer = MXFunctionInvoke(
   "Quaternion.fromBuffer",
   ({
     ByteBuffer buffer,
@@ -1521,7 +1521,7 @@ var _ray = MXFunctionInvoke(
   () => Ray(),
   [],
 );
-var _ray_copy = MXFunctionInvoke(
+var _rayCopy = MXFunctionInvoke(
   "Ray.copy",
   ({
     Ray other,
@@ -1533,7 +1533,7 @@ var _ray_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _ray_originDirection = MXFunctionInvoke(
+var _rayOriginDirection = MXFunctionInvoke(
   "Ray.originDirection",
   ({
     Vector3 origin,
@@ -1553,7 +1553,7 @@ var _sphere = MXFunctionInvoke(
   () => Sphere(),
   [],
 );
-var _sphere_copy = MXFunctionInvoke(
+var _sphereCopy = MXFunctionInvoke(
   "Sphere.copy",
   ({
     Sphere other,
@@ -1565,7 +1565,7 @@ var _sphere_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _sphere_centerRadius = MXFunctionInvoke(
+var _sphereCenterRadius = MXFunctionInvoke(
   "Sphere.centerRadius",
   ({
     Vector3 center,
@@ -1597,7 +1597,7 @@ var _triangle = MXFunctionInvoke(
   () => Triangle(),
   [],
 );
-var _triangle_copy = MXFunctionInvoke(
+var _triangleCopy = MXFunctionInvoke(
   "Triangle.copy",
   ({
     Triangle other,
@@ -1609,7 +1609,7 @@ var _triangle_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _triangle_points = MXFunctionInvoke(
+var _trianglePoints = MXFunctionInvoke(
   "Triangle.points",
   ({
     Vector3 point0,
@@ -1627,7 +1627,7 @@ var _triangle_points = MXFunctionInvoke(
     "point2",
   ],
 );
-var _vector2_min = MXFunctionInvoke(
+var _vector2Min = MXFunctionInvoke(
   "Vector2.min",
   ({
     Vector2 a,
@@ -1645,7 +1645,7 @@ var _vector2_min = MXFunctionInvoke(
     "result",
   ],
 );
-var _vector2_max = MXFunctionInvoke(
+var _vector2Max = MXFunctionInvoke(
   "Vector2.max",
   ({
     Vector2 a,
@@ -1663,7 +1663,7 @@ var _vector2_max = MXFunctionInvoke(
     "result",
   ],
 );
-var _vector2_mix = MXFunctionInvoke(
+var _vector2Mix = MXFunctionInvoke(
   "Vector2.mix",
   ({
     Vector2 min,
@@ -1699,7 +1699,7 @@ var _vector2 = MXFunctionInvoke(
     "y",
   ],
 );
-var _vector2_array = MXFunctionInvoke(
+var _vector2Array = MXFunctionInvoke(
   "Vector2.array",
   ({
     dynamic array,
@@ -1714,7 +1714,7 @@ var _vector2_array = MXFunctionInvoke(
     "offset",
   ],
 );
-var _vector2_all = MXFunctionInvoke(
+var _vector2All = MXFunctionInvoke(
   "Vector2.all",
   ({
     dynamic value,
@@ -1726,7 +1726,7 @@ var _vector2_all = MXFunctionInvoke(
     "value",
   ],
 );
-var _vector2_copy = MXFunctionInvoke(
+var _vector2Copy = MXFunctionInvoke(
   "Vector2.copy",
   ({
     Vector2 other,
@@ -1738,7 +1738,7 @@ var _vector2_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _vector2_random = MXFunctionInvoke(
+var _vector2Random = MXFunctionInvoke(
   "Vector2.random",
   ({
     math.Random rng,
@@ -1750,12 +1750,12 @@ var _vector2_random = MXFunctionInvoke(
     "rng",
   ],
 );
-var _vector2_zero = MXFunctionInvoke(
+var _vector2Zero = MXFunctionInvoke(
   "Vector2.zero",
   () => Vector2.zero(),
   [],
 );
-var _vector2_fromFloat64List = MXFunctionInvoke(
+var _vector2FromFloat64List = MXFunctionInvoke(
   "Vector2.fromFloat64List",
   ({
     Float64List v2storage,
@@ -1767,7 +1767,7 @@ var _vector2_fromFloat64List = MXFunctionInvoke(
     "v2storage",
   ],
 );
-var _vector2_fromBuffer = MXFunctionInvoke(
+var _vector2FromBuffer = MXFunctionInvoke(
   "Vector2.fromBuffer",
   ({
     ByteBuffer buffer,
@@ -1782,7 +1782,7 @@ var _vector2_fromBuffer = MXFunctionInvoke(
     "offset",
   ],
 );
-var _vector3_min = MXFunctionInvoke(
+var _vector3Min = MXFunctionInvoke(
   "Vector3.min",
   ({
     Vector3 a,
@@ -1800,7 +1800,7 @@ var _vector3_min = MXFunctionInvoke(
     "result",
   ],
 );
-var _vector3_max = MXFunctionInvoke(
+var _vector3Max = MXFunctionInvoke(
   "Vector3.max",
   ({
     Vector3 a,
@@ -1818,7 +1818,7 @@ var _vector3_max = MXFunctionInvoke(
     "result",
   ],
 );
-var _vector3_mix = MXFunctionInvoke(
+var _vector3Mix = MXFunctionInvoke(
   "Vector3.mix",
   ({
     Vector3 min,
@@ -1857,7 +1857,7 @@ var _vector3 = MXFunctionInvoke(
     "z",
   ],
 );
-var _vector3_array = MXFunctionInvoke(
+var _vector3Array = MXFunctionInvoke(
   "Vector3.array",
   ({
     dynamic array,
@@ -1872,7 +1872,7 @@ var _vector3_array = MXFunctionInvoke(
     "offset",
   ],
 );
-var _vector3_all = MXFunctionInvoke(
+var _vector3All = MXFunctionInvoke(
   "Vector3.all",
   ({
     dynamic value,
@@ -1884,7 +1884,7 @@ var _vector3_all = MXFunctionInvoke(
     "value",
   ],
 );
-var _vector3_copy = MXFunctionInvoke(
+var _vector3Copy = MXFunctionInvoke(
   "Vector3.copy",
   ({
     Vector3 other,
@@ -1896,7 +1896,7 @@ var _vector3_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _vector3_random = MXFunctionInvoke(
+var _vector3Random = MXFunctionInvoke(
   "Vector3.random",
   ({
     math.Random rng,
@@ -1908,12 +1908,12 @@ var _vector3_random = MXFunctionInvoke(
     "rng",
   ],
 );
-var _vector3_zero = MXFunctionInvoke(
+var _vector3Zero = MXFunctionInvoke(
   "Vector3.zero",
   () => Vector3.zero(),
   [],
 );
-var _vector3_fromFloat64List = MXFunctionInvoke(
+var _vector3FromFloat64List = MXFunctionInvoke(
   "Vector3.fromFloat64List",
   ({
     Float64List v3storage,
@@ -1925,7 +1925,7 @@ var _vector3_fromFloat64List = MXFunctionInvoke(
     "v3storage",
   ],
 );
-var _vector3_fromBuffer = MXFunctionInvoke(
+var _vector3FromBuffer = MXFunctionInvoke(
   "Vector3.fromBuffer",
   ({
     ByteBuffer buffer,
@@ -1940,7 +1940,7 @@ var _vector3_fromBuffer = MXFunctionInvoke(
     "offset",
   ],
 );
-var _vector4_min = MXFunctionInvoke(
+var _vector4Min = MXFunctionInvoke(
   "Vector4.min",
   ({
     Vector4 a,
@@ -1958,7 +1958,7 @@ var _vector4_min = MXFunctionInvoke(
     "result",
   ],
 );
-var _vector4_max = MXFunctionInvoke(
+var _vector4Max = MXFunctionInvoke(
   "Vector4.max",
   ({
     Vector4 a,
@@ -1976,7 +1976,7 @@ var _vector4_max = MXFunctionInvoke(
     "result",
   ],
 );
-var _vector4_mix = MXFunctionInvoke(
+var _vector4Mix = MXFunctionInvoke(
   "Vector4.mix",
   ({
     Vector4 min,
@@ -2018,7 +2018,7 @@ var _vector4 = MXFunctionInvoke(
     "w",
   ],
 );
-var _vector4_array = MXFunctionInvoke(
+var _vector4Array = MXFunctionInvoke(
   "Vector4.array",
   ({
     dynamic array,
@@ -2033,12 +2033,12 @@ var _vector4_array = MXFunctionInvoke(
     "offset",
   ],
 );
-var _vector4_identity = MXFunctionInvoke(
+var _vector4Identity = MXFunctionInvoke(
   "Vector4.identity",
   () => Vector4.identity(),
   [],
 );
-var _vector4_all = MXFunctionInvoke(
+var _vector4All = MXFunctionInvoke(
   "Vector4.all",
   ({
     dynamic value,
@@ -2050,7 +2050,7 @@ var _vector4_all = MXFunctionInvoke(
     "value",
   ],
 );
-var _vector4_copy = MXFunctionInvoke(
+var _vector4Copy = MXFunctionInvoke(
   "Vector4.copy",
   ({
     Vector4 other,
@@ -2062,7 +2062,7 @@ var _vector4_copy = MXFunctionInvoke(
     "other",
   ],
 );
-var _vector4_random = MXFunctionInvoke(
+var _vector4Random = MXFunctionInvoke(
   "Vector4.random",
   ({
     math.Random rng,
@@ -2074,12 +2074,12 @@ var _vector4_random = MXFunctionInvoke(
     "rng",
   ],
 );
-var _vector4_zero = MXFunctionInvoke(
+var _vector4Zero = MXFunctionInvoke(
   "Vector4.zero",
   () => Vector4.zero(),
   [],
 );
-var _vector4_fromFloat64List = MXFunctionInvoke(
+var _vector4FromFloat64List = MXFunctionInvoke(
   "Vector4.fromFloat64List",
   ({
     Float64List v4storage,
@@ -2091,7 +2091,7 @@ var _vector4_fromFloat64List = MXFunctionInvoke(
     "v4storage",
   ],
 );
-var _vector4_fromBuffer = MXFunctionInvoke(
+var _vector4FromBuffer = MXFunctionInvoke(
   "Vector4.fromBuffer",
   ({
     ByteBuffer buffer,

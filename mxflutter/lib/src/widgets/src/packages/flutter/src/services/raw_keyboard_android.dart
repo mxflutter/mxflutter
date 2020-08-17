@@ -15,42 +15,42 @@ import 'package:flutter/src/services/raw_keyboard.dart';
 Map<String, MXFunctionInvoke> registerRawKeyboardAndroidSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_rawKeyEventDataAndroid.funName] = _rawKeyEventDataAndroid;
-  m[_rawKeyEventDataAndroid_modifierNone.funName] =
-      _rawKeyEventDataAndroid_modifierNone;
-  m[_rawKeyEventDataAndroid_modifierAlt.funName] =
-      _rawKeyEventDataAndroid_modifierAlt;
-  m[_rawKeyEventDataAndroid_modifierLeftAlt.funName] =
-      _rawKeyEventDataAndroid_modifierLeftAlt;
-  m[_rawKeyEventDataAndroid_modifierRightAlt.funName] =
-      _rawKeyEventDataAndroid_modifierRightAlt;
-  m[_rawKeyEventDataAndroid_modifierShift.funName] =
-      _rawKeyEventDataAndroid_modifierShift;
-  m[_rawKeyEventDataAndroid_modifierLeftShift.funName] =
-      _rawKeyEventDataAndroid_modifierLeftShift;
-  m[_rawKeyEventDataAndroid_modifierRightShift.funName] =
-      _rawKeyEventDataAndroid_modifierRightShift;
-  m[_rawKeyEventDataAndroid_modifierSym.funName] =
-      _rawKeyEventDataAndroid_modifierSym;
-  m[_rawKeyEventDataAndroid_modifierFunction.funName] =
-      _rawKeyEventDataAndroid_modifierFunction;
-  m[_rawKeyEventDataAndroid_modifierControl.funName] =
-      _rawKeyEventDataAndroid_modifierControl;
-  m[_rawKeyEventDataAndroid_modifierLeftControl.funName] =
-      _rawKeyEventDataAndroid_modifierLeftControl;
-  m[_rawKeyEventDataAndroid_modifierRightControl.funName] =
-      _rawKeyEventDataAndroid_modifierRightControl;
-  m[_rawKeyEventDataAndroid_modifierMeta.funName] =
-      _rawKeyEventDataAndroid_modifierMeta;
-  m[_rawKeyEventDataAndroid_modifierLeftMeta.funName] =
-      _rawKeyEventDataAndroid_modifierLeftMeta;
-  m[_rawKeyEventDataAndroid_modifierRightMeta.funName] =
-      _rawKeyEventDataAndroid_modifierRightMeta;
-  m[_rawKeyEventDataAndroid_modifierCapsLock.funName] =
-      _rawKeyEventDataAndroid_modifierCapsLock;
-  m[_rawKeyEventDataAndroid_modifierNumLock.funName] =
-      _rawKeyEventDataAndroid_modifierNumLock;
-  m[_rawKeyEventDataAndroid_modifierScrollLock.funName] =
-      _rawKeyEventDataAndroid_modifierScrollLock;
+  m[_rawKeyEventDataAndroidModifierNone.funName] =
+      _rawKeyEventDataAndroidModifierNone;
+  m[_rawKeyEventDataAndroidModifierAlt.funName] =
+      _rawKeyEventDataAndroidModifierAlt;
+  m[_rawKeyEventDataAndroidModifierLeftAlt.funName] =
+      _rawKeyEventDataAndroidModifierLeftAlt;
+  m[_rawKeyEventDataAndroidModifierRightAlt.funName] =
+      _rawKeyEventDataAndroidModifierRightAlt;
+  m[_rawKeyEventDataAndroidModifierShift.funName] =
+      _rawKeyEventDataAndroidModifierShift;
+  m[_rawKeyEventDataAndroidModifierLeftShift.funName] =
+      _rawKeyEventDataAndroidModifierLeftShift;
+  m[_rawKeyEventDataAndroidModifierRightShift.funName] =
+      _rawKeyEventDataAndroidModifierRightShift;
+  m[_rawKeyEventDataAndroidModifierSym.funName] =
+      _rawKeyEventDataAndroidModifierSym;
+  m[_rawKeyEventDataAndroidModifierFunction.funName] =
+      _rawKeyEventDataAndroidModifierFunction;
+  m[_rawKeyEventDataAndroidModifierControl.funName] =
+      _rawKeyEventDataAndroidModifierControl;
+  m[_rawKeyEventDataAndroidModifierLeftControl.funName] =
+      _rawKeyEventDataAndroidModifierLeftControl;
+  m[_rawKeyEventDataAndroidModifierRightControl.funName] =
+      _rawKeyEventDataAndroidModifierRightControl;
+  m[_rawKeyEventDataAndroidModifierMeta.funName] =
+      _rawKeyEventDataAndroidModifierMeta;
+  m[_rawKeyEventDataAndroidModifierLeftMeta.funName] =
+      _rawKeyEventDataAndroidModifierLeftMeta;
+  m[_rawKeyEventDataAndroidModifierRightMeta.funName] =
+      _rawKeyEventDataAndroidModifierRightMeta;
+  m[_rawKeyEventDataAndroidModifierCapsLock.funName] =
+      _rawKeyEventDataAndroidModifierCapsLock;
+  m[_rawKeyEventDataAndroidModifierNumLock.funName] =
+      _rawKeyEventDataAndroidModifierNumLock;
+  m[_rawKeyEventDataAndroidModifierScrollLock.funName] =
+      _rawKeyEventDataAndroidModifierScrollLock;
   return m;
 }
 
@@ -96,57 +96,57 @@ var _rawKeyEventDataAndroid = MXFunctionInvoke(
     "repeatCount",
   ],
 );
-var _rawKeyEventDataAndroid_modifierNone = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierNone = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierNone",
     () => RawKeyEventDataAndroid.modifierNone);
-var _rawKeyEventDataAndroid_modifierAlt = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierAlt = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierAlt",
     () => RawKeyEventDataAndroid.modifierAlt);
-var _rawKeyEventDataAndroid_modifierLeftAlt = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierLeftAlt = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierLeftAlt",
     () => RawKeyEventDataAndroid.modifierLeftAlt);
-var _rawKeyEventDataAndroid_modifierRightAlt = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierRightAlt = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierRightAlt",
     () => RawKeyEventDataAndroid.modifierRightAlt);
-var _rawKeyEventDataAndroid_modifierShift = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierShift = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierShift",
     () => RawKeyEventDataAndroid.modifierShift);
-var _rawKeyEventDataAndroid_modifierLeftShift = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierLeftShift = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierLeftShift",
     () => RawKeyEventDataAndroid.modifierLeftShift);
-var _rawKeyEventDataAndroid_modifierRightShift = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierRightShift = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierRightShift",
     () => RawKeyEventDataAndroid.modifierRightShift);
-var _rawKeyEventDataAndroid_modifierSym = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierSym = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierSym",
     () => RawKeyEventDataAndroid.modifierSym);
-var _rawKeyEventDataAndroid_modifierFunction = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierFunction = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierFunction",
     () => RawKeyEventDataAndroid.modifierFunction);
-var _rawKeyEventDataAndroid_modifierControl = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierControl = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierControl",
     () => RawKeyEventDataAndroid.modifierControl);
-var _rawKeyEventDataAndroid_modifierLeftControl = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierLeftControl = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierLeftControl",
     () => RawKeyEventDataAndroid.modifierLeftControl);
-var _rawKeyEventDataAndroid_modifierRightControl = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierRightControl = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierRightControl",
     () => RawKeyEventDataAndroid.modifierRightControl);
-var _rawKeyEventDataAndroid_modifierMeta = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierMeta = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierMeta",
     () => RawKeyEventDataAndroid.modifierMeta);
-var _rawKeyEventDataAndroid_modifierLeftMeta = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierLeftMeta = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierLeftMeta",
     () => RawKeyEventDataAndroid.modifierLeftMeta);
-var _rawKeyEventDataAndroid_modifierRightMeta = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierRightMeta = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierRightMeta",
     () => RawKeyEventDataAndroid.modifierRightMeta);
-var _rawKeyEventDataAndroid_modifierCapsLock = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierCapsLock = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierCapsLock",
     () => RawKeyEventDataAndroid.modifierCapsLock);
-var _rawKeyEventDataAndroid_modifierNumLock = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierNumLock = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierNumLock",
     () => RawKeyEventDataAndroid.modifierNumLock);
-var _rawKeyEventDataAndroid_modifierScrollLock = MXFunctionInvoke(
+var _rawKeyEventDataAndroidModifierScrollLock = MXFunctionInvoke(
     "RawKeyEventDataAndroid.modifierScrollLock",
     () => RawKeyEventDataAndroid.modifierScrollLock);

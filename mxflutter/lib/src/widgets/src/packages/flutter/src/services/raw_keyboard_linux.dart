@@ -17,13 +17,13 @@ Map<String, MXFunctionInvoke> registerRawKeyboardLinuxSeries() {
   m[_rawKeyEventDataLinux.funName] = _rawKeyEventDataLinux;
   m[_keyHelper.funName] = _keyHelper;
   m[_gLFWKeyHelper.funName] = _gLFWKeyHelper;
-  m[_gLFWKeyHelper_modifierCapsLock.funName] = _gLFWKeyHelper_modifierCapsLock;
-  m[_gLFWKeyHelper_modifierShift.funName] = _gLFWKeyHelper_modifierShift;
-  m[_gLFWKeyHelper_modifierControl.funName] = _gLFWKeyHelper_modifierControl;
-  m[_gLFWKeyHelper_modifierAlt.funName] = _gLFWKeyHelper_modifierAlt;
-  m[_gLFWKeyHelper_modifierMeta.funName] = _gLFWKeyHelper_modifierMeta;
-  m[_gLFWKeyHelper_modifierNumericPad.funName] =
-      _gLFWKeyHelper_modifierNumericPad;
+  m[_gLFWKeyHelperModifierCapsLock.funName] = _gLFWKeyHelperModifierCapsLock;
+  m[_gLFWKeyHelperModifierShift.funName] = _gLFWKeyHelperModifierShift;
+  m[_gLFWKeyHelperModifierControl.funName] = _gLFWKeyHelperModifierControl;
+  m[_gLFWKeyHelperModifierAlt.funName] = _gLFWKeyHelperModifierAlt;
+  m[_gLFWKeyHelperModifierMeta.funName] = _gLFWKeyHelperModifierMeta;
+  m[_gLFWKeyHelperModifierNumericPad.funName] =
+      _gLFWKeyHelperModifierNumericPad;
   return m;
 }
 
@@ -71,15 +71,15 @@ var _gLFWKeyHelper = MXFunctionInvoke(
   () => GLFWKeyHelper(),
   [],
 );
-var _gLFWKeyHelper_modifierCapsLock = MXFunctionInvoke(
+var _gLFWKeyHelperModifierCapsLock = MXFunctionInvoke(
     "GLFWKeyHelper.modifierCapsLock", () => GLFWKeyHelper.modifierCapsLock);
-var _gLFWKeyHelper_modifierShift = MXFunctionInvoke(
+var _gLFWKeyHelperModifierShift = MXFunctionInvoke(
     "GLFWKeyHelper.modifierShift", () => GLFWKeyHelper.modifierShift);
-var _gLFWKeyHelper_modifierControl = MXFunctionInvoke(
+var _gLFWKeyHelperModifierControl = MXFunctionInvoke(
     "GLFWKeyHelper.modifierControl", () => GLFWKeyHelper.modifierControl);
-var _gLFWKeyHelper_modifierAlt = MXFunctionInvoke(
+var _gLFWKeyHelperModifierAlt = MXFunctionInvoke(
     "GLFWKeyHelper.modifierAlt", () => GLFWKeyHelper.modifierAlt);
-var _gLFWKeyHelper_modifierMeta = MXFunctionInvoke(
+var _gLFWKeyHelperModifierMeta = MXFunctionInvoke(
     "GLFWKeyHelper.modifierMeta", () => GLFWKeyHelper.modifierMeta);
-var _gLFWKeyHelper_modifierNumericPad = MXFunctionInvoke(
+var _gLFWKeyHelperModifierNumericPad = MXFunctionInvoke(
     "GLFWKeyHelper.modifierNumericPad", () => GLFWKeyHelper.modifierNumericPad);

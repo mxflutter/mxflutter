@@ -36,8 +36,7 @@ Map<String, MXFunctionInvoke> registerListWheelScrollViewSeries() {
   m[_fixedExtentMetrics.funName] = _fixedExtentMetrics;
   m[_fixedExtentScrollPhysics.funName] = _fixedExtentScrollPhysics;
   m[_listWheelScrollView.funName] = _listWheelScrollView;
-  m[_listWheelScrollView_useDelegate.funName] =
-      _listWheelScrollView_useDelegate;
+  m[_listWheelScrollViewUseDelegate.funName] = _listWheelScrollViewUseDelegate;
   m[_listWheelElement.funName] = _listWheelElement;
   m[_listWheelViewport.funName] = _listWheelViewport;
   return m;
@@ -188,7 +187,7 @@ var _listWheelScrollView = MXFunctionInvoke(
     "children",
   ],
 );
-var _listWheelScrollView_useDelegate = MXFunctionInvoke(
+var _listWheelScrollViewUseDelegate = MXFunctionInvoke(
   "ListWheelScrollView.useDelegate",
   ({
     Key key,
@@ -220,7 +219,7 @@ var _listWheelScrollView_useDelegate = MXFunctionInvoke(
     itemExtent: itemExtent?.toDouble(),
     squeeze: squeeze?.toDouble(),
     onSelectedItemChanged: createValueChangedGenericClosure<int>(
-        _listWheelScrollView_useDelegate.buildOwner, onSelectedItemChanged),
+        _listWheelScrollViewUseDelegate.buildOwner, onSelectedItemChanged),
     clipToSize: clipToSize,
     renderChildrenOutsideViewport: renderChildrenOutsideViewport,
     childDelegate: childDelegate,

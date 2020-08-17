@@ -15,14 +15,14 @@ import 'package:flutter/src/services/platform_channel.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformMessagesSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_binaryMessages_setMessageHandler.funName] =
-      _binaryMessages_setMessageHandler;
-  m[_binaryMessages_setMockMessageHandler.funName] =
-      _binaryMessages_setMockMessageHandler;
+  m[_binaryMessagesSetMessageHandler.funName] =
+      _binaryMessagesSetMessageHandler;
+  m[_binaryMessagesSetMockMessageHandler.funName] =
+      _binaryMessagesSetMockMessageHandler;
   return m;
 }
 
-var _binaryMessages_setMessageHandler = MXFunctionInvoke(
+var _binaryMessagesSetMessageHandler = MXFunctionInvoke(
   "BinaryMessages.setMessageHandler",
   ({
     String channel,
@@ -37,7 +37,7 @@ var _binaryMessages_setMessageHandler = MXFunctionInvoke(
     "handler",
   ],
 );
-var _binaryMessages_setMockMessageHandler = MXFunctionInvoke(
+var _binaryMessagesSetMockMessageHandler = MXFunctionInvoke(
   "BinaryMessages.setMockMessageHandler",
   ({
     String channel,

@@ -16,7 +16,7 @@ import 'package:flutter/src/widgets/framework.dart';
 Map<String, MXFunctionInvoke> registerIconThemeDataSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_iconThemeData.funName] = _iconThemeData;
-  m[_iconThemeData_fallback.funName] = _iconThemeData_fallback;
+  m[_iconThemeDataFallback.funName] = _iconThemeDataFallback;
   return m;
 }
 
@@ -38,7 +38,7 @@ var _iconThemeData = MXFunctionInvoke(
     "size",
   ],
 );
-var _iconThemeData_fallback = MXFunctionInvoke(
+var _iconThemeDataFallback = MXFunctionInvoke(
   "IconThemeData.fallback",
   () => IconThemeData.fallback(),
   [],

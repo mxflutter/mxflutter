@@ -15,13 +15,13 @@ import 'package:flutter/src/foundation/observer_list.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerChangeNotifierSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_listenable_merge.funName] = _listenable_merge;
+  m[_listenableMerge.funName] = _listenableMerge;
   m[_changeNotifier.funName] = _changeNotifier;
   m[_valueNotifier.funName] = _valueNotifier;
   return m;
 }
 
-var _listenable_merge = MXFunctionInvoke(
+var _listenableMerge = MXFunctionInvoke(
   "Listenable.merge",
   ({
     dynamic listenables,

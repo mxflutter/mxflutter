@@ -27,7 +27,7 @@ Map<String, MXFunctionInvoke> registerFrameworkSeries() {
   m[_typeMatcher.funName] = _typeMatcher;
   m[_buildOwner.funName] = _buildOwner;
   m[_errorWidget.funName] = _errorWidget;
-  m[_errorWidget_withDetails.funName] = _errorWidget_withDetails;
+  m[_errorWidgetWithDetails.funName] = _errorWidgetWithDetails;
   m[_statelessElement.funName] = _statelessElement;
   m[_statefulElement.funName] = _statefulElement;
   m[_parentDataElement.funName] = _parentDataElement;
@@ -123,7 +123,7 @@ var _errorWidget = MXFunctionInvoke(
     "exception",
   ],
 );
-var _errorWidget_withDetails = MXFunctionInvoke(
+var _errorWidgetWithDetails = MXFunctionInvoke(
   "ErrorWidget.withDetails",
   ({
     String message = '',

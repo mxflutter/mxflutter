@@ -14,7 +14,7 @@ import 'package:flutter/src/services/system_channels.dart';
 Map<String, MXFunctionInvoke> registerClipboardSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_clipboardData.funName] = _clipboardData;
-  m[_clipboard_kTextPlain.funName] = _clipboard_kTextPlain;
+  m[_clipboardKTextPlain.funName] = _clipboardKTextPlain;
   return m;
 }
 
@@ -30,5 +30,5 @@ var _clipboardData = MXFunctionInvoke(
     "text",
   ],
 );
-var _clipboard_kTextPlain =
+var _clipboardKTextPlain =
     MXFunctionInvoke("Clipboard.kTextPlain", () => Clipboard.kTextPlain);

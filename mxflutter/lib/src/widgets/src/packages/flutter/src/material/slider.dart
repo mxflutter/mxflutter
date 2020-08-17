@@ -25,7 +25,7 @@ import 'package:flutter/src/material/theme.dart';
 Map<String, MXFunctionInvoke> registerSliderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_slider.funName] = _slider;
-  m[_slider_adaptive.funName] = _slider_adaptive;
+  m[_sliderAdaptive.funName] = _sliderAdaptive;
   return m;
 }
 
@@ -77,7 +77,7 @@ var _slider = MXFunctionInvoke(
     "semanticFormatterCallback",
   ],
 );
-var _slider_adaptive = MXFunctionInvoke(
+var _sliderAdaptive = MXFunctionInvoke(
   "Slider.adaptive",
   ({
     Key key,
@@ -97,11 +97,11 @@ var _slider_adaptive = MXFunctionInvoke(
     key: key,
     value: value?.toDouble(),
     onChanged: createValueChangedGenericClosure<dynamic>(
-        _slider_adaptive.buildOwner, onChanged),
+        _sliderAdaptive.buildOwner, onChanged),
     onChangeStart: createValueChangedGenericClosure<dynamic>(
-        _slider_adaptive.buildOwner, onChangeStart),
+        _sliderAdaptive.buildOwner, onChangeStart),
     onChangeEnd: createValueChangedGenericClosure<dynamic>(
-        _slider_adaptive.buildOwner, onChangeEnd),
+        _sliderAdaptive.buildOwner, onChangeEnd),
     min: min?.toDouble(),
     max: max?.toDouble(),
     divisions: divisions,

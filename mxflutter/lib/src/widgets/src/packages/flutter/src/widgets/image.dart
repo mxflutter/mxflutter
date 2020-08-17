@@ -27,10 +27,10 @@ import 'package:flutter/src/widgets/ticker_provider.dart';
 Map<String, MXFunctionInvoke> registerImageSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_image.funName] = _image;
-  m[_image_network.funName] = _image_network;
-  m[_image_file.funName] = _image_file;
-  m[_image_asset.funName] = _image_asset;
-  m[_image_memory.funName] = _image_memory;
+  m[_imageNetwork.funName] = _imageNetwork;
+  m[_imageFile.funName] = _imageFile;
+  m[_imageAsset.funName] = _imageAsset;
+  m[_imageMemory.funName] = _imageMemory;
   return m;
 }
 
@@ -97,7 +97,7 @@ var _image = MXFunctionInvoke(
     "filterQuality",
   ],
 );
-var _image_network = MXFunctionInvoke(
+var _imageNetwork = MXFunctionInvoke(
   "Image.network",
   ({
     String src,
@@ -172,7 +172,7 @@ var _image_network = MXFunctionInvoke(
     "cacheHeight",
   ],
 );
-var _image_file = MXFunctionInvoke(
+var _imageFile = MXFunctionInvoke(
   "Image.file",
   ({
     File file,
@@ -241,7 +241,7 @@ var _image_file = MXFunctionInvoke(
     "cacheHeight",
   ],
 );
-var _image_asset = MXFunctionInvoke(
+var _imageAsset = MXFunctionInvoke(
   "Image.asset",
   ({
     String name,
@@ -316,7 +316,7 @@ var _image_asset = MXFunctionInvoke(
     "cacheHeight",
   ],
 );
-var _image_memory = MXFunctionInvoke(
+var _imageMemory = MXFunctionInvoke(
   "Image.memory",
   ({
     Uint8List bytes,

@@ -25,8 +25,8 @@ import 'package:flutter/src/painting/rounded_rectangle_border.dart';
 Map<String, MXFunctionInvoke> registerShapeDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_shapeDecoration.funName] = _shapeDecoration;
-  m[_shapeDecoration_fromBoxDecoration.funName] =
-      _shapeDecoration_fromBoxDecoration;
+  m[_shapeDecorationFromBoxDecoration.funName] =
+      _shapeDecorationFromBoxDecoration;
   return m;
 }
 
@@ -54,7 +54,7 @@ var _shapeDecoration = MXFunctionInvoke(
     "shape",
   ],
 );
-var _shapeDecoration_fromBoxDecoration = MXFunctionInvoke(
+var _shapeDecorationFromBoxDecoration = MXFunctionInvoke(
   "ShapeDecoration.fromBoxDecoration",
   ({
     BoxDecoration source,

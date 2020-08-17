@@ -35,8 +35,7 @@ import 'package:flutter/src/widgets/ticker_provider.dart';
 Map<String, MXFunctionInvoke> registerEditableTextSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_textEditingController.funName] = _textEditingController;
-  m[_textEditingController_fromValue.funName] =
-      _textEditingController_fromValue;
+  m[_textEditingControllerFromValue.funName] = _textEditingControllerFromValue;
   m[_toolbarOptions.funName] = _toolbarOptions;
   m[_editableText.funName] = _editableText;
   m[_editableTextState.funName] = _editableTextState;
@@ -55,7 +54,7 @@ var _textEditingController = MXFunctionInvoke(
     "text",
   ],
 );
-var _textEditingController_fromValue = MXFunctionInvoke(
+var _textEditingControllerFromValue = MXFunctionInvoke(
   "TextEditingController.fromValue",
   ({
     TextEditingValue value,

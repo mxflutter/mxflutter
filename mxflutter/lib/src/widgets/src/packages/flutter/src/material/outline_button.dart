@@ -20,7 +20,7 @@ import 'package:flutter/src/material/theme_data.dart';
 Map<String, MXFunctionInvoke> registerOutlineButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_outlineButton.funName] = _outlineButton;
-  m[_outlineButton_icon.funName] = _outlineButton_icon;
+  m[_outlineButtonIcon.funName] = _outlineButtonIcon;
   return m;
 }
 
@@ -100,7 +100,7 @@ var _outlineButton = MXFunctionInvoke(
     "child",
   ],
 );
-var _outlineButton_icon = MXFunctionInvoke(
+var _outlineButtonIcon = MXFunctionInvoke(
   "OutlineButton.icon",
   ({
     Key key,
@@ -130,9 +130,9 @@ var _outlineButton_icon = MXFunctionInvoke(
       OutlineButton.icon(
     key: key,
     onPressed:
-        createVoidCallbackClosure(_outlineButton_icon.buildOwner, onPressed),
+        createVoidCallbackClosure(_outlineButtonIcon.buildOwner, onPressed),
     onLongPress:
-        createVoidCallbackClosure(_outlineButton_icon.buildOwner, onLongPress),
+        createVoidCallbackClosure(_outlineButtonIcon.buildOwner, onLongPress),
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,

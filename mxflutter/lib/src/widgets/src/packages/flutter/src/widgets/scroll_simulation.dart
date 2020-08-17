@@ -14,8 +14,8 @@ import 'package:flutter/physics.dart';
 Map<String, MXFunctionInvoke> registerScrollSimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_bouncingScrollSimulation.funName] = _bouncingScrollSimulation;
-  m[_bouncingScrollSimulation_maxSpringTransferVelocity.funName] =
-      _bouncingScrollSimulation_maxSpringTransferVelocity;
+  m[_bouncingScrollSimulationMaxSpringTransferVelocity.funName] =
+      _bouncingScrollSimulationMaxSpringTransferVelocity;
   m[_clampingScrollSimulation.funName] = _clampingScrollSimulation;
   return m;
 }
@@ -47,7 +47,7 @@ var _bouncingScrollSimulation = MXFunctionInvoke(
     "tolerance",
   ],
 );
-var _bouncingScrollSimulation_maxSpringTransferVelocity = MXFunctionInvoke(
+var _bouncingScrollSimulationMaxSpringTransferVelocity = MXFunctionInvoke(
     "BouncingScrollSimulation.maxSpringTransferVelocity",
     () => BouncingScrollSimulation.maxSpringTransferVelocity);
 var _clampingScrollSimulation = MXFunctionInvoke(

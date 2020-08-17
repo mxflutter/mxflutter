@@ -17,9 +17,9 @@ Map<String, MXFunctionInvoke> registerBoxBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_boxShape.funName] = _boxShape;
   m[_border.funName] = _border;
-  m[_border_all.funName] = _border_all;
-  m[_border_fromBorderSide.funName] = _border_fromBorderSide;
-  m[_border_symmetric.funName] = _border_symmetric;
+  m[_borderAll.funName] = _borderAll;
+  m[_borderFromBorderSide.funName] = _borderFromBorderSide;
+  m[_borderSymmetric.funName] = _borderSymmetric;
   m[_borderDirectional.funName] = _borderDirectional;
   return m;
 }
@@ -49,7 +49,7 @@ var _border = MXFunctionInvoke(
     "left",
   ],
 );
-var _border_all = MXFunctionInvoke(
+var _borderAll = MXFunctionInvoke(
   "Border.all",
   ({
     Color color = const Color(0xFF000000),
@@ -67,7 +67,7 @@ var _border_all = MXFunctionInvoke(
     "style",
   ],
 );
-var _border_fromBorderSide = MXFunctionInvoke(
+var _borderFromBorderSide = MXFunctionInvoke(
   "Border.fromBorderSide",
   ({
     BorderSide side,
@@ -79,7 +79,7 @@ var _border_fromBorderSide = MXFunctionInvoke(
     "side",
   ],
 );
-var _border_symmetric = MXFunctionInvoke(
+var _borderSymmetric = MXFunctionInvoke(
   "Border.symmetric",
   ({
     BorderSide vertical = BorderSide.none,

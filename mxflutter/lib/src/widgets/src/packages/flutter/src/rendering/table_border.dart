@@ -13,8 +13,8 @@ import 'package:flutter/painting.dart';
 Map<String, MXFunctionInvoke> registerTableBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_tableBorder.funName] = _tableBorder;
-  m[_tableBorder_all.funName] = _tableBorder_all;
-  m[_tableBorder_symmetric.funName] = _tableBorder_symmetric;
+  m[_tableBorderAll.funName] = _tableBorderAll;
+  m[_tableBorderSymmetric.funName] = _tableBorderSymmetric;
   return m;
 }
 
@@ -45,7 +45,7 @@ var _tableBorder = MXFunctionInvoke(
     "verticalInside",
   ],
 );
-var _tableBorder_all = MXFunctionInvoke(
+var _tableBorderAll = MXFunctionInvoke(
   "TableBorder.all",
   ({
     Color color = const Color(0xFF000000),
@@ -63,7 +63,7 @@ var _tableBorder_all = MXFunctionInvoke(
     "style",
   ],
 );
-var _tableBorder_symmetric = MXFunctionInvoke(
+var _tableBorderSymmetric = MXFunctionInvoke(
   "TableBorder.symmetric",
   ({
     BorderSide inside = BorderSide.none,

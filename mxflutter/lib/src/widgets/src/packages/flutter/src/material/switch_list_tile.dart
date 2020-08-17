@@ -16,7 +16,7 @@ import 'package:flutter/src/material/theme_data.dart';
 Map<String, MXFunctionInvoke> registerSwitchListTileSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_switchListTile.funName] = _switchListTile;
-  m[_switchListTile_adaptive.funName] = _switchListTile_adaptive;
+  m[_switchListTileAdaptive.funName] = _switchListTileAdaptive;
   return m;
 }
 
@@ -78,7 +78,7 @@ var _switchListTile = MXFunctionInvoke(
     "selected",
   ],
 );
-var _switchListTile_adaptive = MXFunctionInvoke(
+var _switchListTileAdaptive = MXFunctionInvoke(
   "SwitchListTile.adaptive",
   ({
     Key key,
@@ -102,7 +102,7 @@ var _switchListTile_adaptive = MXFunctionInvoke(
     key: key,
     value: value,
     onChanged: createValueChangedGenericClosure<bool>(
-        _switchListTile_adaptive.buildOwner, onChanged),
+        _switchListTileAdaptive.buildOwner, onChanged),
     activeColor: activeColor,
     activeTrackColor: activeTrackColor,
     inactiveThumbColor: inactiveThumbColor,

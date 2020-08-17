@@ -43,19 +43,19 @@ Map<String, MXFunctionInvoke> registerThemeDataSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_materialTapTargetSize.funName] = _materialTapTargetSize;
   m[_themeData.funName] = _themeData;
-  m[_themeData_from.funName] = _themeData_from;
-  m[_themeData_light.funName] = _themeData_light;
-  m[_themeData_dark.funName] = _themeData_dark;
-  m[_themeData_fallback.funName] = _themeData_fallback;
-  m[_themeData_raw.funName] = _themeData_raw;
+  m[_themeDataFrom.funName] = _themeDataFrom;
+  m[_themeDataLight.funName] = _themeDataLight;
+  m[_themeDataDark.funName] = _themeDataDark;
+  m[_themeDataFallback.funName] = _themeDataFallback;
+  m[_themeDataRaw.funName] = _themeDataRaw;
   m[_materialBasedCupertinoThemeData.funName] =
       _materialBasedCupertinoThemeData;
   m[_visualDensity.funName] = _visualDensity;
-  m[_visualDensity_minimumDensity.funName] = _visualDensity_minimumDensity;
-  m[_visualDensity_maximumDensity.funName] = _visualDensity_maximumDensity;
-  m[_visualDensity_standard.funName] = _visualDensity_standard;
-  m[_visualDensity_comfortable.funName] = _visualDensity_comfortable;
-  m[_visualDensity_compact.funName] = _visualDensity_compact;
+  m[_visualDensityMinimumDensity.funName] = _visualDensityMinimumDensity;
+  m[_visualDensityMaximumDensity.funName] = _visualDensityMaximumDensity;
+  m[_visualDensityStandard.funName] = _visualDensityStandard;
+  m[_visualDensityComfortable.funName] = _visualDensityComfortable;
+  m[_visualDensityCompact.funName] = _visualDensityCompact;
   return m;
 }
 
@@ -270,7 +270,7 @@ var _themeData = MXFunctionInvoke(
     "buttonBarTheme",
   ],
 );
-var _themeData_from = MXFunctionInvoke(
+var _themeDataFrom = MXFunctionInvoke(
   "ThemeData.from",
   ({
     ColorScheme colorScheme,
@@ -285,22 +285,22 @@ var _themeData_from = MXFunctionInvoke(
     "textTheme",
   ],
 );
-var _themeData_light = MXFunctionInvoke(
+var _themeDataLight = MXFunctionInvoke(
   "ThemeData.light",
   () => ThemeData.light(),
   [],
 );
-var _themeData_dark = MXFunctionInvoke(
+var _themeDataDark = MXFunctionInvoke(
   "ThemeData.dark",
   () => ThemeData.dark(),
   [],
 );
-var _themeData_fallback = MXFunctionInvoke(
+var _themeDataFallback = MXFunctionInvoke(
   "ThemeData.fallback",
   () => ThemeData.fallback(),
   [],
 );
-var _themeData_raw = MXFunctionInvoke(
+var _themeDataRaw = MXFunctionInvoke(
   "ThemeData.raw",
   ({
     Brightness brightness,
@@ -528,15 +528,15 @@ var _visualDensity = MXFunctionInvoke(
     "vertical",
   ],
 );
-var _visualDensity_minimumDensity = MXFunctionInvoke(
+var _visualDensityMinimumDensity = MXFunctionInvoke(
     "VisualDensity.minimumDensity", () => VisualDensity.minimumDensity);
-var _visualDensity_maximumDensity = MXFunctionInvoke(
+var _visualDensityMaximumDensity = MXFunctionInvoke(
     "VisualDensity.maximumDensity", () => VisualDensity.maximumDensity);
-var _visualDensity_standard =
+var _visualDensityStandard =
     MXFunctionInvoke("VisualDensity.standard", () => VisualDensity.standard);
-var _visualDensity_comfortable = MXFunctionInvoke(
+var _visualDensityComfortable = MXFunctionInvoke(
     "VisualDensity.comfortable", () => VisualDensity.comfortable);
-var _visualDensity_compact =
+var _visualDensityCompact =
     MXFunctionInvoke("VisualDensity.compact", () => VisualDensity.compact);
 
 class MXMaterialTapTargetSize {

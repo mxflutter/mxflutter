@@ -12,7 +12,7 @@ import 'dart:collection';
 Map<String, MXFunctionInvoke> registerQueueListSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_queueList.funName] = _queueList;
-  m[_queueList_from.funName] = _queueList_from;
+  m[_queueListFrom.funName] = _queueListFrom;
   return m;
 }
 
@@ -28,7 +28,7 @@ var _queueList = MXFunctionInvoke(
     "initialCapacity",
   ],
 );
-var _queueList_from = MXFunctionInvoke(
+var _queueListFrom = MXFunctionInvoke(
   "QueueList.from",
   ({
     Iterable<dynamic> source,

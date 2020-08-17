@@ -16,7 +16,7 @@ import 'package:flutter/src/cupertino/theme.dart';
 Map<String, MXFunctionInvoke> registerButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoButton.funName] = _cupertinoButton;
-  m[_cupertinoButton_filled.funName] = _cupertinoButton_filled;
+  m[_cupertinoButtonFilled.funName] = _cupertinoButtonFilled;
   return m;
 }
 
@@ -58,7 +58,7 @@ var _cupertinoButton = MXFunctionInvoke(
     "onPressed",
   ],
 );
-var _cupertinoButton_filled = MXFunctionInvoke(
+var _cupertinoButtonFilled = MXFunctionInvoke(
   "CupertinoButton.filled",
   ({
     Key key,
@@ -79,8 +79,8 @@ var _cupertinoButton_filled = MXFunctionInvoke(
     minSize: minSize?.toDouble(),
     pressedOpacity: pressedOpacity?.toDouble(),
     borderRadius: borderRadius,
-    onPressed: createVoidCallbackClosure(
-        _cupertinoButton_filled.buildOwner, onPressed),
+    onPressed:
+        createVoidCallbackClosure(_cupertinoButtonFilled.buildOwner, onPressed),
   ),
   [
     "key",

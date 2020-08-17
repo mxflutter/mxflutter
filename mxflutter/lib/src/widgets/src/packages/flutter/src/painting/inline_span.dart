@@ -19,8 +19,8 @@ Map<String, MXFunctionInvoke> registerInlineSpanSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_accumulator.funName] = _accumulator;
   m[_inlineSpanSemanticsInformation.funName] = _inlineSpanSemanticsInformation;
-  m[_inlineSpanSemanticsInformation_placeholder.funName] =
-      _inlineSpanSemanticsInformation_placeholder;
+  m[_inlineSpanSemanticsInformationPlaceholder.funName] =
+      _inlineSpanSemanticsInformationPlaceholder;
   return m;
 }
 
@@ -57,6 +57,6 @@ var _inlineSpanSemanticsInformation = MXFunctionInvoke(
     "recognizer",
   ],
 );
-var _inlineSpanSemanticsInformation_placeholder = MXFunctionInvoke(
+var _inlineSpanSemanticsInformationPlaceholder = MXFunctionInvoke(
     "InlineSpanSemanticsInformation.placeholder",
     () => InlineSpanSemanticsInformation.placeholder);

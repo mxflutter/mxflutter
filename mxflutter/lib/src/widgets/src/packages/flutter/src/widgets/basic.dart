@@ -33,9 +33,9 @@ Map<String, MXFunctionInvoke> registerBasicSeries() {
   m[_physicalModel.funName] = _physicalModel;
   m[_physicalShape.funName] = _physicalShape;
   m[_transform.funName] = _transform;
-  m[_transform_rotate.funName] = _transform_rotate;
-  m[_transform_translate.funName] = _transform_translate;
-  m[_transform_scale.funName] = _transform_scale;
+  m[_transformRotate.funName] = _transformRotate;
+  m[_transformTranslate.funName] = _transformTranslate;
+  m[_transformScale.funName] = _transformScale;
   m[_compositedTransformTarget.funName] = _compositedTransformTarget;
   m[_compositedTransformFollower.funName] = _compositedTransformFollower;
   m[_fittedBox.funName] = _fittedBox;
@@ -48,9 +48,9 @@ Map<String, MXFunctionInvoke> registerBasicSeries() {
   m[_layoutId.funName] = _layoutId;
   m[_customMultiChildLayout.funName] = _customMultiChildLayout;
   m[_sizedBox.funName] = _sizedBox;
-  m[_sizedBox_expand.funName] = _sizedBox_expand;
-  m[_sizedBox_shrink.funName] = _sizedBox_shrink;
-  m[_sizedBox_fromSize.funName] = _sizedBox_fromSize;
+  m[_sizedBoxExpand.funName] = _sizedBoxExpand;
+  m[_sizedBoxShrink.funName] = _sizedBoxShrink;
+  m[_sizedBoxFromSize.funName] = _sizedBoxFromSize;
   m[_constrainedBox.funName] = _constrainedBox;
   m[_unconstrainedBox.funName] = _unconstrainedBox;
   m[_fractionallySizedBox.funName] = _fractionallySizedBox;
@@ -68,10 +68,12 @@ Map<String, MXFunctionInvoke> registerBasicSeries() {
   m[_stack.funName] = _stack;
   m[_indexedStack.funName] = _indexedStack;
   m[_positioned.funName] = _positioned;
-  m[_positioned_directional.funName] = _positioned_directional;
-  m[_positioned_fromRect.funName] = _positioned_fromRect;
-  m[_positioned_fromRelativeRect.funName] = _positioned_fromRelativeRect;
-  m[_positioned_fill.funName] = _positioned_fill;
+  ///MX Modified begin
+  m[_positionedDirectionalStatic.funName] = _positionedDirectionalStatic;
+  ///MX Modified end
+  m[_positionedFromRect.funName] = _positionedFromRect;
+  m[_positionedFromRelativeRect.funName] = _positionedFromRelativeRect;
+  m[_positionedFill.funName] = _positionedFill;
   m[_positionedDirectional.funName] = _positionedDirectional;
   m[_flex.funName] = _flex;
   m[_row.funName] = _row;
@@ -80,7 +82,7 @@ Map<String, MXFunctionInvoke> registerBasicSeries() {
   m[_expanded.funName] = _expanded;
   m[_wrap.funName] = _wrap;
   m[_flow.funName] = _flow;
-  m[_flow_unwrapped.funName] = _flow_unwrapped;
+  m[_flowUnwrapped.funName] = _flowUnwrapped;
   m[_richText.funName] = _richText;
   m[_rawImage.funName] = _rawImage;
   m[_defaultAssetBundle.funName] = _defaultAssetBundle;
@@ -88,18 +90,18 @@ Map<String, MXFunctionInvoke> registerBasicSeries() {
   m[_listener.funName] = _listener;
   m[_mouseRegion.funName] = _mouseRegion;
   m[_repaintBoundary.funName] = _repaintBoundary;
-  m[_repaintBoundary_wrap.funName] = _repaintBoundary_wrap;
+  m[_repaintBoundaryWrap.funName] = _repaintBoundaryWrap;
   m[_ignorePointer.funName] = _ignorePointer;
   m[_absorbPointer.funName] = _absorbPointer;
   m[_metaData.funName] = _metaData;
   m[_semantics.funName] = _semantics;
-  m[_semantics_fromProperties.funName] = _semantics_fromProperties;
+  m[_semanticsFromProperties.funName] = _semanticsFromProperties;
   m[_mergeSemantics.funName] = _mergeSemantics;
   m[_blockSemantics.funName] = _blockSemantics;
   m[_excludeSemantics.funName] = _excludeSemantics;
   m[_indexedSemantics.funName] = _indexedSemantics;
   m[_keyedSubtree.funName] = _keyedSubtree;
-  m[_keyedSubtree_wrap.funName] = _keyedSubtree_wrap;
+  m[_keyedSubtreeWrap.funName] = _keyedSubtreeWrap;
   m[_builder.funName] = _builder;
   m[_statefulBuilder.funName] = _statefulBuilder;
   m[_coloredBox.funName] = _coloredBox;
@@ -391,7 +393,7 @@ var _transform = MXFunctionInvoke(
     "child",
   ],
 );
-var _transform_rotate = MXFunctionInvoke(
+var _transformRotate = MXFunctionInvoke(
   "Transform.rotate",
   ({
     Key key,
@@ -418,7 +420,7 @@ var _transform_rotate = MXFunctionInvoke(
     "child",
   ],
 );
-var _transform_translate = MXFunctionInvoke(
+var _transformTranslate = MXFunctionInvoke(
   "Transform.translate",
   ({
     Key key,
@@ -439,7 +441,7 @@ var _transform_translate = MXFunctionInvoke(
     "child",
   ],
 );
-var _transform_scale = MXFunctionInvoke(
+var _transformScale = MXFunctionInvoke(
   "Transform.scale",
   ({
     Key key,
@@ -706,7 +708,7 @@ var _sizedBox = MXFunctionInvoke(
     "child",
   ],
 );
-var _sizedBox_expand = MXFunctionInvoke(
+var _sizedBoxExpand = MXFunctionInvoke(
   "SizedBox.expand",
   ({
     Key key,
@@ -721,7 +723,7 @@ var _sizedBox_expand = MXFunctionInvoke(
     "child",
   ],
 );
-var _sizedBox_shrink = MXFunctionInvoke(
+var _sizedBoxShrink = MXFunctionInvoke(
   "SizedBox.shrink",
   ({
     Key key,
@@ -736,7 +738,7 @@ var _sizedBox_shrink = MXFunctionInvoke(
     "child",
   ],
 );
-var _sizedBox_fromSize = MXFunctionInvoke(
+var _sizedBoxFromSize = MXFunctionInvoke(
   "SizedBox.fromSize",
   ({
     Key key,
@@ -1126,7 +1128,9 @@ var _positioned = MXFunctionInvoke(
     "child",
   ],
 );
-var _positioned_directional = MXFunctionInvoke(
+///MX Modified begin
+var _positionedDirectionalStatic = MXFunctionInvoke(
+///MX Modified end
   "Positioned.directional",
   ({
     Key key,
@@ -1162,7 +1166,7 @@ var _positioned_directional = MXFunctionInvoke(
     "child",
   ],
 );
-var _positioned_fromRect = MXFunctionInvoke(
+var _positionedFromRect = MXFunctionInvoke(
   "Positioned.fromRect",
   ({
     Key key,
@@ -1180,7 +1184,7 @@ var _positioned_fromRect = MXFunctionInvoke(
     "child",
   ],
 );
-var _positioned_fromRelativeRect = MXFunctionInvoke(
+var _positionedFromRelativeRect = MXFunctionInvoke(
   "Positioned.fromRelativeRect",
   ({
     Key key,
@@ -1198,7 +1202,7 @@ var _positioned_fromRelativeRect = MXFunctionInvoke(
     "child",
   ],
 );
-var _positioned_fill = MXFunctionInvoke(
+var _positionedFill = MXFunctionInvoke(
   "Positioned.fill",
   ({
     Key key,
@@ -1456,7 +1460,7 @@ var _flow = MXFunctionInvoke(
     "children",
   ],
 );
-var _flow_unwrapped = MXFunctionInvoke(
+var _flowUnwrapped = MXFunctionInvoke(
   "Flow.unwrapped",
   ({
     Key key,
@@ -1699,7 +1703,7 @@ var _repaintBoundary = MXFunctionInvoke(
     "child",
   ],
 );
-var _repaintBoundary_wrap = MXFunctionInvoke(
+var _repaintBoundaryWrap = MXFunctionInvoke(
   "RepaintBoundary.wrap",
   ({
     Widget child,
@@ -1954,7 +1958,7 @@ var _semantics = MXFunctionInvoke(
     "customSemanticsActions",
   ],
 );
-var _semantics_fromProperties = MXFunctionInvoke(
+var _semanticsFromProperties = MXFunctionInvoke(
   "Semantics.fromProperties",
   ({
     Key key,
@@ -2065,7 +2069,7 @@ var _keyedSubtree = MXFunctionInvoke(
     "child",
   ],
 );
-var _keyedSubtree_wrap = MXFunctionInvoke(
+var _keyedSubtreeWrap = MXFunctionInvoke(
   "KeyedSubtree.wrap",
   ({
     Widget child,

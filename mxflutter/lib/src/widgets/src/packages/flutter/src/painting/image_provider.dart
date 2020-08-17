@@ -21,7 +21,7 @@ import 'package:flutter/src/painting/image_stream.dart';
 Map<String, MXFunctionInvoke> registerImageProviderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_imageConfiguration.funName] = _imageConfiguration;
-  m[_imageConfiguration_empty.funName] = _imageConfiguration_empty;
+  m[_imageConfigurationEmpty.funName] = _imageConfigurationEmpty;
   m[_assetBundleImageKey.funName] = _assetBundleImageKey;
   m[_resizeImage.funName] = _resizeImage;
   m[_networkImage.funName] = _networkImage;
@@ -59,7 +59,7 @@ var _imageConfiguration = MXFunctionInvoke(
     "platform",
   ],
 );
-var _imageConfiguration_empty = MXFunctionInvoke(
+var _imageConfigurationEmpty = MXFunctionInvoke(
     "ImageConfiguration.empty", () => ImageConfiguration.empty);
 var _assetBundleImageKey = MXFunctionInvoke(
   "AssetBundleImageKey",

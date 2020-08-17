@@ -23,7 +23,7 @@ Map<String, MXFunctionInvoke> registerInputDecoratorSeries() {
   m[_floatingLabelBehavior.funName] = _floatingLabelBehavior;
   m[_inputDecorator.funName] = _inputDecorator;
   m[_inputDecoration.funName] = _inputDecoration;
-  m[_inputDecoration_collapsed.funName] = _inputDecoration_collapsed;
+  m[_inputDecorationCollapsed.funName] = _inputDecorationCollapsed;
   m[_inputDecorationTheme.funName] = _inputDecorationTheme;
   return m;
 }
@@ -206,7 +206,7 @@ var _inputDecoration = MXFunctionInvoke(
     "alignLabelWithHint",
   ],
 );
-var _inputDecoration_collapsed = MXFunctionInvoke(
+var _inputDecorationCollapsed = MXFunctionInvoke(
   "InputDecoration.collapsed",
   ({
     String hintText,

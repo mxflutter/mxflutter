@@ -18,7 +18,7 @@ import 'package:flutter/src/material/theme_data.dart';
 Map<String, MXFunctionInvoke> registerRaisedButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_raisedButton.funName] = _raisedButton;
-  m[_raisedButton_icon.funName] = _raisedButton_icon;
+  m[_raisedButtonIcon.funName] = _raisedButtonIcon;
   return m;
 }
 
@@ -117,7 +117,7 @@ var _raisedButton = MXFunctionInvoke(
     "child",
   ],
 );
-var _raisedButton_icon = MXFunctionInvoke(
+var _raisedButtonIcon = MXFunctionInvoke(
   "RaisedButton.icon",
   ({
     Key key,
@@ -150,11 +150,11 @@ var _raisedButton_icon = MXFunctionInvoke(
       RaisedButton.icon(
     key: key,
     onPressed:
-        createVoidCallbackClosure(_raisedButton_icon.buildOwner, onPressed),
+        createVoidCallbackClosure(_raisedButtonIcon.buildOwner, onPressed),
     onLongPress:
-        createVoidCallbackClosure(_raisedButton_icon.buildOwner, onLongPress),
+        createVoidCallbackClosure(_raisedButtonIcon.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
-        _raisedButton_icon.buildOwner, onHighlightChanged),
+        _raisedButtonIcon.buildOwner, onHighlightChanged),
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,

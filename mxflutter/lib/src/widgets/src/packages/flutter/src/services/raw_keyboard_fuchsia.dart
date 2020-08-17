@@ -15,34 +15,34 @@ import 'package:flutter/src/services/raw_keyboard.dart';
 Map<String, MXFunctionInvoke> registerRawKeyboardFuchsiaSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_rawKeyEventDataFuchsia.funName] = _rawKeyEventDataFuchsia;
-  m[_rawKeyEventDataFuchsia_modifierNone.funName] =
-      _rawKeyEventDataFuchsia_modifierNone;
-  m[_rawKeyEventDataFuchsia_modifierCapsLock.funName] =
-      _rawKeyEventDataFuchsia_modifierCapsLock;
-  m[_rawKeyEventDataFuchsia_modifierLeftShift.funName] =
-      _rawKeyEventDataFuchsia_modifierLeftShift;
-  m[_rawKeyEventDataFuchsia_modifierRightShift.funName] =
-      _rawKeyEventDataFuchsia_modifierRightShift;
-  m[_rawKeyEventDataFuchsia_modifierShift.funName] =
-      _rawKeyEventDataFuchsia_modifierShift;
-  m[_rawKeyEventDataFuchsia_modifierLeftControl.funName] =
-      _rawKeyEventDataFuchsia_modifierLeftControl;
-  m[_rawKeyEventDataFuchsia_modifierRightControl.funName] =
-      _rawKeyEventDataFuchsia_modifierRightControl;
-  m[_rawKeyEventDataFuchsia_modifierControl.funName] =
-      _rawKeyEventDataFuchsia_modifierControl;
-  m[_rawKeyEventDataFuchsia_modifierLeftAlt.funName] =
-      _rawKeyEventDataFuchsia_modifierLeftAlt;
-  m[_rawKeyEventDataFuchsia_modifierRightAlt.funName] =
-      _rawKeyEventDataFuchsia_modifierRightAlt;
-  m[_rawKeyEventDataFuchsia_modifierAlt.funName] =
-      _rawKeyEventDataFuchsia_modifierAlt;
-  m[_rawKeyEventDataFuchsia_modifierLeftMeta.funName] =
-      _rawKeyEventDataFuchsia_modifierLeftMeta;
-  m[_rawKeyEventDataFuchsia_modifierRightMeta.funName] =
-      _rawKeyEventDataFuchsia_modifierRightMeta;
-  m[_rawKeyEventDataFuchsia_modifierMeta.funName] =
-      _rawKeyEventDataFuchsia_modifierMeta;
+  m[_rawKeyEventDataFuchsiaModifierNone.funName] =
+      _rawKeyEventDataFuchsiaModifierNone;
+  m[_rawKeyEventDataFuchsiaModifierCapsLock.funName] =
+      _rawKeyEventDataFuchsiaModifierCapsLock;
+  m[_rawKeyEventDataFuchsiaModifierLeftShift.funName] =
+      _rawKeyEventDataFuchsiaModifierLeftShift;
+  m[_rawKeyEventDataFuchsiaModifierRightShift.funName] =
+      _rawKeyEventDataFuchsiaModifierRightShift;
+  m[_rawKeyEventDataFuchsiaModifierShift.funName] =
+      _rawKeyEventDataFuchsiaModifierShift;
+  m[_rawKeyEventDataFuchsiaModifierLeftControl.funName] =
+      _rawKeyEventDataFuchsiaModifierLeftControl;
+  m[_rawKeyEventDataFuchsiaModifierRightControl.funName] =
+      _rawKeyEventDataFuchsiaModifierRightControl;
+  m[_rawKeyEventDataFuchsiaModifierControl.funName] =
+      _rawKeyEventDataFuchsiaModifierControl;
+  m[_rawKeyEventDataFuchsiaModifierLeftAlt.funName] =
+      _rawKeyEventDataFuchsiaModifierLeftAlt;
+  m[_rawKeyEventDataFuchsiaModifierRightAlt.funName] =
+      _rawKeyEventDataFuchsiaModifierRightAlt;
+  m[_rawKeyEventDataFuchsiaModifierAlt.funName] =
+      _rawKeyEventDataFuchsiaModifierAlt;
+  m[_rawKeyEventDataFuchsiaModifierLeftMeta.funName] =
+      _rawKeyEventDataFuchsiaModifierLeftMeta;
+  m[_rawKeyEventDataFuchsiaModifierRightMeta.funName] =
+      _rawKeyEventDataFuchsiaModifierRightMeta;
+  m[_rawKeyEventDataFuchsiaModifierMeta.funName] =
+      _rawKeyEventDataFuchsiaModifierMeta;
   return m;
 }
 
@@ -64,45 +64,45 @@ var _rawKeyEventDataFuchsia = MXFunctionInvoke(
     "modifiers",
   ],
 );
-var _rawKeyEventDataFuchsia_modifierNone = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierNone = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierNone",
     () => RawKeyEventDataFuchsia.modifierNone);
-var _rawKeyEventDataFuchsia_modifierCapsLock = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierCapsLock = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierCapsLock",
     () => RawKeyEventDataFuchsia.modifierCapsLock);
-var _rawKeyEventDataFuchsia_modifierLeftShift = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierLeftShift = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierLeftShift",
     () => RawKeyEventDataFuchsia.modifierLeftShift);
-var _rawKeyEventDataFuchsia_modifierRightShift = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierRightShift = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierRightShift",
     () => RawKeyEventDataFuchsia.modifierRightShift);
-var _rawKeyEventDataFuchsia_modifierShift = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierShift = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierShift",
     () => RawKeyEventDataFuchsia.modifierShift);
-var _rawKeyEventDataFuchsia_modifierLeftControl = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierLeftControl = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierLeftControl",
     () => RawKeyEventDataFuchsia.modifierLeftControl);
-var _rawKeyEventDataFuchsia_modifierRightControl = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierRightControl = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierRightControl",
     () => RawKeyEventDataFuchsia.modifierRightControl);
-var _rawKeyEventDataFuchsia_modifierControl = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierControl = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierControl",
     () => RawKeyEventDataFuchsia.modifierControl);
-var _rawKeyEventDataFuchsia_modifierLeftAlt = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierLeftAlt = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierLeftAlt",
     () => RawKeyEventDataFuchsia.modifierLeftAlt);
-var _rawKeyEventDataFuchsia_modifierRightAlt = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierRightAlt = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierRightAlt",
     () => RawKeyEventDataFuchsia.modifierRightAlt);
-var _rawKeyEventDataFuchsia_modifierAlt = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierAlt = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierAlt",
     () => RawKeyEventDataFuchsia.modifierAlt);
-var _rawKeyEventDataFuchsia_modifierLeftMeta = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierLeftMeta = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierLeftMeta",
     () => RawKeyEventDataFuchsia.modifierLeftMeta);
-var _rawKeyEventDataFuchsia_modifierRightMeta = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierRightMeta = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierRightMeta",
     () => RawKeyEventDataFuchsia.modifierRightMeta);
-var _rawKeyEventDataFuchsia_modifierMeta = MXFunctionInvoke(
+var _rawKeyEventDataFuchsiaModifierMeta = MXFunctionInvoke(
     "RawKeyEventDataFuchsia.modifierMeta",
     () => RawKeyEventDataFuchsia.modifierMeta);

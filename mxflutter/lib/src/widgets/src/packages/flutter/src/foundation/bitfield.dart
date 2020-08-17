@@ -11,7 +11,7 @@ import 'package:flutter/src/foundation/bitfield.dart';
 Map<String, MXFunctionInvoke> registerBitfieldSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_bitField.funName] = _bitField;
-  m[_bitField_filled.funName] = _bitField_filled;
+  m[_bitFieldFilled.funName] = _bitFieldFilled;
   return m;
 }
 
@@ -27,7 +27,7 @@ var _bitField = MXFunctionInvoke(
     "length",
   ],
 );
-var _bitField_filled = MXFunctionInvoke(
+var _bitFieldFilled = MXFunctionInvoke(
   "BitField.filled",
   ({
     int length,

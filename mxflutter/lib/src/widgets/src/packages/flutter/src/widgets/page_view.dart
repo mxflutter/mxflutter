@@ -37,8 +37,8 @@ Map<String, MXFunctionInvoke> registerPageViewSeries() {
   m[_pageMetrics.funName] = _pageMetrics;
   m[_pageScrollPhysics.funName] = _pageScrollPhysics;
   m[_pageView.funName] = _pageView;
-  m[_pageView_builder.funName] = _pageView_builder;
-  m[_pageView_custom.funName] = _pageView_custom;
+  m[_pageViewBuilder.funName] = _pageViewBuilder;
+  m[_pageViewCustom.funName] = _pageViewCustom;
   return m;
 }
 
@@ -139,7 +139,7 @@ var _pageView = MXFunctionInvoke(
     "allowImplicitScrolling",
   ],
 );
-var _pageView_builder = MXFunctionInvoke(
+var _pageViewBuilder = MXFunctionInvoke(
   "PageView.builder",
   ({
     Key key,
@@ -162,7 +162,7 @@ var _pageView_builder = MXFunctionInvoke(
     physics: physics,
     pageSnapping: pageSnapping,
     onPageChanged: createValueChangedGenericClosure<int>(
-        _pageView_builder.buildOwner, onPageChanged),
+        _pageViewBuilder.buildOwner, onPageChanged),
     itemBuilder: null,
     itemCount: itemCount,
     dragStartBehavior: dragStartBehavior,
@@ -182,7 +182,7 @@ var _pageView_builder = MXFunctionInvoke(
     "allowImplicitScrolling",
   ],
 );
-var _pageView_custom = MXFunctionInvoke(
+var _pageViewCustom = MXFunctionInvoke(
   "PageView.custom",
   ({
     Key key,
@@ -204,7 +204,7 @@ var _pageView_custom = MXFunctionInvoke(
     physics: physics,
     pageSnapping: pageSnapping,
     onPageChanged: createValueChangedGenericClosure<int>(
-        _pageView_custom.buildOwner, onPageChanged),
+        _pageViewCustom.buildOwner, onPageChanged),
     childrenDelegate: childrenDelegate,
     dragStartBehavior: dragStartBehavior,
     allowImplicitScrolling: allowImplicitScrolling,

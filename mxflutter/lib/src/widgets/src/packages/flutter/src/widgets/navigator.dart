@@ -32,13 +32,13 @@ Map<String, MXFunctionInvoke> registerNavigatorSeries() {
   m[_navigatorObserver.funName] = _navigatorObserver;
   m[_defaultTransitionDelegate.funName] = _defaultTransitionDelegate;
   m[_navigator.funName] = _navigator;
-  m[_navigator_defaultRouteName.funName] = _navigator_defaultRouteName;
-  m[_navigator_replace.funName] = _navigator_replace;
-  m[_navigator_replaceRouteBelow.funName] = _navigator_replaceRouteBelow;
-  m[_navigator_pop.funName] = _navigator_pop;
-  m[_navigator_popUntil.funName] = _navigator_popUntil;
-  m[_navigator_removeRoute.funName] = _navigator_removeRoute;
-  m[_navigator_removeRouteBelow.funName] = _navigator_removeRouteBelow;
+  m[_navigatorDefaultRouteName.funName] = _navigatorDefaultRouteName;
+  m[_navigatorReplace.funName] = _navigatorReplace;
+  m[_navigatorReplaceRouteBelow.funName] = _navigatorReplaceRouteBelow;
+  m[_navigatorPop.funName] = _navigatorPop;
+  m[_navigatorPopUntil.funName] = _navigatorPopUntil;
+  m[_navigatorRemoveRoute.funName] = _navigatorRemoveRoute;
+  m[_navigatorRemoveRouteBelow.funName] = _navigatorRemoveRouteBelow;
   m[_navigatorState.funName] = _navigatorState;
   return m;
 }
@@ -130,9 +130,9 @@ var _navigator = MXFunctionInvoke(
     "observers",
   ],
 );
-var _navigator_defaultRouteName = MXFunctionInvoke(
+var _navigatorDefaultRouteName = MXFunctionInvoke(
     "Navigator.defaultRouteName", () => Navigator.defaultRouteName);
-var _navigator_replace = MXFunctionInvoke(
+var _navigatorReplace = MXFunctionInvoke(
   "Navigator.replace",
   ({
     BuildContext context,
@@ -150,7 +150,7 @@ var _navigator_replace = MXFunctionInvoke(
     "newRoute",
   ],
 );
-var _navigator_replaceRouteBelow = MXFunctionInvoke(
+var _navigatorReplaceRouteBelow = MXFunctionInvoke(
   "Navigator.replaceRouteBelow",
   ({
     BuildContext context,
@@ -168,7 +168,7 @@ var _navigator_replaceRouteBelow = MXFunctionInvoke(
     "newRoute",
   ],
 );
-var _navigator_pop = MXFunctionInvoke(
+var _navigatorPop = MXFunctionInvoke(
   "Navigator.pop",
   ({
     BuildContext context,
@@ -183,7 +183,7 @@ var _navigator_pop = MXFunctionInvoke(
     "result",
   ],
 );
-var _navigator_popUntil = MXFunctionInvoke(
+var _navigatorPopUntil = MXFunctionInvoke(
   "Navigator.popUntil",
   ({
     BuildContext context,
@@ -198,7 +198,7 @@ var _navigator_popUntil = MXFunctionInvoke(
     "predicate",
   ],
 );
-var _navigator_removeRoute = MXFunctionInvoke(
+var _navigatorRemoveRoute = MXFunctionInvoke(
   "Navigator.removeRoute",
   ({
     BuildContext context,
@@ -213,7 +213,7 @@ var _navigator_removeRoute = MXFunctionInvoke(
     "route",
   ],
 );
-var _navigator_removeRouteBelow = MXFunctionInvoke(
+var _navigatorRemoveRouteBelow = MXFunctionInvoke(
   "Navigator.removeRouteBelow",
   ({
     BuildContext context,

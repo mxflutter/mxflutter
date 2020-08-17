@@ -15,23 +15,23 @@ import 'package:flutter/src/material/text_theme.dart';
 Map<String, MXFunctionInvoke> registerTypographySeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scriptCategory.funName] = _scriptCategory;
-  m[_typography_blackMountainView.funName] = _typography_blackMountainView;
-  m[_typography_whiteMountainView.funName] = _typography_whiteMountainView;
-  m[_typography_blackRedmond.funName] = _typography_blackRedmond;
-  m[_typography_whiteRedmond.funName] = _typography_whiteRedmond;
-  m[_typography_blackHelsinki.funName] = _typography_blackHelsinki;
-  m[_typography_whiteHelsinki.funName] = _typography_whiteHelsinki;
-  m[_typography_blackCupertino.funName] = _typography_blackCupertino;
-  m[_typography_whiteCupertino.funName] = _typography_whiteCupertino;
-  m[_typography_englishLike2014.funName] = _typography_englishLike2014;
-  m[_typography_englishLike2018.funName] = _typography_englishLike2018;
-  m[_typography_dense2014.funName] = _typography_dense2014;
-  m[_typography_dense2018.funName] = _typography_dense2018;
-  m[_typography_tall2014.funName] = _typography_tall2014;
-  m[_typography_tall2018.funName] = _typography_tall2018;
+  m[_typographyBlackMountainView.funName] = _typographyBlackMountainView;
+  m[_typographyWhiteMountainView.funName] = _typographyWhiteMountainView;
+  m[_typographyBlackRedmond.funName] = _typographyBlackRedmond;
+  m[_typographyWhiteRedmond.funName] = _typographyWhiteRedmond;
+  m[_typographyBlackHelsinki.funName] = _typographyBlackHelsinki;
+  m[_typographyWhiteHelsinki.funName] = _typographyWhiteHelsinki;
+  m[_typographyBlackCupertino.funName] = _typographyBlackCupertino;
+  m[_typographyWhiteCupertino.funName] = _typographyWhiteCupertino;
+  m[_typographyEnglishLike2014.funName] = _typographyEnglishLike2014;
+  m[_typographyEnglishLike2018.funName] = _typographyEnglishLike2018;
+  m[_typographyDense2014.funName] = _typographyDense2014;
+  m[_typographyDense2018.funName] = _typographyDense2018;
+  m[_typographyTall2014.funName] = _typographyTall2014;
+  m[_typographyTall2018.funName] = _typographyTall2018;
   m[_typography.funName] = _typography;
-  m[_typography_material2014.funName] = _typography_material2014;
-  m[_typography_material2018.funName] = _typography_material2018;
+  m[_typographyMaterial2014.funName] = _typographyMaterial2014;
+  m[_typographyMaterial2018.funName] = _typographyMaterial2018;
   return m;
 }
 
@@ -39,33 +39,33 @@ var _scriptCategory = MXFunctionInvoke(
     "ScriptCategory",
     ({String name, int index}) => MXScriptCategory.parse(name, index),
     ["name", "index"]);
-var _typography_blackMountainView = MXFunctionInvoke(
+var _typographyBlackMountainView = MXFunctionInvoke(
     "Typography.blackMountainView", () => Typography.blackMountainView);
-var _typography_whiteMountainView = MXFunctionInvoke(
+var _typographyWhiteMountainView = MXFunctionInvoke(
     "Typography.whiteMountainView", () => Typography.whiteMountainView);
-var _typography_blackRedmond =
+var _typographyBlackRedmond =
     MXFunctionInvoke("Typography.blackRedmond", () => Typography.blackRedmond);
-var _typography_whiteRedmond =
+var _typographyWhiteRedmond =
     MXFunctionInvoke("Typography.whiteRedmond", () => Typography.whiteRedmond);
-var _typography_blackHelsinki = MXFunctionInvoke(
+var _typographyBlackHelsinki = MXFunctionInvoke(
     "Typography.blackHelsinki", () => Typography.blackHelsinki);
-var _typography_whiteHelsinki = MXFunctionInvoke(
+var _typographyWhiteHelsinki = MXFunctionInvoke(
     "Typography.whiteHelsinki", () => Typography.whiteHelsinki);
-var _typography_blackCupertino = MXFunctionInvoke(
+var _typographyBlackCupertino = MXFunctionInvoke(
     "Typography.blackCupertino", () => Typography.blackCupertino);
-var _typography_whiteCupertino = MXFunctionInvoke(
+var _typographyWhiteCupertino = MXFunctionInvoke(
     "Typography.whiteCupertino", () => Typography.whiteCupertino);
-var _typography_englishLike2014 = MXFunctionInvoke(
+var _typographyEnglishLike2014 = MXFunctionInvoke(
     "Typography.englishLike2014", () => Typography.englishLike2014);
-var _typography_englishLike2018 = MXFunctionInvoke(
+var _typographyEnglishLike2018 = MXFunctionInvoke(
     "Typography.englishLike2018", () => Typography.englishLike2018);
-var _typography_dense2014 =
+var _typographyDense2014 =
     MXFunctionInvoke("Typography.dense2014", () => Typography.dense2014);
-var _typography_dense2018 =
+var _typographyDense2018 =
     MXFunctionInvoke("Typography.dense2018", () => Typography.dense2018);
-var _typography_tall2014 =
+var _typographyTall2014 =
     MXFunctionInvoke("Typography.tall2014", () => Typography.tall2014);
-var _typography_tall2018 =
+var _typographyTall2018 =
     MXFunctionInvoke("Typography.tall2018", () => Typography.tall2018);
 var _typography = MXFunctionInvoke(
   "Typography",
@@ -94,7 +94,7 @@ var _typography = MXFunctionInvoke(
     "tall",
   ],
 );
-var _typography_material2014 = MXFunctionInvoke(
+var _typographyMaterial2014 = MXFunctionInvoke(
   "Typography.material2014",
   ({
     TargetPlatform platform = TargetPlatform.android,
@@ -121,7 +121,7 @@ var _typography_material2014 = MXFunctionInvoke(
     "tall",
   ],
 );
-var _typography_material2018 = MXFunctionInvoke(
+var _typographyMaterial2018 = MXFunctionInvoke(
   "Typography.material2018",
   ({
     TargetPlatform platform = TargetPlatform.android,

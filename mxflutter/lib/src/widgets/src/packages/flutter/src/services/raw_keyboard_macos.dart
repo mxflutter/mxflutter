@@ -15,40 +15,40 @@ import 'package:flutter/src/services/raw_keyboard.dart';
 Map<String, MXFunctionInvoke> registerRawKeyboardMacosSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_rawKeyEventDataMacOs.funName] = _rawKeyEventDataMacOs;
-  m[_rawKeyEventDataMacOs_modifierCapsLock.funName] =
-      _rawKeyEventDataMacOs_modifierCapsLock;
-  m[_rawKeyEventDataMacOs_modifierShift.funName] =
-      _rawKeyEventDataMacOs_modifierShift;
-  m[_rawKeyEventDataMacOs_modifierLeftShift.funName] =
-      _rawKeyEventDataMacOs_modifierLeftShift;
-  m[_rawKeyEventDataMacOs_modifierRightShift.funName] =
-      _rawKeyEventDataMacOs_modifierRightShift;
-  m[_rawKeyEventDataMacOs_modifierControl.funName] =
-      _rawKeyEventDataMacOs_modifierControl;
-  m[_rawKeyEventDataMacOs_modifierLeftControl.funName] =
-      _rawKeyEventDataMacOs_modifierLeftControl;
-  m[_rawKeyEventDataMacOs_modifierRightControl.funName] =
-      _rawKeyEventDataMacOs_modifierRightControl;
-  m[_rawKeyEventDataMacOs_modifierOption.funName] =
-      _rawKeyEventDataMacOs_modifierOption;
-  m[_rawKeyEventDataMacOs_modifierLeftOption.funName] =
-      _rawKeyEventDataMacOs_modifierLeftOption;
-  m[_rawKeyEventDataMacOs_modifierRightOption.funName] =
-      _rawKeyEventDataMacOs_modifierRightOption;
-  m[_rawKeyEventDataMacOs_modifierCommand.funName] =
-      _rawKeyEventDataMacOs_modifierCommand;
-  m[_rawKeyEventDataMacOs_modifierLeftCommand.funName] =
-      _rawKeyEventDataMacOs_modifierLeftCommand;
-  m[_rawKeyEventDataMacOs_modifierRightCommand.funName] =
-      _rawKeyEventDataMacOs_modifierRightCommand;
-  m[_rawKeyEventDataMacOs_modifierNumericPad.funName] =
-      _rawKeyEventDataMacOs_modifierNumericPad;
-  m[_rawKeyEventDataMacOs_modifierHelp.funName] =
-      _rawKeyEventDataMacOs_modifierHelp;
-  m[_rawKeyEventDataMacOs_modifierFunction.funName] =
-      _rawKeyEventDataMacOs_modifierFunction;
-  m[_rawKeyEventDataMacOs_deviceIndependentMask.funName] =
-      _rawKeyEventDataMacOs_deviceIndependentMask;
+  m[_rawKeyEventDataMacOsModifierCapsLock.funName] =
+      _rawKeyEventDataMacOsModifierCapsLock;
+  m[_rawKeyEventDataMacOsModifierShift.funName] =
+      _rawKeyEventDataMacOsModifierShift;
+  m[_rawKeyEventDataMacOsModifierLeftShift.funName] =
+      _rawKeyEventDataMacOsModifierLeftShift;
+  m[_rawKeyEventDataMacOsModifierRightShift.funName] =
+      _rawKeyEventDataMacOsModifierRightShift;
+  m[_rawKeyEventDataMacOsModifierControl.funName] =
+      _rawKeyEventDataMacOsModifierControl;
+  m[_rawKeyEventDataMacOsModifierLeftControl.funName] =
+      _rawKeyEventDataMacOsModifierLeftControl;
+  m[_rawKeyEventDataMacOsModifierRightControl.funName] =
+      _rawKeyEventDataMacOsModifierRightControl;
+  m[_rawKeyEventDataMacOsModifierOption.funName] =
+      _rawKeyEventDataMacOsModifierOption;
+  m[_rawKeyEventDataMacOsModifierLeftOption.funName] =
+      _rawKeyEventDataMacOsModifierLeftOption;
+  m[_rawKeyEventDataMacOsModifierRightOption.funName] =
+      _rawKeyEventDataMacOsModifierRightOption;
+  m[_rawKeyEventDataMacOsModifierCommand.funName] =
+      _rawKeyEventDataMacOsModifierCommand;
+  m[_rawKeyEventDataMacOsModifierLeftCommand.funName] =
+      _rawKeyEventDataMacOsModifierLeftCommand;
+  m[_rawKeyEventDataMacOsModifierRightCommand.funName] =
+      _rawKeyEventDataMacOsModifierRightCommand;
+  m[_rawKeyEventDataMacOsModifierNumericPad.funName] =
+      _rawKeyEventDataMacOsModifierNumericPad;
+  m[_rawKeyEventDataMacOsModifierHelp.funName] =
+      _rawKeyEventDataMacOsModifierHelp;
+  m[_rawKeyEventDataMacOsModifierFunction.funName] =
+      _rawKeyEventDataMacOsModifierFunction;
+  m[_rawKeyEventDataMacOsDeviceIndependentMask.funName] =
+      _rawKeyEventDataMacOsDeviceIndependentMask;
   return m;
 }
 
@@ -73,54 +73,54 @@ var _rawKeyEventDataMacOs = MXFunctionInvoke(
     "modifiers",
   ],
 );
-var _rawKeyEventDataMacOs_modifierCapsLock = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierCapsLock = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierCapsLock",
     () => RawKeyEventDataMacOs.modifierCapsLock);
-var _rawKeyEventDataMacOs_modifierShift = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierShift = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierShift",
     () => RawKeyEventDataMacOs.modifierShift);
-var _rawKeyEventDataMacOs_modifierLeftShift = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierLeftShift = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierLeftShift",
     () => RawKeyEventDataMacOs.modifierLeftShift);
-var _rawKeyEventDataMacOs_modifierRightShift = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierRightShift = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierRightShift",
     () => RawKeyEventDataMacOs.modifierRightShift);
-var _rawKeyEventDataMacOs_modifierControl = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierControl = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierControl",
     () => RawKeyEventDataMacOs.modifierControl);
-var _rawKeyEventDataMacOs_modifierLeftControl = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierLeftControl = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierLeftControl",
     () => RawKeyEventDataMacOs.modifierLeftControl);
-var _rawKeyEventDataMacOs_modifierRightControl = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierRightControl = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierRightControl",
     () => RawKeyEventDataMacOs.modifierRightControl);
-var _rawKeyEventDataMacOs_modifierOption = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierOption = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierOption",
     () => RawKeyEventDataMacOs.modifierOption);
-var _rawKeyEventDataMacOs_modifierLeftOption = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierLeftOption = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierLeftOption",
     () => RawKeyEventDataMacOs.modifierLeftOption);
-var _rawKeyEventDataMacOs_modifierRightOption = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierRightOption = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierRightOption",
     () => RawKeyEventDataMacOs.modifierRightOption);
-var _rawKeyEventDataMacOs_modifierCommand = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierCommand = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierCommand",
     () => RawKeyEventDataMacOs.modifierCommand);
-var _rawKeyEventDataMacOs_modifierLeftCommand = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierLeftCommand = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierLeftCommand",
     () => RawKeyEventDataMacOs.modifierLeftCommand);
-var _rawKeyEventDataMacOs_modifierRightCommand = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierRightCommand = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierRightCommand",
     () => RawKeyEventDataMacOs.modifierRightCommand);
-var _rawKeyEventDataMacOs_modifierNumericPad = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierNumericPad = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierNumericPad",
     () => RawKeyEventDataMacOs.modifierNumericPad);
-var _rawKeyEventDataMacOs_modifierHelp = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierHelp = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierHelp",
     () => RawKeyEventDataMacOs.modifierHelp);
-var _rawKeyEventDataMacOs_modifierFunction = MXFunctionInvoke(
+var _rawKeyEventDataMacOsModifierFunction = MXFunctionInvoke(
     "RawKeyEventDataMacOs.modifierFunction",
     () => RawKeyEventDataMacOs.modifierFunction);
-var _rawKeyEventDataMacOs_deviceIndependentMask = MXFunctionInvoke(
+var _rawKeyEventDataMacOsDeviceIndependentMask = MXFunctionInvoke(
     "RawKeyEventDataMacOs.deviceIndependentMask",
     () => RawKeyEventDataMacOs.deviceIndependentMask);

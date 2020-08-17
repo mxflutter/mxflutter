@@ -15,7 +15,7 @@ Map<String, MXFunctionInvoke> registerUnmodifiableWrappersSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_nonGrowableListView.funName] = _nonGrowableListView;
   m[_unmodifiableSetView.funName] = _unmodifiableSetView;
-  m[_unmodifiableSetView_empty.funName] = _unmodifiableSetView_empty;
+  m[_unmodifiableSetViewEmpty.funName] = _unmodifiableSetViewEmpty;
   return m;
 }
 
@@ -43,7 +43,7 @@ var _unmodifiableSetView = MXFunctionInvoke(
     "setBase",
   ],
 );
-var _unmodifiableSetView_empty = MXFunctionInvoke(
+var _unmodifiableSetViewEmpty = MXFunctionInvoke(
   "UnmodifiableSetView.empty",
   () => UnmodifiableSetView.empty(),
   [],

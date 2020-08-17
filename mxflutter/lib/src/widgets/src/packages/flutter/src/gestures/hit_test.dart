@@ -16,7 +16,7 @@ Map<String, MXFunctionInvoke> registerHitTestSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_hitTestEntry.funName] = _hitTestEntry;
   m[_hitTestResult.funName] = _hitTestResult;
-  m[_hitTestResult_wrap.funName] = _hitTestResult_wrap;
+  m[_hitTestResultWrap.funName] = _hitTestResultWrap;
   return m;
 }
 
@@ -37,7 +37,7 @@ var _hitTestResult = MXFunctionInvoke(
   () => HitTestResult(),
   [],
 );
-var _hitTestResult_wrap = MXFunctionInvoke(
+var _hitTestResultWrap = MXFunctionInvoke(
   "HitTestResult.wrap",
   ({
     HitTestResult result,

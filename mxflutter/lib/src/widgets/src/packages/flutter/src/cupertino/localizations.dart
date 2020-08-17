@@ -17,8 +17,8 @@ Map<String, MXFunctionInvoke> registerLocalizationsSeries() {
   m[_datePickerDateTimeOrder.funName] = _datePickerDateTimeOrder;
   m[_datePickerDateOrder.funName] = _datePickerDateOrder;
   m[_defaultCupertinoLocalizations.funName] = _defaultCupertinoLocalizations;
-  m[_defaultCupertinoLocalizations_delegate.funName] =
-      _defaultCupertinoLocalizations_delegate;
+  m[_defaultCupertinoLocalizationsDelegate.funName] =
+      _defaultCupertinoLocalizationsDelegate;
   return m;
 }
 
@@ -35,7 +35,7 @@ var _defaultCupertinoLocalizations = MXFunctionInvoke(
   () => DefaultCupertinoLocalizations(),
   [],
 );
-var _defaultCupertinoLocalizations_delegate = MXFunctionInvoke(
+var _defaultCupertinoLocalizationsDelegate = MXFunctionInvoke(
     "DefaultCupertinoLocalizations.delegate",
     () => DefaultCupertinoLocalizations.delegate);
 
