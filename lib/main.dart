@@ -5,6 +5,13 @@ import 'package:mxflutter/mxflutter.dart';
 import 'mx_mirror_example.dart';
 
 void main() {
+  //启动 MXFlutter JS App
+  runMXJSApp();
+
+  runApp(MyApp());
+}
+
+runMXJSApp() {
   //-------MXFlutter 启动---------
   //1. 启动你的jsAPP，不显示任何界面
   // 获取配置在pubspec.yaml中，jsapp代码路径
@@ -20,22 +27,33 @@ void main() {
   //建议不要修改mxflutter_js_src/目录名，模拟器热重载依据此路径配置
   //如果修改请全局搜索mxflutter_js_src/修改模拟器热重载配置，release或真机不受影响
   //jsAppSearchPathWithAssetsKeyList 一般无需设置，默认从jsApp root path开始查找
-  MXJSFlutter.getInstance().runJSApp(
-      jsAppAssetsKey: "mxflutter_js_src",
-      jsAppSearchPathWithAssetsKeyList: [
-        "mxflutter_js_src/app_demo",
-        "mxflutter_js_src/mxjsbuilder_demo"
-      ]);
+//  MXJSFlutter.getInstance().runJSApp(
+//      jsAppAssetsKey: "mxflutter_js_src",
+//      jsAppSearchPathWithAssetsKeyList: [
+//        "mxflutter_js_src/app_demo",
+//        "mxflutter_js_src/mxjsbuilder_demo"
+//      ]);
 
   //  或者运行你下载到 DocumentsDirectory 里的JS代码
   //  Directory directory = await getApplicationDocumentsDirectory();
   //  var jsAppPath = join(directory.path, "my_js_app");
   //  MXJSFlutter.getInstance().runJSApp(jsAppPath: jsAppPath);
 
+  var locaTSReleasePath = "";
+
+  //soap
+  //locaTSReleasePath = "/Volumes/Data/Work/RFlutter/mxflutter-js/release";
+
+  if (locaTSReleasePath.isEmpty) {
+    MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: "mxflutter_js_src");
+  } else {
+    //debug 重定义到ts release文件夹
+    MXJSFlutter.getInstance()
+        .runJSApp(jsAppPath: locaTSReleasePath);
+  }
+
   // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考MXMirrorExample实现过程
   MXMirrorExample.registerFunction();
-
-  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -92,8 +110,8 @@ class MXFlutterExampleHome extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MXJSPageWidget(
-                              jsWidgetName: "example1")));
+                          builder: (context) =>
+                              MXJSPageWidget(jsWidgetName: "example1")));
                 },
               ),
               ListTile(
@@ -106,12 +124,8 @@ class MXFlutterExampleHome extends StatelessWidget {
                 subtitle: Text('点击热重载JSApp，重新进入上面的MXFlutter Demo，即可看到界面更新'),
                 isThreeLine: true,
                 onTap: () {
-                  MXJSFlutter.getInstance().runJSApp(
-                      jsAppAssetsKey: "mxflutter_js_src",
-                      jsAppSearchPathWithAssetsKeyList: [
-                        "mxflutter_js_src/app_demo",
-                        "mxflutter_js_src/mxjsbuilder_demo"
-                      ]);
+                  // 重新运行MXJSApp
+                  runMXJSApp();
                 },
               ),
               ListTile(
