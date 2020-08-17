@@ -70,7 +70,7 @@ ValueChanged<T> createValueChangedGenericClosure<T>(
   }
 
   ValueChanged<T> cb = (T b) {
-    bo.eventCallback(eventCallbackID, b);
+    bo.eventCallback(eventCallbackID, args:[b]);
   };
 
   return cb;
@@ -84,7 +84,7 @@ GenericFunctionGenericCallback<R, T> createGenericValueGenericClosure<R, T>(
   }
 
   GenericFunctionGenericCallback<R, T> cb = (T b) {
-    R result = bo.eventCallback(eventCallbackID, b);
+    R result = bo.eventCallback(eventCallbackID, args:[b]);
     return result;
   };
 
@@ -99,7 +99,7 @@ VoidTwoGenericParamsCallback<T, S> createVoidTwoParamsClosure<T, S>(
   }
 
   VoidTwoGenericParamsCallback<T, S> cb = (T arg1, S arg2) {
-    bo.eventCallback(eventCallbackID, arg1, arg2);
+    bo.eventCallback(eventCallbackID, args:[arg1, arg2]);
   };
 
   return cb;
@@ -113,7 +113,7 @@ GenericTwoGenericParamsCallback<R, T, S> createGenericTwoParamsClosure<R, T, S>(
   }
 
   GenericTwoGenericParamsCallback<R, T, S> cb = (T arg1, S arg2) {
-    R result = bo.eventCallback(eventCallbackID, arg1, arg2);
+    R result = bo.eventCallback(eventCallbackID, args:[arg1, arg2]);
     return result;
   };
 
@@ -128,7 +128,7 @@ VoidThreeGenericParamsCallback<T, S, W> createVoidThreeParamsClosure<T, S, W>(
   }
 
   VoidThreeGenericParamsCallback<T, S, W> cb = (T arg1, S arg2, W arg3) {
-    bo.eventCallback(eventCallbackID, arg1, arg2, arg3);
+    bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3]);
   };
 
   return cb;
@@ -143,7 +143,7 @@ GenericThreeGenericParamsCallback<R, T, S, W>
   }
 
   GenericThreeGenericParamsCallback<R, T, S, W> cb = (T arg1, S arg2, W arg3) {
-    R result = bo.eventCallback(eventCallbackID, arg1, arg2, arg3);
+    R result = bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3]);
     return result;
   };
 
@@ -160,7 +160,7 @@ VoidFourGenericParamsCallback<T, S, W, V>
 
   VoidFourGenericParamsCallback<T, S, W, V> cb =
       (T arg1, S arg2, W arg3, V arg4) {
-    bo.eventCallback(eventCallbackID, arg1, arg2, arg3, arg4);
+    bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3, arg4]);
   };
 
   return cb;
@@ -176,7 +176,7 @@ GenericFourGenericParamsCallback<R, T, S, W, V>
 
   GenericFourGenericParamsCallback<R, T, S, W, V> cb =
       (T arg1, S arg2, W arg3, V arg4) {
-    R result = bo.eventCallback(eventCallbackID, arg1, arg2, arg3, arg4);
+    R result = bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3, arg4]);
     return result;
   };
 
@@ -193,7 +193,7 @@ VoidFiveGenericParamsCallback<T, S, W, V, U>
 
   VoidFiveGenericParamsCallback<T, S, W, V, U> cb =
       (T arg1, S arg2, W arg3, V arg4, U arg5) {
-    bo.eventCallback(eventCallbackID, arg1, arg2, arg3, arg4, arg5);
+    bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3, arg4, arg5]);
   };
 
   return cb;
@@ -209,7 +209,7 @@ GenericFiveGenericParamsCallback<R, T, S, W, V, U>
 
   GenericFiveGenericParamsCallback<R, T, S, W, V, U> cb =
       (T arg1, S arg2, W arg3, V arg4, U arg5) {
-    R result = bo.eventCallback(eventCallbackID, arg1, arg2, arg3, arg4, arg5);
+    R result = bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3, arg4, arg5]);
     return result;
   };
 
