@@ -7717,7 +7717,6 @@ class ListViewDemoState extends MXJSWidgetState {
   build(context) {
     g_newsOrder = 0;
     this.buildCount++;
-    console.log(this.refreshController);
     let widget = new Scaffold({
       appBar: new AppBar({
         title: new Text('网易新闻 ListViewExample'),
