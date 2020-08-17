@@ -147,8 +147,8 @@ class MXJsonBuildOwner {
   MXJSFlutterApp get ownerApp => MXJSFlutter.getInstance().currentApp;
 
   /// 调用js 刷新hostwidget
-  callJSRefreshHostWidget(String widgetName, String widgetID, BuildContext context){
-
+  callJSRefreshHostWidget(
+      String widgetName, String widgetID, BuildContext context) {
     var mediaQueryData = MediaQuery.of(context);
     var themeData = Theme.of(context);
     var iconThemeData = IconTheme.of(context);
@@ -201,24 +201,7 @@ class MXJsonBuildOwner {
       return;
     }
 
-    _setProfileInfo(widgetDataMap);
     _rebuild(widgetID, widgetBuildData, buildWidgetDataSeq);
-  }
-
-  void _setProfileInfo(Map widgetDataMap) {
-    // 性能监控，记录解码时间
-    bool enableProfile = widgetDataMap["enableProfile"];
-    int startDecodeData = widgetDataMap["#startDecodeData"];
-    int endDecodeData = widgetDataMap["#endDecodeData"];
-
-    _enableProfile = enableProfile;
-
-    if (_enableProfile) {
-      _profileInfo = {
-        "startDecodeData": startDecodeData,
-        "endDecodeData": endDecodeData
-      };
-    }
   }
 
   void _rebuild(
@@ -243,9 +226,6 @@ class MXJsonBuildOwner {
   // js->flutter
   jsCallNavigatorPush(Map widgetDataMap) {
     MXJSLog.log("MXJsonBuildOwner:jsNavigatorPush:");
-
-    // 记录性能监控信息
-    _setProfileInfo(widgetDataMap);
 
     WidgetBuilder builder = (BuildContext context) {
       dynamic jsWidget = buildWidgetData(widgetDataMap, context);
@@ -299,7 +279,7 @@ class MXJsonBuildOwner {
 
     MethodCall jsMethodCall;
     if (this._enableProfile == true) {
-      this._profileInfo["buildEnd"] =
+      this._profileInfo["buildEndTime"] =
           (new DateTime.now()).millisecondsSinceEpoch;
       jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
         "widgetID": ownerWidgetId,
@@ -325,6 +305,16 @@ class MXJsonBuildOwner {
     });
 
     ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+  }
+
+  void setProfileInfo(enableProfile, startDecodeDataTime, endDecodeDataTime) {
+    _enableProfile = enableProfile;
+    if (_enableProfile) {
+      _profileInfo = {
+        "startDecodeDataTime": startDecodeDataTime,
+        "endDecodeDataTime": endDecodeDataTime
+      };
+    }
   }
 
   /// =============================================
@@ -377,7 +367,7 @@ class MXJsonBuildOwner {
       dynamic mirrorObj = getMirrorObjectFromID(mirrorID);
       String className = mirrorObj.runtimeType.toString();
       var funcName = className + "#dispose";
-      Map jsonMap = {"mirrorObj" : mirrorObj, "funcName" : funcName};
+      Map jsonMap = {"mirrorObj": mirrorObj, "funcName": funcName};
       MXMirrorFunc.getInstance().invoke(jsonMap);
 
       removeMirrorObject(mirrorID);
