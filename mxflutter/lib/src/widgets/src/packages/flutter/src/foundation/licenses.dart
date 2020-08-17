@@ -13,11 +13,10 @@ import 'package:meta/meta.dart';
 Map<String, MXFunctionInvoke> registerLicensesSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_licenseParagraph.funName] = _licenseParagraph;
-  m[_licenseParagraph_centeredIndent.funName] =
-      _licenseParagraph_centeredIndent;
+  m[_licenseParagraphCenteredIndent.funName] = _licenseParagraphCenteredIndent;
   m[_licenseEntryWithLineBreaks.funName] = _licenseEntryWithLineBreaks;
-  m[_licenseRegistry_addLicense.funName] = _licenseRegistry_addLicense;
-  m[_licenseRegistry_reset.funName] = _licenseRegistry_reset;
+  m[_licenseRegistryAddLicense.funName] = _licenseRegistryAddLicense;
+  m[_licenseRegistryReset.funName] = _licenseRegistryReset;
   return m;
 }
 
@@ -36,7 +35,7 @@ var _licenseParagraph = MXFunctionInvoke(
     "indent",
   ],
 );
-var _licenseParagraph_centeredIndent = MXFunctionInvoke(
+var _licenseParagraphCenteredIndent = MXFunctionInvoke(
     "LicenseParagraph.centeredIndent", () => LicenseParagraph.centeredIndent);
 var _licenseEntryWithLineBreaks = MXFunctionInvoke(
   "LicenseEntryWithLineBreaks",
@@ -53,7 +52,7 @@ var _licenseEntryWithLineBreaks = MXFunctionInvoke(
     "text",
   ],
 );
-var _licenseRegistry_addLicense = MXFunctionInvoke(
+var _licenseRegistryAddLicense = MXFunctionInvoke(
   "LicenseRegistry.addLicense",
   ({
     dynamic collector,
@@ -65,7 +64,7 @@ var _licenseRegistry_addLicense = MXFunctionInvoke(
     "collector",
   ],
 );
-var _licenseRegistry_reset = MXFunctionInvoke(
+var _licenseRegistryReset = MXFunctionInvoke(
   "LicenseRegistry.reset",
   () => LicenseRegistry.reset(),
   [],

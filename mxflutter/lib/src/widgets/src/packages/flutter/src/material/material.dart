@@ -18,7 +18,7 @@ Map<String, MXFunctionInvoke> registerMaterialSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_materialType.funName] = _materialType;
   m[_material.funName] = _material;
-  m[_material_defaultSplashRadius.funName] = _material_defaultSplashRadius;
+  m[_materialDefaultSplashRadius.funName] = _materialDefaultSplashRadius;
   m[_shapeBorderTween.funName] = _shapeBorderTween;
   return m;
 }
@@ -72,7 +72,7 @@ var _material = MXFunctionInvoke(
     "child",
   ],
 );
-var _material_defaultSplashRadius = MXFunctionInvoke(
+var _materialDefaultSplashRadius = MXFunctionInvoke(
     "Material.defaultSplashRadius", () => Material.defaultSplashRadius);
 var _shapeBorderTween = MXFunctionInvoke(
   "ShapeBorderTween",

@@ -15,7 +15,7 @@ import 'package:flutter/src/material/material.dart';
 Map<String, MXFunctionInvoke> registerInkDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_ink.funName] = _ink;
-  m[_ink_image.funName] = _ink_image;
+  m[_inkImage.funName] = _inkImage;
   m[_inkDecoration.funName] = _inkDecoration;
   return m;
 }
@@ -50,7 +50,7 @@ var _ink = MXFunctionInvoke(
     "child",
   ],
 );
-var _ink_image = MXFunctionInvoke(
+var _inkImage = MXFunctionInvoke(
   "Ink.image",
   ({
     Key key,
@@ -72,7 +72,7 @@ var _ink_image = MXFunctionInvoke(
     padding: padding,
     image: image,
     onImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(
-        _ink_image.buildOwner, onImageError),
+        _inkImage.buildOwner, onImageError),
     colorFilter: colorFilter,
     fit: fit,
     alignment: alignment,

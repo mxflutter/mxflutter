@@ -29,8 +29,8 @@ Map<String, MXFunctionInvoke> registerTextSelectionSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_textSelectionHandleType.funName] = _textSelectionHandleType;
   m[_textSelectionOverlay.funName] = _textSelectionOverlay;
-  m[_textSelectionOverlay_fadeDuration.funName] =
-      _textSelectionOverlay_fadeDuration;
+  m[_textSelectionOverlayFadeDuration.funName] =
+      _textSelectionOverlayFadeDuration;
   m[_textSelectionGestureDetectorBuilder.funName] =
       _textSelectionGestureDetectorBuilder;
   m[_textSelectionGestureDetector.funName] = _textSelectionGestureDetector;
@@ -87,7 +87,7 @@ var _textSelectionOverlay = MXFunctionInvoke(
     "onSelectionHandleTapped",
   ],
 );
-var _textSelectionOverlay_fadeDuration = MXFunctionInvoke(
+var _textSelectionOverlayFadeDuration = MXFunctionInvoke(
     "TextSelectionOverlay.fadeDuration",
     () => TextSelectionOverlay.fadeDuration);
 var _textSelectionGestureDetectorBuilder = MXFunctionInvoke(

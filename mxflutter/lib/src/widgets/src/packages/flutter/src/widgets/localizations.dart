@@ -19,10 +19,10 @@ import 'package:flutter/src/widgets/framework.dart';
 Map<String, MXFunctionInvoke> registerLocalizationsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_defaultWidgetsLocalizations.funName] = _defaultWidgetsLocalizations;
-  m[_defaultWidgetsLocalizations_delegate.funName] =
-      _defaultWidgetsLocalizations_delegate;
+  m[_defaultWidgetsLocalizationsDelegate.funName] =
+      _defaultWidgetsLocalizationsDelegate;
   m[_localizations.funName] = _localizations;
-  m[_localizations_override.funName] = _localizations_override;
+  m[_localizationsOverride.funName] = _localizationsOverride;
   return m;
 }
 
@@ -31,7 +31,7 @@ var _defaultWidgetsLocalizations = MXFunctionInvoke(
   () => DefaultWidgetsLocalizations(),
   [],
 );
-var _defaultWidgetsLocalizations_delegate = MXFunctionInvoke(
+var _defaultWidgetsLocalizationsDelegate = MXFunctionInvoke(
     "DefaultWidgetsLocalizations.delegate",
     () => DefaultWidgetsLocalizations.delegate);
 var _localizations = MXFunctionInvoke(
@@ -55,7 +55,7 @@ var _localizations = MXFunctionInvoke(
     "child",
   ],
 );
-var _localizations_override = MXFunctionInvoke(
+var _localizationsOverride = MXFunctionInvoke(
   "Localizations.override",
   ({
     Key key,

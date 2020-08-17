@@ -14,32 +14,32 @@ import 'package:flutter/src/painting/basic_types.dart';
 Map<String, MXFunctionInvoke> registerAlignmentSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_alignment.funName] = _alignment;
-  m[_alignment_topLeft.funName] = _alignment_topLeft;
-  m[_alignment_topCenter.funName] = _alignment_topCenter;
-  m[_alignment_topRight.funName] = _alignment_topRight;
-  m[_alignment_centerLeft.funName] = _alignment_centerLeft;
-  m[_alignment_center.funName] = _alignment_center;
-  m[_alignment_centerRight.funName] = _alignment_centerRight;
-  m[_alignment_bottomLeft.funName] = _alignment_bottomLeft;
-  m[_alignment_bottomCenter.funName] = _alignment_bottomCenter;
-  m[_alignment_bottomRight.funName] = _alignment_bottomRight;
+  m[_alignmentTopLeft.funName] = _alignmentTopLeft;
+  m[_alignmentTopCenter.funName] = _alignmentTopCenter;
+  m[_alignmentTopRight.funName] = _alignmentTopRight;
+  m[_alignmentCenterLeft.funName] = _alignmentCenterLeft;
+  m[_alignmentCenter.funName] = _alignmentCenter;
+  m[_alignmentCenterRight.funName] = _alignmentCenterRight;
+  m[_alignmentBottomLeft.funName] = _alignmentBottomLeft;
+  m[_alignmentBottomCenter.funName] = _alignmentBottomCenter;
+  m[_alignmentBottomRight.funName] = _alignmentBottomRight;
   m[_alignmentDirectional.funName] = _alignmentDirectional;
-  m[_alignmentDirectional_topStart.funName] = _alignmentDirectional_topStart;
-  m[_alignmentDirectional_topCenter.funName] = _alignmentDirectional_topCenter;
-  m[_alignmentDirectional_topEnd.funName] = _alignmentDirectional_topEnd;
-  m[_alignmentDirectional_centerStart.funName] =
-      _alignmentDirectional_centerStart;
-  m[_alignmentDirectional_center.funName] = _alignmentDirectional_center;
-  m[_alignmentDirectional_centerEnd.funName] = _alignmentDirectional_centerEnd;
-  m[_alignmentDirectional_bottomStart.funName] =
-      _alignmentDirectional_bottomStart;
-  m[_alignmentDirectional_bottomCenter.funName] =
-      _alignmentDirectional_bottomCenter;
-  m[_alignmentDirectional_bottomEnd.funName] = _alignmentDirectional_bottomEnd;
+  m[_alignmentDirectionalTopStart.funName] = _alignmentDirectionalTopStart;
+  m[_alignmentDirectionalTopCenter.funName] = _alignmentDirectionalTopCenter;
+  m[_alignmentDirectionalTopEnd.funName] = _alignmentDirectionalTopEnd;
+  m[_alignmentDirectionalCenterStart.funName] =
+      _alignmentDirectionalCenterStart;
+  m[_alignmentDirectionalCenter.funName] = _alignmentDirectionalCenter;
+  m[_alignmentDirectionalCenterEnd.funName] = _alignmentDirectionalCenterEnd;
+  m[_alignmentDirectionalBottomStart.funName] =
+      _alignmentDirectionalBottomStart;
+  m[_alignmentDirectionalBottomCenter.funName] =
+      _alignmentDirectionalBottomCenter;
+  m[_alignmentDirectionalBottomEnd.funName] = _alignmentDirectionalBottomEnd;
   m[_textAlignVertical.funName] = _textAlignVertical;
-  m[_textAlignVertical_top.funName] = _textAlignVertical_top;
-  m[_textAlignVertical_center.funName] = _textAlignVertical_center;
-  m[_textAlignVertical_bottom.funName] = _textAlignVertical_bottom;
+  m[_textAlignVerticalTop.funName] = _textAlignVerticalTop;
+  m[_textAlignVerticalCenter.funName] = _textAlignVerticalCenter;
+  m[_textAlignVerticalBottom.funName] = _textAlignVerticalBottom;
   return m;
 }
 
@@ -58,23 +58,23 @@ var _alignment = MXFunctionInvoke(
     "y",
   ],
 );
-var _alignment_topLeft =
+var _alignmentTopLeft =
     MXFunctionInvoke("Alignment.topLeft", () => Alignment.topLeft);
-var _alignment_topCenter =
+var _alignmentTopCenter =
     MXFunctionInvoke("Alignment.topCenter", () => Alignment.topCenter);
-var _alignment_topRight =
+var _alignmentTopRight =
     MXFunctionInvoke("Alignment.topRight", () => Alignment.topRight);
-var _alignment_centerLeft =
+var _alignmentCenterLeft =
     MXFunctionInvoke("Alignment.centerLeft", () => Alignment.centerLeft);
-var _alignment_center =
+var _alignmentCenter =
     MXFunctionInvoke("Alignment.center", () => Alignment.center);
-var _alignment_centerRight =
+var _alignmentCenterRight =
     MXFunctionInvoke("Alignment.centerRight", () => Alignment.centerRight);
-var _alignment_bottomLeft =
+var _alignmentBottomLeft =
     MXFunctionInvoke("Alignment.bottomLeft", () => Alignment.bottomLeft);
-var _alignment_bottomCenter =
+var _alignmentBottomCenter =
     MXFunctionInvoke("Alignment.bottomCenter", () => Alignment.bottomCenter);
-var _alignment_bottomRight =
+var _alignmentBottomRight =
     MXFunctionInvoke("Alignment.bottomRight", () => Alignment.bottomRight);
 var _alignmentDirectional = MXFunctionInvoke(
   "AlignmentDirectional",
@@ -91,24 +91,24 @@ var _alignmentDirectional = MXFunctionInvoke(
     "y",
   ],
 );
-var _alignmentDirectional_topStart = MXFunctionInvoke(
+var _alignmentDirectionalTopStart = MXFunctionInvoke(
     "AlignmentDirectional.topStart", () => AlignmentDirectional.topStart);
-var _alignmentDirectional_topCenter = MXFunctionInvoke(
+var _alignmentDirectionalTopCenter = MXFunctionInvoke(
     "AlignmentDirectional.topCenter", () => AlignmentDirectional.topCenter);
-var _alignmentDirectional_topEnd = MXFunctionInvoke(
+var _alignmentDirectionalTopEnd = MXFunctionInvoke(
     "AlignmentDirectional.topEnd", () => AlignmentDirectional.topEnd);
-var _alignmentDirectional_centerStart = MXFunctionInvoke(
+var _alignmentDirectionalCenterStart = MXFunctionInvoke(
     "AlignmentDirectional.centerStart", () => AlignmentDirectional.centerStart);
-var _alignmentDirectional_center = MXFunctionInvoke(
+var _alignmentDirectionalCenter = MXFunctionInvoke(
     "AlignmentDirectional.center", () => AlignmentDirectional.center);
-var _alignmentDirectional_centerEnd = MXFunctionInvoke(
+var _alignmentDirectionalCenterEnd = MXFunctionInvoke(
     "AlignmentDirectional.centerEnd", () => AlignmentDirectional.centerEnd);
-var _alignmentDirectional_bottomStart = MXFunctionInvoke(
+var _alignmentDirectionalBottomStart = MXFunctionInvoke(
     "AlignmentDirectional.bottomStart", () => AlignmentDirectional.bottomStart);
-var _alignmentDirectional_bottomCenter = MXFunctionInvoke(
+var _alignmentDirectionalBottomCenter = MXFunctionInvoke(
     "AlignmentDirectional.bottomCenter",
     () => AlignmentDirectional.bottomCenter);
-var _alignmentDirectional_bottomEnd = MXFunctionInvoke(
+var _alignmentDirectionalBottomEnd = MXFunctionInvoke(
     "AlignmentDirectional.bottomEnd", () => AlignmentDirectional.bottomEnd);
 var _textAlignVertical = MXFunctionInvoke(
   "TextAlignVertical",
@@ -122,9 +122,9 @@ var _textAlignVertical = MXFunctionInvoke(
     "y",
   ],
 );
-var _textAlignVertical_top =
+var _textAlignVerticalTop =
     MXFunctionInvoke("TextAlignVertical.top", () => TextAlignVertical.top);
-var _textAlignVertical_center = MXFunctionInvoke(
+var _textAlignVerticalCenter = MXFunctionInvoke(
     "TextAlignVertical.center", () => TextAlignVertical.center);
-var _textAlignVertical_bottom = MXFunctionInvoke(
+var _textAlignVerticalBottom = MXFunctionInvoke(
     "TextAlignVertical.bottom", () => TextAlignVertical.bottom);

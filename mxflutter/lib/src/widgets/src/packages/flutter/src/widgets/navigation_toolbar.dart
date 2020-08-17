@@ -16,8 +16,8 @@ import 'package:flutter/src/widgets/framework.dart';
 Map<String, MXFunctionInvoke> registerNavigationToolbarSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_navigationToolbar.funName] = _navigationToolbar;
-  m[_navigationToolbar_kMiddleSpacing.funName] =
-      _navigationToolbar_kMiddleSpacing;
+  m[_navigationToolbarKMiddleSpacing.funName] =
+      _navigationToolbarKMiddleSpacing;
   return m;
 }
 
@@ -48,5 +48,5 @@ var _navigationToolbar = MXFunctionInvoke(
     "middleSpacing",
   ],
 );
-var _navigationToolbar_kMiddleSpacing = MXFunctionInvoke(
+var _navigationToolbarKMiddleSpacing = MXFunctionInvoke(
     "NavigationToolbar.kMiddleSpacing", () => NavigationToolbar.kMiddleSpacing);

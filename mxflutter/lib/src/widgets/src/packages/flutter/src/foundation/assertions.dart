@@ -17,26 +17,25 @@ import 'package:flutter/src/foundation/stack_frame.dart';
 Map<String, MXFunctionInvoke> registerAssertionsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_partialStackFrame.funName] = _partialStackFrame;
-  m[_partialStackFrame_asynchronousSuspension.funName] =
-      _partialStackFrame_asynchronousSuspension;
+  m[_partialStackFrameAsynchronousSuspension.funName] =
+      _partialStackFrameAsynchronousSuspension;
   m[_repetitiveStackFrameFilter.funName] = _repetitiveStackFrameFilter;
   m[_errorDescription.funName] = _errorDescription;
   m[_errorSummary.funName] = _errorSummary;
   m[_errorHint.funName] = _errorHint;
   m[_errorSpacer.funName] = _errorSpacer;
   m[_flutterErrorDetails.funName] = _flutterErrorDetails;
-  m[_flutterError_wrapWidth.funName] = _flutterError_wrapWidth;
+  m[_flutterErrorWrapWidth.funName] = _flutterErrorWrapWidth;
   m[_flutterError.funName] = _flutterError;
-  m[_flutterError_resetErrorCount.funName] = _flutterError_resetErrorCount;
-  m[_flutterError_dumpErrorToConsole.funName] =
-      _flutterError_dumpErrorToConsole;
-  m[_flutterError_addDefaultStackFilter.funName] =
-      _flutterError_addDefaultStackFilter;
-  m[_flutterError_reportError.funName] = _flutterError_reportError;
-  m[_flutterError_fromParts.funName] = _flutterError_fromParts;
+  m[_flutterErrorResetErrorCount.funName] = _flutterErrorResetErrorCount;
+  m[_flutterErrorDumpErrorToConsole.funName] = _flutterErrorDumpErrorToConsole;
+  m[_flutterErrorAddDefaultStackFilter.funName] =
+      _flutterErrorAddDefaultStackFilter;
+  m[_flutterErrorReportError.funName] = _flutterErrorReportError;
+  m[_flutterErrorFromParts.funName] = _flutterErrorFromParts;
   m[_diagnosticsStackTrace.funName] = _diagnosticsStackTrace;
-  m[_diagnosticsStackTrace_singleFrame.funName] =
-      _diagnosticsStackTrace_singleFrame;
+  m[_diagnosticsStackTraceSingleFrame.funName] =
+      _diagnosticsStackTraceSingleFrame;
   return m;
 }
 
@@ -58,7 +57,7 @@ var _partialStackFrame = MXFunctionInvoke(
     "method",
   ],
 );
-var _partialStackFrame_asynchronousSuspension = MXFunctionInvoke(
+var _partialStackFrameAsynchronousSuspension = MXFunctionInvoke(
     "PartialStackFrame.asynchronousSuspension",
     () => PartialStackFrame.asynchronousSuspension);
 var _repetitiveStackFrameFilter = MXFunctionInvoke(
@@ -147,7 +146,7 @@ var _flutterErrorDetails = MXFunctionInvoke(
     "silent",
   ],
 );
-var _flutterError_wrapWidth =
+var _flutterErrorWrapWidth =
     MXFunctionInvoke("FlutterError.wrapWidth", () => FlutterError.wrapWidth);
 var _flutterError = MXFunctionInvoke(
   "FlutterError",
@@ -161,12 +160,12 @@ var _flutterError = MXFunctionInvoke(
     "message",
   ],
 );
-var _flutterError_resetErrorCount = MXFunctionInvoke(
+var _flutterErrorResetErrorCount = MXFunctionInvoke(
   "FlutterError.resetErrorCount",
   () => FlutterError.resetErrorCount(),
   [],
 );
-var _flutterError_dumpErrorToConsole = MXFunctionInvoke(
+var _flutterErrorDumpErrorToConsole = MXFunctionInvoke(
   "FlutterError.dumpErrorToConsole",
   ({
     FlutterErrorDetails details,
@@ -181,7 +180,7 @@ var _flutterError_dumpErrorToConsole = MXFunctionInvoke(
     "forceReport",
   ],
 );
-var _flutterError_addDefaultStackFilter = MXFunctionInvoke(
+var _flutterErrorAddDefaultStackFilter = MXFunctionInvoke(
   "FlutterError.addDefaultStackFilter",
   ({
     StackFilter filter,
@@ -193,7 +192,7 @@ var _flutterError_addDefaultStackFilter = MXFunctionInvoke(
     "filter",
   ],
 );
-var _flutterError_reportError = MXFunctionInvoke(
+var _flutterErrorReportError = MXFunctionInvoke(
   "FlutterError.reportError",
   ({
     FlutterErrorDetails details,
@@ -205,7 +204,7 @@ var _flutterError_reportError = MXFunctionInvoke(
     "details",
   ],
 );
-var _flutterError_fromParts = MXFunctionInvoke(
+var _flutterErrorFromParts = MXFunctionInvoke(
   "FlutterError.fromParts",
   ({
     dynamic diagnostics,
@@ -238,7 +237,7 @@ var _diagnosticsStackTrace = MXFunctionInvoke(
     "showSeparator",
   ],
 );
-var _diagnosticsStackTrace_singleFrame = MXFunctionInvoke(
+var _diagnosticsStackTraceSingleFrame = MXFunctionInvoke(
   "DiagnosticsStackTrace.singleFrame",
   ({
     String name,

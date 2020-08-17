@@ -15,21 +15,19 @@ import 'package:flutter/src/services/raw_keyboard.dart';
 Map<String, MXFunctionInvoke> registerRawKeyboardWebSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_rawKeyEventDataWeb.funName] = _rawKeyEventDataWeb;
-  m[_rawKeyEventDataWeb_modifierNone.funName] =
-      _rawKeyEventDataWeb_modifierNone;
-  m[_rawKeyEventDataWeb_modifierShift.funName] =
-      _rawKeyEventDataWeb_modifierShift;
-  m[_rawKeyEventDataWeb_modifierAlt.funName] = _rawKeyEventDataWeb_modifierAlt;
-  m[_rawKeyEventDataWeb_modifierControl.funName] =
-      _rawKeyEventDataWeb_modifierControl;
-  m[_rawKeyEventDataWeb_modifierMeta.funName] =
-      _rawKeyEventDataWeb_modifierMeta;
-  m[_rawKeyEventDataWeb_modifierNumLock.funName] =
-      _rawKeyEventDataWeb_modifierNumLock;
-  m[_rawKeyEventDataWeb_modifierCapsLock.funName] =
-      _rawKeyEventDataWeb_modifierCapsLock;
-  m[_rawKeyEventDataWeb_modifierScrollLock.funName] =
-      _rawKeyEventDataWeb_modifierScrollLock;
+  m[_rawKeyEventDataWebModifierNone.funName] = _rawKeyEventDataWebModifierNone;
+  m[_rawKeyEventDataWebModifierShift.funName] =
+      _rawKeyEventDataWebModifierShift;
+  m[_rawKeyEventDataWebModifierAlt.funName] = _rawKeyEventDataWebModifierAlt;
+  m[_rawKeyEventDataWebModifierControl.funName] =
+      _rawKeyEventDataWebModifierControl;
+  m[_rawKeyEventDataWebModifierMeta.funName] = _rawKeyEventDataWebModifierMeta;
+  m[_rawKeyEventDataWebModifierNumLock.funName] =
+      _rawKeyEventDataWebModifierNumLock;
+  m[_rawKeyEventDataWebModifierCapsLock.funName] =
+      _rawKeyEventDataWebModifierCapsLock;
+  m[_rawKeyEventDataWebModifierScrollLock.funName] =
+      _rawKeyEventDataWebModifierScrollLock;
   return m;
 }
 
@@ -51,23 +49,23 @@ var _rawKeyEventDataWeb = MXFunctionInvoke(
     "metaState",
   ],
 );
-var _rawKeyEventDataWeb_modifierNone = MXFunctionInvoke(
+var _rawKeyEventDataWebModifierNone = MXFunctionInvoke(
     "RawKeyEventDataWeb.modifierNone", () => RawKeyEventDataWeb.modifierNone);
-var _rawKeyEventDataWeb_modifierShift = MXFunctionInvoke(
+var _rawKeyEventDataWebModifierShift = MXFunctionInvoke(
     "RawKeyEventDataWeb.modifierShift", () => RawKeyEventDataWeb.modifierShift);
-var _rawKeyEventDataWeb_modifierAlt = MXFunctionInvoke(
+var _rawKeyEventDataWebModifierAlt = MXFunctionInvoke(
     "RawKeyEventDataWeb.modifierAlt", () => RawKeyEventDataWeb.modifierAlt);
-var _rawKeyEventDataWeb_modifierControl = MXFunctionInvoke(
+var _rawKeyEventDataWebModifierControl = MXFunctionInvoke(
     "RawKeyEventDataWeb.modifierControl",
     () => RawKeyEventDataWeb.modifierControl);
-var _rawKeyEventDataWeb_modifierMeta = MXFunctionInvoke(
+var _rawKeyEventDataWebModifierMeta = MXFunctionInvoke(
     "RawKeyEventDataWeb.modifierMeta", () => RawKeyEventDataWeb.modifierMeta);
-var _rawKeyEventDataWeb_modifierNumLock = MXFunctionInvoke(
+var _rawKeyEventDataWebModifierNumLock = MXFunctionInvoke(
     "RawKeyEventDataWeb.modifierNumLock",
     () => RawKeyEventDataWeb.modifierNumLock);
-var _rawKeyEventDataWeb_modifierCapsLock = MXFunctionInvoke(
+var _rawKeyEventDataWebModifierCapsLock = MXFunctionInvoke(
     "RawKeyEventDataWeb.modifierCapsLock",
     () => RawKeyEventDataWeb.modifierCapsLock);
-var _rawKeyEventDataWeb_modifierScrollLock = MXFunctionInvoke(
+var _rawKeyEventDataWebModifierScrollLock = MXFunctionInvoke(
     "RawKeyEventDataWeb.modifierScrollLock",
     () => RawKeyEventDataWeb.modifierScrollLock);

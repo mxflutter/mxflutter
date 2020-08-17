@@ -15,10 +15,10 @@ import 'package:flutter/src/rendering/object.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStackSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_relativeRect_fill.funName] = _relativeRect_fill;
-  m[_relativeRect_fromSize.funName] = _relativeRect_fromSize;
-  m[_relativeRect_fromRect.funName] = _relativeRect_fromRect;
-  m[_relativeRect_fromLTRB.funName] = _relativeRect_fromLTRB;
+  m[_relativeRectFill.funName] = _relativeRectFill;
+  m[_relativeRectFromSize.funName] = _relativeRectFromSize;
+  m[_relativeRectFromRect.funName] = _relativeRectFromRect;
+  m[_relativeRectFromLTRB.funName] = _relativeRectFromLTRB;
   m[_stackParentData.funName] = _stackParentData;
   m[_stackFit.funName] = _stackFit;
   m[_overflow.funName] = _overflow;
@@ -27,9 +27,9 @@ Map<String, MXFunctionInvoke> registerStackSeries() {
   return m;
 }
 
-var _relativeRect_fill =
+var _relativeRectFill =
     MXFunctionInvoke("RelativeRect.fill", () => RelativeRect.fill);
-var _relativeRect_fromSize = MXFunctionInvoke(
+var _relativeRectFromSize = MXFunctionInvoke(
   "RelativeRect.fromSize",
   ({
     Rect rect,
@@ -44,7 +44,7 @@ var _relativeRect_fromSize = MXFunctionInvoke(
     "container",
   ],
 );
-var _relativeRect_fromRect = MXFunctionInvoke(
+var _relativeRectFromRect = MXFunctionInvoke(
   "RelativeRect.fromRect",
   ({
     Rect rect,
@@ -59,7 +59,7 @@ var _relativeRect_fromRect = MXFunctionInvoke(
     "container",
   ],
 );
-var _relativeRect_fromLTRB = MXFunctionInvoke(
+var _relativeRectFromLTRB = MXFunctionInvoke(
   "RelativeRect.fromLTRB",
   ({
     dynamic left,

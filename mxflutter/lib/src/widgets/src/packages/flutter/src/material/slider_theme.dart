@@ -22,8 +22,8 @@ Map<String, MXFunctionInvoke> registerSliderThemeSeries() {
   m[_showValueIndicator.funName] = _showValueIndicator;
   m[_thumb.funName] = _thumb;
   m[_sliderThemeData.funName] = _sliderThemeData;
-  m[_sliderThemeData_fromPrimaryColors.funName] =
-      _sliderThemeData_fromPrimaryColors;
+  m[_sliderThemeDataFromPrimaryColors.funName] =
+      _sliderThemeDataFromPrimaryColors;
   m[_rectangularSliderTrackShape.funName] = _rectangularSliderTrackShape;
   m[_roundedRectSliderTrackShape.funName] = _roundedRectSliderTrackShape;
   m[_rectangularRangeSliderTrackShape.funName] =
@@ -160,7 +160,7 @@ var _sliderThemeData = MXFunctionInvoke(
     "thumbSelector",
   ],
 );
-var _sliderThemeData_fromPrimaryColors = MXFunctionInvoke(
+var _sliderThemeDataFromPrimaryColors = MXFunctionInvoke(
   "SliderThemeData.fromPrimaryColors",
   ({
     Color primaryColor,

@@ -23,8 +23,8 @@ Map<String, MXFunctionInvoke> registerEditableSeries() {
   m[_selectionChangedCause.funName] = _selectionChangedCause;
   m[_textSelectionPoint.funName] = _textSelectionPoint;
   m[_renderEditable.funName] = _renderEditable;
-  m[_renderEditable_obscuringCharacter.funName] =
-      _renderEditable_obscuringCharacter;
+  m[_renderEditableObscuringCharacter.funName] =
+      _renderEditableObscuringCharacter;
   return m;
 }
 
@@ -170,7 +170,7 @@ var _renderEditable = MXFunctionInvoke(
     "textSelectionDelegate",
   ],
 );
-var _renderEditable_obscuringCharacter = MXFunctionInvoke(
+var _renderEditableObscuringCharacter = MXFunctionInvoke(
     "RenderEditable.obscuringCharacter",
     () => RenderEditable.obscuringCharacter);
 

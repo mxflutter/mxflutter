@@ -14,7 +14,7 @@ import 'package:flutter/src/scheduler/binding.dart';
 Map<String, MXFunctionInvoke> registerTickerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_ticker.funName] = _ticker;
-  m[_tickerFuture_complete.funName] = _tickerFuture_complete;
+  m[_tickerFutureComplete.funName] = _tickerFutureComplete;
   m[_tickerCanceled.funName] = _tickerCanceled;
   return m;
 }
@@ -34,7 +34,7 @@ var _ticker = MXFunctionInvoke(
     "debugLabel",
   ],
 );
-var _tickerFuture_complete = MXFunctionInvoke(
+var _tickerFutureComplete = MXFunctionInvoke(
   "TickerFuture.complete",
   () => TickerFuture.complete(),
   [],

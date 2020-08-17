@@ -16,8 +16,8 @@ import 'package:flutter/src/physics/utils.dart';
 Map<String, MXFunctionInvoke> registerSpringSimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_springDescription.funName] = _springDescription;
-  m[_springDescription_withDampingRatio.funName] =
-      _springDescription_withDampingRatio;
+  m[_springDescriptionWithDampingRatio.funName] =
+      _springDescriptionWithDampingRatio;
   m[_springType.funName] = _springType;
   m[_springSimulation.funName] = _springSimulation;
   m[_scrollSpringSimulation.funName] = _scrollSpringSimulation;
@@ -42,7 +42,7 @@ var _springDescription = MXFunctionInvoke(
     "damping",
   ],
 );
-var _springDescription_withDampingRatio = MXFunctionInvoke(
+var _springDescriptionWithDampingRatio = MXFunctionInvoke(
   "SpringDescription.withDampingRatio",
   ({
     dynamic mass,

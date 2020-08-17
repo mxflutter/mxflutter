@@ -18,7 +18,7 @@ import 'package:flutter/src/material/theme_data.dart';
 Map<String, MXFunctionInvoke> registerFlatButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_flatButton.funName] = _flatButton;
-  m[_flatButton_icon.funName] = _flatButton_icon;
+  m[_flatButtonIcon.funName] = _flatButtonIcon;
   return m;
 }
 
@@ -98,7 +98,7 @@ var _flatButton = MXFunctionInvoke(
     "child",
   ],
 );
-var _flatButton_icon = MXFunctionInvoke(
+var _flatButtonIcon = MXFunctionInvoke(
   "FlatButton.icon",
   ({
     Key key,
@@ -134,12 +134,11 @@ var _flatButton_icon = MXFunctionInvoke(
   }) =>
       FlatButton.icon(
     key: key,
-    onPressed:
-        createVoidCallbackClosure(_flatButton_icon.buildOwner, onPressed),
+    onPressed: createVoidCallbackClosure(_flatButtonIcon.buildOwner, onPressed),
     onLongPress:
-        createVoidCallbackClosure(_flatButton_icon.buildOwner, onLongPress),
+        createVoidCallbackClosure(_flatButtonIcon.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
-        _flatButton_icon.buildOwner, onHighlightChanged),
+        _flatButtonIcon.buildOwner, onHighlightChanged),
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,

@@ -26,7 +26,7 @@ import 'package:flutter/src/material/theme.dart';
 Map<String, MXFunctionInvoke> registerTextFieldSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_textField.funName] = _textField;
-  m[_textField_noMaxLength.funName] = _textField_noMaxLength;
+  m[_textFieldNoMaxLength.funName] = _textFieldNoMaxLength;
   return m;
 }
 
@@ -178,5 +178,5 @@ var _textField = MXFunctionInvoke(
     "scrollPhysics",
   ],
 );
-var _textField_noMaxLength =
+var _textFieldNoMaxLength =
     MXFunctionInvoke("TextField.noMaxLength", () => TextField.noMaxLength);

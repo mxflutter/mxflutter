@@ -18,9 +18,9 @@ import 'package:flutter/src/widgets/media_query.dart';
 Map<String, MXFunctionInvoke> registerTextSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_defaultTextStyle.funName] = _defaultTextStyle;
-  m[_defaultTextStyle_fallback.funName] = _defaultTextStyle_fallback;
+  m[_defaultTextStyleFallback.funName] = _defaultTextStyleFallback;
   m[_text.funName] = _text;
-  m[_text_rich.funName] = _text_rich;
+  m[_textRich.funName] = _textRich;
   return m;
 }
 
@@ -60,7 +60,7 @@ var _defaultTextStyle = MXFunctionInvoke(
     "child",
   ],
 );
-var _defaultTextStyle_fallback = MXFunctionInvoke(
+var _defaultTextStyleFallback = MXFunctionInvoke(
   "DefaultTextStyle.fallback",
   ({
     Key key,
@@ -123,7 +123,7 @@ var _text = MXFunctionInvoke(
     "textHeightBehavior",
   ],
 );
-var _text_rich = MXFunctionInvoke(
+var _textRich = MXFunctionInvoke(
   "Text.rich",
   ({
     InlineSpan textSpan,

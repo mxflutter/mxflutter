@@ -24,13 +24,13 @@ Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_animationBehavior.funName] = _animationBehavior;
   m[_animationController.funName] = _animationController;
-  m[_animationController_unbounded.funName] = _animationController_unbounded;
+  m[_animationControllerUnbounded.funName] = _animationControllerUnbounded;
   // MX modified begin
-  m[_animtionController_forward.funName] = _animtionController_forward;
-  m[_animtionController_reverse.funName] = _animtionController_reverse;
-  m[_animtionController_repeat.funName] = _animtionController_repeat;
-  m[_animtionController_drive.funName] = _animtionController_drive;
-  m[_animtionController_dispose.funName] = _animtionController_dispose;
+  m[_animtionControllerForward.funName] = _animtionControllerForward;
+  m[_animtionControllerReverse.funName] = _animtionControllerReverse;
+  m[_animtionControllerRepeat.funName] = _animtionControllerRepeat;
+  m[_animtionControllerDrive.funName] = _animtionControllerDrive;
+  m[_animtionControllerDispose.funName] = _animtionControllerDispose;
   // MX modified end
   return m;
 }
@@ -74,7 +74,7 @@ var _animationController = MXFunctionInvoke(
     "vsync",
   ],
 );
-var _animationController_unbounded = MXFunctionInvoke(
+var _animationControllerUnbounded = MXFunctionInvoke(
   "AnimationController.unbounded",
   ({
     dynamic value = 0.0,
@@ -115,7 +115,7 @@ class MXAnimationBehavior {
 }
 
 // MX modified begin
-var _animtionController_forward = MXFunctionInvoke(
+var _animtionControllerForward = MXFunctionInvoke(
   "AnimationController#forward",
   ({
     AnimationController mirrorObj,
@@ -126,7 +126,7 @@ var _animtionController_forward = MXFunctionInvoke(
   ],
 );
 
-var _animtionController_repeat = MXFunctionInvoke(
+var _animtionControllerRepeat = MXFunctionInvoke(
   "AnimationController#repeat",
   ({
     AnimationController mirrorObj,
@@ -137,7 +137,7 @@ var _animtionController_repeat = MXFunctionInvoke(
   ],
 );
 
-var _animtionController_reverse = MXFunctionInvoke(
+var _animtionControllerReverse = MXFunctionInvoke(
   "AnimationController#reverse",
   ({
     AnimationController mirrorObj,
@@ -148,7 +148,7 @@ var _animtionController_reverse = MXFunctionInvoke(
   ],
 );
 
-var _animtionController_drive = MXFunctionInvoke(
+var _animtionControllerDrive = MXFunctionInvoke(
   "AnimationController#drive",
   ({
     AnimationController mirrorObj,
@@ -161,7 +161,7 @@ var _animtionController_drive = MXFunctionInvoke(
   ],
 );
 
-var _animtionController_dispose = MXFunctionInvoke(
+var _animtionControllerDispose = MXFunctionInvoke(
   "AnimationController#dispose",
   ({
     AnimationController mirrorObj,

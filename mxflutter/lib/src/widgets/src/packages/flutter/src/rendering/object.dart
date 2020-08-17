@@ -23,10 +23,10 @@ Map<String, MXFunctionInvoke> registerObjectSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_parentData.funName] = _parentData;
   m[_paintingContext.funName] = _paintingContext;
-  m[_paintingContext_repaintCompositedChild.funName] =
-      _paintingContext_repaintCompositedChild;
-  m[_paintingContext_debugInstrumentRepaintCompositedChild.funName] =
-      _paintingContext_debugInstrumentRepaintCompositedChild;
+  m[_paintingContextRepaintCompositedChild.funName] =
+      _paintingContextRepaintCompositedChild;
+  m[_paintingContextDebugInstrumentRepaintCompositedChild.funName] =
+      _paintingContextDebugInstrumentRepaintCompositedChild;
   m[_pipelineOwner.funName] = _pipelineOwner;
   m[_flutterErrorDetailsForRendering.funName] =
       _flutterErrorDetailsForRendering;
@@ -54,7 +54,7 @@ var _paintingContext = MXFunctionInvoke(
     "estimatedBounds",
   ],
 );
-var _paintingContext_repaintCompositedChild = MXFunctionInvoke(
+var _paintingContextRepaintCompositedChild = MXFunctionInvoke(
   "PaintingContext.repaintCompositedChild",
   ({
     RenderObject child,
@@ -69,7 +69,7 @@ var _paintingContext_repaintCompositedChild = MXFunctionInvoke(
     "debugAlsoPaintedParent",
   ],
 );
-var _paintingContext_debugInstrumentRepaintCompositedChild = MXFunctionInvoke(
+var _paintingContextDebugInstrumentRepaintCompositedChild = MXFunctionInvoke(
   "PaintingContext.debugInstrumentRepaintCompositedChild",
   ({
     RenderObject child,

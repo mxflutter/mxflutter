@@ -28,7 +28,7 @@ Map<String, MXFunctionInvoke> registerDataTableSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_dataColumn.funName] = _dataColumn;
   m[_dataRow.funName] = _dataRow;
-  m[_dataRow_byIndex.funName] = _dataRow_byIndex;
+  m[_dataRowByIndex.funName] = _dataRowByIndex;
   m[_dataCell.funName] = _dataCell;
   m[_dataTable.funName] = _dataTable;
   m[_tableRowInkWell.funName] = _tableRowInkWell;
@@ -79,7 +79,7 @@ var _dataRow = MXFunctionInvoke(
     "cells",
   ],
 );
-var _dataRow_byIndex = MXFunctionInvoke(
+var _dataRowByIndex = MXFunctionInvoke(
   "DataRow.byIndex",
   ({
     int index,
@@ -91,7 +91,7 @@ var _dataRow_byIndex = MXFunctionInvoke(
     index: index,
     selected: selected,
     onSelectChanged: createValueChangedGenericClosure<bool>(
-        _dataRow_byIndex.buildOwner, onSelectChanged),
+        _dataRowByIndex.buildOwner, onSelectChanged),
     cells: toListT<DataCell>(cells),
   ),
   [

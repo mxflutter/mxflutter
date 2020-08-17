@@ -20,7 +20,7 @@ import 'package:flutter/src/material/theme.dart';
 Map<String, MXFunctionInvoke> registerSelectableTextSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_selectableText.funName] = _selectableText;
-  m[_selectableText_rich.funName] = _selectableText_rich;
+  m[_selectableTextRich.funName] = _selectableTextRich;
   return m;
 }
 
@@ -96,7 +96,7 @@ var _selectableText = MXFunctionInvoke(
     "textWidthBasis",
   ],
 );
-var _selectableText_rich = MXFunctionInvoke(
+var _selectableTextRich = MXFunctionInvoke(
   "SelectableText.rich",
   ({
     TextSpan textSpan,
@@ -140,7 +140,7 @@ var _selectableText_rich = MXFunctionInvoke(
     cursorColor: cursorColor,
     dragStartBehavior: dragStartBehavior,
     enableInteractiveSelection: enableInteractiveSelection,
-    onTap: createVoidCallbackClosure(_selectableText_rich.buildOwner, onTap),
+    onTap: createVoidCallbackClosure(_selectableTextRich.buildOwner, onTap),
     scrollPhysics: scrollPhysics,
     textWidthBasis: textWidthBasis,
   ),

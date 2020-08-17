@@ -16,7 +16,7 @@ import 'package:flutter/src/material/material.dart';
 Map<String, MXFunctionInvoke> registerInkSplashSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_inkSplash.funName] = _inkSplash;
-  m[_inkSplash_splashFactory.funName] = _inkSplash_splashFactory;
+  m[_inkSplashSplashFactory.funName] = _inkSplashSplashFactory;
   return m;
 }
 
@@ -62,5 +62,5 @@ var _inkSplash = MXFunctionInvoke(
     "onRemoved",
   ],
 );
-var _inkSplash_splashFactory =
+var _inkSplashSplashFactory =
     MXFunctionInvoke("InkSplash.splashFactory", () => InkSplash.splashFactory);

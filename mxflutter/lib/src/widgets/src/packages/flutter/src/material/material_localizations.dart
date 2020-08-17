@@ -18,8 +18,8 @@ import 'package:flutter/src/material/typography.dart';
 Map<String, MXFunctionInvoke> registerMaterialLocalizationsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_defaultMaterialLocalizations.funName] = _defaultMaterialLocalizations;
-  m[_defaultMaterialLocalizations_delegate.funName] =
-      _defaultMaterialLocalizations_delegate;
+  m[_defaultMaterialLocalizationsDelegate.funName] =
+      _defaultMaterialLocalizationsDelegate;
   return m;
 }
 
@@ -28,6 +28,6 @@ var _defaultMaterialLocalizations = MXFunctionInvoke(
   () => DefaultMaterialLocalizations(),
   [],
 );
-var _defaultMaterialLocalizations_delegate = MXFunctionInvoke(
+var _defaultMaterialLocalizationsDelegate = MXFunctionInvoke(
     "DefaultMaterialLocalizations.delegate",
     () => DefaultMaterialLocalizations.delegate);

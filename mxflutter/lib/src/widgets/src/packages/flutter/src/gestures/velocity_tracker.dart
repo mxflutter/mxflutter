@@ -14,7 +14,7 @@ import 'package:flutter/src/gestures/lsq_solver.dart';
 Map<String, MXFunctionInvoke> registerVelocityTrackerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_velocity.funName] = _velocity;
-  m[_velocity_zero.funName] = _velocity_zero;
+  m[_velocityZero.funName] = _velocityZero;
   m[_velocityEstimate.funName] = _velocityEstimate;
   m[_velocityTracker.funName] = _velocityTracker;
   return m;
@@ -32,7 +32,7 @@ var _velocity = MXFunctionInvoke(
     "pixelsPerSecond",
   ],
 );
-var _velocity_zero = MXFunctionInvoke("Velocity.zero", () => Velocity.zero);
+var _velocityZero = MXFunctionInvoke("Velocity.zero", () => Velocity.zero);
 var _velocityEstimate = MXFunctionInvoke(
   "VelocityEstimate",
   ({

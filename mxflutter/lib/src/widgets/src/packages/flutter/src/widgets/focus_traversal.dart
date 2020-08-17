@@ -31,14 +31,14 @@ Map<String, MXFunctionInvoke> registerFocusTraversalSeries() {
   m[_focusTraversalOrder.funName] = _focusTraversalOrder;
   m[_focusTraversalGroup.funName] = _focusTraversalGroup;
   m[_requestFocusAction.funName] = _requestFocusAction;
-  m[_requestFocusAction_key.funName] = _requestFocusAction_key;
+  m[_requestFocusActionKey.funName] = _requestFocusActionKey;
   m[_nextFocusAction.funName] = _nextFocusAction;
-  m[_nextFocusAction_key.funName] = _nextFocusAction_key;
+  m[_nextFocusActionKey.funName] = _nextFocusActionKey;
   m[_previousFocusAction.funName] = _previousFocusAction;
-  m[_previousFocusAction_key.funName] = _previousFocusAction_key;
+  m[_previousFocusActionKey.funName] = _previousFocusActionKey;
   m[_directionalFocusIntent.funName] = _directionalFocusIntent;
   m[_directionalFocusAction.funName] = _directionalFocusAction;
-  m[_directionalFocusAction_key.funName] = _directionalFocusAction_key;
+  m[_directionalFocusActionKey.funName] = _directionalFocusActionKey;
   return m;
 }
 
@@ -133,21 +133,21 @@ var _requestFocusAction = MXFunctionInvoke(
   () => RequestFocusAction(),
   [],
 );
-var _requestFocusAction_key =
+var _requestFocusActionKey =
     MXFunctionInvoke("RequestFocusAction.key", () => RequestFocusAction.key);
 var _nextFocusAction = MXFunctionInvoke(
   "NextFocusAction",
   () => NextFocusAction(),
   [],
 );
-var _nextFocusAction_key =
+var _nextFocusActionKey =
     MXFunctionInvoke("NextFocusAction.key", () => NextFocusAction.key);
 var _previousFocusAction = MXFunctionInvoke(
   "PreviousFocusAction",
   () => PreviousFocusAction(),
   [],
 );
-var _previousFocusAction_key =
+var _previousFocusActionKey =
     MXFunctionInvoke("PreviousFocusAction.key", () => PreviousFocusAction.key);
 var _directionalFocusIntent = MXFunctionInvoke(
   "DirectionalFocusIntent",
@@ -169,7 +169,7 @@ var _directionalFocusAction = MXFunctionInvoke(
   () => DirectionalFocusAction(),
   [],
 );
-var _directionalFocusAction_key = MXFunctionInvoke(
+var _directionalFocusActionKey = MXFunctionInvoke(
     "DirectionalFocusAction.key", () => DirectionalFocusAction.key);
 
 class MXTraversalDirection {

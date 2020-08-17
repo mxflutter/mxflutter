@@ -18,13 +18,13 @@ import 'package:flutter/src/rendering/object.dart';
 Map<String, MXFunctionInvoke> registerBoxSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_boxConstraints.funName] = _boxConstraints;
-  m[_boxConstraints_tight.funName] = _boxConstraints_tight;
-  m[_boxConstraints_tightFor.funName] = _boxConstraints_tightFor;
-  m[_boxConstraints_tightForFinite.funName] = _boxConstraints_tightForFinite;
-  m[_boxConstraints_loose.funName] = _boxConstraints_loose;
-  m[_boxConstraints_expand.funName] = _boxConstraints_expand;
+  m[_boxConstraintsTight.funName] = _boxConstraintsTight;
+  m[_boxConstraintsTightFor.funName] = _boxConstraintsTightFor;
+  m[_boxConstraintsTightForFinite.funName] = _boxConstraintsTightForFinite;
+  m[_boxConstraintsLoose.funName] = _boxConstraintsLoose;
+  m[_boxConstraintsExpand.funName] = _boxConstraintsExpand;
   m[_boxHitTestResult.funName] = _boxHitTestResult;
-  m[_boxHitTestResult_wrap.funName] = _boxHitTestResult_wrap;
+  m[_boxHitTestResultWrap.funName] = _boxHitTestResultWrap;
   m[_boxHitTestEntry.funName] = _boxHitTestEntry;
   m[_boxParentData.funName] = _boxParentData;
   return m;
@@ -51,7 +51,7 @@ var _boxConstraints = MXFunctionInvoke(
     "maxHeight",
   ],
 );
-var _boxConstraints_tight = MXFunctionInvoke(
+var _boxConstraintsTight = MXFunctionInvoke(
   "BoxConstraints.tight",
   ({
     ui.Size size,
@@ -63,7 +63,7 @@ var _boxConstraints_tight = MXFunctionInvoke(
     "size",
   ],
 );
-var _boxConstraints_tightFor = MXFunctionInvoke(
+var _boxConstraintsTightFor = MXFunctionInvoke(
   "BoxConstraints.tightFor",
   ({
     dynamic width,
@@ -78,7 +78,7 @@ var _boxConstraints_tightFor = MXFunctionInvoke(
     "height",
   ],
 );
-var _boxConstraints_tightForFinite = MXFunctionInvoke(
+var _boxConstraintsTightForFinite = MXFunctionInvoke(
   "BoxConstraints.tightForFinite",
   ({
     dynamic width = double.infinity,
@@ -93,7 +93,7 @@ var _boxConstraints_tightForFinite = MXFunctionInvoke(
     "height",
   ],
 );
-var _boxConstraints_loose = MXFunctionInvoke(
+var _boxConstraintsLoose = MXFunctionInvoke(
   "BoxConstraints.loose",
   ({
     ui.Size size,
@@ -105,7 +105,7 @@ var _boxConstraints_loose = MXFunctionInvoke(
     "size",
   ],
 );
-var _boxConstraints_expand = MXFunctionInvoke(
+var _boxConstraintsExpand = MXFunctionInvoke(
   "BoxConstraints.expand",
   ({
     dynamic width,
@@ -125,7 +125,7 @@ var _boxHitTestResult = MXFunctionInvoke(
   () => BoxHitTestResult(),
   [],
 );
-var _boxHitTestResult_wrap = MXFunctionInvoke(
+var _boxHitTestResultWrap = MXFunctionInvoke(
   "BoxHitTestResult.wrap",
   ({
     HitTestResult result,

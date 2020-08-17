@@ -11,16 +11,16 @@ import 'package:flutter/foundation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPrioritySeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_priority_idle.funName] = _priority_idle;
-  m[_priority_animation.funName] = _priority_animation;
-  m[_priority_touch.funName] = _priority_touch;
-  m[_priority_kMaxOffset.funName] = _priority_kMaxOffset;
+  m[_priorityIdle.funName] = _priorityIdle;
+  m[_priorityAnimation.funName] = _priorityAnimation;
+  m[_priorityTouch.funName] = _priorityTouch;
+  m[_priorityKMaxOffset.funName] = _priorityKMaxOffset;
   return m;
 }
 
-var _priority_idle = MXFunctionInvoke("Priority.idle", () => Priority.idle);
-var _priority_animation =
+var _priorityIdle = MXFunctionInvoke("Priority.idle", () => Priority.idle);
+var _priorityAnimation =
     MXFunctionInvoke("Priority.animation", () => Priority.animation);
-var _priority_touch = MXFunctionInvoke("Priority.touch", () => Priority.touch);
-var _priority_kMaxOffset =
+var _priorityTouch = MXFunctionInvoke("Priority.touch", () => Priority.touch);
+var _priorityKMaxOffset =
     MXFunctionInvoke("Priority.kMaxOffset", () => Priority.kMaxOffset);

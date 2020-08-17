@@ -18,10 +18,10 @@ Map<String, MXFunctionInvoke> registerSystemChromeSeries() {
   m[_applicationSwitcherDescription.funName] = _applicationSwitcherDescription;
   m[_systemUiOverlay.funName] = _systemUiOverlay;
   m[_systemUiOverlayStyle.funName] = _systemUiOverlayStyle;
-  m[_systemUiOverlayStyle_light.funName] = _systemUiOverlayStyle_light;
-  m[_systemUiOverlayStyle_dark.funName] = _systemUiOverlayStyle_dark;
-  m[_systemChrome_setSystemUIOverlayStyle.funName] =
-      _systemChrome_setSystemUIOverlayStyle;
+  m[_systemUiOverlayStyleLight.funName] = _systemUiOverlayStyleLight;
+  m[_systemUiOverlayStyleDark.funName] = _systemUiOverlayStyleDark;
+  m[_systemChromeSetSystemUIOverlayStyle.funName] =
+      _systemChromeSetSystemUIOverlayStyle;
   return m;
 }
 
@@ -75,11 +75,11 @@ var _systemUiOverlayStyle = MXFunctionInvoke(
     "statusBarIconBrightness",
   ],
 );
-var _systemUiOverlayStyle_light = MXFunctionInvoke(
+var _systemUiOverlayStyleLight = MXFunctionInvoke(
     "SystemUiOverlayStyle.light", () => SystemUiOverlayStyle.light);
-var _systemUiOverlayStyle_dark = MXFunctionInvoke(
+var _systemUiOverlayStyleDark = MXFunctionInvoke(
     "SystemUiOverlayStyle.dark", () => SystemUiOverlayStyle.dark);
-var _systemChrome_setSystemUIOverlayStyle = MXFunctionInvoke(
+var _systemChromeSetSystemUIOverlayStyle = MXFunctionInvoke(
   "SystemChrome.setSystemUIOverlayStyle",
   ({
     SystemUiOverlayStyle style,

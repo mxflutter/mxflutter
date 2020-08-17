@@ -13,8 +13,8 @@ import 'package:flutter/foundation.dart';
 Map<String, MXFunctionInvoke> registerTextEditingSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_textSelection.funName] = _textSelection;
-  m[_textSelection_collapsed.funName] = _textSelection_collapsed;
-  m[_textSelection_fromPosition.funName] = _textSelection_fromPosition;
+  m[_textSelectionCollapsed.funName] = _textSelectionCollapsed;
+  m[_textSelectionFromPosition.funName] = _textSelectionFromPosition;
   return m;
 }
 
@@ -39,7 +39,7 @@ var _textSelection = MXFunctionInvoke(
     "isDirectional",
   ],
 );
-var _textSelection_collapsed = MXFunctionInvoke(
+var _textSelectionCollapsed = MXFunctionInvoke(
   "TextSelection.collapsed",
   ({
     int offset,
@@ -54,7 +54,7 @@ var _textSelection_collapsed = MXFunctionInvoke(
     "affinity",
   ],
 );
-var _textSelection_fromPosition = MXFunctionInvoke(
+var _textSelectionFromPosition = MXFunctionInvoke(
   "TextSelection.fromPosition",
   ({
     TextPosition position,

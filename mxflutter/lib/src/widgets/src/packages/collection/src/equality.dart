@@ -23,8 +23,8 @@ Map<String, MXFunctionInvoke> registerEqualitySeries() {
   m[_mapEquality.funName] = _mapEquality;
   m[_multiEquality.funName] = _multiEquality;
   m[_deepCollectionEquality.funName] = _deepCollectionEquality;
-  m[_deepCollectionEquality_unordered.funName] =
-      _deepCollectionEquality_unordered;
+  m[_deepCollectionEqualityUnordered.funName] =
+      _deepCollectionEqualityUnordered;
   m[_caseInsensitiveEquality.funName] = _caseInsensitiveEquality;
   return m;
 }
@@ -146,7 +146,7 @@ var _deepCollectionEquality = MXFunctionInvoke(
     "base",
   ],
 );
-var _deepCollectionEquality_unordered = MXFunctionInvoke(
+var _deepCollectionEqualityUnordered = MXFunctionInvoke(
   "DeepCollectionEquality.unordered",
   ({
     Equality<dynamic> base,

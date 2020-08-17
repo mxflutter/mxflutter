@@ -14,7 +14,7 @@ import 'package:flutter/src/physics/tolerance.dart';
 Map<String, MXFunctionInvoke> registerFrictionSimulationSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_frictionSimulation.funName] = _frictionSimulation;
-  m[_frictionSimulation_through.funName] = _frictionSimulation_through;
+  m[_frictionSimulationThrough.funName] = _frictionSimulationThrough;
   m[_boundedFrictionSimulation.funName] = _boundedFrictionSimulation;
   return m;
 }
@@ -40,7 +40,7 @@ var _frictionSimulation = MXFunctionInvoke(
     "tolerance",
   ],
 );
-var _frictionSimulation_through = MXFunctionInvoke(
+var _frictionSimulationThrough = MXFunctionInvoke(
   "FrictionSimulation.through",
   ({
     dynamic startPosition,

@@ -14,7 +14,7 @@ import 'package:collection/src/wrappers.dart';
 Map<String, MXFunctionInvoke> registerEqualitySetSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_equalitySet.funName] = _equalitySet;
-  m[_equalitySet_from.funName] = _equalitySet_from;
+  m[_equalitySetFrom.funName] = _equalitySetFrom;
   return m;
 }
 
@@ -30,7 +30,7 @@ var _equalitySet = MXFunctionInvoke(
     "equality",
   ],
 );
-var _equalitySet_from = MXFunctionInvoke(
+var _equalitySetFrom = MXFunctionInvoke(
   "EqualitySet.from",
   ({
     Equality<dynamic> equality,

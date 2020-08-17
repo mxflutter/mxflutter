@@ -16,9 +16,9 @@ import 'package:flutter/src/material/theme_data.dart';
 Map<String, MXFunctionInvoke> registerColorSchemeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_colorScheme.funName] = _colorScheme;
-  m[_colorScheme_fromSwatch.funName] = _colorScheme_fromSwatch;
-  m[_colorScheme_light.funName] = _colorScheme_light;
-  m[_colorScheme_dark.funName] = _colorScheme_dark;
+  m[_colorSchemeFromSwatch.funName] = _colorSchemeFromSwatch;
+  m[_colorSchemeLight.funName] = _colorSchemeLight;
+  m[_colorSchemeDark.funName] = _colorSchemeDark;
   return m;
 }
 
@@ -70,7 +70,7 @@ var _colorScheme = MXFunctionInvoke(
     "brightness",
   ],
 );
-var _colorScheme_fromSwatch = MXFunctionInvoke(
+var _colorSchemeFromSwatch = MXFunctionInvoke(
   "ColorScheme.fromSwatch",
   ({
     MaterialColor primarySwatch = Colors.blue,
@@ -100,7 +100,7 @@ var _colorScheme_fromSwatch = MXFunctionInvoke(
     "brightness",
   ],
 );
-var _colorScheme_light = MXFunctionInvoke(
+var _colorSchemeLight = MXFunctionInvoke(
   "ColorScheme.light",
   ({
     Color primary = const Color(0xff6200ee),
@@ -148,7 +148,7 @@ var _colorScheme_light = MXFunctionInvoke(
     "brightness",
   ],
 );
-var _colorScheme_dark = MXFunctionInvoke(
+var _colorSchemeDark = MXFunctionInvoke(
   "ColorScheme.dark",
   ({
     Color primary = const Color(0xffbb86fc),

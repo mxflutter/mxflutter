@@ -15,19 +15,19 @@ import 'package:flutter/src/painting/basic_types.dart';
 Map<String, MXFunctionInvoke> registerFractionalOffsetSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_fractionalOffset.funName] = _fractionalOffset;
-  m[_fractionalOffset_topLeft.funName] = _fractionalOffset_topLeft;
-  m[_fractionalOffset_topCenter.funName] = _fractionalOffset_topCenter;
-  m[_fractionalOffset_topRight.funName] = _fractionalOffset_topRight;
-  m[_fractionalOffset_centerLeft.funName] = _fractionalOffset_centerLeft;
-  m[_fractionalOffset_center.funName] = _fractionalOffset_center;
-  m[_fractionalOffset_centerRight.funName] = _fractionalOffset_centerRight;
-  m[_fractionalOffset_bottomLeft.funName] = _fractionalOffset_bottomLeft;
-  m[_fractionalOffset_bottomCenter.funName] = _fractionalOffset_bottomCenter;
-  m[_fractionalOffset_bottomRight.funName] = _fractionalOffset_bottomRight;
-  m[_fractionalOffset_fromOffsetAndSize.funName] =
-      _fractionalOffset_fromOffsetAndSize;
-  m[_fractionalOffset_fromOffsetAndRect.funName] =
-      _fractionalOffset_fromOffsetAndRect;
+  m[_fractionalOffsetTopLeft.funName] = _fractionalOffsetTopLeft;
+  m[_fractionalOffsetTopCenter.funName] = _fractionalOffsetTopCenter;
+  m[_fractionalOffsetTopRight.funName] = _fractionalOffsetTopRight;
+  m[_fractionalOffsetCenterLeft.funName] = _fractionalOffsetCenterLeft;
+  m[_fractionalOffsetCenter.funName] = _fractionalOffsetCenter;
+  m[_fractionalOffsetCenterRight.funName] = _fractionalOffsetCenterRight;
+  m[_fractionalOffsetBottomLeft.funName] = _fractionalOffsetBottomLeft;
+  m[_fractionalOffsetBottomCenter.funName] = _fractionalOffsetBottomCenter;
+  m[_fractionalOffsetBottomRight.funName] = _fractionalOffsetBottomRight;
+  m[_fractionalOffsetFromOffsetAndSize.funName] =
+      _fractionalOffsetFromOffsetAndSize;
+  m[_fractionalOffsetFromOffsetAndRect.funName] =
+      _fractionalOffsetFromOffsetAndRect;
   return m;
 }
 
@@ -46,25 +46,25 @@ var _fractionalOffset = MXFunctionInvoke(
     "dy",
   ],
 );
-var _fractionalOffset_topLeft = MXFunctionInvoke(
+var _fractionalOffsetTopLeft = MXFunctionInvoke(
     "FractionalOffset.topLeft", () => FractionalOffset.topLeft);
-var _fractionalOffset_topCenter = MXFunctionInvoke(
+var _fractionalOffsetTopCenter = MXFunctionInvoke(
     "FractionalOffset.topCenter", () => FractionalOffset.topCenter);
-var _fractionalOffset_topRight = MXFunctionInvoke(
+var _fractionalOffsetTopRight = MXFunctionInvoke(
     "FractionalOffset.topRight", () => FractionalOffset.topRight);
-var _fractionalOffset_centerLeft = MXFunctionInvoke(
+var _fractionalOffsetCenterLeft = MXFunctionInvoke(
     "FractionalOffset.centerLeft", () => FractionalOffset.centerLeft);
-var _fractionalOffset_center =
+var _fractionalOffsetCenter =
     MXFunctionInvoke("FractionalOffset.center", () => FractionalOffset.center);
-var _fractionalOffset_centerRight = MXFunctionInvoke(
+var _fractionalOffsetCenterRight = MXFunctionInvoke(
     "FractionalOffset.centerRight", () => FractionalOffset.centerRight);
-var _fractionalOffset_bottomLeft = MXFunctionInvoke(
+var _fractionalOffsetBottomLeft = MXFunctionInvoke(
     "FractionalOffset.bottomLeft", () => FractionalOffset.bottomLeft);
-var _fractionalOffset_bottomCenter = MXFunctionInvoke(
+var _fractionalOffsetBottomCenter = MXFunctionInvoke(
     "FractionalOffset.bottomCenter", () => FractionalOffset.bottomCenter);
-var _fractionalOffset_bottomRight = MXFunctionInvoke(
+var _fractionalOffsetBottomRight = MXFunctionInvoke(
     "FractionalOffset.bottomRight", () => FractionalOffset.bottomRight);
-var _fractionalOffset_fromOffsetAndSize = MXFunctionInvoke(
+var _fractionalOffsetFromOffsetAndSize = MXFunctionInvoke(
   "FractionalOffset.fromOffsetAndSize",
   ({
     ui.Offset offset,
@@ -79,7 +79,7 @@ var _fractionalOffset_fromOffsetAndSize = MXFunctionInvoke(
     "size",
   ],
 );
-var _fractionalOffset_fromOffsetAndRect = MXFunctionInvoke(
+var _fractionalOffsetFromOffsetAndRect = MXFunctionInvoke(
   "FractionalOffset.fromOffsetAndRect",
   ({
     ui.Offset offset,
