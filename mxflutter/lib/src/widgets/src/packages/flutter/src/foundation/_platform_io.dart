@@ -10,7 +10,6 @@ import 'dart:io';
 import 'package:flutter/src/foundation/assertions.dart';
 import 'package:flutter/src/foundation/platform.dart' as platform;
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformIoSeries() {
   var m = <String, MXFunctionInvoke>{};

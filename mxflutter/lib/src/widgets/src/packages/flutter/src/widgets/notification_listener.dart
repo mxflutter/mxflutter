@@ -9,7 +9,6 @@ import 'package:flutter/src/widgets/notification_listener.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNotificationListenerSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -17,25 +16,27 @@ Map<String, MXFunctionInvoke> registerNotificationListenerSeries() {
   m[_layoutChangedNotification.funName] = _layoutChangedNotification;
   return m;
 }
+
 var _notificationListener = MXFunctionInvoke(
-    "NotificationListener",
-    (
-      {
-      Key key,
-      Widget child,
-      dynamic onNotification,
-      }
-    ) =>
+  "NotificationListener",
+  ({
+    Key key,
+    Widget child,
+    dynamic onNotification,
+  }) =>
       NotificationListener(
-      key: key,
-      child: child,
-      onNotification: null,
-    ),
+    key: key,
+    child: child,
+    onNotification: null,
+  ),
+  [
+    "key",
+    "child",
+    "onNotification",
+  ],
 );
 var _layoutChangedNotification = MXFunctionInvoke(
-    "LayoutChangedNotification",
-    (
-    ) =>
-      LayoutChangedNotification(
-    ),
+  "LayoutChangedNotification",
+  () => LayoutChangedNotification(),
+  [],
 );

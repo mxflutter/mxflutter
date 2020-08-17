@@ -11,7 +11,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPopupMenuThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,35 +18,43 @@ Map<String, MXFunctionInvoke> registerPopupMenuThemeSeries() {
   m[_popupMenuTheme.funName] = _popupMenuTheme;
   return m;
 }
+
 var _popupMenuThemeData = MXFunctionInvoke(
-    "PopupMenuThemeData",
-    (
-      {
-      Color color,
-      ShapeBorder shape,
-      dynamic elevation,
-      TextStyle textStyle,
-      }
-    ) =>
+  "PopupMenuThemeData",
+  ({
+    Color color,
+    ShapeBorder shape,
+    dynamic elevation,
+    TextStyle textStyle,
+  }) =>
       PopupMenuThemeData(
-      color: color,
-      shape: shape,
-      elevation: elevation?.toDouble(),
-      textStyle: textStyle,
-    ),
+    color: color,
+    shape: shape,
+    elevation: elevation?.toDouble(),
+    textStyle: textStyle,
+  ),
+  [
+    "color",
+    "shape",
+    "elevation",
+    "textStyle",
+  ],
 );
 var _popupMenuTheme = MXFunctionInvoke(
-    "PopupMenuTheme",
-    (
-      {
-      Key key,
-      PopupMenuThemeData data,
-      Widget child,
-      }
-    ) =>
+  "PopupMenuTheme",
+  ({
+    Key key,
+    PopupMenuThemeData data,
+    Widget child,
+  }) =>
       PopupMenuTheme(
-      key: key,
-      data: data,
-      child: child,
-    ),
+    key: key,
+    data: data,
+    child: child,
+  ),
+  [
+    "key",
+    "data",
+    "child",
+  ],
 );

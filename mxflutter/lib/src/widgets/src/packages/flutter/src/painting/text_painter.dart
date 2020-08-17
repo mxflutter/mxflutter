@@ -16,7 +16,6 @@ import 'package:flutter/src/painting/placeholder_span.dart';
 import 'package:flutter/src/painting/strut_style.dart';
 import 'package:flutter/src/painting/text_span.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextPainterSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -25,63 +24,79 @@ Map<String, MXFunctionInvoke> registerTextPainterSeries() {
   m[_textPainter.funName] = _textPainter;
   return m;
 }
+
 var _placeholderDimensions = MXFunctionInvoke(
-    "PlaceholderDimensions",
-    (
-      {
-      ui.Size size,
-      ui.PlaceholderAlignment alignment,
-      ui.TextBaseline baseline,
-      dynamic baselineOffset,
-      }
-    ) =>
+  "PlaceholderDimensions",
+  ({
+    ui.Size size,
+    ui.PlaceholderAlignment alignment,
+    ui.TextBaseline baseline,
+    dynamic baselineOffset,
+  }) =>
       PlaceholderDimensions(
-      size: size,
-      alignment: alignment,
-      baseline: baseline,
-      baselineOffset: baselineOffset?.toDouble(),
-    ),
+    size: size,
+    alignment: alignment,
+    baseline: baseline,
+    baselineOffset: baselineOffset?.toDouble(),
+  ),
+  [
+    "size",
+    "alignment",
+    "baseline",
+    "baselineOffset",
+  ],
 );
 var _textWidthBasis = MXFunctionInvoke(
     "TextWidthBasis",
     ({String name, int index}) => MXTextWidthBasis.parse(name, index),
-  );
+    ["name", "index"]);
 var _textPainter = MXFunctionInvoke(
-    "TextPainter",
-    (
-      {
-      InlineSpan text,
-      ui.TextAlign textAlign = TextAlign.start,
-      ui.TextDirection textDirection,
-      dynamic textScaleFactor = 1.0,
-      int maxLines,
-      String ellipsis,
-      ui.Locale locale,
-      StrutStyle strutStyle,
-      TextWidthBasis textWidthBasis =  TextWidthBasis.parent,
-      ui.TextHeightBehavior textHeightBehavior,
-      }
-    ) =>
+  "TextPainter",
+  ({
+    InlineSpan text,
+    ui.TextAlign textAlign = TextAlign.start,
+    ui.TextDirection textDirection,
+    dynamic textScaleFactor = 1.0,
+    int maxLines,
+    String ellipsis,
+    ui.Locale locale,
+    StrutStyle strutStyle,
+    TextWidthBasis textWidthBasis = TextWidthBasis.parent,
+    ui.TextHeightBehavior textHeightBehavior,
+  }) =>
       TextPainter(
-      text: text,
-      textAlign: textAlign,
-      textDirection: textDirection,
-      textScaleFactor: textScaleFactor?.toDouble(),
-      maxLines: maxLines,
-      ellipsis: ellipsis,
-      locale: locale,
-      strutStyle: strutStyle,
-      textWidthBasis: textWidthBasis,
-      textHeightBehavior: textHeightBehavior,
-    ),
+    text: text,
+    textAlign: textAlign,
+    textDirection: textDirection,
+    textScaleFactor: textScaleFactor?.toDouble(),
+    maxLines: maxLines,
+    ellipsis: ellipsis,
+    locale: locale,
+    strutStyle: strutStyle,
+    textWidthBasis: textWidthBasis,
+    textHeightBehavior: textHeightBehavior,
+  ),
+  [
+    "text",
+    "textAlign",
+    "textDirection",
+    "textScaleFactor",
+    "maxLines",
+    "ellipsis",
+    "locale",
+    "strutStyle",
+    "textWidthBasis",
+    "textHeightBehavior",
+  ],
 );
+
 class MXTextWidthBasis {
   static TextWidthBasis parse(String name, int index) {
-    switch(name) {
-      case 'TextWidthBasis.parent': 
-       return TextWidthBasis.parent;
-      case 'TextWidthBasis.longestLine': 
-       return TextWidthBasis.longestLine;
+    switch (name) {
+      case 'TextWidthBasis.parent':
+        return TextWidthBasis.parent;
+      case 'TextWidthBasis.longestLine':
+        return TextWidthBasis.longestLine;
     }
     return null;
   }

@@ -12,7 +12,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/scheduler.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMouseTrackingSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,31 +19,40 @@ Map<String, MXFunctionInvoke> registerMouseTrackingSeries() {
   m[_mouseTracker.funName] = _mouseTracker;
   return m;
 }
+
 var _mouseTrackerAnnotation = MXFunctionInvoke(
-    "MouseTrackerAnnotation",
-    (
-      {
-      dynamic onEnter,
-      dynamic onHover,
-      dynamic onExit,
-      }
-    ) =>
+  "MouseTrackerAnnotation",
+  ({
+    dynamic onEnter,
+    dynamic onHover,
+    dynamic onExit,
+  }) =>
       MouseTrackerAnnotation(
-      onEnter: createValueChangedGenericClosure<PointerEnterEvent>(_mouseTrackerAnnotation.buildOwner, onEnter),
-      onHover: createValueChangedGenericClosure<PointerHoverEvent>(_mouseTrackerAnnotation.buildOwner, onHover),
-      onExit: createValueChangedGenericClosure<PointerExitEvent>(_mouseTrackerAnnotation.buildOwner, onExit),
-    ),
+    onEnter: createValueChangedGenericClosure<PointerEnterEvent>(
+        _mouseTrackerAnnotation.buildOwner, onEnter),
+    onHover: createValueChangedGenericClosure<PointerHoverEvent>(
+        _mouseTrackerAnnotation.buildOwner, onHover),
+    onExit: createValueChangedGenericClosure<PointerExitEvent>(
+        _mouseTrackerAnnotation.buildOwner, onExit),
+  ),
+  [
+    "onEnter",
+    "onHover",
+    "onExit",
+  ],
 );
 var _mouseTracker = MXFunctionInvoke(
-    "MouseTracker",
-    (
-      {
-      PointerRouter router,
-      dynamic annotationFinder,
-      }
-    ) =>
+  "MouseTracker",
+  ({
+    PointerRouter router,
+    dynamic annotationFinder,
+  }) =>
       MouseTracker(
-      router,
-      null,
-    ),
+    router,
+    null,
+  ),
+  [
+    "router",
+    "annotationFinder",
+  ],
 );

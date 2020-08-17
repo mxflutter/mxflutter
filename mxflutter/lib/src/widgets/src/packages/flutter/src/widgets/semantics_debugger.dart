@@ -16,25 +16,29 @@ import 'package:flutter/src/widgets/binding.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/gesture_detector.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSemanticsDebuggerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_semanticsDebugger.funName] = _semanticsDebugger;
   return m;
 }
+
 var _semanticsDebugger = MXFunctionInvoke(
-    "SemanticsDebugger",
-    (
-      {
-      Key key,
-      Widget child,
-      TextStyle labelStyle = const TextStyle(color: const Color(0xFF000000), fontSize: 10.0, height: 0.8),
-      }
-    ) =>
+  "SemanticsDebugger",
+  ({
+    Key key,
+    Widget child,
+    TextStyle labelStyle = const TextStyle(
+        color: const Color(0xFF000000), fontSize: 10.0, height: 0.8),
+  }) =>
       SemanticsDebugger(
-      key: key,
-      child: child,
-      labelStyle: labelStyle,
-    ),
+    key: key,
+    child: child,
+    labelStyle: labelStyle,
+  ),
+  [
+    "key",
+    "child",
+    "labelStyle",
+  ],
 );

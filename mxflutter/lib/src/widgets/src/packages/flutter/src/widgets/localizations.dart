@@ -15,62 +15,67 @@ import 'package:flutter/src/widgets/binding.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerLocalizationsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_defaultWidgetsLocalizations.funName] = _defaultWidgetsLocalizations;
-  m[_defaultWidgetsLocalizations_delegate.funName] = _defaultWidgetsLocalizations_delegate;
+  m[_defaultWidgetsLocalizations_delegate.funName] =
+      _defaultWidgetsLocalizations_delegate;
   m[_localizations.funName] = _localizations;
   m[_localizations_override.funName] = _localizations_override;
   return m;
 }
+
 var _defaultWidgetsLocalizations = MXFunctionInvoke(
-    "DefaultWidgetsLocalizations",
-    (
-    ) =>
-      DefaultWidgetsLocalizations(
-    ),
+  "DefaultWidgetsLocalizations",
+  () => DefaultWidgetsLocalizations(),
+  [],
 );
 var _defaultWidgetsLocalizations_delegate = MXFunctionInvoke(
-  "DefaultWidgetsLocalizations.delegate",
-    (
-    ) =>
-      DefaultWidgetsLocalizations.delegate
-);
+    "DefaultWidgetsLocalizations.delegate",
+    () => DefaultWidgetsLocalizations.delegate);
 var _localizations = MXFunctionInvoke(
-    "Localizations",
-    (
-      {
-      Key key,
-      Locale locale,
-      dynamic delegates,
-      Widget child,
-      }
-    ) =>
+  "Localizations",
+  ({
+    Key key,
+    Locale locale,
+    dynamic delegates,
+    Widget child,
+  }) =>
       Localizations(
-      key: key,
-      locale: locale,
-      delegates: toListT<LocalizationsDelegate<dynamic>>(delegates),
-      child: child,
-    ),
+    key: key,
+    locale: locale,
+    delegates: toListT<LocalizationsDelegate<dynamic>>(delegates),
+    child: child,
+  ),
+  [
+    "key",
+    "locale",
+    "delegates",
+    "child",
+  ],
 );
 var _localizations_override = MXFunctionInvoke(
   "Localizations.override",
-    (
-      {
-      Key key,
-      BuildContext context,
-      Locale locale,
-      dynamic delegates,
-      Widget child,
-      }
-    ) =>
+  ({
+    Key key,
+    BuildContext context,
+    Locale locale,
+    dynamic delegates,
+    Widget child,
+  }) =>
       Localizations.override(
-      key: key,
-      context: context,
-      locale: locale,
-      delegates: toListT<LocalizationsDelegate<dynamic>>(delegates),
-      child: child,
-    ),
+    key: key,
+    context: context,
+    locale: locale,
+    delegates: toListT<LocalizationsDelegate<dynamic>>(delegates),
+    child: child,
+  ),
+  [
+    "key",
+    "context",
+    "locale",
+    "delegates",
+    "child",
+  ],
 );

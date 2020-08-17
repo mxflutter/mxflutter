@@ -12,7 +12,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/overscroll_indicator.dart';
 import 'package:flutter/src/widgets/scroll_physics.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollConfigurationSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,25 +19,27 @@ Map<String, MXFunctionInvoke> registerScrollConfigurationSeries() {
   m[_scrollConfiguration.funName] = _scrollConfiguration;
   return m;
 }
+
 var _scrollBehavior = MXFunctionInvoke(
-    "ScrollBehavior",
-    (
-    ) =>
-      ScrollBehavior(
-    ),
+  "ScrollBehavior",
+  () => ScrollBehavior(),
+  [],
 );
 var _scrollConfiguration = MXFunctionInvoke(
-    "ScrollConfiguration",
-    (
-      {
-      Key key,
-      ScrollBehavior behavior,
-      Widget child,
-      }
-    ) =>
+  "ScrollConfiguration",
+  ({
+    Key key,
+    ScrollBehavior behavior,
+    Widget child,
+  }) =>
       ScrollConfiguration(
-      key: key,
-      behavior: behavior,
-      child: child,
-    ),
+    key: key,
+    behavior: behavior,
+    child: child,
+  ),
+  [
+    "key",
+    "behavior",
+    "child",
+  ],
 );

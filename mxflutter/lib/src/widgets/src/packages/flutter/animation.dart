@@ -13,7 +13,6 @@ import 'src/animation/listener_helpers.dart';
 import 'src/animation/tween.dart';
 import 'src/animation/tween_sequence.dart';
 
-
 Map<String, MXFunctionInvoke> registerAnimationLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerAnimationSeries());

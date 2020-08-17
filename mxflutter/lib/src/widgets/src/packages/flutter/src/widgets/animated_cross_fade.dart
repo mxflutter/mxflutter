@@ -13,7 +13,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 import 'package:flutter/src/widgets/transitions.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedCrossFadeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -21,48 +20,61 @@ Map<String, MXFunctionInvoke> registerAnimatedCrossFadeSeries() {
   m[_animatedCrossFade.funName] = _animatedCrossFade;
   return m;
 }
+
 var _crossFadeState = MXFunctionInvoke(
     "CrossFadeState",
     ({String name, int index}) => MXCrossFadeState.parse(name, index),
-  );
+    ["name", "index"]);
 var _animatedCrossFade = MXFunctionInvoke(
-    "AnimatedCrossFade",
-    (
-      {
-      Key key,
-      Widget firstChild,
-      Widget secondChild,
-      Curve firstCurve = Curves.linear,
-      Curve secondCurve = Curves.linear,
-      Curve sizeCurve = Curves.linear,
-      AlignmentGeometry alignment = Alignment.topCenter,
-      CrossFadeState crossFadeState,
-      Duration duration,
-      Duration reverseDuration,
-      dynamic layoutBuilder = AnimatedCrossFade.defaultLayoutBuilder,
-      }
-    ) =>
+  "AnimatedCrossFade",
+  ({
+    Key key,
+    Widget firstChild,
+    Widget secondChild,
+    Curve firstCurve = Curves.linear,
+    Curve secondCurve = Curves.linear,
+    Curve sizeCurve = Curves.linear,
+    AlignmentGeometry alignment = Alignment.topCenter,
+    CrossFadeState crossFadeState,
+    Duration duration,
+    Duration reverseDuration,
+    dynamic layoutBuilder = AnimatedCrossFade.defaultLayoutBuilder,
+  }) =>
       AnimatedCrossFade(
-      key: key,
-      firstChild: firstChild,
-      secondChild: secondChild,
-      firstCurve: firstCurve,
-      secondCurve: secondCurve,
-      sizeCurve: sizeCurve,
-      alignment: alignment,
-      crossFadeState: crossFadeState,
-      duration: duration,
-      reverseDuration: reverseDuration,
-      layoutBuilder: null,
-    ),
+    key: key,
+    firstChild: firstChild,
+    secondChild: secondChild,
+    firstCurve: firstCurve,
+    secondCurve: secondCurve,
+    sizeCurve: sizeCurve,
+    alignment: alignment,
+    crossFadeState: crossFadeState,
+    duration: duration,
+    reverseDuration: reverseDuration,
+    layoutBuilder: null,
+  ),
+  [
+    "key",
+    "firstChild",
+    "secondChild",
+    "firstCurve",
+    "secondCurve",
+    "sizeCurve",
+    "alignment",
+    "crossFadeState",
+    "duration",
+    "reverseDuration",
+    "layoutBuilder",
+  ],
 );
+
 class MXCrossFadeState {
   static CrossFadeState parse(String name, int index) {
-    switch(name) {
-      case 'CrossFadeState.showFirst': 
-       return CrossFadeState.showFirst;
-      case 'CrossFadeState.showSecond': 
-       return CrossFadeState.showSecond;
+    switch (name) {
+      case 'CrossFadeState.showFirst':
+        return CrossFadeState.showFirst;
+      case 'CrossFadeState.showSecond':
+        return CrossFadeState.showSecond;
     }
     return null;
   }

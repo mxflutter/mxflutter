@@ -20,7 +20,6 @@ import 'package:flutter/src/painting/text_painter.dart';
 import 'package:flutter/src/painting/text_span.dart';
 import 'package:flutter/src/painting/text_style.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFlutterLogoSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -28,38 +27,45 @@ Map<String, MXFunctionInvoke> registerFlutterLogoSeries() {
   m[_flutterLogoDecoration.funName] = _flutterLogoDecoration;
   return m;
 }
+
 var _flutterLogoStyle = MXFunctionInvoke(
     "FlutterLogoStyle",
     ({String name, int index}) => MXFlutterLogoStyle.parse(name, index),
-  );
+    ["name", "index"]);
 var _flutterLogoDecoration = MXFunctionInvoke(
-    "FlutterLogoDecoration",
-    (
-      {
-      ui.Color lightColor = const Color(0xFF42A5F5),
-      ui.Color darkColor = const Color(0xFF0D47A1),
-      ui.Color textColor = const Color(0xFF616161),
-      FlutterLogoStyle style = FlutterLogoStyle.markOnly,
-      EdgeInsets margin = EdgeInsets.zero,
-      }
-    ) =>
+  "FlutterLogoDecoration",
+  ({
+    ui.Color lightColor = const Color(0xFF42A5F5),
+    ui.Color darkColor = const Color(0xFF0D47A1),
+    ui.Color textColor = const Color(0xFF616161),
+    FlutterLogoStyle style = FlutterLogoStyle.markOnly,
+    EdgeInsets margin = EdgeInsets.zero,
+  }) =>
       FlutterLogoDecoration(
-      lightColor: lightColor,
-      darkColor: darkColor,
-      textColor: textColor,
-      style: style,
-      margin: margin,
-    ),
+    lightColor: lightColor,
+    darkColor: darkColor,
+    textColor: textColor,
+    style: style,
+    margin: margin,
+  ),
+  [
+    "lightColor",
+    "darkColor",
+    "textColor",
+    "style",
+    "margin",
+  ],
 );
+
 class MXFlutterLogoStyle {
   static FlutterLogoStyle parse(String name, int index) {
-    switch(name) {
-      case 'FlutterLogoStyle.markOnly': 
-       return FlutterLogoStyle.markOnly;
-      case 'FlutterLogoStyle.horizontal': 
-       return FlutterLogoStyle.horizontal;
-      case 'FlutterLogoStyle.stacked': 
-       return FlutterLogoStyle.stacked;
+    switch (name) {
+      case 'FlutterLogoStyle.markOnly':
+        return FlutterLogoStyle.markOnly;
+      case 'FlutterLogoStyle.horizontal':
+        return FlutterLogoStyle.horizontal;
+      case 'FlutterLogoStyle.stacked':
+        return FlutterLogoStyle.stacked;
     }
     return null;
   }

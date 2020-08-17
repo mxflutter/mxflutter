@@ -12,21 +12,22 @@ import 'package:flutter/src/painting/basic_types.dart';
 import 'package:flutter/src/painting/borders.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCircleBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_circleBorder.funName] = _circleBorder;
   return m;
 }
+
 var _circleBorder = MXFunctionInvoke(
-    "CircleBorder",
-    (
-      {
-      BorderSide side = BorderSide.none,
-      }
-    ) =>
+  "CircleBorder",
+  ({
+    BorderSide side = BorderSide.none,
+  }) =>
       CircleBorder(
-      side: side,
-    ),
+    side: side,
+  ),
+  [
+    "side",
+  ],
 );

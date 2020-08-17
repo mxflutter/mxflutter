@@ -11,7 +11,6 @@ import 'src/semantics/semantics.dart';
 import 'src/semantics/semantics_service.dart';
 import 'src/semantics/semantics_event.dart';
 
-
 Map<String, MXFunctionInvoke> registerSemanticsLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerBindingSeries());

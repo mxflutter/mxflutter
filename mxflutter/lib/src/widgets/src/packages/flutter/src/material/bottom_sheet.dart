@@ -20,41 +20,54 @@ import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/scaffold.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBottomSheetSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_bottomSheet.funName] = _bottomSheet;
   return m;
 }
+
 var _bottomSheet = MXFunctionInvoke(
-    "BottomSheet",
-    (
-      {
-      Key key,
-      AnimationController animationController,
-      bool enableDrag = true,
-      dynamic onDragStart,
-      dynamic onDragEnd,
-      Color backgroundColor,
-      dynamic elevation,
-      ShapeBorder shape,
-      Clip clipBehavior,
-      dynamic onClosing,
-      dynamic builder,
-      }
-    ) =>
+  "BottomSheet",
+  ({
+    Key key,
+    AnimationController animationController,
+    bool enableDrag = true,
+    dynamic onDragStart,
+    dynamic onDragEnd,
+    Color backgroundColor,
+    dynamic elevation,
+    ShapeBorder shape,
+    Clip clipBehavior,
+    dynamic onClosing,
+    dynamic builder,
+  }) =>
       BottomSheet(
-      key: key,
-      animationController: animationController,
-      enableDrag: enableDrag,
-      onDragStart: createValueChangedGenericClosure<DragStartDetails>(_bottomSheet.buildOwner, onDragStart),
-      onDragEnd: createValueChangedGenericClosure<DragEndDetails>(_bottomSheet.buildOwner, onDragEnd),
-      backgroundColor: backgroundColor,
-      elevation: elevation?.toDouble(),
-      shape: shape,
-      clipBehavior: clipBehavior,
-      onClosing: createVoidCallbackClosure(_bottomSheet.buildOwner, onClosing),
-      builder: null,
-    ),
+    key: key,
+    animationController: animationController,
+    enableDrag: enableDrag,
+    onDragStart: createValueChangedGenericClosure<DragStartDetails>(
+        _bottomSheet.buildOwner, onDragStart),
+    onDragEnd: createValueChangedGenericClosure<DragEndDetails>(
+        _bottomSheet.buildOwner, onDragEnd),
+    backgroundColor: backgroundColor,
+    elevation: elevation?.toDouble(),
+    shape: shape,
+    clipBehavior: clipBehavior,
+    onClosing: createVoidCallbackClosure(_bottomSheet.buildOwner, onClosing),
+    builder: null,
+  ),
+  [
+    "key",
+    "animationController",
+    "enableDrag",
+    "onDragStart",
+    "onDragEnd",
+    "backgroundColor",
+    "elevation",
+    "shape",
+    "clipBehavior",
+    "onClosing",
+    "builder",
+  ],
 );

@@ -20,12 +20,21 @@ Map<String, MXFunctionInvoke> registerSmartRefresherSeries() {
   m[_loadStyle.funName] = _loadStyle;
   m[_iconPosition.funName] = _iconPosition;
   m[_refreshStatus.funName] = _refreshStatus;
+  m[_refreshController_refreshCompleted.funName] = _refreshController_refreshCompleted;
+  m[_refreshController_refreshFailed.funName] = _refreshController_refreshFailed;
+  m[_refreshController_refreshToIdle.funName] = _refreshController_refreshToIdle;
+  m[_refreshController_loadComplete.funName] = _refreshController_loadComplete;
+  m[_refreshController_loadFailed.funName] = _refreshController_loadFailed;
+  m[_refreshController_loadNoData.funName] = _refreshController_loadNoData;
+  m[_refreshController_resetNoData.funName] = _refreshController_resetNoData;
+  m[_refreshController_dispose.funName] = _refreshController_dispose;
   return m;
 }
 
 var _loadStatus = MXFunctionInvoke(
   "LoadStatus",
   ({String name, int index}) => MXLoadStatus.parse(name, index),
+  ["name", "index"]
 );
 
 class MXLoadStatus {
@@ -109,6 +118,31 @@ var _refreshConfiguration = MXFunctionInvoke(
     topHitBoundary: topHitBoundary,
     bottomHitBoundary: bottomHitBoundary,
   ),
+  [
+    "child",
+    "headerBuilder",
+    "footerBuilder",
+    "dragSpeedRatio",
+    "shouldFooterFollowWhenNotFull",
+    "enableScrollWhenTwoLevel",
+    "enableLoadingWhenFailed",
+    "enableBallisticRefresh",
+    "springDescription",
+    "enableScrollWhenRefreshCompleted",
+    "enableLoadingWhenNoData",
+    "twiceTriggerDistance",
+    "closeTwoLevelDistance",
+    "skipCanRefresh",
+    "autoLoad",
+    "maxOverScrollExtent",
+    "enableBallisticLoad",
+    "maxUnderScrollExtent",
+    "headerTriggerDistance",
+    "footerTriggerDistance",
+    "hideFooterWhenNotFull",
+    "topHitBoundary",
+    "bottomHitBoundary",
+  ]
 );
 
 var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
@@ -160,11 +194,35 @@ var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
     scrollDirection: scrollDirection,
     scrollController: scrollController,
   );
-});
+},
+  [
+    "key",
+    "controller",
+    "child",
+    "header",
+    "footer",
+    "enablePullDown",
+    "enablePullUp",
+    "enableTwoLevel",
+    "onRefresh",
+    "onLoading",
+    "onTwoLevel",
+    "onOffsetChange",
+    "dragStartBehavior",
+    "primary",
+    "cacheExtent",
+    "semanticChildCount",
+    "reverse",
+    "physics",
+    "scrollDirection",
+    "scrollController",
+  ],
+);
 
 var _loadStyle = MXFunctionInvoke(
   "LoadStatus",
   ({String name, int index}) => MXLoadStyle.parse(name, index),
+  ["name", "index"]
 );
 
 class MXLoadStyle {
@@ -184,6 +242,7 @@ class MXLoadStyle {
 var _iconPosition = MXFunctionInvoke(
   "IconPosition",
   ({String name, int index}) => MXIconPosition.parse(name, index),
+  ["name", "index"]
 );
 
 class MXIconPosition {
@@ -205,6 +264,7 @@ class MXIconPosition {
 var _refreshStatus = MXFunctionInvoke(
   "RefreshStatus",
   ({String name, int index}) => MXRefreshStatus.parse(name, index),
+  ["name", "index"]
 );
 
 class MXRefreshStatus {
@@ -245,4 +305,105 @@ var _refreshController = MXFunctionInvoke(
     initialRefreshStatus: initialRefreshStatus,
     initialLoadStatus: initialLoadStatus,
   ),
+  [
+    "initialRefresh",
+    "initialRefreshStatus",
+    "initialLoadStatus",
+    "refreshCompleted",
+    "refreshFailed",
+    "refreshToIdle",
+    "loadComplete",
+    "loadFailed",
+    "loadNoData",
+    "resetNoData",
+    "dispose",
+  ],
+);
+
+var _refreshController_refreshCompleted = MXFunctionInvoke(
+  "RefreshController#refreshCompleted",
+  ({
+    RefreshController mirrorObj,
+  }) =>
+      mirrorObj.refreshCompleted(),
+  [
+    "mirrorObj",
+  ],
+);
+
+var _refreshController_refreshFailed = MXFunctionInvoke(
+  "RefreshController#refreshFailed",
+  ({
+    RefreshController mirrorObj,
+  }) =>
+      mirrorObj.refreshFailed(),
+  [
+    "mirrorObj",
+  ],
+);
+
+var _refreshController_refreshToIdle = MXFunctionInvoke(
+  "RefreshController#refreshToIdle",
+  ({
+    RefreshController mirrorObj,
+  }) =>
+      mirrorObj.refreshToIdle(),
+  [
+    "mirrorObj",
+  ],
+);
+
+var _refreshController_loadComplete = MXFunctionInvoke(
+  "RefreshController#loadComplete",
+  ({
+    RefreshController mirrorObj,
+  }) =>
+      mirrorObj.loadComplete(),
+  [
+    "mirrorObj",
+  ],
+);
+
+var _refreshController_loadFailed = MXFunctionInvoke(
+  "RefreshController#loadFailed",
+  ({
+    RefreshController mirrorObj,
+  }) =>
+      mirrorObj.loadFailed(),
+  [
+    "mirrorObj",
+  ],
+);
+
+var _refreshController_loadNoData = MXFunctionInvoke(
+  "RefreshController#loadNoData",
+  ({
+    RefreshController mirrorObj,
+  }) =>
+      mirrorObj.loadNoData(),
+  [
+    "mirrorObj",
+  ],
+);
+
+var _refreshController_resetNoData = MXFunctionInvoke(
+  "RefreshController#resetNoData",
+  ({
+    RefreshController mirrorObj,
+  }) =>
+      mirrorObj.resetNoData(),
+  [
+    "mirrorObj",
+  ],
+);
+
+var _refreshController_dispose = MXFunctionInvoke(
+  "RefreshController#dispose",
+  ({
+    RefreshController mirrorObj,
+  }) =>
+      mirrorObj.dispose(),
+  [
+    "mirrorObj",
+  ],
 );

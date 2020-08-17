@@ -17,7 +17,6 @@ import 'package:flutter/src/material/snack_bar_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSnackBarSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -26,73 +25,90 @@ Map<String, MXFunctionInvoke> registerSnackBarSeries() {
   m[_snackBar.funName] = _snackBar;
   return m;
 }
+
 var _snackBarClosedReason = MXFunctionInvoke(
     "SnackBarClosedReason",
     ({String name, int index}) => MXSnackBarClosedReason.parse(name, index),
-  );
+    ["name", "index"]);
 var _snackBarAction = MXFunctionInvoke(
-    "SnackBarAction",
-    (
-      {
-      Key key,
-      Color textColor,
-      Color disabledTextColor,
-      String label,
-      dynamic onPressed,
-      }
-    ) =>
+  "SnackBarAction",
+  ({
+    Key key,
+    Color textColor,
+    Color disabledTextColor,
+    String label,
+    dynamic onPressed,
+  }) =>
       SnackBarAction(
-      key: key,
-      textColor: textColor,
-      disabledTextColor: disabledTextColor,
-      label: label,
-      onPressed: createVoidCallbackClosure(_snackBarAction.buildOwner, onPressed),
-    ),
+    key: key,
+    textColor: textColor,
+    disabledTextColor: disabledTextColor,
+    label: label,
+    onPressed: createVoidCallbackClosure(_snackBarAction.buildOwner, onPressed),
+  ),
+  [
+    "key",
+    "textColor",
+    "disabledTextColor",
+    "label",
+    "onPressed",
+  ],
 );
 var _snackBar = MXFunctionInvoke(
-    "SnackBar",
-    (
-      {
-      Key key,
-      Widget content,
-      Color backgroundColor,
-      dynamic elevation,
-      ShapeBorder shape,
-      SnackBarBehavior behavior,
-      SnackBarAction action,
-      Duration duration = const Duration(milliseconds: 4000),
-      Animation<double> animation,
-      dynamic onVisible,
-      }
-    ) =>
+  "SnackBar",
+  ({
+    Key key,
+    Widget content,
+    Color backgroundColor,
+    dynamic elevation,
+    ShapeBorder shape,
+    SnackBarBehavior behavior,
+    SnackBarAction action,
+    Duration duration = const Duration(milliseconds: 4000),
+    Animation<double> animation,
+    dynamic onVisible,
+  }) =>
       SnackBar(
-      key: key,
-      content: content,
-      backgroundColor: backgroundColor,
-      elevation: elevation?.toDouble(),
-      shape: shape,
-      behavior: behavior,
-      action: action,
-      duration: duration,
-      animation: animation,
-      onVisible: createVoidCallbackClosure(_snackBar.buildOwner, onVisible),
-    ),
+    key: key,
+    content: content,
+    backgroundColor: backgroundColor,
+    elevation: elevation?.toDouble(),
+    shape: shape,
+    behavior: behavior,
+    action: action,
+    duration: duration,
+    animation: animation,
+    onVisible: createVoidCallbackClosure(_snackBar.buildOwner, onVisible),
+  ),
+  [
+    "key",
+    "content",
+    "backgroundColor",
+    "elevation",
+    "shape",
+    "behavior",
+    "action",
+    "duration",
+    "animation",
+    "onVisible",
+  ],
 );
+
 class MXSnackBarClosedReason {
   static SnackBarClosedReason parse(String name, int index) {
-    switch(name) {
-      case 'SnackBarClosedReason.action': 
-       return SnackBarClosedReason.action;
-      case 'SnackBarClosedReason.dismiss': 
-       return SnackBarClosedReason.dismiss;
-      case 'SnackBarClosedReason.swipe': 
-       return SnackBarClosedReason.swipe;
-      case 'SnackBarClosedReason.hide': 
-       return SnackBarClosedReason.hide;
-      case 'SnackBarClosedReason.remove': 
-       return SnackBarClosedReason.remove;
-      case 'SnackBarClosedReason.timeout': 
-       return SnackBarClosedReason.timeout;
+    switch (name) {
+      case 'SnackBarClosedReason.action':
+        return SnackBarClosedReason.action;
+      case 'SnackBarClosedReason.dismiss':
+        return SnackBarClosedReason.dismiss;
+      case 'SnackBarClosedReason.swipe':
+        return SnackBarClosedReason.swipe;
+      case 'SnackBarClosedReason.hide':
+        return SnackBarClosedReason.hide;
+      case 'SnackBarClosedReason.remove':
+        return SnackBarClosedReason.remove;
+      case 'SnackBarClosedReason.timeout':
+        return SnackBarClosedReason.timeout;
     }
     return null;
   }

@@ -12,7 +12,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/ink_well.dart';
 import 'package:flutter/src/material/material.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInkRippleSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,40 +19,48 @@ Map<String, MXFunctionInvoke> registerInkRippleSeries() {
   m[_inkRipple_splashFactory.funName] = _inkRipple_splashFactory;
   return m;
 }
+
 var _inkRipple = MXFunctionInvoke(
-    "InkRipple",
-    (
-      {
-      MaterialInkController controller,
-      RenderBox referenceBox,
-      Offset position,
-      Color color,
-      TextDirection textDirection,
-      bool containedInkWell = false,
-      dynamic rectCallback,
-      BorderRadius borderRadius,
-      ShapeBorder customBorder,
-      dynamic radius,
-      dynamic onRemoved,
-      }
-    ) =>
+  "InkRipple",
+  ({
+    MaterialInkController controller,
+    RenderBox referenceBox,
+    Offset position,
+    Color color,
+    TextDirection textDirection,
+    bool containedInkWell = false,
+    dynamic rectCallback,
+    BorderRadius borderRadius,
+    ShapeBorder customBorder,
+    dynamic radius,
+    dynamic onRemoved,
+  }) =>
       InkRipple(
-      controller: controller,
-      referenceBox: referenceBox,
-      position: position,
-      color: color,
-      textDirection: textDirection,
-      containedInkWell: containedInkWell,
-      rectCallback: null,
-      borderRadius: borderRadius,
-      customBorder: customBorder,
-      radius: radius?.toDouble(),
-      onRemoved: createVoidCallbackClosure(_inkRipple.buildOwner, onRemoved),
-    ),
+    controller: controller,
+    referenceBox: referenceBox,
+    position: position,
+    color: color,
+    textDirection: textDirection,
+    containedInkWell: containedInkWell,
+    rectCallback: null,
+    borderRadius: borderRadius,
+    customBorder: customBorder,
+    radius: radius?.toDouble(),
+    onRemoved: createVoidCallbackClosure(_inkRipple.buildOwner, onRemoved),
+  ),
+  [
+    "controller",
+    "referenceBox",
+    "position",
+    "color",
+    "textDirection",
+    "containedInkWell",
+    "rectCallback",
+    "borderRadius",
+    "customBorder",
+    "radius",
+    "onRemoved",
+  ],
 );
-var _inkRipple_splashFactory = MXFunctionInvoke(
-  "InkRipple.splashFactory",
-    (
-    ) =>
-      InkRipple.splashFactory
-);
+var _inkRipple_splashFactory =
+    MXFunctionInvoke("InkRipple.splashFactory", () => InkRipple.splashFactory);

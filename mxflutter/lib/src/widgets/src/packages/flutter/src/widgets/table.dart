@@ -14,7 +14,6 @@ import 'package:flutter/src/widgets/debug.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/image.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTableSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,58 +22,74 @@ Map<String, MXFunctionInvoke> registerTableSeries() {
   m[_tableCell.funName] = _tableCell;
   return m;
 }
+
 var _tableRow = MXFunctionInvoke(
-    "TableRow",
-    (
-      {
-      LocalKey key,
-      Decoration decoration,
-      dynamic children,
-      }
-    ) =>
+  "TableRow",
+  ({
+    LocalKey key,
+    Decoration decoration,
+    dynamic children,
+  }) =>
       TableRow(
-      key: key,
-      decoration: decoration,
-      children: toListT<Widget>(children),
-    ),
+    key: key,
+    decoration: decoration,
+    children: toListT<Widget>(children),
+  ),
+  [
+    "key",
+    "decoration",
+    "children",
+  ],
 );
 var _table = MXFunctionInvoke(
-    "Table",
-    (
-      {
-      Key key,
-      dynamic children = const <TableRow>[],
-      dynamic columnWidths,
-      TableColumnWidth defaultColumnWidth = const FlexColumnWidth(1.0),
-      TextDirection textDirection,
-      TableBorder border,
-      TableCellVerticalAlignment defaultVerticalAlignment = TableCellVerticalAlignment.top,
-      TextBaseline textBaseline,
-      }
-    ) =>
+  "Table",
+  ({
+    Key key,
+    dynamic children = const <TableRow>[],
+    dynamic columnWidths,
+    TableColumnWidth defaultColumnWidth = const FlexColumnWidth(1.0),
+    TextDirection textDirection,
+    TableBorder border,
+    TableCellVerticalAlignment defaultVerticalAlignment =
+        TableCellVerticalAlignment.top,
+    TextBaseline textBaseline,
+  }) =>
       Table(
-      key: key,
-      children: toListT<TableRow>(children),
-      columnWidths: toMapT<int, TableColumnWidth>(columnWidths),
-      defaultColumnWidth: defaultColumnWidth,
-      textDirection: textDirection,
-      border: border,
-      defaultVerticalAlignment: defaultVerticalAlignment,
-      textBaseline: textBaseline,
-    ),
+    key: key,
+    children: toListT<TableRow>(children),
+    columnWidths: toMapT<int, TableColumnWidth>(columnWidths),
+    defaultColumnWidth: defaultColumnWidth,
+    textDirection: textDirection,
+    border: border,
+    defaultVerticalAlignment: defaultVerticalAlignment,
+    textBaseline: textBaseline,
+  ),
+  [
+    "key",
+    "children",
+    "columnWidths",
+    "defaultColumnWidth",
+    "textDirection",
+    "border",
+    "defaultVerticalAlignment",
+    "textBaseline",
+  ],
 );
 var _tableCell = MXFunctionInvoke(
-    "TableCell",
-    (
-      {
-      Key key,
-      TableCellVerticalAlignment verticalAlignment,
-      Widget child,
-      }
-    ) =>
+  "TableCell",
+  ({
+    Key key,
+    TableCellVerticalAlignment verticalAlignment,
+    Widget child,
+  }) =>
       TableCell(
-      key: key,
-      verticalAlignment: verticalAlignment,
-      child: child,
-    ),
+    key: key,
+    verticalAlignment: verticalAlignment,
+    child: child,
+  ),
+  [
+    "key",
+    "verticalAlignment",
+    "child",
+  ],
 );

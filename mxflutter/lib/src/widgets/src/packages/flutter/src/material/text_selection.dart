@@ -18,7 +18,6 @@ import 'package:flutter/src/material/material.dart';
 import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextSelectionSeries() {
   var m = <String, MXFunctionInvoke>{};

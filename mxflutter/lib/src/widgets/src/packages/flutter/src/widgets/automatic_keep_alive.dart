@@ -14,7 +14,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/notification_listener.dart';
 import 'package:flutter/src/widgets/sliver.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAutomaticKeepAliveSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,34 +22,36 @@ Map<String, MXFunctionInvoke> registerAutomaticKeepAliveSeries() {
   m[_keepAliveHandle.funName] = _keepAliveHandle;
   return m;
 }
+
 var _automaticKeepAlive = MXFunctionInvoke(
-    "AutomaticKeepAlive",
-    (
-      {
-      Key key,
-      Widget child,
-      }
-    ) =>
+  "AutomaticKeepAlive",
+  ({
+    Key key,
+    Widget child,
+  }) =>
       AutomaticKeepAlive(
-      key: key,
-      child: child,
-    ),
+    key: key,
+    child: child,
+  ),
+  [
+    "key",
+    "child",
+  ],
 );
 var _keepAliveNotification = MXFunctionInvoke(
-    "KeepAliveNotification",
-    (
-      {
-      dynamic handle,
-      }
-    ) =>
+  "KeepAliveNotification",
+  ({
+    dynamic handle,
+  }) =>
       KeepAliveNotification(
-      handle,
-    ),
+    handle,
+  ),
+  [
+    "handle",
+  ],
 );
 var _keepAliveHandle = MXFunctionInvoke(
-    "KeepAliveHandle",
-    (
-    ) =>
-      KeepAliveHandle(
-    ),
+  "KeepAliveHandle",
+  () => KeepAliveHandle(),
+  [],
 );

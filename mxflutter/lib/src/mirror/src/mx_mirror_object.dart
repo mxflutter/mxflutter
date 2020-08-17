@@ -8,7 +8,7 @@ class MXMirrorObject {
   static MXMirrorObject _instance;
   
   // mirrorId到Object的映射表
-  var _id2ObjectMap = {};
+  Map<String,dynamic> _id2ObjectMap = {};
 
   static MXMirrorObject getInstance() {
     if (_instance == null) {
@@ -23,7 +23,7 @@ class MXMirrorObject {
 
   MXMirrorObject._();
 
-  /// 获取irrorID
+  /// 获取mirrorID
   String mirrorID(Map jsonMap) {
     var mirrorID = jsonMap["mirrorID"];
     return mirrorID;

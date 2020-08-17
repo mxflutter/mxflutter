@@ -16,7 +16,6 @@ import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/rendering/debug.dart';
 import 'package:flutter/src/rendering/mouse_tracking.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerLayerSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -44,287 +43,328 @@ Map<String, MXFunctionInvoke> registerLayerSeries() {
   m[_annotatedRegionLayer.funName] = _annotatedRegionLayer;
   return m;
 }
+
 var _annotationEntry = MXFunctionInvoke(
-    "AnnotationEntry",
-    (
-      {
-      dynamic annotation,
-      ui.Offset localPosition,
-      }
-    ) =>
+  "AnnotationEntry",
+  ({
+    dynamic annotation,
+    ui.Offset localPosition,
+  }) =>
       AnnotationEntry(
-      annotation: annotation,
-      localPosition: localPosition,
-    ),
+    annotation: annotation,
+    localPosition: localPosition,
+  ),
+  [
+    "annotation",
+    "localPosition",
+  ],
 );
 var _annotationResult = MXFunctionInvoke(
-    "AnnotationResult",
-    (
-    ) =>
-      AnnotationResult(
-    ),
+  "AnnotationResult",
+  () => AnnotationResult(),
+  [],
 );
 var _pictureLayer = MXFunctionInvoke(
-    "PictureLayer",
-    (
-      {
-      ui.Rect canvasBounds,
-      }
-    ) =>
+  "PictureLayer",
+  ({
+    ui.Rect canvasBounds,
+  }) =>
       PictureLayer(
-      canvasBounds,
-    ),
+    canvasBounds,
+  ),
+  [
+    "canvasBounds",
+  ],
 );
 var _textureLayer = MXFunctionInvoke(
-    "TextureLayer",
-    (
-      {
-      ui.Rect rect,
-      int textureId,
-      bool freeze = false,
-      }
-    ) =>
+  "TextureLayer",
+  ({
+    ui.Rect rect,
+    int textureId,
+    bool freeze = false,
+  }) =>
       TextureLayer(
-      rect: rect,
-      textureId: textureId,
-      freeze: freeze,
-    ),
+    rect: rect,
+    textureId: textureId,
+    freeze: freeze,
+  ),
+  [
+    "rect",
+    "textureId",
+    "freeze",
+  ],
 );
 var _platformViewLayer = MXFunctionInvoke(
-    "PlatformViewLayer",
-    (
-      {
-      ui.Rect rect,
-      int viewId,
-      MouseTrackerAnnotation hoverAnnotation,
-      }
-    ) =>
+  "PlatformViewLayer",
+  ({
+    ui.Rect rect,
+    int viewId,
+    MouseTrackerAnnotation hoverAnnotation,
+  }) =>
       PlatformViewLayer(
-      rect: rect,
-      viewId: viewId,
-      hoverAnnotation: hoverAnnotation,
-    ),
+    rect: rect,
+    viewId: viewId,
+    hoverAnnotation: hoverAnnotation,
+  ),
+  [
+    "rect",
+    "viewId",
+    "hoverAnnotation",
+  ],
 );
 var _performanceOverlayLayer = MXFunctionInvoke(
-    "PerformanceOverlayLayer",
-    (
-      {
-      ui.Rect overlayRect,
-      int optionsMask,
-      int rasterizerThreshold,
-      bool checkerboardRasterCacheImages,
-      bool checkerboardOffscreenLayers,
-      }
-    ) =>
+  "PerformanceOverlayLayer",
+  ({
+    ui.Rect overlayRect,
+    int optionsMask,
+    int rasterizerThreshold,
+    bool checkerboardRasterCacheImages,
+    bool checkerboardOffscreenLayers,
+  }) =>
       PerformanceOverlayLayer(
-      overlayRect: overlayRect,
-      optionsMask: optionsMask,
-      rasterizerThreshold: rasterizerThreshold,
-      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
-    ),
+    overlayRect: overlayRect,
+    optionsMask: optionsMask,
+    rasterizerThreshold: rasterizerThreshold,
+    checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+    checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+  ),
+  [
+    "overlayRect",
+    "optionsMask",
+    "rasterizerThreshold",
+    "checkerboardRasterCacheImages",
+    "checkerboardOffscreenLayers",
+  ],
 );
 var _containerLayer = MXFunctionInvoke(
-    "ContainerLayer",
-    (
-    ) =>
-      ContainerLayer(
-    ),
+  "ContainerLayer",
+  () => ContainerLayer(),
+  [],
 );
 var _offsetLayer = MXFunctionInvoke(
-    "OffsetLayer",
-    (
-      {
-      ui.Offset offset = Offset.zero,
-      }
-    ) =>
+  "OffsetLayer",
+  ({
+    ui.Offset offset = Offset.zero,
+  }) =>
       OffsetLayer(
-      offset: offset,
-    ),
+    offset: offset,
+  ),
+  [
+    "offset",
+  ],
 );
 var _clipRectLayer = MXFunctionInvoke(
-    "ClipRectLayer",
-    (
-      {
-      ui.Rect clipRect,
-      ui.Clip clipBehavior = Clip.hardEdge,
-      }
-    ) =>
+  "ClipRectLayer",
+  ({
+    ui.Rect clipRect,
+    ui.Clip clipBehavior = Clip.hardEdge,
+  }) =>
       ClipRectLayer(
-      clipRect: clipRect,
-      clipBehavior: clipBehavior,
-    ),
+    clipRect: clipRect,
+    clipBehavior: clipBehavior,
+  ),
+  [
+    "clipRect",
+    "clipBehavior",
+  ],
 );
 var _clipRRectLayer = MXFunctionInvoke(
-    "ClipRRectLayer",
-    (
-      {
-      ui.RRect clipRRect,
-      ui.Clip clipBehavior =  Clip.antiAlias,
-      }
-    ) =>
+  "ClipRRectLayer",
+  ({
+    ui.RRect clipRRect,
+    ui.Clip clipBehavior = Clip.antiAlias,
+  }) =>
       ClipRRectLayer(
-      clipRRect: clipRRect,
-      clipBehavior: clipBehavior,
-    ),
+    clipRRect: clipRRect,
+    clipBehavior: clipBehavior,
+  ),
+  [
+    "clipRRect",
+    "clipBehavior",
+  ],
 );
 var _clipPathLayer = MXFunctionInvoke(
-    "ClipPathLayer",
-    (
-      {
-      ui.Path clipPath,
-      ui.Clip clipBehavior =  Clip.antiAlias,
-      }
-    ) =>
+  "ClipPathLayer",
+  ({
+    ui.Path clipPath,
+    ui.Clip clipBehavior = Clip.antiAlias,
+  }) =>
       ClipPathLayer(
-      clipPath: clipPath,
-      clipBehavior: clipBehavior,
-    ),
+    clipPath: clipPath,
+    clipBehavior: clipBehavior,
+  ),
+  [
+    "clipPath",
+    "clipBehavior",
+  ],
 );
 var _colorFilterLayer = MXFunctionInvoke(
-    "ColorFilterLayer",
-    (
-      {
-      ui.ColorFilter colorFilter,
-      }
-    ) =>
+  "ColorFilterLayer",
+  ({
+    ui.ColorFilter colorFilter,
+  }) =>
       ColorFilterLayer(
-      colorFilter: colorFilter,
-    ),
+    colorFilter: colorFilter,
+  ),
+  [
+    "colorFilter",
+  ],
 );
 var _imageFilterLayer = MXFunctionInvoke(
-    "ImageFilterLayer",
-    (
-      {
-      ui.ImageFilter imageFilter,
-      }
-    ) =>
+  "ImageFilterLayer",
+  ({
+    ui.ImageFilter imageFilter,
+  }) =>
       ImageFilterLayer(
-      imageFilter: imageFilter,
-    ),
+    imageFilter: imageFilter,
+  ),
+  [
+    "imageFilter",
+  ],
 );
 var _transformLayer = MXFunctionInvoke(
-    "TransformLayer",
-    (
-      {
-      Matrix4 transform,
-      ui.Offset offset = Offset.zero,
-      }
-    ) =>
+  "TransformLayer",
+  ({
+    Matrix4 transform,
+    ui.Offset offset = Offset.zero,
+  }) =>
       TransformLayer(
-      transform: transform,
-      offset: offset,
-    ),
+    transform: transform,
+    offset: offset,
+  ),
+  [
+    "transform",
+    "offset",
+  ],
 );
 var _opacityLayer = MXFunctionInvoke(
-    "OpacityLayer",
-    (
-      {
-      int alpha,
-      ui.Offset offset = Offset.zero,
-      }
-    ) =>
+  "OpacityLayer",
+  ({
+    int alpha,
+    ui.Offset offset = Offset.zero,
+  }) =>
       OpacityLayer(
-      alpha: alpha,
-      offset: offset,
-    ),
+    alpha: alpha,
+    offset: offset,
+  ),
+  [
+    "alpha",
+    "offset",
+  ],
 );
 var _shaderMaskLayer = MXFunctionInvoke(
-    "ShaderMaskLayer",
-    (
-      {
-      ui.Shader shader,
-      ui.Rect maskRect,
-      ui.BlendMode blendMode,
-      }
-    ) =>
+  "ShaderMaskLayer",
+  ({
+    ui.Shader shader,
+    ui.Rect maskRect,
+    ui.BlendMode blendMode,
+  }) =>
       ShaderMaskLayer(
-      shader: shader,
-      maskRect: maskRect,
-      blendMode: blendMode,
-    ),
+    shader: shader,
+    maskRect: maskRect,
+    blendMode: blendMode,
+  ),
+  [
+    "shader",
+    "maskRect",
+    "blendMode",
+  ],
 );
 var _backdropFilterLayer = MXFunctionInvoke(
-    "BackdropFilterLayer",
-    (
-      {
-      ui.ImageFilter filter,
-      }
-    ) =>
+  "BackdropFilterLayer",
+  ({
+    ui.ImageFilter filter,
+  }) =>
       BackdropFilterLayer(
-      filter: filter,
-    ),
+    filter: filter,
+  ),
+  [
+    "filter",
+  ],
 );
 var _physicalModelLayer = MXFunctionInvoke(
-    "PhysicalModelLayer",
-    (
-      {
-      ui.Path clipPath,
-      ui.Clip clipBehavior =  Clip.none,
-      dynamic elevation,
-      ui.Color color,
-      ui.Color shadowColor,
-      }
-    ) =>
+  "PhysicalModelLayer",
+  ({
+    ui.Path clipPath,
+    ui.Clip clipBehavior = Clip.none,
+    dynamic elevation,
+    ui.Color color,
+    ui.Color shadowColor,
+  }) =>
       PhysicalModelLayer(
-      clipPath: clipPath,
-      clipBehavior: clipBehavior,
-      elevation: elevation?.toDouble(),
-      color: color,
-      shadowColor: shadowColor,
-    ),
+    clipPath: clipPath,
+    clipBehavior: clipBehavior,
+    elevation: elevation?.toDouble(),
+    color: color,
+    shadowColor: shadowColor,
+  ),
+  [
+    "clipPath",
+    "clipBehavior",
+    "elevation",
+    "color",
+    "shadowColor",
+  ],
 );
 var _layerLink = MXFunctionInvoke(
-    "LayerLink",
-    (
-    ) =>
-      LayerLink(
-    ),
+  "LayerLink",
+  () => LayerLink(),
+  [],
 );
 var _leaderLayer = MXFunctionInvoke(
-    "LeaderLayer",
-    (
-      {
-      LayerLink link,
-      ui.Offset offset = Offset.zero,
-      }
-    ) =>
+  "LeaderLayer",
+  ({
+    LayerLink link,
+    ui.Offset offset = Offset.zero,
+  }) =>
       LeaderLayer(
-      link: link,
-      offset: offset,
-    ),
+    link: link,
+    offset: offset,
+  ),
+  [
+    "link",
+    "offset",
+  ],
 );
 var _followerLayer = MXFunctionInvoke(
-    "FollowerLayer",
-    (
-      {
-      LayerLink link,
-      bool showWhenUnlinked = true,
-      ui.Offset unlinkedOffset = Offset.zero,
-      ui.Offset linkedOffset = Offset.zero,
-      }
-    ) =>
+  "FollowerLayer",
+  ({
+    LayerLink link,
+    bool showWhenUnlinked = true,
+    ui.Offset unlinkedOffset = Offset.zero,
+    ui.Offset linkedOffset = Offset.zero,
+  }) =>
       FollowerLayer(
-      link: link,
-      showWhenUnlinked: showWhenUnlinked,
-      unlinkedOffset: unlinkedOffset,
-      linkedOffset: linkedOffset,
-    ),
+    link: link,
+    showWhenUnlinked: showWhenUnlinked,
+    unlinkedOffset: unlinkedOffset,
+    linkedOffset: linkedOffset,
+  ),
+  [
+    "link",
+    "showWhenUnlinked",
+    "unlinkedOffset",
+    "linkedOffset",
+  ],
 );
 var _annotatedRegionLayer = MXFunctionInvoke(
-    "AnnotatedRegionLayer",
-    (
-      {
-      dynamic value,
-      ui.Size size,
-      ui.Offset offset,
-      bool opaque = false,
-      }
-    ) =>
+  "AnnotatedRegionLayer",
+  ({
+    dynamic value,
+    ui.Size size,
+    ui.Offset offset,
+    bool opaque = false,
+  }) =>
       AnnotatedRegionLayer(
-      value,
-      size: size,
-      offset: offset,
-      opaque: opaque,
-    ),
+    value,
+    size: size,
+    offset: offset,
+    opaque: opaque,
+  ),
+  [
+    "value",
+    "size",
+    "offset",
+    "opaque",
+  ],
 );

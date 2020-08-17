@@ -18,35 +18,44 @@ import 'package:flutter/src/gestures/hit_test.dart';
 import 'package:flutter/src/gestures/pointer_router.dart';
 import 'package:flutter/src/gestures/pointer_signal_resolver.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_flutterErrorDetailsForPointerEventDispatcher.funName] = _flutterErrorDetailsForPointerEventDispatcher;
+  m[_flutterErrorDetailsForPointerEventDispatcher.funName] =
+      _flutterErrorDetailsForPointerEventDispatcher;
   return m;
 }
+
 var _flutterErrorDetailsForPointerEventDispatcher = MXFunctionInvoke(
-    "FlutterErrorDetailsForPointerEventDispatcher",
-    (
-      {
-      dynamic exception,
-      StackTrace stack,
-      String library,
-      DiagnosticsNode context,
-      PointerEvent event,
-      HitTestEntry hitTestEntry,
-      dynamic informationCollector,
-      bool silent = false,
-      }
-    ) =>
+  "FlutterErrorDetailsForPointerEventDispatcher",
+  ({
+    dynamic exception,
+    StackTrace stack,
+    String library,
+    DiagnosticsNode context,
+    PointerEvent event,
+    HitTestEntry hitTestEntry,
+    dynamic informationCollector,
+    bool silent = false,
+  }) =>
       FlutterErrorDetailsForPointerEventDispatcher(
-      exception: exception,
-      stack: stack,
-      library: library,
-      context: context,
-      event: event,
-      hitTestEntry: hitTestEntry,
-      informationCollector: null,
-      silent: silent,
-    ),
+    exception: exception,
+    stack: stack,
+    library: library,
+    context: context,
+    event: event,
+    hitTestEntry: hitTestEntry,
+    informationCollector: null,
+    silent: silent,
+  ),
+  [
+    "exception",
+    "stack",
+    "library",
+    "context",
+    "event",
+    "hitTestEntry",
+    "informationCollector",
+    "silent",
+  ],
 );

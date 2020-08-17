@@ -17,7 +17,6 @@ import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/viewport.dart';
 import 'package:flutter/src/rendering/viewport_offset.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerSliverSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -29,165 +28,183 @@ Map<String, MXFunctionInvoke> registerSliverSeries() {
   m[_sliverHitTestResult_wrap.funName] = _sliverHitTestResult_wrap;
   m[_sliverHitTestEntry.funName] = _sliverHitTestEntry;
   m[_sliverLogicalParentData.funName] = _sliverLogicalParentData;
-  m[_sliverLogicalContainerParentData.funName] = _sliverLogicalContainerParentData;
+  m[_sliverLogicalContainerParentData.funName] =
+      _sliverLogicalContainerParentData;
   m[_sliverPhysicalParentData.funName] = _sliverPhysicalParentData;
-  m[_sliverPhysicalContainerParentData.funName] = _sliverPhysicalContainerParentData;
+  m[_sliverPhysicalContainerParentData.funName] =
+      _sliverPhysicalContainerParentData;
   m[_renderSliverToBoxAdapter.funName] = _renderSliverToBoxAdapter;
   return m;
 }
+
 var _growthDirection = MXFunctionInvoke(
     "GrowthDirection",
     ({String name, int index}) => MXGrowthDirection.parse(name, index),
-  );
+    ["name", "index"]);
 var _sliverConstraints = MXFunctionInvoke(
-    "SliverConstraints",
-    (
-      {
-      AxisDirection axisDirection,
-      GrowthDirection growthDirection,
-      ScrollDirection userScrollDirection,
-      dynamic scrollOffset,
-      dynamic precedingScrollExtent,
-      dynamic overlap,
-      dynamic remainingPaintExtent,
-      dynamic crossAxisExtent,
-      AxisDirection crossAxisDirection,
-      dynamic viewportMainAxisExtent,
-      dynamic remainingCacheExtent,
-      dynamic cacheOrigin,
-      }
-    ) =>
+  "SliverConstraints",
+  ({
+    AxisDirection axisDirection,
+    GrowthDirection growthDirection,
+    ScrollDirection userScrollDirection,
+    dynamic scrollOffset,
+    dynamic precedingScrollExtent,
+    dynamic overlap,
+    dynamic remainingPaintExtent,
+    dynamic crossAxisExtent,
+    AxisDirection crossAxisDirection,
+    dynamic viewportMainAxisExtent,
+    dynamic remainingCacheExtent,
+    dynamic cacheOrigin,
+  }) =>
       SliverConstraints(
-      axisDirection: axisDirection,
-      growthDirection: growthDirection,
-      userScrollDirection: userScrollDirection,
-      scrollOffset: scrollOffset?.toDouble(),
-      precedingScrollExtent: precedingScrollExtent?.toDouble(),
-      overlap: overlap?.toDouble(),
-      remainingPaintExtent: remainingPaintExtent?.toDouble(),
-      crossAxisExtent: crossAxisExtent?.toDouble(),
-      crossAxisDirection: crossAxisDirection,
-      viewportMainAxisExtent: viewportMainAxisExtent?.toDouble(),
-      remainingCacheExtent: remainingCacheExtent?.toDouble(),
-      cacheOrigin: cacheOrigin?.toDouble(),
-    ),
+    axisDirection: axisDirection,
+    growthDirection: growthDirection,
+    userScrollDirection: userScrollDirection,
+    scrollOffset: scrollOffset?.toDouble(),
+    precedingScrollExtent: precedingScrollExtent?.toDouble(),
+    overlap: overlap?.toDouble(),
+    remainingPaintExtent: remainingPaintExtent?.toDouble(),
+    crossAxisExtent: crossAxisExtent?.toDouble(),
+    crossAxisDirection: crossAxisDirection,
+    viewportMainAxisExtent: viewportMainAxisExtent?.toDouble(),
+    remainingCacheExtent: remainingCacheExtent?.toDouble(),
+    cacheOrigin: cacheOrigin?.toDouble(),
+  ),
+  [
+    "axisDirection",
+    "growthDirection",
+    "userScrollDirection",
+    "scrollOffset",
+    "precedingScrollExtent",
+    "overlap",
+    "remainingPaintExtent",
+    "crossAxisExtent",
+    "crossAxisDirection",
+    "viewportMainAxisExtent",
+    "remainingCacheExtent",
+    "cacheOrigin",
+  ],
 );
 var _sliverGeometry = MXFunctionInvoke(
-    "SliverGeometry",
-    (
-      {
-      dynamic scrollExtent = 0.0,
-      dynamic paintExtent = 0.0,
-      dynamic paintOrigin = 0.0,
-      dynamic layoutExtent,
-      dynamic maxPaintExtent = 0.0,
-      dynamic maxScrollObstructionExtent = 0.0,
-      dynamic hitTestExtent,
-      bool visible,
-      bool hasVisualOverflow = false,
-      dynamic scrollOffsetCorrection,
-      dynamic cacheExtent,
-      }
-    ) =>
+  "SliverGeometry",
+  ({
+    dynamic scrollExtent = 0.0,
+    dynamic paintExtent = 0.0,
+    dynamic paintOrigin = 0.0,
+    dynamic layoutExtent,
+    dynamic maxPaintExtent = 0.0,
+    dynamic maxScrollObstructionExtent = 0.0,
+    dynamic hitTestExtent,
+    bool visible,
+    bool hasVisualOverflow = false,
+    dynamic scrollOffsetCorrection,
+    dynamic cacheExtent,
+  }) =>
       SliverGeometry(
-      scrollExtent: scrollExtent?.toDouble(),
-      paintExtent: paintExtent?.toDouble(),
-      paintOrigin: paintOrigin?.toDouble(),
-      layoutExtent: layoutExtent?.toDouble(),
-      maxPaintExtent: maxPaintExtent?.toDouble(),
-      maxScrollObstructionExtent: maxScrollObstructionExtent?.toDouble(),
-      hitTestExtent: hitTestExtent?.toDouble(),
-      visible: visible,
-      hasVisualOverflow: hasVisualOverflow,
-      scrollOffsetCorrection: scrollOffsetCorrection?.toDouble(),
-      cacheExtent: cacheExtent?.toDouble(),
-    ),
+    scrollExtent: scrollExtent?.toDouble(),
+    paintExtent: paintExtent?.toDouble(),
+    paintOrigin: paintOrigin?.toDouble(),
+    layoutExtent: layoutExtent?.toDouble(),
+    maxPaintExtent: maxPaintExtent?.toDouble(),
+    maxScrollObstructionExtent: maxScrollObstructionExtent?.toDouble(),
+    hitTestExtent: hitTestExtent?.toDouble(),
+    visible: visible,
+    hasVisualOverflow: hasVisualOverflow,
+    scrollOffsetCorrection: scrollOffsetCorrection?.toDouble(),
+    cacheExtent: cacheExtent?.toDouble(),
+  ),
+  [
+    "scrollExtent",
+    "paintExtent",
+    "paintOrigin",
+    "layoutExtent",
+    "maxPaintExtent",
+    "maxScrollObstructionExtent",
+    "hitTestExtent",
+    "visible",
+    "hasVisualOverflow",
+    "scrollOffsetCorrection",
+    "cacheExtent",
+  ],
 );
-var _sliverGeometry_zero = MXFunctionInvoke(
-  "SliverGeometry.zero",
-    (
-    ) =>
-      SliverGeometry.zero
-);
+var _sliverGeometry_zero =
+    MXFunctionInvoke("SliverGeometry.zero", () => SliverGeometry.zero);
 var _sliverHitTestResult = MXFunctionInvoke(
-    "SliverHitTestResult",
-    (
-    ) =>
-      SliverHitTestResult(
-    ),
+  "SliverHitTestResult",
+  () => SliverHitTestResult(),
+  [],
 );
 var _sliverHitTestResult_wrap = MXFunctionInvoke(
   "SliverHitTestResult.wrap",
-    (
-      {
-      HitTestResult result,
-      }
-    ) =>
+  ({
+    HitTestResult result,
+  }) =>
       SliverHitTestResult.wrap(
-      result,
-    ),
+    result,
+  ),
+  [
+    "result",
+  ],
 );
 var _sliverHitTestEntry = MXFunctionInvoke(
-    "SliverHitTestEntry",
-    (
-      {
-      RenderSliver target,
-      dynamic mainAxisPosition,
-      dynamic crossAxisPosition,
-      }
-    ) =>
+  "SliverHitTestEntry",
+  ({
+    RenderSliver target,
+    dynamic mainAxisPosition,
+    dynamic crossAxisPosition,
+  }) =>
       SliverHitTestEntry(
-      target,
-      mainAxisPosition: mainAxisPosition?.toDouble(),
-      crossAxisPosition: crossAxisPosition?.toDouble(),
-    ),
+    target,
+    mainAxisPosition: mainAxisPosition?.toDouble(),
+    crossAxisPosition: crossAxisPosition?.toDouble(),
+  ),
+  [
+    "target",
+    "mainAxisPosition",
+    "crossAxisPosition",
+  ],
 );
 var _sliverLogicalParentData = MXFunctionInvoke(
-    "SliverLogicalParentData",
-    (
-    ) =>
-      SliverLogicalParentData(
-    ),
+  "SliverLogicalParentData",
+  () => SliverLogicalParentData(),
+  [],
 );
 var _sliverLogicalContainerParentData = MXFunctionInvoke(
-    "SliverLogicalContainerParentData",
-    (
-    ) =>
-      SliverLogicalContainerParentData(
-    ),
+  "SliverLogicalContainerParentData",
+  () => SliverLogicalContainerParentData(),
+  [],
 );
 var _sliverPhysicalParentData = MXFunctionInvoke(
-    "SliverPhysicalParentData",
-    (
-    ) =>
-      SliverPhysicalParentData(
-    ),
+  "SliverPhysicalParentData",
+  () => SliverPhysicalParentData(),
+  [],
 );
 var _sliverPhysicalContainerParentData = MXFunctionInvoke(
-    "SliverPhysicalContainerParentData",
-    (
-    ) =>
-      SliverPhysicalContainerParentData(
-    ),
+  "SliverPhysicalContainerParentData",
+  () => SliverPhysicalContainerParentData(),
+  [],
 );
 var _renderSliverToBoxAdapter = MXFunctionInvoke(
-    "RenderSliverToBoxAdapter",
-    (
-      {
-      RenderBox child,
-      }
-    ) =>
+  "RenderSliverToBoxAdapter",
+  ({
+    RenderBox child,
+  }) =>
       RenderSliverToBoxAdapter(
-      child: child,
-    ),
+    child: child,
+  ),
+  [
+    "child",
+  ],
 );
+
 class MXGrowthDirection {
   static GrowthDirection parse(String name, int index) {
-    switch(name) {
-      case 'GrowthDirection.forward': 
-       return GrowthDirection.forward;
-      case 'GrowthDirection.reverse': 
-       return GrowthDirection.reverse;
+    switch (name) {
+      case 'GrowthDirection.forward':
+        return GrowthDirection.forward;
+      case 'GrowthDirection.reverse':
+        return GrowthDirection.reverse;
     }
     return null;
   }

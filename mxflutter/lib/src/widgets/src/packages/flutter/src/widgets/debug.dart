@@ -14,7 +14,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/media_query.dart';
 import 'package:flutter/src/widgets/table.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDebugSeries() {
   var m = <String, MXFunctionInvoke>{};

@@ -9,7 +9,6 @@ import 'package:collection/src/algorithms.dart';
 import 'dart:math' as math;
 import 'package:collection/src/utils.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAlgorithmsSeries() {
   var m = <String, MXFunctionInvoke>{};

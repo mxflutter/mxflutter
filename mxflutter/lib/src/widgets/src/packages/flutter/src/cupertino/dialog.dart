@@ -16,7 +16,6 @@ import 'package:flutter/src/cupertino/interface_level.dart';
 import 'package:flutter/src/cupertino/localizations.dart';
 import 'package:flutter/src/cupertino/scrollbar.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDialogSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -26,77 +25,98 @@ Map<String, MXFunctionInvoke> registerDialogSeries() {
   m[_cupertinoDialogAction.funName] = _cupertinoDialogAction;
   return m;
 }
+
 var _cupertinoAlertDialog = MXFunctionInvoke(
-    "CupertinoAlertDialog",
-    (
-      {
-      Key key,
-      Widget title,
-      Widget content,
-      dynamic actions = const <Widget>[],
-      ScrollController scrollController,
-      ScrollController actionScrollController,
-      Duration insetAnimationDuration = const Duration(milliseconds: 100),
-      Curve insetAnimationCurve = Curves.decelerate,
-      }
-    ) =>
+  "CupertinoAlertDialog",
+  ({
+    Key key,
+    Widget title,
+    Widget content,
+    dynamic actions = const <Widget>[],
+    ScrollController scrollController,
+    ScrollController actionScrollController,
+    Duration insetAnimationDuration = const Duration(milliseconds: 100),
+    Curve insetAnimationCurve = Curves.decelerate,
+  }) =>
       CupertinoAlertDialog(
-      key: key,
-      title: title,
-      content: content,
-      actions: toListT<Widget>(actions),
-      scrollController: scrollController,
-      actionScrollController: actionScrollController,
-      insetAnimationDuration: insetAnimationDuration,
-      insetAnimationCurve: insetAnimationCurve,
-    ),
+    key: key,
+    title: title,
+    content: content,
+    actions: toListT<Widget>(actions),
+    scrollController: scrollController,
+    actionScrollController: actionScrollController,
+    insetAnimationDuration: insetAnimationDuration,
+    insetAnimationCurve: insetAnimationCurve,
+  ),
+  [
+    "key",
+    "title",
+    "content",
+    "actions",
+    "scrollController",
+    "actionScrollController",
+    "insetAnimationDuration",
+    "insetAnimationCurve",
+  ],
 );
 var _cupertinoDialog = MXFunctionInvoke(
-    "CupertinoDialog",
-    (
-      {
-      Key key,
-      Widget child,
-      }
-    ) =>
+  "CupertinoDialog",
+  ({
+    Key key,
+    Widget child,
+  }) =>
       CupertinoDialog(
-      key: key,
-      child: child,
-    ),
+    key: key,
+    child: child,
+  ),
+  [
+    "key",
+    "child",
+  ],
 );
 var _cupertinoPopupSurface = MXFunctionInvoke(
-    "CupertinoPopupSurface",
-    (
-      {
-      Key key,
-      bool isSurfacePainted = true,
-      Widget child,
-      }
-    ) =>
+  "CupertinoPopupSurface",
+  ({
+    Key key,
+    bool isSurfacePainted = true,
+    Widget child,
+  }) =>
       CupertinoPopupSurface(
-      key: key,
-      isSurfacePainted: isSurfacePainted,
-      child: child,
-    ),
+    key: key,
+    isSurfacePainted: isSurfacePainted,
+    child: child,
+  ),
+  [
+    "key",
+    "isSurfacePainted",
+    "child",
+  ],
 );
 var _cupertinoDialogAction = MXFunctionInvoke(
-    "CupertinoDialogAction",
-    (
-      {
-      Key key,
-      dynamic onPressed,
-      bool isDefaultAction = false,
-      bool isDestructiveAction = false,
-      TextStyle textStyle,
-      Widget child,
-      }
-    ) =>
+  "CupertinoDialogAction",
+  ({
+    Key key,
+    dynamic onPressed,
+    bool isDefaultAction = false,
+    bool isDestructiveAction = false,
+    TextStyle textStyle,
+    Widget child,
+  }) =>
       CupertinoDialogAction(
-      key: key,
-      onPressed: createVoidCallbackClosure(_cupertinoDialogAction.buildOwner, onPressed),
-      isDefaultAction: isDefaultAction,
-      isDestructiveAction: isDestructiveAction,
-      textStyle: textStyle,
-      child: child,
-    ),
+    key: key,
+    onPressed:
+        createVoidCallbackClosure(_cupertinoDialogAction.buildOwner, onPressed),
+    isDefaultAction: isDefaultAction,
+    isDestructiveAction: isDestructiveAction,
+    textStyle: textStyle,
+    child: child,
+  ),
+  [
+    "key",
+    "onPressed",
+    "isDefaultAction",
+    "isDestructiveAction",
+    "textStyle",
+    "child",
+  ],
 );

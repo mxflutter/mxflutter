@@ -12,7 +12,6 @@ import 'package:flutter/src/painting/border_radius.dart';
 import 'package:flutter/src/painting/borders.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -24,90 +23,106 @@ Map<String, MXFunctionInvoke> registerBoxBorderSeries() {
   m[_borderDirectional.funName] = _borderDirectional;
   return m;
 }
+
 var _boxShape = MXFunctionInvoke(
     "BoxShape",
     ({String name, int index}) => MXBoxShape.parse(name, index),
-  );
+    ["name", "index"]);
 var _border = MXFunctionInvoke(
-    "Border",
-    (
-      {
-      BorderSide top = BorderSide.none,
-      BorderSide right = BorderSide.none,
-      BorderSide bottom = BorderSide.none,
-      BorderSide left = BorderSide.none,
-      }
-    ) =>
+  "Border",
+  ({
+    BorderSide top = BorderSide.none,
+    BorderSide right = BorderSide.none,
+    BorderSide bottom = BorderSide.none,
+    BorderSide left = BorderSide.none,
+  }) =>
       Border(
-      top: top,
-      right: right,
-      bottom: bottom,
-      left: left,
-    ),
+    top: top,
+    right: right,
+    bottom: bottom,
+    left: left,
+  ),
+  [
+    "top",
+    "right",
+    "bottom",
+    "left",
+  ],
 );
 var _border_all = MXFunctionInvoke(
   "Border.all",
-    (
-      {
-      Color color = const Color(0xFF000000),
-      dynamic width = 1.0,
-      BorderStyle style = BorderStyle.solid,
-      }
-    ) =>
+  ({
+    Color color = const Color(0xFF000000),
+    dynamic width = 1.0,
+    BorderStyle style = BorderStyle.solid,
+  }) =>
       Border.all(
-      color: color,
-      width: width?.toDouble(),
-      style: style,
-    ),
+    color: color,
+    width: width?.toDouble(),
+    style: style,
+  ),
+  [
+    "color",
+    "width",
+    "style",
+  ],
 );
 var _border_fromBorderSide = MXFunctionInvoke(
   "Border.fromBorderSide",
-    (
-      {
-      BorderSide side,
-      }
-    ) =>
+  ({
+    BorderSide side,
+  }) =>
       Border.fromBorderSide(
-      side,
-    ),
+    side,
+  ),
+  [
+    "side",
+  ],
 );
 var _border_symmetric = MXFunctionInvoke(
   "Border.symmetric",
-    (
-      {
-      BorderSide vertical = BorderSide.none,
-      BorderSide horizontal = BorderSide.none,
-      }
-    ) =>
+  ({
+    BorderSide vertical = BorderSide.none,
+    BorderSide horizontal = BorderSide.none,
+  }) =>
       Border.symmetric(
-      vertical: vertical,
-      horizontal: horizontal,
-    ),
+    vertical: vertical,
+    horizontal: horizontal,
+  ),
+  [
+    "vertical",
+    "horizontal",
+  ],
 );
 var _borderDirectional = MXFunctionInvoke(
-    "BorderDirectional",
-    (
-      {
-      BorderSide top = BorderSide.none,
-      BorderSide start = BorderSide.none,
-      BorderSide end = BorderSide.none,
-      BorderSide bottom = BorderSide.none,
-      }
-    ) =>
+  "BorderDirectional",
+  ({
+    BorderSide top = BorderSide.none,
+    BorderSide start = BorderSide.none,
+    BorderSide end = BorderSide.none,
+    BorderSide bottom = BorderSide.none,
+  }) =>
       BorderDirectional(
-      top: top,
-      start: start,
-      end: end,
-      bottom: bottom,
-    ),
+    top: top,
+    start: start,
+    end: end,
+    bottom: bottom,
+  ),
+  [
+    "top",
+    "start",
+    "end",
+    "bottom",
+  ],
 );
+
 class MXBoxShape {
   static BoxShape parse(String name, int index) {
-    switch(name) {
-      case 'BoxShape.rectangle': 
-       return BoxShape.rectangle;
-      case 'BoxShape.circle': 
-       return BoxShape.circle;
+    switch (name) {
+      case 'BoxShape.rectangle':
+        return BoxShape.rectangle;
+      case 'BoxShape.circle':
+        return BoxShape.circle;
     }
     return null;
   }

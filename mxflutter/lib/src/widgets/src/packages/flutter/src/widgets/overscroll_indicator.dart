@@ -19,45 +19,54 @@ import 'package:flutter/src/widgets/notification_listener.dart';
 import 'package:flutter/src/widgets/scroll_notification.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerOverscrollIndicatorSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_glowingOverscrollIndicator.funName] = _glowingOverscrollIndicator;
-  m[_overscrollIndicatorNotification.funName] = _overscrollIndicatorNotification;
+  m[_overscrollIndicatorNotification.funName] =
+      _overscrollIndicatorNotification;
   return m;
 }
+
 var _glowingOverscrollIndicator = MXFunctionInvoke(
-    "GlowingOverscrollIndicator",
-    (
-      {
-      Key key,
-      bool showLeading = true,
-      bool showTrailing = true,
-      AxisDirection axisDirection,
-      Color color,
-      dynamic notificationPredicate = defaultScrollNotificationPredicate,
-      Widget child,
-      }
-    ) =>
+  "GlowingOverscrollIndicator",
+  ({
+    Key key,
+    bool showLeading = true,
+    bool showTrailing = true,
+    AxisDirection axisDirection,
+    Color color,
+    dynamic notificationPredicate = defaultScrollNotificationPredicate,
+    Widget child,
+  }) =>
       GlowingOverscrollIndicator(
-      key: key,
-      showLeading: showLeading,
-      showTrailing: showTrailing,
-      axisDirection: axisDirection,
-      color: color,
-      notificationPredicate: null,
-      child: child,
-    ),
+    key: key,
+    showLeading: showLeading,
+    showTrailing: showTrailing,
+    axisDirection: axisDirection,
+    color: color,
+    notificationPredicate: null,
+    child: child,
+  ),
+  [
+    "key",
+    "showLeading",
+    "showTrailing",
+    "axisDirection",
+    "color",
+    "notificationPredicate",
+    "child",
+  ],
 );
 var _overscrollIndicatorNotification = MXFunctionInvoke(
-    "OverscrollIndicatorNotification",
-    (
-      {
-      bool leading,
-      }
-    ) =>
+  "OverscrollIndicatorNotification",
+  ({
+    bool leading,
+  }) =>
       OverscrollIndicatorNotification(
-      leading: leading,
-    ),
+    leading: leading,
+  ),
+  [
+    "leading",
+  ],
 );

@@ -24,10 +24,10 @@ Map<String, MXFunctionInvoke> registerSliderSeries() {
   m[_cupertinoSlider.funName] = _cupertinoSlider;
   return m;
 }
+
 var _cupertinoSlider = MXFunctionInvoke(
   "CupertinoSlider",
-  (
-    {
+  ({
     Key key,
     dynamic value,
     dynamic onChanged,
@@ -38,18 +38,32 @@ var _cupertinoSlider = MXFunctionInvoke(
     int divisions,
     Color activeColor,
     Color thumbColor = Colors.white,
-    }
-  ) =>
+  }) =>
       CupertinoSlider(
     key: key,
     value: value?.toDouble(),
-    onChanged: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChanged),
-    onChangeStart: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChangeStart),
-    onChangeEnd: createValueChangedGenericClosure<dynamic>(_cupertinoSlider.buildOwner, onChangeEnd),
+    onChanged: createValueChangedGenericClosure<dynamic>(
+        _cupertinoSlider.buildOwner, onChanged),
+    onChangeStart: createValueChangedGenericClosure<dynamic>(
+        _cupertinoSlider.buildOwner, onChangeStart),
+    onChangeEnd: createValueChangedGenericClosure<dynamic>(
+        _cupertinoSlider.buildOwner, onChangeEnd),
     min: min?.toDouble(),
     max: max?.toDouble(),
     divisions: divisions,
     activeColor: activeColor,
     thumbColor: thumbColor,
   ),
+  [
+    "key",
+    "value",
+    "onChanged",
+    "onChangeStart",
+    "onChangeEnd",
+    "min",
+    "max",
+    "divisions",
+    "activeColor",
+    "thumbColor",
+  ],
 );

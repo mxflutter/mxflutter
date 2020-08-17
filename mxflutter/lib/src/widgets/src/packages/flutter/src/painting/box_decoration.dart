@@ -19,35 +19,43 @@ import 'package:flutter/src/painting/edge_insets.dart';
 import 'package:flutter/src/painting/gradient.dart';
 import 'package:flutter/src/painting/image_provider.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBoxDecorationSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_boxDecoration.funName] = _boxDecoration;
   return m;
 }
+
 var _boxDecoration = MXFunctionInvoke(
-    "BoxDecoration",
-    (
-      {
-      Color color,
-      DecorationImage image,
-      BoxBorder border,
-      BorderRadiusGeometry borderRadius,
-      dynamic boxShadow,
-      Gradient gradient,
-      BlendMode backgroundBlendMode,
-      BoxShape shape = BoxShape.rectangle,
-      }
-    ) =>
+  "BoxDecoration",
+  ({
+    Color color,
+    DecorationImage image,
+    BoxBorder border,
+    BorderRadiusGeometry borderRadius,
+    dynamic boxShadow,
+    Gradient gradient,
+    BlendMode backgroundBlendMode,
+    BoxShape shape = BoxShape.rectangle,
+  }) =>
       BoxDecoration(
-      color: color,
-      image: image,
-      border: border,
-      borderRadius: borderRadius,
-      boxShadow: toListT<BoxShadow>(boxShadow),
-      gradient: gradient,
-      backgroundBlendMode: backgroundBlendMode,
-      shape: shape,
-    ),
+    color: color,
+    image: image,
+    border: border,
+    borderRadius: borderRadius,
+    boxShadow: toListT<BoxShadow>(boxShadow),
+    gradient: gradient,
+    backgroundBlendMode: backgroundBlendMode,
+    shape: shape,
+  ),
+  [
+    "color",
+    "image",
+    "border",
+    "borderRadius",
+    "boxShadow",
+    "gradient",
+    "backgroundBlendMode",
+    "shape",
+  ],
 );

@@ -5,7 +5,7 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:mxflutter/src/mx_json_build_owner.dart';
+import 'package:mxflutter/src/mx_build_owner.dart';
 
 typedef GenericNoneParamsCallback<R> = R Function();
 

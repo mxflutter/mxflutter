@@ -24,7 +24,6 @@ import 'package:flutter/src/material/scaffold.dart';
 import 'package:flutter/src/material/scrollbar.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAboutSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -33,70 +32,91 @@ Map<String, MXFunctionInvoke> registerAboutSeries() {
   m[_licensePage.funName] = _licensePage;
   return m;
 }
+
 var _aboutListTile = MXFunctionInvoke(
-    "AboutListTile",
-    (
-      {
-      Key key,
-      Widget icon,
-      Widget child,
-      String applicationName,
-      String applicationVersion,
-      Widget applicationIcon,
-      String applicationLegalese,
-      dynamic aboutBoxChildren,
-      bool dense,
-      }
-    ) =>
+  "AboutListTile",
+  ({
+    Key key,
+    Widget icon,
+    Widget child,
+    String applicationName,
+    String applicationVersion,
+    Widget applicationIcon,
+    String applicationLegalese,
+    dynamic aboutBoxChildren,
+    bool dense,
+  }) =>
       AboutListTile(
-      key: key,
-      icon: icon,
-      child: child,
-      applicationName: applicationName,
-      applicationVersion: applicationVersion,
-      applicationIcon: applicationIcon,
-      applicationLegalese: applicationLegalese,
-      aboutBoxChildren: toListT<Widget>(aboutBoxChildren),
-      dense: dense,
-    ),
+    key: key,
+    icon: icon,
+    child: child,
+    applicationName: applicationName,
+    applicationVersion: applicationVersion,
+    applicationIcon: applicationIcon,
+    applicationLegalese: applicationLegalese,
+    aboutBoxChildren: toListT<Widget>(aboutBoxChildren),
+    dense: dense,
+  ),
+  [
+    "key",
+    "icon",
+    "child",
+    "applicationName",
+    "applicationVersion",
+    "applicationIcon",
+    "applicationLegalese",
+    "aboutBoxChildren",
+    "dense",
+  ],
 );
 var _aboutDialog = MXFunctionInvoke(
-    "AboutDialog",
-    (
-      {
-      Key key,
-      String applicationName,
-      String applicationVersion,
-      Widget applicationIcon,
-      String applicationLegalese,
-      dynamic children,
-      }
-    ) =>
+  "AboutDialog",
+  ({
+    Key key,
+    String applicationName,
+    String applicationVersion,
+    Widget applicationIcon,
+    String applicationLegalese,
+    dynamic children,
+  }) =>
       AboutDialog(
-      key: key,
-      applicationName: applicationName,
-      applicationVersion: applicationVersion,
-      applicationIcon: applicationIcon,
-      applicationLegalese: applicationLegalese,
-      children: toListT<Widget>(children),
-    ),
+    key: key,
+    applicationName: applicationName,
+    applicationVersion: applicationVersion,
+    applicationIcon: applicationIcon,
+    applicationLegalese: applicationLegalese,
+    children: toListT<Widget>(children),
+  ),
+  [
+    "key",
+    "applicationName",
+    "applicationVersion",
+    "applicationIcon",
+    "applicationLegalese",
+    "children",
+  ],
 );
 var _licensePage = MXFunctionInvoke(
-    "LicensePage",
-    (
-      {
-      Key key,
-      String applicationName,
-      String applicationVersion,
-      Widget applicationIcon,
-      String applicationLegalese,
-      }
-    ) =>
+  "LicensePage",
+  ({
+    Key key,
+    String applicationName,
+    String applicationVersion,
+    Widget applicationIcon,
+    String applicationLegalese,
+  }) =>
       LicensePage(
-      key: key,
-      applicationName: applicationName,
-      applicationVersion: applicationVersion,
-      applicationIcon: applicationIcon,
-      applicationLegalese: applicationLegalese,
-    ),
+    key: key,
+    applicationName: applicationName,
+    applicationVersion: applicationVersion,
+    applicationIcon: applicationIcon,
+    applicationLegalese: applicationLegalese,
+  ),
+  [
+    "key",
+    "applicationName",
+    "applicationVersion",
+    "applicationIcon",
+    "applicationLegalese",
+  ],
 );

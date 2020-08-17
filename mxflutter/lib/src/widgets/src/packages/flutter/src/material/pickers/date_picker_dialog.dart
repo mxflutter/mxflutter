@@ -26,7 +26,6 @@ import 'package:flutter/src/material/pickers/date_picker_header.dart';
 import 'package:flutter/src/material/pickers/date_utils.dart' as utils;
 import 'package:flutter/src/material/pickers/input_date_picker.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDatePickerDialogSeries() {
   var m = <String, MXFunctionInvoke>{};

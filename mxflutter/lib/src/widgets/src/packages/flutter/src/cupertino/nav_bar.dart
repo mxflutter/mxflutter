@@ -20,19 +20,19 @@ import 'package:flutter/src/cupertino/page_scaffold.dart';
 import 'package:flutter/src/cupertino/route.dart';
 import 'package:flutter/src/cupertino/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerNavBarSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoNavigationBar.funName] = _cupertinoNavigationBar;
   m[_cupertinoSliverNavigationBar.funName] = _cupertinoSliverNavigationBar;
-  m[_cupertinoNavigationBarBackButton.funName] = _cupertinoNavigationBarBackButton;
+  m[_cupertinoNavigationBarBackButton.funName] =
+      _cupertinoNavigationBarBackButton;
   return m;
 }
+
 var _cupertinoNavigationBar = MXFunctionInvoke(
   "CupertinoNavigationBar",
-  (
-    {
+  ({
     Key key,
     Widget leading,
     bool automaticallyImplyLeading = true,
@@ -40,7 +40,9 @@ var _cupertinoNavigationBar = MXFunctionInvoke(
     String previousPageTitle,
     Widget middle,
     Widget trailing,
-    Border border = const Border(bottom: const BorderSide(color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
+    Border border = const Border(
+        bottom: const BorderSide(
+            color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
     Color backgroundColor,
     Brightness brightness,
     EdgeInsetsDirectional padding,
@@ -49,8 +51,7 @@ var _cupertinoNavigationBar = MXFunctionInvoke(
     // MX modified begin heroTag属性被注释掉
     // Object heroTag = const _HeroTag(null),
     // MX modified end
-    }
-  ) =>
+  }) =>
       CupertinoNavigationBar(
     key: key,
     leading: leading,
@@ -69,11 +70,26 @@ var _cupertinoNavigationBar = MXFunctionInvoke(
     // heroTag: heroTag,
     // MX modified end
   ),
+  [
+    "key",
+    "leading",
+    "automaticallyImplyLeading",
+    "automaticallyImplyMiddle",
+    "previousPageTitle",
+    "middle",
+    "trailing",
+    "border",
+    "backgroundColor",
+    "brightness",
+    "padding",
+    "actionsForegroundColor",
+    "transitionBetweenRoutes",
+    "heroTag",
+  ],
 );
 var _cupertinoSliverNavigationBar = MXFunctionInvoke(
   "CupertinoSliverNavigationBar",
-  (
-    {
+  ({
     Key key,
     Widget largeTitle,
     Widget leading,
@@ -82,7 +98,9 @@ var _cupertinoSliverNavigationBar = MXFunctionInvoke(
     String previousPageTitle,
     Widget middle,
     Widget trailing,
-    Border border = const Border(bottom: const BorderSide(color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
+    Border border = const Border(
+        bottom: const BorderSide(
+            color: Color(0x4D000000), width: 0.0, style: BorderStyle.solid)),
     Color backgroundColor,
     Brightness brightness,
     EdgeInsetsDirectional padding,
@@ -91,8 +109,7 @@ var _cupertinoSliverNavigationBar = MXFunctionInvoke(
     // MX modified begin heroTag属性被注释掉
     // Object heroTag = const _HeroTag(null),
     // MX modified end
-    }
-  ) =>
+  }) =>
       CupertinoSliverNavigationBar(
     key: key,
     largeTitle: largeTitle,
@@ -112,21 +129,43 @@ var _cupertinoSliverNavigationBar = MXFunctionInvoke(
     // heroTag: heroTag,
     // MX modified end
   ),
+  [
+    "key",
+    "largeTitle",
+    "leading",
+    "automaticallyImplyLeading",
+    "automaticallyImplyTitle",
+    "previousPageTitle",
+    "middle",
+    "trailing",
+    "border",
+    "backgroundColor",
+    "brightness",
+    "padding",
+    "actionsForegroundColor",
+    "transitionBetweenRoutes",
+    "heroTag",
+  ],
 );
 var _cupertinoNavigationBarBackButton = MXFunctionInvoke(
   "CupertinoNavigationBarBackButton",
-  (
-    {
+  ({
     Key key,
     Color color,
     String previousPageTitle,
     dynamic onPressed,
-    }
-  ) =>
+  }) =>
       CupertinoNavigationBarBackButton(
     key: key,
     color: color,
     previousPageTitle: previousPageTitle,
-    onPressed: createVoidCallbackClosure(_cupertinoNavigationBarBackButton.buildOwner, onPressed),
+    onPressed: createVoidCallbackClosure(
+        _cupertinoNavigationBarBackButton.buildOwner, onPressed),
   ),
+  [
+    "key",
+    "color",
+    "previousPageTitle",
+    "onPressed",
+  ],
 );

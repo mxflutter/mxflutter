@@ -22,26 +22,28 @@ import 'package:flutter/src/widgets/scroll_metrics.dart';
 import 'package:flutter/src/widgets/scroll_notification.dart';
 import 'package:flutter/src/widgets/scroll_physics.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollPositionSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scrollPositionAlignmentPolicy.funName] = _scrollPositionAlignmentPolicy;
   return m;
 }
+
 var _scrollPositionAlignmentPolicy = MXFunctionInvoke(
     "ScrollPositionAlignmentPolicy",
-    ({String name, int index}) => MXScrollPositionAlignmentPolicy.parse(name, index),
-  );
+    ({String name, int index}) =>
+        MXScrollPositionAlignmentPolicy.parse(name, index),
+    ["name", "index"]);
+
 class MXScrollPositionAlignmentPolicy {
   static ScrollPositionAlignmentPolicy parse(String name, int index) {
-    switch(name) {
-      case 'ScrollPositionAlignmentPolicy.explicit': 
-       return ScrollPositionAlignmentPolicy.explicit;
-      case 'ScrollPositionAlignmentPolicy.keepVisibleAtEnd': 
-       return ScrollPositionAlignmentPolicy.keepVisibleAtEnd;
-      case 'ScrollPositionAlignmentPolicy.keepVisibleAtStart': 
-       return ScrollPositionAlignmentPolicy.keepVisibleAtStart;
+    switch (name) {
+      case 'ScrollPositionAlignmentPolicy.explicit':
+        return ScrollPositionAlignmentPolicy.explicit;
+      case 'ScrollPositionAlignmentPolicy.keepVisibleAtEnd':
+        return ScrollPositionAlignmentPolicy.keepVisibleAtEnd;
+      case 'ScrollPositionAlignmentPolicy.keepVisibleAtStart':
+        return ScrollPositionAlignmentPolicy.keepVisibleAtStart;
     }
     return null;
   }

@@ -17,7 +17,6 @@ import 'package:flutter/src/widgets/routes.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 import 'package:flutter/src/widgets/transitions.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerHeroesSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -26,51 +25,61 @@ Map<String, MXFunctionInvoke> registerHeroesSeries() {
   m[_heroController.funName] = _heroController;
   return m;
 }
+
 var _heroFlightDirection = MXFunctionInvoke(
     "HeroFlightDirection",
     ({String name, int index}) => MXHeroFlightDirection.parse(name, index),
-  );
+    ["name", "index"]);
 var _hero = MXFunctionInvoke(
-    "Hero",
-    (
-      {
-      Key key,
-      Object tag,
-      dynamic createRectTween,
-      dynamic flightShuttleBuilder,
-      dynamic placeholderBuilder,
-      bool transitionOnUserGestures = false,
-      Widget child,
-      }
-    ) =>
+  "Hero",
+  ({
+    Key key,
+    Object tag,
+    dynamic createRectTween,
+    dynamic flightShuttleBuilder,
+    dynamic placeholderBuilder,
+    bool transitionOnUserGestures = false,
+    Widget child,
+  }) =>
       Hero(
-      key: key,
-      tag: tag,
-      createRectTween: null,
-      flightShuttleBuilder: null,
-      placeholderBuilder: null,
-      transitionOnUserGestures: transitionOnUserGestures,
-      child: child,
-    ),
+    key: key,
+    tag: tag,
+    createRectTween: null,
+    flightShuttleBuilder: null,
+    placeholderBuilder: null,
+    transitionOnUserGestures: transitionOnUserGestures,
+    child: child,
+  ),
+  [
+    "key",
+    "tag",
+    "createRectTween",
+    "flightShuttleBuilder",
+    "placeholderBuilder",
+    "transitionOnUserGestures",
+    "child",
+  ],
 );
 var _heroController = MXFunctionInvoke(
-    "HeroController",
-    (
-      {
-      dynamic createRectTween,
-      }
-    ) =>
+  "HeroController",
+  ({
+    dynamic createRectTween,
+  }) =>
       HeroController(
-      createRectTween: null,
-    ),
+    createRectTween: null,
+  ),
+  [
+    "createRectTween",
+  ],
 );
+
 class MXHeroFlightDirection {
   static HeroFlightDirection parse(String name, int index) {
-    switch(name) {
-      case 'HeroFlightDirection.push': 
-       return HeroFlightDirection.push;
-      case 'HeroFlightDirection.pop': 
-       return HeroFlightDirection.pop;
+    switch (name) {
+      case 'HeroFlightDirection.push':
+        return HeroFlightDirection.push;
+      case 'HeroFlightDirection.pop':
+        return HeroFlightDirection.pop;
     }
     return null;
   }

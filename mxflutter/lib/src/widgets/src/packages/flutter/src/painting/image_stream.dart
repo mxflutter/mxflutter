@@ -12,7 +12,6 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerImageStreamSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -24,81 +23,96 @@ Map<String, MXFunctionInvoke> registerImageStreamSeries() {
   m[_multiFrameImageStreamCompleter.funName] = _multiFrameImageStreamCompleter;
   return m;
 }
+
 var _imageInfo = MXFunctionInvoke(
-    "ImageInfo",
-    (
-      {
-      ui.Image image,
-      dynamic scale = 1.0,
-      }
-    ) =>
+  "ImageInfo",
+  ({
+    ui.Image image,
+    dynamic scale = 1.0,
+  }) =>
       ImageInfo(
-      image: image,
-      scale: scale?.toDouble(),
-    ),
+    image: image,
+    scale: scale?.toDouble(),
+  ),
+  [
+    "image",
+    "scale",
+  ],
 );
 var _imageStreamListener = MXFunctionInvoke(
-    "ImageStreamListener",
-    (
-      {
-      dynamic onImage,
-      dynamic onChunk,
-      dynamic onError,
-      }
-    ) =>
+  "ImageStreamListener",
+  ({
+    dynamic onImage,
+    dynamic onChunk,
+    dynamic onError,
+  }) =>
       ImageStreamListener(
-      createVoidTwoParamsClosure<ImageInfo, bool>(_imageStreamListener.buildOwner, onImage),
-      onChunk: createValueChangedGenericClosure<ImageChunkEvent>(_imageStreamListener.buildOwner, onChunk),
-      onError: createVoidTwoParamsClosure<dynamic, StackTrace>(_imageStreamListener.buildOwner, onError),
-    ),
+    createVoidTwoParamsClosure<ImageInfo, bool>(
+        _imageStreamListener.buildOwner, onImage),
+    onChunk: createValueChangedGenericClosure<ImageChunkEvent>(
+        _imageStreamListener.buildOwner, onChunk),
+    onError: createVoidTwoParamsClosure<dynamic, StackTrace>(
+        _imageStreamListener.buildOwner, onError),
+  ),
+  [
+    "onImage",
+    "onChunk",
+    "onError",
+  ],
 );
 var _imageChunkEvent = MXFunctionInvoke(
-    "ImageChunkEvent",
-    (
-      {
-      int cumulativeBytesLoaded,
-      int expectedTotalBytes,
-      }
-    ) =>
+  "ImageChunkEvent",
+  ({
+    int cumulativeBytesLoaded,
+    int expectedTotalBytes,
+  }) =>
       ImageChunkEvent(
-      cumulativeBytesLoaded: cumulativeBytesLoaded,
-      expectedTotalBytes: expectedTotalBytes,
-    ),
+    cumulativeBytesLoaded: cumulativeBytesLoaded,
+    expectedTotalBytes: expectedTotalBytes,
+  ),
+  [
+    "cumulativeBytesLoaded",
+    "expectedTotalBytes",
+  ],
 );
 var _imageStream = MXFunctionInvoke(
-    "ImageStream",
-    (
-    ) =>
-      ImageStream(
-    ),
+  "ImageStream",
+  () => ImageStream(),
+  [],
 );
 var _oneFrameImageStreamCompleter = MXFunctionInvoke(
-    "OneFrameImageStreamCompleter",
-    (
-      {
-      Future<ImageInfo> image,
-      dynamic informationCollector,
-      }
-    ) =>
+  "OneFrameImageStreamCompleter",
+  ({
+    Future<ImageInfo> image,
+    dynamic informationCollector,
+  }) =>
       OneFrameImageStreamCompleter(
-      image,
-      informationCollector: null,
-    ),
+    image,
+    informationCollector: null,
+  ),
+  [
+    "image",
+    "informationCollector",
+  ],
 );
 var _multiFrameImageStreamCompleter = MXFunctionInvoke(
-    "MultiFrameImageStreamCompleter",
-    (
-      {
-      Future<ui.Codec> codec,
-      dynamic scale,
-      Stream<ImageChunkEvent> chunkEvents,
-      dynamic informationCollector,
-      }
-    ) =>
+  "MultiFrameImageStreamCompleter",
+  ({
+    Future<ui.Codec> codec,
+    dynamic scale,
+    Stream<ImageChunkEvent> chunkEvents,
+    dynamic informationCollector,
+  }) =>
       MultiFrameImageStreamCompleter(
-      codec: codec,
-      scale: scale?.toDouble(),
-      chunkEvents: chunkEvents,
-      informationCollector: null,
-    ),
+    codec: codec,
+    scale: scale?.toDouble(),
+    chunkEvents: chunkEvents,
+    informationCollector: null,
+  ),
+  [
+    "codec",
+    "scale",
+    "chunkEvents",
+    "informationCollector",
+  ],
 );

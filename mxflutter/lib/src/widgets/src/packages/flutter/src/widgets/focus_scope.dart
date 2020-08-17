@@ -12,7 +12,6 @@ import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/inherited_notifier.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFocusScopeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,59 +19,81 @@ Map<String, MXFunctionInvoke> registerFocusScopeSeries() {
   m[_focusScope.funName] = _focusScope;
   return m;
 }
+
 var _focus = MXFunctionInvoke(
-    "Focus",
-    (
-      {
-      Key key,
-      Widget child,
-      FocusNode focusNode,
-      bool autofocus = false,
-      dynamic onFocusChange,
-      dynamic onKey,
-      String debugLabel,
-      bool canRequestFocus,
-      bool skipTraversal,
-      bool includeSemantics = true,
-      }
-    ) =>
+  "Focus",
+  ({
+    Key key,
+    Widget child,
+    FocusNode focusNode,
+    bool autofocus = false,
+    dynamic onFocusChange,
+    dynamic onKey,
+    String debugLabel,
+    bool canRequestFocus,
+    bool skipTraversal,
+    bool includeSemantics = true,
+  }) =>
       Focus(
-      key: key,
-      child: child,
-      focusNode: focusNode,
-      autofocus: autofocus,
-      onFocusChange: createValueChangedGenericClosure<bool>(_focus.buildOwner, onFocusChange),
-      onKey: null,
-      debugLabel: debugLabel,
-      canRequestFocus: canRequestFocus,
-      skipTraversal: skipTraversal,
-      includeSemantics: includeSemantics,
-    ),
+    key: key,
+    child: child,
+    focusNode: focusNode,
+    autofocus: autofocus,
+    onFocusChange: createValueChangedGenericClosure<bool>(
+        _focus.buildOwner, onFocusChange),
+    onKey: null,
+    debugLabel: debugLabel,
+    canRequestFocus: canRequestFocus,
+    skipTraversal: skipTraversal,
+    includeSemantics: includeSemantics,
+  ),
+  [
+    "key",
+    "child",
+    "focusNode",
+    "autofocus",
+    "onFocusChange",
+    "onKey",
+    "debugLabel",
+    "canRequestFocus",
+    "skipTraversal",
+    "includeSemantics",
+  ],
 );
 var _focusScope = MXFunctionInvoke(
-    "FocusScope",
-    (
-      {
-      Key key,
-      FocusScopeNode node,
-      Widget child,
-      bool autofocus = false,
-      dynamic onFocusChange,
-      bool canRequestFocus,
-      bool skipTraversal,
-      dynamic onKey,
-      String debugLabel,
-      }
-    ) =>
+  "FocusScope",
+  ({
+    Key key,
+    FocusScopeNode node,
+    Widget child,
+    bool autofocus = false,
+    dynamic onFocusChange,
+    bool canRequestFocus,
+    bool skipTraversal,
+    dynamic onKey,
+    String debugLabel,
+  }) =>
       FocusScope(
-      key: key,
-      node: node,
-      child: child,
-      autofocus: autofocus,
-      onFocusChange: createValueChangedGenericClosure<bool>(_focusScope.buildOwner, onFocusChange),
-      canRequestFocus: canRequestFocus,
-      skipTraversal: skipTraversal,
-      onKey: null,
-      debugLabel: debugLabel,
-    ),
+    key: key,
+    node: node,
+    child: child,
+    autofocus: autofocus,
+    onFocusChange: createValueChangedGenericClosure<bool>(
+        _focusScope.buildOwner, onFocusChange),
+    canRequestFocus: canRequestFocus,
+    skipTraversal: skipTraversal,
+    onKey: null,
+    debugLabel: debugLabel,
+  ),
+  [
+    "key",
+    "node",
+    "child",
+    "autofocus",
+    "onFocusChange",
+    "canRequestFocus",
+    "skipTraversal",
+    "onKey",
+    "debugLabel",
+  ],
 );

@@ -11,21 +11,22 @@ import 'dart:typed_data';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFontLoaderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_fontLoader.funName] = _fontLoader;
   return m;
 }
+
 var _fontLoader = MXFunctionInvoke(
-    "FontLoader",
-    (
-      {
-      String family,
-      }
-    ) =>
+  "FontLoader",
+  ({
+    String family,
+  }) =>
       FontLoader(
-      family,
-    ),
+    family,
+  ),
+  [
+    "family",
+  ],
 );

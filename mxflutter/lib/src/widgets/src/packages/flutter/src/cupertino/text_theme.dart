@@ -11,39 +11,49 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/cupertino/colors.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoTextThemeData.funName] = _cupertinoTextThemeData;
   return m;
 }
+
 var _cupertinoTextThemeData = MXFunctionInvoke(
-    "CupertinoTextThemeData",
-    (
-      {
-      Color primaryColor = CupertinoColors.systemBlue,
-      Brightness brightness,
-      TextStyle textStyle,
-      TextStyle actionTextStyle,
-      TextStyle tabLabelTextStyle,
-      TextStyle navTitleTextStyle,
-      TextStyle navLargeTitleTextStyle,
-      TextStyle navActionTextStyle,
-      TextStyle pickerTextStyle,
-      TextStyle dateTimePickerTextStyle,
-      }
-    ) =>
+  "CupertinoTextThemeData",
+  ({
+    Color primaryColor = CupertinoColors.systemBlue,
+    Brightness brightness,
+    TextStyle textStyle,
+    TextStyle actionTextStyle,
+    TextStyle tabLabelTextStyle,
+    TextStyle navTitleTextStyle,
+    TextStyle navLargeTitleTextStyle,
+    TextStyle navActionTextStyle,
+    TextStyle pickerTextStyle,
+    TextStyle dateTimePickerTextStyle,
+  }) =>
       CupertinoTextThemeData(
-      primaryColor: primaryColor,
-      brightness: brightness,
-      textStyle: textStyle,
-      actionTextStyle: actionTextStyle,
-      tabLabelTextStyle: tabLabelTextStyle,
-      navTitleTextStyle: navTitleTextStyle,
-      navLargeTitleTextStyle: navLargeTitleTextStyle,
-      navActionTextStyle: navActionTextStyle,
-      pickerTextStyle: pickerTextStyle,
-      dateTimePickerTextStyle: dateTimePickerTextStyle,
-    ),
+    primaryColor: primaryColor,
+    brightness: brightness,
+    textStyle: textStyle,
+    actionTextStyle: actionTextStyle,
+    tabLabelTextStyle: tabLabelTextStyle,
+    navTitleTextStyle: navTitleTextStyle,
+    navLargeTitleTextStyle: navLargeTitleTextStyle,
+    navActionTextStyle: navActionTextStyle,
+    pickerTextStyle: pickerTextStyle,
+    dateTimePickerTextStyle: dateTimePickerTextStyle,
+  ),
+  [
+    "primaryColor",
+    "brightness",
+    "textStyle",
+    "actionTextStyle",
+    "tabLabelTextStyle",
+    "navTitleTextStyle",
+    "navLargeTitleTextStyle",
+    "navActionTextStyle",
+    "pickerTextStyle",
+    "dateTimePickerTextStyle",
+  ],
 );

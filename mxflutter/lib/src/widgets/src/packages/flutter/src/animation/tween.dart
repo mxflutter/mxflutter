@@ -12,7 +12,6 @@ import 'package:flutter/src/animation/animation.dart';
 import 'package:flutter/src/animation/animations.dart';
 import 'package:flutter/src/animation/curves.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTweenSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -27,114 +26,130 @@ Map<String, MXFunctionInvoke> registerTweenSeries() {
   m[_curveTween.funName] = _curveTween;
   return m;
 }
+
 var _tween = MXFunctionInvoke(
-    "Tween",
-    (
-      {
-      dynamic begin,
-      dynamic end,
-      }
-    ) =>
+  "Tween",
+  ({
+    dynamic begin,
+    dynamic end,
+  }) =>
       Tween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _reverseTween = MXFunctionInvoke(
-    "ReverseTween",
-    (
-      {
-      Tween<dynamic> parent,
-      }
-    ) =>
+  "ReverseTween",
+  ({
+    Tween<dynamic> parent,
+  }) =>
       ReverseTween(
-      parent,
-    ),
+    parent,
+  ),
+  [
+    "parent",
+  ],
 );
 var _colorTween = MXFunctionInvoke(
-    "ColorTween",
-    (
-      {
-      Color begin,
-      Color end,
-      }
-    ) =>
+  "ColorTween",
+  ({
+    Color begin,
+    Color end,
+  }) =>
       ColorTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _sizeTween = MXFunctionInvoke(
-    "SizeTween",
-    (
-      {
-      Size begin,
-      Size end,
-      }
-    ) =>
+  "SizeTween",
+  ({
+    Size begin,
+    Size end,
+  }) =>
       SizeTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _rectTween = MXFunctionInvoke(
-    "RectTween",
-    (
-      {
-      Rect begin,
-      Rect end,
-      }
-    ) =>
+  "RectTween",
+  ({
+    Rect begin,
+    Rect end,
+  }) =>
       RectTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _intTween = MXFunctionInvoke(
-    "IntTween",
-    (
-      {
-      int begin,
-      int end,
-      }
-    ) =>
+  "IntTween",
+  ({
+    int begin,
+    int end,
+  }) =>
       IntTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _stepTween = MXFunctionInvoke(
-    "StepTween",
-    (
-      {
-      int begin,
-      int end,
-      }
-    ) =>
+  "StepTween",
+  ({
+    int begin,
+    int end,
+  }) =>
       StepTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
 var _constantTween = MXFunctionInvoke(
-    "ConstantTween",
-    (
-      {
-      dynamic value,
-      }
-    ) =>
+  "ConstantTween",
+  ({
+    dynamic value,
+  }) =>
       ConstantTween(
-      value,
-    ),
+    value,
+  ),
+  [
+    "value",
+  ],
 );
 var _curveTween = MXFunctionInvoke(
-    "CurveTween",
-    (
-      {
-      Curve curve,
-      }
-    ) =>
+  "CurveTween",
+  ({
+    Curve curve,
+  }) =>
       CurveTween(
-      curve: curve,
-    ),
+    curve: curve,
+  ),
+  [
+    "curve",
+  ],
 );

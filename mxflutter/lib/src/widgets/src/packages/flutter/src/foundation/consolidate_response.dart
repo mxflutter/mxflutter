@@ -11,7 +11,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerConsolidateResponseSeries() {
   var m = <String, MXFunctionInvoke>{};

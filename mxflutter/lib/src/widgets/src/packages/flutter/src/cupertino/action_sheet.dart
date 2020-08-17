@@ -15,7 +15,6 @@ import 'package:flutter/src/cupertino/interface_level.dart';
 import 'package:flutter/src/cupertino/scrollbar.dart';
 import 'package:flutter/src/cupertino/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerActionSheetSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,45 +22,59 @@ Map<String, MXFunctionInvoke> registerActionSheetSeries() {
   m[_cupertinoActionSheetAction.funName] = _cupertinoActionSheetAction;
   return m;
 }
+
 var _cupertinoActionSheet = MXFunctionInvoke(
-    "CupertinoActionSheet",
-    (
-      {
-      Key key,
-      Widget title,
-      Widget message,
-      dynamic actions,
-      ScrollController messageScrollController,
-      ScrollController actionScrollController,
-      Widget cancelButton,
-      }
-    ) =>
+  "CupertinoActionSheet",
+  ({
+    Key key,
+    Widget title,
+    Widget message,
+    dynamic actions,
+    ScrollController messageScrollController,
+    ScrollController actionScrollController,
+    Widget cancelButton,
+  }) =>
       CupertinoActionSheet(
-      key: key,
-      title: title,
-      message: message,
-      actions: toListT<Widget>(actions),
-      messageScrollController: messageScrollController,
-      actionScrollController: actionScrollController,
-      cancelButton: cancelButton,
-    ),
+    key: key,
+    title: title,
+    message: message,
+    actions: toListT<Widget>(actions),
+    messageScrollController: messageScrollController,
+    actionScrollController: actionScrollController,
+    cancelButton: cancelButton,
+  ),
+  [
+    "key",
+    "title",
+    "message",
+    "actions",
+    "messageScrollController",
+    "actionScrollController",
+    "cancelButton",
+  ],
 );
 var _cupertinoActionSheetAction = MXFunctionInvoke(
-    "CupertinoActionSheetAction",
-    (
-      {
-      Key key,
-      dynamic onPressed,
-      bool isDefaultAction = false,
-      bool isDestructiveAction = false,
-      Widget child,
-      }
-    ) =>
+  "CupertinoActionSheetAction",
+  ({
+    Key key,
+    dynamic onPressed,
+    bool isDefaultAction = false,
+    bool isDestructiveAction = false,
+    Widget child,
+  }) =>
       CupertinoActionSheetAction(
-      key: key,
-      onPressed: createVoidCallbackClosure(_cupertinoActionSheetAction.buildOwner, onPressed),
-      isDefaultAction: isDefaultAction,
-      isDestructiveAction: isDestructiveAction,
-      child: child,
-    ),
+    key: key,
+    onPressed: createVoidCallbackClosure(
+        _cupertinoActionSheetAction.buildOwner, onPressed),
+    isDefaultAction: isDefaultAction,
+    isDestructiveAction: isDestructiveAction,
+    child: child,
+  ),
+  [
+    "key",
+    "onPressed",
+    "isDefaultAction",
+    "isDestructiveAction",
+    "child",
+  ],
 );

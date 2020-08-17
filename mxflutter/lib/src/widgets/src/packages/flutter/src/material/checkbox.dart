@@ -17,7 +17,6 @@ import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/toggleable.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerCheckboxSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -25,42 +24,51 @@ Map<String, MXFunctionInvoke> registerCheckboxSeries() {
   m[_checkbox_width.funName] = _checkbox_width;
   return m;
 }
+
 var _checkbox = MXFunctionInvoke(
-    "Checkbox",
-    (
-      {
-      Key key,
-      bool value,
-      bool tristate = false,
-      dynamic onChanged,
-      Color activeColor,
-      Color checkColor,
-      Color focusColor,
-      Color hoverColor,
-      MaterialTapTargetSize materialTapTargetSize,
-      VisualDensity visualDensity,
-      FocusNode focusNode,
-      bool autofocus = false,
-      }
-    ) =>
+  "Checkbox",
+  ({
+    Key key,
+    bool value,
+    bool tristate = false,
+    dynamic onChanged,
+    Color activeColor,
+    Color checkColor,
+    Color focusColor,
+    Color hoverColor,
+    MaterialTapTargetSize materialTapTargetSize,
+    VisualDensity visualDensity,
+    FocusNode focusNode,
+    bool autofocus = false,
+  }) =>
       Checkbox(
-      key: key,
-      value: value,
-      tristate: tristate,
-      onChanged: createValueChangedGenericClosure<bool>(_checkbox.buildOwner, onChanged),
-      activeColor: activeColor,
-      checkColor: checkColor,
-      focusColor: focusColor,
-      hoverColor: hoverColor,
-      materialTapTargetSize: materialTapTargetSize,
-      visualDensity: visualDensity,
-      focusNode: focusNode,
-      autofocus: autofocus,
-    ),
+    key: key,
+    value: value,
+    tristate: tristate,
+    onChanged:
+        createValueChangedGenericClosure<bool>(_checkbox.buildOwner, onChanged),
+    activeColor: activeColor,
+    checkColor: checkColor,
+    focusColor: focusColor,
+    hoverColor: hoverColor,
+    materialTapTargetSize: materialTapTargetSize,
+    visualDensity: visualDensity,
+    focusNode: focusNode,
+    autofocus: autofocus,
+  ),
+  [
+    "key",
+    "value",
+    "tristate",
+    "onChanged",
+    "activeColor",
+    "checkColor",
+    "focusColor",
+    "hoverColor",
+    "materialTapTargetSize",
+    "visualDensity",
+    "focusNode",
+    "autofocus",
+  ],
 );
-var _checkbox_width = MXFunctionInvoke(
-  "Checkbox.width",
-    (
-    ) =>
-      Checkbox.width
-);
+var _checkbox_width = MXFunctionInvoke("Checkbox.width", () => Checkbox.width);

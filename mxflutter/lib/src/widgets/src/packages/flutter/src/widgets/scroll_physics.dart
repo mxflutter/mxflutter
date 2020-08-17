@@ -16,7 +16,6 @@ import 'package:flutter/src/widgets/overscroll_indicator.dart';
 import 'package:flutter/src/widgets/scroll_metrics.dart';
 import 'package:flutter/src/widgets/scroll_simulation.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollPhysicsSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -27,58 +26,64 @@ Map<String, MXFunctionInvoke> registerScrollPhysicsSeries() {
   m[_neverScrollableScrollPhysics.funName] = _neverScrollableScrollPhysics;
   return m;
 }
+
 var _scrollPhysics = MXFunctionInvoke(
-    "ScrollPhysics",
-    (
-      {
-      ScrollPhysics parent,
-      }
-    ) =>
+  "ScrollPhysics",
+  ({
+    ScrollPhysics parent,
+  }) =>
       ScrollPhysics(
-      parent: parent,
-    ),
+    parent: parent,
+  ),
+  [
+    "parent",
+  ],
 );
 var _bouncingScrollPhysics = MXFunctionInvoke(
-    "BouncingScrollPhysics",
-    (
-      {
-      ScrollPhysics parent,
-      }
-    ) =>
+  "BouncingScrollPhysics",
+  ({
+    ScrollPhysics parent,
+  }) =>
       BouncingScrollPhysics(
-      parent: parent,
-    ),
+    parent: parent,
+  ),
+  [
+    "parent",
+  ],
 );
 var _clampingScrollPhysics = MXFunctionInvoke(
-    "ClampingScrollPhysics",
-    (
-      {
-      ScrollPhysics parent,
-      }
-    ) =>
+  "ClampingScrollPhysics",
+  ({
+    ScrollPhysics parent,
+  }) =>
       ClampingScrollPhysics(
-      parent: parent,
-    ),
+    parent: parent,
+  ),
+  [
+    "parent",
+  ],
 );
 var _alwaysScrollableScrollPhysics = MXFunctionInvoke(
-    "AlwaysScrollableScrollPhysics",
-    (
-      {
-      ScrollPhysics parent,
-      }
-    ) =>
+  "AlwaysScrollableScrollPhysics",
+  ({
+    ScrollPhysics parent,
+  }) =>
       AlwaysScrollableScrollPhysics(
-      parent: parent,
-    ),
+    parent: parent,
+  ),
+  [
+    "parent",
+  ],
 );
 var _neverScrollableScrollPhysics = MXFunctionInvoke(
-    "NeverScrollableScrollPhysics",
-    (
-      {
-      ScrollPhysics parent,
-      }
-    ) =>
+  "NeverScrollableScrollPhysics",
+  ({
+    ScrollPhysics parent,
+  }) =>
       NeverScrollableScrollPhysics(
-      parent: parent,
-    ),
+    parent: parent,
+  ),
+  [
+    "parent",
+  ],
 );

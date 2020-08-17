@@ -5,10 +5,7 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import '../../../../mx_json_to_dart.dart';
-import '../../../../mx_json_build_owner.dart';
 import "package:pull_to_refresh/pull_to_refresh.dart";
-import '../../mx_json_proxy_pull_to_refresh.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 Map<String, MXFunctionInvoke> registerClassicIndicatorSeries() {
@@ -66,6 +63,29 @@ var _classicHeader = MXFunctionInvoke(
     idleIcon: idleIcon,
     releaseIcon: releaseIcon,
   ),
+  [
+    "key",
+    "refreshStyle",
+    "height",
+    "completeDuration",
+    "outerBuilder",
+    "textStyle",
+    "releaseText",
+    "refreshingText",
+    "canTwoLevelIcon",
+    "twoLevelView",
+    "canTwoLevelText",
+    "completeText",
+    "failedText",
+    "idleText",
+    "iconPos",
+    "spacing",
+    "refreshingIcon",
+    "failedIcon",
+    "completeIcon",
+    "idleIcon",
+    "releaseIcon",
+  ],
 );
 
 var _classicFooter = MXFunctionInvoke(
@@ -112,4 +132,25 @@ var _classicFooter = MXFunctionInvoke(
     canLoadingIcon: canLoadingIcon,
     idleIcon: idleIcon,
   ),
+  [
+    "key",
+    "onClick",
+    "loadStyle",
+    "height",
+    "outerBuilder",
+    "textStyle",
+    "loadingText",
+    "noDataText",
+    "noMoreIcon",
+    "idleText",
+    "failedText",
+    "canLoadingText",
+    "failedIcon",
+    "iconPos",
+    "spacing",
+    "completeDuration",
+    "loadingIcon",
+    "canLoadingIcon",
+    "idleIcon",
+  ],
 );

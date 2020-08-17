@@ -19,25 +19,31 @@ Map<String, MXFunctionInvoke> registerAnimationSeries() {
 }
 
 var _animationStatus = MXFunctionInvoke(
-  "AnimationStatus",
-  ({String name, int index}) => MXAnimationStatus.parse(name, index),
-);
+    "AnimationStatus",
+    ({String name, int index}) => MXAnimationStatus.parse(name, index),
+    ["name", "index"]);
 
-var _animation = MXFunctionInvoke(
-    "Animation", 
-    ({
-      Tween tween,
-      AnimationController controller,
-      dynamic statusListenerList,
-      dynamic listenerList,
-      dynamic mirrorID,
-    }) {
-      Animation animation = tween.animate(controller);
-      animation.addStatusListener(_createStatusListenerHandle(
-          _animation.buildOwner, mirrorID, 'statusListenerCallback'));
-      return animation;
-    }
-);
+/// MX modified begin
+var _animation = MXFunctionInvoke("Animation", ({
+  Tween tween,
+  AnimationController controller,
+  dynamic statusListenerList,
+  dynamic listenerList,
+  dynamic mirrorID,
+}) {
+  Animation animation = tween.animate(controller);
+  animation.addStatusListener(_createStatusListenerHandle(
+      _animation.buildOwner, mirrorID, 'statusListenerCallback'));
+  return animation;
+},
+[
+  "tween",
+  "controller",
+  "statusListenerList",
+  "listenerList",
+  "mirrorID",
+]);
+/// MX modified end
 
 AnimationStatusListener _createStatusListenerHandle(
     dynamic bo, String mirrorID, String functionName) {

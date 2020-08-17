@@ -11,23 +11,25 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/debug.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerLayoutBuilderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_layoutBuilder.funName] = _layoutBuilder;
   return m;
 }
+
 var _layoutBuilder = MXFunctionInvoke(
-    "LayoutBuilder",
-    (
-      {
-      Key key,
-      dynamic builder,
-      }
-    ) =>
+  "LayoutBuilder",
+  ({
+    Key key,
+    dynamic builder,
+  }) =>
       LayoutBuilder(
-      key: key,
-      builder: null,
-    ),
+    key: key,
+    builder: null,
+  ),
+  [
+    "key",
+    "builder",
+  ],
 );

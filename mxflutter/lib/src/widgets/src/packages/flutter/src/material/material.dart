@@ -13,7 +13,6 @@ import 'package:flutter/src/material/constants.dart';
 import 'package:flutter/src/material/elevation_overlay.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMaterialSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,75 +22,87 @@ Map<String, MXFunctionInvoke> registerMaterialSeries() {
   m[_shapeBorderTween.funName] = _shapeBorderTween;
   return m;
 }
+
 var _materialType = MXFunctionInvoke(
     "MaterialType",
     ({String name, int index}) => MXMaterialType.parse(name, index),
-  );
+    ["name", "index"]);
 var _material = MXFunctionInvoke(
-    "Material",
-    (
-      {
-      Key key,
-      MaterialType type = MaterialType.canvas,
-      dynamic elevation = 0.0,
-      Color color,
-      Color shadowColor = const Color(0xFF000000),
-      TextStyle textStyle,
-      BorderRadiusGeometry borderRadius,
-      ShapeBorder shape,
-      bool borderOnForeground = true,
-      Clip clipBehavior =  Clip.none,
-      Duration animationDuration = const Duration(milliseconds: 200),
-      Widget child,
-      }
-    ) =>
+  "Material",
+  ({
+    Key key,
+    MaterialType type = MaterialType.canvas,
+    dynamic elevation = 0.0,
+    Color color,
+    Color shadowColor = const Color(0xFF000000),
+    TextStyle textStyle,
+    BorderRadiusGeometry borderRadius,
+    ShapeBorder shape,
+    bool borderOnForeground = true,
+    Clip clipBehavior = Clip.none,
+    Duration animationDuration = const Duration(milliseconds: 200),
+    Widget child,
+  }) =>
       Material(
-      key: key,
-      type: type,
-      elevation: elevation?.toDouble(),
-      color: color,
-      shadowColor: shadowColor,
-      textStyle: textStyle,
-      borderRadius: borderRadius,
-      shape: shape,
-      borderOnForeground: borderOnForeground,
-      clipBehavior: clipBehavior,
-      animationDuration: animationDuration,
-      child: child,
-    ),
+    key: key,
+    type: type,
+    elevation: elevation?.toDouble(),
+    color: color,
+    shadowColor: shadowColor,
+    textStyle: textStyle,
+    borderRadius: borderRadius,
+    shape: shape,
+    borderOnForeground: borderOnForeground,
+    clipBehavior: clipBehavior,
+    animationDuration: animationDuration,
+    child: child,
+  ),
+  [
+    "key",
+    "type",
+    "elevation",
+    "color",
+    "shadowColor",
+    "textStyle",
+    "borderRadius",
+    "shape",
+    "borderOnForeground",
+    "clipBehavior",
+    "animationDuration",
+    "child",
+  ],
 );
 var _material_defaultSplashRadius = MXFunctionInvoke(
-  "Material.defaultSplashRadius",
-    (
-    ) =>
-      Material.defaultSplashRadius
-);
+    "Material.defaultSplashRadius", () => Material.defaultSplashRadius);
 var _shapeBorderTween = MXFunctionInvoke(
-    "ShapeBorderTween",
-    (
-      {
-      ShapeBorder begin,
-      ShapeBorder end,
-      }
-    ) =>
+  "ShapeBorderTween",
+  ({
+    ShapeBorder begin,
+    ShapeBorder end,
+  }) =>
       ShapeBorderTween(
-      begin: begin,
-      end: end,
-    ),
+    begin: begin,
+    end: end,
+  ),
+  [
+    "begin",
+    "end",
+  ],
 );
+
 class MXMaterialType {
   static MaterialType parse(String name, int index) {
-    switch(name) {
-      case 'MaterialType.canvas': 
-       return MaterialType.canvas;
-      case 'MaterialType.card': 
-       return MaterialType.card;
-      case 'MaterialType.circle': 
-       return MaterialType.circle;
-      case 'MaterialType.button': 
-       return MaterialType.button;
-      case 'MaterialType.transparency': 
-       return MaterialType.transparency;
+    switch (name) {
+      case 'MaterialType.canvas':
+        return MaterialType.canvas;
+      case 'MaterialType.card':
+        return MaterialType.card;
+      case 'MaterialType.circle':
+        return MaterialType.circle;
+      case 'MaterialType.button':
+        return MaterialType.button;
+      case 'MaterialType.transparency':
+        return MaterialType.transparency;
     }
     return null;
   }

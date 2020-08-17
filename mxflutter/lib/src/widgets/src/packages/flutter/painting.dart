@@ -46,7 +46,6 @@ import 'src/painting/text_painter.dart';
 import 'src/painting/text_span.dart';
 import 'src/painting/text_style.dart';
 
-
 Map<String, MXFunctionInvoke> registerPaintingLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
   m.addAll(registerAlignmentSeries());

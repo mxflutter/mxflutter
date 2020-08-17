@@ -5,16 +5,13 @@
 //  found in the LICENSE file.
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'mx_js_flutter_lib.dart';
-
 import 'package:mxflutter/mxflutter_test.dart';
-
 import 'package:mxflutter/src/mirror/src/mx_mirror_object.dart';
-import 'mx_json_to_dart.dart';
-import 'mx_js_flutter_app.dart';
-import 'mx_js_flutter_common.dart';
-import 'mx_js_mirror_obj_mgr.dart';
+
+import 'mirror/mx_mirror.dart';
+import 'mx_flutter.dart';
+import 'mx_flutter_app.dart';
+import 'mx_common.dart';
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
 
@@ -86,7 +83,6 @@ class MXJsonBuildOwner {
   }
 
   MXJsonBuildOwner findChild(widgetID) {
-
     if (widgetID == null) return null;
     if (widgetID == ownerWidgetId) return this;
 
@@ -138,17 +134,36 @@ class MXJsonBuildOwner {
   }
 
   Widget buildRootWidget(Map widgetData) {
-    var w = MXJsonObjToDartObject.jsonToDartObj(widgetData, buildOwner: this);
-    return w;
+    return MXMirrorFunc.getInstance()
+        .jsonToDartObj(widgetData, buildOwner: this);
   }
 
   Widget buildWidgetData(Map widgetData, BuildContext context) {
-    return MXJsonObjToDartObject.jsonToDartObj(widgetData,
-        buildOwner: this, context: context);
+    return MXMirrorFunc.getInstance()
+        .jsonToDartObj(widgetData, buildOwner: this, context: context);
   }
 
   /// app channel
-  MXJSFlutterApp get ownerApp => MXJSFlutterLib.getInstance().currentApp;
+  MXJSFlutterApp get ownerApp => MXJSFlutter.getInstance().currentApp;
+
+  /// 调用js 刷新hostwidget
+  callJSRefreshHostWidget(String widgetName, String widgetID, BuildContext context){
+
+    var mediaQueryData = MediaQuery.of(context);
+    var themeData = Theme.of(context);
+    var iconThemeData = IconTheme.of(context);
+
+    // TODO: rename flutterCallNavigatorPushWithName
+    MethodCall jsMethodCall = MethodCall("flutterCallNavigatorPushWithName", {
+      "widgetName": widgetName,
+      "widgetID": widgetID,
+      "themeData": MXUtil.cThemeDataToJson(themeData),
+      "mediaQueryData": MXUtil.cMediaQueryDataToJson(mediaQueryData),
+      "iconThemeData": MXUtil.cIconThemeDataToJson(iconThemeData),
+    });
+
+    ownerApp.callJS(jsMethodCall);
+  }
 
   /// 事件回调
   /// flutter->JS
@@ -351,33 +366,31 @@ class MXJsonBuildOwner {
     if (mirrorID == null) {
       return null;
     }
-    // return MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
     return MXMirrorObject.getInstance().mirrorObject(mirrorID);
   }
 
-  void setMirrorObject(dynamic mirrorObj, Map jsonMap) {
-    String mirrorID = getJsonObjMirrorID(jsonMap);
-    if (mirrorID != null) {
-      if (!_mirrorObjKeyList.contains(mirrorID)) {
-        _mirrorObjKeyList.add(mirrorID);
-      }
+  // void setMirrorObject(dynamic mirrorObj, Map jsonMap) {
+  //   String mirrorID = getJsonObjMirrorID(jsonMap);
+  //   if (mirrorID != null) {
+  //     if (!_mirrorObjKeyList.contains(mirrorID)) {
+  //       _mirrorObjKeyList.add(mirrorID);
+  //     }
 
-      MXJSMirrorObjMgr.getInstance().addMirrorObject(mirrorID, mirrorObj);
-    }
-  }
+  //     MXJSMirrorObjMgr.getInstance().addMirrorObject(mirrorID, mirrorObj);
+  //   }
+  // }
 
   void removeMirrorObject(dynamic mirrorID) {
-    MXJSMirrorObjMgr.getInstance().removeMirrorObject(mirrorID);
+    MXMirrorObject.getInstance().removeMirrorObject(mirrorID);
   }
 
   void disposeMirrorObjs() {
     _mirrorObjKeyList.forEach((dynamic mirrorID) {
       dynamic mirrorObj = getMirrorObjectFromID(mirrorID);
       String className = mirrorObj.runtimeType.toString();
-
-      MXJsonObjProxy proxy =
-          MXJsonObjToDartObject.getInstance().getJSObjProxy(className);
-      proxy?.jsInvokeMirrorObjFunction(mirrorID, mirrorObj, "dispose", null);
+      var funcName = className + "#dispose";
+      Map jsonMap = {"mirrorObj" : mirrorObj, "funcName" : funcName};
+      MXMirrorFunc.getInstance().invoke(jsonMap);
 
       removeMirrorObject(mirrorID);
     });

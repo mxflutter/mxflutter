@@ -12,7 +12,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/src/painting/basic_types.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBordersSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -21,38 +20,39 @@ Map<String, MXFunctionInvoke> registerBordersSeries() {
   m[_borderSide_none.funName] = _borderSide_none;
   return m;
 }
+
 var _borderStyle = MXFunctionInvoke(
     "BorderStyle",
     ({String name, int index}) => MXBorderStyle.parse(name, index),
-  );
+    ["name", "index"]);
 var _borderSide = MXFunctionInvoke(
-    "BorderSide",
-    (
-      {
-      ui.Color color = const Color(0xFF000000),
-      dynamic width = 1.0,
-      BorderStyle style = BorderStyle.solid,
-      }
-    ) =>
+  "BorderSide",
+  ({
+    ui.Color color = const Color(0xFF000000),
+    dynamic width = 1.0,
+    BorderStyle style = BorderStyle.solid,
+  }) =>
       BorderSide(
-      color: color,
-      width: width?.toDouble(),
-      style: style,
-    ),
+    color: color,
+    width: width?.toDouble(),
+    style: style,
+  ),
+  [
+    "color",
+    "width",
+    "style",
+  ],
 );
-var _borderSide_none = MXFunctionInvoke(
-  "BorderSide.none",
-    (
-    ) =>
-      BorderSide.none
-);
+var _borderSide_none =
+    MXFunctionInvoke("BorderSide.none", () => BorderSide.none);
+
 class MXBorderStyle {
   static BorderStyle parse(String name, int index) {
-    switch(name) {
-      case 'BorderStyle.none': 
-       return BorderStyle.none;
-      case 'BorderStyle.solid': 
-       return BorderStyle.solid;
+    switch (name) {
+      case 'BorderStyle.none':
+        return BorderStyle.none;
+      case 'BorderStyle.solid':
+        return BorderStyle.solid;
     }
     return null;
   }

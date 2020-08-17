@@ -8,7 +8,6 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/observer_list.dart';
 import 'dart:collection';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerObserverListSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -16,17 +15,14 @@ Map<String, MXFunctionInvoke> registerObserverListSeries() {
   m[_hashedObserverList.funName] = _hashedObserverList;
   return m;
 }
+
 var _observerList = MXFunctionInvoke(
-    "ObserverList",
-    (
-    ) =>
-      ObserverList(
-    ),
+  "ObserverList",
+  () => ObserverList(),
+  [],
 );
 var _hashedObserverList = MXFunctionInvoke(
-    "HashedObserverList",
-    (
-    ) =>
-      HashedObserverList(
-    ),
+  "HashedObserverList",
+  () => HashedObserverList(),
+  [],
 );

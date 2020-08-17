@@ -20,7 +20,6 @@ import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/widget_inspector.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -29,36 +28,39 @@ Map<String, MXFunctionInvoke> registerBindingSeries() {
   m[_widgetsFlutterBinding.funName] = _widgetsFlutterBinding;
   return m;
 }
+
 var _renderObjectToWidgetAdapter = MXFunctionInvoke(
-    "RenderObjectToWidgetAdapter",
-    (
-      {
-      Widget child,
-      RenderObjectWithChildMixin<RenderObject> container,
-      String debugShortDescription,
-      }
-    ) =>
+  "RenderObjectToWidgetAdapter",
+  ({
+    Widget child,
+    RenderObjectWithChildMixin<RenderObject> container,
+    String debugShortDescription,
+  }) =>
       RenderObjectToWidgetAdapter(
-      child: child,
-      container: container,
-      debugShortDescription: debugShortDescription,
-    ),
+    child: child,
+    container: container,
+    debugShortDescription: debugShortDescription,
+  ),
+  [
+    "child",
+    "container",
+    "debugShortDescription",
+  ],
 );
 var _renderObjectToWidgetElement = MXFunctionInvoke(
-    "RenderObjectToWidgetElement",
-    (
-      {
-      RenderObjectToWidgetAdapter<RenderObject> widget,
-      }
-    ) =>
+  "RenderObjectToWidgetElement",
+  ({
+    RenderObjectToWidgetAdapter<RenderObject> widget,
+  }) =>
       RenderObjectToWidgetElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );
 var _widgetsFlutterBinding = MXFunctionInvoke(
-    "WidgetsFlutterBinding",
-    (
-    ) =>
-      WidgetsFlutterBinding(
-    ),
+  "WidgetsFlutterBinding",
+  () => WidgetsFlutterBinding(),
+  [],
 );

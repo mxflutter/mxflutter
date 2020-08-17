@@ -12,7 +12,6 @@ import 'package:flutter/src/foundation/basic_types.dart';
 import 'package:flutter/src/foundation/diagnostics.dart';
 import 'package:flutter/src/foundation/observer_list.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerChangeNotifierSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -21,32 +20,33 @@ Map<String, MXFunctionInvoke> registerChangeNotifierSeries() {
   m[_valueNotifier.funName] = _valueNotifier;
   return m;
 }
+
 var _listenable_merge = MXFunctionInvoke(
   "Listenable.merge",
-    (
-      {
-      dynamic listenables,
-      }
-    ) =>
+  ({
+    dynamic listenables,
+  }) =>
       Listenable.merge(
-      toListT<Listenable>(listenables),
-    ),
+    toListT<Listenable>(listenables),
+  ),
+  [
+    "listenables",
+  ],
 );
 var _changeNotifier = MXFunctionInvoke(
-    "ChangeNotifier",
-    (
-    ) =>
-      ChangeNotifier(
-    ),
+  "ChangeNotifier",
+  () => ChangeNotifier(),
+  [],
 );
 var _valueNotifier = MXFunctionInvoke(
-    "ValueNotifier",
-    (
-      {
-      dynamic value,
-      }
-    ) =>
+  "ValueNotifier",
+  ({
+    dynamic value,
+  }) =>
       ValueNotifier(
-      value,
-    ),
+    value,
+  ),
+  [
+    "value",
+  ],
 );

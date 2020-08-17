@@ -9,7 +9,6 @@ import 'package:flutter/src/widgets/page_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPageStorageSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,36 +17,39 @@ Map<String, MXFunctionInvoke> registerPageStorageSeries() {
   m[_pageStorage.funName] = _pageStorage;
   return m;
 }
+
 var _pageStorageKey = MXFunctionInvoke(
-    "PageStorageKey",
-    (
-      {
-      dynamic value,
-      }
-    ) =>
+  "PageStorageKey",
+  ({
+    dynamic value,
+  }) =>
       PageStorageKey(
-      value,
-    ),
+    value,
+  ),
+  [
+    "value",
+  ],
 );
 var _pageStorageBucket = MXFunctionInvoke(
-    "PageStorageBucket",
-    (
-    ) =>
-      PageStorageBucket(
-    ),
+  "PageStorageBucket",
+  () => PageStorageBucket(),
+  [],
 );
 var _pageStorage = MXFunctionInvoke(
-    "PageStorage",
-    (
-      {
-      Key key,
-      PageStorageBucket bucket,
-      Widget child,
-      }
-    ) =>
+  "PageStorage",
+  ({
+    Key key,
+    PageStorageBucket bucket,
+    Widget child,
+  }) =>
       PageStorage(
-      key: key,
-      bucket: bucket,
-      child: child,
-    ),
+    key: key,
+    bucket: bucket,
+    child: child,
+  ),
+  [
+    "key",
+    "bucket",
+    "child",
+  ],
 );

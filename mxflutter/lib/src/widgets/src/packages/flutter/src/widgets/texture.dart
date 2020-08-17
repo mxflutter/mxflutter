@@ -9,23 +9,25 @@ import 'package:flutter/src/widgets/texture.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTextureSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_texture.funName] = _texture;
   return m;
 }
+
 var _texture = MXFunctionInvoke(
-    "Texture",
-    (
-      {
-      Key key,
-      int textureId,
-      }
-    ) =>
+  "Texture",
+  ({
+    Key key,
+    int textureId,
+  }) =>
       Texture(
-      key: key,
-      textureId: textureId,
-    ),
+    key: key,
+    textureId: textureId,
+  ),
+  [
+    "key",
+    "textureId",
+  ],
 );

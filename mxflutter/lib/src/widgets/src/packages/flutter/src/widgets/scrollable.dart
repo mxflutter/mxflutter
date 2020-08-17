@@ -30,7 +30,6 @@ import 'package:flutter/src/widgets/ticker_provider.dart';
 import 'package:flutter/src/widgets/viewport.dart';
 import 'package:flutter/physics.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerScrollableSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -43,90 +42,97 @@ Map<String, MXFunctionInvoke> registerScrollableSeries() {
   m[_scrollAction_key.funName] = _scrollAction_key;
   return m;
 }
+
 var _scrollable = MXFunctionInvoke(
-    "Scrollable",
-    (
-      {
-      Key key,
-      AxisDirection axisDirection = AxisDirection.down,
-      ScrollController controller,
-      ScrollPhysics physics,
-      dynamic viewportBuilder,
-      dynamic incrementCalculator,
-      bool excludeFromSemantics = false,
-      int semanticChildCount,
-      DragStartBehavior dragStartBehavior =  DragStartBehavior.start,
-      }
-    ) =>
+  "Scrollable",
+  ({
+    Key key,
+    AxisDirection axisDirection = AxisDirection.down,
+    ScrollController controller,
+    ScrollPhysics physics,
+    dynamic viewportBuilder,
+    dynamic incrementCalculator,
+    bool excludeFromSemantics = false,
+    int semanticChildCount,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+  }) =>
       Scrollable(
-      key: key,
-      axisDirection: axisDirection,
-      controller: controller,
-      physics: physics,
-      viewportBuilder: null,
-      incrementCalculator: null,
-      excludeFromSemantics: excludeFromSemantics,
-      semanticChildCount: semanticChildCount,
-      dragStartBehavior: dragStartBehavior,
-    ),
+    key: key,
+    axisDirection: axisDirection,
+    controller: controller,
+    physics: physics,
+    viewportBuilder: null,
+    incrementCalculator: null,
+    excludeFromSemantics: excludeFromSemantics,
+    semanticChildCount: semanticChildCount,
+    dragStartBehavior: dragStartBehavior,
+  ),
+  [
+    "key",
+    "axisDirection",
+    "controller",
+    "physics",
+    "viewportBuilder",
+    "incrementCalculator",
+    "excludeFromSemantics",
+    "semanticChildCount",
+    "dragStartBehavior",
+  ],
 );
 var _scrollableState = MXFunctionInvoke(
-    "ScrollableState",
-    (
-    ) =>
-      ScrollableState(
-    ),
+  "ScrollableState",
+  () => ScrollableState(),
+  [],
 );
 var _scrollIncrementType = MXFunctionInvoke(
     "ScrollIncrementType",
     ({String name, int index}) => MXScrollIncrementType.parse(name, index),
-  );
+    ["name", "index"]);
 var _scrollIncrementDetails = MXFunctionInvoke(
-    "ScrollIncrementDetails",
-    (
-      {
-      ScrollIncrementType type,
-      ScrollMetrics metrics,
-      }
-    ) =>
+  "ScrollIncrementDetails",
+  ({
+    ScrollIncrementType type,
+    ScrollMetrics metrics,
+  }) =>
       ScrollIncrementDetails(
-      type: type,
-      metrics: metrics,
-    ),
+    type: type,
+    metrics: metrics,
+  ),
+  [
+    "type",
+    "metrics",
+  ],
 );
 var _scrollIntent = MXFunctionInvoke(
-    "ScrollIntent",
-    (
-      {
-      AxisDirection direction,
-      ScrollIncrementType type =  ScrollIncrementType.line,
-      }
-    ) =>
+  "ScrollIntent",
+  ({
+    AxisDirection direction,
+    ScrollIncrementType type = ScrollIncrementType.line,
+  }) =>
       ScrollIntent(
-      direction: direction,
-      type: type,
-    ),
+    direction: direction,
+    type: type,
+  ),
+  [
+    "direction",
+    "type",
+  ],
 );
 var _scrollAction = MXFunctionInvoke(
-    "ScrollAction",
-    (
-    ) =>
-      ScrollAction(
-    ),
+  "ScrollAction",
+  () => ScrollAction(),
+  [],
 );
-var _scrollAction_key = MXFunctionInvoke(
-  "ScrollAction.key",
-    (
-    ) =>
-      ScrollAction.key
-);
+var _scrollAction_key =
+    MXFunctionInvoke("ScrollAction.key", () => ScrollAction.key);
+
 class MXScrollIncrementType {
   static ScrollIncrementType parse(String name, int index) {
-    switch(name) {
-      case 'ScrollIncrementType.line': 
-       return ScrollIncrementType.line;
-      case 'ScrollIncrementType.page': 
-       return ScrollIncrementType.page;
+    switch (name) {
+      case 'ScrollIncrementType.line':
+        return ScrollIncrementType.line;
+      case 'ScrollIncrementType.page':
+        return ScrollIncrementType.page;
     }
     return null;
   }

@@ -12,7 +12,6 @@ import 'package:flutter/src/gestures/events.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
 import 'package:flutter/src/gestures/velocity_tracker.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerLongPressSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -22,65 +21,79 @@ Map<String, MXFunctionInvoke> registerLongPressSeries() {
   m[_longPressGestureRecognizer.funName] = _longPressGestureRecognizer;
   return m;
 }
+
 var _longPressStartDetails = MXFunctionInvoke(
-    "LongPressStartDetails",
-    (
-      {
-      Offset globalPosition = Offset.zero,
-      Offset localPosition,
-      }
-    ) =>
+  "LongPressStartDetails",
+  ({
+    Offset globalPosition = Offset.zero,
+    Offset localPosition,
+  }) =>
       LongPressStartDetails(
-      globalPosition: globalPosition,
-      localPosition: localPosition,
-    ),
+    globalPosition: globalPosition,
+    localPosition: localPosition,
+  ),
+  [
+    "globalPosition",
+    "localPosition",
+  ],
 );
 var _longPressMoveUpdateDetails = MXFunctionInvoke(
-    "LongPressMoveUpdateDetails",
-    (
-      {
-      Offset globalPosition = Offset.zero,
-      Offset localPosition,
-      Offset offsetFromOrigin = Offset.zero,
-      Offset localOffsetFromOrigin,
-      }
-    ) =>
+  "LongPressMoveUpdateDetails",
+  ({
+    Offset globalPosition = Offset.zero,
+    Offset localPosition,
+    Offset offsetFromOrigin = Offset.zero,
+    Offset localOffsetFromOrigin,
+  }) =>
       LongPressMoveUpdateDetails(
-      globalPosition: globalPosition,
-      localPosition: localPosition,
-      offsetFromOrigin: offsetFromOrigin,
-      localOffsetFromOrigin: localOffsetFromOrigin,
-    ),
+    globalPosition: globalPosition,
+    localPosition: localPosition,
+    offsetFromOrigin: offsetFromOrigin,
+    localOffsetFromOrigin: localOffsetFromOrigin,
+  ),
+  [
+    "globalPosition",
+    "localPosition",
+    "offsetFromOrigin",
+    "localOffsetFromOrigin",
+  ],
 );
 var _longPressEndDetails = MXFunctionInvoke(
-    "LongPressEndDetails",
-    (
-      {
-      Offset globalPosition = Offset.zero,
-      Offset localPosition,
-      Velocity velocity = Velocity.zero,
-      }
-    ) =>
+  "LongPressEndDetails",
+  ({
+    Offset globalPosition = Offset.zero,
+    Offset localPosition,
+    Velocity velocity = Velocity.zero,
+  }) =>
       LongPressEndDetails(
-      globalPosition: globalPosition,
-      localPosition: localPosition,
-      velocity: velocity,
-    ),
+    globalPosition: globalPosition,
+    localPosition: localPosition,
+    velocity: velocity,
+  ),
+  [
+    "globalPosition",
+    "localPosition",
+    "velocity",
+  ],
 );
 var _longPressGestureRecognizer = MXFunctionInvoke(
-    "LongPressGestureRecognizer",
-    (
-      {
-      Duration duration,
-      dynamic postAcceptSlopTolerance,
-      PointerDeviceKind kind,
-      Object debugOwner,
-      }
-    ) =>
+  "LongPressGestureRecognizer",
+  ({
+    Duration duration,
+    dynamic postAcceptSlopTolerance,
+    PointerDeviceKind kind,
+    Object debugOwner,
+  }) =>
       LongPressGestureRecognizer(
-      duration: duration,
-      postAcceptSlopTolerance: postAcceptSlopTolerance?.toDouble(),
-      kind: kind,
-      debugOwner: debugOwner,
-    ),
+    duration: duration,
+    postAcceptSlopTolerance: postAcceptSlopTolerance?.toDouble(),
+    kind: kind,
+    debugOwner: debugOwner,
+  ),
+  [
+    "duration",
+    "postAcceptSlopTolerance",
+    "kind",
+    "debugOwner",
+  ],
 );

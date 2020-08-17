@@ -10,7 +10,6 @@ import 'dart:collection';
 import 'package:collection/src/equality.dart';
 import 'package:collection/src/wrappers.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEqualitySetSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -18,27 +17,31 @@ Map<String, MXFunctionInvoke> registerEqualitySetSeries() {
   m[_equalitySet_from.funName] = _equalitySet_from;
   return m;
 }
+
 var _equalitySet = MXFunctionInvoke(
-    "EqualitySet",
-    (
-      {
-      Equality<dynamic> equality,
-      }
-    ) =>
+  "EqualitySet",
+  ({
+    Equality<dynamic> equality,
+  }) =>
       EqualitySet(
-      equality,
-    ),
+    equality,
+  ),
+  [
+    "equality",
+  ],
 );
 var _equalitySet_from = MXFunctionInvoke(
   "EqualitySet.from",
-    (
-      {
-      Equality<dynamic> equality,
-      Iterable<dynamic> other,
-      }
-    ) =>
+  ({
+    Equality<dynamic> equality,
+    Iterable<dynamic> other,
+  }) =>
       EqualitySet.from(
-      equality,
-      other,
-    ),
+    equality,
+    other,
+  ),
+  [
+    "equality",
+    "other",
+  ],
 );

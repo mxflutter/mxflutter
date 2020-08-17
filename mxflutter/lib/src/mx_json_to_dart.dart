@@ -6,23 +6,23 @@
 
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'mx_json_build_owner.dart';
+import 'mx_build_owner.dart';
 
-import 'mx_json_proxy_material.dart';
-import 'mx_json_proxy_layout.dart';
-import 'mx_json_proxy_text.dart';
-import 'mx_json_proxy_basic_types.dart';
-import 'mx_json_proxy_image.dart';
-import 'mx_json_proxy_cupertino.dart';
-import 'mx_js_flutter_common.dart';
-import 'mx_json_proxy_animation.dart';
+// import 'mx_json_proxy_material.dart';
+// import 'mx_json_proxy_layout.dart';
+// import 'mx_json_proxy_text.dart';
+// import 'mx_json_proxy_basic_types.dart';
+// import 'mx_json_proxy_image.dart';
+// import 'mx_json_proxy_cupertino.dart';
+import 'mx_common.dart';
+// import 'mx_json_proxy_animation.dart';
 import 'pkg/dio/mx_json_proxy_dio.dart';
 import 'pkg/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
 import 'pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
-import 'mx_js_mirror_obj_mgr.dart';
+// import 'mx_js_mirror_obj_mgr.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'mx_json_proxy_state_widget.dart';
+import 'mx_json_state_widget.dart';
 
 typedef dynamic CreateJsonObjProxyFun();
 
@@ -131,17 +131,16 @@ class MXJsonObjToDartObject {
 
     dynamic dartObject;
     //TODO: 测试mirror，这里后续要统一改成Function方法
-    String funcName = MXMirrorFunc.getInstance().constructorFuncName(jsonMap);
-    if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
-      Map<String, dynamic> newJsonMap = Map.from(jsonMap);
-      newJsonMap["funcName"] = funcName;
-      dartObject =
-          MXMirrorFunc.getInstance().invoke(newJsonMap, buildOwner: buildOwner);
-    } else {
+    // String funcName = MXMirrorFunc.getInstance().constructorFuncName(jsonMap);
+    // if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
+    //   Map<String, dynamic> newJsonMap = Map.from(jsonMap);
+    //   newJsonMap["funcName"] = funcName;
+    //   dartObject = MXMirrorFunc.getInstance().invoke(newJsonMap, buildOwner: buildOwner, context: context);
+    // } else {
       MXJsonObjProxy proxy = getJSObjProxy(className);
       dartObject =
-          proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
-    }
+        proxy.jsonObjToDartObject(buildOwner, jsonMap, context: context);
+    // }
     setMirrorObj(jsonMap, buildOwner, dartObject);
 
     return dartObject;
@@ -158,8 +157,8 @@ class MXJsonObjToDartObject {
     if (buildOwner != null) {
       mirrorObject = buildOwner.getMirrorObjectFromID(mirrorID);
     } else {
-      mirrorObject =
-          MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
+      // mirrorObject =
+          // MXJSMirrorObjMgr.getInstance().getMirrorObjectFromID(mirrorID);
     }
 
     return mirrorObject;
@@ -173,9 +172,9 @@ class MXJsonObjToDartObject {
     }
 
     if (buildOwner != null) {
-      buildOwner.setMirrorObject(dartObject, jsonMap);
+      // buildOwner.setMirrorObject(dartObject, jsonMap);
     } else {
-      MXJSMirrorObjMgr.getInstance().addMirrorObject(mirrorID, dartObject);
+      // MXJSMirrorObjMgr.getInstance().addMirrorObject(mirrorID, dartObject);
     }
   }
 
@@ -230,13 +229,13 @@ class MXJsonObjToDartObject {
     // registerProxy(MXProxyMXJSStatefulWidget.registerProxy());
     // registerProxy(MXProxyMXJSStatelessWidget.registerProxy());
 
-    registerProxy(MXProxyRegisterHelperMaterialSeries.registerProxys());
-    registerProxy(MXProxyRegisterHelperLayoutSeries.registerProxys());
-    registerProxy(MXProxyRegisterHelperTextSeries.registerProxys());
-    registerProxy(MXProxyRegisterHelperBasicTypesSeries.registerProxys());
-    registerProxy(MXProxyRegisterHelperImageSeries.registerProxys());
-    registerProxy(MXProxyRegisterHelperCupertinoSeries.registerProxys());
-    registerProxy(MXProxyRegisterHelperAnimationSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperMaterialSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperLayoutSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperTextSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperBasicTypesSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperImageSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperCupertinoSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperAnimationSeries.registerProxys());
 
     // 第三方库
     // pull_to_refresh

@@ -10,7 +10,6 @@ import 'dart:math' as math;
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerWrapSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -20,76 +19,86 @@ Map<String, MXFunctionInvoke> registerWrapSeries() {
   m[_renderWrap.funName] = _renderWrap;
   return m;
 }
+
 var _wrapAlignment = MXFunctionInvoke(
     "WrapAlignment",
     ({String name, int index}) => MXWrapAlignment.parse(name, index),
-  );
+    ["name", "index"]);
 var _wrapCrossAlignment = MXFunctionInvoke(
     "WrapCrossAlignment",
     ({String name, int index}) => MXWrapCrossAlignment.parse(name, index),
-  );
+    ["name", "index"]);
 var _wrapParentData = MXFunctionInvoke(
-    "WrapParentData",
-    (
-    ) =>
-      WrapParentData(
-    ),
+  "WrapParentData",
+  () => WrapParentData(),
+  [],
 );
 var _renderWrap = MXFunctionInvoke(
-    "RenderWrap",
-    (
-      {
-      dynamic children,
-      Axis direction = Axis.horizontal,
-      WrapAlignment alignment =  WrapAlignment.start,
-      dynamic spacing = 0.0,
-      WrapAlignment runAlignment =  WrapAlignment.start,
-      dynamic runSpacing = 0.0,
-      WrapCrossAlignment crossAxisAlignment =  WrapCrossAlignment.start,
-      TextDirection textDirection,
-      VerticalDirection verticalDirection =  VerticalDirection.down,
-      }
-    ) =>
+  "RenderWrap",
+  ({
+    dynamic children,
+    Axis direction = Axis.horizontal,
+    WrapAlignment alignment = WrapAlignment.start,
+    dynamic spacing = 0.0,
+    WrapAlignment runAlignment = WrapAlignment.start,
+    dynamic runSpacing = 0.0,
+    WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
+    TextDirection textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+  }) =>
       RenderWrap(
-      children: toListT<RenderBox>(children),
-      direction: direction,
-      alignment: alignment,
-      spacing: spacing?.toDouble(),
-      runAlignment: runAlignment,
-      runSpacing: runSpacing?.toDouble(),
-      crossAxisAlignment: crossAxisAlignment,
-      textDirection: textDirection,
-      verticalDirection: verticalDirection,
-    ),
+    children: toListT<RenderBox>(children),
+    direction: direction,
+    alignment: alignment,
+    spacing: spacing?.toDouble(),
+    runAlignment: runAlignment,
+    runSpacing: runSpacing?.toDouble(),
+    crossAxisAlignment: crossAxisAlignment,
+    textDirection: textDirection,
+    verticalDirection: verticalDirection,
+  ),
+  [
+    "children",
+    "direction",
+    "alignment",
+    "spacing",
+    "runAlignment",
+    "runSpacing",
+    "crossAxisAlignment",
+    "textDirection",
+    "verticalDirection",
+  ],
 );
+
 class MXWrapAlignment {
   static WrapAlignment parse(String name, int index) {
-    switch(name) {
-      case 'WrapAlignment.start': 
-       return WrapAlignment.start;
-      case 'WrapAlignment.end': 
-       return WrapAlignment.end;
-      case 'WrapAlignment.center': 
-       return WrapAlignment.center;
-      case 'WrapAlignment.spaceBetween': 
-       return WrapAlignment.spaceBetween;
-      case 'WrapAlignment.spaceAround': 
-       return WrapAlignment.spaceAround;
-      case 'WrapAlignment.spaceEvenly': 
-       return WrapAlignment.spaceEvenly;
+    switch (name) {
+      case 'WrapAlignment.start':
+        return WrapAlignment.start;
+      case 'WrapAlignment.end':
+        return WrapAlignment.end;
+      case 'WrapAlignment.center':
+        return WrapAlignment.center;
+      case 'WrapAlignment.spaceBetween':
+        return WrapAlignment.spaceBetween;
+      case 'WrapAlignment.spaceAround':
+        return WrapAlignment.spaceAround;
+      case 'WrapAlignment.spaceEvenly':
+        return WrapAlignment.spaceEvenly;
     }
     return null;
   }
 }
+
 class MXWrapCrossAlignment {
   static WrapCrossAlignment parse(String name, int index) {
-    switch(name) {
-      case 'WrapCrossAlignment.start': 
-       return WrapCrossAlignment.start;
-      case 'WrapCrossAlignment.end': 
-       return WrapCrossAlignment.end;
-      case 'WrapCrossAlignment.center': 
-       return WrapCrossAlignment.center;
+    switch (name) {
+      case 'WrapCrossAlignment.start':
+        return WrapCrossAlignment.start;
+      case 'WrapCrossAlignment.end':
+        return WrapCrossAlignment.end;
+      case 'WrapCrossAlignment.center':
+        return WrapCrossAlignment.center;
     }
     return null;
   }

@@ -14,23 +14,25 @@ import 'package:flutter/src/painting/borders.dart';
 import 'package:flutter/src/painting/circle_border.dart';
 import 'package:flutter/src/painting/edge_insets.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRoundedRectangleBorderSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_roundedRectangleBorder.funName] = _roundedRectangleBorder;
   return m;
 }
+
 var _roundedRectangleBorder = MXFunctionInvoke(
-    "RoundedRectangleBorder",
-    (
-      {
-      BorderSide side = BorderSide.none,
-      BorderRadiusGeometry borderRadius = BorderRadius.zero,
-      }
-    ) =>
+  "RoundedRectangleBorder",
+  ({
+    BorderSide side = BorderSide.none,
+    BorderRadiusGeometry borderRadius = BorderRadius.zero,
+  }) =>
       RoundedRectangleBorder(
-      side: side,
-      borderRadius: borderRadius,
-    ),
+    side: side,
+    borderRadius: borderRadius,
+  ),
+  [
+    "side",
+    "borderRadius",
+  ],
 );

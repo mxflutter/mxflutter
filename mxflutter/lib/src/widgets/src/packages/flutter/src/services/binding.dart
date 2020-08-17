@@ -14,7 +14,6 @@ import 'package:flutter/src/services/asset_bundle.dart';
 import 'package:flutter/src/services/binary_messenger.dart';
 import 'package:flutter/src/services/system_channels.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBindingSeries() {
   var m = <String, MXFunctionInvoke>{};

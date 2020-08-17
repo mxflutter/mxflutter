@@ -10,27 +10,31 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnnotatedRegionSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_annotatedRegion.funName] = _annotatedRegion;
   return m;
 }
+
 var _annotatedRegion = MXFunctionInvoke(
-    "AnnotatedRegion",
-    (
-      {
-      Key key,
-      Widget child,
-      dynamic value,
-      bool sized = true,
-      }
-    ) =>
+  "AnnotatedRegion",
+  ({
+    Key key,
+    Widget child,
+    dynamic value,
+    bool sized = true,
+  }) =>
       AnnotatedRegion(
-      key: key,
-      child: child,
-      value: value,
-      sized: sized,
-    ),
+    key: key,
+    child: child,
+    value: value,
+    sized: sized,
+  ),
+  [
+    "key",
+    "child",
+    "value",
+    "sized",
+  ],
 );

@@ -14,7 +14,6 @@ import 'package:flutter/src/services/binding.dart';
 import 'package:flutter/src/services/message_codec.dart';
 import 'package:flutter/src/services/message_codecs.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerPlatformChannelSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -24,61 +23,73 @@ Map<String, MXFunctionInvoke> registerPlatformChannelSeries() {
   m[_eventChannel.funName] = _eventChannel;
   return m;
 }
+
 var _basicMessageChannel = MXFunctionInvoke(
-    "BasicMessageChannel",
-    (
-      {
-      String name,
-      MessageCodec<dynamic> codec,
-      BinaryMessenger binaryMessenger,
-      }
-    ) =>
+  "BasicMessageChannel",
+  ({
+    String name,
+    MessageCodec<dynamic> codec,
+    BinaryMessenger binaryMessenger,
+  }) =>
       BasicMessageChannel(
-      name,
-      codec,
-      binaryMessenger: binaryMessenger,
-    ),
+    name,
+    codec,
+    binaryMessenger: binaryMessenger,
+  ),
+  [
+    "name",
+    "codec",
+    "binaryMessenger",
+  ],
 );
 var _methodChannel = MXFunctionInvoke(
-    "MethodChannel",
-    (
-      {
-      String name,
-      MethodCodec codec,
-      BinaryMessenger binaryMessenger,
-      }
-    ) =>
+  "MethodChannel",
+  ({
+    String name,
+    MethodCodec codec,
+    BinaryMessenger binaryMessenger,
+  }) =>
       MethodChannel(
-      name,
-      codec,
-      binaryMessenger,
-    ),
+    name,
+    codec,
+    binaryMessenger,
+  ),
+  [
+    "name",
+    "codec",
+    "binaryMessenger",
+  ],
 );
 var _optionalMethodChannel = MXFunctionInvoke(
-    "OptionalMethodChannel",
-    (
-      {
-      String name,
-      MethodCodec codec,
-      }
-    ) =>
+  "OptionalMethodChannel",
+  ({
+    String name,
+    MethodCodec codec,
+  }) =>
       OptionalMethodChannel(
-      name,
-      codec,
-    ),
+    name,
+    codec,
+  ),
+  [
+    "name",
+    "codec",
+  ],
 );
 var _eventChannel = MXFunctionInvoke(
-    "EventChannel",
-    (
-      {
-      String name,
-      MethodCodec codec,
-      BinaryMessenger binaryMessenger,
-      }
-    ) =>
+  "EventChannel",
+  ({
+    String name,
+    MethodCodec codec,
+    BinaryMessenger binaryMessenger,
+  }) =>
       EventChannel(
-      name,
-      codec,
-      binaryMessenger,
-    ),
+    name,
+    codec,
+    binaryMessenger,
+  ),
+  [
+    "name",
+    "codec",
+    "binaryMessenger",
+  ],
 );

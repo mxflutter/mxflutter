@@ -13,7 +13,6 @@ import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/object.dart';
 import 'package:flutter/src/rendering/shifted_box.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -21,44 +20,53 @@ Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
   m[_renderAnimatedSize.funName] = _renderAnimatedSize;
   return m;
 }
+
 var _renderAnimatedSizeState = MXFunctionInvoke(
     "RenderAnimatedSizeState",
     ({String name, int index}) => MXRenderAnimatedSizeState.parse(name, index),
-  );
+    ["name", "index"]);
 var _renderAnimatedSize = MXFunctionInvoke(
-    "RenderAnimatedSize",
-    (
-      {
-      TickerProvider vsync,
-      Duration duration,
-      Duration reverseDuration,
-      Curve curve = Curves.linear,
-      AlignmentGeometry alignment = Alignment.center,
-      TextDirection textDirection,
-      RenderBox child,
-      }
-    ) =>
+  "RenderAnimatedSize",
+  ({
+    TickerProvider vsync,
+    Duration duration,
+    Duration reverseDuration,
+    Curve curve = Curves.linear,
+    AlignmentGeometry alignment = Alignment.center,
+    TextDirection textDirection,
+    RenderBox child,
+  }) =>
       RenderAnimatedSize(
-      vsync: vsync,
-      duration: duration,
-      reverseDuration: reverseDuration,
-      curve: curve,
-      alignment: alignment,
-      textDirection: textDirection,
-      child: child,
-    ),
+    vsync: vsync,
+    duration: duration,
+    reverseDuration: reverseDuration,
+    curve: curve,
+    alignment: alignment,
+    textDirection: textDirection,
+    child: child,
+  ),
+  [
+    "vsync",
+    "duration",
+    "reverseDuration",
+    "curve",
+    "alignment",
+    "textDirection",
+    "child",
+  ],
 );
+
 class MXRenderAnimatedSizeState {
   static RenderAnimatedSizeState parse(String name, int index) {
-    switch(name) {
-      case 'RenderAnimatedSizeState.start': 
-       return RenderAnimatedSizeState.start;
-      case 'RenderAnimatedSizeState.stable': 
-       return RenderAnimatedSizeState.stable;
-      case 'RenderAnimatedSizeState.changed': 
-       return RenderAnimatedSizeState.changed;
-      case 'RenderAnimatedSizeState.unstable': 
-       return RenderAnimatedSizeState.unstable;
+    switch (name) {
+      case 'RenderAnimatedSizeState.start':
+        return RenderAnimatedSizeState.start;
+      case 'RenderAnimatedSizeState.stable':
+        return RenderAnimatedSizeState.stable;
+      case 'RenderAnimatedSizeState.changed':
+        return RenderAnimatedSizeState.changed;
+      case 'RenderAnimatedSizeState.unstable':
+        return RenderAnimatedSizeState.unstable;
     }
     return null;
   }

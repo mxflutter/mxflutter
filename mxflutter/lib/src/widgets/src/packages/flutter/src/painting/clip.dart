@@ -8,7 +8,6 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/clip.dart';
 import 'dart:ui';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerClipSeries() {
   var m = <String, MXFunctionInvoke>{};

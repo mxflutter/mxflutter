@@ -19,7 +19,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/scroll_position.dart';
 import 'package:flutter/src/widgets/scrollable.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFocusTraversalSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -42,163 +41,148 @@ Map<String, MXFunctionInvoke> registerFocusTraversalSeries() {
   m[_directionalFocusAction_key.funName] = _directionalFocusAction_key;
   return m;
 }
+
 var _traversalDirection = MXFunctionInvoke(
     "TraversalDirection",
     ({String name, int index}) => MXTraversalDirection.parse(name, index),
-  );
+    ["name", "index"]);
 var _widgetOrderTraversalPolicy = MXFunctionInvoke(
-    "WidgetOrderTraversalPolicy",
-    (
-    ) =>
-      WidgetOrderTraversalPolicy(
-    ),
+  "WidgetOrderTraversalPolicy",
+  () => WidgetOrderTraversalPolicy(),
+  [],
 );
 var _readingOrderTraversalPolicy = MXFunctionInvoke(
-    "ReadingOrderTraversalPolicy",
-    (
-    ) =>
-      ReadingOrderTraversalPolicy(
-    ),
+  "ReadingOrderTraversalPolicy",
+  () => ReadingOrderTraversalPolicy(),
+  [],
 );
 var _numericFocusOrder = MXFunctionInvoke(
-    "NumericFocusOrder",
-    (
-      {
-      dynamic order,
-      }
-    ) =>
+  "NumericFocusOrder",
+  ({
+    dynamic order,
+  }) =>
       NumericFocusOrder(
-      order?.toDouble(),
-    ),
+    order?.toDouble(),
+  ),
+  [
+    "order",
+  ],
 );
 var _lexicalFocusOrder = MXFunctionInvoke(
-    "LexicalFocusOrder",
-    (
-      {
-      String order,
-      }
-    ) =>
+  "LexicalFocusOrder",
+  ({
+    String order,
+  }) =>
       LexicalFocusOrder(
-      order,
-    ),
+    order,
+  ),
+  [
+    "order",
+  ],
 );
 var _orderedTraversalPolicy = MXFunctionInvoke(
-    "OrderedTraversalPolicy",
-    (
-      {
-      FocusTraversalPolicy secondary,
-      }
-    ) =>
+  "OrderedTraversalPolicy",
+  ({
+    FocusTraversalPolicy secondary,
+  }) =>
       OrderedTraversalPolicy(
-      secondary: secondary,
-    ),
+    secondary: secondary,
+  ),
+  [
+    "secondary",
+  ],
 );
 var _focusTraversalOrder = MXFunctionInvoke(
-    "FocusTraversalOrder",
-    (
-      {
-      Key key,
-      FocusOrder order,
-      Widget child,
-      }
-    ) =>
+  "FocusTraversalOrder",
+  ({
+    Key key,
+    FocusOrder order,
+    Widget child,
+  }) =>
       FocusTraversalOrder(
-      key: key,
-      order: order,
-      child: child,
-    ),
+    key: key,
+    order: order,
+    child: child,
+  ),
+  [
+    "key",
+    "order",
+    "child",
+  ],
 );
 var _focusTraversalGroup = MXFunctionInvoke(
-    "FocusTraversalGroup",
-    (
-      {
-      Key key,
-      FocusTraversalPolicy policy,
-      Widget child,
-      }
-    ) =>
+  "FocusTraversalGroup",
+  ({
+    Key key,
+    FocusTraversalPolicy policy,
+    Widget child,
+  }) =>
       FocusTraversalGroup(
-      key: key,
-      policy: policy,
-      child: child,
-    ),
+    key: key,
+    policy: policy,
+    child: child,
+  ),
+  [
+    "key",
+    "policy",
+    "child",
+  ],
 );
 var _requestFocusAction = MXFunctionInvoke(
-    "RequestFocusAction",
-    (
-    ) =>
-      RequestFocusAction(
-    ),
+  "RequestFocusAction",
+  () => RequestFocusAction(),
+  [],
 );
-var _requestFocusAction_key = MXFunctionInvoke(
-  "RequestFocusAction.key",
-    (
-    ) =>
-      RequestFocusAction.key
-);
+var _requestFocusAction_key =
+    MXFunctionInvoke("RequestFocusAction.key", () => RequestFocusAction.key);
 var _nextFocusAction = MXFunctionInvoke(
-    "NextFocusAction",
-    (
-    ) =>
-      NextFocusAction(
-    ),
+  "NextFocusAction",
+  () => NextFocusAction(),
+  [],
 );
-var _nextFocusAction_key = MXFunctionInvoke(
-  "NextFocusAction.key",
-    (
-    ) =>
-      NextFocusAction.key
-);
+var _nextFocusAction_key =
+    MXFunctionInvoke("NextFocusAction.key", () => NextFocusAction.key);
 var _previousFocusAction = MXFunctionInvoke(
-    "PreviousFocusAction",
-    (
-    ) =>
-      PreviousFocusAction(
-    ),
+  "PreviousFocusAction",
+  () => PreviousFocusAction(),
+  [],
 );
-var _previousFocusAction_key = MXFunctionInvoke(
-  "PreviousFocusAction.key",
-    (
-    ) =>
-      PreviousFocusAction.key
-);
+var _previousFocusAction_key =
+    MXFunctionInvoke("PreviousFocusAction.key", () => PreviousFocusAction.key);
 var _directionalFocusIntent = MXFunctionInvoke(
-    "DirectionalFocusIntent",
-    (
-      {
-      TraversalDirection direction,
-      bool ignoreTextFields = true,
-      }
-    ) =>
+  "DirectionalFocusIntent",
+  ({
+    TraversalDirection direction,
+    bool ignoreTextFields = true,
+  }) =>
       DirectionalFocusIntent(
-      direction,
-      ignoreTextFields: ignoreTextFields,
-    ),
+    direction,
+    ignoreTextFields: ignoreTextFields,
+  ),
+  [
+    "direction",
+    "ignoreTextFields",
+  ],
 );
 var _directionalFocusAction = MXFunctionInvoke(
-    "DirectionalFocusAction",
-    (
-    ) =>
-      DirectionalFocusAction(
-    ),
+  "DirectionalFocusAction",
+  () => DirectionalFocusAction(),
+  [],
 );
 var _directionalFocusAction_key = MXFunctionInvoke(
-  "DirectionalFocusAction.key",
-    (
-    ) =>
-      DirectionalFocusAction.key
-);
+    "DirectionalFocusAction.key", () => DirectionalFocusAction.key);
+
 class MXTraversalDirection {
   static TraversalDirection parse(String name, int index) {
-    switch(name) {
-      case 'TraversalDirection.up': 
-       return TraversalDirection.up;
-      case 'TraversalDirection.right': 
-       return TraversalDirection.right;
-      case 'TraversalDirection.down': 
-       return TraversalDirection.down;
-      case 'TraversalDirection.left': 
-       return TraversalDirection.left;
+    switch (name) {
+      case 'TraversalDirection.up':
+        return TraversalDirection.up;
+      case 'TraversalDirection.right':
+        return TraversalDirection.right;
+      case 'TraversalDirection.down':
+        return TraversalDirection.down;
+      case 'TraversalDirection.left':
+        return TraversalDirection.left;
     }
     return null;
   }

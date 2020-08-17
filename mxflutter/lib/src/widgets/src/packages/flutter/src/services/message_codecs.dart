@@ -11,7 +11,6 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/services/message_codec.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMessageCodecsSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -23,49 +22,41 @@ Map<String, MXFunctionInvoke> registerMessageCodecsSeries() {
   m[_standardMethodCodec.funName] = _standardMethodCodec;
   return m;
 }
+
 var _binaryCodec = MXFunctionInvoke(
-    "BinaryCodec",
-    (
-    ) =>
-      BinaryCodec(
-    ),
+  "BinaryCodec",
+  () => BinaryCodec(),
+  [],
 );
 var _stringCodec = MXFunctionInvoke(
-    "StringCodec",
-    (
-    ) =>
-      StringCodec(
-    ),
+  "StringCodec",
+  () => StringCodec(),
+  [],
 );
 var _jSONMessageCodec = MXFunctionInvoke(
-    "JSONMessageCodec",
-    (
-    ) =>
-      JSONMessageCodec(
-    ),
+  "JSONMessageCodec",
+  () => JSONMessageCodec(),
+  [],
 );
 var _jSONMethodCodec = MXFunctionInvoke(
-    "JSONMethodCodec",
-    (
-    ) =>
-      JSONMethodCodec(
-    ),
+  "JSONMethodCodec",
+  () => JSONMethodCodec(),
+  [],
 );
 var _standardMessageCodec = MXFunctionInvoke(
-    "StandardMessageCodec",
-    (
-    ) =>
-      StandardMessageCodec(
-    ),
+  "StandardMessageCodec",
+  () => StandardMessageCodec(),
+  [],
 );
 var _standardMethodCodec = MXFunctionInvoke(
-    "StandardMethodCodec",
-    (
-      {
-      StandardMessageCodec messageCodec,
-      }
-    ) =>
+  "StandardMethodCodec",
+  ({
+    StandardMessageCodec messageCodec,
+  }) =>
       StandardMethodCodec(
-      messageCodec,
-    ),
+    messageCodec,
+  ),
+  [
+    "messageCodec",
+  ],
 );

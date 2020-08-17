@@ -12,7 +12,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerStackSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -27,126 +26,140 @@ Map<String, MXFunctionInvoke> registerStackSeries() {
   m[_renderIndexedStack.funName] = _renderIndexedStack;
   return m;
 }
-var _relativeRect_fill = MXFunctionInvoke(
-  "RelativeRect.fill",
-    (
-    ) =>
-      RelativeRect.fill
-);
+
+var _relativeRect_fill =
+    MXFunctionInvoke("RelativeRect.fill", () => RelativeRect.fill);
 var _relativeRect_fromSize = MXFunctionInvoke(
   "RelativeRect.fromSize",
-    (
-      {
-      Rect rect,
-      Size container,
-      }
-    ) =>
+  ({
+    Rect rect,
+    Size container,
+  }) =>
       RelativeRect.fromSize(
-      rect,
-      container,
-    ),
+    rect,
+    container,
+  ),
+  [
+    "rect",
+    "container",
+  ],
 );
 var _relativeRect_fromRect = MXFunctionInvoke(
   "RelativeRect.fromRect",
-    (
-      {
-      Rect rect,
-      Rect container,
-      }
-    ) =>
+  ({
+    Rect rect,
+    Rect container,
+  }) =>
       RelativeRect.fromRect(
-      rect,
-      container,
-    ),
+    rect,
+    container,
+  ),
+  [
+    "rect",
+    "container",
+  ],
 );
 var _relativeRect_fromLTRB = MXFunctionInvoke(
   "RelativeRect.fromLTRB",
-    (
-      {
-      dynamic left,
-      dynamic top,
-      dynamic right,
-      dynamic bottom,
-      }
-    ) =>
+  ({
+    dynamic left,
+    dynamic top,
+    dynamic right,
+    dynamic bottom,
+  }) =>
       RelativeRect.fromLTRB(
-      left?.toDouble(),
-      top?.toDouble(),
-      right?.toDouble(),
-      bottom?.toDouble(),
-    ),
+    left?.toDouble(),
+    top?.toDouble(),
+    right?.toDouble(),
+    bottom?.toDouble(),
+  ),
+  [
+    "left",
+    "top",
+    "right",
+    "bottom",
+  ],
 );
 var _stackParentData = MXFunctionInvoke(
-    "StackParentData",
-    (
-    ) =>
-      StackParentData(
-    ),
+  "StackParentData",
+  () => StackParentData(),
+  [],
 );
 var _stackFit = MXFunctionInvoke(
     "StackFit",
     ({String name, int index}) => MXStackFit.parse(name, index),
-  );
+    ["name", "index"]);
 var _overflow = MXFunctionInvoke(
     "Overflow",
     ({String name, int index}) => MXOverflow.parse(name, index),
-  );
+    ["name", "index"]);
 var _renderStack = MXFunctionInvoke(
-    "RenderStack",
-    (
-      {
-      dynamic children,
-      AlignmentGeometry alignment = AlignmentDirectional.topStart,
-      TextDirection textDirection,
-      StackFit fit = StackFit.loose,
-      Overflow overflow =  Overflow.clip,
-      }
-    ) =>
+  "RenderStack",
+  ({
+    dynamic children,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    TextDirection textDirection,
+    StackFit fit = StackFit.loose,
+    Overflow overflow = Overflow.clip,
+  }) =>
       RenderStack(
-      children: toListT<RenderBox>(children),
-      alignment: alignment,
-      textDirection: textDirection,
-      fit: fit,
-      overflow: overflow,
-    ),
+    children: toListT<RenderBox>(children),
+    alignment: alignment,
+    textDirection: textDirection,
+    fit: fit,
+    overflow: overflow,
+  ),
+  [
+    "children",
+    "alignment",
+    "textDirection",
+    "fit",
+    "overflow",
+  ],
 );
 var _renderIndexedStack = MXFunctionInvoke(
-    "RenderIndexedStack",
-    (
-      {
-      dynamic children,
-      AlignmentGeometry alignment = AlignmentDirectional.topStart,
-      TextDirection textDirection,
-      int index = 0,
-      }
-    ) =>
+  "RenderIndexedStack",
+  ({
+    dynamic children,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    TextDirection textDirection,
+    int index = 0,
+  }) =>
       RenderIndexedStack(
-      children: toListT<RenderBox>(children),
-      alignment: alignment,
-      textDirection: textDirection,
-      index: index,
-    ),
+    children: toListT<RenderBox>(children),
+    alignment: alignment,
+    textDirection: textDirection,
+    index: index,
+  ),
+  [
+    "children",
+    "alignment",
+    "textDirection",
+    "index",
+  ],
 );
+
 class MXStackFit {
   static StackFit parse(String name, int index) {
-    switch(name) {
-      case 'StackFit.loose': 
-       return StackFit.loose;
-      case 'StackFit.expand': 
-       return StackFit.expand;
-      case 'StackFit.passthrough': 
-       return StackFit.passthrough;
+    switch (name) {
+      case 'StackFit.loose':
+        return StackFit.loose;
+      case 'StackFit.expand':
+        return StackFit.expand;
+      case 'StackFit.passthrough':
+        return StackFit.passthrough;
     }
     return null;
   }
 }
+
 class MXOverflow {
   static Overflow parse(String name, int index) {
-    switch(name) {
-      case 'Overflow.visible': 
-       return Overflow.visible;
-      case 'Overflow.clip': 
-       return Overflow.clip;
+    switch (name) {
+      case 'Overflow.visible':
+        return Overflow.visible;
+      case 'Overflow.clip':
+        return Overflow.clip;
     }
     return null;
   }

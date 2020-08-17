@@ -9,7 +9,6 @@ import 'package:flutter/src/painting/basic_types.dart';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -19,70 +18,73 @@ Map<String, MXFunctionInvoke> registerBasicTypesSeries() {
   m[_axisDirection.funName] = _axisDirection;
   return m;
 }
+
 var _renderComparison = MXFunctionInvoke(
     "RenderComparison",
     ({String name, int index}) => MXRenderComparison.parse(name, index),
-  );
-var _axis = MXFunctionInvoke(
-    "Axis",
-    ({String name, int index}) => MXAxis.parse(name, index),
-  );
+    ["name", "index"]);
+var _axis = MXFunctionInvoke("Axis",
+    ({String name, int index}) => MXAxis.parse(name, index), ["name", "index"]);
 var _verticalDirection = MXFunctionInvoke(
     "VerticalDirection",
     ({String name, int index}) => MXVerticalDirection.parse(name, index),
-  );
+    ["name", "index"]);
 var _axisDirection = MXFunctionInvoke(
     "AxisDirection",
     ({String name, int index}) => MXAxisDirection.parse(name, index),
-  );
+    ["name", "index"]);
+
 class MXRenderComparison {
   static RenderComparison parse(String name, int index) {
-    switch(name) {
-      case 'RenderComparison.identical': 
-       return RenderComparison.identical;
-      case 'RenderComparison.metadata': 
-       return RenderComparison.metadata;
-      case 'RenderComparison.paint': 
-       return RenderComparison.paint;
-      case 'RenderComparison.layout': 
-       return RenderComparison.layout;
+    switch (name) {
+      case 'RenderComparison.identical':
+        return RenderComparison.identical;
+      case 'RenderComparison.metadata':
+        return RenderComparison.metadata;
+      case 'RenderComparison.paint':
+        return RenderComparison.paint;
+      case 'RenderComparison.layout':
+        return RenderComparison.layout;
     }
     return null;
   }
 }
+
 class MXAxis {
   static Axis parse(String name, int index) {
-    switch(name) {
-      case 'Axis.horizontal': 
-       return Axis.horizontal;
-      case 'Axis.vertical': 
-       return Axis.vertical;
+    switch (name) {
+      case 'Axis.horizontal':
+        return Axis.horizontal;
+      case 'Axis.vertical':
+        return Axis.vertical;
     }
     return null;
   }
 }
+
 class MXVerticalDirection {
   static VerticalDirection parse(String name, int index) {
-    switch(name) {
-      case 'VerticalDirection.up': 
-       return VerticalDirection.up;
-      case 'VerticalDirection.down': 
-       return VerticalDirection.down;
+    switch (name) {
+      case 'VerticalDirection.up':
+        return VerticalDirection.up;
+      case 'VerticalDirection.down':
+        return VerticalDirection.down;
     }
     return null;
   }
 }
+
 class MXAxisDirection {
   static AxisDirection parse(String name, int index) {
-    switch(name) {
-      case 'AxisDirection.up': 
-       return AxisDirection.up;
-      case 'AxisDirection.right': 
-       return AxisDirection.right;
-      case 'AxisDirection.down': 
-       return AxisDirection.down;
-      case 'AxisDirection.left': 
-       return AxisDirection.left;
+    switch (name) {
+      case 'AxisDirection.up':
+        return AxisDirection.up;
+      case 'AxisDirection.right':
+        return AxisDirection.right;
+      case 'AxisDirection.down':
+        return AxisDirection.down;
+      case 'AxisDirection.left':
+        return AxisDirection.left;
     }
     return null;
   }

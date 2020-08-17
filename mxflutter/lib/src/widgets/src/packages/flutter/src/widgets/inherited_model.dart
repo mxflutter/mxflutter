@@ -10,21 +10,22 @@ import 'dart:collection';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInheritedModelSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_inheritedModelElement.funName] = _inheritedModelElement;
   return m;
 }
+
 var _inheritedModelElement = MXFunctionInvoke(
-    "InheritedModelElement",
-    (
-      {
-      InheritedModel<dynamic> widget,
-      }
-    ) =>
+  "InheritedModelElement",
+  ({
+    InheritedModel<dynamic> widget,
+  }) =>
       InheritedModelElement(
-      widget,
-    ),
+    widget,
+  ),
+  [
+    "widget",
+  ],
 );

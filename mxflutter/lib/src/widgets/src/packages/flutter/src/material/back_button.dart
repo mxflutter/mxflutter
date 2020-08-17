@@ -13,7 +13,6 @@ import 'package:flutter/src/material/icons.dart';
 import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/theme.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerBackButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -22,44 +21,52 @@ Map<String, MXFunctionInvoke> registerBackButtonSeries() {
   m[_closeButton.funName] = _closeButton;
   return m;
 }
+
 var _backButtonIcon = MXFunctionInvoke(
-    "BackButtonIcon",
-    (
-      {
-      Key key,
-      }
-    ) =>
+  "BackButtonIcon",
+  ({
+    Key key,
+  }) =>
       BackButtonIcon(
-      key: key,
-    ),
+    key: key,
+  ),
+  [
+    "key",
+  ],
 );
 var _backButton = MXFunctionInvoke(
-    "BackButton",
-    (
-      {
-      Key key,
-      Color color,
-      dynamic onPressed,
-      }
-    ) =>
+  "BackButton",
+  ({
+    Key key,
+    Color color,
+    dynamic onPressed,
+  }) =>
       BackButton(
-      key: key,
-      color: color,
-      onPressed: createVoidCallbackClosure(_backButton.buildOwner, onPressed),
-    ),
+    key: key,
+    color: color,
+    onPressed: createVoidCallbackClosure(_backButton.buildOwner, onPressed),
+  ),
+  [
+    "key",
+    "color",
+    "onPressed",
+  ],
 );
 var _closeButton = MXFunctionInvoke(
-    "CloseButton",
-    (
-      {
-      Key key,
-      Color color,
-      dynamic onPressed,
-      }
-    ) =>
+  "CloseButton",
+  ({
+    Key key,
+    Color color,
+    dynamic onPressed,
+  }) =>
       CloseButton(
-      key: key,
-      color: color,
-      onPressed: createVoidCallbackClosure(_closeButton.buildOwner, onPressed),
-    ),
+    key: key,
+    color: color,
+    onPressed: createVoidCallbackClosure(_closeButton.buildOwner, onPressed),
+  ),
+  [
+    "key",
+    "color",
+    "onPressed",
+  ],
 );

@@ -19,7 +19,6 @@ import 'package:flutter/src/rendering/layer.dart';
 import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
 
-
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerViewSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -27,31 +26,37 @@ Map<String, MXFunctionInvoke> registerViewSeries() {
   m[_renderView.funName] = _renderView;
   return m;
 }
+
 var _viewConfiguration = MXFunctionInvoke(
-    "ViewConfiguration",
-    (
-      {
-      ui.Size size = Size.zero,
-      dynamic devicePixelRatio = 1.0,
-      }
-    ) =>
+  "ViewConfiguration",
+  ({
+    ui.Size size = Size.zero,
+    dynamic devicePixelRatio = 1.0,
+  }) =>
       ViewConfiguration(
-      size: size,
-      devicePixelRatio: devicePixelRatio?.toDouble(),
-    ),
+    size: size,
+    devicePixelRatio: devicePixelRatio?.toDouble(),
+  ),
+  [
+    "size",
+    "devicePixelRatio",
+  ],
 );
 var _renderView = MXFunctionInvoke(
-    "RenderView",
-    (
-      {
-      RenderBox child,
-      ViewConfiguration configuration,
-      ui.Window window,
-      }
-    ) =>
+  "RenderView",
+  ({
+    RenderBox child,
+    ViewConfiguration configuration,
+    ui.Window window,
+  }) =>
       RenderView(
-      child: child,
-      configuration: configuration,
-      window: window,
-    ),
+    child: child,
+    configuration: configuration,
+    window: window,
+  ),
+  [
+    "child",
+    "configuration",
+    "window",
+  ],
 );
