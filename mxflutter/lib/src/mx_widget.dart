@@ -9,6 +9,7 @@ import 'mx_build_owner.dart';
 import 'mx_common.dart';
 
 mixin MXJSWidgetBase {
+  String get name;
   String get widgetID;
   Map get widgetBuildData;
   String get widgetBuildDataSeq;
@@ -132,7 +133,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
           "widgetID ${widget.widgetID}"
           "old.widgetID:${old.widgetID} "
           "init BuildOwnerNode");
-      buildOwnerNode.reset();
+      buildOwnerNode.reset(old);
     }
   }
 

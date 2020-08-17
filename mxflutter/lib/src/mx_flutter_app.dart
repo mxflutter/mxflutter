@@ -167,7 +167,9 @@ class MXJSFlutterApp {
 
     if (boNode == null) {
       MXJSLog.error("MXJSFlutterApp:_jsCallRebuild: "
-          "findBuildOwner(widgetID) == null，name:$name id:$widgetID");
+          "findBuildOwner(widgetID) == null，name:$name widgetId:$widgetID");
+
+      _rootBuildOwnerNode.debugPrintBuildOwnerNodeTree();
       return;
     }
 
@@ -178,7 +180,15 @@ class MXJSFlutterApp {
           enableProfile, startDecodeDataTime, endDecodeDataTime);
     }
 
+    MXJSLog.log("MXJSFlutterApp:_jsCallRebuild: "
+        "name:$name widgetId:$widgetID");
+    // debug
+    _rootBuildOwnerNode.debugPrintBuildOwnerNodeTree();
+
     boNode.jsCallRebuild(widgetDataMap);
+
+    // debug
+    _rootBuildOwnerNode.debugPrintBuildOwnerNodeTree();
   }
 
   /// JS->Flutter

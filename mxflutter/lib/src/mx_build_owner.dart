@@ -60,10 +60,14 @@ class MXJsonBuildOwner {
   Map _profileInfo;
 
   /// TODO: 暂时先打日志看下
-  reset() {
+  reset(MXJSStatefulWidget old) {
     MXJSLog.debug("MXJsonBuildOwner:reset: "
         "ownerWidgetId:$ownerWidgetId "
         "buildSeq:${_mirrorObjKeyList.join('|')}");
+
+    // 用新的widgetId 更新 _parent child列表
+    _parent.updateChildWidgetId(this,old.widgetID);
+
   }
 
   void addChild(MXJsonBuildOwner child) {
@@ -112,6 +116,19 @@ class MXJsonBuildOwner {
 
     child._parent = null;
     _children.remove(child.ownerWidgetId);
+  }
+
+  updateChildWidgetId(MXJsonBuildOwner child,String oldWidgetID) {
+    var boNode = _children[oldWidgetID];
+    if (boNode != child) {
+      MXJSLog.debug("MXJsonBuildOwner:updateChildWidgetId: "
+          "widgetID:${child.ownerWidgetId} oldWidgetID:$oldWidgetID"
+          "_children 中的和要更新的boNode不同 boNode：$boNode");
+      return;
+    }
+
+    _children[child.ownerWidgetId] = child;
+    _children.remove(oldWidgetID);
   }
 
   void removeAllChild() {
@@ -206,7 +223,6 @@ class MXJsonBuildOwner {
 
   void _rebuild(
       String rebuildWidgetID, Map widgetBuildData, String buildWidgetDataSeq) {
-    removeAllChild();
 
     if (rebuildWidgetID != ownerWidgetId) {
       MXJSLog.log("MXJSStatefulWidget:_rebuild: "
@@ -315,6 +331,24 @@ class MXJsonBuildOwner {
         "endDecodeDataTime": endDecodeDataTime
       };
     }
+  }
+
+  String debugBuildOwnerNodeTreeText(){
+
+    var log = '{Element WidgetName:${widget?.name} ,WidgetId:${widget?.widgetID},state.WidgetId:${state?.widget?.widgetID}';
+
+    log = '$log child:[';
+    _children.forEach((key, value) {
+       var child = value.debugBuildOwnerNodeTreeText();
+       log = '$log $child,';
+    });
+    log = '$log]}';
+
+    return log;
+  }
+
+  void debugPrintBuildOwnerNodeTree(){
+    MXJSLog.debug("BuildOwnerNodeTreeText:${debugBuildOwnerNodeTreeText()}");
   }
 
   /// =============================================
