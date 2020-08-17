@@ -13,7 +13,7 @@ import 'package:collection/src/unmodifiable_wrappers.dart';
 Map<String, MXFunctionInvoke> registerUnionSetSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_unionSet.funName] = _unionSet;
-  m[_unionSet_from.funName] = _unionSet_from;
+  m[_unionSetFrom.funName] = _unionSetFrom;
   return m;
 }
 
@@ -32,7 +32,7 @@ var _unionSet = MXFunctionInvoke(
     "disjoint",
   ],
 );
-var _unionSet_from = MXFunctionInvoke(
+var _unionSetFrom = MXFunctionInvoke(
   "UnionSet.from",
   ({
     Iterable<Set<dynamic>> sets,

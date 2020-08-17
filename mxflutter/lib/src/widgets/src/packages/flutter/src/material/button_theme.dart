@@ -25,9 +25,8 @@ Map<String, MXFunctionInvoke> registerButtonThemeSeries() {
   m[_buttonTextTheme.funName] = _buttonTextTheme;
   m[_buttonBarLayoutBehavior.funName] = _buttonBarLayoutBehavior;
   m[_buttonTheme.funName] = _buttonTheme;
-  m[_buttonTheme_fromButtonThemeData.funName] =
-      _buttonTheme_fromButtonThemeData;
-  m[_buttonTheme_bar.funName] = _buttonTheme_bar;
+  m[_buttonThemeFromButtonThemeData.funName] = _buttonThemeFromButtonThemeData;
+  m[_buttonThemeBar.funName] = _buttonThemeBar;
   m[_buttonThemeData.funName] = _buttonThemeData;
   return m;
 }
@@ -100,7 +99,7 @@ var _buttonTheme = MXFunctionInvoke(
     "child",
   ],
 );
-var _buttonTheme_fromButtonThemeData = MXFunctionInvoke(
+var _buttonThemeFromButtonThemeData = MXFunctionInvoke(
   "ButtonTheme.fromButtonThemeData",
   ({
     Key key,
@@ -118,7 +117,7 @@ var _buttonTheme_fromButtonThemeData = MXFunctionInvoke(
     "child",
   ],
 );
-var _buttonTheme_bar = MXFunctionInvoke(
+var _buttonThemeBar = MXFunctionInvoke(
   "ButtonTheme.bar",
   ({
     Key key,

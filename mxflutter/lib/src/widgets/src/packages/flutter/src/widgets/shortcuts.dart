@@ -20,9 +20,9 @@ import 'package:flutter/src/widgets/inherited_notifier.dart';
 Map<String, MXFunctionInvoke> registerShortcutsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_keySet.funName] = _keySet;
-  m[_keySet_fromSet.funName] = _keySet_fromSet;
+  m[_keySetFromSet.funName] = _keySetFromSet;
   m[_logicalKeySet.funName] = _logicalKeySet;
-  m[_logicalKeySet_fromSet.funName] = _logicalKeySet_fromSet;
+  m[_logicalKeySetFromSet.funName] = _logicalKeySetFromSet;
   m[_shortcutMapProperty.funName] = _shortcutMapProperty;
   m[_shortcutManager.funName] = _shortcutManager;
   m[_shortcuts.funName] = _shortcuts;
@@ -50,7 +50,7 @@ var _keySet = MXFunctionInvoke(
     "key4",
   ],
 );
-var _keySet_fromSet = MXFunctionInvoke(
+var _keySetFromSet = MXFunctionInvoke(
   "KeySet.fromSet",
   ({
     Set<KeyboardKey> keys,
@@ -83,7 +83,7 @@ var _logicalKeySet = MXFunctionInvoke(
     "key4",
   ],
 );
-var _logicalKeySet_fromSet = MXFunctionInvoke(
+var _logicalKeySetFromSet = MXFunctionInvoke(
   "LogicalKeySet.fromSet",
   ({
     Set<LogicalKeyboardKey> keys,

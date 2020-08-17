@@ -21,7 +21,7 @@ Map<String, MXFunctionInvoke> registerExpansionPanelSeries() {
   m[_expansionPanel.funName] = _expansionPanel;
   m[_expansionPanelRadio.funName] = _expansionPanelRadio;
   m[_expansionPanelList.funName] = _expansionPanelList;
-  m[_expansionPanelList_radio.funName] = _expansionPanelList_radio;
+  m[_expansionPanelListRadio.funName] = _expansionPanelListRadio;
   return m;
 }
 
@@ -93,7 +93,7 @@ var _expansionPanelList = MXFunctionInvoke(
     "expandedHeaderPadding",
   ],
 );
-var _expansionPanelList_radio = MXFunctionInvoke(
+var _expansionPanelListRadio = MXFunctionInvoke(
   "ExpansionPanelList.radio",
   ({
     Key key,
@@ -108,7 +108,7 @@ var _expansionPanelList_radio = MXFunctionInvoke(
     key: key,
     children: toListT<ExpansionPanel>(children),
     expansionCallback: createVoidTwoParamsClosure<int, bool>(
-        _expansionPanelList_radio.buildOwner, expansionCallback),
+        _expansionPanelListRadio.buildOwner, expansionCallback),
     animationDuration: animationDuration,
     initialOpenPanelValue: initialOpenPanelValue,
     expandedHeaderPadding: expandedHeaderPadding,

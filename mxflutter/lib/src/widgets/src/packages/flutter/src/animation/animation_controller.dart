@@ -21,7 +21,7 @@ Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_animationBehavior.funName] = _animationBehavior;
   m[_animationController.funName] = _animationController;
-  m[_animationController_unbounded.funName] = _animationController_unbounded;
+  m[_animationControllerUnbounded.funName] = _animationControllerUnbounded;
   return m;
 }
 
@@ -62,7 +62,7 @@ var _animationController = MXFunctionInvoke(
     "vsync",
   ],
 );
-var _animationController_unbounded = MXFunctionInvoke(
+var _animationControllerUnbounded = MXFunctionInvoke(
   "AnimationController.unbounded",
   ({
     dynamic value = 0.0,

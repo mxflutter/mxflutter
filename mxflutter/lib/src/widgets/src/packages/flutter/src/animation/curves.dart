@@ -19,54 +19,54 @@ Map<String, MXFunctionInvoke> registerCurvesSeries() {
   m[_cubic.funName] = _cubic;
   m[_curve2DSample.funName] = _curve2DSample;
   m[_catmullRomSpline.funName] = _catmullRomSpline;
-  m[_catmullRomSpline_precompute.funName] = _catmullRomSpline_precompute;
+  m[_catmullRomSplinePrecompute.funName] = _catmullRomSplinePrecompute;
   m[_catmullRomCurve.funName] = _catmullRomCurve;
-  m[_catmullRomCurve_precompute.funName] = _catmullRomCurve_precompute;
+  m[_catmullRomCurvePrecompute.funName] = _catmullRomCurvePrecompute;
   m[_flippedCurve.funName] = _flippedCurve;
   m[_elasticInCurve.funName] = _elasticInCurve;
   m[_elasticOutCurve.funName] = _elasticOutCurve;
   m[_elasticInOutCurve.funName] = _elasticInOutCurve;
-  m[_curves_linear.funName] = _curves_linear;
-  m[_curves_decelerate.funName] = _curves_decelerate;
-  m[_curves_fastLinearToSlowEaseIn.funName] = _curves_fastLinearToSlowEaseIn;
-  m[_curves_ease.funName] = _curves_ease;
-  m[_curves_easeIn.funName] = _curves_easeIn;
-  m[_curves_easeInToLinear.funName] = _curves_easeInToLinear;
-  m[_curves_easeInSine.funName] = _curves_easeInSine;
-  m[_curves_easeInQuad.funName] = _curves_easeInQuad;
-  m[_curves_easeInCubic.funName] = _curves_easeInCubic;
-  m[_curves_easeInQuart.funName] = _curves_easeInQuart;
-  m[_curves_easeInQuint.funName] = _curves_easeInQuint;
-  m[_curves_easeInExpo.funName] = _curves_easeInExpo;
-  m[_curves_easeInCirc.funName] = _curves_easeInCirc;
-  m[_curves_easeInBack.funName] = _curves_easeInBack;
-  m[_curves_easeOut.funName] = _curves_easeOut;
-  m[_curves_linearToEaseOut.funName] = _curves_linearToEaseOut;
-  m[_curves_easeOutSine.funName] = _curves_easeOutSine;
-  m[_curves_easeOutQuad.funName] = _curves_easeOutQuad;
-  m[_curves_easeOutCubic.funName] = _curves_easeOutCubic;
-  m[_curves_easeOutQuart.funName] = _curves_easeOutQuart;
-  m[_curves_easeOutQuint.funName] = _curves_easeOutQuint;
-  m[_curves_easeOutExpo.funName] = _curves_easeOutExpo;
-  m[_curves_easeOutCirc.funName] = _curves_easeOutCirc;
-  m[_curves_easeOutBack.funName] = _curves_easeOutBack;
-  m[_curves_easeInOut.funName] = _curves_easeInOut;
-  m[_curves_easeInOutSine.funName] = _curves_easeInOutSine;
-  m[_curves_easeInOutQuad.funName] = _curves_easeInOutQuad;
-  m[_curves_easeInOutCubic.funName] = _curves_easeInOutCubic;
-  m[_curves_easeInOutQuart.funName] = _curves_easeInOutQuart;
-  m[_curves_easeInOutQuint.funName] = _curves_easeInOutQuint;
-  m[_curves_easeInOutExpo.funName] = _curves_easeInOutExpo;
-  m[_curves_easeInOutCirc.funName] = _curves_easeInOutCirc;
-  m[_curves_easeInOutBack.funName] = _curves_easeInOutBack;
-  m[_curves_fastOutSlowIn.funName] = _curves_fastOutSlowIn;
-  m[_curves_slowMiddle.funName] = _curves_slowMiddle;
-  m[_curves_bounceIn.funName] = _curves_bounceIn;
-  m[_curves_bounceOut.funName] = _curves_bounceOut;
-  m[_curves_bounceInOut.funName] = _curves_bounceInOut;
-  m[_curves_elasticIn.funName] = _curves_elasticIn;
-  m[_curves_elasticOut.funName] = _curves_elasticOut;
-  m[_curves_elasticInOut.funName] = _curves_elasticInOut;
+  m[_curvesLinear.funName] = _curvesLinear;
+  m[_curvesDecelerate.funName] = _curvesDecelerate;
+  m[_curvesFastLinearToSlowEaseIn.funName] = _curvesFastLinearToSlowEaseIn;
+  m[_curvesEase.funName] = _curvesEase;
+  m[_curvesEaseIn.funName] = _curvesEaseIn;
+  m[_curvesEaseInToLinear.funName] = _curvesEaseInToLinear;
+  m[_curvesEaseInSine.funName] = _curvesEaseInSine;
+  m[_curvesEaseInQuad.funName] = _curvesEaseInQuad;
+  m[_curvesEaseInCubic.funName] = _curvesEaseInCubic;
+  m[_curvesEaseInQuart.funName] = _curvesEaseInQuart;
+  m[_curvesEaseInQuint.funName] = _curvesEaseInQuint;
+  m[_curvesEaseInExpo.funName] = _curvesEaseInExpo;
+  m[_curvesEaseInCirc.funName] = _curvesEaseInCirc;
+  m[_curvesEaseInBack.funName] = _curvesEaseInBack;
+  m[_curvesEaseOut.funName] = _curvesEaseOut;
+  m[_curvesLinearToEaseOut.funName] = _curvesLinearToEaseOut;
+  m[_curvesEaseOutSine.funName] = _curvesEaseOutSine;
+  m[_curvesEaseOutQuad.funName] = _curvesEaseOutQuad;
+  m[_curvesEaseOutCubic.funName] = _curvesEaseOutCubic;
+  m[_curvesEaseOutQuart.funName] = _curvesEaseOutQuart;
+  m[_curvesEaseOutQuint.funName] = _curvesEaseOutQuint;
+  m[_curvesEaseOutExpo.funName] = _curvesEaseOutExpo;
+  m[_curvesEaseOutCirc.funName] = _curvesEaseOutCirc;
+  m[_curvesEaseOutBack.funName] = _curvesEaseOutBack;
+  m[_curvesEaseInOut.funName] = _curvesEaseInOut;
+  m[_curvesEaseInOutSine.funName] = _curvesEaseInOutSine;
+  m[_curvesEaseInOutQuad.funName] = _curvesEaseInOutQuad;
+  m[_curvesEaseInOutCubic.funName] = _curvesEaseInOutCubic;
+  m[_curvesEaseInOutQuart.funName] = _curvesEaseInOutQuart;
+  m[_curvesEaseInOutQuint.funName] = _curvesEaseInOutQuint;
+  m[_curvesEaseInOutExpo.funName] = _curvesEaseInOutExpo;
+  m[_curvesEaseInOutCirc.funName] = _curvesEaseInOutCirc;
+  m[_curvesEaseInOutBack.funName] = _curvesEaseInOutBack;
+  m[_curvesFastOutSlowIn.funName] = _curvesFastOutSlowIn;
+  m[_curvesSlowMiddle.funName] = _curvesSlowMiddle;
+  m[_curvesBounceIn.funName] = _curvesBounceIn;
+  m[_curvesBounceOut.funName] = _curvesBounceOut;
+  m[_curvesBounceInOut.funName] = _curvesBounceInOut;
+  m[_curvesElasticIn.funName] = _curvesElasticIn;
+  m[_curvesElasticOut.funName] = _curvesElasticOut;
+  m[_curvesElasticInOut.funName] = _curvesElasticInOut;
   return m;
 }
 
@@ -169,7 +169,7 @@ var _catmullRomSpline = MXFunctionInvoke(
     "endHandle",
   ],
 );
-var _catmullRomSpline_precompute = MXFunctionInvoke(
+var _catmullRomSplinePrecompute = MXFunctionInvoke(
   "CatmullRomSpline.precompute",
   ({
     dynamic controlPoints,
@@ -205,7 +205,7 @@ var _catmullRomCurve = MXFunctionInvoke(
     "tension",
   ],
 );
-var _catmullRomCurve_precompute = MXFunctionInvoke(
+var _catmullRomCurvePrecompute = MXFunctionInvoke(
   "CatmullRomCurve.precompute",
   ({
     dynamic controlPoints,
@@ -268,81 +268,81 @@ var _elasticInOutCurve = MXFunctionInvoke(
     "period",
   ],
 );
-var _curves_linear = MXFunctionInvoke("Curves.linear", () => Curves.linear);
-var _curves_decelerate =
+var _curvesLinear = MXFunctionInvoke("Curves.linear", () => Curves.linear);
+var _curvesDecelerate =
     MXFunctionInvoke("Curves.decelerate", () => Curves.decelerate);
-var _curves_fastLinearToSlowEaseIn = MXFunctionInvoke(
+var _curvesFastLinearToSlowEaseIn = MXFunctionInvoke(
     "Curves.fastLinearToSlowEaseIn", () => Curves.fastLinearToSlowEaseIn);
-var _curves_ease = MXFunctionInvoke("Curves.ease", () => Curves.ease);
-var _curves_easeIn = MXFunctionInvoke("Curves.easeIn", () => Curves.easeIn);
-var _curves_easeInToLinear =
+var _curvesEase = MXFunctionInvoke("Curves.ease", () => Curves.ease);
+var _curvesEaseIn = MXFunctionInvoke("Curves.easeIn", () => Curves.easeIn);
+var _curvesEaseInToLinear =
     MXFunctionInvoke("Curves.easeInToLinear", () => Curves.easeInToLinear);
-var _curves_easeInSine =
+var _curvesEaseInSine =
     MXFunctionInvoke("Curves.easeInSine", () => Curves.easeInSine);
-var _curves_easeInQuad =
+var _curvesEaseInQuad =
     MXFunctionInvoke("Curves.easeInQuad", () => Curves.easeInQuad);
-var _curves_easeInCubic =
+var _curvesEaseInCubic =
     MXFunctionInvoke("Curves.easeInCubic", () => Curves.easeInCubic);
-var _curves_easeInQuart =
+var _curvesEaseInQuart =
     MXFunctionInvoke("Curves.easeInQuart", () => Curves.easeInQuart);
-var _curves_easeInQuint =
+var _curvesEaseInQuint =
     MXFunctionInvoke("Curves.easeInQuint", () => Curves.easeInQuint);
-var _curves_easeInExpo =
+var _curvesEaseInExpo =
     MXFunctionInvoke("Curves.easeInExpo", () => Curves.easeInExpo);
-var _curves_easeInCirc =
+var _curvesEaseInCirc =
     MXFunctionInvoke("Curves.easeInCirc", () => Curves.easeInCirc);
-var _curves_easeInBack =
+var _curvesEaseInBack =
     MXFunctionInvoke("Curves.easeInBack", () => Curves.easeInBack);
-var _curves_easeOut = MXFunctionInvoke("Curves.easeOut", () => Curves.easeOut);
-var _curves_linearToEaseOut =
+var _curvesEaseOut = MXFunctionInvoke("Curves.easeOut", () => Curves.easeOut);
+var _curvesLinearToEaseOut =
     MXFunctionInvoke("Curves.linearToEaseOut", () => Curves.linearToEaseOut);
-var _curves_easeOutSine =
+var _curvesEaseOutSine =
     MXFunctionInvoke("Curves.easeOutSine", () => Curves.easeOutSine);
-var _curves_easeOutQuad =
+var _curvesEaseOutQuad =
     MXFunctionInvoke("Curves.easeOutQuad", () => Curves.easeOutQuad);
-var _curves_easeOutCubic =
+var _curvesEaseOutCubic =
     MXFunctionInvoke("Curves.easeOutCubic", () => Curves.easeOutCubic);
-var _curves_easeOutQuart =
+var _curvesEaseOutQuart =
     MXFunctionInvoke("Curves.easeOutQuart", () => Curves.easeOutQuart);
-var _curves_easeOutQuint =
+var _curvesEaseOutQuint =
     MXFunctionInvoke("Curves.easeOutQuint", () => Curves.easeOutQuint);
-var _curves_easeOutExpo =
+var _curvesEaseOutExpo =
     MXFunctionInvoke("Curves.easeOutExpo", () => Curves.easeOutExpo);
-var _curves_easeOutCirc =
+var _curvesEaseOutCirc =
     MXFunctionInvoke("Curves.easeOutCirc", () => Curves.easeOutCirc);
-var _curves_easeOutBack =
+var _curvesEaseOutBack =
     MXFunctionInvoke("Curves.easeOutBack", () => Curves.easeOutBack);
-var _curves_easeInOut =
+var _curvesEaseInOut =
     MXFunctionInvoke("Curves.easeInOut", () => Curves.easeInOut);
-var _curves_easeInOutSine =
+var _curvesEaseInOutSine =
     MXFunctionInvoke("Curves.easeInOutSine", () => Curves.easeInOutSine);
-var _curves_easeInOutQuad =
+var _curvesEaseInOutQuad =
     MXFunctionInvoke("Curves.easeInOutQuad", () => Curves.easeInOutQuad);
-var _curves_easeInOutCubic =
+var _curvesEaseInOutCubic =
     MXFunctionInvoke("Curves.easeInOutCubic", () => Curves.easeInOutCubic);
-var _curves_easeInOutQuart =
+var _curvesEaseInOutQuart =
     MXFunctionInvoke("Curves.easeInOutQuart", () => Curves.easeInOutQuart);
-var _curves_easeInOutQuint =
+var _curvesEaseInOutQuint =
     MXFunctionInvoke("Curves.easeInOutQuint", () => Curves.easeInOutQuint);
-var _curves_easeInOutExpo =
+var _curvesEaseInOutExpo =
     MXFunctionInvoke("Curves.easeInOutExpo", () => Curves.easeInOutExpo);
-var _curves_easeInOutCirc =
+var _curvesEaseInOutCirc =
     MXFunctionInvoke("Curves.easeInOutCirc", () => Curves.easeInOutCirc);
-var _curves_easeInOutBack =
+var _curvesEaseInOutBack =
     MXFunctionInvoke("Curves.easeInOutBack", () => Curves.easeInOutBack);
-var _curves_fastOutSlowIn =
+var _curvesFastOutSlowIn =
     MXFunctionInvoke("Curves.fastOutSlowIn", () => Curves.fastOutSlowIn);
-var _curves_slowMiddle =
+var _curvesSlowMiddle =
     MXFunctionInvoke("Curves.slowMiddle", () => Curves.slowMiddle);
-var _curves_bounceIn =
+var _curvesBounceIn =
     MXFunctionInvoke("Curves.bounceIn", () => Curves.bounceIn);
-var _curves_bounceOut =
+var _curvesBounceOut =
     MXFunctionInvoke("Curves.bounceOut", () => Curves.bounceOut);
-var _curves_bounceInOut =
+var _curvesBounceInOut =
     MXFunctionInvoke("Curves.bounceInOut", () => Curves.bounceInOut);
-var _curves_elasticIn =
+var _curvesElasticIn =
     MXFunctionInvoke("Curves.elasticIn", () => Curves.elasticIn);
-var _curves_elasticOut =
+var _curvesElasticOut =
     MXFunctionInvoke("Curves.elasticOut", () => Curves.elasticOut);
-var _curves_elasticInOut =
+var _curvesElasticInOut =
     MXFunctionInvoke("Curves.elasticInOut", () => Curves.elasticInOut);

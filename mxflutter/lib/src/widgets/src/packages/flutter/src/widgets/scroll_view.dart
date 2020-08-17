@@ -30,14 +30,14 @@ Map<String, MXFunctionInvoke> registerScrollViewSeries() {
       _scrollViewKeyboardDismissBehavior;
   m[_customScrollView.funName] = _customScrollView;
   m[_listView.funName] = _listView;
-  m[_listView_builder.funName] = _listView_builder;
-  m[_listView_separated.funName] = _listView_separated;
-  m[_listView_custom.funName] = _listView_custom;
+  m[_listViewBuilder.funName] = _listViewBuilder;
+  m[_listViewSeparated.funName] = _listViewSeparated;
+  m[_listViewCustom.funName] = _listViewCustom;
   m[_gridView.funName] = _gridView;
-  m[_gridView_builder.funName] = _gridView_builder;
-  m[_gridView_custom.funName] = _gridView_custom;
-  m[_gridView_count.funName] = _gridView_count;
-  m[_gridView_extent.funName] = _gridView_extent;
+  m[_gridViewBuilder.funName] = _gridViewBuilder;
+  m[_gridViewCustom.funName] = _gridViewCustom;
+  m[_gridViewCount.funName] = _gridViewCount;
+  m[_gridViewExtent.funName] = _gridViewExtent;
   return m;
 }
 
@@ -155,7 +155,7 @@ var _listView = MXFunctionInvoke(
     "keyboardDismissBehavior",
   ],
 );
-var _listView_builder = MXFunctionInvoke(
+var _listViewBuilder = MXFunctionInvoke(
   "ListView.builder",
   ({
     Key key,
@@ -215,7 +215,7 @@ var _listView_builder = MXFunctionInvoke(
     "dragStartBehavior",
   ],
 );
-var _listView_separated = MXFunctionInvoke(
+var _listViewSeparated = MXFunctionInvoke(
   "ListView.separated",
   ({
     Key key,
@@ -273,7 +273,7 @@ var _listView_separated = MXFunctionInvoke(
     "keyboardDismissBehavior",
   ],
 );
-var _listView_custom = MXFunctionInvoke(
+var _listViewCustom = MXFunctionInvoke(
   "ListView.custom",
   ({
     Key key,
@@ -372,7 +372,7 @@ var _gridView = MXFunctionInvoke(
     "semanticChildCount",
   ],
 );
-var _gridView_builder = MXFunctionInvoke(
+var _gridViewBuilder = MXFunctionInvoke(
   "GridView.builder",
   ({
     Key key,
@@ -429,7 +429,7 @@ var _gridView_builder = MXFunctionInvoke(
     "semanticChildCount",
   ],
 );
-var _gridView_custom = MXFunctionInvoke(
+var _gridViewCustom = MXFunctionInvoke(
   "GridView.custom",
   ({
     Key key,
@@ -477,7 +477,7 @@ var _gridView_custom = MXFunctionInvoke(
     "dragStartBehavior",
   ],
 );
-var _gridView_count = MXFunctionInvoke(
+var _gridViewCount = MXFunctionInvoke(
   "GridView.count",
   ({
     Key key,
@@ -543,7 +543,7 @@ var _gridView_count = MXFunctionInvoke(
     "dragStartBehavior",
   ],
 );
-var _gridView_extent = MXFunctionInvoke(
+var _gridViewExtent = MXFunctionInvoke(
   "GridView.extent",
   ({
     Key key,

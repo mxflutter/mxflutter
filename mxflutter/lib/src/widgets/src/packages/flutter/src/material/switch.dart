@@ -23,7 +23,7 @@ import 'package:flutter/src/material/toggleable.dart';
 Map<String, MXFunctionInvoke> registerSwitchSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_switch.funName] = _switch;
-  m[_switch_adaptive.funName] = _switch_adaptive;
+  m[_switchAdaptive.funName] = _switchAdaptive;
   return m;
 }
 
@@ -90,7 +90,7 @@ var _switch = MXFunctionInvoke(
     "autofocus",
   ],
 );
-var _switch_adaptive = MXFunctionInvoke(
+var _switchAdaptive = MXFunctionInvoke(
   "Switch.adaptive",
   ({
     Key key,
@@ -115,17 +115,17 @@ var _switch_adaptive = MXFunctionInvoke(
     key: key,
     value: value,
     onChanged: createValueChangedGenericClosure<bool>(
-        _switch_adaptive.buildOwner, onChanged),
+        _switchAdaptive.buildOwner, onChanged),
     activeColor: activeColor,
     activeTrackColor: activeTrackColor,
     inactiveThumbColor: inactiveThumbColor,
     inactiveTrackColor: inactiveTrackColor,
     activeThumbImage: activeThumbImage,
     onActiveThumbImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(
-        _switch_adaptive.buildOwner, onActiveThumbImageError),
+        _switchAdaptive.buildOwner, onActiveThumbImageError),
     inactiveThumbImage: inactiveThumbImage,
     onInactiveThumbImageError: createVoidTwoParamsClosure<dynamic, StackTrace>(
-        _switch_adaptive.buildOwner, onInactiveThumbImageError),
+        _switchAdaptive.buildOwner, onInactiveThumbImageError),
     materialTapTargetSize: materialTapTargetSize,
     dragStartBehavior: dragStartBehavior,
     focusColor: focusColor,

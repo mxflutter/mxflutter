@@ -21,14 +21,14 @@ import 'package:flutter/src/rendering/viewport_offset.dart';
 Map<String, MXFunctionInvoke> registerViewportSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cacheExtentStyle.funName] = _cacheExtentStyle;
-  m[_renderAbstractViewport_defaultCacheExtent.funName] =
-      _renderAbstractViewport_defaultCacheExtent;
+  m[_renderAbstractViewportDefaultCacheExtent.funName] =
+      _renderAbstractViewportDefaultCacheExtent;
   m[_revealedOffset.funName] = _revealedOffset;
   m[_renderViewport.funName] = _renderViewport;
-  m[_renderViewport_useTwoPaneSemantics.funName] =
-      _renderViewport_useTwoPaneSemantics;
-  m[_renderViewport_excludeFromScrolling.funName] =
-      _renderViewport_excludeFromScrolling;
+  m[_renderViewportUseTwoPaneSemantics.funName] =
+      _renderViewportUseTwoPaneSemantics;
+  m[_renderViewportExcludeFromScrolling.funName] =
+      _renderViewportExcludeFromScrolling;
   m[_renderShrinkWrappingViewport.funName] = _renderShrinkWrappingViewport;
   return m;
 }
@@ -37,7 +37,7 @@ var _cacheExtentStyle = MXFunctionInvoke(
     "CacheExtentStyle",
     ({String name, int index}) => MXCacheExtentStyle.parse(name, index),
     ["name", "index"]);
-var _renderAbstractViewport_defaultCacheExtent = MXFunctionInvoke(
+var _renderAbstractViewportDefaultCacheExtent = MXFunctionInvoke(
     "RenderAbstractViewport.defaultCacheExtent",
     () => RenderAbstractViewport.defaultCacheExtent);
 var _revealedOffset = MXFunctionInvoke(
@@ -88,10 +88,10 @@ var _renderViewport = MXFunctionInvoke(
     "cacheExtentStyle",
   ],
 );
-var _renderViewport_useTwoPaneSemantics = MXFunctionInvoke(
+var _renderViewportUseTwoPaneSemantics = MXFunctionInvoke(
     "RenderViewport.useTwoPaneSemantics",
     () => RenderViewport.useTwoPaneSemantics);
-var _renderViewport_excludeFromScrolling = MXFunctionInvoke(
+var _renderViewportExcludeFromScrolling = MXFunctionInvoke(
     "RenderViewport.excludeFromScrolling",
     () => RenderViewport.excludeFromScrolling);
 var _renderShrinkWrappingViewport = MXFunctionInvoke(

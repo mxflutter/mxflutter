@@ -35,7 +35,7 @@ Map<String, MXFunctionInvoke> registerImplicitAnimationsSeries() {
   m[_animatedPadding.funName] = _animatedPadding;
   m[_animatedAlign.funName] = _animatedAlign;
   m[_animatedPositioned.funName] = _animatedPositioned;
-  m[_animatedPositioned_fromRect.funName] = _animatedPositioned_fromRect;
+  m[_animatedPositionedFromRect.funName] = _animatedPositionedFromRect;
   m[_animatedPositionedDirectional.funName] = _animatedPositionedDirectional;
   m[_animatedOpacity.funName] = _animatedOpacity;
   m[_sliverAnimatedOpacity.funName] = _sliverAnimatedOpacity;
@@ -314,7 +314,7 @@ var _animatedPositioned = MXFunctionInvoke(
     "onEnd",
   ],
 );
-var _animatedPositioned_fromRect = MXFunctionInvoke(
+var _animatedPositionedFromRect = MXFunctionInvoke(
   "AnimatedPositioned.fromRect",
   ({
     Key key,
@@ -331,7 +331,7 @@ var _animatedPositioned_fromRect = MXFunctionInvoke(
     curve: curve,
     duration: duration,
     onEnd: createVoidCallbackClosure(
-        _animatedPositioned_fromRect.buildOwner, onEnd),
+        _animatedPositionedFromRect.buildOwner, onEnd),
   ),
   [
     "key",

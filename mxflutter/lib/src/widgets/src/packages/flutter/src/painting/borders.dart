@@ -17,7 +17,7 @@ Map<String, MXFunctionInvoke> registerBordersSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_borderStyle.funName] = _borderStyle;
   m[_borderSide.funName] = _borderSide;
-  m[_borderSide_none.funName] = _borderSide_none;
+  m[_borderSideNone.funName] = _borderSideNone;
   return m;
 }
 
@@ -43,7 +43,7 @@ var _borderSide = MXFunctionInvoke(
     "style",
   ],
 );
-var _borderSide_none =
+var _borderSideNone =
     MXFunctionInvoke("BorderSide.none", () => BorderSide.none);
 
 class MXBorderStyle {

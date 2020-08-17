@@ -20,26 +20,26 @@ Map<String, MXFunctionInvoke> registerDiagnosticsSeries() {
   m[_diagnosticsTreeStyle.funName] = _diagnosticsTreeStyle;
   m[_textTreeConfiguration.funName] = _textTreeConfiguration;
   m[_textTreeRenderer.funName] = _textTreeRenderer;
-  m[_diagnosticsNode_message.funName] = _diagnosticsNode_message;
+  m[_diagnosticsNodeMessage.funName] = _diagnosticsNodeMessage;
   m[_diagnosticsProperty.funName] = _diagnosticsProperty;
-  m[_diagnosticsProperty_lazy.funName] = _diagnosticsProperty_lazy;
+  m[_diagnosticsPropertyLazy.funName] = _diagnosticsPropertyLazy;
   m[_messageProperty.funName] = _messageProperty;
   m[_stringProperty.funName] = _stringProperty;
   m[_doubleProperty.funName] = _doubleProperty;
-  m[_doubleProperty_lazy.funName] = _doubleProperty_lazy;
+  m[_doublePropertyLazy.funName] = _doublePropertyLazy;
   m[_intProperty.funName] = _intProperty;
   m[_percentProperty.funName] = _percentProperty;
   m[_flagProperty.funName] = _flagProperty;
   m[_iterableProperty.funName] = _iterableProperty;
   m[_enumProperty.funName] = _enumProperty;
   m[_objectFlagProperty.funName] = _objectFlagProperty;
-  m[_objectFlagProperty_has.funName] = _objectFlagProperty_has;
+  m[_objectFlagPropertyHas.funName] = _objectFlagPropertyHas;
   m[_flagsSummary.funName] = _flagsSummary;
   m[_diagnosticableNode.funName] = _diagnosticableNode;
   m[_diagnosticableTreeNode.funName] = _diagnosticableTreeNode;
   m[_diagnosticPropertiesBuilder.funName] = _diagnosticPropertiesBuilder;
-  m[_diagnosticPropertiesBuilder_fromProperties.funName] =
-      _diagnosticPropertiesBuilder_fromProperties;
+  m[_diagnosticPropertiesBuilderFromProperties.funName] =
+      _diagnosticPropertiesBuilderFromProperties;
   m[_diagnosticsBlock.funName] = _diagnosticsBlock;
   m[_diagnosticsSerializationDelegate.funName] =
       _diagnosticsSerializationDelegate;
@@ -160,7 +160,7 @@ var _textTreeRenderer = MXFunctionInvoke(
     "maxDescendentsTruncatableNode",
   ],
 );
-var _diagnosticsNode_message = MXFunctionInvoke(
+var _diagnosticsNodeMessage = MXFunctionInvoke(
   "DiagnosticsNode.message",
   ({
     String message,
@@ -238,7 +238,7 @@ var _diagnosticsProperty = MXFunctionInvoke(
     "level",
   ],
 );
-var _diagnosticsProperty_lazy = MXFunctionInvoke(
+var _diagnosticsPropertyLazy = MXFunctionInvoke(
   "DiagnosticsProperty.lazy",
   ({
     String name,
@@ -388,7 +388,7 @@ var _doubleProperty = MXFunctionInvoke(
     "level",
   ],
 );
-var _doubleProperty_lazy = MXFunctionInvoke(
+var _doublePropertyLazy = MXFunctionInvoke(
   "DoubleProperty.lazy",
   ({
     String name,
@@ -598,7 +598,7 @@ var _objectFlagProperty = MXFunctionInvoke(
     "level",
   ],
 );
-var _objectFlagProperty_has = MXFunctionInvoke(
+var _objectFlagPropertyHas = MXFunctionInvoke(
   "ObjectFlagProperty.has",
   ({
     String name,
@@ -684,7 +684,7 @@ var _diagnosticPropertiesBuilder = MXFunctionInvoke(
   () => DiagnosticPropertiesBuilder(),
   [],
 );
-var _diagnosticPropertiesBuilder_fromProperties = MXFunctionInvoke(
+var _diagnosticPropertiesBuilderFromProperties = MXFunctionInvoke(
   "DiagnosticPropertiesBuilder.fromProperties",
   ({
     dynamic properties,

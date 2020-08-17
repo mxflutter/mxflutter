@@ -20,17 +20,17 @@ Map<String, MXFunctionInvoke> registerListWheelViewportSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_listWheelParentData.funName] = _listWheelParentData;
   m[_renderListWheelViewport.funName] = _renderListWheelViewport;
-  m[_renderListWheelViewport_defaultDiameterRatio.funName] =
-      _renderListWheelViewport_defaultDiameterRatio;
-  m[_renderListWheelViewport_defaultPerspective.funName] =
-      _renderListWheelViewport_defaultPerspective;
-  m[_renderListWheelViewport_diameterRatioZeroMessage.funName] =
-      _renderListWheelViewport_diameterRatioZeroMessage;
-  m[_renderListWheelViewport_perspectiveTooHighMessage.funName] =
-      _renderListWheelViewport_perspectiveTooHighMessage;
-  m[_renderListWheelViewport_clipToSizeAndRenderChildrenOutsideViewportConflict
+  m[_renderListWheelViewportDefaultDiameterRatio.funName] =
+      _renderListWheelViewportDefaultDiameterRatio;
+  m[_renderListWheelViewportDefaultPerspective.funName] =
+      _renderListWheelViewportDefaultPerspective;
+  m[_renderListWheelViewportDiameterRatioZeroMessage.funName] =
+      _renderListWheelViewportDiameterRatioZeroMessage;
+  m[_renderListWheelViewportPerspectiveTooHighMessage.funName] =
+      _renderListWheelViewportPerspectiveTooHighMessage;
+  m[_renderListWheelViewportClipToSizeAndRenderChildrenOutsideViewportConflict
           .funName] =
-      _renderListWheelViewport_clipToSizeAndRenderChildrenOutsideViewportConflict;
+      _renderListWheelViewportClipToSizeAndRenderChildrenOutsideViewportConflict;
   return m;
 }
 
@@ -87,19 +87,19 @@ var _renderListWheelViewport = MXFunctionInvoke(
     "children",
   ],
 );
-var _renderListWheelViewport_defaultDiameterRatio = MXFunctionInvoke(
+var _renderListWheelViewportDefaultDiameterRatio = MXFunctionInvoke(
     "RenderListWheelViewport.defaultDiameterRatio",
     () => RenderListWheelViewport.defaultDiameterRatio);
-var _renderListWheelViewport_defaultPerspective = MXFunctionInvoke(
+var _renderListWheelViewportDefaultPerspective = MXFunctionInvoke(
     "RenderListWheelViewport.defaultPerspective",
     () => RenderListWheelViewport.defaultPerspective);
-var _renderListWheelViewport_diameterRatioZeroMessage = MXFunctionInvoke(
+var _renderListWheelViewportDiameterRatioZeroMessage = MXFunctionInvoke(
     "RenderListWheelViewport.diameterRatioZeroMessage",
     () => RenderListWheelViewport.diameterRatioZeroMessage);
-var _renderListWheelViewport_perspectiveTooHighMessage = MXFunctionInvoke(
+var _renderListWheelViewportPerspectiveTooHighMessage = MXFunctionInvoke(
     "RenderListWheelViewport.perspectiveTooHighMessage",
     () => RenderListWheelViewport.perspectiveTooHighMessage);
-var _renderListWheelViewport_clipToSizeAndRenderChildrenOutsideViewportConflict =
+var _renderListWheelViewportClipToSizeAndRenderChildrenOutsideViewportConflict =
     MXFunctionInvoke(
         "RenderListWheelViewport.clipToSizeAndRenderChildrenOutsideViewportConflict",
         () => RenderListWheelViewport

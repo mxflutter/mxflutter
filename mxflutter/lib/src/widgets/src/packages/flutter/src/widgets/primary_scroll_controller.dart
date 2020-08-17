@@ -14,7 +14,7 @@ import 'package:flutter/src/widgets/scroll_controller.dart';
 Map<String, MXFunctionInvoke> registerPrimaryScrollControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_primaryScrollController.funName] = _primaryScrollController;
-  m[_primaryScrollController_none.funName] = _primaryScrollController_none;
+  m[_primaryScrollControllerNone.funName] = _primaryScrollControllerNone;
   return m;
 }
 
@@ -36,7 +36,7 @@ var _primaryScrollController = MXFunctionInvoke(
     "child",
   ],
 );
-var _primaryScrollController_none = MXFunctionInvoke(
+var _primaryScrollControllerNone = MXFunctionInvoke(
   "PrimaryScrollController.none",
   ({
     Key key,

@@ -15,10 +15,9 @@ import 'package:flutter/src/foundation/object.dart';
 Map<String, MXFunctionInvoke> registerStackFrameSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_stackFrame.funName] = _stackFrame;
-  m[_stackFrame_asynchronousSuspension.funName] =
-      _stackFrame_asynchronousSuspension;
-  m[_stackFrame_stackOverFlowElision.funName] =
-      _stackFrame_stackOverFlowElision;
+  m[_stackFrameAsynchronousSuspension.funName] =
+      _stackFrameAsynchronousSuspension;
+  m[_stackFrameStackOverFlowElision.funName] = _stackFrameStackOverFlowElision;
   return m;
 }
 
@@ -61,8 +60,8 @@ var _stackFrame = MXFunctionInvoke(
     "source",
   ],
 );
-var _stackFrame_asynchronousSuspension = MXFunctionInvoke(
+var _stackFrameAsynchronousSuspension = MXFunctionInvoke(
     "StackFrame.asynchronousSuspension",
     () => StackFrame.asynchronousSuspension);
-var _stackFrame_stackOverFlowElision = MXFunctionInvoke(
+var _stackFrameStackOverFlowElision = MXFunctionInvoke(
     "StackFrame.stackOverFlowElision", () => StackFrame.stackOverFlowElision);

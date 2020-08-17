@@ -13,7 +13,7 @@ import 'package:collection/src/utils.dart';
 Map<String, MXFunctionInvoke> registerCanonicalizedMapSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_canonicalizedMap.funName] = _canonicalizedMap;
-  m[_canonicalizedMap_from.funName] = _canonicalizedMap_from;
+  m[_canonicalizedMapFrom.funName] = _canonicalizedMapFrom;
   return m;
 }
 
@@ -32,7 +32,7 @@ var _canonicalizedMap = MXFunctionInvoke(
     "isValidKey",
   ],
 );
-var _canonicalizedMap_from = MXFunctionInvoke(
+var _canonicalizedMapFrom = MXFunctionInvoke(
   "CanonicalizedMap.from",
   ({
     dynamic other,

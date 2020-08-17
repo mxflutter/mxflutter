@@ -13,24 +13,24 @@ import 'package:flutter/src/painting/basic_types.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerEdgeInsetsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_edgeInsetsGeometry_infinity.funName] = _edgeInsetsGeometry_infinity;
-  m[_edgeInsets_zero.funName] = _edgeInsets_zero;
-  m[_edgeInsets_fromLTRB.funName] = _edgeInsets_fromLTRB;
-  m[_edgeInsets_all.funName] = _edgeInsets_all;
-  m[_edgeInsets_only.funName] = _edgeInsets_only;
-  m[_edgeInsets_symmetric.funName] = _edgeInsets_symmetric;
-  m[_edgeInsets_fromWindowPadding.funName] = _edgeInsets_fromWindowPadding;
-  m[_edgeInsetsDirectional_zero.funName] = _edgeInsetsDirectional_zero;
-  m[_edgeInsetsDirectional_fromSTEB.funName] = _edgeInsetsDirectional_fromSTEB;
-  m[_edgeInsetsDirectional_only.funName] = _edgeInsetsDirectional_only;
+  m[_edgeInsetsGeometryInfinity.funName] = _edgeInsetsGeometryInfinity;
+  m[_edgeInsetsZero.funName] = _edgeInsetsZero;
+  m[_edgeInsetsFromLTRB.funName] = _edgeInsetsFromLTRB;
+  m[_edgeInsetsAll.funName] = _edgeInsetsAll;
+  m[_edgeInsetsOnly.funName] = _edgeInsetsOnly;
+  m[_edgeInsetsSymmetric.funName] = _edgeInsetsSymmetric;
+  m[_edgeInsetsFromWindowPadding.funName] = _edgeInsetsFromWindowPadding;
+  m[_edgeInsetsDirectionalZero.funName] = _edgeInsetsDirectionalZero;
+  m[_edgeInsetsDirectionalFromSTEB.funName] = _edgeInsetsDirectionalFromSTEB;
+  m[_edgeInsetsDirectionalOnly.funName] = _edgeInsetsDirectionalOnly;
   return m;
 }
 
-var _edgeInsetsGeometry_infinity = MXFunctionInvoke(
+var _edgeInsetsGeometryInfinity = MXFunctionInvoke(
     "EdgeInsetsGeometry.infinity", () => EdgeInsetsGeometry.infinity);
-var _edgeInsets_zero =
+var _edgeInsetsZero =
     MXFunctionInvoke("EdgeInsets.zero", () => EdgeInsets.zero);
-var _edgeInsets_fromLTRB = MXFunctionInvoke(
+var _edgeInsetsFromLTRB = MXFunctionInvoke(
   "EdgeInsets.fromLTRB",
   ({
     dynamic left,
@@ -51,7 +51,7 @@ var _edgeInsets_fromLTRB = MXFunctionInvoke(
     "bottom",
   ],
 );
-var _edgeInsets_all = MXFunctionInvoke(
+var _edgeInsetsAll = MXFunctionInvoke(
   "EdgeInsets.all",
   ({
     dynamic value,
@@ -63,7 +63,7 @@ var _edgeInsets_all = MXFunctionInvoke(
     "value",
   ],
 );
-var _edgeInsets_only = MXFunctionInvoke(
+var _edgeInsetsOnly = MXFunctionInvoke(
   "EdgeInsets.only",
   ({
     dynamic left = 0.0,
@@ -84,7 +84,7 @@ var _edgeInsets_only = MXFunctionInvoke(
     "bottom",
   ],
 );
-var _edgeInsets_symmetric = MXFunctionInvoke(
+var _edgeInsetsSymmetric = MXFunctionInvoke(
   "EdgeInsets.symmetric",
   ({
     dynamic vertical = 0.0,
@@ -99,7 +99,7 @@ var _edgeInsets_symmetric = MXFunctionInvoke(
     "horizontal",
   ],
 );
-var _edgeInsets_fromWindowPadding = MXFunctionInvoke(
+var _edgeInsetsFromWindowPadding = MXFunctionInvoke(
   "EdgeInsets.fromWindowPadding",
   ({
     ui.WindowPadding padding,
@@ -114,9 +114,9 @@ var _edgeInsets_fromWindowPadding = MXFunctionInvoke(
     "devicePixelRatio",
   ],
 );
-var _edgeInsetsDirectional_zero = MXFunctionInvoke(
+var _edgeInsetsDirectionalZero = MXFunctionInvoke(
     "EdgeInsetsDirectional.zero", () => EdgeInsetsDirectional.zero);
-var _edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
+var _edgeInsetsDirectionalFromSTEB = MXFunctionInvoke(
   "EdgeInsetsDirectional.fromSTEB",
   ({
     dynamic start,
@@ -137,7 +137,7 @@ var _edgeInsetsDirectional_fromSTEB = MXFunctionInvoke(
     "bottom",
   ],
 );
-var _edgeInsetsDirectional_only = MXFunctionInvoke(
+var _edgeInsetsDirectionalOnly = MXFunctionInvoke(
   "EdgeInsetsDirectional.only",
   ({
     dynamic start = 0.0,

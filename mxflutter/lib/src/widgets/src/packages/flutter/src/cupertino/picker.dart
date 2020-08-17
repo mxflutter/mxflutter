@@ -17,7 +17,7 @@ import 'package:flutter/src/cupertino/theme.dart';
 Map<String, MXFunctionInvoke> registerPickerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoPicker.funName] = _cupertinoPicker;
-  m[_cupertinoPicker_builder.funName] = _cupertinoPicker_builder;
+  m[_cupertinoPickerBuilder.funName] = _cupertinoPickerBuilder;
   return m;
 }
 
@@ -67,7 +67,7 @@ var _cupertinoPicker = MXFunctionInvoke(
     "looping",
   ],
 );
-var _cupertinoPicker_builder = MXFunctionInvoke(
+var _cupertinoPickerBuilder = MXFunctionInvoke(
   "CupertinoPicker.builder",
   ({
     Key key,
@@ -94,7 +94,7 @@ var _cupertinoPicker_builder = MXFunctionInvoke(
     squeeze: squeeze?.toDouble(),
     itemExtent: itemExtent?.toDouble(),
     onSelectedItemChanged: createValueChangedGenericClosure<int>(
-        _cupertinoPicker_builder.buildOwner, onSelectedItemChanged),
+        _cupertinoPickerBuilder.buildOwner, onSelectedItemChanged),
     itemBuilder: null,
     childCount: childCount,
   ),

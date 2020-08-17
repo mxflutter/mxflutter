@@ -19,7 +19,7 @@ Map<String, MXFunctionInvoke> registerChipThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_chipTheme.funName] = _chipTheme;
   m[_chipThemeData.funName] = _chipThemeData;
-  m[_chipThemeData_fromDefaults.funName] = _chipThemeData_fromDefaults;
+  m[_chipThemeDataFromDefaults.funName] = _chipThemeDataFromDefaults;
   return m;
 }
 
@@ -101,7 +101,7 @@ var _chipThemeData = MXFunctionInvoke(
     "pressElevation",
   ],
 );
-var _chipThemeData_fromDefaults = MXFunctionInvoke(
+var _chipThemeDataFromDefaults = MXFunctionInvoke(
   "ChipThemeData.fromDefaults",
   ({
     Brightness brightness,

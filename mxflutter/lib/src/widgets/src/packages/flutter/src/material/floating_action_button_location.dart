@@ -14,46 +14,46 @@ import 'package:flutter/src/material/scaffold.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerFloatingActionButtonLocationSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_floatingActionButtonLocation_endFloat.funName] =
-      _floatingActionButtonLocation_endFloat;
-  m[_floatingActionButtonLocation_centerFloat.funName] =
-      _floatingActionButtonLocation_centerFloat;
-  m[_floatingActionButtonLocation_endDocked.funName] =
-      _floatingActionButtonLocation_endDocked;
-  m[_floatingActionButtonLocation_centerDocked.funName] =
-      _floatingActionButtonLocation_centerDocked;
-  m[_floatingActionButtonLocation_startTop.funName] =
-      _floatingActionButtonLocation_startTop;
-  m[_floatingActionButtonLocation_miniStartTop.funName] =
-      _floatingActionButtonLocation_miniStartTop;
-  m[_floatingActionButtonLocation_endTop.funName] =
-      _floatingActionButtonLocation_endTop;
-  m[_floatingActionButtonAnimator_scaling.funName] =
-      _floatingActionButtonAnimator_scaling;
+  m[_floatingActionButtonLocationEndFloat.funName] =
+      _floatingActionButtonLocationEndFloat;
+  m[_floatingActionButtonLocationCenterFloat.funName] =
+      _floatingActionButtonLocationCenterFloat;
+  m[_floatingActionButtonLocationEndDocked.funName] =
+      _floatingActionButtonLocationEndDocked;
+  m[_floatingActionButtonLocationCenterDocked.funName] =
+      _floatingActionButtonLocationCenterDocked;
+  m[_floatingActionButtonLocationStartTop.funName] =
+      _floatingActionButtonLocationStartTop;
+  m[_floatingActionButtonLocationMiniStartTop.funName] =
+      _floatingActionButtonLocationMiniStartTop;
+  m[_floatingActionButtonLocationEndTop.funName] =
+      _floatingActionButtonLocationEndTop;
+  m[_floatingActionButtonAnimatorScaling.funName] =
+      _floatingActionButtonAnimatorScaling;
   return m;
 }
 
-var _floatingActionButtonLocation_endFloat = MXFunctionInvoke(
+var _floatingActionButtonLocationEndFloat = MXFunctionInvoke(
     "FloatingActionButtonLocation.endFloat",
     () => FloatingActionButtonLocation.endFloat);
-var _floatingActionButtonLocation_centerFloat = MXFunctionInvoke(
+var _floatingActionButtonLocationCenterFloat = MXFunctionInvoke(
     "FloatingActionButtonLocation.centerFloat",
     () => FloatingActionButtonLocation.centerFloat);
-var _floatingActionButtonLocation_endDocked = MXFunctionInvoke(
+var _floatingActionButtonLocationEndDocked = MXFunctionInvoke(
     "FloatingActionButtonLocation.endDocked",
     () => FloatingActionButtonLocation.endDocked);
-var _floatingActionButtonLocation_centerDocked = MXFunctionInvoke(
+var _floatingActionButtonLocationCenterDocked = MXFunctionInvoke(
     "FloatingActionButtonLocation.centerDocked",
     () => FloatingActionButtonLocation.centerDocked);
-var _floatingActionButtonLocation_startTop = MXFunctionInvoke(
+var _floatingActionButtonLocationStartTop = MXFunctionInvoke(
     "FloatingActionButtonLocation.startTop",
     () => FloatingActionButtonLocation.startTop);
-var _floatingActionButtonLocation_miniStartTop = MXFunctionInvoke(
+var _floatingActionButtonLocationMiniStartTop = MXFunctionInvoke(
     "FloatingActionButtonLocation.miniStartTop",
     () => FloatingActionButtonLocation.miniStartTop);
-var _floatingActionButtonLocation_endTop = MXFunctionInvoke(
+var _floatingActionButtonLocationEndTop = MXFunctionInvoke(
     "FloatingActionButtonLocation.endTop",
     () => FloatingActionButtonLocation.endTop);
-var _floatingActionButtonAnimator_scaling = MXFunctionInvoke(
+var _floatingActionButtonAnimatorScaling = MXFunctionInvoke(
     "FloatingActionButtonAnimator.scaling",
     () => FloatingActionButtonAnimator.scaling);

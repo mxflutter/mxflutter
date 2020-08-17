@@ -13,16 +13,16 @@ import 'package:flutter/foundation.dart';
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerColorsSeries() {
   var m = <String, MXFunctionInvoke>{};
-  m[_hSVColor_fromColor.funName] = _hSVColor_fromColor;
-  m[_hSVColor_fromAHSV.funName] = _hSVColor_fromAHSV;
-  m[_hSLColor_fromColor.funName] = _hSLColor_fromColor;
-  m[_hSLColor_fromAHSL.funName] = _hSLColor_fromAHSL;
+  m[_hSVColorFromColor.funName] = _hSVColorFromColor;
+  m[_hSVColorFromAHSV.funName] = _hSVColorFromAHSV;
+  m[_hSLColorFromColor.funName] = _hSLColorFromColor;
+  m[_hSLColorFromAHSL.funName] = _hSLColorFromAHSL;
   m[_colorSwatch.funName] = _colorSwatch;
   m[_colorProperty.funName] = _colorProperty;
   return m;
 }
 
-var _hSVColor_fromColor = MXFunctionInvoke(
+var _hSVColorFromColor = MXFunctionInvoke(
   "HSVColor.fromColor",
   ({
     Color color,
@@ -34,7 +34,7 @@ var _hSVColor_fromColor = MXFunctionInvoke(
     "color",
   ],
 );
-var _hSVColor_fromAHSV = MXFunctionInvoke(
+var _hSVColorFromAHSV = MXFunctionInvoke(
   "HSVColor.fromAHSV",
   ({
     dynamic alpha,
@@ -55,7 +55,7 @@ var _hSVColor_fromAHSV = MXFunctionInvoke(
     "value",
   ],
 );
-var _hSLColor_fromColor = MXFunctionInvoke(
+var _hSLColorFromColor = MXFunctionInvoke(
   "HSLColor.fromColor",
   ({
     Color color,
@@ -67,7 +67,7 @@ var _hSLColor_fromColor = MXFunctionInvoke(
     "color",
   ],
 );
-var _hSLColor_fromAHSL = MXFunctionInvoke(
+var _hSLColorFromAHSL = MXFunctionInvoke(
   "HSLColor.fromAHSL",
   ({
     dynamic alpha,

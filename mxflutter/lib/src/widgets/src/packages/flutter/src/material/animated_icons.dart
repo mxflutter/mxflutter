@@ -15,20 +15,20 @@ import 'package:flutter/widgets.dart';
 Map<String, MXFunctionInvoke> registerAnimatedIconsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_animatedIcon.funName] = _animatedIcon;
-  m[_animatedIcons_add_event.funName] = _animatedIcons_add_event;
-  m[_animatedIcons_arrow_menu.funName] = _animatedIcons_arrow_menu;
-  m[_animatedIcons_close_menu.funName] = _animatedIcons_close_menu;
-  m[_animatedIcons_ellipsis_search.funName] = _animatedIcons_ellipsis_search;
-  m[_animatedIcons_event_add.funName] = _animatedIcons_event_add;
-  m[_animatedIcons_home_menu.funName] = _animatedIcons_home_menu;
-  m[_animatedIcons_list_view.funName] = _animatedIcons_list_view;
-  m[_animatedIcons_menu_arrow.funName] = _animatedIcons_menu_arrow;
-  m[_animatedIcons_menu_close.funName] = _animatedIcons_menu_close;
-  m[_animatedIcons_menu_home.funName] = _animatedIcons_menu_home;
-  m[_animatedIcons_pause_play.funName] = _animatedIcons_pause_play;
-  m[_animatedIcons_play_pause.funName] = _animatedIcons_play_pause;
-  m[_animatedIcons_search_ellipsis.funName] = _animatedIcons_search_ellipsis;
-  m[_animatedIcons_view_list.funName] = _animatedIcons_view_list;
+  m[_animatedIconsAddEvent.funName] = _animatedIconsAddEvent;
+  m[_animatedIconsArrowMenu.funName] = _animatedIconsArrowMenu;
+  m[_animatedIconsCloseMenu.funName] = _animatedIconsCloseMenu;
+  m[_animatedIconsEllipsisSearch.funName] = _animatedIconsEllipsisSearch;
+  m[_animatedIconsEventAdd.funName] = _animatedIconsEventAdd;
+  m[_animatedIconsHomeMenu.funName] = _animatedIconsHomeMenu;
+  m[_animatedIconsListView.funName] = _animatedIconsListView;
+  m[_animatedIconsMenuArrow.funName] = _animatedIconsMenuArrow;
+  m[_animatedIconsMenuClose.funName] = _animatedIconsMenuClose;
+  m[_animatedIconsMenuHome.funName] = _animatedIconsMenuHome;
+  m[_animatedIconsPausePlay.funName] = _animatedIconsPausePlay;
+  m[_animatedIconsPlayPause.funName] = _animatedIconsPlayPause;
+  m[_animatedIconsSearchEllipsis.funName] = _animatedIconsSearchEllipsis;
+  m[_animatedIconsViewList.funName] = _animatedIconsViewList;
   return m;
 }
 
@@ -62,31 +62,31 @@ var _animatedIcon = MXFunctionInvoke(
     "textDirection",
   ],
 );
-var _animatedIcons_add_event =
+var _animatedIconsAddEvent =
     MXFunctionInvoke("AnimatedIcons.add_event", () => AnimatedIcons.add_event);
-var _animatedIcons_arrow_menu = MXFunctionInvoke(
+var _animatedIconsArrowMenu = MXFunctionInvoke(
     "AnimatedIcons.arrow_menu", () => AnimatedIcons.arrow_menu);
-var _animatedIcons_close_menu = MXFunctionInvoke(
+var _animatedIconsCloseMenu = MXFunctionInvoke(
     "AnimatedIcons.close_menu", () => AnimatedIcons.close_menu);
-var _animatedIcons_ellipsis_search = MXFunctionInvoke(
+var _animatedIconsEllipsisSearch = MXFunctionInvoke(
     "AnimatedIcons.ellipsis_search", () => AnimatedIcons.ellipsis_search);
-var _animatedIcons_event_add =
+var _animatedIconsEventAdd =
     MXFunctionInvoke("AnimatedIcons.event_add", () => AnimatedIcons.event_add);
-var _animatedIcons_home_menu =
+var _animatedIconsHomeMenu =
     MXFunctionInvoke("AnimatedIcons.home_menu", () => AnimatedIcons.home_menu);
-var _animatedIcons_list_view =
+var _animatedIconsListView =
     MXFunctionInvoke("AnimatedIcons.list_view", () => AnimatedIcons.list_view);
-var _animatedIcons_menu_arrow = MXFunctionInvoke(
+var _animatedIconsMenuArrow = MXFunctionInvoke(
     "AnimatedIcons.menu_arrow", () => AnimatedIcons.menu_arrow);
-var _animatedIcons_menu_close = MXFunctionInvoke(
+var _animatedIconsMenuClose = MXFunctionInvoke(
     "AnimatedIcons.menu_close", () => AnimatedIcons.menu_close);
-var _animatedIcons_menu_home =
+var _animatedIconsMenuHome =
     MXFunctionInvoke("AnimatedIcons.menu_home", () => AnimatedIcons.menu_home);
-var _animatedIcons_pause_play = MXFunctionInvoke(
+var _animatedIconsPausePlay = MXFunctionInvoke(
     "AnimatedIcons.pause_play", () => AnimatedIcons.pause_play);
-var _animatedIcons_play_pause = MXFunctionInvoke(
+var _animatedIconsPlayPause = MXFunctionInvoke(
     "AnimatedIcons.play_pause", () => AnimatedIcons.play_pause);
-var _animatedIcons_search_ellipsis = MXFunctionInvoke(
+var _animatedIconsSearchEllipsis = MXFunctionInvoke(
     "AnimatedIcons.search_ellipsis", () => AnimatedIcons.search_ellipsis);
-var _animatedIcons_view_list =
+var _animatedIconsViewList =
     MXFunctionInvoke("AnimatedIcons.view_list", () => AnimatedIcons.view_list);

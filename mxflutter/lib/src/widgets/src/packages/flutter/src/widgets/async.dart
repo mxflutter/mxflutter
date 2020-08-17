@@ -14,9 +14,9 @@ import 'package:flutter/src/widgets/framework.dart';
 Map<String, MXFunctionInvoke> registerAsyncSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_connectionState.funName] = _connectionState;
-  m[_asyncSnapshot_nothing.funName] = _asyncSnapshot_nothing;
-  m[_asyncSnapshot_withData.funName] = _asyncSnapshot_withData;
-  m[_asyncSnapshot_withError.funName] = _asyncSnapshot_withError;
+  m[_asyncSnapshotNothing.funName] = _asyncSnapshotNothing;
+  m[_asyncSnapshotWithData.funName] = _asyncSnapshotWithData;
+  m[_asyncSnapshotWithError.funName] = _asyncSnapshotWithError;
   m[_streamBuilder.funName] = _streamBuilder;
   m[_futureBuilder.funName] = _futureBuilder;
   return m;
@@ -26,12 +26,12 @@ var _connectionState = MXFunctionInvoke(
     "ConnectionState",
     ({String name, int index}) => MXConnectionState.parse(name, index),
     ["name", "index"]);
-var _asyncSnapshot_nothing = MXFunctionInvoke(
+var _asyncSnapshotNothing = MXFunctionInvoke(
   "AsyncSnapshot.nothing",
   () => AsyncSnapshot.nothing(),
   [],
 );
-var _asyncSnapshot_withData = MXFunctionInvoke(
+var _asyncSnapshotWithData = MXFunctionInvoke(
   "AsyncSnapshot.withData",
   ({
     ConnectionState state,
@@ -46,7 +46,7 @@ var _asyncSnapshot_withData = MXFunctionInvoke(
     "data",
   ],
 );
-var _asyncSnapshot_withError = MXFunctionInvoke(
+var _asyncSnapshotWithError = MXFunctionInvoke(
   "AsyncSnapshot.withError",
   ({
     ConnectionState state,

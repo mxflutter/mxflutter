@@ -14,8 +14,8 @@ import 'package:flutter/foundation.dart';
 Map<String, MXFunctionInvoke> registerViewportOffsetSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scrollDirection.funName] = _scrollDirection;
-  m[_viewportOffset_fixed.funName] = _viewportOffset_fixed;
-  m[_viewportOffset_zero.funName] = _viewportOffset_zero;
+  m[_viewportOffsetFixed.funName] = _viewportOffsetFixed;
+  m[_viewportOffsetZero.funName] = _viewportOffsetZero;
   return m;
 }
 
@@ -23,7 +23,7 @@ var _scrollDirection = MXFunctionInvoke(
     "ScrollDirection",
     ({String name, int index}) => MXScrollDirection.parse(name, index),
     ["name", "index"]);
-var _viewportOffset_fixed = MXFunctionInvoke(
+var _viewportOffsetFixed = MXFunctionInvoke(
   "ViewportOffset.fixed",
   ({
     dynamic value,
@@ -35,7 +35,7 @@ var _viewportOffset_fixed = MXFunctionInvoke(
     "value",
   ],
 );
-var _viewportOffset_zero = MXFunctionInvoke(
+var _viewportOffsetZero = MXFunctionInvoke(
   "ViewportOffset.zero",
   () => ViewportOffset.zero(),
   [],

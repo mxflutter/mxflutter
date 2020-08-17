@@ -17,15 +17,13 @@ Map<String, MXFunctionInvoke> registerEventsSeries() {
   m[_pointerRemovedEvent.funName] = _pointerRemovedEvent;
   m[_pointerHoverEvent.funName] = _pointerHoverEvent;
   m[_pointerEnterEvent.funName] = _pointerEnterEvent;
-  m[_pointerEnterEvent_fromHoverEvent.funName] =
-      _pointerEnterEvent_fromHoverEvent;
-  m[_pointerEnterEvent_fromMouseEvent.funName] =
-      _pointerEnterEvent_fromMouseEvent;
+  m[_pointerEnterEventFromHoverEvent.funName] =
+      _pointerEnterEventFromHoverEvent;
+  m[_pointerEnterEventFromMouseEvent.funName] =
+      _pointerEnterEventFromMouseEvent;
   m[_pointerExitEvent.funName] = _pointerExitEvent;
-  m[_pointerExitEvent_fromHoverEvent.funName] =
-      _pointerExitEvent_fromHoverEvent;
-  m[_pointerExitEvent_fromMouseEvent.funName] =
-      _pointerExitEvent_fromMouseEvent;
+  m[_pointerExitEventFromHoverEvent.funName] = _pointerExitEventFromHoverEvent;
+  m[_pointerExitEventFromMouseEvent.funName] = _pointerExitEventFromMouseEvent;
   m[_pointerDownEvent.funName] = _pointerDownEvent;
   m[_pointerMoveEvent.funName] = _pointerMoveEvent;
   m[_pointerUpEvent.funName] = _pointerUpEvent;
@@ -298,7 +296,7 @@ var _pointerEnterEvent = MXFunctionInvoke(
     "original",
   ],
 );
-var _pointerEnterEvent_fromHoverEvent = MXFunctionInvoke(
+var _pointerEnterEventFromHoverEvent = MXFunctionInvoke(
   "PointerEnterEvent.fromHoverEvent",
   ({
     PointerHoverEvent event,
@@ -310,7 +308,7 @@ var _pointerEnterEvent_fromHoverEvent = MXFunctionInvoke(
     "event",
   ],
 );
-var _pointerEnterEvent_fromMouseEvent = MXFunctionInvoke(
+var _pointerEnterEventFromMouseEvent = MXFunctionInvoke(
   "PointerEnterEvent.fromMouseEvent",
   ({
     PointerEvent event,
@@ -403,7 +401,7 @@ var _pointerExitEvent = MXFunctionInvoke(
     "original",
   ],
 );
-var _pointerExitEvent_fromHoverEvent = MXFunctionInvoke(
+var _pointerExitEventFromHoverEvent = MXFunctionInvoke(
   "PointerExitEvent.fromHoverEvent",
   ({
     PointerHoverEvent event,
@@ -415,7 +413,7 @@ var _pointerExitEvent_fromHoverEvent = MXFunctionInvoke(
     "event",
   ],
 );
-var _pointerExitEvent_fromMouseEvent = MXFunctionInvoke(
+var _pointerExitEventFromMouseEvent = MXFunctionInvoke(
   "PointerExitEvent.fromMouseEvent",
   ({
     PointerEvent event,

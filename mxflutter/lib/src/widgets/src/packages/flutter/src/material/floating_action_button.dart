@@ -23,7 +23,7 @@ import 'package:flutter/src/material/tooltip.dart';
 Map<String, MXFunctionInvoke> registerFloatingActionButtonSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_floatingActionButton.funName] = _floatingActionButton;
-  m[_floatingActionButton_extended.funName] = _floatingActionButton_extended;
+  m[_floatingActionButtonExtended.funName] = _floatingActionButtonExtended;
   return m;
 }
 
@@ -103,7 +103,7 @@ var _floatingActionButton = MXFunctionInvoke(
     "isExtended",
   ],
 );
-var _floatingActionButton_extended = MXFunctionInvoke(
+var _floatingActionButtonExtended = MXFunctionInvoke(
   "FloatingActionButton.extended",
   ({
     Key key,
@@ -144,7 +144,7 @@ var _floatingActionButton_extended = MXFunctionInvoke(
     highlightElevation: highlightElevation?.toDouble(),
     disabledElevation: disabledElevation?.toDouble(),
     onPressed: createVoidCallbackClosure(
-        _floatingActionButton_extended.buildOwner, onPressed),
+        _floatingActionButtonExtended.buildOwner, onPressed),
     shape: shape,
     isExtended: isExtended,
     materialTapTargetSize: materialTapTargetSize,

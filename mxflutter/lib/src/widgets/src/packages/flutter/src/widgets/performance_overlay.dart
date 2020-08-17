@@ -13,7 +13,7 @@ import 'package:flutter/src/widgets/framework.dart';
 Map<String, MXFunctionInvoke> registerPerformanceOverlaySeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_performanceOverlay.funName] = _performanceOverlay;
-  m[_performanceOverlay_allEnabled.funName] = _performanceOverlay_allEnabled;
+  m[_performanceOverlayAllEnabled.funName] = _performanceOverlayAllEnabled;
   return m;
 }
 
@@ -41,7 +41,7 @@ var _performanceOverlay = MXFunctionInvoke(
     "checkerboardOffscreenLayers",
   ],
 );
-var _performanceOverlay_allEnabled = MXFunctionInvoke(
+var _performanceOverlayAllEnabled = MXFunctionInvoke(
   "PerformanceOverlay.allEnabled",
   ({
     Key key,

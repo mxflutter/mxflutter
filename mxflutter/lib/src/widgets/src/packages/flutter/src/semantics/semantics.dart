@@ -22,13 +22,13 @@ Map<String, MXFunctionInvoke> registerSemanticsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_semanticsTag.funName] = _semanticsTag;
   m[_customSemanticsAction.funName] = _customSemanticsAction;
-  m[_customSemanticsAction_overridingAction.funName] =
-      _customSemanticsAction_overridingAction;
+  m[_customSemanticsActionOverridingAction.funName] =
+      _customSemanticsActionOverridingAction;
   m[_semanticsData.funName] = _semanticsData;
   m[_semanticsHintOverrides.funName] = _semanticsHintOverrides;
   m[_semanticsProperties.funName] = _semanticsProperties;
   m[_semanticsNode.funName] = _semanticsNode;
-  m[_semanticsNode_root.funName] = _semanticsNode_root;
+  m[_semanticsNodeRoot.funName] = _semanticsNodeRoot;
   m[_semanticsOwner.funName] = _semanticsOwner;
   m[_semanticsConfiguration.funName] = _semanticsConfiguration;
   m[_debugSemanticsDumpOrder.funName] = _debugSemanticsDumpOrder;
@@ -60,7 +60,7 @@ var _customSemanticsAction = MXFunctionInvoke(
     "label",
   ],
 );
-var _customSemanticsAction_overridingAction = MXFunctionInvoke(
+var _customSemanticsActionOverridingAction = MXFunctionInvoke(
   "CustomSemanticsAction.overridingAction",
   ({
     String hint,
@@ -357,7 +357,7 @@ var _semanticsNode = MXFunctionInvoke(
     "showOnScreen",
   ],
 );
-var _semanticsNode_root = MXFunctionInvoke(
+var _semanticsNodeRoot = MXFunctionInvoke(
   "SemanticsNode.root",
   ({
     Key key,
@@ -367,7 +367,7 @@ var _semanticsNode_root = MXFunctionInvoke(
       SemanticsNode.root(
     key: key,
     showOnScreen:
-        createVoidCallbackClosure(_semanticsNode_root.buildOwner, showOnScreen),
+        createVoidCallbackClosure(_semanticsNodeRoot.buildOwner, showOnScreen),
     owner: owner,
   ),
   [

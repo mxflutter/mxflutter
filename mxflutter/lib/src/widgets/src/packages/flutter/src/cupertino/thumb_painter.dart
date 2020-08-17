@@ -13,11 +13,10 @@ import 'package:flutter/src/cupertino/colors.dart';
 Map<String, MXFunctionInvoke> registerThumbPainterSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoThumbPainter.funName] = _cupertinoThumbPainter;
-  m[_cupertinoThumbPainter_radius.funName] = _cupertinoThumbPainter_radius;
-  m[_cupertinoThumbPainter_extension.funName] =
-      _cupertinoThumbPainter_extension;
-  m[_cupertinoThumbPainter_switchThumb.funName] =
-      _cupertinoThumbPainter_switchThumb;
+  m[_cupertinoThumbPainterRadius.funName] = _cupertinoThumbPainterRadius;
+  m[_cupertinoThumbPainterExtension.funName] = _cupertinoThumbPainterExtension;
+  m[_cupertinoThumbPainterSwitchThumb.funName] =
+      _cupertinoThumbPainterSwitchThumb;
   return m;
 }
 
@@ -43,11 +42,11 @@ var _cupertinoThumbPainter = MXFunctionInvoke(
     "shadows",
   ],
 );
-var _cupertinoThumbPainter_radius = MXFunctionInvoke(
+var _cupertinoThumbPainterRadius = MXFunctionInvoke(
     "CupertinoThumbPainter.radius", () => CupertinoThumbPainter.radius);
-var _cupertinoThumbPainter_extension = MXFunctionInvoke(
+var _cupertinoThumbPainterExtension = MXFunctionInvoke(
     "CupertinoThumbPainter.extension", () => CupertinoThumbPainter.extension);
-var _cupertinoThumbPainter_switchThumb = MXFunctionInvoke(
+var _cupertinoThumbPainterSwitchThumb = MXFunctionInvoke(
   "CupertinoThumbPainter.switchThumb",
   ({
     Color color = Colors.white,

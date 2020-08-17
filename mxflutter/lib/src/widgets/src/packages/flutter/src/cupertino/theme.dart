@@ -18,7 +18,7 @@ Map<String, MXFunctionInvoke> registerThemeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoTheme.funName] = _cupertinoTheme;
   m[_cupertinoThemeData.funName] = _cupertinoThemeData;
-  m[_cupertinoThemeData_raw.funName] = _cupertinoThemeData_raw;
+  m[_cupertinoThemeDataRaw.funName] = _cupertinoThemeDataRaw;
   return m;
 }
 
@@ -67,7 +67,7 @@ var _cupertinoThemeData = MXFunctionInvoke(
     "scaffoldBackgroundColor",
   ],
 );
-var _cupertinoThemeData_raw = MXFunctionInvoke(
+var _cupertinoThemeDataRaw = MXFunctionInvoke(
   "CupertinoThemeData.raw",
   ({
     Brightness brightness,

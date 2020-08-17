@@ -18,12 +18,12 @@ Map<String, MXFunctionInvoke> registerSliverSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_sliverChildBuilderDelegate.funName] = _sliverChildBuilderDelegate;
   m[_sliverChildListDelegate.funName] = _sliverChildListDelegate;
-  m[_sliverChildListDelegate_fixed.funName] = _sliverChildListDelegate_fixed;
+  m[_sliverChildListDelegateFixed.funName] = _sliverChildListDelegateFixed;
   m[_sliverList.funName] = _sliverList;
   m[_sliverFixedExtentList.funName] = _sliverFixedExtentList;
   m[_sliverGrid.funName] = _sliverGrid;
-  m[_sliverGrid_count.funName] = _sliverGrid_count;
-  m[_sliverGrid_extent.funName] = _sliverGrid_extent;
+  m[_sliverGridCount.funName] = _sliverGridCount;
+  m[_sliverGridExtent.funName] = _sliverGridExtent;
   m[_sliverMultiBoxAdaptorElement.funName] = _sliverMultiBoxAdaptorElement;
   m[_sliverOpacity.funName] = _sliverOpacity;
   m[_sliverIgnorePointer.funName] = _sliverIgnorePointer;
@@ -92,7 +92,7 @@ var _sliverChildListDelegate = MXFunctionInvoke(
     "semanticIndexOffset",
   ],
 );
-var _sliverChildListDelegate_fixed = MXFunctionInvoke(
+var _sliverChildListDelegateFixed = MXFunctionInvoke(
   "SliverChildListDelegate.fixed",
   ({
     dynamic children,
@@ -170,7 +170,7 @@ var _sliverGrid = MXFunctionInvoke(
     "gridDelegate",
   ],
 );
-var _sliverGrid_count = MXFunctionInvoke(
+var _sliverGridCount = MXFunctionInvoke(
   "SliverGrid.count",
   ({
     Key key,
@@ -197,7 +197,7 @@ var _sliverGrid_count = MXFunctionInvoke(
     "children",
   ],
 );
-var _sliverGrid_extent = MXFunctionInvoke(
+var _sliverGridExtent = MXFunctionInvoke(
   "SliverGrid.extent",
   ({
     Key key,

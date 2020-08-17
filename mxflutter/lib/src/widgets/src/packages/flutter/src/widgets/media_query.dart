@@ -18,11 +18,11 @@ Map<String, MXFunctionInvoke> registerMediaQuerySeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_orientation.funName] = _orientation;
   m[_mediaQueryData.funName] = _mediaQueryData;
-  m[_mediaQueryData_fromWindow.funName] = _mediaQueryData_fromWindow;
+  m[_mediaQueryDataFromWindow.funName] = _mediaQueryDataFromWindow;
   m[_mediaQuery.funName] = _mediaQuery;
-  m[_mediaQuery_removePadding.funName] = _mediaQuery_removePadding;
-  m[_mediaQuery_removeViewInsets.funName] = _mediaQuery_removeViewInsets;
-  m[_mediaQuery_removeViewPadding.funName] = _mediaQuery_removeViewPadding;
+  m[_mediaQueryRemovePadding.funName] = _mediaQueryRemovePadding;
+  m[_mediaQueryRemoveViewInsets.funName] = _mediaQueryRemoveViewInsets;
+  m[_mediaQueryRemoveViewPadding.funName] = _mediaQueryRemoveViewPadding;
   return m;
 }
 
@@ -84,7 +84,7 @@ var _mediaQueryData = MXFunctionInvoke(
     "boldText",
   ],
 );
-var _mediaQueryData_fromWindow = MXFunctionInvoke(
+var _mediaQueryDataFromWindow = MXFunctionInvoke(
   "MediaQueryData.fromWindow",
   ({
     ui.Window window,
@@ -114,7 +114,7 @@ var _mediaQuery = MXFunctionInvoke(
     "child",
   ],
 );
-var _mediaQuery_removePadding = MXFunctionInvoke(
+var _mediaQueryRemovePadding = MXFunctionInvoke(
   "MediaQuery.removePadding",
   ({
     Key key,
@@ -144,7 +144,7 @@ var _mediaQuery_removePadding = MXFunctionInvoke(
     "child",
   ],
 );
-var _mediaQuery_removeViewInsets = MXFunctionInvoke(
+var _mediaQueryRemoveViewInsets = MXFunctionInvoke(
   "MediaQuery.removeViewInsets",
   ({
     Key key,
@@ -174,7 +174,7 @@ var _mediaQuery_removeViewInsets = MXFunctionInvoke(
     "child",
   ],
 );
-var _mediaQuery_removeViewPadding = MXFunctionInvoke(
+var _mediaQueryRemoveViewPadding = MXFunctionInvoke(
   "MediaQuery.removeViewPadding",
   ({
     Key key,

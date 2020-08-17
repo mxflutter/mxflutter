@@ -22,7 +22,7 @@ Map<String, MXFunctionInvoke> registerRawKeyboardSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_keyboardSide.funName] = _keyboardSide;
   m[_modifierKey.funName] = _modifierKey;
-  m[_rawKeyEvent_fromMessage.funName] = _rawKeyEvent_fromMessage;
+  m[_rawKeyEventFromMessage.funName] = _rawKeyEventFromMessage;
   m[_rawKeyDownEvent.funName] = _rawKeyDownEvent;
   m[_rawKeyUpEvent.funName] = _rawKeyUpEvent;
   return m;
@@ -36,7 +36,7 @@ var _modifierKey = MXFunctionInvoke(
     "ModifierKey",
     ({String name, int index}) => MXModifierKey.parse(name, index),
     ["name", "index"]);
-var _rawKeyEvent_fromMessage = MXFunctionInvoke(
+var _rawKeyEventFromMessage = MXFunctionInvoke(
   "RawKeyEvent.fromMessage",
   ({
     dynamic message,

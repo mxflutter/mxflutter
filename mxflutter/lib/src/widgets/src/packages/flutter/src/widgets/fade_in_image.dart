@@ -19,8 +19,8 @@ import 'package:flutter/src/widgets/transitions.dart';
 Map<String, MXFunctionInvoke> registerFadeInImageSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_fadeInImage.funName] = _fadeInImage;
-  m[_fadeInImage_memoryNetwork.funName] = _fadeInImage_memoryNetwork;
-  m[_fadeInImage_assetNetwork.funName] = _fadeInImage_assetNetwork;
+  m[_fadeInImageMemoryNetwork.funName] = _fadeInImageMemoryNetwork;
+  m[_fadeInImageAssetNetwork.funName] = _fadeInImageAssetNetwork;
   return m;
 }
 
@@ -84,7 +84,7 @@ var _fadeInImage = MXFunctionInvoke(
     "matchTextDirection",
   ],
 );
-var _fadeInImage_memoryNetwork = MXFunctionInvoke(
+var _fadeInImageMemoryNetwork = MXFunctionInvoke(
   "FadeInImage.memoryNetwork",
   ({
     Key key,
@@ -162,7 +162,7 @@ var _fadeInImage_memoryNetwork = MXFunctionInvoke(
     "imageCacheHeight",
   ],
 );
-var _fadeInImage_assetNetwork = MXFunctionInvoke(
+var _fadeInImageAssetNetwork = MXFunctionInvoke(
   "FadeInImage.assetNetwork",
   ({
     Key key,

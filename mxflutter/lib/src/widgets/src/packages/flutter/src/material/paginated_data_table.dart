@@ -28,8 +28,8 @@ import 'package:flutter/src/material/theme.dart';
 Map<String, MXFunctionInvoke> registerPaginatedDataTableSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_paginatedDataTable.funName] = _paginatedDataTable;
-  m[_paginatedDataTable_defaultRowsPerPage.funName] =
-      _paginatedDataTable_defaultRowsPerPage;
+  m[_paginatedDataTableDefaultRowsPerPage.funName] =
+      _paginatedDataTableDefaultRowsPerPage;
   m[_paginatedDataTableState.funName] = _paginatedDataTableState;
   return m;
 }
@@ -103,7 +103,7 @@ var _paginatedDataTable = MXFunctionInvoke(
     "source",
   ],
 );
-var _paginatedDataTable_defaultRowsPerPage = MXFunctionInvoke(
+var _paginatedDataTableDefaultRowsPerPage = MXFunctionInvoke(
     "PaginatedDataTable.defaultRowsPerPage",
     () => PaginatedDataTable.defaultRowsPerPage);
 var _paginatedDataTableState = MXFunctionInvoke(

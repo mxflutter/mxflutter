@@ -33,185 +33,184 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_clipOp.funName] = _clipOp;
   m[_vertexMode.funName] = _vertexMode;
   m[_vertices.funName] = _vertices;
-  m[_vertices_raw.funName] = _vertices_raw;
+  m[_verticesRaw.funName] = _verticesRaw;
   m[_pictureRecorder.funName] = _pictureRecorder;
   m[_canvas.funName] = _canvas;
   m[_pathFillType.funName] = _pathFillType;
   m[_pathOperation.funName] = _pathOperation;
   m[_rawRecordingCanvas.funName] = _rawRecordingCanvas;
   m[_channelBuffers.funName] = _channelBuffers;
-  m[_channelBuffers_kDefaultBufferSize.funName] =
-      _channelBuffers_kDefaultBufferSize;
-  m[_channelBuffers_kControlChannelName.funName] =
-      _channelBuffers_kControlChannelName;
+  m[_channelBuffersKDefaultBufferSize.funName] =
+      _channelBuffersKDefaultBufferSize;
+  m[_channelBuffersKControlChannelName.funName] =
+      _channelBuffersKControlChannelName;
   m[_sceneBuilder.funName] = _sceneBuilder;
   m[_engineLayer.funName] = _engineLayer;
   m[_sceneHost.funName] = _sceneHost;
   m[_offset.funName] = _offset;
-  m[_offset_zero.funName] = _offset_zero;
-  m[_offset_infinite.funName] = _offset_infinite;
-  m[_offset_fromDirection.funName] = _offset_fromDirection;
+  m[_offsetZero.funName] = _offsetZero;
+  m[_offsetInfinite.funName] = _offsetInfinite;
+  m[_offsetFromDirection.funName] = _offsetFromDirection;
   m[_size.funName] = _size;
-  m[_size_zero.funName] = _size_zero;
-  m[_size_infinite.funName] = _size_infinite;
-  m[_size_copy.funName] = _size_copy;
-  m[_size_square.funName] = _size_square;
-  m[_size_fromWidth.funName] = _size_fromWidth;
-  m[_size_fromHeight.funName] = _size_fromHeight;
-  m[_size_fromRadius.funName] = _size_fromRadius;
-  m[_rect_zero.funName] = _rect_zero;
-  m[_rect_largest.funName] = _rect_largest;
-  m[_rect_fromLTRB.funName] = _rect_fromLTRB;
-  m[_rect_fromLTWH.funName] = _rect_fromLTWH;
-  m[_rect_fromCircle.funName] = _rect_fromCircle;
-  m[_rect_fromCenter.funName] = _rect_fromCenter;
-  m[_rect_fromPoints.funName] = _rect_fromPoints;
-  m[_radius_zero.funName] = _radius_zero;
-  m[_radius_circular.funName] = _radius_circular;
-  m[_radius_elliptical.funName] = _radius_elliptical;
-  m[_rRect_zero.funName] = _rRect_zero;
-  m[_rRect_fromLTRBXY.funName] = _rRect_fromLTRBXY;
-  m[_rRect_fromLTRBR.funName] = _rRect_fromLTRBR;
-  m[_rRect_fromRectXY.funName] = _rRect_fromRectXY;
-  m[_rRect_fromRectAndRadius.funName] = _rRect_fromRectAndRadius;
-  m[_rRect_fromLTRBAndCorners.funName] = _rRect_fromLTRBAndCorners;
-  m[_rRect_fromRectAndCorners.funName] = _rRect_fromRectAndCorners;
+  m[_sizeZero.funName] = _sizeZero;
+  m[_sizeInfinite.funName] = _sizeInfinite;
+  m[_sizeCopy.funName] = _sizeCopy;
+  m[_sizeSquare.funName] = _sizeSquare;
+  m[_sizeFromWidth.funName] = _sizeFromWidth;
+  m[_sizeFromHeight.funName] = _sizeFromHeight;
+  m[_sizeFromRadius.funName] = _sizeFromRadius;
+  m[_rectZero.funName] = _rectZero;
+  m[_rectLargest.funName] = _rectLargest;
+  m[_rectFromLTRB.funName] = _rectFromLTRB;
+  m[_rectFromLTWH.funName] = _rectFromLTWH;
+  m[_rectFromCircle.funName] = _rectFromCircle;
+  m[_rectFromCenter.funName] = _rectFromCenter;
+  m[_rectFromPoints.funName] = _rectFromPoints;
+  m[_radiusZero.funName] = _radiusZero;
+  m[_radiusCircular.funName] = _radiusCircular;
+  m[_radiusElliptical.funName] = _radiusElliptical;
+  m[_rRectZero.funName] = _rRectZero;
+  m[_rRectFromLTRBXY.funName] = _rRectFromLTRBXY;
+  m[_rRectFromLTRBR.funName] = _rRectFromLTRBR;
+  m[_rRectFromRectXY.funName] = _rRectFromRectXY;
+  m[_rRectFromRectAndRadius.funName] = _rRectFromRectAndRadius;
+  m[_rRectFromLTRBAndCorners.funName] = _rRectFromLTRBAndCorners;
+  m[_rRectFromRectAndCorners.funName] = _rRectFromRectAndCorners;
   m[_rSTransform.funName] = _rSTransform;
-  m[_rSTransform_fromComponents.funName] = _rSTransform_fromComponents;
+  m[_rSTransformFromComponents.funName] = _rSTransformFromComponents;
   m[_point.funName] = _point;
-  m[_point_origin.funName] = _point_origin;
+  m[_pointOrigin.funName] = _pointOrigin;
   m[_color.funName] = _color;
-  m[_color_fromARGB.funName] = _color_fromARGB;
-  m[_color_fromRGBO.funName] = _color_fromRGBO;
+  m[_colorFromARGB.funName] = _colorFromARGB;
+  m[_colorFromRGBO.funName] = _colorFromRGBO;
   m[_strokeCap.funName] = _strokeCap;
   m[_strokeJoin.funName] = _strokeJoin;
   m[_paintingStyle.funName] = _paintingStyle;
   m[_blendMode.funName] = _blendMode;
   m[_clip.funName] = _clip;
   m[_paint.funName] = _paint;
-  m[_gradient_linear.funName] = _gradient_linear;
-  m[_gradient_radial.funName] = _gradient_radial;
-  m[_gradient_sweep.funName] = _gradient_sweep;
-  m[_colorFilter_mode.funName] = _colorFilter_mode;
-  m[_colorFilter_matrix.funName] = _colorFilter_matrix;
-  m[_colorFilter_linearToSrgbGamma.funName] = _colorFilter_linearToSrgbGamma;
-  m[_colorFilter_srgbToLinearGamma.funName] = _colorFilter_srgbToLinearGamma;
+  m[_gradientLinear.funName] = _gradientLinear;
+  m[_gradientRadial.funName] = _gradientRadial;
+  m[_gradientSweep.funName] = _gradientSweep;
+  m[_colorFilterMode.funName] = _colorFilterMode;
+  m[_colorFilterMatrix.funName] = _colorFilterMatrix;
+  m[_colorFilterLinearToSrgbGamma.funName] = _colorFilterLinearToSrgbGamma;
+  m[_colorFilterSrgbToLinearGamma.funName] = _colorFilterSrgbToLinearGamma;
   m[_blurStyle.funName] = _blurStyle;
-  m[_maskFilter_blur.funName] = _maskFilter_blur;
+  m[_maskFilterBlur.funName] = _maskFilterBlur;
   m[_filterQuality.funName] = _filterQuality;
-  m[_imageFilter_blur.funName] = _imageFilter_blur;
-  m[_imageFilter_matrix.funName] = _imageFilter_matrix;
+  m[_imageFilterBlur.funName] = _imageFilterBlur;
+  m[_imageFilterMatrix.funName] = _imageFilterMatrix;
   m[_imageByteFormat.funName] = _imageByteFormat;
   m[_pixelFormat.funName] = _pixelFormat;
   m[_shadow.funName] = _shadow;
   m[_path.funName] = _path;
-  m[_path_from.funName] = _path_from;
+  m[_pathFrom.funName] = _pathFrom;
   m[_tangent.funName] = _tangent;
-  m[_tangent_fromAngle.funName] = _tangent_fromAngle;
+  m[_tangentFromAngle.funName] = _tangentFromAngle;
   m[_pointerChange.funName] = _pointerChange;
   m[_pointerDeviceKind.funName] = _pointerDeviceKind;
   m[_pointerSignalKind.funName] = _pointerSignalKind;
   m[_pointerData.funName] = _pointerData;
   m[_pointerDataPacket.funName] = _pointerDataPacket;
-  m[_semanticsAction_tap.funName] = _semanticsAction_tap;
-  m[_semanticsAction_longPress.funName] = _semanticsAction_longPress;
-  m[_semanticsAction_scrollLeft.funName] = _semanticsAction_scrollLeft;
-  m[_semanticsAction_scrollRight.funName] = _semanticsAction_scrollRight;
-  m[_semanticsAction_scrollUp.funName] = _semanticsAction_scrollUp;
-  m[_semanticsAction_scrollDown.funName] = _semanticsAction_scrollDown;
-  m[_semanticsAction_increase.funName] = _semanticsAction_increase;
-  m[_semanticsAction_decrease.funName] = _semanticsAction_decrease;
-  m[_semanticsAction_showOnScreen.funName] = _semanticsAction_showOnScreen;
-  m[_semanticsAction_moveCursorForwardByCharacter.funName] =
-      _semanticsAction_moveCursorForwardByCharacter;
-  m[_semanticsAction_moveCursorBackwardByCharacter.funName] =
-      _semanticsAction_moveCursorBackwardByCharacter;
-  m[_semanticsAction_setSelection.funName] = _semanticsAction_setSelection;
-  m[_semanticsAction_copy.funName] = _semanticsAction_copy;
-  m[_semanticsAction_cut.funName] = _semanticsAction_cut;
-  m[_semanticsAction_paste.funName] = _semanticsAction_paste;
-  m[_semanticsAction_didGainAccessibilityFocus.funName] =
-      _semanticsAction_didGainAccessibilityFocus;
-  m[_semanticsAction_didLoseAccessibilityFocus.funName] =
-      _semanticsAction_didLoseAccessibilityFocus;
-  m[_semanticsAction_customAction.funName] = _semanticsAction_customAction;
-  m[_semanticsAction_dismiss.funName] = _semanticsAction_dismiss;
-  m[_semanticsAction_moveCursorForwardByWord.funName] =
-      _semanticsAction_moveCursorForwardByWord;
-  m[_semanticsAction_moveCursorBackwardByWord.funName] =
-      _semanticsAction_moveCursorBackwardByWord;
-  m[_semanticsAction_values.funName] = _semanticsAction_values;
-  m[_semanticsFlag_hasCheckedState.funName] = _semanticsFlag_hasCheckedState;
-  m[_semanticsFlag_isChecked.funName] = _semanticsFlag_isChecked;
-  m[_semanticsFlag_isSelected.funName] = _semanticsFlag_isSelected;
-  m[_semanticsFlag_isButton.funName] = _semanticsFlag_isButton;
-  m[_semanticsFlag_isLink.funName] = _semanticsFlag_isLink;
-  m[_semanticsFlag_isTextField.funName] = _semanticsFlag_isTextField;
-  m[_semanticsFlag_isReadOnly.funName] = _semanticsFlag_isReadOnly;
-  m[_semanticsFlag_isFocusable.funName] = _semanticsFlag_isFocusable;
-  m[_semanticsFlag_isFocused.funName] = _semanticsFlag_isFocused;
-  m[_semanticsFlag_hasEnabledState.funName] = _semanticsFlag_hasEnabledState;
-  m[_semanticsFlag_isEnabled.funName] = _semanticsFlag_isEnabled;
-  m[_semanticsFlag_isInMutuallyExclusiveGroup.funName] =
-      _semanticsFlag_isInMutuallyExclusiveGroup;
-  m[_semanticsFlag_isHeader.funName] = _semanticsFlag_isHeader;
-  m[_semanticsFlag_isObscured.funName] = _semanticsFlag_isObscured;
-  m[_semanticsFlag_scopesRoute.funName] = _semanticsFlag_scopesRoute;
-  m[_semanticsFlag_namesRoute.funName] = _semanticsFlag_namesRoute;
-  m[_semanticsFlag_isHidden.funName] = _semanticsFlag_isHidden;
-  m[_semanticsFlag_isImage.funName] = _semanticsFlag_isImage;
-  m[_semanticsFlag_isLiveRegion.funName] = _semanticsFlag_isLiveRegion;
-  m[_semanticsFlag_hasToggledState.funName] = _semanticsFlag_hasToggledState;
-  m[_semanticsFlag_isToggled.funName] = _semanticsFlag_isToggled;
-  m[_semanticsFlag_hasImplicitScrolling.funName] =
-      _semanticsFlag_hasImplicitScrolling;
-  m[_semanticsFlag_isMultiline.funName] = _semanticsFlag_isMultiline;
-  m[_semanticsFlag_values.funName] = _semanticsFlag_values;
+  m[_semanticsActionTap.funName] = _semanticsActionTap;
+  m[_semanticsActionLongPress.funName] = _semanticsActionLongPress;
+  m[_semanticsActionScrollLeft.funName] = _semanticsActionScrollLeft;
+  m[_semanticsActionScrollRight.funName] = _semanticsActionScrollRight;
+  m[_semanticsActionScrollUp.funName] = _semanticsActionScrollUp;
+  m[_semanticsActionScrollDown.funName] = _semanticsActionScrollDown;
+  m[_semanticsActionIncrease.funName] = _semanticsActionIncrease;
+  m[_semanticsActionDecrease.funName] = _semanticsActionDecrease;
+  m[_semanticsActionShowOnScreen.funName] = _semanticsActionShowOnScreen;
+  m[_semanticsActionMoveCursorForwardByCharacter.funName] =
+      _semanticsActionMoveCursorForwardByCharacter;
+  m[_semanticsActionMoveCursorBackwardByCharacter.funName] =
+      _semanticsActionMoveCursorBackwardByCharacter;
+  m[_semanticsActionSetSelection.funName] = _semanticsActionSetSelection;
+  m[_semanticsActionCopy.funName] = _semanticsActionCopy;
+  m[_semanticsActionCut.funName] = _semanticsActionCut;
+  m[_semanticsActionPaste.funName] = _semanticsActionPaste;
+  m[_semanticsActionDidGainAccessibilityFocus.funName] =
+      _semanticsActionDidGainAccessibilityFocus;
+  m[_semanticsActionDidLoseAccessibilityFocus.funName] =
+      _semanticsActionDidLoseAccessibilityFocus;
+  m[_semanticsActionCustomAction.funName] = _semanticsActionCustomAction;
+  m[_semanticsActionDismiss.funName] = _semanticsActionDismiss;
+  m[_semanticsActionMoveCursorForwardByWord.funName] =
+      _semanticsActionMoveCursorForwardByWord;
+  m[_semanticsActionMoveCursorBackwardByWord.funName] =
+      _semanticsActionMoveCursorBackwardByWord;
+  m[_semanticsActionValues.funName] = _semanticsActionValues;
+  m[_semanticsFlagHasCheckedState.funName] = _semanticsFlagHasCheckedState;
+  m[_semanticsFlagIsChecked.funName] = _semanticsFlagIsChecked;
+  m[_semanticsFlagIsSelected.funName] = _semanticsFlagIsSelected;
+  m[_semanticsFlagIsButton.funName] = _semanticsFlagIsButton;
+  m[_semanticsFlagIsLink.funName] = _semanticsFlagIsLink;
+  m[_semanticsFlagIsTextField.funName] = _semanticsFlagIsTextField;
+  m[_semanticsFlagIsReadOnly.funName] = _semanticsFlagIsReadOnly;
+  m[_semanticsFlagIsFocusable.funName] = _semanticsFlagIsFocusable;
+  m[_semanticsFlagIsFocused.funName] = _semanticsFlagIsFocused;
+  m[_semanticsFlagHasEnabledState.funName] = _semanticsFlagHasEnabledState;
+  m[_semanticsFlagIsEnabled.funName] = _semanticsFlagIsEnabled;
+  m[_semanticsFlagIsInMutuallyExclusiveGroup.funName] =
+      _semanticsFlagIsInMutuallyExclusiveGroup;
+  m[_semanticsFlagIsHeader.funName] = _semanticsFlagIsHeader;
+  m[_semanticsFlagIsObscured.funName] = _semanticsFlagIsObscured;
+  m[_semanticsFlagScopesRoute.funName] = _semanticsFlagScopesRoute;
+  m[_semanticsFlagNamesRoute.funName] = _semanticsFlagNamesRoute;
+  m[_semanticsFlagIsHidden.funName] = _semanticsFlagIsHidden;
+  m[_semanticsFlagIsImage.funName] = _semanticsFlagIsImage;
+  m[_semanticsFlagIsLiveRegion.funName] = _semanticsFlagIsLiveRegion;
+  m[_semanticsFlagHasToggledState.funName] = _semanticsFlagHasToggledState;
+  m[_semanticsFlagIsToggled.funName] = _semanticsFlagIsToggled;
+  m[_semanticsFlagHasImplicitScrolling.funName] =
+      _semanticsFlagHasImplicitScrolling;
+  m[_semanticsFlagIsMultiline.funName] = _semanticsFlagIsMultiline;
+  m[_semanticsFlagValues.funName] = _semanticsFlagValues;
   m[_semanticsUpdateBuilder.funName] = _semanticsUpdateBuilder;
   m[_fontStyle.funName] = _fontStyle;
   m[_placeholderAlignment.funName] = _placeholderAlignment;
-  m[_fontWeight_w100.funName] = _fontWeight_w100;
-  m[_fontWeight_w200.funName] = _fontWeight_w200;
-  m[_fontWeight_w300.funName] = _fontWeight_w300;
-  m[_fontWeight_w400.funName] = _fontWeight_w400;
-  m[_fontWeight_w500.funName] = _fontWeight_w500;
-  m[_fontWeight_w600.funName] = _fontWeight_w600;
-  m[_fontWeight_w700.funName] = _fontWeight_w700;
-  m[_fontWeight_w800.funName] = _fontWeight_w800;
-  m[_fontWeight_w900.funName] = _fontWeight_w900;
-  m[_fontWeight_normal.funName] = _fontWeight_normal;
-  m[_fontWeight_bold.funName] = _fontWeight_bold;
-  m[_fontWeight_values.funName] = _fontWeight_values;
+  m[_fontWeightW100.funName] = _fontWeightW100;
+  m[_fontWeightW200.funName] = _fontWeightW200;
+  m[_fontWeightW300.funName] = _fontWeightW300;
+  m[_fontWeightW400.funName] = _fontWeightW400;
+  m[_fontWeightW500.funName] = _fontWeightW500;
+  m[_fontWeightW600.funName] = _fontWeightW600;
+  m[_fontWeightW700.funName] = _fontWeightW700;
+  m[_fontWeightW800.funName] = _fontWeightW800;
+  m[_fontWeightW900.funName] = _fontWeightW900;
+  m[_fontWeightNormal.funName] = _fontWeightNormal;
+  m[_fontWeightBold.funName] = _fontWeightBold;
+  m[_fontWeightValues.funName] = _fontWeightValues;
   m[_fontFeature.funName] = _fontFeature;
-  m[_fontFeature_stylisticSet.funName] = _fontFeature_stylisticSet;
-  m[_fontFeature_enable.funName] = _fontFeature_enable;
-  m[_fontFeature_disable.funName] = _fontFeature_disable;
-  m[_fontFeature_randomize.funName] = _fontFeature_randomize;
-  m[_fontFeature_slashedZero.funName] = _fontFeature_slashedZero;
-  m[_fontFeature_oldstyleFigures.funName] = _fontFeature_oldstyleFigures;
-  m[_fontFeature_proportionalFigures.funName] =
-      _fontFeature_proportionalFigures;
-  m[_fontFeature_tabularFigures.funName] = _fontFeature_tabularFigures;
+  m[_fontFeatureStylisticSet.funName] = _fontFeatureStylisticSet;
+  m[_fontFeatureEnable.funName] = _fontFeatureEnable;
+  m[_fontFeatureDisable.funName] = _fontFeatureDisable;
+  m[_fontFeatureRandomize.funName] = _fontFeatureRandomize;
+  m[_fontFeatureSlashedZero.funName] = _fontFeatureSlashedZero;
+  m[_fontFeatureOldstyleFigures.funName] = _fontFeatureOldstyleFigures;
+  m[_fontFeatureProportionalFigures.funName] = _fontFeatureProportionalFigures;
+  m[_fontFeatureTabularFigures.funName] = _fontFeatureTabularFigures;
   m[_textAlign.funName] = _textAlign;
   m[_textBaseline.funName] = _textBaseline;
-  m[_textDecoration_none.funName] = _textDecoration_none;
-  m[_textDecoration_underline.funName] = _textDecoration_underline;
-  m[_textDecoration_overline.funName] = _textDecoration_overline;
-  m[_textDecoration_lineThrough.funName] = _textDecoration_lineThrough;
-  m[_textDecoration_combine.funName] = _textDecoration_combine;
+  m[_textDecorationNone.funName] = _textDecorationNone;
+  m[_textDecorationUnderline.funName] = _textDecorationUnderline;
+  m[_textDecorationOverline.funName] = _textDecorationOverline;
+  m[_textDecorationLineThrough.funName] = _textDecorationLineThrough;
+  m[_textDecorationCombine.funName] = _textDecorationCombine;
   m[_textDecorationStyle.funName] = _textDecorationStyle;
   m[_textHeightBehavior.funName] = _textHeightBehavior;
-  m[_textHeightBehavior_fromEncoded.funName] = _textHeightBehavior_fromEncoded;
+  m[_textHeightBehaviorFromEncoded.funName] = _textHeightBehaviorFromEncoded;
   m[_textStyle.funName] = _textStyle;
   m[_paragraphStyle.funName] = _paragraphStyle;
   m[_strutStyle.funName] = _strutStyle;
   m[_textDirection.funName] = _textDirection;
-  m[_textBox_fromLTRBD.funName] = _textBox_fromLTRBD;
+  m[_textBoxFromLTRBD.funName] = _textBoxFromLTRBD;
   m[_textAffinity.funName] = _textAffinity;
   m[_textPosition.funName] = _textPosition;
   m[_textRange.funName] = _textRange;
-  m[_textRange_empty.funName] = _textRange_empty;
-  m[_textRange_collapsed.funName] = _textRange_collapsed;
+  m[_textRangeEmpty.funName] = _textRangeEmpty;
+  m[_textRangeCollapsed.funName] = _textRangeCollapsed;
   m[_paragraphConstraints.funName] = _paragraphConstraints;
   m[_boxHeightStyle.funName] = _boxHeightStyle;
   m[_boxWidthStyle.funName] = _boxWidthStyle;
@@ -219,11 +218,11 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_paragraphBuilder.funName] = _paragraphBuilder;
   m[_tileMode.funName] = _tileMode;
   m[_appLifecycleState.funName] = _appLifecycleState;
-  m[_windowPadding_zero.funName] = _windowPadding_zero;
+  m[_windowPaddingZero.funName] = _windowPaddingZero;
   m[_locale.funName] = _locale;
-  m[_locale_fromSubtags.funName] = _locale_fromSubtags;
+  m[_localeFromSubtags.funName] = _localeFromSubtags;
   m[_brightness.funName] = _brightness;
-  m[_callbackHandle_fromRawHandle.funName] = _callbackHandle_fromRawHandle;
+  m[_callbackHandleFromRawHandle.funName] = _callbackHandleFromRawHandle;
   m[_pluginUtilities.funName] = _pluginUtilities;
   m[_imageShader.funName] = _imageShader;
   m[_isolateNameServer.funName] = _isolateNameServer;
@@ -232,79 +231,79 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_deprecated.funName] = _deprecated;
   m[_provisional.funName] = _provisional;
   m[_pragma.funName] = _pragma;
-  m[_bigInt_from.funName] = _bigInt_from;
-  m[_bool_fromEnvironment.funName] = _bool_fromEnvironment;
-  m[_bool_hasEnvironment.funName] = _bool_hasEnvironment;
+  m[_bigIntFrom.funName] = _bigIntFrom;
+  m[_boolFromEnvironment.funName] = _boolFromEnvironment;
+  m[_boolHasEnvironment.funName] = _boolHasEnvironment;
   m[_dateTime.funName] = _dateTime;
-  m[_dateTime_monday.funName] = _dateTime_monday;
-  m[_dateTime_tuesday.funName] = _dateTime_tuesday;
-  m[_dateTime_wednesday.funName] = _dateTime_wednesday;
-  m[_dateTime_thursday.funName] = _dateTime_thursday;
-  m[_dateTime_friday.funName] = _dateTime_friday;
-  m[_dateTime_saturday.funName] = _dateTime_saturday;
-  m[_dateTime_sunday.funName] = _dateTime_sunday;
-  m[_dateTime_daysPerWeek.funName] = _dateTime_daysPerWeek;
-  m[_dateTime_january.funName] = _dateTime_january;
-  m[_dateTime_february.funName] = _dateTime_february;
-  m[_dateTime_march.funName] = _dateTime_march;
-  m[_dateTime_april.funName] = _dateTime_april;
-  m[_dateTime_may.funName] = _dateTime_may;
-  m[_dateTime_june.funName] = _dateTime_june;
-  m[_dateTime_july.funName] = _dateTime_july;
-  m[_dateTime_august.funName] = _dateTime_august;
-  m[_dateTime_september.funName] = _dateTime_september;
-  m[_dateTime_october.funName] = _dateTime_october;
-  m[_dateTime_november.funName] = _dateTime_november;
-  m[_dateTime_december.funName] = _dateTime_december;
-  m[_dateTime_monthsPerYear.funName] = _dateTime_monthsPerYear;
-  m[_dateTime_utc.funName] = _dateTime_utc;
-  m[_dateTime_now.funName] = _dateTime_now;
-  m[_dateTime_fromMillisecondsSinceEpoch.funName] =
-      _dateTime_fromMillisecondsSinceEpoch;
-  m[_dateTime_fromMicrosecondsSinceEpoch.funName] =
-      _dateTime_fromMicrosecondsSinceEpoch;
-  m[_double_nan.funName] = _double_nan;
-  m[_double_infinity.funName] = _double_infinity;
-  m[_double_negativeInfinity.funName] = _double_negativeInfinity;
-  m[_double_minPositive.funName] = _double_minPositive;
-  m[_double_maxFinite.funName] = _double_maxFinite;
+  m[_dateTimeMonday.funName] = _dateTimeMonday;
+  m[_dateTimeTuesday.funName] = _dateTimeTuesday;
+  m[_dateTimeWednesday.funName] = _dateTimeWednesday;
+  m[_dateTimeThursday.funName] = _dateTimeThursday;
+  m[_dateTimeFriday.funName] = _dateTimeFriday;
+  m[_dateTimeSaturday.funName] = _dateTimeSaturday;
+  m[_dateTimeSunday.funName] = _dateTimeSunday;
+  m[_dateTimeDaysPerWeek.funName] = _dateTimeDaysPerWeek;
+  m[_dateTimeJanuary.funName] = _dateTimeJanuary;
+  m[_dateTimeFebruary.funName] = _dateTimeFebruary;
+  m[_dateTimeMarch.funName] = _dateTimeMarch;
+  m[_dateTimeApril.funName] = _dateTimeApril;
+  m[_dateTimeMay.funName] = _dateTimeMay;
+  m[_dateTimeJune.funName] = _dateTimeJune;
+  m[_dateTimeJuly.funName] = _dateTimeJuly;
+  m[_dateTimeAugust.funName] = _dateTimeAugust;
+  m[_dateTimeSeptember.funName] = _dateTimeSeptember;
+  m[_dateTimeOctober.funName] = _dateTimeOctober;
+  m[_dateTimeNovember.funName] = _dateTimeNovember;
+  m[_dateTimeDecember.funName] = _dateTimeDecember;
+  m[_dateTimeMonthsPerYear.funName] = _dateTimeMonthsPerYear;
+  m[_dateTimeUtc.funName] = _dateTimeUtc;
+  m[_dateTimeNow.funName] = _dateTimeNow;
+  m[_dateTimeFromMillisecondsSinceEpoch.funName] =
+      _dateTimeFromMillisecondsSinceEpoch;
+  m[_dateTimeFromMicrosecondsSinceEpoch.funName] =
+      _dateTimeFromMicrosecondsSinceEpoch;
+  m[_doubleNan.funName] = _doubleNan;
+  m[_doubleInfinity.funName] = _doubleInfinity;
+  m[_doubleNegativeInfinity.funName] = _doubleNegativeInfinity;
+  m[_doubleMinPositive.funName] = _doubleMinPositive;
+  m[_doubleMaxFinite.funName] = _doubleMaxFinite;
   m[_duration.funName] = _duration;
-  m[_duration_microsecondsPerMillisecond.funName] =
-      _duration_microsecondsPerMillisecond;
-  m[_duration_millisecondsPerSecond.funName] = _duration_millisecondsPerSecond;
-  m[_duration_secondsPerMinute.funName] = _duration_secondsPerMinute;
-  m[_duration_minutesPerHour.funName] = _duration_minutesPerHour;
-  m[_duration_hoursPerDay.funName] = _duration_hoursPerDay;
-  m[_duration_microsecondsPerSecond.funName] = _duration_microsecondsPerSecond;
-  m[_duration_microsecondsPerMinute.funName] = _duration_microsecondsPerMinute;
-  m[_duration_microsecondsPerHour.funName] = _duration_microsecondsPerHour;
-  m[_duration_microsecondsPerDay.funName] = _duration_microsecondsPerDay;
-  m[_duration_millisecondsPerMinute.funName] = _duration_millisecondsPerMinute;
-  m[_duration_millisecondsPerHour.funName] = _duration_millisecondsPerHour;
-  m[_duration_millisecondsPerDay.funName] = _duration_millisecondsPerDay;
-  m[_duration_secondsPerHour.funName] = _duration_secondsPerHour;
-  m[_duration_secondsPerDay.funName] = _duration_secondsPerDay;
-  m[_duration_minutesPerDay.funName] = _duration_minutesPerDay;
-  m[_duration_zero.funName] = _duration_zero;
+  m[_durationMicrosecondsPerMillisecond.funName] =
+      _durationMicrosecondsPerMillisecond;
+  m[_durationMillisecondsPerSecond.funName] = _durationMillisecondsPerSecond;
+  m[_durationSecondsPerMinute.funName] = _durationSecondsPerMinute;
+  m[_durationMinutesPerHour.funName] = _durationMinutesPerHour;
+  m[_durationHoursPerDay.funName] = _durationHoursPerDay;
+  m[_durationMicrosecondsPerSecond.funName] = _durationMicrosecondsPerSecond;
+  m[_durationMicrosecondsPerMinute.funName] = _durationMicrosecondsPerMinute;
+  m[_durationMicrosecondsPerHour.funName] = _durationMicrosecondsPerHour;
+  m[_durationMicrosecondsPerDay.funName] = _durationMicrosecondsPerDay;
+  m[_durationMillisecondsPerMinute.funName] = _durationMillisecondsPerMinute;
+  m[_durationMillisecondsPerHour.funName] = _durationMillisecondsPerHour;
+  m[_durationMillisecondsPerDay.funName] = _durationMillisecondsPerDay;
+  m[_durationSecondsPerHour.funName] = _durationSecondsPerHour;
+  m[_durationSecondsPerDay.funName] = _durationSecondsPerDay;
+  m[_durationMinutesPerDay.funName] = _durationMinutesPerDay;
+  m[_durationZero.funName] = _durationZero;
   m[_error.funName] = _error;
   m[_assertionError.funName] = _assertionError;
   m[_typeError.funName] = _typeError;
   m[_castError.funName] = _castError;
   m[_nullThrownError.funName] = _nullThrownError;
   m[_argumentError.funName] = _argumentError;
-  m[_argumentError_value.funName] = _argumentError_value;
-  m[_argumentError_notNull.funName] = _argumentError_notNull;
+  m[_argumentErrorValue.funName] = _argumentErrorValue;
+  m[_argumentErrorNotNull.funName] = _argumentErrorNotNull;
   m[_rangeError.funName] = _rangeError;
-  m[_rangeError_index.funName] = _rangeError_index;
-  m[_rangeError_value.funName] = _rangeError_value;
-  m[_rangeError_range.funName] = _rangeError_range;
+  m[_rangeErrorIndex.funName] = _rangeErrorIndex;
+  m[_rangeErrorValue.funName] = _rangeErrorValue;
+  m[_rangeErrorRange.funName] = _rangeErrorRange;
   m[_indexError.funName] = _indexError;
   m[_fallThroughError.funName] = _fallThroughError;
   m[_abstractClassInstantiationError.funName] =
       _abstractClassInstantiationError;
   m[_noSuchMethodError.funName] = _noSuchMethodError;
-  m[_noSuchMethodError_withInvocation.funName] =
-      _noSuchMethodError_withInvocation;
+  m[_noSuchMethodErrorWithInvocation.funName] =
+      _noSuchMethodErrorWithInvocation;
   m[_unsupportedError.funName] = _unsupportedError;
   m[_unimplementedError.funName] = _unimplementedError;
   m[_stateError.funName] = _stateError;
@@ -316,58 +315,58 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_formatException.funName] = _formatException;
   m[_integerDivisionByZeroException.funName] = _integerDivisionByZeroException;
   m[_expando.funName] = _expando;
-  m[_int_fromEnvironment.funName] = _int_fromEnvironment;
-  m[_invocation_method.funName] = _invocation_method;
-  m[_invocation_genericMethod.funName] = _invocation_genericMethod;
-  m[_invocation_getter.funName] = _invocation_getter;
-  m[_invocation_setter.funName] = _invocation_setter;
-  m[_iterable_generate.funName] = _iterable_generate;
-  m[_iterable_empty.funName] = _iterable_empty;
+  m[_intFromEnvironment.funName] = _intFromEnvironment;
+  m[_invocationMethod.funName] = _invocationMethod;
+  m[_invocationGenericMethod.funName] = _invocationGenericMethod;
+  m[_invocationGetter.funName] = _invocationGetter;
+  m[_invocationSetter.funName] = _invocationSetter;
+  m[_iterableGenerate.funName] = _iterableGenerate;
+  m[_iterableEmpty.funName] = _iterableEmpty;
   m[_list.funName] = _list;
-  m[_list_filled.funName] = _list_filled;
-  m[_list_from.funName] = _list_from;
-  m[_list_of.funName] = _list_of;
-  m[_list_generate.funName] = _list_generate;
-  m[_list_unmodifiable.funName] = _list_unmodifiable;
-  m[_list_copyRange.funName] = _list_copyRange;
-  m[_list_writeIterable.funName] = _list_writeIterable;
+  m[_listFilled.funName] = _listFilled;
+  m[_listFrom.funName] = _listFrom;
+  m[_listOf.funName] = _listOf;
+  m[_listGenerate.funName] = _listGenerate;
+  m[_listUnmodifiable.funName] = _listUnmodifiable;
+  m[_listCopyRange.funName] = _listCopyRange;
+  m[_listWriteIterable.funName] = _listWriteIterable;
   m[_map.funName] = _map;
-  m[_map_from.funName] = _map_from;
-  m[_map_of.funName] = _map_of;
-  m[_map_unmodifiable.funName] = _map_unmodifiable;
-  m[_map_identity.funName] = _map_identity;
-  m[_map_fromIterable.funName] = _map_fromIterable;
-  m[_map_fromIterables.funName] = _map_fromIterables;
-  m[_map_fromEntries.funName] = _map_fromEntries;
+  m[_mapFrom.funName] = _mapFrom;
+  m[_mapOf.funName] = _mapOf;
+  m[_mapUnmodifiable.funName] = _mapUnmodifiable;
+  m[_mapIdentity.funName] = _mapIdentity;
+  m[_mapFromIterable.funName] = _mapFromIterable;
+  m[_mapFromIterables.funName] = _mapFromIterables;
+  m[_mapFromEntries.funName] = _mapFromEntries;
   m[_mapEntry.funName] = _mapEntry;
   m[_regExp.funName] = _regExp;
   m[_set.funName] = _set;
-  m[_set_identity.funName] = _set_identity;
-  m[_set_from.funName] = _set_from;
-  m[_set_of.funName] = _set_of;
-  m[_stackTrace_empty.funName] = _stackTrace_empty;
-  m[_stackTrace_fromString.funName] = _stackTrace_fromString;
+  m[_setIdentity.funName] = _setIdentity;
+  m[_setFrom.funName] = _setFrom;
+  m[_setOf.funName] = _setOf;
+  m[_stackTraceEmpty.funName] = _stackTraceEmpty;
+  m[_stackTraceFromString.funName] = _stackTraceFromString;
   m[_stopwatch.funName] = _stopwatch;
-  m[_string_fromCharCodes.funName] = _string_fromCharCodes;
-  m[_string_fromCharCode.funName] = _string_fromCharCode;
-  m[_string_fromEnvironment.funName] = _string_fromEnvironment;
+  m[_stringFromCharCodes.funName] = _stringFromCharCodes;
+  m[_stringFromCharCode.funName] = _stringFromCharCode;
+  m[_stringFromEnvironment.funName] = _stringFromEnvironment;
   m[_runes.funName] = _runes;
   m[_runeIterator.funName] = _runeIterator;
-  m[_runeIterator_at.funName] = _runeIterator_at;
+  m[_runeIteratorAt.funName] = _runeIteratorAt;
   m[_stringBuffer.funName] = _stringBuffer;
-  m[_symbol_unaryMinus.funName] = _symbol_unaryMinus;
-  m[_symbol_empty.funName] = _symbol_empty;
+  m[_symbolUnaryMinus.funName] = _symbolUnaryMinus;
+  m[_symbolEmpty.funName] = _symbolEmpty;
   m[_symbol.funName] = _symbol;
   m[_uri.funName] = _uri;
-  m[_uri_http.funName] = _uri_http;
-  m[_uri_https.funName] = _uri_https;
-  m[_uri_file.funName] = _uri_file;
-  m[_uri_directory.funName] = _uri_directory;
-  m[_uri_dataFromString.funName] = _uri_dataFromString;
-  m[_uri_dataFromBytes.funName] = _uri_dataFromBytes;
-  m[_uriData_fromString.funName] = _uriData_fromString;
-  m[_uriData_fromBytes.funName] = _uriData_fromBytes;
-  m[_uriData_fromUri.funName] = _uriData_fromUri;
+  m[_uriHttp.funName] = _uriHttp;
+  m[_uriHttps.funName] = _uriHttps;
+  m[_uriFile.funName] = _uriFile;
+  m[_uriDirectory.funName] = _uriDirectory;
+  m[_uriDataFromString.funName] = _uriDataFromString;
+  m[_uriDataFromBytes.funName] = _uriDataFromBytes;
+  m[_uriDataFromString.funName] = _uriDataFromString;
+  m[_uriDataFromBytes.funName] = _uriDataFromBytes;
+  m[_uriDataFromUri.funName] = _uriDataFromUri;
   return m;
 }
 
@@ -407,7 +406,7 @@ var _vertices = MXFunctionInvoke(
     "indices",
   ],
 );
-var _vertices_raw = MXFunctionInvoke(
+var _verticesRaw = MXFunctionInvoke(
   "Vertices.raw",
   ({
     VertexMode mode,
@@ -476,10 +475,10 @@ var _channelBuffers = MXFunctionInvoke(
   () => ChannelBuffers(),
   [],
 );
-var _channelBuffers_kDefaultBufferSize = MXFunctionInvoke(
+var _channelBuffersKDefaultBufferSize = MXFunctionInvoke(
     "ChannelBuffers.kDefaultBufferSize",
     () => ChannelBuffers.kDefaultBufferSize);
-var _channelBuffers_kControlChannelName = MXFunctionInvoke(
+var _channelBuffersKControlChannelName = MXFunctionInvoke(
     "ChannelBuffers.kControlChannelName",
     () => ChannelBuffers.kControlChannelName);
 var _sceneBuilder = MXFunctionInvoke(
@@ -529,10 +528,10 @@ var _offset = MXFunctionInvoke(
     "dy",
   ],
 );
-var _offset_zero = MXFunctionInvoke("Offset.zero", () => Offset.zero);
-var _offset_infinite =
+var _offsetZero = MXFunctionInvoke("Offset.zero", () => Offset.zero);
+var _offsetInfinite =
     MXFunctionInvoke("Offset.infinite", () => Offset.infinite);
-var _offset_fromDirection = MXFunctionInvoke(
+var _offsetFromDirection = MXFunctionInvoke(
   "Offset.fromDirection",
   ({
     dynamic direction,
@@ -562,9 +561,9 @@ var _size = MXFunctionInvoke(
     "height",
   ],
 );
-var _size_zero = MXFunctionInvoke("Size.zero", () => Size.zero);
-var _size_infinite = MXFunctionInvoke("Size.infinite", () => Size.infinite);
-var _size_copy = MXFunctionInvoke(
+var _sizeZero = MXFunctionInvoke("Size.zero", () => Size.zero);
+var _sizeInfinite = MXFunctionInvoke("Size.infinite", () => Size.infinite);
+var _sizeCopy = MXFunctionInvoke(
   "Size.copy",
   ({
     Size source,
@@ -576,7 +575,7 @@ var _size_copy = MXFunctionInvoke(
     "source",
   ],
 );
-var _size_square = MXFunctionInvoke(
+var _sizeSquare = MXFunctionInvoke(
   "Size.square",
   ({
     dynamic dimension,
@@ -588,7 +587,7 @@ var _size_square = MXFunctionInvoke(
     "dimension",
   ],
 );
-var _size_fromWidth = MXFunctionInvoke(
+var _sizeFromWidth = MXFunctionInvoke(
   "Size.fromWidth",
   ({
     dynamic width,
@@ -600,7 +599,7 @@ var _size_fromWidth = MXFunctionInvoke(
     "width",
   ],
 );
-var _size_fromHeight = MXFunctionInvoke(
+var _sizeFromHeight = MXFunctionInvoke(
   "Size.fromHeight",
   ({
     dynamic height,
@@ -612,7 +611,7 @@ var _size_fromHeight = MXFunctionInvoke(
     "height",
   ],
 );
-var _size_fromRadius = MXFunctionInvoke(
+var _sizeFromRadius = MXFunctionInvoke(
   "Size.fromRadius",
   ({
     dynamic radius,
@@ -624,9 +623,9 @@ var _size_fromRadius = MXFunctionInvoke(
     "radius",
   ],
 );
-var _rect_zero = MXFunctionInvoke("Rect.zero", () => Rect.zero);
-var _rect_largest = MXFunctionInvoke("Rect.largest", () => Rect.largest);
-var _rect_fromLTRB = MXFunctionInvoke(
+var _rectZero = MXFunctionInvoke("Rect.zero", () => Rect.zero);
+var _rectLargest = MXFunctionInvoke("Rect.largest", () => Rect.largest);
+var _rectFromLTRB = MXFunctionInvoke(
   "Rect.fromLTRB",
   ({
     dynamic left,
@@ -647,7 +646,7 @@ var _rect_fromLTRB = MXFunctionInvoke(
     "bottom",
   ],
 );
-var _rect_fromLTWH = MXFunctionInvoke(
+var _rectFromLTWH = MXFunctionInvoke(
   "Rect.fromLTWH",
   ({
     dynamic left,
@@ -668,7 +667,7 @@ var _rect_fromLTWH = MXFunctionInvoke(
     "height",
   ],
 );
-var _rect_fromCircle = MXFunctionInvoke(
+var _rectFromCircle = MXFunctionInvoke(
   "Rect.fromCircle",
   ({
     Offset center,
@@ -683,7 +682,7 @@ var _rect_fromCircle = MXFunctionInvoke(
     "radius",
   ],
 );
-var _rect_fromCenter = MXFunctionInvoke(
+var _rectFromCenter = MXFunctionInvoke(
   "Rect.fromCenter",
   ({
     Offset center,
@@ -701,7 +700,7 @@ var _rect_fromCenter = MXFunctionInvoke(
     "height",
   ],
 );
-var _rect_fromPoints = MXFunctionInvoke(
+var _rectFromPoints = MXFunctionInvoke(
   "Rect.fromPoints",
   ({
     Offset a,
@@ -716,8 +715,8 @@ var _rect_fromPoints = MXFunctionInvoke(
     "b",
   ],
 );
-var _radius_zero = MXFunctionInvoke("Radius.zero", () => Radius.zero);
-var _radius_circular = MXFunctionInvoke(
+var _radiusZero = MXFunctionInvoke("Radius.zero", () => Radius.zero);
+var _radiusCircular = MXFunctionInvoke(
   "Radius.circular",
   ({
     dynamic radius,
@@ -729,7 +728,7 @@ var _radius_circular = MXFunctionInvoke(
     "radius",
   ],
 );
-var _radius_elliptical = MXFunctionInvoke(
+var _radiusElliptical = MXFunctionInvoke(
   "Radius.elliptical",
   ({
     dynamic x,
@@ -744,8 +743,8 @@ var _radius_elliptical = MXFunctionInvoke(
     "y",
   ],
 );
-var _rRect_zero = MXFunctionInvoke("RRect.zero", () => RRect.zero);
-var _rRect_fromLTRBXY = MXFunctionInvoke(
+var _rRectZero = MXFunctionInvoke("RRect.zero", () => RRect.zero);
+var _rRectFromLTRBXY = MXFunctionInvoke(
   "RRect.fromLTRBXY",
   ({
     dynamic left,
@@ -772,7 +771,7 @@ var _rRect_fromLTRBXY = MXFunctionInvoke(
     "radiusY",
   ],
 );
-var _rRect_fromLTRBR = MXFunctionInvoke(
+var _rRectFromLTRBR = MXFunctionInvoke(
   "RRect.fromLTRBR",
   ({
     dynamic left,
@@ -796,7 +795,7 @@ var _rRect_fromLTRBR = MXFunctionInvoke(
     "radius",
   ],
 );
-var _rRect_fromRectXY = MXFunctionInvoke(
+var _rRectFromRectXY = MXFunctionInvoke(
   "RRect.fromRectXY",
   ({
     Rect rect,
@@ -814,7 +813,7 @@ var _rRect_fromRectXY = MXFunctionInvoke(
     "radiusY",
   ],
 );
-var _rRect_fromRectAndRadius = MXFunctionInvoke(
+var _rRectFromRectAndRadius = MXFunctionInvoke(
   "RRect.fromRectAndRadius",
   ({
     Rect rect,
@@ -829,7 +828,7 @@ var _rRect_fromRectAndRadius = MXFunctionInvoke(
     "radius",
   ],
 );
-var _rRect_fromLTRBAndCorners = MXFunctionInvoke(
+var _rRectFromLTRBAndCorners = MXFunctionInvoke(
   "RRect.fromLTRBAndCorners",
   ({
     dynamic left,
@@ -862,7 +861,7 @@ var _rRect_fromLTRBAndCorners = MXFunctionInvoke(
     "bottomLeft",
   ],
 );
-var _rRect_fromRectAndCorners = MXFunctionInvoke(
+var _rRectFromRectAndCorners = MXFunctionInvoke(
   "RRect.fromRectAndCorners",
   ({
     Rect rect,
@@ -907,7 +906,7 @@ var _rSTransform = MXFunctionInvoke(
     "ty",
   ],
 );
-var _rSTransform_fromComponents = MXFunctionInvoke(
+var _rSTransformFromComponents = MXFunctionInvoke(
   "RSTransform.fromComponents",
   ({
     dynamic rotation,
@@ -949,7 +948,7 @@ var _point = MXFunctionInvoke(
     "y",
   ],
 );
-var _point_origin = MXFunctionInvoke("Point.origin", () => Point.origin);
+var _pointOrigin = MXFunctionInvoke("Point.origin", () => Point.origin);
 var _color = MXFunctionInvoke(
   "Color",
   ({
@@ -962,7 +961,7 @@ var _color = MXFunctionInvoke(
     "value",
   ],
 );
-var _color_fromARGB = MXFunctionInvoke(
+var _colorFromARGB = MXFunctionInvoke(
   "Color.fromARGB",
   ({
     int a,
@@ -983,7 +982,7 @@ var _color_fromARGB = MXFunctionInvoke(
     "b",
   ],
 );
-var _color_fromRGBO = MXFunctionInvoke(
+var _colorFromRGBO = MXFunctionInvoke(
   "Color.fromRGBO",
   ({
     int r,
@@ -1027,7 +1026,7 @@ var _paint = MXFunctionInvoke(
   () => Paint(),
   [],
 );
-var _gradient_linear = MXFunctionInvoke(
+var _gradientLinear = MXFunctionInvoke(
   "Gradient.linear",
   ({
     Offset from,
@@ -1054,7 +1053,7 @@ var _gradient_linear = MXFunctionInvoke(
     "matrix4",
   ],
 );
-var _gradient_radial = MXFunctionInvoke(
+var _gradientRadial = MXFunctionInvoke(
   "Gradient.radial",
   ({
     Offset center,
@@ -1087,7 +1086,7 @@ var _gradient_radial = MXFunctionInvoke(
     "focalRadius",
   ],
 );
-var _gradient_sweep = MXFunctionInvoke(
+var _gradientSweep = MXFunctionInvoke(
   "Gradient.sweep",
   ({
     Offset center,
@@ -1117,7 +1116,7 @@ var _gradient_sweep = MXFunctionInvoke(
     "matrix4",
   ],
 );
-var _colorFilter_mode = MXFunctionInvoke(
+var _colorFilterMode = MXFunctionInvoke(
   "ColorFilter.mode",
   ({
     Color color,
@@ -1132,7 +1131,7 @@ var _colorFilter_mode = MXFunctionInvoke(
     "blendMode",
   ],
 );
-var _colorFilter_matrix = MXFunctionInvoke(
+var _colorFilterMatrix = MXFunctionInvoke(
   "ColorFilter.matrix",
   ({
     dynamic matrix,
@@ -1144,12 +1143,12 @@ var _colorFilter_matrix = MXFunctionInvoke(
     "matrix",
   ],
 );
-var _colorFilter_linearToSrgbGamma = MXFunctionInvoke(
+var _colorFilterLinearToSrgbGamma = MXFunctionInvoke(
   "ColorFilter.linearToSrgbGamma",
   () => ColorFilter.linearToSrgbGamma(),
   [],
 );
-var _colorFilter_srgbToLinearGamma = MXFunctionInvoke(
+var _colorFilterSrgbToLinearGamma = MXFunctionInvoke(
   "ColorFilter.srgbToLinearGamma",
   () => ColorFilter.srgbToLinearGamma(),
   [],
@@ -1158,7 +1157,7 @@ var _blurStyle = MXFunctionInvoke(
     "BlurStyle",
     ({String name, int index}) => MXBlurStyle.parse(name, index),
     ["name", "index"]);
-var _maskFilter_blur = MXFunctionInvoke(
+var _maskFilterBlur = MXFunctionInvoke(
   "MaskFilter.blur",
   ({
     BlurStyle style,
@@ -1177,7 +1176,7 @@ var _filterQuality = MXFunctionInvoke(
     "FilterQuality",
     ({String name, int index}) => MXFilterQuality.parse(name, index),
     ["name", "index"]);
-var _imageFilter_blur = MXFunctionInvoke(
+var _imageFilterBlur = MXFunctionInvoke(
   "ImageFilter.blur",
   ({
     dynamic sigmaX = 0.0,
@@ -1192,7 +1191,7 @@ var _imageFilter_blur = MXFunctionInvoke(
     "sigmaY",
   ],
 );
-var _imageFilter_matrix = MXFunctionInvoke(
+var _imageFilterMatrix = MXFunctionInvoke(
   "ImageFilter.matrix",
   ({
     Float64List matrix4,
@@ -1238,7 +1237,7 @@ var _path = MXFunctionInvoke(
   () => Path(),
   [],
 );
-var _path_from = MXFunctionInvoke(
+var _pathFrom = MXFunctionInvoke(
   "Path.from",
   ({
     Path source,
@@ -1265,7 +1264,7 @@ var _tangent = MXFunctionInvoke(
     "vector",
   ],
 );
-var _tangent_fromAngle = MXFunctionInvoke(
+var _tangentFromAngle = MXFunctionInvoke(
   "Tangent.fromAngle",
   ({
     Offset position,
@@ -1397,105 +1396,105 @@ var _pointerDataPacket = MXFunctionInvoke(
     "data",
   ],
 );
-var _semanticsAction_tap =
+var _semanticsActionTap =
     MXFunctionInvoke("SemanticsAction.tap", () => SemanticsAction.tap);
-var _semanticsAction_longPress = MXFunctionInvoke(
+var _semanticsActionLongPress = MXFunctionInvoke(
     "SemanticsAction.longPress", () => SemanticsAction.longPress);
-var _semanticsAction_scrollLeft = MXFunctionInvoke(
+var _semanticsActionScrollLeft = MXFunctionInvoke(
     "SemanticsAction.scrollLeft", () => SemanticsAction.scrollLeft);
-var _semanticsAction_scrollRight = MXFunctionInvoke(
+var _semanticsActionScrollRight = MXFunctionInvoke(
     "SemanticsAction.scrollRight", () => SemanticsAction.scrollRight);
-var _semanticsAction_scrollUp = MXFunctionInvoke(
+var _semanticsActionScrollUp = MXFunctionInvoke(
     "SemanticsAction.scrollUp", () => SemanticsAction.scrollUp);
-var _semanticsAction_scrollDown = MXFunctionInvoke(
+var _semanticsActionScrollDown = MXFunctionInvoke(
     "SemanticsAction.scrollDown", () => SemanticsAction.scrollDown);
-var _semanticsAction_increase = MXFunctionInvoke(
+var _semanticsActionIncrease = MXFunctionInvoke(
     "SemanticsAction.increase", () => SemanticsAction.increase);
-var _semanticsAction_decrease = MXFunctionInvoke(
+var _semanticsActionDecrease = MXFunctionInvoke(
     "SemanticsAction.decrease", () => SemanticsAction.decrease);
-var _semanticsAction_showOnScreen = MXFunctionInvoke(
+var _semanticsActionShowOnScreen = MXFunctionInvoke(
     "SemanticsAction.showOnScreen", () => SemanticsAction.showOnScreen);
-var _semanticsAction_moveCursorForwardByCharacter = MXFunctionInvoke(
+var _semanticsActionMoveCursorForwardByCharacter = MXFunctionInvoke(
     "SemanticsAction.moveCursorForwardByCharacter",
     () => SemanticsAction.moveCursorForwardByCharacter);
-var _semanticsAction_moveCursorBackwardByCharacter = MXFunctionInvoke(
+var _semanticsActionMoveCursorBackwardByCharacter = MXFunctionInvoke(
     "SemanticsAction.moveCursorBackwardByCharacter",
     () => SemanticsAction.moveCursorBackwardByCharacter);
-var _semanticsAction_setSelection = MXFunctionInvoke(
+var _semanticsActionSetSelection = MXFunctionInvoke(
     "SemanticsAction.setSelection", () => SemanticsAction.setSelection);
-var _semanticsAction_copy =
+var _semanticsActionCopy =
     MXFunctionInvoke("SemanticsAction.copy", () => SemanticsAction.copy);
-var _semanticsAction_cut =
+var _semanticsActionCut =
     MXFunctionInvoke("SemanticsAction.cut", () => SemanticsAction.cut);
-var _semanticsAction_paste =
+var _semanticsActionPaste =
     MXFunctionInvoke("SemanticsAction.paste", () => SemanticsAction.paste);
-var _semanticsAction_didGainAccessibilityFocus = MXFunctionInvoke(
+var _semanticsActionDidGainAccessibilityFocus = MXFunctionInvoke(
     "SemanticsAction.didGainAccessibilityFocus",
     () => SemanticsAction.didGainAccessibilityFocus);
-var _semanticsAction_didLoseAccessibilityFocus = MXFunctionInvoke(
+var _semanticsActionDidLoseAccessibilityFocus = MXFunctionInvoke(
     "SemanticsAction.didLoseAccessibilityFocus",
     () => SemanticsAction.didLoseAccessibilityFocus);
-var _semanticsAction_customAction = MXFunctionInvoke(
+var _semanticsActionCustomAction = MXFunctionInvoke(
     "SemanticsAction.customAction", () => SemanticsAction.customAction);
-var _semanticsAction_dismiss =
+var _semanticsActionDismiss =
     MXFunctionInvoke("SemanticsAction.dismiss", () => SemanticsAction.dismiss);
-var _semanticsAction_moveCursorForwardByWord = MXFunctionInvoke(
+var _semanticsActionMoveCursorForwardByWord = MXFunctionInvoke(
     "SemanticsAction.moveCursorForwardByWord",
     () => SemanticsAction.moveCursorForwardByWord);
-var _semanticsAction_moveCursorBackwardByWord = MXFunctionInvoke(
+var _semanticsActionMoveCursorBackwardByWord = MXFunctionInvoke(
     "SemanticsAction.moveCursorBackwardByWord",
     () => SemanticsAction.moveCursorBackwardByWord);
-var _semanticsAction_values =
+var _semanticsActionValues =
     MXFunctionInvoke("SemanticsAction.values", () => SemanticsAction.values);
-var _semanticsFlag_hasCheckedState = MXFunctionInvoke(
+var _semanticsFlagHasCheckedState = MXFunctionInvoke(
     "SemanticsFlag.hasCheckedState", () => SemanticsFlag.hasCheckedState);
-var _semanticsFlag_isChecked =
+var _semanticsFlagIsChecked =
     MXFunctionInvoke("SemanticsFlag.isChecked", () => SemanticsFlag.isChecked);
-var _semanticsFlag_isSelected = MXFunctionInvoke(
+var _semanticsFlagIsSelected = MXFunctionInvoke(
     "SemanticsFlag.isSelected", () => SemanticsFlag.isSelected);
-var _semanticsFlag_isButton =
+var _semanticsFlagIsButton =
     MXFunctionInvoke("SemanticsFlag.isButton", () => SemanticsFlag.isButton);
-var _semanticsFlag_isLink =
+var _semanticsFlagIsLink =
     MXFunctionInvoke("SemanticsFlag.isLink", () => SemanticsFlag.isLink);
-var _semanticsFlag_isTextField = MXFunctionInvoke(
+var _semanticsFlagIsTextField = MXFunctionInvoke(
     "SemanticsFlag.isTextField", () => SemanticsFlag.isTextField);
-var _semanticsFlag_isReadOnly = MXFunctionInvoke(
+var _semanticsFlagIsReadOnly = MXFunctionInvoke(
     "SemanticsFlag.isReadOnly", () => SemanticsFlag.isReadOnly);
-var _semanticsFlag_isFocusable = MXFunctionInvoke(
+var _semanticsFlagIsFocusable = MXFunctionInvoke(
     "SemanticsFlag.isFocusable", () => SemanticsFlag.isFocusable);
-var _semanticsFlag_isFocused =
+var _semanticsFlagIsFocused =
     MXFunctionInvoke("SemanticsFlag.isFocused", () => SemanticsFlag.isFocused);
-var _semanticsFlag_hasEnabledState = MXFunctionInvoke(
+var _semanticsFlagHasEnabledState = MXFunctionInvoke(
     "SemanticsFlag.hasEnabledState", () => SemanticsFlag.hasEnabledState);
-var _semanticsFlag_isEnabled =
+var _semanticsFlagIsEnabled =
     MXFunctionInvoke("SemanticsFlag.isEnabled", () => SemanticsFlag.isEnabled);
-var _semanticsFlag_isInMutuallyExclusiveGroup = MXFunctionInvoke(
+var _semanticsFlagIsInMutuallyExclusiveGroup = MXFunctionInvoke(
     "SemanticsFlag.isInMutuallyExclusiveGroup",
     () => SemanticsFlag.isInMutuallyExclusiveGroup);
-var _semanticsFlag_isHeader =
+var _semanticsFlagIsHeader =
     MXFunctionInvoke("SemanticsFlag.isHeader", () => SemanticsFlag.isHeader);
-var _semanticsFlag_isObscured = MXFunctionInvoke(
+var _semanticsFlagIsObscured = MXFunctionInvoke(
     "SemanticsFlag.isObscured", () => SemanticsFlag.isObscured);
-var _semanticsFlag_scopesRoute = MXFunctionInvoke(
+var _semanticsFlagScopesRoute = MXFunctionInvoke(
     "SemanticsFlag.scopesRoute", () => SemanticsFlag.scopesRoute);
-var _semanticsFlag_namesRoute = MXFunctionInvoke(
+var _semanticsFlagNamesRoute = MXFunctionInvoke(
     "SemanticsFlag.namesRoute", () => SemanticsFlag.namesRoute);
-var _semanticsFlag_isHidden =
+var _semanticsFlagIsHidden =
     MXFunctionInvoke("SemanticsFlag.isHidden", () => SemanticsFlag.isHidden);
-var _semanticsFlag_isImage =
+var _semanticsFlagIsImage =
     MXFunctionInvoke("SemanticsFlag.isImage", () => SemanticsFlag.isImage);
-var _semanticsFlag_isLiveRegion = MXFunctionInvoke(
+var _semanticsFlagIsLiveRegion = MXFunctionInvoke(
     "SemanticsFlag.isLiveRegion", () => SemanticsFlag.isLiveRegion);
-var _semanticsFlag_hasToggledState = MXFunctionInvoke(
+var _semanticsFlagHasToggledState = MXFunctionInvoke(
     "SemanticsFlag.hasToggledState", () => SemanticsFlag.hasToggledState);
-var _semanticsFlag_isToggled =
+var _semanticsFlagIsToggled =
     MXFunctionInvoke("SemanticsFlag.isToggled", () => SemanticsFlag.isToggled);
-var _semanticsFlag_hasImplicitScrolling = MXFunctionInvoke(
+var _semanticsFlagHasImplicitScrolling = MXFunctionInvoke(
     "SemanticsFlag.hasImplicitScrolling",
     () => SemanticsFlag.hasImplicitScrolling);
-var _semanticsFlag_isMultiline = MXFunctionInvoke(
+var _semanticsFlagIsMultiline = MXFunctionInvoke(
     "SemanticsFlag.isMultiline", () => SemanticsFlag.isMultiline);
-var _semanticsFlag_values =
+var _semanticsFlagValues =
     MXFunctionInvoke("SemanticsFlag.values", () => SemanticsFlag.values);
 var _semanticsUpdateBuilder = MXFunctionInvoke(
   "SemanticsUpdateBuilder",
@@ -1510,29 +1509,29 @@ var _placeholderAlignment = MXFunctionInvoke(
     "PlaceholderAlignment",
     ({String name, int index}) => MXPlaceholderAlignment.parse(name, index),
     ["name", "index"]);
-var _fontWeight_w100 =
+var _fontWeightW100 =
     MXFunctionInvoke("FontWeight.w100", () => FontWeight.w100);
-var _fontWeight_w200 =
+var _fontWeightW200 =
     MXFunctionInvoke("FontWeight.w200", () => FontWeight.w200);
-var _fontWeight_w300 =
+var _fontWeightW300 =
     MXFunctionInvoke("FontWeight.w300", () => FontWeight.w300);
-var _fontWeight_w400 =
+var _fontWeightW400 =
     MXFunctionInvoke("FontWeight.w400", () => FontWeight.w400);
-var _fontWeight_w500 =
+var _fontWeightW500 =
     MXFunctionInvoke("FontWeight.w500", () => FontWeight.w500);
-var _fontWeight_w600 =
+var _fontWeightW600 =
     MXFunctionInvoke("FontWeight.w600", () => FontWeight.w600);
-var _fontWeight_w700 =
+var _fontWeightW700 =
     MXFunctionInvoke("FontWeight.w700", () => FontWeight.w700);
-var _fontWeight_w800 =
+var _fontWeightW800 =
     MXFunctionInvoke("FontWeight.w800", () => FontWeight.w800);
-var _fontWeight_w900 =
+var _fontWeightW900 =
     MXFunctionInvoke("FontWeight.w900", () => FontWeight.w900);
-var _fontWeight_normal =
+var _fontWeightNormal =
     MXFunctionInvoke("FontWeight.normal", () => FontWeight.normal);
-var _fontWeight_bold =
+var _fontWeightBold =
     MXFunctionInvoke("FontWeight.bold", () => FontWeight.bold);
-var _fontWeight_values =
+var _fontWeightValues =
     MXFunctionInvoke("FontWeight.values", () => FontWeight.values);
 var _fontFeature = MXFunctionInvoke(
   "FontFeature",
@@ -1549,7 +1548,7 @@ var _fontFeature = MXFunctionInvoke(
     "value",
   ],
 );
-var _fontFeature_stylisticSet = MXFunctionInvoke(
+var _fontFeatureStylisticSet = MXFunctionInvoke(
   "FontFeature.stylisticSet",
   ({
     int value,
@@ -1561,7 +1560,7 @@ var _fontFeature_stylisticSet = MXFunctionInvoke(
     "value",
   ],
 );
-var _fontFeature_enable = MXFunctionInvoke(
+var _fontFeatureEnable = MXFunctionInvoke(
   "FontFeature.enable",
   ({
     String feature,
@@ -1573,7 +1572,7 @@ var _fontFeature_enable = MXFunctionInvoke(
     "feature",
   ],
 );
-var _fontFeature_disable = MXFunctionInvoke(
+var _fontFeatureDisable = MXFunctionInvoke(
   "FontFeature.disable",
   ({
     String feature,
@@ -1585,27 +1584,27 @@ var _fontFeature_disable = MXFunctionInvoke(
     "feature",
   ],
 );
-var _fontFeature_randomize = MXFunctionInvoke(
+var _fontFeatureRandomize = MXFunctionInvoke(
   "FontFeature.randomize",
   () => FontFeature.randomize(),
   [],
 );
-var _fontFeature_slashedZero = MXFunctionInvoke(
+var _fontFeatureSlashedZero = MXFunctionInvoke(
   "FontFeature.slashedZero",
   () => FontFeature.slashedZero(),
   [],
 );
-var _fontFeature_oldstyleFigures = MXFunctionInvoke(
+var _fontFeatureOldstyleFigures = MXFunctionInvoke(
   "FontFeature.oldstyleFigures",
   () => FontFeature.oldstyleFigures(),
   [],
 );
-var _fontFeature_proportionalFigures = MXFunctionInvoke(
+var _fontFeatureProportionalFigures = MXFunctionInvoke(
   "FontFeature.proportionalFigures",
   () => FontFeature.proportionalFigures(),
   [],
 );
-var _fontFeature_tabularFigures = MXFunctionInvoke(
+var _fontFeatureTabularFigures = MXFunctionInvoke(
   "FontFeature.tabularFigures",
   () => FontFeature.tabularFigures(),
   [],
@@ -1618,15 +1617,15 @@ var _textBaseline = MXFunctionInvoke(
     "TextBaseline",
     ({String name, int index}) => MXTextBaseline.parse(name, index),
     ["name", "index"]);
-var _textDecoration_none =
+var _textDecorationNone =
     MXFunctionInvoke("TextDecoration.none", () => TextDecoration.none);
-var _textDecoration_underline = MXFunctionInvoke(
+var _textDecorationUnderline = MXFunctionInvoke(
     "TextDecoration.underline", () => TextDecoration.underline);
-var _textDecoration_overline =
+var _textDecorationOverline =
     MXFunctionInvoke("TextDecoration.overline", () => TextDecoration.overline);
-var _textDecoration_lineThrough = MXFunctionInvoke(
+var _textDecorationLineThrough = MXFunctionInvoke(
     "TextDecoration.lineThrough", () => TextDecoration.lineThrough);
-var _textDecoration_combine = MXFunctionInvoke(
+var _textDecorationCombine = MXFunctionInvoke(
   "TextDecoration.combine",
   ({
     dynamic decorations,
@@ -1657,7 +1656,7 @@ var _textHeightBehavior = MXFunctionInvoke(
     "applyHeightToLastDescent",
   ],
 );
-var _textHeightBehavior_fromEncoded = MXFunctionInvoke(
+var _textHeightBehaviorFromEncoded = MXFunctionInvoke(
   "TextHeightBehavior.fromEncoded",
   ({
     int encoded,
@@ -1817,7 +1816,7 @@ var _textDirection = MXFunctionInvoke(
     "TextDirection",
     ({String name, int index}) => MXTextDirection.parse(name, index),
     ["name", "index"]);
-var _textBox_fromLTRBD = MXFunctionInvoke(
+var _textBoxFromLTRBD = MXFunctionInvoke(
   "TextBox.fromLTRBD",
   ({
     dynamic left,
@@ -1875,9 +1874,9 @@ var _textRange = MXFunctionInvoke(
     "end",
   ],
 );
-var _textRange_empty =
+var _textRangeEmpty =
     MXFunctionInvoke("TextRange.empty", () => TextRange.empty);
-var _textRange_collapsed = MXFunctionInvoke(
+var _textRangeCollapsed = MXFunctionInvoke(
   "TextRange.collapsed",
   ({
     int offset,
@@ -1965,7 +1964,7 @@ var _appLifecycleState = MXFunctionInvoke(
     "AppLifecycleState",
     ({String name, int index}) => MXAppLifecycleState.parse(name, index),
     ["name", "index"]);
-var _windowPadding_zero =
+var _windowPaddingZero =
     MXFunctionInvoke("WindowPadding.zero", () => WindowPadding.zero);
 var _locale = MXFunctionInvoke(
   "Locale",
@@ -1982,7 +1981,7 @@ var _locale = MXFunctionInvoke(
     "countryCode",
   ],
 );
-var _locale_fromSubtags = MXFunctionInvoke(
+var _localeFromSubtags = MXFunctionInvoke(
   "Locale.fromSubtags",
   ({
     String languageCode = 'und',
@@ -2004,7 +2003,7 @@ var _brightness = MXFunctionInvoke(
     "Brightness",
     ({String name, int index}) => MXBrightness.parse(name, index),
     ["name", "index"]);
-var _callbackHandle_fromRawHandle = MXFunctionInvoke(
+var _callbackHandleFromRawHandle = MXFunctionInvoke(
   "CallbackHandle.fromRawHandle",
   ({
     int handle,
@@ -2102,7 +2101,7 @@ var _pragma = MXFunctionInvoke(
     "options",
   ],
 );
-var _bigInt_from = MXFunctionInvoke(
+var _bigIntFrom = MXFunctionInvoke(
   "BigInt.from",
   ({
     num value,
@@ -2114,7 +2113,7 @@ var _bigInt_from = MXFunctionInvoke(
     "value",
   ],
 );
-var _bool_fromEnvironment = MXFunctionInvoke(
+var _boolFromEnvironment = MXFunctionInvoke(
   "bool.fromEnvironment",
   ({
     String name,
@@ -2129,7 +2128,7 @@ var _bool_fromEnvironment = MXFunctionInvoke(
     "defaultValue",
   ],
 );
-var _bool_hasEnvironment = MXFunctionInvoke(
+var _boolHasEnvironment = MXFunctionInvoke(
   "bool.hasEnvironment",
   ({
     String name,
@@ -2174,44 +2173,44 @@ var _dateTime = MXFunctionInvoke(
     "microsecond",
   ],
 );
-var _dateTime_monday =
+var _dateTimeMonday =
     MXFunctionInvoke("DateTime.monday", () => DateTime.monday);
-var _dateTime_tuesday =
+var _dateTimeTuesday =
     MXFunctionInvoke("DateTime.tuesday", () => DateTime.tuesday);
-var _dateTime_wednesday =
+var _dateTimeWednesday =
     MXFunctionInvoke("DateTime.wednesday", () => DateTime.wednesday);
-var _dateTime_thursday =
+var _dateTimeThursday =
     MXFunctionInvoke("DateTime.thursday", () => DateTime.thursday);
-var _dateTime_friday =
+var _dateTimeFriday =
     MXFunctionInvoke("DateTime.friday", () => DateTime.friday);
-var _dateTime_saturday =
+var _dateTimeSaturday =
     MXFunctionInvoke("DateTime.saturday", () => DateTime.saturday);
-var _dateTime_sunday =
+var _dateTimeSunday =
     MXFunctionInvoke("DateTime.sunday", () => DateTime.sunday);
-var _dateTime_daysPerWeek =
+var _dateTimeDaysPerWeek =
     MXFunctionInvoke("DateTime.daysPerWeek", () => DateTime.daysPerWeek);
-var _dateTime_january =
+var _dateTimeJanuary =
     MXFunctionInvoke("DateTime.january", () => DateTime.january);
-var _dateTime_february =
+var _dateTimeFebruary =
     MXFunctionInvoke("DateTime.february", () => DateTime.february);
-var _dateTime_march = MXFunctionInvoke("DateTime.march", () => DateTime.march);
-var _dateTime_april = MXFunctionInvoke("DateTime.april", () => DateTime.april);
-var _dateTime_may = MXFunctionInvoke("DateTime.may", () => DateTime.may);
-var _dateTime_june = MXFunctionInvoke("DateTime.june", () => DateTime.june);
-var _dateTime_july = MXFunctionInvoke("DateTime.july", () => DateTime.july);
-var _dateTime_august =
+var _dateTimeMarch = MXFunctionInvoke("DateTime.march", () => DateTime.march);
+var _dateTimeApril = MXFunctionInvoke("DateTime.april", () => DateTime.april);
+var _dateTimeMay = MXFunctionInvoke("DateTime.may", () => DateTime.may);
+var _dateTimeJune = MXFunctionInvoke("DateTime.june", () => DateTime.june);
+var _dateTimeJuly = MXFunctionInvoke("DateTime.july", () => DateTime.july);
+var _dateTimeAugust =
     MXFunctionInvoke("DateTime.august", () => DateTime.august);
-var _dateTime_september =
+var _dateTimeSeptember =
     MXFunctionInvoke("DateTime.september", () => DateTime.september);
-var _dateTime_october =
+var _dateTimeOctober =
     MXFunctionInvoke("DateTime.october", () => DateTime.october);
-var _dateTime_november =
+var _dateTimeNovember =
     MXFunctionInvoke("DateTime.november", () => DateTime.november);
-var _dateTime_december =
+var _dateTimeDecember =
     MXFunctionInvoke("DateTime.december", () => DateTime.december);
-var _dateTime_monthsPerYear =
+var _dateTimeMonthsPerYear =
     MXFunctionInvoke("DateTime.monthsPerYear", () => DateTime.monthsPerYear);
-var _dateTime_utc = MXFunctionInvoke(
+var _dateTimeUtc = MXFunctionInvoke(
   "DateTime.utc",
   ({
     int year,
@@ -2244,12 +2243,12 @@ var _dateTime_utc = MXFunctionInvoke(
     "microsecond",
   ],
 );
-var _dateTime_now = MXFunctionInvoke(
+var _dateTimeNow = MXFunctionInvoke(
   "DateTime.now",
   () => DateTime.now(),
   [],
 );
-var _dateTime_fromMillisecondsSinceEpoch = MXFunctionInvoke(
+var _dateTimeFromMillisecondsSinceEpoch = MXFunctionInvoke(
   "DateTime.fromMillisecondsSinceEpoch",
   ({
     int millisecondsSinceEpoch,
@@ -2264,7 +2263,7 @@ var _dateTime_fromMillisecondsSinceEpoch = MXFunctionInvoke(
     "isUtc",
   ],
 );
-var _dateTime_fromMicrosecondsSinceEpoch = MXFunctionInvoke(
+var _dateTimeFromMicrosecondsSinceEpoch = MXFunctionInvoke(
   "DateTime.fromMicrosecondsSinceEpoch",
   ({
     int microsecondsSinceEpoch,
@@ -2279,14 +2278,14 @@ var _dateTime_fromMicrosecondsSinceEpoch = MXFunctionInvoke(
     "isUtc",
   ],
 );
-var _double_nan = MXFunctionInvoke("double.nan", () => double.nan);
-var _double_infinity =
+var _doubleNan = MXFunctionInvoke("double.nan", () => double.nan);
+var _doubleInfinity =
     MXFunctionInvoke("double.infinity", () => double.infinity);
-var _double_negativeInfinity =
+var _doubleNegativeInfinity =
     MXFunctionInvoke("double.negativeInfinity", () => double.negativeInfinity);
-var _double_minPositive =
+var _doubleMinPositive =
     MXFunctionInvoke("double.minPositive", () => double.minPositive);
-var _double_maxFinite =
+var _doubleMaxFinite =
     MXFunctionInvoke("double.maxFinite", () => double.maxFinite);
 var _duration = MXFunctionInvoke(
   "Duration",
@@ -2315,38 +2314,38 @@ var _duration = MXFunctionInvoke(
     "microseconds",
   ],
 );
-var _duration_microsecondsPerMillisecond = MXFunctionInvoke(
+var _durationMicrosecondsPerMillisecond = MXFunctionInvoke(
     "Duration.microsecondsPerMillisecond",
     () => Duration.microsecondsPerMillisecond);
-var _duration_millisecondsPerSecond = MXFunctionInvoke(
+var _durationMillisecondsPerSecond = MXFunctionInvoke(
     "Duration.millisecondsPerSecond", () => Duration.millisecondsPerSecond);
-var _duration_secondsPerMinute = MXFunctionInvoke(
+var _durationSecondsPerMinute = MXFunctionInvoke(
     "Duration.secondsPerMinute", () => Duration.secondsPerMinute);
-var _duration_minutesPerHour =
+var _durationMinutesPerHour =
     MXFunctionInvoke("Duration.minutesPerHour", () => Duration.minutesPerHour);
-var _duration_hoursPerDay =
+var _durationHoursPerDay =
     MXFunctionInvoke("Duration.hoursPerDay", () => Duration.hoursPerDay);
-var _duration_microsecondsPerSecond = MXFunctionInvoke(
+var _durationMicrosecondsPerSecond = MXFunctionInvoke(
     "Duration.microsecondsPerSecond", () => Duration.microsecondsPerSecond);
-var _duration_microsecondsPerMinute = MXFunctionInvoke(
+var _durationMicrosecondsPerMinute = MXFunctionInvoke(
     "Duration.microsecondsPerMinute", () => Duration.microsecondsPerMinute);
-var _duration_microsecondsPerHour = MXFunctionInvoke(
+var _durationMicrosecondsPerHour = MXFunctionInvoke(
     "Duration.microsecondsPerHour", () => Duration.microsecondsPerHour);
-var _duration_microsecondsPerDay = MXFunctionInvoke(
+var _durationMicrosecondsPerDay = MXFunctionInvoke(
     "Duration.microsecondsPerDay", () => Duration.microsecondsPerDay);
-var _duration_millisecondsPerMinute = MXFunctionInvoke(
+var _durationMillisecondsPerMinute = MXFunctionInvoke(
     "Duration.millisecondsPerMinute", () => Duration.millisecondsPerMinute);
-var _duration_millisecondsPerHour = MXFunctionInvoke(
+var _durationMillisecondsPerHour = MXFunctionInvoke(
     "Duration.millisecondsPerHour", () => Duration.millisecondsPerHour);
-var _duration_millisecondsPerDay = MXFunctionInvoke(
+var _durationMillisecondsPerDay = MXFunctionInvoke(
     "Duration.millisecondsPerDay", () => Duration.millisecondsPerDay);
-var _duration_secondsPerHour =
+var _durationSecondsPerHour =
     MXFunctionInvoke("Duration.secondsPerHour", () => Duration.secondsPerHour);
-var _duration_secondsPerDay =
+var _durationSecondsPerDay =
     MXFunctionInvoke("Duration.secondsPerDay", () => Duration.secondsPerDay);
-var _duration_minutesPerDay =
+var _durationMinutesPerDay =
     MXFunctionInvoke("Duration.minutesPerDay", () => Duration.minutesPerDay);
-var _duration_zero = MXFunctionInvoke("Duration.zero", () => Duration.zero);
+var _durationZero = MXFunctionInvoke("Duration.zero", () => Duration.zero);
 var _error = MXFunctionInvoke(
   "Error",
   () => Error(),
@@ -2391,7 +2390,7 @@ var _argumentError = MXFunctionInvoke(
     "message",
   ],
 );
-var _argumentError_value = MXFunctionInvoke(
+var _argumentErrorValue = MXFunctionInvoke(
   "ArgumentError.value",
   ({
     dynamic value,
@@ -2409,7 +2408,7 @@ var _argumentError_value = MXFunctionInvoke(
     "message",
   ],
 );
-var _argumentError_notNull = MXFunctionInvoke(
+var _argumentErrorNotNull = MXFunctionInvoke(
   "ArgumentError.notNull",
   ({
     String name,
@@ -2433,7 +2432,7 @@ var _rangeError = MXFunctionInvoke(
     "message",
   ],
 );
-var _rangeError_index = MXFunctionInvoke(
+var _rangeErrorIndex = MXFunctionInvoke(
   "RangeError.index",
   ({
     int index,
@@ -2457,7 +2456,7 @@ var _rangeError_index = MXFunctionInvoke(
     "length",
   ],
 );
-var _rangeError_value = MXFunctionInvoke(
+var _rangeErrorValue = MXFunctionInvoke(
   "RangeError.value",
   ({
     num value,
@@ -2475,7 +2474,7 @@ var _rangeError_value = MXFunctionInvoke(
     "message",
   ],
 );
-var _rangeError_range = MXFunctionInvoke(
+var _rangeErrorRange = MXFunctionInvoke(
   "RangeError.range",
   ({
     num invalidValue,
@@ -2564,7 +2563,7 @@ var _noSuchMethodError = MXFunctionInvoke(
     "existingArgumentNames",
   ],
 );
-var _noSuchMethodError_withInvocation = MXFunctionInvoke(
+var _noSuchMethodErrorWithInvocation = MXFunctionInvoke(
   "NoSuchMethodError.withInvocation",
   ({
     Object receiver,
@@ -2696,7 +2695,7 @@ var _expando = MXFunctionInvoke(
     "name",
   ],
 );
-var _int_fromEnvironment = MXFunctionInvoke(
+var _intFromEnvironment = MXFunctionInvoke(
   "int.fromEnvironment",
   ({
     String name,
@@ -2711,7 +2710,7 @@ var _int_fromEnvironment = MXFunctionInvoke(
     "defaultValue",
   ],
 );
-var _invocation_method = MXFunctionInvoke(
+var _invocationMethod = MXFunctionInvoke(
   "Invocation.method",
   ({
     Symbol memberName,
@@ -2729,7 +2728,7 @@ var _invocation_method = MXFunctionInvoke(
     "namedArguments",
   ],
 );
-var _invocation_genericMethod = MXFunctionInvoke(
+var _invocationGenericMethod = MXFunctionInvoke(
   "Invocation.genericMethod",
   ({
     Symbol memberName,
@@ -2750,7 +2749,7 @@ var _invocation_genericMethod = MXFunctionInvoke(
     "namedArguments",
   ],
 );
-var _invocation_getter = MXFunctionInvoke(
+var _invocationGetter = MXFunctionInvoke(
   "Invocation.getter",
   ({
     Symbol name,
@@ -2762,7 +2761,7 @@ var _invocation_getter = MXFunctionInvoke(
     "name",
   ],
 );
-var _invocation_setter = MXFunctionInvoke(
+var _invocationSetter = MXFunctionInvoke(
   "Invocation.setter",
   ({
     Symbol memberName,
@@ -2777,7 +2776,7 @@ var _invocation_setter = MXFunctionInvoke(
     "argument",
   ],
 );
-var _iterable_generate = MXFunctionInvoke(
+var _iterableGenerate = MXFunctionInvoke(
   "Iterable.generate",
   ({
     int count,
@@ -2792,7 +2791,7 @@ var _iterable_generate = MXFunctionInvoke(
     "generator",
   ],
 );
-var _iterable_empty = MXFunctionInvoke(
+var _iterableEmpty = MXFunctionInvoke(
   "Iterable.empty",
   () => Iterable.empty(),
   [],
@@ -2809,7 +2808,7 @@ var _list = MXFunctionInvoke(
     "length",
   ],
 );
-var _list_filled = MXFunctionInvoke(
+var _listFilled = MXFunctionInvoke(
   "List.filled",
   ({
     int length,
@@ -2827,7 +2826,7 @@ var _list_filled = MXFunctionInvoke(
     "growable",
   ],
 );
-var _list_from = MXFunctionInvoke(
+var _listFrom = MXFunctionInvoke(
   "List.from",
   ({
     Iterable<dynamic> elements,
@@ -2842,7 +2841,7 @@ var _list_from = MXFunctionInvoke(
     "growable",
   ],
 );
-var _list_of = MXFunctionInvoke(
+var _listOf = MXFunctionInvoke(
   "List.of",
   ({
     Iterable<dynamic> elements,
@@ -2857,7 +2856,7 @@ var _list_of = MXFunctionInvoke(
     "growable",
   ],
 );
-var _list_generate = MXFunctionInvoke(
+var _listGenerate = MXFunctionInvoke(
   "List.generate",
   ({
     int length,
@@ -2875,7 +2874,7 @@ var _list_generate = MXFunctionInvoke(
     "growable",
   ],
 );
-var _list_unmodifiable = MXFunctionInvoke(
+var _listUnmodifiable = MXFunctionInvoke(
   "List.unmodifiable",
   ({
     Iterable<dynamic> elements,
@@ -2887,7 +2886,7 @@ var _list_unmodifiable = MXFunctionInvoke(
     "elements",
   ],
 );
-var _list_copyRange = MXFunctionInvoke(
+var _listCopyRange = MXFunctionInvoke(
   "List.copyRange",
   ({
     dynamic target,
@@ -2911,7 +2910,7 @@ var _list_copyRange = MXFunctionInvoke(
     "end",
   ],
 );
-var _list_writeIterable = MXFunctionInvoke(
+var _listWriteIterable = MXFunctionInvoke(
   "List.writeIterable",
   ({
     dynamic target,
@@ -2934,7 +2933,7 @@ var _map = MXFunctionInvoke(
   () => Map(),
   [],
 );
-var _map_from = MXFunctionInvoke(
+var _mapFrom = MXFunctionInvoke(
   "Map.from",
   ({
     dynamic other,
@@ -2946,7 +2945,7 @@ var _map_from = MXFunctionInvoke(
     "other",
   ],
 );
-var _map_of = MXFunctionInvoke(
+var _mapOf = MXFunctionInvoke(
   "Map.of",
   ({
     dynamic other,
@@ -2958,7 +2957,7 @@ var _map_of = MXFunctionInvoke(
     "other",
   ],
 );
-var _map_unmodifiable = MXFunctionInvoke(
+var _mapUnmodifiable = MXFunctionInvoke(
   "Map.unmodifiable",
   ({
     dynamic other,
@@ -2970,12 +2969,12 @@ var _map_unmodifiable = MXFunctionInvoke(
     "other",
   ],
 );
-var _map_identity = MXFunctionInvoke(
+var _mapIdentity = MXFunctionInvoke(
   "Map.identity",
   () => Map.identity(),
   [],
 );
-var _map_fromIterable = MXFunctionInvoke(
+var _mapFromIterable = MXFunctionInvoke(
   "Map.fromIterable",
   ({
     Iterable<dynamic> iterable,
@@ -2993,7 +2992,7 @@ var _map_fromIterable = MXFunctionInvoke(
     "value",
   ],
 );
-var _map_fromIterables = MXFunctionInvoke(
+var _mapFromIterables = MXFunctionInvoke(
   "Map.fromIterables",
   ({
     Iterable<dynamic> keys,
@@ -3008,7 +3007,7 @@ var _map_fromIterables = MXFunctionInvoke(
     "values",
   ],
 );
-var _map_fromEntries = MXFunctionInvoke(
+var _mapFromEntries = MXFunctionInvoke(
   "Map.fromEntries",
   ({
     Iterable<MapEntry<dynamic, dynamic>> entries,
@@ -3064,12 +3063,12 @@ var _set = MXFunctionInvoke(
   () => Set(),
   [],
 );
-var _set_identity = MXFunctionInvoke(
+var _setIdentity = MXFunctionInvoke(
   "Set.identity",
   () => Set.identity(),
   [],
 );
-var _set_from = MXFunctionInvoke(
+var _setFrom = MXFunctionInvoke(
   "Set.from",
   ({
     Iterable<dynamic> elements,
@@ -3081,7 +3080,7 @@ var _set_from = MXFunctionInvoke(
     "elements",
   ],
 );
-var _set_of = MXFunctionInvoke(
+var _setOf = MXFunctionInvoke(
   "Set.of",
   ({
     Iterable<dynamic> elements,
@@ -3093,9 +3092,9 @@ var _set_of = MXFunctionInvoke(
     "elements",
   ],
 );
-var _stackTrace_empty =
+var _stackTraceEmpty =
     MXFunctionInvoke("StackTrace.empty", () => StackTrace.empty);
-var _stackTrace_fromString = MXFunctionInvoke(
+var _stackTraceFromString = MXFunctionInvoke(
   "StackTrace.fromString",
   ({
     String stackTraceString,
@@ -3112,7 +3111,7 @@ var _stopwatch = MXFunctionInvoke(
   () => Stopwatch(),
   [],
 );
-var _string_fromCharCodes = MXFunctionInvoke(
+var _stringFromCharCodes = MXFunctionInvoke(
   "String.fromCharCodes",
   ({
     Iterable<int> charCodes,
@@ -3130,7 +3129,7 @@ var _string_fromCharCodes = MXFunctionInvoke(
     "end",
   ],
 );
-var _string_fromCharCode = MXFunctionInvoke(
+var _stringFromCharCode = MXFunctionInvoke(
   "String.fromCharCode",
   ({
     int charCode,
@@ -3142,7 +3141,7 @@ var _string_fromCharCode = MXFunctionInvoke(
     "charCode",
   ],
 );
-var _string_fromEnvironment = MXFunctionInvoke(
+var _stringFromEnvironment = MXFunctionInvoke(
   "String.fromEnvironment",
   ({
     String name,
@@ -3181,7 +3180,7 @@ var _runeIterator = MXFunctionInvoke(
     "string",
   ],
 );
-var _runeIterator_at = MXFunctionInvoke(
+var _runeIteratorAt = MXFunctionInvoke(
   "RuneIterator.at",
   ({
     String string,
@@ -3208,9 +3207,9 @@ var _stringBuffer = MXFunctionInvoke(
     "content",
   ],
 );
-var _symbol_unaryMinus =
+var _symbolUnaryMinus =
     MXFunctionInvoke("Symbol.unaryMinus", () => Symbol.unaryMinus);
-var _symbol_empty = MXFunctionInvoke("Symbol.empty", () => Symbol.empty);
+var _symbolEmpty = MXFunctionInvoke("Symbol.empty", () => Symbol.empty);
 var _symbol = MXFunctionInvoke(
   "Symbol",
   ({
@@ -3259,7 +3258,7 @@ var _uri = MXFunctionInvoke(
     "fragment",
   ],
 );
-var _uri_http = MXFunctionInvoke(
+var _uriHttp = MXFunctionInvoke(
   "Uri.http",
   ({
     String authority,
@@ -3277,7 +3276,7 @@ var _uri_http = MXFunctionInvoke(
     "queryParameters",
   ],
 );
-var _uri_https = MXFunctionInvoke(
+var _uriHttps = MXFunctionInvoke(
   "Uri.https",
   ({
     String authority,
@@ -3295,7 +3294,7 @@ var _uri_https = MXFunctionInvoke(
     "queryParameters",
   ],
 );
-var _uri_file = MXFunctionInvoke(
+var _uriFile = MXFunctionInvoke(
   "Uri.file",
   ({
     String path,
@@ -3310,7 +3309,7 @@ var _uri_file = MXFunctionInvoke(
     "windows",
   ],
 );
-var _uri_directory = MXFunctionInvoke(
+var _uriDirectory = MXFunctionInvoke(
   "Uri.directory",
   ({
     String path,
@@ -3325,7 +3324,7 @@ var _uri_directory = MXFunctionInvoke(
     "windows",
   ],
 );
-var _uri_dataFromString = MXFunctionInvoke(
+var _uriDataFromString = MXFunctionInvoke(
   "Uri.dataFromString",
   ({
     String content,
@@ -3349,7 +3348,7 @@ var _uri_dataFromString = MXFunctionInvoke(
     "base64",
   ],
 );
-var _uri_dataFromBytes = MXFunctionInvoke(
+var _uriDataFromBytes = MXFunctionInvoke(
   "Uri.dataFromBytes",
   ({
     dynamic bytes,
@@ -3370,7 +3369,7 @@ var _uri_dataFromBytes = MXFunctionInvoke(
     "percentEncoded",
   ],
 );
-var _uriData_fromString = MXFunctionInvoke(
+var _uriDataFromString = MXFunctionInvoke(
   "UriData.fromString",
   ({
     String content,
@@ -3394,7 +3393,7 @@ var _uriData_fromString = MXFunctionInvoke(
     "base64",
   ],
 );
-var _uriData_fromBytes = MXFunctionInvoke(
+var _uriDataFromBytes = MXFunctionInvoke(
   "UriData.fromBytes",
   ({
     dynamic bytes,
@@ -3415,7 +3414,7 @@ var _uriData_fromBytes = MXFunctionInvoke(
     "percentEncoded",
   ],
 );
-var _uriData_fromUri = MXFunctionInvoke(
+var _uriDataFromUri = MXFunctionInvoke(
   "UriData.fromUri",
   ({
     Uri uri,

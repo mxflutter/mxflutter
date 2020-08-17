@@ -22,28 +22,27 @@ Map<String, MXFunctionInvoke> registerTextInputSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_smartDashesType.funName] = _smartDashesType;
   m[_smartQuotesType.funName] = _smartQuotesType;
-  m[_textInputType_text.funName] = _textInputType_text;
-  m[_textInputType_multiline.funName] = _textInputType_multiline;
-  m[_textInputType_number.funName] = _textInputType_number;
-  m[_textInputType_phone.funName] = _textInputType_phone;
-  m[_textInputType_datetime.funName] = _textInputType_datetime;
-  m[_textInputType_emailAddress.funName] = _textInputType_emailAddress;
-  m[_textInputType_url.funName] = _textInputType_url;
-  m[_textInputType_visiblePassword.funName] = _textInputType_visiblePassword;
-  m[_textInputType_values.funName] = _textInputType_values;
-  m[_textInputType_numberWithOptions.funName] =
-      _textInputType_numberWithOptions;
+  m[_textInputTypeText.funName] = _textInputTypeText;
+  m[_textInputTypeMultiline.funName] = _textInputTypeMultiline;
+  m[_textInputTypeNumber.funName] = _textInputTypeNumber;
+  m[_textInputTypePhone.funName] = _textInputTypePhone;
+  m[_textInputTypeDatetime.funName] = _textInputTypeDatetime;
+  m[_textInputTypeEmailAddress.funName] = _textInputTypeEmailAddress;
+  m[_textInputTypeUrl.funName] = _textInputTypeUrl;
+  m[_textInputTypeVisiblePassword.funName] = _textInputTypeVisiblePassword;
+  m[_textInputTypeValues.funName] = _textInputTypeValues;
+  m[_textInputTypeNumberWithOptions.funName] = _textInputTypeNumberWithOptions;
   m[_textInputAction.funName] = _textInputAction;
   m[_textCapitalization.funName] = _textCapitalization;
   m[_textInputConfiguration.funName] = _textInputConfiguration;
   m[_floatingCursorDragState.funName] = _floatingCursorDragState;
   m[_rawFloatingCursorPoint.funName] = _rawFloatingCursorPoint;
   m[_textEditingValue.funName] = _textEditingValue;
-  m[_textEditingValue_empty.funName] = _textEditingValue_empty;
-  m[_textEditingValue_fromJSON.funName] = _textEditingValue_fromJSON;
-  m[_textInputConnection_debugResetId.funName] =
-      _textInputConnection_debugResetId;
-  m[_textInput_setChannel.funName] = _textInput_setChannel;
+  m[_textEditingValueEmpty.funName] = _textEditingValueEmpty;
+  m[_textEditingValueFromJSON.funName] = _textEditingValueFromJSON;
+  m[_textInputConnectionDebugResetId.funName] =
+      _textInputConnectionDebugResetId;
+  m[_textInputSetChannel.funName] = _textInputSetChannel;
   return m;
 }
 
@@ -55,25 +54,25 @@ var _smartQuotesType = MXFunctionInvoke(
     "SmartQuotesType",
     ({String name, int index}) => MXSmartQuotesType.parse(name, index),
     ["name", "index"]);
-var _textInputType_text =
+var _textInputTypeText =
     MXFunctionInvoke("TextInputType.text", () => TextInputType.text);
-var _textInputType_multiline =
+var _textInputTypeMultiline =
     MXFunctionInvoke("TextInputType.multiline", () => TextInputType.multiline);
-var _textInputType_number =
+var _textInputTypeNumber =
     MXFunctionInvoke("TextInputType.number", () => TextInputType.number);
-var _textInputType_phone =
+var _textInputTypePhone =
     MXFunctionInvoke("TextInputType.phone", () => TextInputType.phone);
-var _textInputType_datetime =
+var _textInputTypeDatetime =
     MXFunctionInvoke("TextInputType.datetime", () => TextInputType.datetime);
-var _textInputType_emailAddress = MXFunctionInvoke(
+var _textInputTypeEmailAddress = MXFunctionInvoke(
     "TextInputType.emailAddress", () => TextInputType.emailAddress);
-var _textInputType_url =
+var _textInputTypeUrl =
     MXFunctionInvoke("TextInputType.url", () => TextInputType.url);
-var _textInputType_visiblePassword = MXFunctionInvoke(
+var _textInputTypeVisiblePassword = MXFunctionInvoke(
     "TextInputType.visiblePassword", () => TextInputType.visiblePassword);
-var _textInputType_values =
+var _textInputTypeValues =
     MXFunctionInvoke("TextInputType.values", () => TextInputType.values);
-var _textInputType_numberWithOptions = MXFunctionInvoke(
+var _textInputTypeNumberWithOptions = MXFunctionInvoke(
   "TextInputType.numberWithOptions",
   ({
     bool signed = false,
@@ -172,9 +171,9 @@ var _textEditingValue = MXFunctionInvoke(
     "composing",
   ],
 );
-var _textEditingValue_empty =
+var _textEditingValueEmpty =
     MXFunctionInvoke("TextEditingValue.empty", () => TextEditingValue.empty);
-var _textEditingValue_fromJSON = MXFunctionInvoke(
+var _textEditingValueFromJSON = MXFunctionInvoke(
   "TextEditingValue.fromJSON",
   ({
     dynamic encoded,
@@ -186,7 +185,7 @@ var _textEditingValue_fromJSON = MXFunctionInvoke(
     "encoded",
   ],
 );
-var _textInputConnection_debugResetId = MXFunctionInvoke(
+var _textInputConnectionDebugResetId = MXFunctionInvoke(
   "TextInputConnection.debugResetId",
   ({
     int to = 1,
@@ -198,7 +197,7 @@ var _textInputConnection_debugResetId = MXFunctionInvoke(
     "to",
   ],
 );
-var _textInput_setChannel = MXFunctionInvoke(
+var _textInputSetChannel = MXFunctionInvoke(
   "TextInput.setChannel",
   ({
     MethodChannel newChannel,
