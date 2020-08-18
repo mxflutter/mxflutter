@@ -124,7 +124,7 @@ class MXJSBridge {
     Completer<String> completer = new Completer<String>();
     MXMirrorFunc.getInstance().invokeWithCallback(args, (result) {
       var returnJsonStr = result;
-      if (result != null && !(result is String)) {
+      if (result != null && !(result is String) && !(result is Future<String>)) {
         returnJsonStr = json.encode(result);
       }
 
