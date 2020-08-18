@@ -31,11 +31,11 @@ abstract class MXMirror {
   dynamic jsonToDartObj(Map jsonMap,
       {MXJsonBuildOwner buildOwner, BuildContext context});
 
-  /// 调用成员函数，通过 callback 返回结果
+  /// 调用函数，通过 callback 返回结果
   void invokeWithCallback(Map jsonMap, void Function(dynamic result) callback,
       {MXJsonBuildOwner buildOwner});
 
-  /// 调用成员函数。直接返回结果
+  /// 调用函数。直接返回结果
   dynamic invoke(Map jsonMap,
       {MXJsonBuildOwner buildOwner, BuildContext context});
 
