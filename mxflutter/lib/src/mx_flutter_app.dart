@@ -210,12 +210,13 @@ class MXJSFlutterApp {
       return;
     }
 
-    // 刷新性能信息记录
-    bool enableProfile = widgetDataMap["enableProfile"];
-    if (enableProfile) {
-      boNode.setProfileInfo(
-          enableProfile, startDecodeDataTime, endDecodeDataTime);
-    }
+    //FIXME : push的场景，是把ProfileInfo设置到了 被push的父节点上了，所以不生效
+//    // 刷新性能信息记录
+//    bool enableProfile = widgetDataMap["enableProfile"];
+//    if (enableProfile) {
+//      boNode.setProfileInfo(
+//          enableProfile, startDecodeDataTime, endDecodeDataTime);
+//    }
 
     boNode.jsCallNavigatorPush(widgetDataMap);
   }
