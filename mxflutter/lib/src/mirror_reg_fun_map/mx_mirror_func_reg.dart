@@ -9,15 +9,14 @@ import 'mx_mirror_widget_func.dart';
 
 /// 启动时调用，把需要注册的函数加到这里
 void registerMirrorFunctions() {
+
+  // 注册通用方法
+  registerMirrorCommonFunc();
+
   // 注册自动生成的widget方法
   registerBuilderWidgetFunc();
-
-  // 注册MXJSStatefulWidget和MXJSStatelessWidget方法
-  registerStateWidgetFunc();
 
   // 注册第三方库widget方法
   registerThirdPartyWidgetFunc();
 
-  // 注册通用方法
-  registerMirrorCommonFunc();
 }
