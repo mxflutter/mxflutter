@@ -20,6 +20,7 @@ class MXMirrorFunc {
   final constReplaceEnumNameStr = "name";
   final constEnumIndexStr = "index";
   final constMirrorIDStr = "mirrorID";
+  final constMirrorObjStr = "mirrorObj";
 
   // funcName到Fun方法的映射表
   var _funcName2FunMap = <String, MXFunctionInvoke>{};
@@ -64,7 +65,7 @@ class MXMirrorFunc {
     if (MXMirrorFunc.getInstance().canInvoke(funcName)) {
       Map<String, dynamic> newArgs = new Map<String, dynamic>();
       dynamic mirrorObj = MXMirrorObject.getInstance().mirrorObject(jsonMap[constMirrorIDStr]);
-      newArgs["mirrorObj"] = mirrorObj;
+      newArgs[constMirrorObjStr] = mirrorObj;
       newArgs[constFuncStr] = funcName;
       newArgs.addAll(jsonMap["args"]);
       result = invoke(newArgs);

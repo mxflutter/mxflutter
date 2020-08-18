@@ -20,16 +20,25 @@ import 'package:dio/src/transformer.dart';
 import 'package:dio/src/response.dart';
 import 'package:dio/src/dio_error.dart';
 import 'package:dio/src/entry/dio_for_native.dart';
+///MX Modified begin
+import 'package:dio/dio.dart';
+import 'package:dio/src/adapters/io_adapter.dart';
 import 'package:mxflutter/src/mx_js_bridge.dart';
+///MX Modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDioSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_dio.funName] = _dio;
+  ///MX Modified begin
   m[_dio_request.funName] = _dio_request;
+  m[_dio_get.funName] = _dio_get;
+  m[_dio_post.funName] = _dio_post;
+  ///MX Modified end
   return m;
 }
 
+///MX Modified begin
 var _dio = MXFunctionInvoke(
   "Dio",
   ({
@@ -37,7 +46,8 @@ var _dio = MXFunctionInvoke(
   }) =>
       Dio(
     options,
-  ),
+  )..interceptors.add(LogInterceptor())
+   ..httpClientAdapter = createAdapter(),
   [
     "options",
   ],
@@ -46,7 +56,6 @@ var _dio = MXFunctionInvoke(
 var _dio_request = MXFunctionInvoke(
   "Dio#request",
   ({
-    // String mirrorID,
     Dio mirrorObj,
     String path,
     dynamic data,
@@ -64,7 +73,6 @@ var _dio_request = MXFunctionInvoke(
       cancelToken: cancelToken,
       onSendProgress: (int count, int total) {
       MXJSBridge.getInstance().invokeJSMirrorObj(
-          // mirrorID: mirrorID,
           callbackID: onSendProgress,
           args: {"count": count, "total": total});
       },
@@ -78,7 +86,6 @@ var _dio_request = MXFunctionInvoke(
     return _responseOBJtoJSON(response);
   },
   [
-    // "mirrorID",
     "mirrorObj",
     "path",
     "data",
@@ -87,6 +94,36 @@ var _dio_request = MXFunctionInvoke(
     "cancelToken",
     "onSendProgress",
     "onReceiveProgress",
+  ],
+);
+
+var _dio_get = MXFunctionInvoke(
+  "Dio#get",
+  ({
+    Dio mirrorObj,
+    String path,
+  }) async {
+    Response response = await mirrorObj.get(path);
+    return response.data;
+  },
+  [
+    "mirrorObj",
+    "path",
+  ],
+);
+
+var _dio_post = MXFunctionInvoke(
+  "Dio#post",
+  ({
+    Dio mirrorObj,
+    String path,
+  }) async {
+    Response response = await mirrorObj.post(path);
+    return response.data;
+  },
+  [
+    "mirrorObj",
+    "path",
   ],
 );
 
@@ -107,3 +144,4 @@ String _responseOBJtoJSON(Response response) {
   String sendStr = json.encode(jsonMap);
   return sendStr;
 }
+///MX Modified end
