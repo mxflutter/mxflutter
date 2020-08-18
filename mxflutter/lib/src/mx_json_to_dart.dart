@@ -16,7 +16,7 @@ import 'mx_build_owner.dart';
 // import 'mx_json_proxy_cupertino.dart';
 import 'mx_common.dart';
 // import 'mx_json_proxy_animation.dart';
-import 'pkg/dio/mx_json_proxy_dio.dart';
+import 'pkg/dio/dio.dart';
 import 'pkg/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
 import 'pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 
@@ -245,7 +245,7 @@ class MXJsonObjToDartObject {
     // registerProxy(
     //     MXProxyRegisterHelperCachedNetworkImageSeries.registerProxys());
     // dio
-    registerProxy(MXProxyRegisterHelperDioSeries.registerProxys());
+    // registerProxy(MXProxyRegisterHelperDioSeries.registerProxys());
   }
 
   void registerProxy(Map<String, CreateJsonObjProxyFun> m) {
