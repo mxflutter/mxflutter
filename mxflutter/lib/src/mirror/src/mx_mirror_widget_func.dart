@@ -1,8 +1,8 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:mxflutter/src/widgets/mx_widgets.dart';
 import 'package:mxflutter/src/widgets/src/packages/flutter/src/foundation/collections.dart';
-import 'package:mxflutter/src/pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
-import 'package:mxflutter/src/pkg/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
+import 'package:mxflutter/src/pkg/cached_network_image/cached_network_image.dart';
+import 'package:mxflutter/src/pkg/pull_to_refresh/pull_to_refresh.dart';
 import 'package:mxflutter/src/mx_json_state_widget.dart';
 import 'package:mxflutter/src/pkg/dio/dio.dart';
 

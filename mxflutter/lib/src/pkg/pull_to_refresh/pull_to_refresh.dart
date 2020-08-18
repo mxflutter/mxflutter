@@ -1,5 +1,5 @@
-import 'src/mx_json_proxy_smart_refresher.dart';
-import 'src/indicator/mx_json_proxy_classic_indicator.dart';
+import 'src/smart_refresher.dart';
+import 'src/indicator/classic_indicator.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 Map<String, MXFunctionInvoke> registerPullToRefreshSeries() {
