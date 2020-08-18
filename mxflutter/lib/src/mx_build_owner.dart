@@ -151,12 +151,12 @@ class MXJsonBuildOwner {
   }
 
   Widget buildRootWidget(Map widgetData) {
-    return MXMirrorFunc.getInstance()
+    return MXMirror.getInstance()
         .jsonToDartObj(widgetData, buildOwner: this);
   }
 
   Widget buildWidgetData(Map widgetData, BuildContext context) {
-    return MXMirrorFunc.getInstance()
+    return MXMirror.getInstance()
         .jsonToDartObj(widgetData, buildOwner: this, context: context);
   }
 
@@ -378,7 +378,7 @@ class MXJsonBuildOwner {
     if (mirrorID == null) {
       return null;
     }
-    return MXMirrorObject.getInstance().mirrorObject(mirrorID);
+    return MXMirror.getInstance().findMirrorObject(mirrorID);
   }
 
   // void setMirrorObject(dynamic mirrorObj, Map jsonMap) {
@@ -393,7 +393,7 @@ class MXJsonBuildOwner {
   // }
 
   void removeMirrorObject(dynamic mirrorID) {
-    MXMirrorObject.getInstance().removeMirrorObject(mirrorID);
+    MXMirror.getInstance().removeMirrorObject(mirrorID);
   }
 
   void disposeMirrorObjs() {
@@ -402,7 +402,7 @@ class MXJsonBuildOwner {
       String className = mirrorObj.runtimeType.toString();
       var funcName = className + "#dispose";
       Map jsonMap = {"mirrorObj": mirrorObj, "funcName": funcName};
-      MXMirrorFunc.getInstance().invoke(jsonMap);
+      MXMirror.getInstance().invoke(jsonMap);
 
       removeMirrorObject(mirrorID);
     });

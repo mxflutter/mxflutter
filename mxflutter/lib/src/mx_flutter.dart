@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 
 import 'mx_flutter_app.dart';
 import './mirror/mx_mirror.dart';
+import './mirror_reg_fun_map/mx_mirror_func_reg.dart';
 import 'mx_js_bridge.dart';
 import 'mx_platform_channel.dart';
 
@@ -101,8 +102,8 @@ class _MXJSFlutter implements MXJSFlutter {
     // 初始化JS Bridge
     MXJSBridge.getInstance();
 
-    // 注册MXMirrorFrameworkFunc方法
-    registerMirrorFrameworkFunc();
+    // 注册可以被JS调用的方法
+    registerMirrorFunctions();
 
     _isSetup = true;
   }
@@ -163,7 +164,7 @@ class _MXJSFlutter implements MXJSFlutter {
 
   /// 清理flutter侧的对象映射
   _clearMX() {
-    MXMirrorObject.getInstance().clearAllMirrorObjects();
+    MXMirror.getInstance().clearAllMirrorObjects();
   }
 
 }

@@ -7,8 +7,8 @@
 import 'mx_mirror_common_func.dart';
 import 'mx_mirror_widget_func.dart';
 
-/// 注册框架方法
-void registerMirrorFrameworkFunc() {
+/// 启动时调用，把需要注册的函数加到这里
+void registerMirrorFunctions() {
   // 注册自动生成的widget方法
   registerBuilderWidgetFunc();
 

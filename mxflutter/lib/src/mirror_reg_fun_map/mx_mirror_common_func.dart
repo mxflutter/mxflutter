@@ -1,6 +1,5 @@
-import 'mx_function_invoke.dart';
-import 'mx_mirror_func.dart';
-import 'mx_mirror_object.dart';
+import '../mirror/mx_mirror.dart';
+
 
 /// 注册common方法
 void registerMirrorCommonFunc() {
@@ -10,10 +9,10 @@ void registerMirrorCommonFunc() {
   var removeMirrorObject = MXFunctionInvoke(
       "MXMirrorObject#removeMirrorObject",
       ({String mirrorID}) =>
-          MXMirrorObject.getInstance().removeMirrorObject(mirrorID));
+          MXMirror.getInstance().removeMirrorObject(mirrorID));
   funMap[removeMirrorObject.funName] = removeMirrorObject;
 
   // 其他方法往这里加
 
-  MXMirrorFunc.getInstance().registerBizFunction(funMap);
+  MXMirror.getInstance().registerFunctions(funMap);
 }

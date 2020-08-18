@@ -324,7 +324,7 @@ var _animatedBuilder = MXFunctionInvoke(
           "\$value": animation.value?.toDouble(),
         };
         Map widgetMap = replaceSpecificValue(widget, targetString, context);
-        return MXMirrorFunc.getInstance().jsonToDartObj(widgetMap);
+        return MXMirror.getInstance().jsonToDartObj(widgetMap);
       }
     },
     // MX modified end
