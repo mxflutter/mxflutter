@@ -20,9 +20,12 @@ Map<String, MXFunctionInvoke> registerSmartRefresherSeries() {
   m[_loadStyle.funName] = _loadStyle;
   m[_iconPosition.funName] = _iconPosition;
   m[_refreshStatus.funName] = _refreshStatus;
-  m[_refreshController_refreshCompleted.funName] = _refreshController_refreshCompleted;
-  m[_refreshController_refreshFailed.funName] = _refreshController_refreshFailed;
-  m[_refreshController_refreshToIdle.funName] = _refreshController_refreshToIdle;
+  m[_refreshController_refreshCompleted.funName] =
+      _refreshController_refreshCompleted;
+  m[_refreshController_refreshFailed.funName] =
+      _refreshController_refreshFailed;
+  m[_refreshController_refreshToIdle.funName] =
+      _refreshController_refreshToIdle;
   m[_refreshController_loadComplete.funName] = _refreshController_loadComplete;
   m[_refreshController_loadFailed.funName] = _refreshController_loadFailed;
   m[_refreshController_loadNoData.funName] = _refreshController_loadNoData;
@@ -32,10 +35,9 @@ Map<String, MXFunctionInvoke> registerSmartRefresherSeries() {
 }
 
 var _loadStatus = MXFunctionInvoke(
-  "LoadStatus",
-  ({String name, int index}) => MXLoadStatus.parse(name, index),
-  ["name", "index"]
-);
+    "LoadStatus",
+    ({String name, int index}) => MXLoadStatus.parse(name, index),
+    ["name", "index"]);
 
 class MXLoadStatus {
   static LoadStatus parse(String name, int index) {
@@ -56,145 +58,148 @@ class MXLoadStatus {
 }
 
 var _refreshConfiguration = MXFunctionInvoke(
-  "RefreshConfiguration",
+    "RefreshConfiguration",
+    ({
+      Widget child,
+      dynamic headerBuilder,
+      dynamic footerBuilder,
+      dynamic dragSpeedRatio: 1.0,
+      dynamic shouldFooterFollowWhenNotFull,
+      bool enableScrollWhenTwoLevel: true,
+      bool enableLoadingWhenNoData: false,
+      bool enableBallisticRefresh: false,
+      SpringDescription springDescription: const SpringDescription(
+        mass: 2.2,
+        stiffness: 150,
+        damping: 16,
+      ),
+      bool enableScrollWhenRefreshCompleted: false,
+      bool enableLoadingWhenFailed: true,
+      dynamic twiceTriggerDistance: 150.0,
+      dynamic closeTwoLevelDistance: 80.0,
+      bool skipCanRefresh: false,
+      bool autoLoad: true,
+      dynamic maxOverScrollExtent,
+      bool enableBallisticLoad: true,
+      dynamic maxUnderScrollExtent,
+      dynamic headerTriggerDistance: 80.0,
+      dynamic footerTriggerDistance: 15.0,
+      bool hideFooterWhenNotFull: false,
+      dynamic topHitBoundary,
+      dynamic bottomHitBoundary,
+      dynamic headerBuilderChild,
+      dynamic footerBuilderChild,
+    }) =>
+        RefreshConfiguration(
+          child: child,
+          headerBuilder: () {
+            return headerBuilderChild;
+          },
+          footerBuilder: () {
+            return footerBuilderChild;
+          },
+          dragSpeedRatio: dragSpeedRatio?.toDouble(),
+          shouldFooterFollowWhenNotFull: createGenericValueGenericClosure(
+              _refreshConfiguration.buildOwner, shouldFooterFollowWhenNotFull),
+          enableScrollWhenTwoLevel: enableScrollWhenTwoLevel,
+          enableLoadingWhenFailed: enableLoadingWhenFailed,
+          enableBallisticRefresh: enableBallisticRefresh,
+          springDescription: springDescription,
+          enableScrollWhenRefreshCompleted: enableScrollWhenRefreshCompleted,
+          enableLoadingWhenNoData: enableLoadingWhenNoData,
+          twiceTriggerDistance: twiceTriggerDistance?.toDouble(),
+          closeTwoLevelDistance: closeTwoLevelDistance?.toDouble(),
+          skipCanRefresh: skipCanRefresh,
+          autoLoad: true,
+          maxOverScrollExtent: maxOverScrollExtent,
+          enableBallisticLoad: enableBallisticLoad,
+          maxUnderScrollExtent: maxUnderScrollExtent,
+          headerTriggerDistance: headerTriggerDistance?.toDouble(),
+          footerTriggerDistance: footerTriggerDistance?.toDouble(),
+          hideFooterWhenNotFull: hideFooterWhenNotFull,
+          topHitBoundary: topHitBoundary,
+          bottomHitBoundary: bottomHitBoundary,
+        ),
+    [
+      "child",
+      "headerBuilder",
+      "footerBuilder",
+      "dragSpeedRatio",
+      "shouldFooterFollowWhenNotFull",
+      "enableScrollWhenTwoLevel",
+      "enableLoadingWhenFailed",
+      "enableBallisticRefresh",
+      "springDescription",
+      "enableScrollWhenRefreshCompleted",
+      "enableLoadingWhenNoData",
+      "twiceTriggerDistance",
+      "closeTwoLevelDistance",
+      "skipCanRefresh",
+      "autoLoad",
+      "maxOverScrollExtent",
+      "enableBallisticLoad",
+      "maxUnderScrollExtent",
+      "headerTriggerDistance",
+      "footerTriggerDistance",
+      "hideFooterWhenNotFull",
+      "topHitBoundary",
+      "bottomHitBoundary",
+    ]);
+
+var _smartRefresher = MXFunctionInvoke(
+  "SmartRefresher",
   ({
+    Key key,
+    dynamic controller,
     Widget child,
-    dynamic headerBuilder,
-    dynamic footerBuilder,
-    dynamic dragSpeedRatio: 1.0,
-    dynamic shouldFooterFollowWhenNotFull,
-    bool enableScrollWhenTwoLevel: true,
-    bool enableLoadingWhenNoData: false,
-    bool enableBallisticRefresh: false,
-    SpringDescription springDescription: const SpringDescription(
-      mass: 2.2,
-      stiffness: 150,
-      damping: 16,
-    ),
-    bool enableScrollWhenRefreshCompleted: false,
-    bool enableLoadingWhenFailed: true,
-    dynamic twiceTriggerDistance: 150.0,
-    dynamic closeTwoLevelDistance: 80.0,
-    bool skipCanRefresh: false,
-    bool autoLoad: true,
-    dynamic maxOverScrollExtent,
-    bool enableBallisticLoad: true,
-    dynamic maxUnderScrollExtent,
-    dynamic headerTriggerDistance: 80.0,
-    dynamic footerTriggerDistance: 15.0,
-    bool hideFooterWhenNotFull: false,
-    dynamic topHitBoundary,
-    dynamic bottomHitBoundary,
-    dynamic headerBuilderChild,
-    dynamic footerBuilderChild,
-  }) =>
-      RefreshConfiguration(
-    child: child,
-    headerBuilder: () {
-      return headerBuilderChild;
-    },
-    footerBuilder: () {
-      return footerBuilderChild;
-    },
-    dragSpeedRatio: dragSpeedRatio?.toDouble(),
-    shouldFooterFollowWhenNotFull: createGenericValueGenericClosure(
-        _refreshConfiguration.buildOwner, shouldFooterFollowWhenNotFull),
-    enableScrollWhenTwoLevel: enableScrollWhenTwoLevel,
-    enableLoadingWhenFailed: enableLoadingWhenFailed,
-    enableBallisticRefresh: enableBallisticRefresh,
-    springDescription: springDescription,
-    enableScrollWhenRefreshCompleted: enableScrollWhenRefreshCompleted,
-    enableLoadingWhenNoData: enableLoadingWhenNoData,
-    twiceTriggerDistance: twiceTriggerDistance?.toDouble(),
-    closeTwoLevelDistance: closeTwoLevelDistance?.toDouble(),
-    skipCanRefresh: skipCanRefresh,
-    autoLoad: true,
-    maxOverScrollExtent: maxOverScrollExtent,
-    enableBallisticLoad: enableBallisticLoad,
-    maxUnderScrollExtent: maxUnderScrollExtent,
-    headerTriggerDistance: headerTriggerDistance?.toDouble(),
-    footerTriggerDistance: footerTriggerDistance?.toDouble(),
-    hideFooterWhenNotFull: hideFooterWhenNotFull,
-    topHitBoundary: topHitBoundary,
-    bottomHitBoundary: bottomHitBoundary,
-  ),
-  [
-    "child",
-    "headerBuilder",
-    "footerBuilder",
-    "dragSpeedRatio",
-    "shouldFooterFollowWhenNotFull",
-    "enableScrollWhenTwoLevel",
-    "enableLoadingWhenFailed",
-    "enableBallisticRefresh",
-    "springDescription",
-    "enableScrollWhenRefreshCompleted",
-    "enableLoadingWhenNoData",
-    "twiceTriggerDistance",
-    "closeTwoLevelDistance",
-    "skipCanRefresh",
-    "autoLoad",
-    "maxOverScrollExtent",
-    "enableBallisticLoad",
-    "maxUnderScrollExtent",
-    "headerTriggerDistance",
-    "footerTriggerDistance",
-    "hideFooterWhenNotFull",
-    "topHitBoundary",
-    "bottomHitBoundary",
-  ]
-);
+    dynamic header,
+    dynamic footer,
+    bool enablePullDown: true,
+    bool enablePullUp: false,
+    bool enableTwoLevel: false,
+    dynamic onRefresh,
+    dynamic onLoading,
+    dynamic onTwoLevel,
+    dynamic onOffsetChange,
+    dynamic dragStartBehavior,
+    bool primary,
+    dynamic cacheExtent,
+    dynamic semanticChildCount,
+    bool reverse,
+    ScrollPhysics physics,
+    Axis scrollDirection,
+    ScrollController scrollController,
+  }) {
+    if (header == null) header = ClassicHeader();
+    if (footer == null) header = ClassicFooter();
 
-var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
-  Key key,
-  dynamic controller,
-  Widget child,
-  dynamic header,
-  dynamic footer,
-  bool enablePullDown: true,
-  bool enablePullUp: false,
-  bool enableTwoLevel: false,
-  dynamic onRefresh,
-  dynamic onLoading,
-  dynamic onTwoLevel,
-  dynamic onOffsetChange,
-  dynamic dragStartBehavior,
-  bool primary,
-  dynamic cacheExtent,
-  dynamic semanticChildCount,
-  bool reverse,
-  ScrollPhysics physics,
-  Axis scrollDirection,
-  ScrollController scrollController,
-}) {
-  if (header == null) header = ClassicHeader();
-  if (footer == null) header = ClassicFooter();
-
-  return SmartRefresher(
-    key: key,
-    controller: controller,
-    child: child,
-    header: header,
-    footer: footer,
-    enablePullDown: enablePullDown,
-    enablePullUp: enablePullUp,
-    enableTwoLevel: enableTwoLevel,
-    onRefresh: createVoidCallbackClosure(_smartRefresher.buildOwner, onRefresh),
-    onLoading: createVoidCallbackClosure(_smartRefresher.buildOwner, onLoading),
-    onTwoLevel:
-        createVoidCallbackClosure(_smartRefresher.buildOwner, onTwoLevel),
-    onOffsetChange:
-        createVoidTwoParamsClosure(_smartRefresher.buildOwner, onOffsetChange),
-    dragStartBehavior: dragStartBehavior,
-    primary: primary,
-    cacheExtent: cacheExtent?.toDouble(),
-    semanticChildCount: semanticChildCount?.toInt(),
-    reverse: reverse,
-    physics: physics,
-    scrollDirection: scrollDirection,
-    scrollController: scrollController,
-  );
-},
+    return SmartRefresher(
+      key: key,
+      controller: controller,
+      child: child,
+      header: header,
+      footer: footer,
+      enablePullDown: enablePullDown,
+      enablePullUp: enablePullUp,
+      enableTwoLevel: enableTwoLevel,
+      onRefresh:
+          createVoidCallbackClosure(_smartRefresher.buildOwner, onRefresh),
+      onLoading:
+          createVoidCallbackClosure(_smartRefresher.buildOwner, onLoading),
+      onTwoLevel:
+          createVoidCallbackClosure(_smartRefresher.buildOwner, onTwoLevel),
+      onOffsetChange: createVoidTwoParamsClosure(
+          _smartRefresher.buildOwner, onOffsetChange),
+      dragStartBehavior: dragStartBehavior,
+      primary: primary,
+      cacheExtent: cacheExtent?.toDouble(),
+      semanticChildCount: semanticChildCount?.toInt(),
+      reverse: reverse,
+      physics: physics,
+      scrollDirection: scrollDirection,
+      scrollController: scrollController,
+    );
+  },
   [
     "key",
     "controller",
@@ -220,10 +225,9 @@ var _smartRefresher = MXFunctionInvoke("SmartRefresher", ({
 );
 
 var _loadStyle = MXFunctionInvoke(
-  "LoadStatus",
-  ({String name, int index}) => MXLoadStyle.parse(name, index),
-  ["name", "index"]
-);
+    "LoadStatus",
+    ({String name, int index}) => MXLoadStyle.parse(name, index),
+    ["name", "index"]);
 
 class MXLoadStyle {
   static LoadStyle parse(String name, int index) {
@@ -240,10 +244,9 @@ class MXLoadStyle {
 }
 
 var _iconPosition = MXFunctionInvoke(
-  "IconPosition",
-  ({String name, int index}) => MXIconPosition.parse(name, index),
-  ["name", "index"]
-);
+    "IconPosition",
+    ({String name, int index}) => MXIconPosition.parse(name, index),
+    ["name", "index"]);
 
 class MXIconPosition {
   static IconPosition parse(String name, int index) {
@@ -262,10 +265,9 @@ class MXIconPosition {
 }
 
 var _refreshStatus = MXFunctionInvoke(
-  "RefreshStatus",
-  ({String name, int index}) => MXRefreshStatus.parse(name, index),
-  ["name", "index"]
-);
+    "RefreshStatus",
+    ({String name, int index}) => MXRefreshStatus.parse(name, index),
+    ["name", "index"]);
 
 class MXRefreshStatus {
   static RefreshStatus parse(String name, int index) {

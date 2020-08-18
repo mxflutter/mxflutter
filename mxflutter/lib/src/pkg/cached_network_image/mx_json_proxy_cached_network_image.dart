@@ -42,7 +42,6 @@ var _cachedNetworkImage = MXFunctionInvoke(
     FilterQuality filterQuality = FilterQuality.low,
     BlendMode colorBlendMode,
     Duration placeholderFadeInDuration,
-
     dynamic placeholderChild,
   }) =>
       CachedNetworkImage(
