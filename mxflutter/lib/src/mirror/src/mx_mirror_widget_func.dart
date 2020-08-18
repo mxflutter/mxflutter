@@ -4,6 +4,7 @@ import 'package:mxflutter/src/widgets/src/packages/flutter/src/foundation/collec
 import 'package:mxflutter/src/pkg/cached_network_image/mx_json_proxy_cached_network_image.dart';
 import 'package:mxflutter/src/pkg/pull_to_refresh/mx_json_proxy_pull_to_refresh.dart';
 import 'package:mxflutter/src/mx_json_state_widget.dart';
+import 'package:mxflutter/src/pkg/dio/dio.dart';
 
 /// 注册自动生成的widget方法
 void registerBuilderWidgetFunc() {
@@ -63,4 +64,7 @@ void registerThirdPartyWidgetFunc() {
 
   // pull_to_refresh
   MXMirrorFunc.getInstance().registerBizFunction(registerPullToRefreshSeries());
+
+  // dio
+  MXMirrorFunc.getInstance().registerBizFunction(registerDioLibrarySeries());
 }
