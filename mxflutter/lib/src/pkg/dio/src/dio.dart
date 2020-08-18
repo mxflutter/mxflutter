@@ -20,6 +20,7 @@ import 'package:dio/src/transformer.dart';
 import 'package:dio/src/response.dart';
 import 'package:dio/src/dio_error.dart';
 import 'package:dio/src/entry/dio_for_native.dart';
+import 'package:mxflutter/src/mx_js_bridge.dart';
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDioSeries() {
@@ -45,6 +46,7 @@ var _dio = MXFunctionInvoke(
 var _dio_request = MXFunctionInvoke(
   "Dio#request",
   ({
+    // String mirrorID,
     Dio mirrorObj,
     String path,
     dynamic data,
@@ -60,12 +62,23 @@ var _dio_request = MXFunctionInvoke(
       queryParameters: queryParameters,
       options: options,
       cancelToken: cancelToken,
-      // onSendProgress: createVoidTwoParamsClosure(_dio_request.buildOwner, onSendProgress),
-      // onReceiveProgress: createVoidTwoParamsClosure(_dio_request.buildOwner, onReceiveProgress),
+      onSendProgress: (int count, int total) {
+      MXJSBridge.getInstance().invokeJSMirrorObj(
+          // mirrorID: mirrorID,
+          callbackID: onSendProgress,
+          args: {"count": count, "total": total});
+      },
+      onReceiveProgress: (int count, int total) {
+      MXJSBridge.getInstance().invokeJSMirrorObj(
+          // mirrorID: mirrorID,
+          callbackID: onSendProgress,
+          args: {"count": count, "total": total});
+      },
     );
     return _responseOBJtoJSON(response);
   },
   [
+    // "mirrorID",
     "mirrorObj",
     "path",
     "data",
