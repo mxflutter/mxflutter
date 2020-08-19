@@ -325,7 +325,7 @@ class MXJsonBuildOwner {
 
     ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
   }
-  
+
   String debugBuildOwnerNodeTreeText(){
 
     var log = '{Element WidgetName:${widget?.name} ,WidgetId:${widget?.widgetID},state.WidgetId:${state?.widget?.widgetID}';
