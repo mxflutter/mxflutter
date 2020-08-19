@@ -55,10 +55,6 @@ class MXJsonBuildOwner {
   /// MXJSWidget 保存JS侧相关的成员变量
   List<String> _mirrorObjKeyList = [];
 
-  /// Debug下，获取刷新性能数据
-  bool _enableProfile;
-  Map _profileInfo;
-
   /// TODO: 暂时先打日志看下
   reset(MXJSStatefulWidget old) {
     MXJSLog.debug("MXJsonBuildOwner:reset: "
@@ -293,15 +289,22 @@ class MXJsonBuildOwner {
 
     String parentWidgetID = _parent?.ownerWidgetId;
 
+    // 填充性能监控数据
+    var profileInfoKey = '$ownerWidgetId-$widgetBuildDataSeq';
+    var profileInfo =  ownerApp.buildProfileInfoMap[profileInfoKey];
+
     MethodCall jsMethodCall;
-    if (this._enableProfile == true) {
-      this._profileInfo["buildEndTime"] =
+    if (profileInfo != null) {
+      profileInfo["buildEndTime"] =
           (new DateTime.now()).millisecondsSinceEpoch;
+
+      ownerApp.buildProfileInfoMap.remove(profileInfoKey);
+
       jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
         "widgetID": ownerWidgetId,
         "buildSeq": widgetBuildDataSeq,
         "rootWidgetID": parentWidgetID,
-        "profileInfo": this._profileInfo,
+        "profileInfo": profileInfo,
       });
     } else {
       jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
@@ -322,17 +325,7 @@ class MXJsonBuildOwner {
 
     ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
   }
-
-  void setProfileInfo(enableProfile, startDecodeDataTime, endDecodeDataTime) {
-    _enableProfile = enableProfile;
-    if (_enableProfile) {
-      _profileInfo = {
-        "startDecodeDataTime": startDecodeDataTime,
-        "endDecodeDataTime": endDecodeDataTime
-      };
-    }
-  }
-
+  
   String debugBuildOwnerNodeTreeText(){
 
     var log = '{Element WidgetName:${widget?.name} ,WidgetId:${widget?.widgetID},state.WidgetId:${state?.widget?.widgetID}';

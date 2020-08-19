@@ -26,6 +26,9 @@ class MXJSFlutterApp {
   /// widget build owner ：rootBoNode
   MXJsonBuildOwner _rootBuildOwnerNode;
 
+  /// 缓存性能监控数据<widgetId-buildSeq: profileInfoMap>
+  Map<String, Map> buildProfileInfoMap = {};
+
   /// API JS->Flutter
   /// *重要：此API是从Flutter侧打开一个JS页面的入口函数
   /// 从 Flutter Push 一个 JS 写的页面
@@ -176,8 +179,14 @@ class MXJSFlutterApp {
     // 刷新性能信息记录
     bool enableProfile = widgetDataMap["enableProfile"];
     if (enableProfile) {
-      boNode.setProfileInfo(
-          enableProfile, startDecodeDataTime, endDecodeDataTime);
+      String widgetId = widgetDataMap["widgetID"];
+      String buildWidgetDataSeq = widgetDataMap["buildWidgetDataSeq"];
+
+      buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'] = {
+        'enableProfile': enableProfile,
+        'startDecodeDataTime': startDecodeDataTime,
+        'endDecodeDataTime': endDecodeDataTime
+      };
     }
 
     MXJSLog.log("MXJSFlutterApp:_jsCallRebuild: "
@@ -210,13 +219,18 @@ class MXJSFlutterApp {
       return;
     }
 
-    //FIXME : push的场景，是把ProfileInfo设置到了 被push的父节点上了，所以不生效
-//    // 刷新性能信息记录
-//    bool enableProfile = widgetDataMap["enableProfile"];
-//    if (enableProfile) {
-//      boNode.setProfileInfo(
-//          enableProfile, startDecodeDataTime, endDecodeDataTime);
-//    }
+    // 刷新性能信息记录
+    bool enableProfile = widgetDataMap["enableProfile"];
+    if (enableProfile) {
+      String widgetId = widgetDataMap["widgetID"];
+      String buildWidgetDataSeq = widgetDataMap["buildWidgetDataSeq"];
+
+      buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'] = {
+        'enableProfile': enableProfile,
+        'startDecodeDataTime': startDecodeDataTime,
+        'endDecodeDataTime': endDecodeDataTime
+      };
+    }
 
     boNode.jsCallNavigatorPush(widgetDataMap);
   }
