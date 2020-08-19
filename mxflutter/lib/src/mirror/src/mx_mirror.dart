@@ -87,6 +87,13 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   /// Map 里如果带mirrorId 字段，则会加入到MirrogObj管理其生命周期，如果不带则由外部管理
   dynamic jsonToDartObj(Map jsonMap,
       {MXJsonBuildOwner buildOwner, BuildContext context}) {
+
+    // 首先判断是否存在mirrorObject
+    var mirrorObject = findMirrorObject(jsonMap[constMirrorIDStr]);
+    if (mirrorObject != null) {
+      return mirrorObject;
+    }
+
     String funcName = _constructorFuncName(jsonMap);
     if (canInvoke(funcName)) {
       Map<String, dynamic> newJsonMap = Map.from(jsonMap);
@@ -118,11 +125,6 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   /// 调用函数。直接返回结果
   dynamic invoke(Map jsonMap,
       {MXJsonBuildOwner buildOwner, BuildContext context}) {
-    // 首先判断是否存在mirrorObject
-    var mirrorObject = findMirrorObject(jsonMap[constMirrorIDStr]);
-    if (mirrorObject != null) {
-      return mirrorObject;
-    }
 
     // 判断是否存在fun字段
     if (jsonMap[constFuncStr] == null) {
