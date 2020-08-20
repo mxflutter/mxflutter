@@ -136,18 +136,23 @@ public class MXJSFlutterEngine {
                 LogUtilsKt.MXJSFlutterLog("jsAppPath == null", "");
                 return;
             }
-            if (jsAppSearchPathList != null && jsAppSearchPathList.size() > 0)
-                searchList.addAll(jsAppSearchPathList);
-            if (jsAppSearchPathWithAssetsKeyList != null && jsAppSearchPathWithAssetsKeyList.size() > 0) {
-                for (String searchPathAssetKey : jsAppSearchPathWithAssetsKeyList) {
-                    String path = mContext.mFlutterPluginBinding.getFlutterAssets().getAssetFilePathByName(searchPathAssetKey);
-                    if (!TextUtils.isEmpty(path)) {
-                        searchList.add(path);
-                    }
+        }
+        if (jsAppSearchPathList != null && jsAppSearchPathList.size() > 0)
+            searchList.addAll(jsAppSearchPathList);
+        if (jsAppSearchPathWithAssetsKeyList != null && jsAppSearchPathWithAssetsKeyList.size() > 0) {
+            for (String searchPathAssetKey : jsAppSearchPathWithAssetsKeyList) {
+                String path;
+                if(FileUtils.isCopiedFileFromAssets(mContext.mFlutterPluginBinding.getApplicationContext())){
+                    path = searchPathAssetKey;
+                }else {
+                    path = mContext.mFlutterPluginBinding.getFlutterAssets().getAssetFilePathByName(searchPathAssetKey);
+                }
+                if (!TextUtils.isEmpty(path) && !searchList.contains(path)) {
+                    searchList.add(path);
                 }
             }
-            jsAppSearchPathList = new ArrayList<>(searchList);
         }
+        jsAppSearchPathList = new ArrayList<>(searchList);
 
         if (currentApp != null) {
             currentApp.close();
