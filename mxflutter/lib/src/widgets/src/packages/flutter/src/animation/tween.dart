@@ -33,6 +33,9 @@ var _tween = MXFunctionInvoke(
     dynamic begin,
     dynamic end,
   }) =>
+    /// TODO: Tween()会默认生成Tween<dynamic>的类型, 而动画中需要Tween<T>的指定类型
+    /// 例如slideTransition中需要Tween<Offset> scaleTransition中需要Tween<double>
+    /// 将生成的Tween<dynamic>直接传入将产生Tween<dynamic>并非Tween<Offset>子类的错误
       Tween(
     begin: begin,
     end: end,
