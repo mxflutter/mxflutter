@@ -91,8 +91,9 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       Map jsonMap = json;
 
       // 尝试转换成DartObj
-      var dartObj = _map2DartObject(jsonMap);
-      if (dartObj) {
+      var dartObj =
+          _map2DartObject(jsonMap, buildOwner: buildOwner, context: context);
+      if (dartObj != null) {
         return dartObj;
       }
 
@@ -186,7 +187,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       var namedArguments = <Symbol, dynamic>{};
 
       // 如果没有参数校验列表，则使用传进来的Map的，由调用者保证
-      List propsName = fi.propsName ?? argsMap.keys;
+      List propsName = fi.propsName ?? [];
       List noJ2DProps = fi.noJ2DProps;
 
       for (var name in propsName) {
