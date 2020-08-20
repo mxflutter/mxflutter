@@ -8,15 +8,15 @@ import 'mx_mirror_common_func.dart';
 import 'mx_mirror_widget_func.dart';
 
 /// 启动时调用，把需要注册的函数加到这里
-void registerMirrorFunctions() {
+void mxRegisterMirrorFunctions() {
 
   // 注册通用方法
-  registerMirrorCommonFunc();
+  mxRegisterMirrorCommonFunc();
 
   // 注册自动生成的widget方法
-  registerBuilderWidgetFunc();
+  mxRegisterBuilderWidgetFunc();
 
   // 注册第三方库widget方法
-  registerThirdPartyWidgetFunc();
+  mxRegisterThirdPartyWidgetFunc();
 
 }

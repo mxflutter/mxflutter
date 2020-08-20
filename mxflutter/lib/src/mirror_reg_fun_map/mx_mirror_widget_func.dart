@@ -5,7 +5,7 @@ import 'package:mxflutter/src/pkg/pull_to_refresh/pull_to_refresh.dart';
 import 'package:mxflutter/src/pkg/dio/dio.dart';
 
 /// 注册自动生成的widget方法
-void registerBuilderWidgetFunc() {
+void mxRegisterBuilderWidgetFunc() {
   // mx_dart_sdk
   MXMirror.getInstance().registerFunctions(registerMxDartSdkSeries());
 
@@ -50,7 +50,7 @@ void registerBuilderWidgetFunc() {
 
 
 /// 注册第三方库方法
-void registerThirdPartyWidgetFunc() {
+void mxRegisterThirdPartyWidgetFunc() {
   // cache_network_image
   MXMirror.getInstance()
       .registerFunctions(registerCachedNetworkImageSeries());
