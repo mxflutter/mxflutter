@@ -31,9 +31,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  assets:
+#  assets:
     #mxflutter_js_framework
-    - js_lib/
+#    - js_lib/
 #    - js_lib/framework/
 #    - js_lib/framework/material/
 #    - js_lib/framework/message_channel/

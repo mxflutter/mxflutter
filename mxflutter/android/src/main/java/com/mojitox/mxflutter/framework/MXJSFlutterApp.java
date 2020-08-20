@@ -116,13 +116,13 @@ public class MXJSFlutterApp {
             jsEngine.addSearchDir(appSearchPath);
         }
 
-        String jsBasicLibPath = jsFlutterEngine.mJsFrameworkPath + "/framework/js_basic_lib.js";
-        jsExecutor.executeScriptPath(jsBasicLibPath, new MXJSExecutor.ExecuteScriptCallback() {
-            @Override
-            public void onComplete(Object value) {
-
-            }
-        });
+//        String jsBasicLibPath = jsFlutterEngine.mJsFrameworkPath + "/framework/js_basic_lib.js";
+//        jsExecutor.executeScriptPath(jsBasicLibPath, new MXJSExecutor.ExecuteScriptCallback() {
+//            @Override
+//            public void onComplete(Object value) {
+//
+//            }
+//        });
     }
 
     //flutter --> js
@@ -210,13 +210,8 @@ public class MXJSFlutterApp {
         jsExecutor.executeScriptPath(rootPath + "/main.js", new MXJSExecutor.ExecuteScriptCallback() {
             @Override
             public void onComplete(Object value) {
-                jsExecutor.executeScript("main()", new MXJSExecutor.ExecuteScriptCallback() {
-                    @Override
-                    public void onComplete(Object value) {
-                        isJSAPPRun = true;
-                        callJSMethodCallQueqe();
-                    }
-                });
+                isJSAPPRun = true;
+                callJSMethodCallQueqe();
             }
         });
     }
