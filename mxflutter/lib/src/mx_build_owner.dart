@@ -395,7 +395,7 @@ class MXJsonBuildOwner {
       String className = mirrorObj.runtimeType.toString();
       var funcName = className + "#dispose";
       Map jsonMap = {"mirrorObj": mirrorObj, "funcName": funcName};
-      MXMirror.getInstance().invoke(jsonMap);
+      MXMirror.getInstance().invokeWithCallback(jsonMap,null);
 
       removeMirrorObject(mirrorID);
     });

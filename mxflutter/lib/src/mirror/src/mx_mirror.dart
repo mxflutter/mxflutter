@@ -37,9 +37,9 @@ abstract class MXMirror {
   void invokeWithCallback(Map jsonMap, void Function(dynamic result) callback,
       {MXJsonBuildOwner buildOwner});
 
-  /// 调用函数。直接返回结果
-  dynamic invoke(Map jsonMap,
-      {MXJsonBuildOwner buildOwner, BuildContext context});
+//  /// 调用函数。直接返回结果
+//  dynamic invoke(Map jsonMap,
+//      {MXJsonBuildOwner buildOwner, BuildContext context});
 
   /// 获取 Map 中的 mirrorId
   String mirrorId(Map jsonMap);
@@ -85,37 +85,81 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   /// 通过 Json Map 生成Dart Object
   /// 通过函数映射表，找到构造函数，调用生成Dart Object
   /// Map 里如果带mirrorId 字段，则会加入到MirrogObj管理其生命周期，如果不带则由外部管理
-  dynamic jsonToDartObj(Map jsonMap,
+  dynamic jsonToDartObj(dynamic json,
       {MXJsonBuildOwner buildOwner, BuildContext context}) {
+    if (json is Map) {
+      Map jsonMap = json;
 
-    // 首先判断是否存在mirrorObject
-    var mirrorObject = findMirrorObject(jsonMap[constMirrorIDStr]);
-    if (mirrorObject != null) {
-      return mirrorObject;
+      // 尝试转换成DartObj
+      var dartObj = _map2DartObject(jsonMap);
+      if (dartObj) {
+        return dartObj;
+      }
+
+      // 当作普通Map对象，递归转换Map的元素
+      Map resultMap = {};
+      jsonMap.forEach((k, v) {
+        resultMap[k] =
+            jsonToDartObj(v, buildOwner: buildOwner, context: context);
+      });
+      return resultMap;
+    } else if (json is List) {
+      List resultList = [];
+      for (var element in json) {
+        var object =
+            jsonToDartObj(element, buildOwner: buildOwner, context: context);
+        resultList.add(object);
+      }
+      return resultList;
+    } else {
+      return json;
+    }
+  }
+
+  _map2DartObject(Map jsonMap,
+      {MXJsonBuildOwner buildOwner, BuildContext context}) {
+    // 首先判断是否存在mirrorObjec缓存
+    String mirrorId = jsonMap[constMirrorIDStr];
+    if (mirrorId != null) {
+      var mirrorObject = findMirrorObject(mirrorId);
+      if (mirrorObject != null) {
+        return mirrorObject;
+      }
     }
 
-    String funcName = _constructorFuncName(jsonMap);
-    if (canInvoke(funcName)) {
-      Map<String, dynamic> newJsonMap = Map.from(jsonMap);
-      newJsonMap[constFuncStr] = funcName;
-      return invoke(newJsonMap, buildOwner: buildOwner, context: context);
+    // 尝试转换成DartObj
+    String funcName = jsonMap[constFuncStr];
+    if (funcName == null) {
+      funcName = _constructorFuncName(jsonMap);
+      if (funcName == null) {
+        return null;
+      }
     }
-    return null;
+
+    var obj =
+        _invoke(funcName, jsonMap, buildOwner: buildOwner, context: context);
+    // 如果设置mirror对象
+
+    if (mirrorId != null) {
+      addMirrorObject(mirrorId, obj);
+    }
+    return obj;
   }
 
   /// 调用函数，通过 callback 返回结果
+  /// 调用成员函数，第一个参数是 constMirrorObjStr
   void invokeWithCallback(Map jsonMap, void Function(dynamic result) callback,
       {MXJsonBuildOwner buildOwner}) {
     var result;
     String funcName = objectFuncName(jsonMap);
-    if (canInvoke(funcName)) {
-      Map<String, dynamic> newArgs = new Map<String, dynamic>();
-      dynamic mirrorObj = findMirrorObject(jsonMap[constMirrorIDStr]);
-      newArgs[constMirrorObjStr] = mirrorObj;
-      newArgs[constFuncStr] = funcName;
-      newArgs.addAll(jsonMap["args"]);
-      result = invoke(newArgs);
+    Map args = jsonMap["args"];
+
+    dynamic mirrorObj = findMirrorObject(jsonMap[constMirrorIDStr]);
+    if (mirrorObj != null) {
+      args[constMirrorObjStr] = mirrorObj;
     }
+
+    result = _invoke(funcName, args);
 
     if (callback != null) {
       callback(result);
@@ -123,47 +167,45 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   }
 
   /// 调用函数。直接返回结果
-  dynamic invoke(Map jsonMap,
+  dynamic _invoke(String funcName, Map argsMap,
       {MXJsonBuildOwner buildOwner, BuildContext context}) {
-
     // 判断是否存在fun字段
-    if (jsonMap[constFuncStr] == null) {
+    if (funcName == null) {
       return null;
     }
 
-    String funcName = jsonMap[constFuncStr];
-    _handleJsonData(jsonMap);
     MXFunctionInvoke fi = _funcName2FunMap[funcName];
+    if (fi == null) {
+      return null;
+    }
+
     fi.buildOwner = buildOwner;
     fi.context = context;
 
     try {
       var namedArguments = <Symbol, dynamic>{};
-      List propsName = fi.propsName;
-      List noJ2DProps = fi.noJ2DProps;
-      if (propsName != null) {
-        for (var name in propsName) {
-          // 参数为空，直接返回
-          if (jsonMap[name] == null) {
-            continue;
-          }
 
-          // 判断是否需要将属性进行转换
-          if (noJ2DProps != null && noJ2DProps.contains(name)) {
-            namedArguments[Symbol(name)] = jsonMap[name];
-          } else {
-            namedArguments[Symbol(name)] = _jsonToObject(jsonMap[name],
-                buildOwner: buildOwner, context: context);
-          }
+      // 如果没有参数校验列表，则使用传进来的Map的，由调用者保证
+      List propsName = fi.propsName ?? argsMap.keys;
+      List noJ2DProps = fi.noJ2DProps;
+
+      for (var name in propsName) {
+        if (argsMap[name] == null) {
+          continue;
+        }
+
+        // 判断是否需要将属性进行转换
+        if (noJ2DProps != null && noJ2DProps.contains(name)) {
+          namedArguments[Symbol(name)] = argsMap[name];
+        } else {
+          namedArguments[Symbol(name)] = jsonToDartObj(argsMap[name],
+              buildOwner: buildOwner, context: context);
         }
       }
-      // 为方便处理，此处都使用命名参数，不用位置参数
+
       var result = fi.apply(namedArguments);
       fi.buildOwner = null;
-
-      // 设置mirror对象
-      addMirrorObject(jsonMap[constMirrorIDStr], result);
-
+      fi.context = null;
       return result;
     } catch (e) {
       // MXJSLog.error(
@@ -187,6 +229,10 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       return null;
     }
 
+    if (className == null && funcName != null) {
+      return funcName;
+    }
+
     return className + "#" + funcName;
   }
 
@@ -206,60 +252,12 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     // 枚举
     else if (_isEnumType(jsonMap)) {
       String name = jsonMap[constEnumNameStr];
+      jsonMap[constReplaceEnumNameStr] = name;
+
       List strList = name.split('.');
       return strList[0];
     }
     return className;
-  }
-
-  /// 处理Json数据
-  void _handleJsonData(Map jsonMap) {
-    // 移除框架添加的funcName
-    jsonMap.remove(constFuncStr);
-
-    // 针对枚举类型，把_name替换成name
-    if (_isEnumType(jsonMap)) {
-      jsonMap[constReplaceEnumNameStr] = jsonMap[constEnumNameStr];
-      jsonMap.remove(constEnumNameStr);
-    }
-  }
-
-  /// 将json转成Object
-  dynamic _jsonToObject(dynamic json,
-      {MXJsonBuildOwner buildOwner, BuildContext context}) {
-    if (json is Map) {
-      String funcName = json[constFuncStr];
-      Map<String, dynamic> newJsonMap = Map.from(json);
-      if (funcName == null) {
-        funcName = _constructorFuncName(json);
-        newJsonMap[constFuncStr] = funcName;
-      }
-
-      // 可以通过invoke转换
-      if (canInvoke(funcName)) {
-        var obj = invoke(newJsonMap, buildOwner: buildOwner, context: context);
-        return obj;
-      }
-      // 不能通过invoke的，则遍历每个元素
-      else {
-        Map resultMap = {};
-        json.forEach((k, v) {
-          resultMap[k] =
-              _jsonToObject(v, buildOwner: buildOwner, context: context);
-        });
-        return resultMap;
-      }
-    } else if (json is List) {
-      List resultList = [];
-      for (var element in json) {
-        var object =
-            _jsonToObject(element, buildOwner: buildOwner, context: context);
-        resultList.add(object);
-      }
-      return resultList;
-    } else {
-      return json;
-    }
   }
 
   /// 是否是枚举类型
