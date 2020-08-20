@@ -103,7 +103,7 @@ class _MXJSFlutter implements MXJSFlutter {
     MXJSBridge.getInstance();
 
     // 注册可以被JS调用的方法
-    registerMirrorFunctions();
+    mxRegisterMirrorFunctions();
 
     _isSetup = true;
   }
