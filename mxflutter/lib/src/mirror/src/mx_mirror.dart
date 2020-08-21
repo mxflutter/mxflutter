@@ -5,11 +5,13 @@
 //  found in the LICENSE file.
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter/services.dart';
 
 import '../../mx_build_owner.dart';
 import 'mx_function_invoke.dart';
 import 'mx_mirror_object.dart';
 import '../mx_mirror.dart';
+import '../../mx_js_bridge.dart';
 
 /// 提供通过Json Map 调用 Dart 函数的能力
 /// 通过调用 Dart 类的构造方法，实现Json Map 转 Dart 对象
@@ -58,6 +60,10 @@ abstract class MXMirror {
 
   /// 移除所有Mirror对象
   void clearAllMirrorObjects();
+
+  /// Flutter->JS
+  invokeJSMirrorObj(
+      {dynamic mirrorID, String functionName, String callbackID, dynamic args});
 }
 
 class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
@@ -72,6 +78,9 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
 
   // funcName到Fun方法的映射表
   var _funcName2FunMap = <String, MXFunctionInvoke>{};
+
+  // funcName到Fun方法的映射表,用过的函数缓存下来
+  var _funcName2FunMapCache = <String, MXFunctionInvoke>{};
 
   /// 注册可以通过JS调用的方法
   void registerFunctions(Map<String, dynamic> functionMap) {
@@ -143,6 +152,9 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
 
     if (mirrorId != null) {
       addMirrorObject(mirrorId, obj);
+
+      // 保持到buildOwnerNode一份，当buildOwnerNode管理的Element dispose时，释放mirrorObj
+      buildOwner?.addMirrorObjectId(mirrorId);
     }
     return obj;
   }
@@ -175,9 +187,13 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       return null;
     }
 
-    MXFunctionInvoke fi = _funcName2FunMap[funcName];
+    MXFunctionInvoke fi = _funcName2FunMapCache[funcName];
     if (fi == null) {
-      return null;
+      fi = _funcName2FunMap[funcName];
+      if (fi == null) {
+        return null;
+      }
+      _funcName2FunMapCache[funcName] = fi;
     }
 
     fi.buildOwner = buildOwner;
@@ -267,5 +283,22 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     return jsonMap.keys.length == 2 &&
         jsonMap[constEnumNameStr] != null &&
         jsonMap[constEnumIndexStr] != null;
+  }
+
+  /// Flutter->JS
+  invokeJSMirrorObj(
+      {dynamic mirrorID,
+      String functionName,
+      String callbackID,
+      dynamic args}) async {
+    Map callInfo = {
+      "mirrorID": mirrorID,
+      "funcName": functionName,
+      "callbackID": callbackID,
+      "args": args
+    };
+
+    MethodCall jsMethodCall = MethodCall("invokeJSMirrorObj", callInfo);
+    MXJSBridge.getInstance().invokeJSCommonChannel(jsMethodCall);
   }
 }

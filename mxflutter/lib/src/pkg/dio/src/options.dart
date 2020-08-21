@@ -169,12 +169,12 @@ var _requestOptions = MXFunctionInvoke(
     baseUrl: baseUrl,
     ///MX Modified begin
     onReceiveProgress: (int count, int total) {
-      MXJSBridge.getInstance().invokeJSMirrorObj(
+      MXMirror.getInstance().invokeJSMirrorObj(
         callbackID: onReceiveProgress,
         args: {"count": count, "total": total});
     },
     onSendProgress: (int count, int total) {
-      MXJSBridge.getInstance().invokeJSMirrorObj(
+      MXMirror.getInstance().invokeJSMirrorObj(
         callbackID: onSendProgress,
         args: {"count": count, "total": total});
     },

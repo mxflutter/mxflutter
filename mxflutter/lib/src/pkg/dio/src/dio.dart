@@ -72,12 +72,12 @@ var _dio_request = MXFunctionInvoke(
       options: options,
       cancelToken: cancelToken,
       onSendProgress: (int count, int total) {
-      MXJSBridge.getInstance().invokeJSMirrorObj(
+      MXMirror.getInstance().invokeJSMirrorObj(
           callbackID: onSendProgress,
           args: {"count": count, "total": total});
       },
       onReceiveProgress: (int count, int total) {
-      MXJSBridge.getInstance().invokeJSMirrorObj(
+        MXMirror.getInstance().invokeJSMirrorObj(
           // mirrorID: mirrorID,
           callbackID: onSendProgress,
           args: {"count": count, "total": total});
