@@ -39,7 +39,6 @@ class MXJSBridge {
     }
 
     _setupChannel();
-
     _isSetup = true;
   }
 
@@ -83,24 +82,6 @@ class MXJSBridge {
     return _commonBasicChannel.send(sendStr);
   }
 
-  //Mirror Sys
-  invokeJSMirrorObj(
-      {dynamic mirrorID,
-      String functionName,
-      String callbackID,
-      dynamic args}) async {
-
-    Map callInfo = {
-      "mirrorID": mirrorID,
-      "funcName": functionName,
-      "callbackID": callbackID,
-      "args": args
-    };
-
-    MethodCall jsMethodCall = MethodCall("invokeJSMirrorObj", callInfo);
-    invokeJSCommonChannel(jsMethodCall);
-  }
-
   /// JS -> Flutter 开放给JS调用
   _setupName2FunMap() {
     // 由commonBasicChannelHandler调用
@@ -111,18 +92,20 @@ class MXJSBridge {
         mxfJSBridgeRemoveMirrorObjsRef;
   }
 
+  /// JS -> Flutter
   Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
-    MXMirrorFunc.getInstance().jsonToDartObj(argMap);
+    MXMirror.getInstance().jsonToDartObj(argMap);
     return null;
   }
 
+  /// JS -> Flutter
   Future<String> mxfJSBridgeInvokeMirrorObjWithCallback(args) async {
     if (args == null) {
       return null;
     }
 
     Completer<String> completer = new Completer<String>();
-    MXMirrorFunc.getInstance().invokeWithCallback(args, (result) {
+    MXMirror.getInstance().invokeWithCallback(args, (result) {
       var returnJsonStr = result;
       if (result != null && !(result is String) && !(result is Future<String>)) {
         returnJsonStr = json.encode(result);
@@ -133,8 +116,9 @@ class MXJSBridge {
     return completer.future;
   }
 
+  /// JS -> Flutter
   Future<dynamic> mxfJSBridgeRemoveMirrorObjsRef(dynamic mirrorIDList) {
-    MXMirrorObject.getInstance().removeMirrorObjectList(mirrorIDList);
+    MXMirror.getInstance().removeMirrorObjectList(mirrorIDList);
     return null;
   }
 

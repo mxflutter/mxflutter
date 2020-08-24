@@ -10,6 +10,9 @@ import 'package:dio/src/adapter.dart';
 import 'package:dio/src/headers.dart';
 import 'package:dio/src/transformer.dart';
 import 'package:dio/src/cancel_token.dart';
+///MX Modified begin
+import 'package:mxflutter/src/mx_js_bridge.dart';
+///MX Modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerOptionsSeries() {
@@ -164,10 +167,18 @@ var _requestOptions = MXFunctionInvoke(
     path: path,
     queryParameters: toMapT<String, dynamic>(queryParameters),
     baseUrl: baseUrl,
-    onReceiveProgress: createVoidTwoParamsClosure<int, int>(
-        _requestOptions.buildOwner, onReceiveProgress),
-    onSendProgress: createVoidTwoParamsClosure<int, int>(
-        _requestOptions.buildOwner, onSendProgress),
+    ///MX Modified begin
+    onReceiveProgress: (int count, int total) {
+      MXMirror.getInstance().invokeJSMirrorObj(
+        callbackID: onReceiveProgress,
+        args: {"count": count, "total": total});
+    },
+    onSendProgress: (int count, int total) {
+      MXMirror.getInstance().invokeJSMirrorObj(
+        callbackID: onSendProgress,
+        args: {"count": count, "total": total});
+    },
+    ///MX Modified begin
     cancelToken: cancelToken,
     extra: toMapT<String, dynamic>(extra),
     headers: toMapT<String, dynamic>(headers),

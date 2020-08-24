@@ -56,7 +56,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ///XCode -> Build Settings -> Preprocessor Macros ： Debug下增加 PROJECT_DIR=@\""$PROJECT_DIR\/"\"
     ///这是github https://github.com/TGIF-iMatrix/mxflutter.git 下的 flutter/example/ios 工程为例子，js_lib的
     ///物理路径配置如下
-    
+
 #ifdef PROJECT_DIR
     
     //如果定义了PROJECT_DIR，需要根据自己的工程位置调整相对路径../mxflutter_js_src/
@@ -72,7 +72,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     jsFramewrokPath = [PROJECT_DIR stringByAppendingPathComponent:@"../mxflutter/js_lib/"];
     
 #endif
-    
+
     //可以调用[MXFlutterPlugin setJSFramewrokPath:jsFramewrokPath]; 设置jsframework到Documents你的下载目录，支持framework的热更新
     if (jsFramewrokPath.length > 0) {
          [MXFlutterPlugin setJSFramewrokPath:jsFramewrokPath];

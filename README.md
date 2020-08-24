@@ -126,16 +126,17 @@ dependencies:
     mxflutter:
       git:
         url: https://github.com/mxflutter/mxflutter.git
+        ref: develop
         path: mxflutter/
 
 ```
 
 #### 2. 拷贝示例JS代码文件，配置JS代码资源引入
 
-第一步拷贝JS代码文件：mxflutter 主库提供了JS代码模版，拷贝主库 mxflutter/example/mxflutter_js_src (https://github.com/mxflutter/mxflutter/tree/master/mxflutter/example/mxflutter_js_src) 文件夹到你的工程目录，和pubspec.yaml文件同级。
+第一步拷贝JS代码文件：mxflutter 主库提供了JS代码模版，拷贝主库根目录 mxflutter_js_src (https://git.code.oa.com/MXFlutter/MXFlutter/tree/develop/mxflutter_js_src) 文件夹到你的工程目录，和pubspec.yaml文件同级。
 
 
-第二步在 pubspec.yaml 文件中引入 mxflutter_js_src 代码资源文件夹
+第二步在 pubspec.yaml 文件中引入 mxflutter_js_src 代码资源文件夹。（**注：因为目前拷贝的是主库的示例，因此还会有一些页面需导入资源才能展示**）
 
 
 ```
@@ -145,7 +146,7 @@ dependencies:
 
 ```
 
-*特别注意：第一步拷贝的文件夹和第二步导入的资源是配套的，因为 pubspec.yaml 导入资源时，不会自动导入子文件夹， 如果你是拷贝的主库根目录 https://github.com/mxflutter/mxflutter/tree/master/mxflutter_js_src 文件夹，要配套按照主库 pubspec.yaml 的资源配置来引入，学习接入建议使用 mxflutter/example/mxflutter_js_src 的示例*
+*特别注意：第一步拷贝的文件夹和第二步导入的资源是配套的，因为 pubspec.yaml 导入资源时，不会自动导入子文件夹， 如果你是拷贝的主库根目录 https://github.com/mxflutter/mxflutter/tree/master/mxflutter_js_src 文件夹，要配套按照主库 pubspec.yaml 的资源配置来引入*
 
 完成后目录结构应该是这样的
 
@@ -156,9 +157,10 @@ my_flutter/
 └── pubspec.yaml
 └── mxflutter_js_src/
 │   └── main.js
-│   └── home_page.js
-│   └── js_dev_demo.js
-│   └── mxjsbuilder_demo.js
+│   └── common.js
+│   └── bundle-mxflutter-js-demo.js
+│   └── bundle-example1.js
+│   └── bundle-example2.js
 ```
 
 #### 3. 在Flutter代码中，运行MXFlutter，打开由JS编写的页面
@@ -189,12 +191,12 @@ void main() {
                     context,
                     MaterialPageRoute(
                         builder: (context) => MXJSPageWidget(
-                            jsWidgetName: "MXJSWidgetHomePage")));
+                            jsWidgetName: "mxflutter-js-demo")));
               }
 
 ```
 
-上面代码 MXJSPageWidget 的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用，用来标示打开哪个JS页面。
+上面代码 MXJSPageWidget 的参数 jsWidgetName: "mxflutter-js-demo"，在 mxflutter_js_src 文件夹中对应相应JS文件，用来标示打开哪个JS页面。
 
 ##### bingo 如果顺利的话，基本得接入工作已经完成，你应该可以打开一个经典的 Flutter 示例页面了。接下来可以尝试修改下 mxflutter_js_src/ 文件夹下的JS文件，可以看到 UI 变化。
 
@@ -388,6 +390,10 @@ MXFlutter还需要很多工作去完善功能，修改BUG，建设配套设施�
 对MXFlutter有兴趣的小伙伴，可以加群交流 QQ群:747535761
 
 ![qrcode](https://github.com/langbluesky/Image/blob/master/qrcode.png?raw=true)
+
+
+
+
 
 
 

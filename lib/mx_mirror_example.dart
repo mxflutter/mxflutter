@@ -38,6 +38,6 @@ class MXMirrorExample {
     funMap[getMyData.funName] = getMyData;
 
     // 注册定义的方法
-    MXMirrorFunc.getInstance().registerBizFunction(funMap);
+    MXMirror.getInstance().registerFunctions(funMap);
   }
 }

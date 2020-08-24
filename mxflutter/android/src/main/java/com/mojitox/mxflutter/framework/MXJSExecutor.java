@@ -21,6 +21,8 @@ import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService.MXJsTask;
 
+import static com.mojitox.mxflutter.MXFlutterPlugin.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -120,10 +122,11 @@ public class MXJSExecutor {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext());
+                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext()) ||
+                        path.startsWith(MXFLUTTER_ASSET_APP_ROOT_PATH) || path.startsWith(MXFLUTTER_ASSET_FRAMWORK_ROOT_PATH);
                 String absolutePath = path;
                 if (!fromAsset) {
-                    absolutePath = MXFlutterPlugin.JSFLUTTER_LOCAL_DIR + "/" + path;
+                    absolutePath = JSFLUTTER_LOCAL_DIR + "/" + path;
                 }
                 String script = FileUtils.getScriptFromPath(context.mFlutterPluginBinding.getApplicationContext(), absolutePath, fromAsset);
                 V8Object result = runtime.executeObjectScript(script);
@@ -136,10 +139,11 @@ public class MXJSExecutor {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext());
+                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext()) ||
+                        path.startsWith(MXFLUTTER_ASSET_APP_ROOT_PATH) || path.startsWith(MXFLUTTER_ASSET_FRAMWORK_ROOT_PATH);
                 String absolutePath = path;
                 if (!fromAsset) {
-                    absolutePath = MXFlutterPlugin.JSFLUTTER_LOCAL_DIR + "/" + path;
+                    absolutePath = JSFLUTTER_LOCAL_DIR + "/" + path;
                 }
                 String script = FileUtils.getScriptFromPath(context.mFlutterPluginBinding.getApplicationContext(), absolutePath, fromAsset);
                 V8Object result = runtime.executeObjectScript(script);

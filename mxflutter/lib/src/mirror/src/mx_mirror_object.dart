@@ -4,33 +4,19 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-class MXMirrorObject {
-  static MXMirrorObject _instance;
-  
-  // mirrorId到Object的映射表
+mixin MXMirrorObjectMgr {
+
+  /// mirrorId到Object的映射表
   Map<String,dynamic> _id2ObjectMap = {};
 
-  static MXMirrorObject getInstance() {
-    if (_instance == null) {
-      _instance = MXMirrorObject._();
-    }
-    return _instance;
-  }
-
-  factory MXMirrorObject() {
-    return MXMirrorObject.getInstance();
-  }
-
-  MXMirrorObject._();
-
   /// 获取mirrorID
-  String mirrorID(Map jsonMap) {
+  String mirrorId(Map jsonMap) {
     var mirrorID = jsonMap["mirrorID"];
     return mirrorID;
   }
 
   /// 获取Mirror对象
-  dynamic mirrorObject(dynamic mirrorID) {
+  dynamic findMirrorObject(dynamic mirrorID) {
     if (mirrorID == null) {
       return;
     }
@@ -38,23 +24,23 @@ class MXMirrorObject {
   }
 
   /// 添加Mirror对象
-  void addMirrorObject(dynamic mirrorID, dynamic mirrorObj) {
-    if (mirrorID == null || mirrorObj == null) {
+  void addMirrorObject(dynamic mirrorId, dynamic mirrorObj) {
+    if (mirrorId == null || mirrorObj == null) {
       return;
     }
 
-    _id2ObjectMap[mirrorID] = mirrorObj;
+    _id2ObjectMap[mirrorId] = mirrorObj;
   }
 
   /// 移除Mirror对象
-  void removeMirrorObject(dynamic mirrorID) {
-    _id2ObjectMap.remove(mirrorID);
+  void removeMirrorObject(dynamic mirrorId) {
+    _id2ObjectMap.remove(mirrorId);
   }
 
   /// 移除Mirror对象列表
-  void removeMirrorObjectList(List mirrorIDList) {
-    for (var mirrorID in mirrorIDList) {
-      _id2ObjectMap.remove(mirrorID);
+  void removeMirrorObjectList(List mirrorIdList) {
+    for (var mirrorId in mirrorIdList) {
+      _id2ObjectMap.remove(mirrorId);
     }
   }
 
