@@ -252,7 +252,6 @@ var _listViewSeparated = MXFunctionInvoke(
 
     /// MX modified begin -add children
     dynamic children,
-    dynamic separatorChildren,
 
     /// MX modified end
   }) =>
@@ -270,11 +269,9 @@ var _listViewSeparated = MXFunctionInvoke(
     itemBuilder: (BuildContext context, int index) {
       return children[index];
     },
-    separatorBuilder: (BuildContext context, int index) {
-      return separatorChildren[index];
-    },
 
     /// MX modified end
+    separatorBuilder: null,
     itemCount: itemCount,
     addAutomaticKeepAlives: addAutomaticKeepAlives,
     addRepaintBoundaries: addRepaintBoundaries,
@@ -301,7 +298,6 @@ var _listViewSeparated = MXFunctionInvoke(
     "keyboardDismissBehavior",
     ///MX modified begin
     "children",
-    "separatorChildren",
     ///MX modified end
   ],
 );
