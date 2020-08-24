@@ -27,7 +27,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
 - (void)setupMXFlutter{
 
-    //[self setupMXFlutterJSPath];
+    [self setupMXFlutterJSPath];
     
     [self setupMessageChannelDemo];
 }

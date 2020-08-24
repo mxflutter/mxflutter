@@ -42,7 +42,7 @@ runMXJSApp() {
   var locaTSReleasePath = "";
 
   //soap
-  locaTSReleasePath = "/Volumes/Data/Work/RFlutter/mxflutter-js/release";
+  //locaTSReleasePath = "/Volumes/Data/Work/RFlutter/mxflutter-js/release";
 
   if (locaTSReleasePath.isEmpty) {
     MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: "mxflutter_js_src");
