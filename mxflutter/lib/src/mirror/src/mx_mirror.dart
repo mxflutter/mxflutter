@@ -139,6 +139,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
 
     // 尝试转换成DartObj
     String funcName = jsonMap[constFuncStr];
+    bool isEnum = _isEnumType(jsonMap);
     if (funcName == null) {
       funcName = _constructorFuncName(jsonMap);
       if (funcName == null) {
@@ -148,8 +149,13 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
 
     var obj =
         _invoke(funcName, jsonMap, buildOwner: buildOwner, context: context);
-    // 如果设置mirror对象
 
+    // 移除枚举对象临时添加的name字段
+    if (isEnum) {
+      _removeReplaceEnumNameStr(jsonMap);
+    }
+
+    // 如果设置mirror对象
     if (mirrorId != null) {
       addMirrorObject(mirrorId, obj);
 
@@ -269,8 +275,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     // 枚举
     else if (_isEnumType(jsonMap)) {
       String name = jsonMap[constEnumNameStr];
-      jsonMap[constReplaceEnumNameStr] = name;
-
+      _addReplaceEnumNameStr(jsonMap, name);
       List strList = name.split('.');
       return strList[0];
     }
@@ -283,6 +288,16 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     return jsonMap.keys.length == 2 &&
         jsonMap[constEnumNameStr] != null &&
         jsonMap[constEnumIndexStr] != null;
+  }
+
+  /// 给枚举对象添加临时的name属性
+  void _addReplaceEnumNameStr(Map jsonMap, String name) {
+    jsonMap[constReplaceEnumNameStr] = name;
+  }
+
+  /// 移除枚举对象临时添加的name属性
+  void _removeReplaceEnumNameStr(Map jsonMap) {
+    jsonMap.remove(constReplaceEnumNameStr);
   }
 
   /// Flutter->JS
