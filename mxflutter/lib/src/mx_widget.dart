@@ -102,7 +102,7 @@ class MXJSStatefulElement extends StatefulElement {
 }
 
 class MXJSWidgetState extends State<MXJSStatefulWidget>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   // 三个场景会更新widgetData
   // 1. 初始化 2. MXJSStatefulWidget的element被复用 3. MXJSWidgetState本身被js 刷新
   Map widgetBuildData;
