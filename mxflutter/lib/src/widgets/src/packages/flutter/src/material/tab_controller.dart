@@ -28,7 +28,9 @@ var _tabController = MXFunctionInvoke(
       TabController(
     initialIndex: initialIndex,
     length: length,
-    vsync: vsync,
+    // MX modified begin
+    vsync: _tabController.buildOwner.state,
+    // MX modified end
   ),
   [
     "initialIndex",
