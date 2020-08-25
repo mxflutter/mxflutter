@@ -238,7 +238,8 @@ class MXJSFlutterApp {
   /// JS->Flutter
   /// js层 调用navigatorPop 主动pop页面
   Future<dynamic> _jsCallNavigatorPop(args) async {
-    String widgetID = args["widgetID"];
+    Map decodeData = json.decode(args);
+    String widgetID = decodeData["widgetID"];
 
     //谁push jsWidget，找到对应的build owner
     MXJsonBuildOwner boNode = _rootBuildOwnerNode.findChild(widgetID);
