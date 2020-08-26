@@ -94,7 +94,12 @@ class MXJSBridge {
 
   /// JS -> Flutter
   Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
-    MXMirror.getInstance().jsonToDartObj(argMap);
+    // 将args字的所有字段都赋值到argMap中
+    Map args = argMap["args"];
+    for (var key in args.keys) {
+      argMap[key] = args[key];
+    }
+    MXMirror.getInstance().jsonToDartObj(argMap, buildOwner: null);
     return null;
   }
 

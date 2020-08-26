@@ -4,6 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
+import 'package:dio/dio.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/tab_controller.dart';
 import 'dart:math' as math;
@@ -18,26 +19,46 @@ Map<String, MXFunctionInvoke> registerTabControllerSeries() {
   return m;
 }
 
+// MX Modified begin
 var _tabController = MXFunctionInvoke(
   "TabController",
   ({
     int initialIndex = 0,
     int length,
     TickerProvider vsync,
-  }) =>
-      TabController(
-    initialIndex: initialIndex,
-    length: length,
-    // MX modified begin
-    vsync: _tabController.buildOwner.state,
-    // MX modified end
-  ),
+    dynamic listenerList,
+    dynamic mirrorID,
+  }) {
+    TabController tabController = TabController(
+      initialIndex: initialIndex,
+      length: length,
+      // MX modified begin
+      vsync: _tabController.buildOwner.state,
+      // MX modified end
+    );
+    if (listenerList != null) {
+      tabController.addListener(_createListenerHandle(_tabController.buildOwner, mirrorID, "listenerCallback"));
+    }
+    return tabController;
+  },
   [
     "initialIndex",
     "length",
     "vsync",
+    "listenerList",
+    "mirrorID",
   ],
 );
+
+VoidCallback _createListenerHandle(
+    dynamic bo, String mirrorID, String functionName) {
+  VoidCallback cb = () {
+    bo.mirrorObjEventCallback(mirrorID: mirrorID, functionName: functionName);
+  };
+  return cb;
+}
+// MX Modified end
+
 var _defaultTabController = MXFunctionInvoke(
   "DefaultTabController",
   ({
