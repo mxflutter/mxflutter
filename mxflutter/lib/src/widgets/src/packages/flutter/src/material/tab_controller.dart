@@ -37,7 +37,7 @@ var _tabController = MXFunctionInvoke(
       // MX modified end
     );
     if (listenerList != null) {
-      tabController.addListener(_createListenerHandle(_tabController.buildOwner, mirrorID, "listenerCallback"));
+      tabController.addListener(_createListenerHandle(_tabController.buildOwner, mirrorID, "listenerCallback", tabController));
     }
     return tabController;
   },
@@ -51,9 +51,15 @@ var _tabController = MXFunctionInvoke(
 );
 
 VoidCallback _createListenerHandle(
-    dynamic bo, String mirrorID, String functionName) {
+    dynamic bo, String mirrorID, String functionName, TabController tabController) {
   VoidCallback cb = () {
-    bo.mirrorObjEventCallback(mirrorID: mirrorID, functionName: functionName);
+    Map args = {
+      "index": tabController.index,
+      "previousIndex": tabController.previousIndex,
+      "indexIsChanging": tabController.indexIsChanging,
+      "offset": tabController.offset,
+    };
+    bo.mirrorObjEventCallback(mirrorID: mirrorID, functionName: functionName, p: args);
   };
   return cb;
 }
