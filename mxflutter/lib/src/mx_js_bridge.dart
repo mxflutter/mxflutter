@@ -113,6 +113,7 @@ class MXJSBridge {
     MXMirror.getInstance().invokeWithCallback(args, (result) {
       var returnJsonStr = result;
       if (result != null && !(result is String) && !(result is Future<String>)) {
+        //TODO: 此处会要求返回值为string类型，否则会因为encode异常
         returnJsonStr = json.encode(result);
       }
 
