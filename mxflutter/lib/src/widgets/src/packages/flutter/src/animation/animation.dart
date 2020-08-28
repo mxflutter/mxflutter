@@ -48,7 +48,7 @@ var _animation = MXFunctionInvoke("Animation", ({
 AnimationStatusListener _createStatusListenerHandle(
     dynamic bo, String mirrorID, String functionName) {
   AnimationStatusListener cb = (AnimationStatus status) {
-    bo.mirrorObjEventCallback(mirrorID, functionName,
+    bo.mirrorObjEventCallback(mirrorID: mirrorID, functionName: functionName,
         p: MXAnimationStatus.encodeString(status));
   };
   return cb;

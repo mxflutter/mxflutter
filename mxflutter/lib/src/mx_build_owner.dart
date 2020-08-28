@@ -355,9 +355,9 @@ class MXJsonBuildOwner {
   /// TODO: 这里后面可能回困惑，什么样的回调用eventCallbak 什么样的用 mirrorObjEventCallback
   /// 开头OnXXXX的用eventCallbak，用callbakId调用到JS
   /// 其他的用 mirrorObjEventCallback，用funcName 调用到 JS
-  Future<dynamic> mirrorObjEventCallback(dynamic mirrorID, String functionName,
-      {dynamic p}) async {
-    MXMirror.getInstance().invokeJSMirrorObj(mirrorID: mirrorID, functionName: functionName, args: p );
+  Future<dynamic> mirrorObjEventCallback({dynamic mirrorID, String functionName, String callbackID,
+      dynamic p}) async {
+    MXMirror.getInstance().invokeJSMirrorObj(mirrorID: mirrorID, functionName: functionName, callbackID: callbackID, args: p);
   }
 
   void disposeMirrorObjs() {
