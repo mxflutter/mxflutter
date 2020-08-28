@@ -145,8 +145,8 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
 
   @override
   void dispose() {
-    super.dispose();
     buildOwnerNode.onDispose();
+    super.dispose();
   }
 
   MXJsonBuildOwner get buildOwnerNode =>
