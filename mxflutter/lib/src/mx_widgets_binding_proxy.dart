@@ -22,11 +22,7 @@ class MXWidgetsBindingProxy with WidgetsBindingObserver {
   }
 
   callJS(String functionName, {dynamic args}) {
-
-    Map eventInfo = {
-      "funcName": functionName,
-      "eventArgs": args
-    };
+    Map eventInfo = {"funcName": functionName, "eventArgs": args};
 
     return MXMirror.getInstance().invokeJSMirrorObj(
         mirrorID: mirrorId, functionName: "onObserverEvent", args: eventInfo);
@@ -46,7 +42,8 @@ class MXWidgetsBindingProxy with WidgetsBindingObserver {
       callJS("didChangeTextScaleFactor");
 
   void didChangeAppLifecycleState(AppLifecycleState state) =>
-      callJS("didChangeAppLifecycleState", args: state as int);
+      callJS("didChangeAppLifecycleState",
+          args: AppLifecycleState.values.indexOf(state));
 
   void didHaveMemoryPressure() => callJS("didHaveMemoryPressure");
 
@@ -54,25 +51,26 @@ class MXWidgetsBindingProxy with WidgetsBindingObserver {
       callJS("didChangeAccessibilityFeatures");
 }
 
+/// MXWidgetsBindingProxy使用WidgetsBinding类名 注册mirror符号
 Map<String, MXFunctionInvoke> mxRegisterMXWidgetsBindingProxy() {
   var invoke = MXFunctionInvoke(
-      "MXWidgetsBindingProxy",
+      "WidgetsBinding",
       ({String mirrorID}) => MXWidgetsBindingProxy(mirrorId: mirrorID),
       ['mirrorID']);
 
   var invokeAddObserver = MXFunctionInvoke(
-    "MXWidgetsBindingProxy#addObserver",
-    ({MXWidgetsBindingProxy mirrorObj}) => mirrorObj.addObserver(),
-  );
+      "WidgetsBinding#addObserver",
+      ({MXWidgetsBindingProxy mirrorObj}) => mirrorObj.addObserver(),
+      ['mirrorObj']);
 
   var invokeRemoveObserver = MXFunctionInvoke(
-    "MXWidgetsBindingProxy#removeObserver",
+    "WidgetsBinding#removeObserver",
     ({MXWidgetsBindingProxy mirrorObj}) => mirrorObj.removeObserver(),
   );
 
-  return {
+  MXMirror.getInstance().registerFunctions(<String, MXFunctionInvoke>{
     invoke.funName: invoke,
     invokeAddObserver.funName: invokeAddObserver,
     invokeRemoveObserver.funName: invokeRemoveObserver
-  };
+  });
 }

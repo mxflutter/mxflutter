@@ -12,6 +12,7 @@ import 'mx_function_invoke.dart';
 import 'mx_mirror_object.dart';
 import '../mx_mirror.dart';
 import '../../mx_js_bridge.dart';
+import '../../mx_common.dart';
 
 /// 提供通过Json Map 调用 Dart 函数的能力
 /// 通过调用 Dart 类的构造方法，实现Json Map 转 Dart 对象
@@ -171,7 +172,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       {MXJsonBuildOwner buildOwner}) {
     var result;
     String funcName = objectFuncName(jsonMap);
-    Map args = jsonMap["args"];
+    Map args = jsonMap["args"] ?? {};
 
     dynamic mirrorObj = findMirrorObject(jsonMap[constMirrorIDStr]);
     if (mirrorObj != null) {
@@ -211,6 +212,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       // 如果没有参数校验列表，则使用传进来的Map的，由调用者保证
       List propsName = fi.propsName ?? [];
       List noJ2DProps = fi.noJ2DProps;
+      argsMap = argsMap ?? {};
 
       for (var name in propsName) {
         if (argsMap[name] == null) {
@@ -231,8 +233,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       fi.context = null;
       return result;
     } catch (e) {
-      // MXJSLog.error(
-      //     "MXMirror.invoke, error:$e ; jsonMap: $jsonMap ");
+      MXJSLog.error("MXMirror.invoke, error:$e ; jsonMap: $argsMap ");
 
       // 打印日志重新抛出
       rethrow;
