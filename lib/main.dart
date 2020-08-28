@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/mxflutter.dart';
 
 import 'mx_mirror_example.dart';
+import 'lib_test.dart';
 
 void main() {
   //启动 MXFlutter JS App
@@ -131,7 +132,23 @@ class MXFlutterExampleHome extends StatelessWidget {
               ListTile(
                 title: Text(
                     '在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击MXFlutter Demo，可以在Safari调试JS'),
-              )
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.refresh,
+                  semanticLabel: '实验室',
+                  color: Colors.orange,
+                ),
+                title: Text('实验室'),
+                subtitle: Text('测试Flutter原生表现'),
+                isThreeLine: true,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyHomeLibPage(title: '实验室')));
+                },
+              ),
             ],
           )),
           Image.network(
