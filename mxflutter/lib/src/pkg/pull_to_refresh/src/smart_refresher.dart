@@ -403,8 +403,12 @@ var _refreshController_dispose = MXFunctionInvoke(
   "RefreshController#dispose",
   ({
     RefreshController mirrorObj,
-  }) =>
-      mirrorObj.dispose(),
+  }) {
+    // 因为在MXJSWidgetState的dispose方法中，框架会主动调用该方法。因此加个判断，避免js侧再调用该方法时，会出现调用null方法
+    if (mirrorObj != null) {
+      mirrorObj.dispose();
+    }
+  },
   [
     "mirrorObj",
   ],
