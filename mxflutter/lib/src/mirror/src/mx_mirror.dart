@@ -249,11 +249,10 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   String objectFuncName(Map jsonMap) {
     var className = jsonMap[constClassStr];
     var funcName = jsonMap[constFuncStr];
-    if (className == null || funcName == null) {
+    
+    if (className == null && funcName == null) {
       return null;
-    }
-
-    if (className == null && funcName != null) {
+    } else if (className == null && funcName != null) {
       return funcName;
     }
 
