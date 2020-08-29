@@ -323,7 +323,7 @@ class MXJsonBuildOwner {
       });
     }
 
-    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+    ownerApp.callJS(jsMethodCall);
   }
 
   callJSOnDispose() {

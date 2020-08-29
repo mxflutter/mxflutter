@@ -162,6 +162,8 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
   Widget build(BuildContext context) {
     assert(buildOwnerNode != null);
 
+    Widget child = MXJSWidgetBase.errorWidget;
+
     MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
         "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
 
@@ -169,17 +171,17 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
       // host 等待js刷新，先显示loading页面
       // TODO: 定制loading页面和 error 页面
       if (widget.isHostWidget) {
-        return _hostWidgetInvokeJS(context);
+        child = _hostWidgetInvokeJS(context);
       } else if (widget.isJSLazyWidget) {
-        return _lazyWidgetInvokeJS(context);
+        child = _lazyWidgetInvokeJS(context);
       } else {
         MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
             "this.widget.widgetID:${this.widget.widgetID}");
-        return MXJSWidgetBase.errorWidget;
+        child = MXJSWidgetBase.errorWidget;
       }
     }
 
-    Widget child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
+    child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
 
     if (child == null) {
       MXJSLog.error(
@@ -192,6 +194,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
     MXJSLog.debug("MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
         "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
 
+    // build 逻辑非常重要，保证到底JS，否则JS setState 不生效
     buildOwnerNode.callJSOnBuildEnd();
 
     MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
