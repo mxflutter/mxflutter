@@ -37,16 +37,17 @@ var _mxJSStatefulWidget = MXFunctionInvoke(
           String widgetID,
           Map widgetData,
           String buildWidgetDataSeq,
-          String navPushingWidgetElementID}) =>
+          String navPushingWidgetElementID,
+          bool isJSLazyWidget = false}) =>
       MXJSStatefulWidget(
-    key: key,
-    name: name,
-    widgetID: widgetID,
-    widgetBuildData: widgetData,
-    widgetBuildDataSeq: buildWidgetDataSeq,
-    navPushingWidgetID: navPushingWidgetElementID,
-    parentBuildOwnerNode: _mxJSStatefulWidget.buildOwner,
-  ),
+          key: key,
+          name: name,
+          widgetID: widgetID,
+          widgetBuildData: widgetData,
+          widgetBuildDataSeq: buildWidgetDataSeq,
+          navPushingWidgetID: navPushingWidgetElementID,
+          parentBuildOwnerNode: _mxJSStatefulWidget.buildOwner,
+          isJSLazyWidget: isJSLazyWidget),
   [
     "key",
     "name",
@@ -54,6 +55,7 @@ var _mxJSStatefulWidget = MXFunctionInvoke(
     "widgetData",
     "buildWidgetDataSeq",
     "navPushingWidgetElementID",
+    "isJSLazyWidget"
   ],
   [
     "widgetData",

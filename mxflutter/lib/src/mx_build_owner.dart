@@ -177,6 +177,18 @@ class MXJsonBuildOwner {
     ownerApp.callJS(jsMethodCall);
   }
 
+  /// 调用js 刷新lazywidget
+  callJSRefreshLazyWidget( String widgetID, BuildContext context) {
+
+    // TODO: rename flutterCallNavigatorPushWithName
+    MethodCall jsMethodCall = MethodCall("flutterCallRefreshLazyWidget", {
+      "widgetID": widgetID,
+      "isJSLazyWidget":true
+    });
+
+    ownerApp.callJS(jsMethodCall);
+  }
+
   /// 事件回调
   /// flutter->JS
   dynamic eventCallback(String callID, {List args}) async {

@@ -55,7 +55,11 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
   /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
   final MXJsonBuildOwner parentBuildOwnerNode;
 
+  /// Flutter 主动创建的 hostWidget，等待JS刷新
   final bool isHostWidget;
+
+  /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
+  final bool isJSLazyWidget;
 
   MXJSStatefulWidget(
       {Key key,
@@ -64,7 +68,8 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
       this.widgetBuildData,
       this.widgetBuildDataSeq,
       this.navPushingWidgetID,
-      this.parentBuildOwnerNode})
+      this.parentBuildOwnerNode,
+      this.isJSLazyWidget})
       : this.isHostWidget = false,
         super(key: key);
 
@@ -75,6 +80,7 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
         this.isHostWidget = true,
         this.widgetBuildDataSeq = null,
         this.navPushingWidgetID = null,
+        this.isJSLazyWidget = false,
         super(key: key);
 
   @override
@@ -163,14 +169,9 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
       // host 等待js刷新，先显示loading页面
       // TODO: 定制loading页面和 error 页面
       if (widget.isHostWidget) {
-        if (!isHostWidgetAlreadyCallJSRefreshed) {
-          isHostWidgetAlreadyCallJSRefreshed = true;
-          buildOwnerNode.callJSRefreshHostWidget(
-              widget.name, widget.widgetID, context);
-          return MXJSWidgetBase.loadingWidget;
-        } else {
-          return MXJSWidgetBase.errorWidget;
-        }
+        return _hostWidgetInvokeJS(context);
+      } else if (widget.isJSLazyWidget) {
+        return _lazyWidgetInvokeJS(context);
       } else {
         MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
             "this.widget.widgetID:${this.widget.widgetID}");
@@ -199,11 +200,33 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
     return child;
   }
 
+  Widget _hostWidgetInvokeJS(BuildContext context) {
+    if (!isHostWidgetAlreadyCallJSRefreshed) {
+      isHostWidgetAlreadyCallJSRefreshed = true;
+      buildOwnerNode.callJSRefreshHostWidget(
+          widget.name, widget.widgetID, context);
+      return MXJSWidgetBase.loadingWidget;
+    } else {
+      return MXJSWidgetBase.errorWidget;
+    }
+  }
+
+  Widget _lazyWidgetInvokeJS(BuildContext context) {
+    buildOwnerNode.callJSRefreshLazyWidget(widget.widgetID, context);
+    return MXJSWidgetBase.loadingWidget;
+  }
+
   jsCallRebuild(
       String widgetID, Map widgetBuildData, String buildWidgetDataSeq) {
     if (this.widget.widgetID != widgetID) {
       MXJSLog.error("MXJSWidgetState:jsCallRebuild: error "
           "this.widget.widgetID:(${this.widget.widgetID}) != widgetID:($widgetID)");
+      return;
+    }
+
+    if (widgetBuildData == null) {
+      MXJSLog.error("MXJSWidgetState:jsCallRebuild: error "
+          "widgetBuildData = null");
       return;
     }
 
