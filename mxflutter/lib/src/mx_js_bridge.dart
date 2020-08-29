@@ -11,7 +11,7 @@ import 'package:flutter/services.dart';
 import 'mx_common.dart';
 import './mirror/mx_mirror.dart';
 
-typedef Future<dynamic> _MXChannelFun(dynamic arguments);
+typedef Future<String> _MXChannelFun(dynamic arguments);
 
 /// 负责衔接Flutter，Native，JS 三方
 class MXJSBridge {
@@ -96,9 +96,11 @@ class MXJSBridge {
   Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
     // 将args字的所有字段都赋值到argMap中
     Map args = argMap["args"];
-    for (var key in args.keys) {
-      argMap[key] = args[key];
+
+    if(args != null && args is Map){
+      argMap.addAll(args);
     }
+
     MXMirror.getInstance().jsonToDartObj(argMap, buildOwner: null);
     return null;
   }
@@ -123,7 +125,7 @@ class MXJSBridge {
   }
 
   /// JS -> Flutter
-  Future<dynamic> mxfJSBridgeRemoveMirrorObjsRef(dynamic mirrorIDList) {
+  Future<String> mxfJSBridgeRemoveMirrorObjsRef(mirrorIDList) {
     MXMirror.getInstance().removeMirrorObjectList(mirrorIDList);
     return null;
   }
