@@ -297,6 +297,8 @@ class MXJsonBuildOwner {
         "widgetID:$ownerWidgetId"
         "buildSeq:$widgetBuildDataSeq");
 
+    _notifyBuildEnd();
+
     String parentWidgetID = _parent?.ownerWidgetId;
 
     // 填充性能监控数据
@@ -323,7 +325,14 @@ class MXJsonBuildOwner {
       });
     }
 
-    ownerApp.callJS(jsMethodCall);
+    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+  }
+
+  /// TODO 优化
+  _notifyBuildEnd(){
+    Future.delayed(Duration(milliseconds: 0), () {
+      ownerApp.onWidgetBuildEnd(this);
+    });
   }
 
   callJSOnDispose() {

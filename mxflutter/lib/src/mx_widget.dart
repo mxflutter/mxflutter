@@ -167,7 +167,20 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
     MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
         "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
 
-    if (widgetBuildData == null) {
+    if (_isNotEmptyData(widgetBuildData)) {
+      // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
+      MXJSLog.debug("MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
+          "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
+
+      child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
+      if (child == null || child is! Widget) {
+        MXJSLog.error(
+            "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
+            "child: $child"
+            "this.widget.widgetID:${this.widget.widgetID}");
+        child = MXJSWidgetBase.errorWidget;
+      }
+    } else {
       // host 等待js刷新，先显示loading页面
       // TODO: 定制loading页面和 error 页面
       if (widget.isHostWidget) {
@@ -181,19 +194,6 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
       }
     }
 
-    child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
-
-    if (child == null) {
-      MXJSLog.error(
-          "MXJSWidgetState:build: _j2dBuild(widgetData, context) == null error; "
-          "this.widget.widgetID:${this.widget.widgetID}");
-      child = MXJSWidgetBase.errorWidget;
-    }
-
-    //call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-    MXJSLog.debug("MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
-        "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
-
     // build 逻辑非常重要，保证到底JS，否则JS setState 不生效
     buildOwnerNode.callJSOnBuildEnd();
 
@@ -201,6 +201,12 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
         "callJSOnBuildEnd  widgetID ${widget.widgetID} "
         "widgetBuildDataSeq:$widgetBuildDataSeq} ");
     return child;
+  }
+
+  bool _isNotEmptyData(widgetBuildData) {
+    return widgetBuildData != null &&
+        widgetBuildData is Map &&
+        widgetBuildData.isNotEmpty;
   }
 
   Widget _hostWidgetInvokeJS(BuildContext context) {
@@ -227,7 +233,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
       return;
     }
 
-    if (widgetBuildData == null) {
+    if (!_isNotEmptyData(widgetBuildData)) {
       MXJSLog.error("MXJSWidgetState:jsCallRebuild: error "
           "widgetBuildData = null");
       return;
