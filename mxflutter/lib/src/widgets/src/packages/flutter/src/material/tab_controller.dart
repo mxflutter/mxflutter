@@ -32,12 +32,20 @@ var _tabController = MXFunctionInvoke(
     dynamic listenerList,
     dynamic mirrorID,
   }) {
+    var tickVsync;
+    if (_tabController.buildOwner.state is MXSingleTickerMixinWidgetState) {
+      tickVsync = _tabController.buildOwner.state as MXSingleTickerMixinWidgetState;
+    } else if (_tabController.buildOwner.state is MXTickerMixinWidgetState) {
+      tickVsync = _tabController.buildOwner.state as MXTickerMixinWidgetState;
+    } else if (_tabController.buildOwner.state is MXSingleTickerAndKeepAliveMixinWidgetState) {
+      tickVsync = _tabController.buildOwner.state as MXSingleTickerAndKeepAliveMixinWidgetState;
+    } else if (_tabController.buildOwner.state is MXTickerAndKeepAliveMixinWidgetState) {
+      tickVsync = _tabController.buildOwner.state as MXTickerAndKeepAliveMixinWidgetState;
+    }
     TabController tabController = TabController(
       initialIndex: initialIndex,
       length: length,
-      // MX modified begin
-      vsync: _tabController.buildOwner.state as MXTickerMixinWidgetState
-      // MX modified end
+      vsync: tickVsync,
     );
     if (listenerList != null) {
       tabController.addListener(_createListenerHandle(_tabController.buildOwner, mirrorID, "listenerCallback", tabController));
