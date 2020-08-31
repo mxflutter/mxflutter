@@ -128,12 +128,9 @@
         }
         
         if(jsAppPath.length == 0){
-            
             MXJSFlutterLog(@"%@",@"jsAppPath.length == 0");
             return;
         }
-        
-
         
         if (jsAppSearchPathWithAssetsKeyList.count > 0) {
             
@@ -152,7 +149,8 @@
         }
     }
     
-    [self runAppWithPath:jsAppPath jsAppSearchPathList:jsAppSearchPathList];
+    NSDictionary *flutterAppEnvironmentInfo = argsMap[@"flutterAppEnvironmentInfo"];
+    [self runAppWithPath:jsAppPath jsAppSearchPathList:jsAppSearchPathList flutterAppEnvironmentInfo:flutterAppEnvironmentInfo];
 }
 
 //MARK: - native -> flutter
@@ -269,7 +267,7 @@
 }
 
 
-- (void)runAppWithPath:(NSString *)jsAppPath jsAppSearchPathList:(NSArray*)pathArray
+- (void)runAppWithPath:(NSString *)jsAppPath jsAppSearchPathList:(NSArray*)pathArray flutterAppEnvironmentInfo:(id)flutterAppEnvironmentInfo
 {
     //退出原来的APP
     if (self.currentApp) {
@@ -281,7 +279,7 @@
     NSString *appRootPath = jsAppPath;
     self.currentApp  = [[MXJSFlutterApp alloc] initWithAppPath:appRootPath jsAppSearchPathList:pathArray engine:self];
     
-    [self.currentApp runApp];
+    [self.currentApp runApp:flutterAppEnvironmentInfo];
 }
 
 

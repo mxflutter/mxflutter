@@ -142,7 +142,7 @@
     }];
 }
 
-- (void)runApp
+- (void)runApp:(id)flutterAppEnvironmentInfo
 {
     
     self.isJSAPPRun = NO;
@@ -156,6 +156,10 @@
         }
         
         executor.jsContext[@"MXNativeJSFlutterApp"] = strongSelf;
+        
+        if (flutterAppEnvironmentInfo) {
+            executor.jsContext[@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
+        }
         
         //把JSI 注册到MXNativeJSFlutterApp中
         [[MXJSBridge shareInstance] registerModules: self jsAPPValueBridge:executor.jsContext[@"MXNativeJSFlutterApp"] ];

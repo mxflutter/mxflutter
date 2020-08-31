@@ -53,7 +53,7 @@ JSExportAs(callFlutterWidgetChannel,
 
 - (instancetype)initWithAppPath:(NSString*)appRootPath jsAppSearchPathList:(NSArray*)pathArray  engine:(MXJSFlutterEngine*)jsFlutterEngine ;
 
-- (void)runApp;
+- (void)runApp:(id)flutterAppEnvironmentInfo;
 - (void)exitApp;
 
 - (JSContext*)mainJSContext;

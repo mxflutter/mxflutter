@@ -4,7 +4,7 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'mx_flutter_app.dart';
@@ -81,7 +81,6 @@ abstract class MXJSFlutter {
   MXJSFlutterApp get currentApp;
 }
 
-
 /// 负责配置，运行MXJSFlutterApp，衔接Flutter，Native，JS 三方
 class _MXJSFlutter implements MXJSFlutter {
   _MXJSFlutter() {
@@ -139,9 +138,19 @@ class _MXJSFlutter implements MXJSFlutter {
           jsAppSearchPathWithAssetsKeyList;
     }
 
+    args["flutterAppEnvironmentInfo"] = _flutterAppEnvironmentInfo();
+
     MXPlatformChannel.getInstance().invokeMethod("callNativeRunJSApp", args);
     // 暂时只支持一个
     currentApp = MXJSFlutterApp(jsAppAssetsKey);
+  }
+
+  Map _flutterAppEnvironmentInfo() {
+    return {
+      "kReleaseMode": kReleaseMode,
+      "kProfileMode": kProfileMode,
+      "kDebugMode": kDebugMode
+    };
   }
 
   /// API - JS页面的入口API
@@ -165,5 +174,4 @@ class _MXJSFlutter implements MXJSFlutter {
   _clearMX() {
     MXMirror.getInstance().clearAllMirrorObjects();
   }
-
 }
