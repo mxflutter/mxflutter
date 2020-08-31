@@ -86,13 +86,11 @@ class MXJSBridge {
   _setupName2FunMap() {
     // 由commonBasicChannelHandler调用
     _name2FunMap["mxfJSBridgeCreateMirrorObj"] = mxfJSBridgeCreateMirrorObj;
+    _name2FunMap["mxfJSBridgeReleaseMirrorObj"] = mxfJSBridgeReleaseMirrorObj;
     _name2FunMap["mxfJSBridgeInvokeMirrorObjWithCallback"] =
         mxfJSBridgeInvokeMirrorObjWithCallback;
-    _name2FunMap["mxfJSBridgeRemoveMirrorObjsRef"] =
-        mxfJSBridgeRemoveMirrorObjsRef;
   }
 
-  /// JS -> Flutter
   Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
     // 将args字的所有字段都赋值到argMap中
     Map args = argMap["args"];
@@ -102,6 +100,17 @@ class MXJSBridge {
     }
 
     MXMirror.getInstance().jsonToDartObj(argMap, buildOwner: null);
+    return null;
+  }
+
+  /// JS -> Flutter
+  Future<String> mxfJSBridgeReleaseMirrorObj(argMap) async {
+
+    if(argMap == null && argMap["mirrorID"] == null){
+      return null;
+    }
+
+    MXMirror.getInstance().removeMirrorObject(argMap["mirrorID"]);
     return null;
   }
 
@@ -122,12 +131,6 @@ class MXJSBridge {
       completer.complete(returnJsonStr);
     });
     return completer.future;
-  }
-
-  /// JS -> Flutter
-  Future<String> mxfJSBridgeRemoveMirrorObjsRef(mirrorIDList) {
-    MXMirror.getInstance().removeMirrorObjectList(mirrorIDList);
-    return null;
   }
 
 }
