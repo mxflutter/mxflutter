@@ -22,10 +22,6 @@
 
 @property (nonatomic, strong) NSMutableDictionary *jsCallbackCache;
 @property (nonatomic, assign) NSInteger jsCallbackCount;
-
-@property (nonatomic, strong) NSMutableDictionary *jsVauleMirrorObjGCMap;
-@property (nonatomic, strong) NSTimer *gcTimer;
-
 @end
 
 
@@ -38,9 +34,7 @@
         self.searchDirArray = [NSMutableArray array];
         self.moduleLoader = [[JSModule alloc] init];
         self.jsCallbackCache = [NSMutableDictionary dictionary];
-        
-        self.jsVauleMirrorObjGCMap = [NSMutableDictionary dictionary];
-        
+
         [self setup];
     }
     return self;
@@ -48,15 +42,13 @@
 
 - (void)dispose
 {
-    [self.gcTimer invalidate];
+
 }
 
 - (void)dealloc
 {
     MXJSFlutterLog(@"dealloc ");
 }
-
-
 
 - (void)setup
 {
@@ -66,37 +58,8 @@
     [self.jsExecutor executeMXJSBlockOnJSThread:^(MXJSExecutor *executor) {
         [weakSelf setupBasicJSRuntime:weakSelf context:executor.jsContext];
     }];
-    
-    //
-    self.gcTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(onGCTimer) userInfo:nil repeats:YES];
 }
 
-- (void)onGCTimer{
-        
-    NSMutableArray *needDeallocObjMirrorIDArray = [NSMutableArray array];
-
-    for (NSString *mirrorID in self.jsVauleMirrorObjGCMap) {
-        
-        JSManagedValue *managedValue = self.jsVauleMirrorObjGCMap[mirrorID];
-        if (managedValue.value == nil) {
-           
-            [needDeallocObjMirrorIDArray addObject:mirrorID];
-        }
-    }
-    //TODO: fix bug
-    //MXJSFlutterLog(@"onGCTimer:jsVauleGCManagedMap.count:%lu needDeallocObjMirrorIDArray.count:%lu",
-    //               (unsigned long)self.jsVauleMirrorObjGCMap.count,(unsigned long)needDeallocObjMirrorIDArray.count);
-  
-    if(needDeallocObjMirrorIDArray.count > 0)
-    {
-        @synchronized (self.jsVauleMirrorObjGCMap) {
-            [self.jsVauleMirrorObjGCMap removeObjectsForKeys:needDeallocObjMirrorIDArray];
-        }
-        
-        //invokeFlutter dealloc dart obj
-        [self.jsFlutterEngine invokeFlutterRemoveMirrorObjsRef:needDeallocObjMirrorIDArray];
-    }
-}
 
 - (void)addSearchDir:(NSString*)dir
 {
@@ -167,7 +130,7 @@
     __weak MXJSEngine *weakSelf = jsEngine;
     
     context.exceptionHandler = ^(JSContext *con, JSValue *exception) {
-        MXJSFlutterLog(@"js context.exceptionHandler  %@", exception);
+        MXJSFlutterLog(@"[JS]:context.exception:  %@", exception);
     };
     context[@"require"] = ^(NSString *filePath) {
         //MXJSFlutterLog(@"require file:%@",filePath);
@@ -218,22 +181,6 @@
     //------Dart2Js支持------
     
     //------Flutter Bridge------
-    
-    /**
-    * @param mirrorID 用于传递到Flutter侧删除对应对象
-    * @param fneedNativeManagedValue
-    */
-    context[@"mxfAddJSValueToMirrorObjGCMap"] = ^(NSString *mirrorID,JSValue* needNativeManagedValue) {
-        
-        //对于Logic MirrorObj 以JS生命周期为主导的对象，利用JSManagedValue特性，监控JS侧MirrorObj的释放情况，定时释放Flutter侧对象
-        JSManagedValue *gcValue = [JSManagedValue managedValueWithValue:needNativeManagedValue];
-        
-        @synchronized (weakSelf.jsVauleMirrorObjGCMap) {
-            self.jsVauleMirrorObjGCMap[mirrorID] = gcValue;
-        }
-    };
-    
-    
     /**
     * @param callJSONStr 透传字段
     * @param function 回调
@@ -269,13 +216,6 @@
         }];
     };
     
-//    /**
-//    * @param channelName 通道名
-//    * @param function 回调
-//    */
-//    context[@"mx_jsbridge_MethodChannel_setMethodCallHandler"] = ^(NSString* channelName, JSValue* function) {
-//
-//    };
     
     /**
     * @param channelName 通道名
