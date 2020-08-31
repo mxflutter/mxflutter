@@ -35,16 +35,6 @@ class MXSingleTickerMixinWidget extends MXJSStatefulWidget {
       : this.isHostWidget = false,
         super(key: key);
 
-    ///由dart侧创建MXWidget壳子
-  MXSingleTickerMixinWidget.hostWidget({Key key, this.name, this.parentBuildOwnerNode})
-      : this.widgetID = MXJSWidgetBase.generateWidgetID(),
-        this.widgetBuildData = null,
-        this.isHostWidget = true,
-        this.widgetBuildDataSeq = null,
-        this.navPushingWidgetID = null,
-        this.isJSLazyWidget = false,
-        super(key: key);
-
   @override
   State<StatefulWidget> createState() {
     return MXSingleTickerMixinWidgetState();

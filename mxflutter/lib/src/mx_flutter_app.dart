@@ -12,7 +12,6 @@ import 'package:flutter/services.dart';
 import 'mx_build_owner.dart';
 import 'mx_common.dart';
 import 'mx_widget.dart';
-import 'mx_mixin.dart';
 
 /// 管理一个JSAPP 代码文件集合
 /// 负责 JS 与 Flutter UI数据通道，事件通道
@@ -56,7 +55,7 @@ class MXJSFlutterApp {
       return jsWidget;
     }
 
-    jsWidget = MXSingleTickerMixinWidget.hostWidget(
+    jsWidget = MXJSStatefulWidget.hostWidget(
         key: widgetKey,
         name: widgetName,
         parentBuildOwnerNode: _rootBuildOwnerNode);
