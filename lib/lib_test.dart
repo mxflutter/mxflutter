@@ -8,8 +8,16 @@ class MyHomeLibPage extends StatefulWidget {
   _MyHomeLibPageState createState() => _MyHomeLibPageState();
 }
 
-class _MyHomeLibPageState extends State<MyHomeLibPage> {
+class _MyHomeLibPageState extends State<MyHomeLibPage> with SingleTickerProviderStateMixin {
   int _counter = 0;
+  TabController _tabController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = TabController(vsync: this, length: 2);
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -19,20 +27,20 @@ class _MyHomeLibPageState extends State<MyHomeLibPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new DefaultTabController(
-      length: 2,
-      child: new Scaffold(
+    return new Scaffold(
         appBar: new AppBar(
           title: new Text('PageExampleAlign'),
           bottom: new TabBar(
+            controller: _tabController,
             tabs: [new Tab(text: 'A'), new Tab(text: 'B')],
           ),
         ),
         body: new TabBarView(
+          controller: _tabController,
           children: [new CounterPage(title: 'A'), new CounterPage(title: 'B')],
         ),
-      ),
-    );
+      );
+
   }
 }
 

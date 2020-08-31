@@ -41,11 +41,13 @@ mixin MXJSWidgetBase {
 }
 
 /// 封装JSWidget
+// ignore: must_be_immutable
 class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
   final String name;
   final String widgetID;
 
-  final Map widgetBuildData;
+  // JSLazy 模式 第一次用过widgetBuildData之后需要置空
+  Map widgetBuildData;
   final String widgetBuildDataSeq;
 
   /// The Widget Pages that pushed this Widget ID
@@ -130,9 +132,9 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
     // 当MXJSStatefulWidget 在element树中被复用，需要更新widgetData
     _updateStateWidgetData();
 
-    /// 如果widget Tree相同位置都是 MXJSStatefulElement，但是widgetID 不同
-    /// 按flutter的机制会复用 MXJSStatefulElement，调用update相关函数
-    /// TODO： 需要重置下buildOwnerNode
+    // 如果widget Tree相同位置都是 MXJSStatefulElement，但是widgetID 不同
+    // 按flutter的机制会复用 MXJSStatefulElement，调用update相关函数
+    // TODO： 需要重置下buildOwnerNode
     if (widget.widgetID != old.widgetID) {
       MXJSLog.log(
           "MXJSWidgetState:didUpdateWidget:widget.widgetID != old.widgetID "
@@ -147,6 +149,12 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
     // state初始化时，用widget的widgetData ，之后等js侧的刷新
     widgetBuildData = widget.widgetBuildData;
     widgetBuildDataSeq = widget.widgetBuildDataSeq;
+
+    // 如果是JSLazy模式，但是widgetBuildData有值，是第一次预加载模式，用之后清掉
+    // 确保第二次展开此Widget时，需要CallJS LazyRefresh
+    if(widget.isJSLazyWidget && _isNotEmptyData(widget.widgetBuildData)){
+      widget.widgetBuildData = null;
+    }
   }
 
   @override
@@ -180,6 +188,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget>
             "this.widget.widgetID:${this.widget.widgetID}");
         child = MXJSWidgetBase.errorWidget;
       }
+
     } else {
       // host 等待js刷新，先显示loading页面
       // TODO: 定制loading页面和 error 页面
