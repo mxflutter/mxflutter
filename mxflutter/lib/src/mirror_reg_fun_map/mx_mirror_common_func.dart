@@ -31,7 +31,7 @@ var _mxJSStatefulWidget = MXFunctionInvoke(
           Map widgetData,
           String buildWidgetDataSeq,
           String navPushingWidgetElementID,
-          bool isJSLazyWidget = false}) =>
+          bool isJSLazyWidget = false,}) =>
       MXJSStatefulWidget(
           key: key,
           name: name,
@@ -94,7 +94,8 @@ var _mxSingleTickerMixinWidget = MXFunctionInvoke(
           String widgetID,
           Map widgetData,
           String buildWidgetDataSeq,
-          String navPushingWidgetElementID}) =>
+          String navPushingWidgetElementID,
+          bool isJSLazyWidget = false,}) =>
       MXSingleTickerMixinWidget(
     key: key,
     name: name,
@@ -103,6 +104,7 @@ var _mxSingleTickerMixinWidget = MXFunctionInvoke(
     widgetBuildDataSeq: buildWidgetDataSeq,
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxSingleTickerMixinWidget.buildOwner,
+    isJSLazyWidget: isJSLazyWidget,
   ),
   [
     "key",
@@ -111,6 +113,7 @@ var _mxSingleTickerMixinWidget = MXFunctionInvoke(
     "widgetData",
     "buildWidgetDataSeq",
     "navPushingWidgetElementID",
+    "isJSLazyWidget",
   ],
   [
     "widgetData",
@@ -125,7 +128,8 @@ var _mxTickerMixinWidget = MXFunctionInvoke(
           String widgetID,
           Map widgetData,
           String buildWidgetDataSeq,
-          String navPushingWidgetElementID}) =>
+          String navPushingWidgetElementID,
+          bool isJSLazyWidget = false,}) =>
       MXTickerMixinWidget(
     key: key,
     name: name,
@@ -134,6 +138,7 @@ var _mxTickerMixinWidget = MXFunctionInvoke(
     widgetBuildDataSeq: buildWidgetDataSeq,
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxTickerMixinWidget.buildOwner,
+    isJSLazyWidget: isJSLazyWidget,
   ),
   [
     "key",
@@ -142,6 +147,7 @@ var _mxTickerMixinWidget = MXFunctionInvoke(
     "widgetData",
     "buildWidgetDataSeq",
     "navPushingWidgetElementID",
+    "isJSLazyWidget",
   ],
   [
     "widgetData",
@@ -156,7 +162,8 @@ var _mxKeepAliveMixinWidget = MXFunctionInvoke(
           String widgetID,
           Map widgetData,
           String buildWidgetDataSeq,
-          String navPushingWidgetElementID}) =>
+          String navPushingWidgetElementID,
+          bool isJSLazyWidget = false,}) =>
       MXKeepAliveMixinWidget(
     key: key,
     name: name,
@@ -165,6 +172,7 @@ var _mxKeepAliveMixinWidget = MXFunctionInvoke(
     widgetBuildDataSeq: buildWidgetDataSeq,
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxKeepAliveMixinWidget.buildOwner,
+    isJSLazyWidget: isJSLazyWidget,
   ),
   [
     "key",
@@ -173,6 +181,7 @@ var _mxKeepAliveMixinWidget = MXFunctionInvoke(
     "widgetData",
     "buildWidgetDataSeq",
     "navPushingWidgetElementID",
+    "isJSLazyWidget",
   ],
   [
     "widgetData",
@@ -187,7 +196,8 @@ var _mxSingleTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
           String widgetID,
           Map widgetData,
           String buildWidgetDataSeq,
-          String navPushingWidgetElementID}) =>
+          String navPushingWidgetElementID,
+          bool isJSLazyWidget = false,}) =>
       MXSingleTickerAndKeepAliveMixinWidget(
     key: key,
     name: name,
@@ -196,6 +206,7 @@ var _mxSingleTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
     widgetBuildDataSeq: buildWidgetDataSeq,
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxSingleTickerAndKeepAliveMixinWidget.buildOwner,
+    isJSLazyWidget: isJSLazyWidget,
   ),
   [
     "key",
@@ -204,6 +215,7 @@ var _mxSingleTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
     "widgetData",
     "buildWidgetDataSeq",
     "navPushingWidgetElementID",
+    "isJSLazyWidget",
   ],
   [
     "widgetData",
@@ -218,7 +230,8 @@ var _mxTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
           String widgetID,
           Map widgetData,
           String buildWidgetDataSeq,
-          String navPushingWidgetElementID}) =>
+          String navPushingWidgetElementID,
+          bool isJSLazyWidget = false,}) =>
       MXTickerAndKeepAliveMixinWidget(
     key: key,
     name: name,
@@ -227,6 +240,7 @@ var _mxTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
     widgetBuildDataSeq: buildWidgetDataSeq,
     navPushingWidgetID: navPushingWidgetElementID,
     parentBuildOwnerNode: _mxTickerAndKeepAliveMixinWidget.buildOwner,
+    isJSLazyWidget: isJSLazyWidget,
   ),
   [
     "key",
@@ -235,6 +249,7 @@ var _mxTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
     "widgetData",
     "buildWidgetDataSeq",
     "navPushingWidgetElementID",
+    "isJSLazyWidget",
   ],
   [
     "widgetData",
