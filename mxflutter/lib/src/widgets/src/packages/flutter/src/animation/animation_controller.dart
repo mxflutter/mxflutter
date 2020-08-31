@@ -41,6 +41,7 @@ var _animationBehavior = MXFunctionInvoke(
     "AnimationBehavior",
     ({String name, int index}) => MXAnimationBehavior.parse(name, index),
     ["name", "index"]);
+// MX modified begin
 var _animationController = MXFunctionInvoke(
   "AnimationController",
   ({
@@ -52,19 +53,28 @@ var _animationController = MXFunctionInvoke(
     dynamic upperBound = 1.0,
     AnimationBehavior animationBehavior = AnimationBehavior.normal,
     TickerProvider vsync,
-  }) =>
-      AnimationController(
-    value: value?.toDouble(),
-    duration: duration,
-    reverseDuration: reverseDuration,
-    debugLabel: debugLabel,
-    lowerBound: lowerBound?.toDouble(),
-    upperBound: upperBound?.toDouble(),
-    animationBehavior: animationBehavior,
-    // MX modified begin
-    vsync: _animationController.buildOwner.state as MXSingleTickerMixinWidgetState,
-    // MX modified end
-  ),
+  }) {
+    var tickVsync;
+    if (_animationController.buildOwner.state is MXSingleTickerMixinWidgetState) {
+      tickVsync = _animationController.buildOwner.state as MXSingleTickerMixinWidgetState;
+    } else if (_animationController.buildOwner.state is MXTickerMixinWidgetState) {
+      tickVsync = _animationController.buildOwner.state as MXTickerMixinWidgetState;
+    } else if (_animationController.buildOwner.state is MXSingleTickerAndKeepAliveMixinWidgetState) {
+      tickVsync = _animationController.buildOwner.state as MXSingleTickerAndKeepAliveMixinWidgetState;
+    } else if (_animationController.buildOwner.state is MXTickerAndKeepAliveMixinWidgetState) {
+      tickVsync = _animationController.buildOwner.state as MXTickerAndKeepAliveMixinWidgetState;
+    }
+    return AnimationController(
+      value: value?.toDouble(),
+      duration: duration,
+      reverseDuration: reverseDuration,
+      debugLabel: debugLabel,
+      lowerBound: lowerBound?.toDouble(),
+      upperBound: upperBound?.toDouble(),
+      animationBehavior: animationBehavior,
+      vsync: tickVsync
+    );
+  },
   [
     "value",
     "duration",
@@ -76,6 +86,7 @@ var _animationController = MXFunctionInvoke(
     "vsync",
   ],
 );
+// MX modified end
 var _animationControllerUnbounded = MXFunctionInvoke(
   "AnimationController.unbounded",
   ({
