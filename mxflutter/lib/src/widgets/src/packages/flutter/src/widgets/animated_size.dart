@@ -10,6 +10,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
+// MX Modified begin
+import 'package:mxflutter/src/mx_mixin.dart';
+// MX Modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
@@ -37,7 +40,7 @@ var _animatedSize = MXFunctionInvoke(
     duration: duration,
     reverseDuration: reverseDuration,
     // MX modified begin
-    vsync: _animatedSize.buildOwner.state,
+    vsync: _animatedSize.buildOwner.state as MXSingleTickerMixinWidgetState,
     // MX modified end
   ),
   [

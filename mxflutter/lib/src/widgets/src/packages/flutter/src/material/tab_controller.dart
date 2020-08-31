@@ -10,6 +10,9 @@ import 'package:flutter/src/material/tab_controller.dart';
 import 'dart:math' as math;
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/constants.dart';
+// MX Modified begin
+import 'package:mxflutter/src/mx_mixin.dart';
+// MX Modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTabControllerSeries() {
@@ -33,7 +36,7 @@ var _tabController = MXFunctionInvoke(
       initialIndex: initialIndex,
       length: length,
       // MX modified begin
-      vsync: _tabController.buildOwner.state,
+      vsync: _tabController.buildOwner.state as MXTickerMixinWidgetState
       // MX modified end
     );
     if (listenerList != null) {

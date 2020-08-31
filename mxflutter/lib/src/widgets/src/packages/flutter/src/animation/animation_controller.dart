@@ -17,6 +17,7 @@ import 'package:flutter/src/animation/curves.dart';
 import 'package:flutter/src/animation/listener_helpers.dart';
 // MX modified begin
 import 'package:flutter/animation.dart';
+import 'package:mxflutter/src/mx_mixin.dart';
 // MX modified end
 
 ///把自己能处理的类注册到分发器中
@@ -61,7 +62,7 @@ var _animationController = MXFunctionInvoke(
     upperBound: upperBound?.toDouble(),
     animationBehavior: animationBehavior,
     // MX modified begin
-    vsync: _animationController.buildOwner.state,
+    vsync: _animationController.buildOwner.state as MXSingleTickerMixinWidgetState,
     // MX modified end
   ),
   [

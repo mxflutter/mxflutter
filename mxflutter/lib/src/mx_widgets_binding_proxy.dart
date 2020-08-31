@@ -52,7 +52,7 @@ class MXWidgetsBindingProxy with WidgetsBindingObserver {
 }
 
 /// MXWidgetsBindingProxy使用WidgetsBinding类名 注册mirror符号
-Map<String, MXFunctionInvoke> mxRegisterMXWidgetsBindingProxy() {
+mxRegisterMXWidgetsBindingProxy() {
   var invoke = MXFunctionInvoke(
       "WidgetsBinding",
       ({String mirrorID}) => MXWidgetsBindingProxy(mirrorId: mirrorID),
