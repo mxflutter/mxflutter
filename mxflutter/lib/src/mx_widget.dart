@@ -151,7 +151,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
 
     // 如果是JSLazy模式，但是widgetBuildData有值，是第一次预加载模式，用之后清掉
     // 确保第二次展开此Widget时，需要CallJS LazyRefresh
-    if(widget.isJSLazyWidget && isNotEmptyData(widget.widgetBuildData)){
+    if(widget.isJSLazyWidget && _isNotEmptyData(widget.widgetBuildData)){
       widget.widgetBuildData = null;
     }
   }
@@ -178,7 +178,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
         "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
 
-    if (isNotEmptyData(widgetBuildData)) {
+    if (_isNotEmptyData(widgetBuildData)) {
       // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
       MXJSLog.debug("MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
           "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
@@ -196,9 +196,9 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
       // host 等待js刷新，先显示loading页面
       // TODO: 定制loading页面和 error 页面
       if (widget.isHostWidget) {
-        child = hostWidgetInvokeJS(context);
+        child = _hostWidgetInvokeJS(context);
       } else if (widget.isJSLazyWidget) {
-        child = lazyWidgetInvokeJS(context);
+        child = _lazyWidgetInvokeJS(context);
       } else {
         MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
             "this.widget.widgetID:${this.widget.widgetID}");
@@ -215,13 +215,13 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     return child;
   }
 
-  bool isNotEmptyData(widgetBuildData) {
+  bool _isNotEmptyData(widgetBuildData) {
     return widgetBuildData != null &&
         widgetBuildData is Map &&
         widgetBuildData.isNotEmpty;
   }
 
-  Widget hostWidgetInvokeJS(BuildContext context) {
+  Widget _hostWidgetInvokeJS(BuildContext context) {
     if (!isHostWidgetAlreadyCallJSRefreshed) {
       isHostWidgetAlreadyCallJSRefreshed = true;
       buildOwnerNode.callJSRefreshHostWidget(
@@ -232,7 +232,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     }
   }
 
-  Widget lazyWidgetInvokeJS(BuildContext context) {
+  Widget _lazyWidgetInvokeJS(BuildContext context) {
     buildOwnerNode.callJSRefreshLazyWidget(widget.widgetID, context);
     return MXJSWidgetBase.loadingWidget;
   }
@@ -245,7 +245,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
       return;
     }
 
-    if (!isNotEmptyData(widgetBuildData)) {
+    if (!_isNotEmptyData(widgetBuildData)) {
       MXJSLog.error("MXJSWidgetState:jsCallRebuild: error "
           "widgetBuildData = null");
       return;

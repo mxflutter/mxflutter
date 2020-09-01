@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'mx_build_owner.dart';
-import 'mx_common.dart';
 import 'mx_widget.dart';
 
 // ignore: must_be_immutable
@@ -16,11 +15,13 @@ class MXSingleTickerMixinWidget extends MXJSStatefulWidget {
       bool isJSLazyWidget})
       : super(
             key: key,
+            name: name,
             widgetID: widgetID,
             widgetBuildData: widgetBuildData,
             widgetBuildDataSeq: widgetBuildDataSeq,
             navPushingWidgetID: navPushingWidgetID,
-            parentBuildOwnerNode: parentBuildOwnerNode);
+            parentBuildOwnerNode: parentBuildOwnerNode,
+            isJSLazyWidget: isJSLazyWidget);
 
   @override
   State<StatefulWidget> createState() {
@@ -53,11 +54,13 @@ class MXTickerMixinWidget extends MXJSStatefulWidget {
       bool isJSLazyWidget})
       : super(
             key: key,
+            name: name,
             widgetID: widgetID,
             widgetBuildData: widgetBuildData,
             widgetBuildDataSeq: widgetBuildDataSeq,
             navPushingWidgetID: navPushingWidgetID,
-            parentBuildOwnerNode: parentBuildOwnerNode);
+            parentBuildOwnerNode: parentBuildOwnerNode,
+            isJSLazyWidget: isJSLazyWidget);
 
   @override
   State<StatefulWidget> createState() {
@@ -90,11 +93,13 @@ class MXKeepAliveMixinWidget extends MXJSStatefulWidget {
       bool isJSLazyWidget})
       : super(
             key: key,
+            name: name,
             widgetID: widgetID,
             widgetBuildData: widgetBuildData,
             widgetBuildDataSeq: widgetBuildDataSeq,
             navPushingWidgetID: navPushingWidgetID,
-            parentBuildOwnerNode: parentBuildOwnerNode);
+            parentBuildOwnerNode: parentBuildOwnerNode,
+            isJSLazyWidget: isJSLazyWidget);
 
   @override
   State<StatefulWidget> createState() {
@@ -137,11 +142,13 @@ class MXSingleTickerAndKeepAliveMixinWidget extends MXJSStatefulWidget {
       bool isJSLazyWidget})
       : super(
             key: key,
+            name: name,
             widgetID: widgetID,
             widgetBuildData: widgetBuildData,
             widgetBuildDataSeq: widgetBuildDataSeq,
             navPushingWidgetID: navPushingWidgetID,
-            parentBuildOwnerNode: parentBuildOwnerNode);
+            parentBuildOwnerNode: parentBuildOwnerNode,
+            isJSLazyWidget: isJSLazyWidget);
 
   @override
   State<StatefulWidget> createState() {
@@ -184,11 +191,13 @@ class MXTickerAndKeepAliveMixinWidget extends MXJSStatefulWidget {
       bool isJSLazyWidget})
       : super(
             key: key,
+            name: name,
             widgetID: widgetID,
             widgetBuildData: widgetBuildData,
             widgetBuildDataSeq: widgetBuildDataSeq,
             navPushingWidgetID: navPushingWidgetID,
-            parentBuildOwnerNode: parentBuildOwnerNode);
+            parentBuildOwnerNode: parentBuildOwnerNode,
+            isJSLazyWidget: isJSLazyWidget);
 
   @override
   State<StatefulWidget> createState() {
