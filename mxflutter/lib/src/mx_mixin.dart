@@ -3,37 +3,38 @@ import 'mx_build_owner.dart';
 import 'mx_common.dart';
 import 'mx_widget.dart';
 
+// ignore: must_be_immutable
 class MXSingleTickerMixinWidget extends MXJSStatefulWidget {
-  final String name;
-  final String widgetID;
+  // final String name;
+  // final String widgetID;
 
-  final Map widgetBuildData;
-  final String widgetBuildDataSeq;
+  // final Map widgetBuildData;
+  // final String widgetBuildDataSeq;
 
-  /// The Widget Pages that pushed this Widget ID
-  /// 把当前widget（this） push 出来的widget ID
-  final String navPushingWidgetID;
+  // /// The Widget Pages that pushed this Widget ID
+  // /// 把当前widget（this） push 出来的widget ID
+  // final String navPushingWidgetID;
 
-  /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
-  final MXJsonBuildOwner parentBuildOwnerNode;
+  // /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
+  // final MXJsonBuildOwner parentBuildOwnerNode;
 
-  /// Flutter 主动创建的 hostWidget，等待JS刷新
-  final bool isHostWidget;
+  // /// Flutter 主动创建的 hostWidget，等待JS刷新
+  // final bool isHostWidget;
 
-  /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
-  final bool isJSLazyWidget;
+  // /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
+  // final bool isJSLazyWidget;
 
-  MXSingleTickerMixinWidget(
-      {Key key,
-      this.name,
-      this.widgetID,
-      this.widgetBuildData,
-      this.widgetBuildDataSeq,
-      this.navPushingWidgetID,
-      this.parentBuildOwnerNode,
-      this.isJSLazyWidget})
-      : this.isHostWidget = false,
-        super(key: key);
+  // MXSingleTickerMixinWidget(
+  //     {Key key,
+  //     this.name,
+  //     this.widgetID,
+  //     this.widgetBuildData,
+  //     this.widgetBuildDataSeq,
+  //     this.navPushingWidgetID,
+  //     this.parentBuildOwnerNode,
+  //     this.isJSLazyWidget})
+  //     : this.isHostWidget = false,
+  //       super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -53,6 +54,7 @@ class MXSingleTickerMixinWidget extends MXJSStatefulWidget {
 class MXSingleTickerMixinWidgetState extends MXJSWidgetState
     with SingleTickerProviderStateMixin {}
 
+// ignore: must_be_immutable
 class MXTickerMixinWidget extends MXJSStatefulWidget {
   final String name;
   final String widgetID;
@@ -103,6 +105,7 @@ class MXTickerMixinWidget extends MXJSStatefulWidget {
 class MXTickerMixinWidgetState extends MXJSWidgetState
     with TickerProviderStateMixin {}
 
+// ignore: must_be_immutable
 class MXKeepAliveMixinWidget extends MXJSStatefulWidget {
   final String name;
   final String widgetID;
@@ -204,6 +207,7 @@ class MXKeepAliveMixinWidgetState extends MXJSWidgetState
   bool get wantKeepAlive => true;
 }
 
+// ignore: must_be_immutable
 class MXSingleTickerAndKeepAliveMixinWidget extends MXJSStatefulWidget {
   final String name;
   final String widgetID;
@@ -305,6 +309,7 @@ class MXSingleTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
   bool get wantKeepAlive => true;
 }
 
+// ignore: must_be_immutable
 class MXTickerAndKeepAliveMixinWidget extends MXJSStatefulWidget {
   final String name;
   final String widgetID;

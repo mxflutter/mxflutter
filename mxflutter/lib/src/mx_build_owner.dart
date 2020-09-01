@@ -217,19 +217,6 @@ class MXJsonBuildOwner {
     Map widgetBuildData = widgetDataMap["widgetData"];
     String buildWidgetDataSeq = widgetDataMap["buildWidgetDataSeq"];
 
-    if (className != "MXJSStatefulWidget" &&
-        className != "MXJSStatelessWidget" &&
-        className != "MXSingleTickerMixinWidget" &&
-        className != "MXTickerMixinWidget" &&
-        className != "MXKeepAliveMixinWidget" &&
-        className != "MXSingleTickerAndKeepAliveMixinWidget" &&
-        className != "MXTickerAndKeepAliveMixinWidget") {
-      MXJSLog.error("MXJSWidgetState:jsCallRebuild: "
-          "(widgetData className is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
-          "className:$className widgetData:$widgetDataMap");
-      return;
-    }
-
     _rebuild(widgetID, widgetBuildData, buildWidgetDataSeq);
   }
 
