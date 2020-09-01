@@ -58,7 +58,9 @@ public class MXJSFlutterApp {
 
     private ArrayList<MethodCall> callJSMethodQueue;
 
-    public MXJSFlutterApp initWithAppName(MXFlutterPlugin context, String appName, String rootPath, List<String> jsAppSearchPathList, MXJSFlutterEngine jsFlutterEngine) {
+    public MXJSFlutterApp initWithAppName(MXFlutterPlugin context, String appName, String rootPath,
+                                          List<String> jsAppSearchPathList, MXJSFlutterEngine jsFlutterEngine,
+                                          Map<String, Boolean> flutterAppEnvironmentInfo) {
         initRuntime(context.mFlutterPluginBinding.getApplicationContext());
         this.mContext = context;
         this.appName = appName;
@@ -72,6 +74,7 @@ public class MXJSFlutterApp {
 
         setupJSEngine(jsFlutterEngine);
         setUpChannel(context.mFlutterPluginBinding.getBinaryMessenger());
+        setFlutterAppEnvironmentInfo(flutterAppEnvironmentInfo);
 
         currentApp = this;
         return this;
@@ -124,6 +127,10 @@ public class MXJSFlutterApp {
 //
 //            }
 //        });
+    }
+
+    private void setFlutterAppEnvironmentInfo(Map flutterAppEnvironmentInfo) {
+        jsExecutor.registerGlobalObject("mx_flutterAppEnvironmentInfo", flutterAppEnvironmentInfo);
     }
 
     //flutter --> js

@@ -61,6 +61,16 @@ public class MXJSExecutor {
     }
 
     //global js runtime
+    public void registerGlobalObject(String name, Map data) {
+        executor.execute(new MXJsTask() {
+            @Override
+            public void excute() {
+                runtime.add(name, V8ObjectUtils.toV8Object(runtime, data));
+            }
+        });
+    }
+
+    //global js runtime
     public void registerJavaMethod(JavaVoidCallback callback, String name) {
         executor.execute(new MXJsTask() {
             @Override
