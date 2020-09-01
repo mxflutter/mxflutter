@@ -157,50 +157,50 @@ class MXKeepAliveMixinWidgetState extends MXJSWidgetState
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
-    super.build(context);
+    return super.build(context);
 
-    assert(buildOwnerNode != null);
+    // assert(buildOwnerNode != null);
 
-    Widget child = MXJSWidgetBase.errorWidget;
+    // Widget child = MXJSWidgetBase.errorWidget;
 
-    MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
-        "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
+    // MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
+    //     "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
 
-    if (isNotEmptyData(widgetBuildData)) {
-      // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-      MXJSLog.debug(
-          "MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
-          "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
+    // if (isNotEmptyData(widgetBuildData)) {
+    //   // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
+    //   MXJSLog.debug(
+    //       "MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
+    //       "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
 
-      child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
-      if (child == null || child is! Widget) {
-        MXJSLog.error(
-            "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
-            "child: $child"
-            "this.widget.widgetID:${this.widget.widgetID}");
-        child = MXJSWidgetBase.errorWidget;
-      }
-    } else {
-      // host 等待js刷新，先显示loading页面
-      // TODO: 定制loading页面和 error 页面
-      if (widget.isHostWidget) {
-        child = hostWidgetInvokeJS(context);
-      } else if (widget.isJSLazyWidget) {
-        child = lazyWidgetInvokeJS(context);
-      } else {
-        MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
-            "this.widget.widgetID:${this.widget.widgetID}");
-        child = MXJSWidgetBase.errorWidget;
-      }
-    }
+    //   child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
+    //   if (child == null || child is! Widget) {
+    //     MXJSLog.error(
+    //         "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
+    //         "child: $child"
+    //         "this.widget.widgetID:${this.widget.widgetID}");
+    //     child = MXJSWidgetBase.errorWidget;
+    //   }
+    // } else {
+    //   // host 等待js刷新，先显示loading页面
+    //   // TODO: 定制loading页面和 error 页面
+    //   if (widget.isHostWidget) {
+    //     child = hostWidgetInvokeJS(context);
+    //   } else if (widget.isJSLazyWidget) {
+    //     child = lazyWidgetInvokeJS(context);
+    //   } else {
+    //     MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
+    //         "this.widget.widgetID:${this.widget.widgetID}");
+    //     child = MXJSWidgetBase.errorWidget;
+    //   }
+    // }
 
-    // build 逻辑非常重要，保证到底JS，否则JS setState 不生效
-    buildOwnerNode.callJSOnBuildEnd();
+    // // build 逻辑非常重要，保证到底JS，否则JS setState 不生效
+    // buildOwnerNode.callJSOnBuildEnd();
 
-    MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
-        "callJSOnBuildEnd  widgetID ${widget.widgetID} "
-        "widgetBuildDataSeq:$widgetBuildDataSeq} ");
-    return child;
+    // MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
+    //     "callJSOnBuildEnd  widgetID ${widget.widgetID} "
+    //     "widgetBuildDataSeq:$widgetBuildDataSeq} ");
+    // return child;
   }
 
   @override
