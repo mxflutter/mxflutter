@@ -5,36 +5,22 @@ import 'mx_widget.dart';
 
 // ignore: must_be_immutable
 class MXSingleTickerMixinWidget extends MXJSStatefulWidget {
-  // final String name;
-  // final String widgetID;
-
-  // final Map widgetBuildData;
-  // final String widgetBuildDataSeq;
-
-  // /// The Widget Pages that pushed this Widget ID
-  // /// 把当前widget（this） push 出来的widget ID
-  // final String navPushingWidgetID;
-
-  // /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
-  // final MXJsonBuildOwner parentBuildOwnerNode;
-
-  // /// Flutter 主动创建的 hostWidget，等待JS刷新
-  // final bool isHostWidget;
-
-  // /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
-  // final bool isJSLazyWidget;
-
-  // MXSingleTickerMixinWidget(
-  //     {Key key,
-  //     this.name,
-  //     this.widgetID,
-  //     this.widgetBuildData,
-  //     this.widgetBuildDataSeq,
-  //     this.navPushingWidgetID,
-  //     this.parentBuildOwnerNode,
-  //     this.isJSLazyWidget})
-  //     : this.isHostWidget = false,
-  //       super(key: key);
+  MXSingleTickerMixinWidget(
+      {Key key,
+      String name,
+      String widgetID,
+      Map widgetBuildData,
+      String widgetBuildDataSeq,
+      String navPushingWidgetID,
+      MXJsonBuildOwner parentBuildOwnerNode,
+      bool isJSLazyWidget})
+      : super(
+            key: key,
+            widgetID: widgetID,
+            widgetBuildData: widgetBuildData,
+            widgetBuildDataSeq: widgetBuildDataSeq,
+            navPushingWidgetID: navPushingWidgetID,
+            parentBuildOwnerNode: parentBuildOwnerNode);
 
   @override
   State<StatefulWidget> createState() {
@@ -56,36 +42,22 @@ class MXSingleTickerMixinWidgetState extends MXJSWidgetState
 
 // ignore: must_be_immutable
 class MXTickerMixinWidget extends MXJSStatefulWidget {
-  final String name;
-  final String widgetID;
-
-  final Map widgetBuildData;
-  final String widgetBuildDataSeq;
-
-  /// The Widget Pages that pushed this Widget ID
-  /// 把当前widget（this） push 出来的widget ID
-  final String navPushingWidgetID;
-
-  /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
-  final MXJsonBuildOwner parentBuildOwnerNode;
-
-  /// Flutter 主动创建的 hostWidget，等待JS刷新
-  final bool isHostWidget;
-
-  /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
-  final bool isJSLazyWidget;
-
   MXTickerMixinWidget(
       {Key key,
-      this.name,
-      this.widgetID,
-      this.widgetBuildData,
-      this.widgetBuildDataSeq,
-      this.navPushingWidgetID,
-      this.parentBuildOwnerNode,
-      this.isJSLazyWidget})
-      : this.isHostWidget = false,
-        super(key: key);
+      String name,
+      String widgetID,
+      Map widgetBuildData,
+      String widgetBuildDataSeq,
+      String navPushingWidgetID,
+      MXJsonBuildOwner parentBuildOwnerNode,
+      bool isJSLazyWidget})
+      : super(
+            key: key,
+            widgetID: widgetID,
+            widgetBuildData: widgetBuildData,
+            widgetBuildDataSeq: widgetBuildDataSeq,
+            navPushingWidgetID: navPushingWidgetID,
+            parentBuildOwnerNode: parentBuildOwnerNode);
 
   @override
   State<StatefulWidget> createState() {
@@ -107,36 +79,22 @@ class MXTickerMixinWidgetState extends MXJSWidgetState
 
 // ignore: must_be_immutable
 class MXKeepAliveMixinWidget extends MXJSStatefulWidget {
-  final String name;
-  final String widgetID;
-
-  final Map widgetBuildData;
-  final String widgetBuildDataSeq;
-
-  /// The Widget Pages that pushed this Widget ID
-  /// 把当前widget（this） push 出来的widget ID
-  final String navPushingWidgetID;
-
-  /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
-  final MXJsonBuildOwner parentBuildOwnerNode;
-
-  /// Flutter 主动创建的 hostWidget，等待JS刷新
-  final bool isHostWidget;
-
-  /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
-  final bool isJSLazyWidget;
-
   MXKeepAliveMixinWidget(
       {Key key,
-      this.name,
-      this.widgetID,
-      this.widgetBuildData,
-      this.widgetBuildDataSeq,
-      this.navPushingWidgetID,
-      this.parentBuildOwnerNode,
-      this.isJSLazyWidget})
-      : this.isHostWidget = false,
-        super(key: key);
+      String name,
+      String widgetID,
+      Map widgetBuildData,
+      String widgetBuildDataSeq,
+      String navPushingWidgetID,
+      MXJsonBuildOwner parentBuildOwnerNode,
+      bool isJSLazyWidget})
+      : super(
+            key: key,
+            widgetID: widgetID,
+            widgetBuildData: widgetBuildData,
+            widgetBuildDataSeq: widgetBuildDataSeq,
+            navPushingWidgetID: navPushingWidgetID,
+            parentBuildOwnerNode: parentBuildOwnerNode);
 
   @override
   State<StatefulWidget> createState() {
@@ -157,50 +115,9 @@ class MXKeepAliveMixinWidgetState extends MXJSWidgetState
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
-    return super.build(context);
+    super.build(context);
 
-    // assert(buildOwnerNode != null);
-
-    // Widget child = MXJSWidgetBase.errorWidget;
-
-    // MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
-    //     "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
-
-    // if (isNotEmptyData(widgetBuildData)) {
-    //   // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-    //   MXJSLog.debug(
-    //       "MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
-    //       "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
-
-    //   child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
-    //   if (child == null || child is! Widget) {
-    //     MXJSLog.error(
-    //         "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
-    //         "child: $child"
-    //         "this.widget.widgetID:${this.widget.widgetID}");
-    //     child = MXJSWidgetBase.errorWidget;
-    //   }
-    // } else {
-    //   // host 等待js刷新，先显示loading页面
-    //   // TODO: 定制loading页面和 error 页面
-    //   if (widget.isHostWidget) {
-    //     child = hostWidgetInvokeJS(context);
-    //   } else if (widget.isJSLazyWidget) {
-    //     child = lazyWidgetInvokeJS(context);
-    //   } else {
-    //     MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
-    //         "this.widget.widgetID:${this.widget.widgetID}");
-    //     child = MXJSWidgetBase.errorWidget;
-    //   }
-    // }
-
-    // // build 逻辑非常重要，保证到底JS，否则JS setState 不生效
-    // buildOwnerNode.callJSOnBuildEnd();
-
-    // MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
-    //     "callJSOnBuildEnd  widgetID ${widget.widgetID} "
-    //     "widgetBuildDataSeq:$widgetBuildDataSeq} ");
-    // return child;
+    return buildWidget(context);
   }
 
   @override
@@ -209,36 +126,22 @@ class MXKeepAliveMixinWidgetState extends MXJSWidgetState
 
 // ignore: must_be_immutable
 class MXSingleTickerAndKeepAliveMixinWidget extends MXJSStatefulWidget {
-  final String name;
-  final String widgetID;
-
-  final Map widgetBuildData;
-  final String widgetBuildDataSeq;
-
-  /// The Widget Pages that pushed this Widget ID
-  /// 把当前widget（this） push 出来的widget ID
-  final String navPushingWidgetID;
-
-  /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
-  final MXJsonBuildOwner parentBuildOwnerNode;
-
-  /// Flutter 主动创建的 hostWidget，等待JS刷新
-  final bool isHostWidget;
-
-  /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
-  final bool isJSLazyWidget;
-
   MXSingleTickerAndKeepAliveMixinWidget(
       {Key key,
-      this.name,
-      this.widgetID,
-      this.widgetBuildData,
-      this.widgetBuildDataSeq,
-      this.navPushingWidgetID,
-      this.parentBuildOwnerNode,
-      this.isJSLazyWidget})
-      : this.isHostWidget = false,
-        super(key: key);
+      String name,
+      String widgetID,
+      Map widgetBuildData,
+      String widgetBuildDataSeq,
+      String navPushingWidgetID,
+      MXJsonBuildOwner parentBuildOwnerNode,
+      bool isJSLazyWidget})
+      : super(
+            key: key,
+            widgetID: widgetID,
+            widgetBuildData: widgetBuildData,
+            widgetBuildDataSeq: widgetBuildDataSeq,
+            navPushingWidgetID: navPushingWidgetID,
+            parentBuildOwnerNode: parentBuildOwnerNode);
 
   @override
   State<StatefulWidget> createState() {
@@ -261,48 +164,7 @@ class MXSingleTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
   Widget build(BuildContext context) {
     super.build(context);
 
-    assert(buildOwnerNode != null);
-
-    Widget child = MXJSWidgetBase.errorWidget;
-
-    MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
-        "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
-
-    if (isNotEmptyData(widgetBuildData)) {
-      // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-      MXJSLog.debug(
-          "MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
-          "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
-
-      child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
-      if (child == null || child is! Widget) {
-        MXJSLog.error(
-            "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
-            "child: $child"
-            "this.widget.widgetID:${this.widget.widgetID}");
-        child = MXJSWidgetBase.errorWidget;
-      }
-    } else {
-      // host 等待js刷新，先显示loading页面
-      // TODO: 定制loading页面和 error 页面
-      if (widget.isHostWidget) {
-        child = hostWidgetInvokeJS(context);
-      } else if (widget.isJSLazyWidget) {
-        child = lazyWidgetInvokeJS(context);
-      } else {
-        MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
-            "this.widget.widgetID:${this.widget.widgetID}");
-        child = MXJSWidgetBase.errorWidget;
-      }
-    }
-
-    // build 逻辑非常重要，保证到底JS，否则JS setState 不生效
-    buildOwnerNode.callJSOnBuildEnd();
-
-    MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
-        "callJSOnBuildEnd  widgetID ${widget.widgetID} "
-        "widgetBuildDataSeq:$widgetBuildDataSeq} ");
-    return child;
+    return buildWidget(context);
   }
 
   @override
@@ -311,36 +173,22 @@ class MXSingleTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
 
 // ignore: must_be_immutable
 class MXTickerAndKeepAliveMixinWidget extends MXJSStatefulWidget {
-  final String name;
-  final String widgetID;
-
-  final Map widgetBuildData;
-  final String widgetBuildDataSeq;
-
-  /// The Widget Pages that pushed this Widget ID
-  /// 把当前widget（this） push 出来的widget ID
-  final String navPushingWidgetID;
-
-  /// 通过 MXJsonBuildOwner 组成MXJSWidget的树形结构，管理MXJSWidget build过程
-  final MXJsonBuildOwner parentBuildOwnerNode;
-
-  /// Flutter 主动创建的 hostWidget，等待JS刷新
-  final bool isHostWidget;
-
-  /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
-  final bool isJSLazyWidget;
-
   MXTickerAndKeepAliveMixinWidget(
       {Key key,
-      this.name,
-      this.widgetID,
-      this.widgetBuildData,
-      this.widgetBuildDataSeq,
-      this.navPushingWidgetID,
-      this.parentBuildOwnerNode,
-      this.isJSLazyWidget})
-      : this.isHostWidget = false,
-        super(key: key);
+      String name,
+      String widgetID,
+      Map widgetBuildData,
+      String widgetBuildDataSeq,
+      String navPushingWidgetID,
+      MXJsonBuildOwner parentBuildOwnerNode,
+      bool isJSLazyWidget})
+      : super(
+            key: key,
+            widgetID: widgetID,
+            widgetBuildData: widgetBuildData,
+            widgetBuildDataSeq: widgetBuildDataSeq,
+            navPushingWidgetID: navPushingWidgetID,
+            parentBuildOwnerNode: parentBuildOwnerNode);
 
   @override
   State<StatefulWidget> createState() {
@@ -363,48 +211,7 @@ class MXTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
   Widget build(BuildContext context) {
     super.build(context);
 
-    assert(buildOwnerNode != null);
-
-    Widget child = MXJSWidgetBase.errorWidget;
-
-    MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
-        "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
-
-    if (isNotEmptyData(widgetBuildData)) {
-      // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-      MXJSLog.debug(
-          "MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
-          "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
-
-      child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
-      if (child == null || child is! Widget) {
-        MXJSLog.error(
-            "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
-            "child: $child"
-            "this.widget.widgetID:${this.widget.widgetID}");
-        child = MXJSWidgetBase.errorWidget;
-      }
-    } else {
-      // host 等待js刷新，先显示loading页面
-      // TODO: 定制loading页面和 error 页面
-      if (widget.isHostWidget) {
-        child = hostWidgetInvokeJS(context);
-      } else if (widget.isJSLazyWidget) {
-        child = lazyWidgetInvokeJS(context);
-      } else {
-        MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
-            "this.widget.widgetID:${this.widget.widgetID}");
-        child = MXJSWidgetBase.errorWidget;
-      }
-    }
-
-    // build 逻辑非常重要，保证到底JS，否则JS setState 不生效
-    buildOwnerNode.callJSOnBuildEnd();
-
-    MXJSLog.log("MXJSStatefulWidget:build end: widget:$child "
-        "callJSOnBuildEnd  widgetID ${widget.widgetID} "
-        "widgetBuildDataSeq:$widgetBuildDataSeq} ");
-    return child;
+    return buildWidget(context);
   }
 
   @override

@@ -167,8 +167,12 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    assert(buildOwnerNode != null);
+    return buildWidget(context);
+  }
 
+  Widget buildWidget(BuildContext context) {
+    assert(buildOwnerNode != null);
+    
     Widget child = MXJSWidgetBase.errorWidget;
 
     MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
