@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mxflutter/mxflutter.dart';
 
 class MyHomeLibPage extends StatefulWidget {
   MyHomeLibPage({Key key, this.title}) : super(key: key);
@@ -8,7 +9,8 @@ class MyHomeLibPage extends StatefulWidget {
   _MyHomeLibPageState createState() => _MyHomeLibPageState();
 }
 
-class _MyHomeLibPageState extends State<MyHomeLibPage> with SingleTickerProviderStateMixin {
+class _MyHomeLibPageState extends State<MyHomeLibPage>
+    with SingleTickerProviderStateMixin {
   int _counter = 0;
   TabController _tabController;
 
@@ -28,19 +30,29 @@ class _MyHomeLibPageState extends State<MyHomeLibPage> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('PageExampleAlign'),
+      appBar: new AppBar(
+          title: new Text('PageExampleAlign $_counter'),
           bottom: new TabBar(
             controller: _tabController,
             tabs: [new Tab(text: 'A'), new Tab(text: 'B')],
           ),
-        ),
-        body: new TabBarView(
-          controller: _tabController,
-          children: [new CounterPage(title: 'A'), new CounterPage(title: 'B')],
-        ),
-      );
+          actions: [
+            IconButton(
+                icon: Icon(Icons.book),
+                tooltip: 'Edit',
+                onPressed: () {
+                  _incrementCounter();
+                  MXJSLog.log('edit button pressed');
+                })
+          ]),
+      body:
+          //MXJSPageWidget(jsWidgetName: "mxflutter-js-demo")
 
+          new TabBarView(
+        controller: _tabController,
+        children: [new CounterPage(title: 'A'), new CounterPage(title: 'B')],
+      ),
+    );
   }
 }
 
@@ -51,7 +63,8 @@ class CounterPage extends StatefulWidget {
   _CounterPageState createState() => _CounterPageState();
 }
 
-class _CounterPageState extends State<CounterPage> with AutomaticKeepAliveClientMixin {
+class _CounterPageState extends State<CounterPage>
+    with AutomaticKeepAliveClientMixin {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -65,7 +78,6 @@ class _CounterPageState extends State<CounterPage> with AutomaticKeepAliveClient
 
   @override
   Widget build(BuildContext context) {
-
     super.build(context);
 
     return Scaffold(
@@ -108,34 +120,26 @@ class _CounterPageState extends State<CounterPage> with AutomaticKeepAliveClient
     _keepAliveHandle = null;
   }
 
-
   /// Ensures that any [AutomaticKeepAlive] ancestors are in a good state, by
   /// firing a [KeepAliveNotification] or triggering the [KeepAliveHandle] as
   /// appropriate.
   @protected
   void updateKeepAlive() {
     if (wantKeepAlive) {
-      if (_keepAliveHandle == null)
-        _ensureKeepAlive();
+      if (_keepAliveHandle == null) _ensureKeepAlive();
     } else {
-      if (_keepAliveHandle != null)
-        _releaseKeepAlive();
+      if (_keepAliveHandle != null) _releaseKeepAlive();
     }
   }
 
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
   void deactivate() {
-    if (_keepAliveHandle != null)
-      _releaseKeepAlive();
+    if (_keepAliveHandle != null) _releaseKeepAlive();
     super.deactivate();
   }
-
-
-
 }

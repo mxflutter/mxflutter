@@ -175,14 +175,11 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     
     Widget child = MXJSWidgetBase.errorWidget;
 
-    MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID}"
-        "curWidgetBuildDataSeq:$widgetBuildDataSeq ");
+    MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID} "
+        "curWidgetBuildDataSeq: $widgetBuildDataSeq ");
 
     if (_isNotEmptyData(widgetBuildData)) {
       // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-      MXJSLog.debug("MXJSStatefulWidget:building: widget:$child callJSOnBuildEnd "
-          "widgetID ${widget.widgetID} curWidgetBuildDataSeq:$widgetBuildDataSeq");
-
       child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
       if (child == null || child is! Widget) {
         MXJSLog.error(

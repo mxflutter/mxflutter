@@ -58,12 +58,14 @@ class MXJSBridge {
   /// JS->Flutter 顶层调用通道，处理JS的调用
   /// args参数为Json字符串argsJsonStr
   Future<String> commonBasicChannelHandler(argsJsonStr) async {
-    MXJSLog.log("commonBasicChannelHandler:");
-    MXJSLog.log(argsJsonStr);
 
     Map args = json.decode(argsJsonStr);
     String funcName = args["funcName"];
     dynamic funArgs = args["args"];
+
+    if(funcName != "mxJSBridgeDartLog"){
+      MXJSLog.log("commonBasicChannelHandler: $argsJsonStr");
+    }
 
     Function fun = _name2FunMap[funcName];
     return fun(funArgs);
@@ -85,17 +87,20 @@ class MXJSBridge {
   /// JS -> Flutter 开放给JS调用
   _setupName2FunMap() {
     // 由commonBasicChannelHandler调用
-    _name2FunMap["mxfJSBridgeCreateMirrorObj"] = mxfJSBridgeCreateMirrorObj;
-    _name2FunMap["mxfJSBridgeReleaseMirrorObj"] = mxfJSBridgeReleaseMirrorObj;
-    _name2FunMap["mxfJSBridgeInvokeMirrorObjWithCallback"] =
-        mxfJSBridgeInvokeMirrorObjWithCallback;
+    _name2FunMap["mxJSBridgeCreateMirrorObj"] = mxJSBridgeCreateMirrorObj;
+    _name2FunMap["mxJSBridgeReleaseMirrorObj"] = mxJSBridgeReleaseMirrorObj;
+    _name2FunMap["mxJSBridgeInvokeMirrorObjWithCallback"] =
+        mxJSBridgeInvokeMirrorObjWithCallback;
+
+    // 解决 Android 不打JS日志问题
+    _name2FunMap["mxJSBridgeDartLog"] = mxJSBridgeDartLog;
   }
 
-  Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
+  Future<String> mxJSBridgeCreateMirrorObj(argMap) async {
     // 将args字的所有字段都赋值到argMap中
     Map args = argMap["args"];
 
-    if(args != null && args is Map){
+    if (args != null && args is Map) {
       argMap.addAll(args);
     }
 
@@ -104,9 +109,8 @@ class MXJSBridge {
   }
 
   /// JS -> Flutter
-  Future<String> mxfJSBridgeReleaseMirrorObj(argMap) async {
-
-    if(argMap == null && argMap["mirrorID"] == null){
+  Future<String> mxJSBridgeReleaseMirrorObj(argMap) async {
+    if (argMap == null && argMap["mirrorID"] == null) {
       return null;
     }
 
@@ -115,7 +119,7 @@ class MXJSBridge {
   }
 
   /// JS -> Flutter
-  Future<String> mxfJSBridgeInvokeMirrorObjWithCallback(args) async {
+  Future<String> mxJSBridgeInvokeMirrorObjWithCallback(args) async {
     if (args == null) {
       return null;
     }
@@ -123,7 +127,9 @@ class MXJSBridge {
     Completer<String> completer = new Completer<String>();
     MXMirror.getInstance().invokeWithCallback(args, (result) {
       var returnJsonStr = result;
-      if (result != null && !(result is String) && !(result is Future<String>)) {
+      if (result != null &&
+          !(result is String) &&
+          !(result is Future<String>)) {
         //TODO: 此处会要求返回值为string类型，否则会因为encode异常
         returnJsonStr = json.encode(result);
       }
@@ -133,4 +139,9 @@ class MXJSBridge {
     return completer.future;
   }
 
+  /// JS -> Flutter
+  Future<String> mxJSBridgeDartLog(args) async {
+    print(args);
+    return null;
+  }
 }

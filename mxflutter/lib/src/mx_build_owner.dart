@@ -328,6 +328,11 @@ class MXJsonBuildOwner {
   }
 
   callJSOnDispose() {
+
+    MXJSLog.debug("MXJSWidgetState:callJSOnDispose: "
+        "widgetID:$ownerWidgetId "
+        "buildSeq:$widgetBuildDataSeq");
+
     MethodCall jsMethodCall = MethodCall("flutterCallOnDispose", {
       "widgetID": ownerWidgetId,
       "mirrorObjIDList": _mirrorObjIds.toList(),
