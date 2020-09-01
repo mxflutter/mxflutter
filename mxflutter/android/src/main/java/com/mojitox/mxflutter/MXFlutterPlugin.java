@@ -84,6 +84,7 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
         if (sMXFlutterPlugin != null) {
             sMXFlutterPlugin.dispose();
+            sMXFlutterPlugin = null;
         }
     }
 
