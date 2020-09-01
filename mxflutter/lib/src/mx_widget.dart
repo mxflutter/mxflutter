@@ -151,7 +151,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
 
     // 如果是JSLazy模式，但是widgetBuildData有值，是第一次预加载模式，用之后清掉
     // 确保第二次展开此Widget时，需要CallJS LazyRefresh
-    if(widget.isJSLazyWidget && _isNotEmptyData(widget.widgetBuildData)){
+    if(widget.isJSLazyWidget && isNotEmptyData(widget.widgetBuildData)){
       widget.widgetBuildData = null;
     }
   }
