@@ -15,6 +15,7 @@ import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,8 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.StringCodec;
+
+import static com.mojitox.mxflutter.MXFlutterPlugin.*;
 
 public class MXJSFlutterApp {
 
@@ -55,7 +58,9 @@ public class MXJSFlutterApp {
 
     private ArrayList<MethodCall> callJSMethodQueue;
 
-    public MXJSFlutterApp initWithAppName(MXFlutterPlugin context, String appName, String rootPath, List<String> jsAppSearchPathList, MXJSFlutterEngine jsFlutterEngine) {
+    public MXJSFlutterApp initWithAppName(MXFlutterPlugin context, String appName, String rootPath,
+                                          List<String> jsAppSearchPathList, MXJSFlutterEngine jsFlutterEngine,
+                                          Map<String, Boolean> flutterAppEnvironmentInfo) {
         initRuntime(context.mFlutterPluginBinding.getApplicationContext());
         this.mContext = context;
         this.appName = appName;
@@ -69,14 +74,13 @@ public class MXJSFlutterApp {
 
         setupJSEngine(jsFlutterEngine);
         setUpChannel(context.mFlutterPluginBinding.getBinaryMessenger());
+        setFlutterAppEnvironmentInfo(flutterAppEnvironmentInfo);
 
         currentApp = this;
         return this;
     }
 
     private void initRuntime(Context context) {
-        MXFlutterPlugin.JSFLUTTER_LOCAL_DIR = context.getFilesDir().getAbsolutePath();
-
         initJsFS(context);
     }
 
@@ -87,10 +91,10 @@ public class MXJSFlutterApp {
                 @Override
                 public void run() {
                     super.run();
-                    FileUtils.copyFilesFromAssetsAsync(context, "", MXFlutterPlugin.JSFLUTTER_LOCAL_DIR, new String[]{
-                            jsFlutterEngine.mJsFrameworkPath,
-                            rootPath,
-                    });
+                    FileUtils.copyFilesFromAssetsAsync(context,
+                            Arrays.asList(new MXRoute[]{
+                                    new MXRoute(MXFLUTTER_ASSET_APP_ROOT_PATH, JSFLUTTER_LOCAL_DIR + MXFLUTTER_FS_APP_ROOT_PATH),
+                                    new MXRoute(MXFLUTTER_ASSET_FRAMWORK_ROOT_PATH, JSFLUTTER_LOCAL_DIR + MXFLUTTER_FS_FRAMWORK_ROOT_PATH)}));
                 }
             }.start();
         }
@@ -116,13 +120,17 @@ public class MXJSFlutterApp {
             jsEngine.addSearchDir(appSearchPath);
         }
 
-        String jsBasicLibPath = jsFlutterEngine.mJsFrameworkPath + "/framework/js_basic_lib.js";
-        jsExecutor.executeScriptPath(jsBasicLibPath, new MXJSExecutor.ExecuteScriptCallback() {
-            @Override
-            public void onComplete(Object value) {
+//        String jsBasicLibPath = jsFlutterEngine.mJsFrameworkPath + "/framework/js_basic_lib.js";
+//        jsExecutor.executeScriptPath(jsBasicLibPath, new MXJSExecutor.ExecuteScriptCallback() {
+//            @Override
+//            public void onComplete(Object value) {
+//
+//            }
+//        });
+    }
 
-            }
-        });
+    private void setFlutterAppEnvironmentInfo(Map flutterAppEnvironmentInfo) {
+        jsExecutor.registerGlobalObject("mx_flutterAppEnvironmentInfo", flutterAppEnvironmentInfo);
     }
 
     //flutter --> js
@@ -210,13 +218,8 @@ public class MXJSFlutterApp {
         jsExecutor.executeScriptPath(rootPath + "/main.js", new MXJSExecutor.ExecuteScriptCallback() {
             @Override
             public void onComplete(Object value) {
-                jsExecutor.executeScript("main()", new MXJSExecutor.ExecuteScriptCallback() {
-                    @Override
-                    public void onComplete(Object value) {
-                        isJSAPPRun = true;
-                        callJSMethodCallQueqe();
-                    }
-                });
+                isJSAPPRun = true;
+                callJSMethodCallQueqe();
             }
         });
     }
@@ -267,6 +270,16 @@ public class MXJSFlutterApp {
                     }
                 }
             });
+        }
+    }
+
+    public static class MXRoute {
+        public String assetsPath;
+        public String localPath;
+
+        public MXRoute(String assetsPath, String localPath) {
+            this.assetsPath = assetsPath;
+            this.localPath = localPath;
         }
     }
 }

@@ -86,10 +86,10 @@
          [self.jsEngine addSearchDir:searchPath];
     }
     
-    NSString *js_basic_lib_Path = [jsFrameworkPath stringByAppendingPathComponent:@"js_basic_lib.js"];
-    [self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
+    //NSString *js_basic_lib_Path = [jsFrameworkPath stringByAppendingPathComponent:@"js_basic_lib.js"];
+    //[self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
         
-    }];
+    //}];
 }
 
 
@@ -142,7 +142,7 @@
     }];
 }
 
-- (void)runApp
+- (void)runApp:(id)flutterAppEnvironmentInfo
 {
     
     self.isJSAPPRun = NO;
@@ -157,6 +157,10 @@
         
         executor.jsContext[@"MXNativeJSFlutterApp"] = strongSelf;
         
+        if (flutterAppEnvironmentInfo) {
+            executor.jsContext[@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
+        }
+        
         //把JSI 注册到MXNativeJSFlutterApp中
         [[MXJSBridge shareInstance] registerModules: self jsAPPValueBridge:executor.jsContext[@"MXNativeJSFlutterApp"] ];
         
@@ -166,19 +170,19 @@
             
             MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
             
-            NSString *releaseMode = @"release";
+//             NSString *releaseMode = @"release";
             
-#if DEBUG
-            releaseMode = @"debug";
-#endif
+// #if DEBUG
+//             releaseMode = @"debug";
+// #endif
             
-            [executor invokeMethod:@"main" args:@[releaseMode] callback:^(JSValue *result, NSError *error) {
+//             [executor invokeMethod:@"main" args:@[releaseMode] callback:^(JSValue *result, NSError *error) {
                 
                 strongSelf.isJSAPPRun = YES;
-                NSLog(@"MXJSFlutter : call main error:%@",error);
+                NSLog(@"MXJSFlutter : call main js error:%@",error);
                 
                 [strongSelf callJSMethodCallQueqe];
-            }];
+            // }];
         }];
         
     }];

@@ -79,7 +79,8 @@ public class MXJSFlutterEngine {
                     String jsAppAssetsKey = methodCall.argument("jsAppAssetsKey");
                     List<String> jsAppSearchPathList = (List<String>) methodCall.argument("jsAppSearchPathList");
                     List<String> jsAppSearchPathWithAssetsKeyList = (List<String>) methodCall.argument("jsAppSearchPathWithAssetsKeyList");
-                    runApp(jsAppPath, jsAppAssetsKey, jsAppSearchPathList, jsAppSearchPathWithAssetsKeyList);
+                    Map flutterAppEnvironmentInfo = (Map<String, Boolean>) methodCall.argument("flutterAppEnvironmentInfo");
+                    runApp(jsAppPath, jsAppAssetsKey, jsAppSearchPathList, jsAppSearchPathWithAssetsKeyList, flutterAppEnvironmentInfo);
                     result.success("success");
                 } else if (methodCall.method.equals("callJsCallbackFunction")) {
                     String jsAppName = methodCall.argument("callbackId");
@@ -121,7 +122,7 @@ public class MXJSFlutterEngine {
         return true;
     }
 
-    public void runApp(String jsAppPath, String jsAppAssetsKey, List<String> jsAppSearchPathList, List<String> jsAppSearchPathWithAssetsKeyList) {
+    public void runApp(String jsAppPath, String jsAppAssetsKey, List<String> jsAppSearchPathList, List<String> jsAppSearchPathWithAssetsKeyList, Map<String, Boolean> flutterAppEnvironmentInfo) {
         Set<String> searchList = new HashSet<String>();
 
         if (!TextUtils.isEmpty(mCurrentJSAppPath)) {
@@ -136,18 +137,23 @@ public class MXJSFlutterEngine {
                 LogUtilsKt.MXJSFlutterLog("jsAppPath == null", "");
                 return;
             }
-            if (jsAppSearchPathList != null && jsAppSearchPathList.size() > 0)
-                searchList.addAll(jsAppSearchPathList);
-            if (jsAppSearchPathWithAssetsKeyList != null && jsAppSearchPathWithAssetsKeyList.size() > 0) {
-                for (String searchPathAssetKey : jsAppSearchPathWithAssetsKeyList) {
-                    String path = mContext.mFlutterPluginBinding.getFlutterAssets().getAssetFilePathByName(searchPathAssetKey);
-                    if (!TextUtils.isEmpty(path)) {
-                        searchList.add(path);
-                    }
+        }
+        if (jsAppSearchPathList != null && jsAppSearchPathList.size() > 0)
+            searchList.addAll(jsAppSearchPathList);
+        if (jsAppSearchPathWithAssetsKeyList != null && jsAppSearchPathWithAssetsKeyList.size() > 0) {
+            for (String searchPathAssetKey : jsAppSearchPathWithAssetsKeyList) {
+                String path;
+                if(FileUtils.isCopiedFileFromAssets(mContext.mFlutterPluginBinding.getApplicationContext())){
+                    path = searchPathAssetKey;
+                }else {
+                    path = mContext.mFlutterPluginBinding.getFlutterAssets().getAssetFilePathByName(searchPathAssetKey);
+                }
+                if (!TextUtils.isEmpty(path) && !searchList.contains(path)) {
+                    searchList.add(path);
                 }
             }
-            jsAppSearchPathList = new ArrayList<>(searchList);
         }
+        jsAppSearchPathList = new ArrayList<>(searchList);
 
         if (currentApp != null) {
             currentApp.close();
@@ -155,7 +161,7 @@ public class MXJSFlutterEngine {
         }
 
         currentApp = new MXJSFlutterApp();
-        currentApp.initWithAppName(mContext, jsAppPath, jsAppPath, jsAppSearchPathList, this);
+        currentApp.initWithAppName(mContext, jsAppPath, jsAppPath, jsAppSearchPathList, this, flutterAppEnvironmentInfo);
         currentApp.runAppWithPageName();
     }
 

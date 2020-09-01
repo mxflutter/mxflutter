@@ -31,46 +31,46 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  assets:
+#  assets:
     #mxflutter_js_framework
-    - js_lib/
-    - js_lib/framework/
-    - js_lib/framework/material/
-    - js_lib/framework/message_channel/
-    - js_lib/framework/widgets/
+#    - js_lib/
+#    - js_lib/framework/
+#    - js_lib/framework/material/
+#    - js_lib/framework/message_channel/
+#    - js_lib/framework/widgets/
 
     #dart_js_framework
-    - js_lib/framework/dart_js_framework/
-    - js_lib/framework/dart_js_framework/mx_packages/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/animation/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/cupertino/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/foundation/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/gestures/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/material/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/painting/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/rendering/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/services/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/widgets/
-    - js_lib/framework/dart_js_framework/mx_packages/vector_math/
+#    - js_lib/framework/dart_js_framework/
+#    - js_lib/framework/dart_js_framework/mx_packages/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/animation/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/cupertino/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/foundation/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/gestures/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/material/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/painting/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/rendering/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/services/
+#    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/widgets/
+#    - js_lib/framework/dart_js_framework/mx_packages/vector_math/
 
-    #packages js ,按需选择
-    - js_lib/framework/mx_packages/
-
-    #cached_network_image
-    - js_lib/framework/mx_packages/cached_network_image/
-    #dio
-    - js_lib/framework/mx_packages/dio/
-    - js_lib/framework/mx_packages/dio/src/
-    - js_lib/framework/mx_packages/dio/src/adapters/
-    - js_lib/framework/mx_packages/dio/src/entry/
-    #pull_to_refresh
-    - js_lib/framework/mx_packages/pull_to_refresh/
-    - js_lib/framework/mx_packages/pull_to_refresh/src/
-    - js_lib/framework/mx_packages/pull_to_refresh/src/indicator/
-    #shared_preferences
-    - js_lib/framework/mx_packages/shared_preferences/
+#    #packages js ,按需选择
+#    - js_lib/framework/mx_packages/
+#
+#    #cached_network_image
+#    - js_lib/framework/mx_packages/cached_network_image/
+#    #dio
+#    - js_lib/framework/mx_packages/dio/
+#    - js_lib/framework/mx_packages/dio/src/
+#    - js_lib/framework/mx_packages/dio/src/adapters/
+#    - js_lib/framework/mx_packages/dio/src/entry/
+#    #pull_to_refresh
+#    - js_lib/framework/mx_packages/pull_to_refresh/
+#    - js_lib/framework/mx_packages/pull_to_refresh/src/
+#    - js_lib/framework/mx_packages/pull_to_refresh/src/indicator/
+#    #shared_preferences
+#    - js_lib/framework/mx_packages/shared_preferences/
 
   # This section identifies this Flutter project as a plugin project.
   # The androidPackage and pluginClass identifiers should not ordinarily
