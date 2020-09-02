@@ -56,14 +56,28 @@ class MXJsonBuildOwner {
   /// MXJSWidget 保存JS侧相关的成员变量
   Set<String> _mirrorObjIds = Set();
 
-  /// TODO: 暂时先打日志看下
-  reset(MXJSStatefulWidget old) {
-    MXJSLog.debug("MXJsonBuildOwner:reset: "
+  updateWidgetId(MXJSStatefulWidget old) {
+    MXJSLog.debug("MXJsonBuildOwner:updateWidgetId: "
         "ownerWidgetId:$ownerWidgetId "
         "buildSeq:${_mirrorObjIds.join('|')}");
 
     // 用新的widgetId 更新 _parent child列表
     _parent.updateChildWidgetId(this, old.widgetID);
+
+    // 需要call js old widget id dispose
+    if (widget.widgetID != old.widgetID) {
+      MXJSLog.debug("MXJsonBuildOwner:updateWidgetId:  dispose "
+          "widgetID:$old.widgetID ");
+
+      MethodCall jsMethodCall = MethodCall("flutterCallOnDispose", {
+        "widgetID": old.widgetID,
+        "mirrorObjIDList": _mirrorObjIds.toList(),
+      });
+
+      ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+
+      disposeMirrorObjs();
+    }
   }
 
   void addChild(MXJsonBuildOwner child) {
@@ -178,13 +192,10 @@ class MXJsonBuildOwner {
   }
 
   /// 调用js 刷新lazywidget
-  callJSRefreshLazyWidget( String widgetID, BuildContext context) {
-
+  callJSRefreshLazyWidget(String widgetID, BuildContext context) {
     // TODO: rename flutterCallNavigatorPushWithName
-    MethodCall jsMethodCall = MethodCall("flutterCallRefreshLazyWidget", {
-      "widgetID": widgetID,
-      "isJSLazyWidget":true
-    });
+    MethodCall jsMethodCall = MethodCall("flutterCallRefreshLazyWidget",
+        {"widgetID": widgetID, "isJSLazyWidget": true});
 
     ownerApp.callJS(jsMethodCall);
   }
@@ -249,7 +260,9 @@ class MXJsonBuildOwner {
         MXJSLog.error("MXJsonBuildOwner:jsCallNavigatorPush: "
             "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
             "className:$className widgetData:$widgetDataMap");
-        return MXJSWidgetBase.errorWidget;
+        return MXJSWidgetBase.errorWidget(error: "MXJsonBuildOwner:jsCallNavigatorPush: "
+            "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
+            "className:$className widgetData:$widgetDataMap");
       }
 
       return jsWidget;
@@ -269,13 +282,13 @@ class MXJsonBuildOwner {
 
   /// MXJSWidgetState -> BuildOwner
   void onDispose() {
-    _parent?.removeChild(this);
-
-    // 移除镜像对象
-    disposeMirrorObjs();
 
     // 告诉JS，可以销毁这个JSWidget了
     callJSOnDispose();
+
+    _parent?.removeChild(this);
+    // 移除镜像对象
+    disposeMirrorObjs();
   }
 
   /// MXJSStatelessElement -> BuildOwner
@@ -321,14 +334,13 @@ class MXJsonBuildOwner {
   }
 
   /// TODO 优化
-  _notifyBuildEnd(){
+  _notifyBuildEnd() {
     Future.delayed(Duration(milliseconds: 0), () {
       ownerApp.onWidgetBuildEnd(this);
     });
   }
 
   callJSOnDispose() {
-
     MXJSLog.debug("MXJSWidgetState:callJSOnDispose: "
         "widgetID:$ownerWidgetId "
         "buildSeq:$widgetBuildDataSeq");
@@ -373,19 +385,32 @@ class MXJsonBuildOwner {
   /// TODO: 这里后面可能回困惑，什么样的回调用eventCallbak 什么样的用 mirrorObjEventCallback
   /// 开头OnXXXX的用eventCallbak，用callbakId调用到JS
   /// 其他的用 mirrorObjEventCallback，用funcName 调用到 JS
-  Future<dynamic> mirrorObjEventCallback({dynamic mirrorID, String functionName, String callbackID,
+  Future<dynamic> mirrorObjEventCallback(
+      {dynamic mirrorID,
+      String functionName,
+      String callbackID,
       dynamic p}) async {
-    MXMirror.getInstance().invokeJSMirrorObj(mirrorID: mirrorID, functionName: functionName, callbackID: callbackID, args: p);
+    MXMirror.getInstance().invokeJSMirrorObj(
+        mirrorID: mirrorID,
+        functionName: functionName,
+        callbackID: callbackID,
+        args: p);
   }
 
   void disposeMirrorObjs() {
     _mirrorObjIds.forEach((dynamic mirrorID) {
       dynamic mirrorObj = MXMirror.getInstance().findMirrorObject(mirrorID);
       String className = mirrorObj.runtimeType.toString();
-      Map jsonMap = {"args": {"mirrorObj": mirrorObj}, "className": className, "funcName": "dispose"};
+      Map jsonMap = {
+        "args": {"mirrorObj": mirrorObj},
+        "className": className,
+        "funcName": "dispose"
+      };
       MXMirror.getInstance().invokeWithCallback(jsonMap, null);
 
       MXMirror.getInstance().removeMirrorObject(mirrorID);
     });
+
+    _mirrorObjIds.clear();
   }
 }

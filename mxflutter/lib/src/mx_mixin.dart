@@ -28,14 +28,6 @@ class MXSingleTickerMixinWidget extends MXJSStatefulWidget {
     return MXSingleTickerMixinWidgetState();
   }
 
-  @override
-  MXJSStatefulElement createElement() {
-    assert(parentBuildOwnerNode != null);
-    var element = MXJSStatefulElement(this);
-    element.buildOwnerNode = MXJsonBuildOwner(element);
-    parentBuildOwnerNode.addChild(element.buildOwnerNode);
-    return element;
-  }
 }
 
 class MXSingleTickerMixinWidgetState extends MXJSWidgetState
@@ -65,15 +57,6 @@ class MXTickerMixinWidget extends MXJSStatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return MXTickerMixinWidgetState();
-  }
-
-  @override
-  MXJSStatefulElement createElement() {
-    assert(parentBuildOwnerNode != null);
-    var element = MXJSStatefulElement(this);
-    element.buildOwnerNode = MXJsonBuildOwner(element);
-    parentBuildOwnerNode.addChild(element.buildOwnerNode);
-    return element;
   }
 }
 
@@ -105,15 +88,6 @@ class MXKeepAliveMixinWidget extends MXJSStatefulWidget {
   State<StatefulWidget> createState() {
     return MXKeepAliveMixinWidgetState();
   }
-
-  @override
-  MXJSStatefulElement createElement() {
-    assert(parentBuildOwnerNode != null);
-    var element = MXJSStatefulElement(this);
-    element.buildOwnerNode = MXJsonBuildOwner(element);
-    parentBuildOwnerNode.addChild(element.buildOwnerNode);
-    return element;
-  }
 }
 
 class MXKeepAliveMixinWidgetState extends MXJSWidgetState
@@ -121,7 +95,6 @@ class MXKeepAliveMixinWidgetState extends MXJSWidgetState
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return buildWidget(context);
   }
 
@@ -154,15 +127,6 @@ class MXSingleTickerAndKeepAliveMixinWidget extends MXJSStatefulWidget {
   State<StatefulWidget> createState() {
     return MXSingleTickerAndKeepAliveMixinWidgetState();
   }
-
-  @override
-  MXJSStatefulElement createElement() {
-    assert(parentBuildOwnerNode != null);
-    var element = MXJSStatefulElement(this);
-    element.buildOwnerNode = MXJsonBuildOwner(element);
-    parentBuildOwnerNode.addChild(element.buildOwnerNode);
-    return element;
-  }
 }
 
 class MXSingleTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
@@ -170,7 +134,6 @@ class MXSingleTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return buildWidget(context);
   }
 
@@ -203,15 +166,6 @@ class MXTickerAndKeepAliveMixinWidget extends MXJSStatefulWidget {
   State<StatefulWidget> createState() {
     return MXTickerAndKeepAliveMixinWidgetState();
   }
-
-  @override
-  MXJSStatefulElement createElement() {
-    assert(parentBuildOwnerNode != null);
-    var element = MXJSStatefulElement(this);
-    element.buildOwnerNode = MXJsonBuildOwner(element);
-    parentBuildOwnerNode.addChild(element.buildOwnerNode);
-    return element;
-  }
 }
 
 class MXTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
@@ -219,7 +173,6 @@ class MXTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return buildWidget(context);
   }
 
