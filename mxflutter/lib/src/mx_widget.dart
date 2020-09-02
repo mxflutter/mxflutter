@@ -112,10 +112,18 @@ class MXJSStatefulElement extends StatefulElement {
   MXJSStatefulWidget get widget => super.widget as MXJSStatefulWidget;
 }
 
+class WidgetBuildDataCache {
+  final Map widgetBuildData;
+  Widget cacheWidget;
+
+  WidgetBuildDataCache(this.widgetBuildData);
+}
+
 class MXJSWidgetState extends State<MXJSStatefulWidget> {
   // 三个场景会更新widgetData
   // 1. 初始化 2. MXJSStatefulWidget的element被复用 3. MXJSWidgetState本身被js 刷新
-  Map widgetBuildData;
+  WidgetBuildDataCache widgetBuildDataCache;
+
   String widgetBuildDataSeq;
   bool isHostWidgetAlreadyCallJSRefreshed = false;
 
@@ -126,7 +134,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     super.initState();
 
     // state初始化时，用widget的widgetData ，之后等js侧的刷新
-    widgetBuildData = widget.widgetBuildData;
+    widgetBuildDataCache =  WidgetBuildDataCache(widget.widgetBuildData);
     widgetBuildDataSeq = widget.widgetBuildDataSeq;
   }
 
@@ -155,7 +163,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
             "widget.widgetBuildDataSeq ${widget.widgetBuildDataSeq} >= "
             "old.widgetBuildDataSeq:${widgetBuildDataSeq} "
             "updateWidgetData widgetBuildData = widget.widgetBuildData");
-        widgetBuildData = widget.widgetBuildData;
+        widgetBuildDataCache =  WidgetBuildDataCache(widget.widgetBuildData);
         widgetBuildDataSeq = widget.widgetBuildDataSeq;
       }
     } else {
@@ -165,7 +173,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
           "old.widgetID:${old.widgetID} "
           "update BuildOwnerNode");
 
-      widgetBuildData = widget.widgetBuildData;
+      widgetBuildDataCache =  WidgetBuildDataCache(widget.widgetBuildData);
       widgetBuildDataSeq = widget.widgetBuildDataSeq;
 
       buildOwnerNode.updateWidgetId(old);
@@ -194,9 +202,10 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID} "
         "widgetBuildDataSeq: $widgetBuildDataSeq ");
 
-    if (_isNotEmptyData(widgetBuildData)) {
+    if (_isNotEmptyData(widgetBuildDataCache?.widgetBuildData)) {
       // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-      child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
+      child = buildOwnerNode.buildWidgetData(widgetBuildDataCache?.widgetBuildData, context);
+      widgetBuildDataCache?.cacheWidget = child;
       if (child == null || child is! Widget) {
         MXJSLog.error(
             "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
@@ -275,7 +284,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     }
 
     setState(() {
-      this.widgetBuildData = widgetBuildData;
+      widgetBuildDataCache =  WidgetBuildDataCache(widgetBuildData);
       this.widgetBuildDataSeq = buildWidgetDataSeq;
     });
 
