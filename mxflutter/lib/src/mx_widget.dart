@@ -19,10 +19,10 @@ mixin MXJSWidgetBase {
   // TODO：发布版必须定制错误页面
   static Widget errorWidget({String error = ""}) {
     if (kReleaseMode) {
-      return Container(color: Colors.white, child: Text("页面开了小差，请稍后再试..."));
+      return ErrorWidget.withDetails(message: "页面开了小差，请稍后再试...");
     }
 
-    return Container(color: Colors.white, child: Text("Error: $error"));
+    return ErrorWidget.withDetails(message: error);
   }
 
   static Widget get loadingWidget {
@@ -114,10 +114,12 @@ class MXJSStatefulElement extends StatefulElement {
 
 class WidgetBuildDataCache {
   final Map widgetBuildData;
+  final String widgetBuildDataSeq;
+
   Widget cacheWidget;
   BuildContext context;
 
-  WidgetBuildDataCache(this.widgetBuildData);
+  WidgetBuildDataCache(this.widgetBuildData, this.widgetBuildDataSeq);
 }
 
 class MXJSWidgetState extends State<MXJSStatefulWidget> {
@@ -125,23 +127,26 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
   // 1. 初始化 2. MXJSStatefulWidget的element被复用 3. MXJSWidgetState本身被js 刷新
   WidgetBuildDataCache widgetBuildDataCache;
 
-  String widgetBuildDataSeq;
+  String get widgetBuildDataSeq => widgetBuildDataCache?.widgetBuildDataSeq;
+
   bool isHostWidgetAlreadyCallJSRefreshed = false;
+  bool isLazyWidgetAlreadyCallJSRefreshed = false;
 
   MXJSWidgetState();
 
   @override
   void initState() {
     super.initState();
-
+    _initStateFlag();
     // state初始化时，用widget的widgetData ，之后等js侧的刷新
-    widgetBuildDataCache = WidgetBuildDataCache(widget.widgetBuildData);
-    widgetBuildDataSeq = widget.widgetBuildDataSeq;
+    widgetBuildDataCache =
+        WidgetBuildDataCache(widget.widgetBuildData, widget.widgetBuildDataSeq);
   }
 
   @override
   void didUpdateWidget(MXJSStatefulWidget old) {
     super.didUpdateWidget(old);
+    _initStateFlag();
     // 当MXJSStatefulWidget 在element树中被复用，需要更新widgetData
 
     // 如果widget Tree相同位置都是 MXJSStatefulElement，
@@ -154,7 +159,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
           "old.widgetID:${old.widgetID} "
           "update BuildOwnerNode "
           "widget.widgetBuildDataSeq ${widget.widgetBuildDataSeq} "
-          "old.widgetBuildDataSeq:${widgetBuildDataSeq} ");
+          "old.widgetBuildDataSeq:$widgetBuildDataSeq ");
 
       if (int.parse(widget.widgetBuildDataSeq) >=
           int.parse(widgetBuildDataSeq)) {
@@ -162,10 +167,10 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
             "MXJSWidgetState:didUpdateWidget:widget.widgetID == old.widgetID "
             "update BuildOwnerNode "
             "widget.widgetBuildDataSeq ${widget.widgetBuildDataSeq} >= "
-            "old.widgetBuildDataSeq:${widgetBuildDataSeq} "
+            "old.widgetBuildDataSeq:$widgetBuildDataSeq  "
             "updateWidgetData widgetBuildData = widget.widgetBuildData");
-        widgetBuildDataCache = WidgetBuildDataCache(widget.widgetBuildData);
-        widgetBuildDataSeq = widget.widgetBuildDataSeq;
+        widgetBuildDataCache = WidgetBuildDataCache(
+            widget.widgetBuildData, widget.widgetBuildDataSeq);
       }
     } else {
       MXJSLog.log(
@@ -174,11 +179,16 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
           "old.widgetID:${old.widgetID} "
           "update BuildOwnerNode");
 
-      widgetBuildDataCache = WidgetBuildDataCache(widget.widgetBuildData);
-      widgetBuildDataSeq = widget.widgetBuildDataSeq;
+      widgetBuildDataCache = WidgetBuildDataCache(
+          widget.widgetBuildData, widget.widgetBuildDataSeq);
 
       buildOwnerNode.updateWidgetId(old);
     }
+  }
+
+  _initStateFlag() {
+    isHostWidgetAlreadyCallJSRefreshed = false;
+    isLazyWidgetAlreadyCallJSRefreshed = false;
   }
 
   @override
@@ -198,29 +208,33 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
   Widget buildWidget(BuildContext context) {
     assert(buildOwnerNode != null);
 
-    if (widgetBuildDataCache !=null &&
+    if (widgetBuildDataCache != null &&
         widgetBuildDataCache.cacheWidget != null &&
         widgetBuildDataCache.context == context) {
-
-      MXJSLog.log("MXJSStatefulWidget:build widgetBuildDataCache?.cacheWidget != null "
+      MXJSLog.log(
+          "MXJSStatefulWidget:build widgetBuildDataCache?.cacheWidget != null "
           "使用缓存直接返回 "
           "widgetID ${widget.widgetID} "
           "widgetBuildDataSeq:$widgetBuildDataSeq} ");
 
-      return widgetBuildDataCache?.cacheWidget;
+      return widgetBuildDataCache.cacheWidget;
     }
 
     Widget child;
 
     MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID} "
-        "widgetBuildDataSeq: $widgetBuildDataSeq ");
+        "widgetBuildDataSeq: ${widgetBuildDataCache?.widgetBuildDataSeq} ");
 
     if (_isNotEmptyData(widgetBuildDataCache?.widgetBuildData)) {
-
       var widgetBuildData = widgetBuildDataCache.widgetBuildData;
       child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
       widgetBuildDataCache.cacheWidget = child;
       widgetBuildDataCache.context = context;
+
+      if (widget.isJSLazyWidget && !isLazyWidgetAlreadyCallJSRefreshed) {
+        isLazyWidgetAlreadyCallJSRefreshed = true;
+        buildOwnerNode.callJSRefreshLazyWidget(widget.widgetID, context);
+      }
 
       if (child == null || child is! Widget) {
         MXJSLog.error(
@@ -275,14 +289,22 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     } else {
       return MXJSWidgetBase.errorWidget(
           error:
-              "MXJSWidgetState:build: _hostWidgetInvokeJS isHostWidgetAlreadyCallJSRefreshed"
+              "MXJSWidgetState:_hostWidgetInvokeJS widgetBuildData == null but isHostWidgetAlreadyCallJSRefreshed "
               "this.widget.widgetID:${this.widget.widgetID}");
     }
   }
 
   Widget _lazyWidgetInvokeJS(BuildContext context) {
-    buildOwnerNode.callJSRefreshLazyWidget(widget.widgetID, context);
-    return MXJSWidgetBase.loadingWidget;
+    if (!isLazyWidgetAlreadyCallJSRefreshed) {
+      isLazyWidgetAlreadyCallJSRefreshed = true;
+      buildOwnerNode.callJSRefreshLazyWidget(widget.widgetID, context);
+      return MXJSWidgetBase.loadingWidget;
+    } else {
+      return MXJSWidgetBase.errorWidget(
+          error:
+              "MXJSWidgetState:_hostWidgetInvokeJS widgetBuildData == null but isLazyWidgetAlreadyCallJSRefreshed "
+              "this.widget.widgetID:${this.widget.widgetID}");
+    }
   }
 
   jsCallRebuild(
@@ -300,8 +322,8 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     }
 
     setState(() {
-      widgetBuildDataCache = WidgetBuildDataCache(widgetBuildData);
-      this.widgetBuildDataSeq = buildWidgetDataSeq;
+      widgetBuildDataCache =
+          WidgetBuildDataCache(widgetBuildData, buildWidgetDataSeq);
     });
 
     MXJSLog.log("MXJSWidgetState:jsCallRebuild:  "
