@@ -27,11 +27,16 @@ class MXSingleTickerMixinWidget extends MXJSStatefulWidget {
   State<StatefulWidget> createState() {
     return MXSingleTickerMixinWidgetState();
   }
-
 }
 
 class MXSingleTickerMixinWidgetState extends MXJSWidgetState
-    with SingleTickerProviderStateMixin {}
+    with SingleTickerProviderStateMixin {
+  @override
+  void dispose() {
+    buildOwnerNode.onDispose();
+    super.dispose();
+  }
+}
 
 // ignore: must_be_immutable
 class MXTickerMixinWidget extends MXJSStatefulWidget {
@@ -61,7 +66,13 @@ class MXTickerMixinWidget extends MXJSStatefulWidget {
 }
 
 class MXTickerMixinWidgetState extends MXJSWidgetState
-    with TickerProviderStateMixin {}
+    with TickerProviderStateMixin {
+  @override
+  void dispose() {
+    buildOwnerNode.onDispose();
+    super.dispose();
+  }
+}
 
 // ignore: must_be_immutable
 class MXKeepAliveMixinWidget extends MXJSStatefulWidget {
@@ -139,6 +150,12 @@ class MXSingleTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
 
   @override
   bool get wantKeepAlive => true;
+
+  @override
+  void dispose() {
+    buildOwnerNode.onDispose();
+    super.dispose();
+  }
 }
 
 // ignore: must_be_immutable
@@ -178,4 +195,10 @@ class MXTickerAndKeepAliveMixinWidgetState extends MXJSWidgetState
 
   @override
   bool get wantKeepAlive => true;
+
+  @override
+  void dispose() {
+    buildOwnerNode.onDispose();
+    super.dispose();
+  }
 }
