@@ -279,6 +279,6 @@ class MXJSFlutterApp {
 
       _widgetId2RebuildJSCallCache.remove(boNode.ownerWidgetId);
     }
-
   }
+
 }

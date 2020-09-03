@@ -260,7 +260,7 @@ class MXJsonBuildOwner {
         MXJSLog.error("MXJsonBuildOwner:jsCallNavigatorPush: "
             "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
             "className:$className widgetData:$widgetDataMap");
-        return MXJSWidgetBase.errorWidget(error: "MXJsonBuildOwner:jsCallNavigatorPush: "
+        return onBuildErrorCreateErrorWidget(widgetDataMap['Name'],error: "MXJsonBuildOwner:jsCallNavigatorPush: "
             "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
             "className:$className widgetData:$widgetDataMap");
       }

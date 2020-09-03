@@ -12,6 +12,9 @@ import './mirror/mx_mirror.dart';
 import './mirror_reg_fun_map/mx_mirror_func_reg.dart';
 import 'mx_js_bridge.dart';
 import 'mx_platform_channel.dart';
+import 'mx_handler.dart';
+
+typedef Widget MXWidgetBuildHandler(String widgetName);
 
 ///*MXJSFluttr的对外接口类
 ///简单两步接入MXFlutter，打开JS编写的页面。
@@ -74,9 +77,11 @@ abstract class MXJSFlutter {
   ///
   dynamic navigatorPushWithName(String widgetName, Key widgetKey);
 
-  // ///注册JS call dart Proxy
-  // void registerMirrorObjProxy(
-  //     Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap);
+  /// 设置一个处理器，当JS页面加载时，定制Loading widget
+  setJSWidgetLoadingHandler(MXWidgetBuildHandler handler);
+
+  /// 设置一个处理器，当JS页面加载错误时，定制Error widget
+  setJSWidgetBuildErrorHandler(MXWidgetBuildHandler handler);
 
   MXJSFlutterApp get currentApp;
 }
@@ -163,12 +168,14 @@ class _MXJSFlutter implements MXJSFlutter {
     return jsWidget;
   }
 
-  // @override
-  // void registerMirrorObjProxy(
-  //     Map<String, CreateJsonObjProxyFun> string2CreateJsonObjProxyFunMap) {
-  //   MXJsonObjToDartObject.getInstance()
-  //       .registerProxy(string2CreateJsonObjProxyFunMap);
-  // }
+  /// 设置一个处理器，当JS页面加载时，定制Loading widget
+  setJSWidgetLoadingHandler(MXWidgetBuildHandler handler) {
+    MXHandler.getInstance().setJSWidgetLoadingHandler(handler);
+  }
+
+  setJSWidgetBuildErrorHandler(MXWidgetBuildHandler handler) {
+    MXHandler.getInstance().setJSWidgetBuildErrorHandler(handler);
+  }
 
   /// 清理flutter侧的对象映射
   _clearMX() {

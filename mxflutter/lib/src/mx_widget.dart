@@ -9,29 +9,49 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/mxflutter_test.dart';
 import 'mx_build_owner.dart';
 import 'mx_common.dart';
+import 'mx_handler.dart';
+
+/// 拿到业务定制的 Error Widget
+Widget onBuildErrorCreateErrorWidget(String widgetName, {String error = ""}) {
+  Widget widget;
+
+  if (MXHandler.getInstance().errorHandler != null) {
+    widget = MXHandler.getInstance().errorHandler(widgetName);
+  }
+
+  if (widget == null) {
+    widget = kReleaseMode
+        ? ErrorWidget.withDetails(message: "页面开了小差，请稍后再试...")
+        : ErrorWidget.withDetails(message: error);
+  }
+
+  return widget;
+}
+
+/// 拿到业务定制的 loading Widget
+Widget onWaitJSRefreshCreateLoadingWidget(String widgetName) {
+  Widget widget;
+
+  if (MXHandler.getInstance().loadingHandler != null) {
+    widget = MXHandler.getInstance().loadingHandler(widgetName);
+  }
+
+  if (widget == null) {
+    widget = Container(
+        color: Colors.white,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ));
+  }
+
+  return widget;
+}
 
 mixin MXJSWidgetBase {
   String get name;
   String get widgetID;
   Map get widgetBuildData;
   String get widgetBuildDataSeq;
-
-  // TODO：发布版必须定制错误页面
-  static Widget errorWidget({String error = ""}) {
-    if (kReleaseMode) {
-      return ErrorWidget.withDetails(message: "页面开了小差，请稍后再试...");
-    }
-
-    return ErrorWidget.withDetails(message: error);
-  }
-
-  static Widget get loadingWidget {
-    return Container(
-        color: Colors.white,
-        child: Center(
-          child: CircularProgressIndicator(),
-        ));
-  }
 
   /// Flutter 侧生成的MXWidget widgetID 从1开始，为奇数 +2
   static int _widgetIDFeed = 1;
@@ -242,7 +262,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
             "child: $child"
             "this.widget.widgetID:${this.widget.widgetID}");
 
-        child = MXJSWidgetBase.errorWidget(
+        child = onBuildErrorCreateErrorWidget(this.widget.name,
             error:
                 "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
                 "child: $child "
@@ -250,7 +270,6 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
       }
     } else {
       // host 等待js刷新，先显示loading页面
-      // TODO: 定制loading页面和 error 页面
       if (widget.isHostWidget) {
         child = _hostWidgetInvokeJS(context);
       } else if (widget.isJSLazyWidget) {
@@ -259,7 +278,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
         MXJSLog.error("MXJSWidgetState:build: widget.widgetData == null "
             "this.widget.widgetID:${this.widget.widgetID}");
 
-        child = MXJSWidgetBase.errorWidget(
+        child = onBuildErrorCreateErrorWidget(this.widget.name,
             error: "MXJSWidgetState:build: widget.widgetData == null "
                 "this.widget.widgetID:${this.widget.widgetID}");
       }
@@ -285,9 +304,9 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
       isHostWidgetAlreadyCallJSRefreshed = true;
       buildOwnerNode.callJSRefreshHostWidget(
           widget.name, widget.widgetID, context);
-      return MXJSWidgetBase.loadingWidget;
+      return onWaitJSRefreshCreateLoadingWidget(this.widget.name);
     } else {
-      return MXJSWidgetBase.errorWidget(
+      return onBuildErrorCreateErrorWidget(this.widget.name,
           error:
               "MXJSWidgetState:_hostWidgetInvokeJS widgetBuildData == null but isHostWidgetAlreadyCallJSRefreshed "
               "this.widget.widgetID:${this.widget.widgetID}");
@@ -298,9 +317,9 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     if (!isLazyWidgetAlreadyCallJSRefreshed) {
       isLazyWidgetAlreadyCallJSRefreshed = true;
       buildOwnerNode.callJSRefreshLazyWidget(widget.widgetID, context);
-      return MXJSWidgetBase.loadingWidget;
+      return onWaitJSRefreshCreateLoadingWidget(this.widget.name);
     } else {
-      return MXJSWidgetBase.errorWidget(
+      return onBuildErrorCreateErrorWidget(this.widget.name,
           error:
               "MXJSWidgetState:_hostWidgetInvokeJS widgetBuildData == null but isLazyWidgetAlreadyCallJSRefreshed "
               "this.widget.widgetID:${this.widget.widgetID}");
@@ -376,7 +395,7 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
     if (widgetBuildData == null) {
       MXJSLog.error("MXJSStatelessWidget:build: widgetData == null "
           "this.widget.widgetID:${this.widgetID}");
-      return MXJSWidgetBase.errorWidget(
+      return onBuildErrorCreateErrorWidget(this.name,
           error: "MXJSStatelessWidget:build: widget.widgetData == null "
               "this.widget.widgetID:${this.widgetID}");
     }
@@ -389,7 +408,7 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
       MXJSLog.error(
           "MXJSStatelessWidget:build: boNode.buildWidgetData(widgetBuildData, context) == null error; "
           "this.widget.widgetID:$widgetID");
-      child = MXJSWidgetBase.errorWidget(
+      child = onBuildErrorCreateErrorWidget(this.name,
           error: "MXJSStatelessWidget:build: widget.widgetData == null "
               "this.widget.widgetID:${this.widgetID}");
     }
