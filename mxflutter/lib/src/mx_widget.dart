@@ -115,6 +115,7 @@ class MXJSStatefulElement extends StatefulElement {
 class WidgetBuildDataCache {
   final Map widgetBuildData;
   Widget cacheWidget;
+  BuildContext context;
 
   WidgetBuildDataCache(this.widgetBuildData);
 }
@@ -134,7 +135,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     super.initState();
 
     // state初始化时，用widget的widgetData ，之后等js侧的刷新
-    widgetBuildDataCache =  WidgetBuildDataCache(widget.widgetBuildData);
+    widgetBuildDataCache = WidgetBuildDataCache(widget.widgetBuildData);
     widgetBuildDataSeq = widget.widgetBuildDataSeq;
   }
 
@@ -163,7 +164,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
             "widget.widgetBuildDataSeq ${widget.widgetBuildDataSeq} >= "
             "old.widgetBuildDataSeq:${widgetBuildDataSeq} "
             "updateWidgetData widgetBuildData = widget.widgetBuildData");
-        widgetBuildDataCache =  WidgetBuildDataCache(widget.widgetBuildData);
+        widgetBuildDataCache = WidgetBuildDataCache(widget.widgetBuildData);
         widgetBuildDataSeq = widget.widgetBuildDataSeq;
       }
     } else {
@@ -173,7 +174,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
           "old.widgetID:${old.widgetID} "
           "update BuildOwnerNode");
 
-      widgetBuildDataCache =  WidgetBuildDataCache(widget.widgetBuildData);
+      widgetBuildDataCache = WidgetBuildDataCache(widget.widgetBuildData);
       widgetBuildDataSeq = widget.widgetBuildDataSeq;
 
       buildOwnerNode.updateWidgetId(old);
@@ -197,20 +198,30 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
   Widget buildWidget(BuildContext context) {
     assert(buildOwnerNode != null);
 
+    if (widgetBuildDataCache !=null &&
+        widgetBuildDataCache.cacheWidget != null &&
+        widgetBuildDataCache.context == context) {
+
+      MXJSLog.log("MXJSStatefulWidget:build widgetBuildDataCache?.cacheWidget != null "
+          "使用缓存直接返回 "
+          "widgetID ${widget.widgetID} "
+          "widgetBuildDataSeq:$widgetBuildDataSeq} ");
+
+      return widgetBuildDataCache?.cacheWidget;
+    }
+
     Widget child;
 
     MXJSLog.log("MXJSStatefulWidget:build begin: widgetID ${widget.widgetID} "
         "widgetBuildDataSeq: $widgetBuildDataSeq ");
 
     if (_isNotEmptyData(widgetBuildDataCache?.widgetBuildData)) {
-      // 当前有缓存widget，直接使用，解决重复buildWidget问题
-      if (widgetBuildDataCache?.cacheWidget != null) {
-        return widgetBuildDataCache?.cacheWidget;
-      }
 
-      // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
-      child = buildOwnerNode.buildWidgetData(widgetBuildDataCache?.widgetBuildData, context);
-      widgetBuildDataCache?.cacheWidget = child;
+      var widgetBuildData = widgetBuildDataCache.widgetBuildData;
+      child = buildOwnerNode.buildWidgetData(widgetBuildData, context);
+      widgetBuildDataCache.cacheWidget = child;
+      widgetBuildDataCache.context = context;
+
       if (child == null || child is! Widget) {
         MXJSLog.error(
             "MXJSWidgetState:build: buildOwnerNode.buildWidgetData(widgetBuildData, context) return error; "
@@ -289,7 +300,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     }
 
     setState(() {
-      widgetBuildDataCache =  WidgetBuildDataCache(widgetBuildData);
+      widgetBuildDataCache = WidgetBuildDataCache(widgetBuildData);
       this.widgetBuildDataSeq = buildWidgetDataSeq;
     });
 
