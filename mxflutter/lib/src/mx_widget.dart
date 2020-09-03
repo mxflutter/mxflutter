@@ -203,6 +203,11 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
         "widgetBuildDataSeq: $widgetBuildDataSeq ");
 
     if (_isNotEmptyData(widgetBuildDataCache?.widgetBuildData)) {
+      // 当前有缓存widget，直接使用，解决重复buildWidget问题
+      if (widgetBuildDataCache?.cacheWidget != null) {
+        return widgetBuildDataCache?.cacheWidget;
+      }
+
       // call JS层，Flutter UI 使用当前JSWidget哪个序列号的数据构建，callbackID,widgetID  与之对应
       child = buildOwnerNode.buildWidgetData(widgetBuildDataCache?.widgetBuildData, context);
       widgetBuildDataCache?.cacheWidget = child;
