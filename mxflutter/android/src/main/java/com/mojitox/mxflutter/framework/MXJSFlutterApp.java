@@ -156,12 +156,12 @@ public class MXJSFlutterApp {
                             currentApp.jsExecutor.invokeJSValue(jsAppObj, "nativeCall", (Map) methodCall.arguments, new MXJSExecutor.InvokeJSValueCallback() {
                                 @Override
                                 public void onSuccess(Object value) {
-
+                                    result.success(value.toString());
                                 }
 
                                 @Override
                                 public void onError(Error error) {
-
+                                    result.error(error.toString(), null, null);
                                 }
                             });
                         }
