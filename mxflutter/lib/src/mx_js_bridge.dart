@@ -58,14 +58,11 @@ class MXJSBridge {
   /// JS->Flutter 顶层调用通道，处理JS的调用
   /// args参数为Json字符串argsJsonStr
   Future<String> commonBasicChannelHandler(argsJsonStr) async {
+    MXJSLog.log("commonBasicChannelHandler: $argsJsonStr");
 
     Map args = json.decode(argsJsonStr);
     String funcName = args["funcName"];
     dynamic funArgs = args["args"];
-
-    if(funcName != "mxJSBridgeDartLog"){
-      MXJSLog.log("commonBasicChannelHandler: $argsJsonStr");
-    }
 
     Function fun = _name2FunMap[funcName];
     return fun(funArgs);
@@ -91,9 +88,6 @@ class MXJSBridge {
     _name2FunMap["mxJSBridgeReleaseMirrorObj"] = mxJSBridgeReleaseMirrorObj;
     _name2FunMap["mxJSBridgeInvokeMirrorObjWithCallback"] =
         mxJSBridgeInvokeMirrorObjWithCallback;
-
-    // 解决 Android 不打JS日志问题
-    _name2FunMap["mxJSBridgeDartLog"] = mxJSBridgeDartLog;
   }
 
   Future<String> mxJSBridgeCreateMirrorObj(argMap) async {
@@ -137,11 +131,5 @@ class MXJSBridge {
       completer.complete(returnJsonStr);
     });
     return completer.future;
-  }
-
-  /// JS -> Flutter
-  Future<String> mxJSBridgeDartLog(args) async {
-    print(args);
-    return null;
   }
 }
