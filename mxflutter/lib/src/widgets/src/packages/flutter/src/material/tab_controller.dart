@@ -18,6 +18,7 @@ import 'package:mxflutter/src/mx_mixin.dart';
 Map<String, MXFunctionInvoke> registerTabControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_tabController.funName] = _tabController;
+  m[_tabControllerIndex.funName] = _tabControllerIndex;
   m[_defaultTabController.funName] = _defaultTabController;
   return m;
 }
@@ -74,6 +75,18 @@ VoidCallback _createListenerHandle(
   };
   return cb;
 }
+
+var _tabControllerIndex = MXFunctionInvoke(
+  "TabController#index",
+  ({
+    TabController mirrorObj,
+    int index,
+  }) => mirrorObj.index = index,
+  [
+    "mirrorObj",
+    "index",
+  ],
+);
 // MX Modified end
 
 var _defaultTabController = MXFunctionInvoke(
