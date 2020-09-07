@@ -179,6 +179,17 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       args[constMirrorObjStr] = mirrorObj;
     }
 
+    // 判断mirrorObj是否为空
+    MXFunctionInvoke fi = _funcInvokeWithFuncName(funcName);
+    if (fi == null) {
+      MXJSLog.error("MXMirror.invokeWithCallback, error: fi is null; jsonMap: $jsonMap ");
+      return;
+    }
+    if (fi.propsName.contains(constMirrorObjStr) && mirrorObj == null) {
+      MXJSLog.error("MXMirror.invokeWithCallback, error: mirrorObj is null; jsonMap: $jsonMap ");
+      return;
+    }
+
     result = _invoke(funcName, args);
 
     if (callback != null) {
@@ -194,15 +205,10 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       return null;
     }
 
-    MXFunctionInvoke fi = _funcName2FunMapCache[funcName];
+    MXFunctionInvoke fi = _funcInvokeWithFuncName(funcName);
     if (fi == null) {
-      fi = _funcName2FunMap[funcName];
-      if (fi == null) {
-        return null;
-      }
-      _funcName2FunMapCache[funcName] = fi;
+      return null;
     }
-
     fi.buildOwner = buildOwner;
     fi.context = context;
 
@@ -298,6 +304,18 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   /// 移除枚举对象临时添加的name属性
   void _removeReplaceEnumNameStr(Map jsonMap) {
     jsonMap.remove(constReplaceEnumNameStr);
+  }
+
+  MXFunctionInvoke _funcInvokeWithFuncName(String funcName) {
+    MXFunctionInvoke fi = _funcName2FunMapCache[funcName];
+    if (fi == null) {
+      fi = _funcName2FunMap[funcName];
+      if (fi == null) {
+        return null;
+      }
+      _funcName2FunMapCache[funcName] = fi;
+    }
+    return fi;
   }
 
   /// Flutter->JS
