@@ -6,13 +6,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mxflutter/mxflutter_test.dart';
-import 'package:mxflutter/src/mirror/src/mx_mirror_object.dart';
-import 'package:mxflutter/src/mx_js_bridge.dart';
 
 import 'mirror/mx_mirror.dart';
+import 'mx_common.dart';
 import 'mx_flutter.dart';
 import 'mx_flutter_app.dart';
-import 'mx_common.dart';
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
 
@@ -260,9 +258,10 @@ class MXJsonBuildOwner {
         MXJSLog.error("MXJsonBuildOwner:jsCallNavigatorPush: "
             "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
             "className:$className widgetData:$widgetDataMap");
-        return onBuildErrorCreateErrorWidget(widgetDataMap['Name'],error: "MXJsonBuildOwner:jsCallNavigatorPush: "
-            "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
-            "className:$className widgetData:$widgetDataMap");
+        return onBuildErrorCreateErrorWidget(widgetDataMap['Name'],
+            error: "MXJsonBuildOwner:jsCallNavigatorPush: "
+                "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
+                "className:$className widgetData:$widgetDataMap");
       }
 
       return jsWidget;
@@ -282,7 +281,6 @@ class MXJsonBuildOwner {
 
   /// MXJSWidgetState -> BuildOwner
   void onDispose() {
-
     // 告诉JS，可以销毁这个JSWidget了
     callJSOnDispose();
 
@@ -304,33 +302,56 @@ class MXJsonBuildOwner {
 
     _notifyBuildEnd();
 
-    String parentWidgetID = _parent?.ownerWidgetId;
+    MethodCall jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
+      "widgetID": ownerWidgetId,
+      "buildSeq": widgetBuildDataSeq,
+      "rootWidgetID": _parent?.ownerWidgetId,
+    });
+
+    MXJSLog.debug("MXJSWidgetState:callJSOnBuildEnd: "
+        "buildEndTime, time is ${(new DateTime.now()).millisecondsSinceEpoch}");
+
+    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+  }
+
+  callJSOnFirstFrameEnd() {
+    MXJSLog.debug("MXJSWidgetState:callJSOnFirstFrameEnd: "
+        "widgetID:$ownerWidgetId"
+        "buildSeq:$widgetBuildDataSeq");
 
     // 填充性能监控数据
     var profileInfoKey = '$ownerWidgetId-$widgetBuildDataSeq';
     var profileInfo = ownerApp.buildProfileInfoMap[profileInfoKey];
-
-    MethodCall jsMethodCall;
-    if (profileInfo != null) {
-      profileInfo["buildEndTime"] = (new DateTime.now()).millisecondsSinceEpoch;
-
-      ownerApp.buildProfileInfoMap.remove(profileInfoKey);
-
-      jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-        "widgetID": ownerWidgetId,
-        "buildSeq": widgetBuildDataSeq,
-        "rootWidgetID": parentWidgetID,
-        "profileInfo": profileInfo,
-      });
-    } else {
-      jsMethodCall = MethodCall("flutterCallOnBuildEnd", {
-        "widgetID": ownerWidgetId,
-        "buildSeq": widgetBuildDataSeq,
-        "rootWidgetID": parentWidgetID,
-      });
+    if (profileInfo == null) {
+      return;
     }
 
+    profileInfo.addAll(
+        {'firstFrameEndTime': (new DateTime.now()).millisecondsSinceEpoch});
+
+    ownerApp.buildProfileInfoMap.remove(profileInfoKey);
+
+    MethodCall jsMethodCall = MethodCall("flutterCallOnFirstFrameEnd", {
+      "widgetID": ownerWidgetId,
+      "buildSeq": widgetBuildDataSeq,
+      "rootWidgetID": _parent?.ownerWidgetId,
+      "profileInfo": profileInfo,
+    });
     ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+  }
+
+  /// 记录HostWidget的白屏结束时间
+  recordHostWidgetBlankEndTime() {
+    MXJSLog.debug("MXJSWidgetState:recordHostWidgetBlankEndTime: "
+        "widgetID:$ownerWidgetId, "
+        "buildSeq:$widgetBuildDataSeq");
+
+    // HostWidget的widgetBuildDataSeq在此时尚未生成，直接赋值1
+    // var profileInfoKey = '$ownerWidgetId-$widgetBuildDataSeq';
+    var profileInfoKey = '$ownerWidgetId-1';
+    ownerApp.buildProfileInfoMap[profileInfoKey] = {
+      'firstBlankFrameEnd': (new DateTime.now()).millisecondsSinceEpoch
+    };
   }
 
   /// TODO 优化

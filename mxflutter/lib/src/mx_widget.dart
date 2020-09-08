@@ -7,6 +7,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mxflutter/mxflutter_test.dart';
+
 import 'mx_build_owner.dart';
 import 'mx_common.dart';
 import 'mx_handler.dart';
@@ -161,6 +162,24 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     // state初始化时，用widget的widgetData ，之后等js侧的刷新
     widgetBuildDataCache =
         WidgetBuildDataCache(widget.widgetBuildData, widget.widgetBuildDataSeq);
+
+    WidgetsBinding.instance.addPostFrameCallback((callback) {
+      // HostWidget记录白屏结束时间
+      if (widget.isHostWidget == true) {
+        buildOwnerNode.recordHostWidgetBlankEndTime();
+      }
+      // 非HostWidget，告知JS首帧结束
+      else {
+        buildOwnerNode.callJSOnFirstFrameEnd();
+      }
+    });
+
+    WidgetsBinding.instance.addPersistentFrameCallback((callback) {
+      // 只针对HostWidget，告知JS首帧结束
+      if (widget.isHostWidget == true) {
+        buildOwnerNode.callJSOnFirstFrameEnd();
+      }
+    });
   }
 
   @override
@@ -399,6 +418,13 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
           error: "MXJSStatelessWidget:build: widget.widgetData == null "
               "this.widget.widgetID:${this.widgetID}");
     }
+
+    WidgetsBinding.instance.addPostFrameCallback((callback) {
+      MXJSStatelessElement element = context as MXJSStatelessElement;
+      MXJsonBuildOwner boNode = element.buildOwnerNode;
+      // 告知JS首帧结束
+      boNode.callJSOnFirstFrameEnd();
+    });
 
     MXJSStatelessElement element = context as MXJSStatelessElement;
     MXJsonBuildOwner boNode = element.buildOwnerNode;

@@ -6,6 +6,7 @@
 
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -44,8 +45,7 @@ class MXJSFlutterApp {
   /// 创建一个hostJSWidget,可以直接放入Fltuter的build widget Tree中
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
   MXJSStatefulWidget createHostJSWidget(String widgetName, Key widgetKey) {
-    MXJSLog.log(
-        "MXJSFlutterApp:createHostJSWidget: widgetName: $widgetName ");
+    MXJSLog.log("MXJSFlutterApp:createHostJSWidget: widgetName: $widgetName ");
 
     MXJSStatefulWidget jsWidget = _rootBuildOwnerNode.findWidget(widgetKey);
 
@@ -160,7 +160,7 @@ class MXJSFlutterApp {
   }
 
   /// rebuild quque
-  Map<String,Map> _widgetId2RebuildJSCallCache = {};
+  Map<String, Map> _widgetId2RebuildJSCallCache = {};
 
   /// JS ->  flutter  开放给调用 JS
   Future<dynamic> _jsCallRebuild(widgetDataStr) async {
@@ -172,7 +172,6 @@ class MXJSFlutterApp {
     MXJsonBuildOwner boNode = _rootBuildOwnerNode.findChild(widgetID);
 
     if (boNode == null) {
-
       /// 加入缓存
       _widgetId2RebuildJSCallCache[widgetID] = widgetDataMap;
 
@@ -189,11 +188,19 @@ class MXJSFlutterApp {
       String widgetId = widgetDataMap["widgetID"];
       String buildWidgetDataSeq = widgetDataMap["buildWidgetDataSeq"];
 
-      buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'] = {
-        'enableProfile': enableProfile,
-        'startDecodeDataTime': startDecodeDataTime,
-        'endDecodeDataTime': endDecodeDataTime
-      };
+      if (buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'] != null) {
+        buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'].addAll({
+          'enableProfile': enableProfile,
+          'startDecodeDataTime': startDecodeDataTime,
+          'endDecodeDataTime': endDecodeDataTime
+        });
+      } else {
+        buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'] = {
+          'enableProfile': enableProfile,
+          'startDecodeDataTime': startDecodeDataTime,
+          'endDecodeDataTime': endDecodeDataTime
+        };
+      }
     }
 
     MXJSLog.log("MXJSFlutterApp:_jsCallRebuild: "
@@ -262,11 +269,10 @@ class MXJSFlutterApp {
 
   /// 当有新buildOwner创建是通知
   /// TODO 支持其他调用的缓存
-  onWidgetBuildEnd(MXJsonBuildOwner boNode){
-
+  onWidgetBuildEnd(MXJsonBuildOwner boNode) {
     Map widgetDataMap = _widgetId2RebuildJSCallCache[boNode.ownerWidgetId];
 
-    if(widgetDataMap != null){
+    if (widgetDataMap != null) {
       MXJSLog.log("MXJSFlutterApp:jsCall缓存重放 _jsCallRebuild: "
           "name:${boNode.widget.name} widgetId:${boNode.ownerWidgetId}");
       // debug
@@ -280,5 +286,4 @@ class MXJSFlutterApp {
       _widgetId2RebuildJSCallCache.remove(boNode.ownerWidgetId);
     }
   }
-
 }
