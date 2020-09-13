@@ -322,7 +322,7 @@ class MXJsonBuildOwner {
     // 填充性能监控数据
     var profileInfoKey = '$ownerWidgetId-$widgetBuildDataSeq';
     var profileInfo = ownerApp.buildProfileInfoMap[profileInfoKey];
-    if (profileInfo == null) {
+    if (profileInfo == null || profileInfo['enableProfile'] != true) {
       return;
     }
 
