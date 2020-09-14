@@ -340,20 +340,6 @@ class MXJsonBuildOwner {
     ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
   }
 
-  /// 记录HostWidget的白屏结束时间
-  recordHostWidgetBlankEndTime() {
-    MXJSLog.debug("MXJSWidgetState:recordHostWidgetBlankEndTime: "
-        "widgetID:$ownerWidgetId, "
-        "buildSeq:$widgetBuildDataSeq");
-
-    // HostWidget的widgetBuildDataSeq在此时尚未生成，直接赋值1
-    // var profileInfoKey = '$ownerWidgetId-$widgetBuildDataSeq';
-    var profileInfoKey = '$ownerWidgetId-1';
-    ownerApp.buildProfileInfoMap[profileInfoKey] = {
-      'firstBlankFrameEnd': (new DateTime.now()).millisecondsSinceEpoch
-    };
-  }
-
   /// TODO 优化
   _notifyBuildEnd() {
     Future.delayed(Duration(milliseconds: 0), () {
