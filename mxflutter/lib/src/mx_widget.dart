@@ -164,6 +164,10 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
         WidgetBuildDataCache(widget.widgetBuildData, widget.widgetBuildDataSeq);
 
     WidgetsBinding.instance.addPostFrameCallback((callback) {
+      if (buildOwnerNode == null) {
+        return;
+      }
+
       // HostWidget记录白屏结束时间
       if (widget.isHostWidget == true) {
         buildOwnerNode.recordHostWidgetBlankEndTime();
@@ -175,6 +179,10 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     });
 
     WidgetsBinding.instance.addPersistentFrameCallback((callback) {
+      if (buildOwnerNode == null) {
+        return;
+      }
+      
       // 只针对HostWidget，告知JS首帧结束
       if (widget.isHostWidget == true) {
         buildOwnerNode.callJSOnFirstFrameEnd();
