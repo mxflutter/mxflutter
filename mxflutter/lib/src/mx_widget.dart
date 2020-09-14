@@ -164,28 +164,20 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
         WidgetBuildDataCache(widget.widgetBuildData, widget.widgetBuildDataSeq);
 
     WidgetsBinding.instance.addPostFrameCallback((callback) {
-      if (buildOwnerNode == null) {
-        return;
-      }
-
       // HostWidget记录白屏结束时间
       if (widget.isHostWidget == true) {
-        buildOwnerNode.recordHostWidgetBlankEndTime();
+        buildOwnerNode?.recordHostWidgetBlankEndTime();
       }
       // 非HostWidget，告知JS首帧结束
       else {
-        buildOwnerNode.callJSOnFirstFrameEnd();
+        buildOwnerNode?.callJSOnFirstFrameEnd();
       }
     });
 
     WidgetsBinding.instance.addPersistentFrameCallback((callback) {
-      if (buildOwnerNode == null) {
-        return;
-      }
-      
       // 只针对HostWidget，告知JS首帧结束
       if (widget.isHostWidget == true) {
-        buildOwnerNode.callJSOnFirstFrameEnd();
+        buildOwnerNode?.callJSOnFirstFrameEnd();
       }
     });
   }
@@ -245,7 +237,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
   }
 
   MXJsonBuildOwner get buildOwnerNode =>
-      (context as MXJSStatefulElement).buildOwnerNode;
+      (context as MXJSStatefulElement)?.buildOwnerNode;
 
   @override
   Widget build(BuildContext context) {
@@ -429,9 +421,9 @@ class MXJSStatelessWidget extends StatelessWidget with MXJSWidgetBase {
 
     WidgetsBinding.instance.addPostFrameCallback((callback) {
       MXJSStatelessElement element = context as MXJSStatelessElement;
-      MXJsonBuildOwner boNode = element.buildOwnerNode;
+      MXJsonBuildOwner boNode = element?.buildOwnerNode;
       // 告知JS首帧结束
-      boNode.callJSOnFirstFrameEnd();
+      boNode?.callJSOnFirstFrameEnd();
     });
 
     MXJSStatelessElement element = context as MXJSStatelessElement;
