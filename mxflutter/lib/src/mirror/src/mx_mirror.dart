@@ -174,17 +174,23 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     String funcName = objectFuncName(jsonMap);
     Map args = jsonMap["args"] ?? {};
 
-    dynamic mirrorObj = findMirrorObject(jsonMap[constMirrorIDStr]);
-    if (mirrorObj != null) {
-      args[constMirrorObjStr] = mirrorObj;
+    // 获取mirrorObj
+    dynamic mirrorObj = args[constMirrorObjStr];
+    if (mirrorObj == null) {
+      mirrorObj = findMirrorObject(jsonMap[constMirrorIDStr]);
+      if (mirrorObj != null) {
+        args[constMirrorObjStr] = mirrorObj;
+      }
     }
 
-    // 判断mirrorObj是否为空
+    // 判断fi是否为空
     MXFunctionInvoke fi = _funcInvokeWithFuncName(funcName);
     if (fi == null) {
       MXJSLog.error("MXMirror.invokeWithCallback, error: fi is null; jsonMap: $jsonMap ");
       return;
     }
+
+    // 判断mirrorObj是否为空
     if (fi.propsName.contains(constMirrorObjStr) && mirrorObj == null) {
       MXJSLog.error("MXMirror.invokeWithCallback, error: mirrorObj is null; jsonMap: $jsonMap ");
       return;
