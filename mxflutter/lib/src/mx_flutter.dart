@@ -94,11 +94,16 @@ class _MXJSFlutter implements MXJSFlutter {
 
   MXJSFlutterApp currentApp;
   bool _isSetup = false;
+  int _mxInitStartTime;
 
   setup() {
     if (_isSetup) {
       return;
     }
+
+    // 记录框架启动开始时间
+    _mxInitStartTime = new DateTime.now().millisecondsSinceEpoch;
+
     // 需要WidgetsFlutterBinding已调用
     WidgetsFlutterBinding.ensureInitialized();
 
@@ -145,9 +150,13 @@ class _MXJSFlutter implements MXJSFlutter {
 
     args["flutterAppEnvironmentInfo"] = _flutterAppEnvironmentInfo();
 
-    MXPlatformChannel.getInstance().invokeMethod("callNativeRunJSApp", args);
     // 暂时只支持一个
     currentApp = MXJSFlutterApp(jsAppAssetsKey);
+
+    // 记录框架启动耗时
+    args["mxFlutterInitCost"] = new DateTime.now().millisecondsSinceEpoch - _mxInitStartTime;
+
+    MXPlatformChannel.getInstance().invokeMethod("callNativeRunJSApp", args);
   }
 
   Map _flutterAppEnvironmentInfo() {

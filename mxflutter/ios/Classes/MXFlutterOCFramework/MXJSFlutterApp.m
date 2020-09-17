@@ -27,6 +27,9 @@
 
 @property (nonatomic, strong) NSArray* jsAppSearchPathList;
 
+/// mx框架native侧加载main.js耗时
+@property (nonatomic, assign) NSTimeInterval mxNativeJSLoadCost;
+
 @end
 
 @implementation MXJSFlutterApp
@@ -166,6 +169,9 @@
         
         NSString *mainJS = [strongSelf.appRootPath stringByAppendingPathComponent:@"main.js"];
         
+        // 框架加载main.js开始时间
+        NSTimeInterval jsLoadStartTime = [[NSDate date] timeIntervalSince1970] * 1000;
+        
         [executor executeScriptPath:mainJS onComplete:^(NSError *error) {
             
             MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
@@ -183,6 +189,13 @@
                 
                 [strongSelf callJSMethodCallQueqe];
             // }];
+            
+            // 框架加载main.js结束时间
+            NSTimeInterval jsLoadEndTime = [[NSDate date] timeIntervalSince1970] * 1000;
+            self.mxNativeJSLoadCost = jsLoadEndTime - jsLoadStartTime;
+            
+            // 通知JS侧，框架加载时间
+            [strongSelf callJSInitProfileInfo];
         }];
         
     }];
@@ -261,6 +274,17 @@
     } else {
         [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
     }
+}
+
+- (void)callJSInitProfileInfo {
+    NSDictionary *args = @{@"method" : @"nativeCallInitProfileInfo",
+                           @"arguments" : @{@"mxFlutterInitCost" : @(self.mxFlutterInitCost),
+                                            @"mxNativeJSLoadCost" : @(self.mxNativeJSLoadCost)
+                           }
+    };
+    [self.jsExecutor invokeJSValue:self.jsAppObj method:@"nativeCall" args:@[args] callback:^(JSValue *result, NSError *error) {
+
+    }];
 }
 
 @end

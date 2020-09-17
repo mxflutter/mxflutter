@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
@@ -46,6 +47,11 @@ public class MXJSFlutterApp {
     private boolean isJSAPPRun;
     private MXJSFlutterApp currentApp;
     private V8Object jsAppObj;
+
+    //mx框架flutter侧初始化耗时
+    public long mxFlutterInitCost;
+    //mx框架native侧加载main.js耗时
+    private long mxNativeJSLoadCost;
 
     //Flutter通道
     private static final String MXFLUTTER_METHED_CHANNEL_APP = "js_flutter.js_flutter_app_channel";
@@ -215,11 +221,16 @@ public class MXJSFlutterApp {
             }
         });
 
+        // 记录native侧main.js加载开始时间
+        long jsLoadStartTime = System.currentTimeMillis();
         jsExecutor.executeScriptPath(rootPath + "/main.js", new MXJSExecutor.ExecuteScriptCallback() {
             @Override
             public void onComplete(Object value) {
                 isJSAPPRun = true;
                 callJSMethodCallQueqe();
+
+                // 记录native侧main.js加载开始时间
+                mxNativeJSLoadCost = System.currentTimeMillis() - jsLoadStartTime;
             }
         });
     }
@@ -239,6 +250,27 @@ public class MXJSFlutterApp {
             });
         }
         callJSMethodQueue.clear();
+    }
+
+    public void callJSInitProfileInfo() {
+        Map<String, Object> args = new HashMap<>();
+        args.put("method", "nativeCallInitProfileInfo");
+        Map<String, Object> arguments = new HashMap<>();
+        arguments.put("mxFlutterInitCost", mxFlutterInitCost);
+        arguments.put("mxNativeJSLoadCost", mxNativeJSLoadCost);
+        args.put("arguments", arguments);
+
+        currentApp.jsExecutor.invokeJSValue(jsAppObj, "nativeCall", args, new MXJSExecutor.InvokeJSValueCallback() {
+            @Override
+            public void onSuccess(Object value) {
+
+            }
+
+            @Override
+            public void onError(Error error) {
+
+            }
+        });
     }
 
     //js 注入对象
