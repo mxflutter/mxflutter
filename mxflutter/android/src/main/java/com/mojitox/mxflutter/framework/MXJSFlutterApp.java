@@ -226,7 +226,17 @@ public class MXJSFlutterApp {
 
     private void callJSMethodCallQueqe() {
         for (MethodCall call : callJSMethodQueue) {
-            jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
+            currentApp.jsExecutor.invokeJSValue(jsAppObj, "nativeCall", (Map) call.arguments, new MXJSExecutor.InvokeJSValueCallback() {
+                @Override
+                public void onSuccess(Object value) {
+
+                }
+
+                @Override
+                public void onError(Error error) {
+
+                }
+            });
         }
         callJSMethodQueue.clear();
     }
