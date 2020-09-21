@@ -73,9 +73,10 @@ var _expansionPanelList = MXFunctionInvoke(
     Key key,
     dynamic children = const <ExpansionPanel>[],
     dynamic expansionCallback,
-    Duration animationDuration = const Duration(milliseconds: 200),
+    Duration animationDuration = kThemeAnimationDuration,
     EdgeInsets expandedHeaderPadding =
         const EdgeInsets.symmetric(vertical: 64.0 - 48.0),
+    Color dividerColor,
   }) =>
       ExpansionPanelList(
     key: key,
@@ -84,6 +85,7 @@ var _expansionPanelList = MXFunctionInvoke(
         _expansionPanelList.buildOwner, expansionCallback),
     animationDuration: animationDuration,
     expandedHeaderPadding: expandedHeaderPadding,
+    dividerColor: dividerColor,
   ),
   [
     "key",
@@ -91,6 +93,7 @@ var _expansionPanelList = MXFunctionInvoke(
     "expansionCallback",
     "animationDuration",
     "expandedHeaderPadding",
+    "dividerColor",
   ],
 );
 var _expansionPanelListRadio = MXFunctionInvoke(
@@ -99,10 +102,11 @@ var _expansionPanelListRadio = MXFunctionInvoke(
     Key key,
     dynamic children = const <ExpansionPanelRadio>[],
     dynamic expansionCallback,
-    Duration animationDuration = const Duration(milliseconds: 200),
+    Duration animationDuration = kThemeAnimationDuration,
     Object initialOpenPanelValue,
     EdgeInsets expandedHeaderPadding =
         const EdgeInsets.symmetric(vertical: 64.0 - 48.0),
+    Color dividerColor,
   }) =>
       ExpansionPanelList.radio(
     key: key,
@@ -112,6 +116,7 @@ var _expansionPanelListRadio = MXFunctionInvoke(
     animationDuration: animationDuration,
     initialOpenPanelValue: initialOpenPanelValue,
     expandedHeaderPadding: expandedHeaderPadding,
+    dividerColor: dividerColor,
   ),
   [
     "key",
@@ -120,5 +125,6 @@ var _expansionPanelListRadio = MXFunctionInvoke(
     "animationDuration",
     "initialOpenPanelValue",
     "expandedHeaderPadding",
+    "dividerColor",
   ],
 );

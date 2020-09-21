@@ -39,6 +39,7 @@ var _textFormField = MXFunctionInvoke(
     bool readOnly = false,
     ToolbarOptions toolbarOptions,
     bool showCursor,
+    String obscuringCharacter = '•',
     bool obscureText = false,
     bool autocorrect = true,
     SmartDashesType smartDashesType,
@@ -57,7 +58,7 @@ var _textFormField = MXFunctionInvoke(
     dynamic onSaved,
     dynamic validator,
     dynamic inputFormatters,
-    bool enabled = true,
+    bool enabled,
     dynamic cursorWidth = 2.0,
     Radius cursorRadius,
     Color cursorColor,
@@ -66,6 +67,7 @@ var _textFormField = MXFunctionInvoke(
     bool enableInteractiveSelection = true,
     dynamic buildCounter,
     ScrollPhysics scrollPhysics,
+    Iterable<String> autofillHints,
   }) =>
       TextFormField(
     key: key,
@@ -85,6 +87,7 @@ var _textFormField = MXFunctionInvoke(
     readOnly: readOnly,
     toolbarOptions: toolbarOptions,
     showCursor: showCursor,
+    obscuringCharacter: obscuringCharacter,
     obscureText: obscureText,
     autocorrect: autocorrect,
     smartDashesType: smartDashesType,
@@ -116,6 +119,7 @@ var _textFormField = MXFunctionInvoke(
     enableInteractiveSelection: enableInteractiveSelection,
     buildCounter: null,
     scrollPhysics: scrollPhysics,
+    autofillHints: autofillHints,
   ),
   [
     "key",
@@ -135,6 +139,7 @@ var _textFormField = MXFunctionInvoke(
     "readOnly",
     "toolbarOptions",
     "showCursor",
+    "obscuringCharacter",
     "obscureText",
     "autocorrect",
     "smartDashesType",
@@ -162,5 +167,6 @@ var _textFormField = MXFunctionInvoke(
     "enableInteractiveSelection",
     "buildCounter",
     "scrollPhysics",
+    "autofillHints",
   ],
 );

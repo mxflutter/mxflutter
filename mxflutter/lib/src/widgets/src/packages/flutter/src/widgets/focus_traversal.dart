@@ -7,7 +7,6 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/focus_traversal.dart';
 import 'dart:ui';
-import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/src/widgets/actions.dart';
@@ -30,15 +29,14 @@ Map<String, MXFunctionInvoke> registerFocusTraversalSeries() {
   m[_orderedTraversalPolicy.funName] = _orderedTraversalPolicy;
   m[_focusTraversalOrder.funName] = _focusTraversalOrder;
   m[_focusTraversalGroup.funName] = _focusTraversalGroup;
+  m[_requestFocusIntent.funName] = _requestFocusIntent;
   m[_requestFocusAction.funName] = _requestFocusAction;
-  m[_requestFocusActionKey.funName] = _requestFocusActionKey;
+  m[_nextFocusIntent.funName] = _nextFocusIntent;
   m[_nextFocusAction.funName] = _nextFocusAction;
-  m[_nextFocusActionKey.funName] = _nextFocusActionKey;
+  m[_previousFocusIntent.funName] = _previousFocusIntent;
   m[_previousFocusAction.funName] = _previousFocusAction;
-  m[_previousFocusActionKey.funName] = _previousFocusActionKey;
   m[_directionalFocusIntent.funName] = _directionalFocusIntent;
   m[_directionalFocusAction.funName] = _directionalFocusAction;
-  m[_directionalFocusActionKey.funName] = _directionalFocusActionKey;
   return m;
 }
 
@@ -115,17 +113,32 @@ var _focusTraversalGroup = MXFunctionInvoke(
   ({
     Key key,
     FocusTraversalPolicy policy,
+    bool descendantsAreFocusable = true,
     Widget child,
   }) =>
       FocusTraversalGroup(
     key: key,
     policy: policy,
+    descendantsAreFocusable: descendantsAreFocusable,
     child: child,
   ),
   [
     "key",
     "policy",
+    "descendantsAreFocusable",
     "child",
+  ],
+);
+var _requestFocusIntent = MXFunctionInvoke(
+  "RequestFocusIntent",
+  ({
+    FocusNode focusNode,
+  }) =>
+      RequestFocusIntent(
+    focusNode,
+  ),
+  [
+    "focusNode",
   ],
 );
 var _requestFocusAction = MXFunctionInvoke(
@@ -133,22 +146,26 @@ var _requestFocusAction = MXFunctionInvoke(
   () => RequestFocusAction(),
   [],
 );
-var _requestFocusActionKey =
-    MXFunctionInvoke("RequestFocusAction.key", () => RequestFocusAction.key);
+var _nextFocusIntent = MXFunctionInvoke(
+  "NextFocusIntent",
+  () => NextFocusIntent(),
+  [],
+);
 var _nextFocusAction = MXFunctionInvoke(
   "NextFocusAction",
   () => NextFocusAction(),
   [],
 );
-var _nextFocusActionKey =
-    MXFunctionInvoke("NextFocusAction.key", () => NextFocusAction.key);
+var _previousFocusIntent = MXFunctionInvoke(
+  "PreviousFocusIntent",
+  () => PreviousFocusIntent(),
+  [],
+);
 var _previousFocusAction = MXFunctionInvoke(
   "PreviousFocusAction",
   () => PreviousFocusAction(),
   [],
 );
-var _previousFocusActionKey =
-    MXFunctionInvoke("PreviousFocusAction.key", () => PreviousFocusAction.key);
 var _directionalFocusIntent = MXFunctionInvoke(
   "DirectionalFocusIntent",
   ({
@@ -169,8 +186,6 @@ var _directionalFocusAction = MXFunctionInvoke(
   () => DirectionalFocusAction(),
   [],
 );
-var _directionalFocusActionKey = MXFunctionInvoke(
-    "DirectionalFocusAction.key", () => DirectionalFocusAction.key);
 
 class MXTraversalDirection {
   static TraversalDirection parse(String name, int index) {

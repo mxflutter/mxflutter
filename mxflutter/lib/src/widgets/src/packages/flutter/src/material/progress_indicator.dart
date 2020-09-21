@@ -28,6 +28,7 @@ var _linearProgressIndicator = MXFunctionInvoke(
     dynamic value,
     Color backgroundColor,
     Animation<Color> valueColor,
+    dynamic minHeight,
     String semanticsLabel,
     String semanticsValue,
   }) =>
@@ -36,6 +37,7 @@ var _linearProgressIndicator = MXFunctionInvoke(
     value: value?.toDouble(),
     backgroundColor: backgroundColor,
     valueColor: valueColor,
+    minHeight: minHeight?.toDouble(),
     semanticsLabel: semanticsLabel,
     semanticsValue: semanticsValue,
   ),
@@ -44,6 +46,7 @@ var _linearProgressIndicator = MXFunctionInvoke(
     "value",
     "backgroundColor",
     "valueColor",
+    "minHeight",
     "semanticsLabel",
     "semanticsValue",
   ],

@@ -14,7 +14,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/painting.dart';
 import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/rendering/debug.dart';
-import 'package:flutter/src/rendering/mouse_tracking.dart';
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerLayerSeries() {
@@ -82,16 +81,19 @@ var _textureLayer = MXFunctionInvoke(
     ui.Rect rect,
     int textureId,
     bool freeze = false,
+    ui.FilterQuality filterQuality = FilterQuality.low,
   }) =>
       TextureLayer(
     rect: rect,
     textureId: textureId,
     freeze: freeze,
+    filterQuality: filterQuality,
   ),
   [
     "rect",
     "textureId",
     "freeze",
+    "filterQuality",
   ],
 );
 var _platformViewLayer = MXFunctionInvoke(
@@ -99,17 +101,14 @@ var _platformViewLayer = MXFunctionInvoke(
   ({
     ui.Rect rect,
     int viewId,
-    MouseTrackerAnnotation hoverAnnotation,
   }) =>
       PlatformViewLayer(
     rect: rect,
     viewId: viewId,
-    hoverAnnotation: hoverAnnotation,
   ),
   [
     "rect",
     "viewId",
-    "hoverAnnotation",
   ],
 );
 var _performanceOverlayLayer = MXFunctionInvoke(

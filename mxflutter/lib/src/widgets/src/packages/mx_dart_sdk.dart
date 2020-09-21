@@ -13,18 +13,20 @@ import 'dart:convert';
 import 'dart:math' as math;
 import 'dart:typed_data';
 // import 'dart:_engine' as engine;
-// import 'dart:_engine';
-import 'dart:core';
-// import 'dart:_internal' as _symbol_dev;
-// import 'dart:_interceptors';
-// import 'dart:_js_helper';
-// import 'dart:_runtime' as dart;
-// import 'dart:_foreign_helper';
-// import 'dart:_native_typed_data';
-import 'dart:collection';
 // import 'dart:_internal';
-// import 'dart:_internal' as internal;
+import 'dart:core';
+import 'dart:core' as core;
+// import 'dart:_js_primitives';
+// import 'dart:_js_helper';
+// import 'dart:_interceptors';
+// import 'dart:_foreign_helper';
+// import 'dart:_runtime' as dart;
+import 'dart:collection';
 import 'dart:math';
+// import 'dart:_internal' as _symbol_dev;
+// import 'dart:_native_typed_data';
+// import 'dart:_internal' as internal;
+// import 'dart:_js_annotations';
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
@@ -38,7 +40,6 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_canvas.funName] = _canvas;
   m[_pathFillType.funName] = _pathFillType;
   m[_pathOperation.funName] = _pathOperation;
-  // m[_rawRecordingCanvas.funName] = _rawRecordingCanvas;
   m[_channelBuffers.funName] = _channelBuffers;
   m[_channelBuffersKDefaultBufferSize.funName] =
       _channelBuffersKDefaultBufferSize;
@@ -78,10 +79,6 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_rRectFromRectAndCorners.funName] = _rRectFromRectAndCorners;
   m[_rSTransform.funName] = _rSTransform;
   m[_rSTransformFromComponents.funName] = _rSTransformFromComponents;
-  m[_point.funName] = _point;
-  // MX modified begin
-  // m[_point_origin.funName] = _point_origin;
-  // MX modified end
   m[_color.funName] = _color;
   m[_colorFromARGB.funName] = _colorFromARGB;
   m[_colorFromRGBO.funName] = _colorFromRGBO;
@@ -106,6 +103,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_imageByteFormat.funName] = _imageByteFormat;
   m[_pixelFormat.funName] = _pixelFormat;
   m[_shadow.funName] = _shadow;
+  m[_imageShader.funName] = _imageShader;
   m[_path.funName] = _path;
   m[_pathFrom.funName] = _pathFrom;
   m[_tangent.funName] = _tangent;
@@ -225,17 +223,199 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_localeFromSubtags.funName] = _localeFromSubtags;
   m[_brightness.funName] = _brightness;
   m[_callbackHandleFromRawHandle.funName] = _callbackHandleFromRawHandle;
-  //m[_pluginUtilities.funName] = _pluginUtilities;
-  m[_imageShader.funName] = _imageShader;
-  // m[_isolateNameServer.funName] = _isolateNameServer;
   m[_framePhase.funName] = _framePhase;
   m[_frameTiming.funName] = _frameTiming;
+  //MX Modified begin
+  // m[_codeUnits.funName] = _codeUnits;
+  // m[_externalName.funName] = _externalName;
+  // m[_since.funName] = _since;
+  // m[_error.funName] = _error;
+  // m[_notNullableError.funName] = _notNullableError;
+  // m[_httpStatusContinue.funName] = _httpStatusContinue;
+  // m[_httpStatusSwitchingProtocols.funName] = _httpStatusSwitchingProtocols;
+  // m[_httpStatusProcessing.funName] = _httpStatusProcessing;
+  // m[_httpStatusOk.funName] = _httpStatusOk;
+  // m[_httpStatusCreated.funName] = _httpStatusCreated;
+  // m[_httpStatusAccepted.funName] = _httpStatusAccepted;
+  // m[_httpStatusNonAuthoritativeInformation.funName] =
+  //     _httpStatusNonAuthoritativeInformation;
+  // m[_httpStatusNoContent.funName] = _httpStatusNoContent;
+  // m[_httpStatusResetContent.funName] = _httpStatusResetContent;
+  // m[_httpStatusPartialContent.funName] = _httpStatusPartialContent;
+  // m[_httpStatusMultiStatus.funName] = _httpStatusMultiStatus;
+  // m[_httpStatusAlreadyReported.funName] = _httpStatusAlreadyReported;
+  // m[_httpStatusImUsed.funName] = _httpStatusImUsed;
+  // m[_httpStatusMultipleChoices.funName] = _httpStatusMultipleChoices;
+  // m[_httpStatusMovedPermanently.funName] = _httpStatusMovedPermanently;
+  // m[_httpStatusFound.funName] = _httpStatusFound;
+  // m[_httpStatusMovedTemporarily.funName] = _httpStatusMovedTemporarily;
+  // m[_httpStatusSeeOther.funName] = _httpStatusSeeOther;
+  // m[_httpStatusNotModified.funName] = _httpStatusNotModified;
+  // m[_httpStatusUseProxy.funName] = _httpStatusUseProxy;
+  // m[_httpStatusTemporaryRedirect.funName] = _httpStatusTemporaryRedirect;
+  // m[_httpStatusPermanentRedirect.funName] = _httpStatusPermanentRedirect;
+  // m[_httpStatusBadRequest.funName] = _httpStatusBadRequest;
+  // m[_httpStatusUnauthorized.funName] = _httpStatusUnauthorized;
+  // m[_httpStatusPaymentRequired.funName] = _httpStatusPaymentRequired;
+  // m[_httpStatusForbidden.funName] = _httpStatusForbidden;
+  // m[_httpStatusNotFound.funName] = _httpStatusNotFound;
+  // m[_httpStatusMethodNotAllowed.funName] = _httpStatusMethodNotAllowed;
+  // m[_httpStatusNotAcceptable.funName] = _httpStatusNotAcceptable;
+  // m[_httpStatusProxyAuthenticationRequired.funName] =
+  //     _httpStatusProxyAuthenticationRequired;
+  // m[_httpStatusRequestTimeout.funName] = _httpStatusRequestTimeout;
+  // m[_httpStatusConflict.funName] = _httpStatusConflict;
+  // m[_httpStatusGone.funName] = _httpStatusGone;
+  // m[_httpStatusLengthRequired.funName] = _httpStatusLengthRequired;
+  // m[_httpStatusPreconditionFailed.funName] = _httpStatusPreconditionFailed;
+  // m[_httpStatusRequestEntityTooLarge.funName] =
+  //     _httpStatusRequestEntityTooLarge;
+  // m[_httpStatusRequestUriTooLong.funName] = _httpStatusRequestUriTooLong;
+  // m[_httpStatusUnsupportedMediaType.funName] = _httpStatusUnsupportedMediaType;
+  // m[_httpStatusRequestedRangeNotSatisfiable.funName] =
+  //     _httpStatusRequestedRangeNotSatisfiable;
+  // m[_httpStatusExpectationFailed.funName] = _httpStatusExpectationFailed;
+  // m[_httpStatusMisdirectedRequest.funName] = _httpStatusMisdirectedRequest;
+  // m[_httpStatusUnprocessableEntity.funName] = _httpStatusUnprocessableEntity;
+  // m[_httpStatusLocked.funName] = _httpStatusLocked;
+  // m[_httpStatusFailedDependency.funName] = _httpStatusFailedDependency;
+  // m[_httpStatusUpgradeRequired.funName] = _httpStatusUpgradeRequired;
+  // m[_httpStatusPreconditionRequired.funName] = _httpStatusPreconditionRequired;
+  // m[_httpStatusTooManyRequests.funName] = _httpStatusTooManyRequests;
+  // m[_httpStatusRequestHeaderFieldsTooLarge.funName] =
+  //     _httpStatusRequestHeaderFieldsTooLarge;
+  // m[_httpStatusConnectionClosedWithoutResponse.funName] =
+  //     _httpStatusConnectionClosedWithoutResponse;
+  // m[_httpStatusUnavailableForLegalReasons.funName] =
+  //     _httpStatusUnavailableForLegalReasons;
+  // m[_httpStatusClientClosedRequest.funName] = _httpStatusClientClosedRequest;
+  // m[_httpStatusInternalServerError.funName] = _httpStatusInternalServerError;
+  // m[_httpStatusNotImplemented.funName] = _httpStatusNotImplemented;
+  // m[_httpStatusBadGateway.funName] = _httpStatusBadGateway;
+  // m[_httpStatusServiceUnavailable.funName] = _httpStatusServiceUnavailable;
+  // m[_httpStatusGatewayTimeout.funName] = _httpStatusGatewayTimeout;
+  // m[_httpStatusHttpVersionNotSupported.funName] =
+  //     _httpStatusHttpVersionNotSupported;
+  // m[_httpStatusVariantAlsoNegotiates.funName] =
+  //     _httpStatusVariantAlsoNegotiates;
+  // m[_httpStatusInsufficientStorage.funName] = _httpStatusInsufficientStorage;
+  // m[_httpStatusLoopDetected.funName] = _httpStatusLoopDetected;
+  // m[_httpStatusNotExtended.funName] = _httpStatusNotExtended;
+  // m[_httpStatusNetworkAuthenticationRequired.funName] =
+  //     _httpStatusNetworkAuthenticationRequired;
+  // m[_httpStatusNetworkConnectTimeoutError.funName] =
+  //     _httpStatusNetworkConnectTimeoutError;
+  // m[_httpStatusCONTINUE.funName] = _httpStatusCONTINUE;
+  // m[_httpStatusSWITCHINGPROTOCOLS.funName] = _httpStatusSWITCHINGPROTOCOLS;
+  // m[_httpStatusOK.funName] = _httpStatusOK;
+  // m[_httpStatusCREATED.funName] = _httpStatusCREATED;
+  // m[_httpStatusACCEPTED.funName] = _httpStatusACCEPTED;
+  // m[_httpStatusNONAUTHORITATIVEINFORMATION.funName] =
+  //     _httpStatusNONAUTHORITATIVEINFORMATION;
+  // m[_httpStatusNOCONTENT.funName] = _httpStatusNOCONTENT;
+  // m[_httpStatusRESETCONTENT.funName] = _httpStatusRESETCONTENT;
+  // m[_httpStatusPARTIALCONTENT.funName] = _httpStatusPARTIALCONTENT;
+  // m[_httpStatusMULTIPLECHOICES.funName] = _httpStatusMULTIPLECHOICES;
+  // m[_httpStatusMOVEDPERMANENTLY.funName] = _httpStatusMOVEDPERMANENTLY;
+  // m[_httpStatusFOUND.funName] = _httpStatusFOUND;
+  // m[_httpStatusMOVEDTEMPORARILY.funName] = _httpStatusMOVEDTEMPORARILY;
+  // m[_httpStatusSEEOTHER.funName] = _httpStatusSEEOTHER;
+  // m[_httpStatusNOTMODIFIED.funName] = _httpStatusNOTMODIFIED;
+  // m[_httpStatusUSEPROXY.funName] = _httpStatusUSEPROXY;
+  // m[_httpStatusTEMPORARYREDIRECT.funName] = _httpStatusTEMPORARYREDIRECT;
+  // m[_httpStatusBADREQUEST.funName] = _httpStatusBADREQUEST;
+  // m[_httpStatusUNAUTHORIZED.funName] = _httpStatusUNAUTHORIZED;
+  // m[_httpStatusPAYMENTREQUIRED.funName] = _httpStatusPAYMENTREQUIRED;
+  // m[_httpStatusFORBIDDEN.funName] = _httpStatusFORBIDDEN;
+  // m[_httpStatusNOTFOUND.funName] = _httpStatusNOTFOUND;
+  // m[_httpStatusMETHODNOTALLOWED.funName] = _httpStatusMETHODNOTALLOWED;
+  // m[_httpStatusNOTACCEPTABLE.funName] = _httpStatusNOTACCEPTABLE;
+  // m[_httpStatusPROXYAUTHENTICATIONREQUIRED.funName] =
+  //     _httpStatusPROXYAUTHENTICATIONREQUIRED;
+  // m[_httpStatusREQUESTTIMEOUT.funName] = _httpStatusREQUESTTIMEOUT;
+  // m[_httpStatusCONFLICT.funName] = _httpStatusCONFLICT;
+  // m[_httpStatusGONE.funName] = _httpStatusGONE;
+  // m[_httpStatusLENGTHREQUIRED.funName] = _httpStatusLENGTHREQUIRED;
+  // m[_httpStatusPRECONDITIONFAILED.funName] = _httpStatusPRECONDITIONFAILED;
+  // m[_httpStatusREQUESTENTITYTOOLARGE.funName] =
+  //     _httpStatusREQUESTENTITYTOOLARGE;
+  // m[_httpStatusREQUESTURITOOLONG.funName] = _httpStatusREQUESTURITOOLONG;
+  // m[_httpStatusUNSUPPORTEDMEDIATYPE.funName] = _httpStatusUNSUPPORTEDMEDIATYPE;
+  // m[_httpStatusREQUESTEDRANGENOTSATISFIABLE.funName] =
+  //     _httpStatusREQUESTEDRANGENOTSATISFIABLE;
+  // m[_httpStatusEXPECTATIONFAILED.funName] = _httpStatusEXPECTATIONFAILED;
+  // m[_httpStatusUPGRADEREQUIRED.funName] = _httpStatusUPGRADEREQUIRED;
+  // m[_httpStatusINTERNALSERVERERROR.funName] = _httpStatusINTERNALSERVERERROR;
+  // m[_httpStatusNOTIMPLEMENTED.funName] = _httpStatusNOTIMPLEMENTED;
+  // m[_httpStatusBADGATEWAY.funName] = _httpStatusBADGATEWAY;
+  // m[_httpStatusSERVICEUNAVAILABLE.funName] = _httpStatusSERVICEUNAVAILABLE;
+  // m[_httpStatusGATEWAYTIMEOUT.funName] = _httpStatusGATEWAYTIMEOUT;
+  // m[_httpStatusHTTPVERSIONNOTSUPPORTED.funName] =
+  //     _httpStatusHTTPVERSIONNOTSUPPORTED;
+  // m[_httpStatusNETWORKCONNECTTIMEOUTERROR.funName] =
+  //     _httpStatusNETWORKCONNECTTIMEOUTERROR;
+  // m[_castStream.funName] = _castStream;
+  // m[_castStreamSubscription.funName] = _castStreamSubscription;
+  // m[_castStreamTransformer.funName] = _castStreamTransformer;
+  // m[_castConverter.funName] = _castConverter;
+  // m[_castIterator.funName] = _castIterator;
+  // m[_castIterable.funName] = _castIterable;
+  // m[_castList.funName] = _castList;
+  // m[_castSet.funName] = _castSet;
+  // m[_castMap.funName] = _castMap;
+  // m[_castQueue.funName] = _castQueue;
+  // m[_lateInitializationErrorImpl.funName] = _lateInitializationErrorImpl;
+  // m[_iterableGenerate.funName] = _iterableGenerate;
+  // m[_iterableEmpty.funName] = _iterableEmpty;
+  // m[_subListIterable.funName] = _subListIterable;
+  // m[_listIterator.funName] = _listIterator;
+  // m[_mappedIterable.funName] = _mappedIterable;
+  // m[_efficientLengthMappedIterable.funName] = _efficientLengthMappedIterable;
+  // m[_mappedIterator.funName] = _mappedIterator;
+  // m[_mappedListIterable.funName] = _mappedListIterable;
+  // m[_whereIterable.funName] = _whereIterable;
+  // m[_whereIterator.funName] = _whereIterator;
+  // m[_expandIterable.funName] = _expandIterable;
+  // m[_expandIterator.funName] = _expandIterator;
+  // m[_takeIterable.funName] = _takeIterable;
+  // m[_efficientLengthTakeIterable.funName] = _efficientLengthTakeIterable;
+  // m[_takeIterator.funName] = _takeIterator;
+  // m[_takeWhileIterable.funName] = _takeWhileIterable;
+  // m[_takeWhileIterator.funName] = _takeWhileIterator;
+  // m[_skipIterable.funName] = _skipIterable;
+  // m[_efficientLengthSkipIterable.funName] = _efficientLengthSkipIterable;
+  // m[_skipIterator.funName] = _skipIterator;
+  // m[_skipWhileIterable.funName] = _skipWhileIterable;
+  // m[_skipWhileIterator.funName] = _skipWhileIterator;
+  // m[_emptyIterable.funName] = _emptyIterable;
+  // m[_emptyIterator.funName] = _emptyIterator;
+  // m[_followedByIterable.funName] = _followedByIterable;
+  // m[_followedByIterableFirstEfficient.funName] =
+  //     _followedByIterableFirstEfficient;
+  // m[_efficientLengthFollowedByIterable.funName] =
+  //     _efficientLengthFollowedByIterable;
+  // m[_followedByIterator.funName] = _followedByIterator;
+  // m[_whereTypeIterable.funName] = _whereTypeIterable;
+  // m[_whereTypeIterator.funName] = _whereTypeIterator;
+  // m[_listMapView.funName] = _listMapView;
+  // m[_reversedListIterable.funName] = _reversedListIterable;
+  // m[_linkedList.funName] = _linkedList;
+  // m[_linkedListEntry.funName] = _linkedListEntry;
+  // m[_sort.funName] = _sort;
+  // m[_sortSort.funName] = _sortSort;
+  // m[_sortSortRange.funName] = _sortSortRange;
+  // m[_symbol.funName] = _symbol;
+  // m[_symbolReservedWordRE.funName] = _symbolReservedWordRE;
+  // m[_symbolPublicIdentifierRE.funName] = _symbolPublicIdentifierRE;
+  // m[_symbolIdentifierRE.funName] = _symbolIdentifierRE;
+  // m[_symbolOperatorRE.funName] = _symbolOperatorRE;
+  // m[_symbolUnvalidated.funName] = _symbolUnvalidated;
+  // m[_symbolValidated.funName] = _symbolValidated;
+  //MX Modified end
   m[_deprecated.funName] = _deprecated;
   m[_provisional.funName] = _provisional;
   m[_pragma.funName] = _pragma;
   m[_bigIntFrom.funName] = _bigIntFrom;
-  m[_boolFromEnvironment.funName] = _boolFromEnvironment;
-  m[_boolHasEnvironment.funName] = _boolHasEnvironment;
   m[_dateTime.funName] = _dateTime;
   m[_dateTimeMonday.funName] = _dateTimeMonday;
   m[_dateTimeTuesday.funName] = _dateTimeTuesday;
@@ -264,11 +444,6 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
       _dateTimeFromMillisecondsSinceEpoch;
   m[_dateTimeFromMicrosecondsSinceEpoch.funName] =
       _dateTimeFromMicrosecondsSinceEpoch;
-  m[_doubleNan.funName] = _doubleNan;
-  m[_doubleInfinity.funName] = _doubleInfinity;
-  m[_doubleNegativeInfinity.funName] = _doubleNegativeInfinity;
-  m[_doubleMinPositive.funName] = _doubleMinPositive;
-  m[_doubleMaxFinite.funName] = _doubleMaxFinite;
   m[_duration.funName] = _duration;
   m[_durationMicrosecondsPerMillisecond.funName] =
       _durationMicrosecondsPerMillisecond;
@@ -287,7 +462,6 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_durationSecondsPerDay.funName] = _durationSecondsPerDay;
   m[_durationMinutesPerDay.funName] = _durationMinutesPerDay;
   m[_durationZero.funName] = _durationZero;
-  m[_error.funName] = _error;
   m[_assertionError.funName] = _assertionError;
   m[_typeError.funName] = _typeError;
   m[_castError.funName] = _castError;
@@ -303,9 +477,7 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_fallThroughError.funName] = _fallThroughError;
   m[_abstractClassInstantiationError.funName] =
       _abstractClassInstantiationError;
-    // MX modified begin
-  // m[_noSuchMethodError.funName] = _noSuchMethodError;
-    // MX modified end
+  m[_noSuchMethodError.funName] = _noSuchMethodError;
   m[_noSuchMethodErrorWithInvocation.funName] =
       _noSuchMethodErrorWithInvocation;
   m[_unsupportedError.funName] = _unsupportedError;
@@ -319,29 +491,10 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_formatException.funName] = _formatException;
   m[_integerDivisionByZeroException.funName] = _integerDivisionByZeroException;
   m[_expando.funName] = _expando;
-  m[_intFromEnvironment.funName] = _intFromEnvironment;
   m[_invocationMethod.funName] = _invocationMethod;
   m[_invocationGenericMethod.funName] = _invocationGenericMethod;
   m[_invocationGetter.funName] = _invocationGetter;
   m[_invocationSetter.funName] = _invocationSetter;
-  m[_iterableGenerate.funName] = _iterableGenerate;
-  m[_iterableEmpty.funName] = _iterableEmpty;
-  m[_list.funName] = _list;
-  m[_listFilled.funName] = _listFilled;
-  m[_listFrom.funName] = _listFrom;
-  m[_listOf.funName] = _listOf;
-  m[_listGenerate.funName] = _listGenerate;
-  m[_listUnmodifiable.funName] = _listUnmodifiable;
-  m[_listCopyRange.funName] = _listCopyRange;
-  m[_listWriteIterable.funName] = _listWriteIterable;
-  m[_map.funName] = _map;
-  m[_mapFrom.funName] = _mapFrom;
-  m[_mapOf.funName] = _mapOf;
-  m[_mapUnmodifiable.funName] = _mapUnmodifiable;
-  m[_mapIdentity.funName] = _mapIdentity;
-  m[_mapFromIterable.funName] = _mapFromIterable;
-  m[_mapFromIterables.funName] = _mapFromIterables;
-  m[_mapFromEntries.funName] = _mapFromEntries;
   m[_mapEntry.funName] = _mapEntry;
   m[_regExp.funName] = _regExp;
   m[_set.funName] = _set;
@@ -351,28 +504,30 @@ Map<String, MXFunctionInvoke> registerMxDartSdkSeries() {
   m[_stackTraceEmpty.funName] = _stackTraceEmpty;
   m[_stackTraceFromString.funName] = _stackTraceFromString;
   m[_stopwatch.funName] = _stopwatch;
-  m[_stringFromCharCodes.funName] = _stringFromCharCodes;
-  m[_stringFromCharCode.funName] = _stringFromCharCode;
-  m[_stringFromEnvironment.funName] = _stringFromEnvironment;
   m[_runes.funName] = _runes;
   m[_runeIterator.funName] = _runeIterator;
   m[_runeIteratorAt.funName] = _runeIteratorAt;
   m[_stringBuffer.funName] = _stringBuffer;
-  m[_symbolUnaryMinus.funName] = _symbolUnaryMinus;
-  m[_symbolEmpty.funName] = _symbolEmpty;
-  m[_symbol.funName] = _symbol;
+  //MX Modified begin
+  // m[_symbolUnaryMinus.funName] = _symbolUnaryMinus;
+  // m[_symbolEmpty.funName] = _symbolEmpty;
+  // m[_symbol.funName] = _symbol;
+  //MX Modified end
   m[_uri.funName] = _uri;
   m[_uriHttp.funName] = _uriHttp;
   m[_uriHttps.funName] = _uriHttps;
   m[_uriFile.funName] = _uriFile;
   m[_uriDirectory.funName] = _uriDirectory;
-  ///MX Modified begin
-  m[_uriDataFromStringStatic.funName] = _uriDataFromStringStatic;
-  m[_uriDataFromBytesStatic.funName] = _uriDataFromBytesStatic;
-  ///MX Modified end
   m[_uriDataFromString.funName] = _uriDataFromString;
   m[_uriDataFromBytes.funName] = _uriDataFromBytes;
+  //MX Modified begin
+  // m[_uriDataFromString.funName] = _uriDataFromString;
+  // m[_uriDataFromBytes.funName] = _uriDataFromBytes;
+  //MX Modified end
   m[_uriDataFromUri.funName] = _uriDataFromUri;
+  //MX Modified begin
+  // m[_jS.funName] = _jS;
+  //MX Modified end
   return m;
 }
 
@@ -392,17 +547,17 @@ var _vertices = MXFunctionInvoke(
   "Vertices",
   ({
     VertexMode mode,
-    dynamic positions,
-    dynamic textureCoordinates,
-    dynamic colors,
-    dynamic indices,
+    core.dynamic positions,
+    core.dynamic textureCoordinates,
+    core.dynamic colors,
+    core.dynamic indices,
   }) =>
       Vertices(
     mode,
     toListT<Offset>(positions),
     textureCoordinates: toListT<Offset>(textureCoordinates),
     colors: toListT<Color>(colors),
-    indices: toListT<int>(indices),
+    indices: toListT<core.int>(indices),
   ),
   [
     "mode",
@@ -464,20 +619,6 @@ var _pathOperation = MXFunctionInvoke(
     "PathOperation",
     ({String name, int index}) => MXPathOperation.parse(name, index),
     ["name", "index"]);
-
-/// MX modified begin -delete function
-// var _rawRecordingCanvas = MXFunctionInvoke(
-//     "RawRecordingCanvas",
-//     (
-//       {
-//       Size size,
-//       }
-//     ) =>
-//       RawRecordingCanvas(
-//       size,
-//     ),
-// );
-/// MX modified end
 var _channelBuffers = MXFunctionInvoke(
   "ChannelBuffers",
   () => ChannelBuffers(),
@@ -529,8 +670,8 @@ var _sceneHost = MXFunctionInvoke(
 var _offset = MXFunctionInvoke(
   "Offset",
   ({
-    dynamic dx,
-    dynamic dy,
+    core.dynamic dx,
+    core.dynamic dy,
   }) =>
       Offset(
     dx?.toDouble(),
@@ -547,8 +688,8 @@ var _offsetInfinite =
 var _offsetFromDirection = MXFunctionInvoke(
   "Offset.fromDirection",
   ({
-    dynamic direction,
-    dynamic distance,
+    core.dynamic direction,
+    core.dynamic distance,
   }) =>
       Offset.fromDirection(
     direction?.toDouble(),
@@ -562,8 +703,8 @@ var _offsetFromDirection = MXFunctionInvoke(
 var _size = MXFunctionInvoke(
   "Size",
   ({
-    dynamic width,
-    dynamic height,
+    core.dynamic width,
+    core.dynamic height,
   }) =>
       Size(
     width?.toDouble(),
@@ -591,7 +732,7 @@ var _sizeCopy = MXFunctionInvoke(
 var _sizeSquare = MXFunctionInvoke(
   "Size.square",
   ({
-    dynamic dimension,
+    core.dynamic dimension,
   }) =>
       Size.square(
     dimension?.toDouble(),
@@ -603,7 +744,7 @@ var _sizeSquare = MXFunctionInvoke(
 var _sizeFromWidth = MXFunctionInvoke(
   "Size.fromWidth",
   ({
-    dynamic width,
+    core.dynamic width,
   }) =>
       Size.fromWidth(
     width?.toDouble(),
@@ -615,7 +756,7 @@ var _sizeFromWidth = MXFunctionInvoke(
 var _sizeFromHeight = MXFunctionInvoke(
   "Size.fromHeight",
   ({
-    dynamic height,
+    core.dynamic height,
   }) =>
       Size.fromHeight(
     height?.toDouble(),
@@ -627,7 +768,7 @@ var _sizeFromHeight = MXFunctionInvoke(
 var _sizeFromRadius = MXFunctionInvoke(
   "Size.fromRadius",
   ({
-    dynamic radius,
+    core.dynamic radius,
   }) =>
       Size.fromRadius(
     radius?.toDouble(),
@@ -641,10 +782,10 @@ var _rectLargest = MXFunctionInvoke("Rect.largest", () => Rect.largest);
 var _rectFromLTRB = MXFunctionInvoke(
   "Rect.fromLTRB",
   ({
-    dynamic left,
-    dynamic top,
-    dynamic right,
-    dynamic bottom,
+    core.dynamic left,
+    core.dynamic top,
+    core.dynamic right,
+    core.dynamic bottom,
   }) =>
       Rect.fromLTRB(
     left?.toDouble(),
@@ -662,10 +803,10 @@ var _rectFromLTRB = MXFunctionInvoke(
 var _rectFromLTWH = MXFunctionInvoke(
   "Rect.fromLTWH",
   ({
-    dynamic left,
-    dynamic top,
-    dynamic width,
-    dynamic height,
+    core.dynamic left,
+    core.dynamic top,
+    core.dynamic width,
+    core.dynamic height,
   }) =>
       Rect.fromLTWH(
     left?.toDouble(),
@@ -684,7 +825,7 @@ var _rectFromCircle = MXFunctionInvoke(
   "Rect.fromCircle",
   ({
     Offset center,
-    dynamic radius,
+    core.dynamic radius,
   }) =>
       Rect.fromCircle(
     center: center,
@@ -699,8 +840,8 @@ var _rectFromCenter = MXFunctionInvoke(
   "Rect.fromCenter",
   ({
     Offset center,
-    dynamic width,
-    dynamic height,
+    core.dynamic width,
+    core.dynamic height,
   }) =>
       Rect.fromCenter(
     center: center,
@@ -732,7 +873,7 @@ var _radiusZero = MXFunctionInvoke("Radius.zero", () => Radius.zero);
 var _radiusCircular = MXFunctionInvoke(
   "Radius.circular",
   ({
-    dynamic radius,
+    core.dynamic radius,
   }) =>
       Radius.circular(
     radius?.toDouble(),
@@ -744,8 +885,8 @@ var _radiusCircular = MXFunctionInvoke(
 var _radiusElliptical = MXFunctionInvoke(
   "Radius.elliptical",
   ({
-    dynamic x,
-    dynamic y,
+    core.dynamic x,
+    core.dynamic y,
   }) =>
       Radius.elliptical(
     x?.toDouble(),
@@ -760,12 +901,12 @@ var _rRectZero = MXFunctionInvoke("RRect.zero", () => RRect.zero);
 var _rRectFromLTRBXY = MXFunctionInvoke(
   "RRect.fromLTRBXY",
   ({
-    dynamic left,
-    dynamic top,
-    dynamic right,
-    dynamic bottom,
-    dynamic radiusX,
-    dynamic radiusY,
+    core.dynamic left,
+    core.dynamic top,
+    core.dynamic right,
+    core.dynamic bottom,
+    core.dynamic radiusX,
+    core.dynamic radiusY,
   }) =>
       RRect.fromLTRBXY(
     left?.toDouble(),
@@ -787,10 +928,10 @@ var _rRectFromLTRBXY = MXFunctionInvoke(
 var _rRectFromLTRBR = MXFunctionInvoke(
   "RRect.fromLTRBR",
   ({
-    dynamic left,
-    dynamic top,
-    dynamic right,
-    dynamic bottom,
+    core.dynamic left,
+    core.dynamic top,
+    core.dynamic right,
+    core.dynamic bottom,
     Radius radius,
   }) =>
       RRect.fromLTRBR(
@@ -812,8 +953,8 @@ var _rRectFromRectXY = MXFunctionInvoke(
   "RRect.fromRectXY",
   ({
     Rect rect,
-    dynamic radiusX,
-    dynamic radiusY,
+    core.dynamic radiusX,
+    core.dynamic radiusY,
   }) =>
       RRect.fromRectXY(
     rect,
@@ -844,10 +985,10 @@ var _rRectFromRectAndRadius = MXFunctionInvoke(
 var _rRectFromLTRBAndCorners = MXFunctionInvoke(
   "RRect.fromLTRBAndCorners",
   ({
-    dynamic left,
-    dynamic top,
-    dynamic right,
-    dynamic bottom,
+    core.dynamic left,
+    core.dynamic top,
+    core.dynamic right,
+    core.dynamic bottom,
     Radius topLeft = Radius.zero,
     Radius topRight = Radius.zero,
     Radius bottomRight = Radius.zero,
@@ -901,10 +1042,10 @@ var _rRectFromRectAndCorners = MXFunctionInvoke(
 var _rSTransform = MXFunctionInvoke(
   "RSTransform",
   ({
-    dynamic scos,
-    dynamic ssin,
-    dynamic tx,
-    dynamic ty,
+    core.dynamic scos,
+    core.dynamic ssin,
+    core.dynamic tx,
+    core.dynamic ty,
   }) =>
       RSTransform(
     scos?.toDouble(),
@@ -922,12 +1063,12 @@ var _rSTransform = MXFunctionInvoke(
 var _rSTransformFromComponents = MXFunctionInvoke(
   "RSTransform.fromComponents",
   ({
-    dynamic rotation,
-    dynamic scale,
-    dynamic anchorX,
-    dynamic anchorY,
-    dynamic translateX,
-    dynamic translateY,
+    core.dynamic rotation,
+    core.dynamic scale,
+    core.dynamic anchorX,
+    core.dynamic anchorY,
+    core.dynamic translateX,
+    core.dynamic translateY,
   }) =>
       RSTransform.fromComponents(
     rotation: rotation?.toDouble(),
@@ -946,38 +1087,10 @@ var _rSTransformFromComponents = MXFunctionInvoke(
     "translateY",
   ],
 );
-
-/// MX modified begin
-var _point = MXFunctionInvoke(
-  "Point",
-  ({
-    dynamic x,
-    dynamic y,
-  }) =>
-      Point<double>(
-    ///TODO:先写死double吧
-    x?.toDouble(),
-    y?.toDouble(),
-  ),
-  [
-    "x",
-    "y",
-  ],
-);
-
-/// MX modified end
-/// MX modified begin -delete function
-// var _point_origin = MXFunctionInvoke(
-//   "Point.origin",
-//     (
-//     ) =>
-//       Point.origin
-// );
-/// MX modified end
 var _color = MXFunctionInvoke(
   "Color",
   ({
-    int value,
+    core.int value,
   }) =>
       Color(
     value,
@@ -989,10 +1102,10 @@ var _color = MXFunctionInvoke(
 var _colorFromARGB = MXFunctionInvoke(
   "Color.fromARGB",
   ({
-    int a,
-    int r,
-    int g,
-    int b,
+    core.int a,
+    core.int r,
+    core.int g,
+    core.int b,
   }) =>
       Color.fromARGB(
     a,
@@ -1010,10 +1123,10 @@ var _colorFromARGB = MXFunctionInvoke(
 var _colorFromRGBO = MXFunctionInvoke(
   "Color.fromRGBO",
   ({
-    int r,
-    int g,
-    int b,
-    dynamic opacity,
+    core.int r,
+    core.int g,
+    core.int b,
+    core.dynamic opacity,
   }) =>
       Color.fromRGBO(
     r,
@@ -1056,8 +1169,8 @@ var _gradientLinear = MXFunctionInvoke(
   ({
     Offset from,
     Offset to,
-    dynamic colors,
-    dynamic colorStops,
+    core.dynamic colors,
+    core.dynamic colorStops,
     TileMode tileMode,
     Float64List matrix4,
   }) =>
@@ -1065,7 +1178,7 @@ var _gradientLinear = MXFunctionInvoke(
     from,
     to,
     toListT<Color>(colors),
-    toListT<double>(colorStops),
+    toListT<core.double>(colorStops),
     tileMode,
     matrix4,
   ),
@@ -1082,19 +1195,19 @@ var _gradientRadial = MXFunctionInvoke(
   "Gradient.radial",
   ({
     Offset center,
-    dynamic radius,
-    dynamic colors,
-    dynamic colorStops,
+    core.dynamic radius,
+    core.dynamic colors,
+    core.dynamic colorStops,
     TileMode tileMode,
     Float64List matrix4,
     Offset focal,
-    dynamic focalRadius,
+    core.dynamic focalRadius,
   }) =>
       Gradient.radial(
     center,
     radius?.toDouble(),
     toListT<Color>(colors),
-    toListT<double>(colorStops),
+    toListT<core.double>(colorStops),
     tileMode,
     matrix4,
     focal,
@@ -1115,17 +1228,17 @@ var _gradientSweep = MXFunctionInvoke(
   "Gradient.sweep",
   ({
     Offset center,
-    dynamic colors,
-    dynamic colorStops,
+    core.dynamic colors,
+    core.dynamic colorStops,
     TileMode tileMode,
-    dynamic startAngle,
-    dynamic endAngle,
+    core.dynamic startAngle,
+    core.dynamic endAngle,
     Float64List matrix4,
   }) =>
       Gradient.sweep(
     center,
     toListT<Color>(colors),
-    toListT<double>(colorStops),
+    toListT<core.double>(colorStops),
     tileMode,
     startAngle?.toDouble(),
     endAngle?.toDouble(),
@@ -1159,10 +1272,10 @@ var _colorFilterMode = MXFunctionInvoke(
 var _colorFilterMatrix = MXFunctionInvoke(
   "ColorFilter.matrix",
   ({
-    dynamic matrix,
+    core.dynamic matrix,
   }) =>
       ColorFilter.matrix(
-    toListT<double>(matrix),
+    toListT<core.double>(matrix),
   ),
   [
     "matrix",
@@ -1186,7 +1299,7 @@ var _maskFilterBlur = MXFunctionInvoke(
   "MaskFilter.blur",
   ({
     BlurStyle style,
-    dynamic sigma,
+    core.dynamic sigma,
   }) =>
       MaskFilter.blur(
     style,
@@ -1204,8 +1317,8 @@ var _filterQuality = MXFunctionInvoke(
 var _imageFilterBlur = MXFunctionInvoke(
   "ImageFilter.blur",
   ({
-    dynamic sigmaX = 0.0,
-    dynamic sigmaY = 0.0,
+    core.dynamic sigmaX = 0.0,
+    core.dynamic sigmaY = 0.0,
   }) =>
       ImageFilter.blur(
     sigmaX: sigmaX?.toDouble(),
@@ -1247,7 +1360,7 @@ var _shadow = MXFunctionInvoke(
 
     /// MX modified end
     Offset offset = Offset.zero,
-    dynamic blurRadius = 0.0,
+    core.dynamic blurRadius = 0.0,
   }) =>
       Shadow(
     color: color,
@@ -1258,6 +1371,27 @@ var _shadow = MXFunctionInvoke(
     "color",
     "offset",
     "blurRadius",
+  ],
+);
+var _imageShader = MXFunctionInvoke(
+  "ImageShader",
+  ({
+    Image image,
+    TileMode tmx,
+    TileMode tmy,
+    Float64List matrix4,
+  }) =>
+      ImageShader(
+    image,
+    tmx,
+    tmy,
+    matrix4,
+  ),
+  [
+    "image",
+    "tmx",
+    "tmy",
+    "matrix4",
   ],
 );
 var _path = MXFunctionInvoke(
@@ -1296,7 +1430,7 @@ var _tangentFromAngle = MXFunctionInvoke(
   "Tangent.fromAngle",
   ({
     Offset position,
-    dynamic angle,
+    core.dynamic angle,
   }) =>
       Tangent.fromAngle(
     position,
@@ -1322,36 +1456,38 @@ var _pointerSignalKind = MXFunctionInvoke(
 var _pointerData = MXFunctionInvoke(
   "PointerData",
   ({
-    Duration timeStamp = Duration.zero,
+    core.int embedderId = 0,
+    core.Duration timeStamp = Duration.zero,
     PointerChange change = PointerChange.cancel,
     PointerDeviceKind kind = PointerDeviceKind.touch,
     PointerSignalKind signalKind,
-    int device = 0,
-    int pointerIdentifier = 0,
-    dynamic physicalX = 0.0,
-    dynamic physicalY = 0.0,
-    dynamic physicalDeltaX = 0.0,
-    dynamic physicalDeltaY = 0.0,
-    int buttons = 0,
-    bool obscured = false,
-    bool synthesized = false,
-    dynamic pressure = 0.0,
-    dynamic pressureMin = 0.0,
-    dynamic pressureMax = 0.0,
-    dynamic distance = 0.0,
-    dynamic distanceMax = 0.0,
-    dynamic size = 0.0,
-    dynamic radiusMajor = 0.0,
-    dynamic radiusMinor = 0.0,
-    dynamic radiusMin = 0.0,
-    dynamic radiusMax = 0.0,
-    dynamic orientation = 0.0,
-    dynamic tilt = 0.0,
-    int platformData = 0,
-    dynamic scrollDeltaX = 0.0,
-    dynamic scrollDeltaY = 0.0,
+    core.int device = 0,
+    core.int pointerIdentifier = 0,
+    core.dynamic physicalX = 0.0,
+    core.dynamic physicalY = 0.0,
+    core.dynamic physicalDeltaX = 0.0,
+    core.dynamic physicalDeltaY = 0.0,
+    core.int buttons = 0,
+    core.bool obscured = false,
+    core.bool synthesized = false,
+    core.dynamic pressure = 0.0,
+    core.dynamic pressureMin = 0.0,
+    core.dynamic pressureMax = 0.0,
+    core.dynamic distance = 0.0,
+    core.dynamic distanceMax = 0.0,
+    core.dynamic size = 0.0,
+    core.dynamic radiusMajor = 0.0,
+    core.dynamic radiusMinor = 0.0,
+    core.dynamic radiusMin = 0.0,
+    core.dynamic radiusMax = 0.0,
+    core.dynamic orientation = 0.0,
+    core.dynamic tilt = 0.0,
+    core.int platformData = 0,
+    core.dynamic scrollDeltaX = 0.0,
+    core.dynamic scrollDeltaY = 0.0,
   }) =>
       PointerData(
+    embedderId: embedderId,
     timeStamp: timeStamp,
     change: change,
     kind: kind,
@@ -1382,6 +1518,7 @@ var _pointerData = MXFunctionInvoke(
     scrollDeltaY: scrollDeltaY?.toDouble(),
   ),
   [
+    "embedderId",
     "timeStamp",
     "change",
     "kind",
@@ -1415,7 +1552,7 @@ var _pointerData = MXFunctionInvoke(
 var _pointerDataPacket = MXFunctionInvoke(
   "PointerDataPacket",
   ({
-    dynamic data = const <PointerData>[],
+    core.dynamic data = const <PointerData>[],
   }) =>
       PointerDataPacket(
     data: toListT<PointerData>(data),
@@ -1564,8 +1701,8 @@ var _fontWeightValues =
 var _fontFeature = MXFunctionInvoke(
   "FontFeature",
   ({
-    String feature,
-    int value,
+    core.String feature,
+    core.int value,
   }) =>
       FontFeature(
     feature,
@@ -1579,7 +1716,7 @@ var _fontFeature = MXFunctionInvoke(
 var _fontFeatureStylisticSet = MXFunctionInvoke(
   "FontFeature.stylisticSet",
   ({
-    int value,
+    core.int value,
   }) =>
       FontFeature.stylisticSet(
     value,
@@ -1591,7 +1728,7 @@ var _fontFeatureStylisticSet = MXFunctionInvoke(
 var _fontFeatureEnable = MXFunctionInvoke(
   "FontFeature.enable",
   ({
-    String feature,
+    core.String feature,
   }) =>
       FontFeature.enable(
     feature,
@@ -1603,7 +1740,7 @@ var _fontFeatureEnable = MXFunctionInvoke(
 var _fontFeatureDisable = MXFunctionInvoke(
   "FontFeature.disable",
   ({
-    String feature,
+    core.String feature,
   }) =>
       FontFeature.disable(
     feature,
@@ -1656,7 +1793,7 @@ var _textDecorationLineThrough = MXFunctionInvoke(
 var _textDecorationCombine = MXFunctionInvoke(
   "TextDecoration.combine",
   ({
-    dynamic decorations,
+    core.dynamic decorations,
   }) =>
       TextDecoration.combine(
     toListT<TextDecoration>(decorations),
@@ -1672,8 +1809,8 @@ var _textDecorationStyle = MXFunctionInvoke(
 var _textHeightBehavior = MXFunctionInvoke(
   "TextHeightBehavior",
   ({
-    bool applyHeightToFirstAscent = true,
-    bool applyHeightToLastDescent = true,
+    core.bool applyHeightToFirstAscent = true,
+    core.bool applyHeightToLastDescent = true,
   }) =>
       TextHeightBehavior(
     applyHeightToFirstAscent: applyHeightToFirstAscent,
@@ -1687,7 +1824,7 @@ var _textHeightBehavior = MXFunctionInvoke(
 var _textHeightBehaviorFromEncoded = MXFunctionInvoke(
   "TextHeightBehavior.fromEncoded",
   ({
-    int encoded,
+    core.int encoded,
   }) =>
       TextHeightBehavior.fromEncoded(
     encoded,
@@ -1703,21 +1840,21 @@ var _textStyle = MXFunctionInvoke(
     TextDecoration decoration,
     Color decorationColor,
     TextDecorationStyle decorationStyle,
-    dynamic decorationThickness,
+    core.dynamic decorationThickness,
     FontWeight fontWeight,
     FontStyle fontStyle,
     TextBaseline textBaseline,
-    String fontFamily,
-    dynamic fontFamilyFallback,
-    dynamic fontSize,
-    dynamic letterSpacing,
-    dynamic wordSpacing,
-    dynamic height,
+    core.String fontFamily,
+    core.dynamic fontFamilyFallback,
+    core.dynamic fontSize,
+    core.dynamic letterSpacing,
+    core.dynamic wordSpacing,
+    core.dynamic height,
     Locale locale,
     Paint background,
     Paint foreground,
-    dynamic shadows,
-    dynamic fontFeatures,
+    core.dynamic shadows,
+    core.dynamic fontFeatures,
   }) =>
       TextStyle(
     color: color,
@@ -1729,7 +1866,7 @@ var _textStyle = MXFunctionInvoke(
     fontStyle: fontStyle,
     textBaseline: textBaseline,
     fontFamily: fontFamily,
-    fontFamilyFallback: toListT<String>(fontFamilyFallback),
+    fontFamilyFallback: toListT<core.String>(fontFamilyFallback),
     fontSize: fontSize?.toDouble(),
     letterSpacing: letterSpacing?.toDouble(),
     wordSpacing: wordSpacing?.toDouble(),
@@ -1767,15 +1904,15 @@ var _paragraphStyle = MXFunctionInvoke(
   ({
     TextAlign textAlign,
     TextDirection textDirection,
-    int maxLines,
-    String fontFamily,
-    dynamic fontSize,
-    dynamic height,
+    core.int maxLines,
+    core.String fontFamily,
+    core.dynamic fontSize,
+    core.dynamic height,
     TextHeightBehavior textHeightBehavior,
     FontWeight fontWeight,
     FontStyle fontStyle,
     StrutStyle strutStyle,
-    String ellipsis,
+    core.String ellipsis,
     Locale locale,
   }) =>
       ParagraphStyle(
@@ -1810,18 +1947,18 @@ var _paragraphStyle = MXFunctionInvoke(
 var _strutStyle = MXFunctionInvoke(
   "StrutStyle",
   ({
-    String fontFamily,
-    dynamic fontFamilyFallback,
-    dynamic fontSize,
-    dynamic height,
-    dynamic leading,
+    core.String fontFamily,
+    core.dynamic fontFamilyFallback,
+    core.dynamic fontSize,
+    core.dynamic height,
+    core.dynamic leading,
     FontWeight fontWeight,
     FontStyle fontStyle,
-    bool forceStrutHeight,
+    core.bool forceStrutHeight,
   }) =>
       StrutStyle(
     fontFamily: fontFamily,
-    fontFamilyFallback: toListT<String>(fontFamilyFallback),
+    fontFamilyFallback: toListT<core.String>(fontFamilyFallback),
     fontSize: fontSize?.toDouble(),
     height: height?.toDouble(),
     leading: leading?.toDouble(),
@@ -1847,10 +1984,10 @@ var _textDirection = MXFunctionInvoke(
 var _textBoxFromLTRBD = MXFunctionInvoke(
   "TextBox.fromLTRBD",
   ({
-    dynamic left,
-    dynamic top,
-    dynamic right,
-    dynamic bottom,
+    core.dynamic left,
+    core.dynamic top,
+    core.dynamic right,
+    core.dynamic bottom,
     TextDirection direction,
   }) =>
       TextBox.fromLTRBD(
@@ -1875,7 +2012,7 @@ var _textAffinity = MXFunctionInvoke(
 var _textPosition = MXFunctionInvoke(
   "TextPosition",
   ({
-    int offset,
+    core.int offset,
     TextAffinity affinity = TextAffinity.downstream,
   }) =>
       TextPosition(
@@ -1890,8 +2027,8 @@ var _textPosition = MXFunctionInvoke(
 var _textRange = MXFunctionInvoke(
   "TextRange",
   ({
-    int start,
-    int end,
+    core.int start,
+    core.int end,
   }) =>
       TextRange(
     start: start,
@@ -1907,7 +2044,7 @@ var _textRangeEmpty =
 var _textRangeCollapsed = MXFunctionInvoke(
   "TextRange.collapsed",
   ({
-    int offset,
+    core.int offset,
   }) =>
       TextRange.collapsed(
     offset,
@@ -1919,7 +2056,7 @@ var _textRangeCollapsed = MXFunctionInvoke(
 var _paragraphConstraints = MXFunctionInvoke(
   "ParagraphConstraints",
   ({
-    dynamic width,
+    core.dynamic width,
   }) =>
       ParagraphConstraints(
     width: width?.toDouble(),
@@ -1939,15 +2076,15 @@ var _boxWidthStyle = MXFunctionInvoke(
 var _lineMetrics = MXFunctionInvoke(
   "LineMetrics",
   ({
-    bool hardBreak,
-    dynamic ascent,
-    dynamic descent,
-    dynamic unscaledAscent,
-    dynamic height,
-    dynamic width,
-    dynamic left,
-    dynamic baseline,
-    int lineNumber,
+    core.bool hardBreak,
+    core.dynamic ascent,
+    core.dynamic descent,
+    core.dynamic unscaledAscent,
+    core.dynamic height,
+    core.dynamic width,
+    core.dynamic left,
+    core.dynamic baseline,
+    core.int lineNumber,
   }) =>
       LineMetrics(
     hardBreak: hardBreak,
@@ -1997,8 +2134,8 @@ var _windowPaddingZero =
 var _locale = MXFunctionInvoke(
   "Locale",
   ({
-    String languageCode,
-    String countryCode,
+    core.String languageCode,
+    core.String countryCode,
   }) =>
       Locale(
     languageCode,
@@ -2012,9 +2149,9 @@ var _locale = MXFunctionInvoke(
 var _localeFromSubtags = MXFunctionInvoke(
   "Locale.fromSubtags",
   ({
-    String languageCode = 'und',
-    String scriptCode,
-    String countryCode,
+    core.String languageCode = 'und',
+    core.String scriptCode,
+    core.String countryCode,
   }) =>
       Locale.fromSubtags(
     languageCode: languageCode,
@@ -2034,7 +2171,7 @@ var _brightness = MXFunctionInvoke(
 var _callbackHandleFromRawHandle = MXFunctionInvoke(
   "CallbackHandle.fromRawHandle",
   ({
-    int handle,
+    core.int handle,
   }) =>
       CallbackHandle.fromRawHandle(
     handle,
@@ -2043,47 +2180,6 @@ var _callbackHandleFromRawHandle = MXFunctionInvoke(
     "handle",
   ],
 );
-
-/// MX modified begin -delete function
-// var _pluginUtilities = MXFunctionInvoke(
-//     "PluginUtilities",
-//     (
-//     ) =>
-//       PluginUtilities(
-//     ),
-// );
-/// MX modified end
-var _imageShader = MXFunctionInvoke(
-  "ImageShader",
-  ({
-    Image image,
-    TileMode tmx,
-    TileMode tmy,
-    Float64List matrix4,
-  }) =>
-      ImageShader(
-    image,
-    tmx,
-    tmy,
-    matrix4,
-  ),
-  [
-    "image",
-    "tmx",
-    "tmy",
-    "matrix4",
-  ],
-);
-
-/// MX modified begin -delete function
-// var _isolateNameServer = MXFunctionInvoke(
-//     "IsolateNameServer",
-//     (
-//     ) =>
-//       IsolateNameServer(
-//     ),
-// );
-/// MX modified end
 var _framePhase = MXFunctionInvoke(
     "FramePhase",
     ({String name, int index}) => MXFramePhase.parse(name, index),
@@ -2091,19 +2187,968 @@ var _framePhase = MXFunctionInvoke(
 var _frameTiming = MXFunctionInvoke(
   "FrameTiming",
   ({
-    dynamic timestamps,
+    core.dynamic timestamps,
   }) =>
       FrameTiming(
-    toListT<int>(timestamps),
+    toListT<core.int>(timestamps),
   ),
   [
     "timestamps",
   ],
 );
+//MX Modified begin
+// var _codeUnits = MXFunctionInvoke(
+//   "CodeUnits",
+//   ({
+//     core.String string,
+//   }) =>
+//       CodeUnits(
+//     string,
+//   ),
+//   [
+//     "string",
+//   ],
+// );
+// var _externalName = MXFunctionInvoke(
+//   "ExternalName",
+//   ({
+//     core.String name,
+//   }) =>
+//       ExternalName(
+//     name,
+//   ),
+//   [
+//     "name",
+//   ],
+// );
+// var _since = MXFunctionInvoke(
+//   "Since",
+//   ({
+//     core.String version,
+//   }) =>
+//       Since(
+//     version,
+//   ),
+//   [
+//     "version",
+//   ],
+// );
+// var _error = MXFunctionInvoke(
+//   "Error",
+//   () => Error(),
+//   [],
+// );
+// var _notNullableError = MXFunctionInvoke(
+//   "NotNullableError",
+//   ({
+//     core.String name,
+//   }) =>
+//       NotNullableError(
+//     name,
+//   ),
+//   [
+//     "name",
+//   ],
+// );
+// var _httpStatusContinue =
+//     MXFunctionInvoke("HttpStatus.continue_", () => HttpStatus.continue_);
+// var _httpStatusSwitchingProtocols = MXFunctionInvoke(
+//     "HttpStatus.switchingProtocols", () => HttpStatus.switchingProtocols);
+// var _httpStatusProcessing =
+//     MXFunctionInvoke("HttpStatus.processing", () => HttpStatus.processing);
+// var _httpStatusOk = MXFunctionInvoke("HttpStatus.ok", () => HttpStatus.ok);
+// var _httpStatusCreated =
+//     MXFunctionInvoke("HttpStatus.created", () => HttpStatus.created);
+// var _httpStatusAccepted =
+//     MXFunctionInvoke("HttpStatus.accepted", () => HttpStatus.accepted);
+// var _httpStatusNonAuthoritativeInformation = MXFunctionInvoke(
+//     "HttpStatus.nonAuthoritativeInformation",
+//     () => HttpStatus.nonAuthoritativeInformation);
+// var _httpStatusNoContent =
+//     MXFunctionInvoke("HttpStatus.noContent", () => HttpStatus.noContent);
+// var _httpStatusResetContent =
+//     MXFunctionInvoke("HttpStatus.resetContent", () => HttpStatus.resetContent);
+// var _httpStatusPartialContent = MXFunctionInvoke(
+//     "HttpStatus.partialContent", () => HttpStatus.partialContent);
+// var _httpStatusMultiStatus =
+//     MXFunctionInvoke("HttpStatus.multiStatus", () => HttpStatus.multiStatus);
+// var _httpStatusAlreadyReported = MXFunctionInvoke(
+//     "HttpStatus.alreadyReported", () => HttpStatus.alreadyReported);
+// var _httpStatusImUsed =
+//     MXFunctionInvoke("HttpStatus.imUsed", () => HttpStatus.imUsed);
+// var _httpStatusMultipleChoices = MXFunctionInvoke(
+//     "HttpStatus.multipleChoices", () => HttpStatus.multipleChoices);
+// var _httpStatusMovedPermanently = MXFunctionInvoke(
+//     "HttpStatus.movedPermanently", () => HttpStatus.movedPermanently);
+// var _httpStatusFound =
+//     MXFunctionInvoke("HttpStatus.found", () => HttpStatus.found);
+// var _httpStatusMovedTemporarily = MXFunctionInvoke(
+//     "HttpStatus.movedTemporarily", () => HttpStatus.movedTemporarily);
+// var _httpStatusSeeOther =
+//     MXFunctionInvoke("HttpStatus.seeOther", () => HttpStatus.seeOther);
+// var _httpStatusNotModified =
+//     MXFunctionInvoke("HttpStatus.notModified", () => HttpStatus.notModified);
+// var _httpStatusUseProxy =
+//     MXFunctionInvoke("HttpStatus.useProxy", () => HttpStatus.useProxy);
+// var _httpStatusTemporaryRedirect = MXFunctionInvoke(
+//     "HttpStatus.temporaryRedirect", () => HttpStatus.temporaryRedirect);
+// var _httpStatusPermanentRedirect = MXFunctionInvoke(
+//     "HttpStatus.permanentRedirect", () => HttpStatus.permanentRedirect);
+// var _httpStatusBadRequest =
+//     MXFunctionInvoke("HttpStatus.badRequest", () => HttpStatus.badRequest);
+// var _httpStatusUnauthorized =
+//     MXFunctionInvoke("HttpStatus.unauthorized", () => HttpStatus.unauthorized);
+// var _httpStatusPaymentRequired = MXFunctionInvoke(
+//     "HttpStatus.paymentRequired", () => HttpStatus.paymentRequired);
+// var _httpStatusForbidden =
+//     MXFunctionInvoke("HttpStatus.forbidden", () => HttpStatus.forbidden);
+// var _httpStatusNotFound =
+//     MXFunctionInvoke("HttpStatus.notFound", () => HttpStatus.notFound);
+// var _httpStatusMethodNotAllowed = MXFunctionInvoke(
+//     "HttpStatus.methodNotAllowed", () => HttpStatus.methodNotAllowed);
+// var _httpStatusNotAcceptable = MXFunctionInvoke(
+//     "HttpStatus.notAcceptable", () => HttpStatus.notAcceptable);
+// var _httpStatusProxyAuthenticationRequired = MXFunctionInvoke(
+//     "HttpStatus.proxyAuthenticationRequired",
+//     () => HttpStatus.proxyAuthenticationRequired);
+// var _httpStatusRequestTimeout = MXFunctionInvoke(
+//     "HttpStatus.requestTimeout", () => HttpStatus.requestTimeout);
+// var _httpStatusConflict =
+//     MXFunctionInvoke("HttpStatus.conflict", () => HttpStatus.conflict);
+// var _httpStatusGone =
+//     MXFunctionInvoke("HttpStatus.gone", () => HttpStatus.gone);
+// var _httpStatusLengthRequired = MXFunctionInvoke(
+//     "HttpStatus.lengthRequired", () => HttpStatus.lengthRequired);
+// var _httpStatusPreconditionFailed = MXFunctionInvoke(
+//     "HttpStatus.preconditionFailed", () => HttpStatus.preconditionFailed);
+// var _httpStatusRequestEntityTooLarge = MXFunctionInvoke(
+//     "HttpStatus.requestEntityTooLarge", () => HttpStatus.requestEntityTooLarge);
+// var _httpStatusRequestUriTooLong = MXFunctionInvoke(
+//     "HttpStatus.requestUriTooLong", () => HttpStatus.requestUriTooLong);
+// var _httpStatusUnsupportedMediaType = MXFunctionInvoke(
+//     "HttpStatus.unsupportedMediaType", () => HttpStatus.unsupportedMediaType);
+// var _httpStatusRequestedRangeNotSatisfiable = MXFunctionInvoke(
+//     "HttpStatus.requestedRangeNotSatisfiable",
+//     () => HttpStatus.requestedRangeNotSatisfiable);
+// var _httpStatusExpectationFailed = MXFunctionInvoke(
+//     "HttpStatus.expectationFailed", () => HttpStatus.expectationFailed);
+// var _httpStatusMisdirectedRequest = MXFunctionInvoke(
+//     "HttpStatus.misdirectedRequest", () => HttpStatus.misdirectedRequest);
+// var _httpStatusUnprocessableEntity = MXFunctionInvoke(
+//     "HttpStatus.unprocessableEntity", () => HttpStatus.unprocessableEntity);
+// var _httpStatusLocked =
+//     MXFunctionInvoke("HttpStatus.locked", () => HttpStatus.locked);
+// var _httpStatusFailedDependency = MXFunctionInvoke(
+//     "HttpStatus.failedDependency", () => HttpStatus.failedDependency);
+// var _httpStatusUpgradeRequired = MXFunctionInvoke(
+//     "HttpStatus.upgradeRequired", () => HttpStatus.upgradeRequired);
+// var _httpStatusPreconditionRequired = MXFunctionInvoke(
+//     "HttpStatus.preconditionRequired", () => HttpStatus.preconditionRequired);
+// var _httpStatusTooManyRequests = MXFunctionInvoke(
+//     "HttpStatus.tooManyRequests", () => HttpStatus.tooManyRequests);
+// var _httpStatusRequestHeaderFieldsTooLarge = MXFunctionInvoke(
+//     "HttpStatus.requestHeaderFieldsTooLarge",
+//     () => HttpStatus.requestHeaderFieldsTooLarge);
+// var _httpStatusConnectionClosedWithoutResponse = MXFunctionInvoke(
+//     "HttpStatus.connectionClosedWithoutResponse",
+//     () => HttpStatus.connectionClosedWithoutResponse);
+// var _httpStatusUnavailableForLegalReasons = MXFunctionInvoke(
+//     "HttpStatus.unavailableForLegalReasons",
+//     () => HttpStatus.unavailableForLegalReasons);
+// var _httpStatusClientClosedRequest = MXFunctionInvoke(
+//     "HttpStatus.clientClosedRequest", () => HttpStatus.clientClosedRequest);
+// var _httpStatusInternalServerError = MXFunctionInvoke(
+//     "HttpStatus.internalServerError", () => HttpStatus.internalServerError);
+// var _httpStatusNotImplemented = MXFunctionInvoke(
+//     "HttpStatus.notImplemented", () => HttpStatus.notImplemented);
+// var _httpStatusBadGateway =
+//     MXFunctionInvoke("HttpStatus.badGateway", () => HttpStatus.badGateway);
+// var _httpStatusServiceUnavailable = MXFunctionInvoke(
+//     "HttpStatus.serviceUnavailable", () => HttpStatus.serviceUnavailable);
+// var _httpStatusGatewayTimeout = MXFunctionInvoke(
+//     "HttpStatus.gatewayTimeout", () => HttpStatus.gatewayTimeout);
+// var _httpStatusHttpVersionNotSupported = MXFunctionInvoke(
+//     "HttpStatus.httpVersionNotSupported",
+//     () => HttpStatus.httpVersionNotSupported);
+// var _httpStatusVariantAlsoNegotiates = MXFunctionInvoke(
+//     "HttpStatus.variantAlsoNegotiates", () => HttpStatus.variantAlsoNegotiates);
+// var _httpStatusInsufficientStorage = MXFunctionInvoke(
+//     "HttpStatus.insufficientStorage", () => HttpStatus.insufficientStorage);
+// var _httpStatusLoopDetected =
+//     MXFunctionInvoke("HttpStatus.loopDetected", () => HttpStatus.loopDetected);
+// var _httpStatusNotExtended =
+//     MXFunctionInvoke("HttpStatus.notExtended", () => HttpStatus.notExtended);
+// var _httpStatusNetworkAuthenticationRequired = MXFunctionInvoke(
+//     "HttpStatus.networkAuthenticationRequired",
+//     () => HttpStatus.networkAuthenticationRequired);
+// var _httpStatusNetworkConnectTimeoutError = MXFunctionInvoke(
+//     "HttpStatus.networkConnectTimeoutError",
+//     () => HttpStatus.networkConnectTimeoutError);
+// var _httpStatusCONTINUE =
+//     MXFunctionInvoke("HttpStatus.CONTINUE", () => HttpStatus.CONTINUE);
+// var _httpStatusSWITCHINGPROTOCOLS = MXFunctionInvoke(
+//     "HttpStatus.SWITCHING_PROTOCOLS", () => HttpStatus.SWITCHING_PROTOCOLS);
+// var _httpStatusOK = MXFunctionInvoke("HttpStatus.OK", () => HttpStatus.OK);
+// var _httpStatusCREATED =
+//     MXFunctionInvoke("HttpStatus.CREATED", () => HttpStatus.CREATED);
+// var _httpStatusACCEPTED =
+//     MXFunctionInvoke("HttpStatus.ACCEPTED", () => HttpStatus.ACCEPTED);
+// var _httpStatusNONAUTHORITATIVEINFORMATION = MXFunctionInvoke(
+//     "HttpStatus.NON_AUTHORITATIVE_INFORMATION",
+//     () => HttpStatus.NON_AUTHORITATIVE_INFORMATION);
+// var _httpStatusNOCONTENT =
+//     MXFunctionInvoke("HttpStatus.NO_CONTENT", () => HttpStatus.NO_CONTENT);
+// var _httpStatusRESETCONTENT = MXFunctionInvoke(
+//     "HttpStatus.RESET_CONTENT", () => HttpStatus.RESET_CONTENT);
+// var _httpStatusPARTIALCONTENT = MXFunctionInvoke(
+//     "HttpStatus.PARTIAL_CONTENT", () => HttpStatus.PARTIAL_CONTENT);
+// var _httpStatusMULTIPLECHOICES = MXFunctionInvoke(
+//     "HttpStatus.MULTIPLE_CHOICES", () => HttpStatus.MULTIPLE_CHOICES);
+// var _httpStatusMOVEDPERMANENTLY = MXFunctionInvoke(
+//     "HttpStatus.MOVED_PERMANENTLY", () => HttpStatus.MOVED_PERMANENTLY);
+// var _httpStatusFOUND =
+//     MXFunctionInvoke("HttpStatus.FOUND", () => HttpStatus.FOUND);
+// var _httpStatusMOVEDTEMPORARILY = MXFunctionInvoke(
+//     "HttpStatus.MOVED_TEMPORARILY", () => HttpStatus.MOVED_TEMPORARILY);
+// var _httpStatusSEEOTHER =
+//     MXFunctionInvoke("HttpStatus.SEE_OTHER", () => HttpStatus.SEE_OTHER);
+// var _httpStatusNOTMODIFIED =
+//     MXFunctionInvoke("HttpStatus.NOT_MODIFIED", () => HttpStatus.NOT_MODIFIED);
+// var _httpStatusUSEPROXY =
+//     MXFunctionInvoke("HttpStatus.USE_PROXY", () => HttpStatus.USE_PROXY);
+// var _httpStatusTEMPORARYREDIRECT = MXFunctionInvoke(
+//     "HttpStatus.TEMPORARY_REDIRECT", () => HttpStatus.TEMPORARY_REDIRECT);
+// var _httpStatusBADREQUEST =
+//     MXFunctionInvoke("HttpStatus.BAD_REQUEST", () => HttpStatus.BAD_REQUEST);
+// var _httpStatusUNAUTHORIZED =
+//     MXFunctionInvoke("HttpStatus.UNAUTHORIZED", () => HttpStatus.UNAUTHORIZED);
+// var _httpStatusPAYMENTREQUIRED = MXFunctionInvoke(
+//     "HttpStatus.PAYMENT_REQUIRED", () => HttpStatus.PAYMENT_REQUIRED);
+// var _httpStatusFORBIDDEN =
+//     MXFunctionInvoke("HttpStatus.FORBIDDEN", () => HttpStatus.FORBIDDEN);
+// var _httpStatusNOTFOUND =
+//     MXFunctionInvoke("HttpStatus.NOT_FOUND", () => HttpStatus.NOT_FOUND);
+// var _httpStatusMETHODNOTALLOWED = MXFunctionInvoke(
+//     "HttpStatus.METHOD_NOT_ALLOWED", () => HttpStatus.METHOD_NOT_ALLOWED);
+// var _httpStatusNOTACCEPTABLE = MXFunctionInvoke(
+//     "HttpStatus.NOT_ACCEPTABLE", () => HttpStatus.NOT_ACCEPTABLE);
+// var _httpStatusPROXYAUTHENTICATIONREQUIRED = MXFunctionInvoke(
+//     "HttpStatus.PROXY_AUTHENTICATION_REQUIRED",
+//     () => HttpStatus.PROXY_AUTHENTICATION_REQUIRED);
+// var _httpStatusREQUESTTIMEOUT = MXFunctionInvoke(
+//     "HttpStatus.REQUEST_TIMEOUT", () => HttpStatus.REQUEST_TIMEOUT);
+// var _httpStatusCONFLICT =
+//     MXFunctionInvoke("HttpStatus.CONFLICT", () => HttpStatus.CONFLICT);
+// var _httpStatusGONE =
+//     MXFunctionInvoke("HttpStatus.GONE", () => HttpStatus.GONE);
+// var _httpStatusLENGTHREQUIRED = MXFunctionInvoke(
+//     "HttpStatus.LENGTH_REQUIRED", () => HttpStatus.LENGTH_REQUIRED);
+// var _httpStatusPRECONDITIONFAILED = MXFunctionInvoke(
+//     "HttpStatus.PRECONDITION_FAILED", () => HttpStatus.PRECONDITION_FAILED);
+// var _httpStatusREQUESTENTITYTOOLARGE = MXFunctionInvoke(
+//     "HttpStatus.REQUEST_ENTITY_TOO_LARGE",
+//     () => HttpStatus.REQUEST_ENTITY_TOO_LARGE);
+// var _httpStatusREQUESTURITOOLONG = MXFunctionInvoke(
+//     "HttpStatus.REQUEST_URI_TOO_LONG", () => HttpStatus.REQUEST_URI_TOO_LONG);
+// var _httpStatusUNSUPPORTEDMEDIATYPE = MXFunctionInvoke(
+//     "HttpStatus.UNSUPPORTED_MEDIA_TYPE",
+//     () => HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+// var _httpStatusREQUESTEDRANGENOTSATISFIABLE = MXFunctionInvoke(
+//     "HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE",
+//     () => HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE);
+// var _httpStatusEXPECTATIONFAILED = MXFunctionInvoke(
+//     "HttpStatus.EXPECTATION_FAILED", () => HttpStatus.EXPECTATION_FAILED);
+// var _httpStatusUPGRADEREQUIRED = MXFunctionInvoke(
+//     "HttpStatus.UPGRADE_REQUIRED", () => HttpStatus.UPGRADE_REQUIRED);
+// var _httpStatusINTERNALSERVERERROR = MXFunctionInvoke(
+//     "HttpStatus.INTERNAL_SERVER_ERROR", () => HttpStatus.INTERNAL_SERVER_ERROR);
+// var _httpStatusNOTIMPLEMENTED = MXFunctionInvoke(
+//     "HttpStatus.NOT_IMPLEMENTED", () => HttpStatus.NOT_IMPLEMENTED);
+// var _httpStatusBADGATEWAY =
+//     MXFunctionInvoke("HttpStatus.BAD_GATEWAY", () => HttpStatus.BAD_GATEWAY);
+// var _httpStatusSERVICEUNAVAILABLE = MXFunctionInvoke(
+//     "HttpStatus.SERVICE_UNAVAILABLE", () => HttpStatus.SERVICE_UNAVAILABLE);
+// var _httpStatusGATEWAYTIMEOUT = MXFunctionInvoke(
+//     "HttpStatus.GATEWAY_TIMEOUT", () => HttpStatus.GATEWAY_TIMEOUT);
+// var _httpStatusHTTPVERSIONNOTSUPPORTED = MXFunctionInvoke(
+//     "HttpStatus.HTTP_VERSION_NOT_SUPPORTED",
+//     () => HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
+// var _httpStatusNETWORKCONNECTTIMEOUTERROR = MXFunctionInvoke(
+//     "HttpStatus.NETWORK_CONNECT_TIMEOUT_ERROR",
+//     () => HttpStatus.NETWORK_CONNECT_TIMEOUT_ERROR);
+// var _castStream = MXFunctionInvoke(
+//   "CastStream",
+//   ({
+//     Stream<dynamic> source,
+//   }) =>
+//       CastStream(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _castStreamSubscription = MXFunctionInvoke(
+//   "CastStreamSubscription",
+//   ({
+//     StreamSubscription<dynamic> source,
+//   }) =>
+//       CastStreamSubscription(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _castStreamTransformer = MXFunctionInvoke(
+//   "CastStreamTransformer",
+//   ({
+//     StreamTransformer<dynamic, dynamic> source,
+//   }) =>
+//       CastStreamTransformer(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _castConverter = MXFunctionInvoke(
+//   "CastConverter",
+//   ({
+//     Converter<dynamic, dynamic> source,
+//   }) =>
+//       CastConverter(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _castIterator = MXFunctionInvoke(
+//   "CastIterator",
+//   ({
+//     core.Iterator<dynamic> source,
+//   }) =>
+//       CastIterator(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _castIterable = MXFunctionInvoke(
+//   "CastIterable",
+//   ({
+//     core.Iterable<dynamic> source,
+//   }) =>
+//       CastIterable(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _castList = MXFunctionInvoke(
+//   "CastList",
+//   ({
+//     core.dynamic source,
+//   }) =>
+//       CastList(
+//     toListT<dynamic>(source),
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _castSet = MXFunctionInvoke(
+//   "CastSet",
+//   ({
+//     core.Set<dynamic> source,
+//     dynamic emptySet,
+//   }) =>
+//       CastSet(
+//     source,
+//     null,
+//   ),
+//   [
+//     "source",
+//     "emptySet",
+//   ],
+// );
+// var _castMap = MXFunctionInvoke(
+//   "CastMap",
+//   ({
+//     core.dynamic source,
+//   }) =>
+//       CastMap(
+//     toMapT<dynamic, dynamic>(source),
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _castQueue = MXFunctionInvoke(
+//   "CastQueue",
+//   ({
+//     collection.Queue<dynamic> source,
+//   }) =>
+//       CastQueue(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _lateInitializationErrorImpl = MXFunctionInvoke(
+//   "LateInitializationErrorImpl",
+//   ({
+//     core.String message,
+//   }) =>
+//       LateInitializationErrorImpl(
+//     message,
+//   ),
+//   [
+//     "message",
+//   ],
+// );
+// var _iterableGenerate = MXFunctionInvoke(
+//   "Iterable.generate",
+//   ({
+//     core.int count,
+//     dynamic generator,
+//   }) =>
+//       Iterable.generate(
+//     count,
+//     null,
+//   ),
+//   [
+//     "count",
+//     "generator",
+//   ],
+// );
+// var _iterableEmpty = MXFunctionInvoke(
+//   "Iterable.empty",
+//   () => Iterable.empty(),
+//   [],
+// );
+// var _subListIterable = MXFunctionInvoke(
+//   "SubListIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     core.int start,
+//     core.int endOrLength,
+//   }) =>
+//       SubListIterable(
+//     iterable,
+//     start,
+//     endOrLength,
+//   ),
+//   [
+//     "iterable",
+//     "start",
+//     "endOrLength",
+//   ],
+// );
+// var _listIterator = MXFunctionInvoke(
+//   "ListIterator",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//   }) =>
+//       ListIterator(
+//     iterable,
+//   ),
+//   [
+//     "iterable",
+//   ],
+// );
+// var _mappedIterable = MXFunctionInvoke(
+//   "MappedIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     dynamic function,
+//   }) =>
+//       MappedIterable(
+//     iterable,
+//     null,
+//   ),
+//   [
+//     "iterable",
+//     "function",
+//   ],
+// );
+// var _efficientLengthMappedIterable = MXFunctionInvoke(
+//   "EfficientLengthMappedIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     dynamic function,
+//   }) =>
+//       EfficientLengthMappedIterable(
+//     iterable,
+//     null,
+//   ),
+//   [
+//     "iterable",
+//     "function",
+//   ],
+// );
+// var _mappedIterator = MXFunctionInvoke(
+//   "MappedIterator",
+//   ({
+//     core.Iterator<dynamic> iterator,
+//     dynamic f,
+//   }) =>
+//       MappedIterator(
+//     iterator,
+//     null,
+//   ),
+//   [
+//     "iterator",
+//     "f",
+//   ],
+// );
+// var _mappedListIterable = MXFunctionInvoke(
+//   "MappedListIterable",
+//   ({
+//     core.Iterable<dynamic> source,
+//     dynamic f,
+//   }) =>
+//       MappedListIterable(
+//     source,
+//     null,
+//   ),
+//   [
+//     "source",
+//     "f",
+//   ],
+// );
+// var _whereIterable = MXFunctionInvoke(
+//   "WhereIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     dynamic f,
+//   }) =>
+//       WhereIterable(
+//     iterable,
+//     null,
+//   ),
+//   [
+//     "iterable",
+//     "f",
+//   ],
+// );
+// var _whereIterator = MXFunctionInvoke(
+//   "WhereIterator",
+//   ({
+//     core.Iterator<dynamic> iterator,
+//     dynamic f,
+//   }) =>
+//       WhereIterator(
+//     iterator,
+//     null,
+//   ),
+//   [
+//     "iterator",
+//     "f",
+//   ],
+// );
+// var _expandIterable = MXFunctionInvoke(
+//   "ExpandIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     dynamic f,
+//   }) =>
+//       ExpandIterable(
+//     iterable,
+//     null,
+//   ),
+//   [
+//     "iterable",
+//     "f",
+//   ],
+// );
+// var _expandIterator = MXFunctionInvoke(
+//   "ExpandIterator",
+//   ({
+//     core.Iterator<dynamic> iterator,
+//     dynamic f,
+//   }) =>
+//       ExpandIterator(
+//     iterator,
+//     null,
+//   ),
+//   [
+//     "iterator",
+//     "f",
+//   ],
+// );
+// var _takeIterable = MXFunctionInvoke(
+//   "TakeIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     core.int takeCount,
+//   }) =>
+//       TakeIterable(
+//     iterable,
+//     takeCount,
+//   ),
+//   [
+//     "iterable",
+//     "takeCount",
+//   ],
+// );
+// var _efficientLengthTakeIterable = MXFunctionInvoke(
+//   "EfficientLengthTakeIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     core.int takeCount,
+//   }) =>
+//       EfficientLengthTakeIterable(
+//     iterable,
+//     takeCount,
+//   ),
+//   [
+//     "iterable",
+//     "takeCount",
+//   ],
+// );
+// var _takeIterator = MXFunctionInvoke(
+//   "TakeIterator",
+//   ({
+//     core.Iterator<dynamic> iterator,
+//     core.int remaining,
+//   }) =>
+//       TakeIterator(
+//     iterator,
+//     remaining,
+//   ),
+//   [
+//     "iterator",
+//     "remaining",
+//   ],
+// );
+// var _takeWhileIterable = MXFunctionInvoke(
+//   "TakeWhileIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     dynamic f,
+//   }) =>
+//       TakeWhileIterable(
+//     iterable,
+//     null,
+//   ),
+//   [
+//     "iterable",
+//     "f",
+//   ],
+// );
+// var _takeWhileIterator = MXFunctionInvoke(
+//   "TakeWhileIterator",
+//   ({
+//     core.Iterator<dynamic> iterator,
+//     dynamic f,
+//   }) =>
+//       TakeWhileIterator(
+//     iterator,
+//     null,
+//   ),
+//   [
+//     "iterator",
+//     "f",
+//   ],
+// );
+// var _skipIterable = MXFunctionInvoke(
+//   "SkipIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     core.int count,
+//   }) =>
+//       SkipIterable(
+//     iterable,
+//     count,
+//   ),
+//   [
+//     "iterable",
+//     "count",
+//   ],
+// );
+// var _efficientLengthSkipIterable = MXFunctionInvoke(
+//   "EfficientLengthSkipIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     core.int count,
+//   }) =>
+//       EfficientLengthSkipIterable(
+//     iterable,
+//     count,
+//   ),
+//   [
+//     "iterable",
+//     "count",
+//   ],
+// );
+// var _skipIterator = MXFunctionInvoke(
+//   "SkipIterator",
+//   ({
+//     core.Iterator<dynamic> iterator,
+//     core.int skipCount,
+//   }) =>
+//       SkipIterator(
+//     iterator,
+//     skipCount,
+//   ),
+//   [
+//     "iterator",
+//     "skipCount",
+//   ],
+// );
+// var _skipWhileIterable = MXFunctionInvoke(
+//   "SkipWhileIterable",
+//   ({
+//     core.Iterable<dynamic> iterable,
+//     dynamic f,
+//   }) =>
+//       SkipWhileIterable(
+//     iterable,
+//     null,
+//   ),
+//   [
+//     "iterable",
+//     "f",
+//   ],
+// );
+// var _skipWhileIterator = MXFunctionInvoke(
+//   "SkipWhileIterator",
+//   ({
+//     core.Iterator<dynamic> iterator,
+//     dynamic f,
+//   }) =>
+//       SkipWhileIterator(
+//     iterator,
+//     null,
+//   ),
+//   [
+//     "iterator",
+//     "f",
+//   ],
+// );
+// var _emptyIterable = MXFunctionInvoke(
+//   "EmptyIterable",
+//   () => EmptyIterable(),
+//   [],
+// );
+// var _emptyIterator = MXFunctionInvoke(
+//   "EmptyIterator",
+//   () => EmptyIterator(),
+//   [],
+// );
+// var _followedByIterable = MXFunctionInvoke(
+//   "FollowedByIterable",
+//   ({
+//     core.Iterable<dynamic> first,
+//     core.Iterable<dynamic> second,
+//   }) =>
+//       FollowedByIterable(
+//     first,
+//     second,
+//   ),
+//   [
+//     "first",
+//     "second",
+//   ],
+// );
+// var _followedByIterableFirstEfficient = MXFunctionInvoke(
+//   "FollowedByIterable.firstEfficient",
+//   ({
+//     internal.EfficientLengthIterable<dynamic> first,
+//     core.Iterable<dynamic> second,
+//   }) =>
+//       FollowedByIterable.firstEfficient(
+//     first,
+//     second,
+//   ),
+//   [
+//     "first",
+//     "second",
+//   ],
+// );
+// var _efficientLengthFollowedByIterable = MXFunctionInvoke(
+//   "EfficientLengthFollowedByIterable",
+//   ({
+//     internal.EfficientLengthIterable<dynamic> first,
+//     internal.EfficientLengthIterable<dynamic> second,
+//   }) =>
+//       EfficientLengthFollowedByIterable(
+//     first,
+//     second,
+//   ),
+//   [
+//     "first",
+//     "second",
+//   ],
+// );
+// var _followedByIterator = MXFunctionInvoke(
+//   "FollowedByIterator",
+//   ({
+//     core.Iterable<dynamic> first,
+//     core.Iterable<dynamic> nextIterable,
+//   }) =>
+//       FollowedByIterator(
+//     first,
+//     nextIterable,
+//   ),
+//   [
+//     "first",
+//     "nextIterable",
+//   ],
+// );
+// var _whereTypeIterable = MXFunctionInvoke(
+//   "WhereTypeIterable",
+//   ({
+//     core.Iterable<core.Object> source,
+//   }) =>
+//       WhereTypeIterable(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _whereTypeIterator = MXFunctionInvoke(
+//   "WhereTypeIterator",
+//   ({
+//     core.Iterator<core.Object> source,
+//   }) =>
+//       WhereTypeIterator(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _listMapView = MXFunctionInvoke(
+//   "ListMapView",
+//   ({
+//     core.dynamic values,
+//   }) =>
+//       ListMapView(
+//     toListT<dynamic>(values),
+//   ),
+//   [
+//     "values",
+//   ],
+// );
+// var _reversedListIterable = MXFunctionInvoke(
+//   "ReversedListIterable",
+//   ({
+//     core.Iterable<dynamic> source,
+//   }) =>
+//       ReversedListIterable(
+//     source,
+//   ),
+//   [
+//     "source",
+//   ],
+// );
+// var _linkedList = MXFunctionInvoke(
+//   "LinkedList",
+//   () => LinkedList(),
+//   [],
+// );
+// var _linkedListEntry = MXFunctionInvoke(
+//   "LinkedListEntry",
+//   () => LinkedListEntry(),
+//   [],
+// );
+// var _sort = MXFunctionInvoke(
+//   "Sort",
+//   () => Sort(),
+//   [],
+// );
+// var _sortSort = MXFunctionInvoke(
+//   "Sort.sort",
+//   ({
+//     core.dynamic a,
+//     dynamic compare,
+//   }) =>
+//       Sort.sort(
+//     toListT<dynamic>(a),
+//     null,
+//   ),
+//   [
+//     "a",
+//     "compare",
+//   ],
+// );
+// var _sortSortRange = MXFunctionInvoke(
+//   "Sort.sortRange",
+//   ({
+//     core.dynamic a,
+//     core.int from,
+//     core.int to,
+//     dynamic compare,
+//   }) =>
+//       Sort.sortRange(
+//     toListT<dynamic>(a),
+//     from,
+//     to,
+//     null,
+//   ),
+//   [
+//     "a",
+//     "from",
+//     "to",
+//     "compare",
+//   ],
+// );
+// var _symbol = MXFunctionInvoke(
+//   "Symbol",
+//   ({
+//     core.String name,
+//   }) =>
+//       Symbol(
+//     name,
+//   ),
+//   [
+//     "name",
+//   ],
+// );
+// var _symbolReservedWordRE =
+//     MXFunctionInvoke("Symbol.reservedWordRE", () => Symbol.reservedWordRE);
+// var _symbolPublicIdentifierRE = MXFunctionInvoke(
+//     "Symbol.publicIdentifierRE", () => Symbol.publicIdentifierRE);
+// var _symbolIdentifierRE =
+//     MXFunctionInvoke("Symbol.identifierRE", () => Symbol.identifierRE);
+// var _symbolOperatorRE =
+//     MXFunctionInvoke("Symbol.operatorRE", () => Symbol.operatorRE);
+// var _symbolUnvalidated = MXFunctionInvoke(
+//   "Symbol.unvalidated",
+//   ({
+//     core.String name,
+//   }) =>
+//       Symbol.unvalidated(
+//     name,
+//   ),
+//   [
+//     "name",
+//   ],
+// );
+// var _symbolValidated = MXFunctionInvoke(
+//   "Symbol.validated",
+//   ({
+//     core.String name,
+//   }) =>
+//       Symbol.validated(
+//     name,
+//   ),
+//   [
+//     "name",
+//   ],
+// );
+//MX Modified end
 var _deprecated = MXFunctionInvoke(
   "Deprecated",
   ({
-    String message,
+    core.String message,
   }) =>
       Deprecated(
     message,
@@ -2115,7 +3160,7 @@ var _deprecated = MXFunctionInvoke(
 var _provisional = MXFunctionInvoke(
   "Provisional",
   ({
-    String message,
+    core.String message,
   }) =>
       Provisional(
     message: message,
@@ -2127,8 +3172,8 @@ var _provisional = MXFunctionInvoke(
 var _pragma = MXFunctionInvoke(
   "pragma",
   ({
-    String name,
-    Object options,
+    core.String name,
+    core.Object options,
   }) =>
       pragma(
     name,
@@ -2142,7 +3187,7 @@ var _pragma = MXFunctionInvoke(
 var _bigIntFrom = MXFunctionInvoke(
   "BigInt.from",
   ({
-    num value,
+    core.num value,
   }) =>
       BigInt.from(
     value,
@@ -2151,44 +3196,17 @@ var _bigIntFrom = MXFunctionInvoke(
     "value",
   ],
 );
-var _boolFromEnvironment = MXFunctionInvoke(
-  "bool.fromEnvironment",
-  ({
-    String name,
-    bool defaultValue = false,
-  }) =>
-      bool.fromEnvironment(
-    name,
-    defaultValue: defaultValue,
-  ),
-  [
-    "name",
-    "defaultValue",
-  ],
-);
-var _boolHasEnvironment = MXFunctionInvoke(
-  "bool.hasEnvironment",
-  ({
-    String name,
-  }) =>
-      bool.hasEnvironment(
-    name,
-  ),
-  [
-    "name",
-  ],
-);
 var _dateTime = MXFunctionInvoke(
   "DateTime",
   ({
-    int year,
-    int month,
-    int day,
-    int hour,
-    int minute,
-    int second,
-    int millisecond,
-    int microsecond,
+    core.int year,
+    core.int month,
+    core.int day,
+    core.int hour,
+    core.int minute,
+    core.int second,
+    core.int millisecond,
+    core.int microsecond,
   }) =>
       DateTime(
     year,
@@ -2251,14 +3269,14 @@ var _dateTimeMonthsPerYear =
 var _dateTimeUtc = MXFunctionInvoke(
   "DateTime.utc",
   ({
-    int year,
-    int month,
-    int day,
-    int hour,
-    int minute,
-    int second,
-    int millisecond,
-    int microsecond,
+    core.int year,
+    core.int month,
+    core.int day,
+    core.int hour,
+    core.int minute,
+    core.int second,
+    core.int millisecond,
+    core.int microsecond,
   }) =>
       DateTime.utc(
     year,
@@ -2289,8 +3307,8 @@ var _dateTimeNow = MXFunctionInvoke(
 var _dateTimeFromMillisecondsSinceEpoch = MXFunctionInvoke(
   "DateTime.fromMillisecondsSinceEpoch",
   ({
-    int millisecondsSinceEpoch,
-    bool isUtc = false,
+    core.int millisecondsSinceEpoch,
+    core.bool isUtc = false,
   }) =>
       DateTime.fromMillisecondsSinceEpoch(
     millisecondsSinceEpoch,
@@ -2304,8 +3322,8 @@ var _dateTimeFromMillisecondsSinceEpoch = MXFunctionInvoke(
 var _dateTimeFromMicrosecondsSinceEpoch = MXFunctionInvoke(
   "DateTime.fromMicrosecondsSinceEpoch",
   ({
-    int microsecondsSinceEpoch,
-    bool isUtc = false,
+    core.int microsecondsSinceEpoch,
+    core.bool isUtc = false,
   }) =>
       DateTime.fromMicrosecondsSinceEpoch(
     microsecondsSinceEpoch,
@@ -2316,24 +3334,15 @@ var _dateTimeFromMicrosecondsSinceEpoch = MXFunctionInvoke(
     "isUtc",
   ],
 );
-var _doubleNan = MXFunctionInvoke("double.nan", () => double.nan);
-var _doubleInfinity =
-    MXFunctionInvoke("double.infinity", () => double.infinity);
-var _doubleNegativeInfinity =
-    MXFunctionInvoke("double.negativeInfinity", () => double.negativeInfinity);
-var _doubleMinPositive =
-    MXFunctionInvoke("double.minPositive", () => double.minPositive);
-var _doubleMaxFinite =
-    MXFunctionInvoke("double.maxFinite", () => double.maxFinite);
 var _duration = MXFunctionInvoke(
   "Duration",
   ({
-    int days = 0,
-    int hours = 0,
-    int minutes = 0,
-    int seconds = 0,
-    int milliseconds = 0,
-    int microseconds = 0,
+    core.int days = 0,
+    core.int hours = 0,
+    core.int minutes = 0,
+    core.int seconds = 0,
+    core.int milliseconds = 0,
+    core.int microseconds = 0,
   }) =>
       Duration(
     days: days,
@@ -2384,15 +3393,10 @@ var _durationSecondsPerDay =
 var _durationMinutesPerDay =
     MXFunctionInvoke("Duration.minutesPerDay", () => Duration.minutesPerDay);
 var _durationZero = MXFunctionInvoke("Duration.zero", () => Duration.zero);
-var _error = MXFunctionInvoke(
-  "Error",
-  () => Error(),
-  [],
-);
 var _assertionError = MXFunctionInvoke(
   "AssertionError",
   ({
-    Object message,
+    core.Object message,
   }) =>
       AssertionError(
     message,
@@ -2432,7 +3436,7 @@ var _argumentErrorValue = MXFunctionInvoke(
   "ArgumentError.value",
   ({
     dynamic value,
-    String name,
+    core.String name,
     dynamic message,
   }) =>
       ArgumentError.value(
@@ -2449,7 +3453,7 @@ var _argumentErrorValue = MXFunctionInvoke(
 var _argumentErrorNotNull = MXFunctionInvoke(
   "ArgumentError.notNull",
   ({
-    String name,
+    core.String name,
   }) =>
       ArgumentError.notNull(
     name,
@@ -2473,11 +3477,11 @@ var _rangeError = MXFunctionInvoke(
 var _rangeErrorIndex = MXFunctionInvoke(
   "RangeError.index",
   ({
-    int index,
+    core.int index,
     dynamic indexable,
-    String name,
-    String message,
-    int length,
+    core.String name,
+    core.String message,
+    core.int length,
   }) =>
       RangeError.index(
     index,
@@ -2497,9 +3501,9 @@ var _rangeErrorIndex = MXFunctionInvoke(
 var _rangeErrorValue = MXFunctionInvoke(
   "RangeError.value",
   ({
-    num value,
-    String name,
-    String message,
+    core.num value,
+    core.String name,
+    core.String message,
   }) =>
       RangeError.value(
     value,
@@ -2515,11 +3519,11 @@ var _rangeErrorValue = MXFunctionInvoke(
 var _rangeErrorRange = MXFunctionInvoke(
   "RangeError.range",
   ({
-    num invalidValue,
-    int minValue,
-    int maxValue,
-    String name,
-    String message,
+    core.num invalidValue,
+    core.int minValue,
+    core.int maxValue,
+    core.String name,
+    core.String message,
   }) =>
       RangeError.range(
     invalidValue,
@@ -2539,11 +3543,11 @@ var _rangeErrorRange = MXFunctionInvoke(
 var _indexError = MXFunctionInvoke(
   "IndexError",
   ({
-    int invalidValue,
+    core.int invalidValue,
     dynamic indexable,
-    String name,
-    String message,
-    int length,
+    core.String name,
+    core.String message,
+    core.int length,
   }) =>
       IndexError(
     invalidValue,
@@ -2568,7 +3572,7 @@ var _fallThroughError = MXFunctionInvoke(
 var _abstractClassInstantiationError = MXFunctionInvoke(
   "AbstractClassInstantiationError",
   ({
-    String className,
+    core.String className,
   }) =>
       AbstractClassInstantiationError(
     className,
@@ -2580,32 +3584,29 @@ var _abstractClassInstantiationError = MXFunctionInvoke(
 var _noSuchMethodError = MXFunctionInvoke(
   "NoSuchMethodError",
   ({
-    Object receiver,
-    Symbol memberName,
-    dynamic positionalArguments,
-    dynamic namedArguments,
-    dynamic existingArgumentNames,
+    core.Object receiver,
+    core.Symbol memberName,
+    core.dynamic positionalArguments,
+    core.dynamic namedArguments,
   }) =>
       NoSuchMethodError(
     receiver,
     memberName,
     toListT<dynamic>(positionalArguments),
-    toMapT<Symbol, dynamic>(namedArguments),
-    toListT<dynamic>(existingArgumentNames),
+    toMapT<core.Symbol, dynamic>(namedArguments),
   ),
   [
     "receiver",
     "memberName",
     "positionalArguments",
     "namedArguments",
-    "existingArgumentNames",
   ],
 );
 var _noSuchMethodErrorWithInvocation = MXFunctionInvoke(
   "NoSuchMethodError.withInvocation",
   ({
-    Object receiver,
-    Invocation invocation,
+    core.Object receiver,
+    core.Invocation invocation,
   }) =>
       NoSuchMethodError.withInvocation(
     receiver,
@@ -2619,7 +3620,7 @@ var _noSuchMethodErrorWithInvocation = MXFunctionInvoke(
 var _unsupportedError = MXFunctionInvoke(
   "UnsupportedError",
   ({
-    String message,
+    core.String message,
   }) =>
       UnsupportedError(
     message,
@@ -2631,7 +3632,7 @@ var _unsupportedError = MXFunctionInvoke(
 var _unimplementedError = MXFunctionInvoke(
   "UnimplementedError",
   ({
-    String message,
+    core.String message,
   }) =>
       UnimplementedError(
     message,
@@ -2643,7 +3644,7 @@ var _unimplementedError = MXFunctionInvoke(
 var _stateError = MXFunctionInvoke(
   "StateError",
   ({
-    String message,
+    core.String message,
   }) =>
       StateError(
     message,
@@ -2655,7 +3656,7 @@ var _stateError = MXFunctionInvoke(
 var _concurrentModificationError = MXFunctionInvoke(
   "ConcurrentModificationError",
   ({
-    Object modifiedObject,
+    core.Object modifiedObject,
   }) =>
       ConcurrentModificationError(
     modifiedObject,
@@ -2677,7 +3678,7 @@ var _stackOverflowError = MXFunctionInvoke(
 var _cyclicInitializationError = MXFunctionInvoke(
   "CyclicInitializationError",
   ({
-    String variableName,
+    core.String variableName,
   }) =>
       CyclicInitializationError(
     variableName,
@@ -2701,9 +3702,9 @@ var _exception = MXFunctionInvoke(
 var _formatException = MXFunctionInvoke(
   "FormatException",
   ({
-    String message,
+    core.String message,
     dynamic source,
-    int offset,
+    core.int offset,
   }) =>
       FormatException(
     message,
@@ -2724,7 +3725,7 @@ var _integerDivisionByZeroException = MXFunctionInvoke(
 var _expando = MXFunctionInvoke(
   "Expando",
   ({
-    String name,
+    core.String name,
   }) =>
       Expando(
     name,
@@ -2733,32 +3734,17 @@ var _expando = MXFunctionInvoke(
     "name",
   ],
 );
-var _intFromEnvironment = MXFunctionInvoke(
-  "int.fromEnvironment",
-  ({
-    String name,
-    int defaultValue = 0,
-  }) =>
-      int.fromEnvironment(
-    name,
-    defaultValue: defaultValue,
-  ),
-  [
-    "name",
-    "defaultValue",
-  ],
-);
 var _invocationMethod = MXFunctionInvoke(
   "Invocation.method",
   ({
-    Symbol memberName,
-    Iterable<Object> positionalArguments,
-    dynamic namedArguments,
+    core.Symbol memberName,
+    core.Iterable<core.Object> positionalArguments,
+    core.dynamic namedArguments,
   }) =>
       Invocation.method(
     memberName,
     positionalArguments,
-    toMapT<Symbol, Object>(namedArguments),
+    toMapT<core.Symbol, core.Object>(namedArguments),
   ),
   [
     "memberName",
@@ -2769,16 +3755,16 @@ var _invocationMethod = MXFunctionInvoke(
 var _invocationGenericMethod = MXFunctionInvoke(
   "Invocation.genericMethod",
   ({
-    Symbol memberName,
-    Iterable<Type> typeArguments,
-    Iterable<Object> positionalArguments,
-    dynamic namedArguments,
+    core.Symbol memberName,
+    core.Iterable<core.Type> typeArguments,
+    core.Iterable<core.Object> positionalArguments,
+    core.dynamic namedArguments,
   }) =>
       Invocation.genericMethod(
     memberName,
     typeArguments,
     positionalArguments,
-    toMapT<Symbol, Object>(namedArguments),
+    toMapT<core.Symbol, core.Object>(namedArguments),
   ),
   [
     "memberName",
@@ -2790,7 +3776,7 @@ var _invocationGenericMethod = MXFunctionInvoke(
 var _invocationGetter = MXFunctionInvoke(
   "Invocation.getter",
   ({
-    Symbol name,
+    core.Symbol name,
   }) =>
       Invocation.getter(
     name,
@@ -2802,8 +3788,8 @@ var _invocationGetter = MXFunctionInvoke(
 var _invocationSetter = MXFunctionInvoke(
   "Invocation.setter",
   ({
-    Symbol memberName,
-    Object argument,
+    core.Symbol memberName,
+    core.Object argument,
   }) =>
       Invocation.setter(
     memberName,
@@ -2812,249 +3798,6 @@ var _invocationSetter = MXFunctionInvoke(
   [
     "memberName",
     "argument",
-  ],
-);
-var _iterableGenerate = MXFunctionInvoke(
-  "Iterable.generate",
-  ({
-    int count,
-    dynamic generator,
-  }) =>
-      Iterable.generate(
-    count,
-    null,
-  ),
-  [
-    "count",
-    "generator",
-  ],
-);
-var _iterableEmpty = MXFunctionInvoke(
-  "Iterable.empty",
-  () => Iterable.empty(),
-  [],
-);
-var _list = MXFunctionInvoke(
-  "List",
-  ({
-    int length,
-  }) =>
-      List(
-    length,
-  ),
-  [
-    "length",
-  ],
-);
-var _listFilled = MXFunctionInvoke(
-  "List.filled",
-  ({
-    int length,
-    dynamic fill,
-    bool growable = false,
-  }) =>
-      List.filled(
-    length,
-    fill,
-    growable: growable,
-  ),
-  [
-    "length",
-    "fill",
-    "growable",
-  ],
-);
-var _listFrom = MXFunctionInvoke(
-  "List.from",
-  ({
-    Iterable<dynamic> elements,
-    bool growable = true,
-  }) =>
-      List.from(
-    elements,
-    growable: growable,
-  ),
-  [
-    "elements",
-    "growable",
-  ],
-);
-var _listOf = MXFunctionInvoke(
-  "List.of",
-  ({
-    Iterable<dynamic> elements,
-    bool growable = true,
-  }) =>
-      List.of(
-    elements,
-    growable: growable,
-  ),
-  [
-    "elements",
-    "growable",
-  ],
-);
-var _listGenerate = MXFunctionInvoke(
-  "List.generate",
-  ({
-    int length,
-    dynamic generator,
-    bool growable = true,
-  }) =>
-      List.generate(
-    length,
-    null,
-    growable: growable,
-  ),
-  [
-    "length",
-    "generator",
-    "growable",
-  ],
-);
-var _listUnmodifiable = MXFunctionInvoke(
-  "List.unmodifiable",
-  ({
-    Iterable<dynamic> elements,
-  }) =>
-      List.unmodifiable(
-    elements,
-  ),
-  [
-    "elements",
-  ],
-);
-var _listCopyRange = MXFunctionInvoke(
-  "List.copyRange",
-  ({
-    dynamic target,
-    int at,
-    dynamic source,
-    int start,
-    int end,
-  }) =>
-      List.copyRange(
-    toListT<dynamic>(target),
-    at,
-    toListT<dynamic>(source),
-    start,
-    end,
-  ),
-  [
-    "target",
-    "at",
-    "source",
-    "start",
-    "end",
-  ],
-);
-var _listWriteIterable = MXFunctionInvoke(
-  "List.writeIterable",
-  ({
-    dynamic target,
-    int at,
-    Iterable<dynamic> source,
-  }) =>
-      List.writeIterable(
-    toListT<dynamic>(target),
-    at,
-    source,
-  ),
-  [
-    "target",
-    "at",
-    "source",
-  ],
-);
-var _map = MXFunctionInvoke(
-  "Map",
-  () => Map(),
-  [],
-);
-var _mapFrom = MXFunctionInvoke(
-  "Map.from",
-  ({
-    dynamic other,
-  }) =>
-      Map.from(
-    toMapT<dynamic, dynamic>(other),
-  ),
-  [
-    "other",
-  ],
-);
-var _mapOf = MXFunctionInvoke(
-  "Map.of",
-  ({
-    dynamic other,
-  }) =>
-      Map.of(
-    toMapT<dynamic, dynamic>(other),
-  ),
-  [
-    "other",
-  ],
-);
-var _mapUnmodifiable = MXFunctionInvoke(
-  "Map.unmodifiable",
-  ({
-    dynamic other,
-  }) =>
-      Map.unmodifiable(
-    toMapT<dynamic, dynamic>(other),
-  ),
-  [
-    "other",
-  ],
-);
-var _mapIdentity = MXFunctionInvoke(
-  "Map.identity",
-  () => Map.identity(),
-  [],
-);
-var _mapFromIterable = MXFunctionInvoke(
-  "Map.fromIterable",
-  ({
-    Iterable<dynamic> iterable,
-    dynamic key,
-    dynamic value,
-  }) =>
-      Map.fromIterable(
-    iterable,
-    key: null,
-    value: null,
-  ),
-  [
-    "iterable",
-    "key",
-    "value",
-  ],
-);
-var _mapFromIterables = MXFunctionInvoke(
-  "Map.fromIterables",
-  ({
-    Iterable<dynamic> keys,
-    Iterable<dynamic> values,
-  }) =>
-      Map.fromIterables(
-    keys,
-    values,
-  ),
-  [
-    "keys",
-    "values",
-  ],
-);
-var _mapFromEntries = MXFunctionInvoke(
-  "Map.fromEntries",
-  ({
-    Iterable<MapEntry<dynamic, dynamic>> entries,
-  }) =>
-      Map.fromEntries(
-    entries,
-  ),
-  [
-    "entries",
   ],
 );
 var _mapEntry = MXFunctionInvoke(
@@ -3075,11 +3818,11 @@ var _mapEntry = MXFunctionInvoke(
 var _regExp = MXFunctionInvoke(
   "RegExp",
   ({
-    String source,
-    bool multiLine = false,
-    bool caseSensitive = true,
-    bool unicode = false,
-    bool dotAll = false,
+    core.String source,
+    core.bool multiLine = false,
+    core.bool caseSensitive = true,
+    core.bool unicode = false,
+    core.bool dotAll = false,
   }) =>
       RegExp(
     source,
@@ -3109,7 +3852,7 @@ var _setIdentity = MXFunctionInvoke(
 var _setFrom = MXFunctionInvoke(
   "Set.from",
   ({
-    Iterable<dynamic> elements,
+    core.Iterable<dynamic> elements,
   }) =>
       Set.from(
     elements,
@@ -3121,7 +3864,7 @@ var _setFrom = MXFunctionInvoke(
 var _setOf = MXFunctionInvoke(
   "Set.of",
   ({
-    Iterable<dynamic> elements,
+    core.Iterable<dynamic> elements,
   }) =>
       Set.of(
     elements,
@@ -3135,7 +3878,7 @@ var _stackTraceEmpty =
 var _stackTraceFromString = MXFunctionInvoke(
   "StackTrace.fromString",
   ({
-    String stackTraceString,
+    core.String stackTraceString,
   }) =>
       StackTrace.fromString(
     stackTraceString,
@@ -3149,55 +3892,10 @@ var _stopwatch = MXFunctionInvoke(
   () => Stopwatch(),
   [],
 );
-var _stringFromCharCodes = MXFunctionInvoke(
-  "String.fromCharCodes",
-  ({
-    Iterable<int> charCodes,
-    int start,
-    int end,
-  }) =>
-      String.fromCharCodes(
-    charCodes,
-    start,
-    end,
-  ),
-  [
-    "charCodes",
-    "start",
-    "end",
-  ],
-);
-var _stringFromCharCode = MXFunctionInvoke(
-  "String.fromCharCode",
-  ({
-    int charCode,
-  }) =>
-      String.fromCharCode(
-    charCode,
-  ),
-  [
-    "charCode",
-  ],
-);
-var _stringFromEnvironment = MXFunctionInvoke(
-  "String.fromEnvironment",
-  ({
-    String name,
-    String defaultValue = '',
-  }) =>
-      String.fromEnvironment(
-    name,
-    defaultValue: defaultValue,
-  ),
-  [
-    "name",
-    "defaultValue",
-  ],
-);
 var _runes = MXFunctionInvoke(
   "Runes",
   ({
-    String string,
+    core.String string,
   }) =>
       Runes(
     string,
@@ -3209,7 +3907,7 @@ var _runes = MXFunctionInvoke(
 var _runeIterator = MXFunctionInvoke(
   "RuneIterator",
   ({
-    String string,
+    core.String string,
   }) =>
       RuneIterator(
     string,
@@ -3221,8 +3919,8 @@ var _runeIterator = MXFunctionInvoke(
 var _runeIteratorAt = MXFunctionInvoke(
   "RuneIterator.at",
   ({
-    String string,
-    int index,
+    core.String string,
+    core.int index,
   }) =>
       RuneIterator.at(
     string,
@@ -3236,7 +3934,7 @@ var _runeIteratorAt = MXFunctionInvoke(
 var _stringBuffer = MXFunctionInvoke(
   "StringBuffer",
   ({
-    Object content,
+    core.Object content,
   }) =>
       StringBuffer(
     content,
@@ -3245,33 +3943,35 @@ var _stringBuffer = MXFunctionInvoke(
     "content",
   ],
 );
-var _symbolUnaryMinus =
-    MXFunctionInvoke("Symbol.unaryMinus", () => Symbol.unaryMinus);
-var _symbolEmpty = MXFunctionInvoke("Symbol.empty", () => Symbol.empty);
-var _symbol = MXFunctionInvoke(
-  "Symbol",
-  ({
-    String name,
-  }) =>
-      Symbol(
-    name,
-  ),
-  [
-    "name",
-  ],
-);
+//MX Modified begin
+// var _symbolUnaryMinus =
+//     MXFunctionInvoke("Symbol.unaryMinus", () => Symbol.unaryMinus);
+// var _symbolEmpty = MXFunctionInvoke("Symbol.empty", () => Symbol.empty);
+// var _symbol = MXFunctionInvoke(
+//   "Symbol",
+//   ({
+//     core.String name,
+//   }) =>
+//       Symbol(
+//     name,
+//   ),
+//   [
+//     "name",
+//   ],
+// );
+//MX Modified end
 var _uri = MXFunctionInvoke(
   "Uri",
   ({
-    String scheme,
-    String userInfo,
-    String host,
-    int port,
-    String path,
-    Iterable<String> pathSegments,
-    String query,
-    dynamic queryParameters,
-    String fragment,
+    core.String scheme,
+    core.String userInfo,
+    core.String host,
+    core.int port,
+    core.String path,
+    core.Iterable<core.String> pathSegments,
+    core.String query,
+    core.dynamic queryParameters,
+    core.String fragment,
   }) =>
       Uri(
     scheme: scheme,
@@ -3281,7 +3981,7 @@ var _uri = MXFunctionInvoke(
     path: path,
     pathSegments: pathSegments,
     query: query,
-    queryParameters: toMapT<String, dynamic>(queryParameters),
+    queryParameters: toMapT<core.String, dynamic>(queryParameters),
     fragment: fragment,
   ),
   [
@@ -3299,14 +3999,14 @@ var _uri = MXFunctionInvoke(
 var _uriHttp = MXFunctionInvoke(
   "Uri.http",
   ({
-    String authority,
-    String unencodedPath,
-    dynamic queryParameters,
+    core.String authority,
+    core.String unencodedPath,
+    core.dynamic queryParameters,
   }) =>
       Uri.http(
     authority,
     unencodedPath,
-    toMapT<String, String>(queryParameters),
+    toMapT<core.String, core.String>(queryParameters),
   ),
   [
     "authority",
@@ -3317,14 +4017,14 @@ var _uriHttp = MXFunctionInvoke(
 var _uriHttps = MXFunctionInvoke(
   "Uri.https",
   ({
-    String authority,
-    String unencodedPath,
-    dynamic queryParameters,
+    core.String authority,
+    core.String unencodedPath,
+    core.dynamic queryParameters,
   }) =>
       Uri.https(
     authority,
     unencodedPath,
-    toMapT<String, String>(queryParameters),
+    toMapT<core.String, core.String>(queryParameters),
   ),
   [
     "authority",
@@ -3335,8 +4035,8 @@ var _uriHttps = MXFunctionInvoke(
 var _uriFile = MXFunctionInvoke(
   "Uri.file",
   ({
-    String path,
-    bool windows,
+    core.String path,
+    core.bool windows,
   }) =>
       Uri.file(
     path,
@@ -3350,8 +4050,8 @@ var _uriFile = MXFunctionInvoke(
 var _uriDirectory = MXFunctionInvoke(
   "Uri.directory",
   ({
-    String path,
-    bool windows,
+    core.String path,
+    core.bool windows,
   }) =>
       Uri.directory(
     path,
@@ -3365,66 +4065,17 @@ var _uriDirectory = MXFunctionInvoke(
 var _uriDataFromString = MXFunctionInvoke(
   "Uri.dataFromString",
   ({
-    String content,
-    String mimeType,
+    core.String content,
+    core.String mimeType,
     Encoding encoding,
-    dynamic parameters,
-    bool base64 = false,
+    core.dynamic parameters,
+    core.bool base64 = false,
   }) =>
       Uri.dataFromString(
     content,
     mimeType: mimeType,
     encoding: encoding,
-    parameters: toMapT<String, String>(parameters),
-    base64: base64,
-  ),
-  [
-    "content",
-    "mimeType",
-    "encoding",
-    "parameters",
-    "base64",
-  ],
-);
-///MX Modified begin
-var _uriDataFromBytesStatic = MXFunctionInvoke(
-///MX Modified end
-  "Uri.dataFromBytes",
-  ({
-    dynamic bytes,
-    dynamic mimeType = 'application/octet-stream',
-    dynamic parameters,
-    dynamic percentEncoded = false,
-  }) =>
-      Uri.dataFromBytes(
-    toListT<int>(bytes),
-    mimeType: mimeType,
-    parameters: toMapT<String, String>(parameters),
-    percentEncoded: percentEncoded,
-  ),
-  [
-    "bytes",
-    "mimeType",
-    "parameters",
-    "percentEncoded",
-  ],
-);
-///MX Modified begin
-var _uriDataFromStringStatic = MXFunctionInvoke(
-///MX Modified end
-  "UriData.fromString",
-  ({
-    String content,
-    String mimeType,
-    Encoding encoding,
-    dynamic parameters,
-    bool base64 = false,
-  }) =>
-      UriData.fromString(
-    content,
-    mimeType: mimeType,
-    encoding: encoding,
-    parameters: toMapT<String, String>(parameters),
+    parameters: toMapT<core.String, core.String>(parameters),
     base64: base64,
   ),
   [
@@ -3436,17 +4087,17 @@ var _uriDataFromStringStatic = MXFunctionInvoke(
   ],
 );
 var _uriDataFromBytes = MXFunctionInvoke(
-  "UriData.fromBytes",
+  "Uri.dataFromBytes",
   ({
-    dynamic bytes,
-    dynamic mimeType = 'application/octet-stream',
-    dynamic parameters,
-    dynamic percentEncoded = false,
+    core.dynamic bytes,
+    core.String mimeType = 'application/octet-stream',
+    core.dynamic parameters,
+    core.bool percentEncoded = false,
   }) =>
-      UriData.fromBytes(
-    toListT<int>(bytes),
+      Uri.dataFromBytes(
+    toListT<core.int>(bytes),
     mimeType: mimeType,
-    parameters: toMapT<String, String>(parameters),
+    parameters: toMapT<core.String, core.String>(parameters),
     percentEncoded: percentEncoded,
   ),
   [
@@ -3456,10 +4107,57 @@ var _uriDataFromBytes = MXFunctionInvoke(
     "percentEncoded",
   ],
 );
+//MX Modifed begin
+// var _uriDataFromString = MXFunctionInvoke(
+//   "UriData.fromString",
+//   ({
+//     core.String content,
+//     core.String mimeType,
+//     Encoding encoding,
+//     core.dynamic parameters,
+//     core.bool base64 = false,
+//   }) =>
+//       UriData.fromString(
+//     content,
+//     mimeType: mimeType,
+//     encoding: encoding,
+//     parameters: toMapT<core.String, core.String>(parameters),
+//     base64: base64,
+//   ),
+//   [
+//     "content",
+//     "mimeType",
+//     "encoding",
+//     "parameters",
+//     "base64",
+//   ],
+// );
+// var _uriDataFromBytes = MXFunctionInvoke(
+//   "UriData.fromBytes",
+//   ({
+//     core.dynamic bytes,
+//     core.String mimeType = 'application/octet-stream',
+//     core.dynamic parameters,
+//     core.bool percentEncoded = false,
+//   }) =>
+//       UriData.fromBytes(
+//     toListT<core.int>(bytes),
+//     mimeType: mimeType,
+//     parameters: toMapT<core.String, core.String>(parameters),
+//     percentEncoded: percentEncoded,
+//   ),
+//   [
+//     "bytes",
+//     "mimeType",
+//     "parameters",
+//     "percentEncoded",
+//   ],
+// );
+//MX Modifed end
 var _uriDataFromUri = MXFunctionInvoke(
   "UriData.fromUri",
   ({
-    Uri uri,
+    core.Uri uri,
   }) =>
       UriData.fromUri(
     uri,
@@ -3469,6 +4167,20 @@ var _uriDataFromUri = MXFunctionInvoke(
   ],
 );
 
+//MX Modifed begin
+// var _jS = MXFunctionInvoke(
+//   "JS",
+//   ({
+//     core.String name,
+//   }) =>
+//       JS(
+//     name,
+//   ),
+//   [
+//     "name",
+//   ],
+// );
+//MX Modifed end
 class MXPointMode {
   static PointMode parse(String name, int index) {
     switch (name) {
@@ -3968,5 +4680,3 @@ class MXFramePhase {
     return null;
   }
 }
-
-//# sourceMappingURL=mx_dart_sdk.map

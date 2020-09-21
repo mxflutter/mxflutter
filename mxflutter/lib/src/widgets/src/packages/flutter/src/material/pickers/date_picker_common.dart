@@ -6,12 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/pickers/date_picker_common.dart';
+import 'dart:ui';
+import 'package:flutter/foundation.dart';
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerDatePickerCommonSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_datePickerEntryMode.funName] = _datePickerEntryMode;
   m[_datePickerMode.funName] = _datePickerMode;
+  m[_dateTimeRange.funName] = _dateTimeRange;
   return m;
 }
 
@@ -23,6 +26,21 @@ var _datePickerMode = MXFunctionInvoke(
     "DatePickerMode",
     ({String name, int index}) => MXDatePickerMode.parse(name, index),
     ["name", "index"]);
+var _dateTimeRange = MXFunctionInvoke(
+  "DateTimeRange",
+  ({
+    DateTime start,
+    DateTime end,
+  }) =>
+      DateTimeRange(
+    start: start,
+    end: end,
+  ),
+  [
+    "start",
+    "end",
+  ],
+);
 
 class MXDatePickerEntryMode {
   static DatePickerEntryMode parse(String name, int index) {

@@ -175,11 +175,8 @@ var _listViewBuilder = MXFunctionInvoke(
     dynamic cacheExtent,
     int semanticChildCount,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-
-    /// MX modified begin add children
-    dynamic children,
-
-    /// MX modified end
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.manual,
   }) =>
       ListView.builder(
     key: key,
@@ -191,13 +188,7 @@ var _listViewBuilder = MXFunctionInvoke(
     shrinkWrap: shrinkWrap,
     padding: padding,
     itemExtent: itemExtent?.toDouble(),
-
-    /// MX modified begin add function
-    itemBuilder: (BuildContext context, int index) {
-      return children[index];
-    },
-
-    /// MX modified end
+    itemBuilder: null,
     itemCount: itemCount,
     addAutomaticKeepAlives: addAutomaticKeepAlives,
     addRepaintBoundaries: addRepaintBoundaries,
@@ -205,6 +196,7 @@ var _listViewBuilder = MXFunctionInvoke(
     cacheExtent: cacheExtent?.toDouble(),
     semanticChildCount: semanticChildCount,
     dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
   ),
   [
     "key",
@@ -224,9 +216,7 @@ var _listViewBuilder = MXFunctionInvoke(
     "cacheExtent",
     "semanticChildCount",
     "dragStartBehavior",
-    ///MX modified begin
-    "children",
-    ///MX modified end
+    "keyboardDismissBehavior",
   ],
 );
 var _listViewSeparated = MXFunctionInvoke(
@@ -247,14 +237,9 @@ var _listViewSeparated = MXFunctionInvoke(
     bool addRepaintBoundaries = true,
     bool addSemanticIndexes = true,
     dynamic cacheExtent,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
         ScrollViewKeyboardDismissBehavior.manual,
-
-    /// MX modified begin -add children
-    dynamic children,
-    dynamic separatorChildren,
-
-    /// MX modified end
   }) =>
       ListView.separated(
     key: key,
@@ -265,21 +250,14 @@ var _listViewSeparated = MXFunctionInvoke(
     physics: physics,
     shrinkWrap: shrinkWrap,
     padding: padding,
-
-    /// MX modified begin add function
-    itemBuilder: (BuildContext context, int index) {
-      return children[index];
-    },
-    separatorBuilder: (BuildContext context, int index) {
-      return separatorChildren[index];
-    },
-    /// MX modified end
-    
+    itemBuilder: null,
+    separatorBuilder: null,
     itemCount: itemCount,
     addAutomaticKeepAlives: addAutomaticKeepAlives,
     addRepaintBoundaries: addRepaintBoundaries,
     addSemanticIndexes: addSemanticIndexes,
     cacheExtent: cacheExtent?.toDouble(),
+    dragStartBehavior: dragStartBehavior,
     keyboardDismissBehavior: keyboardDismissBehavior,
   ),
   [
@@ -298,11 +276,8 @@ var _listViewSeparated = MXFunctionInvoke(
     "addRepaintBoundaries",
     "addSemanticIndexes",
     "cacheExtent",
+    "dragStartBehavior",
     "keyboardDismissBehavior",
-    ///MX modified begin
-    "children",
-    "separatorChildren",
-    ///MX modified end
   ],
 );
 var _listViewCustom = MXFunctionInvoke(
@@ -320,6 +295,9 @@ var _listViewCustom = MXFunctionInvoke(
     SliverChildDelegate childrenDelegate,
     dynamic cacheExtent,
     int semanticChildCount,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.manual,
   }) =>
       ListView.custom(
     key: key,
@@ -334,6 +312,8 @@ var _listViewCustom = MXFunctionInvoke(
     childrenDelegate: childrenDelegate,
     cacheExtent: cacheExtent?.toDouble(),
     semanticChildCount: semanticChildCount,
+    dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
   ),
   [
     "key",
@@ -348,6 +328,8 @@ var _listViewCustom = MXFunctionInvoke(
     "childrenDelegate",
     "cacheExtent",
     "semanticChildCount",
+    "dragStartBehavior",
+    "keyboardDismissBehavior",
   ],
 );
 var _gridView = MXFunctionInvoke(
@@ -368,6 +350,9 @@ var _gridView = MXFunctionInvoke(
     dynamic cacheExtent,
     dynamic children = const <Widget>[],
     int semanticChildCount,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.manual,
   }) =>
       GridView(
     key: key,
@@ -385,6 +370,8 @@ var _gridView = MXFunctionInvoke(
     cacheExtent: cacheExtent?.toDouble(),
     children: toListT<Widget>(children),
     semanticChildCount: semanticChildCount,
+    dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
   ),
   [
     "key",
@@ -402,6 +389,8 @@ var _gridView = MXFunctionInvoke(
     "cacheExtent",
     "children",
     "semanticChildCount",
+    "dragStartBehavior",
+    "keyboardDismissBehavior",
   ],
 );
 var _gridViewBuilder = MXFunctionInvoke(
@@ -423,6 +412,9 @@ var _gridViewBuilder = MXFunctionInvoke(
     bool addSemanticIndexes = true,
     dynamic cacheExtent,
     int semanticChildCount,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.manual,
   }) =>
       GridView.builder(
     key: key,
@@ -441,6 +433,8 @@ var _gridViewBuilder = MXFunctionInvoke(
     addSemanticIndexes: addSemanticIndexes,
     cacheExtent: cacheExtent?.toDouble(),
     semanticChildCount: semanticChildCount,
+    dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
   ),
   [
     "key",
@@ -459,6 +453,8 @@ var _gridViewBuilder = MXFunctionInvoke(
     "addSemanticIndexes",
     "cacheExtent",
     "semanticChildCount",
+    "dragStartBehavior",
+    "keyboardDismissBehavior",
   ],
 );
 var _gridViewCustom = MXFunctionInvoke(
@@ -477,6 +473,8 @@ var _gridViewCustom = MXFunctionInvoke(
     dynamic cacheExtent,
     int semanticChildCount,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.manual,
   }) =>
       GridView.custom(
     key: key,
@@ -492,6 +490,7 @@ var _gridViewCustom = MXFunctionInvoke(
     cacheExtent: cacheExtent?.toDouble(),
     semanticChildCount: semanticChildCount,
     dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
   ),
   [
     "key",
@@ -507,6 +506,7 @@ var _gridViewCustom = MXFunctionInvoke(
     "cacheExtent",
     "semanticChildCount",
     "dragStartBehavior",
+    "keyboardDismissBehavior",
   ],
 );
 var _gridViewCount = MXFunctionInvoke(
@@ -531,6 +531,8 @@ var _gridViewCount = MXFunctionInvoke(
     dynamic children = const <Widget>[],
     int semanticChildCount,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.manual,
   }) =>
       GridView.count(
     key: key,
@@ -552,6 +554,7 @@ var _gridViewCount = MXFunctionInvoke(
     children: toListT<Widget>(children),
     semanticChildCount: semanticChildCount,
     dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
   ),
   [
     "key",
@@ -573,6 +576,7 @@ var _gridViewCount = MXFunctionInvoke(
     "children",
     "semanticChildCount",
     "dragStartBehavior",
+    "keyboardDismissBehavior",
   ],
 );
 var _gridViewExtent = MXFunctionInvoke(
@@ -596,6 +600,8 @@ var _gridViewExtent = MXFunctionInvoke(
     dynamic children = const <Widget>[],
     int semanticChildCount,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.manual,
   }) =>
       GridView.extent(
     key: key,
@@ -616,6 +622,7 @@ var _gridViewExtent = MXFunctionInvoke(
     children: toListT<Widget>(children),
     semanticChildCount: semanticChildCount,
     dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
   ),
   [
     "key",
@@ -636,6 +643,7 @@ var _gridViewExtent = MXFunctionInvoke(
     "children",
     "semanticChildCount",
     "dragStartBehavior",
+    "keyboardDismissBehavior",
   ],
 );
 

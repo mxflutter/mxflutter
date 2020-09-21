@@ -14,10 +14,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/constants.dart';
 import 'package:flutter/src/material/debug.dart';
 import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/material_state.dart';
 import 'package:flutter/src/material/slider_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 
@@ -43,7 +45,10 @@ var _slider = MXFunctionInvoke(
     String label,
     Color activeColor,
     Color inactiveColor,
+    MouseCursor mouseCursor,
     dynamic semanticFormatterCallback,
+    FocusNode focusNode,
+    bool autofocus = false,
   }) =>
       Slider(
     key: key,
@@ -60,7 +65,10 @@ var _slider = MXFunctionInvoke(
     label: label,
     activeColor: activeColor,
     inactiveColor: inactiveColor,
+    mouseCursor: mouseCursor,
     semanticFormatterCallback: null,
+    focusNode: focusNode,
+    autofocus: autofocus,
   ),
   [
     "key",
@@ -74,7 +82,10 @@ var _slider = MXFunctionInvoke(
     "label",
     "activeColor",
     "inactiveColor",
+    "mouseCursor",
     "semanticFormatterCallback",
+    "focusNode",
+    "autofocus",
   ],
 );
 var _sliderAdaptive = MXFunctionInvoke(
@@ -89,9 +100,12 @@ var _sliderAdaptive = MXFunctionInvoke(
     dynamic max = 1.0,
     int divisions,
     String label,
+    MouseCursor mouseCursor,
     Color activeColor,
     Color inactiveColor,
     dynamic semanticFormatterCallback,
+    FocusNode focusNode,
+    bool autofocus = false,
   }) =>
       Slider.adaptive(
     key: key,
@@ -106,9 +120,12 @@ var _sliderAdaptive = MXFunctionInvoke(
     max: max?.toDouble(),
     divisions: divisions,
     label: label,
+    mouseCursor: mouseCursor,
     activeColor: activeColor,
     inactiveColor: inactiveColor,
     semanticFormatterCallback: null,
+    focusNode: focusNode,
+    autofocus: autofocus,
   ),
   [
     "key",
@@ -120,8 +137,11 @@ var _sliderAdaptive = MXFunctionInvoke(
     "max",
     "divisions",
     "label",
+    "mouseCursor",
     "activeColor",
     "inactiveColor",
     "semanticFormatterCallback",
+    "focusNode",
+    "autofocus",
   ],
 );

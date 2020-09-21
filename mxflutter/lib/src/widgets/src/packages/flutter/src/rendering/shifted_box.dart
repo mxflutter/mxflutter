@@ -109,18 +109,21 @@ var _renderUnconstrainedBox = MXFunctionInvoke(
     TextDirection textDirection,
     Axis constrainedAxis,
     RenderBox child,
+    Clip clipBehavior = Clip.none,
   }) =>
       RenderUnconstrainedBox(
     alignment: alignment,
     textDirection: textDirection,
     constrainedAxis: constrainedAxis,
     child: child,
+    clipBehavior: clipBehavior,
   ),
   [
     "alignment",
     "textDirection",
     "constrainedAxis",
     "child",
+    "clipBehavior",
   ],
 );
 var _renderSizedOverflowBox = MXFunctionInvoke(

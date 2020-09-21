@@ -85,27 +85,26 @@ var _resizeImage = MXFunctionInvoke(
     ImageProvider<dynamic> imageProvider,
     int width,
     int height,
+    bool allowUpscaling = false,
   }) =>
       ResizeImage(
     imageProvider,
     width: width,
     height: height,
+    allowUpscaling: allowUpscaling,
   ),
   [
     "imageProvider",
     "width",
     "height",
+    "allowUpscaling",
   ],
 );
 var _networkImage = MXFunctionInvoke(
   "NetworkImage",
   ({
     String url,
-
-    /// MX modified begin
-    dynamic scale = 1.0,
-
-    /// MX modified end
+    dynamic scale,
     dynamic headers,
   }) =>
       NetworkImage(

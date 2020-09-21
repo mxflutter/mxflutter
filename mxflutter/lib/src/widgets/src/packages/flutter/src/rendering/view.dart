@@ -10,6 +10,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/rendering/binding.dart';

@@ -19,10 +19,6 @@ Map<String, MXFunctionInvoke> registerScrollControllerSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scrollController.funName] = _scrollController;
   m[_trackingScrollController.funName] = _trackingScrollController;
-  // MX modified begin
-  m[_scrollController_jumpTo.funName] = _scrollController_jumpTo;
-  m[_scrollController_animateTo.funName] = _scrollController_animateTo;
-  // MX modified end
   return m;
 }
 
@@ -62,39 +58,3 @@ var _trackingScrollController = MXFunctionInvoke(
     "debugLabel",
   ],
 );
-
-// MX modified begin
-var _scrollController_jumpTo = MXFunctionInvoke(
-  "ScrollController#jumpTo",
-  ({
-    ScrollController mirrorObj,
-    dynamic value,
-  }) =>
-      mirrorObj.jumpTo(value?.toDouble()),
-  [
-    "mirrorObj",
-    "value",
-  ],
-);
-
-var _scrollController_animateTo = MXFunctionInvoke(
-  "ScrollController#animateTo",
-  ({
-    ScrollController mirrorObj,
-    dynamic value,
-    Duration duration,
-    Curve curve,
-  }) =>
-      mirrorObj.animateTo(
-    value?.toDouble(),
-    duration: duration,
-    curve: curve,
-  ),
-  [
-    "mirrorObj",
-    "value",
-    "duration",
-    "curve",
-  ],
-);
-// MX modified end

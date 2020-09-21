@@ -15,6 +15,7 @@ import 'package:flutter/src/material/theme.dart';
 Map<String, MXFunctionInvoke> registerPageSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_materialPageRoute.funName] = _materialPageRoute;
+  m[_materialPage.funName] = _materialPage;
   return m;
 }
 
@@ -25,19 +26,9 @@ var _materialPageRoute = MXFunctionInvoke(
     RouteSettings settings,
     bool maintainState = true,
     bool fullscreenDialog = false,
-
-    /// MX modified begin -add child
-    dynamic child,
-
-    /// MX modified end
   }) =>
       MaterialPageRoute(
-    /// MX modified begin -add builderfunction
-    builder: (BuildContext context) {
-      return child;
-    },
-
-    /// MX modified end
+    builder: null,
     settings: settings,
     maintainState: maintainState,
     fullscreenDialog: fullscreenDialog,
@@ -47,8 +38,32 @@ var _materialPageRoute = MXFunctionInvoke(
     "settings",
     "maintainState",
     "fullscreenDialog",
-    ///MX modified begin
-    "child",
-    ///MX modified end
+  ],
+);
+var _materialPage = MXFunctionInvoke(
+  "MaterialPage",
+  ({
+    dynamic builder,
+    bool maintainState = true,
+    bool fullscreenDialog = false,
+    LocalKey key,
+    String name,
+    Object arguments,
+  }) =>
+      MaterialPage(
+    builder: null,
+    maintainState: maintainState,
+    fullscreenDialog: fullscreenDialog,
+    key: key,
+    name: name,
+    arguments: arguments,
+  ),
+  [
+    "builder",
+    "maintainState",
+    "fullscreenDialog",
+    "key",
+    "name",
+    "arguments",
   ],
 );

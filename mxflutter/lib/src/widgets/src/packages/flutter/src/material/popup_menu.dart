@@ -19,6 +19,7 @@ import 'package:flutter/src/material/ink_well.dart';
 import 'package:flutter/src/material/list_tile.dart';
 import 'package:flutter/src/material/material.dart';
 import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/material_state.dart';
 import 'package:flutter/src/material/popup_menu_theme.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/tooltip.dart';
@@ -58,6 +59,7 @@ var _popupMenuItem = MXFunctionInvoke(
     bool enabled = true,
     dynamic height = 48.0,
     TextStyle textStyle,
+    MouseCursor mouseCursor,
     Widget child,
   }) =>
       PopupMenuItem(
@@ -66,6 +68,7 @@ var _popupMenuItem = MXFunctionInvoke(
     enabled: enabled,
     height: height?.toDouble(),
     textStyle: textStyle,
+    mouseCursor: mouseCursor,
     child: child,
   ),
   [
@@ -74,6 +77,7 @@ var _popupMenuItem = MXFunctionInvoke(
     "enabled",
     "height",
     "textStyle",
+    "mouseCursor",
     "child",
   ],
 );
@@ -124,21 +128,10 @@ var _popupMenuButton = MXFunctionInvoke(
     ShapeBorder shape,
     Color color,
     bool captureInheritedThemes = true,
-
-    /// MX modified begin -add children
-    dynamic children,
-
-    /// MX modified end
   }) =>
       PopupMenuButton(
     key: key,
-
-    /// MX modified begin -add builder function
-    itemBuilder: (BuildContext context) {
-      return toListT<PopupMenuEntry>(children);
-    },
-
-    /// MX modified end
+    itemBuilder: null,
     initialValue: initialValue,
     onSelected: createValueChangedGenericClosure<dynamic>(
         _popupMenuButton.buildOwner, onSelected),
@@ -171,9 +164,6 @@ var _popupMenuButton = MXFunctionInvoke(
     "shape",
     "color",
     "captureInheritedThemes",
-    ///MX modified begin
-    "children",
-    ///MX modified end
   ],
 );
 var _popupMenuButtonState = MXFunctionInvoke(

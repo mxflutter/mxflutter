@@ -20,6 +20,7 @@ import 'package:flutter/src/widgets/scroll_simulation.dart';
 Map<String, MXFunctionInvoke> registerScrollPhysicsSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_scrollPhysics.funName] = _scrollPhysics;
+  m[_rangeMaintainingScrollPhysics.funName] = _rangeMaintainingScrollPhysics;
   m[_bouncingScrollPhysics.funName] = _bouncingScrollPhysics;
   m[_clampingScrollPhysics.funName] = _clampingScrollPhysics;
   m[_alwaysScrollableScrollPhysics.funName] = _alwaysScrollableScrollPhysics;
@@ -33,6 +34,18 @@ var _scrollPhysics = MXFunctionInvoke(
     ScrollPhysics parent,
   }) =>
       ScrollPhysics(
+    parent: parent,
+  ),
+  [
+    "parent",
+  ],
+);
+var _rangeMaintainingScrollPhysics = MXFunctionInvoke(
+  "RangeMaintainingScrollPhysics",
+  ({
+    ScrollPhysics parent,
+  }) =>
+      RangeMaintainingScrollPhysics(
     parent: parent,
   ),
   [

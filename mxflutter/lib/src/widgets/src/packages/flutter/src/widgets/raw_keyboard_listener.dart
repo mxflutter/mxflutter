@@ -26,6 +26,7 @@ var _rawKeyboardListener = MXFunctionInvoke(
     Key key,
     FocusNode focusNode,
     bool autofocus = false,
+    bool includeSemantics = true,
     dynamic onKey,
     Widget child,
   }) =>
@@ -33,6 +34,7 @@ var _rawKeyboardListener = MXFunctionInvoke(
     key: key,
     focusNode: focusNode,
     autofocus: autofocus,
+    includeSemantics: includeSemantics,
     onKey: createValueChangedGenericClosure<RawKeyEvent>(
         _rawKeyboardListener.buildOwner, onKey),
     child: child,
@@ -41,6 +43,7 @@ var _rawKeyboardListener = MXFunctionInvoke(
     "key",
     "focusNode",
     "autofocus",
+    "includeSemantics",
     "onKey",
     "child",
   ],

@@ -36,6 +36,7 @@ var _calendarDatePicker = MXFunctionInvoke(
     DateTime initialDate,
     DateTime firstDate,
     DateTime lastDate,
+    DateTime currentDate,
     dynamic onDateChanged,
     dynamic onDisplayedMonthChanged,
     DatePickerMode initialCalendarMode = DatePickerMode.day,
@@ -46,6 +47,7 @@ var _calendarDatePicker = MXFunctionInvoke(
     initialDate: initialDate,
     firstDate: firstDate,
     lastDate: lastDate,
+    currentDate: currentDate,
     onDateChanged: createValueChangedGenericClosure<DateTime>(
         _calendarDatePicker.buildOwner, onDateChanged),
     onDisplayedMonthChanged: createValueChangedGenericClosure<DateTime>(
@@ -58,6 +60,7 @@ var _calendarDatePicker = MXFunctionInvoke(
     "initialDate",
     "firstDate",
     "lastDate",
+    "currentDate",
     "onDateChanged",
     "onDisplayedMonthChanged",
     "initialCalendarMode",

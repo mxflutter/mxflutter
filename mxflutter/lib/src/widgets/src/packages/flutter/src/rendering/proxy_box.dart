@@ -13,10 +13,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/semantics.dart';
+import 'package:flutter/services.dart';
 import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/src/rendering/binding.dart';
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/layer.dart';
+import 'package:flutter/src/rendering/mouse_cursor.dart';
 import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
 
@@ -434,18 +436,21 @@ var _renderFittedBox = MXFunctionInvoke(
     AlignmentGeometry alignment = Alignment.center,
     ui.TextDirection textDirection,
     RenderBox child,
+    ui.Clip clipBehavior = Clip.none,
   }) =>
       RenderFittedBox(
     fit: fit,
     alignment: alignment,
     textDirection: textDirection,
     child: child,
+    clipBehavior: clipBehavior,
   ),
   [
     "fit",
     "alignment",
     "textDirection",
     "child",
+    "clipBehavior",
   ],
 );
 var _renderFractionalTranslation = MXFunctionInvoke(
@@ -507,6 +512,7 @@ var _renderMouseRegion = MXFunctionInvoke(
     dynamic onEnter,
     dynamic onHover,
     dynamic onExit,
+    MouseCursor cursor = MouseCursor.defer,
     bool opaque = true,
     RenderBox child,
   }) =>
@@ -517,6 +523,7 @@ var _renderMouseRegion = MXFunctionInvoke(
         _renderMouseRegion.buildOwner, onHover),
     onExit: createValueChangedGenericClosure<PointerExitEvent>(
         _renderMouseRegion.buildOwner, onExit),
+    cursor: cursor,
     opaque: opaque,
     child: child,
   ),
@@ -524,6 +531,7 @@ var _renderMouseRegion = MXFunctionInvoke(
     "onEnter",
     "onHover",
     "onExit",
+    "cursor",
     "opaque",
     "child",
   ],

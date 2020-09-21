@@ -26,6 +26,7 @@ var _radioListTile = MXFunctionInvoke(
     dynamic value,
     dynamic groupValue,
     dynamic onChanged,
+    bool toggleable = false,
     Color activeColor,
     Widget title,
     Widget subtitle,
@@ -34,6 +35,7 @@ var _radioListTile = MXFunctionInvoke(
     Widget secondary,
     bool selected = false,
     dynamic controlAffinity = ListTileControlAffinity.platform,
+    bool autofocus = false,
   }) =>
       RadioListTile(
     key: key,
@@ -41,6 +43,7 @@ var _radioListTile = MXFunctionInvoke(
     groupValue: groupValue,
     onChanged: createValueChangedGenericClosure<dynamic>(
         _radioListTile.buildOwner, onChanged),
+    toggleable: toggleable,
     activeColor: activeColor,
     title: title,
     subtitle: subtitle,
@@ -49,12 +52,14 @@ var _radioListTile = MXFunctionInvoke(
     secondary: secondary,
     selected: selected,
     controlAffinity: controlAffinity,
+    autofocus: autofocus,
   ),
   [
     "key",
     "value",
     "groupValue",
     "onChanged",
+    "toggleable",
     "activeColor",
     "title",
     "subtitle",
@@ -63,5 +68,6 @@ var _radioListTile = MXFunctionInvoke(
     "secondary",
     "selected",
     "controlAffinity",
+    "autofocus",
   ],
 );

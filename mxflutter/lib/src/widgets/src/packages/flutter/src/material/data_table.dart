@@ -19,6 +19,7 @@ import 'package:flutter/src/material/dropdown.dart';
 import 'package:flutter/src/material/icons.dart';
 import 'package:flutter/src/material/ink_well.dart';
 import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/material_state.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/tooltip.dart';
@@ -30,6 +31,7 @@ Map<String, MXFunctionInvoke> registerDataTableSeries() {
   m[_dataRow.funName] = _dataRow;
   m[_dataRowByIndex.funName] = _dataRowByIndex;
   m[_dataCell.funName] = _dataCell;
+  m[_dataCellEmpty.funName] = _dataCellEmpty;
   m[_dataTable.funName] = _dataTable;
   m[_tableRowInkWell.funName] = _tableRowInkWell;
   return m;
@@ -63,6 +65,7 @@ var _dataRow = MXFunctionInvoke(
     LocalKey key,
     bool selected = false,
     dynamic onSelectChanged,
+    MaterialStateProperty<Color> color,
     dynamic cells,
   }) =>
       DataRow(
@@ -70,12 +73,14 @@ var _dataRow = MXFunctionInvoke(
     selected: selected,
     onSelectChanged: createValueChangedGenericClosure<bool>(
         _dataRow.buildOwner, onSelectChanged),
+    color: color,
     cells: toListT<DataCell>(cells),
   ),
   [
     "key",
     "selected",
     "onSelectChanged",
+    "color",
     "cells",
   ],
 );
@@ -85,6 +90,7 @@ var _dataRowByIndex = MXFunctionInvoke(
     int index,
     bool selected = false,
     dynamic onSelectChanged,
+    MaterialStateProperty<Color> color,
     dynamic cells,
   }) =>
       DataRow.byIndex(
@@ -92,12 +98,14 @@ var _dataRowByIndex = MXFunctionInvoke(
     selected: selected,
     onSelectChanged: createValueChangedGenericClosure<bool>(
         _dataRowByIndex.buildOwner, onSelectChanged),
+    color: color,
     cells: toListT<DataCell>(cells),
   ),
   [
     "index",
     "selected",
     "onSelectChanged",
+    "color",
     "cells",
   ],
 );
@@ -122,6 +130,7 @@ var _dataCell = MXFunctionInvoke(
     "onTap",
   ],
 );
+var _dataCellEmpty = MXFunctionInvoke("DataCell.empty", () => DataCell.empty);
 var _dataTable = MXFunctionInvoke(
   "DataTable",
   ({
@@ -177,6 +186,7 @@ var _tableRowInkWell = MXFunctionInvoke(
     dynamic onDoubleTap,
     dynamic onLongPress,
     dynamic onHighlightChanged,
+    MaterialStateProperty<Color> overlayColor,
   }) =>
       TableRowInkWell(
     key: key,
@@ -188,6 +198,7 @@ var _tableRowInkWell = MXFunctionInvoke(
         createVoidCallbackClosure(_tableRowInkWell.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
         _tableRowInkWell.buildOwner, onHighlightChanged),
+    overlayColor: overlayColor,
   ),
   [
     "key",
@@ -196,5 +207,6 @@ var _tableRowInkWell = MXFunctionInvoke(
     "onDoubleTap",
     "onLongPress",
     "onHighlightChanged",
+    "overlayColor",
   ],
 );

@@ -29,14 +29,17 @@ var _imageInfo = MXFunctionInvoke(
   ({
     ui.Image image,
     dynamic scale = 1.0,
+    String debugLabel,
   }) =>
       ImageInfo(
     image: image,
     scale: scale?.toDouble(),
+    debugLabel: debugLabel,
   ),
   [
     "image",
     "scale",
+    "debugLabel",
   ],
 );
 var _imageStreamListener = MXFunctionInvoke(
@@ -100,18 +103,21 @@ var _multiFrameImageStreamCompleter = MXFunctionInvoke(
   ({
     Future<ui.Codec> codec,
     dynamic scale,
+    String debugLabel,
     Stream<ImageChunkEvent> chunkEvents,
     dynamic informationCollector,
   }) =>
       MultiFrameImageStreamCompleter(
     codec: codec,
     scale: scale?.toDouble(),
+    debugLabel: debugLabel,
     chunkEvents: chunkEvents,
     informationCollector: null,
   ),
   [
     "codec",
     "scale",
+    "debugLabel",
     "chunkEvents",
     "informationCollector",
   ],

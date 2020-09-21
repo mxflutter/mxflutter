@@ -14,6 +14,7 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/rendering/box.dart';
 import 'package:flutter/src/rendering/layer.dart';
+import 'package:flutter/src/rendering/mouse_cursor.dart';
 import 'package:flutter/src/rendering/mouse_tracking.dart';
 import 'package:flutter/src/rendering/object.dart';
 

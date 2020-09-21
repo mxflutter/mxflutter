@@ -22,11 +22,14 @@ var _textureBox = MXFunctionInvoke(
   "TextureBox",
   ({
     int textureId,
+    FilterQuality filterQuality = FilterQuality.low,
   }) =>
       TextureBox(
     textureId: textureId,
+    filterQuality: filterQuality,
   ),
   [
     "textureId",
+    "filterQuality",
   ],
 );

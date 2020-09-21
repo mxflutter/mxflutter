@@ -65,7 +65,7 @@ var _animatedTheme = MXFunctionInvoke(
     ThemeData data,
     bool isMaterialAppTheme = false,
     Curve curve = Curves.linear,
-    Duration duration = const Duration(milliseconds: 200),
+    Duration duration = kThemeAnimationDuration,
     dynamic onEnd,
     Widget child,
   }) =>

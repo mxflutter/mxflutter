@@ -17,6 +17,7 @@ Map<String, MXFunctionInvoke> registerFocusScopeSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_focus.funName] = _focus;
   m[_focusScope.funName] = _focusScope;
+  m[_excludeFocus.funName] = _excludeFocus;
   return m;
 }
 
@@ -31,6 +32,7 @@ var _focus = MXFunctionInvoke(
     dynamic onKey,
     String debugLabel,
     bool canRequestFocus,
+    bool descendantsAreFocusable = true,
     bool skipTraversal,
     bool includeSemantics = true,
   }) =>
@@ -44,6 +46,7 @@ var _focus = MXFunctionInvoke(
     onKey: null,
     debugLabel: debugLabel,
     canRequestFocus: canRequestFocus,
+    descendantsAreFocusable: descendantsAreFocusable,
     skipTraversal: skipTraversal,
     includeSemantics: includeSemantics,
   ),
@@ -56,6 +59,7 @@ var _focus = MXFunctionInvoke(
     "onKey",
     "debugLabel",
     "canRequestFocus",
+    "descendantsAreFocusable",
     "skipTraversal",
     "includeSemantics",
   ],
@@ -95,5 +99,23 @@ var _focusScope = MXFunctionInvoke(
     "skipTraversal",
     "onKey",
     "debugLabel",
+  ],
+);
+var _excludeFocus = MXFunctionInvoke(
+  "ExcludeFocus",
+  ({
+    Key key,
+    bool excluding = true,
+    Widget child,
+  }) =>
+      ExcludeFocus(
+    key: key,
+    excluding: excluding,
+    child: child,
+  ),
+  [
+    "key",
+    "excluding",
+    "child",
   ],
 );

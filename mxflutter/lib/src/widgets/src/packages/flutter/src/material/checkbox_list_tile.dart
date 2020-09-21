@@ -34,6 +34,9 @@ var _checkboxListTile = MXFunctionInvoke(
     Widget secondary,
     bool selected = false,
     dynamic controlAffinity = ListTileControlAffinity.platform,
+    bool autofocus = false,
+    EdgeInsetsGeometry contentPadding,
+    bool tristate = false,
   }) =>
       CheckboxListTile(
     key: key,
@@ -49,6 +52,9 @@ var _checkboxListTile = MXFunctionInvoke(
     secondary: secondary,
     selected: selected,
     controlAffinity: controlAffinity,
+    autofocus: autofocus,
+    contentPadding: contentPadding,
+    tristate: tristate,
   ),
   [
     "key",
@@ -63,5 +69,8 @@ var _checkboxListTile = MXFunctionInvoke(
     "secondary",
     "selected",
     "controlAffinity",
+    "autofocus",
+    "contentPadding",
+    "tristate",
   ],
 );

@@ -10,6 +10,8 @@ import 'dart:async';
 import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/semantics.dart';
+import 'package:flutter/src/widgets/actions.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/focus_scope.dart';

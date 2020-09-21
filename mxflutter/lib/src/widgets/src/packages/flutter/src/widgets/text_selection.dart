@@ -14,6 +14,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/binding.dart';
 import 'package:flutter/src/widgets/constants.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/editable_text.dart';
@@ -28,12 +29,15 @@ import 'package:flutter/src/widgets/visibility.dart';
 Map<String, MXFunctionInvoke> registerTextSelectionSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_textSelectionHandleType.funName] = _textSelectionHandleType;
+  m[_toolbarItemsParentData.funName] = _toolbarItemsParentData;
   m[_textSelectionOverlay.funName] = _textSelectionOverlay;
   m[_textSelectionOverlayFadeDuration.funName] =
       _textSelectionOverlayFadeDuration;
   m[_textSelectionGestureDetectorBuilder.funName] =
       _textSelectionGestureDetectorBuilder;
   m[_textSelectionGestureDetector.funName] = _textSelectionGestureDetector;
+  m[_clipboardStatusNotifier.funName] = _clipboardStatusNotifier;
+  m[_clipboardStatus.funName] = _clipboardStatus;
   return m;
 }
 
@@ -41,6 +45,11 @@ var _textSelectionHandleType = MXFunctionInvoke(
     "TextSelectionHandleType",
     ({String name, int index}) => MXTextSelectionHandleType.parse(name, index),
     ["name", "index"]);
+var _toolbarItemsParentData = MXFunctionInvoke(
+  "ToolbarItemsParentData",
+  () => ToolbarItemsParentData(),
+  [],
+);
 var _textSelectionOverlay = MXFunctionInvoke(
   "TextSelectionOverlay",
   ({
@@ -56,6 +65,7 @@ var _textSelectionOverlay = MXFunctionInvoke(
     TextSelectionDelegate selectionDelegate,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     dynamic onSelectionHandleTapped,
+    ClipboardStatusNotifier clipboardStatus,
   }) =>
       TextSelectionOverlay(
     value: value,
@@ -71,6 +81,7 @@ var _textSelectionOverlay = MXFunctionInvoke(
     dragStartBehavior: dragStartBehavior,
     onSelectionHandleTapped: createVoidCallbackClosure(
         _textSelectionOverlay.buildOwner, onSelectionHandleTapped),
+    clipboardStatus: clipboardStatus,
   ),
   [
     "value",
@@ -85,6 +96,7 @@ var _textSelectionOverlay = MXFunctionInvoke(
     "selectionDelegate",
     "dragStartBehavior",
     "onSelectionHandleTapped",
+    "clipboardStatus",
   ],
 );
 var _textSelectionOverlayFadeDuration = MXFunctionInvoke(
@@ -172,6 +184,22 @@ var _textSelectionGestureDetector = MXFunctionInvoke(
     "child",
   ],
 );
+var _clipboardStatusNotifier = MXFunctionInvoke(
+  "ClipboardStatusNotifier",
+  ({
+    ClipboardStatus value = ClipboardStatus.unknown,
+  }) =>
+      ClipboardStatusNotifier(
+    value: value,
+  ),
+  [
+    "value",
+  ],
+);
+var _clipboardStatus = MXFunctionInvoke(
+    "ClipboardStatus",
+    ({String name, int index}) => MXClipboardStatus.parse(name, index),
+    ["name", "index"]);
 
 class MXTextSelectionHandleType {
   static TextSelectionHandleType parse(String name, int index) {
@@ -182,6 +210,20 @@ class MXTextSelectionHandleType {
         return TextSelectionHandleType.right;
       case 'TextSelectionHandleType.collapsed':
         return TextSelectionHandleType.collapsed;
+    }
+    return null;
+  }
+}
+
+class MXClipboardStatus {
+  static ClipboardStatus parse(String name, int index) {
+    switch (name) {
+      case 'ClipboardStatus.pasteable':
+        return ClipboardStatus.pasteable;
+      case 'ClipboardStatus.unknown':
+        return ClipboardStatus.unknown;
+      case 'ClipboardStatus.notPasteable':
+        return ClipboardStatus.notPasteable;
     }
     return null;
   }

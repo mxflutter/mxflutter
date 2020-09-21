@@ -29,6 +29,7 @@ var _viewport = MXFunctionInvoke(
     Key center,
     dynamic cacheExtent,
     CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
+    Clip clipBehavior = Clip.hardEdge,
     dynamic slivers = const <Widget>[],
   }) =>
       Viewport(
@@ -40,6 +41,7 @@ var _viewport = MXFunctionInvoke(
     center: center,
     cacheExtent: cacheExtent?.toDouble(),
     cacheExtentStyle: cacheExtentStyle,
+    clipBehavior: clipBehavior,
     slivers: toListT<Widget>(slivers),
   ),
   [
@@ -51,6 +53,7 @@ var _viewport = MXFunctionInvoke(
     "center",
     "cacheExtent",
     "cacheExtentStyle",
+    "clipBehavior",
     "slivers",
   ],
 );
@@ -61,6 +64,7 @@ var _shrinkWrappingViewport = MXFunctionInvoke(
     AxisDirection axisDirection = AxisDirection.down,
     AxisDirection crossAxisDirection,
     ViewportOffset offset,
+    Clip clipBehavior = Clip.hardEdge,
     dynamic slivers = const <Widget>[],
   }) =>
       ShrinkWrappingViewport(
@@ -68,6 +72,7 @@ var _shrinkWrappingViewport = MXFunctionInvoke(
     axisDirection: axisDirection,
     crossAxisDirection: crossAxisDirection,
     offset: offset,
+    clipBehavior: clipBehavior,
     slivers: toListT<Widget>(slivers),
   ),
   [
@@ -75,6 +80,7 @@ var _shrinkWrappingViewport = MXFunctionInvoke(
     "axisDirection",
     "crossAxisDirection",
     "offset",
+    "clipBehavior",
     "slivers",
   ],
 );

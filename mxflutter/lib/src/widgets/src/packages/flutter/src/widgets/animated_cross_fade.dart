@@ -51,9 +51,7 @@ var _animatedCrossFade = MXFunctionInvoke(
     crossFadeState: crossFadeState,
     duration: duration,
     reverseDuration: reverseDuration,
-    ///MX modifyed begin
-    layoutBuilder: layoutBuilder,
-    ///MX modifyed end
+    layoutBuilder: null,
   ),
   [
     "key",

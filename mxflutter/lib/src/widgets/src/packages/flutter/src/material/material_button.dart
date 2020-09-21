@@ -32,6 +32,7 @@ var _materialButton = MXFunctionInvoke(
     dynamic onPressed,
     dynamic onLongPress,
     dynamic onHighlightChanged,
+    MouseCursor mouseCursor,
     ButtonTextTheme textTheme,
     Color textColor,
     Color disabledTextColor,
@@ -67,6 +68,7 @@ var _materialButton = MXFunctionInvoke(
         createVoidCallbackClosure(_materialButton.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
         _materialButton.buildOwner, onHighlightChanged),
+    mouseCursor: mouseCursor,
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,
@@ -100,6 +102,7 @@ var _materialButton = MXFunctionInvoke(
     "onPressed",
     "onLongPress",
     "onHighlightChanged",
+    "mouseCursor",
     "textTheme",
     "textColor",
     "disabledTextColor",

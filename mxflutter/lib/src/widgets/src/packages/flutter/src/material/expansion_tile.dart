@@ -32,6 +32,11 @@ var _expansionTile = MXFunctionInvoke(
     dynamic children = const <Widget>[],
     Widget trailing,
     bool initiallyExpanded = false,
+    bool maintainState = false,
+    EdgeInsetsGeometry tilePadding,
+    CrossAxisAlignment expandedCrossAxisAlignment,
+    Alignment expandedAlignment,
+    EdgeInsetsGeometry childrenPadding,
   }) =>
       ExpansionTile(
     key: key,
@@ -44,6 +49,11 @@ var _expansionTile = MXFunctionInvoke(
     children: toListT<Widget>(children),
     trailing: trailing,
     initiallyExpanded: initiallyExpanded,
+    maintainState: maintainState,
+    tilePadding: tilePadding,
+    expandedCrossAxisAlignment: expandedCrossAxisAlignment,
+    expandedAlignment: expandedAlignment,
+    childrenPadding: childrenPadding,
   ),
   [
     "key",
@@ -55,5 +65,10 @@ var _expansionTile = MXFunctionInvoke(
     "children",
     "trailing",
     "initiallyExpanded",
+    "maintainState",
+    "tilePadding",
+    "expandedCrossAxisAlignment",
+    "expandedAlignment",
+    "childrenPadding",
   ],
 );

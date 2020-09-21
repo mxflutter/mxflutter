@@ -147,8 +147,8 @@ var _listWheelScrollView = MXFunctionInvoke(
     dynamic itemExtent,
     dynamic squeeze = 1.0,
     dynamic onSelectedItemChanged,
-    bool clipToSize = true,
     bool renderChildrenOutsideViewport = false,
+    Clip clipBehavior = Clip.hardEdge,
     dynamic children,
   }) =>
       ListWheelScrollView(
@@ -165,8 +165,8 @@ var _listWheelScrollView = MXFunctionInvoke(
     squeeze: squeeze?.toDouble(),
     onSelectedItemChanged: createValueChangedGenericClosure<int>(
         _listWheelScrollView.buildOwner, onSelectedItemChanged),
-    clipToSize: clipToSize,
     renderChildrenOutsideViewport: renderChildrenOutsideViewport,
+    clipBehavior: clipBehavior,
     children: toListT<Widget>(children),
   ),
   [
@@ -182,8 +182,8 @@ var _listWheelScrollView = MXFunctionInvoke(
     "itemExtent",
     "squeeze",
     "onSelectedItemChanged",
-    "clipToSize",
     "renderChildrenOutsideViewport",
+    "clipBehavior",
     "children",
   ],
 );
@@ -202,8 +202,8 @@ var _listWheelScrollViewUseDelegate = MXFunctionInvoke(
     dynamic itemExtent,
     dynamic squeeze = 1.0,
     dynamic onSelectedItemChanged,
-    bool clipToSize = true,
     bool renderChildrenOutsideViewport = false,
+    Clip clipBehavior = Clip.hardEdge,
     dynamic childDelegate,
   }) =>
       ListWheelScrollView.useDelegate(
@@ -220,8 +220,8 @@ var _listWheelScrollViewUseDelegate = MXFunctionInvoke(
     squeeze: squeeze?.toDouble(),
     onSelectedItemChanged: createValueChangedGenericClosure<int>(
         _listWheelScrollViewUseDelegate.buildOwner, onSelectedItemChanged),
-    clipToSize: clipToSize,
     renderChildrenOutsideViewport: renderChildrenOutsideViewport,
+    clipBehavior: clipBehavior,
     childDelegate: childDelegate,
   ),
   [
@@ -237,8 +237,8 @@ var _listWheelScrollViewUseDelegate = MXFunctionInvoke(
     "itemExtent",
     "squeeze",
     "onSelectedItemChanged",
-    "clipToSize",
     "renderChildrenOutsideViewport",
+    "clipBehavior",
     "childDelegate",
   ],
 );
@@ -266,10 +266,10 @@ var _listWheelViewport = MXFunctionInvoke(
     dynamic overAndUnderCenterOpacity = 1.0,
     dynamic itemExtent,
     dynamic squeeze = 1.0,
-    bool clipToSize = true,
     bool renderChildrenOutsideViewport = false,
     ViewportOffset offset,
     dynamic childDelegate,
+    Clip clipBehavior = Clip.hardEdge,
   }) =>
       ListWheelViewport(
     key: key,
@@ -281,10 +281,10 @@ var _listWheelViewport = MXFunctionInvoke(
     overAndUnderCenterOpacity: overAndUnderCenterOpacity?.toDouble(),
     itemExtent: itemExtent?.toDouble(),
     squeeze: squeeze?.toDouble(),
-    clipToSize: clipToSize,
     renderChildrenOutsideViewport: renderChildrenOutsideViewport,
     offset: offset,
     childDelegate: childDelegate,
+    clipBehavior: clipBehavior,
   ),
   [
     "key",
@@ -296,9 +296,9 @@ var _listWheelViewport = MXFunctionInvoke(
     "overAndUnderCenterOpacity",
     "itemExtent",
     "squeeze",
-    "clipToSize",
     "renderChildrenOutsideViewport",
     "offset",
     "childDelegate",
+    "clipBehavior",
   ],
 );

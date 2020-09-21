@@ -7,7 +7,6 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/focus_manager.dart';
 import 'dart:async';
-import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -41,18 +40,21 @@ var _focusNode = MXFunctionInvoke(
     dynamic onKey,
     bool skipTraversal = false,
     bool canRequestFocus = true,
+    bool descendantsAreFocusable = true,
   }) =>
       FocusNode(
     debugLabel: debugLabel,
     onKey: null,
     skipTraversal: skipTraversal,
     canRequestFocus: canRequestFocus,
+    descendantsAreFocusable: descendantsAreFocusable,
   ),
   [
     "debugLabel",
     "onKey",
     "skipTraversal",
     "canRequestFocus",
+    "descendantsAreFocusable",
   ],
 );
 var _focusScopeNode = MXFunctionInvoke(

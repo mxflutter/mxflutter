@@ -10,11 +10,12 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/gestures.dart';
+import 'package:flutter/src/widgets/autofill.dart';
 import 'package:flutter/src/widgets/automatic_keep_alive.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/binding.dart';
@@ -28,6 +29,7 @@ import 'package:flutter/src/widgets/media_query.dart';
 import 'package:flutter/src/widgets/scroll_controller.dart';
 import 'package:flutter/src/widgets/scroll_physics.dart';
 import 'package:flutter/src/widgets/scrollable.dart';
+import 'package:flutter/src/widgets/text.dart';
 import 'package:flutter/src/widgets/text_selection.dart';
 import 'package:flutter/src/widgets/ticker_provider.dart';
 
@@ -94,6 +96,7 @@ var _editableText = MXFunctionInvoke(
     TextEditingController controller,
     FocusNode focusNode,
     bool readOnly = false,
+    String obscuringCharacter = '•',
     bool obscureText = false,
     bool autocorrect = true,
     SmartDashesType smartDashesType,
@@ -111,6 +114,7 @@ var _editableText = MXFunctionInvoke(
     int minLines,
     bool expands = false,
     bool forceLine = true,
+    ui.TextHeightBehavior textHeightBehavior,
     TextWidthBasis textWidthBasis = TextWidthBasis.parent,
     bool autofocus = false,
     bool showCursor,
@@ -126,6 +130,7 @@ var _editableText = MXFunctionInvoke(
     dynamic onSelectionChanged,
     dynamic onSelectionHandleTapped,
     dynamic inputFormatters,
+    MouseCursor mouseCursor,
     bool rendererIgnoresPointer = false,
     dynamic cursorWidth = 2.0,
     ui.Radius cursorRadius,
@@ -144,14 +149,18 @@ var _editableText = MXFunctionInvoke(
     bool enableInteractiveSelection = true,
     ScrollController scrollController,
     ScrollPhysics scrollPhysics,
+    ui.Color autocorrectionTextRectColor,
     ToolbarOptions toolbarOptions = const ToolbarOptions(
         copy: true, cut: true, selectAll: true, paste: true),
+    Iterable<String> autofillHints,
+    ui.Clip clipBehavior = Clip.hardEdge,
   }) =>
       EditableText(
     key: key,
     controller: controller,
     focusNode: focusNode,
     readOnly: readOnly,
+    obscuringCharacter: obscuringCharacter,
     obscureText: obscureText,
     autocorrect: autocorrect,
     smartDashesType: smartDashesType,
@@ -169,6 +178,7 @@ var _editableText = MXFunctionInvoke(
     minLines: minLines,
     expands: expands,
     forceLine: forceLine,
+    textHeightBehavior: textHeightBehavior,
     textWidthBasis: textWidthBasis,
     autofocus: autofocus,
     showCursor: showCursor,
@@ -190,6 +200,7 @@ var _editableText = MXFunctionInvoke(
     onSelectionHandleTapped: createVoidCallbackClosure(
         _editableText.buildOwner, onSelectionHandleTapped),
     inputFormatters: toListT<TextInputFormatter>(inputFormatters),
+    mouseCursor: mouseCursor,
     rendererIgnoresPointer: rendererIgnoresPointer,
     cursorWidth: cursorWidth?.toDouble(),
     cursorRadius: cursorRadius,
@@ -204,13 +215,17 @@ var _editableText = MXFunctionInvoke(
     enableInteractiveSelection: enableInteractiveSelection,
     scrollController: scrollController,
     scrollPhysics: scrollPhysics,
+    autocorrectionTextRectColor: autocorrectionTextRectColor,
     toolbarOptions: toolbarOptions,
+    autofillHints: autofillHints,
+    clipBehavior: clipBehavior,
   ),
   [
     "key",
     "controller",
     "focusNode",
     "readOnly",
+    "obscuringCharacter",
     "obscureText",
     "autocorrect",
     "smartDashesType",
@@ -228,6 +243,7 @@ var _editableText = MXFunctionInvoke(
     "minLines",
     "expands",
     "forceLine",
+    "textHeightBehavior",
     "textWidthBasis",
     "autofocus",
     "showCursor",
@@ -243,6 +259,7 @@ var _editableText = MXFunctionInvoke(
     "onSelectionChanged",
     "onSelectionHandleTapped",
     "inputFormatters",
+    "mouseCursor",
     "rendererIgnoresPointer",
     "cursorWidth",
     "cursorRadius",
@@ -257,7 +274,10 @@ var _editableText = MXFunctionInvoke(
     "enableInteractiveSelection",
     "scrollController",
     "scrollPhysics",
+    "autocorrectionTextRectColor",
     "toolbarOptions",
+    "autofillHints",
+    "clipBehavior",
   ],
 );
 var _editableTextState = MXFunctionInvoke(

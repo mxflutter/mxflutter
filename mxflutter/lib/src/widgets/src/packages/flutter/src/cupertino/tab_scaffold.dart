@@ -41,17 +41,11 @@ var _cupertinoTabScaffold = MXFunctionInvoke(
     CupertinoTabController controller,
     Color backgroundColor,
     bool resizeToAvoidBottomInset = true,
-    // MX modified 增加了children
-    dynamic children,
   }) =>
       CupertinoTabScaffold(
     key: key,
     tabBar: tabBar,
-    // MX modified 增加了tabBuilder参数
-    tabBuilder: (BuildContext context, int index) {
-      List<Widget> list = toListT<Widget>(children);
-      return list[index];
-    },
+    tabBuilder: null,
     controller: controller,
     backgroundColor: backgroundColor,
     resizeToAvoidBottomInset: resizeToAvoidBottomInset,
@@ -63,7 +57,5 @@ var _cupertinoTabScaffold = MXFunctionInvoke(
     "controller",
     "backgroundColor",
     "resizeToAvoidBottomInset",
-    // MX modefied 补充了children参数
-    "children",
   ],
 );

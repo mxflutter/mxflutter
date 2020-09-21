@@ -100,21 +100,21 @@ var _renderStack = MXFunctionInvoke(
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     TextDirection textDirection,
     StackFit fit = StackFit.loose,
-    Overflow overflow = Overflow.clip,
+    Clip clipBehavior = Clip.hardEdge,
   }) =>
       RenderStack(
     children: toListT<RenderBox>(children),
     alignment: alignment,
     textDirection: textDirection,
     fit: fit,
-    overflow: overflow,
+    clipBehavior: clipBehavior,
   ),
   [
     "children",
     "alignment",
     "textDirection",
     "fit",
-    "overflow",
+    "clipBehavior",
   ],
 );
 var _renderIndexedStack = MXFunctionInvoke(

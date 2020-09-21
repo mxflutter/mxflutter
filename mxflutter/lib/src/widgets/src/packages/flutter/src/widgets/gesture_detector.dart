@@ -48,6 +48,7 @@ var _gestureDetector = MXFunctionInvoke(
     dynamic onTapUp,
     dynamic onTap,
     dynamic onTapCancel,
+    dynamic onSecondaryTap,
     dynamic onSecondaryTapDown,
     dynamic onSecondaryTapUp,
     dynamic onSecondaryTapCancel,
@@ -57,6 +58,11 @@ var _gestureDetector = MXFunctionInvoke(
     dynamic onLongPressMoveUpdate,
     dynamic onLongPressUp,
     dynamic onLongPressEnd,
+    dynamic onSecondaryLongPress,
+    dynamic onSecondaryLongPressStart,
+    dynamic onSecondaryLongPressMoveUpdate,
+    dynamic onSecondaryLongPressUp,
+    dynamic onSecondaryLongPressEnd,
     dynamic onVerticalDragDown,
     dynamic onVerticalDragStart,
     dynamic onVerticalDragUpdate,
@@ -93,6 +99,8 @@ var _gestureDetector = MXFunctionInvoke(
     onTap: createVoidCallbackClosure(_gestureDetector.buildOwner, onTap),
     onTapCancel:
         createVoidCallbackClosure(_gestureDetector.buildOwner, onTapCancel),
+    onSecondaryTap:
+        createVoidCallbackClosure(_gestureDetector.buildOwner, onSecondaryTap),
     onSecondaryTapDown: createValueChangedGenericClosure<TapDownDetails>(
         _gestureDetector.buildOwner, onSecondaryTapDown),
     onSecondaryTapUp: createValueChangedGenericClosure<TapUpDetails>(
@@ -112,6 +120,19 @@ var _gestureDetector = MXFunctionInvoke(
         createVoidCallbackClosure(_gestureDetector.buildOwner, onLongPressUp),
     onLongPressEnd: createValueChangedGenericClosure<LongPressEndDetails>(
         _gestureDetector.buildOwner, onLongPressEnd),
+    onSecondaryLongPress: createVoidCallbackClosure(
+        _gestureDetector.buildOwner, onSecondaryLongPress),
+    onSecondaryLongPressStart:
+        createValueChangedGenericClosure<LongPressStartDetails>(
+            _gestureDetector.buildOwner, onSecondaryLongPressStart),
+    onSecondaryLongPressMoveUpdate:
+        createValueChangedGenericClosure<LongPressMoveUpdateDetails>(
+            _gestureDetector.buildOwner, onSecondaryLongPressMoveUpdate),
+    onSecondaryLongPressUp: createVoidCallbackClosure(
+        _gestureDetector.buildOwner, onSecondaryLongPressUp),
+    onSecondaryLongPressEnd:
+        createValueChangedGenericClosure<LongPressEndDetails>(
+            _gestureDetector.buildOwner, onSecondaryLongPressEnd),
     onVerticalDragDown: createValueChangedGenericClosure<DragDownDetails>(
         _gestureDetector.buildOwner, onVerticalDragDown),
     onVerticalDragStart: createValueChangedGenericClosure<DragStartDetails>(
@@ -167,6 +188,7 @@ var _gestureDetector = MXFunctionInvoke(
     "onTapUp",
     "onTap",
     "onTapCancel",
+    "onSecondaryTap",
     "onSecondaryTapDown",
     "onSecondaryTapUp",
     "onSecondaryTapCancel",
@@ -176,6 +198,11 @@ var _gestureDetector = MXFunctionInvoke(
     "onLongPressMoveUpdate",
     "onLongPressUp",
     "onLongPressEnd",
+    "onSecondaryLongPress",
+    "onSecondaryLongPressStart",
+    "onSecondaryLongPressMoveUpdate",
+    "onSecondaryLongPressUp",
+    "onSecondaryLongPressEnd",
     "onVerticalDragDown",
     "onVerticalDragStart",
     "onVerticalDragUpdate",

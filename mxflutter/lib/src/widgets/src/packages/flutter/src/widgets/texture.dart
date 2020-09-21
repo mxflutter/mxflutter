@@ -21,13 +21,16 @@ var _texture = MXFunctionInvoke(
   ({
     Key key,
     int textureId,
+    FilterQuality filterQuality = FilterQuality.low,
   }) =>
       Texture(
     key: key,
     textureId: textureId,
+    filterQuality: filterQuality,
   ),
   [
     "key",
     "textureId",
+    "filterQuality",
   ],
 );

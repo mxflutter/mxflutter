@@ -61,6 +61,7 @@ var _mergeableMaterial = MXFunctionInvoke(
     int elevation = 2,
     bool hasDividers = false,
     dynamic children = const <MergeableMaterialItem>[],
+    Color dividerColor,
   }) =>
       MergeableMaterial(
     key: key,
@@ -68,6 +69,7 @@ var _mergeableMaterial = MXFunctionInvoke(
     elevation: elevation,
     hasDividers: hasDividers,
     children: toListT<MergeableMaterialItem>(children),
+    dividerColor: dividerColor,
   ),
   [
     "key",
@@ -75,5 +77,6 @@ var _mergeableMaterial = MXFunctionInvoke(
     "elevation",
     "hasDividers",
     "children",
+    "dividerColor",
   ],
 );

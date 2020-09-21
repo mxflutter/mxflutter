@@ -40,7 +40,7 @@ var _material = MXFunctionInvoke(
     ShapeBorder shape,
     bool borderOnForeground = true,
     Clip clipBehavior = Clip.none,
-    Duration animationDuration = const Duration(milliseconds: 200),
+    Duration animationDuration = kThemeAnimationDuration,
     Widget child,
   }) =>
       Material(

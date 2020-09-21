@@ -31,6 +31,7 @@ var _toggleButtons = MXFunctionInvoke(
     dynamic children,
     dynamic isSelected,
     dynamic onPressed,
+    MouseCursor mouseCursor,
     TextStyle textStyle,
     BoxConstraints constraints,
     Color color,
@@ -55,6 +56,7 @@ var _toggleButtons = MXFunctionInvoke(
     isSelected: toListT<bool>(isSelected),
     onPressed: createValueChangedGenericClosure<int>(
         _toggleButtons.buildOwner, onPressed),
+    mouseCursor: mouseCursor,
     textStyle: textStyle,
     constraints: constraints,
     color: color,
@@ -78,6 +80,7 @@ var _toggleButtons = MXFunctionInvoke(
     "children",
     "isSelected",
     "onPressed",
+    "mouseCursor",
     "textStyle",
     "constraints",
     "color",

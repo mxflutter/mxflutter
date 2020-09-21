@@ -11,6 +11,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/src/widgets/binding.dart';
 import 'package:flutter/src/widgets/debug.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/localizations.dart';
@@ -516,18 +517,21 @@ var _fittedBox = MXFunctionInvoke(
     Key key,
     BoxFit fit = BoxFit.contain,
     AlignmentGeometry alignment = Alignment.center,
+    ui.Clip clipBehavior = Clip.hardEdge,
     Widget child,
   }) =>
       FittedBox(
     key: key,
     fit: fit,
     alignment: alignment,
+    clipBehavior: clipBehavior,
     child: child,
   ),
   [
     "key",
     "fit",
     "alignment",
+    "clipBehavior",
     "child",
   ],
 );
@@ -782,6 +786,7 @@ var _unconstrainedBox = MXFunctionInvoke(
     ui.TextDirection textDirection,
     AlignmentGeometry alignment = Alignment.center,
     Axis constrainedAxis,
+    ui.Clip clipBehavior = Clip.hardEdge,
   }) =>
       UnconstrainedBox(
     key: key,
@@ -789,6 +794,7 @@ var _unconstrainedBox = MXFunctionInvoke(
     textDirection: textDirection,
     alignment: alignment,
     constrainedAxis: constrainedAxis,
+    clipBehavior: clipBehavior,
   ),
   [
     "key",
@@ -796,6 +802,7 @@ var _unconstrainedBox = MXFunctionInvoke(
     "textDirection",
     "alignment",
     "constrainedAxis",
+    "clipBehavior",
   ],
 );
 var _fractionallySizedBox = MXFunctionInvoke(
@@ -1049,6 +1056,7 @@ var _stack = MXFunctionInvoke(
     ui.TextDirection textDirection,
     StackFit fit = StackFit.loose,
     Overflow overflow = Overflow.clip,
+    ui.Clip clipBehavior = Clip.hardEdge,
     dynamic children = const <Widget>[],
   }) =>
       Stack(
@@ -1057,6 +1065,7 @@ var _stack = MXFunctionInvoke(
     textDirection: textDirection,
     fit: fit,
     overflow: overflow,
+    clipBehavior: clipBehavior,
     children: toListT<Widget>(children),
   ),
   [
@@ -1065,6 +1074,7 @@ var _stack = MXFunctionInvoke(
     "textDirection",
     "fit",
     "overflow",
+    "clipBehavior",
     "children",
   ],
 );
@@ -1273,6 +1283,7 @@ var _flex = MXFunctionInvoke(
     ui.TextDirection textDirection,
     VerticalDirection verticalDirection = VerticalDirection.down,
     ui.TextBaseline textBaseline,
+    ui.Clip clipBehavior = Clip.hardEdge,
     dynamic children = const <Widget>[],
   }) =>
       Flex(
@@ -1284,6 +1295,7 @@ var _flex = MXFunctionInvoke(
     textDirection: textDirection,
     verticalDirection: verticalDirection,
     textBaseline: textBaseline,
+    clipBehavior: clipBehavior,
     children: toListT<Widget>(children),
   ),
   [
@@ -1295,6 +1307,7 @@ var _flex = MXFunctionInvoke(
     "textDirection",
     "verticalDirection",
     "textBaseline",
+    "clipBehavior",
     "children",
   ],
 );
@@ -1415,6 +1428,7 @@ var _wrap = MXFunctionInvoke(
     WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
     ui.TextDirection textDirection,
     VerticalDirection verticalDirection = VerticalDirection.down,
+    ui.Clip clipBehavior = Clip.hardEdge,
     dynamic children = const <Widget>[],
   }) =>
       Wrap(
@@ -1427,6 +1441,7 @@ var _wrap = MXFunctionInvoke(
     crossAxisAlignment: crossAxisAlignment,
     textDirection: textDirection,
     verticalDirection: verticalDirection,
+    clipBehavior: clipBehavior,
     children: toListT<Widget>(children),
   ),
   [
@@ -1439,6 +1454,7 @@ var _wrap = MXFunctionInvoke(
     "crossAxisAlignment",
     "textDirection",
     "verticalDirection",
+    "clipBehavior",
     "children",
   ],
 );
@@ -1493,6 +1509,7 @@ var _richText = MXFunctionInvoke(
     StrutStyle strutStyle,
     TextWidthBasis textWidthBasis = TextWidthBasis.parent,
     ui.TextHeightBehavior textHeightBehavior,
+    bool applyTextScaleFactorToWidgetSpan = false,
   }) =>
       RichText(
     key: key,
@@ -1507,6 +1524,7 @@ var _richText = MXFunctionInvoke(
     strutStyle: strutStyle,
     textWidthBasis: textWidthBasis,
     textHeightBehavior: textHeightBehavior,
+    applyTextScaleFactorToWidgetSpan: applyTextScaleFactorToWidgetSpan,
   ),
   [
     "key",
@@ -1521,6 +1539,7 @@ var _richText = MXFunctionInvoke(
     "strutStyle",
     "textWidthBasis",
     "textHeightBehavior",
+    "applyTextScaleFactorToWidgetSpan",
   ],
 );
 var _rawImage = MXFunctionInvoke(
@@ -1528,6 +1547,7 @@ var _rawImage = MXFunctionInvoke(
   ({
     Key key,
     ui.Image image,
+    String debugImageLabel,
     dynamic width,
     dynamic height,
     dynamic scale = 1.0,
@@ -1540,10 +1560,12 @@ var _rawImage = MXFunctionInvoke(
     bool matchTextDirection = false,
     bool invertColors = false,
     ui.FilterQuality filterQuality = FilterQuality.low,
+    bool isAntiAlias = false,
   }) =>
       RawImage(
     key: key,
     image: image,
+    debugImageLabel: debugImageLabel,
     width: width?.toDouble(),
     height: height?.toDouble(),
     scale: scale?.toDouble(),
@@ -1556,10 +1578,12 @@ var _rawImage = MXFunctionInvoke(
     matchTextDirection: matchTextDirection,
     invertColors: invertColors,
     filterQuality: filterQuality,
+    isAntiAlias: isAntiAlias,
   ),
   [
     "key",
     "image",
+    "debugImageLabel",
     "width",
     "height",
     "scale",
@@ -1572,6 +1596,7 @@ var _rawImage = MXFunctionInvoke(
     "matchTextDirection",
     "invertColors",
     "filterQuality",
+    "isAntiAlias",
   ],
 );
 var _defaultAssetBundle = MXFunctionInvoke(
@@ -1665,6 +1690,7 @@ var _mouseRegion = MXFunctionInvoke(
     dynamic onEnter,
     dynamic onExit,
     dynamic onHover,
+    MouseCursor cursor = MouseCursor.defer,
     bool opaque = true,
     Widget child,
   }) =>
@@ -1676,6 +1702,7 @@ var _mouseRegion = MXFunctionInvoke(
         _mouseRegion.buildOwner, onExit),
     onHover: createValueChangedGenericClosure<PointerHoverEvent>(
         _mouseRegion.buildOwner, onHover),
+    cursor: cursor,
     opaque: opaque,
     child: child,
   ),
@@ -1684,6 +1711,7 @@ var _mouseRegion = MXFunctionInvoke(
     "onEnter",
     "onExit",
     "onHover",
+    "cursor",
     "opaque",
     "child",
   ],

@@ -15,7 +15,9 @@ import 'package:flutter/src/material/constants.dart';
 import 'package:flutter/src/material/debug.dart';
 import 'package:flutter/src/material/divider.dart';
 import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/material_state.dart';
 import 'package:flutter/src/material/theme.dart';
+import 'package:flutter/src/material/theme_data.dart';
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerListTileSeries() {
@@ -36,6 +38,7 @@ var _listTileTheme = MXFunctionInvoke(
   ({
     Key key,
     bool dense = false,
+    ShapeBorder shape,
     dynamic style = ListTileStyle.list,
     Color selectedColor,
     Color iconColor,
@@ -46,6 +49,7 @@ var _listTileTheme = MXFunctionInvoke(
       ListTileTheme(
     key: key,
     dense: dense,
+    shape: shape,
     style: style,
     selectedColor: selectedColor,
     iconColor: iconColor,
@@ -56,6 +60,7 @@ var _listTileTheme = MXFunctionInvoke(
   [
     "key",
     "dense",
+    "shape",
     "style",
     "selectedColor",
     "iconColor",
@@ -78,11 +83,18 @@ var _listTile = MXFunctionInvoke(
     Widget trailing,
     bool isThreeLine = false,
     bool dense,
+    VisualDensity visualDensity,
+    ShapeBorder shape,
     EdgeInsetsGeometry contentPadding,
     bool enabled = true,
     dynamic onTap,
     dynamic onLongPress,
+    MouseCursor mouseCursor,
     bool selected = false,
+    Color focusColor,
+    Color hoverColor,
+    FocusNode focusNode,
+    bool autofocus = false,
   }) =>
       ListTile(
     key: key,
@@ -92,11 +104,18 @@ var _listTile = MXFunctionInvoke(
     trailing: trailing,
     isThreeLine: isThreeLine,
     dense: dense,
+    visualDensity: visualDensity,
+    shape: shape,
     contentPadding: contentPadding,
     enabled: enabled,
     onTap: createVoidCallbackClosure(_listTile.buildOwner, onTap),
     onLongPress: createVoidCallbackClosure(_listTile.buildOwner, onLongPress),
+    mouseCursor: mouseCursor,
     selected: selected,
+    focusColor: focusColor,
+    hoverColor: hoverColor,
+    focusNode: focusNode,
+    autofocus: autofocus,
   ),
   [
     "key",
@@ -106,11 +125,18 @@ var _listTile = MXFunctionInvoke(
     "trailing",
     "isThreeLine",
     "dense",
+    "visualDensity",
+    "shape",
     "contentPadding",
     "enabled",
     "onTap",
     "onLongPress",
+    "mouseCursor",
     "selected",
+    "focusColor",
+    "hoverColor",
+    "focusNode",
+    "autofocus",
   ],
 );
 

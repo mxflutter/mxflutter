@@ -7,6 +7,7 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/text_field.dart';
 import 'dart:ui' as ui;
+import 'package:characters/characters.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -18,6 +19,7 @@ import 'package:flutter/src/material/feedback.dart';
 import 'package:flutter/src/material/input_decorator.dart';
 import 'package:flutter/src/material/material.dart';
 import 'package:flutter/src/material/material_localizations.dart';
+import 'package:flutter/src/material/material_state.dart';
 import 'package:flutter/src/material/selectable_text.dart';
 import 'package:flutter/src/material/text_selection.dart';
 import 'package:flutter/src/material/theme.dart';
@@ -49,6 +51,7 @@ var _textField = MXFunctionInvoke(
     ToolbarOptions toolbarOptions,
     bool showCursor,
     bool autofocus = false,
+    String obscuringCharacter = '•',
     bool obscureText = false,
     bool autocorrect = true,
     SmartDashesType smartDashesType,
@@ -78,9 +81,11 @@ var _textField = MXFunctionInvoke(
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     bool enableInteractiveSelection = true,
     dynamic onTap,
+    MouseCursor mouseCursor,
     dynamic buildCounter,
     ScrollController scrollController,
     ScrollPhysics scrollPhysics,
+    Iterable<String> autofillHints,
   }) =>
       TextField(
     key: key,
@@ -99,6 +104,7 @@ var _textField = MXFunctionInvoke(
     toolbarOptions: toolbarOptions,
     showCursor: showCursor,
     autofocus: autofocus,
+    obscuringCharacter: obscuringCharacter,
     obscureText: obscureText,
     autocorrect: autocorrect,
     smartDashesType: smartDashesType,
@@ -127,9 +133,11 @@ var _textField = MXFunctionInvoke(
     dragStartBehavior: dragStartBehavior,
     enableInteractiveSelection: enableInteractiveSelection,
     onTap: createVoidCallbackClosure(_textField.buildOwner, onTap),
+    mouseCursor: mouseCursor,
     buildCounter: null,
     scrollController: scrollController,
     scrollPhysics: scrollPhysics,
+    autofillHints: autofillHints,
   ),
   [
     "key",
@@ -148,6 +156,7 @@ var _textField = MXFunctionInvoke(
     "toolbarOptions",
     "showCursor",
     "autofocus",
+    "obscuringCharacter",
     "obscureText",
     "autocorrect",
     "smartDashesType",
@@ -173,9 +182,11 @@ var _textField = MXFunctionInvoke(
     "dragStartBehavior",
     "enableInteractiveSelection",
     "onTap",
+    "mouseCursor",
     "buildCounter",
     "scrollController",
     "scrollPhysics",
+    "autofillHints",
   ],
 );
 var _textFieldNoMaxLength =

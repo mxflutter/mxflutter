@@ -7,6 +7,7 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/flat_button.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/button.dart';
 import 'package:flutter/src/material/button_theme.dart';
@@ -29,6 +30,7 @@ var _flatButton = MXFunctionInvoke(
     dynamic onPressed,
     dynamic onLongPress,
     dynamic onHighlightChanged,
+    MouseCursor mouseCursor,
     ButtonTextTheme textTheme,
     Color textColor,
     Color disabledTextColor,
@@ -54,6 +56,7 @@ var _flatButton = MXFunctionInvoke(
     onLongPress: createVoidCallbackClosure(_flatButton.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
         _flatButton.buildOwner, onHighlightChanged),
+    mouseCursor: mouseCursor,
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,
@@ -78,6 +81,7 @@ var _flatButton = MXFunctionInvoke(
     "onPressed",
     "onLongPress",
     "onHighlightChanged",
+    "mouseCursor",
     "textTheme",
     "textColor",
     "disabledTextColor",
@@ -105,6 +109,7 @@ var _flatButtonIcon = MXFunctionInvoke(
     dynamic onPressed,
     dynamic onLongPress,
     dynamic onHighlightChanged,
+    MouseCursor mouseCursor,
     ButtonTextTheme textTheme,
     Color textColor,
     Color disabledTextColor,
@@ -117,17 +122,9 @@ var _flatButtonIcon = MXFunctionInvoke(
     Brightness colorBrightness,
     EdgeInsetsGeometry padding,
     ShapeBorder shape,
-
-    /// MX modified begin
-    Clip clipBehavior = Clip.none,
-
-    /// MX modified end
+    Clip clipBehavior,
     FocusNode focusNode,
-
-    /// MX modified begin
-    bool autofocus = false,
-
-    /// MX modified end
+    bool autofocus,
     MaterialTapTargetSize materialTapTargetSize,
     Widget icon,
     Widget label,
@@ -139,6 +136,7 @@ var _flatButtonIcon = MXFunctionInvoke(
         createVoidCallbackClosure(_flatButtonIcon.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
         _flatButtonIcon.buildOwner, onHighlightChanged),
+    mouseCursor: mouseCursor,
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,
@@ -163,6 +161,7 @@ var _flatButtonIcon = MXFunctionInvoke(
     "onPressed",
     "onLongPress",
     "onHighlightChanged",
+    "mouseCursor",
     "textTheme",
     "textColor",
     "disabledTextColor",

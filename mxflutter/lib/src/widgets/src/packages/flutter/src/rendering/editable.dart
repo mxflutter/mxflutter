@@ -8,6 +8,7 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/rendering/editable.dart';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
+import 'package:characters/characters.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/semantics.dart';
@@ -23,8 +24,6 @@ Map<String, MXFunctionInvoke> registerEditableSeries() {
   m[_selectionChangedCause.funName] = _selectionChangedCause;
   m[_textSelectionPoint.funName] = _textSelectionPoint;
   m[_renderEditable.funName] = _renderEditable;
-  m[_renderEditableObscuringCharacter.funName] =
-      _renderEditableObscuringCharacter;
   return m;
 }
 
@@ -72,7 +71,9 @@ var _renderEditable = MXFunctionInvoke(
     bool ignorePointer = false,
     bool readOnly = false,
     bool forceLine = true,
+    ui.TextHeightBehavior textHeightBehavior,
     TextWidthBasis textWidthBasis = TextWidthBasis.parent,
+    String obscuringCharacter = '•',
     bool obscureText = false,
     ui.Locale locale,
     dynamic cursorWidth = 1.0,
@@ -89,6 +90,9 @@ var _renderEditable = MXFunctionInvoke(
     bool enableInteractiveSelection,
     EdgeInsets floatingCursorAddedMargin =
         const EdgeInsets.fromLTRB(4.0, 4.0, 4.0, 5.0),
+    ui.TextRange promptRectRange,
+    ui.Color promptRectColor,
+    ui.Clip clipBehavior = Clip.hardEdge,
     TextSelectionDelegate textSelectionDelegate,
   }) =>
       RenderEditable(
@@ -118,7 +122,9 @@ var _renderEditable = MXFunctionInvoke(
     ignorePointer: ignorePointer,
     readOnly: readOnly,
     forceLine: forceLine,
+    textHeightBehavior: textHeightBehavior,
     textWidthBasis: textWidthBasis,
+    obscuringCharacter: obscuringCharacter,
     obscureText: obscureText,
     locale: locale,
     cursorWidth: cursorWidth?.toDouble(),
@@ -130,6 +136,9 @@ var _renderEditable = MXFunctionInvoke(
     selectionWidthStyle: selectionWidthStyle,
     enableInteractiveSelection: enableInteractiveSelection,
     floatingCursorAddedMargin: floatingCursorAddedMargin,
+    promptRectRange: promptRectRange,
+    promptRectColor: promptRectColor,
+    clipBehavior: clipBehavior,
     textSelectionDelegate: textSelectionDelegate,
   ),
   [
@@ -155,7 +164,9 @@ var _renderEditable = MXFunctionInvoke(
     "ignorePointer",
     "readOnly",
     "forceLine",
+    "textHeightBehavior",
     "textWidthBasis",
+    "obscuringCharacter",
     "obscureText",
     "locale",
     "cursorWidth",
@@ -167,12 +178,12 @@ var _renderEditable = MXFunctionInvoke(
     "selectionWidthStyle",
     "enableInteractiveSelection",
     "floatingCursorAddedMargin",
+    "promptRectRange",
+    "promptRectColor",
+    "clipBehavior",
     "textSelectionDelegate",
   ],
 );
-var _renderEditableObscuringCharacter = MXFunctionInvoke(
-    "RenderEditable.obscuringCharacter",
-    () => RenderEditable.obscuringCharacter);
 
 class MXSelectionChangedCause {
   static SelectionChangedCause parse(String name, int index) {

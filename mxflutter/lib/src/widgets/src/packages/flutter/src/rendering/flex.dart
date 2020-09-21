@@ -56,6 +56,7 @@ var _renderFlex = MXFunctionInvoke(
     TextDirection textDirection,
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline textBaseline,
+    Clip clipBehavior = Clip.none,
   }) =>
       RenderFlex(
     children: toListT<RenderBox>(children),
@@ -66,6 +67,7 @@ var _renderFlex = MXFunctionInvoke(
     textDirection: textDirection,
     verticalDirection: verticalDirection,
     textBaseline: textBaseline,
+    clipBehavior: clipBehavior,
   ),
   [
     "children",
@@ -76,6 +78,7 @@ var _renderFlex = MXFunctionInvoke(
     "textDirection",
     "verticalDirection",
     "textBaseline",
+    "clipBehavior",
   ],
 );
 
