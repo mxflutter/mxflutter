@@ -4,7 +4,6 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:dio/dio.dart';
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/tab_controller.dart';
 import 'dart:math' as math;
