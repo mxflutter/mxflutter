@@ -13,6 +13,9 @@ import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/text.dart';
+// MX modified begin
+import 'package:expressions/expressions.dart';
+// MX modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerTransitionsSeries() {
@@ -301,11 +304,30 @@ var _animatedBuilder = MXFunctionInvoke(
     dynamic animation,
     dynamic builder,
     Widget child,
+    // MX modified begin
+    dynamic widget,
+    // MX modified end
   }) =>
       AnimatedBuilder(
     key: key,
     animation: animation,
-    builder: null,
+    // MX modified begin
+    builder: (BuildContext context, Widget child) {
+      if (builder != null) {
+        ///TODO:
+        return null;
+      } else {
+        String targetString = '\$value';
+        var context = {
+          "sin": math.sin,
+          "cos": math.cos,
+          "\$value": animation.value?.toDouble(),
+        };
+        Map widgetMap = replaceSpecificValue(widget, targetString, context);
+        return MXMirror.getInstance().jsonToDartObj(widgetMap);
+      }
+    },
+    // MX modified end
     child: child,
   ),
   [
@@ -313,5 +335,32 @@ var _animatedBuilder = MXFunctionInvoke(
     "animation",
     "builder",
     "child",
+    ///MX modified begin
+    "widget",
+    ///MX modified end
   ],
+  // MX modified begin
+  ["widget"],
+  // MX modified end
 );
+
+// MX modified begin
+Map replaceSpecificValue(Map map, String targetValue, dynamic context) {
+  Map nMap = <String, dynamic>{};
+  if (map != null) {
+    map.forEach((key, value) {
+      if (value is Map) {
+        nMap[key] = replaceSpecificValue(value, targetValue, context);
+      } else if (value.toString().contains(targetValue)) {
+        final evaluator = const ExpressionEvaluator();
+        Expression expression = Expression.parse(value);
+        var replaceValue = evaluator.eval(expression, context);
+        nMap[key] = replaceValue;
+      } else {
+        nMap[key] = value;
+      }
+    });
+  }
+  return nMap;
+}
+// MX modified end

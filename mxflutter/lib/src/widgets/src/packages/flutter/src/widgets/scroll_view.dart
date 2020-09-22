@@ -177,6 +177,9 @@ var _listViewBuilder = MXFunctionInvoke(
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
         ScrollViewKeyboardDismissBehavior.manual,
+    /// MX modified begin add children
+    dynamic children,
+    /// MX modified end
   }) =>
       ListView.builder(
     key: key,
@@ -188,7 +191,11 @@ var _listViewBuilder = MXFunctionInvoke(
     shrinkWrap: shrinkWrap,
     padding: padding,
     itemExtent: itemExtent?.toDouble(),
-    itemBuilder: null,
+    /// MX modified begin add function
+    itemBuilder: (BuildContext context, int index) {
+      return children[index];
+    },
+    /// MX modified end
     itemCount: itemCount,
     addAutomaticKeepAlives: addAutomaticKeepAlives,
     addRepaintBoundaries: addRepaintBoundaries,
@@ -217,6 +224,9 @@ var _listViewBuilder = MXFunctionInvoke(
     "semanticChildCount",
     "dragStartBehavior",
     "keyboardDismissBehavior",
+    ///MX modified begin
+    "children",
+    ///MX modified end
   ],
 );
 var _listViewSeparated = MXFunctionInvoke(
@@ -240,6 +250,11 @@ var _listViewSeparated = MXFunctionInvoke(
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
         ScrollViewKeyboardDismissBehavior.manual,
+
+    /// MX modified begin -add children
+    dynamic children,
+    dynamic separatorChildren,
+    /// MX modified end
   }) =>
       ListView.separated(
     key: key,
@@ -250,8 +265,14 @@ var _listViewSeparated = MXFunctionInvoke(
     physics: physics,
     shrinkWrap: shrinkWrap,
     padding: padding,
-    itemBuilder: null,
-    separatorBuilder: null,
+    /// MX modified begin add function
+    itemBuilder: (BuildContext context, int index) {
+      return children[index];
+    },
+    separatorBuilder: (BuildContext context, int index) {
+      return separatorChildren[index];
+    },
+    /// MX modified end
     itemCount: itemCount,
     addAutomaticKeepAlives: addAutomaticKeepAlives,
     addRepaintBoundaries: addRepaintBoundaries,
@@ -278,6 +299,10 @@ var _listViewSeparated = MXFunctionInvoke(
     "cacheExtent",
     "dragStartBehavior",
     "keyboardDismissBehavior",
+    ///MX modified begin
+    "children",
+    "separatorChildren",
+    ///MX modified end
   ],
 );
 var _listViewCustom = MXFunctionInvoke(
