@@ -26,9 +26,19 @@ var _materialPageRoute = MXFunctionInvoke(
     RouteSettings settings,
     bool maintainState = true,
     bool fullscreenDialog = false,
+
+    /// MX modified begin -add child
+    dynamic child,
+
+    /// MX modified end
   }) =>
       MaterialPageRoute(
-    builder: null,
+    /// MX modified begin -add builderfunction
+    builder: (BuildContext context) {
+      return child;
+    },
+
+    /// MX modified end
     settings: settings,
     maintainState: maintainState,
     fullscreenDialog: fullscreenDialog,
@@ -38,6 +48,9 @@ var _materialPageRoute = MXFunctionInvoke(
     "settings",
     "maintainState",
     "fullscreenDialog",
+    ///MX modified begin
+    "child",
+    ///MX modified end
   ],
 );
 var _materialPage = MXFunctionInvoke(

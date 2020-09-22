@@ -10,6 +10,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
+// MX Modified begin
+import 'package:mxflutter/src/mx_mixin.dart';
+// MX Modified end
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
@@ -18,6 +21,7 @@ Map<String, MXFunctionInvoke> registerAnimatedSizeSeries() {
   return m;
 }
 
+// MX modified end
 var _animatedSize = MXFunctionInvoke(
   "AnimatedSize",
   ({
@@ -28,16 +32,27 @@ var _animatedSize = MXFunctionInvoke(
     Duration duration,
     Duration reverseDuration,
     TickerProvider vsync,
-  }) =>
-      AnimatedSize(
-    key: key,
-    child: child,
-    alignment: alignment,
-    curve: curve,
-    duration: duration,
-    reverseDuration: reverseDuration,
-    vsync: vsync,
-  ),
+  }) {
+    var tickVsync;
+    if (_animatedSize.buildOwner.state is MXSingleTickerMixinWidgetState) {
+      tickVsync = _animatedSize.buildOwner.state as MXSingleTickerMixinWidgetState;
+    } else if (_animatedSize.buildOwner.state is MXTickerMixinWidgetState) {
+      tickVsync = _animatedSize.buildOwner.state as MXTickerMixinWidgetState;
+    } else if (_animatedSize.buildOwner.state is MXSingleTickerAndKeepAliveMixinWidgetState) {
+      tickVsync = _animatedSize.buildOwner.state as MXSingleTickerAndKeepAliveMixinWidgetState;
+    } else if (_animatedSize.buildOwner.state is MXTickerAndKeepAliveMixinWidgetState) {
+      tickVsync = _animatedSize.buildOwner.state as MXTickerAndKeepAliveMixinWidgetState;
+    }
+    return AnimatedSize(
+      key: key,
+      child: child,
+      alignment: alignment,
+      curve: curve,
+      duration: duration,
+      reverseDuration: reverseDuration,
+      vsync: tickVsync,
+    );
+  },
   [
     "key",
     "child",
@@ -48,3 +63,4 @@ var _animatedSize = MXFunctionInvoke(
     "vsync",
   ],
 );
+// MX modified end

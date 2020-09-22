@@ -56,6 +56,9 @@ var _nestedScrollView = MXFunctionInvoke(
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     bool floatHeaderSlivers = false,
     Clip clipBehavior = Clip.hardEdge,
+    /// MX modified begin  -add children
+    dynamic children,
+    /// MX modified end
   }) =>
       NestedScrollView(
     key: key,
@@ -63,7 +66,11 @@ var _nestedScrollView = MXFunctionInvoke(
     scrollDirection: scrollDirection,
     reverse: reverse,
     physics: physics,
-    headerSliverBuilder: null,
+    /// MX modified begin -add function
+    headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+      return toListT<Widget>(children);
+    },
+    /// MX modified end
     body: body,
     dragStartBehavior: dragStartBehavior,
     floatHeaderSlivers: floatHeaderSlivers,
@@ -80,6 +87,9 @@ var _nestedScrollView = MXFunctionInvoke(
     "dragStartBehavior",
     "floatHeaderSlivers",
     "clipBehavior",
+    ///MX modified begin
+    "children",
+    ///MX modified end
   ],
 );
 var _nestedScrollViewState = MXFunctionInvoke(
