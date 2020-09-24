@@ -192,7 +192,7 @@
             
             // 框架加载main.js结束时间
             NSTimeInterval jsLoadEndTime = [[NSDate date] timeIntervalSince1970] * 1000;
-            self.mxNativeJSLoadCost = jsLoadEndTime - jsLoadStartTime;
+            strongSelf.mxNativeJSLoadCost = jsLoadEndTime - jsLoadStartTime;
             
             // 通知JS侧，框架加载时间
             [strongSelf callJSInitProfileInfo];
