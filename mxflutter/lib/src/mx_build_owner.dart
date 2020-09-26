@@ -274,6 +274,13 @@ class MXJsonBuildOwner {
     );
   }
 
+  // js->flutter
+  jsCallNavigatorPushNamed(String routeName, dynamic arguments) {
+    MXJSLog.log("MXJsonBuildOwner:jsCallNavigatorPushNamed:");
+
+    Navigator.pushNamed(buildContext, routeName, arguments: arguments);
+  }
+
   jsCallNavigatorPop() {
     MXJSLog.log("MXJsonBuildOwner:jsCallNavigatorPop:");
     Navigator.pop(buildContext);
