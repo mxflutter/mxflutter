@@ -238,7 +238,7 @@ class MXJsonBuildOwner {
 
     if (_jsWidgetElement is MXJSStatefulElement) {
       MXJSWidgetState state = (_jsWidgetElement as MXJSStatefulElement).state;
-      state.jsCallRebuild(rebuildWidgetID, widgetBuildData, buildWidgetDataSeq);
+      state?.jsCallRebuild(rebuildWidgetID, widgetBuildData, buildWidgetDataSeq);
     } else {
       MXJSLog.error("MXJSStatefulWidget:_rebuild: "
           "Same thing error: _jsWidgetElement is not  MXJSStatefulElement"
