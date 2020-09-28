@@ -65,6 +65,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)invokeFlutterRemoveMirrorObjsRef:(NSArray*)mirrorIDArray;
 
 
+/// 调用MethodChannel的setMethodCallHandler回调
+/// @param channelName 通道名称
+/// @param methodCall 方法名称
+/// @param callback 回调
+- (void)callJSMethodCallHandler:(NSString *)channelName
+                     methodCall:(FlutterMethodCall *)methodCall
+                       callback:(void(^)(id _Nullable result))callback;
+
 @end
 
 

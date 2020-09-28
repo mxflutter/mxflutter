@@ -191,6 +191,14 @@
     [self.engineMethodChannel invokeMethod:@"mxfJSBridgeRemoveMirrorObjsRef" arguments:mirrorIDArray];
 }
 
+- (void)callJSMethodCallHandler:(NSString *)channelName
+                     methodCall:(FlutterMethodCall *)methodCall
+                       callback:(void(^)(id _Nullable result))callback {
+    [self.jsEngine callJSCallbackFunctionWithChannelName:channelName
+                                              methodCall:methodCall
+                                                callback:callback];
+}
+
 //MARK: - JSI->Native->Flutter
 //  JSI->Native->Flutter 通用通道
 - (void)invokeFlutterCommonChannel:(NSString*)argumentsJSONStr callback:(void(^)(id _Nullable result))callback

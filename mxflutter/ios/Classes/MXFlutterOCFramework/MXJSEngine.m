@@ -216,6 +216,15 @@
         }];
     };
     
+    /**
+    * @param handler 回调
+    */
+    context[@"mx_jsbridge_MethodChannel_setMethodCallHandler"] = ^(NSString *channelName, JSValue *handler) {
+        // 保存JS回调
+        if (channelName.length > 0 && handler) {
+            [self.jsCallbackCache setObject:handler forKey:channelName];
+        }
+    };
     
     /**
     * @param channelName 通道名
@@ -278,6 +287,20 @@
     }
 }
 
+- (void)callJSCallbackFunctionWithChannelName:(NSString *)channelName
+                                   methodCall:(FlutterMethodCall *)methodCall
+                                     callback:(void(^)(id _Nullable result))callback {
+    JSValue *jsCallback = [self.jsCallbackCache objectForKey:channelName];
+    if (jsCallback) {
+        NSDictionary *param = @{@"method" : methodCall.method,
+                                @"arguments" : methodCall.arguments ?: @""
+        };
+        id result = [jsCallback callWithArguments:@[param]];
+        if (callback) {
+            callback(result);
+        }
+    }
+}
 
 @end
 

@@ -35,6 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)callJSCallbackFunction:(NSString *)callbackId param:(id)param;
 
+- (void)callJSCallbackFunctionWithChannelName:(NSString *)channelName
+                                   methodCall:(FlutterMethodCall *)methodCall
+                                     callback:(void(^)(id _Nullable result))callback;
+
 @end
 
 NS_ASSUME_NONNULL_END
