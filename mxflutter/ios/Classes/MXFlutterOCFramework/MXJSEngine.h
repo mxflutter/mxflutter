@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MXJSExecutor.h"
+#import <Flutter/Flutter.h>
 
 
 @class MXJSFlutterEngine;

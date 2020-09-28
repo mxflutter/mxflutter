@@ -12,7 +12,6 @@
 #import "MXJSFlutterDefines.h"
 #import "MXJSFlutterEngine.h"
 #import "JSModule.h"
-#import <Flutter/Flutter.h>
 #import "MXFDispose.h"
 
 @interface MXJSEngine()
