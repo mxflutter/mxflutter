@@ -313,16 +313,16 @@ public class MXJSEngine {
         }
     }
 
-    public void callJSCallbackFunctionWithChannelName(String channelName, MethodCall methodCall, V8Function callback) {
-        V8Function v8Callback = jsCallbackCache.get(channelName);
-        if (v8Callback != null) {
-            Map params = new HashMap();
-            params.put("method", methodCall.method);
-            params.put("arguments", methodCall.arguments);
-            Object result = jsExecutor.invokeJsFunction(v8Callback, params);
-            if (callback != null) {
-                callback(result);
-            }
-        }
-    }
+    // public void callJSCallbackFunctionWithChannelName(String channelName, MethodCall methodCall, V8Function callback) {
+    //     V8Function v8Callback = jsCallbackCache.get(channelName);
+    //     if (v8Callback != null) {
+    //         Map params = new HashMap();
+    //         params.put("method", methodCall.method);
+    //         params.put("arguments", methodCall.arguments);
+    //         Object result = jsExecutor.invokeJsFunction(v8Callback, params);
+    //         if (callback != null) {
+    //             callback(result);
+    //         }
+    //     }
+    // }
 }

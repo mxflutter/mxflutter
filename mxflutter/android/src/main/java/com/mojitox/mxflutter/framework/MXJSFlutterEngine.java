@@ -230,8 +230,8 @@ public class MXJSFlutterEngine {
         jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
     }
 
-    @SuppressWarnings("unchecked")
-    public void callJSMethodCallHandler(String channelName, MethodCall methodCall, V8Function callback) {
-        mJsEngine.callJSCallbackFunctionWithChannelName(channelName, methodCall, callback);
-    }
+    // @SuppressWarnings("unchecked")
+    // public void callJSMethodCallHandler(String channelName, MethodCall methodCall, V8Function callback) {
+    //     mJsEngine.callJSCallbackFunctionWithChannelName(channelName, methodCall, callback);
+    // }
 }
