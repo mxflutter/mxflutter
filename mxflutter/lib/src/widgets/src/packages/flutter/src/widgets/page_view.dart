@@ -39,6 +39,9 @@ Map<String, MXFunctionInvoke> registerPageViewSeries() {
   m[_pageView.funName] = _pageView;
   m[_pageViewBuilder.funName] = _pageViewBuilder;
   m[_pageViewCustom.funName] = _pageViewCustom;
+  // MX modified begin
+  m[_pageController_jumpToPage.funName] = _pageController_jumpToPage;
+  // MX modified end
   return m;
 }
 
@@ -233,3 +236,18 @@ var _pageViewCustom = MXFunctionInvoke(
     "allowImplicitScrolling",
   ],
 );
+
+// MX modified begin
+var _pageController_jumpToPage = MXFunctionInvoke(
+  "PageController#jumpToPage",
+  ({
+    PageController mirrorObj,
+    int page,
+  }) =>
+      mirrorObj.jumpToPage(page),
+  [
+    "mirrorObj",
+    "page",
+  ],
+);
+// MX modified end
