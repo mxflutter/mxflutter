@@ -215,8 +215,6 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     if (fi == null) {
       return null;
     }
-    fi.buildOwner = buildOwner;
-    fi.context = context;
 
     try {
       var namedArguments = <Symbol, dynamic>{};
@@ -240,9 +238,18 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
         }
       }
 
+      // 保存原参数。此处是为了解决同一类型的widget嵌套时，导致的buildOwner和context的覆盖问题
+      MXJsonBuildOwner originBuildOwner = fi.buildOwner;
+      BuildContext originContext = fi.context;
+      fi.buildOwner = buildOwner;
+      fi.context = context;
+
       var result = fi.apply(namedArguments);
-      fi.buildOwner = null;
-      fi.context = null;
+
+      // 重新赋值原参数
+      fi.buildOwner = originBuildOwner;
+      fi.context = originContext;
+      
       return result;
     } catch (e) {
       MXJSLog.error("MXMirror.invoke, error:$e ; jsonMap: $argsMap ");
