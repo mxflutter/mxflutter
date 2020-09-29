@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.MethodCall;
 
 import androidx.annotation.Nullable;
 import io.flutter.plugin.common.MethodChannel;
@@ -193,6 +194,22 @@ public class MXJSEngine {
 
         /**
          * @param channelName 通道名
+         * @param function 回调
+         */
+        JavaVoidCallback mx_jsbridge_MethodChannel_setMethodCallHandler = new JavaVoidCallback() {
+            @Override
+            public void invoke(V8Object v8Object, V8Array args) {
+                assetJsFunctionArg(args.length(), 2);
+
+                String channelName = args.get(0).toString();
+                V8Function function = (V8Function) args.get(1);
+                jsCallbackCache.put(channelName, function);
+            }
+        };
+        jsExecutor.registerJavaMethod(mx_jsbridge_MethodChannel_setMethodCallHandler, "mx_jsbridge_MethodChannel_setMethodCallHandler");
+
+        /**
+         * @param channelName 通道名
          * @param streamParam receiveBroadcastStream参数
          * @param onData 回调
          * @param onError 回调
@@ -296,4 +313,16 @@ public class MXJSEngine {
         }
     }
 
+    public void callJSCallbackFunctionWithChannelName(String channelName, MethodCall methodCall, V8Function callback) {
+        V8Function v8Callback = jsCallbackCache.get(channelName);
+        if (v8Callback != null) {
+            Map params = new HashMap();
+            params.put("method", methodCall.method);
+            params.put("arguments", methodCall.arguments);
+            Object result = jsExecutor.invokeJsFunction(v8Callback, params);
+            if (callback != null) {
+                callback(result);
+            }
+        }
+    }
 }

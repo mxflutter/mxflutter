@@ -229,4 +229,9 @@ public class MXJSFlutterEngine {
         MethodCall call = new MethodCall("mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke", arg);
         jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
     }
+
+    @SuppressWarnings("unchecked")
+    public void callJSMethodCallHandler(String channelName, MethodCall methodCall, V8Function callback) {
+        mJsEngine.callJSCallbackFunctionWithChannelName(channelName, methodCall, callback);
+    }
 }
