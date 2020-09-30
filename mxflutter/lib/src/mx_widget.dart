@@ -231,6 +231,11 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     super.dispose();
   }
 
+  void didChangeDependencies() {
+    buildOwnerNode.didChangeDependencies();
+    super.didChangeDependencies();
+  }
+
   MXJsonBuildOwner get buildOwnerNode =>
       (context as MXJSStatefulElement)?.buildOwnerNode;
 

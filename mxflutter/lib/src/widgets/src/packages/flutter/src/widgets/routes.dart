@@ -32,6 +32,9 @@ Map<String, MXFunctionInvoke> registerRoutesSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_localHistoryEntry.funName] = _localHistoryEntry;
   m[_routeObserver.funName] = _routeObserver;
+  // MX Modified begin
+  m[_modalRouteOf.funName] = _modalRouteOf;
+  // MX Modified end
   return m;
 }
 
@@ -56,7 +59,7 @@ var _routeObserver = MXFunctionInvoke(
 // MX Modified begin。TODO:
 var _modalRouteOf = MXFunctionInvoke(
   "ModalRoute.of",
-  (String widgetElementID) {
+  ({String widgetElementID}) {
     // 通过widgetElementID查询buildContext
     BuildContext context = MXJSFlutter.getInstance().currentApp.queryElementBuildContext(widgetElementID);
     if (context == null) {

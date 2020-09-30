@@ -302,6 +302,10 @@ class MXJsonBuildOwner {
     onDispose();
   }
 
+  void didChangeDependencies() {
+    callJSDidChangeDependencies();
+  }
+
   callJSOnBuildEnd() {
     MXJSLog.debug("MXJSWidgetState:callJSOnBuildEnd: "
         "widgetID:$ownerWidgetId"
@@ -362,6 +366,18 @@ class MXJsonBuildOwner {
     MethodCall jsMethodCall = MethodCall("flutterCallOnDispose", {
       "widgetID": ownerWidgetId,
       "mirrorObjIDList": _mirrorObjIds.toList(),
+    });
+
+    ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
+  }
+
+  callJSDidChangeDependencies() {
+    MXJSLog.debug("MXJSWidgetState:callJSDidChangeDependencies: "
+        "widgetID:$ownerWidgetId "
+        "buildSeq:$widgetBuildDataSeq");
+
+    MethodCall jsMethodCall = MethodCall("futterCallDidChangeDependencies", {
+      "widgetID": ownerWidgetId
     });
 
     ownerApp.callJSNeedFrequencyLimit(jsMethodCall);
