@@ -303,4 +303,10 @@ class MXJSFlutterApp {
       _widgetId2RebuildJSCallCache.remove(boNode.ownerWidgetId);
     }
   }
+
+  /// 查询对应widgetElementID的BuildContext
+  BuildContext queryElementBuildContext(String widgetElementID) {
+    MXJsonBuildOwner buildOwner = _rootBuildOwnerNode.findChild(widgetElementID);
+    return buildOwner?.buildContext;
+  }
 }
