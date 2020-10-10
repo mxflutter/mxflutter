@@ -11,6 +11,9 @@ import 'mirror/mx_mirror.dart';
 import 'mx_common.dart';
 import 'mx_flutter.dart';
 import 'mx_flutter_app.dart';
+import 'ffi/ffi.dart';
+import 'dart:convert';
+import 'package:ffi/ffi.dart';
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
 
@@ -209,6 +212,23 @@ class MXJsonBuildOwner {
     });
 
     return await ownerApp.callJS(jsMethodCall);
+  }
+
+   /// 事件回调
+  /// flutter->JS
+  dynamic syncEventCallback(String callID, {List args}) {
+    Map argument = {"widgetID": ownerWidgetId,
+                  "buildSeq": widgetBuildDataSeq,
+                  "callID": callID,
+                  "args": args
+                  };
+
+    // 序列化参数
+    String encodeArgument = json.encode(argument);
+    dynamic utf8Result = syncPropsCallback(Utf8.toUtf8(encodeArgument));
+    Map jsonMap = json.decode(Utf8.fromUtf8(utf8Result));
+    dynamic result = MXMirror.getInstance().jsonToDartObj(jsonMap, buildOwner: this);
+    return result;
   }
 
   ///动态创建Widget回调，如List

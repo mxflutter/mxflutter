@@ -18,6 +18,12 @@ import 'package:flutter/src/material/material_localizations.dart';
 import 'package:flutter/src/material/page.dart';
 import 'package:flutter/src/material/theme.dart';
 
+// MX Modified begin
+import 'package:mxflutter/mxflutter.dart';
+import 'package:mxflutter/src/mx_build_owner.dart';
+import 'dart:convert';
+// MX Modified end
+
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerAppSeries() {
   var m = <String, MXFunctionInvoke>{};
@@ -69,7 +75,10 @@ var _materialApp = MXFunctionInvoke(
     home: home,
     routes: toMapT<String, Widget Function(BuildContext)>(routes),
     initialRoute: initialRoute,
-    onGenerateRoute: null,
+    // MX Modified begin
+    onGenerateRoute: createOnGenerateRouteClosure<Route, RouteSettings>(
+        _materialApp.buildOwner, onGenerateRoute),
+    // MX Modified end
     onGenerateInitialRoutes: null,
     onUnknownRoute: null,
     navigatorObservers: toListT<NavigatorObserver>(navigatorObservers),
@@ -140,3 +149,24 @@ class MXThemeMode {
     return null;
   }
 }
+
+// MX Modified begin
+GenericFunctionGenericCallback<Route, RouteSettings>
+    createOnGenerateRouteClosure<R, T>(
+        MXJsonBuildOwner bo, dynamic eventCallbackID) {
+  if (eventCallbackID == null) {
+    return null;
+  }
+
+  GenericFunctionGenericCallback<Route, RouteSettings> cb = (RouteSettings b) {
+    Map encodeParms = {
+      "name": b.name,
+      "mxArguments": b.arguments != null ? json.encode(b.arguments) : ""
+    };
+    dynamic result = bo.syncEventCallback(eventCallbackID, args: [encodeParms]);
+    return result;
+  };
+
+  return cb;
+}
+// MX Modified end
