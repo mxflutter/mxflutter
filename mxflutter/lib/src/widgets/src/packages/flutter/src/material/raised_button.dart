@@ -143,9 +143,13 @@ var _raisedButtonIcon = MXFunctionInvoke(
     dynamic highlightElevation,
     dynamic disabledElevation,
     ShapeBorder shape,
-    Clip clipBehavior,
+    // MX Modified begin
+    Clip clipBehavior = Clip.none,
+    // MX Modified end
     FocusNode focusNode,
-    bool autofocus,
+    // MX Modified begin
+    bool autofocus = false,
+    // MX Modified end
     EdgeInsetsGeometry padding,
     MaterialTapTargetSize materialTapTargetSize,
     Duration animationDuration,
