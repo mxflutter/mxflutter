@@ -14,7 +14,6 @@
 #import "MXJSEngine.h"
 #import "MXJSFlutterEngine.h"
 #import "MXJSBridge.h"
-#import "MXFlutterPlugin.h"
 
 @interface MXJSFlutterApp ()
 
@@ -286,15 +285,6 @@
     [self.jsExecutor invokeJSValue:self.jsAppObj method:@"nativeCall" args:@[args] callback:^(JSValue *result, NSError *error) {
 
     }];
-}
-
-/// 同步属性回调
-const char *syncPropsCallback(char *args) {
-    JSValue *appObj = [MXFlutterPlugin shareInstance].mxEngine.currentApp.jsAppObj;
-    NSDictionary *argument = @{@"method" : @"syncPropsCallback",
-                               @"arguments" : [NSString stringWithUTF8String:args]};
-    JSValue *result = [appObj invokeMethod:@"nativeCall" withArguments:@[argument]];
-    return result.toString.UTF8String;
 }
 
 @end

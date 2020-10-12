@@ -63,9 +63,6 @@ JSExportAs(callFlutterWidgetChannel,
 - (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
 - (void)executeBlockOnJSThread:(dispatch_block_t)block;
 
-/// 同步属性回调
-const char *syncPropsCallback(char* args);
-
 @end
 
 NS_ASSUME_NONNULL_END
