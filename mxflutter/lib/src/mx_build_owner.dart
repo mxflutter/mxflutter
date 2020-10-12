@@ -222,13 +222,17 @@ class MXJsonBuildOwner {
                   "callID": callID,
                   "args": args
                   };
-
-    // 序列化参数
-    String encodeArgument = json.encode(argument);
-    dynamic utf8Result = syncPropsCallback(Utf8.toUtf8(encodeArgument));
-    Map jsonMap = json.decode(Utf8.fromUtf8(utf8Result));
-    dynamic result = MXMirror.getInstance().jsonToDartObj(jsonMap, buildOwner: this);
-    return result;
+    try {
+      String encodeArgument = json.encode(argument);
+      dynamic utf8Result = syncPropsCallback(Utf8.toUtf8(encodeArgument));
+      Map jsonMap = json.decode(Utf8.fromUtf8(utf8Result));
+      dynamic result = MXMirror.getInstance().jsonToDartObj(jsonMap, buildOwner: this);
+      return result;
+    } catch(e) {
+      MXJSLog.error("MXJsonBuildOwner.syncEventCallback, error:$e; argument: $argument");
+      
+      rethrow;
+    }
   }
 
   ///动态创建Widget回调，如List
