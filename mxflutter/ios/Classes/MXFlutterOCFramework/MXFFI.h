@@ -12,10 +12,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#if defined(__cplusplus)
+#define MX_FFI_EXTERN extern "C" __attribute__((visibility("default"))) __attribute__((used))
+#else
+#define MX_FFI_EXTERN extern __attribute__((visibility("default"))) __attribute__((used))
+#endif
+
 @interface MXFFI : NSObject
 
 /// 同步属性回调
-const char *syncPropsCallback(char* args);
+MX_FFI_EXTERN const char *syncPropsCallback(char* args);
 
 @end
 
