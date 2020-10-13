@@ -198,7 +198,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       return;
     }
 
-    result = _invoke(funcName, args);
+    result = _invoke(funcName, args, buildOwner: buildOwner);
 
     if (callback != null) {
       callback(result);
