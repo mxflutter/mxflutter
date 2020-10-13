@@ -25,6 +25,7 @@ import static com.mojitox.mxflutter.MXFlutterPlugin.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.jetbrains.annotations.Nullable;
 
 public class MXJSExecutor {
 
@@ -248,12 +249,22 @@ public class MXJSExecutor {
 
     @SuppressWarnings("unchecked")
     public void invokeJsFunction(V8Function v8Function, Map value) {
+        invokeJsFunction(v8Function, value, null);
+    }
+
+    @SuppressWarnings("unchecked")
+    public void invokeJsFunction(V8Function v8Function, Map value,
+            @Nullable ExecuteScriptCallback callback) {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                v8Function.call(runtime, value != null
+                Object result = v8Function.call(runtime, value != null
                         ? new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, value))
-                        : new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, new HashMap<>())));
+                        : new V8Array(runtime)
+                                .push(V8ObjectUtils.toV8Object(runtime, new HashMap<>())));
+                if (callback != null) {
+                    callback.onComplete(result);
+                }
             }
         });
     }
