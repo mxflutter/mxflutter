@@ -65,6 +65,9 @@ abstract class MXMirror {
   /// Flutter->JS
   invokeJSMirrorObj(
       {dynamic mirrorID, String functionName, String callbackID, dynamic args});
+
+  /// Flutter->JS。调用JS Mirror模块的注册funcName方法
+  invokeJSMirrorFuncNameMethod({String functionName, dynamic args});
 }
 
 class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
