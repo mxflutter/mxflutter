@@ -31,6 +31,7 @@ import io.flutter.plugin.common.MethodCall;
 
 import androidx.annotation.Nullable;
 import io.flutter.plugin.common.MethodChannel;
+import io.flutter.plugin.common.MethodCall;
 
 public class MXJSEngine {
     static private String TAG = "MXJSEngine";
@@ -313,16 +314,13 @@ public class MXJSEngine {
         }
     }
 
-    // public void callJSCallbackFunctionWithChannelName(String channelName, MethodCall methodCall, V8Function callback) {
-    //     V8Function v8Callback = jsCallbackCache.get(channelName);
-    //     if (v8Callback != null) {
-    //         Map params = new HashMap();
-    //         params.put("method", methodCall.method);
-    //         params.put("arguments", methodCall.arguments);
-    //         Object result = jsExecutor.invokeJsFunction(v8Callback, params);
-    //         if (callback != null) {
-    //             callback(result);
-    //         }
-    //     }
-    // }
+    public void callJSCallbackFunctionWithChannelName(String channelName, MethodCall methodCall, MXJSExecutor.ExecuteScriptCallback callback) {
+        V8Function v8Callback = jsCallbackCache.get(channelName);
+        if (v8Callback != null) {
+            Map<String, Object> params = new HashMap<>();
+            params.put("method", methodCall.method);
+            params.put("arguments", methodCall.arguments);
+            jsExecutor.invokeJsFunction(v8Callback, params, callback);
+        }
+    }
 }

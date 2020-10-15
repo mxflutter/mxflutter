@@ -186,17 +186,19 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     // 判断fi是否为空
     MXFunctionInvoke fi = _funcInvokeWithFuncName(funcName);
     if (fi == null) {
-      MXJSLog.error("MXMirror.invokeWithCallback, error: fi is null; jsonMap: $jsonMap ");
+      MXJSLog.error(
+          "MXMirror.invokeWithCallback, error: fi is null; jsonMap: $jsonMap ");
       return;
     }
 
     // 判断mirrorObj是否为空
     if (fi.propsName.contains(constMirrorObjStr) && mirrorObj == null) {
-      MXJSLog.error("MXMirror.invokeWithCallback, error: mirrorObj is null; jsonMap: $jsonMap ");
+      MXJSLog.error(
+          "MXMirror.invokeWithCallback, error: mirrorObj is null; jsonMap: $jsonMap ");
       return;
     }
 
-    result = _invoke(funcName, args);
+    result = _invoke(funcName, args, buildOwner: buildOwner);
 
     if (callback != null) {
       callback(result);
@@ -225,7 +227,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       argsMap = argsMap ?? {};
 
       for (var name in propsName) {
-        if (argsMap[name] == null) {
+        if (!argsMap.containsKey(name)) {
           continue;
         }
 
@@ -249,7 +251,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       // 重新赋值原参数
       fi.buildOwner = originBuildOwner;
       fi.context = originContext;
-      
+
       return result;
     } catch (e) {
       MXJSLog.error("MXMirror.invoke, error:$e ; jsonMap: $argsMap ");
@@ -268,7 +270,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   String objectFuncName(Map jsonMap) {
     var className = jsonMap[constClassStr];
     var funcName = jsonMap[constFuncStr];
-    
+
     if (className == null && funcName == null) {
       return null;
     } else if (className == null && funcName != null) {
@@ -345,6 +347,15 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     };
 
     MethodCall jsMethodCall = MethodCall("invokeJSMirrorObj", callInfo);
+    MXJSBridge.getInstance().invokeJSCommonChannel(jsMethodCall);
+  }
+
+  /// Flutter->JS。调用JS Mirror模块的注册funcName方法
+  invokeJSMirrorFuncNameMethod({String functionName, dynamic args}) async {
+    Map callInfo = {"functionName": functionName, "args": args};
+
+    MethodCall jsMethodCall =
+        MethodCall("invokeJSMirrorFuncNameMethod", callInfo);
     MXJSBridge.getInstance().invokeJSCommonChannel(jsMethodCall);
   }
 }
