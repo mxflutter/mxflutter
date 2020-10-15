@@ -227,7 +227,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       argsMap = argsMap ?? {};
 
       for (var name in propsName) {
-        if (argsMap[name] == null) {
+        if (!argsMap.containsKey(name)) {
           continue;
         }
 
