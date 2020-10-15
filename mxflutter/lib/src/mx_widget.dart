@@ -163,18 +163,16 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     widgetBuildDataCache =
         WidgetBuildDataCache(widget.widgetBuildData, widget.widgetBuildDataSeq);
 
-    // 只针对HostWidget，告知JS首帧结束 
-    if (widget.isHostWidget == true) {
-      WidgetsBinding.instance.addPersistentFrameCallback((callback) {
+    WidgetsBinding.instance.addPostFrameCallback((callback) {
+      // 非HostWidget，告知JS首帧结束
+      if (widget.isHostWidget != true) {
         buildOwnerNode?.callJSOnFirstFrameEnd();
-      });
-    }
-    // 非HostWidget，告知JS首帧结束
-    else {
-      WidgetsBinding.instance.addPostFrameCallback((callback) {
-        buildOwnerNode?.callJSOnFirstFrameEnd();
-      });
-    }
+      } else {
+        WidgetsBinding.instance.addPersistentFrameCallback((callback){
+          buildOwnerNode?.callJSOnFirstFrameEnd();
+        });
+      }
+    });
   }
 
   @override
