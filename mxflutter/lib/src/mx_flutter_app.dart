@@ -34,17 +34,17 @@ class MXJSFlutterApp {
   /// *重要：此API是从Flutter侧打开一个JS页面的入口函数
   /// 从 Flutter Push 一个 JS 写的页面
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
-  MXJSStatefulWidget navigatorPushWithName(String widgetName, Key widgetKey) {
+  MXJSStatefulWidget navigatorPushWithName(String widgetName, Key widgetKey, Map flutterPushParams) {
     MXJSLog.log(
         "MXJSFlutterApp:navigatorPushWithName: widgetName: $widgetName ");
-    return createHostJSWidget(widgetName, widgetKey);
+    return createHostJSWidget(widgetName, widgetKey, flutterPushParams);
   }
 
   /// API JS->Flutter
   /// *重要：此API是从Flutter侧打开一个JS页面的入口函数
   /// 创建一个hostJSWidget,可以直接放入Fltuter的build widget Tree中
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
-  MXJSStatefulWidget createHostJSWidget(String widgetName, Key widgetKey) {
+  MXJSStatefulWidget createHostJSWidget(String widgetName, Key widgetKey, Map flutterPushParams) {
     MXJSLog.log("MXJSFlutterApp:createHostJSWidget: widgetName: $widgetName ");
 
     MXJSStatefulWidget jsWidget = _rootBuildOwnerNode.findWidget(widgetKey);
@@ -58,7 +58,8 @@ class MXJSFlutterApp {
     jsWidget = MXJSStatefulWidget.hostWidget(
         key: widgetKey,
         name: widgetName,
-        parentBuildOwnerNode: _rootBuildOwnerNode);
+        parentBuildOwnerNode: _rootBuildOwnerNode,
+        flutterPushParams: flutterPushParams);
 
     return jsWidget;
   }
