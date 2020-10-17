@@ -32,8 +32,10 @@ var _animation = MXFunctionInvoke("Animation", ({
   dynamic mirrorID,
 }) {
   Animation animation = tween.animate(controller);
-  animation.addStatusListener(_createStatusListenerHandle(
+  if (statusListenerList != null && statusListenerList.length > 0) {
+      animation.addStatusListener(_createStatusListenerHandle(
       _animation.buildOwner, mirrorID, 'statusListenerCallback'));
+  }
   return animation;
 },
 [
