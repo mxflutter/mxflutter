@@ -355,7 +355,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
 
   /// Flutter->JS。调用JS Mirror模块的注册funcName方法
   invokeJSMirrorFuncNameMethod({String functionName, dynamic args}) async {
-    Map callInfo = {"functionName": functionName, "args": args};
+    Map callInfo = {"funcName": functionName, "args": args};
 
     MethodCall jsMethodCall =
         MethodCall("invokeJSMirrorFuncNameMethod", callInfo);
