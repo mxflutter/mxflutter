@@ -86,6 +86,9 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
 
   /// JS 主动创建，等待 Flutter 真正 build 时，通知 JS 刷新
   final bool isJSLazyWidget;
+  
+  /// flutter打开js页面时的传递参数
+  final Map flutterPushParams;
 
   MXJSStatefulWidget(
       {Key key,
@@ -97,16 +100,18 @@ class MXJSStatefulWidget extends StatefulWidget with MXJSWidgetBase {
       this.parentBuildOwnerNode,
       this.isJSLazyWidget})
       : this.isHostWidget = false,
+        this.flutterPushParams = {},
         super(key: key);
 
   ///由dart侧创建MXWidget壳子
-  MXJSStatefulWidget.hostWidget({Key key, this.name, this.parentBuildOwnerNode})
+  MXJSStatefulWidget.hostWidget({Key key, this.name, this.parentBuildOwnerNode, Map flutterPushParams})
       : this.widgetID = MXJSWidgetBase.generateWidgetID(),
         this.widgetBuildData = null,
         this.isHostWidget = true,
         this.widgetBuildDataSeq = null,
         this.navPushingWidgetID = null,
         this.isJSLazyWidget = false,
+        this.flutterPushParams = flutterPushParams,
         super(key: key);
 
   @override
@@ -320,7 +325,7 @@ class MXJSWidgetState extends State<MXJSStatefulWidget> {
     if (!isHostWidgetAlreadyCallJSRefreshed) {
       isHostWidgetAlreadyCallJSRefreshed = true;
       buildOwnerNode.callJSRefreshHostWidget(
-          widget.name, widget.widgetID, context);
+          widget.name, widget.widgetID, context, widget.flutterPushParams);
       return onWaitJSRefreshCreateLoadingWidget(this.widget.name);
     } else {
       return onBuildErrorCreateErrorWidget(this.widget.name,

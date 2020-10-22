@@ -75,7 +75,7 @@ abstract class MXJSFlutter {
   ///
   /// '''
   ///
-  dynamic navigatorPushWithName(String widgetName, Key widgetKey);
+  dynamic navigatorPushWithName(String widgetName, Key widgetKey, Map flutterPushParams);
 
   /// 设置一个处理器，当JS页面加载时，定制Loading widget
   setJSWidgetLoadingHandler(MXWidgetBuildHandler handler);
@@ -172,8 +172,8 @@ class _MXJSFlutter implements MXJSFlutter {
   /// *重要：此API是从Dart侧打开一个JS页面的入口函数，将创建一个RootWidget，MXFlutter 的RootWidget对外只显示一个
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
   @override
-  dynamic navigatorPushWithName(String widgetName, Key widgetKey) {
-    dynamic jsWidget = currentApp?.navigatorPushWithName(widgetName, widgetKey);
+  dynamic navigatorPushWithName(String widgetName, Key widgetKey, Map flutterPushParams) {
+    dynamic jsWidget = currentApp?.navigatorPushWithName(widgetName, widgetKey, flutterPushParams);
     return jsWidget;
   }
 

@@ -11,8 +11,8 @@ import 'mirror/mx_mirror.dart';
 import 'mx_common.dart';
 import 'mx_flutter.dart';
 import 'mx_flutter_app.dart';
-import 'ffi/ffi.dart';
 import 'dart:convert';
+import 'ffi/ffi.dart';
 import 'package:ffi/ffi.dart';
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
@@ -175,7 +175,7 @@ class MXJsonBuildOwner {
 
   /// 调用js 刷新hostwidget
   callJSRefreshHostWidget(
-      String widgetName, String widgetID, BuildContext context) {
+      String widgetName, String widgetID, BuildContext context, Map flutterPushParams) {
     var mediaQueryData = MediaQuery.of(context);
     var themeData = Theme.of(context);
     var iconThemeData = IconTheme.of(context);
@@ -187,6 +187,7 @@ class MXJsonBuildOwner {
       "themeData": MXUtil.cThemeDataToJson(themeData),
       "mediaQueryData": MXUtil.cMediaQueryDataToJson(mediaQueryData),
       "iconThemeData": MXUtil.cIconThemeDataToJson(iconThemeData),
+      "flutterPushParams": json.encode(flutterPushParams),
     });
 
     ownerApp.callJS(jsMethodCall);

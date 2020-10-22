@@ -47,7 +47,7 @@ var _tabController = MXFunctionInvoke(
       length: length,
       vsync: tickVsync,
     );
-    if (listenerList != null) {
+    if (listenerList != null && listenerList.length > 0) {
       tabController.addListener(_createListenerHandle(_tabController.buildOwner, mirrorID, "listenerCallback", tabController));
     }
     return tabController;
