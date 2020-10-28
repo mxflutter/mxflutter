@@ -150,13 +150,13 @@ class _MXJSFlutter implements MXJSFlutter {
 
     args["flutterAppEnvironmentInfo"] = _flutterAppEnvironmentInfo();
 
+    MXPlatformChannel.getInstance().invokeMethod("callNativeRunJSApp", args);
+
     // 暂时只支持一个
     currentApp = MXJSFlutterApp(jsAppAssetsKey);
 
     // 记录框架启动耗时
     args["mxFlutterInitCost"] = new DateTime.now().millisecondsSinceEpoch - _mxInitStartTime;
-
-    MXPlatformChannel.getInstance().invokeMethod("callNativeRunJSApp", args);
   }
 
   Map _flutterAppEnvironmentInfo() {
