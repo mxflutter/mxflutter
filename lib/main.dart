@@ -46,11 +46,10 @@ runMXJSApp() {
   //locaTSReleasePath = "/Volumes/Data/Work/RFlutter/mxflutter-js/release";
 
   if (locaTSReleasePath.isEmpty) {
-    MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: "mxflutter_js_src");
+    MXJSFlutter.runJSApp(jsAppAssetsKey: "mxflutter_js_src");
   } else {
     //debug 重定义到ts release文件夹
-    MXJSFlutter.getInstance()
-        .runJSApp(jsAppPath: locaTSReleasePath);
+    MXJSFlutter.runJSApp(jsAppPath: locaTSReleasePath);
   }
 
   // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考MXMirrorExample实现过程
