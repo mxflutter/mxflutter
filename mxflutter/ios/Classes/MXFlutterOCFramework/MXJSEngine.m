@@ -129,7 +129,10 @@
     __weak MXJSEngine *weakSelf = jsEngine;
     
     context.exceptionHandler = ^(JSContext *con, JSValue *exception) {
-        MXJSFlutterLog(@"[JS]:context.exception:  %@", exception);
+        NSString *stack = [exception objectForKeyedSubscript:@"stack"].toString;
+        int line = [exception objectForKeyedSubscript:@"line"].toInt32;
+        int column = [exception objectForKeyedSubscript:@"column"].toInt32;
+        MXJSFlutterLog(@"[JS]:context.exception:  %@,\nstack: %@,\nline: %d,\ncolumn: %d", exception, stack, line, column);
     };
     context[@"require"] = ^(NSString *filePath) {
         //MXJSFlutterLog(@"require file:%@",filePath);

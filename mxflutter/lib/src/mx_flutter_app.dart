@@ -17,12 +17,10 @@ import 'mx_widget.dart';
 /// 管理一个JSAPP 代码文件集合
 /// 负责 JS 与 Flutter UI数据通道，事件通道
 class MXJSFlutterApp {
-  MXJSFlutterApp(this.name) {
+  MXJSFlutterApp() {
     _rootBuildOwnerNode = MXJsonBuildOwner.rootBuildOwner();
     _setupChannel();
   }
-
-  String name;
 
   /// widget build owner ：rootBoNode
   MXJsonBuildOwner _rootBuildOwnerNode;
@@ -177,7 +175,7 @@ class MXJSFlutterApp {
       _widgetId2RebuildJSCallCache[widgetID] = widgetDataMap;
 
       MXJSLog.error("MXJSFlutterApp:_jsCallRebuild: "
-          "findBuildOwner(widgetID) == null，调用暂时缓存，name:$name widgetId:$widgetID");
+          "findBuildOwner(widgetID) == null，调用暂时缓存, widgetId:$widgetID");
 
       _rootBuildOwnerNode.debugPrintBuildOwnerNodeTree();
       return;
@@ -260,7 +258,7 @@ class MXJSFlutterApp {
     String routeName = args["routeName"];
     if (boNode == null) {
       MXJSLog.error("MXJSFlutterApp:jsCallNavigatorPushNamed: "
-          "findBuildOwner(navPushingWidgetID:$navPushingWidgetID) == routeName:$name ");
+          "findBuildOwner(navPushingWidgetID:$navPushingWidgetID) == routeName ");
       return;
     }
 
