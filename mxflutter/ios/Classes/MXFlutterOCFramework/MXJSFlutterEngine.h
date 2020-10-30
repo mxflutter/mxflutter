@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *jsFrameworkPath;
 @property (nonatomic,strong) NSString *currentJSAppPath;
 @property (nonatomic,strong) NSArray *jsAppSearchPathList;
+@property (nonatomic, strong, readonly) FlutterMethodChannel *engineMethodChannel;
 
 
 ///初始化MXFlutter主引擎，设置FlutterEngine的binaryMessenger

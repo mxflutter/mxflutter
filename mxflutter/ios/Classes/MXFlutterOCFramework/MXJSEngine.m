@@ -132,7 +132,10 @@
         NSString *stack = [exception objectForKeyedSubscript:@"stack"].toString;
         int line = [exception objectForKeyedSubscript:@"line"].toInt32;
         int column = [exception objectForKeyedSubscript:@"column"].toInt32;
-        MXJSFlutterLog(@"[JS]:context.exception:  %@,\nstack: %@,\nline: %d,\ncolumn: %d", exception, stack, line, column);
+        NSString *errorDesc = [NSString stringWithFormat:@"exception: %@,\nstack: %@,\nline: %d,\ncolumn: %d", exception, stack, line, column];
+        MXJSFlutterLog(@"[JS]:context %@,", errorDesc);
+    
+        [weakSelf.jsFlutterEngine.engineMethodChannel invokeMethod:@"mxflutterJSExceptionHandler" arguments:errorDesc result:NULL];
     };
     context[@"require"] = ^(NSString *filePath) {
         //MXJSFlutterLog(@"require file:%@",filePath);
