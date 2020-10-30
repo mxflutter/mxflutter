@@ -8,7 +8,11 @@ package com.mojitox.mxflutter.framework;
 
 import android.content.Context;
 
+import android.util.Log;
+import androidx.annotation.Keep;
+import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Object;
+import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
@@ -83,6 +87,8 @@ public class MXJSFlutterApp {
         setFlutterAppEnvironmentInfo(flutterAppEnvironmentInfo);
 
         currentApp = this;
+        System.loadLibrary("mxflutter");
+        init(currentApp);
         return this;
     }
 
@@ -196,6 +202,7 @@ public class MXJSFlutterApp {
             }
         });
         this.jsExecutor.close();
+        release();
     }
 
     public void runApp() {
@@ -324,4 +331,23 @@ public class MXJSFlutterApp {
             this.localPath = localPath;
         }
     }
+
+    @Keep
+    public String syncPropsCallback(String args) {
+        if (jsAppObj != null) {
+            Log.d("mxflutternative", "call java syncPropsCallback not null");
+            Map<String, Object> jsArgument = new HashMap<>();
+            jsArgument.put("method", "syncPropsCallback");
+            jsArgument.put("arguments", args);
+            Object result = jsAppObj.executeFunction("nativeCall", new V8Array(MXJSExecutor.runtime).push(
+                    V8ObjectUtils.toV8Object(MXJSExecutor.runtime, jsArgument)));
+            return result.toString();
+        }
+        Log.d("mxflutternative", "call java syncPropsCallback null:" + this);
+        return "jsAppObj is null";
+    }
+
+    private native void init(MXJSFlutterApp currentApp);
+
+    private native void release();
 }
