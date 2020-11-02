@@ -16,6 +16,8 @@ import 'mx_handler.dart';
 
 typedef Widget MXWidgetBuildHandler(String widgetName);
 
+typedef void MXJSExceptionHandler(dynamic errorDescription);
+
 ///*MXJSFluttr的对外接口类
 ///简单两步接入MXFlutter，打开JS编写的页面。
 ///1. 启动运行JS代码 'MXJSFlutter.getInstance().runJSApp();'
@@ -58,7 +60,8 @@ abstract class MXJSFlutter {
       {String jsAppPath = "",
       String jsAppAssetsKey = "mxflutter_js_src",
       List<String> jsAppSearchPathList,
-      List<String> jsAppSearchPathWithAssetsKeyList}) {
+      List<String> jsAppSearchPathWithAssetsKeyList,
+      MXJSExceptionHandler jsExceptionHandler}) {
     WidgetsFlutterBinding.ensureInitialized();
 
     // 加载main.js
@@ -66,7 +69,8 @@ abstract class MXJSFlutter {
         jsAppPath: jsAppPath,
         jsAppAssetsKey: jsAppAssetsKey,
         jsAppSearchPathList: jsAppSearchPathList,
-        jsAppSearchPathWithAssetsKeyList: jsAppSearchPathWithAssetsKeyList);
+        jsAppSearchPathWithAssetsKeyList: jsAppSearchPathWithAssetsKeyList,
+        jsExceptionHandler: jsExceptionHandler);
 
     MXJSFlutter.getInstance();
   }
@@ -75,7 +79,8 @@ abstract class MXJSFlutter {
       {String jsAppPath = "",
       String jsAppAssetsKey = "mxflutter_js_src",
       List<String> jsAppSearchPathList,
-      List<String> jsAppSearchPathWithAssetsKeyList}) {
+      List<String> jsAppSearchPathWithAssetsKeyList,
+      MXJSExceptionHandler jsExceptionHandler}) {
     Map<String, dynamic> args = {
       "jsAppAssetsKey": jsAppAssetsKey,
       "jsAppPath": jsAppPath
@@ -97,6 +102,11 @@ abstract class MXJSFlutter {
     };
 
     MXPlatformChannel.getInstance().invokeMethod("callNativeRunJSApp", args);
+
+    // 设置JS Exception Handler
+    if (jsExceptionHandler != null) {
+      MXPlatformChannel.getInstance().setJSExceptionHandler(jsExceptionHandler);
+    }
   }
 
   ///从Flutter Push一个 JS写的页面
@@ -153,14 +163,6 @@ class _MXJSFlutter implements MXJSFlutter {
     currentApp = MXJSFlutterApp();
 
     _isSetup = true;
-  }
-
-  Map _flutterAppEnvironmentInfo() {
-    return {
-      "kReleaseMode": kReleaseMode,
-      "kProfileMode": kProfileMode,
-      "kDebugMode": kDebugMode
-    };
   }
 
   /// API - JS页面的入口API
