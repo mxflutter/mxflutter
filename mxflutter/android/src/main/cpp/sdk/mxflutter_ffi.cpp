@@ -23,13 +23,13 @@ const char *syncPropsCallback(char *args) {
     __android_log_print(ANDROID_LOG_ERROR,
                         "mxflutternative",
                         "syncPropsCallback mxflutterapp");
-    if (attach == 1) {
-      del_env();
-    }
     const char *resultString = env->GetStringUTFChars(result, nullptr);
     __android_log_print(ANDROID_LOG_ERROR,
                         "mxflutternative",
                         "syncPropsCallback mxflutterapp result");
+    if (attach == 1) {
+      del_env();
+    }
     return resultString;
   }
   return "getMxFlutterApp is null";
