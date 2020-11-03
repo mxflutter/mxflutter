@@ -28,7 +28,7 @@ runMXJSApp() {
   //建议不要修改mxflutter_js_src/目录名，模拟器热重载依据此路径配置
   //如果修改请全局搜索mxflutter_js_src/修改模拟器热重载配置，release或真机不受影响
   //jsAppSearchPathWithAssetsKeyList 一般无需设置，默认从jsApp root path开始查找
-//  MXJSFlutter.getInstance().runJSApp(
+//  MXJSFlutter.runJSApp(
 //      jsAppAssetsKey: "mxflutter_js_src",
 //      jsAppSearchPathWithAssetsKeyList: [
 //        "mxflutter_js_src/app_demo",
@@ -38,7 +38,7 @@ runMXJSApp() {
   //  或者运行你下载到 DocumentsDirectory 里的JS代码
   //  Directory directory = await getApplicationDocumentsDirectory();
   //  var jsAppPath = join(directory.path, "my_js_app");
-  //  MXJSFlutter.getInstance().runJSApp(jsAppPath: jsAppPath);
+  //  MXJSFlutter.runJSApp(jsAppPath: jsAppPath);
 
   var locaTSReleasePath = "";
 
