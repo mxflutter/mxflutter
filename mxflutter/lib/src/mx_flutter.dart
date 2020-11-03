@@ -16,7 +16,10 @@ import 'mx_handler.dart';
 
 typedef Widget MXWidgetBuildHandler(String widgetName);
 
-typedef void MXJSExceptionHandler(dynamic errorDescription);
+/// [error]为 Map 类型，包含两个字段
+/// 1）jsFileType: 加载的js文件类型，int类型。0: main.js; 1: bundle-xxx.js
+/// 2）errorMsg: 错误信息，string类型。
+typedef void MXJSExceptionHandler(dynamic error);
 
 ///*MXJSFluttr的对外接口类
 ///简单两步接入MXFlutter，打开JS编写的页面。

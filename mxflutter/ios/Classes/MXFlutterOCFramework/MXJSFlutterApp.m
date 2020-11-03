@@ -173,22 +173,19 @@
         NSTimeInterval jsLoadStartTime = [[NSDate date] timeIntervalSince1970] * 1000;
         
         [executor executeScriptPath:mainJS onComplete:^(NSError *error) {
+            MXJSFlutterLog(@"MXJSFlutter : runApp error: %@", error);
             
-            MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
+            // 给到业务侧异常信息
+            if (error) {
+                [strongSelf.jsFlutterEngine.engineMethodChannel invokeMethod:MXFlutterJSExceptionHandler
+                                                                   arguments:@{@"jsFileType": @(MXFlutterJSFileType_Main),
+                                                                               @"errorMsg": error.description}
+                                                                      result:NULL];
+            }
             
-//             NSString *releaseMode = @"release";
+            strongSelf.isJSAPPRun = YES;
             
-// #if DEBUG
-//             releaseMode = @"debug";
-// #endif
-            
-//             [executor invokeMethod:@"main" args:@[releaseMode] callback:^(JSValue *result, NSError *error) {
-                
-                strongSelf.isJSAPPRun = YES;
-                NSLog(@"MXJSFlutter : call main js error:%@",error);
-                
-                [strongSelf callJSMethodCallQueqe];
-            // }];
+            [strongSelf callJSMethodCallQueqe];
             
             // 框架加载main.js结束时间
             NSTimeInterval jsLoadEndTime = [[NSDate date] timeIntervalSince1970] * 1000;
