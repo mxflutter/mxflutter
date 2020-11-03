@@ -57,6 +57,7 @@ abstract class MXJSFlutter {
   ///@param jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js_src/文件夹下
   ///@param jsAppSearchPathList js App require 的搜索路径，一般无需设置，默认jsApp root path
   ///@param jsAppSearchPathWithAssetsKeyList js App require 的搜索路径，使用pubspec.yaml里的AssetsKey配置来设置，一般无需设置，默认jsApp root path
+  ///@param jsExceptionHandler js异常回调。方法参数见 MXJSExceptionHandler 说明
   ///@returns void
   ///@throws Error if Path error
   ///
