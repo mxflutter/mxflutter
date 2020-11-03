@@ -6,15 +6,15 @@
 #include <mxflutter_ffi.h>
 #include <android/log.h>
 
-jobject current_app;
+jobject mx_flutter_ffi;
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_mojitox_mxflutter_framework_MXJSFlutterApp_init(JNIEnv *env,
+Java_com_mojitox_mxflutter_framework_ffi_MxFlutterFfi_init(JNIEnv *env,
                                                          jobject instance,
                                                          jobject obj) {
 //---- 强全局变量
-  current_app = env->NewGlobalRef(obj);
+  mx_flutter_ffi = env->NewGlobalRef(obj);
   __android_log_print(ANDROID_LOG_ERROR,
                       "mxflutternative",
                       "init mxflutterapp");
@@ -22,14 +22,14 @@ Java_com_mojitox_mxflutter_framework_MXJSFlutterApp_init(JNIEnv *env,
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_mojitox_mxflutter_framework_MXJSFlutterApp_release(JNIEnv *env,
+Java_com_mojitox_mxflutter_framework_ffi_MxFlutterFfi_release(JNIEnv *env,
                                                             jobject instance) {
-  env->DeleteGlobalRef(current_app);
+  env->DeleteGlobalRef(mx_flutter_ffi);
   __android_log_print(ANDROID_LOG_ERROR,
                       "mxflutternative",
                       "release mxflutterapp");
 }
 
-jobject getMxFlutterApp() {
-  return current_app;
+jobject get_mx_flutter_ffi() {
+  return mx_flutter_ffi;
 }

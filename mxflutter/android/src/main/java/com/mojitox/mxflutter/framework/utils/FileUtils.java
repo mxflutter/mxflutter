@@ -13,13 +13,17 @@ import android.util.Log;
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.MXJSFlutterApp;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -304,7 +308,8 @@ public class FileUtils {
                         String assetsFileName = fileNames.get(i);
                         String filePaths[] = assetsFileName.split("/");
                         copyFilesFromAssetsAsync(context,
-                                Arrays.asList(new MXJSFlutterApp.MXRoute(assetsFileName, route.localPath + "/" + filePaths[filePaths.length - 1])), deep + 1);
+                                Arrays.asList(new MXJSFlutterApp.MXRoute(assetsFileName,
+                                        route.localPath + "/" + filePaths[filePaths.length - 1])), deep + 1);
                     }
                 } else {
                     if (file.exists()) {
@@ -362,13 +367,15 @@ public class FileUtils {
             return false;
         }
         if (!sCopiedFileFromAssets) {
-            sCopiedFileFromAssets = context.getSharedPreferences("mx_sp", Context.MODE_PRIVATE).getBoolean("copied_file_from_assets", false);
+            sCopiedFileFromAssets = context.getSharedPreferences("mx_sp", Context.MODE_PRIVATE)
+                    .getBoolean("copied_file_from_assets", false);
         }
         return sCopiedFileFromAssets;
     }
 
     public static void setCpiedFileFromAssets(Context context) {
-        context.getSharedPreferences("mx_sp", Context.MODE_PRIVATE).edit().putBoolean("copied_file_from_assets", true).apply();
+        context.getSharedPreferences("mx_sp", Context.MODE_PRIVATE).edit().putBoolean("copied_file_from_assets", true)
+                .apply();
         sCopiedFileFromAssets = true;
     }
 
@@ -396,10 +403,66 @@ public class FileUtils {
     public static void assertJSThread() {
         if (MXJsScheduledExecutorService.sRunOnUI) {
             assertUiThread();
-        } else if (!Thread.currentThread().getName().startsWith(MXJsScheduledExecutorService.MX_JS_THREAD_POOL_PREFIX)) {
+        } else if (!Thread.currentThread().getName()
+                .startsWith(MXJsScheduledExecutorService.MX_JS_THREAD_POOL_PREFIX)) {
             throw new IllegalStateException(
                     "Must be called from JS thread. Current thread: "
                             + Thread.currentThread());
         }
+    }
+
+    /**
+     * 文件写入
+     *
+     * @author haiyandu
+     * @since 2011-11-21
+     */
+    public static boolean copy(InputStream srcStream, File destFile) {
+        if (srcStream == null) {
+            return false;
+        }
+        OutputStream os = null;
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(destFile));
+
+            byte[] b = new byte[256];
+            int len = 0;
+            while ((len = srcStream.read(b)) != -1) {
+                os.write(b, 0, len);
+            }
+            os.flush();
+
+        } catch (IOException e) {
+
+            Log.e(TAG, e.toString());
+            return false;
+        } finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                if (srcStream != null) {
+                    srcStream.close();
+                }
+            } catch (IOException e) {
+
+                Log.e(TAG, e.toString());
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean safetyCloseStream(Closeable stream) {
+        if (stream != null) {
+            try {
+                stream.close();
+                return true;
+            } catch (IOException e) {
+                //ignore it
+            }
+        }
+        return false;
     }
 }

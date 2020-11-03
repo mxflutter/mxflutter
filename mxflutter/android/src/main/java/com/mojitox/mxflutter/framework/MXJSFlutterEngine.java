@@ -120,7 +120,7 @@ public class MXJSFlutterEngine {
 
     public void destroy() {
         if (currentApp != null) {
-            currentApp.close();
+            currentApp.close(false);
         }
     }
 
@@ -162,7 +162,7 @@ public class MXJSFlutterEngine {
         jsAppSearchPathList = new ArrayList<>(searchList);
 
         if (currentApp != null) {
-            currentApp.close();
+            currentApp.close(true);
             currentApp = null;
         }
 

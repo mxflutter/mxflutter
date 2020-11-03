@@ -7,6 +7,6 @@
 
 #include <jni.h>
 
-jobject getMxFlutterApp();
+jobject get_mx_flutter_ffi();
 
 #endif //MXFLUTTER_MXFLUTTER_APP_H

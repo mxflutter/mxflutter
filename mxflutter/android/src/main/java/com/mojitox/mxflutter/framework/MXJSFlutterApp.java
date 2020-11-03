@@ -14,16 +14,12 @@ import static com.mojitox.mxflutter.MXFlutterPlugin.MXFLUTTER_FS_FRAMWORK_ROOT_P
 
 import android.content.Context;
 import android.util.Log;
-import androidx.annotation.Keep;
-import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Object;
-import com.eclipsesource.v8.V8ScriptExecutionException;
-import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.mojitox.mxflutter.MXFlutterPlugin;
+import com.mojitox.mxflutter.framework.ffi.MxFlutterFfi;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
-import com.mojitox.mxflutter.framework.utils.UiThreadUtil;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -34,8 +30,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 public class MXJSFlutterApp {
 
@@ -73,9 +67,11 @@ public class MXJSFlutterApp {
 
     private ArrayList<MethodCall> callJSMethodQueue;
 
+    private MxFlutterFfi mxFlutterFfi;
+
     public MXJSFlutterApp initWithAppName(MXFlutterPlugin context, String appName, String rootPath,
-                                          List<String> jsAppSearchPathList, MXJSFlutterEngine jsFlutterEngine,
-                                          Map<String, Boolean> flutterAppEnvironmentInfo) {
+            List<String> jsAppSearchPathList, MXJSFlutterEngine jsFlutterEngine,
+            Map<String, Boolean> flutterAppEnvironmentInfo) {
         initRuntime(context.mFlutterPluginBinding.getApplicationContext());
         this.mContext = context;
         this.appName = appName;
@@ -90,10 +86,8 @@ public class MXJSFlutterApp {
         setupJSEngine(jsFlutterEngine);
         setUpChannel(context.mFlutterPluginBinding.getBinaryMessenger());
         setFlutterAppEnvironmentInfo(flutterAppEnvironmentInfo);
-
         currentApp = this;
-        System.loadLibrary("mxflutter");
-        init(currentApp);
+        mxFlutterFfi = new MxFlutterFfi();
         return this;
     }
 
@@ -193,8 +187,10 @@ public class MXJSFlutterApp {
         jsFlutterAppNavigatorePushChannel = new BasicMessageChannel<>(flutterViewController, MXFLUTTER_METHED_CHANNEL_APP_NAVIGATOR_PUSH, StringCodec.INSTANCE);
     }
 
-
-    public void close() {
+    /**
+     * 释放js引擎
+     */
+    public void close(boolean release) {
         this.jsExecutor.execute(new MXJsScheduledExecutorService.MXJsTask() {
             @Override
             public void excute() {
@@ -207,8 +203,10 @@ public class MXJSFlutterApp {
             }
         });
         this.jsExecutor.close();
-        release();
-        Log.d(TAG,"close:"+Log.getStackTraceString(new Throwable()));
+        if (mxFlutterFfi != null) {
+            mxFlutterFfi.onMxFlutterAppClose(release);
+        }
+        Log.d(TAG, "close:" + Log.getStackTraceString(new Throwable()));
     }
 
     public void runApp() {
@@ -337,37 +335,4 @@ public class MXJSFlutterApp {
             this.localPath = localPath;
         }
     }
-
-    @Keep
-    public String syncPropsCallback(String args) {
-        if (jsAppObj != null) {
-            final Object[] result = new Object[1];
-            CountDownLatch countDownLatch = new CountDownLatch(1);
-            UiThreadUtil.post(() -> {
-                Map<String, Object> jsArgument = new HashMap<>();
-                jsArgument.put("method", "syncPropsCallback");
-                jsArgument.put("arguments", args);
-                result[0] = jsAppObj.executeFunction("nativeCall", new V8Array(MXJSExecutor.runtime).push(
-                        V8ObjectUtils.toV8Object(MXJSExecutor.runtime, jsArgument)));
-                countDownLatch.countDown();
-                Log.d("mxflutternative", "call js syncPropsCallback result:" + result[0]);
-            });
-            try {
-                countDownLatch.await(3, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return "countDownLatch exception";
-            } catch (V8ScriptExecutionException e){
-                e.printStackTrace();
-                return "V8ScriptExecutionException";
-            }
-            return result[0].toString();
-        }
-        Log.d("mxflutternative", "call java syncPropsCallback null:" + this);
-        return "jsAppObj is null";
-    }
-
-    private native void init(MXJSFlutterApp currentApp);
-
-    private native void release();
 }
