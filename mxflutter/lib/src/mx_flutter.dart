@@ -16,6 +16,7 @@ import 'mx_handler.dart';
 
 typedef Widget MXWidgetBuildHandler(String widgetName);
 
+/// JS异常回调
 /// [error]为 Map 类型，包含两个字段
 /// 1）jsFileType: 加载的js文件类型，int类型。0: main.js; 1: bundle-xxx.js
 /// 2）errorMsg: 错误信息，string类型。
