@@ -129,19 +129,27 @@ public class MXJSExecutor {
     }
 
     //global js runtime
-    public void executeScriptPath(final String path, ExecuteScriptCallback callback) {
+    public void executeScriptPath(final String path, InvokeJSValueCallback callback) {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext()) ||
-                        path.startsWith(MXFLUTTER_ASSET_APP_ROOT_PATH) || path.startsWith(MXFLUTTER_ASSET_FRAMWORK_ROOT_PATH);
-                String absolutePath = path;
-                if (!fromAsset) {
-                    absolutePath = JSFLUTTER_LOCAL_DIR + "/" + path;
+                try {
+                    boolean fromAsset =
+                            !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext()) ||
+                                    path.startsWith(MXFLUTTER_ASSET_APP_ROOT_PATH) || path
+                                    .startsWith(MXFLUTTER_ASSET_FRAMWORK_ROOT_PATH);
+                    String absolutePath = path;
+                    if (!fromAsset) {
+                        absolutePath = JSFLUTTER_LOCAL_DIR + "/" + path;
+                    }
+                    String script = FileUtils
+                            .getScriptFromPath(context.mFlutterPluginBinding.getApplicationContext(), absolutePath,
+                                    fromAsset);
+                    V8Object result = runtime.executeObjectScript(script);
+                    callback.onSuccess(result);
+                } catch (Throwable e) {
+                    callback.onError(new Error("load main js failed", e));
                 }
-                String script = FileUtils.getScriptFromPath(context.mFlutterPluginBinding.getApplicationContext(), absolutePath, fromAsset);
-                V8Object result = runtime.executeObjectScript(script);
-                callback.onComplete(result);
             }
         });
     }

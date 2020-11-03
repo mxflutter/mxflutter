@@ -6,27 +6,32 @@
 
 package com.mojitox.mxflutter.framework;
 
-import android.content.Context;
+import static com.mojitox.mxflutter.MXFlutterPlugin.JSFLUTTER_LOCAL_DIR;
+import static com.mojitox.mxflutter.MXFlutterPlugin.MXFLUTTER_ASSET_APP_ROOT_PATH;
+import static com.mojitox.mxflutter.MXFlutterPlugin.MXFLUTTER_ASSET_FRAMWORK_ROOT_PATH;
+import static com.mojitox.mxflutter.MXFlutterPlugin.MXFLUTTER_FS_APP_ROOT_PATH;
+import static com.mojitox.mxflutter.MXFlutterPlugin.MXFLUTTER_FS_FRAMWORK_ROOT_PATH;
 
+import android.content.Context;
 import com.eclipsesource.v8.V8Object;
 import com.mojitox.mxflutter.MXFlutterPlugin;
+import com.mojitox.mxflutter.framework.MXJSExecutor.InvokeJSValueCallback;
+import com.mojitox.mxflutter.framework.common.MethodConstant;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.StringCodec;
-
-import static com.mojitox.mxflutter.MXFlutterPlugin.*;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MXJSFlutterApp {
 
@@ -223,14 +228,28 @@ public class MXJSFlutterApp {
 
         // 记录native侧main.js加载开始时间
         long jsLoadStartTime = System.currentTimeMillis();
-        jsExecutor.executeScriptPath(rootPath + "/main.js", new MXJSExecutor.ExecuteScriptCallback() {
+        jsExecutor.executeScriptPath(rootPath + "/main.js", new InvokeJSValueCallback() {
             @Override
-            public void onComplete(Object value) {
+            public void onSuccess(Object value) {
                 isJSAPPRun = true;
                 callJSMethodCallQueqe();
-
                 // 记录native侧main.js加载开始时间
                 mxNativeJSLoadCost = System.currentTimeMillis() - jsLoadStartTime;
+            }
+
+            @Override
+            public void onError(Error error) {
+                try {
+                    StringWriter sw = new StringWriter();
+                    error.getCause().printStackTrace(new PrintWriter(sw));
+                    String exceptionAsString = sw.toString();
+                    final String errorDetail =
+                            "message:" + error.getMessage() + "__exception:" + exceptionAsString;
+                    jsFlutterAppChannel.invokeMethod(MethodConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER, errorDetail);
+                } catch (Throwable throwable) {
+                    jsFlutterAppChannel
+                            .invokeMethod(MethodConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER, error.getMessage());
+                }
             }
         });
     }
