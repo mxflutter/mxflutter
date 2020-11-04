@@ -9,6 +9,7 @@ package com.mojitox.mxflutter.framework;
 import android.text.TextUtils;
 
 import com.mojitox.mxflutter.MXFlutterPlugin;
+import com.mojitox.mxflutter.framework.common.MethodChannelConstant;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 
@@ -41,10 +42,7 @@ public class MXJSFlutterEngine {
 
     private MXJSEngine mJsEngine;
 
-    //Flutter通道
-    private static final String FLUTTER_METHED_CHANNEL_NAME = "js_flutter.flutter_main_channel";
-    private static final String FLUTTER_COMMON_BASIC_CHANNEL_NAME = "mxflutter.mxflutter_common_basic_channel";
-    MethodChannel jsFlutterAppChannel;
+    MethodChannel jsFlutterMainChannel;
     BasicMessageChannel<String> jsFlutterCommonBasicChannel;
 
     private boolean isFlutterEngineIsDidRender;
@@ -70,8 +68,8 @@ public class MXJSFlutterEngine {
     }
 
     public void setupChannel() {
-        jsFlutterAppChannel = new MethodChannel(mFlutterEngine, FLUTTER_METHED_CHANNEL_NAME);
-        jsFlutterAppChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() {
+        jsFlutterMainChannel = new MethodChannel(mFlutterEngine, MethodChannelConstant.FLUTTER_METHED_CHANNEL_NAME);
+        jsFlutterMainChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() {
             @Override
             public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
                 if (methodCall.method.equals("callNativeRunJSApp")) {
@@ -99,7 +97,7 @@ public class MXJSFlutterEngine {
             }
         });
 
-        jsFlutterCommonBasicChannel = new BasicMessageChannel<>(mFlutterEngine, FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
+        jsFlutterCommonBasicChannel = new BasicMessageChannel<>(mFlutterEngine, MethodChannelConstant.FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
         jsFlutterCommonBasicChannel.setMessageHandler(new BasicMessageChannel.MessageHandler<String>() {
             @Override
             public void onMessage(String message, BasicMessageChannel.Reply<String> reply) {
@@ -191,7 +189,7 @@ public class MXJSFlutterEngine {
 //          callFlutterQueue.add(call);
 //          return;
 //      }
-        jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
+        jsFlutterMainChannel.invokeMethod(call.method, call.arguments);
     }
 
     //顶层通用通道
@@ -211,7 +209,7 @@ public class MXJSFlutterEngine {
         arg.put("methodName", methodName);
 
         MethodCall call = new MethodCall("mxflutterBridgeMethodChannelInvoke", arg);
-        jsFlutterAppChannel.invokeMethod(call.method, call.arguments, callback);
+        jsFlutterMainChannel.invokeMethod(call.method, call.arguments, callback);
     }
 
     @SuppressWarnings("unchecked")
@@ -227,7 +225,7 @@ public class MXJSFlutterEngine {
         arg.put("cancelOnError", cancelOnError);
 
         MethodCall call = new MethodCall("mxflutterBridgeEventChannelReceiveBroadcastStreamListenInvoke", arg);
-        jsFlutterAppChannel.invokeMethod(call.method, call.arguments);
+        jsFlutterMainChannel.invokeMethod(call.method, call.arguments);
     }
 
     @SuppressWarnings("unchecked")

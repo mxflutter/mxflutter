@@ -16,7 +16,7 @@ import android.content.Context;
 import com.eclipsesource.v8.V8Object;
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.MXJSExecutor.InvokeJSValueCallback;
-import com.mojitox.mxflutter.framework.common.MethodConstant;
+import com.mojitox.mxflutter.framework.common.MethodChannelConstant;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
@@ -57,11 +57,6 @@ public class MXJSFlutterApp {
     public long mxFlutterInitCost;
     //mx框架native侧加载main.js耗时
     private long mxNativeJSLoadCost;
-
-    //Flutter通道
-    private static final String MXFLUTTER_METHED_CHANNEL_APP = "js_flutter.js_flutter_app_channel";
-    private static final String MXFLUTTER_METHED_CHANNEL_APP_REBUILD = "js_flutter.js_flutter_app_channel.rebuild";
-    private static final String MXFLUTTER_METHED_CHANNEL_APP_NAVIGATOR_PUSH = "js_flutter.js_flutter_app_channel.navigator_push";
 
     MethodChannel jsFlutterAppChannel;
     BasicMessageChannel<String> jsFlutterAppRebuildChannel;
@@ -146,7 +141,7 @@ public class MXJSFlutterApp {
 
     //flutter --> js
     void setUpChannel(BinaryMessenger flutterViewController) {
-        jsFlutterAppChannel = new MethodChannel(flutterViewController, MXFLUTTER_METHED_CHANNEL_APP);
+        jsFlutterAppChannel = new MethodChannel(flutterViewController, MethodChannelConstant.MXFLUTTER_METHED_CHANNEL_APP);
         jsFlutterAppChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() {
             @Override
             public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
@@ -182,9 +177,9 @@ public class MXJSFlutterApp {
         });
 
         // Rebuild方法采用BasicMessageChannel
-        jsFlutterAppRebuildChannel = new BasicMessageChannel<>(flutterViewController, MXFLUTTER_METHED_CHANNEL_APP_REBUILD, StringCodec.INSTANCE);
+        jsFlutterAppRebuildChannel = new BasicMessageChannel<>(flutterViewController, MethodChannelConstant.MXFLUTTER_METHED_CHANNEL_APP_REBUILD, StringCodec.INSTANCE);
         // navigator_push方法采用BasicMessageChannel
-        jsFlutterAppNavigatorePushChannel = new BasicMessageChannel<>(flutterViewController, MXFLUTTER_METHED_CHANNEL_APP_NAVIGATOR_PUSH, StringCodec.INSTANCE);
+        jsFlutterAppNavigatorePushChannel = new BasicMessageChannel<>(flutterViewController, MethodChannelConstant.MXFLUTTER_METHED_CHANNEL_APP_NAVIGATOR_PUSH, StringCodec.INSTANCE);
     }
 
 
@@ -245,10 +240,14 @@ public class MXJSFlutterApp {
                     String exceptionAsString = sw.toString();
                     final String errorDetail =
                             "message:" + error.getMessage() + "__exception:" + exceptionAsString;
-                    jsFlutterAppChannel.invokeMethod(MethodConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER, errorDetail);
+                    jsFlutterEngine.jsFlutterMainChannel
+                            .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER, errorDetail);
                 } catch (Throwable throwable) {
-                    jsFlutterAppChannel
-                            .invokeMethod(MethodConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER, error.getMessage());
+                    if (jsFlutterEngine != null && jsFlutterEngine.jsFlutterMainChannel != null) {
+                        jsFlutterEngine.jsFlutterMainChannel
+                                .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER,
+                                        error.getMessage());
+                    }
                 }
             }
         });
