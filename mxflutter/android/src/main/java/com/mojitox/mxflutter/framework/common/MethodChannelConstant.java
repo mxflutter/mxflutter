@@ -2,6 +2,7 @@ package com.mojitox.mxflutter.framework.common;
 
 /**
  * create by ericpsun on 2020/11/3.
+ * 常量需要注意与dart以及js看齐
  */
 public class MethodChannelConstant {
 

@@ -16,6 +16,8 @@ import android.content.Context;
 import com.eclipsesource.v8.V8Object;
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.MXJSExecutor.InvokeJSValueCallback;
+import com.mojitox.mxflutter.framework.common.JsConstant;
+import com.mojitox.mxflutter.framework.common.JsLoadErrorMsg;
 import com.mojitox.mxflutter.framework.common.MethodChannelConstant;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
@@ -25,8 +27,6 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.StringCodec;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -168,6 +168,10 @@ public class MXJSFlutterApp {
                                 @Override
                                 public void onError(Error error) {
                                     result.error(error.toString(), null, null);
+                                    jsFlutterEngine.jsFlutterMainChannel
+                                            .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER,
+                                                    JsLoadErrorMsg.INSTANCE
+                                                            .getJsLoadErrorMsg(error, ""));
                                 }
                             });
                         }
@@ -223,7 +227,8 @@ public class MXJSFlutterApp {
 
         // 记录native侧main.js加载开始时间
         long jsLoadStartTime = System.currentTimeMillis();
-        jsExecutor.executeScriptPath(rootPath + "/main.js", new InvokeJSValueCallback() {
+        final String mainJsPath = rootPath + JsConstant.MAIN_JS;
+        jsExecutor.executeScriptPath(mainJsPath, new InvokeJSValueCallback() {
             @Override
             public void onSuccess(Object value) {
                 isJSAPPRun = true;
@@ -234,21 +239,9 @@ public class MXJSFlutterApp {
 
             @Override
             public void onError(Error error) {
-                try {
-                    StringWriter sw = new StringWriter();
-                    error.getCause().printStackTrace(new PrintWriter(sw));
-                    String exceptionAsString = sw.toString();
-                    final String errorDetail =
-                            "message:" + error.getMessage() + "__exception:" + exceptionAsString;
-                    jsFlutterEngine.jsFlutterMainChannel
-                            .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER, errorDetail);
-                } catch (Throwable throwable) {
-                    if (jsFlutterEngine != null && jsFlutterEngine.jsFlutterMainChannel != null) {
-                        jsFlutterEngine.jsFlutterMainChannel
-                                .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER,
-                                        error.getMessage());
-                    }
-                }
+                jsFlutterEngine.jsFlutterMainChannel
+                        .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER,
+                                JsLoadErrorMsg.INSTANCE.getJsLoadErrorMsg(error, mainJsPath));
             }
         });
     }

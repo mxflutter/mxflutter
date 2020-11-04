@@ -6,11 +6,9 @@
 
 package com.mojitox.mxflutter.framework;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-
-
+import androidx.annotation.Nullable;
 import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8Array;
@@ -18,20 +16,17 @@ import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.mojitox.mxflutter.MXFlutterPlugin;
+import com.mojitox.mxflutter.framework.common.JsLoadErrorMsg;
+import com.mojitox.mxflutter.framework.common.MethodChannelConstant;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
-
+import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.MethodCall;
+import io.flutter.plugin.common.MethodChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import io.flutter.plugin.common.BasicMessageChannel;
-import io.flutter.plugin.common.MethodCall;
-
-import androidx.annotation.Nullable;
-import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.MethodCall;
 
 public class MXJSEngine {
     static private String TAG = "MXJSEngine";
@@ -251,15 +246,28 @@ public class MXJSEngine {
                 } else {
                     absolutePath = FileUtils.getFilePathFromFS(mContext.mFlutterPluginBinding.getApplicationContext(), filePath, searchDirArray);
                 }
-
                 V8Object exports = null;
                 if (!TextUtils.isEmpty(absolutePath)) {
-                    exports = JSModule.require(filePath, absolutePath, MXJSExecutor.runtime, isFromAsset);
+                    try {
+                        exports = JSModule.require(filePath, absolutePath, MXJSExecutor.runtime, isFromAsset);
+                    } catch (Exception e) {
+                        mMXJSFlutterEngine.jsFlutterMainChannel
+                                .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER,
+                                        JsLoadErrorMsg.INSTANCE
+                                                .getJsLoadErrorMsg(new Error("require js file fail", e), filePath));
+                    }
                     if (exports == null) {
-                        jsExecutor.executeScript("throw 'not found'", new MXJSExecutor.ExecuteScriptCallback() {
+                        jsExecutor.executeScript("throw 'not found'", new MXJSExecutor.InvokeJSValueCallback() {
                             @Override
-                            public void onComplete(Object value) {
+                            public void onSuccess(Object value) {
 
+                            }
+
+                            @Override
+                            public void onError(Error error) {
+                                mMXJSFlutterEngine.jsFlutterMainChannel
+                                        .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER,
+                                                JsLoadErrorMsg.INSTANCE.getJsLoadErrorMsg(error, filePath));
                             }
                         });
                         return null;

@@ -7,14 +7,12 @@
 package com.mojitox.mxflutter.framework;
 
 import android.text.TextUtils;
-
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.V8ScriptException;
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.ClassUtils;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
-
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -194,11 +192,11 @@ public class JSModule {
         sGlobalModuleCache.add(fullModulePath, exports);
     }
 
-    public static V8Object require(String moduleClassName, String fullModulePath, boolean fromAsset) {
+    public static V8Object require(String moduleClassName, String fullModulePath, boolean fromAsset) throws Exception{
         return require(moduleClassName, fullModulePath, MXJSExecutor.runtime, fromAsset);
     }
 
-    public static V8Object require(String moduleClassName, String fullModulePath, V8Object context, boolean fromAsset) {
+    public static V8Object require(String moduleClassName, String fullModulePath, V8Object context, boolean fromAsset) throws Exception{
         if (TextUtils.isEmpty(moduleClassName) || TextUtils.isEmpty(fullModulePath) || context == null)
             return null;
 
@@ -221,7 +219,6 @@ public class JSModule {
         try {
             String exportScript = String.format("(function() { var module = { exports: {}}; var exports = module.exports; \n%s\n; return module.exports; })();", script);
             V8Object value = context.getRuntime().executeObjectScript(exportScript);
-
             if (value != null) {
                 newModule.mExports = value;
             }
@@ -229,6 +226,7 @@ public class JSModule {
         } catch (V8ScriptException e) {
             android.util.Log.e(TAG, "V8ScriptException:JSMessage:" + e);
             android.util.Log.e(TAG, "V8ScriptException:JSFilePath:" + fullModulePath);
+            throw e;
         }
 
         context.add("platform", platformObj);

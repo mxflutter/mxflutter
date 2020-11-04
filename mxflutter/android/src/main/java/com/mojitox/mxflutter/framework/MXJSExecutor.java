@@ -172,17 +172,21 @@ public class MXJSExecutor {
     }
 
     //global js runtime
-    public void executeScript(String script, ExecuteScriptCallback callback) {
+    public void executeScript(String script, InvokeJSValueCallback callback) {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                Object result = runtime.executeScript(script);
-                context.getMainHandler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callback.onComplete(result);
-                    }
-                });
+                try {
+                    Object result = runtime.executeScript(script);
+                    context.getMainHandler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callback.onSuccess(result);
+                        }
+                    });
+                } catch (Throwable e) {
+                    callback.onError(new Error("load bundle js failed", e));
+                }
             }
         });
     }
@@ -224,7 +228,7 @@ public class MXJSExecutor {
                         Object result = jsAppObj.executeFunction(method, new V8Array(runtime).push(V8ObjectUtils.toV8Object(runtime, args)));
                         callback.onSuccess(result);
                     } catch (Exception e) {
-                        callback.onError(new Error(e.getMessage()));
+                        callback.onError(new Error(e.getMessage(), e));
                         Log.e(TAG, "", e);
                     }
                 } else {
