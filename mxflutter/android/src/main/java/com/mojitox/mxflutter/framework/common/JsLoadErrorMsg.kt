@@ -1,10 +1,9 @@
 package com.mojitox.mxflutter.framework.common
 
-import android.nfc.Tag
 import android.util.Log
+import com.eclipsesource.v8.V8ScriptException
 import java.io.PrintWriter
 import java.io.StringWriter
-import java.lang.Error
 
 /**
  * create by ericpsun on 2020/11/4.
@@ -27,11 +26,17 @@ object JsLoadErrorMsg {
     fun getJsLoadErrorMsg(error: Error, filePath: String): HashMap<String, Any> {
         val errorMap = HashMap<String, Any>()
         val sw = StringWriter()
-        error.cause?.printStackTrace(PrintWriter(sw))
-        val exceptionStack = sw.toString()
+        var exceptionStack = ""
+        error.cause?.run {
+            exceptionStack = if (this is V8ScriptException) {
+                jsStackTrace
+            } else {
+                printStackTrace(PrintWriter(sw)).toString()
+            }
+        }
         val exceptionMsg = error.cause?.message ?: ""
         val errorMsg = "fileName:$filePath\nselfMessage:${error.message}\nexceptionMessage:$exceptionMsg\nexceptionStack:$exceptionStack"
-        Log.d("JsLoadErrorMsg",errorMsg)
+        Log.d("JsLoadErrorMsg", errorMsg)
         errorMap[ERROR_MSG_KEY] = errorMsg
         when {
             filePath.contains(JsConstant.MAIN_JS) -> {
