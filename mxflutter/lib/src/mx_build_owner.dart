@@ -328,10 +328,6 @@ class MXJsonBuildOwner {
   }
 
   callJSOnFirstFrameEnd() {
-    MXJSLog.debug("MXJSWidgetState:callJSOnFirstFrameEnd: "
-        "widgetID:$ownerWidgetId"
-        "buildSeq:$widgetBuildDataSeq");
-
     // 填充性能监控数据
     var profileInfoKey = '$ownerWidgetId-$widgetBuildDataSeq';
     var profileInfo = ownerApp.buildProfileInfoMap[profileInfoKey];

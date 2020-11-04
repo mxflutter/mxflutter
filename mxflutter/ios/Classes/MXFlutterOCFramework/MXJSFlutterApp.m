@@ -173,14 +173,15 @@
         NSTimeInterval jsLoadStartTime = [[NSDate date] timeIntervalSince1970] * 1000;
         
         [executor executeScriptPath:mainJS onComplete:^(NSError *error) {
-            MXJSFlutterLog(@"MXJSFlutter : runApp error: %@", error);
-            
-            // 给到业务侧异常信息
             if (error) {
+                MXJSFlutterLog(@"MXJSFlutter : runApp error: %@", error);
+                
+                // 给到业务侧异常信息
                 [strongSelf.jsFlutterEngine.engineMethodChannel invokeMethod:MXFlutterJSExceptionHandler
                                                                    arguments:@{@"jsFileType": @(MXFlutterJSFileType_Main),
                                                                                @"errorMsg": error.description}
                                                                       result:NULL];
+                return;
             }
             
             strongSelf.isJSAPPRun = YES;
