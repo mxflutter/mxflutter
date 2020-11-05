@@ -276,10 +276,8 @@
 
 - (void)callJSInitProfileInfo {
     NSDictionary *args = @{@"method" : @"nativeCallInitProfileInfo",
-                           @"arguments" : @{@"mxFlutterInitCost" : @(self.mxFlutterInitCost),
-                                            @"mxNativeJSLoadCost" : @(self.mxNativeJSLoadCost)
-                           }
-    };
+                           @"arguments" : @{@"mxNativeJSLoadCost" : @(self.mxNativeJSLoadCost)}
+                          };
     [self.jsExecutor invokeJSValue:self.jsAppObj method:@"nativeCall" args:@[args] callback:^(JSValue *result, NSError *error) {
 
     }];

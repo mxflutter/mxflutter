@@ -151,9 +151,6 @@
     
     NSDictionary *flutterAppEnvironmentInfo = argsMap[@"flutterAppEnvironmentInfo"];
     [self runAppWithPath:jsAppPath jsAppSearchPathList:jsAppSearchPathList flutterAppEnvironmentInfo:flutterAppEnvironmentInfo];
-    
-    // 记录Flutter侧初始化耗时
-    self.currentApp.mxFlutterInitCost = [argsMap[@"mxFlutterInitCost"] doubleValue];
 }
 
 //MARK: - native -> flutter

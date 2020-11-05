@@ -80,8 +80,6 @@ public class MXJSFlutterEngine {
                     Map flutterAppEnvironmentInfo = (Map<String, Boolean>) methodCall.argument("flutterAppEnvironmentInfo");
                     runApp(jsAppPath, jsAppAssetsKey, jsAppSearchPathList, jsAppSearchPathWithAssetsKeyList, flutterAppEnvironmentInfo);
 
-                    // 记录Flutter侧初始化耗时
-                    currentApp.mxFlutterInitCost = (int)methodCall.argument("mxFlutterInitCost");
                     // 通知JS侧，框架加载时间
                     currentApp.callJSInitProfileInfo();
 
