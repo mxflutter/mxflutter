@@ -2,6 +2,8 @@ package com.mojitox.mxflutter.framework.common
 
 import android.util.Log
 import com.eclipsesource.v8.V8ScriptException
+import com.mojitox.mxflutter.MXFlutterPlugin
+import com.mojitox.mxflutter.framework.executor.UiThread
 import java.io.PrintWriter
 import java.io.StringWriter
 
@@ -19,11 +21,20 @@ object JsLoadErrorMsg {
     private const val MAIN_JS_TYPE = 0
     private const val BUNDLE_JS_TYPE = 1
 
-    fun getJsLoadErrorMsg(msg: String, filePath: String): HashMap<String, Any> {
-        return getJsLoadErrorMsg(Error(msg), filePath)
+    fun invokeJsErrorMethodChannel(error: Error, filePath: String) {
+        if (UiThread.isUIThread()) {
+            MXFlutterPlugin.get().mxEngine.jsFlutterMainChannel
+                    .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER, getJsLoadErrorMsg(error, filePath))
+        } else {
+            UiThread.post {
+                MXFlutterPlugin.get().mxEngine.jsFlutterMainChannel
+                        .invokeMethod(MethodChannelConstant.MX_FLUTTER_JS_EXCEPTION_HANDLER, getJsLoadErrorMsg(error, filePath))
+            }
+        }
+
     }
 
-    fun getJsLoadErrorMsg(error: Error, filePath: String): HashMap<String, Any> {
+    private fun getJsLoadErrorMsg(error: Error, filePath: String): HashMap<String, Any> {
         val errorMap = HashMap<String, Any>()
         val sw = StringWriter()
         var exceptionStack = ""

@@ -22,8 +22,8 @@
 #Flutter Wrapper
 
 #js
--keep class com.eclipsesource.v8.**  { *; }
+-keep class com.eclipsesource.v8.*  { *; }
 -keep class * implements com.eclipsesource.v8.JavaVoidCallback  { *; }
--keep class com.mojitox.mxflutter.framework.MXJSEngine*  { *; }
--keep class com.mojitox.mxflutter.framework.MXJSFlutterApp$MXNativeJSFlutterApp  { *; }
--keep class com.mojitox.mxflutter.framework.JSModule  { *; }
+-keep class com.mojitox.mxflutter.framework.JsEngine*  { *; }
+-keep class com.mojitox.mxflutter.framework.JsFlutterApp$MXNativeJSFlutterApp  { *; }
+-keep class com.mojitox.mxflutter.framework.JsModule  { *; }
