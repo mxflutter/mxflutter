@@ -95,22 +95,6 @@ public class JsEngine {
             }
         };
         jsExecutor.registerJavaMethod(setTimeout, "setTimeout");
-
-        JavaCallback isMXIOS = new JavaCallback() {
-            @Override
-            public Object invoke(V8Object v8Object, V8Array args) {
-                return false;
-            }
-        };
-        jsExecutor.registerJavaMethod(isMXIOS, "isMXIOS");
-
-        JavaCallback isMXAndroid = new JavaCallback() {
-            @Override
-            public Object invoke(V8Object v8Object, V8Array args) {
-                return true;
-            }
-        };
-        jsExecutor.registerJavaMethod(isMXAndroid, "isMXAndroid");
         //------Dart2Js支持------
 
         //------Flutter Bridge------

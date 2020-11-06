@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "MXJSExecutor.h"
+#import <Flutter/Flutter.h>
 
 
 @class MXJSFlutterEngine;
@@ -19,27 +20,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MXJSFlutterAppJSExport <NSObject,JSExport>
-
-JSExportAs(setCurrentJSApp,
-         - (void)jsAPISetCurrentJSApp:(JSValue*)jsAppObj
-           );
-
-JSExportAs(callFlutterReloadApp, //WithApp  InitPageName  Data
-           - (void)jsAPICallFlutterReloadApp:(JSValue*)jsAppObj  widgetData:(NSString*)data
-           );
-
-
-//js -> flutter 直接json交互
-JSExportAs(callFlutterWidgetChannel,
-           - (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments
-           );
-
-@end
-
-
-
-@interface MXJSFlutterApp : NSObject <MXJSFlutterAppJSExport>
+@interface MXJSFlutterApp : NSObject
 
 //唯一标示
 @property (nonatomic, strong) NSString *appName;
@@ -50,6 +31,10 @@ JSExportAs(callFlutterWidgetChannel,
 @property (nonatomic, strong) JSValue * _Nullable jsAppObj;
 
 @property (nonatomic, weak) MXJSFlutterEngine * _Nullable jsFlutterEngine;
+
+@property (nonatomic, strong, readonly) FlutterMethodChannel* jsFlutterAppChannel;
+@property (nonatomic, strong, readonly) FlutterBasicMessageChannel* jsFlutterAppRebuildChannel;
+@property (nonatomic, strong, readonly) FlutterBasicMessageChannel* jsFlutterAppNavigatorPushChannel;
 
 - (instancetype)initWithAppPath:(NSString*)appRootPath jsAppSearchPathList:(NSArray*)pathArray  engine:(MXJSFlutterEngine*)jsFlutterEngine ;
 

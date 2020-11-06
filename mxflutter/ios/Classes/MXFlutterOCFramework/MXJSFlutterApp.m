@@ -10,7 +10,6 @@
 
 #import "MXJSFlutterApp.h"
 #import "MXJSFlutterDefines.h"
-#import <Flutter/Flutter.h>
 #import "MXJSEngine.h"
 #import "MXJSFlutterEngine.h"
 #import "MXJSBridge.h"
@@ -241,37 +240,6 @@
 - (void)executeBlockOnJSThread:(dispatch_block_t)block
 {
     [self.jsEngine.jsExecutor executeBlockOnJSThread:block];
-}
-
-
-//MARK: - js -> native -> flutter
-//--------------------------------------------
-
-- (void)jsAPISetCurrentJSApp:(JSValue*)jsAppObj
-{
-    self.jsAppObj = jsAppObj;
-}
-
-- (void)jsAPICallFlutterReloadApp:(JSValue*)jsAppObj  widgetData:(NSString*)data
-{
-    self.jsAppObj = jsAppObj;
-    
-    [self.jsFlutterEngine callFlutterReloadAppWithJSWidgetData:data];
-}
-
-- (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments
-{
-    // if (arguments && [arguments isKindOfClass:[NSMutableDictionary class]]) {
-    //     arguments[@"index"] = @(++self.index);
-    //     NSLog(@"MXTimeStamp Native Beign %@ %lld index=%lu",method, (long long)([[NSDate date] timeIntervalSince1970] * 1000),(unsigned long)self.index);
-    // }
-    if ([method isEqualToString:@"rebuild"]) {
-        [self.jsFlutterAppRebuildChannel sendMessage:arguments];
-    } else if([method isEqualToString:@"navigatorPush"]) {
-        [self.jsFlutterAppNavigatorPushChannel sendMessage:arguments];
-    } else {
-        [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
-    }
 }
 
 - (void)callJSInitProfileInfo {

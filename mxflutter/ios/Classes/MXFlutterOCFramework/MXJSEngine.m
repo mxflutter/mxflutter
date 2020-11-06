@@ -13,6 +13,7 @@
 #import "MXJSFlutterEngine.h"
 #import "JSModule.h"
 #import "MXFDispose.h"
+#import "MXJSAPI.h"
 
 @interface MXJSEngine()
 
@@ -21,6 +22,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *jsCallbackCache;
 @property (nonatomic, assign) NSInteger jsCallbackCount;
+@property (nonatomic, strong) MXJSAPI *jsAPI;
 @end
 
 
@@ -145,121 +147,9 @@
                                                                      @"errorMsg": errorMsg}
                                                             result:NULL];
     };
-    context[@"require"] = ^(NSString *filePath) {
-        //MXJSFlutterLog(@"require file:%@",filePath);
-        
-        NSString *prefix = @"./";
-        if ([filePath hasPrefix:prefix]) {
-            filePath = [filePath substringFromIndex:prefix.length];
-        }
-        
-        NSString *absolutePath = [weakSelf calcRequireJSAbsolutePath:filePath];
-
-        JSModule *module = nil;
-        if (absolutePath.length != 0) {
-            //MXJSFlutterLog(@"require file:%@ found absolutePath=%@",filePath, absolutePath);
-            module = [JSModule require:filePath fullModulePath:absolutePath inContext:context];
-            if (!module) {
-                [[JSContext currentContext] evaluateScript:@"throw 'not found'"];
-                return [JSValue valueWithUndefinedInContext:[JSContext currentContext]];
-            }
-        }
-        
-        return module.exports;
-    };
     
-    
-    //------Dart2Js支持------
-    context[@"dartPrint"] = ^(NSString *string) {
-        return NSLog(@"%@",string);
-    };
-    
-    context[@"nativePrint"] = ^(NSString *string) {
-        return NSLog(@"%@",string);
-    };
-    
-    context[@"setTimeout"] = ^(JSValue* function, JSValue* timeout) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([timeout toInt32] * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-            [function callWithArguments:@[]];
-        });
-    };
-
-    context[@"isMXIOS"] = ^() {
-        return [NSNumber numberWithBool:YES];
-    };
-    context[@"isMXAndroid"] = ^() {
-        return [NSNumber numberWithBool:NO];
-    };
-
-    //------Dart2Js支持------
-    
-    //------Flutter Bridge------
-    /**
-    * @param callJSONStr 透传字段
-    * @param function 回调
-    */
-    context[@"mxfJSBridgeInvokeFlutterCommonChannel"] = ^(NSString* callJSONStr,  JSValue* function) {
-        
-        //Native 透传callJSONStr 不做任何解析
-        [self.jsFlutterEngine invokeFlutterCommonChannel:callJSONStr callback:^(id  _Nullable result) {
-            //callbak 透传result 不做任何解析
-            if (result) {
-                [function callWithArguments:@[result]];
-            } else {
-                [function callWithArguments:@[]];
-            }
-        }];
-        
-    };
-    
-    
-    /**
-    * @param channelName 通道名
-    * @param methodName 方法名
-    * @param params 参数
-    * @param function 回调
-    */
-    context[@"mx_jsbridge_MethodChannel_invokeMethod"] = ^(NSString* channelName, NSString* methodName, JSValue* params, JSValue* function) {
-        [self.jsFlutterEngine callFlutterMethodChannelInvoke:channelName methodName:methodName params:[params toObject] callback:^(id  _Nullable result) {
-            if (result) {
-                [function callWithArguments:@[result]];
-            } else {
-                [function callWithArguments:@[]];
-            }
-        }];
-    };
-    
-    /**
-    * @param handler 回调
-    */
-    context[@"mx_jsbridge_MethodChannel_setMethodCallHandler"] = ^(NSString *channelName, JSValue *handler) {
-        // 保存JS回调
-        if (channelName.length > 0 && handler) {
-            [self.jsCallbackCache setObject:handler forKey:channelName];
-        }
-    };
-    
-    /**
-    * @param channelName 通道名
-    * @param streamParam receiveBroadcastStream参数
-    * @param onData 回调
-    * @param onError 回调
-    * @param onDone 回调
-    * @param cancelOnError 回调
-    */
-    context[@"mx_jsbridge_EventChannel_receiveBroadcastStream_listen"] = ^(NSString* channelName,
-                                                                           NSString* streamParam,
-                                                                           JSValue* onData,
-                                                                           JSValue* onError,
-                                                                           JSValue* onDone,
-                                                                           NSNumber* cancelOnError) {
-        NSString *onDataId = [self storeJsCallback:onData];
-        NSString *onErrorId = [self storeJsCallback:onError];
-        NSString *onDoneId = [self storeJsCallback:onDone];
-
-        [self.jsFlutterEngine callFlutterEventChannelReceiveBroadcastStreamListenInvoke:channelName streamParam:streamParam onDataId:onDataId onErrorId:onErrorId onDoneId:onDoneId cancelOnError:cancelOnError];
-    };
-    //------Flutter Bridge------
+    self.jsAPI = [[MXJSAPI alloc] initWithJSEngine:self context:context];
+    context[@"MXJSAPI"] = self.jsAPI;
 }
 
 - (NSString *)storeJsCallback:(JSValue *)function {
