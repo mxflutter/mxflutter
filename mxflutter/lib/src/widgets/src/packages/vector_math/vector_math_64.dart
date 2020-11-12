@@ -627,10 +627,8 @@ var _matrix2Columns = MXFunctionInvoke(
     arg1,
   ),
   [
-    // MX Modified begin
-    "mxArg0",
-    "mxArg1",
-    // MX Modified end
+    "arg0",
+    "arg1",
   ],
 );
 var _matrix2Outer = MXFunctionInvoke(
@@ -779,11 +777,9 @@ var _matrix3Columns = MXFunctionInvoke(
     arg2,
   ),
   [
-    // MX Modified begin
-    "mxArg0",
-    "mxArg1",
-    "mxArg2",
-    // MX Modified end
+    "arg0",
+    "arg1",
+    "arg2",
   ],
 );
 var _matrix3Outer = MXFunctionInvoke(
@@ -1009,12 +1005,10 @@ var _matrix4Columns = MXFunctionInvoke(
     arg3,
   ),
   [
-    // MX Modified begin
-    "mxArg0",
-    "mxArg1",
-    "mxArg2",
-    "mxArg3",
-    // MX Modified end
+    "arg0",
+    "arg1",
+    "arg2",
+    "arg3",
   ],
 );
 var _matrix4Outer = MXFunctionInvoke(
