@@ -19,36 +19,42 @@ import java.util.concurrent.TimeUnit;
  */
 public class MxFlutterFfi {
 
-    private boolean isSoLoadSuccess;
+    private static final String TAG = "MxFlutterFfi";
+    private final boolean isSoLoadSuccess;
 
     public MxFlutterFfi() {
         isSoLoadSuccess = SafelyLibraryLoader
                 .loadLibrary(MXFlutterPlugin.getInstance().mFlutterPluginBinding.getApplicationContext(), "mxflutter");
-        init(this);
+        Log.d(TAG, "isSoLoadSuccess:" + isSoLoadSuccess);
+        if (isSoLoadSuccess) {
+            init(this);
+        }
     }
 
     /**
      * 释放native全局变量
      */
     public void onMxFlutterAppClose(boolean release) {
-        if (release) {
+        if (release && isSoLoadSuccess) {
             release();
         }
     }
 
     @Keep
     public String syncPropsCallback(String args) {
-        if (MXJSExecutor.runtime != null && !MXJSExecutor.runtime.isReleased()) {
+        if (isSoLoadSuccess && MXFlutterPlugin.getInstance().getMxEngine().getCurrentApp().getJsAppObj() != null) {
             final Object[] result = new Object[1];
             CountDownLatch countDownLatch = new CountDownLatch(1);
             UiThreadUtil.post(() -> {
                 Map<String, Object> jsArgument = new HashMap<>();
                 jsArgument.put("method", "syncPropsCallback");
                 jsArgument.put("arguments", args);
-                result[0] = MXJSExecutor.runtime.executeFunction("nativeCall", new V8Array(MXJSExecutor.runtime).push(
-                        V8ObjectUtils.toV8Object(MXJSExecutor.runtime, jsArgument)));
+                Log.d(TAG, "call js syncPropsCallback result:" + args.toString());
+                result[0] = MXFlutterPlugin.getInstance().getMxEngine().getCurrentApp().getJsAppObj()
+                        .executeFunction("nativeCall", new V8Array(MXJSExecutor.runtime).push(
+                                V8ObjectUtils.toV8Object(MXJSExecutor.runtime, jsArgument)));
                 countDownLatch.countDown();
-                Log.d("mxflutternative", "call js syncPropsCallback result:" + result[0]);
+                Log.d(TAG, "call js syncPropsCallback result:" + result[0]);
             });
             try {
                 countDownLatch.await(3, TimeUnit.SECONDS);
@@ -59,9 +65,10 @@ public class MxFlutterFfi {
                 e.printStackTrace();
                 return "V8ScriptExecutionException";
             }
+            Log.d(TAG, "call js syncPropsCallback result1" + (result[0] == null));
             return result[0].toString();
         }
-        Log.d("mxflutternative", "call java syncPropsCallback null:" + this);
+        Log.d(TAG, "call java syncPropsCallback null:" + this);
         return "jsAppObj is null";
     }
 

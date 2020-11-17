@@ -234,4 +234,8 @@ public class MXJSFlutterEngine {
     public void callJSMethodCallHandler(String channelName, MethodCall methodCall, MXJSExecutor.ExecuteScriptCallback callback) {
         mJsEngine.callJSCallbackFunctionWithChannelName(channelName, methodCall, callback);
     }
+
+    public MXJSFlutterApp getCurrentApp() {
+        return currentApp;
+    }
 }

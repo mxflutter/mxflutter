@@ -203,9 +203,6 @@ public class MXJSFlutterApp {
             }
         });
         this.jsExecutor.close();
-        if (mxFlutterFfi != null) {
-            mxFlutterFfi.onMxFlutterAppClose(release);
-        }
         Log.d(TAG, "close:" + Log.getStackTraceString(new Throwable()));
     }
 
@@ -282,6 +279,10 @@ public class MXJSFlutterApp {
 
             }
         });
+    }
+
+    public V8Object getJsAppObj() {
+        return jsAppObj;
     }
 
     //js 注入对象

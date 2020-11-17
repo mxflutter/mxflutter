@@ -39,12 +39,12 @@ android {
     }
 
     /** 编译so时反注释掉此处,编译完恢复 **/
-    externalNativeBuild {
-        cmake {
-            path "CMakeLists.txt"
-        }
-
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path "CMakeLists.txt"
+//        }
+//
+//    }
 
     lintOptions {
         disable 'InvalidPackage'

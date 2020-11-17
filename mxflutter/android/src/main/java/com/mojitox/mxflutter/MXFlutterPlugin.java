@@ -136,4 +136,8 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             mxEngine.destroy();
         }
     }
+
+    public MXJSFlutterEngine getMxEngine() {
+        return mxEngine;
+    }
 }
