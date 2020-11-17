@@ -196,6 +196,10 @@ public class JsFlutterApp {
         });
     }
 
+    public V8Object getJsAppObj() {
+        return jsAppObj;
+    }
+
     //js 注入对象
     class MXNativeJSFlutterApp {
 
