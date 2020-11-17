@@ -116,7 +116,9 @@ var _inkDecoration = MXFunctionInvoke(
     onRemoved: createVoidCallbackClosure(_inkDecoration.buildOwner, onRemoved),
   ),
   [
-    "decoration",
+    // MX modified begin
+    "mxController",
+    // MX modified end
     "configuration",
     "controller",
     "referenceBox",

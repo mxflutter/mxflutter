@@ -49,7 +49,9 @@ var _inkSplash = MXFunctionInvoke(
     onRemoved: createVoidCallbackClosure(_inkSplash.buildOwner, onRemoved),
   ),
   [
-    "controller",
+    // MX modified begin
+    "mxController",
+    // MX modified end
     "referenceBox",
     "textDirection",
     "position",
