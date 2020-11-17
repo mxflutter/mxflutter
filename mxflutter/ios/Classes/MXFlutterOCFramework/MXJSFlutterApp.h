@@ -51,9 +51,6 @@ JSExportAs(callFlutterWidgetChannel,
 
 @property (nonatomic, weak) MXJSFlutterEngine * _Nullable jsFlutterEngine;
 
-/// mx框架flutter侧初始化耗时
-@property (nonatomic, assign) NSTimeInterval mxFlutterInitCost;
-
 - (instancetype)initWithAppPath:(NSString*)appRootPath jsAppSearchPathList:(NSArray*)pathArray  engine:(MXJSFlutterEngine*)jsFlutterEngine ;
 
 - (void)runApp:(id)flutterAppEnvironmentInfo;

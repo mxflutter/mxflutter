@@ -81,18 +81,18 @@ var _scrollController_animateTo = MXFunctionInvoke(
   "ScrollController#animateTo",
   ({
     ScrollController mirrorObj,
-    dynamic value,
+    dynamic offset,
     Duration duration,
     Curve curve,
   }) =>
       mirrorObj.animateTo(
-    value?.toDouble(),
+    offset?.toDouble(),
     duration: duration,
     curve: curve,
   ),
   [
     "mirrorObj",
-    "value",
+    "offset",
     "duration",
     "curve",
   ],

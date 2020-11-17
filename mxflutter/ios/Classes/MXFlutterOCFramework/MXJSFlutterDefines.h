@@ -36,4 +36,15 @@
 #define MX_EXTERN_C_END
 #endif
 
+/// JS异常回调
+#define MXFlutterJSExceptionHandler @"mxflutterJSExceptionHandler"
+/// 业务JS Bundle文件前缀
+#define MXFlutterBizJSBundleFilePrefix @"bundle-"
+
+/// JS文件类型
+typedef NS_ENUM(NSInteger, MXFlutterJSFileType) {
+    MXFlutterJSFileType_Main,          // main.js
+    MXFlutterJSFileType_Biz,           // bundle-xxx.js
+};
+
 

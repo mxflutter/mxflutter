@@ -75,7 +75,7 @@ import 'package:mxflutter/mxflutter.dart';
 
 void main() {
   //-------1. MXFlutter 启动---------
-  MXJSFlutter.getInstance().runJSApp();
+  MXJSFlutter.runJSApp();
   runApp(MyApp());
 }
 

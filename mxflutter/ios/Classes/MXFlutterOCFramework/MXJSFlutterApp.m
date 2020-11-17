@@ -173,22 +173,20 @@
         NSTimeInterval jsLoadStartTime = [[NSDate date] timeIntervalSince1970] * 1000;
         
         [executor executeScriptPath:mainJS onComplete:^(NSError *error) {
-            
-            MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
-            
-//             NSString *releaseMode = @"release";
-            
-// #if DEBUG
-//             releaseMode = @"debug";
-// #endif
-            
-//             [executor invokeMethod:@"main" args:@[releaseMode] callback:^(JSValue *result, NSError *error) {
+            if (error) {
+                MXJSFlutterLog(@"MXJSFlutter : runApp error: %@", error);
                 
-                strongSelf.isJSAPPRun = YES;
-                NSLog(@"MXJSFlutter : call main js error:%@",error);
-                
-                [strongSelf callJSMethodCallQueqe];
-            // }];
+                // 给到业务侧异常信息
+                [strongSelf.jsFlutterEngine.engineMethodChannel invokeMethod:MXFlutterJSExceptionHandler
+                                                                   arguments:@{@"jsFileType": @(MXFlutterJSFileType_Main),
+                                                                               @"errorMsg": error.description}
+                                                                      result:NULL];
+                return;
+            }
+            
+            strongSelf.isJSAPPRun = YES;
+            
+            [strongSelf callJSMethodCallQueqe];
             
             // 框架加载main.js结束时间
             NSTimeInterval jsLoadEndTime = [[NSDate date] timeIntervalSince1970] * 1000;
@@ -278,10 +276,8 @@
 
 - (void)callJSInitProfileInfo {
     NSDictionary *args = @{@"method" : @"nativeCallInitProfileInfo",
-                           @"arguments" : @{@"mxFlutterInitCost" : @(self.mxFlutterInitCost),
-                                            @"mxNativeJSLoadCost" : @(self.mxNativeJSLoadCost)
-                           }
-    };
+                           @"arguments" : @{@"mxNativeJSLoadCost" : @(self.mxNativeJSLoadCost)}
+                          };
     [self.jsExecutor invokeJSValue:self.jsAppObj method:@"nativeCall" args:@[args] callback:^(JSValue *result, NSError *error) {
 
     }];

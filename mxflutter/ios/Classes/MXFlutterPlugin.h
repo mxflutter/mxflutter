@@ -14,7 +14,7 @@
 + (void)setJSFramewrokPath:(NSString*)path;
 
 
-///  jsApp的路径一般直接通过 Flutter MXJSFlutter.getInstance().runJSApp()直接传入要运行的jsapp路径
+///  jsApp的路径一般直接通过 Flutter MXJSFlutter.runJSApp()直接传入要运行的jsapp路径
 /// 暴露这个接口是为了，自动支持模拟器热重载，路径重定向到iMac 开发机地址，以支持热重载。
 /// [GeneratedPluginRegistrant registerWithRegistry:self]; 运行前设置
 + (void)setJSAppPath:(NSString*)path jsAppSearchPathList:(NSArray*)pathArray;

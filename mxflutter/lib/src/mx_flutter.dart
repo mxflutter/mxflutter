@@ -16,11 +16,15 @@ import 'mx_handler.dart';
 
 typedef Widget MXWidgetBuildHandler(String widgetName);
 
-typedef void MXJSExceptionHandler(dynamic errorDescription);
+/// JS异常回调
+/// [error]为 Map 类型，包含两个字段
+/// 1）jsFileType: 加载的js文件类型，int类型。-1: 未知类型; 0: main.js; 1: bundle-xxx.js
+/// 2）errorMsg: 错误信息，string类型。
+typedef void MXJSExceptionHandler(dynamic error);
 
 ///*MXJSFluttr的对外接口类
 ///简单两步接入MXFlutter，打开JS编写的页面。
-///1. 启动运行JS代码 'MXJSFlutter.getInstance().runJSApp();'
+///1. 启动运行JS代码 'MXJSFlutter.runJSApp();'
 ///2. Push JS页面
 ///
 /// '''dart
@@ -53,6 +57,7 @@ abstract class MXJSFlutter {
   ///@param jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js_src/文件夹下
   ///@param jsAppSearchPathList js App require 的搜索路径，一般无需设置，默认jsApp root path
   ///@param jsAppSearchPathWithAssetsKeyList js App require 的搜索路径，使用pubspec.yaml里的AssetsKey配置来设置，一般无需设置，默认jsApp root path
+  ///@param jsExceptionHandler js异常回调。方法参数见 MXJSExceptionHandler 说明
   ///@returns void
   ///@throws Error if Path error
   ///

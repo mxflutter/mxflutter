@@ -128,14 +128,22 @@
 {
     __weak MXJSEngine *weakSelf = jsEngine;
     
-    context.exceptionHandler = ^(JSContext *con, JSValue *exception) {
+    context.exceptionHandler = ^(JSContext *context, JSValue *exception) {
         NSString *stack = [exception objectForKeyedSubscript:@"stack"].toString;
         int line = [exception objectForKeyedSubscript:@"line"].toInt32;
         int column = [exception objectForKeyedSubscript:@"column"].toInt32;
-        NSString *errorDesc = [NSString stringWithFormat:@"exception: %@,\nstack: %@,\nline: %d,\ncolumn: %d", exception, stack, line, column];
-        MXJSFlutterLog(@"[JS]:context %@,", errorDesc);
+        NSString *errorMsg = [NSString stringWithFormat:@"exception: %@,\nstack: %@,\nline: %d,\ncolumn: %d", exception, stack, line, column];
+        MXJSFlutterLog(@"[JS]:context %@,", errorMsg);
     
-        [weakSelf.jsFlutterEngine.engineMethodChannel invokeMethod:@"mxflutterJSExceptionHandler" arguments:errorDesc result:NULL];
+        MXFlutterJSFileType fileType = MXFlutterJSFileType_Main;
+        // 包含”bundle-“，则认为是业务文件报错
+        if ([stack containsString:MXFlutterBizJSBundleFilePrefix]) {
+            fileType = MXFlutterJSFileType_Biz;
+        }
+        [weakSelf.jsFlutterEngine.engineMethodChannel invokeMethod:MXFlutterJSExceptionHandler
+                                                         arguments:@{@"jsFileType": @(fileType),
+                                                                     @"errorMsg": errorMsg}
+                                                            result:NULL];
     };
     context[@"require"] = ^(NSString *filePath) {
         //MXJSFlutterLog(@"require file:%@",filePath);

@@ -28,7 +28,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 17
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -55,6 +55,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+//    如果so动态下发，这里就不要打进安装包
+//    packagingOptions {
+//        exclude 'lib/armeabi-v7a/libj2v8.so'
+//    }
 
     buildTypes {
         release {
@@ -78,7 +82,6 @@ android {
         main {
             jniLibs.srcDirs = ['libs']
         }
-
     }
 }
 

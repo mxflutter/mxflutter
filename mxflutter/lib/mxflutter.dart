@@ -7,7 +7,7 @@ library mxflutter;
 
 ///*MXJSFluttr的对外接口类
 ///简单两步接入MXFlutter，打开JS编写的页面。
-///1. 启动运行JS代码 'MXJSFlutter.getInstance().runJSApp();'
+///1. 启动运行JS代码 'MXJSFlutter.runJSApp();'
 ///2. Push JS页面
 ///
 /// '''dart
