@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mxflutter/mxflutter_test.dart';
+import 'package:ffi/ffi.dart';
 
 import 'mirror/mx_mirror.dart';
 import 'mx_common.dart';
@@ -13,7 +14,7 @@ import 'mx_flutter.dart';
 import 'mx_flutter_app.dart';
 import 'dart:convert';
 import 'ffi/ffi.dart';
-import 'package:ffi/ffi.dart';
+
 
 typedef Future<dynamic> MXJsonWidgetCallbackFun(String callID, {dynamic p});
 
