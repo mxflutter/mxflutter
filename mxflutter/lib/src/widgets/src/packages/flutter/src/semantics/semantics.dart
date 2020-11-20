@@ -373,7 +373,7 @@ var _semanticsNodeRoot = MXFunctionInvoke(
   [
     "key",
     "showOnScreen",
-    "mxOwner",
+    "__mx_owner",
   ],
 );
 var _semanticsOwner = MXFunctionInvoke(

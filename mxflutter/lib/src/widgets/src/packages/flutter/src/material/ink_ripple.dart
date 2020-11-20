@@ -50,7 +50,7 @@ var _inkRipple = MXFunctionInvoke(
   ),
   [
     // MX modified begin
-    "mxController",
+    "__mx_controller",
     // MX modified end
     "referenceBox",
     "position",

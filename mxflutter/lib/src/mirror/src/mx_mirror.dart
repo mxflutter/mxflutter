@@ -81,6 +81,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   final constEnumIndexStr = "index";
   final constMirrorIDStr = "mirrorID";
   final constMirrorObjStr = "mirrorObj";
+  final constMXPrefix = "__mx_";
 
   // funcName到Fun方法的映射表
   var _funcName2FunMap = <String, MXFunctionInvoke>{};
@@ -241,9 +242,8 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
 
         // 移除ts侧添加的mx前缀，转成真正的名称
         String convertName = name;
-        RegExp reg = new RegExp(r"^mx[A-Z]");
-        if (reg.hasMatch(name)) {
-          convertName = name.replaceFirstMapped(reg, (Match m) => '${m[0].substring(2, 3).toLowerCase()}');
+        if (name.startsWith(constMXPrefix)) {
+          convertName = name.replaceFirst(constMXPrefix, "");
         }
         
         // 判断是否需要将属性进行转换

@@ -252,7 +252,7 @@ var _listWheelElement = MXFunctionInvoke(
   ),
   [
     // MX modified begin
-    "mxWidget",
+    "__mx_widget",
     // MX modified end
   ],
 );

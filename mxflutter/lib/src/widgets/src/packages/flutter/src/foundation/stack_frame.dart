@@ -52,7 +52,7 @@ var _stackFrame = MXFunctionInvoke(
     "column",
     "line",
     "packageScheme",
-    "mxPackage",
+    "__mx_package",
     "packagePath",
     "className",
     "method",

@@ -39,6 +39,6 @@ var _factory = MXFunctionInvoke(
     null,
   ),
   [
-    "mxConstructor",
+    "__mx_constructor",
   ],
 );

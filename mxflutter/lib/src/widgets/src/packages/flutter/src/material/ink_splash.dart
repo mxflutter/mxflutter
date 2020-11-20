@@ -50,7 +50,7 @@ var _inkSplash = MXFunctionInvoke(
   ),
   [
     // MX modified begin
-    "mxController",
+    "__mx_controller",
     // MX modified end
     "referenceBox",
     "textDirection",

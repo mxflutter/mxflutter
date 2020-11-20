@@ -124,7 +124,7 @@ var _textFormField = MXFunctionInvoke(
   [
     "key",
     "controller",
-    "mxInitialValue",
+    "__mx_initialValue",
     "focusNode",
     "decoration",
     "keyboardType",

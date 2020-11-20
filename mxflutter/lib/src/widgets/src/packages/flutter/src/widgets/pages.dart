@@ -106,6 +106,6 @@ var _transitionBuilderPage = MXFunctionInvoke(
     "fullscreenDialog",
     "key",
     "name",
-    "mxArguments",
+    "__mx_arguments",
   ],
 );

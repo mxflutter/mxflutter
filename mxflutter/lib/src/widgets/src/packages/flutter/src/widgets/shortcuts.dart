@@ -58,7 +58,7 @@ var _keySetFromSet = MXFunctionInvoke(
     keys,
   ),
   [
-    "mxKeys",
+    "__mx_keys",
   ],
 );
 var _logicalKeySet = MXFunctionInvoke(

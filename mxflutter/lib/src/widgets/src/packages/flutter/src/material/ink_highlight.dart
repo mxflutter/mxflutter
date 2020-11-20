@@ -49,7 +49,7 @@ var _inkHighlight = MXFunctionInvoke(
   ),
   [
     // MX modified begin
-    "mxController",
+    "__mx_controller",
     // MX modified end
     "referenceBox",
     "color",

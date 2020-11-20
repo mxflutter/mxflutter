@@ -115,7 +115,7 @@ var _multiFrameImageStreamCompleter = MXFunctionInvoke(
     informationCollector: null,
   ),
   [
-    "mxCodec",
+    "__mx_codec",
     "scale",
     "debugLabel",
     "chunkEvents",

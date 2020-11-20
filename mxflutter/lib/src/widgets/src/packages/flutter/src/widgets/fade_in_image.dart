@@ -146,10 +146,10 @@ var _fadeInImageMemoryNetwork = MXFunctionInvoke(
   ),
   [
     "key",
-    "mxPlaceholder",
+    "__mx_placeholder",
     "placeholderErrorBuilder",
     // MX Modified begin
-    "mxImage",
+    "__mx_image",
     // MX Modified end
     "imageErrorBuilder",
     "placeholderScale",
@@ -233,11 +233,11 @@ var _fadeInImageAssetNetwork = MXFunctionInvoke(
   [
     "key",
     // MX Modified begin
-    "mxPlaceholder",
+    "__mx_placeholder",
     // MX Modified end
     "placeholderErrorBuilder",
     // MX Modified begin
-    "mxImage",
+    "__mx_image",
     // MX Modified end
     "imageErrorBuilder",
     "bundle",

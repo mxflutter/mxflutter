@@ -193,7 +193,7 @@ var _clipboardStatusNotifier = MXFunctionInvoke(
     value: value,
   ),
   [
-    "mxValue",
+    "__mx_value",
   ],
 );
 var _clipboardStatus = MXFunctionInvoke(

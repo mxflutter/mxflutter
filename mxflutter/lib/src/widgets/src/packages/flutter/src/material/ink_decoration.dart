@@ -117,7 +117,7 @@ var _inkDecoration = MXFunctionInvoke(
   ),
   [
     // MX modified begin
-    "mxController",
+    "__mx_controller",
     // MX modified end
     "configuration",
     "controller",
