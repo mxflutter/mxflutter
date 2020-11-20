@@ -2,6 +2,7 @@ group 'com.mojitox.mxflutter'
 version '1.0'
 
 buildscript {
+    apply from: file("config.gradle")
     ext.kotlin_version = '1.3.50'
     repositories {
         google()
@@ -30,6 +31,7 @@ android {
     defaultConfig {
         minSdkVersion 17
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "boolean", "USE_V8", "$USE_V8"
         externalNativeBuild {
             cmake {
                 cppFlags ""
@@ -38,7 +40,7 @@ android {
         }
     }
 
-    /** 编译so时反注释掉此处,编译完恢复 **/
+    /** 编译mxflutter so时反注释掉此处,编译完恢复 **/
 //    externalNativeBuild {
 //        cmake {
 //            path "CMakeLists.txt"
@@ -55,10 +57,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-//    如果so动态下发，这里就不要打进安装包
-//    packagingOptions {
-//        exclude 'lib/armeabi-v7a/libj2v8.so'
-//    }
+
+    //如果so动态下发/使用x5，这里就不要打进安装包
+    if (!USE_V8 || USE_V8_SO_DOWNLOAD) {
+        packagingOptions {
+            exclude 'lib/armeabi-v7a/libj2v8.so'
+            exclude 'lib/arm64-v8a/libj2v8.so'
+            exclude 'lib/x86/libj2v8.so'
+            exclude 'lib/x86_64/libj2v8.so'
+        }
+    }
 
     buildTypes {
         release {
@@ -81,12 +89,28 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+            java {
+                if (USE_V8) {
+                    srcDirs = [
+                            'src/main/java',
+                            'src/main/v8',
+                    ]
+                } else {
+                    srcDirs = [
+                            'src/main/java',
+                            'src/main/x5'
+                    ]
+                }
+            }
         }
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    if (!USE_V8) {
+        api 'com.tencent.tbs.tbssdk:sdk:43939'
+    }
     implementation "androidx.annotation:annotation:1.1.0"
 }
 

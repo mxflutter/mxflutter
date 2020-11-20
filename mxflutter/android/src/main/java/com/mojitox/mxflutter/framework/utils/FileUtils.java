@@ -26,7 +26,7 @@ public class FileUtils {
 
     public static String getScriptFromPath(String filePath) {
         if (filePath.startsWith(MxConfig.ANDROID_ASSETS)) {
-            Context context = MXFlutterPlugin.get().mFlutterPluginBinding.getApplicationContext();
+            Context context = MXFlutterPlugin.get().getApplicationContext();
             String filename = filePath.replace(MxConfig.ANDROID_ASSETS, "");
             return getScriptFromAssets(context, filename);
         } else {
@@ -107,9 +107,6 @@ public class FileUtils {
 
     /**
      * 文件写入
-     *
-     * @author haiyandu
-     * @since 2011-11-21
      */
     public static boolean copy(InputStream srcStream, File destFile) {
         if (srcStream == null) {

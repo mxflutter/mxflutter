@@ -25,7 +25,7 @@ public abstract class JsTask implements Runnable {
             runTime = e - s;
             debug();
         } catch (Throwable t) {
-            android.util.Log.e(TAG, "Exception:JSMessage:" + t.getMessage());
+            android.util.Log.e(TAG, "Exception:JSMessage:" + t.getMessage() + "__taskName:" + taskName);
         }
     }
 

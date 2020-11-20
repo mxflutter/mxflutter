@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.4.1)
-
+message("CMAKE_SOURCE_DIR = ${CMAKE_SOURCE_DIR}")
 include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include)
 
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g")
@@ -10,6 +10,6 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
 
 #set(jnilibs "${CMAKE_SOURCE_DIR}/src/main/jniLibs")
 
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/src/libs/${ANDROID_ABI})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/libs/${ANDROID_ABI})
 
 ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/main/cpp/sdk)

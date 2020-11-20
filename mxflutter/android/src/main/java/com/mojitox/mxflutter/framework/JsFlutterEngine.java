@@ -6,11 +6,14 @@
 
 package com.mojitox.mxflutter.framework;
 
+import androidx.annotation.Keep;
 import com.mojitox.mxflutter.MXFlutterPlugin;
-import com.mojitox.mxflutter.framework.common.MethodChannelConstant;
+import com.mojitox.mxflutter.framework.constants.MethodChannelConstant;
 import com.mojitox.mxflutter.framework.executor.JsTask;
 import com.mojitox.mxflutter.framework.executor.TaskName;
 import com.mojitox.mxflutter.framework.executor.UiThread;
+import com.mojitox.mxflutter.framework.runtime.ExecuteScriptCallback;
+import com.mojitox.mxflutter.framework.runtime.InvokeJSValueCallback;
 import io.flutter.Log;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.MethodCall;
@@ -24,10 +27,6 @@ public class JsFlutterEngine {
 
     public static final String TAG = "MXJSFlutterEngine";
 
-    //Flutter通道
-    private static final String FLUTTER_METHED_CHANNEL_NAME = "js_flutter.flutter_main_channel";
-    private static final String FLUTTER_COMMON_BASIC_CHANNEL_NAME = "mxflutter.mxflutter_common_basic_channel";
-
     public MethodChannel jsFlutterMainChannel;
     BasicMessageChannel<String> jsFlutterCommonBasicChannel;
 
@@ -36,14 +35,15 @@ public class JsFlutterEngine {
     }
 
     public void setupChannel() {
-        jsFlutterMainChannel = new MethodChannel(MXFlutterPlugin.get().getFlutterEngine(), MethodChannelConstant.FLUTTER_METHED_CHANNEL_NAME);
+        jsFlutterMainChannel = new MethodChannel(MXFlutterPlugin.get().getFlutterEngine(),
+                MethodChannelConstant.FLUTTER_METHED_CHANNEL_NAME);
         jsFlutterMainChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() {
             @Override
             public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
                 if (methodCall.method.equals("callNativeRunJSApp")) {
-                    Map flutterAppEnvironmentInfo = (Map<String, Boolean>) methodCall.argument("flutterAppEnvironmentInfo");
+                    Map<String, Boolean> flutterAppEnvironmentInfo = (Map<String, Boolean>) methodCall
+                            .argument("flutterAppEnvironmentInfo");
                     runApp(flutterAppEnvironmentInfo);
-
                     result.success("success");
                 } else if (methodCall.method.equals("callJsCallbackFunction")) {
                     String jsAppName = methodCall.argument("callbackId");
@@ -56,7 +56,8 @@ public class JsFlutterEngine {
             }
         });
 
-        jsFlutterCommonBasicChannel = new BasicMessageChannel<>(MXFlutterPlugin.get().getFlutterEngine(), FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
+        jsFlutterCommonBasicChannel = new BasicMessageChannel<>(MXFlutterPlugin.get().getFlutterEngine(),
+                MethodChannelConstant.FLUTTER_COMMON_BASIC_CHANNEL_NAME, StringCodec.INSTANCE);
         jsFlutterCommonBasicChannel.setMessageHandler(new BasicMessageChannel.MessageHandler<String>() {
             @Override
             public void onMessage(String message, BasicMessageChannel.Reply<String> reply) {
@@ -68,22 +69,24 @@ public class JsFlutterEngine {
 
     public void setupChannelMessageHandler(String message, BasicMessageChannel.Reply<String> reply) {
 
-        MXFlutterPlugin.get().getJsExecutor().invokeJSValueWithString(MXFlutterPlugin.get().getRuntime(), "mxfJSBridgeInvokeJSCommonChannel", message, new JsExecutor.InvokeJSValueCallback() {
-            @Override
-            public void onSuccess(Object value) {
-                UiThread.postAtFrontOfQueue(new TimerTask() {
-                    @Override
-                    public void run() {
-                        reply.reply(value.toString());
-                    }
-                });
-            }
+        MXFlutterPlugin.get().getJsExecutor()
+                .invokeJSValue("mxfJSBridgeInvokeJSCommonChannel", message,
+                        new InvokeJSValueCallback() {
+                            @Override
+                            public void onSuccess(Object value) {
+                                UiThread.postAtFrontOfQueue(new TimerTask() {
+                                    @Override
+                                    public void run() {
+                                        reply.reply(value.toString());
+                                    }
+                                });
+                            }
 
-            @Override
-            public void onError(Error error) {
+                            @Override
+                            public void onError(Error error) {
 
-            }
-        });
+                            }
+                        });
     }
 
     public void destroy() {
@@ -131,7 +134,8 @@ public class JsFlutterEngine {
     }
 
     @SuppressWarnings("unchecked")
-    public void callFlutterMethodChannelInvoke(String channelName, String methodName, Map params, MethodChannel.Result callback) {
+    public void callFlutterMethodChannelInvoke(String channelName, String methodName, Map params,
+            MethodChannel.Result callback) {
         UiThread.post(new JsTask() {
             @Override
             protected void execute() {
@@ -146,7 +150,8 @@ public class JsFlutterEngine {
     }
 
     @SuppressWarnings("unchecked")
-    public void callFlutterEventChannelReceiveBroadcastStreamListenInvoke(String channelName, String streamParam, String onDataId, String onErrorId, String onDoneId, boolean cancelOnError) {
+    public void callFlutterEventChannelReceiveBroadcastStreamListenInvoke(String channelName, String streamParam,
+            String onDataId, String onErrorId, String onDoneId, boolean cancelOnError) {
         UiThread.post(new JsTask() {
             @Override
             protected void execute() {
@@ -163,9 +168,9 @@ public class JsFlutterEngine {
         }.setTaskName(TaskName.CALL_FLUTTER_EVENT));
     }
 
-    @SuppressWarnings("unchecked")
-    public void callJSMethodCallHandler(String channelName, MethodCall methodCall, JsExecutor.ExecuteScriptCallback callback) {
-        MXFlutterPlugin
-                .get().getJsEngine().callJSCallbackFunctionWithChannelName(channelName, methodCall, callback);
+    @Keep
+    public void callJSMethodCallHandler(String channelName, MethodCall methodCall,
+            ExecuteScriptCallback callback) {
+        MXFlutterPlugin.get().getJsEngine().callJSCallbackFunctionWithChannelName(channelName, methodCall, callback);
     }
 }

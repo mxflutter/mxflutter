@@ -1,4 +1,4 @@
-package com.mojitox.mxflutter.framework.common;
+package com.mojitox.mxflutter.framework.constants;
 
 /**
  * create by ericpsun on 2020/11/3.

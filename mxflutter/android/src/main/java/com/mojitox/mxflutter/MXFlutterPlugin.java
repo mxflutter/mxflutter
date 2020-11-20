@@ -1,18 +1,15 @@
 package com.mojitox.mxflutter;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-
+import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
-
-import com.eclipsesource.v8.V8;
-import com.mojitox.mxflutter.framework.JsEngine;
-import com.mojitox.mxflutter.framework.JsExecutor;
 import com.mojitox.mxflutter.framework.JsFlutterApp;
 import com.mojitox.mxflutter.framework.JsFlutterEngine;
-
-import java.io.File;
-
+import com.mojitox.mxflutter.framework.js.BaseJsEngine;
+import com.mojitox.mxflutter.framework.js.BaseJsExecutor;
+import com.mojitox.mxflutter.framework.js.JsEngineProvider;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -25,18 +22,15 @@ import io.flutter.plugin.common.MethodChannel.Result;
 public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     private static MXFlutterPlugin sMXFlutterPluginPlugin;
-    public FlutterPluginBinding mFlutterPluginBinding;
     private Handler mainHandler;
     private JsFlutterEngine mxEngine;
     private JsFlutterApp currentApp;
-    private JsEngine jsEngine;
+    private BaseJsEngine jsEngine;
     private BinaryMessenger flutterEngine;
-    private JsExecutor jsExecutor;
-    private V8 runtime;
-    private String soPath;
-    private static Object lock = new Object();
+    private Context applicationContext;
 
 
+    @JavascriptInterface
     public static MXFlutterPlugin get() {
         return sMXFlutterPluginPlugin;
     }
@@ -47,18 +41,11 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             sMXFlutterPluginPlugin.dispose();
         }
         sMXFlutterPluginPlugin = this;
-        //Todo So可以用宿主的，外部传递进来
-        //soPath = flutterPluginBinding.getApplicationContext().getFilesDir().getAbsolutePath() + File.separator + "j2v8.so";
-        sMXFlutterPluginPlugin.mFlutterPluginBinding = flutterPluginBinding;
+        applicationContext = flutterPluginBinding.getApplicationContext();
         setFlutterEngine(flutterPluginBinding.getBinaryMessenger());
-        setJsExecutor(new JsExecutor());
-        setJsEngine(new JsEngine());
+        setJsEngine(JsEngineProvider.createJsEngine());//切换引擎
         setCurrentApp(new JsFlutterApp());
         setMxEngine(new JsFlutterEngine());
-    }
-
-    private String getSoPath() {
-        return soPath;
     }
 
     @Override
@@ -108,11 +95,11 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
         this.currentApp = currentApp;
     }
 
-    public JsEngine getJsEngine() {
+    public BaseJsEngine getJsEngine() {
         return jsEngine;
     }
 
-    public void setJsEngine(JsEngine jsEngine) {
+    public void setJsEngine(BaseJsEngine jsEngine) {
         this.jsEngine = jsEngine;
     }
 
@@ -124,30 +111,11 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
         this.flutterEngine = flutterEngine;
     }
 
-    public JsExecutor getJsExecutor() {
-        return jsExecutor;
+    public BaseJsExecutor getJsExecutor() {
+        return jsEngine.getJsExecutor();
     }
 
-    public void setJsExecutor(JsExecutor jsExecutor) {
-        this.jsExecutor = jsExecutor;
-    }
-
-    public V8 getRuntime() {
-        if (runtime == null) {
-            synchronized (lock) {
-                if (runtime == null) {
-                    if (getSoPath() != null) {
-                        runtime = V8.createV8Runtime("MxV8", getSoPath());
-                    } else {
-                        runtime = V8.createV8Runtime("MxV8");
-                    }
-                }
-            }
-        }
-        return runtime;
-    }
-
-    public void setRuntime(V8 v8Runtime) {
-        runtime = v8Runtime;
+    public Context getApplicationContext() {
+        return applicationContext;
     }
 }

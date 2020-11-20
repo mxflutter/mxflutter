@@ -4,13 +4,14 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-package com.mojitox.mxflutter.framework;
+package com.mojitox.mxflutter.framework.js.v8;
 
 import android.text.TextUtils;
 
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Object;
 import com.eclipsesource.v8.V8ScriptException;
+import com.mojitox.mxflutter.framework.constants.Const;
 import com.mojitox.mxflutter.framework.utils.ClassUtils;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
 
@@ -21,7 +22,7 @@ import java.util.HashMap;
 /**
  * Created by wennliu on 2020-03-26
  */
-public class JsModule {
+public class V8JsModule {
 
     public static final String TAG = "JSModule";
 
@@ -31,7 +32,7 @@ public class JsModule {
 
     public static V8Object sGlobalModuleCache;
 
-    public static JsModule sCurrentLoadingModule = null;
+    public static V8JsModule sCurrentLoadingModule = null;
 
     V8Object mExports;
 
@@ -39,10 +40,10 @@ public class JsModule {
     private String mId;
     private String mFileName;
     private boolean isLoaded;
-    private WeakReference<JsModule> mParent;
-    private ArrayList<WeakReference<JsModule>> mChildren = new ArrayList<>();
+    private WeakReference<V8JsModule> mParent;
+    private ArrayList<WeakReference<V8JsModule>> mChildren = new ArrayList<>();
 
-    public JsModule(String id, String fileName, V8Object context) {
+    public V8JsModule(String id, String fileName, V8Object context) {
         mId = id;
         mFileName = fileName;
         this.mContext = context;
@@ -62,10 +63,10 @@ public class JsModule {
     public static Class classForModule(String moduleClassName) {
         if (isCoreModule(moduleClassName))
             return CORE_MODULE_CLASSES.get(moduleClassName);
-        return JsModule.class;
+        return V8JsModule.class;
     }
 
-    public static void clearModuleCache(V8 runtime) {
+    public static void clearModuleCache() {
         sGlobalModuleCache.close();
         sGlobalModuleCache = null;
     }
@@ -92,7 +93,7 @@ public class JsModule {
         }
 
         Class moduleClass = classForModule(moduleClassName);
-        JsModule newModule = (JsModule) ClassUtils.getInstance(moduleClass,
+        V8JsModule newModule = (V8JsModule) ClassUtils.getInstance(moduleClass,
                 new Class[]{String.class, String.class, V8Object.class},
                 new Object[]{fullModulePath, fullModulePath, context});
 
@@ -103,7 +104,7 @@ public class JsModule {
         V8Object platformObj = new V8Object(context.getRuntime());
 
         try {
-            String exportScript = String.format("(function() { var module = { exports: {}}; var exports = module.exports; \n%s\n; return module.exports; })();", script);
+            String exportScript = String.format(Const.REQUIRE, script);
             V8Object value = context.getRuntime().executeObjectScript(exportScript);
 
             if (value != null) {
@@ -126,9 +127,9 @@ public class JsModule {
     }
 
     private void didStartLoading() {
-        mParent = new WeakReference<JsModule>(sCurrentLoadingModule);
+        mParent = new WeakReference<V8JsModule>(sCurrentLoadingModule);
         if (sCurrentLoadingModule != null) {
-            sCurrentLoadingModule.mChildren.add(new WeakReference<JsModule>(this));
+            sCurrentLoadingModule.mChildren.add(new WeakReference<V8JsModule>(this));
         }
         sCurrentLoadingModule = this;
     }
@@ -136,10 +137,5 @@ public class JsModule {
     private void didFinishLoading() {
         isLoaded = true;
         sCurrentLoadingModule = mParent.get();
-    }
-
-
-    public class Exports {
-
     }
 }

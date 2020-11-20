@@ -1,11 +1,11 @@
 package com.mojitox.mxflutter.framework.common
 
 import android.util.Log
-import com.eclipsesource.v8.V8ScriptException
 import com.mojitox.mxflutter.MXFlutterPlugin
+import com.mojitox.mxflutter.framework.constants.Const
+import com.mojitox.mxflutter.framework.constants.MethodChannelConstant
 import com.mojitox.mxflutter.framework.executor.UiThread
-import java.io.PrintWriter
-import java.io.StringWriter
+import com.mojitox.mxflutter.framework.js.JsEngineProvider
 
 /**
  * create by ericpsun on 2020/11/4.
@@ -33,27 +33,22 @@ object JsLoadErrorMsg {
         }
 
     }
-
+    
     private fun getJsLoadErrorMsg(error: Error, filePath: String): HashMap<String, Any> {
         val errorMap = HashMap<String, Any>()
-        val sw = StringWriter()
-        var exceptionStack = ""
+        var exceptionStack:String? = ""
         error.cause?.run {
-            exceptionStack = if (this is V8ScriptException) {
-                jsStackTrace
-            } else {
-                printStackTrace(PrintWriter(sw)).toString()
-            }
+            exceptionStack = JsEngineProvider.getErrorStack(this)
         }
         val exceptionMsg = error.cause?.message ?: ""
         val errorMsg = "fileName:$filePath\nselfMessage:${error.message}\nexceptionMessage:$exceptionMsg\nexceptionStack:$exceptionStack"
         Log.d("JsLoadErrorMsg", errorMsg)
         errorMap[ERROR_MSG_KEY] = errorMsg
         when {
-            filePath.contains(JsConstant.MAIN_JS) -> {
+            filePath.contains(Const.MAIN_JS) -> {
                 errorMap[JS_FILE_TYPE_KEY] = MAIN_JS_TYPE
             }
-            filePath.contains(JsConstant.BUNDLE_JS) -> {
+            filePath.contains(Const.BUNDLE_JS) -> {
                 errorMap[JS_FILE_TYPE_KEY] = BUNDLE_JS_TYPE
             }
             else -> {
