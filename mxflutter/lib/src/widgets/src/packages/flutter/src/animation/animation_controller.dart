@@ -31,6 +31,7 @@ Map<String, MXFunctionInvoke> registerAnimationControllerSeries() {
   m[_animtionControllerReverse.funName] = _animtionControllerReverse;
   m[_animtionControllerRepeat.funName] = _animtionControllerRepeat;
   m[_animtionControllerDrive.funName] = _animtionControllerDrive;
+  m[_animtionControllerReset.funName] = _animtionControllerReset;
   m[_animtionControllerDispose.funName] = _animtionControllerDispose;
   m[_animtionControllerStop.funName] = _animtionControllerStop;
   // MX modified end
@@ -187,6 +188,17 @@ var _animtionControllerDrive = MXFunctionInvoke(
   [
     "mirrorObj",
     "animatable",
+  ],
+);
+
+var _animtionControllerReset = MXFunctionInvoke(
+  "AnimationController#reset",
+  ({
+    AnimationController mirrorObj,
+  }) =>
+      mirrorObj.reset(),
+  [
+    "mirrorObj",
   ],
 );
 
