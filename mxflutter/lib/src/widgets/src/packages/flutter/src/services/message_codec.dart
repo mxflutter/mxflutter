@@ -31,7 +31,7 @@ var _methodCall = MXFunctionInvoke(
   ),
   [
     "method",
-    "arguments",
+    "mxArguments",
   ],
 );
 var _platformException = MXFunctionInvoke(

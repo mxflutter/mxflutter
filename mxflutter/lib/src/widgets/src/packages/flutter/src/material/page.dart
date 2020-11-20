@@ -77,6 +77,6 @@ var _materialPage = MXFunctionInvoke(
     "fullscreenDialog",
     "key",
     "name",
-    "arguments",
+    "mxArguments",
   ],
 );

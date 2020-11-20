@@ -75,7 +75,7 @@ var _drawerController = MXFunctionInvoke(
     enableOpenDragGesture: enableOpenDragGesture,
   ),
   [
-    "key",
+    "mxKey",
     "child",
     "alignment",
     "drawerCallback",

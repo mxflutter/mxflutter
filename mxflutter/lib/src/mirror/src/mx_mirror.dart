@@ -239,11 +239,18 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
           continue;
         }
 
+        // 移除ts侧添加的mx前缀，转成真正的名称
+        String convertName = name;
+        RegExp reg = new RegExp(r"^mx[A-Z]");
+        if (reg.hasMatch(name)) {
+          convertName = name.replaceFirstMapped(reg, (Match m) => '${m[0].substring(2, 3).toLowerCase()}');
+        }
+        
         // 判断是否需要将属性进行转换
         if (noJ2DProps != null && noJ2DProps.contains(name)) {
-          namedArguments[Symbol(name)] = argsMap[name];
+          namedArguments[Symbol(convertName)] = argsMap[name];
         } else {
-          namedArguments[Symbol(name)] = jsonToDartObj(argsMap[name],
+          namedArguments[Symbol(convertName)] = jsonToDartObj(argsMap[name],
               buildOwner: buildOwner, context: context);
         }
       }

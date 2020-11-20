@@ -36,6 +36,6 @@ var _assetImage = MXFunctionInvoke(
   [
     "assetName",
     "bundle",
-    "package",
+    "mxPackage",
   ],
 );

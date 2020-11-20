@@ -80,7 +80,7 @@ var _cupertinoPage = MXFunctionInvoke(
     "fullscreenDialog",
     "key",
     "name",
-    "arguments",
+    "mxArguments",
   ],
 );
 var _cupertinoPageTransition = MXFunctionInvoke(

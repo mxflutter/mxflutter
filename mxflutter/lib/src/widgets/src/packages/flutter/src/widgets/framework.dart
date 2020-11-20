@@ -159,7 +159,7 @@ var _statefulElement = MXFunctionInvoke(
     widget,
   ),
   [
-    "widget",
+    "mxWidget",
   ],
 );
 var _parentDataElement = MXFunctionInvoke(
@@ -183,7 +183,7 @@ var _inheritedElement = MXFunctionInvoke(
     widget,
   ),
   [
-    "widget",
+    "mxWidget",
   ],
 );
 var _leafRenderObjectElement = MXFunctionInvoke(
@@ -207,7 +207,7 @@ var _singleChildRenderObjectElement = MXFunctionInvoke(
     widget,
   ),
   [
-    "widget",
+    "mxWidget",
   ],
 );
 var _multiChildRenderObjectElement = MXFunctionInvoke(
@@ -219,7 +219,7 @@ var _multiChildRenderObjectElement = MXFunctionInvoke(
     widget,
   ),
   [
-    "widget",
+    "mxWidget",
   ],
 );
 var _debugCreator = MXFunctionInvoke(
