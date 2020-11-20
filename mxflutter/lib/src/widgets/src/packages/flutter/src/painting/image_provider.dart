@@ -170,7 +170,7 @@ var _exactAssetImage = MXFunctionInvoke(
     "assetName",
     "scale",
     "bundle",
-    "package",
+    "mxPackage",
   ],
 );
 var _networkImageLoadException = MXFunctionInvoke(

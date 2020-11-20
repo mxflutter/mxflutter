@@ -44,8 +44,6 @@ public class JsFlutterEngine {
                     Map flutterAppEnvironmentInfo = (Map<String, Boolean>) methodCall.argument("flutterAppEnvironmentInfo");
                     runApp(flutterAppEnvironmentInfo);
 
-                    // 记录Flutter侧初始化耗时
-                    MXFlutterPlugin.get().getCurrentApp().mxFlutterInitCost = (int) methodCall.argument("mxFlutterInitCost");
                     result.success("success");
                 } else if (methodCall.method.equals("callJsCallbackFunction")) {
                     String jsAppName = methodCall.argument("callbackId");

@@ -4,15 +4,17 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:flutter/widgets.dart';
+import 'dart:convert';
+
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../mx_build_owner.dart';
+import '../../mx_common.dart';
+import '../../mx_js_bridge.dart';
+import '../mx_mirror.dart';
 import 'mx_function_invoke.dart';
 import 'mx_mirror_object.dart';
-import '../mx_mirror.dart';
-import '../../mx_js_bridge.dart';
-import '../../mx_common.dart';
 
 /// 提供通过Json Map 调用 Dart 函数的能力
 /// 通过调用 Dart 类的构造方法，实现Json Map 转 Dart 对象
@@ -98,10 +100,10 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   /// 通过 Json Map 生成Dart Object
   /// 通过函数映射表，找到构造函数，调用生成Dart Object
   /// Map 里如果带mirrorId 字段，则会加入到MirrogObj管理其生命周期，如果不带则由外部管理
-  dynamic jsonToDartObj(dynamic json,
+  dynamic jsonToDartObj(dynamic jsonObj,
       {MXJsonBuildOwner buildOwner, BuildContext context}) {
-    if (json is Map) {
-      Map jsonMap = json;
+    if (jsonObj is Map) {
+      Map jsonMap = jsonObj;
 
       // 尝试转换成DartObj
       var dartObj =
@@ -117,16 +119,19 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
             jsonToDartObj(v, buildOwner: buildOwner, context: context);
       });
       return resultMap;
-    } else if (json is List) {
+    } else if (jsonObj is List) {
       List resultList = [];
-      for (var element in json) {
+      for (var element in jsonObj) {
         var object =
             jsonToDartObj(element, buildOwner: buildOwner, context: context);
         resultList.add(object);
       }
       return resultList;
+    } else if (jsonObj is String && _isTSEnumJsonString(jsonObj)) {
+      Map jsonMap = json.decode(jsonObj);
+      return _map2DartObject(jsonMap, buildOwner: buildOwner, context: context);
     } else {
-      return json;
+      return jsonObj;
     }
   }
 
@@ -234,11 +239,18 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
           continue;
         }
 
+        // 移除ts侧添加的mx前缀，转成真正的名称
+        String convertName = name;
+        RegExp reg = new RegExp(r"^mx[A-Z]");
+        if (reg.hasMatch(name)) {
+          convertName = name.replaceFirstMapped(reg, (Match m) => '${m[0].substring(2, 3).toLowerCase()}');
+        }
+        
         // 判断是否需要将属性进行转换
         if (noJ2DProps != null && noJ2DProps.contains(name)) {
-          namedArguments[Symbol(name)] = argsMap[name];
+          namedArguments[Symbol(convertName)] = argsMap[name];
         } else {
-          namedArguments[Symbol(name)] = jsonToDartObj(argsMap[name],
+          namedArguments[Symbol(convertName)] = jsonToDartObj(argsMap[name],
               buildOwner: buildOwner, context: context);
         }
       }
@@ -312,6 +324,15 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     return jsonMap.keys.length == 2 &&
         jsonMap[constEnumNameStr] != null &&
         jsonMap[constEnumIndexStr] != null;
+  }
+
+  /// 是否是TS枚举Json字符串
+  bool _isTSEnumJsonString(String jsonString) {
+    // TS枚举字符串，包含"{"、"_name: "、"index: "、"}"四个字符串
+    return jsonString.contains("{") &&
+        jsonString.contains("\"_name\": ") &&
+        jsonString.contains("\"index\": ") &&
+        jsonString.contains("}");
   }
 
   /// 给枚举对象添加临时的name属性

@@ -48,7 +48,9 @@ var _inkHighlight = MXFunctionInvoke(
     fadeDuration: fadeDuration,
   ),
   [
-    "controller",
+    // MX modified begin
+    "mxController",
+    // MX modified end
     "referenceBox",
     "color",
     "textDirection",

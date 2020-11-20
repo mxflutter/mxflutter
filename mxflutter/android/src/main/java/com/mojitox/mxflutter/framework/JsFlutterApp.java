@@ -33,8 +33,6 @@ public class JsFlutterApp {
     private JsFlutterApp currentApp;
     private V8Object jsAppObj;
 
-    //mx框架flutter侧初始化耗时
-    public long mxFlutterInitCost;
     //mx框架native侧加载main.js耗时
     private long mxNativeJSLoadCost;
 
@@ -178,7 +176,6 @@ public class JsFlutterApp {
         Map<String, Object> args = new HashMap<>();
         args.put("method", "nativeCallInitProfileInfo");
         Map<String, Object> arguments = new HashMap<>();
-        arguments.put("mxFlutterInitCost", mxFlutterInitCost);
         arguments.put("mxNativeJSLoadCost", mxNativeJSLoadCost);
         args.put("arguments", arguments);
         MethodCall methodCall = new MethodCall("nativeCall", args);
@@ -197,6 +194,10 @@ public class JsFlutterApp {
 
             }
         });
+    }
+
+    public V8Object getJsAppObj() {
+        return jsAppObj;
     }
 
     //js 注入对象

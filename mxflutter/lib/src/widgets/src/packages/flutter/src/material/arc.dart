@@ -32,8 +32,8 @@ var _materialPointArcTween = MXFunctionInvoke(
     end: end,
   ),
   [
-    "begin",
-    "end",
+    "mxBegin",
+    "mxEnd",
   ],
 );
 var _materialRectArcTween = MXFunctionInvoke(
@@ -47,8 +47,8 @@ var _materialRectArcTween = MXFunctionInvoke(
     end: end,
   ),
   [
-    "begin",
-    "end",
+    "mxBegin",
+    "mxEnd",
   ],
 );
 var _materialRectCenterArcTween = MXFunctionInvoke(
@@ -62,7 +62,7 @@ var _materialRectCenterArcTween = MXFunctionInvoke(
     end: end,
   ),
   [
-    "begin",
-    "end",
+    "mxBegin",
+    "mxEnd",
   ],
 );

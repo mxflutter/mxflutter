@@ -62,7 +62,7 @@ var _routeSettings = MXFunctionInvoke(
   ),
   [
     "name",
-    "arguments",
+    "mxArguments",
   ],
 );
 var _customBuilderPage = MXFunctionInvoke(
@@ -83,7 +83,7 @@ var _customBuilderPage = MXFunctionInvoke(
     "key",
     "routeBuilder",
     "name",
-    "arguments",
+    "mxArguments",
   ],
 );
 var _navigatorObserver = MXFunctionInvoke(

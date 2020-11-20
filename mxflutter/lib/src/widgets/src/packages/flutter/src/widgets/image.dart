@@ -322,7 +322,7 @@ var _imageAsset = MXFunctionInvoke(
     "matchTextDirection",
     "gaplessPlayback",
     "isAntiAlias",
-    "package",
+    "mxPackage",
     "filterQuality",
     "cacheWidth",
     "cacheHeight",

@@ -132,10 +132,12 @@ var _animtionControllerForward = MXFunctionInvoke(
   "AnimationController#forward",
   ({
     AnimationController mirrorObj,
+    dynamic from,
   }) =>
-      mirrorObj.forward(),
+      mirrorObj.forward(from: from?.toDouble()),
   [
     "mirrorObj",
+    "from",
   ],
 );
 
@@ -143,10 +145,22 @@ var _animtionControllerRepeat = MXFunctionInvoke(
   "AnimationController#repeat",
   ({
     AnimationController mirrorObj,
+    dynamic min,
+    dynamic max,
+    bool reverse = false,
+    Duration period,
   }) =>
-      mirrorObj.repeat(),
+      mirrorObj.repeat(
+          min: min?.toDouble(),
+          max: max?.toDouble(),
+          reverse: reverse,
+          period: period),
   [
     "mirrorObj",
+    "min",
+    "max",
+    "reverse",
+    "period",
   ],
 );
 
@@ -154,10 +168,12 @@ var _animtionControllerReverse = MXFunctionInvoke(
   "AnimationController#reverse",
   ({
     AnimationController mirrorObj,
+    dynamic from,
   }) =>
-      mirrorObj.reverse(),
+      mirrorObj.reverse(from: from?.toDouble()),
   [
     "mirrorObj",
+    "from",
   ],
 );
 
@@ -193,14 +209,16 @@ var _animtionControllerStop = MXFunctionInvoke(
   "AnimationController#stop",
   ({
     AnimationController mirrorObj,
+    bool canceled = true,
   }) {
     // 因为在MXJSWidgetState的dispose方法中，框架会主动调用该方法。因此加个判断，避免js侧再调用该方法时，会出现调用null方法
     if (mirrorObj != null) {
-      mirrorObj.stop();
+      mirrorObj.stop(canceled: canceled);
     }
   },
   [
     "mirrorObj",
+    "canceled",
   ],
 );
 // MX modified end

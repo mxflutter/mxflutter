@@ -8,15 +8,17 @@ package com.mojitox.mxflutter.framework.utils;
 
 import android.content.Context;
 import android.util.Log;
-
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.constants.MxConfig;
-
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 public class FileUtils {
 
@@ -101,5 +103,60 @@ public class FileUtils {
             filePath += MxConfig.MX_JS_EXT;
         }
         return MxConfig.getJsPath() + "/" + filePath;
+    }
+
+    /**
+     * 文件写入
+     *
+     * @author haiyandu
+     * @since 2011-11-21
+     */
+    public static boolean copy(InputStream srcStream, File destFile) {
+        if (srcStream == null) {
+            return false;
+        }
+        OutputStream os = null;
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(destFile));
+
+            byte[] b = new byte[256];
+            int len = 0;
+            while ((len = srcStream.read(b)) != -1) {
+                os.write(b, 0, len);
+            }
+            os.flush();
+
+        } catch (IOException e) {
+
+            Log.e(TAG, e.toString());
+            return false;
+        } finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                if (srcStream != null) {
+                    srcStream.close();
+                }
+            } catch (IOException e) {
+
+                Log.e(TAG, e.toString());
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean safetyCloseStream(Closeable stream) {
+        if (stream != null) {
+            try {
+                stream.close();
+                return true;
+            } catch (IOException e) {
+                //ignore it
+            }
+        }
+        return false;
     }
 }

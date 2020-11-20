@@ -251,7 +251,9 @@ var _listWheelElement = MXFunctionInvoke(
     widget,
   ),
   [
-    "widget",
+    // MX modified begin
+    "mxWidget",
+    // MX modified end
   ],
 );
 var _listWheelViewport = MXFunctionInvoke(

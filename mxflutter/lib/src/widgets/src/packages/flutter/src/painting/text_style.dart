@@ -94,6 +94,6 @@ var _textStyle = MXFunctionInvoke(
     "debugLabel",
     "fontFamily",
     "fontFamilyFallback",
-    "package",
+    "mxPackage",
   ],
 );

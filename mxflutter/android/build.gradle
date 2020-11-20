@@ -30,7 +30,21 @@ android {
     defaultConfig {
         minSdkVersion 17
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+                abiFilters 'armeabi-v7a', 'arm64-v8a'/*, 'x86'*/
+            }
+        }
     }
+
+    /** 编译so时反注释掉此处,编译完恢复 **/
+//    externalNativeBuild {
+//        cmake {
+//            path "CMakeLists.txt"
+//        }
+//
+//    }
 
     lintOptions {
         disable 'InvalidPackage'
@@ -49,6 +63,18 @@ android {
     buildTypes {
         release {
             consumerProguardFiles 'proguard-rules.pro'
+            externalNativeBuild {
+                cmake {
+                    cppFlags "-DTENCENT_SHELL=1", "-DNOLOG=1"
+                }
+            }
+        }
+        debug{
+            externalNativeBuild {
+                cmake {
+                    cppFlags "-DTENCENT_SHELL=0"
+                }
+            }
         }
     }
 
@@ -61,5 +87,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "androidx.annotation:annotation:1.1.0"
 }
 

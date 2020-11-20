@@ -35,7 +35,7 @@ var _gestureRecognizerFactoryWithHandlers = MXFunctionInvoke(
         _gestureRecognizerFactoryWithHandlers.buildOwner, initializer),
   ),
   [
-    "constructor",
+    "mxConstructor",
     "initializer",
   ],
 );

@@ -712,7 +712,7 @@ var _pointerScrollEvent = MXFunctionInvoke(
     "localPosition",
     "scrollDelta",
     "transform",
-    "original",
+    "mxOriginal",
     "embedderId",
   ],
 );
