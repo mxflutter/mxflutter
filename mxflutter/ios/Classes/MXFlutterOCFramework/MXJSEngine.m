@@ -147,6 +147,13 @@
                                                                      @"errorMsg": errorMsg}
                                                             result:NULL];
     };
+
+    // 该方法提供给业务使用，类似web环境直接调用，不放在MXJSAPI中
+    context[@"setTimeout"] = ^(JSValue* function, JSValue* timeout) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([timeout toInt32] * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
+            [function callWithArguments:@[]];
+        });
+    };
     
     self.jsAPI = [[MXJSAPI alloc] initWithJSEngine:self context:context];
     context[@"MXJSAPI"] = self.jsAPI;

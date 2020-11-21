@@ -35,13 +35,6 @@ JSExportAs(nativePrint,
            - (void)nativePrint:(NSString *)string
            );
 
-/// 延时执行
-/// @param function 执行方法
-/// @param timeout 延后时长
-JSExportAs(setTimeout,
-           - (void)setTimeout:(JSValue *)function timeout:(JSValue *)timeout
-           );
-
 JSExportAs(mxJSBridgeInvokeFlutterCommonChannel,
            - (void)mxJSBridgeInvokeFlutterCommonChannel:(NSString *)callJSONStr function:(JSValue *)function
            );

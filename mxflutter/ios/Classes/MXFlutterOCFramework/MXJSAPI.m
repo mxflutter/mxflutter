@@ -61,12 +61,6 @@
     NSLog(@"%@", string);
 }
 
-- (void)setTimeout:(JSValue *)function timeout:(JSValue *)timeout {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([timeout toInt32] * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-        [function callWithArguments:@[]];
-    });
-}
-
 - (void)mxJSBridgeInvokeFlutterCommonChannel:(NSString *)callJSONStr function:(JSValue *)function {
     //Native 透传callJSONStr 不做任何解析
     [self.jsFlutterEngine invokeFlutterCommonChannel:callJSONStr callback:^(id  _Nullable result) {
