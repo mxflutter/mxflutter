@@ -4,6 +4,8 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
@@ -267,7 +269,6 @@ class MXUtil {
     Map v;
 
     switch (data) {
-
       case TargetPlatform.android:
         {
           v = {"_name": "TargetPlatform.android", "index": 0};
@@ -535,4 +536,23 @@ class MXUtil {
 
     return map;
   }
+}
+
+/// 获取flutter的运行时环境变量 传递给JS
+Map get flutterAppEnvironmentInfo {
+  return {
+    "kReleaseMode": kReleaseMode,
+    "kProfileMode": kProfileMode,
+    "kDebugMode": kDebugMode,
+    //
+    "Platform": _platformInfo,
+  };
+}
+
+Map get _platformInfo {
+  return {
+    "isAndroid": Platform.isAndroid,
+    "isIOS": Platform.isIOS,
+    "operatingSystem":Platform.operatingSystem
+  };
 }

@@ -41,7 +41,7 @@ public class JsFlutterEngine {
             @Override
             public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
                 if (methodCall.method.equals("callNativeRunJSApp")) {
-                    Map<String, Boolean> flutterAppEnvironmentInfo = (Map<String, Boolean>) methodCall
+                    Map flutterAppEnvironmentInfo = (Map) methodCall
                             .argument("flutterAppEnvironmentInfo");
                     runApp(flutterAppEnvironmentInfo);
                     result.success("success");
@@ -96,7 +96,7 @@ public class JsFlutterEngine {
     }
 
 
-    public void runApp(Map<String, Boolean> flutterAppEnvironmentInfo) {
+    public void runApp(Map flutterAppEnvironmentInfo) {
         MXFlutterPlugin.get().getCurrentApp().initWithAppName(flutterAppEnvironmentInfo);
         MXFlutterPlugin.get().getCurrentApp().runAppWithPageName();
     }

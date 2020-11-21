@@ -13,6 +13,7 @@ import './mirror_reg_fun_map/mx_mirror_func_reg.dart';
 import 'mx_js_bridge.dart';
 import 'mx_platform_channel.dart';
 import 'mx_handler.dart';
+import 'mx_common.dart';
 
 typedef Widget MXWidgetBuildHandler(String widgetName);
 
@@ -100,11 +101,7 @@ abstract class MXJSFlutter {
           jsAppSearchPathWithAssetsKeyList;
     }
 
-    args["flutterAppEnvironmentInfo"] = {
-      "kReleaseMode": kReleaseMode,
-      "kProfileMode": kProfileMode,
-      "kDebugMode": kDebugMode
-    };
+    args["flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
 
     MXPlatformChannel.getInstance().invokeMethod("callNativeRunJSApp", args);
 

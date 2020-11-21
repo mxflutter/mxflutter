@@ -48,7 +48,7 @@ public class JsFlutterApp {
         callJSMethodQueue = new ArrayList<>(1);
     }
 
-    public JsFlutterApp initWithAppName(Map<String, Boolean> flutterAppEnvironmentInfo) {
+    public JsFlutterApp initWithAppName(Map flutterAppEnvironmentInfo) {
         setFlutterAppEnvironmentInfo(flutterAppEnvironmentInfo);
         currentApp = this;
         new MxFlutterFfi();

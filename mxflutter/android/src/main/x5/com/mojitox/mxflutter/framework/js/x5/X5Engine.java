@@ -29,7 +29,7 @@ public class X5Engine extends BaseJsEngine<X5Executor> {
     }
 
     private void test() {
-        Map<String, Boolean> flutterAppEnvironmentInfo = new HashMap<>();
+        Map flutterAppEnvironmentInfo = new HashMap<>();
         flutterAppEnvironmentInfo.put("kReleaseMode", true);
         flutterAppEnvironmentInfo.put("kProfileMode", false);
         flutterAppEnvironmentInfo.put("kDebugMode", false);
