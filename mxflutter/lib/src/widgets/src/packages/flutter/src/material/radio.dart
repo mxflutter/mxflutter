@@ -12,6 +12,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/constants.dart';
 import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/material_state.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:flutter/src/material/toggleable.dart';
@@ -30,6 +31,8 @@ var _radio = MXFunctionInvoke(
     dynamic value,
     dynamic groupValue,
     dynamic onChanged,
+    MouseCursor mouseCursor,
+    bool toggleable = false,
     Color activeColor,
     Color focusColor,
     Color hoverColor,
@@ -44,6 +47,8 @@ var _radio = MXFunctionInvoke(
     groupValue: groupValue,
     onChanged:
         createValueChangedGenericClosure<dynamic>(_radio.buildOwner, onChanged),
+    mouseCursor: mouseCursor,
+    toggleable: toggleable,
     activeColor: activeColor,
     focusColor: focusColor,
     hoverColor: hoverColor,
@@ -57,6 +62,8 @@ var _radio = MXFunctionInvoke(
     "value",
     "groupValue",
     "onChanged",
+    "mouseCursor",
+    "toggleable",
     "activeColor",
     "focusColor",
     "hoverColor",

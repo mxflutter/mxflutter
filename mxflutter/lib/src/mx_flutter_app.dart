@@ -6,6 +6,7 @@
 
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,12 +17,10 @@ import 'mx_widget.dart';
 /// 管理一个JSAPP 代码文件集合
 /// 负责 JS 与 Flutter UI数据通道，事件通道
 class MXJSFlutterApp {
-  MXJSFlutterApp(this.name) {
+  MXJSFlutterApp() {
     _rootBuildOwnerNode = MXJsonBuildOwner.rootBuildOwner();
     _setupChannel();
   }
-
-  String name;
 
   /// widget build owner ：rootBoNode
   MXJsonBuildOwner _rootBuildOwnerNode;
@@ -33,19 +32,18 @@ class MXJSFlutterApp {
   /// *重要：此API是从Flutter侧打开一个JS页面的入口函数
   /// 从 Flutter Push 一个 JS 写的页面
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
-  MXJSStatefulWidget navigatorPushWithName(String widgetName, Key widgetKey) {
+  MXJSStatefulWidget navigatorPushWithName(String widgetName, Key widgetKey, Map flutterPushParams) {
     MXJSLog.log(
         "MXJSFlutterApp:navigatorPushWithName: widgetName: $widgetName ");
-    return createHostJSWidget(widgetName, widgetKey);
+    return createHostJSWidget(widgetName, widgetKey, flutterPushParams);
   }
 
   /// API JS->Flutter
   /// *重要：此API是从Flutter侧打开一个JS页面的入口函数
   /// 创建一个hostJSWidget,可以直接放入Fltuter的build widget Tree中
   /// 先创建一个空的MXJSStatefulWidget，调用JS，等待JS层widgetData来刷新页面
-  MXJSStatefulWidget createHostJSWidget(String widgetName, Key widgetKey) {
-    MXJSLog.log(
-        "MXJSFlutterApp:navigatorPushWithName: widgetName: $widgetName ");
+  MXJSStatefulWidget createHostJSWidget(String widgetName, Key widgetKey, Map flutterPushParams) {
+    MXJSLog.log("MXJSFlutterApp:createHostJSWidget: widgetName: $widgetName ");
 
     MXJSStatefulWidget jsWidget = _rootBuildOwnerNode.findWidget(widgetKey);
 
@@ -58,7 +56,8 @@ class MXJSFlutterApp {
     jsWidget = MXJSStatefulWidget.hostWidget(
         key: widgetKey,
         name: widgetName,
-        parentBuildOwnerNode: _rootBuildOwnerNode);
+        parentBuildOwnerNode: _rootBuildOwnerNode,
+        flutterPushParams: flutterPushParams);
 
     return jsWidget;
   }
@@ -122,7 +121,7 @@ class MXJSFlutterApp {
 
   /// JS ->  Flutter 开放给JS调用
   _setupName2FunMap() {
-    _name2FunMap["navigatorPush"] = _jsCallNavigatorPush;
+    _name2FunMap["navigatorPushNamed"] = _jsCallNavigatorPushNamed;
     _name2FunMap["navigatorPop"] = _jsCallNavigatorPop;
   }
 
@@ -159,6 +158,9 @@ class MXJSFlutterApp {
             }));
   }
 
+  /// rebuild quque
+  Map<String, Map> _widgetId2RebuildJSCallCache = {};
+
   /// JS ->  flutter  开放给调用 JS
   Future<dynamic> _jsCallRebuild(widgetDataStr) async {
     var startDecodeDataTime = (new DateTime.now()).millisecondsSinceEpoch;
@@ -169,8 +171,11 @@ class MXJSFlutterApp {
     MXJsonBuildOwner boNode = _rootBuildOwnerNode.findChild(widgetID);
 
     if (boNode == null) {
+      /// 加入缓存
+      _widgetId2RebuildJSCallCache[widgetID] = widgetDataMap;
+
       MXJSLog.error("MXJSFlutterApp:_jsCallRebuild: "
-          "findBuildOwner(widgetID) == null，name:$name widgetId:$widgetID");
+          "findBuildOwner(widgetID) == null，调用暂时缓存, widgetId:$widgetID");
 
       _rootBuildOwnerNode.debugPrintBuildOwnerNodeTree();
       return;
@@ -182,15 +187,23 @@ class MXJSFlutterApp {
       String widgetId = widgetDataMap["widgetID"];
       String buildWidgetDataSeq = widgetDataMap["buildWidgetDataSeq"];
 
-      buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'] = {
-        'enableProfile': enableProfile,
-        'startDecodeDataTime': startDecodeDataTime,
-        'endDecodeDataTime': endDecodeDataTime
-      };
+      if (buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'] != null) {
+        buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'].addAll({
+          'enableProfile': enableProfile,
+          'startDecodeDataTime': startDecodeDataTime,
+          'endDecodeDataTime': endDecodeDataTime
+        });
+      } else {
+        buildProfileInfoMap['$widgetId-$buildWidgetDataSeq'] = {
+          'enableProfile': enableProfile,
+          'startDecodeDataTime': startDecodeDataTime,
+          'endDecodeDataTime': endDecodeDataTime
+        };
+      }
     }
 
     MXJSLog.log("MXJSFlutterApp:_jsCallRebuild: "
-        "name:$name widgetId:$widgetID");
+        "name:${boNode.widget.name}  widgetId:$widgetID");
     // debug
     _rootBuildOwnerNode.debugPrintBuildOwnerNodeTree();
 
@@ -236,9 +249,27 @@ class MXJSFlutterApp {
   }
 
   /// JS->Flutter
+  /// js层 调用navigatorPushNamed 主动push页面
+  Future<dynamic> _jsCallNavigatorPushNamed(args) async {
+    //谁push jsWidget，找到对应的build owner
+    String navPushingWidgetID = args["navPushingWidgetElementID"];
+    MXJsonBuildOwner boNode = _rootBuildOwnerNode.findChild(navPushingWidgetID);
+
+    String routeName = args["routeName"];
+    if (boNode == null) {
+      MXJSLog.error("MXJSFlutterApp:jsCallNavigatorPushNamed: "
+          "findBuildOwner(navPushingWidgetID:$navPushingWidgetID) == routeName ");
+      return;
+    }
+
+    boNode.jsCallNavigatorPushNamed(routeName, args["mxArguments"]);
+  }
+
+  /// JS->Flutter
   /// js层 调用navigatorPop 主动pop页面
   Future<dynamic> _jsCallNavigatorPop(args) async {
-    String widgetID = args["widgetID"];
+    Map decodeData = json.decode(args);
+    String widgetID = decodeData["widgetID"];
 
     //谁push jsWidget，找到对应的build owner
     MXJsonBuildOwner boNode = _rootBuildOwnerNode.findChild(widgetID);
@@ -250,5 +281,31 @@ class MXJSFlutterApp {
     }
 
     boNode.jsCallNavigatorPop();
+  }
+
+  /// 当有新buildOwner创建是通知
+  /// TODO 支持其他调用的缓存
+  onWidgetBuildEnd(MXJsonBuildOwner boNode) {
+    Map widgetDataMap = _widgetId2RebuildJSCallCache[boNode.ownerWidgetId];
+
+    if (widgetDataMap != null) {
+      MXJSLog.log("MXJSFlutterApp:jsCall缓存重放 _jsCallRebuild: "
+          "name:${boNode.widget.name} widgetId:${boNode.ownerWidgetId}");
+      // debug
+      _rootBuildOwnerNode.debugPrintBuildOwnerNodeTree();
+
+      boNode.jsCallRebuild(widgetDataMap);
+
+      // debug
+      _rootBuildOwnerNode.debugPrintBuildOwnerNodeTree();
+
+      _widgetId2RebuildJSCallCache.remove(boNode.ownerWidgetId);
+    }
+  }
+
+  /// 查询对应widgetElementID的BuildContext
+  BuildContext queryElementBuildContext(String widgetElementID) {
+    MXJsonBuildOwner buildOwner = _rootBuildOwnerNode.findChild(widgetElementID);
+    return buildOwner?.buildContext;
   }
 }

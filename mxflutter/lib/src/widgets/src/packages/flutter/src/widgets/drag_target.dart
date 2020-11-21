@@ -21,6 +21,7 @@ Map<String, MXFunctionInvoke> registerDragTargetSeries() {
   m[_draggable.funName] = _draggable;
   m[_longPressDraggable.funName] = _longPressDraggable;
   m[_draggableDetails.funName] = _draggableDetails;
+  m[_dragTargetDetails.funName] = _dragTargetDetails;
   m[_dragTarget.funName] = _dragTarget;
   return m;
 }
@@ -163,6 +164,21 @@ var _draggableDetails = MXFunctionInvoke(
     "offset",
   ],
 );
+var _dragTargetDetails = MXFunctionInvoke(
+  "DragTargetDetails",
+  ({
+    dynamic data,
+    Offset offset,
+  }) =>
+      DragTargetDetails(
+    data: data,
+    offset: offset,
+  ),
+  [
+    "data",
+    "offset",
+  ],
+);
 var _dragTarget = MXFunctionInvoke(
   "DragTarget",
   ({
@@ -170,6 +186,7 @@ var _dragTarget = MXFunctionInvoke(
     dynamic builder,
     dynamic onWillAccept,
     dynamic onAccept,
+    dynamic onAcceptWithDetails,
     dynamic onLeave,
   }) =>
       DragTarget(
@@ -178,6 +195,9 @@ var _dragTarget = MXFunctionInvoke(
     onWillAccept: null,
     onAccept: createValueChangedGenericClosure<dynamic>(
         _dragTarget.buildOwner, onAccept),
+    onAcceptWithDetails:
+        createValueChangedGenericClosure<DragTargetDetails<dynamic>>(
+            _dragTarget.buildOwner, onAcceptWithDetails),
     onLeave: createValueChangedGenericClosure<Object>(
         _dragTarget.buildOwner, onLeave),
   ),
@@ -186,6 +206,7 @@ var _dragTarget = MXFunctionInvoke(
     "builder",
     "onWillAccept",
     "onAccept",
+    "onAcceptWithDetails",
     "onLeave",
   ],
 );

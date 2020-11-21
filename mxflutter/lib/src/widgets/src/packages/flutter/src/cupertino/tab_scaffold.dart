@@ -63,5 +63,7 @@ var _cupertinoTabScaffold = MXFunctionInvoke(
     "controller",
     "backgroundColor",
     "resizeToAvoidBottomInset",
+    // MX modefied 补充了children参数
+    "children",
   ],
 );

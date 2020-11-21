@@ -15,6 +15,7 @@ import 'package:flutter/src/material/theme.dart';
 Map<String, MXFunctionInvoke> registerPageSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_materialPageRoute.funName] = _materialPageRoute;
+  m[_materialPage.funName] = _materialPage;
   return m;
 }
 
@@ -50,5 +51,32 @@ var _materialPageRoute = MXFunctionInvoke(
     ///MX modified begin
     "child",
     ///MX modified end
+  ],
+);
+var _materialPage = MXFunctionInvoke(
+  "MaterialPage",
+  ({
+    dynamic builder,
+    bool maintainState = true,
+    bool fullscreenDialog = false,
+    LocalKey key,
+    String name,
+    Object arguments,
+  }) =>
+      MaterialPage(
+    builder: null,
+    maintainState: maintainState,
+    fullscreenDialog: fullscreenDialog,
+    key: key,
+    name: name,
+    arguments: arguments,
+  ),
+  [
+    "builder",
+    "maintainState",
+    "fullscreenDialog",
+    "key",
+    "name",
+    "__mx_arguments",
   ],
 );

@@ -79,7 +79,7 @@ var _cupertinoApp = MXFunctionInvoke(
     showSemanticsDebugger: showSemanticsDebugger,
     debugShowCheckedModeBanner: debugShowCheckedModeBanner,
     shortcuts: toMapT<LogicalKeySet, Intent>(shortcuts),
-    actions: toMapT<LocalKey, Action Function()>(actions),
+    actions: toMapT<Type, Action<Intent>>(actions),
   ),
   [
     "key",

@@ -39,6 +39,9 @@ Map<String, MXFunctionInvoke> registerPageViewSeries() {
   m[_pageView.funName] = _pageView;
   m[_pageViewBuilder.funName] = _pageViewBuilder;
   m[_pageViewCustom.funName] = _pageViewCustom;
+  // MX modified begin
+  m[_pageController_jumpToPage.funName] = _pageController_jumpToPage;
+  // MX modified end
   return m;
 }
 
@@ -153,6 +156,9 @@ var _pageViewBuilder = MXFunctionInvoke(
     int itemCount,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     bool allowImplicitScrolling = false,
+    /// MX modified begin -add children
+    dynamic children,
+    /// MX modified end
   }) =>
       PageView.builder(
     key: key,
@@ -163,7 +169,12 @@ var _pageViewBuilder = MXFunctionInvoke(
     pageSnapping: pageSnapping,
     onPageChanged: createValueChangedGenericClosure<int>(
         _pageViewBuilder.buildOwner, onPageChanged),
-    itemBuilder: null,
+    /// MX modified begin
+    itemBuilder: (BuildContext context, int index) {
+      List<Widget> list = toListT<Widget>(children);
+      return list[index];
+    },
+    /// MX modified end
     itemCount: itemCount,
     dragStartBehavior: dragStartBehavior,
     allowImplicitScrolling: allowImplicitScrolling,
@@ -180,6 +191,9 @@ var _pageViewBuilder = MXFunctionInvoke(
     "itemCount",
     "dragStartBehavior",
     "allowImplicitScrolling",
+    /// MX modified begin
+    "children",
+    /// MX modified end
   ],
 );
 var _pageViewCustom = MXFunctionInvoke(
@@ -222,3 +236,18 @@ var _pageViewCustom = MXFunctionInvoke(
     "allowImplicitScrolling",
   ],
 );
+
+// MX modified begin
+var _pageController_jumpToPage = MXFunctionInvoke(
+  "PageController#jumpToPage",
+  ({
+    PageController mirrorObj,
+    int page,
+  }) =>
+      mirrorObj.jumpToPage(page),
+  [
+    "mirrorObj",
+    "page",
+  ],
+);
+// MX modified end

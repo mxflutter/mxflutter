@@ -32,8 +32,10 @@ var _animation = MXFunctionInvoke("Animation", ({
   dynamic mirrorID,
 }) {
   Animation animation = tween.animate(controller);
-  animation.addStatusListener(_createStatusListenerHandle(
+  if (statusListenerList != null && statusListenerList.length > 0) {
+      animation.addStatusListener(_createStatusListenerHandle(
       _animation.buildOwner, mirrorID, 'statusListenerCallback'));
+  }
   return animation;
 },
 [
@@ -48,7 +50,7 @@ var _animation = MXFunctionInvoke("Animation", ({
 AnimationStatusListener _createStatusListenerHandle(
     dynamic bo, String mirrorID, String functionName) {
   AnimationStatusListener cb = (AnimationStatus status) {
-    bo.mirrorObjEventCallback(mirrorID, functionName,
+    bo.mirrorObjEventCallback(mirrorID: mirrorID, functionName: functionName,
         p: MXAnimationStatus.encodeString(status));
   };
   return cb;

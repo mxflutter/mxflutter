@@ -16,11 +16,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/interface_level.dart';
+import 'package:flutter/src/cupertino/localizations.dart';
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRouteSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoPageRoute.funName] = _cupertinoPageRoute;
+  m[_cupertinoPage.funName] = _cupertinoPage;
   m[_cupertinoPageTransition.funName] = _cupertinoPageTransition;
   m[_cupertinoFullscreenDialogTransition.funName] =
       _cupertinoFullscreenDialogTransition;
@@ -49,6 +51,36 @@ var _cupertinoPageRoute = MXFunctionInvoke(
     "settings",
     "maintainState",
     "fullscreenDialog",
+  ],
+);
+var _cupertinoPage = MXFunctionInvoke(
+  "CupertinoPage",
+  ({
+    dynamic builder,
+    bool maintainState = true,
+    String title,
+    bool fullscreenDialog = false,
+    LocalKey key,
+    String name,
+    Object arguments,
+  }) =>
+      CupertinoPage(
+    builder: null,
+    maintainState: maintainState,
+    title: title,
+    fullscreenDialog: fullscreenDialog,
+    key: key,
+    name: name,
+    arguments: arguments,
+  ),
+  [
+    "builder",
+    "maintainState",
+    "title",
+    "fullscreenDialog",
+    "key",
+    "name",
+    "__mx_arguments",
   ],
 );
 var _cupertinoPageTransition = MXFunctionInvoke(

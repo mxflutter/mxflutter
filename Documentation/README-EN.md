@@ -126,7 +126,7 @@ Here, thanks to the author of the Flutter Edition [HackSoul](https://github.com/
 
 ```Dart
 MXJSFlutter.getInstance().setup();
-MXJSFlutter.getInstance().runJSApp(jsAppName: "app_test", pageName: null);
+MXJSFlutter.runJSApp(jsAppName: "app_test", pageName: null);
 ```
 
 * Step 2: JS here, write MXJSWidget page code

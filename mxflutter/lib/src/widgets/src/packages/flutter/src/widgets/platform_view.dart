@@ -24,6 +24,7 @@ Map<String, MXFunctionInvoke> registerPlatformViewSeries() {
   m[_htmlElementView.funName] = _htmlElementView;
   m[_platformViewLink.funName] = _platformViewLink;
   m[_platformViewSurface.funName] = _platformViewSurface;
+  m[_androidViewSurface.funName] = _androidViewSurface;
   return m;
 }
 
@@ -142,6 +143,27 @@ var _platformViewSurface = MXFunctionInvoke(
     Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
   }) =>
       PlatformViewSurface(
+    key: key,
+    controller: controller,
+    hitTestBehavior: hitTestBehavior,
+    gestureRecognizers: gestureRecognizers,
+  ),
+  [
+    "key",
+    "controller",
+    "hitTestBehavior",
+    "gestureRecognizers",
+  ],
+);
+var _androidViewSurface = MXFunctionInvoke(
+  "AndroidViewSurface",
+  ({
+    Key key,
+    AndroidViewController controller,
+    PlatformViewHitTestBehavior hitTestBehavior,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
+  }) =>
+      AndroidViewSurface(
     key: key,
     controller: controller,
     hitTestBehavior: hitTestBehavior,

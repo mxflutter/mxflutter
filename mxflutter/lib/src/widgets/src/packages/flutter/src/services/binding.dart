@@ -10,6 +10,7 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/src/services/asset_bundle.dart';
 import 'package:flutter/src/services/binary_messenger.dart';
 import 'package:flutter/src/services/system_channels.dart';

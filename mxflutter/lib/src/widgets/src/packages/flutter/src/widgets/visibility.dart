@@ -25,7 +25,7 @@ var _visibility = MXFunctionInvoke(
   ({
     Key key,
     Widget child,
-    Widget replacement = const SizedBox.shrink(),
+    Widget replacement = const SizedBox(width: 0.0, height: 0.0),
     bool visible = true,
     bool maintainState = false,
     bool maintainAnimation = false,

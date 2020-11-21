@@ -35,6 +35,10 @@ Map<String, MXFunctionInvoke> registerSliderThemeSeries() {
   m[_roundSliderThumbShape.funName] = _roundSliderThumbShape;
   m[_roundRangeSliderThumbShape.funName] = _roundRangeSliderThumbShape;
   m[_roundSliderOverlayShape.funName] = _roundSliderOverlayShape;
+  m[_rectangularSliderValueIndicatorShape.funName] =
+      _rectangularSliderValueIndicatorShape;
+  m[_rectangularRangeSliderValueIndicatorShape.funName] =
+      _rectangularRangeSliderValueIndicatorShape;
   m[_paddleSliderValueIndicatorShape.funName] =
       _paddleSliderValueIndicatorShape;
   m[_paddleRangeSliderValueIndicatorShape.funName] =
@@ -237,14 +241,20 @@ var _roundSliderThumbShape = MXFunctionInvoke(
   ({
     dynamic enabledThumbRadius = 10.0,
     dynamic disabledThumbRadius,
+    dynamic elevation = 1.0,
+    dynamic pressedElevation = 6.0,
   }) =>
       RoundSliderThumbShape(
     enabledThumbRadius: enabledThumbRadius?.toDouble(),
     disabledThumbRadius: disabledThumbRadius?.toDouble(),
+    elevation: elevation?.toDouble(),
+    pressedElevation: pressedElevation?.toDouble(),
   ),
   [
     "enabledThumbRadius",
     "disabledThumbRadius",
+    "elevation",
+    "pressedElevation",
   ],
 );
 var _roundRangeSliderThumbShape = MXFunctionInvoke(
@@ -252,14 +262,20 @@ var _roundRangeSliderThumbShape = MXFunctionInvoke(
   ({
     dynamic enabledThumbRadius = 10.0,
     dynamic disabledThumbRadius,
+    dynamic elevation = 1.0,
+    dynamic pressedElevation = 6.0,
   }) =>
       RoundRangeSliderThumbShape(
     enabledThumbRadius: enabledThumbRadius?.toDouble(),
     disabledThumbRadius: disabledThumbRadius?.toDouble(),
+    elevation: elevation?.toDouble(),
+    pressedElevation: pressedElevation?.toDouble(),
   ),
   [
     "enabledThumbRadius",
     "disabledThumbRadius",
+    "elevation",
+    "pressedElevation",
   ],
 );
 var _roundSliderOverlayShape = MXFunctionInvoke(
@@ -273,6 +289,16 @@ var _roundSliderOverlayShape = MXFunctionInvoke(
   [
     "overlayRadius",
   ],
+);
+var _rectangularSliderValueIndicatorShape = MXFunctionInvoke(
+  "RectangularSliderValueIndicatorShape",
+  () => RectangularSliderValueIndicatorShape(),
+  [],
+);
+var _rectangularRangeSliderValueIndicatorShape = MXFunctionInvoke(
+  "RectangularRangeSliderValueIndicatorShape",
+  () => RectangularRangeSliderValueIndicatorShape(),
+  [],
 );
 var _paddleSliderValueIndicatorShape = MXFunctionInvoke(
   "PaddleSliderValueIndicatorShape",

@@ -11,6 +11,7 @@ import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/src/services/autofill.dart';
 import 'package:flutter/src/services/message_codec.dart';
 import 'package:flutter/src/services/platform_channel.dart';
 import 'package:flutter/src/services/system_channels.dart';
@@ -30,6 +31,8 @@ Map<String, MXFunctionInvoke> registerTextInputSeries() {
   m[_textInputTypeEmailAddress.funName] = _textInputTypeEmailAddress;
   m[_textInputTypeUrl.funName] = _textInputTypeUrl;
   m[_textInputTypeVisiblePassword.funName] = _textInputTypeVisiblePassword;
+  m[_textInputTypeName.funName] = _textInputTypeName;
+  m[_textInputTypeStreetAddress.funName] = _textInputTypeStreetAddress;
   m[_textInputTypeValues.funName] = _textInputTypeValues;
   m[_textInputTypeNumberWithOptions.funName] = _textInputTypeNumberWithOptions;
   m[_textInputAction.funName] = _textInputAction;
@@ -70,6 +73,10 @@ var _textInputTypeUrl =
     MXFunctionInvoke("TextInputType.url", () => TextInputType.url);
 var _textInputTypeVisiblePassword = MXFunctionInvoke(
     "TextInputType.visiblePassword", () => TextInputType.visiblePassword);
+var _textInputTypeName =
+    MXFunctionInvoke("TextInputType.name", () => TextInputType.name);
+var _textInputTypeStreetAddress = MXFunctionInvoke(
+    "TextInputType.streetAddress", () => TextInputType.streetAddress);
 var _textInputTypeValues =
     MXFunctionInvoke("TextInputType.values", () => TextInputType.values);
 var _textInputTypeNumberWithOptions = MXFunctionInvoke(
@@ -108,6 +115,7 @@ var _textInputConfiguration = MXFunctionInvoke(
     TextInputAction inputAction = TextInputAction.done,
     Brightness keyboardAppearance = Brightness.light,
     TextCapitalization textCapitalization = TextCapitalization.none,
+    AutofillConfiguration autofillConfiguration,
   }) =>
       TextInputConfiguration(
     inputType: inputType,
@@ -120,6 +128,7 @@ var _textInputConfiguration = MXFunctionInvoke(
     inputAction: inputAction,
     keyboardAppearance: keyboardAppearance,
     textCapitalization: textCapitalization,
+    autofillConfiguration: autofillConfiguration,
   ),
   [
     "inputType",
@@ -132,6 +141,7 @@ var _textInputConfiguration = MXFunctionInvoke(
     "inputAction",
     "keyboardAppearance",
     "textCapitalization",
+    "autofillConfiguration",
   ],
 );
 var _floatingCursorDragState = MXFunctionInvoke(

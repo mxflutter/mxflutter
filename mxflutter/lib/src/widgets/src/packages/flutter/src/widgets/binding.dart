@@ -56,7 +56,7 @@ var _renderObjectToWidgetElement = MXFunctionInvoke(
     widget,
   ),
   [
-    "widget",
+    "__mx_widget",
   ],
 );
 var _widgetsFlutterBinding = MXFunctionInvoke(

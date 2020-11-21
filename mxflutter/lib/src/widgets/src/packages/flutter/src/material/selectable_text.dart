@@ -47,6 +47,7 @@ var _selectableText = MXFunctionInvoke(
     bool enableInteractiveSelection = true,
     dynamic onTap,
     ScrollPhysics scrollPhysics,
+    TextHeightBehavior textHeightBehavior,
     TextWidthBasis textWidthBasis,
   }) =>
       SelectableText(
@@ -70,6 +71,7 @@ var _selectableText = MXFunctionInvoke(
     enableInteractiveSelection: enableInteractiveSelection,
     onTap: createVoidCallbackClosure(_selectableText.buildOwner, onTap),
     scrollPhysics: scrollPhysics,
+    textHeightBehavior: textHeightBehavior,
     textWidthBasis: textWidthBasis,
   ),
   [
@@ -93,6 +95,7 @@ var _selectableText = MXFunctionInvoke(
     "enableInteractiveSelection",
     "onTap",
     "scrollPhysics",
+    "textHeightBehavior",
     "textWidthBasis",
   ],
 );
@@ -119,6 +122,7 @@ var _selectableTextRich = MXFunctionInvoke(
     bool enableInteractiveSelection = true,
     dynamic onTap,
     ScrollPhysics scrollPhysics,
+    TextHeightBehavior textHeightBehavior,
     TextWidthBasis textWidthBasis,
   }) =>
       SelectableText.rich(
@@ -142,6 +146,7 @@ var _selectableTextRich = MXFunctionInvoke(
     enableInteractiveSelection: enableInteractiveSelection,
     onTap: createVoidCallbackClosure(_selectableTextRich.buildOwner, onTap),
     scrollPhysics: scrollPhysics,
+    textHeightBehavior: textHeightBehavior,
     textWidthBasis: textWidthBasis,
   ),
   [
@@ -165,6 +170,7 @@ var _selectableTextRich = MXFunctionInvoke(
     "enableInteractiveSelection",
     "onTap",
     "scrollPhysics",
+    "textHeightBehavior",
     "textWidthBasis",
   ],
 );

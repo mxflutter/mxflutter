@@ -79,6 +79,7 @@ var _cupertinoTextField = MXFunctionInvoke(
     ToolbarOptions toolbarOptions,
     bool showCursor,
     bool autofocus = false,
+    String obscuringCharacter = '•',
     bool obscureText = false,
     bool autocorrect = true,
     SmartDashesType smartDashesType,
@@ -108,6 +109,7 @@ var _cupertinoTextField = MXFunctionInvoke(
     dynamic onTap,
     ScrollController scrollController,
     ScrollPhysics scrollPhysics,
+    Iterable<String> autofillHints,
   }) =>
       CupertinoTextField(
     key: key,
@@ -133,6 +135,7 @@ var _cupertinoTextField = MXFunctionInvoke(
     toolbarOptions: toolbarOptions,
     showCursor: showCursor,
     autofocus: autofocus,
+    obscuringCharacter: obscuringCharacter,
     obscureText: obscureText,
     autocorrect: autocorrect,
     smartDashesType: smartDashesType,
@@ -163,6 +166,7 @@ var _cupertinoTextField = MXFunctionInvoke(
     onTap: createVoidCallbackClosure(_cupertinoTextField.buildOwner, onTap),
     scrollController: scrollController,
     scrollPhysics: scrollPhysics,
+    autofillHints: autofillHints,
   ),
   [
     "key",
@@ -188,6 +192,7 @@ var _cupertinoTextField = MXFunctionInvoke(
     "toolbarOptions",
     "showCursor",
     "autofocus",
+    "obscuringCharacter",
     "obscureText",
     "autocorrect",
     "smartDashesType",
@@ -215,6 +220,7 @@ var _cupertinoTextField = MXFunctionInvoke(
     "onTap",
     "scrollController",
     "scrollPhysics",
+    "autofillHints",
   ],
 );
 

@@ -4,14 +4,17 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:flutter/widgets.dart';
+import 'dart:convert';
+
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../mx_build_owner.dart';
+import '../../mx_common.dart';
+import '../../mx_js_bridge.dart';
+import '../mx_mirror.dart';
 import 'mx_function_invoke.dart';
 import 'mx_mirror_object.dart';
-import '../mx_mirror.dart';
-import '../../mx_js_bridge.dart';
 
 /// 提供通过Json Map 调用 Dart 函数的能力
 /// 通过调用 Dart 类的构造方法，实现Json Map 转 Dart 对象
@@ -64,6 +67,9 @@ abstract class MXMirror {
   /// Flutter->JS
   invokeJSMirrorObj(
       {dynamic mirrorID, String functionName, String callbackID, dynamic args});
+
+  /// Flutter->JS。调用JS Mirror模块的注册funcName方法
+  invokeJSMirrorFuncNameMethod({String functionName, dynamic args});
 }
 
 class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
@@ -75,6 +81,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   final constEnumIndexStr = "index";
   final constMirrorIDStr = "mirrorID";
   final constMirrorObjStr = "mirrorObj";
+  final constMXPrefix = "__mx_";
 
   // funcName到Fun方法的映射表
   var _funcName2FunMap = <String, MXFunctionInvoke>{};
@@ -94,10 +101,10 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   /// 通过 Json Map 生成Dart Object
   /// 通过函数映射表，找到构造函数，调用生成Dart Object
   /// Map 里如果带mirrorId 字段，则会加入到MirrogObj管理其生命周期，如果不带则由外部管理
-  dynamic jsonToDartObj(dynamic json,
+  dynamic jsonToDartObj(dynamic jsonObj,
       {MXJsonBuildOwner buildOwner, BuildContext context}) {
-    if (json is Map) {
-      Map jsonMap = json;
+    if (jsonObj is Map) {
+      Map jsonMap = jsonObj;
 
       // 尝试转换成DartObj
       var dartObj =
@@ -113,16 +120,19 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
             jsonToDartObj(v, buildOwner: buildOwner, context: context);
       });
       return resultMap;
-    } else if (json is List) {
+    } else if (jsonObj is List) {
       List resultList = [];
-      for (var element in json) {
+      for (var element in jsonObj) {
         var object =
             jsonToDartObj(element, buildOwner: buildOwner, context: context);
         resultList.add(object);
       }
       return resultList;
+    } else if (jsonObj is String && _isTSEnumJsonString(jsonObj)) {
+      Map jsonMap = json.decode(jsonObj);
+      return _map2DartObject(jsonMap, buildOwner: buildOwner, context: context);
     } else {
-      return json;
+      return jsonObj;
     }
   }
 
@@ -139,6 +149,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
 
     // 尝试转换成DartObj
     String funcName = jsonMap[constFuncStr];
+    bool isEnum = _isEnumType(jsonMap);
     if (funcName == null) {
       funcName = _constructorFuncName(jsonMap);
       if (funcName == null) {
@@ -148,8 +159,13 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
 
     var obj =
         _invoke(funcName, jsonMap, buildOwner: buildOwner, context: context);
-    // 如果设置mirror对象
 
+    // 移除枚举对象临时添加的name字段
+    if (isEnum) {
+      _removeReplaceEnumNameStr(jsonMap);
+    }
+
+    // 如果设置mirror对象
     if (mirrorId != null) {
       addMirrorObject(mirrorId, obj);
 
@@ -165,14 +181,33 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       {MXJsonBuildOwner buildOwner}) {
     var result;
     String funcName = objectFuncName(jsonMap);
-    Map args = jsonMap["args"];
+    Map args = jsonMap["args"] ?? {};
 
-    dynamic mirrorObj = findMirrorObject(jsonMap[constMirrorIDStr]);
-    if (mirrorObj != null) {
-      args[constMirrorObjStr] = mirrorObj;
+    // 获取mirrorObj
+    dynamic mirrorObj = args[constMirrorObjStr];
+    if (mirrorObj == null) {
+      mirrorObj = findMirrorObject(jsonMap[constMirrorIDStr]);
+      if (mirrorObj != null) {
+        args[constMirrorObjStr] = mirrorObj;
+      }
     }
 
-    result = _invoke(funcName, args);
+    // 判断fi是否为空
+    MXFunctionInvoke fi = _funcInvokeWithFuncName(funcName);
+    if (fi == null) {
+      MXJSLog.error(
+          "MXMirror.invokeWithCallback, error: fi is null; jsonMap: $jsonMap ");
+      return;
+    }
+
+    // 判断mirrorObj是否为空
+    if (fi.propsName.contains(constMirrorObjStr) && mirrorObj == null) {
+      MXJSLog.error(
+          "MXMirror.invokeWithCallback, error: mirrorObj is null; jsonMap: $jsonMap ");
+      return;
+    }
+
+    result = _invoke(funcName, args, buildOwner: buildOwner);
 
     if (callback != null) {
       callback(result);
@@ -187,17 +222,10 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       return null;
     }
 
-    MXFunctionInvoke fi = _funcName2FunMapCache[funcName];
+    MXFunctionInvoke fi = _funcInvokeWithFuncName(funcName);
     if (fi == null) {
-      fi = _funcName2FunMap[funcName];
-      if (fi == null) {
-        return null;
-      }
-      _funcName2FunMapCache[funcName] = fi;
+      return null;
     }
-
-    fi.buildOwner = buildOwner;
-    fi.context = context;
 
     try {
       var namedArguments = <Symbol, dynamic>{};
@@ -205,28 +233,43 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
       // 如果没有参数校验列表，则使用传进来的Map的，由调用者保证
       List propsName = fi.propsName ?? [];
       List noJ2DProps = fi.noJ2DProps;
+      argsMap = argsMap ?? {};
 
       for (var name in propsName) {
-        if (argsMap[name] == null) {
+        if (!argsMap.containsKey(name)) {
           continue;
         }
 
+        // 移除ts侧添加的mx前缀，转成真正的名称
+        String convertName = name;
+        if (name.startsWith(constMXPrefix)) {
+          convertName = name.replaceFirst(constMXPrefix, "");
+        }
+        
         // 判断是否需要将属性进行转换
         if (noJ2DProps != null && noJ2DProps.contains(name)) {
-          namedArguments[Symbol(name)] = argsMap[name];
+          namedArguments[Symbol(convertName)] = argsMap[name];
         } else {
-          namedArguments[Symbol(name)] = jsonToDartObj(argsMap[name],
+          namedArguments[Symbol(convertName)] = jsonToDartObj(argsMap[name],
               buildOwner: buildOwner, context: context);
         }
       }
 
+      // 保存原参数。此处是为了解决同一类型的widget嵌套时，导致的buildOwner和context的覆盖问题
+      MXJsonBuildOwner originBuildOwner = fi.buildOwner;
+      BuildContext originContext = fi.context;
+      fi.buildOwner = buildOwner;
+      fi.context = context;
+
       var result = fi.apply(namedArguments);
-      fi.buildOwner = null;
-      fi.context = null;
+
+      // 重新赋值原参数
+      fi.buildOwner = originBuildOwner;
+      fi.context = originContext;
+
       return result;
     } catch (e) {
-      // MXJSLog.error(
-      //     "MXMirror.invoke, error:$e ; jsonMap: $jsonMap ");
+      MXJSLog.error("MXMirror.invoke, error:$e ; jsonMap: $argsMap ");
 
       // 打印日志重新抛出
       rethrow;
@@ -242,11 +285,10 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
   String objectFuncName(Map jsonMap) {
     var className = jsonMap[constClassStr];
     var funcName = jsonMap[constFuncStr];
-    if (className == null || funcName == null) {
-      return null;
-    }
 
-    if (className == null && funcName != null) {
+    if (className == null && funcName == null) {
+      return null;
+    } else if (className == null && funcName != null) {
       return funcName;
     }
 
@@ -269,8 +311,7 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     // 枚举
     else if (_isEnumType(jsonMap)) {
       String name = jsonMap[constEnumNameStr];
-      jsonMap[constReplaceEnumNameStr] = name;
-
+      _addReplaceEnumNameStr(jsonMap, name);
       List strList = name.split('.');
       return strList[0];
     }
@@ -283,6 +324,37 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     return jsonMap.keys.length == 2 &&
         jsonMap[constEnumNameStr] != null &&
         jsonMap[constEnumIndexStr] != null;
+  }
+
+  /// 是否是TS枚举Json字符串
+  bool _isTSEnumJsonString(String jsonString) {
+    // TS枚举字符串，包含"{"、"_name: "、"index: "、"}"四个字符串
+    return jsonString.contains("{") &&
+        jsonString.contains("\"_name\": ") &&
+        jsonString.contains("\"index\": ") &&
+        jsonString.contains("}");
+  }
+
+  /// 给枚举对象添加临时的name属性
+  void _addReplaceEnumNameStr(Map jsonMap, String name) {
+    jsonMap[constReplaceEnumNameStr] = name;
+  }
+
+  /// 移除枚举对象临时添加的name属性
+  void _removeReplaceEnumNameStr(Map jsonMap) {
+    jsonMap.remove(constReplaceEnumNameStr);
+  }
+
+  MXFunctionInvoke _funcInvokeWithFuncName(String funcName) {
+    MXFunctionInvoke fi = _funcName2FunMapCache[funcName];
+    if (fi == null) {
+      fi = _funcName2FunMap[funcName];
+      if (fi == null) {
+        return null;
+      }
+      _funcName2FunMapCache[funcName] = fi;
+    }
+    return fi;
   }
 
   /// Flutter->JS
@@ -299,6 +371,15 @@ class _MXMirrorImplements extends MXMirror with MXMirrorObjectMgr {
     };
 
     MethodCall jsMethodCall = MethodCall("invokeJSMirrorObj", callInfo);
+    MXJSBridge.getInstance().invokeJSCommonChannel(jsMethodCall);
+  }
+
+  /// Flutter->JS。调用JS Mirror模块的注册funcName方法
+  invokeJSMirrorFuncNameMethod({String functionName, dynamic args}) async {
+    Map callInfo = {"funcName": functionName, "args": args};
+
+    MethodCall jsMethodCall =
+        MethodCall("invokeJSMirrorFuncNameMethod", callInfo);
     MXJSBridge.getInstance().invokeJSCommonChannel(jsMethodCall);
   }
 }

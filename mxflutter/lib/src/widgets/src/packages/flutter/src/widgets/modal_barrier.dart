@@ -8,6 +8,7 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/modal_barrier.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/debug.dart';

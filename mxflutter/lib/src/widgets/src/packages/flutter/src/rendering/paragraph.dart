@@ -51,6 +51,7 @@ var _renderParagraph = MXFunctionInvoke(
     StrutStyle strutStyle,
     TextWidthBasis textWidthBasis = TextWidthBasis.parent,
     ui.TextHeightBehavior textHeightBehavior,
+    bool applyTextScaleFactorToWidgetSpan = false,
     dynamic children,
   }) =>
       RenderParagraph(
@@ -65,6 +66,7 @@ var _renderParagraph = MXFunctionInvoke(
     strutStyle: strutStyle,
     textWidthBasis: textWidthBasis,
     textHeightBehavior: textHeightBehavior,
+    applyTextScaleFactorToWidgetSpan: applyTextScaleFactorToWidgetSpan,
     children: toListT<RenderBox>(children),
   ),
   [
@@ -79,6 +81,7 @@ var _renderParagraph = MXFunctionInvoke(
     "strutStyle",
     "textWidthBasis",
     "textHeightBehavior",
+    "applyTextScaleFactorToWidgetSpan",
     "children",
   ],
 );

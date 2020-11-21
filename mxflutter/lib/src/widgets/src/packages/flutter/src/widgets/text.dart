@@ -19,6 +19,7 @@ Map<String, MXFunctionInvoke> registerTextSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_defaultTextStyle.funName] = _defaultTextStyle;
   m[_defaultTextStyleFallback.funName] = _defaultTextStyleFallback;
+  m[_defaultTextHeightBehavior.funName] = _defaultTextHeightBehavior;
   m[_text.funName] = _text;
   m[_textRich.funName] = _textRich;
   return m;
@@ -70,6 +71,24 @@ var _defaultTextStyleFallback = MXFunctionInvoke(
   ),
   [
     "key",
+  ],
+);
+var _defaultTextHeightBehavior = MXFunctionInvoke(
+  "DefaultTextHeightBehavior",
+  ({
+    Key key,
+    ui.TextHeightBehavior textHeightBehavior,
+    Widget child,
+  }) =>
+      DefaultTextHeightBehavior(
+    key: key,
+    textHeightBehavior: textHeightBehavior,
+    child: child,
+  ),
+  [
+    "key",
+    "textHeightBehavior",
+    "child",
   ],
 );
 var _text = MXFunctionInvoke(
@@ -140,6 +159,7 @@ var _textRich = MXFunctionInvoke(
     String semanticsLabel,
     TextWidthBasis textWidthBasis,
     ui.TextHeightBehavior textHeightBehavior,
+    bool applyTextScaleFactorToWidgetSpan = false,
   }) =>
       Text.rich(
     textSpan,
@@ -156,6 +176,7 @@ var _textRich = MXFunctionInvoke(
     semanticsLabel: semanticsLabel,
     textWidthBasis: textWidthBasis,
     textHeightBehavior: textHeightBehavior,
+    applyTextScaleFactorToWidgetSpan: applyTextScaleFactorToWidgetSpan,
   ),
   [
     "textSpan",
@@ -172,5 +193,6 @@ var _textRich = MXFunctionInvoke(
     "semanticsLabel",
     "textWidthBasis",
     "textHeightBehavior",
+    "applyTextScaleFactorToWidgetSpan",
   ],
 );

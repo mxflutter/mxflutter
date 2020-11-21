@@ -35,6 +35,7 @@ var _singleChildScrollView = MXFunctionInvoke(
     ScrollController controller,
     Widget child,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    Clip clipBehavior = Clip.hardEdge,
   }) =>
       SingleChildScrollView(
     key: key,
@@ -46,6 +47,7 @@ var _singleChildScrollView = MXFunctionInvoke(
     controller: controller,
     child: child,
     dragStartBehavior: dragStartBehavior,
+    clipBehavior: clipBehavior,
   ),
   [
     "key",
@@ -57,5 +59,6 @@ var _singleChildScrollView = MXFunctionInvoke(
     "controller",
     "child",
     "dragStartBehavior",
+    "clipBehavior",
   ],
 );

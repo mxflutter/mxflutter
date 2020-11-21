@@ -39,6 +39,8 @@ var _switchListTile = MXFunctionInvoke(
     EdgeInsetsGeometry contentPadding,
     Widget secondary,
     bool selected = false,
+    bool autofocus = false,
+    dynamic controlAffinity = ListTileControlAffinity.platform,
   }) =>
       SwitchListTile(
     key: key,
@@ -58,6 +60,8 @@ var _switchListTile = MXFunctionInvoke(
     contentPadding: contentPadding,
     secondary: secondary,
     selected: selected,
+    autofocus: autofocus,
+    controlAffinity: controlAffinity,
   ),
   [
     "key",
@@ -76,6 +80,8 @@ var _switchListTile = MXFunctionInvoke(
     "contentPadding",
     "secondary",
     "selected",
+    "autofocus",
+    "controlAffinity",
   ],
 );
 var _switchListTileAdaptive = MXFunctionInvoke(
@@ -97,6 +103,8 @@ var _switchListTileAdaptive = MXFunctionInvoke(
     EdgeInsetsGeometry contentPadding,
     Widget secondary,
     bool selected = false,
+    bool autofocus = false,
+    dynamic controlAffinity = ListTileControlAffinity.platform,
   }) =>
       SwitchListTile.adaptive(
     key: key,
@@ -116,6 +124,8 @@ var _switchListTileAdaptive = MXFunctionInvoke(
     contentPadding: contentPadding,
     secondary: secondary,
     selected: selected,
+    autofocus: autofocus,
+    controlAffinity: controlAffinity,
   ),
   [
     "key",
@@ -134,5 +144,7 @@ var _switchListTileAdaptive = MXFunctionInvoke(
     "contentPadding",
     "secondary",
     "selected",
+    "autofocus",
+    "controlAffinity",
   ],
 );

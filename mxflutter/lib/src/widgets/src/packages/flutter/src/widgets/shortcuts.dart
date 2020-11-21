@@ -7,7 +7,6 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/shortcuts.dart';
 import 'dart:collection';
-import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/actions.dart';
@@ -59,7 +58,7 @@ var _keySetFromSet = MXFunctionInvoke(
     keys,
   ),
   [
-    "keys",
+    "__mx_keys",
   ],
 );
 var _logicalKeySet = MXFunctionInvoke(

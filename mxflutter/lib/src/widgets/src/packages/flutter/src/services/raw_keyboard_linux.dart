@@ -24,6 +24,13 @@ Map<String, MXFunctionInvoke> registerRawKeyboardLinuxSeries() {
   m[_gLFWKeyHelperModifierMeta.funName] = _gLFWKeyHelperModifierMeta;
   m[_gLFWKeyHelperModifierNumericPad.funName] =
       _gLFWKeyHelperModifierNumericPad;
+  m[_gtkKeyHelper.funName] = _gtkKeyHelper;
+  m[_gtkKeyHelperModifierShift.funName] = _gtkKeyHelperModifierShift;
+  m[_gtkKeyHelperModifierCapsLock.funName] = _gtkKeyHelperModifierCapsLock;
+  m[_gtkKeyHelperModifierControl.funName] = _gtkKeyHelperModifierControl;
+  m[_gtkKeyHelperModifierMod1.funName] = _gtkKeyHelperModifierMod1;
+  m[_gtkKeyHelperModifierMod2.funName] = _gtkKeyHelperModifierMod2;
+  m[_gtkKeyHelperModifierMeta.funName] = _gtkKeyHelperModifierMeta;
   return m;
 }
 
@@ -83,3 +90,20 @@ var _gLFWKeyHelperModifierMeta = MXFunctionInvoke(
     "GLFWKeyHelper.modifierMeta", () => GLFWKeyHelper.modifierMeta);
 var _gLFWKeyHelperModifierNumericPad = MXFunctionInvoke(
     "GLFWKeyHelper.modifierNumericPad", () => GLFWKeyHelper.modifierNumericPad);
+var _gtkKeyHelper = MXFunctionInvoke(
+  "GtkKeyHelper",
+  () => GtkKeyHelper(),
+  [],
+);
+var _gtkKeyHelperModifierShift = MXFunctionInvoke(
+    "GtkKeyHelper.modifierShift", () => GtkKeyHelper.modifierShift);
+var _gtkKeyHelperModifierCapsLock = MXFunctionInvoke(
+    "GtkKeyHelper.modifierCapsLock", () => GtkKeyHelper.modifierCapsLock);
+var _gtkKeyHelperModifierControl = MXFunctionInvoke(
+    "GtkKeyHelper.modifierControl", () => GtkKeyHelper.modifierControl);
+var _gtkKeyHelperModifierMod1 = MXFunctionInvoke(
+    "GtkKeyHelper.modifierMod1", () => GtkKeyHelper.modifierMod1);
+var _gtkKeyHelperModifierMod2 = MXFunctionInvoke(
+    "GtkKeyHelper.modifierMod2", () => GtkKeyHelper.modifierMod2);
+var _gtkKeyHelperModifierMeta = MXFunctionInvoke(
+    "GtkKeyHelper.modifierMeta", () => GtkKeyHelper.modifierMeta);

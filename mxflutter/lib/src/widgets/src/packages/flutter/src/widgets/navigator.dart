@@ -7,6 +7,7 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:developer' as developer;
 import 'package:flutter/foundation.dart';
@@ -18,6 +19,7 @@ import 'package:flutter/src/widgets/binding.dart';
 import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/widgets/focus_scope.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/heroes.dart';
 import 'package:flutter/src/widgets/overlay.dart';
 import 'package:flutter/src/widgets/route_notification_messages.dart';
 import 'package:flutter/src/widgets/routes.dart';
@@ -30,6 +32,7 @@ Map<String, MXFunctionInvoke> registerNavigatorSeries() {
   m[_routeSettings.funName] = _routeSettings;
   m[_customBuilderPage.funName] = _customBuilderPage;
   m[_navigatorObserver.funName] = _navigatorObserver;
+  m[_heroControllerScope.funName] = _heroControllerScope;
   m[_defaultTransitionDelegate.funName] = _defaultTransitionDelegate;
   m[_navigator.funName] = _navigator;
   m[_navigatorDefaultRouteName.funName] = _navigatorDefaultRouteName;
@@ -59,7 +62,7 @@ var _routeSettings = MXFunctionInvoke(
   ),
   [
     "name",
-    "arguments",
+    "__mx_arguments",
   ],
 );
 var _customBuilderPage = MXFunctionInvoke(
@@ -80,13 +83,31 @@ var _customBuilderPage = MXFunctionInvoke(
     "key",
     "routeBuilder",
     "name",
-    "arguments",
+    "__mx_arguments",
   ],
 );
 var _navigatorObserver = MXFunctionInvoke(
   "NavigatorObserver",
   () => NavigatorObserver(),
   [],
+);
+var _heroControllerScope = MXFunctionInvoke(
+  "HeroControllerScope",
+  ({
+    Key key,
+    HeroController controller,
+    Widget child,
+  }) =>
+      HeroControllerScope(
+    key: key,
+    controller: controller,
+    child: child,
+  ),
+  [
+    "key",
+    "controller",
+    "child",
+  ],
 );
 var _defaultTransitionDelegate = MXFunctionInvoke(
   "DefaultTransitionDelegate",

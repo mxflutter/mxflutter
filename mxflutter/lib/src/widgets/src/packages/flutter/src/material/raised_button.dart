@@ -7,6 +7,7 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/raised_button.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/button.dart';
 import 'package:flutter/src/material/button_theme.dart';
@@ -29,6 +30,7 @@ var _raisedButton = MXFunctionInvoke(
     dynamic onPressed,
     dynamic onLongPress,
     dynamic onHighlightChanged,
+    MouseCursor mouseCursor,
     ButtonTextTheme textTheme,
     Color textColor,
     Color disabledTextColor,
@@ -61,6 +63,7 @@ var _raisedButton = MXFunctionInvoke(
         createVoidCallbackClosure(_raisedButton.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
         _raisedButton.buildOwner, onHighlightChanged),
+    mouseCursor: mouseCursor,
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,
@@ -91,6 +94,7 @@ var _raisedButton = MXFunctionInvoke(
     "onPressed",
     "onLongPress",
     "onHighlightChanged",
+    "mouseCursor",
     "textTheme",
     "textColor",
     "disabledTextColor",
@@ -124,6 +128,7 @@ var _raisedButtonIcon = MXFunctionInvoke(
     dynamic onPressed,
     dynamic onLongPress,
     dynamic onHighlightChanged,
+    MouseCursor mouseCursor,
     ButtonTextTheme textTheme,
     Color textColor,
     Color disabledTextColor,
@@ -138,9 +143,13 @@ var _raisedButtonIcon = MXFunctionInvoke(
     dynamic highlightElevation,
     dynamic disabledElevation,
     ShapeBorder shape,
-    Clip clipBehavior,
+    // MX Modified begin
+    Clip clipBehavior = Clip.none,
+    // MX Modified end
     FocusNode focusNode,
-    bool autofocus,
+    // MX Modified begin
+    bool autofocus = false,
+    // MX Modified end
     EdgeInsetsGeometry padding,
     MaterialTapTargetSize materialTapTargetSize,
     Duration animationDuration,
@@ -155,6 +164,7 @@ var _raisedButtonIcon = MXFunctionInvoke(
         createVoidCallbackClosure(_raisedButtonIcon.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
         _raisedButtonIcon.buildOwner, onHighlightChanged),
+    mouseCursor: mouseCursor,
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,
@@ -183,6 +193,7 @@ var _raisedButtonIcon = MXFunctionInvoke(
     "onPressed",
     "onLongPress",
     "onHighlightChanged",
+    "mouseCursor",
     "textTheme",
     "textColor",
     "disabledTextColor",

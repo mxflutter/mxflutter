@@ -45,6 +45,7 @@ var _renderWrap = MXFunctionInvoke(
     WrapCrossAlignment crossAxisAlignment = WrapCrossAlignment.start,
     TextDirection textDirection,
     VerticalDirection verticalDirection = VerticalDirection.down,
+    Clip clipBehavior = Clip.none,
   }) =>
       RenderWrap(
     children: toListT<RenderBox>(children),
@@ -56,6 +57,7 @@ var _renderWrap = MXFunctionInvoke(
     crossAxisAlignment: crossAxisAlignment,
     textDirection: textDirection,
     verticalDirection: verticalDirection,
+    clipBehavior: clipBehavior,
   ),
   [
     "children",
@@ -67,6 +69,7 @@ var _renderWrap = MXFunctionInvoke(
     "crossAxisAlignment",
     "textDirection",
     "verticalDirection",
+    "clipBehavior",
   ],
 );
 

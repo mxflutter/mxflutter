@@ -9,8 +9,9 @@ import 'package:flutter/src/material/bottom_navigation_bar.dart';
 import 'dart:collection';
 import 'dart:math' as math;
 import 'package:flutter/widgets.dart';
+import 'package:flutter/rendering.dart';
 import 'package:vector_math/vector_math_64.dart';
-import 'package:flutter/src/material/colors.dart';
+import 'package:flutter/src/material/bottom_navigation_bar_theme.dart';
 import 'package:flutter/src/material/constants.dart';
 import 'package:flutter/src/material/debug.dart';
 import 'package:flutter/src/material/ink_well.dart';
@@ -38,21 +39,22 @@ var _bottomNavigationBar = MXFunctionInvoke(
     dynamic items,
     dynamic onTap,
     int currentIndex = 0,
-    dynamic elevation = 8.0,
+    dynamic elevation,
     BottomNavigationBarType type,
     Color fixedColor,
     Color backgroundColor,
     dynamic iconSize = 24.0,
     Color selectedItemColor,
     Color unselectedItemColor,
-    IconThemeData selectedIconTheme = const IconThemeData(),
-    IconThemeData unselectedIconTheme = const IconThemeData(),
+    IconThemeData selectedIconTheme,
+    IconThemeData unselectedIconTheme,
     dynamic selectedFontSize = 14.0,
     dynamic unselectedFontSize = 12.0,
     TextStyle selectedLabelStyle,
     TextStyle unselectedLabelStyle,
     bool showSelectedLabels = true,
     bool showUnselectedLabels,
+    MouseCursor mouseCursor,
   }) =>
       BottomNavigationBar(
     key: key,
@@ -75,6 +77,7 @@ var _bottomNavigationBar = MXFunctionInvoke(
     unselectedLabelStyle: unselectedLabelStyle,
     showSelectedLabels: showSelectedLabels,
     showUnselectedLabels: showUnselectedLabels,
+    mouseCursor: mouseCursor,
   ),
   [
     "key",
@@ -96,6 +99,7 @@ var _bottomNavigationBar = MXFunctionInvoke(
     "unselectedLabelStyle",
     "showSelectedLabels",
     "showUnselectedLabels",
+    "mouseCursor",
   ],
 );
 

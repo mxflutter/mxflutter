@@ -4,7 +4,7 @@ import 'package:mxflutter/mxflutter.dart';
 
 void main() {
   //-------1. MXFlutter 启动---------
-  MXJSFlutter.getInstance().runJSApp();
+  MXJSFlutter.runJSApp();
   runApp(MyApp());
 }
 
@@ -58,7 +58,7 @@ class MXFlutterExampleHome extends StatelessWidget {
               subtitle: Text('点击热重载JSApp，重新进入上面的MXFlutter Demo，即可看到界面更新'),
               isThreeLine: true,
               onTap: () {
-                MXJSFlutter.getInstance().runJSApp();
+                MXJSFlutter.runJSApp();
               },
             ),
             ListTile(

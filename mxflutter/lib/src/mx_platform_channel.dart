@@ -8,8 +8,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'mx_common.dart';
 
-
-typedef Future<dynamic> _MXChannelFun(dynamic arguments);
+typedef dynamic _MXChannelFun(dynamic arguments);
 
 /// Flutter和Native iOS/Android platform 通道
 class MXPlatformChannel  {
@@ -33,6 +32,10 @@ class MXPlatformChannel  {
 
   Future<T> invokeMethod<T>(String method, [ dynamic arguments ]) {
     return _platformChannel.invokeMethod(method,arguments);
+  }
+
+  setJSExceptionHandler(_MXChannelFun handler) {
+    _name2FunMap["mxflutterJSExceptionHandler"] = handler;
   }
 
   _setupChannel() {

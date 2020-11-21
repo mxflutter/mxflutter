@@ -51,6 +51,7 @@ var _pointerAddedEvent = MXFunctionInvoke(
     dynamic tilt = 0.0,
     Matrix4 transform,
     PointerAddedEvent original,
+    int embedderId = 0,
   }) =>
       PointerAddedEvent(
     timeStamp: timeStamp,
@@ -69,6 +70,7 @@ var _pointerAddedEvent = MXFunctionInvoke(
     tilt: tilt?.toDouble(),
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -87,6 +89,7 @@ var _pointerAddedEvent = MXFunctionInvoke(
     "tilt",
     "transform",
     "original",
+    "embedderId",
   ],
 );
 var _pointerRemovedEvent = MXFunctionInvoke(
@@ -105,6 +108,7 @@ var _pointerRemovedEvent = MXFunctionInvoke(
     dynamic radiusMax = 0.0,
     Matrix4 transform,
     PointerRemovedEvent original,
+    int embedderId = 0,
   }) =>
       PointerRemovedEvent(
     timeStamp: timeStamp,
@@ -120,6 +124,7 @@ var _pointerRemovedEvent = MXFunctionInvoke(
     radiusMax: radiusMax?.toDouble(),
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -135,6 +140,7 @@ var _pointerRemovedEvent = MXFunctionInvoke(
     "radiusMax",
     "transform",
     "original",
+    "embedderId",
   ],
 );
 var _pointerHoverEvent = MXFunctionInvoke(
@@ -163,6 +169,7 @@ var _pointerHoverEvent = MXFunctionInvoke(
     bool synthesized = false,
     Matrix4 transform,
     PointerHoverEvent original,
+    int embedderId = 0,
   }) =>
       PointerHoverEvent(
     timeStamp: timeStamp,
@@ -188,6 +195,7 @@ var _pointerHoverEvent = MXFunctionInvoke(
     synthesized: synthesized,
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -213,6 +221,7 @@ var _pointerHoverEvent = MXFunctionInvoke(
     "synthesized",
     "transform",
     "original",
+    "embedderId",
   ],
 );
 var _pointerEnterEvent = MXFunctionInvoke(
@@ -242,6 +251,7 @@ var _pointerEnterEvent = MXFunctionInvoke(
     bool synthesized = false,
     Matrix4 transform,
     PointerEnterEvent original,
+    int embedderId = 0,
   }) =>
       PointerEnterEvent(
     timeStamp: timeStamp,
@@ -268,6 +278,7 @@ var _pointerEnterEvent = MXFunctionInvoke(
     synthesized: synthesized,
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -294,6 +305,7 @@ var _pointerEnterEvent = MXFunctionInvoke(
     "synthesized",
     "transform",
     "original",
+    "embedderId",
   ],
 );
 var _pointerEnterEventFromHoverEvent = MXFunctionInvoke(
@@ -347,6 +359,7 @@ var _pointerExitEvent = MXFunctionInvoke(
     bool synthesized = false,
     Matrix4 transform,
     PointerExitEvent original,
+    int embedderId = 0,
   }) =>
       PointerExitEvent(
     timeStamp: timeStamp,
@@ -373,6 +386,7 @@ var _pointerExitEvent = MXFunctionInvoke(
     synthesized: synthesized,
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -399,6 +413,7 @@ var _pointerExitEvent = MXFunctionInvoke(
     "synthesized",
     "transform",
     "original",
+    "embedderId",
   ],
 );
 var _pointerExitEventFromHoverEvent = MXFunctionInvoke(
@@ -449,6 +464,7 @@ var _pointerDownEvent = MXFunctionInvoke(
     dynamic tilt = 0.0,
     Matrix4 transform,
     PointerDownEvent original,
+    int embedderId = 0,
   }) =>
       PointerDownEvent(
     timeStamp: timeStamp,
@@ -472,6 +488,7 @@ var _pointerDownEvent = MXFunctionInvoke(
     tilt: tilt?.toDouble(),
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -495,6 +512,7 @@ var _pointerDownEvent = MXFunctionInvoke(
     "tilt",
     "transform",
     "original",
+    "embedderId",
   ],
 );
 var _pointerMoveEvent = MXFunctionInvoke(
@@ -525,6 +543,7 @@ var _pointerMoveEvent = MXFunctionInvoke(
     bool synthesized = false,
     Matrix4 transform,
     PointerMoveEvent original,
+    int embedderId = 0,
   }) =>
       PointerMoveEvent(
     timeStamp: timeStamp,
@@ -552,6 +571,7 @@ var _pointerMoveEvent = MXFunctionInvoke(
     synthesized: synthesized,
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -579,6 +599,7 @@ var _pointerMoveEvent = MXFunctionInvoke(
     "synthesized",
     "transform",
     "original",
+    "embedderId",
   ],
 );
 var _pointerUpEvent = MXFunctionInvoke(
@@ -606,6 +627,7 @@ var _pointerUpEvent = MXFunctionInvoke(
     dynamic tilt = 0.0,
     Matrix4 transform,
     PointerUpEvent original,
+    int embedderId = 0,
   }) =>
       PointerUpEvent(
     timeStamp: timeStamp,
@@ -630,6 +652,7 @@ var _pointerUpEvent = MXFunctionInvoke(
     tilt: tilt?.toDouble(),
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -654,6 +677,7 @@ var _pointerUpEvent = MXFunctionInvoke(
     "tilt",
     "transform",
     "original",
+    "embedderId",
   ],
 );
 var _pointerScrollEvent = MXFunctionInvoke(
@@ -667,6 +691,7 @@ var _pointerScrollEvent = MXFunctionInvoke(
     Offset scrollDelta = Offset.zero,
     Matrix4 transform,
     PointerScrollEvent original,
+    int embedderId = 0,
   }) =>
       PointerScrollEvent(
     timeStamp: timeStamp,
@@ -677,6 +702,7 @@ var _pointerScrollEvent = MXFunctionInvoke(
     scrollDelta: scrollDelta,
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -686,7 +712,8 @@ var _pointerScrollEvent = MXFunctionInvoke(
     "localPosition",
     "scrollDelta",
     "transform",
-    "original",
+    "__mx_original",
+    "embedderId",
   ],
 );
 var _pointerCancelEvent = MXFunctionInvoke(
@@ -713,6 +740,7 @@ var _pointerCancelEvent = MXFunctionInvoke(
     dynamic tilt = 0.0,
     Matrix4 transform,
     PointerCancelEvent original,
+    int embedderId = 0,
   }) =>
       PointerCancelEvent(
     timeStamp: timeStamp,
@@ -736,6 +764,7 @@ var _pointerCancelEvent = MXFunctionInvoke(
     tilt: tilt?.toDouble(),
     transform: transform,
     original: original,
+    embedderId: embedderId,
   ),
   [
     "timeStamp",
@@ -759,5 +788,6 @@ var _pointerCancelEvent = MXFunctionInvoke(
     "tilt",
     "transform",
     "original",
+    "embedderId",
   ],
 );

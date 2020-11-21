@@ -14,6 +14,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/app_bar_theme.dart';
 import 'package:flutter/src/material/banner_theme.dart';
 import 'package:flutter/src/material/bottom_app_bar_theme.dart';
+import 'package:flutter/src/material/bottom_navigation_bar_theme.dart';
 import 'package:flutter/src/material/bottom_sheet_theme.dart';
 import 'package:flutter/src/material/button_bar_theme.dart';
 import 'package:flutter/src/material/button_theme.dart';
@@ -34,6 +35,7 @@ import 'package:flutter/src/material/slider_theme.dart';
 import 'package:flutter/src/material/snack_bar_theme.dart';
 import 'package:flutter/src/material/tab_bar_theme.dart';
 import 'package:flutter/src/material/text_theme.dart';
+import 'package:flutter/src/material/time_picker_theme.dart';
 import 'package:flutter/src/material/toggle_buttons_theme.dart';
 import 'package:flutter/src/material/tooltip_theme.dart';
 import 'package:flutter/src/material/typography.dart';
@@ -132,6 +134,9 @@ var _themeData = MXFunctionInvoke(
     MaterialBannerThemeData bannerTheme,
     DividerThemeData dividerTheme,
     ButtonBarThemeData buttonBarTheme,
+    BottomNavigationBarThemeData bottomNavigationBarTheme,
+    TimePickerThemeData timePickerTheme,
+    bool fixTextFieldOutlineLabel,
   }) =>
       ThemeData(
     brightness: brightness,
@@ -200,6 +205,9 @@ var _themeData = MXFunctionInvoke(
     bannerTheme: bannerTheme,
     dividerTheme: dividerTheme,
     buttonBarTheme: buttonBarTheme,
+    bottomNavigationBarTheme: bottomNavigationBarTheme,
+    timePickerTheme: timePickerTheme,
+    fixTextFieldOutlineLabel: fixTextFieldOutlineLabel,
   ),
   [
     "brightness",
@@ -268,6 +276,9 @@ var _themeData = MXFunctionInvoke(
     "bannerTheme",
     "dividerTheme",
     "buttonBarTheme",
+    "bottomNavigationBarTheme",
+    "timePickerTheme",
+    "fixTextFieldOutlineLabel",
   ],
 );
 var _themeDataFrom = MXFunctionInvoke(
@@ -303,7 +314,6 @@ var _themeDataFallback = MXFunctionInvoke(
 var _themeDataRaw = MXFunctionInvoke(
   "ThemeData.raw",
   ({
-    Brightness brightness,
     VisualDensity visualDensity,
     Color primaryColor,
     Brightness primaryColorBrightness,
@@ -367,9 +377,11 @@ var _themeDataRaw = MXFunctionInvoke(
     MaterialBannerThemeData bannerTheme,
     DividerThemeData dividerTheme,
     ButtonBarThemeData buttonBarTheme,
+    BottomNavigationBarThemeData bottomNavigationBarTheme,
+    TimePickerThemeData timePickerTheme,
+    bool fixTextFieldOutlineLabel,
   }) =>
       ThemeData.raw(
-    brightness: brightness,
     visualDensity: visualDensity,
     primaryColor: primaryColor,
     primaryColorBrightness: primaryColorBrightness,
@@ -433,9 +445,11 @@ var _themeDataRaw = MXFunctionInvoke(
     bannerTheme: bannerTheme,
     dividerTheme: dividerTheme,
     buttonBarTheme: buttonBarTheme,
+    bottomNavigationBarTheme: bottomNavigationBarTheme,
+    timePickerTheme: timePickerTheme,
+    fixTextFieldOutlineLabel: fixTextFieldOutlineLabel,
   ),
   [
-    "brightness",
     "visualDensity",
     "primaryColor",
     "primaryColorBrightness",
@@ -499,6 +513,9 @@ var _themeDataRaw = MXFunctionInvoke(
     "bannerTheme",
     "dividerTheme",
     "buttonBarTheme",
+    "bottomNavigationBarTheme",
+    "timePickerTheme",
+    "fixTextFieldOutlineLabel",
   ],
 );
 var _materialBasedCupertinoThemeData = MXFunctionInvoke(

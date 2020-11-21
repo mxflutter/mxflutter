@@ -14,6 +14,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/colors.dart';
 import 'package:flutter/src/material/constants.dart';
 import 'package:flutter/src/material/debug.dart';
+import 'package:flutter/src/material/material_state.dart';
 import 'package:flutter/src/material/shadows.dart';
 import 'package:flutter/src/material/theme.dart';
 import 'package:flutter/src/material/theme_data.dart';
@@ -43,6 +44,7 @@ var _switch = MXFunctionInvoke(
     dynamic onInactiveThumbImageError,
     MaterialTapTargetSize materialTapTargetSize,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    MouseCursor mouseCursor,
     Color focusColor,
     Color hoverColor,
     FocusNode focusNode,
@@ -65,6 +67,7 @@ var _switch = MXFunctionInvoke(
         _switch.buildOwner, onInactiveThumbImageError),
     materialTapTargetSize: materialTapTargetSize,
     dragStartBehavior: dragStartBehavior,
+    mouseCursor: mouseCursor,
     focusColor: focusColor,
     hoverColor: hoverColor,
     focusNode: focusNode,
@@ -84,6 +87,7 @@ var _switch = MXFunctionInvoke(
     "onInactiveThumbImageError",
     "materialTapTargetSize",
     "dragStartBehavior",
+    "mouseCursor",
     "focusColor",
     "hoverColor",
     "focusNode",
@@ -106,6 +110,7 @@ var _switchAdaptive = MXFunctionInvoke(
     dynamic onInactiveThumbImageError,
     MaterialTapTargetSize materialTapTargetSize,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    MouseCursor mouseCursor,
     Color focusColor,
     Color hoverColor,
     FocusNode focusNode,
@@ -128,6 +133,7 @@ var _switchAdaptive = MXFunctionInvoke(
         _switchAdaptive.buildOwner, onInactiveThumbImageError),
     materialTapTargetSize: materialTapTargetSize,
     dragStartBehavior: dragStartBehavior,
+    mouseCursor: mouseCursor,
     focusColor: focusColor,
     hoverColor: hoverColor,
     focusNode: focusNode,
@@ -147,6 +153,7 @@ var _switchAdaptive = MXFunctionInvoke(
     "onInactiveThumbImageError",
     "materialTapTargetSize",
     "dragStartBehavior",
+    "mouseCursor",
     "focusColor",
     "hoverColor",
     "focusNode",

@@ -22,6 +22,7 @@ var _renderImage = MXFunctionInvoke(
   "RenderImage",
   ({
     ui.Image image,
+    String debugImageLabel,
     dynamic width,
     dynamic height,
     dynamic scale = 1.0,
@@ -34,10 +35,12 @@ var _renderImage = MXFunctionInvoke(
     bool matchTextDirection = false,
     ui.TextDirection textDirection,
     bool invertColors = false,
+    bool isAntiAlias = false,
     ui.FilterQuality filterQuality = FilterQuality.low,
   }) =>
       RenderImage(
     image: image,
+    debugImageLabel: debugImageLabel,
     width: width?.toDouble(),
     height: height?.toDouble(),
     scale: scale?.toDouble(),
@@ -50,10 +53,12 @@ var _renderImage = MXFunctionInvoke(
     matchTextDirection: matchTextDirection,
     textDirection: textDirection,
     invertColors: invertColors,
+    isAntiAlias: isAntiAlias,
     filterQuality: filterQuality,
   ),
   [
     "image",
+    "debugImageLabel",
     "width",
     "height",
     "scale",
@@ -66,6 +71,7 @@ var _renderImage = MXFunctionInvoke(
     "matchTextDirection",
     "textDirection",
     "invertColors",
+    "isAntiAlias",
     "filterQuality",
   ],
 );

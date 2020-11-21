@@ -6,6 +6,7 @@
 
 package com.mojitox.mxflutter.framework.utils
 
+import android.os.SystemClock
 import android.util.Log
 
 /**
@@ -13,10 +14,11 @@ import android.util.Log
  */
 
 fun MXJSFlutterLog(tag: String, msg: String) {
+    var start =SystemClock.currentThreadTimeMillis();
     val element = Thread.currentThread().stackTrace[3]
     Log.d("MXJSFlutter:[Native]",     //log tag
             " -|" + "[" + element.className + "]" + "[" + element.methodName + "]" + "[" + element.lineNumber + "]" + "| "   //log 代码定位
-                    + " -|" + java.lang.String.format(tag, msg) + "| "     //log msg
+                    + " -|" + java.lang.String.format(tag, msg) + "| " + "打印日志耗时：" + (SystemClock.currentThreadTimeMillis() - start)    //log msg
     )
 }
 

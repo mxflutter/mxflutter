@@ -286,7 +286,7 @@ var _sliverMultiBoxAdaptorElement = MXFunctionInvoke(
     widget,
   ),
   [
-    "widget",
+    "__mx_widget",
   ],
 );
 var _sliverOpacity = MXFunctionInvoke(

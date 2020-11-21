@@ -7,6 +7,7 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/foundation/debug.dart';
 import 'dart:async';
+import 'dart:ui' as ui;
 import 'package:flutter/src/foundation/assertions.dart';
 import 'package:flutter/src/foundation/platform.dart';
 import 'package:flutter/src/foundation/print.dart';

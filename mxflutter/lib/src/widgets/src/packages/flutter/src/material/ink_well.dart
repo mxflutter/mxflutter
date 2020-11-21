@@ -15,6 +15,7 @@ import 'package:flutter/src/material/debug.dart';
 import 'package:flutter/src/material/feedback.dart';
 import 'package:flutter/src/material/ink_highlight.dart';
 import 'package:flutter/src/material/material.dart';
+import 'package:flutter/src/material/material_state.dart';
 import 'package:flutter/src/material/theme.dart';
 
 ///把自己能处理的类注册到分发器中
@@ -37,6 +38,7 @@ var _inkResponse = MXFunctionInvoke(
     dynamic onLongPress,
     dynamic onHighlightChanged,
     dynamic onHover,
+    MouseCursor mouseCursor,
     bool containedInkWell = false,
     BoxShape highlightShape = BoxShape.circle,
     dynamic radius,
@@ -45,6 +47,7 @@ var _inkResponse = MXFunctionInvoke(
     Color focusColor,
     Color hoverColor,
     Color highlightColor,
+    MaterialStateProperty<Color> overlayColor,
     Color splashColor,
     InteractiveInkFeatureFactory splashFactory,
     bool enableFeedback = true,
@@ -70,6 +73,7 @@ var _inkResponse = MXFunctionInvoke(
         _inkResponse.buildOwner, onHighlightChanged),
     onHover: createValueChangedGenericClosure<bool>(
         _inkResponse.buildOwner, onHover),
+    mouseCursor: mouseCursor,
     containedInkWell: containedInkWell,
     highlightShape: highlightShape,
     radius: radius?.toDouble(),
@@ -78,6 +82,7 @@ var _inkResponse = MXFunctionInvoke(
     focusColor: focusColor,
     hoverColor: hoverColor,
     highlightColor: highlightColor,
+    overlayColor: overlayColor,
     splashColor: splashColor,
     splashFactory: splashFactory,
     enableFeedback: enableFeedback,
@@ -98,6 +103,7 @@ var _inkResponse = MXFunctionInvoke(
     "onLongPress",
     "onHighlightChanged",
     "onHover",
+    "mouseCursor",
     "containedInkWell",
     "highlightShape",
     "radius",
@@ -106,6 +112,7 @@ var _inkResponse = MXFunctionInvoke(
     "focusColor",
     "hoverColor",
     "highlightColor",
+    "overlayColor",
     "splashColor",
     "splashFactory",
     "enableFeedback",
@@ -128,9 +135,11 @@ var _inkWell = MXFunctionInvoke(
     dynamic onTapCancel,
     dynamic onHighlightChanged,
     dynamic onHover,
+    MouseCursor mouseCursor,
     Color focusColor,
     Color hoverColor,
     Color highlightColor,
+    MaterialStateProperty<Color> overlayColor,
     Color splashColor,
     InteractiveInkFeatureFactory splashFactory,
     dynamic radius,
@@ -156,9 +165,11 @@ var _inkWell = MXFunctionInvoke(
         _inkWell.buildOwner, onHighlightChanged),
     onHover:
         createValueChangedGenericClosure<bool>(_inkWell.buildOwner, onHover),
+    mouseCursor: mouseCursor,
     focusColor: focusColor,
     hoverColor: hoverColor,
     highlightColor: highlightColor,
+    overlayColor: overlayColor,
     splashColor: splashColor,
     splashFactory: splashFactory,
     radius: radius?.toDouble(),
@@ -182,9 +193,11 @@ var _inkWell = MXFunctionInvoke(
     "onTapCancel",
     "onHighlightChanged",
     "onHover",
+    "mouseCursor",
     "focusColor",
     "hoverColor",
     "highlightColor",
+    "overlayColor",
     "splashColor",
     "splashFactory",
     "radius",

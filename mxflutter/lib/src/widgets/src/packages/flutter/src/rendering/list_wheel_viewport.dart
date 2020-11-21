@@ -28,9 +28,9 @@ Map<String, MXFunctionInvoke> registerListWheelViewportSeries() {
       _renderListWheelViewportDiameterRatioZeroMessage;
   m[_renderListWheelViewportPerspectiveTooHighMessage.funName] =
       _renderListWheelViewportPerspectiveTooHighMessage;
-  m[_renderListWheelViewportClipToSizeAndRenderChildrenOutsideViewportConflict
+  m[_renderListWheelViewportClipBehaviorAndRenderChildrenOutsideViewportConflict
           .funName] =
-      _renderListWheelViewportClipToSizeAndRenderChildrenOutsideViewportConflict;
+      _renderListWheelViewportClipBehaviorAndRenderChildrenOutsideViewportConflict;
   return m;
 }
 
@@ -52,8 +52,8 @@ var _renderListWheelViewport = MXFunctionInvoke(
     dynamic overAndUnderCenterOpacity = 1.0,
     dynamic itemExtent,
     dynamic squeeze = 1.0,
-    bool clipToSize = true,
     bool renderChildrenOutsideViewport = false,
+    Clip clipBehavior = Clip.none,
     dynamic children,
   }) =>
       RenderListWheelViewport(
@@ -67,8 +67,8 @@ var _renderListWheelViewport = MXFunctionInvoke(
     overAndUnderCenterOpacity: overAndUnderCenterOpacity?.toDouble(),
     itemExtent: itemExtent?.toDouble(),
     squeeze: squeeze?.toDouble(),
-    clipToSize: clipToSize,
     renderChildrenOutsideViewport: renderChildrenOutsideViewport,
+    clipBehavior: clipBehavior,
     children: toListT<RenderBox>(children),
   ),
   [
@@ -82,8 +82,8 @@ var _renderListWheelViewport = MXFunctionInvoke(
     "overAndUnderCenterOpacity",
     "itemExtent",
     "squeeze",
-    "clipToSize",
     "renderChildrenOutsideViewport",
+    "clipBehavior",
     "children",
   ],
 );
@@ -99,8 +99,8 @@ var _renderListWheelViewportDiameterRatioZeroMessage = MXFunctionInvoke(
 var _renderListWheelViewportPerspectiveTooHighMessage = MXFunctionInvoke(
     "RenderListWheelViewport.perspectiveTooHighMessage",
     () => RenderListWheelViewport.perspectiveTooHighMessage);
-var _renderListWheelViewportClipToSizeAndRenderChildrenOutsideViewportConflict =
+var _renderListWheelViewportClipBehaviorAndRenderChildrenOutsideViewportConflict =
     MXFunctionInvoke(
-        "RenderListWheelViewport.clipToSizeAndRenderChildrenOutsideViewportConflict",
+        "RenderListWheelViewport.clipBehaviorAndRenderChildrenOutsideViewportConflict",
         () => RenderListWheelViewport
-            .clipToSizeAndRenderChildrenOutsideViewportConflict);
+            .clipBehaviorAndRenderChildrenOutsideViewportConflict);

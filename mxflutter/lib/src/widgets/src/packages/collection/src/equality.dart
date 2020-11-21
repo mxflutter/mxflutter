@@ -37,7 +37,7 @@ var _equality = MXFunctionInvoke(
 var _equalityBy = MXFunctionInvoke(
   "EqualityBy",
   ({
-    dynamic getKey,
+    dynamic comparisonKey,
     Equality<dynamic> inner,
   }) =>
       EqualityBy(
@@ -45,7 +45,7 @@ var _equalityBy = MXFunctionInvoke(
     inner,
   ),
   [
-    "getKey",
+    "comparisonKey",
     "inner",
   ],
 );

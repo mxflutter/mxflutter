@@ -4,12 +4,11 @@
 //  Use of this source code is governed by a MIT-style license that can be
 //  found in the LICENSE file.
 
-import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'package:flutter/src/material/ink_highlight.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/src/material/ink_well.dart';
+import 'package:flutter/src/material/ink_highlight.dart';
 import 'package:flutter/src/material/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:mxflutter/src/mirror/mx_mirror.dart';
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerInkHighlightSeries() {
@@ -26,11 +25,14 @@ var _inkHighlight = MXFunctionInvoke(
     Color color,
     TextDirection textDirection,
     BoxShape shape = BoxShape.rectangle,
+    dynamic radius,
     BorderRadius borderRadius,
     ShapeBorder customBorder,
     dynamic rectCallback,
     dynamic onRemoved,
+    //MX Modified begin
     Duration fadeDuration = const Duration(milliseconds: 200),
+    //MX Modified end
   }) =>
       InkHighlight(
     controller: controller,
@@ -38,6 +40,7 @@ var _inkHighlight = MXFunctionInvoke(
     color: color,
     textDirection: textDirection,
     shape: shape,
+    radius: radius?.toDouble(),
     borderRadius: borderRadius,
     customBorder: customBorder,
     rectCallback: null,
@@ -45,11 +48,14 @@ var _inkHighlight = MXFunctionInvoke(
     fadeDuration: fadeDuration,
   ),
   [
-    "controller",
+    // MX modified begin
+    "__mx_controller",
+    // MX modified end
     "referenceBox",
     "color",
     "textDirection",
     "shape",
+    "radius",
     "borderRadius",
     "customBorder",
     "rectCallback",

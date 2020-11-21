@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MXJSExecutor.h"
+#import <Flutter/Flutter.h>
 
 
 @class MXJSFlutterEngine;
@@ -29,11 +30,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) MXJSExecutor *jsExecutor;
 
+@property (nonatomic, strong, readonly) NSMutableDictionary *jsCallbackCache;
+
 - (instancetype)init;
 
 - (void)addSearchDir:(NSString*)dir;
 
 - (void)callJSCallbackFunction:(NSString *)callbackId param:(id)param;
+
+- (void)callJSCallbackFunctionWithChannelName:(NSString *)channelName
+                                   methodCall:(FlutterMethodCall *)methodCall
+                                     callback:(void(^)(id _Nullable result))callback;
+
+- (NSString *)calcRequireJSAbsolutePath:(NSString *)filePath;
+
+- (NSString *)storeJsCallback:(JSValue *)function;
 
 @end
 

@@ -33,6 +33,7 @@ var _rawMaterialButton = MXFunctionInvoke(
     dynamic onPressed,
     dynamic onLongPress,
     dynamic onHighlightChanged,
+    MouseCursor mouseCursor,
     TextStyle textStyle,
     Color fillColor,
     Color focusColor,
@@ -49,7 +50,7 @@ var _rawMaterialButton = MXFunctionInvoke(
     BoxConstraints constraints =
         const BoxConstraints(minWidth: 88.0, minHeight: 36.0),
     ShapeBorder shape = const RoundedRectangleBorder(),
-    Duration animationDuration = const Duration(milliseconds: 200),
+    Duration animationDuration = kThemeAnimationDuration,
     Clip clipBehavior = Clip.none,
     FocusNode focusNode,
     bool autofocus = false,
@@ -65,6 +66,7 @@ var _rawMaterialButton = MXFunctionInvoke(
         createVoidCallbackClosure(_rawMaterialButton.buildOwner, onLongPress),
     onHighlightChanged: createValueChangedGenericClosure<bool>(
         _rawMaterialButton.buildOwner, onHighlightChanged),
+    mouseCursor: mouseCursor,
     textStyle: textStyle,
     fillColor: fillColor,
     focusColor: focusColor,
@@ -93,6 +95,7 @@ var _rawMaterialButton = MXFunctionInvoke(
     "onPressed",
     "onLongPress",
     "onHighlightChanged",
+    "mouseCursor",
     "textStyle",
     "fillColor",
     "focusColor",

@@ -23,6 +23,7 @@ Map<String, MXFunctionInvoke> registerMediaQuerySeries() {
   m[_mediaQueryRemovePadding.funName] = _mediaQueryRemovePadding;
   m[_mediaQueryRemoveViewInsets.funName] = _mediaQueryRemoveViewInsets;
   m[_mediaQueryRemoveViewPadding.funName] = _mediaQueryRemoveViewPadding;
+  m[_navigationMode.funName] = _navigationMode;
   return m;
 }
 
@@ -41,13 +42,13 @@ var _mediaQueryData = MXFunctionInvoke(
     EdgeInsets viewInsets = EdgeInsets.zero,
     EdgeInsets systemGestureInsets = EdgeInsets.zero,
     EdgeInsets viewPadding = EdgeInsets.zero,
-    dynamic physicalDepth = 1.7976931348623157e+308,
     bool alwaysUse24HourFormat = false,
     bool accessibleNavigation = false,
     bool invertColors = false,
     bool highContrast = false,
     bool disableAnimations = false,
     bool boldText = false,
+    NavigationMode navigationMode = NavigationMode.traditional,
   }) =>
       MediaQueryData(
     size: size,
@@ -58,13 +59,13 @@ var _mediaQueryData = MXFunctionInvoke(
     viewInsets: viewInsets,
     systemGestureInsets: systemGestureInsets,
     viewPadding: viewPadding,
-    physicalDepth: physicalDepth?.toDouble(),
     alwaysUse24HourFormat: alwaysUse24HourFormat,
     accessibleNavigation: accessibleNavigation,
     invertColors: invertColors,
     highContrast: highContrast,
     disableAnimations: disableAnimations,
     boldText: boldText,
+    navigationMode: navigationMode,
   ),
   [
     "size",
@@ -75,13 +76,13 @@ var _mediaQueryData = MXFunctionInvoke(
     "viewInsets",
     "systemGestureInsets",
     "viewPadding",
-    "physicalDepth",
     "alwaysUse24HourFormat",
     "accessibleNavigation",
     "invertColors",
     "highContrast",
     "disableAnimations",
     "boldText",
+    "navigationMode",
   ],
 );
 var _mediaQueryDataFromWindow = MXFunctionInvoke(
@@ -204,6 +205,10 @@ var _mediaQueryRemoveViewPadding = MXFunctionInvoke(
     "child",
   ],
 );
+var _navigationMode = MXFunctionInvoke(
+    "NavigationMode",
+    ({String name, int index}) => MXNavigationMode.parse(name, index),
+    ["name", "index"]);
 
 class MXOrientation {
   static Orientation parse(String name, int index) {
@@ -212,6 +217,18 @@ class MXOrientation {
         return Orientation.portrait;
       case 'Orientation.landscape':
         return Orientation.landscape;
+    }
+    return null;
+  }
+}
+
+class MXNavigationMode {
+  static NavigationMode parse(String name, int index) {
+    switch (name) {
+      case 'NavigationMode.traditional':
+        return NavigationMode.traditional;
+      case 'NavigationMode.directional':
+        return NavigationMode.directional;
     }
     return null;
   }

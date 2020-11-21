@@ -7,6 +7,7 @@
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/outline_button.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/button_theme.dart';
 import 'package:flutter/src/material/colors.dart';
@@ -30,6 +31,7 @@ var _outlineButton = MXFunctionInvoke(
     Key key,
     dynamic onPressed,
     dynamic onLongPress,
+    MouseCursor mouseCursor,
     ButtonTextTheme textTheme,
     Color textColor,
     Color disabledTextColor,
@@ -55,6 +57,7 @@ var _outlineButton = MXFunctionInvoke(
     onPressed: createVoidCallbackClosure(_outlineButton.buildOwner, onPressed),
     onLongPress:
         createVoidCallbackClosure(_outlineButton.buildOwner, onLongPress),
+    mouseCursor: mouseCursor,
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,
@@ -79,6 +82,7 @@ var _outlineButton = MXFunctionInvoke(
     "key",
     "onPressed",
     "onLongPress",
+    "mouseCursor",
     "textTheme",
     "textColor",
     "disabledTextColor",
@@ -106,6 +110,7 @@ var _outlineButtonIcon = MXFunctionInvoke(
     Key key,
     dynamic onPressed,
     dynamic onLongPress,
+    MouseCursor mouseCursor,
     ButtonTextTheme textTheme,
     Color textColor,
     Color disabledTextColor,
@@ -133,6 +138,7 @@ var _outlineButtonIcon = MXFunctionInvoke(
         createVoidCallbackClosure(_outlineButtonIcon.buildOwner, onPressed),
     onLongPress:
         createVoidCallbackClosure(_outlineButtonIcon.buildOwner, onLongPress),
+    mouseCursor: mouseCursor,
     textTheme: textTheme,
     textColor: textColor,
     disabledTextColor: disabledTextColor,
@@ -158,6 +164,7 @@ var _outlineButtonIcon = MXFunctionInvoke(
     "key",
     "onPressed",
     "onLongPress",
+    "mouseCursor",
     "textTheme",
     "textColor",
     "disabledTextColor",

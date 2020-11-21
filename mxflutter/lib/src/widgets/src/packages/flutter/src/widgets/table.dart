@@ -52,7 +52,7 @@ var _table = MXFunctionInvoke(
     TableBorder border,
     TableCellVerticalAlignment defaultVerticalAlignment =
         TableCellVerticalAlignment.top,
-    TextBaseline textBaseline,
+    TextBaseline textBaseline = TextBaseline.alphabetic,
   }) =>
       Table(
     key: key,

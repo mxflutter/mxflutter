@@ -76,7 +76,7 @@ ValueChanged<T> createValueChangedGenericClosure<T>(
   return cb;
 }
 
-/// GenericFunctionGenericCallback<R, T>闭包
+/// GenericFunctionGenericCallback<R, T>闭包。返回值T要支持json.encode，否则要自己实现该闭包
 GenericFunctionGenericCallback<R, T> createGenericValueGenericClosure<R, T>(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
   if (eventCallbackID == null) {
@@ -84,7 +84,7 @@ GenericFunctionGenericCallback<R, T> createGenericValueGenericClosure<R, T>(
   }
 
   GenericFunctionGenericCallback<R, T> cb = (T b) {
-    R result = bo.eventCallback(eventCallbackID, args:[b]);
+    R result = bo.syncEventCallback(eventCallbackID, args:[b]);
     return result;
   };
 
@@ -105,7 +105,7 @@ VoidTwoGenericParamsCallback<T, S> createVoidTwoParamsClosure<T, S>(
   return cb;
 }
 
-/// GenericTwoGenericParamsCallback<R, T, S>闭包
+/// GenericTwoGenericParamsCallback<R, T, S>闭包。返回值T、S要支持json.encode，否则要自己实现该闭包
 GenericTwoGenericParamsCallback<R, T, S> createGenericTwoParamsClosure<R, T, S>(
     MXJsonBuildOwner bo, dynamic eventCallbackID) {
   if (eventCallbackID == null) {
@@ -113,7 +113,7 @@ GenericTwoGenericParamsCallback<R, T, S> createGenericTwoParamsClosure<R, T, S>(
   }
 
   GenericTwoGenericParamsCallback<R, T, S> cb = (T arg1, S arg2) {
-    R result = bo.eventCallback(eventCallbackID, args:[arg1, arg2]);
+    R result = bo.syncEventCallback(eventCallbackID, args:[arg1, arg2]);
     return result;
   };
 
@@ -134,7 +134,7 @@ VoidThreeGenericParamsCallback<T, S, W> createVoidThreeParamsClosure<T, S, W>(
   return cb;
 }
 
-/// GenericThreeGenericParamsCallback<R, T, S, W>闭包
+/// GenericThreeGenericParamsCallback<R, T, S, W>闭包。返回值T、S、W要支持json.encode，否则要自己实现该闭包
 GenericThreeGenericParamsCallback<R, T, S, W>
     createGenericThreeParamsClosure<R, T, S, W>(
         MXJsonBuildOwner bo, dynamic eventCallbackID) {
@@ -143,7 +143,7 @@ GenericThreeGenericParamsCallback<R, T, S, W>
   }
 
   GenericThreeGenericParamsCallback<R, T, S, W> cb = (T arg1, S arg2, W arg3) {
-    R result = bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3]);
+    R result = bo.syncEventCallback(eventCallbackID, args:[arg1, arg2, arg3]);
     return result;
   };
 
@@ -166,7 +166,7 @@ VoidFourGenericParamsCallback<T, S, W, V>
   return cb;
 }
 
-/// GenericFourGenericParamsCallback<R, T, S, W, V>闭包
+/// GenericFourGenericParamsCallback<R, T, S, W, V>闭包。返回值T、S、W、V要支持json.encode，否则要自己实现该闭包
 GenericFourGenericParamsCallback<R, T, S, W, V>
     createGenericFourParamsClosure<R, T, S, W, V>(
         MXJsonBuildOwner bo, dynamic eventCallbackID) {
@@ -176,7 +176,7 @@ GenericFourGenericParamsCallback<R, T, S, W, V>
 
   GenericFourGenericParamsCallback<R, T, S, W, V> cb =
       (T arg1, S arg2, W arg3, V arg4) {
-    R result = bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3, arg4]);
+    R result = bo.syncEventCallback(eventCallbackID, args:[arg1, arg2, arg3, arg4]);
     return result;
   };
 
@@ -199,7 +199,7 @@ VoidFiveGenericParamsCallback<T, S, W, V, U>
   return cb;
 }
 
-/// GenericFiveGenericParamsCallback<R, T, S, W, V, U>闭包
+/// GenericFiveGenericParamsCallback<R, T, S, W, V, U>闭包。返回值T、S、W、V、U要支持json.encode，否则要自己实现该闭包
 GenericFiveGenericParamsCallback<R, T, S, W, V, U>
     createGenericFiveParamsClosure<R, T, S, W, V, U>(
         MXJsonBuildOwner bo, dynamic eventCallbackID) {
@@ -209,7 +209,7 @@ GenericFiveGenericParamsCallback<R, T, S, W, V, U>
 
   GenericFiveGenericParamsCallback<R, T, S, W, V, U> cb =
       (T arg1, S arg2, W arg3, V arg4, U arg5) {
-    R result = bo.eventCallback(eventCallbackID, args:[arg1, arg2, arg3, arg4, arg5]);
+    R result = bo.syncEventCallback(eventCallbackID, args:[arg1, arg2, arg3, arg4, arg5]);
     return result;
   };
 

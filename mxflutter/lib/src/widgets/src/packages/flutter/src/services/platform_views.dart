@@ -131,6 +131,7 @@ var _androidMotionEvent = MXFunctionInvoke(
     int edgeFlags,
     int source,
     int flags,
+    int motionEventId,
   }) =>
       AndroidMotionEvent(
     downTime: downTime,
@@ -147,6 +148,7 @@ var _androidMotionEvent = MXFunctionInvoke(
     edgeFlags: edgeFlags,
     source: source,
     flags: flags,
+    motionEventId: motionEventId,
   ),
   [
     "downTime",
@@ -163,6 +165,7 @@ var _androidMotionEvent = MXFunctionInvoke(
     "edgeFlags",
     "source",
     "flags",
+    "motionEventId",
   ],
 );
 var _androidViewControllerKActionDown = MXFunctionInvoke(

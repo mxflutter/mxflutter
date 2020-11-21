@@ -4,6 +4,8 @@ import 'package:mxflutter/src/pkg/cached_network_image/cached_network_image.dart
 import 'package:mxflutter/src/pkg/pull_to_refresh/pull_to_refresh.dart';
 import 'package:mxflutter/src/pkg/dio/dio.dart';
 
+import '../widgets/src/packages/vector_math/vector_math_64.dart';
+
 /// 注册自动生成的widget方法
 void mxRegisterBuilderWidgetFunc() {
   // mx_dart_sdk
@@ -45,6 +47,10 @@ void mxRegisterBuilderWidgetFunc() {
   // flutter/widgets
   MXMirror.getInstance()
       .registerFunctions(registerWidgetsLibrarySeries());
+  // vector_math/vector_math_64
+  MXMirror.getInstance()
+      .registerFunctions(registerVectorMath64Series());
+  
 }
 
 

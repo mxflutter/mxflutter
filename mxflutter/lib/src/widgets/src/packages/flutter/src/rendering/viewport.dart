@@ -66,6 +66,7 @@ var _renderViewport = MXFunctionInvoke(
     RenderSliver center,
     dynamic cacheExtent,
     CacheExtentStyle cacheExtentStyle = CacheExtentStyle.pixel,
+    Clip clipBehavior = Clip.hardEdge,
   }) =>
       RenderViewport(
     axisDirection: axisDirection,
@@ -76,6 +77,7 @@ var _renderViewport = MXFunctionInvoke(
     center: center,
     cacheExtent: cacheExtent?.toDouble(),
     cacheExtentStyle: cacheExtentStyle,
+    clipBehavior: clipBehavior,
   ),
   [
     "axisDirection",
@@ -86,6 +88,7 @@ var _renderViewport = MXFunctionInvoke(
     "center",
     "cacheExtent",
     "cacheExtentStyle",
+    "clipBehavior",
   ],
 );
 var _renderViewportUseTwoPaneSemantics = MXFunctionInvoke(
@@ -100,18 +103,21 @@ var _renderShrinkWrappingViewport = MXFunctionInvoke(
     AxisDirection axisDirection = AxisDirection.down,
     AxisDirection crossAxisDirection,
     ViewportOffset offset,
+    Clip clipBehavior = Clip.hardEdge,
     dynamic children,
   }) =>
       RenderShrinkWrappingViewport(
     axisDirection: axisDirection,
     crossAxisDirection: crossAxisDirection,
     offset: offset,
+    clipBehavior: clipBehavior,
     children: toListT<RenderSliver>(children),
   ),
   [
     "axisDirection",
     "crossAxisDirection",
     "offset",
+    "clipBehavior",
     "children",
   ],
 );

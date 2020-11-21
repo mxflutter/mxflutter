@@ -48,11 +48,16 @@ android {
 //            }
 //        }
 //    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.imatrixteam.example"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -61,9 +66,9 @@ android {
 
         consumerProguardFiles 'consumer-rules.pro'
 
-//        ndk {
-//            abiFilters 'armeabi-v7a'
-//        }
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
 
     }
 
@@ -77,6 +82,7 @@ android {
 
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
+        //exclude 'lib/armeabi-v7a/libj2v8.so'
     }
 
     //java版本8

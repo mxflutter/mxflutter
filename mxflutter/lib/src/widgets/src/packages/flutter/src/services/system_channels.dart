@@ -22,6 +22,7 @@ Map<String, MXFunctionInvoke> registerSystemChannelsSeries() {
   m[_systemChannelsAccessibility.funName] = _systemChannelsAccessibility;
   m[_systemChannelsPlatformViews.funName] = _systemChannelsPlatformViews;
   m[_systemChannelsSkia.funName] = _systemChannelsSkia;
+  m[_systemChannelsMouseCursor.funName] = _systemChannelsMouseCursor;
   return m;
 }
 
@@ -43,3 +44,5 @@ var _systemChannelsPlatformViews = MXFunctionInvoke(
     "SystemChannels.platform_views", () => SystemChannels.platform_views);
 var _systemChannelsSkia =
     MXFunctionInvoke("SystemChannels.skia", () => SystemChannels.skia);
+var _systemChannelsMouseCursor = MXFunctionInvoke(
+    "SystemChannels.mouseCursor", () => SystemChannels.mouseCursor);

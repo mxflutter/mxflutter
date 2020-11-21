@@ -8,6 +8,7 @@ import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/material/icon_button.dart';
 import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/material/constants.dart';
 import 'package:flutter/src/material/debug.dart';
@@ -33,6 +34,7 @@ var _iconButton = MXFunctionInvoke(
     VisualDensity visualDensity,
     EdgeInsetsGeometry padding = const EdgeInsets.all(8.0),
     AlignmentGeometry alignment = Alignment.center,
+    dynamic splashRadius,
     Widget icon,
     Color color,
     Color focusColor,
@@ -41,6 +43,7 @@ var _iconButton = MXFunctionInvoke(
     Color splashColor,
     Color disabledColor,
     dynamic onPressed,
+    MouseCursor mouseCursor = SystemMouseCursors.click,
     FocusNode focusNode,
     bool autofocus = false,
     String tooltip,
@@ -53,6 +56,7 @@ var _iconButton = MXFunctionInvoke(
     visualDensity: visualDensity,
     padding: padding,
     alignment: alignment,
+    splashRadius: splashRadius?.toDouble(),
     icon: icon,
     color: color,
     focusColor: focusColor,
@@ -61,6 +65,7 @@ var _iconButton = MXFunctionInvoke(
     splashColor: splashColor,
     disabledColor: disabledColor,
     onPressed: createVoidCallbackClosure(_iconButton.buildOwner, onPressed),
+    mouseCursor: mouseCursor,
     focusNode: focusNode,
     autofocus: autofocus,
     tooltip: tooltip,
@@ -73,6 +78,7 @@ var _iconButton = MXFunctionInvoke(
     "visualDensity",
     "padding",
     "alignment",
+    "splashRadius",
     "icon",
     "color",
     "focusColor",
@@ -81,6 +87,7 @@ var _iconButton = MXFunctionInvoke(
     "splashColor",
     "disabledColor",
     "onPressed",
+    "mouseCursor",
     "focusNode",
     "autofocus",
     "tooltip",

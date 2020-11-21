@@ -163,6 +163,7 @@ var _simpleDialog = MXFunctionInvoke(
     Widget title,
     EdgeInsetsGeometry titlePadding =
         const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
+    TextStyle titleTextStyle,
     dynamic children,
     EdgeInsetsGeometry contentPadding =
         const EdgeInsets.fromLTRB(0.0, 12.0, 0.0, 16.0),
@@ -175,6 +176,7 @@ var _simpleDialog = MXFunctionInvoke(
     key: key,
     title: title,
     titlePadding: titlePadding,
+    titleTextStyle: titleTextStyle,
     children: toListT<Widget>(children),
     contentPadding: contentPadding,
     backgroundColor: backgroundColor,
@@ -186,6 +188,7 @@ var _simpleDialog = MXFunctionInvoke(
     "key",
     "title",
     "titlePadding",
+    "titleTextStyle",
     "children",
     "contentPadding",
     "backgroundColor",

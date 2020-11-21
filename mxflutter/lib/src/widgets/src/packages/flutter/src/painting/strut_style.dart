@@ -55,7 +55,7 @@ var _strutStyle = MXFunctionInvoke(
     "fontStyle",
     "forceStrutHeight",
     "debugLabel",
-    "package",
+    "__mx_package",
   ],
 );
 var _strutStyleDisabled =
@@ -99,6 +99,6 @@ var _strutStyleFromTextStyle = MXFunctionInvoke(
     "fontStyle",
     "forceStrutHeight",
     "debugLabel",
-    "package",
+    "__mx_package",
   ],
 );

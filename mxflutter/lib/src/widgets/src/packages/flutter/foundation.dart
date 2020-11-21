@@ -5,30 +5,29 @@
 //  found in the LICENSE file.
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
-import 'src/foundation/annotations.dart';
-import 'src/foundation/assertions.dart';
-import 'src/foundation/basic_types.dart';
-import 'src/foundation/binding.dart';
-import 'src/foundation/bitfield.dart';
-import 'src/foundation/change_notifier.dart';
-import 'src/foundation/collections.dart';
-import 'src/foundation/consolidate_response.dart';
-import 'src/foundation/constants.dart';
-import 'src/foundation/debug.dart';
-import 'src/foundation/diagnostics.dart';
-import 'src/foundation/isolates.dart';
-import 'src/foundation/key.dart';
-import 'src/foundation/licenses.dart';
-import 'src/foundation/node.dart';
-import 'src/foundation/object.dart';
-import 'src/foundation/observer_list.dart';
-import 'src/foundation/platform.dart';
-import 'src/foundation/print.dart';
-import 'src/foundation/profile.dart';
-import 'src/foundation/serialization.dart';
-import 'src/foundation/stack_frame.dart';
-import 'src/foundation/synchronous_future.dart';
-import 'src/foundation/unicode.dart';
+import './src/foundation/annotations.dart';
+import './src/foundation/assertions.dart';
+import './src/foundation/basic_types.dart';
+import './src/foundation/binding.dart';
+import './src/foundation/bitfield.dart';
+import './src/foundation/change_notifier.dart';
+import './src/foundation/collections.dart';
+import './src/foundation/consolidate_response.dart';
+import './src/foundation/constants.dart';
+import './src/foundation/debug.dart';
+import './src/foundation/diagnostics.dart';
+import './src/foundation/isolates.dart';
+import './src/foundation/key.dart';
+import './src/foundation/licenses.dart';
+import './src/foundation/node.dart';
+import './src/foundation/object.dart';
+import './src/foundation/observer_list.dart';
+import './src/foundation/platform.dart';
+import './src/foundation/print.dart';
+import './src/foundation/serialization.dart';
+import './src/foundation/stack_frame.dart';
+import './src/foundation/synchronous_future.dart';
+import './src/foundation/unicode.dart';
 
 Map<String, MXFunctionInvoke> registerFoundationLibrarySeries() {
   Map<String, MXFunctionInvoke> m = {};
@@ -51,7 +50,6 @@ Map<String, MXFunctionInvoke> registerFoundationLibrarySeries() {
   m.addAll(registerObserverListSeries());
   m.addAll(registerPlatformSeries());
   m.addAll(registerPrintSeries());
-  m.addAll(registerProfileSeries());
   m.addAll(registerSerializationSeries());
   m.addAll(registerStackFrameSeries());
   m.addAll(registerSynchronousFutureSeries());

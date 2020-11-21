@@ -11,7 +11,7 @@ import 'package:flutter/services.dart';
 import 'mx_common.dart';
 import './mirror/mx_mirror.dart';
 
-typedef Future<dynamic> _MXChannelFun(dynamic arguments);
+typedef Future<String> _MXChannelFun(dynamic arguments);
 
 /// 负责衔接Flutter，Native，JS 三方
 class MXJSBridge {
@@ -58,8 +58,7 @@ class MXJSBridge {
   /// JS->Flutter 顶层调用通道，处理JS的调用
   /// args参数为Json字符串argsJsonStr
   Future<String> commonBasicChannelHandler(argsJsonStr) async {
-    MXJSLog.log("commonBasicChannelHandler:");
-    MXJSLog.log(argsJsonStr);
+    MXJSLog.log("commonBasicChannelHandler: $argsJsonStr");
 
     Map args = json.decode(argsJsonStr);
     String funcName = args["funcName"];
@@ -85,21 +84,36 @@ class MXJSBridge {
   /// JS -> Flutter 开放给JS调用
   _setupName2FunMap() {
     // 由commonBasicChannelHandler调用
-    _name2FunMap["mxfJSBridgeCreateMirrorObj"] = mxfJSBridgeCreateMirrorObj;
-    _name2FunMap["mxfJSBridgeInvokeMirrorObjWithCallback"] =
-        mxfJSBridgeInvokeMirrorObjWithCallback;
-    _name2FunMap["mxfJSBridgeRemoveMirrorObjsRef"] =
-        mxfJSBridgeRemoveMirrorObjsRef;
+    _name2FunMap["mxJSBridgeCreateMirrorObj"] = mxJSBridgeCreateMirrorObj;
+    _name2FunMap["mxJSBridgeReleaseMirrorObj"] = mxJSBridgeReleaseMirrorObj;
+    _name2FunMap["mxJSBridgeInvokeMirrorObjWithCallback"] =
+        mxJSBridgeInvokeMirrorObjWithCallback;
   }
 
-  /// JS -> Flutter
-  Future<String> mxfJSBridgeCreateMirrorObj(argMap) async {
-    MXMirror.getInstance().jsonToDartObj(argMap);
+  Future<String> mxJSBridgeCreateMirrorObj(argMap) async {
+    // 将args字的所有字段都赋值到argMap中
+    Map args = argMap["args"];
+
+    if (args != null && args is Map) {
+      argMap.addAll(args);
+    }
+
+    MXMirror.getInstance().jsonToDartObj(argMap, buildOwner: null);
     return null;
   }
 
   /// JS -> Flutter
-  Future<String> mxfJSBridgeInvokeMirrorObjWithCallback(args) async {
+  Future<String> mxJSBridgeReleaseMirrorObj(argMap) async {
+    if (argMap == null && argMap["mirrorID"] == null) {
+      return null;
+    }
+
+    MXMirror.getInstance().removeMirrorObject(argMap["mirrorID"]);
+    return null;
+  }
+
+  /// JS -> Flutter
+  Future<String> mxJSBridgeInvokeMirrorObjWithCallback(args) async {
     if (args == null) {
       return null;
     }
@@ -107,7 +121,10 @@ class MXJSBridge {
     Completer<String> completer = new Completer<String>();
     MXMirror.getInstance().invokeWithCallback(args, (result) {
       var returnJsonStr = result;
-      if (result != null && !(result is String) && !(result is Future<String>)) {
+      if (result != null &&
+          !(result is String) &&
+          !(result is Future<String>)) {
+        //TODO: 此处会要求返回值为string类型，否则会因为encode异常
         returnJsonStr = json.encode(result);
       }
 
@@ -115,11 +132,4 @@ class MXJSBridge {
     });
     return completer.future;
   }
-
-  /// JS -> Flutter
-  Future<dynamic> mxfJSBridgeRemoveMirrorObjsRef(dynamic mirrorIDList) {
-    MXMirror.getInstance().removeMirrorObjectList(mirrorIDList);
-    return null;
-  }
-
 }

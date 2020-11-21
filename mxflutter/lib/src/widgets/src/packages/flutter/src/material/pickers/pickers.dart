@@ -10,6 +10,7 @@ import 'package:flutter/src/material/pickers/calendar_date_picker.dart';
 import 'package:flutter/src/material/pickers/date_picker_common.dart';
 import 'package:flutter/src/material/pickers/date_picker_deprecated.dart';
 import 'package:flutter/src/material/pickers/date_picker_dialog.dart';
+import 'package:flutter/src/material/pickers/date_range_picker_dialog.dart';
 import 'package:flutter/src/material/pickers/input_date_picker.dart';
 
 ///把自己能处理的类注册到分发器中

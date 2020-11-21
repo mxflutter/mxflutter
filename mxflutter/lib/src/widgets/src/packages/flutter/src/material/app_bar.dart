@@ -44,6 +44,7 @@ var _appBar = MXFunctionInvoke(
     Widget flexibleSpace,
     PreferredSizeWidget bottom,
     dynamic elevation,
+    Color shadowColor,
     ShapeBorder shape,
     Color backgroundColor,
     Brightness brightness,
@@ -56,6 +57,7 @@ var _appBar = MXFunctionInvoke(
     dynamic titleSpacing = 16.0,
     dynamic toolbarOpacity = 1.0,
     dynamic bottomOpacity = 1.0,
+    dynamic toolbarHeight,
   }) =>
       AppBar(
     key: key,
@@ -66,6 +68,7 @@ var _appBar = MXFunctionInvoke(
     flexibleSpace: flexibleSpace,
     bottom: bottom,
     elevation: elevation?.toDouble(),
+    shadowColor: shadowColor,
     shape: shape,
     backgroundColor: backgroundColor,
     brightness: brightness,
@@ -78,6 +81,7 @@ var _appBar = MXFunctionInvoke(
     titleSpacing: titleSpacing?.toDouble(),
     toolbarOpacity: toolbarOpacity?.toDouble(),
     bottomOpacity: bottomOpacity?.toDouble(),
+    toolbarHeight: toolbarHeight?.toDouble(),
   ),
   [
     "key",
@@ -88,6 +92,7 @@ var _appBar = MXFunctionInvoke(
     "flexibleSpace",
     "bottom",
     "elevation",
+    "shadowColor",
     "shape",
     "backgroundColor",
     "brightness",
@@ -100,6 +105,7 @@ var _appBar = MXFunctionInvoke(
     "titleSpacing",
     "toolbarOpacity",
     "bottomOpacity",
+    "toolbarHeight",
   ],
 );
 var _sliverAppBar = MXFunctionInvoke(
@@ -113,6 +119,7 @@ var _sliverAppBar = MXFunctionInvoke(
     Widget flexibleSpace,
     PreferredSizeWidget bottom,
     dynamic elevation,
+    Color shadowColor,
     bool forceElevated = false,
     Color backgroundColor,
     Brightness brightness,
@@ -123,6 +130,7 @@ var _sliverAppBar = MXFunctionInvoke(
     bool centerTitle,
     bool excludeHeaderSemantics = false,
     dynamic titleSpacing = 16.0,
+    dynamic collapsedHeight,
     dynamic expandedHeight,
     bool floating = false,
     bool pinned = false,
@@ -131,6 +139,7 @@ var _sliverAppBar = MXFunctionInvoke(
     dynamic stretchTriggerOffset = 100.0,
     dynamic onStretchTrigger,
     ShapeBorder shape,
+    dynamic toolbarHeight = 56.0,
   }) =>
       SliverAppBar(
     key: key,
@@ -141,6 +150,7 @@ var _sliverAppBar = MXFunctionInvoke(
     flexibleSpace: flexibleSpace,
     bottom: bottom,
     elevation: elevation?.toDouble(),
+    shadowColor: shadowColor,
     forceElevated: forceElevated,
     backgroundColor: backgroundColor,
     brightness: brightness,
@@ -151,6 +161,7 @@ var _sliverAppBar = MXFunctionInvoke(
     centerTitle: centerTitle,
     excludeHeaderSemantics: excludeHeaderSemantics,
     titleSpacing: titleSpacing?.toDouble(),
+    collapsedHeight: collapsedHeight?.toDouble(),
     expandedHeight: expandedHeight?.toDouble(),
     floating: floating,
     pinned: pinned,
@@ -159,6 +170,7 @@ var _sliverAppBar = MXFunctionInvoke(
     stretchTriggerOffset: stretchTriggerOffset?.toDouble(),
     onStretchTrigger: null,
     shape: shape,
+    toolbarHeight: toolbarHeight?.toDouble(),
   ),
   [
     "key",
@@ -169,6 +181,7 @@ var _sliverAppBar = MXFunctionInvoke(
     "flexibleSpace",
     "bottom",
     "elevation",
+    "shadowColor",
     "forceElevated",
     "backgroundColor",
     "brightness",
@@ -179,6 +192,7 @@ var _sliverAppBar = MXFunctionInvoke(
     "centerTitle",
     "excludeHeaderSemantics",
     "titleSpacing",
+    "collapsedHeight",
     "expandedHeight",
     "floating",
     "pinned",
@@ -187,5 +201,6 @@ var _sliverAppBar = MXFunctionInvoke(
     "stretchTriggerOffset",
     "onStretchTrigger",
     "shape",
+    "toolbarHeight",
   ],
 );

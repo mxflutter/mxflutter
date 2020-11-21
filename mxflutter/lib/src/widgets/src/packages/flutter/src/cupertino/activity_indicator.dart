@@ -14,6 +14,8 @@ import 'package:flutter/src/cupertino/colors.dart';
 Map<String, MXFunctionInvoke> registerActivityIndicatorSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_cupertinoActivityIndicator.funName] = _cupertinoActivityIndicator;
+  m[_cupertinoActivityIndicatorPartiallyRevealed.funName] =
+      _cupertinoActivityIndicatorPartiallyRevealed;
   return m;
 }
 
@@ -33,5 +35,23 @@ var _cupertinoActivityIndicator = MXFunctionInvoke(
     "key",
     "animating",
     "radius",
+  ],
+);
+var _cupertinoActivityIndicatorPartiallyRevealed = MXFunctionInvoke(
+  "CupertinoActivityIndicator.partiallyRevealed",
+  ({
+    Key key,
+    dynamic radius = 10.0,
+    dynamic progress = 1.0,
+  }) =>
+      CupertinoActivityIndicator.partiallyRevealed(
+    key: key,
+    radius: radius?.toDouble(),
+    progress: progress?.toDouble(),
+  ),
+  [
+    "key",
+    "radius",
+    "progress",
   ],
 );

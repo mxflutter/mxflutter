@@ -15,6 +15,7 @@ import 'package:flutter/src/widgets/routes.dart';
 Map<String, MXFunctionInvoke> registerPagesSeries() {
   var m = <String, MXFunctionInvoke>{};
   m[_pageRouteBuilder.funName] = _pageRouteBuilder;
+  m[_transitionBuilderPage.funName] = _transitionBuilderPage;
   return m;
 }
 
@@ -59,5 +60,52 @@ var _pageRouteBuilder = MXFunctionInvoke(
     "barrierLabel",
     "maintainState",
     "fullscreenDialog",
+  ],
+);
+var _transitionBuilderPage = MXFunctionInvoke(
+  "TransitionBuilderPage",
+  ({
+    dynamic pageBuilder,
+    //MX Modified being
+    dynamic transitionsBuilder,
+    Duration transitionDuration = const Duration(milliseconds: 300),
+    //MX Modified end
+    bool opaque = true,
+    bool barrierDismissible = false,
+    Color barrierColor,
+    String barrierLabel,
+    bool maintainState = true,
+    bool fullscreenDialog = false,
+    LocalKey key,
+    String name,
+    Object arguments,
+  }) =>
+      TransitionBuilderPage(
+    pageBuilder: null,
+    transitionsBuilder: null,
+    transitionDuration: transitionDuration,
+    opaque: opaque,
+    barrierDismissible: barrierDismissible,
+    barrierColor: barrierColor,
+    barrierLabel: barrierLabel,
+    maintainState: maintainState,
+    fullscreenDialog: fullscreenDialog,
+    key: key,
+    name: name,
+    arguments: arguments,
+  ),
+  [
+    "pageBuilder",
+    "transitionsBuilder",
+    "transitionDuration",
+    "opaque",
+    "barrierDismissible",
+    "barrierColor",
+    "barrierLabel",
+    "maintainState",
+    "fullscreenDialog",
+    "key",
+    "name",
+    "__mx_arguments",
   ],
 );

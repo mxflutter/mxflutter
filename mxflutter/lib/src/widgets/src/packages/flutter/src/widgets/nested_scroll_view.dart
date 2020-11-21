@@ -54,10 +54,10 @@ var _nestedScrollView = MXFunctionInvoke(
     dynamic headerSliverBuilder,
     Widget body,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-
+    bool floatHeaderSlivers = false,
+    Clip clipBehavior = Clip.hardEdge,
     /// MX modified begin  -add children
     dynamic children,
-
     /// MX modified end
   }) =>
       NestedScrollView(
@@ -66,15 +66,15 @@ var _nestedScrollView = MXFunctionInvoke(
     scrollDirection: scrollDirection,
     reverse: reverse,
     physics: physics,
-
     /// MX modified begin -add function
     headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
       return toListT<Widget>(children);
     },
-
     /// MX modified end
     body: body,
     dragStartBehavior: dragStartBehavior,
+    floatHeaderSlivers: floatHeaderSlivers,
+    clipBehavior: clipBehavior,
   ),
   [
     "key",
@@ -85,6 +85,8 @@ var _nestedScrollView = MXFunctionInvoke(
     "headerSliverBuilder",
     "body",
     "dragStartBehavior",
+    "floatHeaderSlivers",
+    "clipBehavior",
     ///MX modified begin
     "children",
     ///MX modified end
@@ -105,19 +107,16 @@ var _sliverOverlapAbsorber = MXFunctionInvoke(
   ({
     Key key,
     SliverOverlapAbsorberHandle handle,
-    Widget child,
     Widget sliver,
   }) =>
       SliverOverlapAbsorber(
     key: key,
     handle: handle,
-    child: child,
     sliver: sliver,
   ),
   [
     "key",
     "handle",
-    "child",
     "sliver",
   ],
 );
@@ -125,17 +124,14 @@ var _renderSliverOverlapAbsorber = MXFunctionInvoke(
   "RenderSliverOverlapAbsorber",
   ({
     SliverOverlapAbsorberHandle handle,
-    RenderSliver child,
     RenderSliver sliver,
   }) =>
       RenderSliverOverlapAbsorber(
     handle: handle,
-    child: child,
     sliver: sliver,
   ),
   [
     "handle",
-    "child",
     "sliver",
   ],
 );
@@ -144,19 +140,16 @@ var _sliverOverlapInjector = MXFunctionInvoke(
   ({
     Key key,
     SliverOverlapAbsorberHandle handle,
-    Widget child,
     Widget sliver,
   }) =>
       SliverOverlapInjector(
     key: key,
     handle: handle,
-    child: child,
     sliver: sliver,
   ),
   [
     "key",
     "handle",
-    "child",
     "sliver",
   ],
 );
@@ -183,6 +176,7 @@ var _nestedScrollViewViewport = MXFunctionInvoke(
     Key center,
     dynamic slivers = const <Widget>[],
     SliverOverlapAbsorberHandle handle,
+    Clip clipBehavior = Clip.hardEdge,
   }) =>
       NestedScrollViewViewport(
     key: key,
@@ -193,6 +187,7 @@ var _nestedScrollViewViewport = MXFunctionInvoke(
     center: center,
     slivers: toListT<Widget>(slivers),
     handle: handle,
+    clipBehavior: clipBehavior,
   ),
   [
     "key",
@@ -203,6 +198,7 @@ var _nestedScrollViewViewport = MXFunctionInvoke(
     "center",
     "slivers",
     "handle",
+    "clipBehavior",
   ],
 );
 var _renderNestedScrollViewViewport = MXFunctionInvoke(
@@ -215,6 +211,7 @@ var _renderNestedScrollViewViewport = MXFunctionInvoke(
     dynamic children,
     RenderSliver center,
     SliverOverlapAbsorberHandle handle,
+    Clip clipBehavior = Clip.hardEdge,
   }) =>
       RenderNestedScrollViewViewport(
     axisDirection: axisDirection,
@@ -224,6 +221,7 @@ var _renderNestedScrollViewViewport = MXFunctionInvoke(
     children: toListT<RenderSliver>(children),
     center: center,
     handle: handle,
+    clipBehavior: clipBehavior,
   ),
   [
     "axisDirection",
@@ -233,5 +231,6 @@ var _renderNestedScrollViewViewport = MXFunctionInvoke(
     "children",
     "center",
     "handle",
+    "clipBehavior",
   ],
 );

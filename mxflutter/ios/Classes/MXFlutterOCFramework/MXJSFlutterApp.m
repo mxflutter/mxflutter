@@ -10,7 +10,6 @@
 
 #import "MXJSFlutterApp.h"
 #import "MXJSFlutterDefines.h"
-#import <Flutter/Flutter.h>
 #import "MXJSEngine.h"
 #import "MXJSFlutterEngine.h"
 #import "MXJSBridge.h"
@@ -26,6 +25,9 @@
 @property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callJSMethodQueue;
 
 @property (nonatomic, strong) NSArray* jsAppSearchPathList;
+
+/// mx框架native侧加载main.js耗时
+@property (nonatomic, assign) NSTimeInterval mxNativeJSLoadCost;
 
 @end
 
@@ -142,7 +144,7 @@
     }];
 }
 
-- (void)runApp
+- (void)runApp:(id)flutterAppEnvironmentInfo
 {
     
     self.isJSAPPRun = NO;
@@ -157,28 +159,40 @@
         
         executor.jsContext[@"MXNativeJSFlutterApp"] = strongSelf;
         
+        if (flutterAppEnvironmentInfo) {
+            executor.jsContext[@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
+        }
+        
         //把JSI 注册到MXNativeJSFlutterApp中
         [[MXJSBridge shareInstance] registerModules: self jsAPPValueBridge:executor.jsContext[@"MXNativeJSFlutterApp"] ];
         
         NSString *mainJS = [strongSelf.appRootPath stringByAppendingPathComponent:@"main.js"];
         
+        // 框架加载main.js开始时间
+        NSTimeInterval jsLoadStartTime = [[NSDate date] timeIntervalSince1970] * 1000;
+        
         [executor executeScriptPath:mainJS onComplete:^(NSError *error) {
-            
-            MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
-            
-//             NSString *releaseMode = @"release";
-            
-// #if DEBUG
-//             releaseMode = @"debug";
-// #endif
-            
-//             [executor invokeMethod:@"main" args:@[releaseMode] callback:^(JSValue *result, NSError *error) {
+            if (error) {
+                MXJSFlutterLog(@"MXJSFlutter : runApp error: %@", error);
                 
-                strongSelf.isJSAPPRun = YES;
-                NSLog(@"MXJSFlutter : call main js error:%@",error);
-                
-                [strongSelf callJSMethodCallQueqe];
-            // }];
+                // 给到业务侧异常信息
+                [strongSelf.jsFlutterEngine.engineMethodChannel invokeMethod:MXFlutterJSExceptionHandler
+                                                                   arguments:@{@"jsFileType": @(MXFlutterJSFileType_Main),
+                                                                               @"errorMsg": error.description}
+                                                                      result:NULL];
+                return;
+            }
+            
+            strongSelf.isJSAPPRun = YES;
+            
+            [strongSelf callJSMethodCallQueqe];
+            
+            // 框架加载main.js结束时间
+            NSTimeInterval jsLoadEndTime = [[NSDate date] timeIntervalSince1970] * 1000;
+            strongSelf.mxNativeJSLoadCost = jsLoadEndTime - jsLoadStartTime;
+            
+            // 通知JS侧，框架加载时间
+            [strongSelf callJSInitProfileInfo];
         }];
         
     }];
@@ -228,35 +242,13 @@
     [self.jsEngine.jsExecutor executeBlockOnJSThread:block];
 }
 
+- (void)callJSInitProfileInfo {
+    NSDictionary *args = @{@"method" : @"nativeCallInitProfileInfo",
+                           @"arguments" : @{@"mxNativeJSLoadCost" : @(self.mxNativeJSLoadCost)}
+                          };
+    [self.jsExecutor invokeJSValue:self.jsAppObj method:@"nativeCall" args:@[args] callback:^(JSValue *result, NSError *error) {
 
-//MARK: - js -> native -> flutter
-//--------------------------------------------
-
-- (void)jsAPISetCurrentJSApp:(JSValue*)jsAppObj
-{
-    self.jsAppObj = jsAppObj;
-}
-
-- (void)jsAPICallFlutterReloadApp:(JSValue*)jsAppObj  widgetData:(NSString*)data
-{
-    self.jsAppObj = jsAppObj;
-    
-    [self.jsFlutterEngine callFlutterReloadAppWithJSWidgetData:data];
-}
-
-- (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments
-{
-    // if (arguments && [arguments isKindOfClass:[NSMutableDictionary class]]) {
-    //     arguments[@"index"] = @(++self.index);
-    //     NSLog(@"MXTimeStamp Native Beign %@ %lld index=%lu",method, (long long)([[NSDate date] timeIntervalSince1970] * 1000),(unsigned long)self.index);
-    // }
-    if ([method isEqualToString:@"rebuild"]) {
-        [self.jsFlutterAppRebuildChannel sendMessage:arguments];
-    } else if([method isEqualToString:@"navigatorPush"]) {
-        [self.jsFlutterAppNavigatorPushChannel sendMessage:arguments];
-    } else {
-        [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
-    }
+    }];
 }
 
 @end

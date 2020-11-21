@@ -12,7 +12,6 @@ import 'dart:developer';
 import 'dart:ui';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/debug.dart';
 import 'package:flutter/src/scheduler/priority.dart';
 

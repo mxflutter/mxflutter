@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/mxflutter.dart';
 
 import 'mx_mirror_example.dart';
+import 'lib_test.dart';
 
 void main() {
   //启动 MXFlutter JS App
@@ -27,7 +28,7 @@ runMXJSApp() {
   //建议不要修改mxflutter_js_src/目录名，模拟器热重载依据此路径配置
   //如果修改请全局搜索mxflutter_js_src/修改模拟器热重载配置，release或真机不受影响
   //jsAppSearchPathWithAssetsKeyList 一般无需设置，默认从jsApp root path开始查找
-//  MXJSFlutter.getInstance().runJSApp(
+//  MXJSFlutter.runJSApp(
 //      jsAppAssetsKey: "mxflutter_js_src",
 //      jsAppSearchPathWithAssetsKeyList: [
 //        "mxflutter_js_src/app_demo",
@@ -37,20 +38,9 @@ runMXJSApp() {
   //  或者运行你下载到 DocumentsDirectory 里的JS代码
   //  Directory directory = await getApplicationDocumentsDirectory();
   //  var jsAppPath = join(directory.path, "my_js_app");
-  //  MXJSFlutter.getInstance().runJSApp(jsAppPath: jsAppPath);
+  //  MXJSFlutter.runJSApp(jsAppPath: jsAppPath);
 
-  var locaTSReleasePath = "";
-
-  //soap
-  locaTSReleasePath = "/Volumes/Data/Work/RFlutter/mxflutter-js/release";
-
-  if (locaTSReleasePath.isEmpty) {
-    MXJSFlutter.getInstance().runJSApp(jsAppAssetsKey: "mxflutter_js_src");
-  } else {
-    //debug 重定义到ts release文件夹
-    MXJSFlutter.getInstance()
-        .runJSApp(jsAppPath: locaTSReleasePath);
-  }
+  MXJSFlutter.runJSApp(jsAppAssetsKey: "mxflutter_js_src");
 
   // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考MXMirrorExample实现过程
   MXMirrorExample.registerFunction();
@@ -131,7 +121,23 @@ class MXFlutterExampleHome extends StatelessWidget {
               ListTile(
                 title: Text(
                     '在此页面可以打开Safari浏览器-> 开发->模拟器。 然后点击MXFlutter Demo，可以在Safari调试JS'),
-              )
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.refresh,
+                  semanticLabel: '实验室',
+                  color: Colors.orange,
+                ),
+                title: Text('实验室'),
+                subtitle: Text('测试Flutter原生表现'),
+                isThreeLine: true,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyHomeLibPage(title: '实验室')));
+                },
+              ),
             ],
           )),
           Image.network(

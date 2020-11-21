@@ -6,12 +6,15 @@
 
 import 'package:mxflutter/src/mirror/mx_mirror.dart';
 import 'package:flutter/src/painting/decoration_image.dart';
+import 'dart:developer' as developer;
 import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/src/painting/alignment.dart';
 import 'package:flutter/src/painting/basic_types.dart';
 import 'package:flutter/src/painting/borders.dart';
 import 'package:flutter/src/painting/box_fit.dart';
+import 'package:flutter/src/painting/debug.dart';
 import 'package:flutter/src/painting/image_provider.dart';
 import 'package:flutter/src/painting/image_stream.dart';
 
@@ -38,6 +41,7 @@ var _decorationImage = MXFunctionInvoke(
     ui.Rect centerSlice,
     ImageRepeat repeat = ImageRepeat.noRepeat,
     bool matchTextDirection = false,
+    dynamic scale = 1.0,
   }) =>
       DecorationImage(
     image: image,
@@ -49,6 +53,7 @@ var _decorationImage = MXFunctionInvoke(
     centerSlice: centerSlice,
     repeat: repeat,
     matchTextDirection: matchTextDirection,
+    scale: scale?.toDouble(),
   ),
   [
     "image",
@@ -59,6 +64,7 @@ var _decorationImage = MXFunctionInvoke(
     "centerSlice",
     "repeat",
     "matchTextDirection",
+    "scale",
   ],
 );
 

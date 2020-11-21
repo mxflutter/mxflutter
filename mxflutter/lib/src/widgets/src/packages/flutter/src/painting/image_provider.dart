@@ -85,16 +85,19 @@ var _resizeImage = MXFunctionInvoke(
     ImageProvider<dynamic> imageProvider,
     int width,
     int height,
+    bool allowUpscaling = false,
   }) =>
       ResizeImage(
     imageProvider,
     width: width,
     height: height,
+    allowUpscaling: allowUpscaling,
   ),
   [
     "imageProvider",
     "width",
     "height",
+    "allowUpscaling",
   ],
 );
 var _networkImage = MXFunctionInvoke(
@@ -167,7 +170,7 @@ var _exactAssetImage = MXFunctionInvoke(
     "assetName",
     "scale",
     "bundle",
-    "package",
+    "__mx_package",
   ],
 );
 var _networkImageLoadException = MXFunctionInvoke(

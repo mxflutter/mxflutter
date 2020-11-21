@@ -19,16 +19,17 @@ import 'mx_common.dart';
 /// '''
 ///
 class MXJSWidget extends StatelessWidget {
-  MXJSWidget({this.jsWidgetName, Key key}) : this.key = key ?? UniqueKey();
+  MXJSWidget({this.jsWidgetName, Key key, this.flutterPushParams}) : this.key = key ?? UniqueKey();
   final String jsWidgetName;
   final Key key;
+  final Map flutterPushParams;
 
   @override
   Widget build(BuildContext context) {
     MXJSLog.log(
         "'MXJSPageWidget::build': MXJSFlutter.getInstance().navigatorPushWithName: $jsWidgetName key:$key");
 
-    return MXJSFlutter.getInstance().navigatorPushWithName(jsWidgetName, key);
+    return MXJSFlutter.getInstance().navigatorPushWithName(jsWidgetName, key, flutterPushParams);
   }
 }
 
@@ -47,6 +48,6 @@ class MXJSWidget extends StatelessWidget {
 /// '''
 ///
 class MXJSPageWidget extends MXJSWidget {
-  MXJSPageWidget({String jsWidgetName, Key key})
-      : super(jsWidgetName: jsWidgetName, key: key);
+  MXJSPageWidget({String jsWidgetName, Key key, Map flutterPushParams})
+      : super(jsWidgetName: jsWidgetName, key: key, flutterPushParams: flutterPushParams);
 }

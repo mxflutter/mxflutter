@@ -81,7 +81,9 @@ var _tabBar = MXFunctionInvoke(
     Color unselectedLabelColor,
     TextStyle unselectedLabelStyle,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    MouseCursor mouseCursor,
     dynamic onTap,
+    ScrollPhysics physics,
   }) =>
       TabBar(
     key: key,
@@ -99,7 +101,9 @@ var _tabBar = MXFunctionInvoke(
     unselectedLabelColor: unselectedLabelColor,
     unselectedLabelStyle: unselectedLabelStyle,
     dragStartBehavior: dragStartBehavior,
+    mouseCursor: mouseCursor,
     onTap: createValueChangedGenericClosure<int>(_tabBar.buildOwner, onTap),
+    physics: physics,
   ),
   [
     "key",
@@ -117,7 +121,9 @@ var _tabBar = MXFunctionInvoke(
     "unselectedLabelColor",
     "unselectedLabelStyle",
     "dragStartBehavior",
+    "mouseCursor",
     "onTap",
+    "physics",
   ],
 );
 var _tabBarView = MXFunctionInvoke(

@@ -13,8 +13,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/src/cupertino/activity_indicator.dart';
-import 'package:flutter/src/cupertino/colors.dart';
-import 'package:flutter/src/cupertino/icons.dart';
 
 ///把自己能处理的类注册到分发器中
 Map<String, MXFunctionInvoke> registerRefreshSeries() {
@@ -34,7 +32,7 @@ var _cupertinoSliverRefreshControl = MXFunctionInvoke(
     Key key,
     dynamic refreshTriggerPullDistance = 100.0,
     dynamic refreshIndicatorExtent = 60.0,
-    dynamic builder = CupertinoSliverRefreshControl.buildSimpleRefreshIndicator,
+    dynamic builder = CupertinoSliverRefreshControl.buildRefreshIndicator,
     dynamic onRefresh,
   }) =>
       CupertinoSliverRefreshControl(

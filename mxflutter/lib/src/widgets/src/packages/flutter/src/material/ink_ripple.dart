@@ -49,7 +49,9 @@ var _inkRipple = MXFunctionInvoke(
     onRemoved: createVoidCallbackClosure(_inkRipple.buildOwner, onRemoved),
   ),
   [
-    "controller",
+    // MX modified begin
+    "__mx_controller",
+    // MX modified end
     "referenceBox",
     "position",
     "color",

@@ -148,7 +148,7 @@ var _boxHitTestEntry = MXFunctionInvoke(
     localPosition,
   ),
   [
-    "target",
+    "__mx_target",
     "localPosition",
   ],
 );
