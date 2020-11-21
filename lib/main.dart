@@ -40,17 +40,7 @@ runMXJSApp() {
   //  var jsAppPath = join(directory.path, "my_js_app");
   //  MXJSFlutter.runJSApp(jsAppPath: jsAppPath);
 
-  var locaTSReleasePath = "";
-
-  //soap
-  //locaTSReleasePath = "/Volumes/Data/Work/RFlutter/mxflutter-js/release";
-
-  if (locaTSReleasePath.isEmpty) {
-    MXJSFlutter.runJSApp(jsAppAssetsKey: "mxflutter_js_src");
-  } else {
-    //debug 重定义到ts release文件夹
-    MXJSFlutter.runJSApp(jsAppPath: locaTSReleasePath);
-  }
+  MXJSFlutter.runJSApp(jsAppAssetsKey: "mxflutter_js_src");
 
   // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考MXMirrorExample实现过程
   MXMirrorExample.registerFunction();
