@@ -72,3 +72,4 @@ build/
 .flutter-plugins-dependencies
 ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 IDEWorkspaceChecks.plist
+.last_build_id
