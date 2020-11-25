@@ -9,6 +9,7 @@ package com.mojitox.mxflutter.framework;
 import androidx.annotation.Keep;
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.constants.MethodChannelConstant;
+import com.mojitox.mxflutter.framework.constants.MxConfig;
 import com.mojitox.mxflutter.framework.executor.JsTask;
 import com.mojitox.mxflutter.framework.executor.TaskName;
 import com.mojitox.mxflutter.framework.executor.UiThread;
@@ -22,6 +23,7 @@ import io.flutter.plugin.common.StringCodec;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimerTask;
+import org.jetbrains.annotations.NotNull;
 
 public class JsFlutterEngine {
 
@@ -39,10 +41,11 @@ public class JsFlutterEngine {
                 MethodChannelConstant.FLUTTER_METHED_CHANNEL_NAME);
         jsFlutterMainChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() {
             @Override
-            public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
+            public void onMethodCall(@NotNull MethodCall methodCall, @NotNull MethodChannel.Result result) {
                 if (methodCall.method.equals("callNativeRunJSApp")) {
                     Map<String, Boolean> flutterAppEnvironmentInfo = (Map<String, Boolean>) methodCall
                             .argument("flutterAppEnvironmentInfo");
+                    MxConfig.setJsAppPath(methodCall);
                     runApp(flutterAppEnvironmentInfo);
                     result.success("success");
                 } else if (methodCall.method.equals("callJsCallbackFunction")) {
