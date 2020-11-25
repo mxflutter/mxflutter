@@ -80,7 +80,7 @@
 
 - (void)dealloc
 {
-    [_mxContext performSelector:@selector(invalidate)
+    [_mxContext performSelector:@selector(dispose)
                        onThread:_javaScriptThread
                      withObject:nil
                   waitUntilDone:NO];
