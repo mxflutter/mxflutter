@@ -87,7 +87,6 @@ android {
 
     sourceSets {
         main {
-            jniLibs.srcDirs += 'libs'
             java {
                 if (USE_V8) {
                     srcDirs = [

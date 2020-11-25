@@ -64,6 +64,7 @@ public class V8JsEngine extends BaseJsEngine<V8JsExecutor> {
                 getJsExecutor().getRuntime().add("console", v8Console);
                 v8Console.registerJavaMethod(console, "log", "log", new Class[]{String.class});
                 v8Console.registerJavaMethod(console, "error", "error", new Class[]{String.class});
+                v8Console.registerJavaMethod(console, "warn", "warn", new Class[]{String.class});
             }
         });
     }
