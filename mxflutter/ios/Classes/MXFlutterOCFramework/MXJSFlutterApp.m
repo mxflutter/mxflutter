@@ -157,10 +157,8 @@
             return;
         }
         
-        executor.jsContext[@"MXNativeJSFlutterApp"] = strongSelf;
-        
         if (flutterAppEnvironmentInfo) {
-            executor.jsContext[@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
+            executor.jsContext[@"MXJSAPI"][@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
         }
         
         //把JSI 注册到MXNativeJSFlutterApp中

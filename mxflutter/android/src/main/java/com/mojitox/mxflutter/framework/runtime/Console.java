@@ -12,4 +12,8 @@ public class Console {
     public void error(final String message) {
         Log.e("Console [ERROR] ", message);
     }
+    @JavascriptInterface
+    public void warn(final String message) {
+        Log.w("Console [WARN] ", message);
+    }
 }

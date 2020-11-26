@@ -48,11 +48,6 @@ android {
 //            }
 //        }
 //    }
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
@@ -65,10 +60,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         consumerProguardFiles 'consumer-rules.pro'
-
-        ndk {
-            abiFilters 'armeabi-v7a'
-        }
 
     }
 
