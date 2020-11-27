@@ -77,21 +77,14 @@
     MXFLogInfo(@"JSEngine:jsFrameworkPath:%@",jsFrameworkPath);
     
     [self.jsEngine addSearchDir:jsFrameworkPath];
-    [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"framework/"]];
-    [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"framework/dart_js_framework/"]];
-    
-    //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js_src/
+
+    //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js_bundle/
     [self.jsEngine addSearchDir:self.appRootPath];
-    //__weak MXJSFlutterEngine *weakSelf = self;
-    
+
     for (NSString *searchPath in self.jsAppSearchPathList) {
          [self.jsEngine addSearchDir:searchPath];
     }
     
-    //NSString *js_basic_lib_Path = [jsFrameworkPath stringByAppendingPathComponent:@"js_basic_lib.js"];
-    //[self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
-        
-    //}];
 }
 
 
