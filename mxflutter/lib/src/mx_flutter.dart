@@ -54,7 +54,7 @@ abstract class MXJSFlutter {
   ///启动JSApp之后，执行JS代码，JS代码可以主动调用Flutter显示自己的页面，也能接受Flutter的指令，显示对应页面
   ///
   ///@param jsAppPath jsApp root path ，JS业务代码放置在一个文件夹中，并且有main.js文件。jsAppPath和jsAppAssetsKey根据场景二选一
-  ///@param jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的mxflutter_js_src/文件夹下
+  ///@param jsAppAssetsKey 使用pubspec.yaml里的AssetsKey配置来设置jsAppPath，默认为flutter工程下，与lib，ios同级目录的 mxflutter_js_bundle/ 文件夹下
   ///@param jsAppSearchPathList js App require 的搜索路径，一般无需设置，默认jsApp root path
   ///@param jsAppSearchPathWithAssetsKeyList js App require 的搜索路径，使用pubspec.yaml里的AssetsKey配置来设置，一般无需设置，默认jsApp root path
   ///@param jsExceptionHandler js异常回调。方法参数见 MXJSExceptionHandler 说明
@@ -63,7 +63,7 @@ abstract class MXJSFlutter {
   ///
   static runJSApp(
       {String jsAppPath = "",
-      String jsAppAssetsKey = "mxflutter_js_src",
+      String jsAppAssetsKey = "mxflutter_js_bundle",
       List<String> jsAppSearchPathList,
       List<String> jsAppSearchPathWithAssetsKeyList,
       MXJSExceptionHandler jsExceptionHandler}) {
@@ -82,7 +82,7 @@ abstract class MXJSFlutter {
 
   static _callNativeRunJSApp(
       {String jsAppPath = "",
-      String jsAppAssetsKey = "mxflutter_js_src",
+      String jsAppAssetsKey = "mxflutter_js_bundle",
       List<String> jsAppSearchPathList,
       List<String> jsAppSearchPathWithAssetsKeyList,
       MXJSExceptionHandler jsExceptionHandler}) {

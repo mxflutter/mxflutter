@@ -1,0 +1,36 @@
+{
+  "version": "0.0.1",
+  "description": "TODO",
+  "keywords": [
+    "mxflutter"
+  ],
+  "license": "MIT",
+  "contributors": [
+    "xsoap <mxflutter@qq.com>"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist lib",
+    "build": "mxflutter build --env production --out ../../mxflutter_js_bundle --app mxflutter-homepage ./src/index.ts",
+    "build:es5": "mxflutter build --target es5 --env production --out ../../mxflutter_js_bundle --app mxflutter-homepage ./src/index.ts",
+    "build:ci-es6": "mxflutter build --env production --out ./ci_dist --app mxflutter-homepage ./src/index.ts",
+    "build:ci-es5": "mxflutter build --target es5 --env production --out ./ci_dist --app mxflutter-homepage ./src/index.ts",
+    "build:ci": "npm run build:ci-es6 && npm run build:ci-es5",
+    "dev": "mxflutter build --watch --out ../../mxflutter_js_bundle --app mxflutter-homepage ./src/index.ts"
+  },
+  "dependencies": {
+    "@tencent/mxflutter": "latest",
+    "@tencent/mxflutter-widgets": "latest"
+  },
+  "devDependencies": {
+    "@tencent/mxflutter-toolchain": "latest",
+    "typescript": "^3.9.5",
+    "@tencent/eslint-config-tencent": "^0.7.0",
+    "@types/node": "^14.0.14",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5"
+  }
+}
