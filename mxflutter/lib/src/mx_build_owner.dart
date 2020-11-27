@@ -5,6 +5,7 @@
 //  found in the LICENSE file.
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mxflutter/mxflutter.dart';
 import 'package:mxflutter/mxflutter_test.dart';
 import 'package:ffi/ffi.dart';
 
@@ -279,7 +280,8 @@ class MXJsonBuildOwner {
     WidgetBuilder builder = (BuildContext context) {
       dynamic jsWidget = buildWidgetData(widgetDataMap, context);
 
-      if (jsWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget) {
+      if (jsWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget && 
+          jsWidget is! MXJSPageWidget) {
         String className = widgetDataMap["className"];
         MXJSLog.error("MXJsonBuildOwner:jsCallNavigatorPush: "
             "(rootWidget is! MXJSStatefulWidget && jsWidget is! MXJSStatelessWidget)) "
