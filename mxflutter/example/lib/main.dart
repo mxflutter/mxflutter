@@ -27,7 +27,7 @@ class MXFlutterExampleHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: FlutterLogo(colors: Colors.blue),
+          leading: FlutterLogo(colors: Colors.grey),
           title: Text('MXFlutter Demo'),
         ),
         body: ListView(
