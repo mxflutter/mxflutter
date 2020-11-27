@@ -275,7 +275,7 @@
 {
     __weak MXJSExecutor *weakSelf = self;
     [self executeBlockOnJSThread:^{
-        JSValue * reslut = [weakSelf.jsContext.globalObject invokeMethod:method withArguments:args];
+        JSValue * reslut = [weakSelf.jsContext.globalObject[@"MXJSAPI"] invokeMethod:method withArguments:args];
         
         if (callback) {
             callback(reslut,nil);
