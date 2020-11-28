@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/mxflutter.dart';
 
 void main() {
-  //-------1. MXFlutter 启动---------
+  //-------1. 启动 MXFlutter---------
   MXJSFlutter.runJSApp();
   runApp(MyApp());
 }
@@ -38,7 +38,7 @@ class MXFlutterExampleHome extends StatelessWidget {
               title: Text('MXFlutter Demo'),
               subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
               onTap: () {
-                /*-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
+                /*-------2. 打开使用MXFlutter框架JS编写的页面
                 jsWidgetName: "mxflutter-homepage",是在 TS 工程中 index.ts文件注册的JS Widget
 
                 ''' index.ts

@@ -14,25 +14,25 @@ void main() {
 
 runMXJSApp() {
   //-------MXFlutter 启动---------
-  //1. 启动你的jsAPP，预加载框架JS代码，不显示任何界面
+  //1. 启动MXFlutter，预加载框架JS代码，不显示任何界面
 
-  // runJSApp 的jsAppAssetsKey 参数默认为mxflutter_js_bundle/，直接运行 MXJSFlutter.runJSApp()
-  // 代表加载打到apk或ipa包例的 js bundle文件，
+  // runJSApp 的 jsAppAssetsKey 参数默认为mxflutter_js_bundle/，
+  // 直接运行 MXJSFlutter.runJSApp(),代表加载打到apk或ipa包例的 JS Bundle文件，
   // JS Bundle目录在 pubspec.yaml中配置
   // flutter:
   //  assets:
   //    - mxflutter_js_bundle/
   // 建议不要修改mxflutter_js_bundle/目录名，模拟器热重载依据此路径配置
-  // 如果修改请全局搜索mxflutter_js_bundle/修改模拟器热重载配置，release或真机不受影响
+  // 如果修改请全局搜索mxflutter_js_bundle/ 修改模拟器热重载配置
 
-  //  也可以运行你下载到 DocumentsDirectory 里的JS代码，用来热更新
+  //  runJSApp 的 jsAppPath参数 可以指定下载到 DocumentsDirectory 里的JS代码，用来热更新
   //  Directory directory = await getApplicationDocumentsDirectory();
   //  var jsAppPath = join(directory.path, "my_js_bundle");
   //  MXJSFlutter.runJSApp(jsAppPath: jsAppPath);
 
   MXJSFlutter.runJSApp();
 
-  // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考MXMirrorExample实现过程
+  // 注册自定义JSApi，可以在JS侧调用自定义dart的示例代码，参考MXMirrorExample实现过程
   MXMirrorExample.registerFunction();
 }
 
@@ -68,9 +68,19 @@ class MXFlutterExampleHome extends StatelessWidget {
                 title: Text('mxflutter-js-demo'),
                 subtitle: Text('run js example'),
                 onTap: () {
-                  //-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
-                  //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用，
-                  //创建你需要的MX JS Widget
+                  /*-------2. 打开使用MXFlutter框架JS编写的页面
+                jsWidgetName: "mxflutter-js-demo",是在 TS 工程中 index.ts文件注册的JS Widget
+
+                ''' index.ts
+
+                     mxflutter.regist({
+                        name: 'mxflutter-js-demo',
+                        RootWidget: homePageModule.MXJSWidgetHomePage,
+                      });
+
+                '''
+
+                 */
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -84,9 +94,6 @@ class MXFlutterExampleHome extends StatelessWidget {
                 title: Text('example1'),
                 subtitle: Text('run ts example'),
                 onTap: () {
-                  //-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
-                  //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用，
-                  //创建你需要的MX JS Widget
                   Navigator.push(
                       context,
                       MaterialPageRoute(
