@@ -90,7 +90,7 @@ class MXUtil {
 
   static Map cThemeDataToJson(ThemeData data) {
     var map = {
-      "brightness": cBrightnessToJson(data.brightness),
+      "__mx_brightness": cBrightnessToJson(data.brightness),
       "primaryColor": data.primaryColor?.value,
       "primaryColorBrightness": cBrightnessToJson(data.primaryColorBrightness),
       "primaryColorLight": data.primaryColorLight?.value,
@@ -176,28 +176,18 @@ class MXUtil {
     }
 
     Map map = {
-      // ignore: deprecated_member_use
-      "display4": cTextStyleToJson(data.display4),
-      // ignore: deprecated_member_use
-      "display3": cTextStyleToJson(data.display3),
-      // ignore: deprecated_member_use
-      "display2": cTextStyleToJson(data.display2),
-      // ignore: deprecated_member_use
-      "display1": cTextStyleToJson(data.display1),
-      // ignore: deprecated_member_use
-      "headline": cTextStyleToJson(data.headline),
-      // ignore: deprecated_member_use
-      "title": cTextStyleToJson(data.title),
-      // ignore: deprecated_member_use
-      "subhead": cTextStyleToJson(data.subhead),
-      // ignore: deprecated_member_use
-      "body2": cTextStyleToJson(data.body2),
-      // ignore: deprecated_member_use
-      "body1": cTextStyleToJson(data.body1),
+      "headline1": cTextStyleToJson(data.headline1),
+      "headline2": cTextStyleToJson(data.headline2),
+      "headline4": cTextStyleToJson(data.headline4),
+      "headline4": cTextStyleToJson(data.headline4),
+      "headline5": cTextStyleToJson(data.headline5),
+      "headline6": cTextStyleToJson(data.headline6),
+      "subtitle1": cTextStyleToJson(data.subtitle1),
+      "subtitle2": cTextStyleToJson(data.subtitle2),
+      "bodyText1": cTextStyleToJson(data.bodyText1),
+      "bodyText2": cTextStyleToJson(data.bodyText2),
       "caption": cTextStyleToJson(data.caption),
       "button": cTextStyleToJson(data.button),
-      // ignore: deprecated_member_use
-      "subtitle": cTextStyleToJson(data.subtitle),
       "overline": cTextStyleToJson(data.overline),
     };
 
