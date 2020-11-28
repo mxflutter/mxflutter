@@ -123,7 +123,22 @@ public class JsFlutterApp {
 
         // 记录native侧main.js加载开始时间
         long jsLoadStartTime = System.currentTimeMillis();
-        final String mainJsPath = searchMainJsPath();
+
+        //先判断appMainJsPath是否有main.js，优先加载用户设置的目录里的main.js,如果没有加载随包的main.js
+        final String appMainJsPath = MxConfig.getJsPath() + Const.MAIN_JS;
+        loadMainJs(appMainJsPath,jsLoadStartTime, new InvokeJSValueCallback() {
+            @Override
+            public void onSuccess(Object value) {}
+            @Override
+            public void onError(Error error) {
+                final String pkgMainJsPath =  MxConfig.getJsLibPath() + Const.MAIN_JS;
+                loadMainJs(pkgMainJsPath,jsLoadStartTime,null);
+            }
+        });
+    }
+
+    private void loadMainJs(String mainJsPath,long jsLoadStartTime,InvokeJSValueCallback callback){
+
         MXFlutterPlugin.get().getJsExecutor().executeScriptPath(mainJsPath, new InvokeJSValueCallback() {
             @Override
             public void onSuccess(Object value) {
@@ -133,23 +148,23 @@ public class JsFlutterApp {
                 // 记录native侧main.js加载开始时间
                 mxNativeJSLoadCost = System.currentTimeMillis() - jsLoadStartTime;
                 callJSInitProfileInfo();
+
+                if(callback != null) {
+                    callback.onSuccess(null);
+                }
+
             }
 
             @Override
             public void onError(Error error) {
                 JsLoadErrorMsg.INSTANCE.invokeJsErrorMethodChannel(error, mainJsPath);
+
+                if(callback != null) {
+                    callback.onError(error);
+                }
+
             }
         });
-    }
-
-    private String searchMainJsPath(){
-
-        //TODO: 先判断appMainJsPath是否有main.js，优先加载用户设置的目录里的main.js,如果没有加载随包的main.js
-        //final String appMainJsPath = MxConfig.getJsPath() + Const.MAIN_JS;
-        //return appMainJsPath
-
-        final String pkgMainJsPath =  MxConfig.getJsLibPath() + Const.MAIN_JS;
-        return pkgMainJsPath;
     }
 
     private void callJSMethodCallQueue() {
