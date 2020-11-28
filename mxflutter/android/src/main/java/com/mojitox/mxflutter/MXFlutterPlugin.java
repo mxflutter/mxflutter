@@ -10,6 +10,7 @@ import com.mojitox.mxflutter.framework.JsFlutterEngine;
 import com.mojitox.mxflutter.framework.js.BaseJsEngine;
 import com.mojitox.mxflutter.framework.js.BaseJsExecutor;
 import com.mojitox.mxflutter.framework.js.JsEngineProvider;
+import com.mojitox.mxflutter.framework.constants.MxConfig;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -42,6 +43,7 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
         }
         sMXFlutterPluginPlugin = this;
         applicationContext = flutterPluginBinding.getApplicationContext();
+        setJsLibPath(flutterPluginBinding);
         setFlutterEngine(flutterPluginBinding.getBinaryMessenger());
         setJsEngine(JsEngineProvider.createJsEngine());//切换引擎
         setCurrentApp(new JsFlutterApp());
@@ -117,5 +119,13 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     public Context getApplicationContext() {
         return applicationContext;
+    }
+
+    /**
+     * 设置随包的Main.js路径
+     */
+    private static void setJsLibPath(@NonNull FlutterPluginBinding flutterPluginBinding) {
+       String libPath =  flutterPluginBinding.getFlutterAssets().getAssetFilePathByName(MxConfig.JS_LIB_ASSERTS, "mxflutter");
+       MxConfig.setJsLibPath(libPath);
     }
 }

@@ -101,7 +101,7 @@ public class JsFlutterEngine {
 
     public void runApp(Map flutterAppEnvironmentInfo) {
         MXFlutterPlugin.get().getCurrentApp().initWithAppName(flutterAppEnvironmentInfo);
-        MXFlutterPlugin.get().getCurrentApp().runAppWithPageName();
+        MXFlutterPlugin.get().getCurrentApp().runApp();
     }
 
     public void callFlutterReloadAppWithJSWidgetData(String widgetData) {

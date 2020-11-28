@@ -21,6 +21,8 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.StringCodec;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,7 +44,7 @@ public class JsFlutterApp {
     private ArrayList<MethodCall> callJSMethodQueue;
 
     public JsFlutterApp() {
-        setUpChannel(MXFlutterPlugin.get().getFlutterEngine());
+        setupChannel(MXFlutterPlugin.get().getFlutterEngine());
         callJSMethodQueue = new ArrayList<>(1);
     }
 
@@ -58,7 +60,7 @@ public class JsFlutterApp {
     }
 
     //flutter --> js
-    void setUpChannel(BinaryMessenger flutterViewController) {
+    void setupChannel(BinaryMessenger flutterViewController) {
         jsFlutterAppChannel = new MethodChannel(flutterViewController, MethodChannelConstant.MXFLUTTER_METHED_CHANNEL_APP);
         jsFlutterAppChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() {
             @Override
@@ -114,17 +116,14 @@ public class JsFlutterApp {
         MXFlutterPlugin.get().getJsExecutor().close();
     }
 
+
     public void runApp() {
         isJsAPPRun = false;
-        runAppWithPageName();
-    }
-
-    public void runAppWithPageName() {
         MXFlutterPlugin.get().getJsExecutor().registerMxNativeJsFlutterApp();
 
         // 记录native侧main.js加载开始时间
         long jsLoadStartTime = System.currentTimeMillis();
-        final String mainJsPath = MxConfig.getJsPath() + Const.MAIN_JS;
+        final String mainJsPath = searchMainJsPath();
         MXFlutterPlugin.get().getJsExecutor().executeScriptPath(mainJsPath, new InvokeJSValueCallback() {
             @Override
             public void onSuccess(Object value) {
@@ -133,8 +132,6 @@ public class JsFlutterApp {
 
                 // 记录native侧main.js加载开始时间
                 mxNativeJSLoadCost = System.currentTimeMillis() - jsLoadStartTime;
-
-
                 callJSInitProfileInfo();
             }
 
@@ -143,6 +140,16 @@ public class JsFlutterApp {
                 JsLoadErrorMsg.INSTANCE.invokeJsErrorMethodChannel(error, mainJsPath);
             }
         });
+    }
+
+    private String searchMainJsPath(){
+
+        //TODO: 先判断appMainJsPath是否有main.js，优先加载用户设置的目录里的main.js,如果没有加载随包的main.js
+        //final String appMainJsPath = MxConfig.getJsPath() + Const.MAIN_JS;
+        //return appMainJsPath
+
+        final String pkgMainJsPath =  MxConfig.getJsLibPath() + Const.MAIN_JS;
+        return pkgMainJsPath;
     }
 
     private void callJSMethodCallQueue() {
