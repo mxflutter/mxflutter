@@ -122,6 +122,7 @@ class MXJSFlutterApp {
   /// JS ->  Flutter 开放给JS调用
   _setupName2FunMap() {
     _name2FunMap["navigatorPushNamed"] = _jsCallNavigatorPushNamed;
+    _name2FunMap["navigatorPushBundleJSPage"] = _jsCallNavigatorPushBundleJSPage;
     _name2FunMap["navigatorPop"] = _jsCallNavigatorPop;
   }
 
@@ -263,6 +264,25 @@ class MXJSFlutterApp {
     }
 
     boNode.jsCallNavigatorPushNamed(routeName, args["mxArguments"]);
+  }
+
+  /// JS->Flutter
+  /// js层 调用navigatorPushNamed 主动push页面
+  Future<dynamic> _jsCallNavigatorPushBundleJSPage(widgetDataStr) async {
+    Map widgetDataMap = json.decode(widgetDataStr);
+
+    //谁push jsWidget，找到对应的build owner
+    String navPushingWidgetID = widgetDataMap["navPushingWidgetElementID"];
+    MXJsonBuildOwner boNode = _rootBuildOwnerNode.findChild(navPushingWidgetID);
+
+    if (boNode == null) {
+      String name = widgetDataMap["name"];
+      MXJSLog.error("MXJSFlutterApp:_jsCallNavigatorPushBundleJSPage: "
+          "findBuildOwner(navPushingWidgetID:$navPushingWidgetID) == null，name:$name ");
+      return;
+    }
+
+    boNode.jsCallNavigatorPush(widgetDataMap);
   }
 
   /// JS->Flutter

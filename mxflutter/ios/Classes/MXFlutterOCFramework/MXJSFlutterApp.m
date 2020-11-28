@@ -77,21 +77,14 @@
     MXFLogInfo(@"JSEngine:jsFrameworkPath:%@",jsFrameworkPath);
     
     [self.jsEngine addSearchDir:jsFrameworkPath];
-    [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"framework/"]];
-    [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"framework/dart_js_framework/"]];
-    
-    //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js_src/
+
+    //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js_bundle/
     [self.jsEngine addSearchDir:self.appRootPath];
-    //__weak MXJSFlutterEngine *weakSelf = self;
-    
+
     for (NSString *searchPath in self.jsAppSearchPathList) {
          [self.jsEngine addSearchDir:searchPath];
     }
     
-    //NSString *js_basic_lib_Path = [jsFrameworkPath stringByAppendingPathComponent:@"js_basic_lib.js"];
-    //[self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
-        
-    //}];
 }
 
 
@@ -157,16 +150,15 @@
             return;
         }
         
-        executor.jsContext[@"MXNativeJSFlutterApp"] = strongSelf;
-        
         if (flutterAppEnvironmentInfo) {
-            executor.jsContext[@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
+            executor.jsContext[@"MXJSAPI"][@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
         }
         
         //把JSI 注册到MXNativeJSFlutterApp中
         [[MXJSBridge shareInstance] registerModules: self jsAPPValueBridge:executor.jsContext[@"MXNativeJSFlutterApp"] ];
         
-        NSString *mainJS = [strongSelf.appRootPath stringByAppendingPathComponent:@"main.js"];
+        NSString *mainJS = [self searchEntryJS];
+        MXFLogInfo(@"executeScriptPath MainJS Path: %@",mainJS);
         
         // 框架加载main.js开始时间
         NSTimeInterval jsLoadStartTime = [[NSDate date] timeIntervalSince1970] * 1000;
@@ -196,6 +188,27 @@
         }];
         
     }];
+}
+
+- (NSString*)searchEntryJS{
+    
+    //v0.7.0 先读 RunJSApp传入的JS文件路径里是否有main.js，如果没有读随包的main.js
+    NSString *appMainJS = [self.appRootPath stringByAppendingPathComponent:@"main.js"];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:appMainJS]) {
+        return  appMainJS;
+    }
+    
+    // js_lib/main.js
+    NSString *jsFrameworkPath = [self.jsFlutterEngine jsFrameworkPath];
+    NSString * pkgMainJS = [jsFrameworkPath stringByAppendingPathComponent:@"main.js"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:pkgMainJS]) {
+        MXFLogError(@"MainJS fileNotExistsAtPath: AppPath: %@ or PkgPath: %@",appMainJS,pkgMainJS);
+    }
+    
+    return pkgMainJS;
+    
 }
 
 - (void)callJSMethodCallQueqe{

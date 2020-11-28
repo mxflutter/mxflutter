@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../mirror/mx_mirror.dart';
-import '../mx_widget.dart';
 import '../mx_mixin.dart';
+import '../mx_widget.dart';
 
 /// 注册common方法
 void mxRegisterMirrorCommonFunc() {
@@ -16,22 +17,25 @@ Map<String, MXFunctionInvoke> registerMXJSStateWidgetSeries() {
   m[_mxSingleTickerMixinWidget.funName] = _mxSingleTickerMixinWidget;
   m[_mxTickerMixinWidget.funName] = _mxTickerMixinWidget;
   m[_mxKeepAliveMixinWidget.funName] = _mxKeepAliveMixinWidget;
-  m[_mxSingleTickerAndKeepAliveMixinWidget.funName] = _mxSingleTickerAndKeepAliveMixinWidget;
-  m[_mxTickerAndKeepAliveMixinWidget.funName] = _mxTickerAndKeepAliveMixinWidget;
+  m[_mxSingleTickerAndKeepAliveMixinWidget.funName] =
+      _mxSingleTickerAndKeepAliveMixinWidget;
+  m[_mxTickerAndKeepAliveMixinWidget.funName] =
+      _mxTickerAndKeepAliveMixinWidget;
 
   return m;
 }
 
 var _mxJSStatefulWidget = MXFunctionInvoke(
   "MXJSStatefulWidget",
-  (
-          {Key key,
-          String name,
-          String widgetID,
-          Map widgetData,
-          String buildWidgetDataSeq,
-          String navPushingWidgetElementID,
-          bool isJSLazyWidget = false,}) =>
+  ({
+    Key key,
+    String name,
+    String widgetID,
+    Map widgetData,
+    String buildWidgetDataSeq,
+    String navPushingWidgetElementID,
+    bool isJSLazyWidget = false,
+  }) =>
       MXJSStatefulWidget(
           key: key,
           name: name,
@@ -88,14 +92,15 @@ var _mxJSStatelessWidget = MXFunctionInvoke(
 
 var _mxSingleTickerMixinWidget = MXFunctionInvoke(
   "MXSingleTickerMixinWidget",
-  (
-          {Key key,
-          String name,
-          String widgetID,
-          Map widgetData,
-          String buildWidgetDataSeq,
-          String navPushingWidgetElementID,
-          bool isJSLazyWidget = false,}) =>
+  ({
+    Key key,
+    String name,
+    String widgetID,
+    Map widgetData,
+    String buildWidgetDataSeq,
+    String navPushingWidgetElementID,
+    bool isJSLazyWidget = false,
+  }) =>
       MXSingleTickerMixinWidget(
     key: key,
     name: name,
@@ -122,14 +127,15 @@ var _mxSingleTickerMixinWidget = MXFunctionInvoke(
 
 var _mxTickerMixinWidget = MXFunctionInvoke(
   "MXTickerMixinWidget",
-  (
-          {Key key,
-          String name,
-          String widgetID,
-          Map widgetData,
-          String buildWidgetDataSeq,
-          String navPushingWidgetElementID,
-          bool isJSLazyWidget = false,}) =>
+  ({
+    Key key,
+    String name,
+    String widgetID,
+    Map widgetData,
+    String buildWidgetDataSeq,
+    String navPushingWidgetElementID,
+    bool isJSLazyWidget = false,
+  }) =>
       MXTickerMixinWidget(
     key: key,
     name: name,
@@ -156,14 +162,15 @@ var _mxTickerMixinWidget = MXFunctionInvoke(
 
 var _mxKeepAliveMixinWidget = MXFunctionInvoke(
   "MXKeepAliveMixinWidget",
-  (
-          {Key key,
-          String name,
-          String widgetID,
-          Map widgetData,
-          String buildWidgetDataSeq,
-          String navPushingWidgetElementID,
-          bool isJSLazyWidget = false,}) =>
+  ({
+    Key key,
+    String name,
+    String widgetID,
+    Map widgetData,
+    String buildWidgetDataSeq,
+    String navPushingWidgetElementID,
+    bool isJSLazyWidget = false,
+  }) =>
       MXKeepAliveMixinWidget(
     key: key,
     name: name,
@@ -190,14 +197,15 @@ var _mxKeepAliveMixinWidget = MXFunctionInvoke(
 
 var _mxSingleTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
   "MXSingleTickerAndKeepAliveMixinWidget",
-  (
-          {Key key,
-          String name,
-          String widgetID,
-          Map widgetData,
-          String buildWidgetDataSeq,
-          String navPushingWidgetElementID,
-          bool isJSLazyWidget = false,}) =>
+  ({
+    Key key,
+    String name,
+    String widgetID,
+    Map widgetData,
+    String buildWidgetDataSeq,
+    String navPushingWidgetElementID,
+    bool isJSLazyWidget = false,
+  }) =>
       MXSingleTickerAndKeepAliveMixinWidget(
     key: key,
     name: name,
@@ -224,14 +232,15 @@ var _mxSingleTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
 
 var _mxTickerAndKeepAliveMixinWidget = MXFunctionInvoke(
   "MXTickerAndKeepAliveMixinWidget",
-  (
-          {Key key,
-          String name,
-          String widgetID,
-          Map widgetData,
-          String buildWidgetDataSeq,
-          String navPushingWidgetElementID,
-          bool isJSLazyWidget = false,}) =>
+  ({
+    Key key,
+    String name,
+    String widgetID,
+    Map widgetData,
+    String buildWidgetDataSeq,
+    String navPushingWidgetElementID,
+    bool isJSLazyWidget = false,
+  }) =>
       MXTickerAndKeepAliveMixinWidget(
     key: key,
     name: name,

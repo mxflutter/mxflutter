@@ -28,7 +28,6 @@ import java.util.Map;
 public class JsFlutterApp {
 
     public static final String TAG = "MXJSFlutterApp";
-    private String rootPath;
 
     private boolean isJsAPPRun;
     private JsFlutterApp currentApp;
@@ -44,7 +43,6 @@ public class JsFlutterApp {
 
     public JsFlutterApp() {
         setUpChannel(MXFlutterPlugin.get().getFlutterEngine());
-        this.rootPath = MxConfig.getJsPath();
         callJSMethodQueue = new ArrayList<>(1);
     }
 
@@ -126,7 +124,7 @@ public class JsFlutterApp {
 
         // 记录native侧main.js加载开始时间
         long jsLoadStartTime = System.currentTimeMillis();
-        final String mainJsPath = rootPath + Const.MAIN_JS;
+        final String mainJsPath = MxConfig.getJsPath() + Const.MAIN_JS;
         MXFlutterPlugin.get().getJsExecutor().executeScriptPath(mainJsPath, new InvokeJSValueCallback() {
             @Override
             public void onSuccess(Object value) {

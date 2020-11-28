@@ -80,7 +80,7 @@
 
 - (void)dealloc
 {
-    [_mxContext performSelector:@selector(invalidate)
+    [_mxContext performSelector:@selector(dispose)
                        onThread:_javaScriptThread
                      withObject:nil
                   waitUntilDone:NO];
@@ -273,9 +273,9 @@
 
 - (void)invokeMethod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
 {
+    __weak MXJSExecutor *weakSelf = self;
     [self executeBlockOnJSThread:^{
-        
-        JSValue * reslut =   [self.jsContext.globalObject invokeMethod:method withArguments:args];
+        JSValue * reslut = [weakSelf.jsContext.globalObject[@"MXJSAPI"] invokeMethod:method withArguments:args];
         
         if (callback) {
             callback(reslut,nil);

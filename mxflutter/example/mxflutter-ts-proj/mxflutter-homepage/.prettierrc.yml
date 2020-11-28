@@ -1,0 +1,9 @@
+tabWidth: 2
+printWidth: 120
+useTabs: false
+trailingComma: 'all'
+semi: true
+singleQuote: true
+quoteProps: 'consistent'
+bracketSpacing: true
+arrowParens: 'always'
