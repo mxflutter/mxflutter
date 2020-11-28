@@ -14,33 +14,23 @@ void main() {
 
 runMXJSApp() {
   //-------MXFlutter 启动---------
-  //1. 启动你的jsAPP，不显示任何界面
-  // 获取配置在pubspec.yaml中，jsapp代码路径
+  //1. 启动你的jsAPP，预加载框架JS代码，不显示任何界面
+
+  // runJSApp 的jsAppAssetsKey 参数默认为mxflutter_js_bundle/，直接运行 MXJSFlutter.runJSApp()
+  // 代表加载打到apk或ipa包例的 js bundle文件，
+  // JS Bundle目录在 pubspec.yaml中配置
   // flutter:
   //  assets:
-  //    #copy js src ,mxflutter app demo 的js代码
-  //    - mxflutter_js_src/
-  //    - mxflutter_js_src/app_demo/
-  //    - mxflutter_js_src/mxjsbuilder_demo/
+  //    - mxflutter_js_bundle/
+  // 建议不要修改mxflutter_js_bundle/目录名，模拟器热重载依据此路径配置
+  // 如果修改请全局搜索mxflutter_js_bundle/修改模拟器热重载配置，release或真机不受影响
 
-  //Entrypoint mxflutter_js_src/main.js main()
-  //runJSApp 的jsAppAssetsKey 默认参数即为mxflutter_js_src/， 会默认运行 mxflutter_js_src/main.js
-  //建议不要修改mxflutter_js_src/目录名，模拟器热重载依据此路径配置
-  //如果修改请全局搜索mxflutter_js_src/修改模拟器热重载配置，release或真机不受影响
-  //jsAppSearchPathWithAssetsKeyList 一般无需设置，默认从jsApp root path开始查找
-//  MXJSFlutter.runJSApp(
-//      jsAppAssetsKey: "mxflutter_js_src",
-//      jsAppSearchPathWithAssetsKeyList: [
-//        "mxflutter_js_src/app_demo",
-//        "mxflutter_js_src/mxjsbuilder_demo"
-//      ]);
-
-  //  或者运行你下载到 DocumentsDirectory 里的JS代码
+  //  也可以运行你下载到 DocumentsDirectory 里的JS代码，用来热更新
   //  Directory directory = await getApplicationDocumentsDirectory();
-  //  var jsAppPath = join(directory.path, "my_js_app");
+  //  var jsAppPath = join(directory.path, "my_js_bundle");
   //  MXJSFlutter.runJSApp(jsAppPath: jsAppPath);
 
-  MXJSFlutter.runJSApp(jsAppAssetsKey: "mxflutter_js_src");
+  MXJSFlutter.runJSApp();
 
   // 注册自定义JSApi，可以在JS侧调用自定义dart代码，参考MXMirrorExample实现过程
   MXMirrorExample.registerFunction();
