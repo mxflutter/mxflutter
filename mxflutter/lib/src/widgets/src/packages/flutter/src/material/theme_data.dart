@@ -210,7 +210,9 @@ var _themeData = MXFunctionInvoke(
     fixTextFieldOutlineLabel: fixTextFieldOutlineLabel,
   ),
   [
-    "brightness",
+    // MX Modified begin
+    "__mx_brightness",
+    // MX Modified end
     "visualDensity",
     "primarySwatch",
     "primaryColor",
