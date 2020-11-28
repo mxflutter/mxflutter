@@ -35,8 +35,7 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    #copy js src ,mxflutter app demo 的js代码
-    #吐槽下，导入资源不会自动包括子文件夹，需要每个子文件夹都导入，真是坑，所以自己写js app时，不要有太多文件夹深度
+    #引入 mxflutter_js_bundle 下的JS Bundle 文件资源
     - mxflutter_js_bundle/
 
     #mxflutter app demo 使用到的图片资源
