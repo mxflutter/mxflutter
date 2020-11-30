@@ -112,7 +112,7 @@ abstract class MXJSFlutter {
   }
 
   ///从Flutter Push一个 JS写的页面
-  ///@param widgetName: "widgetName",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用
+  ///@param widgetName: "widgetName",在mxflutter_js_bundle/main.js  MyApp::createJSWidgetWithName 函数中使用
   ///MyApp::createJSWidgetWithName 通过 widgetName 来创建对应的JSWidget
   /// 通常你应该使用更高层的API MXJSPageWidget 包装类来显示JS Widget 请参考 MXJSPageWidget 的用法
   ///
