@@ -261,6 +261,10 @@
 
 - (void )invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
 {
+    if (!jsValue) {
+        return;
+    }
+    
     [self executeBlockOnJSThread:^{
         
         JSValue * reslut =   [jsValue invokeMethod:method withArguments:args];
@@ -271,16 +275,11 @@
     }];
 }
 
-- (void)invokeMethod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
+
+
+- (void)invokeMXJSAPIMethod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
 {
-    __weak MXJSExecutor *weakSelf = self;
-    [self executeBlockOnJSThread:^{
-        JSValue * reslut = [weakSelf.jsContext.globalObject[@"MXJSAPI"] invokeMethod:method withArguments:args];
-        
-        if (callback) {
-            callback(reslut,nil);
-        }
-    }];
+    [self invokeJSValue:self.jsContext.globalObject[@"MXJSAPI"] method:method args:args callback:callback];
 }
 
 

@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
 
-- (void)invokeMethod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
+- (void)invokeMXJSAPIMethod:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
 
 @end
 

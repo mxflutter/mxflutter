@@ -84,7 +84,7 @@
     [self.jsFlutterCommonBasicChannel setMessageHandler:^(id  _Nullable message, FlutterReply  _Nonnull callback) {
         __strong MXJSFlutterEngine *strongSelf = weakSelf;
         
-        [strongSelf.jsEngine.jsExecutor invokeMethod:@"mxfJSBridgeInvokeJSCommonChannel" args:@[message] callback:^(JSValue *result, NSError *error) {
+        [strongSelf.jsEngine.jsExecutor invokeMXJSAPIMethod:@"mxfJSBridgeInvokeJSCommonChannel" args:@[message] callback:^(JSValue *result, NSError *error) {
             callback(result.toString);
         }];
         
