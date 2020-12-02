@@ -118,51 +118,26 @@ public class JsFlutterApp {
 
 
     public void runApp() {
-        isJsAPPRun = false;
         MXFlutterPlugin.get().getJsExecutor().registerMxNativeJsFlutterApp();
-
         // 记录native侧main.js加载开始时间
         long jsLoadStartTime = System.currentTimeMillis();
-
-        //先判断appMainJsPath是否有main.js，优先加载用户设置的目录里的main.js,如果没有加载随包的main.js
-        final String appMainJsPath = MxConfig.getJsPath() + Const.MAIN_JS;
-        loadMainJs(appMainJsPath,jsLoadStartTime, new InvokeJSValueCallback() {
-            @Override
-            public void onSuccess(Object value) {}
-            @Override
-            public void onError(Error error) {
-                final String pkgMainJsPath =  MxConfig.getJsLibPath() + Const.MAIN_JS;
-                loadMainJs(pkgMainJsPath,jsLoadStartTime,null);
-            }
-        });
+        loadMainJs(MxConfig.getMainJsPath(), jsLoadStartTime);
     }
 
-    private void loadMainJs(String mainJsPath,long jsLoadStartTime,InvokeJSValueCallback callback){
-
+    private void loadMainJs(String mainJsPath, long jsLoadStartTime) {
         MXFlutterPlugin.get().getJsExecutor().executeScriptPath(mainJsPath, new InvokeJSValueCallback() {
             @Override
             public void onSuccess(Object value) {
                 isJsAPPRun = true;
                 callJSMethodCallQueue();
-
                 // 记录native侧main.js加载开始时间
                 mxNativeJSLoadCost = System.currentTimeMillis() - jsLoadStartTime;
                 callJSInitProfileInfo();
-
-                if(callback != null) {
-                    callback.onSuccess(null);
-                }
-
             }
 
             @Override
             public void onError(Error error) {
                 JsLoadErrorMsg.INSTANCE.invokeJsErrorMethodChannel(error, mainJsPath);
-
-                if(callback != null) {
-                    callback.onError(error);
-                }
-
             }
         });
     }
@@ -186,7 +161,7 @@ public class JsFlutterApp {
         callJSMethodQueue.clear();
     }
 
-    public void callJSInitProfileInfo() {
+    private void callJSInitProfileInfo() {
         Map<String, Object> args = new HashMap<>();
         args.put("method", "nativeCallInitProfileInfo");
         Map<String, Object> arguments = new HashMap<>();
@@ -199,7 +174,7 @@ public class JsFlutterApp {
         }
         MXFlutterPlugin.get().getJsExecutor()
                 .invokeJSValue(JsObjectType.CURRENT_APP_OBJECT, methodCall.method,
-                        (Map) methodCall.arguments, new InvokeJSValueCallback() {
+                        methodCall.arguments, new InvokeJSValueCallback() {
                             @Override
                             public void onSuccess(Object value) {
 

@@ -102,7 +102,7 @@ public class FileUtils {
         if (!filePath.endsWith(MxConfig.MX_JS_EXT)) {
             filePath += MxConfig.MX_JS_EXT;
         }
-        return MxConfig.getJsPath() + "/" + filePath;
+        return MxConfig.getBizJsPath() + "/" + filePath;
     }
 
     /**

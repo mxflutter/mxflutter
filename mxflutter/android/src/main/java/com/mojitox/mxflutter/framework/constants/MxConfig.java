@@ -2,6 +2,7 @@ package com.mojitox.mxflutter.framework.constants;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.mojitox.mxflutter.MXFlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 
 public class MxConfig {
@@ -32,9 +33,9 @@ public class MxConfig {
     }
 
     /**
-     * 优先返回设置的目录
+     * 优先返回设置的目录 获取业务侧js目录
      */
-    public static String getJsPath() {
+    public static String getBizJsPath() {
         if (!TextUtils.isEmpty(sJsAppPath)) {
             return sJsAppPath;
         }
@@ -43,13 +44,30 @@ public class MxConfig {
     }
 
     /**
+     * 先判断appMainJsPath是否有main.js，优先加载用户设置的目录里的main.js,如果没有加载随包的main.js
+     *
+     * @return main js path
+     */
+    public static String getMainJsPath() {
+        final String bizMainPath = getBizJsPath() + Const.MAIN_JS;
+        boolean isOpen;
+        try {
+            MXFlutterPlugin.get().getApplicationContext().getAssets().openFd(bizMainPath);
+            isOpen = true;
+        } catch (Throwable e) {
+            isOpen = false;
+        }
+        return isOpen ? bizMainPath : getJsLibPath() + Const.MAIN_JS;
+    }
+
+    /**
      * 设置随包的Main.js路径
      */
     public static void setJsLibPath(@NonNull String jsLibPath) {
-        sJsMXFlutterLibMainJsPath  = jsLibPath;
+        sJsMXFlutterLibMainJsPath = jsLibPath;
     }
 
-    public static String getJsLibPath() {
+    private static String getJsLibPath() {
         return MxConfig.ANDROID_ASSETS + sJsMXFlutterLibMainJsPath;
     }
 }
