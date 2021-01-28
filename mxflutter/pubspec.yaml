@@ -1,6 +1,6 @@
 name: mxflutter
 description: JavaScript Flutter Framework,Using mxflutter lib, you can use JavaScript to develop flutter or use Dart to develop and compile to JS.
-version: 0.2.5
+version: 0.8.0
 homepage: https://github.com/mxflutter/mxflutter
 
 environment:
@@ -11,14 +11,16 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
+  
   # MXFlutter Framework 必须的库
   vector_math: ^2.0.8
   expressions: ^0.1.2
-
-  # 开发者选用的库
-  dio: ^3.0.9
-  pull_to_refresh: ^1.5.7
-  cached_network_image: ^2.2.0+1
+  ffi: ^0.1.3
+  path_provider: ^1.6.22
+  permission_handler: ^5.0.0
+  archive: ^2.0.13
+  package_info: ^0.4.3+2
+  device_info: ^1.0.0
   shared_preferences: ^0.5.6+3
 
 dev_dependencies:
@@ -32,45 +34,7 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    #mxflutter_js_framework
     - js_lib/
-    - js_lib/framework/
-    - js_lib/framework/material/
-    - js_lib/framework/message_channel/
-    - js_lib/framework/widgets/
-
-    #dart_js_framework
-    - js_lib/framework/dart_js_framework/
-    - js_lib/framework/dart_js_framework/mx_packages/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/animation/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/cupertino/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/foundation/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/gestures/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/material/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/painting/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/rendering/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/services/
-    - js_lib/framework/dart_js_framework/mx_packages/flutter/src/widgets/
-    - js_lib/framework/dart_js_framework/mx_packages/vector_math/
-
-    #packages js ,按需选择
-    - js_lib/framework/mx_packages/
-
-    #cached_network_image
-    - js_lib/framework/mx_packages/cached_network_image/
-    #dio
-    - js_lib/framework/mx_packages/dio/
-    - js_lib/framework/mx_packages/dio/src/
-    - js_lib/framework/mx_packages/dio/src/adapters/
-    - js_lib/framework/mx_packages/dio/src/entry/
-    #pull_to_refresh
-    - js_lib/framework/mx_packages/pull_to_refresh/
-    - js_lib/framework/mx_packages/pull_to_refresh/src/
-    - js_lib/framework/mx_packages/pull_to_refresh/src/indicator/
-    #shared_preferences
-    - js_lib/framework/mx_packages/shared_preferences/
 
   # This section identifies this Flutter project as a plugin project.
   # The androidPackage and pluginClass identifiers should not ordinarily

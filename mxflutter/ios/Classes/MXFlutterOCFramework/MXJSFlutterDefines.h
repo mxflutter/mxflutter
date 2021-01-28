@@ -10,13 +10,28 @@
 
 #import <Foundation/Foundation.h>
 
+#define MXJSFlutterLog(fmt, ...)    \
+    NSLog((@"MXJSFlutter:[Native]-" \
+            "|%s|"                  \
+            "[%d]-" fmt),           \
+          __FUNCTION__, __LINE__, ##__VA_ARGS__);
 
-#define MXJSFlutterLog(fmt, ...) NSLog((@"MXJSFlutter:[Native]-" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define MXFLogInfo(fmt, ...)              \
+    NSLog((@"MXJSFlutter:[Native]-[info]" \
+            "|%s|"                        \
+            "[%d]-" fmt),                 \
+          __FUNCTION__, __LINE__, ##__VA_ARGS__);
 
-#define MXFLogInfo(fmt, ...) NSLog((@"MXJSFlutter:[Native]-[info]" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
-
-#define MXFLogWarn(fmt, ...) NSLog((@"MXJSFlutter:[Native]-[warn]" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
-#define MXFLogError(fmt, ...) NSLog((@"MXJSFlutter:[Native]-[err]" "|%s|" "[%d]-" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define MXFLogWarn(fmt, ...)              \
+    NSLog((@"MXJSFlutter:[Native]-[warn]" \
+            "|%s|"                        \
+            "[%d]-" fmt),                 \
+          __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define MXFLogError(fmt, ...)            \
+    NSLog((@"MXJSFlutter:[Native]-[err]" \
+            "|%s|"                       \
+            "[%d]-" fmt),                \
+          __FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 #ifndef MXF_DEBUG
 #if DEBUG
@@ -36,4 +51,15 @@
 #define MX_EXTERN_C_END
 #endif
 
+/// JS异常回调
+#define MXFLUTTER_JSEXCEPTION_HANDLER @"mxflutterJSExceptionHandler"
+/// JS引擎初始化完成回调
+#define MXFLUTTER_JSENGINE_INIT_SUCCESS_HANDLER @"mxflutterJSEngineInitSuccessHandler"
+/// 业务JS Bundle文件前缀
+#define MXFLUTTER_BIZ_JSBUNDLE_FILE_PREFIX @"bundle-"
 
+/// JS文件类型
+typedef NS_ENUM(NSInteger, MXFlutterJSFileType) {
+    MXFlutterJSFileType_Main, // main.js
+    MXFlutterJSFileType_Biz,  // bundle-xxx.js
+};

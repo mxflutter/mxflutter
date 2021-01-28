@@ -49,10 +49,19 @@ android {
 //        }
 //    }
 
+    signingConfigs {
+        release {
+            storeFile file("keystore.jks")
+            storePassword "123456"
+            keyAlias "android"
+            keyPassword "123456"
+        }
+    }
+    
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.imatrixteam.example"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -61,22 +70,20 @@ android {
 
         consumerProguardFiles 'consumer-rules.pro'
 
-//        ndk {
-//            abiFilters 'armeabi-v7a'
-//        }
-
     }
 
     buildTypes {
         release {
             shrinkResources true
             minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
+        //exclude 'lib/armeabi-v7a/libj2v8.so'
     }
 
     //java版本8

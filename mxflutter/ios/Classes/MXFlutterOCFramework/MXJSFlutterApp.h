@@ -3,15 +3,14 @@
 //  MXFlutterOCFramework
 //
 //  Created by soapyang on 2018/12/24.
-//  Copyright 2019 The MXFlutter Authors. All rights reserved.
-//
-//  Use of this source code is governed by a MIT-style license that can be
+//  Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+//  Use of this source code is governed by a BSD-style license that can be
 //  found in the LICENSE file.
 
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "MXJSExecutor.h"
-
+#import <Flutter/Flutter.h>
 
 @class MXJSFlutterEngine;
 @class MXJSEngine;
@@ -19,45 +18,51 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MXJSFlutterAppJSExport <NSObject,JSExport>
+/// JSFlutterApp
+@interface MXJSFlutterApp : NSObject
 
-JSExportAs(setCurrentJSApp,
-         - (void)jsAPISetCurrentJSApp:(JSValue*)jsAppObj
-           );
-
-JSExportAs(callFlutterReloadApp, //WithApp  InitPageName  Data
-           - (void)jsAPICallFlutterReloadApp:(JSValue*)jsAppObj  widgetData:(NSString*)data
-           );
-
-
-//js -> flutter 直接json交互
-JSExportAs(callFlutterWidgetChannel,
-           - (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments
-           );
-
-@end
-
-
-
-@interface MXJSFlutterApp : NSObject <MXJSFlutterAppJSExport>
-
-//唯一标示
-@property (nonatomic, strong) NSString *appName;
+/// JS文件执行路径
 @property (nonatomic, strong) NSString *appRootPath;
+/// main.js文件路径
 @property (nonatomic, strong) NSString *mainJSPath;
 
+/// JS引擎，封装了常用JS API
 @property (nonatomic, strong, nullable) MXJSEngine *jsEngine;
-@property (nonatomic, strong) JSValue * _Nullable jsAppObj;
 
-@property (nonatomic, weak) MXJSFlutterEngine * _Nullable jsFlutterEngine;
+/// MXFlutter JS侧 App实例，用于通讯
+@property (nonatomic, strong) JSValue *_Nullable jsAppObj;
 
-- (instancetype)initWithAppPath:(NSString*)appRootPath jsAppSearchPathList:(NSArray*)pathArray  engine:(MXJSFlutterEngine*)jsFlutterEngine ;
+/// 管理自己的MXJSFlutter引擎
+@property (nonatomic, weak) MXJSFlutterEngine *_Nullable jsFlutterEngine;
 
-- (void)runApp;
+/// App通道
+@property (nonatomic, strong, readonly) FlutterMethodChannel *jsFlutterAppChannel;
+/// Rebuild通道
+@property (nonatomic, strong, readonly) FlutterBasicMessageChannel *jsFlutterAppRebuildChannel;
+/// Push页面通道
+@property (nonatomic, strong, readonly) FlutterBasicMessageChannel *jsFlutterAppNavigatorPushChannel;
+
+/// 初始化方法
+/// @param appRootPath app执行路径
+/// @param jsFlutterEngine jsFlutter引擎
+- (instancetype)initWithAppPath:(NSString *)appRootPath engine:(MXJSFlutterEngine *)jsFlutterEngine;
+
+/// 运行app
+/// @param flutterAppEnvironmentInfo flutter运行参数
+- (void)runApp:(id)flutterAppEnvironmentInfo;
+/// 退出app
 - (void)exitApp;
 
-- (JSContext*)mainJSContext;
-- (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback;
+/// main.js执行context
+- (JSContext *)mainJSContext;
+/// 执行js方法
+/// @param jsValue js实例
+/// @param method 方法名称
+/// @param args 参数列表
+/// @param callback 回调
+- (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback)callback;
+/// 在js线程执行回调
+/// @param block 回调
 - (void)executeBlockOnJSThread:(dispatch_block_t)block;
 
 @end

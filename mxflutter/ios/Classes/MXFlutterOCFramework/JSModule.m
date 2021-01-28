@@ -35,58 +35,53 @@
     NSMutableArray *_children;
 }
 
-// TODO: Get lib in the right place. Right now we copy it to the build results directory.
-static NSDictionary *coreModules()
-{
+// TODO: Get lib in the right place. Right now we copy it to the build results
+// directory.
+static NSDictionary *coreModules() {
     static NSDictionary *modules = 0;
     if (!modules) {
         // Put location of built-in modules here.
-        modules = @{
+        modules = @ {
             //@"util": [libDir stringByAppendingPathComponent:@"util.js"],
         };
     }
     return modules;
 }
 
-static bool isCoreModule(NSString *moduleName)
-{
+static bool isCoreModule(NSString *moduleName) {
     return !![coreModules() objectForKey:moduleName];
 }
 
-static Class classForModule(NSString *moduleName)
-{
+static Class classForModule(NSString *moduleName) {
     static NSDictionary *moduleClasses = 0;
     if (!moduleClasses) {
         // Put classes for built-in modules here.
-        moduleClasses = @{
+        moduleClasses = @ {
             //@"util": [JSUtilModule class],
         };
     }
-    
+
     if (isCoreModule(moduleName))
         return [moduleClasses objectForKey:moduleName];
     return [JSModule class];
 }
 
-static NSString *coreModuleFullPath(NSString *moduleName)
-{
+static NSString *coreModuleFullPath(NSString *moduleName) {
     assert(isCoreModule(moduleName));
     return [coreModules() objectForKey:moduleName];
 }
 
-static NSString *resolveModuleAsFile(NSString *modulePath)
-{
+static NSString *resolveModuleAsFile(NSString *modulePath) {
     if ([[NSFileManager defaultManager] fileExistsAtPath:modulePath])
         return modulePath;
-    
+
     if ([[NSFileManager defaultManager] fileExistsAtPath:[modulePath stringByAppendingPathExtension:@"js"]])
         return [modulePath stringByAppendingPathExtension:@"js"];
-    
+
     return nil;
 }
 
-static NSString *resolveModuleAsDirectory(NSString *modulePath)
-{
+static NSString *resolveModuleAsDirectory(NSString *modulePath) {
     if ([[NSFileManager defaultManager] fileExistsAtPath:[modulePath stringByAppendingPathComponent:@"package.json"]]) {
         NSString *path = [modulePath stringByAppendingString:@"package.json"];
         NSString *fileContents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
@@ -96,20 +91,19 @@ static NSString *resolveModuleAsDirectory(NSString *modulePath)
         if (![result[@"main"] isUndefined])
             return resolveModuleAsFile([result[@"main"] toString]);
     }
-    
+
     if ([[NSFileManager defaultManager] fileExistsAtPath:[modulePath stringByAppendingPathComponent:@"index.js"]])
         return [modulePath stringByAppendingPathComponent:@"index.js"];
-    
+
     return nil;
 }
 
-static NSArray *nodeModulePaths(NSString *start)
-{
+static NSArray *nodeModulePaths(NSString *start) {
     NSArray *parts = [start pathComponents];
     NSUInteger root = [parts indexOfObject:@"node_modules"];
     if (root == NSNotFound)
         root = 0;
-    
+
     NSUInteger i = [parts count] - 1;
     NSMutableArray *dirs = [[NSMutableArray alloc] init];
     while (i > root) {
@@ -121,19 +115,18 @@ static NSArray *nodeModulePaths(NSString *start)
         [dirs addObject:[NSString pathWithComponents:[parts subarrayWithRange:NSMakeRange(0, i)]]];
         i -= 1;
     }
-    
+
     return dirs;
 }
 
-static NSString *resolveAsNodeModule(NSString *moduleName, NSString* start)
-{
+static NSString *resolveAsNodeModule(NSString *moduleName, NSString *start) {
     NSArray *dirs = nodeModulePaths(start);
     for (NSUInteger i = 0; i < [dirs count]; i++) {
         NSString *dir = [dirs objectAtIndex:i];
         NSString *result = resolveModuleAsFile([NSString stringWithFormat:@"%@/%@", dir, moduleName]);
         if (result)
             return result;
-        
+
         result = resolveModuleAsDirectory([NSString stringWithFormat:@"%@/%@", dir, moduleName]);
         if (result)
             return result;
@@ -141,23 +134,22 @@ static NSString *resolveAsNodeModule(NSString *moduleName, NSString* start)
     return nil;
 }
 
-+ (NSString *)resolve:(NSString *)module atPath:(NSString *)path
-{
++ (NSString *)resolve:(NSString *)module atPath:(NSString *)path {
     if (isCoreModule(module))
         return coreModuleFullPath(module);
-    
+
     NSString *result;
     if ([module hasPrefix:@"./"] || [module hasPrefix:@"/"] || [module hasPrefix:@"../"]) {
         result = resolveModuleAsFile([NSString stringWithFormat:@"%@/%@", path, module]);
-        
+
         if (result)
             return result;
-        
+
         result = resolveModuleAsDirectory([NSString stringWithFormat:@"%@/%@", path, module]);
         if (result)
             return result;
     }
-    
+
     return resolveAsNodeModule(module, [path stringByDeletingLastPathComponent]);
 }
 
@@ -165,43 +157,37 @@ static NSString *resolveAsNodeModule(NSString *moduleName, NSString* start)
     [globalModuleCache() removeAllObjects];
 }
 
-static NSMapTable *globalModuleCache()
-{
+static NSMapTable *globalModuleCache() {
     static NSMapTable *moduleCache = nil;
     if (!moduleCache)
         moduleCache = [NSMapTable strongToStrongObjectsMapTable];
     return moduleCache;
 }
 
-static bool isCached(NSString *fullModulePath)
-{
+static bool isCached(NSString *fullModulePath) {
     return !![globalModuleCache() objectForKey:fullModulePath];
 }
 
-static JSModule *cachedModule(NSString *fullModulePath)
-{
+static JSModule *cachedModule(NSString *fullModulePath) {
     assert(isCached(fullModulePath));
     return [globalModuleCache() objectForKey:fullModulePath];
 }
 
-static void cacheModule(NSString *fullModulePath, JSModule *module)
-{
+static void cacheModule(NSString *fullModulePath, JSModule *module) {
     assert(!isCached(fullModulePath));
     [globalModuleCache() setObject:module forKey:fullModulePath];
 }
 
 static JSModule *currentLoadingModule = nil;
 
-+ (JSModule *)require:(NSString *)module fullModulePath:(NSString *)fullModulePath
-{
++ (JSModule *)require:(NSString *)module fullModulePath:(NSString *)fullModulePath {
     return [JSModule require:module fullModulePath:fullModulePath inContext:[JSContext currentContext]];
 }
 
-+ (JSModule *)require:(NSString *)module fullModulePath:(NSString *)fullModulePath inContext:(JSContext *)context
-{
++ (JSModule *)require:(NSString *)module fullModulePath:(NSString *)fullModulePath inContext:(JSContext *)context {
     assert(context);
     if (!fullModulePath)
-       return nil;
+        return nil;
 
     if (isCached(fullModulePath)) {
         NSLog(@"JSModule Use Cache %@", module);
@@ -218,9 +204,11 @@ static JSModule *currentLoadingModule = nil;
 
     JSValue *savedPlatformObject = context[@"platform"];
     context[@"platform"] = [newModule platformObjectInContext:context];
-    
+
     JSValue *exports = [JSValue new];
-    NSString *exportScript = [NSString stringWithFormat:@"(function() { var module = { exports: {}}; var exports = module.exports; %@; return module.exports; })();", script];
+    NSString *exportScript = [NSString stringWithFormat:@"(function() { var module = { exports: {}}; var exports = "
+                                                        @"module.exports; \r\n %@ \r\n; return module.exports; })();",
+                                                        script];
 
     if ([context respondsToSelector:@selector(evaluateScript:withSourceURL:)]) {
         NSString *jsFilePathPrefix = [fullModulePath stringByDeletingLastPathComponent];
@@ -230,14 +218,14 @@ static JSModule *currentLoadingModule = nil;
             jsFilePathPrefix = [jsFilePathPrefix substringFromIndex:jsFilePathPrefix.length - preixLen];
         }
 
-        NSString *jsFilePathID = [NSString stringWithFormat:@"...%@/%@",jsFilePathPrefix, [fullModulePath lastPathComponent]];
+        NSString *jsFilePathID = [NSString stringWithFormat:@"...%@/%@", jsFilePathPrefix, [fullModulePath lastPathComponent]];
 
         exports = [context evaluateScript:exportScript withSourceURL:[NSURL URLWithString:jsFilePathID]];
     } else {
         // Load the module.
         exports = [context evaluateScript:exportScript];
     }
-    
+
     newModule->_exports = exports;
 
     context[@"platform"] = savedPlatformObject;
@@ -247,20 +235,17 @@ static JSModule *currentLoadingModule = nil;
     return newModule;
 }
 
-
-- (JSValue *)platformObjectInContext:(JSContext *)context
-{
+- (JSValue *)platformObjectInContext:(JSContext *)context {
     // Override this method in subclasses of JSModule to return a platform object
     // with whatever functionality required to implement that module.
     return [JSValue valueWithUndefinedInContext:context];
 }
 
-- (id)initWithId:(NSString *)myId filename:(NSString *)filename context:(JSContext *)context
-{
+- (id)initWithId:(NSString *)myId filename:(NSString *)filename context:(JSContext *)context {
     self = [super init];
     if (!self)
         return nil;
-    
+
     _exports = [JSValue new];
     [context.virtualMachine addManagedReference:_exports withOwner:self];
     _id = myId;
@@ -268,26 +253,23 @@ static JSModule *currentLoadingModule = nil;
     _loaded = false;
     _parent = nil;
     _children = [[NSMutableArray alloc] init];
-    
+
     return self;
 }
 
-- (void)didStartLoading
-{
+- (void)didStartLoading {
     _parent = currentLoadingModule;
     if (currentLoadingModule)
         [currentLoadingModule->_children addObject:self];
     currentLoadingModule = self;
 }
 
-- (void)didFinishLoading
-{
+- (void)didFinishLoading {
     _loaded = true;
     currentLoadingModule = _parent;
 }
 
-- (JSValue *)exports
-{
+- (JSValue *)exports {
     return _exports;
 }
 

@@ -1,0 +1,26 @@
+# vscode
+.vscode
+
+# idea
+.idea
+
+# Typescript build info
+*.tsbuildinfo
+
+# Node modules
+node_modules/
+
+# MacOS Desktop Services Store
+.DS_Store
+
+# Log files
+*.log
+
+# Coverage directory
+coverage/
+
+package-lock.json
+
+dist
+
+release

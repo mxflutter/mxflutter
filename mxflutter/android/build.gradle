@@ -2,6 +2,7 @@ group 'com.mojitox.mxflutter'
 version '1.0'
 
 buildscript {
+    apply from: file("config.gradle")
     ext.kotlin_version = '1.3.50'
     repositories {
         google()
@@ -28,9 +29,23 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 17
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "boolean", "USE_V8", "$USE_V8"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
     }
+
+    /** 编译mxflutter so时反注释掉此处,编译完恢复 **/
+//    externalNativeBuild {
+//        cmake {
+//            path "CMakeLists.txt"
+//        }
+//
+//    }
 
     lintOptions {
         disable 'InvalidPackage'
@@ -41,10 +56,56 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    //如果so动态下发/使用x5，这里就不要打进安装包
+    if (!USE_V8 || USE_V8_SO_DOWNLOAD) {
+        packagingOptions {
+            exclude 'lib/armeabi-v7a/libj2v8.so'
+            exclude 'lib/arm64-v8a/libj2v8.so'
+            exclude 'lib/x86/libj2v8.so'
+            exclude 'lib/x86_64/libj2v8.so'
+        }
+    }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+            externalNativeBuild {
+                cmake {
+                    cppFlags "-DTENCENT_SHELL=1", "-DNOLOG=1"
+                }
+            }
+            buildConfigField "boolean", "IS_RELEASE", "true"
+        }
+        debug{
+            externalNativeBuild {
+                cmake {
+                    cppFlags "-DTENCENT_SHELL=0"
+                }
+            }
+            buildConfigField "boolean", "IS_RELEASE", "false"
+        }
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = [
+                        'src/main/java',
+                        'src/main/v8',
+                ]
+            }
+        }
+    }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'com.eclipsesource.j2v8:j2v8:6.1.0@aar'
+    implementation "androidx.annotation:annotation:1.1.0"
+    if (!IS_RELEASE) {
+        implementation "com.facebook.stetho:stetho:1.5.1"
+    } else {
+        compileOnly "com.facebook.stetho:stetho:1.5.1"
+    }
 }
 
