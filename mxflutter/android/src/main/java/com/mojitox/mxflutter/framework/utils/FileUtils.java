@@ -257,7 +257,7 @@ public class FileUtils {
 
         for (String dir : searchDirArray) {
             for (String ext : extensions) {
-                String absolutePathTemp = MXFlutterPlugin.JSFLUTTER_LOCAL_DIR + "/" + dir + "/" + filePath;
+                String absolutePathTemp = dir + "/" + filePath;
                 if (!filePath.endsWith(".js")) {
                     absolutePathTemp = absolutePathTemp + ext;
                 }

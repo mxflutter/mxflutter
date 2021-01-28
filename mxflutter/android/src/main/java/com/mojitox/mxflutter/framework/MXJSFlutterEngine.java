@@ -7,6 +7,7 @@
 package com.mojitox.mxflutter.framework;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
@@ -19,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import io.flutter.Log;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -125,7 +125,6 @@ public class MXJSFlutterEngine {
         Set<String> searchList = new HashSet<String>();
 
         if (!TextUtils.isEmpty(mCurrentJSAppPath)) {
-            LogUtilsKt.MXJSFlutterLog("MXJSFlutterEngine Native工程，设置了currentJSAppPath，RunJSApp使用Native设置的路径 appPath:%s", mCurrentJSAppPath);
             jsAppPath = mCurrentJSAppPath;
             jsAppSearchPathList = mJsAppSearchPathList;
         } else {
@@ -133,11 +132,11 @@ public class MXJSFlutterEngine {
                 jsAppPath = mContext.mFlutterPluginBinding.getFlutterAssets().getAssetFilePathByName(jsAppAssetsKey);
             }
             if (TextUtils.isEmpty(jsAppPath)) {
-                LogUtilsKt.MXJSFlutterLog("jsAppPath == null", "");
                 return;
             }
-            if (jsAppSearchPathList != null && jsAppSearchPathList.size() > 0)
+            if (jsAppSearchPathList != null && jsAppSearchPathList.size() > 0) {
                 searchList.addAll(jsAppSearchPathList);
+            }
             if (jsAppSearchPathWithAssetsKeyList != null && jsAppSearchPathWithAssetsKeyList.size() > 0) {
                 for (String searchPathAssetKey : jsAppSearchPathWithAssetsKeyList) {
                     String path = mContext.mFlutterPluginBinding.getFlutterAssets().getAssetFilePathByName(searchPathAssetKey);
@@ -153,7 +152,6 @@ public class MXJSFlutterEngine {
             currentApp.close();
             currentApp = null;
         }
-
         currentApp = new MXJSFlutterApp();
         currentApp.initWithAppName(mContext, jsAppPath, jsAppPath, jsAppSearchPathList, this);
         currentApp.runAppWithPageName();

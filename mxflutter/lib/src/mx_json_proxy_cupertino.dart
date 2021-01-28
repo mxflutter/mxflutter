@@ -16,10 +16,8 @@ import 'mx_json_proxy_material.dart';
     2. Animation
       CupertinoPageTransition.primaryRouteAnimation
       CupertinoPageTransition.secondaryRouteAnimation
-
     3. BottomNavigationBarItem
       CupertinoTabBar.items
-
     4. ObstructingPreferredSizeWidget
       CupertinoPageScaffold.navigationBar    
 */
@@ -64,7 +62,6 @@ class MXProxyCupertinoActivityIndicator extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoActivityIndicator({
   ///    Key key,
   ///   this.animating = true,
@@ -98,7 +95,6 @@ class MXProxyCupertinoAlertDialog extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoAlertDialog({
   ///    Key key,
   ///    this.title,
@@ -145,9 +141,7 @@ class MXProxyCupertinoButton extends MXJsonObjProxy {
   }
 
   ///
-
   ///*********************************************************************
-
   ///  const CupertinoButton({
   ///    @required this.child,
   ///    this.padding,
@@ -205,7 +199,6 @@ class MXProxyCupertinoDialog extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoDialog({
   ///    Key key,
   ///    this.child,
@@ -238,7 +231,6 @@ class MXProxyCupertinoDialogAction extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoDialogAction constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
@@ -271,7 +263,6 @@ class MXProxyCupertinoSlider extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoSlider({
   ///   Key key,
   ///    @required this.value,
@@ -317,7 +308,6 @@ class MXProxyCupertinoSwitch extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoSwitch({
   ///    Key key,
   ///    @required this.value,
@@ -352,7 +342,6 @@ class MXProxyCupertinoPageTransition extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  CupertinoPageTransition({
   ///    Key key,
   ///    @required Animation<double> primaryRouteAnimation,
@@ -419,7 +408,6 @@ class MXProxyCupertinoNavigationBar extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   ///  const CupertinoNavigationBar({
   ///    Key key,
   ///    this.leading,
@@ -484,7 +472,6 @@ class MXProxyCupertinoTabBar extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoTabBar constructor(MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
       {BuildContext context}) {
@@ -526,7 +513,6 @@ class MXProxyCupertinoPageScaffold extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoPageScaffold constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
@@ -558,7 +544,6 @@ class MXProxyCupertinoTabScaffold extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoTabScaffold constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,
@@ -590,7 +575,6 @@ class MXProxyCupertinoTabView extends MXJsonObjProxy {
   }
 
   ///*********************************************************************
-
   @override
   CupertinoTabView constructor(
       MXJsonBuildOwner bo, Map<String, dynamic> jsonMap,

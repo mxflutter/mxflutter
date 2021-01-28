@@ -7,6 +7,7 @@
 package com.mojitox.mxflutter.framework;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.eclipsesource.v8.V8Object;
 import com.mojitox.mxflutter.MXFlutterPlugin;
@@ -76,7 +77,6 @@ public class MXJSFlutterApp {
 
     private void initRuntime(Context context) {
         MXFlutterPlugin.JSFLUTTER_LOCAL_DIR = context.getFilesDir().getAbsolutePath();
-
         initJsFS(context);
     }
 
@@ -111,6 +111,7 @@ public class MXJSFlutterApp {
 
         //app业务代码搜索路径
         jsEngine.addSearchDir(rootPath);
+        jsEngine.setAppPath(rootPath);
 
         for (String appSearchPath : jsAppSearchPathList) {
             jsEngine.addSearchDir(appSearchPath);

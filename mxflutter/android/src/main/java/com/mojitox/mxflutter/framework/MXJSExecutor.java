@@ -18,9 +18,11 @@ import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.utils.V8ObjectUtils;
 import com.mojitox.mxflutter.MXFlutterPlugin;
 import com.mojitox.mxflutter.framework.utils.FileUtils;
+import com.mojitox.mxflutter.framework.utils.LogUtilsKt;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService;
 import com.mojitox.mxflutter.framework.utils.MXJsScheduledExecutorService.MXJsTask;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -120,10 +122,11 @@ public class MXJSExecutor {
         executor.execute(new MXJsTask() {
             @Override
             public void excute() {
-                boolean fromAsset = !FileUtils.isCopiedFileFromAssets(context.mFlutterPluginBinding.getApplicationContext());
+                //文件在指定目录不存在，走asset
+                boolean fromAsset = !new File(path).exists();
                 String absolutePath = path;
                 if (!fromAsset) {
-                    absolutePath = MXFlutterPlugin.JSFLUTTER_LOCAL_DIR + "/" + path;
+                    absolutePath =  path;
                 }
                 String script = FileUtils.getScriptFromPath(context.mFlutterPluginBinding.getApplicationContext(), absolutePath, fromAsset);
                 V8Object result = runtime.executeObjectScript(script);
