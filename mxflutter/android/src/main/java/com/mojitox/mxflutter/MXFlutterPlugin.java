@@ -1,16 +1,14 @@
 package com.mojitox.mxflutter;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-
-import com.mojitox.mxflutter.framework.MXJSFlutterEngine;
-import com.mojitox.mxflutter.framework.utils.FileUtils;
-
-import java.util.ArrayList;
-
+import android.content.Context;
 import androidx.annotation.NonNull;
+import com.mojitox.mxflutter.framework.JsFlutterApp;
+import com.mojitox.mxflutter.framework.JsFlutterEngine;
+import com.mojitox.mxflutter.framework.ffi.MxFlutterFfi;
+import com.mojitox.mxflutter.framework.js.BaseJsExecutor;
+import com.mojitox.mxflutter.framework.js.JsEngineLoader;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
@@ -20,91 +18,34 @@ import io.flutter.plugin.common.MethodChannel.Result;
  */
 public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
-    //todo 调试时，指向本地路径，可以热重载
-    public static String JSFLUTTER_LOCAL_DIR;   //本地js路径
-    //todo 开发环境 默认使用asset js
-    public static boolean sUseAsset = true;
+    private static MXFlutterPlugin sMXFlutterPluginPlugin;
+    private JsFlutterEngine mxEngine;
+    private JsFlutterApp currentApp;
+    private BinaryMessenger binaryMessenger;
+    private Context applicationContext;
+    private MxFlutterFfi mxFlutterFfi;
 
-    //mxflutter assets根目录
-    public static final String MXFLUTTER_ASSET_APP_ROOT_PATH = "flutter_assets/mxflutter_js_src";
-    public static final String MXFLUTTER_ASSET_FRAMWORK_ROOT_PATH = "flutter_assets/packages/mxflutter";
-
-    //mxflutter 本机文件根目录
-    public static final String MXFLUTTER_FS_APP_ROOT_PATH = "/mxflutter_js_src";
-    public static final String MXFLUTTER_FS_FRAMWORK_ROOT_PATH = "/mxflutter";
-
-    //如果要热更新jsframework，设置jsFramewrokPath为你的下载目录
-    private static String sJSFrameworkPath;
-
-    //如果要热更新js app，设置jsFramewrokPath为你的下载目录
-    private static String sJSAppPath;
-    private static ArrayList<String> sJSAppSearchPathList;
-
-    private static MXFlutterPlugin sMXFlutterPlugin;
-    public FlutterPluginBinding mFlutterPluginBinding;
-    private MXJSFlutterEngine mxEngine;
-
-    private Handler mainHandler;
-
-    public static MXFlutterPlugin getInstance() {
-        return sMXFlutterPlugin;
+    /**
+     * 获取MxFlutterPlugin静态变量
+     * 预加载下可能为空，注意分离flutter和js引擎生命周期
+     */
+    public static MXFlutterPlugin get() {
+        return sMXFlutterPluginPlugin;
     }
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-        if (sMXFlutterPlugin != null) {
-            sMXFlutterPlugin.dispose();
+        if (sMXFlutterPluginPlugin != null) {
+            sMXFlutterPluginPlugin.dispose();
         }
-
-        sMXFlutterPlugin = this;
-        sMXFlutterPlugin.mFlutterPluginBinding = flutterPluginBinding;
-        MXFlutterPlugin.JSFLUTTER_LOCAL_DIR = flutterPluginBinding.getApplicationContext().getFilesDir().getAbsolutePath();
-        initPath(flutterPluginBinding);
-        sMXFlutterPlugin.mxEngine = new MXJSFlutterEngine(sMXFlutterPlugin, flutterPluginBinding.getBinaryMessenger());
-        //本地热重载路径
-        //热重载 framework
-        sMXFlutterPlugin.mxEngine.mJsFrameworkPath = getJSFrameworkPath(flutterPluginBinding);
-        //热重载 jsapp
-        sMXFlutterPlugin.mxEngine.mCurrentJSAppPath = sJSAppPath;
-        sMXFlutterPlugin.mxEngine.mJsAppSearchPathList = sJSAppSearchPathList;
-    }
-
-    private void initPath(FlutterPluginBinding flutterPluginBinding) {
-        if (FileUtils.isCopiedFileFromAssets(flutterPluginBinding.getApplicationContext())) {
-            sJSAppPath = "mxflutter_js_src";
-            sJSFrameworkPath = "mxflutter/js_lib";
-        }
-    }
-
-    public static String getJSFrameworkPath(FlutterPluginBinding flutterPluginBinding) {
-        //如果要热更新jsframework，设置jsFramewrokPath为你的下载目录
-        //如果外部有设置路径，使用外面设置的
-        String jsFramewrokPath = sJSFrameworkPath;
-        if (!TextUtils.isEmpty(jsFramewrokPath)) {
-            return jsFramewrokPath;
-        }
-
-        return flutterPluginBinding.getFlutterAssets().getAssetFilePathByName("js_lib", "mxflutter");
-    }
-
-    public static void setJSFrameworkPath(String JSFrameworkPath) {
-        sJSFrameworkPath = JSFrameworkPath;
-        sMXFlutterPlugin.mxEngine.mJsFrameworkPath = sJSFrameworkPath;
-    }
-
-    public static String getJSAppPath() {
-        return sJSAppPath;
-    }
-
-    public static ArrayList<String> getJSAppSearchPathList() {
-        return sJSAppSearchPathList;
-    }
-
-    public static void setJSAppPathAndAppSearchPathList(String JSAppPath, ArrayList<String> JSAppSearchPathList) {
-        sJSAppPath = JSAppPath;
-        sJSAppSearchPathList = JSAppSearchPathList;
-        sMXFlutterPlugin.mxEngine.mCurrentJSAppPath = sJSAppPath;
-        sMXFlutterPlugin.mxEngine.mJsAppSearchPathList = sJSAppSearchPathList;
+        sMXFlutterPluginPlugin = this;
+        applicationContext = flutterPluginBinding.getApplicationContext();
+        binaryMessenger = flutterPluginBinding.getBinaryMessenger();
+        JsEngineLoader.getInstance().initApplication(applicationContext);
+        JsEngineLoader.getInstance().getJsEngine().onAttachedToFlutterEngine();
+        currentApp = new JsFlutterApp();
+        mxFlutterFfi = new MxFlutterFfi();
+        mxEngine = new JsFlutterEngine();
     }
 
     @Override
@@ -118,21 +59,45 @@ public class MXFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
-        if (sMXFlutterPlugin != null) {
-            sMXFlutterPlugin.dispose();
+        if (sMXFlutterPluginPlugin != null) {
+            sMXFlutterPluginPlugin.dispose();
+            sMXFlutterPluginPlugin = null;
         }
-    }
-
-    public Handler getMainHandler() {
-        if (mainHandler == null)
-            return (mainHandler = new Handler(Looper.getMainLooper()));
-        else
-            return mainHandler;
     }
 
     private void dispose() {
-        if (mxEngine != null) {
-            mxEngine.destroy();
+        if (getMxEngine() != null) {
+            getMxEngine().destroy();
         }
+        if (mxFlutterFfi != null) {
+            mxFlutterFfi.onMxFlutterAppClose();
+        }
+    }
+
+    public JsFlutterEngine getMxEngine() {
+        return mxEngine;
+    }
+
+    public JsFlutterApp getCurrentApp() {
+        return currentApp;
+    }
+
+    public BinaryMessenger getBinaryMessenger() {
+        return binaryMessenger;
+    }
+
+    public BaseJsExecutor getJsExecutor() {
+        return JsEngineLoader.getInstance().getJsEngine().getJsExecutor();
+    }
+
+    public Context getApplicationContext() {
+        return applicationContext;
+    }
+
+    /**
+     * dart ffi
+     */
+    public MxFlutterFfi getMxFlutterFfi() {
+        return mxFlutterFfi;
     }
 }

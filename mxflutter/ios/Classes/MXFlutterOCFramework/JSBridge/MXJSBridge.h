@@ -18,14 +18,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class MXJSFlutterApp;
 
+/// JSFlutter桥接类
 @interface MXJSBridge : NSObject
 
+/// 单例
 + (instancetype)shareInstance;
 
-- (void)registerModules:(MXJSFlutterApp*)flutterApp jsAPPValueBridge:(JSValue*)jsAPPValueBridge;
-- (void)sendEventWithName:(NSString *)eventName data:(id)data callback:(JSValue* _Nullable )jsCallbackFun;
+/// 注册flutterApp
+/// @param flutterApp app实例
+/// @param jsAPPValueBridge module
+- (void)registerModules:(MXJSFlutterApp *)flutterApp jsAPPValueBridge:(JSValue *)jsAPPValueBridge;
 
+/// 调用方法
+/// @param eventName 时间名称
+/// @param data 数据
+/// @param jsCallbackFun 回调
+- (void)sendEventWithName:(NSString *)eventName data:(id)data callback:(JSValue *_Nullable)jsCallbackFun;
 
+/// 获取module
+/// @param moduleClass module类型
 - (id)moduleForClass:(Class)moduleClass;
 
 @end

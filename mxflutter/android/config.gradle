@@ -1,0 +1,6 @@
+//config
+ext {
+    USE_V8 = true //是否使用v8，false的话使用x5
+    USE_V8_SO_DOWNLOAD = false //使用v8时是否动态下载so
+    IS_RELEASE = false
+}

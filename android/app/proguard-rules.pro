@@ -32,6 +32,9 @@
 #js
 -keep class com.eclipsesource.v8.**  { *; }
 -keep class * implements com.eclipsesource.v8.JavaVoidCallback  { *; }
--keep class com.mojitox.mxflutter.framework.MXJSEngine*  { *; }
--keep class com.mojitox.mxflutter.framework.MXJSFlutterApp$MXNativeJSFlutterApp  { *; }
--keep class com.mojitox.mxflutter.framework.JSModule  { *; }
+-keep class * implements com.mojitox.mxflutter.framework.js.IJsEngine  { *; }
+-keep class * implements com.mojitox.mxflutter.framework.js.IJsExecutor  { *; }
+-keep class com.mojitox.mxflutter.framework.js.v8.MXNativeJSFlutterApp  { *; }
+-keep class com.mojitox.mxflutter.framework.js.v8.V8JsModule  { *; }
+-keep class com.mojitox.mxflutter.framework.js.v8.Console { *; }
+-keep class com.mojitox.mxflutter.framework.js.x5.X5Interface {*;}

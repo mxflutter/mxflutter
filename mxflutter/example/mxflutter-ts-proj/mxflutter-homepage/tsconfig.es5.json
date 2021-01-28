@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["ES5", "ES6", "ES2015", "ES2017", "ES2016", "ES2018", "ES2019", "ES2020", "ESNext", "DOM"],
+    "module": "ES2015",
+    "baseUrl": ".",
+    "outDir": "lib",
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "downlevelIteration": true
+  }
+}

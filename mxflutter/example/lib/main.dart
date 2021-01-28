@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mxflutter/mxflutter.dart';
 
 void main() {
-  //-------1. MXFlutter 启动---------
-  MXJSFlutter.getInstance().runJSApp();
+  //-------1. 启动 MXFlutter---------
+  MXJSFlutter.runJSApp();
   runApp(MyApp());
 }
 
@@ -27,7 +27,7 @@ class MXFlutterExampleHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: FlutterLogo(colors: Colors.blue),
+          leading: FlutterLogo(colors: Colors.grey),
           title: Text('MXFlutter Demo'),
         ),
         body: ListView(
@@ -38,14 +38,24 @@ class MXFlutterExampleHome extends StatelessWidget {
               title: Text('MXFlutter Demo'),
               subtitle: Text('打开MXFlutter JavaScript开发的示例页面'),
               onTap: () {
-                //-------2. MXFlutter push 一个使用MXFlutter框架，JS编写的页面
-                //MXJSPageWidget的参数 jsWidgetName: "MXJSWidgetHomePage",在mxflutter_js_src/main.js  MyApp::createJSWidgetWithName 函数中使用，
-                //创建你需要的MX JS Widget
+                /*-------2. 打开使用MXFlutter框架JS编写的页面
+                jsWidgetName: "mxflutter-homepage",是在 TS 工程中 index.ts文件注册的JS Widget
+
+                ''' index.ts
+
+                mxflutter.regist({
+                    name: 'mxflutter-homepage',
+                    RootWidget: MyApp,
+                });
+
+                '''
+
+                 */
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => MXJSPageWidget(
-                            jsWidgetName: "MXJSWidgetHomePage")));
+                            jsWidgetName: "mxflutter-homepage")));
               },
             ),
             ListTile(
@@ -58,7 +68,7 @@ class MXFlutterExampleHome extends StatelessWidget {
               subtitle: Text('点击热重载JSApp，重新进入上面的MXFlutter Demo，即可看到界面更新'),
               isThreeLine: true,
               onTap: () {
-                MXJSFlutter.getInstance().runJSApp();
+                MXJSFlutter.runJSApp();
               },
             ),
             ListTile(

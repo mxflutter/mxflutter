@@ -37,8 +37,6 @@ typedef void (^MXPromiseResolveBlock)(id result);
  */
 typedef void (^MXPromiseRejectBlock)(NSString *code, NSString *message, NSError *error);
 
-
-
 /**
  * Provides the interface needed to register a bridge module.
  */
@@ -50,18 +48,20 @@ typedef void (^MXPromiseRejectBlock)(NSString *code, NSString *message, NSError 
  * will be used as the JS module name. If omitted, the JS module name will
  * match the Objective-C class name.
  */
-#define MX_EXPORT_MODULE(js_name) \
-MX_EXTERN void MXRegisterModule(Class); \
-+ (NSString *)moduleName { return @#js_name; } \
-+ (void)load { MXRegisterModule(self); }
+#define MX_EXPORT_MODULE(js_name)           \
+    MX_EXTERN void MXRegisterModule(Class); \
+    +(NSString *)moduleName {               \
+        return @ #js_name;                  \
+    }                                       \
+    +(void)load {                           \
+        MXRegisterModule(self);             \
+    }
 
-//Module register self in jsContext MXNativeJSFlutterApp
-+ (id<MXBridgeModule>)registerModuleInMXFlutterJSContext:(JSValue*)jsAPPValue bridge:(MXJSBridge *)bridge;
+// Module register self in jsContext MXNativeJSFlutterApp
++ (id<MXBridgeModule>)registerModuleInMXFlutterJSContext:(JSValue *)jsAPPValue bridge:(MXJSBridge *)bridge;
 
 // Implemented by MX_EXPORT_MODULE
 + (NSString *)moduleName;
-
-
 
 @optional
 

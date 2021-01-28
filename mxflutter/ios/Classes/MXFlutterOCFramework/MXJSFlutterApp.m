@@ -3,261 +3,279 @@
 //  MXFlutterOCFramework
 //
 //  Created by soapyang on 2018/12/24.
-//  Copyright 2019 The MXFlutter Authors. All rights reserved.
-//
-//  Use of this source code is governed by a MIT-style license that can be
+//  Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+//  Use of this source code is governed by a BSD-style license that can be
 //  found in the LICENSE file.
 
 #import "MXJSFlutterApp.h"
 #import "MXJSFlutterDefines.h"
-#import <Flutter/Flutter.h>
 #import "MXJSEngine.h"
 #import "MXJSFlutterEngine.h"
 #import "MXJSBridge.h"
+#import "MXCommon.h"
 
 @interface MXJSFlutterApp ()
 
-@property (nonatomic, assign) NSUInteger index;
-@property (nonatomic, strong) FlutterMethodChannel* jsFlutterAppChannel;
-@property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterAppRebuildChannel;
-@property (nonatomic, strong) FlutterBasicMessageChannel* jsFlutterAppNavigatorPushChannel;
+/// app通道
+@property (nonatomic, strong) FlutterMethodChannel *jsFlutterAppChannel;
+/// rebuild通道
+@property (nonatomic, strong) FlutterBasicMessageChannel *jsFlutterAppRebuildChannel;
+/// push页面通道
+@property (nonatomic, strong) FlutterBasicMessageChannel *jsFlutterAppNavigatorPushChannel;
 
+/// app是否已经执行
 @property (nonatomic) BOOL isJSAPPRun;
-@property (nonatomic, strong) NSMutableArray<FlutterMethodCall*> *callJSMethodQueue;
+/// 调用js方法队列
+@property (nonatomic, strong) NSMutableArray<FlutterMethodCall *> *callJSMethodQueue;
 
-@property (nonatomic, strong) NSArray* jsAppSearchPathList;
+/// mx框架native侧加载main.js耗时
+@property (nonatomic, assign) NSTimeInterval mxNativeJSLoadCost;
 
 @end
 
+/// JSFlutterApp
 @implementation MXJSFlutterApp
 
-- (instancetype)initWithAppPath:(NSString*)appRootPath jsAppSearchPathList:(NSArray*)pathArray engine:(MXJSFlutterEngine*)jsFlutterEngine
-{
-    if (self = [super init])
-    {
+- (instancetype)initWithAppPath:(NSString *)appRootPath engine:(MXJSFlutterEngine *)jsFlutterEngine {
+    if (self = [super init]) {
         self.isJSAPPRun = NO;
-        self.appName = appRootPath;
         self.jsFlutterEngine = jsFlutterEngine;
         self.appRootPath = appRootPath;
-        self.jsAppSearchPathList = pathArray;
-        
+
         self.callJSMethodQueue = [[NSMutableArray alloc] initWithCapacity:1];
-        
+
         [self setupChannel];
         [self setupJSEngine];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    MXJSFlutterLog(@"appName%@",self.appName);
-}
+- (void)setupJSEngine {
+#if DEBUG
+    // Debug下，清理 MXJSEngine Instance，重新创建
+    [MXJSEngine releasePreloadInstance];
+#endif
 
-- (void)setupJSEngine
-{
-    //#define JSFLUTTER_DART_FRAMEWORK_DIR  @"lib/mxflutter_framework/mxf_js_framework/dart_js_framework"
-    
-    self.jsEngine = [[MXJSEngine alloc] init];
+    if ([MXJSEngine preloadInstance]) {
+        self.jsEngine = [MXJSEngine preloadInstance];
+    } else {
+        self.jsEngine = [[MXJSEngine alloc] init];
+    }
+
     self.jsEngine.jsFlutterEngine = self.jsFlutterEngine;
-    self.jsEngine.jsFlutterEngine.jsEngine = self.jsEngine;
-    
-    //调试时，指向本地路径，可以热重载
-    NSString *jsBasePath = @"";
-    
-    if (jsBasePath.length == 0) {
-        jsBasePath = [[NSBundle mainBundle] bundlePath];
-    }
-    
-    //MXFlutter JS运行库搜索路径
-    NSString *jsFrameworkPath = [self.jsFlutterEngine jsFrameworkPath];
-    
-    MXFLogInfo(@"JSEngine:jsFrameworkPath:%@",jsFrameworkPath);
-    
-    [self.jsEngine addSearchDir:jsFrameworkPath];
-    [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"framework/"]];
-    [self.jsEngine addSearchDir:[jsFrameworkPath stringByAppendingPathComponent:@"framework/dart_js_framework/"]];
-    
-    //app业务代码搜索路径 ，默认//Runner.app/Frameworks/App.framework/flutter_assets/mxflutter_js_src/
+    // app业务代码搜索路径
     [self.jsEngine addSearchDir:self.appRootPath];
-    //__weak MXJSFlutterEngine *weakSelf = self;
-    
-    for (NSString *searchPath in self.jsAppSearchPathList) {
-         [self.jsEngine addSearchDir:searchPath];
-    }
-    
-    NSString *js_basic_lib_Path = [jsFrameworkPath stringByAppendingPathComponent:@"js_basic_lib.js"];
-    [self.jsExecutor executeScriptPath:js_basic_lib_Path onComplete:^(NSError *error) {
-        
-    }];
 }
 
+- (void)setupChannel {
+    self.jsFlutterAppChannel = [FlutterMethodChannel methodChannelWithName:@"js_flutter.js_flutter_app_channel"
+                                                           binaryMessenger:_jsFlutterEngine.binaryMessenger];
 
-- (void)setupChannel
-{
-    self.jsFlutterAppChannel = [FlutterMethodChannel
-                                methodChannelWithName:@"js_flutter.js_flutter_app_channel"
-                                binaryMessenger:_jsFlutterEngine.binaryMessenger];
-    
     // Rebuild方法采用BasicMessageChannel
     self.jsFlutterAppRebuildChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.rebuild"
                                                                          binaryMessenger:_jsFlutterEngine.binaryMessenger
                                                                                    codec:[FlutterStringCodec sharedInstance]];
-    
+
     // navigator_push方法采用BasicMessageChannel
     self.jsFlutterAppNavigatorPushChannel = [FlutterBasicMessageChannel messageChannelWithName:@"js_flutter.js_flutter_app_channel.navigator_push"
                                                                                binaryMessenger:_jsFlutterEngine.binaryMessenger
                                                                                          codec:[FlutterStringCodec sharedInstance]];
-    
-    
+
     __weak MXJSFlutterApp *weakSelf = self;
-    
-    [self.jsFlutterAppChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull flutterResult) {
-        
+
+    [self.jsFlutterAppChannel setMethodCallHandler:^(FlutterMethodCall *_Nonnull call, FlutterResult _Nonnull flutterResult) {
         MXJSFlutterApp *strongSelf = weakSelf;
         if (!strongSelf) {
             return;
         }
-        
+
         if ([call.method isEqualToString:@"callJS"]) {
-            
-            MXJSFlutterLog(@"MXJSFlutter : jsFlutterAppChannel callJS:%@",call.arguments[@"method"]);
-            
+            MXJSFlutterLog(@"MXJSFlutter : jsFlutterAppChannel callJS:%@", call.arguments[@"method"]);
+
             if (!strongSelf.isJSAPPRun) {
-                
-                MXJSFlutterLog(@"MXJSFlutter : jsFlutterAppChannel callJS:%@ JSAPP not running",call.arguments[@"method"]);
-                
+                MXJSFlutterLog(@"MXJSFlutter : jsFlutterAppChannel callJS:%@ JSAPP not running", call.arguments[@"method"]);
+
                 [strongSelf.callJSMethodQueue addObject:call];
-                
+
                 return;
             }
-            
-            [strongSelf.jsExecutor invokeJSValue:strongSelf.jsAppObj method:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
-                if (!error)
-                {
-                    flutterResult(result.toString);
-                }
-            }];
+
+            [strongSelf.jsExecutor invokeJSValue:strongSelf.jsEngine.jsAppObj
+                                          method:@"nativeCall"
+                                            args:@[ call.arguments ]
+                                        callback:^(JSValue *result, NSError *error) {
+                                            if (!error) {
+                                                flutterResult(result.toString);
+                                            }
+                                        }];
         }
     }];
 }
 
-- (void)runApp
-{
-    
+- (void)runApp:(id)flutterAppEnvironmentInfo {
     self.isJSAPPRun = NO;
-    MXJSFlutterLog(@"MXJSFlutterApp : runApp：%@",self.appName);
-    
+    MXJSFlutterLog(@"MXJSFlutterApp : runApp：%@", self.appRootPath);
+
+    if (self.jsEngine.isJSEngineSetup) {
+        self.isJSAPPRun = YES;
+
+        if (flutterAppEnvironmentInfo) {
+            self.jsExecutor.jsContext[@"MXJSAPI"][@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
+        }
+
+        self.jsExecutor.jsContext[@"MXJSAPI"][@"isFlutterAppEngineSetup"] = @(YES);
+
+        //把JSI 注册到MXNativeJSFlutterApp中
+        [[MXJSBridge shareInstance] registerModules:self jsAPPValueBridge:self.jsExecutor.jsContext[@"MXNativeJSFlutterApp"]];
+
+        [self callJSMethodCallQueqe];
+
+        // 通知Flutter侧，JS引擎初始化成功
+        [self.jsFlutterEngine.engineMethodChannel invokeMethod:MXFLUTTER_JSENGINE_INIT_SUCCESS_HANDLER
+                                                     arguments:@{ @"success" : @(YES) }
+                                                        result:NULL];
+
+        // 通知JS侧，重置mirror数据
+        NSDictionary *args = @{ @"method" : @"invokeJSMirrorResetData" };
+        NSData *argsJsonData = [NSJSONSerialization dataWithJSONObject:args options:0 error:NULL];
+        NSString *argsJsonStr = [[NSString alloc] initWithData:argsJsonData encoding:NSUTF8StringEncoding];
+        [self.jsExecutor invokeMXJSAPIMethod:@"mxfJSBridgeInvokeJSCommonChannel"
+                                        args:@[ argsJsonStr ]
+                                    callback:^(JSValue *result, NSError *error) {
+
+                                    }];
+        return;
+    }
+
     __weak MXJSFlutterApp *weakSelf = self;
     [self.jsExecutor executeMXJSBlockOnJSThread:^(MXJSExecutor *executor) {
         MXJSFlutterApp *strongSelf = weakSelf;
         if (!strongSelf) {
             return;
         }
-        
-        executor.jsContext[@"MXNativeJSFlutterApp"] = strongSelf;
-        
+
+        if (flutterAppEnvironmentInfo) {
+            executor.jsContext[@"MXJSAPI"][@"mx_flutterAppEnvironmentInfo"] = flutterAppEnvironmentInfo;
+        }
+
+        executor.jsContext[@"MXJSAPI"][@"isFlutterAppEngineSetup"] = @(YES);
+
         //把JSI 注册到MXNativeJSFlutterApp中
-        [[MXJSBridge shareInstance] registerModules: self jsAPPValueBridge:executor.jsContext[@"MXNativeJSFlutterApp"] ];
-        
-        NSString *mainJS = [strongSelf.appRootPath stringByAppendingPathComponent:@"main.js"];
-        
-        [executor executeScriptPath:mainJS onComplete:^(NSError *error) {
-            
-            MXJSFlutterLog(@"MXJSFlutter : runApp error:%@",error);
-            
-            NSString *releaseMode = @"release";
-            
-#if DEBUG
-            releaseMode = @"debug";
-#endif
-            
-            [executor invokeMethod:@"main" args:@[releaseMode] callback:^(JSValue *result, NSError *error) {
-                
-                strongSelf.isJSAPPRun = YES;
-                NSLog(@"MXJSFlutter : call main error:%@",error);
-                
-                [strongSelf callJSMethodCallQueqe];
-            }];
-        }];
-        
+        [[MXJSBridge shareInstance] registerModules:strongSelf jsAPPValueBridge:executor.jsContext[@"MXNativeJSFlutterApp"]];
+
+        // 获取main.js地址
+        NSString *mainJS = [strongSelf searchEntryJS];
+
+        // 框架加载main.js开始时间
+        NSTimeInterval jsLoadStartTime = [[NSDate date] timeIntervalSince1970] * 1000;
+
+        [executor executeScriptPath:mainJS
+                         onComplete:^(NSError *error) {
+                             if (error) {
+                                 MXJSFlutterLog(@"MXJSFlutter : runApp error: %@", error);
+
+                                 // 给到业务侧异常信息
+                                 [strongSelf.jsFlutterEngine.engineMethodChannel invokeMethod:MXFLUTTER_JSEXCEPTION_HANDLER
+                                                                                    arguments:@{
+                                                                                        @"jsFileType" : @(MXFlutterJSFileType_Main),
+                                                                                        @"errorMsg" : error.description
+                                                                                    }
+                                                                                       result:NULL];
+                                 return;
+                             }
+
+                             strongSelf.isJSAPPRun = YES;
+                             strongSelf.jsEngine.isJSEngineSetup = YES;
+                             [strongSelf callJSMethodCallQueqe];
+
+                             // 框架加载main.js结束时间
+                             NSTimeInterval jsLoadEndTime = [[NSDate date] timeIntervalSince1970] * 1000;
+                             strongSelf.mxNativeJSLoadCost = jsLoadEndTime - jsLoadStartTime;
+
+                             // 通知Flutter侧，JS引擎初始化成功。
+                             [strongSelf.jsFlutterEngine.engineMethodChannel invokeMethod:MXFLUTTER_JSENGINE_INIT_SUCCESS_HANDLER
+                                                                                arguments:@{
+                                                                                    @"success" : @(YES)
+                                                                                }
+                                                                                   result:NULL];
+
+                             // 通知JS侧，框架加载时间
+                             [strongSelf callJSInitProfileInfo];
+                         }];
     }];
 }
 
-- (void)callJSMethodCallQueqe{
-    
+- (void)callJSMethodCallQueqe {
     for (FlutterMethodCall *call in self.callJSMethodQueue) {
-        [self.jsExecutor invokeJSValue:self.jsAppObj method:@"nativeCall" args:@[call.arguments] callback:^(JSValue *result, NSError *error) {
-            //             if (!error)
-            //             {
-            //                 flutterResult(result.toString);
-            //             }
-        }];
+        [self.jsExecutor invokeJSValue:self.jsEngine.jsAppObj
+                                method:@"nativeCall"
+                                  args:@[ call.arguments ]
+                              callback:^(JSValue *result, NSError *error) {
+                                  //             if (!error)
+                                  //             {
+                                  //                 flutterResult(result.toString);
+                                  //             }
+                              }];
     }
-    
+
     [self.callJSMethodQueue removeAllObjects];
 }
 
--(void)exitApp
-{
-    self.jsAppObj = nil;
-    
+- (void)exitApp {
     [self.jsEngine dispose];
     self.jsEngine = nil;
-  
-    
 }
 
-- (MXJSExecutor*)jsExecutor
-{
+- (MXJSExecutor *)jsExecutor {
     return self.jsEngine.jsExecutor;
 }
 
-- (JSContext*)mainJSContext
-{
-    return  self.jsEngine.jsExecutor.jsContext ;
+- (JSContext *)mainJSContext {
+    return self.jsEngine.jsExecutor.jsContext;
 }
 
-- (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback )callback
-{
+- (void)invokeJSValue:(JSValue *)jsValue method:(NSString *)method args:(NSArray *)args callback:(MXJSValueCallback)callback {
     [self.jsEngine.jsExecutor invokeJSValue:jsValue method:method args:args callback:callback];
 }
 
-- (void)executeBlockOnJSThread:(dispatch_block_t)block
-{
+- (void)executeBlockOnJSThread:(dispatch_block_t)block {
     [self.jsEngine.jsExecutor executeBlockOnJSThread:block];
 }
 
+- (void)callJSInitProfileInfo {
+    NSDictionary *args = @{ @"method" : @"nativeCallInitProfileInfo", @"arguments" : @ { @"mxNativeJSLoadCost" : @(self.mxNativeJSLoadCost) } };
+    [self.jsExecutor invokeJSValue:self.jsEngine.jsAppObj
+                            method:@"nativeCall"
+                              args:@[ args ]
+                          callback:^(JSValue *result, NSError *error) {
 
-//MARK: - js -> native -> flutter
-//--------------------------------------------
-
-- (void)jsAPISetCurrentJSApp:(JSValue*)jsAppObj
-{
-    self.jsAppObj = jsAppObj;
+                          }];
 }
 
-- (void)jsAPICallFlutterReloadApp:(JSValue*)jsAppObj  widgetData:(NSString*)data
-{
-    self.jsAppObj = jsAppObj;
-    
-    [self.jsFlutterEngine callFlutterReloadAppWithJSWidgetData:data];
-}
+- (NSString *)searchEntryJS {
+    // 先读 RunJSApp传入的JS文件路径里是否有main.js。如果没有读取拷贝目录地址的main.js
+    NSString *appMainJS = [self.appRootPath stringByAppendingPathComponent:@"main/main.js"];
 
-- (void)callFlutterWidgetChannelWithMethodName:(NSString*)method arguments:(id)arguments
-{
-    // if (arguments && [arguments isKindOfClass:[NSMutableDictionary class]]) {
-    //     arguments[@"index"] = @(++self.index);
-    //     NSLog(@"MXTimeStamp Native Beign %@ %lld index=%lu",method, (long long)([[NSDate date] timeIntervalSince1970] * 1000),(unsigned long)self.index);
-    // }
-    if ([method isEqualToString:@"rebuild"]) {
-        [self.jsFlutterAppRebuildChannel sendMessage:arguments];
-    } else if([method isEqualToString:@"navigatorPush"]) {
-        [self.jsFlutterAppNavigatorPushChannel sendMessage:arguments];
-    } else {
-        [self.jsFlutterAppChannel invokeMethod:method arguments:arguments];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:appMainJS]) {
+        return appMainJS;
     }
+
+#if DEBUG
+    appMainJS = [self.appRootPath stringByAppendingPathComponent:@"main.js"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:appMainJS]) {
+        return appMainJS;
+    }
+#endif
+
+    // Documents(此名称和zip包拷贝逻辑相关)/mxflutter_js_bundle/main/main.js
+    // 一般用于开发调试。正式运行到这里，需查找原因！！！
+    NSString *pkgMainJS = [mxflutterJSBundleDefaultPath() stringByAppendingPathComponent:@"main/main.js"];
+
+    if (![[NSFileManager defaultManager] fileExistsAtPath:pkgMainJS]) {
+        MXFLogError(@"MainJS fileNotExistsAtPath: AppPath: %@ or PkgPath: %@", appMainJS, pkgMainJS);
+    }
+
+    return pkgMainJS;
 }
 
 @end
-

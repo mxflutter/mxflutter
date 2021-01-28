@@ -23,7 +23,10 @@ dependencies:
   # mxflutter 库在./mxflutter 目录
   mxflutter:
     path: ./mxflutter
-
+  device_info: ^1.0.0
+  mxflutter_pkg:
+    path: ./mxflutter_pkg
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -35,40 +38,10 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    #copy js src ,mxflutter app demo 的js代码
-    #吐槽下，导入资源不会自动包括子文件夹，需要每个子文件夹都导入，真是坑，所以自己写js app时，不要有太多文件夹深度
-    - mxflutter_js_src/
-    - mxflutter_js_src/app_demo/
-    - mxflutter_js_src/app_demo/component/
-    - mxflutter_js_src/app_demo/examples/
-    - mxflutter_js_src/app_demo/examples/animation/
-    - mxflutter_js_src/app_demo/material/
-    - mxflutter_js_src/app_demo/platform/
-    - mxflutter_js_src/app_demo/profile/
-    - mxflutter_js_src/app_demo/widget_examples/
-    - mxflutter_js_src/app_demo/widget_examples/A/
-    - mxflutter_js_src/app_demo/widget_examples/T/
-    #zhihu deomo
-    - mxflutter_js_src/app_demo/zhihu/
-    - mxflutter_js_src/app_demo/zhihu/home/
-    - mxflutter_js_src/app_demo/zhihu/idea/
-    - mxflutter_js_src/app_demo/zhihu/message/
-    - mxflutter_js_src/app_demo/zhihu/my/
-
-    #mxjsbuilder build app
-    - mxflutter_js_src/mxjsbuilder_demo/
-    #mxjsbuilder zhihu deomo
-    - mxflutter_js_src/mxjsbuilder_demo/packages/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/home/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/idea/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/market/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/my/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/notice/
-    - mxflutter_js_src/mxjsbuilder_demo/packages/zhihu/index/
+    #引入 mxflutter_js_bundle 下的JS Bundle 文件资源
+    - mxflutter_js_bundle/
 
     #mxflutter app demo 使用到的图片资源
-
     - packages/flutter_gallery_assets/people/ali_landscape.png
     - packages/flutter_gallery_assets/logos/flutter_white/logo.png
     - packages/flutter_gallery_assets/logos/fortnightly/fortnightly_logo.png

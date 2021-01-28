@@ -1,4 +1,22 @@
-### 【*New】0.2.5 Beta   2020-05-18
+### 【*New】0.8.0 Beta   2021-1-29 
+
+
+#### 工程优化和开发方式变化
+1. 开发语言切换到 TypeScript ：使用TS完整重构框架代码，带来了静态代码检查和代码自动提示。
+2. 完整接入npm生态：重新设计拆分JS层框架模块，使用Monorepo模式组织模块的关联开发及npm发布。业务代码通过npm包引入框架。
+3. 增加工程cli工具：一键创建业务初始工程。内置框架与业务的编译脚本，一键完成业务开发调试与编译打包。
+
+#### 框架逻辑优化
+1. 支持了JS Widget的状态保持
+2. 通过dart:ffi实现小数据量属性同步调用
+3. 支持了异步Widget，同步Widget
+4. 提供了更全面的TS Widget， 支持更多UI效果
+5. 主框架支持更丰富的性能监控指标。首帧、页面刷新、FPS、Crash率等。
+6. 对应 Flutter 1.20.3版本
+
+#### 对v0.8.0版本的js编译器在开发中。
+
+### 0.2.5 Beta   2020-05-18
 
    MXFlutter 发布 [mxjsbuilder v0.0.2](https://github.com/mxflutter/mxjsbuilder) 编译器,支持编译 Flutter 工程为 mxflutter 可运行的 JS 代码。
  
