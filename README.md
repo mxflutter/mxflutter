@@ -61,7 +61,6 @@ MXFlutter 是一套基于 TypeScript 的 Flutter 框架，可以用 Flutter Widg
 
 ![](https://github.com/langbluesky/Image/blob/master/demo_0.gif?raw=true)
 
-对应JS代码 [zhihu/home/home_page.js](https://github.com/mxflutter/mxflutter/blob/master/mxflutter_js_src/app_demo/zhihu/index.js)
 
 本项目里面高仿知乎页面示例借鉴了 [zhihu-flutter](https://github.com/HackSoul/zhihu-flutter) 的示例代码，在此，鸣谢作者 [HackSoul](https://github.com/HackSoul)。
 
