@@ -10,8 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^0.1.2
-  
   # MXFlutter Framework 必须的库
   vector_math: ^2.0.8
   expressions: ^0.1.2
