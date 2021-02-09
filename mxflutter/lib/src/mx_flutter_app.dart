@@ -116,6 +116,13 @@ class MXJSFlutterApp {
   /// Flutter->JS 调用JS方法。
   dynamic callJS(MethodCall jsMethodCall) async {
     MXJSLog.log("callJSWidget:${jsMethodCall.method}");
+
+    /// 如果合并发送的调用队列还没有发出，先刷新队列
+    /// 以保证 callJS 的调用顺序
+    if(_frequencyLimitMethodCallQueue.isNotEmpty){
+      _refreshFrequencyLimitMethodCallQueue();
+    }
+    
     var jsArgs = {
       "method": jsMethodCall.method,
       "arguments": jsMethodCall.arguments,
@@ -142,15 +149,25 @@ class MXJSFlutterApp {
 
     if (_frequencyLimitMethodCallQueue.length == 1) {
       Future.delayed(Duration(milliseconds: 500), () {
-        var jsArgs = {
-          "method": "flutterCallFrequencyLimitCallList",
-          "arguments": _frequencyLimitMethodCallQueue,
-        };
-
-        _appChannel.invokeMethod("callJS", jsArgs);
-        _frequencyLimitMethodCallQueue.clear();
+        _refreshFrequencyLimitMethodCallQueue();
       });
     }
+  }
+
+  void _refreshFrequencyLimitMethodCallQueue() {
+    MXJSLog.log(
+        "refreshFrequencyLimitMethodCallQueue: ${_frequencyLimitMethodCallQueue.length}");
+    if (_frequencyLimitMethodCallQueue.isEmpty) {
+      return;
+    }
+
+    var jsArgs = {
+      "method": "flutterCallFrequencyLimitCallList",
+      "arguments": _frequencyLimitMethodCallQueue,
+    };
+
+    _appChannel.invokeMethod("callJS", jsArgs);
+    _frequencyLimitMethodCallQueue.clear();
   }
 
   // 事件处理。
