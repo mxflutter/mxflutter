@@ -43,7 +43,7 @@ runMXJSApp() async {
 
   // 开发调试，为了方便验证，可以自己指定目录，只能用于iOS模拟器下。
   // TODO: 本地调试代码，请不要修改提交！！！后续通过git hook检测。
-  // if (await _canDefineDebugJSBundlePath()) {
+  // if (await MXJSFlutter.canDefineDebugJSBundlePath()) {
   //    // 调试时，可以在iOS 模拟器下，把debugJSBundlePath 设置成 TS 代码的输出目录
   //    MXJSFlutter.runJSApp(debugJSBundlePath: '/Volumes/Data/Work/RFlutter/mxflutter-js/release');
   // } else {
@@ -174,16 +174,6 @@ class MXFlutterExampleHome extends StatelessWidget {
       fit: BoxFit.contain,
       package: "flutter_gallery_assets",
     );
-  }
-}
-
-Future<bool> _canDefineDebugJSBundlePath() async {
-  if (kDebugMode && Platform.isIOS) {
-    DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
-    IosDeviceInfo deviceData = await deviceInfoPlugin.iosInfo;
-    return !deviceData.isPhysicalDevice;
-  } else {
-    return false;
   }
 }
 

@@ -97,7 +97,7 @@ abstract class MXJSFlutter {
 
     // 调试状态下，debugJSBundlePath不为空，则运行此目录下的js文件。
     String realJSAppPath = jsAppPath;
-    if (await _canDefineDebugJSBundlePath() && debugJSBundlePath.length > 0) {
+    if (await canDefineDebugJSBundlePath() && debugJSBundlePath.length > 0) {
       realJSAppPath = debugJSBundlePath;
     }
 
@@ -107,7 +107,7 @@ abstract class MXJSFlutter {
   }
 
   /// 是否允许定义debugJSBundlePath
-  static Future<bool> _canDefineDebugJSBundlePath() async {
+  static Future<bool> canDefineDebugJSBundlePath() async {
     // 目前只支持场景：1）调试环境的iOS模拟器
     if (kDebugMode && Platform.isIOS) {
       DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
