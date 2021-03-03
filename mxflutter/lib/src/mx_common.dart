@@ -313,7 +313,7 @@ class MXUtil {
 
     switch (data) {
       case MaterialTapTargetSize.padded:
-        v = {"_name": "aterialTapTargetSize.padded", "index": 0};
+        v = {"_name": "MaterialTapTargetSize.padded", "index": 0};
         break;
 
       case MaterialTapTargetSize.shrinkWrap:
