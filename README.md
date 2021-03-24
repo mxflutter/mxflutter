@@ -29,6 +29,9 @@
 5. 主框架支持更丰富的性能监控指标。首帧、页面刷新、FPS、Crash率等。
 6. 对应 Flutter 1.20.3版本
 
+#### ts/js 开发示例
+https://github.com/mxflutter/mxflutter-js-demo
+
 **特别注意：** 因为 v0.8.0 使用了 dart:ffi，mxflutter 作为静态库打包进宿主工程，在 iOS 打包发布时，Xcode 会把相关符号stripped，需要修改引用mxflutter的App proj Xcode配置，详细见Flutter官网说明 [Strip Style 配置](https://flutter.dev/docs/development/platform-integration/c-interop#ios-symbols-stripped)，否则会引起release archive (IPA)包 **crash**，对应 [issue](https://github.com/dart-lang/ffi/issues/41)。后续 MXFlutter 会做成动态库形式，减少业务修改。
  
 ``` 
@@ -60,7 +63,7 @@ MXFlutter 是一套基于 TypeScript 的 Flutter 框架，可以用 Flutter Widg
 ## <a name="title2">二、项目演示</a>
 
 
-![](https://github.com/langbluesky/Image/blob/master/demo_0.gif?raw=true)
+![](http://pub.idqqimg.com/pc/misc/files/20210324/8b19a1e423934686ad1681f69bcd1353.jpg)
 
 
 本项目里面高仿知乎页面示例借鉴了 [zhihu-flutter](https://github.com/HackSoul/zhihu-flutter) 的示例代码，在此，鸣谢作者 [HackSoul](https://github.com/HackSoul)。
