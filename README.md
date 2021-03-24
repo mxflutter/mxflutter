@@ -84,32 +84,7 @@ MXFlutter 是一套基于 TypeScript 的 Flutter 框架，可以用 Flutter Widg
 
 ## <a name="title5">五、项目结构</a>
 
-
-
-![](https://raw.githubusercontent.com/mxflutter/doc_image/master/Readme/mxflutter.png)
-
-#### 1.VM层：</a>
-
-* MXFlutter TS Framework
-* 定义和Flutter Widget同名镜像类
-* 响应式UI框架
-
-#### 2.Flutter层：</a>
-
-* Script脚本管理模块
-* DSL2Widget UIEngine，事件支持
-* Dart业务API支持
-* 内存管理，对象生命周期管理
-
-#### 3.Native层：</a>
-
-* VM虚拟机
-* 线程管理
-* Native业务API支持
-
-
-
-
+![](https://pub.idqqimg.com/pc/misc/files/20210319/f44416e4fe67435f999c6fbab05fff7f.png)
 
 
 ## <a name="title6">六、MXFlutter基本使用</a>
