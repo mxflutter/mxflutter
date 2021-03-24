@@ -63,11 +63,7 @@ MXFlutter 是一套基于 TypeScript 的 Flutter 框架，可以用 Flutter Widg
 ## <a name="title2">二、项目演示</a>
 
 
-![](http://pub.idqqimg.com/pc/misc/files/20210324/8b19a1e423934686ad1681f69bcd1353.jpg)
-
-
-本项目里面高仿知乎页面示例借鉴了 [zhihu-flutter](https://github.com/HackSoul/zhihu-flutter) 的示例代码，在此，鸣谢作者 [HackSoul](https://github.com/HackSoul)。
-
+![](https://pub.idqqimg.com/pc/misc/files/20210323/3fa1b1c497a94ba3a445a0e262773949.jpg)
 
 
 ## <a name="title3">三、项目特性</a>
